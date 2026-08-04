@@ -28,7 +28,8 @@ export const componentContracts = {
     ]
   },
   iconButton: {
-    factory: "createIconButton",
+    factory: "@design-system/react/icon-button",
+    internalFactory: "createTransitionalActionIconButton",
     element: "button",
     purpose: "Trigger a compact icon-only utility with a fixed circular hit area, required accessible label, optional badge, and selected state only for true toggles.",
     variants: ["ghost", "tonal", "primary", "accent"],

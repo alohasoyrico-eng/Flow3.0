@@ -85,7 +85,7 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
-import { createTransitionalActionButton, createIconButton } from "../src/components/actions.js";
+import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
 import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
@@ -238,7 +238,8 @@ assert.deepEqual(buttonPlatformContract.states, componentContracts.button.states
 assert.deepEqual(Object.keys(buttonPlatformAdapters), ["react"]);
 assert.equal(buttonPlatformAdapters.react.componentName, "Button");
 assert.equal(buttonPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.iconButton.factory, "createIconButton");
+assert.equal(componentContracts.iconButton.factory, "@design-system/react/icon-button");
+assert.equal(componentContracts.iconButton.internalFactory, "createTransitionalActionIconButton");
 assert.equal(iconButtonPlatformContract.id, "icon-button");
 assert.equal(iconButtonPlatformContract.source.factory, componentContracts.iconButton.factory);
 assert.deepEqual(iconButtonPlatformProps(), componentContracts.iconButton.props.map((prop) => prop.name));
@@ -381,7 +382,7 @@ assert.equal(loadingButton.attributes["aria-busy"], "true");
 assert.equal(loadingButton.querySelector(".spinner").attributes["aria-hidden"], "true");
 assert.equal(loadingButton.querySelector(".button__label").textContent, "Saving");
 
-const iconButton = createIconButton({ ariaLabel: "Open filters", icon: "tune", variant: "tonal", density: "sm", selected: true, badge: true });
+const iconButton = createTransitionalActionIconButton({ ariaLabel: "Open filters", icon: "tune", variant: "tonal", density: "sm", selected: true, badge: true });
 assert.equal(iconButton.tagName, "BUTTON");
 assert.equal(iconButton.className, "icon-button icon-button--tonal");
 assert.equal(iconButton.attributes["aria-label"], "Open filters");
@@ -389,7 +390,7 @@ assert.equal(iconButton.attributes["aria-pressed"], "true");
 assert.equal(iconButton.dataset.density, "sm");
 assert.equal(iconButton.querySelector(".icon-button__icon").attributes["aria-hidden"], "true");
 assert.equal(iconButton.querySelector(".icon-button__badge").attributes["aria-hidden"], "true");
-const inheritedDensityIconButton = createIconButton({ ariaLabel: "More actions", icon: "more_horiz" });
+const inheritedDensityIconButton = createTransitionalActionIconButton({ ariaLabel: "More actions", icon: "more_horiz" });
 assert.equal(inheritedDensityIconButton.dataset.density, undefined);
 assert.equal(inheritedDensityIconButton.querySelector(".icon-button__icon").textContent, "more_horiz");
 

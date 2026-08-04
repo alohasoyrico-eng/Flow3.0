@@ -47,7 +47,7 @@ export function createTransitionalActionButton({
   return button;
 }
 
-export function createIconButton({
+export function createTransitionalActionIconButton({
   label,
   ariaLabel,
   icon,

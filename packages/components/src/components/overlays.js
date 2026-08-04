@@ -1,4 +1,4 @@
-import { createTransitionalActionButton, createIconButton } from "./actions.js?v=2";
+import { createTransitionalActionButton, createTransitionalActionIconButton } from "./actions.js?v=2";
 import { createAvatar } from "./display.js?v=3";
 import { createProgressIndicator } from "./feedback.js?v=8";
 import { createTransitionalFieldInput } from "./fields.js?v=18";
@@ -240,7 +240,7 @@ export function createToast({
     toast.append(action);
   }
   if (dismissible) {
-    const dismiss = createIconButton({ label: "Dismiss notification", icon: "close" });
+    const dismiss = createTransitionalActionIconButton({ label: "Dismiss notification", icon: "close" });
     dismiss.className = `${dismiss.className} toast__dismiss`;
     dismiss.setAttribute("data-toast-dismiss", "");
     dismiss.addEventListener?.("click", () => {
@@ -305,7 +305,7 @@ export function createDialog({
   panel.setAttribute("role", "dialog");
   panel.setAttribute("aria-modal", "true");
   panel.setAttribute("aria-labelledby", titleId);
-  const close = createIconButton({ label: "Close dialog", icon: "close", density: resolvedDensity });
+  const close = createTransitionalActionIconButton({ label: "Close dialog", icon: "close", density: resolvedDensity });
   close.className = `${close.className} dialog__close`;
   close.setAttribute("data-overlay-close", "");
   const header = document.createElement("header");
@@ -411,7 +411,7 @@ export function createMenu({
   root.dataset.open = String(Boolean(open));
   const menuId = `menu-${String(label).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
   const trigger = variant === "icon-trigger"
-    ? createIconButton({ ariaLabel: label, icon: "more_horiz", variant: "ghost", density: resolvedDensity, disabled })
+    ? createTransitionalActionIconButton({ ariaLabel: label, icon: "more_horiz", variant: "ghost", density: resolvedDensity, disabled })
     : variant === "avatar-trigger"
       ? createAvatarMenuTrigger({ label, name: avatarName || triggerLabel, status: avatarStatus, size: avatarSize, disabled })
     : createTransitionalActionButton({ label: triggerLabel, variant: "secondary", density: resolvedDensity, trailingIcon: "expand_more", disabled });
@@ -614,7 +614,7 @@ export function createDrawer({
   title.id = titleId;
   title.textContent = label ?? "Drawer";
   header.append(title);
-  const closeButton = createIconButton({ icon: "close", ariaLabel: "Close drawer", density: resolvedDensity });
+  const closeButton = createTransitionalActionIconButton({ icon: "close", ariaLabel: "Close drawer", density: resolvedDensity });
   closeButton.className = `${closeButton.className} drawer__close`;
   closeButton.setAttribute("data-overlay-close", "");
   header.append(closeButton);
@@ -727,7 +727,7 @@ export function createBottomSheet({
     detail.textContent = description;
     copy.append(detail);
   }
-  const close = createIconButton({ label: "Close sheet", icon: "close" });
+  const close = createTransitionalActionIconButton({ label: "Close sheet", icon: "close" });
   close.className = `${close.className} bottom-sheet__close`;
   close.setAttribute("data-overlay-close", "");
   header.append(copy, close);

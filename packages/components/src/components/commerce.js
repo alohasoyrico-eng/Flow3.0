@@ -1,4 +1,4 @@
-import { createTransitionalActionButton, createIconButton } from "./actions.js?v=2";
+import { createTransitionalActionButton, createTransitionalActionIconButton } from "./actions.js?v=2";
 import { createSpinner } from "./feedback.js?v=8";
 import { createBadge } from "./status.js?v=2";
 import { createChartsPrimitive } from "../primitives/charts.js?v=1";
@@ -838,7 +838,7 @@ export function createRouteSummary({
     const footer = document.createElement("footer");
     for (const action of actions) {
       if (variant === "compact") {
-        footer.append(createIconButton({
+        footer.append(createTransitionalActionIconButton({
           icon: action.icon ?? "close",
           ariaLabel: action.ariaLabel ?? action.label ?? "Cancel route",
           variant: action.variant ?? "ghost",

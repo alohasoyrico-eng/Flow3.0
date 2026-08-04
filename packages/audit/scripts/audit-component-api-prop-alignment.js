@@ -17,7 +17,7 @@ const publicPropAliases = {
 };
 const unprefixedFactoryNames = new Map([
   ["button", "createTransitionalActionButton"],
-  ["icon-button", "createIconButton"],
+  ["icon-button", "createTransitionalActionIconButton"],
   ["badge", "createBadge"],
   ["card", "createCard"],
   ["checkbox", "createTransitionalChoiceCheckbox"],

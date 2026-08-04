@@ -152,7 +152,7 @@ function checkComponentRemediationCoverage() {
 function kebabToFactoryName(id) {
   const unprefixedFactoryNames = {
     button: "createTransitionalActionButton",
-    "icon-button": "createIconButton",
+    "icon-button": "createTransitionalActionIconButton",
     badge: "createBadge",
     card: "createCard",
     checkbox: "createTransitionalChoiceCheckbox",

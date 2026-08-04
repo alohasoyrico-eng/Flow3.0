@@ -1,4 +1,4 @@
-import { createTransitionalActionButton, createIconButton } from "./actions.js";
+import { createTransitionalActionButton, createTransitionalActionIconButton } from "./actions.js";
 import { createSpinner } from "./feedback.js?v=8";
 import { createTransitionalFieldInput } from "./fields.js";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
@@ -98,7 +98,7 @@ export function createCard({
   for (const action of actions) {
     const isIconOnly = Boolean(action.iconOnly) || (!action.label && Boolean(action.icon));
     actionRow.append(isIconOnly
-      ? createIconButton({ density, variant: action.variant ?? "ghost", ...action })
+      ? createTransitionalActionIconButton({ density, variant: action.variant ?? "ghost", ...action })
       : createTransitionalActionButton({ density, ...action }));
   }
 
