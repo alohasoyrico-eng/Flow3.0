@@ -281,7 +281,7 @@ function checkPlatformAdapters() {
     [reactButtonFile, reactButton, ["buttonPlatformContract", "className: buttonClassName", '"data-density": density || undefined', '"data-state": resolvedState', "button__label", "spinner__svg", "spinner__arc"]],
     [reactButtonTypesFile, reactButtonTypes, ["ButtonProps", "ButtonVariant", "ButtonDensity", "ButtonState", "buttonPlatformContract"]],
     [reactCheckboxFile, reactCheckbox, ["checkboxPlatformContract", "className: [\"choice checkbox\"", '"data-density": density || undefined', '"data-state": normalizedState', "choice__input", "choice__mark", "choice__indicator", "onCheckedChange"]],
-    [reactCheckboxTypesFile, reactCheckboxTypes, ["CheckboxProps", "CheckboxVariant", "CheckboxDensity", "CheckboxState", "checkboxPlatformContract", "onCheckedChange"]],
+    [reactCheckboxTypesFile, reactCheckboxTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLInputElement>", "CheckboxProps", "CheckboxVariant", "CheckboxDensity", "CheckboxState", "checkboxPlatformContract", "onCheckedChange"]],
     [reactPackageFile, reactPackage, ['"build": "node scripts/build.mjs"', '"test": "node test/button-render.test.mjs"', '"types": "./dist/index.d.ts"', '"./button"', '"./checkbox"', '"./radio-button"', '"./select"', '"./switch"', '"./text-area"']],
     [reactExampleFile, reactExample, ['import { Button } from "@design-system/react"', 'import "@design-system/components/styles.css"']],
     [reactIconButtonFile, reactIconButton, ["iconButtonPlatformContract", "className: iconButtonClassName", '"aria-label": resolvedLabel', '"aria-pressed": selected ? "true"', '"data-density": density || undefined', "icon-button__icon", "icon-button__badge"]],
