@@ -79,6 +79,11 @@ export {
   selectPlatformProps,
 } from "./select.js";
 export {
+  segmentedControlPlatformAdapters,
+  segmentedControlPlatformContract,
+  segmentedControlPlatformProps,
+} from "./segmented-control.js";
+export {
   radioButtonPlatformAdapters,
   radioButtonPlatformContract,
   radioButtonPlatformProps,

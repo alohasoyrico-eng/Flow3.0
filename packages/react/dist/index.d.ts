@@ -136,6 +136,14 @@ export type {
   SelectValueMeta,
   SelectVariant,
 } from "./Select.js";
+export { SegmentedControl } from "./SegmentedControl.js";
+export type {
+  SegmentedControlComponent,
+  SegmentedControlDensity,
+  SegmentedControlItem,
+  SegmentedControlProps,
+  SegmentedControlVariant,
+} from "./SegmentedControl.js";
 export { Switch } from "./Switch.js";
 export type {
   SwitchComponent,

@@ -14,6 +14,7 @@ export { Input } from "./Input.js";
 export { PhoneInput } from "./PhoneInput.js";
 export { RadioButton } from "./RadioButton.js";
 export { Select } from "./Select.js";
+export { SegmentedControl } from "./SegmentedControl.js";
 export { Switch } from "./Switch.js";
 export { Tag } from "./Tag.js";
 export { Tooltip } from "./Tooltip.js";
