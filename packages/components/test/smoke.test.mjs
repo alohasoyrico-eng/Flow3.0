@@ -87,7 +87,7 @@ import {
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
 import { createCheckbox, createRadioButton, createSwitch } from "../src/components/choices.js";
-import { createTransitionalFieldInput, createSelect, createTextArea } from "../src/components/fields.js";
+import { createTransitionalFieldInput, createTransitionalFieldSelect, createTextArea } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -259,7 +259,8 @@ assert.equal(inputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardNumberInput.factory, "createCardNumberInput");
 assert.equal(componentContracts.cardExpiryInput.factory, "createCardExpiryInput");
 assert.equal(componentContracts.cardSecurityCodeInput.factory, "createCardSecurityCodeInput");
-assert.equal(componentContracts.select.factory, "createSelect");
+assert.equal(componentContracts.select.factory, "@design-system/react/select");
+assert.equal(componentContracts.select.internalFactory, "createTransitionalFieldSelect");
 assert.equal(selectPlatformContract.id, "select");
 assert.equal(selectPlatformContract.source.factory, componentContracts.select.factory);
 assert.deepEqual(selectPlatformProps(), componentContracts.select.props.map((prop) => prop.name));
@@ -652,7 +653,7 @@ assert.equal(securityCodeField.attributes["aria-invalid"], undefined);
 hydrateCardSecurityCodeInput(cardSecurityCodeInput);
 assert.equal(cardSecurityCodeInput.dataset.cardSecurityCodeHydrated, "true");
 
-const select = createSelect({
+const select = createTransitionalFieldSelect({
   label: "Fleet",
   helper: "Choose a fleet",
   icon: "local_taxi",
@@ -686,7 +687,7 @@ assert.equal(select.querySelector("input").value, "north");
 assert.equal(select.querySelectorAll(".select-control__option").length, 2);
 assert.equal(select.querySelectorAll(".select-control__option")[0].dataset.selected, "true");
 assert.equal(select.querySelectorAll(".select-control__option")[1].dataset.disabled, "true");
-const inlineSelect = createSelect({
+const inlineSelect = createTransitionalFieldSelect({
   label: "Country code",
   variant: "inline",
   value: "MX",
@@ -703,7 +704,7 @@ assert.equal(inlineSelect.querySelector(".select-control__option").dataset.selec
 assert.equal(inlineSelect.dataset.density, undefined);
 assert.equal(inlineSelect.querySelector(".select-control").dataset.density, undefined);
 let selectChange = null;
-const interactiveSelect = createSelect({
+const interactiveSelect = createTransitionalFieldSelect({
   label: "Fleet",
   value: "north",
   onValueChange(value, meta) {

@@ -71,7 +71,7 @@ function checkComponentRegistry() {
     const key = component.includes("-") ? `"${component}"` : component;
     if (["button", "checkbox", "icon-button", "input", "radio-button", "select", "switch", "text-area"].includes(component)) {
       const label = component === "button" ? "Button" : component === "checkbox" ? "Checkbox" : component === "icon-button" ? "Icon Button" : component === "input" ? "Input" : component === "radio-button" ? "Radio Button" : component === "switch" ? "Switch" : component === "text-area" ? "Text Area" : "Select";
-      const factory = component === "button" ? "createButton" : component === "checkbox" ? "createCheckbox" : component === "icon-button" ? "createIconButton" : component === "input" ? "createTransitionalFieldInput" : component === "radio-button" ? "createRadioButton" : component === "switch" ? "createSwitch" : component === "text-area" ? "createTextArea" : "createSelect";
+      const factory = component === "button" ? "createButton" : component === "checkbox" ? "createCheckbox" : component === "icon-button" ? "createIconButton" : component === "input" ? "createTransitionalFieldInput" : component === "radio-button" ? "createRadioButton" : component === "switch" ? "createSwitch" : component === "text-area" ? "createTextArea" : "createTransitionalFieldSelect";
       if (!registrySource.includes(`${label} is React-primary`) || registrySource.includes(`${key}: ${factory}`)) {
         add("errors", registryFile, 1, `${label} registry entry must reject DOM rendering and route docs through the React component.`);
       }

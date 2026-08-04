@@ -27,7 +27,7 @@ const unprefixedFactoryNames = new Map([
   ["floating-action-button", "createFloatingActionButton"],
   ["inline-validation", "createInlineValidation"],
   ["input", "createTransitionalFieldInput"],
-  ["select", "createSelect"],
+  ["select", "createTransitionalFieldSelect"],
   ["radio-button", "createRadioButton"],
   ["switch", "createSwitch"],
   ["tag", "createTag"],

@@ -267,7 +267,7 @@ function normalizeInputValue(value, variant) {
   };
 }
 
-export function createSelect({
+export function createTransitionalFieldSelect({
   label,
   helper = "",
   icon = "",
@@ -398,11 +398,11 @@ function createSelectControl({ id, label, icon, options, value, name, disabled, 
     hiddenInput.setAttribute("data-select-input", "");
     control.append(hiddenInput);
   }
-  hydrateSelect(control, { onValueChange });
+  hydrateTransitionalSelect(control, { onValueChange });
   return control;
 }
 
-export function hydrateSelect(root, { onValueChange } = {}) {
+export function hydrateTransitionalSelect(root, { onValueChange } = {}) {
   const attributeControls = Array.from(root?.querySelectorAll?.("[data-select-control]") ?? []);
   const classControls = Array.from(root?.querySelectorAll?.(".select-control") ?? []);
   const controls = root?.matches?.("[data-select-control]")
