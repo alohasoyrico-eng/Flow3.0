@@ -285,7 +285,7 @@ function checkPlatformAdapters() {
     [reactPackageFile, reactPackage, ['"build": "node scripts/build.mjs"', '"test": "node test/button-render.test.mjs"', '"types": "./dist/index.d.ts"', '"./button"', '"./checkbox"', '"./radio-button"', '"./select"', '"./switch"', '"./text-area"']],
     [reactExampleFile, reactExample, ['import { Button } from "@design-system/react"', 'import "@design-system/components/styles.css"']],
     [reactIconButtonFile, reactIconButton, ["iconButtonPlatformContract", "className: iconButtonClassName", '"aria-label": resolvedLabel', '"aria-pressed": selected ? "true"', '"data-density": density || undefined', "icon-button__icon", "icon-button__badge"]],
-    [reactIconButtonTypesFile, reactIconButtonTypes, ["IconButtonProps", "IconButtonVariant", "IconButtonDensity", "iconButtonPlatformContract", "icon: string"]],
+    [reactIconButtonTypesFile, reactIconButtonTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLButtonElement>", "IconButtonProps", "IconButtonVariant", "IconButtonDensity", "iconButtonPlatformContract", "icon: string"]],
     [reactInputFile, reactInput, ["inputPlatformContract", "className: [\"field\"", '"data-density": density || undefined', '"data-state": resolvedState', "field__control", "field__helper", "field-action", "normalizeValue", "inputModeForVariant"]],
     [reactInputTypesFile, reactInputTypes, ["InputProps", "InputVariant", "InputDensity", "InputState", "inputPlatformContract", "onValueChange"]],
     [reactRadioButtonFile, reactRadioButton, ["radioButtonPlatformContract", "className: [\"choice radio\"", '"data-density": density || undefined', '"data-state": normalizedState', "choice__input", "choice__mark", "onCheckedChange"]],

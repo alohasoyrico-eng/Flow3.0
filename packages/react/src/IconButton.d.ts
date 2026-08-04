@@ -1,5 +1,5 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
-import type { iconButtonPlatformContract } from "@design-system/components/platforms";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
+import { iconButtonPlatformContract } from "@design-system/components/platforms";
 
 export type IconButtonVariant = "ghost" | "tonal" | "primary" | "accent";
 export type IconButtonDensity = "sm" | "md" | "lg";
@@ -17,9 +17,8 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   type?: IconButtonType;
 }
 
-export interface IconButtonComponent {
-  (props: IconButtonProps): ReactNode;
-  displayName?: string;
+export interface IconButtonComponent extends ForwardRefExoticComponent<IconButtonProps & RefAttributes<HTMLButtonElement>> {
+  displayName: "IconButton";
   platformContract: typeof iconButtonPlatformContract;
 }
 
