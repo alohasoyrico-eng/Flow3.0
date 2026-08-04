@@ -7,7 +7,6 @@ import {
   createCombobox,
   createAccordion,
   createAuditEvent,
-  createAvatar,
   createBiometricPrompt,
   createCountrySelector,
   createDialog,
@@ -48,6 +47,9 @@ import {
   hydrateCombobox,
   hydrateCountrySelector,
   cardExpiryInputPlatformAdapters,
+  avatarPlatformAdapters,
+  avatarPlatformContract,
+  avatarPlatformProps,
   badgePlatformAdapters,
   badgePlatformContract,
   badgePlatformProps,
@@ -102,6 +104,7 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
+import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
@@ -409,7 +412,16 @@ assert.equal(componentContracts.progressIndicator.factory, "createProgressIndica
 assert.equal(componentContracts.spinner.factory, "createSpinner");
 assert.equal(componentContracts.accordion.factory, "createAccordion");
 assert.equal(componentContracts.slider.factory, "createSlider");
-assert.equal(componentContracts.avatar.factory, "createAvatar");
+assert.equal(componentContracts.avatar.factory, "@design-system/react/avatar");
+assert.equal(componentContracts.avatar.internalFactory, "createTransitionalAvatar");
+assert.equal(avatarPlatformContract.id, "avatar");
+assert.equal(avatarPlatformContract.source.factory, componentContracts.avatar.factory);
+assert.deepEqual(avatarPlatformProps(), componentContracts.avatar.props.map((prop) => prop.name));
+assert.deepEqual(avatarPlatformContract.variants, componentContracts.avatar.variants);
+assert.deepEqual(avatarPlatformContract.states, componentContracts.avatar.states);
+assert.deepEqual(Object.keys(avatarPlatformAdapters), ["react"]);
+assert.equal(avatarPlatformAdapters.react.componentName, "Avatar");
+assert.equal(avatarPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.skeleton.factory, "createSkeleton");
 assert.equal(componentContracts.dialog.factory, "createDialog");
 assert.equal(componentContracts.menu.factory, "createMenu");
@@ -1466,7 +1478,7 @@ const roomySlider = createSlider({ label: "Roomy radius", density: "lg" });
 assert.equal(roomySlider.dataset.density, "lg");
 assert.equal(roomySlider.getAttribute("style"), null);
 
-const avatar = createAvatar({ name: "Ana Sosa", status: "online" });
+const avatar = createTransitionalAvatar({ name: "Ana Sosa", status: "online" });
 assert.equal(avatar.tagName, "SPAN");
 assert.equal(avatar.className, "avatar avatar--md");
 assert.equal(avatar.dataset.status, "online");
@@ -1474,10 +1486,10 @@ assert.equal(avatar.dataset.state, "online");
 assert.equal(avatar.attributes["aria-label"], "Ana Sosa");
 assert.equal(avatar.querySelector(".avatar__initials").textContent, "AS");
 assert.equal(avatar.querySelector(".avatar__status").attributes["aria-hidden"], "true");
-const largeAvatar = createAvatar({ name: "Luis Vera", density: "xl", status: "busy" });
+const largeAvatar = createTransitionalAvatar({ name: "Luis Vera", density: "xl", status: "busy" });
 assert.equal(largeAvatar.className, "avatar avatar--xl");
 assert.equal(largeAvatar.dataset.state, "busy");
-const unknownAvatar = createAvatar({ name: "", state: "unknown" });
+const unknownAvatar = createTransitionalAvatar({ name: "", state: "unknown" });
 assert.equal(unknownAvatar.attributes["aria-label"], "Unknown avatar");
 assert.equal(unknownAvatar.querySelector(".avatar__initials").textContent, "?");
 

@@ -14,6 +14,22 @@ const forbiddenPrefix = "fl" + "ow-";
 
 const components = [
   {
+    id: "avatar",
+    label: "Avatar",
+    contractKey: "avatar",
+    className: "avatar",
+    files: ["Avatar.js", "Avatar.d.ts"],
+    exports: ["avatarPlatformAdapters", "avatarPlatformContract", "avatarPlatformProps"],
+    requiredTokens: ["comp.avatar.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.growth.*"],
+    primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography"],
+    props: ["name", "src", "size", "density", "status", "state", "ariaLabel"],
+    jsSnippets: ["avatarPlatformContract", "className: [\"avatar\"", '"data-status": resolvedStatus', '"data-state": resolvedState', '"data-color-index": colorIndexFromName', "avatar__initials", "avatar__status"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement>", "AvatarProps", "AvatarSize", "AvatarStatus", "AvatarState", "avatarPlatformContract"],
+    packagePath: "./avatar",
+    exportName: "Avatar",
+    propsName: "AvatarProps",
+  },
+  {
     id: "button",
     label: "Button",
     contractKey: "button",

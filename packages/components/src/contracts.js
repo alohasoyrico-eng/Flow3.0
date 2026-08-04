@@ -629,7 +629,8 @@ export const componentContracts = {
     ]
   },
   avatar: {
-    factory: "createAvatar",
+    factory: "@design-system/react/avatar",
+    internalFactory: "createTransitionalAvatar",
     element: "span",
     purpose: "Represent a person, actor, or system identity with initials, optional image, and optional presence status.",
     variants: ["initials", "image", "status"],
@@ -638,10 +639,10 @@ export const componentContracts = {
     props: [
       { name: "name", type: "string", required: true },
       { name: "src", type: "string", required: false },
-      { name: "size", type: "\"sm\" | \"md\" | \"lg\" | \"xl\"", required: false },
-      { name: "density", type: "\"sm\" | \"md\" | \"lg\" | \"xl\"", required: false },
-      { name: "status", type: "\"none\" | \"online\" | \"busy\" | \"offline\"", required: false },
-      { name: "state", type: "\"default\" | \"disabled\" | \"unknown\"", required: false },
+      { name: "size", type: "AvatarSize", required: false },
+      { name: "density", type: "AvatarSize", required: false },
+      { name: "status", type: "AvatarStatus", required: false },
+      { name: "state", type: "AvatarState", required: false },
       { name: "ariaLabel", type: "string", required: false }
     ],
     accessibility: [

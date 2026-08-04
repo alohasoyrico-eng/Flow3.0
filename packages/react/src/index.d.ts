@@ -1,3 +1,11 @@
+export { Avatar } from "./Avatar.js";
+export type {
+  AvatarComponent,
+  AvatarProps,
+  AvatarSize,
+  AvatarState,
+  AvatarStatus,
+} from "./Avatar.js";
 export { Badge } from "./Badge.js";
 export type {
   BadgeComponent,

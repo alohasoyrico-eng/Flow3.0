@@ -7,7 +7,7 @@ import {
   createStationPin,
   createTable,
 } from "./components/commerce.js?v=15";
-import { createAuditEvent, createAvatar, createKpiTile, createList } from "./components/display.js?v=3";
+import { createAuditEvent, createKpiTile, createList } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
 import { createCombobox } from "./components/fields.js?v=21";
 import {
@@ -35,7 +35,9 @@ export const componentRegistry = Object.freeze({
   accordion: createAccordion,
   "animated-moment": createAnimatedMoment,
   "audit-event": createAuditEvent,
-  avatar: createAvatar,
+  avatar: () => {
+    throw new Error("Avatar is React-primary. Use @design-system/react/avatar instead of the transitional DOM renderer.");
+  },
   badge: () => {
     throw new Error("Badge is React-primary. Use @design-system/react/badge instead of the transitional DOM renderer.");
   },
@@ -142,6 +144,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "badge") {
     throw new Error("Badge is React-primary. Use @design-system/react/badge instead of renderComponentDemo.");
+  }
+  if (id === "avatar") {
+    throw new Error("Avatar is React-primary. Use @design-system/react/avatar instead of renderComponentDemo.");
   }
   if (id === "chip") {
     throw new Error("Chip is React-primary. Use @design-system/react/chip instead of renderComponentDemo.");

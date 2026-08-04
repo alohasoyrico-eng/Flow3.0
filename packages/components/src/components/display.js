@@ -1,6 +1,6 @@
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
-export function createAvatar({
+export function createTransitionalAvatar({
   name,
   src = "",
   size = "md",

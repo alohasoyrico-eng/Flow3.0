@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, Tag, TextArea } from "../src/index.js";
-import { badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, Tag, TextArea } from "../src/index.js";
+import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
+assert.equal(Avatar.displayName, "Avatar");
+assert.equal(Avatar.platformContract, avatarPlatformContract);
 assert.equal(Badge.displayName, "Badge");
 assert.equal(Badge.platformContract, badgePlatformContract);
 assert.equal(Button.displayName, "Button");
@@ -70,6 +72,31 @@ assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-dens
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);
 assert.match(loadingMarkup, /class="spinner__arc"/);
+
+const avatarMarkup = renderToStaticMarkup(React.createElement(Avatar, {
+  name: "Ana Sosa",
+  status: "online",
+  density: "lg",
+}));
+assert.match(avatarMarkup, /^<span/);
+assert.match(avatarMarkup, /class="avatar avatar--lg"/);
+assert.match(avatarMarkup, /aria-label="Ana Sosa"/);
+assert.match(avatarMarkup, /data-status="online"/);
+assert.match(avatarMarkup, /data-state="online"/);
+assert.match(avatarMarkup, /data-color-index=/);
+assert.match(avatarMarkup, /class="avatar__initials"/);
+assert.match(avatarMarkup, />AS<\/span>/);
+assert.match(avatarMarkup, /class="avatar__status"/);
+
+const imageAvatarMarkup = renderToStaticMarkup(React.createElement(Avatar, {
+  name: "Luis Vera",
+  src: "/avatars/luis.png",
+  state: "disabled",
+}));
+assert.match(imageAvatarMarkup, /class="avatar avatar--md"/);
+assert.match(imageAvatarMarkup, /data-state="disabled"/);
+assert.match(imageAvatarMarkup, /src="\/avatars\/luis.png"/);
+assert.match(imageAvatarMarkup, /alt="Luis Vera"/);
 
 const badgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
   label: "3",

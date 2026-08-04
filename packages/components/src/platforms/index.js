@@ -1,4 +1,9 @@
 export {
+  avatarPlatformAdapters,
+  avatarPlatformContract,
+  avatarPlatformProps,
+} from "./avatar.js";
+export {
   badgePlatformAdapters,
   badgePlatformContract,
   badgePlatformProps,

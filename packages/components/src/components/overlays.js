@@ -1,5 +1,5 @@
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "./actions.js?v=2";
-import { createAvatar } from "./display.js?v=3";
+import { createTransitionalAvatar } from "./display.js?v=3";
 import { createProgressIndicator } from "./feedback.js?v=8";
 import { createTransitionalFieldInput } from "./fields.js?v=18";
 import { createTransitionalBadge } from "./status.js?v=2";
@@ -557,7 +557,7 @@ function createAvatarMenuTrigger({ label, name, status, size, disabled }) {
   trigger.className = "menu__trigger--avatar";
   trigger.disabled = Boolean(disabled);
   trigger.setAttribute("aria-label", label || "Account menu");
-  trigger.append(createAvatar({ name, status, size }));
+  trigger.append(createTransitionalAvatar({ name, status, size }));
   return trigger;
 }
 
