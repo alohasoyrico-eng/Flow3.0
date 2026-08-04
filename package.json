@@ -22,6 +22,7 @@
     "./react/code-input": "./packages/react/dist/CodeInput.js",
     "./react/icon-button": "./packages/react/dist/IconButton.js",
     "./react/input": "./packages/react/dist/Input.js",
+    "./react/phone-input": "./packages/react/dist/PhoneInput.js",
     "./react/select": "./packages/react/dist/Select.js",
     "./react/tooltip": "./packages/react/dist/Tooltip.js",
     "./content/catalog": "./packages/content/content/catalog.json",
