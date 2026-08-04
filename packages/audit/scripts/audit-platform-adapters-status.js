@@ -1,17 +1,12 @@
 const { fs, path, root, read, add } = require("./audit-context.js");
 
 const adapterIndexFile = path.join(root, "packages/components/src/platforms/index.js");
-const chipAdapterFile = path.join(root, "packages/components/src/platforms/chip.js");
 const tagAdapterFile = path.join(root, "packages/components/src/platforms/tag.js");
 const contractsFile = path.join(root, "packages/components/src/contracts.js");
-const reactChipFile = path.join(root, "packages/react/src/Chip.js");
-const reactChipTypesFile = path.join(root, "packages/react/src/Chip.d.ts");
 const reactTagFile = path.join(root, "packages/react/src/Tag.js");
 const reactTagTypesFile = path.join(root, "packages/react/src/Tag.d.ts");
 const reactIndexFile = path.join(root, "packages/react/src/index.js");
 const reactIndexTypesFile = path.join(root, "packages/react/src/index.d.ts");
-const reactDistChipFile = path.join(root, "packages/react/dist/Chip.js");
-const reactDistChipTypesFile = path.join(root, "packages/react/dist/Chip.d.ts");
 const reactDistTagFile = path.join(root, "packages/react/dist/Tag.js");
 const reactDistTagTypesFile = path.join(root, "packages/react/dist/Tag.d.ts");
 const reactPackageFile = path.join(root, "packages/react/package.json");
@@ -20,14 +15,9 @@ const forbiddenPrefix = "fl" + "ow-";
 function checkStatusPlatformAdapters() {
   for (const file of [
     adapterIndexFile,
-    chipAdapterFile,
     tagAdapterFile,
-    reactChipFile,
-    reactChipTypesFile,
     reactTagFile,
     reactTagTypesFile,
-    reactDistChipFile,
-    reactDistChipTypesFile,
     reactDistTagFile,
     reactDistTagTypesFile,
   ]) {
@@ -38,28 +28,22 @@ function checkStatusPlatformAdapters() {
   }
 
   const adapterIndex = read(adapterIndexFile);
-  const chipAdapter = read(chipAdapterFile);
   const tagAdapter = read(tagAdapterFile);
   const contracts = read(contractsFile);
-  const reactChip = read(reactChipFile);
-  const reactChipTypes = read(reactChipTypesFile);
   const reactTag = read(reactTagFile);
   const reactTagTypes = read(reactTagTypesFile);
   const reactIndex = read(reactIndexFile);
   const reactIndexTypes = read(reactIndexTypesFile);
   const reactPackage = read(reactPackageFile);
 
-  checkAdapter("Chip", "chip", chipAdapterFile, chipAdapter, ["selected", "disabled", "removable", "icon", "interactive", "onRemoveLabel"]);
   checkAdapter("Tag", "tag", tagAdapterFile, tagAdapter, ["icon", "interactive", "disabled"]);
 
   for (const [file, source, required] of [
-    [reactChipFile, reactChip, ["chipPlatformContract", "className: [\"chip\"", '"data-tone": resolvedTone', '"data-variant": resolvedVariant', '"data-state": resolvedState', "chip__label", "chip__icon", "chip__remove", "onSelectedChange", "onRemove"]],
-    [reactChipTypesFile, reactChipTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement | HTMLButtonElement>", "ChipProps", "ChipVariant", "ChipTone", "ChipState", "chipPlatformContract"]],
     [reactTagFile, reactTag, ["tagPlatformContract", "className: [\"tag\"", '"data-tone": resolvedTone', '"data-variant": resolvedVariant', '"data-state": resolvedState', "tag__label", "tag__icon", "data-interactive"]],
     [reactTagTypesFile, reactTagTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement | HTMLButtonElement>", "TagProps", "TagVariant", "TagTone", "TagState", "tagPlatformContract"]],
-    [reactPackageFile, reactPackage, ['"types": "./dist/index.d.ts"', '"./chip"', '"./tag"']],
-    [reactIndexFile, reactIndex, ["Chip", "Tag"]],
-    [reactIndexTypesFile, reactIndexTypes, ["ChipProps", "TagProps"]],
+    [reactPackageFile, reactPackage, ['"types": "./dist/index.d.ts"', '"./tag"']],
+    [reactIndexFile, reactIndex, ["Tag"]],
+    [reactIndexTypesFile, reactIndexTypes, ["TagProps"]],
   ]) {
     for (const snippet of required) {
       if (!source.includes(snippet)) {
@@ -69,9 +53,7 @@ function checkStatusPlatformAdapters() {
   }
 
   for (const [file, source] of [
-    [chipAdapterFile, chipAdapter],
     [tagAdapterFile, tagAdapter],
-    [reactChipFile, reactChip],
     [reactTagFile, reactTag],
   ]) {
     if (source.includes(forbiddenPrefix)) {
