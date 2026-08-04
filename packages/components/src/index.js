@@ -10,7 +10,7 @@ export {
 } from "./components/commerce.js?v=19";
 export { createAuditEvent, createAvatar, createKpiTile, createList } from "./components/display.js?v=3";
 export { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
-export { createCombobox, hydrateCombobox, hydrateSelect } from "./components/fields.js?v=21";
+export { createCombobox, hydrateCombobox } from "./components/fields.js?v=21";
 export {
   createAccordion,
   createSegmentedControl,
