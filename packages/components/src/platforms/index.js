@@ -1,4 +1,9 @@
 export {
+  badgePlatformAdapters,
+  badgePlatformContract,
+  badgePlatformProps,
+} from "./badge.js";
+export {
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,

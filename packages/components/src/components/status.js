@@ -1,6 +1,6 @@
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
-export function createBadge({
+export function createTransitionalBadge({
   label,
   tone = "neutral",
   variant = "status",

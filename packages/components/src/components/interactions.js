@@ -1,5 +1,5 @@
 import { createTransitionalActionButton } from "./actions.js?v=2";
-import { createBadge } from "./status.js?v=2";
+import { createTransitionalBadge } from "./status.js?v=2";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
 function setStyleProperty(node, name, value) {
@@ -80,7 +80,7 @@ export function createTabs({
     tab.append(labelNode);
     const badge = item.badge ?? (item.count != null ? { label: String(item.count), variant: "count", tone: "neutral" } : null);
     if (badge) {
-      tab.append(createBadge({
+      tab.append(createTransitionalBadge({
         label: badge.label ?? String(badge.count ?? ""),
         tone: badge.tone ?? "neutral",
         variant: badge.variant ?? "count",

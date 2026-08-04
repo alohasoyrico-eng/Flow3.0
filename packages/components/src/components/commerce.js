@@ -1,6 +1,6 @@
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "./actions.js?v=2";
 import { createSpinner } from "./feedback.js?v=8";
-import { createBadge } from "./status.js?v=2";
+import { createTransitionalBadge } from "./status.js?v=2";
 import { createChartsPrimitive } from "../primitives/charts.js?v=1";
 import { createMapsPrimitive } from "../primitives/maps.js?v=1";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
@@ -85,7 +85,7 @@ export function createTable({
       return;
     }
     if (value && typeof value === "object" && "label" in value) {
-      td.append(createBadge({ label: value.label, tone: value.tone ?? "neutral", variant: value.variant ?? "status", icon: value.icon ?? "" }));
+      td.append(createTransitionalBadge({ label: value.label, tone: value.tone ?? "neutral", variant: value.variant ?? "status", icon: value.icon ?? "" }));
       return;
     }
     td.textContent = value ?? "";
@@ -889,7 +889,7 @@ export function createCardSummary({
   brand.className = "card-summary__brand";
   brand.textContent = label ?? "Card";
   header.append(brand);
-  header.append(createBadge({ label: statusLabel, tone: statusTone, variant: "status", state: resolvedState === "disabled" ? "disabled" : "default" }));
+  header.append(createTransitionalBadge({ label: statusLabel, tone: statusTone, variant: "status", state: resolvedState === "disabled" ? "disabled" : "default" }));
   summary.append(header);
   const tech = document.createElement("div");
   tech.className = "card-summary__tech";
@@ -1060,6 +1060,6 @@ export function createQuickAction({
   labelNode.className = "quick-action__label";
   labelNode.textContent = label ?? "Action";
   action.append(control, labelNode);
-  if (badge) action.append(createBadge({ label: badge, variant: "count" }));
+  if (badge) action.append(createTransitionalBadge({ label: badge, variant: "count" }));
   return action;
 }

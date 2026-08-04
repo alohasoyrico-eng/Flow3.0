@@ -29,7 +29,7 @@ import {
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
-import { createBadge, createChip, createTag } from "./components/status.js?v=2";
+import { createChip, createTag } from "./components/status.js?v=2";
 import { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
 
 export const componentRegistry = Object.freeze({
@@ -37,7 +37,9 @@ export const componentRegistry = Object.freeze({
   "animated-moment": createAnimatedMoment,
   "audit-event": createAuditEvent,
   avatar: createAvatar,
-  badge: createBadge,
+  badge: () => {
+    throw new Error("Badge is React-primary. Use @design-system/react/badge instead of the transitional DOM renderer.");
+  },
   "biometric-prompt": createBiometricPrompt,
   breadcrumbs: createBreadcrumbs,
   button: () => {
@@ -134,6 +136,9 @@ export function renderComponent(id, props = {}) {
   if (!factory) throw new Error(`Unknown Package component: ${id}`);
   if (id === "button") {
     throw new Error("Button is React-primary. Use @design-system/react/button instead of renderComponentDemo.");
+  }
+  if (id === "badge") {
+    throw new Error("Badge is React-primary. Use @design-system/react/badge instead of renderComponentDemo.");
   }
   if (id === "card-security-code-input") {
     throw new Error("Card Security Code Input is React-primary. Use @design-system/react/card-security-code-input instead of renderComponentDemo.");

@@ -2,7 +2,7 @@ import { createTransitionalActionButton, createTransitionalActionIconButton } fr
 import { createAvatar } from "./display.js?v=3";
 import { createProgressIndicator } from "./feedback.js?v=8";
 import { createTransitionalFieldInput } from "./fields.js?v=18";
-import { createBadge } from "./status.js?v=2";
+import { createTransitionalBadge } from "./status.js?v=2";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
 function focusNode(node) {
@@ -629,7 +629,7 @@ export function createDrawer({
     if (item?.type === "badge") {
       const badgeRow = document.createElement("div");
       badgeRow.className = "drawer__status-row";
-      badgeRow.append(createBadge({ label: item.label, tone: item.tone ?? "success", variant: item.variant ?? "status", live: Boolean(item.live) }));
+      badgeRow.append(createTransitionalBadge({ label: item.label, tone: item.tone ?? "success", variant: item.variant ?? "status", live: Boolean(item.live) }));
       body.append(badgeRow);
       continue;
     }

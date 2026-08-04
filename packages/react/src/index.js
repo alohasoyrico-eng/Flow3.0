@@ -1,3 +1,4 @@
+export { Badge } from "./Badge.js";
 export { Button } from "./Button.js";
 export { CardExpiryInput } from "./CardExpiryInput.js";
 export { CardNumberInput } from "./CardNumberInput.js";

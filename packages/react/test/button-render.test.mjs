@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, TextArea } from "../src/index.js";
-import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, TextArea } from "../src/index.js";
+import { badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
+assert.equal(Badge.displayName, "Badge");
+assert.equal(Badge.platformContract, badgePlatformContract);
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
 assert.equal(CardExpiryInput.displayName, "CardExpiryInput");
@@ -64,6 +66,51 @@ assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-dens
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);
 assert.match(loadingMarkup, /class="spinner__arc"/);
+
+const badgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
+  label: "3",
+  variant: "count",
+  tone: "danger",
+  live: true,
+  ariaLabel: "3 alerts",
+}));
+assert.match(badgeMarkup, /class="badge"/);
+assert.match(badgeMarkup, /data-variant="count"/);
+assert.match(badgeMarkup, /data-tone="danger"/);
+assert.match(badgeMarkup, /data-state="default"/);
+assert.match(badgeMarkup, /role="status"/);
+assert.match(badgeMarkup, /aria-live="polite"/);
+assert.match(badgeMarkup, /aria-label="3 alerts"/);
+assert.match(badgeMarkup, /data-live="true"/);
+assert.match(badgeMarkup, /class="badge__live"/);
+assert.match(badgeMarkup, /class="badge__label">3<\/span>/);
+
+const iconBadgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
+  label: "!",
+  variant: "icon",
+  tone: "warning",
+  icon: "priority_high",
+  state: "focus",
+}));
+assert.match(iconBadgeMarkup, /data-variant="icon"/);
+assert.match(iconBadgeMarkup, /data-state="focus"/);
+assert.match(iconBadgeMarkup, /class="badge__icon"/);
+
+const dotBadgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
+  label: "Unread",
+  variant: "dot",
+  ariaLabel: "Unread updates",
+}));
+assert.match(dotBadgeMarkup, /data-variant="dot"/);
+assert.match(dotBadgeMarkup, /aria-label="Unread updates"/);
+assert.match(dotBadgeMarkup, /class="badge__label"><\/span>/);
+
+const hiddenBadgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
+  label: "0",
+  hidden: true,
+}));
+assert.match(hiddenBadgeMarkup, /hidden=""/);
+assert.match(hiddenBadgeMarkup, /data-state="hidden"/);
 
 const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
   label: "Enable fuel card",

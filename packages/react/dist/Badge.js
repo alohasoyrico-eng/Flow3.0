@@ -1,0 +1,63 @@
+import React, { forwardRef } from "react";
+import { badgePlatformContract } from "@design-system/components/platforms";
+
+const validTones = new Set(["neutral", "info", "success", "warning", "danger", "accent"]);
+const validVariants = new Set(["count", "dot", "status", "icon"]);
+const validStates = new Set(["default", "hover", "focus", "overflow", "hidden", "disabled"]);
+
+function normalizeTone(tone) {
+  return validTones.has(tone) ? tone : "neutral";
+}
+
+function normalizeVariant(variant) {
+  return validVariants.has(variant) ? variant : "status";
+}
+
+function normalizeState({ hidden = false, state = "default" } = {}) {
+  if (hidden) return "hidden";
+  return validStates.has(state) ? state : "default";
+}
+
+export const Badge = forwardRef(function Badge({
+  label,
+  tone = "neutral",
+  variant = "status",
+  state = "default",
+  hidden = false,
+  live = false,
+  icon = "",
+  ariaLabel = "",
+  className = "",
+  ...rest
+}, ref) {
+  const resolvedTone = normalizeTone(tone);
+  const resolvedVariant = normalizeVariant(variant);
+  const resolvedState = normalizeState({ hidden, state });
+  const text = resolvedVariant === "dot" ? "" : label ?? "Badge";
+
+  return React.createElement(
+    "span",
+    {
+      ...rest,
+      ref,
+      className: ["badge", className].filter(Boolean).join(" "),
+      hidden: resolvedState === "hidden",
+      role: live ? "status" : rest.role,
+      "aria-live": live ? "polite" : rest["aria-live"],
+      "aria-label": ariaLabel || rest["aria-label"],
+      "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
+      "data-tone": resolvedTone,
+      "data-variant": resolvedVariant,
+      "data-state": resolvedState,
+      "data-live": live ? "true" : undefined,
+    },
+    live ? React.createElement("span", { className: "badge__live", "aria-hidden": "true" }) : null,
+    resolvedVariant === "icon" && icon
+      ? React.createElement("span", { className: "badge__icon", "aria-hidden": "true" }, icon)
+      : null,
+    React.createElement("span", { className: "badge__label" }, text),
+  );
+});
+
+Badge.displayName = "Badge";
+Badge.platformContract = badgePlatformContract;

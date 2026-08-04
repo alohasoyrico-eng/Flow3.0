@@ -116,7 +116,7 @@ const componentIds = [
 const failures = [];
 for (const componentId of componentIds) {
   const html = componentDemo(componentId, {});
-  const expectedSource = new Set(["button", "card-expiry-input", "card-number-input", "card-security-code-input", "checkbox", "code-input", "date-picker", "date-range-picker", "icon-button", "input", "phone-input", "radio-button", "select", "switch", "text-area"]).has(componentId) ? 'data-component-source="react"' : 'data-component-source="package"';
+  const expectedSource = new Set(["badge", "button", "card-expiry-input", "card-number-input", "card-security-code-input", "checkbox", "code-input", "date-picker", "date-range-picker", "icon-button", "input", "phone-input", "radio-button", "select", "switch", "text-area"]).has(componentId) ? 'data-component-source="react"' : 'data-component-source="package"';
   if (!html.includes(expectedSource)) {
     failures.push(componentId);
   }

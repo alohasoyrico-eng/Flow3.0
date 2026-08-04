@@ -1,6 +1,7 @@
 const { fs, path, root, read, add } = require("./audit-context.js");
 
 const adapterIndexFile = path.join(root, "packages/components/src/platforms/index.js");
+const badgeAdapterFile = path.join(root, "packages/components/src/platforms/badge.js");
 const buttonAdapterFile = path.join(root, "packages/components/src/platforms/button.js");
 const checkboxAdapterFile = path.join(root, "packages/components/src/platforms/checkbox.js");
 const iconButtonAdapterFile = path.join(root, "packages/components/src/platforms/icon-button.js");
@@ -13,6 +14,8 @@ const componentIndexFile = path.join(root, "packages/components/src/index.js");
 const componentPackageFile = path.join(root, "packages/components/package.json");
 const componentCssFile = path.join(root, "packages/components/styles/components.css");
 const contractsFile = path.join(root, "packages/components/src/contracts.js");
+const reactBadgeFile = path.join(root, "packages/react/src/Badge.js");
+const reactBadgeTypesFile = path.join(root, "packages/react/src/Badge.d.ts");
 const reactButtonFile = path.join(root, "packages/react/src/Button.js");
 const reactButtonTypesFile = path.join(root, "packages/react/src/Button.d.ts");
 const reactCheckboxFile = path.join(root, "packages/react/src/Checkbox.js");
@@ -29,6 +32,8 @@ const reactSwitchFile = path.join(root, "packages/react/src/Switch.js"), reactSw
 const reactTextAreaFile = path.join(root, "packages/react/src/TextArea.js"), reactTextAreaTypesFile = path.join(root, "packages/react/src/TextArea.d.ts");
 const reactIndexFile = path.join(root, "packages/react/src/index.js");
 const reactIndexTypesFile = path.join(root, "packages/react/src/index.d.ts");
+const reactDistBadgeFile = path.join(root, "packages/react/dist/Badge.js");
+const reactDistBadgeTypesFile = path.join(root, "packages/react/dist/Badge.d.ts");
 const reactDistButtonFile = path.join(root, "packages/react/dist/Button.js");
 const reactDistButtonTypesFile = path.join(root, "packages/react/dist/Button.d.ts");
 const reactDistCheckboxFile = path.join(root, "packages/react/dist/Checkbox.js");
@@ -48,7 +53,7 @@ const reactExampleFile = path.join(root, "examples/prototyping/react-button.mjs"
 const forbiddenPrefix = "fl" + "ow-";
 
 function checkPlatformAdapters() {
-  for (const file of [adapterIndexFile, buttonAdapterFile, checkboxAdapterFile, iconButtonAdapterFile, inputAdapterFile, radioButtonAdapterFile, selectAdapterFile, switchAdapterFile, textAreaAdapterFile, reactButtonFile, reactButtonTypesFile, reactCheckboxFile, reactCheckboxTypesFile, reactIconButtonFile, reactIconButtonTypesFile, reactInputFile, reactInputTypesFile, reactRadioButtonFile, reactRadioButtonTypesFile, reactSelectFile, reactSelectTypesFile, reactSwitchFile, reactSwitchTypesFile, reactTextAreaFile, reactTextAreaTypesFile, reactIndexFile, reactIndexTypesFile, reactDistButtonFile, reactDistButtonTypesFile, reactDistCheckboxFile, reactDistCheckboxTypesFile, reactDistIconButtonFile, reactDistIconButtonTypesFile, reactDistInputFile, reactDistInputTypesFile, reactDistRadioButtonFile, reactDistRadioButtonTypesFile, reactDistSelectFile, reactDistSelectTypesFile, reactDistSwitchFile, reactDistSwitchTypesFile, reactDistTextAreaFile, reactDistTextAreaTypesFile, reactPackageFile, reactExampleFile]) {
+  for (const file of [adapterIndexFile, badgeAdapterFile, buttonAdapterFile, checkboxAdapterFile, iconButtonAdapterFile, inputAdapterFile, radioButtonAdapterFile, selectAdapterFile, switchAdapterFile, textAreaAdapterFile, reactBadgeFile, reactBadgeTypesFile, reactButtonFile, reactButtonTypesFile, reactCheckboxFile, reactCheckboxTypesFile, reactIconButtonFile, reactIconButtonTypesFile, reactInputFile, reactInputTypesFile, reactRadioButtonFile, reactRadioButtonTypesFile, reactSelectFile, reactSelectTypesFile, reactSwitchFile, reactSwitchTypesFile, reactTextAreaFile, reactTextAreaTypesFile, reactIndexFile, reactIndexTypesFile, reactDistBadgeFile, reactDistBadgeTypesFile, reactDistButtonFile, reactDistButtonTypesFile, reactDistCheckboxFile, reactDistCheckboxTypesFile, reactDistIconButtonFile, reactDistIconButtonTypesFile, reactDistInputFile, reactDistInputTypesFile, reactDistRadioButtonFile, reactDistRadioButtonTypesFile, reactDistSelectFile, reactDistSelectTypesFile, reactDistSwitchFile, reactDistSwitchTypesFile, reactDistTextAreaFile, reactDistTextAreaTypesFile, reactPackageFile, reactExampleFile]) {
     if (!fs.existsSync(file)) {
       add("errors", file, 1, "Platform implementation contract is missing.");
       return;
@@ -56,6 +61,7 @@ function checkPlatformAdapters() {
   }
 
   const adapterIndex = read(adapterIndexFile);
+  const badgeAdapter = read(badgeAdapterFile);
   const buttonAdapter = read(buttonAdapterFile);
   const checkboxAdapter = read(checkboxAdapterFile);
   const iconButtonAdapter = read(iconButtonAdapterFile);
@@ -68,6 +74,8 @@ function checkPlatformAdapters() {
   const componentPackage = read(componentPackageFile);
   const componentCss = read(componentCssFile);
   const contracts = read(contractsFile);
+  const reactBadge = read(reactBadgeFile);
+  const reactBadgeTypes = read(reactBadgeTypesFile);
   const reactButton = read(reactButtonFile);
   const reactButtonTypes = read(reactButtonTypesFile);
   const reactCheckbox = read(reactCheckboxFile);
@@ -92,6 +100,13 @@ function checkPlatformAdapters() {
   }
   if (!componentPackage.includes('"./platforms"')) {
     add("errors", componentPackageFile, 1, "@design-system/components must expose ./platforms as a public package boundary.");
+  }
+  for (const exportName of ["badgePlatformAdapters", "badgePlatformContract", "badgePlatformProps"]) {
+    if (!adapterIndex.includes(exportName)) add("errors", adapterIndexFile, 1, `Platform index must export ${exportName}.`);
+    if (!badgeAdapter.includes(exportName)) add("errors", badgeAdapterFile, 1, `Badge platform adapter must define ${exportName}.`);
+  }
+  if (!badgeAdapter.includes("componentContracts.badge")) {
+    add("errors", badgeAdapterFile, 1, "Badge platform contract must derive props, variants, states, and accessibility from componentContracts.badge.");
   }
   for (const exportName of ["buttonPlatformAdapters", "buttonPlatformContract", "buttonPlatformProps"]) {
     if (!adapterIndex.includes(exportName)) {
@@ -130,6 +145,8 @@ function checkPlatformAdapters() {
     }
   }
 
+  if (badgeAdapter.includes("dom:") || badgeAdapter.includes('renderMode: "factory"') || badgeAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", badgeAdapterFile, 1, "Badge platform contract must not advertise a DOM target once React is the public product component.");
+  if (!badgeAdapter.includes("react:")) add("errors", badgeAdapterFile, 1, "Badge platform contract must declare React as its implementation target.");
   if (buttonAdapter.includes("dom:") || buttonAdapter.includes('renderMode: "factory"') || buttonAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", buttonAdapterFile, 1, "Button platform contract must not advertise a DOM target once React is the public product component.");
   if (!buttonAdapter.includes("react:")) add("errors", buttonAdapterFile, 1, "Button platform contract must declare React as its implementation target.");
   if (checkboxAdapter.includes("dom:") || checkboxAdapter.includes('renderMode: "factory"') || checkboxAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", checkboxAdapterFile, 1, "Checkbox platform contract must not advertise a DOM target once React is the public product component.");
@@ -140,6 +157,7 @@ function checkPlatformAdapters() {
   if (!inputAdapter.includes("react:")) add("errors", inputAdapterFile, 1, "Input platform contract must declare React as its implementation target.");
   if (selectAdapter.includes("dom:") || selectAdapter.includes('renderMode: "factory"') || selectAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", selectAdapterFile, 1, "Select platform contract must not advertise a DOM target once React is the public product component.");
   if (!selectAdapter.includes("react:")) add("errors", selectAdapterFile, 1, "Select platform contract must declare React as its implementation target.");
+  for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true"]) if (!badgeAdapter.includes(snippet)) add("errors", badgeAdapterFile, 1, `Badge platform contract must mark React as the only public component target; missing ${snippet}.`);
   for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true"]) if (!buttonAdapter.includes(snippet)) add("errors", buttonAdapterFile, 1, `Button platform contract must mark React as the only public component target; missing ${snippet}.`);
   for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true"]) if (!checkboxAdapter.includes(snippet)) add("errors", checkboxAdapterFile, 1, `Checkbox platform contract must mark React as the only public component target; missing ${snippet}.`);
   for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true"]) if (!iconButtonAdapter.includes(snippet)) add("errors", iconButtonAdapterFile, 1, `Icon Button platform contract must mark React as the only public component target; missing ${snippet}.`);
@@ -182,6 +200,15 @@ function checkPlatformAdapters() {
   }
   if (!selectAdapter.includes("componentContracts.select")) {
     add("errors", selectAdapterFile, 1, "Select platform contract must derive props, variants, states, and accessibility from componentContracts.select.");
+  }
+  for (const token of ["comp.badge.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.growth.*"]) {
+    if (!badgeAdapter.includes(token)) add("errors", badgeAdapterFile, 1, `Badge platform contract must include token dependency ${token}.`);
+  }
+  for (const primitive of ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography"]) {
+    if (!badgeAdapter.includes(`"${primitive}"`)) add("errors", badgeAdapterFile, 1, `Badge platform contract must include primitive dependency ${primitive}.`);
+  }
+  for (const prop of ["label", "tone", "variant", "state", "hidden", "live", "ariaLabel"]) {
+    if (!contracts.includes(`name: "${prop}"`)) add("errors", contractsFile, 1, `Badge contract is missing prop ${prop}.`);
   }
   if (!adapterIndex.includes("radioButtonPlatformContract")) {
     add("errors", adapterIndexFile, 1, "Platform index must export Radio Button platform contracts.");
@@ -278,11 +305,13 @@ function checkPlatformAdapters() {
     }
   }
   for (const [file, source, required] of [
+    [reactBadgeFile, reactBadge, ["badgePlatformContract", "className: [\"badge\"", '"data-tone": resolvedTone', '"data-variant": resolvedVariant', '"data-state": resolvedState', "badge__label", "badge__icon", "badge__live"]],
+    [reactBadgeTypesFile, reactBadgeTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement>", "BadgeProps", "BadgeVariant", "BadgeTone", "BadgeState", "badgePlatformContract"]],
     [reactButtonFile, reactButton, ["buttonPlatformContract", "className: buttonClassName", '"data-density": density || undefined', '"data-state": resolvedState', "button__label", "spinner__svg", "spinner__arc"]],
     [reactButtonTypesFile, reactButtonTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLButtonElement>", "ButtonProps", "ButtonVariant", "ButtonDensity", "ButtonState", "buttonPlatformContract"]],
     [reactCheckboxFile, reactCheckbox, ["checkboxPlatformContract", "className: [\"choice checkbox\"", '"data-density": density || undefined', '"data-state": normalizedState', "choice__input", "choice__mark", "choice__indicator", "onCheckedChange"]],
     [reactCheckboxTypesFile, reactCheckboxTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLInputElement>", "CheckboxProps", "CheckboxVariant", "CheckboxDensity", "CheckboxState", "checkboxPlatformContract", "onCheckedChange"]],
-    [reactPackageFile, reactPackage, ['"build": "node scripts/build.mjs"', '"test": "node test/button-render.test.mjs"', '"types": "./dist/index.d.ts"', '"./button"', '"./checkbox"', '"./radio-button"', '"./select"', '"./switch"', '"./text-area"']],
+    [reactPackageFile, reactPackage, ['"build": "node scripts/build.mjs"', '"test": "node test/button-render.test.mjs"', '"types": "./dist/index.d.ts"', '"./badge"', '"./button"', '"./checkbox"', '"./radio-button"', '"./select"', '"./switch"', '"./text-area"']],
     [reactExampleFile, reactExample, ['import { Button } from "@design-system/react"', 'import "@design-system/components/styles.css"']],
     [reactIconButtonFile, reactIconButton, ["iconButtonPlatformContract", "className: iconButtonClassName", '"aria-label": resolvedLabel', '"aria-pressed": selected ? "true"', '"data-density": density || undefined', "icon-button__icon", "icon-button__badge"]],
     [reactIconButtonTypesFile, reactIconButtonTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLButtonElement>", "IconButtonProps", "IconButtonVariant", "IconButtonDensity", "iconButtonPlatformContract", "icon: string"]],
@@ -296,8 +325,8 @@ function checkPlatformAdapters() {
     [reactSwitchTypesFile, reactSwitchTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLInputElement>", "SwitchProps", "SwitchDensity", "SwitchState", "switchPlatformContract", "onCheckedChange"]],
     [reactTextAreaFile, reactTextArea, ["textAreaPlatformContract", "className: [\"field\"", '"data-density": density || undefined', "text-area__surface", "text-area__counter", "onChange"]],
     [reactTextAreaTypesFile, reactTextAreaTypes, ["TextAreaProps", "TextAreaDensity", "TextAreaState", "textAreaPlatformContract", "onChange"]],
-    [reactIndexFile, reactIndex, ["Button", "Checkbox", "IconButton", "Input", "RadioButton", "Select", "Switch", "TextArea"]],
-    [reactIndexTypesFile, reactIndexTypes, ["ButtonProps", "CheckboxProps", "IconButtonProps", "InputProps", "RadioButtonProps", "SelectProps", "SwitchProps", "TextAreaProps"]],
+    [reactIndexFile, reactIndex, ["Badge", "Button", "Checkbox", "IconButton", "Input", "RadioButton", "Select", "Switch", "TextArea"]],
+    [reactIndexTypesFile, reactIndexTypes, ["BadgeProps", "ButtonProps", "CheckboxProps", "IconButtonProps", "InputProps", "RadioButtonProps", "SelectProps", "SwitchProps", "TextAreaProps"]],
   ]) {
     for (const snippet of required) {
       if (!source.includes(snippet)) {
@@ -326,12 +355,14 @@ function checkPlatformAdapters() {
     }
   }
   for (const [file, source] of [
+    [badgeAdapterFile, badgeAdapter],
     [buttonAdapterFile, buttonAdapter],
     [iconButtonAdapterFile, iconButtonAdapter],
     [checkboxAdapterFile, checkboxAdapter],
     [inputAdapterFile, inputAdapter],
     [radioButtonAdapterFile, radioButtonAdapter],
     [selectAdapterFile, selectAdapter],
+    [reactBadgeFile, reactBadge],
     [reactButtonFile, reactButton],
     [reactIconButtonFile, reactIconButton],
     [reactCheckboxFile, reactCheckbox],
