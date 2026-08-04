@@ -185,7 +185,7 @@ export function createSwitch({
   return field;
 }
 
-export function createRadioButton({
+export function createTransitionalChoiceRadioButton({
   label,
   description = "",
   error = "",

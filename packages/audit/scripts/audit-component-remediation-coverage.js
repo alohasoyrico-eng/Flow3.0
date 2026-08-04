@@ -163,7 +163,7 @@ function kebabToFactoryName(id) {
     "inline-validation": "createInlineValidation",
     input: "createTransitionalFieldInput",
     select: "createTransitionalFieldSelect",
-    "radio-button": "createRadioButton",
+    "radio-button": "createTransitionalChoiceRadioButton",
     switch: "createSwitch",
     tag: "createTag",
     "text-area": "createTransitionalFieldTextArea",

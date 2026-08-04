@@ -332,7 +332,8 @@ export const componentContracts = {
     ]
   },
   radioButton: {
-    factory: "createRadioButton",
+    factory: "@design-system/react/radio-button",
+    internalFactory: "createTransitionalChoiceRadioButton",
     element: "label",
     purpose: "Represent one option in a mutually exclusive choice set with visible label and native radio semantics.",
     variants: ["default", "descriptive", "compact", "critical"],

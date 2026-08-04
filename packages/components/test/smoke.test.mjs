@@ -86,7 +86,7 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
-import { createTransitionalChoiceCheckbox, createRadioButton, createSwitch } from "../src/components/choices.js";
+import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
@@ -301,7 +301,8 @@ assert.deepEqual(Object.keys(checkboxPlatformAdapters), ["react"]);
 assert.equal(checkboxPlatformAdapters.react.componentName, "Checkbox");
 assert.equal(checkboxPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.switch.factory, "createSwitch");
-assert.equal(componentContracts.radioButton.factory, "createRadioButton");
+assert.equal(componentContracts.radioButton.factory, "@design-system/react/radio-button");
+assert.equal(componentContracts.radioButton.internalFactory, "createTransitionalChoiceRadioButton");
 assert.equal(radioButtonPlatformContract.id, "radio-button");
 assert.equal(radioButtonPlatformContract.source.factory, componentContracts.radioButton.factory);
 assert.deepEqual(radioButtonPlatformProps(), componentContracts.radioButton.props.map((prop) => prop.name));
@@ -933,7 +934,7 @@ assert.equal(switchControl.querySelector("input").attributes.role, "switch");
 assert.equal(switchControl.querySelector("input").attributes["aria-checked"], "true");
 assert.equal(switchControl.querySelector(".switch__label").textContent, "Route alerts");
 
-const radioButton = createRadioButton({
+const radioButton = createTransitionalChoiceRadioButton({
   label: "Weekly",
   description: "Best for operations review",
   checked: true,
