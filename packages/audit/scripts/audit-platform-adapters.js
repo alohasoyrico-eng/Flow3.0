@@ -289,7 +289,7 @@ function checkPlatformAdapters() {
     [reactInputFile, reactInput, ["inputPlatformContract", "className: [\"field\"", '"data-density": density || undefined', '"data-state": resolvedState', "field__control", "field__helper", "field-action", "normalizeValue", "inputModeForVariant"]],
     [reactInputTypesFile, reactInputTypes, ["InputProps", "InputVariant", "InputDensity", "InputState", "inputPlatformContract", "onValueChange"]],
     [reactRadioButtonFile, reactRadioButton, ["radioButtonPlatformContract", "className: [\"choice radio\"", '"data-density": density || undefined', '"data-state": normalizedState', "choice__input", "choice__mark", "onCheckedChange"]],
-    [reactRadioButtonTypesFile, reactRadioButtonTypes, ["RadioButtonProps", "RadioButtonVariant", "RadioButtonDensity", "RadioButtonState", "radioButtonPlatformContract", "onCheckedChange"]],
+    [reactRadioButtonTypesFile, reactRadioButtonTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLInputElement>", "RadioButtonProps", "RadioButtonVariant", "RadioButtonDensity", "RadioButtonState", "radioButtonPlatformContract", "onCheckedChange"]],
     [reactSelectFile, reactSelect, ["selectPlatformContract", "className: [\"select-control\"", '"data-density": density || undefined', "select-control__trigger", "select-control__listbox", "select-control__option", "onValueChange"]],
     [reactSelectTypesFile, reactSelectTypes, ["SelectProps", "SelectVariant", "SelectDensity", "SelectState", "selectPlatformContract", "onValueChange"]],
     [reactSwitchFile, reactSwitch, ["switchPlatformContract", "className: [\"switch\"", '"data-density": density || undefined', '"data-state": normalizedState', "switch__input", "switch__track", "switch__thumb", "onCheckedChange"]],

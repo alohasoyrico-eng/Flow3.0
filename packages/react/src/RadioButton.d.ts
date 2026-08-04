@@ -1,4 +1,5 @@
-import type { radioButtonPlatformContract } from "@design-system/components/platforms";
+import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import { radioButtonPlatformContract } from "@design-system/components/platforms";
 
 export type RadioButtonVariant = "default" | "descriptive" | "compact" | "critical";
 export type RadioButtonState = "unselected" | "selected" | "focus" | "error" | "disabled";
@@ -8,7 +9,7 @@ export interface RadioButtonValueMeta {
   value: string;
 }
 
-export interface RadioButtonProps {
+export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked" | "value" | "onChange"> {
   label: string;
   description?: string;
   error?: string;
@@ -24,9 +25,8 @@ export interface RadioButtonProps {
   className?: string;
 }
 
-export interface RadioButtonComponent {
-  (props: RadioButtonProps): unknown;
-  displayName?: string;
+export interface RadioButtonComponent extends ForwardRefExoticComponent<RadioButtonProps & RefAttributes<HTMLInputElement>> {
+  displayName: "RadioButton";
   platformContract: typeof radioButtonPlatformContract;
 }
 
