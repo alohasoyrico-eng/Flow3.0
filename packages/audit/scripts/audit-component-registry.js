@@ -23,7 +23,6 @@ const unprefixedFactoryComponents = new Map([
   ["error-panel", "createErrorPanel"],
   ["floating-action-button", "createFloatingActionButton"],
   ["inline-validation", "createInlineValidation"],
-  ["switch", "createSwitch"],
   ["tag", "createTag"],
   ["text-area", "createTextArea"],
   ["code-input", "createCodeInput"],
@@ -71,9 +70,9 @@ function checkComponentRegistry() {
 
   for (const component of requiredComponentContracts) {
     const key = component.includes("-") ? `"${component}"` : component;
-    if (["button", "checkbox", "icon-button", "input", "radio-button", "select"].includes(component)) {
-      const label = component === "button" ? "Button" : component === "checkbox" ? "Checkbox" : component === "icon-button" ? "Icon Button" : component === "input" ? "Input" : component === "radio-button" ? "Radio Button" : "Select";
-      const factory = component === "button" ? "createButton" : component === "checkbox" ? "createCheckbox" : component === "icon-button" ? "createIconButton" : component === "input" ? "createInput" : component === "radio-button" ? "createRadioButton" : "createSelect";
+    if (["button", "checkbox", "icon-button", "input", "radio-button", "select", "switch"].includes(component)) {
+      const label = component === "button" ? "Button" : component === "checkbox" ? "Checkbox" : component === "icon-button" ? "Icon Button" : component === "input" ? "Input" : component === "radio-button" ? "Radio Button" : component === "switch" ? "Switch" : "Select";
+      const factory = component === "button" ? "createButton" : component === "checkbox" ? "createCheckbox" : component === "icon-button" ? "createIconButton" : component === "input" ? "createInput" : component === "radio-button" ? "createRadioButton" : component === "switch" ? "createSwitch" : "createSelect";
       if (!registrySource.includes(`${label} is React-primary`) || registrySource.includes(`${key}: ${factory}`)) {
         add("errors", registryFile, 1, `${label} registry entry must reject DOM rendering and route docs through the React component.`);
       }
@@ -100,7 +99,7 @@ function checkComponentRegistry() {
   if (!docsRendererSource.includes("renderComponentDemo")) {
     add("errors", docsRendererFile, 1, "Docs component demo renderer must consume the official Design System registry demo renderer.");
   }
-  for (const snippet of ["componentDemoProps", "reactButtonDemo", 'data-react-component="button"', 'if (component === "button") return reactButtonDemo(demo);', "reactCheckboxDemo", 'data-react-component="checkbox"', 'if (component === "checkbox") return reactCheckboxDemo(demo);', "reactInputDemo", 'data-react-component="input"', 'if (component === "input") return reactInputDemo(demo);', "reactRadioButtonDemo", 'data-react-component="radio-button"', 'if (component === "radio-button") return reactRadioButtonDemo(demo);', "reactSelectDemo", 'data-react-component="select"', 'if (component === "select") return reactSelectDemo(demo);']) {
+  for (const snippet of ["componentDemoProps", "reactButtonDemo", 'data-react-component="button"', 'if (component === "button") return reactButtonDemo(demo);', "reactCheckboxDemo", 'data-react-component="checkbox"', 'if (component === "checkbox") return reactCheckboxDemo(demo);', "reactInputDemo", 'data-react-component="input"', 'if (component === "input") return reactInputDemo(demo);', "reactRadioButtonDemo", 'data-react-component="radio-button"', 'if (component === "radio-button") return reactRadioButtonDemo(demo);', "reactSelectDemo", 'data-react-component="select"', 'if (component === "select") return reactSelectDemo(demo);', "reactSwitchDemo", 'data-react-component="switch"', 'if (component === "switch") return reactSwitchDemo(demo);']) {
     if (!docsRendererSource.includes(snippet)) {
       add("errors", docsRendererFile, 1, `Docs Button demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
     }

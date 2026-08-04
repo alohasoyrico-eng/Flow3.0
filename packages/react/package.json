@@ -31,6 +31,10 @@
     "./select": {
       "types": "./dist/Select.d.ts",
       "default": "./dist/Select.js"
+    },
+    "./switch": {
+      "types": "./dist/Switch.d.ts",
+      "default": "./dist/Switch.js"
     }
   },
   "types": "./dist/index.d.ts",

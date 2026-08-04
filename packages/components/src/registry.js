@@ -1,4 +1,3 @@
-import { createSwitch } from "./components/choices.js?v=11";
 import {
   createCardSummary,
   createChartPanel,
@@ -91,7 +90,9 @@ export const componentRegistry = Object.freeze({
   slider: createSlider,
   "station-pin": createStationPin,
   stepper: createStepper,
-  switch: createSwitch,
+  switch: () => {
+    throw new Error("Switch is React-primary. Use @design-system/react/switch instead of the transitional DOM renderer.");
+  },
   table: createTable,
   tabs: createTabs,
   tag: createTag,
@@ -132,6 +133,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "select") {
     throw new Error("Select is React-primary. Use @design-system/react/select instead of renderComponentDemo.");
+  }
+  if (id === "switch") {
+    throw new Error("Switch is React-primary. Use @design-system/react/switch instead of renderComponentDemo.");
   }
   return factory(props);
 }

@@ -7,6 +7,7 @@ const iconButtonAdapterFile = path.join(root, "packages/components/src/platforms
 const inputAdapterFile = path.join(root, "packages/components/src/platforms/input.js");
 const radioButtonAdapterFile = path.join(root, "packages/components/src/platforms/radio-button.js");
 const selectAdapterFile = path.join(root, "packages/components/src/platforms/select.js");
+const switchAdapterFile = path.join(root, "packages/components/src/platforms/switch.js");
 const componentIndexFile = path.join(root, "packages/components/src/index.js");
 const componentPackageFile = path.join(root, "packages/components/package.json");
 const componentCssFile = path.join(root, "packages/components/styles/components.css");
@@ -23,6 +24,7 @@ const reactRadioButtonFile = path.join(root, "packages/react/src/RadioButton.js"
 const reactRadioButtonTypesFile = path.join(root, "packages/react/src/RadioButton.d.ts");
 const reactSelectFile = path.join(root, "packages/react/src/Select.js");
 const reactSelectTypesFile = path.join(root, "packages/react/src/Select.d.ts");
+const reactSwitchFile = path.join(root, "packages/react/src/Switch.js"), reactSwitchTypesFile = path.join(root, "packages/react/src/Switch.d.ts");
 const reactIndexFile = path.join(root, "packages/react/src/index.js");
 const reactIndexTypesFile = path.join(root, "packages/react/src/index.d.ts");
 const reactDistButtonFile = path.join(root, "packages/react/dist/Button.js");
@@ -37,12 +39,13 @@ const reactDistRadioButtonFile = path.join(root, "packages/react/dist/RadioButto
 const reactDistRadioButtonTypesFile = path.join(root, "packages/react/dist/RadioButton.d.ts");
 const reactDistSelectFile = path.join(root, "packages/react/dist/Select.js");
 const reactDistSelectTypesFile = path.join(root, "packages/react/dist/Select.d.ts");
+const reactDistSwitchFile = path.join(root, "packages/react/dist/Switch.js"), reactDistSwitchTypesFile = path.join(root, "packages/react/dist/Switch.d.ts");
 const reactPackageFile = path.join(root, "packages/react/package.json");
 const reactExampleFile = path.join(root, "examples/prototyping/react-button.mjs");
 const forbiddenPrefix = "fl" + "ow-";
 
 function checkPlatformAdapters() {
-  for (const file of [adapterIndexFile, buttonAdapterFile, checkboxAdapterFile, iconButtonAdapterFile, inputAdapterFile, radioButtonAdapterFile, selectAdapterFile, reactButtonFile, reactButtonTypesFile, reactCheckboxFile, reactCheckboxTypesFile, reactIconButtonFile, reactIconButtonTypesFile, reactInputFile, reactInputTypesFile, reactRadioButtonFile, reactRadioButtonTypesFile, reactSelectFile, reactSelectTypesFile, reactIndexFile, reactIndexTypesFile, reactDistButtonFile, reactDistButtonTypesFile, reactDistCheckboxFile, reactDistCheckboxTypesFile, reactDistIconButtonFile, reactDistIconButtonTypesFile, reactDistInputFile, reactDistInputTypesFile, reactDistRadioButtonFile, reactDistRadioButtonTypesFile, reactDistSelectFile, reactDistSelectTypesFile, reactPackageFile, reactExampleFile]) {
+  for (const file of [adapterIndexFile, buttonAdapterFile, checkboxAdapterFile, iconButtonAdapterFile, inputAdapterFile, radioButtonAdapterFile, selectAdapterFile, switchAdapterFile, reactButtonFile, reactButtonTypesFile, reactCheckboxFile, reactCheckboxTypesFile, reactIconButtonFile, reactIconButtonTypesFile, reactInputFile, reactInputTypesFile, reactRadioButtonFile, reactRadioButtonTypesFile, reactSelectFile, reactSelectTypesFile, reactSwitchFile, reactSwitchTypesFile, reactIndexFile, reactIndexTypesFile, reactDistButtonFile, reactDistButtonTypesFile, reactDistCheckboxFile, reactDistCheckboxTypesFile, reactDistIconButtonFile, reactDistIconButtonTypesFile, reactDistInputFile, reactDistInputTypesFile, reactDistRadioButtonFile, reactDistRadioButtonTypesFile, reactDistSelectFile, reactDistSelectTypesFile, reactDistSwitchFile, reactDistSwitchTypesFile, reactPackageFile, reactExampleFile]) {
     if (!fs.existsSync(file)) {
       add("errors", file, 1, "Platform implementation contract is missing.");
       return;
@@ -56,6 +59,7 @@ function checkPlatformAdapters() {
   const inputAdapter = read(inputAdapterFile);
   const radioButtonAdapter = read(radioButtonAdapterFile);
   const selectAdapter = read(selectAdapterFile);
+  const switchAdapter = read(switchAdapterFile);
   const componentIndex = read(componentIndexFile);
   const componentPackage = read(componentPackageFile);
   const componentCss = read(componentCssFile);
@@ -72,6 +76,7 @@ function checkPlatformAdapters() {
   const reactRadioButtonTypes = read(reactRadioButtonTypesFile);
   const reactSelect = read(reactSelectFile);
   const reactSelectTypes = read(reactSelectTypesFile);
+  const reactSwitch = read(reactSwitchFile), reactSwitchTypes = read(reactSwitchTypesFile);
   const reactIndex = read(reactIndexFile);
   const reactIndexTypes = read(reactIndexTypesFile);
   const reactPackage = read(reactPackageFile);
@@ -248,6 +253,11 @@ function checkPlatformAdapters() {
   for (const primitive of ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "message", "measurement"]) {
     if (!radioButtonAdapter.includes(`"${primitive}"`)) add("errors", radioButtonAdapterFile, 1, `Radio Button platform contract must include primitive dependency ${primitive}.`);
   }
+  if (!adapterIndex.includes("switchPlatformContract")) add("errors", adapterIndexFile, 1, "Platform index must export Switch platform contracts.");
+  if (switchAdapter.includes("dom:") || switchAdapter.includes('renderMode: "factory"') || switchAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", switchAdapterFile, 1, "Switch platform contract must not advertise a DOM target once React is the public product component.");
+  for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true", "componentContracts.switch"]) if (!switchAdapter.includes(snippet)) add("errors", switchAdapterFile, 1, `Switch platform contract missing ${snippet}.`);
+  for (const token of ["comp.switch.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*"]) if (!switchAdapter.includes(token)) add("errors", switchAdapterFile, 1, `Switch platform contract must include token dependency ${token}.`);
+  for (const primitive of ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "message", "measurement"]) if (!switchAdapter.includes(`"${primitive}"`)) add("errors", switchAdapterFile, 1, `Switch platform contract must include primitive dependency ${primitive}.`);
   for (const token of [
     "comp.input.*",
     "component-field-*",
@@ -332,8 +342,10 @@ function checkPlatformAdapters() {
     [reactRadioButtonTypesFile, reactRadioButtonTypes, ["RadioButtonProps", "RadioButtonVariant", "RadioButtonDensity", "RadioButtonState", "radioButtonPlatformContract", "onCheckedChange"]],
     [reactSelectFile, reactSelect, ["selectPlatformContract", "className: [\"select-control\"", '"data-density": density || undefined', "select-control__trigger", "select-control__listbox", "select-control__option", "onValueChange"]],
     [reactSelectTypesFile, reactSelectTypes, ["SelectProps", "SelectVariant", "SelectDensity", "SelectState", "selectPlatformContract", "onValueChange"]],
-    [reactIndexFile, reactIndex, ["Button", "Checkbox", "IconButton", "Input", "RadioButton", "Select"]],
-    [reactIndexTypesFile, reactIndexTypes, ["ButtonProps", "CheckboxProps", "IconButtonProps", "InputProps", "RadioButtonProps", "SelectProps"]],
+    [reactSwitchFile, reactSwitch, ["switchPlatformContract", "className: [\"switch\"", '"data-density": density || undefined', '"data-state": normalizedState', "switch__input", "switch__track", "switch__thumb", "onCheckedChange"]],
+    [reactSwitchTypesFile, reactSwitchTypes, ["SwitchProps", "SwitchDensity", "SwitchState", "switchPlatformContract", "onCheckedChange"]],
+    [reactIndexFile, reactIndex, ["Button", "Checkbox", "IconButton", "Input", "RadioButton", "Select", "Switch"]],
+    [reactIndexTypesFile, reactIndexTypes, ["ButtonProps", "CheckboxProps", "IconButtonProps", "InputProps", "RadioButtonProps", "SelectProps", "SwitchProps"]],
   ]) {
     for (const snippet of required) {
       if (!source.includes(snippet)) {
@@ -374,6 +386,7 @@ function checkPlatformAdapters() {
     [reactInputFile, reactInput],
     [reactRadioButtonFile, reactRadioButton],
     [reactSelectFile, reactSelect],
+    [reactSwitchFile, reactSwitch],
   ]) {
     if (source.includes(forbiddenPrefix)) {
       add("errors", file, 1, "Platform implementation contracts must not expose the forbidden public product prefix.");

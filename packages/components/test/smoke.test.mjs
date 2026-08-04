@@ -41,7 +41,6 @@ import {
   createSlider,
   createStationPin,
   createStepper,
-  createSwitch,
   createTable,
   createTag,
   createTabs,
@@ -80,9 +79,12 @@ import {
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,
+  switchPlatformAdapters,
+  switchPlatformContract,
+  switchPlatformProps,
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
-import { createCheckbox, createRadioButton } from "../src/components/choices.js";
+import { createCheckbox, createRadioButton, createSwitch } from "../src/components/choices.js";
 import { createInput, createSelect } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
@@ -263,6 +265,15 @@ assert.deepEqual(selectPlatformContract.states, componentContracts.select.states
 assert.deepEqual(Object.keys(selectPlatformAdapters), ["react"]);
 assert.equal(selectPlatformAdapters.react.componentName, "Select");
 assert.equal(selectPlatformAdapters.react.sourceOfTruth, true);
+assert.equal(componentContracts.switch.factory, "createSwitch");
+assert.equal(switchPlatformContract.id, "switch");
+assert.equal(switchPlatformContract.source.factory, componentContracts.switch.factory);
+assert.deepEqual(switchPlatformProps(), componentContracts.switch.props.map((prop) => prop.name));
+assert.deepEqual(switchPlatformContract.variants, componentContracts.switch.variants);
+assert.deepEqual(switchPlatformContract.states, componentContracts.switch.states);
+assert.deepEqual(Object.keys(switchPlatformAdapters), ["react"]);
+assert.equal(switchPlatformAdapters.react.componentName, "Switch");
+assert.equal(switchPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.combobox.factory, "createCombobox");
 assert.equal(componentContracts.card.factory, "createCard");
 assert.equal(componentContracts.checkbox.factory, "createCheckbox");

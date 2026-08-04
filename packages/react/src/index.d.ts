@@ -54,3 +54,11 @@ export type {
   SelectValueMeta,
   SelectVariant,
 } from "./Select.js";
+export { Switch } from "./Switch.js";
+export type {
+  SwitchComponent,
+  SwitchDensity,
+  SwitchProps,
+  SwitchState,
+  SwitchValueMeta,
+} from "./Switch.js";

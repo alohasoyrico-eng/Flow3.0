@@ -97,7 +97,7 @@ export function createSwitch({
   description = "",
   error = "",
   state = "off",
-  density = "md",
+  density,
   checked = false,
   disabled = false,
   name = "",
@@ -106,7 +106,7 @@ export function createSwitch({
   const field = document.createElement("label");
   field.className = "switch";
   field.dataset.state = disabled ? "disabled" : state;
-  field.dataset.density = density;
+  if (density) field.dataset.density = density;
   field.dataset.checked = String(Boolean(checked));
   if (error || state === "error") field.dataset.invalid = "true";
 

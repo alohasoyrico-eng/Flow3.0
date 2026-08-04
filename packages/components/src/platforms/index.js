@@ -28,3 +28,8 @@ export {
   checkboxPlatformContract,
   checkboxPlatformProps,
 } from "./checkbox.js";
+export {
+  switchPlatformAdapters,
+  switchPlatformContract,
+  switchPlatformProps,
+} from "./switch.js";

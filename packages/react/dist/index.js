@@ -4,3 +4,4 @@ export { IconButton } from "./IconButton.js";
 export { Input } from "./Input.js";
 export { RadioButton } from "./RadioButton.js";
 export { Select } from "./Select.js";
+export { Switch } from "./Switch.js";

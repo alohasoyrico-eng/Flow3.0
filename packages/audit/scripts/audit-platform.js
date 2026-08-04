@@ -215,7 +215,7 @@ function checkPrototypePackages() {
     if (!hasPublicComponentExport(componentText, required.exportName)) add("errors", componentSource, 1, `components export missing: ${required.exportName}.`);
     if (required.factoryName && !componentContractText.includes(`factory: "${required.factoryName}"`)) add("errors", componentContracts, 1, `components contract missing factory: ${required.factoryName}.`);
   }
-  for (const [label, factory] of [["Button", "createButton"], ["Checkbox", "createCheckbox"], ["Icon Button", "createIconButton"], ["Input", "createInput"], ["Radio Button", "createRadioButton"], ["Select", "createSelect"]]) {
+  for (const [label, factory] of [["Button", "createButton"], ["Checkbox", "createCheckbox"], ["Icon Button", "createIconButton"], ["Input", "createInput"], ["Radio Button", "createRadioButton"], ["Select", "createSelect"], ["Switch", "createSwitch"]]) {
     if (hasPublicComponentExport(componentText, factory)) add("errors", componentSource, 1, `${label} must not be exported as a public DOM factory; React is the public product component target.`);
     if (!componentContractText.includes(`factory: "${factory}"`)) add("errors", componentContracts, 1, `${label} contract must keep the internal factory reference until all internal DOM compositions migrate.`);
   }

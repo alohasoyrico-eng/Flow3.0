@@ -9,6 +9,7 @@ const contractsFile = path.join(root, "packages/components/src/contracts.js");
 const packageCssFile = path.join(root, "packages/components/styles/components.css");
 const sourceFiles = {
   actions: path.join(root, "packages/components/src/components/actions.js"),
+  choices: path.join(root, "packages/components/src/components/choices.js"),
   commerce: path.join(root, "packages/components/src/components/commerce.js"),
   display: path.join(root, "packages/components/src/components/display.js"),
   feedback: path.join(root, "packages/components/src/components/feedback.js"),
@@ -22,6 +23,7 @@ const sourceFiles = {
 const directDensityComponents = [
   { id: "button", factory: "createButton", source: "actions", selector: '.button[data-density="sm"]', token: "--button-current-size" },
   { id: "iconButton", factory: "createIconButton", source: "actions", selector: '.icon-button[data-density="sm"]', token: "--icon-button-size" },
+  { id: "switch", factory: "createSwitch", source: "choices", selector: '.switch[data-density="sm"]', token: "--switch-track-width" },
   { id: "progressIndicator", factory: "createProgressIndicator", source: "feedback", selector: '.progress[data-density="sm"]', token: "--progress-track-size" },
   { id: "spinner", factory: "createSpinner", source: "feedback", selector: '.spinner[data-density="sm"]', token: "--spinner-size" },
   { id: "tooltip", factory: "createTooltip", source: "overlays", selector: '.tooltip[data-density="sm"]', token: "--comp-tooltip-trigger-min-block" },
@@ -57,7 +59,7 @@ const delegatedDensityComponents = [
   { id: "dateRangePicker", factory: "createDateRangePicker", source: "specializedInputs", delegate: "date-picker shell", selector: '.date-picker[data-density="sm"]' },
 ];
 
-const contextInheritedDensityComponents = new Set(["button", "iconButton", "input", "select"]);
+const contextInheritedDensityComponents = new Set(["button", "iconButton", "input", "select", "switch"]);
 
 function checkDensityContracts() {
   const contracts = read(contractsFile);
@@ -84,7 +86,7 @@ function checkDensityContracts() {
   for (const component of directDensityComponents) {
     const source = read(sourceFiles[component.source]);
     const body = factoryBody(source, component.factory);
-    if (contextInheritedDensityComponents.has(component.id) && !/if\s*\(density\)\s*button\.dataset\.density\s*=\s*density/.test(body)) {
+    if (contextInheritedDensityComponents.has(component.id) && !/if\s*\(density\)\s*\w+\.dataset\.density\s*=\s*density/.test(body)) {
       add("errors", sourceFiles[component.source], 1, `${component.factory} must only write data-density when density is explicitly supplied.`);
     } else if (!contextInheritedDensityComponents.has(component.id) && !/dataset\.density\s*=\s*(?:density|resolvedDensity)/.test(body) && !body.includes("createFieldShell({")) {
       add("errors", sourceFiles[component.source], 1, `${component.factory} must expose data-density on its package root.`);

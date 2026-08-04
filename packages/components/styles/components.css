@@ -1185,13 +1185,13 @@
 
 .switch {
   align-items: center;
-  --switch-track-inline: var(--component-inline-size-lg);
+  --switch-track-width: var(--component-inline-size-lg);
   --switch-track-block: var(--component-badge-min-size);
   --switch-track-padding: var(--sys-frame-border-indicator);
   --switch-thumb-size: var(--component-inline-size-sm);
   --switch-thumb-press-inline: var(--component-min-text-line);
-  --switch-thumb-on-x: calc(var(--switch-track-inline) - var(--switch-thumb-size) - (var(--switch-track-padding) * 2));
-  --switch-thumb-on-press-x: calc(var(--switch-track-inline) - var(--switch-thumb-press-inline) - (var(--switch-track-padding) * 2));
+  --switch-thumb-on-x: calc(var(--switch-track-width) - var(--switch-thumb-size) - (var(--switch-track-padding) * 2));
+  --switch-thumb-on-press-x: calc(var(--switch-track-width) - var(--switch-thumb-press-inline) - (var(--switch-track-padding) * 2));
   grid-template-columns: auto minmax(0, 1fr);
   justify-content: start;
   padding-block: var(--sys-space-xs);
@@ -1199,7 +1199,7 @@
 }
 
 .switch[data-density="sm"] {
-  --switch-track-inline: var(--component-control-min-size);
+  --switch-track-width: var(--component-control-min-size);
   --switch-track-block: var(--component-min-text-line);
   --switch-track-padding: var(--sys-frame-border-indicator);
   --switch-thumb-size: var(--component-inline-size-xs);
@@ -1208,7 +1208,7 @@
 }
 
 .switch[data-density="lg"] {
-  --switch-track-inline: var(--component-inline-size-lg);
+  --switch-track-width: var(--component-inline-size-lg);
   --switch-track-block: var(--component-inline-size-md);
   --switch-track-padding: var(--sys-frame-border-indicator);
   --switch-thumb-size: var(--component-min-text-line);
@@ -1221,7 +1221,7 @@
   background: var(--sys-color-border);
   border-radius: var(--component-radius-pill);
   display: inline-flex;
-  inline-size: var(--switch-track-inline);
+  inline-size: var(--switch-track-width);
   min-block-size: var(--switch-track-block);
   padding: var(--switch-track-padding);
   transition:

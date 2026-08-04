@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, Checkbox, IconButton, Input, RadioButton, Select } from "../src/index.js";
-import { buttonPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract } from "@design-system/components/platforms";
+import { Button, Checkbox, IconButton, Input, RadioButton, Select, Switch } from "../src/index.js";
+import { buttonPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
@@ -16,6 +16,8 @@ assert.equal(RadioButton.displayName, "RadioButton");
 assert.equal(RadioButton.platformContract, radioButtonPlatformContract);
 assert.equal(Select.displayName, "Select");
 assert.equal(Select.platformContract, selectPlatformContract);
+assert.equal(Switch.displayName, "Switch");
+assert.equal(Switch.platformContract, switchPlatformContract);
 
 const markup = renderToStaticMarkup(React.createElement(Button, {
   label: "Approve",
@@ -81,6 +83,24 @@ assert.match(radioButtonMarkup, /name="route"/);
 assert.match(radioButtonMarkup, /class="choice__mark"/);
 assert.match(radioButtonMarkup, /class="choice__label">Fastest route<\/span>/);
 assert.match(radioButtonMarkup, /class="choice__description"/);
+
+const switchMarkup = renderToStaticMarkup(React.createElement(Switch, {
+  label: "Route alerts",
+  description: "Notify drivers before changes.",
+  checked: true,
+  density: "sm",
+  name: "route-alerts",
+}));
+assert.match(switchMarkup, /class="switch"/);
+assert.match(switchMarkup, /data-density="sm"/);
+assert.match(switchMarkup, /data-state="on"/);
+assert.match(switchMarkup, /type="checkbox"/);
+assert.match(switchMarkup, /role="switch"/);
+assert.match(switchMarkup, /aria-checked="true"/);
+assert.match(switchMarkup, /class="switch__track"/);
+assert.match(switchMarkup, /class="switch__thumb"/);
+assert.match(switchMarkup, /class="switch__label">Route alerts<\/span>/);
+assert.match(switchMarkup, /class="switch__description"/);
 
 const ref = createRef();
 React.createElement(Button, { ref, label: "Ref" });
