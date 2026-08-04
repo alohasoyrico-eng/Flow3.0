@@ -34,7 +34,6 @@ import {
   createPopover,
   createProgressIndicator,
   createQuickAction,
-  createRadioButton,
   createRouteSummary,
   createSegmentedControl,
   createSkeleton,
@@ -75,12 +74,15 @@ import {
   inputPlatformAdapters,
   inputPlatformContract,
   inputPlatformProps,
+  radioButtonPlatformAdapters,
+  radioButtonPlatformContract,
+  radioButtonPlatformProps,
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
-import { createCheckbox } from "../src/components/choices.js";
+import { createCheckbox, createRadioButton } from "../src/components/choices.js";
 import { createInput, createSelect } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
@@ -274,6 +276,14 @@ assert.equal(checkboxPlatformAdapters.react.componentName, "Checkbox");
 assert.equal(checkboxPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.switch.factory, "createSwitch");
 assert.equal(componentContracts.radioButton.factory, "createRadioButton");
+assert.equal(radioButtonPlatformContract.id, "radio-button");
+assert.equal(radioButtonPlatformContract.source.factory, componentContracts.radioButton.factory);
+assert.deepEqual(radioButtonPlatformProps(), componentContracts.radioButton.props.map((prop) => prop.name));
+assert.deepEqual(radioButtonPlatformContract.variants, componentContracts.radioButton.variants);
+assert.deepEqual(radioButtonPlatformContract.states, componentContracts.radioButton.states);
+assert.deepEqual(Object.keys(radioButtonPlatformAdapters), ["react"]);
+assert.equal(radioButtonPlatformAdapters.react.componentName, "RadioButton");
+assert.equal(radioButtonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.textArea.factory, "createTextArea");
 assert.equal(componentContracts.badge.factory, "createBadge");
 assert.equal(componentContracts.chip.factory, "createChip");

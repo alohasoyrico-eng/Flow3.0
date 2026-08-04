@@ -1,4 +1,4 @@
-import { createRadioButton, createSwitch } from "./components/choices.js?v=11";
+import { createSwitch } from "./components/choices.js?v=11";
 import {
   createCardSummary,
   createChartPanel,
@@ -78,7 +78,9 @@ export const componentRegistry = Object.freeze({
   popover: createPopover,
   "progress-indicator": createProgressIndicator,
   "quick-action": createQuickAction,
-  "radio-button": createRadioButton,
+  "radio-button": () => {
+    throw new Error("Radio Button is React-primary. Use @design-system/react/radio-button instead of the transitional DOM renderer.");
+  },
   "route-summary": createRouteSummary,
   "segmented-control": createSegmentedControl,
   select: () => {
@@ -124,6 +126,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "input") {
     throw new Error("Input is React-primary. Use @design-system/react/input instead of renderComponentDemo.");
+  }
+  if (id === "radio-button") {
+    throw new Error("Radio Button is React-primary. Use @design-system/react/radio-button instead of renderComponentDemo.");
   }
   if (id === "select") {
     throw new Error("Select is React-primary. Use @design-system/react/select instead of renderComponentDemo.");

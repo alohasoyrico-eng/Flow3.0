@@ -1,4 +1,4 @@
-export { createRadioButton, createSwitch } from "./components/choices.js?v=11";
+export { createSwitch } from "./components/choices.js?v=11";
 export {
   createCardSummary,
   createChartPanel,
@@ -40,5 +40,5 @@ export { createMapsPrimitive } from "./primitives/maps.js?v=1";
 export { setIconGlyph } from "./primitives/iconography.js?v=1";
 export { createBadge, createChip, createTag } from "./components/status.js?v=2";
 export { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
-export { buttonPlatformAdapters, buttonPlatformContract, buttonPlatformProps, checkboxPlatformAdapters, checkboxPlatformContract, checkboxPlatformProps, iconButtonPlatformAdapters, iconButtonPlatformContract, iconButtonPlatformProps, inputPlatformAdapters, inputPlatformContract, inputPlatformProps, selectPlatformAdapters, selectPlatformContract, selectPlatformProps } from "./platforms/index.js?v=3";
+export { buttonPlatformAdapters, buttonPlatformContract, buttonPlatformProps, checkboxPlatformAdapters, checkboxPlatformContract, checkboxPlatformProps, iconButtonPlatformAdapters, iconButtonPlatformContract, iconButtonPlatformProps, inputPlatformAdapters, inputPlatformContract, inputPlatformProps, radioButtonPlatformAdapters, radioButtonPlatformContract, radioButtonPlatformProps, selectPlatformAdapters, selectPlatformContract, selectPlatformProps } from "./platforms/index.js?v=3";
 export { componentDemoProps, componentRegistry, hasComponent, listComponents, renderComponent, renderComponentDemo } from "./registry.js?v=58";

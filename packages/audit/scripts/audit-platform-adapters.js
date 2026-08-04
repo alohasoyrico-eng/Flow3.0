@@ -5,6 +5,7 @@ const buttonAdapterFile = path.join(root, "packages/components/src/platforms/but
 const checkboxAdapterFile = path.join(root, "packages/components/src/platforms/checkbox.js");
 const iconButtonAdapterFile = path.join(root, "packages/components/src/platforms/icon-button.js");
 const inputAdapterFile = path.join(root, "packages/components/src/platforms/input.js");
+const radioButtonAdapterFile = path.join(root, "packages/components/src/platforms/radio-button.js");
 const selectAdapterFile = path.join(root, "packages/components/src/platforms/select.js");
 const componentIndexFile = path.join(root, "packages/components/src/index.js");
 const componentPackageFile = path.join(root, "packages/components/package.json");
@@ -18,6 +19,8 @@ const reactIconButtonFile = path.join(root, "packages/react/src/IconButton.js");
 const reactIconButtonTypesFile = path.join(root, "packages/react/src/IconButton.d.ts");
 const reactInputFile = path.join(root, "packages/react/src/Input.js");
 const reactInputTypesFile = path.join(root, "packages/react/src/Input.d.ts");
+const reactRadioButtonFile = path.join(root, "packages/react/src/RadioButton.js");
+const reactRadioButtonTypesFile = path.join(root, "packages/react/src/RadioButton.d.ts");
 const reactSelectFile = path.join(root, "packages/react/src/Select.js");
 const reactSelectTypesFile = path.join(root, "packages/react/src/Select.d.ts");
 const reactIndexFile = path.join(root, "packages/react/src/index.js");
@@ -30,6 +33,8 @@ const reactDistIconButtonFile = path.join(root, "packages/react/dist/IconButton.
 const reactDistIconButtonTypesFile = path.join(root, "packages/react/dist/IconButton.d.ts");
 const reactDistInputFile = path.join(root, "packages/react/dist/Input.js");
 const reactDistInputTypesFile = path.join(root, "packages/react/dist/Input.d.ts");
+const reactDistRadioButtonFile = path.join(root, "packages/react/dist/RadioButton.js");
+const reactDistRadioButtonTypesFile = path.join(root, "packages/react/dist/RadioButton.d.ts");
 const reactDistSelectFile = path.join(root, "packages/react/dist/Select.js");
 const reactDistSelectTypesFile = path.join(root, "packages/react/dist/Select.d.ts");
 const reactPackageFile = path.join(root, "packages/react/package.json");
@@ -37,7 +42,7 @@ const reactExampleFile = path.join(root, "examples/prototyping/react-button.mjs"
 const forbiddenPrefix = "fl" + "ow-";
 
 function checkPlatformAdapters() {
-  for (const file of [adapterIndexFile, buttonAdapterFile, checkboxAdapterFile, iconButtonAdapterFile, inputAdapterFile, selectAdapterFile, reactButtonFile, reactButtonTypesFile, reactCheckboxFile, reactCheckboxTypesFile, reactIconButtonFile, reactIconButtonTypesFile, reactInputFile, reactInputTypesFile, reactSelectFile, reactSelectTypesFile, reactIndexFile, reactIndexTypesFile, reactDistButtonFile, reactDistButtonTypesFile, reactDistCheckboxFile, reactDistCheckboxTypesFile, reactDistIconButtonFile, reactDistIconButtonTypesFile, reactDistInputFile, reactDistInputTypesFile, reactDistSelectFile, reactDistSelectTypesFile, reactPackageFile, reactExampleFile]) {
+  for (const file of [adapterIndexFile, buttonAdapterFile, checkboxAdapterFile, iconButtonAdapterFile, inputAdapterFile, radioButtonAdapterFile, selectAdapterFile, reactButtonFile, reactButtonTypesFile, reactCheckboxFile, reactCheckboxTypesFile, reactIconButtonFile, reactIconButtonTypesFile, reactInputFile, reactInputTypesFile, reactRadioButtonFile, reactRadioButtonTypesFile, reactSelectFile, reactSelectTypesFile, reactIndexFile, reactIndexTypesFile, reactDistButtonFile, reactDistButtonTypesFile, reactDistCheckboxFile, reactDistCheckboxTypesFile, reactDistIconButtonFile, reactDistIconButtonTypesFile, reactDistInputFile, reactDistInputTypesFile, reactDistRadioButtonFile, reactDistRadioButtonTypesFile, reactDistSelectFile, reactDistSelectTypesFile, reactPackageFile, reactExampleFile]) {
     if (!fs.existsSync(file)) {
       add("errors", file, 1, "Platform implementation contract is missing.");
       return;
@@ -49,6 +54,7 @@ function checkPlatformAdapters() {
   const checkboxAdapter = read(checkboxAdapterFile);
   const iconButtonAdapter = read(iconButtonAdapterFile);
   const inputAdapter = read(inputAdapterFile);
+  const radioButtonAdapter = read(radioButtonAdapterFile);
   const selectAdapter = read(selectAdapterFile);
   const componentIndex = read(componentIndexFile);
   const componentPackage = read(componentPackageFile);
@@ -62,6 +68,8 @@ function checkPlatformAdapters() {
   const reactIconButtonTypes = read(reactIconButtonTypesFile);
   const reactInput = read(reactInputFile);
   const reactInputTypes = read(reactInputTypesFile);
+  const reactRadioButton = read(reactRadioButtonFile);
+  const reactRadioButtonTypes = read(reactRadioButtonTypesFile);
   const reactSelect = read(reactSelectFile);
   const reactSelectTypes = read(reactSelectTypesFile);
   const reactIndex = read(reactIndexFile);
@@ -225,6 +233,21 @@ function checkPlatformAdapters() {
   if (!selectAdapter.includes("componentContracts.select")) {
     add("errors", selectAdapterFile, 1, "Select platform contract must derive props, variants, states, and accessibility from componentContracts.select.");
   }
+  if (!adapterIndex.includes("radioButtonPlatformContract")) {
+    add("errors", adapterIndexFile, 1, "Platform index must export Radio Button platform contracts.");
+  }
+  if (radioButtonAdapter.includes("dom:") || radioButtonAdapter.includes('renderMode: "factory"') || radioButtonAdapter.includes('implementationRole: "transitional-static-renderer"')) {
+    add("errors", radioButtonAdapterFile, 1, "Radio Button platform contract must not advertise a DOM target once React is the public product component.");
+  }
+  for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true", "componentContracts.radioButton"]) {
+    if (!radioButtonAdapter.includes(snippet)) add("errors", radioButtonAdapterFile, 1, `Radio Button platform contract missing ${snippet}.`);
+  }
+  for (const token of ["comp.radio-button.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*"]) {
+    if (!radioButtonAdapter.includes(token)) add("errors", radioButtonAdapterFile, 1, `Radio Button platform contract must include token dependency ${token}.`);
+  }
+  for (const primitive of ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "message", "measurement"]) {
+    if (!radioButtonAdapter.includes(`"${primitive}"`)) add("errors", radioButtonAdapterFile, 1, `Radio Button platform contract must include primitive dependency ${primitive}.`);
+  }
   for (const token of [
     "comp.input.*",
     "component-field-*",
@@ -299,16 +322,18 @@ function checkPlatformAdapters() {
     [reactButtonTypesFile, reactButtonTypes, ["ButtonProps", "ButtonVariant", "ButtonDensity", "ButtonState", "buttonPlatformContract"]],
     [reactCheckboxFile, reactCheckbox, ["checkboxPlatformContract", "className: [\"choice checkbox\"", '"data-density": density || undefined', '"data-state": normalizedState', "choice__input", "choice__mark", "choice__indicator", "onCheckedChange"]],
     [reactCheckboxTypesFile, reactCheckboxTypes, ["CheckboxProps", "CheckboxVariant", "CheckboxDensity", "CheckboxState", "checkboxPlatformContract", "onCheckedChange"]],
-    [reactPackageFile, reactPackage, ['"build": "node scripts/build.mjs"', '"test": "node test/button-render.test.mjs"', '"types": "./dist/index.d.ts"', '"./button"', '"./checkbox"', '"./select"']],
+    [reactPackageFile, reactPackage, ['"build": "node scripts/build.mjs"', '"test": "node test/button-render.test.mjs"', '"types": "./dist/index.d.ts"', '"./button"', '"./checkbox"', '"./radio-button"', '"./select"']],
     [reactExampleFile, reactExample, ['import { Button } from "@design-system/react"', 'import "@design-system/components/styles.css"']],
     [reactIconButtonFile, reactIconButton, ["iconButtonPlatformContract", "className: iconButtonClassName", '"aria-label": resolvedLabel', '"aria-pressed": selected ? "true"', '"data-density": density || undefined', "icon-button__icon", "icon-button__badge"]],
     [reactIconButtonTypesFile, reactIconButtonTypes, ["IconButtonProps", "IconButtonVariant", "IconButtonDensity", "iconButtonPlatformContract", "icon: string"]],
     [reactInputFile, reactInput, ["inputPlatformContract", "className: [\"field\"", '"data-density": density || undefined', '"data-state": resolvedState', "field__control", "field__helper", "field-action", "normalizeValue", "inputModeForVariant"]],
     [reactInputTypesFile, reactInputTypes, ["InputProps", "InputVariant", "InputDensity", "InputState", "inputPlatformContract", "onValueChange"]],
+    [reactRadioButtonFile, reactRadioButton, ["radioButtonPlatformContract", "className: [\"choice radio\"", '"data-density": density || undefined', '"data-state": normalizedState', "choice__input", "choice__mark", "onCheckedChange"]],
+    [reactRadioButtonTypesFile, reactRadioButtonTypes, ["RadioButtonProps", "RadioButtonVariant", "RadioButtonDensity", "RadioButtonState", "radioButtonPlatformContract", "onCheckedChange"]],
     [reactSelectFile, reactSelect, ["selectPlatformContract", "className: [\"select-control\"", '"data-density": density || undefined', "select-control__trigger", "select-control__listbox", "select-control__option", "onValueChange"]],
     [reactSelectTypesFile, reactSelectTypes, ["SelectProps", "SelectVariant", "SelectDensity", "SelectState", "selectPlatformContract", "onValueChange"]],
-    [reactIndexFile, reactIndex, ["Button", "Checkbox", "IconButton", "Input", "Select"]],
-    [reactIndexTypesFile, reactIndexTypes, ["ButtonProps", "CheckboxProps", "IconButtonProps", "InputProps", "SelectProps"]],
+    [reactIndexFile, reactIndex, ["Button", "Checkbox", "IconButton", "Input", "RadioButton", "Select"]],
+    [reactIndexTypesFile, reactIndexTypes, ["ButtonProps", "CheckboxProps", "IconButtonProps", "InputProps", "RadioButtonProps", "SelectProps"]],
   ]) {
     for (const snippet of required) {
       if (!source.includes(snippet)) {
@@ -341,11 +366,13 @@ function checkPlatformAdapters() {
     [iconButtonAdapterFile, iconButtonAdapter],
     [checkboxAdapterFile, checkboxAdapter],
     [inputAdapterFile, inputAdapter],
+    [radioButtonAdapterFile, radioButtonAdapter],
     [selectAdapterFile, selectAdapter],
     [reactButtonFile, reactButton],
     [reactIconButtonFile, reactIconButton],
     [reactCheckboxFile, reactCheckbox],
     [reactInputFile, reactInput],
+    [reactRadioButtonFile, reactRadioButton],
     [reactSelectFile, reactSelect],
   ]) {
     if (source.includes(forbiddenPrefix)) {

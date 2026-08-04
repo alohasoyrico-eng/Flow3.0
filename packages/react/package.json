@@ -24,6 +24,10 @@
       "types": "./dist/Input.d.ts",
       "default": "./dist/Input.js"
     },
+    "./radio-button": {
+      "types": "./dist/RadioButton.d.ts",
+      "default": "./dist/RadioButton.js"
+    },
     "./select": {
       "types": "./dist/Select.d.ts",
       "default": "./dist/Select.js"

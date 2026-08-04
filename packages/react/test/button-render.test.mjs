@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, Checkbox, IconButton, Input, Select } from "../src/index.js";
-import { buttonPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, selectPlatformContract } from "@design-system/components/platforms";
+import { Button, Checkbox, IconButton, Input, RadioButton, Select } from "../src/index.js";
+import { buttonPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
@@ -12,6 +12,8 @@ assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
 assert.equal(Input.displayName, "Input");
 assert.equal(Input.platformContract, inputPlatformContract);
+assert.equal(RadioButton.displayName, "RadioButton");
+assert.equal(RadioButton.platformContract, radioButtonPlatformContract);
 assert.equal(Select.displayName, "Select");
 assert.equal(Select.platformContract, selectPlatformContract);
 
@@ -62,6 +64,23 @@ assert.match(checkboxMarkup, /class="choice__mark"/);
 assert.match(checkboxMarkup, /class="choice__indicator material-symbol"/);
 assert.match(checkboxMarkup, /class="choice__label">Enable fuel card<\/span>/);
 assert.match(checkboxMarkup, /class="choice__description"/);
+
+const radioButtonMarkup = renderToStaticMarkup(React.createElement(RadioButton, {
+  label: "Fastest route",
+  description: "Prioritize arrival time.",
+  checked: true,
+  density: "sm",
+  name: "route",
+  value: "fastest",
+}));
+assert.match(radioButtonMarkup, /class="choice radio"/);
+assert.match(radioButtonMarkup, /data-density="sm"/);
+assert.match(radioButtonMarkup, /data-state="selected"/);
+assert.match(radioButtonMarkup, /type="radio"/);
+assert.match(radioButtonMarkup, /name="route"/);
+assert.match(radioButtonMarkup, /class="choice__mark"/);
+assert.match(radioButtonMarkup, /class="choice__label">Fastest route<\/span>/);
+assert.match(radioButtonMarkup, /class="choice__description"/);
 
 const ref = createRef();
 React.createElement(Button, { ref, label: "Ref" });

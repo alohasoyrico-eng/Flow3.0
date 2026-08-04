@@ -35,6 +35,15 @@ export type {
   InputValueMeta,
   InputVariant,
 } from "./Input.js";
+export { RadioButton } from "./RadioButton.js";
+export type {
+  RadioButtonComponent,
+  RadioButtonDensity,
+  RadioButtonProps,
+  RadioButtonState,
+  RadioButtonValueMeta,
+  RadioButtonVariant,
+} from "./RadioButton.js";
 export { Select } from "./Select.js";
 export type {
   SelectComponent,

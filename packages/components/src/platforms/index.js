@@ -19,6 +19,11 @@ export {
   selectPlatformProps,
 } from "./select.js";
 export {
+  radioButtonPlatformAdapters,
+  radioButtonPlatformContract,
+  radioButtonPlatformProps,
+} from "./radio-button.js";
+export {
   checkboxPlatformAdapters,
   checkboxPlatformContract,
   checkboxPlatformProps,
