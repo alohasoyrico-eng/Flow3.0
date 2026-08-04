@@ -219,7 +219,9 @@ function checkPrototypePackages() {
     if (hasPublicComponentExport(componentText, factory)) add("errors", componentSource, 1, `${label} must not be exported as a public DOM factory; React is the public product component target.`);
     if (!componentContractText.includes(`factory: "${factory}"`)) add("errors", componentContracts, 1, `${label} contract must keep the internal factory reference until all internal DOM compositions migrate.`);
   }
-  if (hasPublicComponentExport(componentText, "hydrateSelect")) add("errors", componentSource, 1, "Select must not export a public DOM hydrator; React is the public product component target.");
+  for (const [label, hydrator] of [["Input", "hydrateInput"], ["Select", "hydrateSelect"], ["Text Area", "hydrateTextArea"]]) {
+    if (hasPublicComponentExport(componentText, hydrator)) add("errors", componentSource, 1, `${label} must not export a public DOM hydrator; React is the public product component target.`);
+  }
   for (const required of ["button", "iconButton", "input", "select", "card", "props", "accessibility", "componentContractVersion"]) {
     if (!componentContractText.includes(required)) add("errors", componentContracts, 1, `components contract missing: ${required}.`);
   }
