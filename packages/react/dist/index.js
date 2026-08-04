@@ -1,4 +1,5 @@
 export { Button } from "./Button.js";
+export { CardNumberInput } from "./CardNumberInput.js";
 export { Checkbox } from "./Checkbox.js";
 export { IconButton } from "./IconButton.js";
 export { Input } from "./Input.js";

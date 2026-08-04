@@ -157,7 +157,7 @@ function cardSecurityCodeValidity(value, expectedLength = 3) {
   return digits.length === expectedLength ? "valid" : "invalid";
 }
 
-export function hydrateCardNumberInput(root, { onValueChange } = {}) {
+export function hydrateTransitionalPaymentCardNumberInput(root, { onValueChange } = {}) {
   if (!root || root.__cardNumberHydrated === true) return root;
   const input = root.querySelector?.("[data-card-number-input]")
     ?? Array.from(root.querySelectorAll?.("input") ?? []).find((node) => node.attributes?.["data-card-number-input"] !== undefined);
@@ -938,7 +938,7 @@ export function createPhoneInput({
   return root;
 }
 
-export function createCardNumberInput({
+export function createTransitionalPaymentCardNumberInput({
   label,
   value = "",
   helper = "",
@@ -946,7 +946,7 @@ export function createCardNumberInput({
   disabled = false,
   loading = false,
   required = false,
-  density = "md",
+  density,
   state,
   name = "",
   placeholder = "5231 0000 0000 0000",
@@ -1020,7 +1020,7 @@ export function createCardNumberInput({
   root.append(control);
   const helperNode = appendFieldHelper(root, { id, text: resolvedHelper, target: input, className: "card-number-input__helper" });
   helperNode?.setAttribute("data-card-number-helper", "");
-  hydrateCardNumberInput(root, { onValueChange });
+  hydrateTransitionalPaymentCardNumberInput(root, { onValueChange });
   return root;
 }
 

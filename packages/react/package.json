@@ -12,6 +12,10 @@
       "types": "./dist/Button.d.ts",
       "default": "./dist/Button.js"
     },
+    "./card-number-input": {
+      "types": "./dist/CardNumberInput.d.ts",
+      "default": "./dist/CardNumberInput.js"
+    },
     "./checkbox": {
       "types": "./dist/Checkbox.d.ts",
       "default": "./dist/Checkbox.js"

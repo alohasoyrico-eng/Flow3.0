@@ -28,7 +28,7 @@ import {
   createTooltip,
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
-import { createCardExpiryInput, createCardNumberInput, createCardSecurityCodeInput, createCountrySelector, createDatePicker, createDateRangePicker, createCodeInput, createPhoneInput } from "./components/specialized-inputs.js?v=28";
+import { createCardExpiryInput, createCardSecurityCodeInput, createCountrySelector, createDatePicker, createDateRangePicker, createCodeInput, createPhoneInput } from "./components/specialized-inputs.js?v=28";
 import { createBadge, createChip, createTag } from "./components/status.js?v=2";
 import { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
 
@@ -45,7 +45,9 @@ export const componentRegistry = Object.freeze({
   },
   card: createCard,
   "card-expiry-input": createCardExpiryInput,
-  "card-number-input": createCardNumberInput,
+  "card-number-input": () => {
+    throw new Error("Card Number Input is React-primary. Use @design-system/react/card-number-input instead of the transitional DOM renderer.");
+  },
   "card-security-code-input": createCardSecurityCodeInput,
   "card-summary": createCardSummary,
   checkbox: () => {

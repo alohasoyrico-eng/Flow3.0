@@ -12,7 +12,6 @@ import {
   createAvatar,
   createBiometricPrompt,
   createCardExpiryInput,
-  createCardNumberInput,
   createCardSecurityCodeInput,
   createCountrySelector,
   createDialog,
@@ -56,10 +55,12 @@ import {
   listCountryFlags,
   resolveAnimationRuntime,
   hydrateCardExpiryInput,
-  hydrateCardNumberInput,
   hydrateCardSecurityCodeInput,
   hydrateCombobox,
   hydrateCountrySelector,
+  cardNumberInputPlatformAdapters,
+  cardNumberInputPlatformContract,
+  cardNumberInputPlatformProps,
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,
@@ -85,6 +86,10 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
+import {
+  createTransitionalPaymentCardNumberInput,
+  hydrateTransitionalPaymentCardNumberInput,
+} from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
 import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
@@ -258,7 +263,16 @@ assert.deepEqual(inputPlatformContract.states, componentContracts.input.states);
 assert.deepEqual(Object.keys(inputPlatformAdapters), ["react"]);
 assert.equal(inputPlatformAdapters.react.componentName, "Input");
 assert.equal(inputPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.cardNumberInput.factory, "createCardNumberInput");
+assert.equal(componentContracts.cardNumberInput.factory, "@design-system/react/card-number-input");
+assert.equal(componentContracts.cardNumberInput.internalFactory, "createTransitionalPaymentCardNumberInput");
+assert.equal(cardNumberInputPlatformContract.id, "card-number-input");
+assert.equal(cardNumberInputPlatformContract.source.factory, componentContracts.cardNumberInput.factory);
+assert.deepEqual(cardNumberInputPlatformProps(), componentContracts.cardNumberInput.props.map((prop) => prop.name));
+assert.deepEqual(cardNumberInputPlatformContract.variants, componentContracts.cardNumberInput.variants);
+assert.deepEqual(cardNumberInputPlatformContract.states, componentContracts.cardNumberInput.states);
+assert.deepEqual(Object.keys(cardNumberInputPlatformAdapters), ["react"]);
+assert.equal(cardNumberInputPlatformAdapters.react.componentName, "CardNumberInput");
+assert.equal(cardNumberInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardExpiryInput.factory, "createCardExpiryInput");
 assert.equal(componentContracts.cardSecurityCodeInput.factory, "createCardSecurityCodeInput");
 assert.equal(componentContracts.select.factory, "@design-system/react/select");
@@ -476,7 +490,7 @@ assert.equal(passwordField.type, "password");
 assert.equal(revealButton.attributes["aria-pressed"], "false");
 
 let cardNumberMeta = null;
-const cardNumberInput = createCardNumberInput({
+const cardNumberInput = createTransitionalPaymentCardNumberInput({
   label: "Card number",
   value: "4111111111111111",
   helper: "Use the number printed on the front of the card.",
@@ -518,7 +532,7 @@ assert.equal(cardBrand.textContent, "Mastercard");
 assert.equal(cardNumberInput.querySelector(".field__helper").textContent, "Use the number printed on the front of the card.");
 assert.equal(cardNumberInput.querySelector(".field__helper").attributes.role, undefined);
 
-hydrateCardNumberInput(cardNumberInput);
+hydrateTransitionalPaymentCardNumberInput(cardNumberInput);
 assert.equal(cardNumberInput.dataset.cardNumberHydrated, "true");
 
 let cardExpiryMeta = null;

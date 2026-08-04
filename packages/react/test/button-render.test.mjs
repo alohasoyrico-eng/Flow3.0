@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, Checkbox, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
-import { buttonPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Button, CardNumberInput, Checkbox, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
+import { buttonPlatformContract, cardNumberInputPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
+assert.equal(CardNumberInput.displayName, "CardNumberInput");
+assert.equal(CardNumberInput.platformContract, cardNumberInputPlatformContract);
 assert.equal(Checkbox.displayName, "Checkbox");
 assert.equal(Checkbox.platformContract, checkboxPlatformContract);
 assert.equal(IconButton.displayName, "IconButton");
@@ -175,6 +177,30 @@ const inheritedInputMarkup = renderToStaticMarkup(React.createElement(Input, {
   value: "Alex",
 }));
 assert.doesNotMatch(inheritedInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const cardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput, {
+  label: "Card number",
+  helper: "Use the number printed on the front of the card.",
+  value: "4111111111111111",
+  density: "sm",
+}));
+assert.match(cardNumberInputMarkup, /class="field card-number-input"/);
+assert.match(cardNumberInputMarkup, /data-density="sm"/);
+assert.match(cardNumberInputMarkup, /data-state="valid"/);
+assert.match(cardNumberInputMarkup, /data-validity="valid"/);
+assert.match(cardNumberInputMarkup, /data-brand="Visa"/);
+assert.match(cardNumberInputMarkup, /class="field__control card-number-input__control"/);
+assert.match(cardNumberInputMarkup, /class="input card-number-input__input"/);
+assert.match(cardNumberInputMarkup, /autoComplete="cc-number"|autocomplete="cc-number"/);
+assert.match(cardNumberInputMarkup, /value="4111 1111 1111 1111"/);
+assert.match(cardNumberInputMarkup, /class="field__suffix card-number-input__brand"/);
+assert.match(cardNumberInputMarkup, /Visa/);
+
+const inheritedCardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput, {
+  label: "Card number",
+  value: "5231000000000000",
+}));
+assert.doesNotMatch(inheritedCardNumberInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

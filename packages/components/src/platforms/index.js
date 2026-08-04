@@ -14,6 +14,11 @@ export {
   inputPlatformProps,
 } from "./input.js";
 export {
+  cardNumberInputPlatformAdapters,
+  cardNumberInputPlatformContract,
+  cardNumberInputPlatformProps,
+} from "./card-number-input.js";
+export {
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,

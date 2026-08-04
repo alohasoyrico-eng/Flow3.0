@@ -254,12 +254,6 @@ fixtures.countrySelectorOptions[1].dispatch("keydown", { key: "Enter" });
 assert.equal(fixtures.countrySelectorControl.dataset.country, "CU", "Country Selector Enter should select the active country.");
 assert.equal(fixtures.countrySelectorPrefix.textContent, "+53", "Country Selector should sync the visible calling code.");
 
-fixtures.cardNumberInput.value = "4111111111111112";
-fixtures.cardNumberInput.dispatch("input");
-assert.equal(fixtures.cardNumberInput.value, "4111 1111 1111 1112", "Card Number Input should group digits.");
-assert.equal(fixtures.cardNumber.dataset.validity, "invalid", "Card Number Input should mark invalid Luhn state.");
-assert.equal(fixtures.cardNumberInput.getAttribute("aria-invalid"), "true", "Card Number Input should expose invalid state.");
-
 fixtures.cardExpiryInput.value = "1328";
 	fixtures.cardExpiryInput.dispatch("input");
 	assert.equal(fixtures.cardExpiryInput.value, "13/28", "Card Expiry Input should format MM/YY.");
@@ -345,7 +339,6 @@ console.log(JSON.stringify({
     "phone-input",
     "combobox",
     "country-selector",
-	    "card-number-input",
     "card-expiry-input",
     "card-security-code-input",
     "date-picker",
@@ -512,10 +505,6 @@ function buildFixtures() {
   }, [countrySelectorTrigger, countrySelectorList]);
   const countrySelector = el("span", { attrs: { "data-doc-component": "country-selector" } }, [countrySelectorControl]);
 
-  const cardNumberInput = el("input", { attrs: { "data-card-number-input": "", autocomplete: "cc-number", inputmode: "numeric" } });
-  const cardNumberHelper = el("small", { attrs: { "data-card-number-helper": "" }, textContent: "Use the number printed on the front of the card." });
-  const cardNumber = el("label", { className: "card-number-input", attrs: { "data-doc-component": "card-number-input", "data-validation-message": "Check the card number." }, dataset: { state: "default" } }, [cardNumberInput, cardNumberHelper]);
-
 	  const cardExpiryInput = el("input", { attrs: { "data-card-expiry-input": "", autocomplete: "cc-exp", inputmode: "numeric" } });
 	  const cardExpiryHelper = el("small", { attrs: { "data-card-expiry-helper": "" }, textContent: "Use the expiry printed on the card." });
 	  const cardExpiry = el("label", { className: "card-expiry-input", attrs: { "data-doc-component": "card-expiry-input", "data-validation-message": "Check the expiry date.", "data-expired-message": "Use a card that has not expired." }, dataset: { state: "default" } }, [cardExpiryInput, cardExpiryHelper]);
@@ -631,7 +620,6 @@ function buildFixtures() {
       phone,
       combobox,
       countrySelector,
-      cardNumber,
 	      cardExpiry,
       cardSecurityCode,
       datePicker,
@@ -675,8 +663,6 @@ function buildFixtures() {
     countrySelectorSearch,
     countrySelectorOptions,
     countrySelectorPrefix,
-    cardNumber,
-    cardNumberInput,
 	    cardExpiry,
 	    cardExpiryInput,
       cardSecurityCode,
