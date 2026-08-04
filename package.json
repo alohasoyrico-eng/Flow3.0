@@ -20,6 +20,7 @@
     "./react/card-number-input": "./packages/react/dist/CardNumberInput.js",
     "./react/card-security-code-input": "./packages/react/dist/CardSecurityCodeInput.js",
     "./react/code-input": "./packages/react/dist/CodeInput.js",
+    "./react/date-picker": "./packages/react/dist/DatePicker.js",
     "./react/icon-button": "./packages/react/dist/IconButton.js",
     "./react/input": "./packages/react/dist/Input.js",
     "./react/phone-input": "./packages/react/dist/PhoneInput.js",
