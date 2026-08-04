@@ -37,7 +37,6 @@ import {
   createQuickAction,
   createRadioButton,
   createRouteSummary,
-  createSelect,
   createSegmentedControl,
   createSkeleton,
   createSpinner,
@@ -74,9 +73,12 @@ import {
   inputPlatformAdapters,
   inputPlatformContract,
   inputPlatformProps,
+  selectPlatformAdapters,
+  selectPlatformContract,
+  selectPlatformProps,
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
-import { createInput } from "../src/components/fields.js";
+import { createInput, createSelect } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -248,6 +250,14 @@ assert.equal(componentContracts.cardNumberInput.factory, "createCardNumberInput"
 assert.equal(componentContracts.cardExpiryInput.factory, "createCardExpiryInput");
 assert.equal(componentContracts.cardSecurityCodeInput.factory, "createCardSecurityCodeInput");
 assert.equal(componentContracts.select.factory, "createSelect");
+assert.equal(selectPlatformContract.id, "select");
+assert.equal(selectPlatformContract.source.factory, componentContracts.select.factory);
+assert.deepEqual(selectPlatformProps(), componentContracts.select.props.map((prop) => prop.name));
+assert.deepEqual(selectPlatformContract.variants, componentContracts.select.variants);
+assert.deepEqual(selectPlatformContract.states, componentContracts.select.states);
+assert.deepEqual(Object.keys(selectPlatformAdapters), ["react"]);
+assert.equal(selectPlatformAdapters.react.componentName, "Select");
+assert.equal(selectPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.combobox.factory, "createCombobox");
 assert.equal(componentContracts.card.factory, "createCard");
 assert.equal(componentContracts.checkbox.factory, "createCheckbox");

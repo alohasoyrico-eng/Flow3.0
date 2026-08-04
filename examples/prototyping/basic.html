@@ -40,10 +40,11 @@
       }
     </script>
     <script type="module">
-      import { createCard, createSelect } from "../../packages/components/src/index.js";
+      import { createCard } from "../../packages/components/src/index.js";
       import { Button } from "../../packages/react/dist/Button.js";
       import { IconButton } from "../../packages/react/dist/IconButton.js";
       import { Input } from "../../packages/react/dist/Input.js";
+      import { Select } from "../../packages/react/dist/Select.js";
 
       function mountButton(props) {
         const host = document.createElement("span");
@@ -67,6 +68,16 @@
         return host;
       }
 
+      function mountSelect(props) {
+        const host = document.createElement("span");
+        const SelectDemo = () => {
+          const [value, setValue] = React.useState(props.value ?? "");
+          return React.createElement(Select, { ...props, value, onValueChange: setValue });
+        };
+        ReactDOM.createRoot(host).render(React.createElement(SelectDemo));
+        return host;
+      }
+
       const response = await fetch("../../packages/content/content/fixtures/prototyping.json");
       const fixtures = await response.json();
       const root = document.querySelector("#prototype");
@@ -83,7 +94,7 @@
             { label: "Export", variant: "secondary" },
           ],
         }),
-        createSelect({
+        mountSelect({
           label: "Fleet",
           helper: "Choose the fleet scope for this prototype.",
           options: fixtures.fleets.map((fleet) => ({ label: fleet.label, value: fleet.id })),

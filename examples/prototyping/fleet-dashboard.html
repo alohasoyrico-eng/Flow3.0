@@ -43,12 +43,33 @@
       }
     </script>
     <script type="module">
-      import { createCard, createSelect } from "../../packages/components/src/index.js";
+      import { createCard } from "../../packages/components/src/index.js";
       import { Button } from "../../packages/react/dist/Button.js";
+      import { Select } from "../../packages/react/dist/Select.js";
 
       function mountButton(props) {
         const host = document.createElement("span");
         ReactDOM.createRoot(host).render(React.createElement(Button, props));
+        return host;
+      }
+
+      function mountSelect(props) {
+        const host = document.createElement("span");
+        const root = ReactDOM.createRoot(host);
+        let selectedValue = props.value;
+        const render = () => {
+          root.render(
+            React.createElement(Select, {
+              ...props,
+              value: selectedValue,
+              onValueChange(value) {
+                selectedValue = value;
+                render();
+              },
+            }),
+          );
+        };
+        render();
         return host;
       }
 
@@ -58,7 +79,7 @@
       const fleetCards = document.querySelector("#fleetCards");
 
       scope.append(
-        createSelect({
+        mountSelect({
           label: "Fleet scope",
           helper: "Prototype data from packages/content.",
           options: fixtures.fleets.map((fleet) => ({ label: fleet.label, value: fleet.id })),

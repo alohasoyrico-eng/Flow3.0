@@ -46,8 +46,8 @@ const moduleRules = [
     id: "fields",
     file: "packages/components/src/components/fields.js",
     exports: ["createSelect", "createTextArea", "createInput"],
-    publicExports: ["createSelect", "createTextArea"],
-    internalExports: ["createInput"],
+    publicExports: ["createTextArea"],
+    internalExports: ["createSelect", "createInput"],
   },
   {
     id: "interactions",

@@ -11,7 +11,7 @@ export {
 } from "./components/commerce.js?v=19";
 export { createAuditEvent, createAvatar, createKpiTile, createList } from "./components/display.js?v=3";
 export { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
-export { createCombobox, createSelect, createTextArea, hydrateCombobox, hydrateSelect, hydrateTextArea } from "./components/fields.js?v=21";
+export { createCombobox, createTextArea, hydrateCombobox, hydrateSelect, hydrateTextArea } from "./components/fields.js?v=21";
 export {
   createAccordion,
   createSegmentedControl,
@@ -40,5 +40,5 @@ export { createMapsPrimitive } from "./primitives/maps.js?v=1";
 export { setIconGlyph } from "./primitives/iconography.js?v=1";
 export { createBadge, createChip, createTag } from "./components/status.js?v=2";
 export { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
-export { buttonPlatformAdapters, buttonPlatformContract, buttonPlatformProps, iconButtonPlatformAdapters, iconButtonPlatformContract, iconButtonPlatformProps, inputPlatformAdapters, inputPlatformContract, inputPlatformProps } from "./platforms/index.js?v=3";
+export { buttonPlatformAdapters, buttonPlatformContract, buttonPlatformProps, iconButtonPlatformAdapters, iconButtonPlatformContract, iconButtonPlatformProps, inputPlatformAdapters, inputPlatformContract, inputPlatformProps, selectPlatformAdapters, selectPlatformContract, selectPlatformProps } from "./platforms/index.js?v=3";
 export { componentDemoProps, componentRegistry, hasComponent, listComponents, renderComponent, renderComponentDemo } from "./registry.js?v=58";

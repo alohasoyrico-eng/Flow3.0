@@ -118,29 +118,11 @@ function checkPlatformAdapters() {
   if (!inputAdapter.includes("react:")) {
     add("errors", inputAdapterFile, 1, "Input platform contract must declare React as its implementation target.");
   }
-  for (const platform of ["dom", "react"]) {
-    if (!selectAdapter.includes(`${platform}:`)) {
-      add("errors", selectAdapterFile, 1, `Select platform contract must declare a ${platform} implementation target.`);
-    }
+  if (selectAdapter.includes("dom:") || selectAdapter.includes('renderMode: "factory"') || selectAdapter.includes('implementationRole: "transitional-static-renderer"')) {
+    add("errors", selectAdapterFile, 1, "Select platform contract must not advertise a DOM target once React is the public product component.");
   }
-  for (const [file, source, componentName] of [
-    [selectAdapterFile, selectAdapter, "Select"],
-  ]) {
-    for (const snippet of [
-      'renderMode: "component"',
-      'implementationRole: "primary-product-component"',
-      "sourceOfTruth: true",
-      'renderMode: "factory"',
-      'implementationRole: "transitional-static-renderer"',
-      "sourceOfTruth: false",
-    ]) {
-      if (!source.includes(snippet)) {
-        add("errors", file, 1, `${componentName} platform contract must mark React as primary and DOM as transitional; missing ${snippet}.`);
-      }
-    }
-    if (source.includes('renderMode: "adapter"')) {
-      add("errors", file, 1, `${componentName} must not call the React implementation an adapter; React is the primary component target.`);
-    }
+  if (!selectAdapter.includes("react:")) {
+    add("errors", selectAdapterFile, 1, "Select platform contract must declare React as its implementation target.");
   }
   for (const snippet of [
     'renderMode: "component"',
@@ -167,6 +149,15 @@ function checkPlatformAdapters() {
   ]) {
     if (!inputAdapter.includes(snippet)) {
       add("errors", inputAdapterFile, 1, `Input platform contract must mark React as the only public component target; missing ${snippet}.`);
+    }
+  }
+  for (const snippet of [
+    'renderMode: "component"',
+    'implementationRole: "primary-product-component"',
+    "sourceOfTruth: true",
+  ]) {
+    if (!selectAdapter.includes(snippet)) {
+      add("errors", selectAdapterFile, 1, `Select platform contract must mark React as the only public component target; missing ${snippet}.`);
     }
   }
   for (const token of [

@@ -1,18 +1,6 @@
 const {
-  fs,
-  path,
-  root,
-  docsAppFile,
-  docsContentSourcesFile,
-  docsStyleModulePaths,
-  catalogFile,
-  manifestFile,
-  foundations,
-  primitiveNames,
-  result,
-  read,
-  readJson,
-  add,
+  fs, path, root, docsAppFile, docsContentSourcesFile, docsStyleModulePaths, catalogFile,
+  manifestFile, foundations, primitiveNames, result, read, readJson, add,
 } = require("./audit-context.js");
 
 function checkArchitectureGate() {
@@ -222,13 +210,12 @@ function checkPrototypePackages() {
     if (!tokenCssText.includes(required)) add("errors", tokenCss, 1, `tokens CSS variable missing: ${required}.`);
   }
   for (const required of [
-    { exportName: "createSelect", factoryName: "createSelect" },
     { exportName: "createCard", factoryName: "createCard" },
   ]) {
     if (!hasPublicComponentExport(componentText, required.exportName)) add("errors", componentSource, 1, `components export missing: ${required.exportName}.`);
     if (required.factoryName && !componentContractText.includes(`factory: "${required.factoryName}"`)) add("errors", componentContracts, 1, `components contract missing factory: ${required.factoryName}.`);
   }
-  for (const [label, factory] of [["Button", "createButton"], ["Icon Button", "createIconButton"], ["Input", "createInput"]]) {
+  for (const [label, factory] of [["Button", "createButton"], ["Icon Button", "createIconButton"], ["Input", "createInput"], ["Select", "createSelect"]]) {
     if (hasPublicComponentExport(componentText, factory)) add("errors", componentSource, 1, `${label} must not be exported as a public DOM factory; React is the public product component target.`);
     if (!componentContractText.includes(`factory: "${factory}"`)) add("errors", componentContracts, 1, `${label} contract must keep the internal factory reference until all internal DOM compositions migrate.`);
   }
@@ -251,15 +238,20 @@ function checkPrototypePackages() {
         if (!exampleText.includes(required)) add("errors", exampleFile, 1, `Prototype index must link to ${required}.`);
       }
     } else if (exampleFile.endsWith("basic.html")) {
-      for (const required of ["createSelect", "createCard"]) {
+      for (const required of ["createCard"]) {
         if (!exampleText.includes(required)) add("errors", exampleFile, 1, `Basic prototype must consume ${required}.`);
       }
       if (!exampleText.includes("packages/react/dist/Button.js") || !exampleText.includes("React.createElement(Button")) add("errors", exampleFile, 1, "Basic prototype must consume the React Button instead of the internal DOM button factory.");
       if (!exampleText.includes("packages/react/dist/IconButton.js") || !exampleText.includes("React.createElement(IconButton")) add("errors", exampleFile, 1, "Basic prototype must consume the React Icon Button instead of the internal DOM icon button factory.");
       if (!exampleText.includes("packages/react/dist/Input.js") || !exampleText.includes("React.createElement(Input")) add("errors", exampleFile, 1, "Basic prototype must consume the React Input instead of the internal DOM input factory.");
+      if (!exampleText.includes("packages/react/dist/Select.js") || !exampleText.includes("React.createElement(Select")) add("errors", exampleFile, 1, "Basic prototype must consume the React Select instead of the internal DOM select factory.");
       if (!exampleText.includes("fixtures/prototyping.json")) {
         add("errors", exampleFile, 1, "Basic prototype must consume shared prototyping fixtures.");
       }
+    } else if (exampleFile.endsWith("fleet-dashboard.html")) {
+      if (exampleText.includes("createSelect")) add("errors", exampleFile, 1, "Fleet dashboard prototype must consume the React Select instead of the internal DOM select factory.");
+      if (!exampleText.includes("packages/react/dist/Select.js") || !exampleText.includes("React.createElement(Select")) add("errors", exampleFile, 1, "Fleet dashboard prototype must consume the React Select product component.");
+      if (!exampleText.includes("fixtures/prototyping.json")) add("errors", exampleFile, 1, "Role prototype must consume shared prototyping fixtures.");
     } else if (!exampleText.includes("fixtures/prototyping.json")) {
       add("errors", exampleFile, 1, "Role prototype must consume shared prototyping fixtures.");
     }

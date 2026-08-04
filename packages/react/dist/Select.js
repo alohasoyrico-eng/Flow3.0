@@ -1,4 +1,4 @@
-import React, { forwardRef, useId } from "react";
+import React, { forwardRef, useId, useState } from "react";
 import { selectPlatformContract } from "@design-system/components/platforms";
 
 function selectedOptionFor(options, value) {
@@ -26,17 +26,29 @@ export const Select = forwardRef(function Select({
 }, ref) {
   const generatedId = useId();
   const selectId = id ?? `select-${generatedId}`;
-  const selectedOption = selectedOptionFor(options, value);
+  const [currentValue, setCurrentValue] = useState(value);
+  const [open, setOpen] = useState(state === "open");
+  const selectedOption = selectedOptionFor(options, currentValue);
   const selectedValue = selectedOption.value ?? selectedOption.label ?? "";
-  const isOpen = state === "open";
+  const isOpen = open;
   const resolvedState = disabled ? "disabled" : state || "default";
+  const activeIndex = Math.max(options.indexOf(selectedOption), 0);
+  const commitOption = (option) => {
+    if (option.disabled) return;
+    const optionValue = option.value ?? option.label ?? "";
+    setCurrentValue(optionValue);
+    setOpen(false);
+    onValueChange?.(optionValue, { label: option.label ?? "", meta: option.meta ?? "" });
+  };
 
   return React.createElement(
-    "label",
+    "span",
     {
       className: ["field", className].filter(Boolean).join(" "),
       "data-state": resolvedState,
       "data-density": density || undefined,
+      role: "group",
+      "aria-labelledby": `${selectId}-label`,
     },
     React.createElement("span", { className: "field__label", id: `${selectId}-label` }, label ?? "Select"),
     React.createElement(
@@ -65,7 +77,18 @@ export const Select = forwardRef(function Select({
           "aria-label": label ?? "Select",
           "aria-labelledby": `${selectId}-label`,
           "aria-invalid": state === "error" ? "true" : undefined,
-          "aria-activedescendant": `${selectId}-option-${Math.max(options.indexOf(selectedOption), 0)}`,
+          "aria-activedescendant": `${selectId}-option-${activeIndex}`,
+          onClick: () => setOpen((current) => !current),
+          onKeyDown: (event) => {
+            if (["ArrowDown", "Enter", " "].includes(event.key)) {
+              event.preventDefault();
+              setOpen(true);
+            }
+            if (event.key === "Escape") {
+              event.preventDefault();
+              setOpen(false);
+            }
+          },
         },
         icon ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, icon) : null,
         React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedOption.label ?? selectedOption.value ?? ""),
@@ -100,7 +123,18 @@ export const Select = forwardRef(function Select({
               "data-label": option.label ?? option.value ?? "",
               "data-meta": option.meta || undefined,
               "data-disabled": option.disabled ? "true" : undefined,
-              onClick: option.disabled ? undefined : () => onValueChange?.(optionValue, { label: option.label ?? "", meta: option.meta ?? "" }),
+              onClick: option.disabled ? undefined : () => commitOption(option),
+              onKeyDown: (event) => {
+                if (option.disabled) return;
+                if (["Enter", " "].includes(event.key)) {
+                  event.preventDefault();
+                  commitOption(option);
+                }
+                if (event.key === "Escape") {
+                  event.preventDefault();
+                  setOpen(false);
+                }
+              },
             },
             React.createElement("span", { className: "select-control__option-label" }, option.label ?? option.value ?? ""),
             option.meta ? React.createElement("span", { className: "select-control__option-code" }, option.meta) : null,

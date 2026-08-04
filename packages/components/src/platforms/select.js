@@ -56,14 +56,6 @@ export const selectPlatformContract = {
 };
 
 export const selectPlatformAdapters = {
-  dom: {
-    package: "@design-system/components",
-    importName: selectContract.factory,
-    renderMode: "factory",
-    implementationRole: "transitional-static-renderer",
-    sourceOfTruth: false,
-    styleSource: "@design-system/components/styles.css",
-  },
   react: {
     package: "@design-system/react",
     componentName: "Select",

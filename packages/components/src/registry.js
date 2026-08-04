@@ -10,7 +10,7 @@ import {
 } from "./components/commerce.js?v=15";
 import { createAuditEvent, createAvatar, createKpiTile, createList } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
-import { createCombobox, createSelect, createTextArea } from "./components/fields.js?v=21";
+import { createCombobox, createTextArea } from "./components/fields.js?v=21";
 import {
   createAccordion,
   createSegmentedControl,
@@ -79,7 +79,9 @@ export const componentRegistry = Object.freeze({
   "radio-button": createRadioButton,
   "route-summary": createRouteSummary,
   "segmented-control": createSegmentedControl,
-  select: createSelect,
+  select: () => {
+    throw new Error("Select is React-primary. Use @design-system/react/select instead of the transitional DOM renderer.");
+  },
   skeleton: createSkeleton,
   spinner: createSpinner,
   slider: createSlider,
@@ -117,6 +119,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "input") {
     throw new Error("Input is React-primary. Use @design-system/react/input instead of renderComponentDemo.");
+  }
+  if (id === "select") {
+    throw new Error("Select is React-primary. Use @design-system/react/select instead of renderComponentDemo.");
   }
   return factory(props);
 }
