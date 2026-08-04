@@ -1,0 +1,105 @@
+import React, { forwardRef, useEffect, useRef, useState } from "react";
+import { checkboxPlatformContract } from "@design-system/components/platforms";
+
+function normalizeState({ checked, indeterminate, disabled, state, error }) {
+  if (disabled) return "disabled";
+  if (indeterminate) return "indeterminate";
+  if (checked) return "checked";
+  if (state === "error" || error) return "error";
+  if (state === "focus") return "focus";
+  return "unchecked";
+}
+
+export const Checkbox = forwardRef(function Checkbox({
+  label,
+  description = "",
+  error = "",
+  variant = "default",
+  state = "unchecked",
+  density,
+  checked = false,
+  indeterminate = false,
+  disabled = false,
+  name = "",
+  value = "on",
+  required = false,
+  onCheckedChange,
+  className = "",
+  ...rest
+}, ref) {
+  const [currentChecked, setCurrentChecked] = useState(Boolean(checked));
+  const [currentIndeterminate, setCurrentIndeterminate] = useState(Boolean(indeterminate));
+  const inputRef = useRef(null);
+  const normalizedState = normalizeState({
+    checked: currentChecked,
+    indeterminate: currentIndeterminate,
+    disabled,
+    state,
+    error,
+  });
+  const isInvalid = normalizedState === "error" || Boolean(error);
+
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.indeterminate = currentIndeterminate;
+  }, [currentIndeterminate]);
+
+  const assignRef = (node) => {
+    inputRef.current = node;
+    if (typeof ref === "function") ref(node);
+    else if (ref) ref.current = node;
+  };
+
+  const handleChange = (event) => {
+    if (disabled) return;
+    const nextChecked = event.currentTarget.checked;
+    setCurrentIndeterminate(false);
+    setCurrentChecked(nextChecked);
+    onCheckedChange?.(nextChecked, { indeterminate: false, value });
+  };
+
+  return React.createElement(
+    "label",
+    {
+      className: ["choice checkbox", className].filter(Boolean).join(" "),
+      "data-checked": String(currentChecked),
+      "data-indeterminate": String(currentIndeterminate),
+      "data-variant": variant,
+      "data-state": normalizedState,
+      "data-density": density || undefined,
+      "data-invalid": isInvalid ? "true" : undefined,
+    },
+    React.createElement("input", {
+      ...rest,
+      ref: assignRef,
+      type: "checkbox",
+      className: "choice__input",
+      name,
+      value,
+      checked: currentChecked,
+      disabled,
+      required,
+      "aria-checked": currentIndeterminate ? "mixed" : String(currentChecked),
+      "aria-invalid": isInvalid ? "true" : undefined,
+      onChange: handleChange,
+    }),
+    React.createElement(
+      "span",
+      { className: "choice__mark", "aria-hidden": "true" },
+      React.createElement(
+        "span",
+        { className: "choice__indicator material-symbol" },
+        currentIndeterminate ? "remove" : "check",
+      ),
+    ),
+    React.createElement(
+      "span",
+      { className: "choice__text" },
+      React.createElement("span", { className: "choice__label" }, label ?? "Checkbox"),
+      description ? React.createElement("span", { className: "choice__description" }, description) : null,
+      error ? React.createElement("span", { className: "choice__error" }, error) : null,
+    ),
+  );
+});
+
+Checkbox.displayName = "Checkbox";
+Checkbox.platformContract = checkboxPlatformContract;

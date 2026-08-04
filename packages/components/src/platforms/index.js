@@ -18,3 +18,8 @@ export {
   selectPlatformContract,
   selectPlatformProps,
 } from "./select.js";
+export {
+  checkboxPlatformAdapters,
+  checkboxPlatformContract,
+  checkboxPlatformProps,
+} from "./checkbox.js";

@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, IconButton, Input, Select } from "../src/index.js";
-import { buttonPlatformContract, iconButtonPlatformContract, inputPlatformContract, selectPlatformContract } from "@design-system/components/platforms";
+import { Button, Checkbox, IconButton, Input, Select } from "../src/index.js";
+import { buttonPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, selectPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
+assert.equal(Checkbox.displayName, "Checkbox");
+assert.equal(Checkbox.platformContract, checkboxPlatformContract);
 assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
 assert.equal(Input.displayName, "Input");
@@ -42,6 +44,24 @@ assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-dens
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);
 assert.match(loadingMarkup, /class="spinner__arc"/);
+
+const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
+  label: "Enable fuel card",
+  description: "Applies to active drivers.",
+  checked: true,
+  density: "sm",
+  variant: "descriptive",
+}));
+assert.match(checkboxMarkup, /class="choice checkbox"/);
+assert.match(checkboxMarkup, /data-density="sm"/);
+assert.match(checkboxMarkup, /data-variant="descriptive"/);
+assert.match(checkboxMarkup, /data-state="checked"/);
+assert.match(checkboxMarkup, /type="checkbox"/);
+assert.match(checkboxMarkup, /aria-checked="true"/);
+assert.match(checkboxMarkup, /class="choice__mark"/);
+assert.match(checkboxMarkup, /class="choice__indicator material-symbol"/);
+assert.match(checkboxMarkup, /class="choice__label">Enable fuel card<\/span>/);
+assert.match(checkboxMarkup, /class="choice__description"/);
 
 const ref = createRef();
 React.createElement(Button, { ref, label: "Ref" });
@@ -131,6 +151,7 @@ const inheritedSelectMarkup = renderToStaticMarkup(React.createElement(Select, {
   ],
 }));
 assert.doesNotMatch(inheritedSelectMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(inheritedSelectMarkup.match(/^<span[^>]+class="field"[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedSelectMarkup.match(/<span class="select-control"[^>]+>/)?.[0] ?? "", /data-density=/);
 
 console.log("react action and field component render tests passed");

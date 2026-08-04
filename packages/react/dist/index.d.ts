@@ -1,4 +1,5 @@
 export { Button } from "./Button.js";
+export { Checkbox } from "./Checkbox.js";
 export type {
   ButtonComponent,
   ButtonDensity,
@@ -8,6 +9,14 @@ export type {
   ButtonType,
   ButtonVariant,
 } from "./Button.js";
+export type {
+  CheckboxComponent,
+  CheckboxDensity,
+  CheckboxProps,
+  CheckboxState,
+  CheckboxValueMeta,
+  CheckboxVariant,
+} from "./Checkbox.js";
 export { IconButton } from "./IconButton.js";
 export type {
   IconButtonComponent,

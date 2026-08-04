@@ -12,6 +12,10 @@
       "types": "./dist/Button.d.ts",
       "default": "./dist/Button.js"
     },
+    "./checkbox": {
+      "types": "./dist/Checkbox.d.ts",
+      "default": "./dist/Checkbox.js"
+    },
     "./icon-button": {
       "types": "./dist/IconButton.d.ts",
       "default": "./dist/IconButton.js"

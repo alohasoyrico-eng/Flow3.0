@@ -5,7 +5,6 @@ import {
   createCardSummary,
   createChartPanel,
   hydrateChartPanel,
-  createCheckbox,
   createChip,
   createCombobox,
   createAccordion,
@@ -67,6 +66,9 @@ import {
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,
+  checkboxPlatformAdapters,
+  checkboxPlatformContract,
+  checkboxPlatformProps,
   iconButtonPlatformAdapters,
   iconButtonPlatformContract,
   iconButtonPlatformProps,
@@ -78,6 +80,7 @@ import {
   selectPlatformProps,
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
+import { createCheckbox } from "../src/components/choices.js";
 import { createInput, createSelect } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
@@ -261,6 +264,14 @@ assert.equal(selectPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.combobox.factory, "createCombobox");
 assert.equal(componentContracts.card.factory, "createCard");
 assert.equal(componentContracts.checkbox.factory, "createCheckbox");
+assert.equal(checkboxPlatformContract.id, "checkbox");
+assert.equal(checkboxPlatformContract.source.factory, componentContracts.checkbox.factory);
+assert.deepEqual(checkboxPlatformProps(), componentContracts.checkbox.props.map((prop) => prop.name));
+assert.deepEqual(checkboxPlatformContract.variants, componentContracts.checkbox.variants);
+assert.deepEqual(checkboxPlatformContract.states, componentContracts.checkbox.states);
+assert.deepEqual(Object.keys(checkboxPlatformAdapters), ["react"]);
+assert.equal(checkboxPlatformAdapters.react.componentName, "Checkbox");
+assert.equal(checkboxPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.switch.factory, "createSwitch");
 assert.equal(componentContracts.radioButton.factory, "createRadioButton");
 assert.equal(componentContracts.textArea.factory, "createTextArea");

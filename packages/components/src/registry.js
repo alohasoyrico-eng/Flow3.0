@@ -1,4 +1,4 @@
-import { createCheckbox, createRadioButton, createSwitch } from "./components/choices.js?v=11";
+import { createRadioButton, createSwitch } from "./components/choices.js?v=11";
 import {
   createCardSummary,
   createChartPanel,
@@ -49,7 +49,9 @@ export const componentRegistry = Object.freeze({
   "card-number-input": createCardNumberInput,
   "card-security-code-input": createCardSecurityCodeInput,
   "card-summary": createCardSummary,
-  checkbox: createCheckbox,
+  checkbox: () => {
+    throw new Error("Checkbox is React-primary. Use @design-system/react/checkbox instead of the transitional DOM renderer.");
+  },
   chip: createChip,
   "chart-panel": createChartPanel,
   combobox: createCombobox,
@@ -113,6 +115,9 @@ export function renderComponent(id, props = {}) {
   if (!factory) throw new Error(`Unknown Package component: ${id}`);
   if (id === "button") {
     throw new Error("Button is React-primary. Use @design-system/react/button instead of renderComponentDemo.");
+  }
+  if (id === "checkbox") {
+    throw new Error("Checkbox is React-primary. Use @design-system/react/checkbox instead of renderComponentDemo.");
   }
   if (id === "icon-button") {
     throw new Error("Icon Button is React-primary. Use @design-system/react/icon-button instead of renderComponentDemo.");
