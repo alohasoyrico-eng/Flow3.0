@@ -1,4 +1,5 @@
 export { Button } from "./Button.js";
+export { CardExpiryInput } from "./CardExpiryInput.js";
 export { CardNumberInput } from "./CardNumberInput.js";
 export { Checkbox } from "./Checkbox.js";
 export type {
@@ -10,6 +11,13 @@ export type {
   ButtonType,
   ButtonVariant,
 } from "./Button.js";
+export type {
+  CardExpiryInputComponent,
+  CardExpiryInputDensity,
+  CardExpiryInputProps,
+  CardExpiryInputState,
+  CardExpiryMeta,
+} from "./CardExpiryInput.js";
 export type {
   CardNumberInputComponent,
   CardNumberInputDensity,

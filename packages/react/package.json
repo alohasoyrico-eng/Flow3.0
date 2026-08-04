@@ -16,6 +16,10 @@
       "types": "./dist/CardNumberInput.d.ts",
       "default": "./dist/CardNumberInput.js"
     },
+    "./card-expiry-input": {
+      "types": "./dist/CardExpiryInput.d.ts",
+      "default": "./dist/CardExpiryInput.js"
+    },
     "./checkbox": {
       "types": "./dist/Checkbox.d.ts",
       "default": "./dist/Checkbox.js"

@@ -11,7 +11,6 @@ import {
   createAuditEvent,
   createAvatar,
   createBiometricPrompt,
-  createCardExpiryInput,
   createCardSecurityCodeInput,
   createCountrySelector,
   createDialog,
@@ -54,10 +53,12 @@ import {
   hasCountryFlag,
   listCountryFlags,
   resolveAnimationRuntime,
-  hydrateCardExpiryInput,
   hydrateCardSecurityCodeInput,
   hydrateCombobox,
   hydrateCountrySelector,
+  cardExpiryInputPlatformAdapters,
+  cardExpiryInputPlatformContract,
+  cardExpiryInputPlatformProps,
   cardNumberInputPlatformAdapters,
   cardNumberInputPlatformContract,
   cardNumberInputPlatformProps,
@@ -87,6 +88,8 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import {
+  createTransitionalPaymentCardExpiryInput,
+  hydrateTransitionalPaymentCardExpiryInput,
   createTransitionalPaymentCardNumberInput,
   hydrateTransitionalPaymentCardNumberInput,
 } from "../src/components/specialized-inputs.js?v=28";
@@ -273,7 +276,16 @@ assert.deepEqual(cardNumberInputPlatformContract.states, componentContracts.card
 assert.deepEqual(Object.keys(cardNumberInputPlatformAdapters), ["react"]);
 assert.equal(cardNumberInputPlatformAdapters.react.componentName, "CardNumberInput");
 assert.equal(cardNumberInputPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.cardExpiryInput.factory, "createCardExpiryInput");
+assert.equal(componentContracts.cardExpiryInput.factory, "@design-system/react/card-expiry-input");
+assert.equal(componentContracts.cardExpiryInput.internalFactory, "createTransitionalPaymentCardExpiryInput");
+assert.equal(cardExpiryInputPlatformContract.id, "card-expiry-input");
+assert.equal(cardExpiryInputPlatformContract.source.factory, componentContracts.cardExpiryInput.factory);
+assert.deepEqual(cardExpiryInputPlatformProps(), componentContracts.cardExpiryInput.props.map((prop) => prop.name));
+assert.deepEqual(cardExpiryInputPlatformContract.variants, componentContracts.cardExpiryInput.variants);
+assert.deepEqual(cardExpiryInputPlatformContract.states, componentContracts.cardExpiryInput.states);
+assert.deepEqual(Object.keys(cardExpiryInputPlatformAdapters), ["react"]);
+assert.equal(cardExpiryInputPlatformAdapters.react.componentName, "CardExpiryInput");
+assert.equal(cardExpiryInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardSecurityCodeInput.factory, "createCardSecurityCodeInput");
 assert.equal(componentContracts.select.factory, "@design-system/react/select");
 assert.equal(componentContracts.select.internalFactory, "createTransitionalFieldSelect");
@@ -536,7 +548,7 @@ hydrateTransitionalPaymentCardNumberInput(cardNumberInput);
 assert.equal(cardNumberInput.dataset.cardNumberHydrated, "true");
 
 let cardExpiryMeta = null;
-const cardExpiryInput = createCardExpiryInput({
+const cardExpiryInput = createTransitionalPaymentCardExpiryInput({
   label: "Expiry date",
   value: "1228",
   helper: "Use the expiry printed on the card.",
@@ -586,7 +598,7 @@ assert.equal(expiryField.attributes["aria-invalid"], undefined);
 assert.equal(cardExpiryInput.querySelector(".field__helper").textContent, "Use the expiry printed on the card.");
 assert.equal(cardExpiryInput.querySelector(".field__helper").attributes.role, undefined);
 
-hydrateCardExpiryInput(cardExpiryInput);
+hydrateTransitionalPaymentCardExpiryInput(cardExpiryInput);
 assert.equal(cardExpiryInput.dataset.cardExpiryHydrated, "true");
 
 let cardSecurityCodeMeta = null;

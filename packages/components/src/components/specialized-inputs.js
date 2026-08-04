@@ -208,7 +208,7 @@ export function hydrateTransitionalPaymentCardNumberInput(root, { onValueChange 
   return root;
 }
 
-export function hydrateCardExpiryInput(root, { onValueChange } = {}) {
+export function hydrateTransitionalPaymentCardExpiryInput(root, { onValueChange } = {}) {
   if (!root || root.__cardExpiryHydrated === true) return root;
   const input = root.querySelector?.("[data-card-expiry-input]")
     ?? Array.from(root.querySelectorAll?.("input") ?? []).find((node) => node.attributes?.["data-card-expiry-input"] !== undefined);
@@ -1024,7 +1024,7 @@ export function createTransitionalPaymentCardNumberInput({
   return root;
 }
 
-export function createCardExpiryInput({
+export function createTransitionalPaymentCardExpiryInput({
   label,
   value = "",
   helper = "",
@@ -1032,7 +1032,7 @@ export function createCardExpiryInput({
   disabled = false,
   loading = false,
   required = false,
-  density = "md",
+  density,
   state,
   name = "",
   placeholder = "MM/YY",
@@ -1106,7 +1106,7 @@ export function createCardExpiryInput({
   root.append(control);
   const helperNode = appendFieldHelper(root, { id, text: resolvedHelper, target: input, className: "card-expiry-input__helper" });
   helperNode?.setAttribute("data-card-expiry-helper", "");
-  hydrateCardExpiryInput(root, { onValueChange });
+  hydrateTransitionalPaymentCardExpiryInput(root, { onValueChange });
   return root;
 }
 

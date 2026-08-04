@@ -87,7 +87,7 @@ function checkArchitectureGate() {
     "packages/components/src/index.js",
     "packages/components/src/contracts.js",
     "packages/components/styles/components.css",
-    "packages/components/src/platforms/index.js", "packages/components/src/platforms/button.js", "packages/components/src/platforms/card-number-input.js",
+    "packages/components/src/platforms/index.js", "packages/components/src/platforms/button.js", "packages/components/src/platforms/card-expiry-input.js", "packages/components/src/platforms/card-number-input.js",
     "packages/react/package.json", "packages/react/src/index.js", "packages/react/src/Button.js",
     "packages/components/test/smoke.test.mjs",
     "examples/prototyping/index.html",
@@ -215,13 +215,13 @@ function checkPrototypePackages() {
     if (!hasPublicComponentExport(componentText, required.exportName)) add("errors", componentSource, 1, `components export missing: ${required.exportName}.`);
     if (required.factoryName && !componentContractText.includes(`factory: "${required.factoryName}"`)) add("errors", componentContracts, 1, `components contract missing factory: ${required.factoryName}.`);
   }
-  for (const [label, factory] of [["Button", "createTransitionalActionButton"], ["Card Number Input", "createTransitionalPaymentCardNumberInput"], ["Checkbox", "createTransitionalChoiceCheckbox"], ["Icon Button", "createTransitionalActionIconButton"], ["Input", "createTransitionalFieldInput"], ["Radio Button", "createTransitionalChoiceRadioButton"], ["Select", "createTransitionalFieldSelect"], ["Switch", "createTransitionalChoiceSwitch"], ["Text Area", "createTransitionalFieldTextArea"]]) {
+  for (const [label, factory] of [["Button", "createTransitionalActionButton"], ["Card Expiry Input", "createTransitionalPaymentCardExpiryInput"], ["Card Number Input", "createTransitionalPaymentCardNumberInput"], ["Checkbox", "createTransitionalChoiceCheckbox"], ["Icon Button", "createTransitionalActionIconButton"], ["Input", "createTransitionalFieldInput"], ["Radio Button", "createTransitionalChoiceRadioButton"], ["Select", "createTransitionalFieldSelect"], ["Switch", "createTransitionalChoiceSwitch"], ["Text Area", "createTransitionalFieldTextArea"]]) {
     if (hasPublicComponentExport(componentText, factory)) add("errors", componentSource, 1, `${label} must not be exported as a public DOM factory; React is the public product component target.`);
   }
-  for (const [label, target, internalFactory] of [["Button", "button", "createTransitionalActionButton"], ["Card Number Input", "card-number-input", "createTransitionalPaymentCardNumberInput"], ["Checkbox", "checkbox", "createTransitionalChoiceCheckbox"], ["Icon Button", "icon-button", "createTransitionalActionIconButton"], ["Input", "input", "createTransitionalFieldInput"], ["Radio Button", "radio-button", "createTransitionalChoiceRadioButton"], ["Select", "select", "createTransitionalFieldSelect"], ["Switch", "switch", "createTransitionalChoiceSwitch"], ["Text Area", "text-area", "createTransitionalFieldTextArea"]]) {
+  for (const [label, target, internalFactory] of [["Button", "button", "createTransitionalActionButton"], ["Card Expiry Input", "card-expiry-input", "createTransitionalPaymentCardExpiryInput"], ["Card Number Input", "card-number-input", "createTransitionalPaymentCardNumberInput"], ["Checkbox", "checkbox", "createTransitionalChoiceCheckbox"], ["Icon Button", "icon-button", "createTransitionalActionIconButton"], ["Input", "input", "createTransitionalFieldInput"], ["Radio Button", "radio-button", "createTransitionalChoiceRadioButton"], ["Select", "select", "createTransitionalFieldSelect"], ["Switch", "switch", "createTransitionalChoiceSwitch"], ["Text Area", "text-area", "createTransitionalFieldTextArea"]]) {
     if (!componentContractText.includes(`factory: "@design-system/react/${target}"`) || !componentContractText.includes(`internalFactory: "${internalFactory}"`)) add("errors", componentContracts, 1, `${label} contract must expose the React package target and name the transitional internal field factory separately.`);
   }
-  for (const [label, hydrator] of [["Card Number Input", "hydrateTransitionalPaymentCardNumberInput"], ["Input", "hydrateInput"], ["Select", "hydrateSelect"], ["Text Area", "hydrateTransitionalTextArea"]]) {
+  for (const [label, hydrator] of [["Card Expiry Input", "hydrateTransitionalPaymentCardExpiryInput"], ["Card Number Input", "hydrateTransitionalPaymentCardNumberInput"], ["Input", "hydrateInput"], ["Select", "hydrateSelect"], ["Text Area", "hydrateTransitionalTextArea"]]) {
     if (hasPublicComponentExport(componentText, hydrator)) add("errors", componentSource, 1, `${label} must not export a public DOM hydrator; React is the public product component target.`);
   }
   for (const required of ["button", "iconButton", "input", "select", "card", "props", "accessibility", "componentContractVersion"]) {

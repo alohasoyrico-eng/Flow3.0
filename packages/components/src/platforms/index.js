@@ -19,6 +19,11 @@ export {
   cardNumberInputPlatformProps,
 } from "./card-number-input.js";
 export {
+  cardExpiryInputPlatformAdapters,
+  cardExpiryInputPlatformContract,
+  cardExpiryInputPlatformProps,
+} from "./card-expiry-input.js";
+export {
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,

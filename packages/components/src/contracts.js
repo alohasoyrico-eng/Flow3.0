@@ -125,7 +125,8 @@ export const componentContracts = {
     ]
   },
   cardExpiryInput: {
-    factory: "createCardExpiryInput",
+    factory: "@design-system/react/card-expiry-input",
+    internalFactory: "createTransitionalPaymentCardExpiryInput",
     element: "label",
     purpose: "Capture one card expiry date in MM/YY format with numeric keyboard, cc-exp autocomplete, local month and expiry validation, helper/error copy, and Design System field states.",
     variants: ["default"],

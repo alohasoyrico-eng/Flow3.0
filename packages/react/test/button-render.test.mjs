@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, CardNumberInput, Checkbox, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
-import { buttonPlatformContract, cardNumberInputPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Button, CardExpiryInput, CardNumberInput, Checkbox, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
+import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
+assert.equal(CardExpiryInput.displayName, "CardExpiryInput");
+assert.equal(CardExpiryInput.platformContract, cardExpiryInputPlatformContract);
 assert.equal(CardNumberInput.displayName, "CardNumberInput");
 assert.equal(CardNumberInput.platformContract, cardNumberInputPlatformContract);
 assert.equal(Checkbox.displayName, "Checkbox");
@@ -201,6 +203,38 @@ const inheritedCardNumberInputMarkup = renderToStaticMarkup(React.createElement(
   value: "5231000000000000",
 }));
 assert.doesNotMatch(inheritedCardNumberInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const cardExpiryInputMarkup = renderToStaticMarkup(React.createElement(CardExpiryInput, {
+  label: "Expiry date",
+  helper: "Use the expiry printed on the card.",
+  value: "1228",
+  density: "sm",
+}));
+assert.match(cardExpiryInputMarkup, /class="field card-expiry-input"/);
+assert.match(cardExpiryInputMarkup, /data-density="sm"/);
+assert.match(cardExpiryInputMarkup, /data-state="valid"/);
+assert.match(cardExpiryInputMarkup, /data-validity="valid"/);
+assert.match(cardExpiryInputMarkup, /data-month="12"/);
+assert.match(cardExpiryInputMarkup, /data-year="28"/);
+assert.match(cardExpiryInputMarkup, /class="field__control card-expiry-input__control"/);
+assert.match(cardExpiryInputMarkup, /class="input card-expiry-input__input"/);
+assert.match(cardExpiryInputMarkup, /autoComplete="cc-exp"|autocomplete="cc-exp"/);
+assert.match(cardExpiryInputMarkup, /value="12\/28"/);
+
+const invalidCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(CardExpiryInput, {
+  label: "Expiry date",
+  value: "1328",
+}));
+assert.match(invalidCardExpiryInputMarkup, /data-state="error"/);
+assert.match(invalidCardExpiryInputMarkup, /data-validity="invalid"/);
+assert.match(invalidCardExpiryInputMarkup, /aria-invalid="true"/);
+assert.match(invalidCardExpiryInputMarkup, /Check the expiry date\./);
+
+const inheritedCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(CardExpiryInput, {
+  label: "Expiry date",
+  value: "1228",
+}));
+assert.doesNotMatch(inheritedCardExpiryInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",
