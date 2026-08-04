@@ -16,6 +16,7 @@
     "./components/styles.css": "./packages/components/styles/components.css",
     "./react": "./packages/react/dist/index.js",
     "./react/button": "./packages/react/dist/Button.js",
+    "./react/card-number-input": "./packages/react/dist/CardNumberInput.js",
     "./react/icon-button": "./packages/react/dist/IconButton.js",
     "./react/input": "./packages/react/dist/Input.js",
     "./react/select": "./packages/react/dist/Select.js",
