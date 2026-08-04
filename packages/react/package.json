@@ -20,6 +20,10 @@
       "types": "./dist/CardExpiryInput.d.ts",
       "default": "./dist/CardExpiryInput.js"
     },
+    "./card-security-code-input": {
+      "types": "./dist/CardSecurityCodeInput.d.ts",
+      "default": "./dist/CardSecurityCodeInput.js"
+    },
     "./checkbox": {
       "types": "./dist/Checkbox.d.ts",
       "default": "./dist/Checkbox.js"

@@ -11,7 +11,6 @@ import {
   createAuditEvent,
   createAvatar,
   createBiometricPrompt,
-  createCardSecurityCodeInput,
   createCountrySelector,
   createDialog,
   createDrawer,
@@ -53,7 +52,6 @@ import {
   hasCountryFlag,
   listCountryFlags,
   resolveAnimationRuntime,
-  hydrateCardSecurityCodeInput,
   hydrateCombobox,
   hydrateCountrySelector,
   cardExpiryInputPlatformAdapters,
@@ -62,6 +60,9 @@ import {
   cardNumberInputPlatformAdapters,
   cardNumberInputPlatformContract,
   cardNumberInputPlatformProps,
+  cardSecurityCodeInputPlatformAdapters,
+  cardSecurityCodeInputPlatformContract,
+  cardSecurityCodeInputPlatformProps,
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,
@@ -92,6 +93,8 @@ import {
   hydrateTransitionalPaymentCardExpiryInput,
   createTransitionalPaymentCardNumberInput,
   hydrateTransitionalPaymentCardNumberInput,
+  createTransitionalPaymentCardSecurityCodeInput,
+  hydrateTransitionalPaymentCardSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
 import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
@@ -286,7 +289,16 @@ assert.deepEqual(cardExpiryInputPlatformContract.states, componentContracts.card
 assert.deepEqual(Object.keys(cardExpiryInputPlatformAdapters), ["react"]);
 assert.equal(cardExpiryInputPlatformAdapters.react.componentName, "CardExpiryInput");
 assert.equal(cardExpiryInputPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.cardSecurityCodeInput.factory, "createCardSecurityCodeInput");
+assert.equal(componentContracts.cardSecurityCodeInput.factory, "@design-system/react/card-security-code-input");
+assert.equal(componentContracts.cardSecurityCodeInput.internalFactory, "createTransitionalPaymentCardSecurityCodeInput");
+assert.equal(cardSecurityCodeInputPlatformContract.id, "card-security-code-input");
+assert.equal(cardSecurityCodeInputPlatformContract.source.factory, componentContracts.cardSecurityCodeInput.factory);
+assert.deepEqual(cardSecurityCodeInputPlatformProps(), componentContracts.cardSecurityCodeInput.props.map((prop) => prop.name));
+assert.deepEqual(cardSecurityCodeInputPlatformContract.variants, componentContracts.cardSecurityCodeInput.variants);
+assert.deepEqual(cardSecurityCodeInputPlatformContract.states, componentContracts.cardSecurityCodeInput.states);
+assert.deepEqual(Object.keys(cardSecurityCodeInputPlatformAdapters), ["react"]);
+assert.equal(cardSecurityCodeInputPlatformAdapters.react.componentName, "CardSecurityCodeInput");
+assert.equal(cardSecurityCodeInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.select.factory, "@design-system/react/select");
 assert.equal(componentContracts.select.internalFactory, "createTransitionalFieldSelect");
 assert.equal(selectPlatformContract.id, "select");
@@ -602,7 +614,7 @@ hydrateTransitionalPaymentCardExpiryInput(cardExpiryInput);
 assert.equal(cardExpiryInput.dataset.cardExpiryHydrated, "true");
 
 let cardSecurityCodeMeta = null;
-const cardSecurityCodeInput = createCardSecurityCodeInput({
+const cardSecurityCodeInput = createTransitionalPaymentCardSecurityCodeInput({
   label: "Security code",
   value: "48a2",
   helper: "Use the code printed on the card.",
@@ -651,7 +663,7 @@ assert.equal(cardSecurityCodeInput.dataset.state, "valid");
 assert.equal(securityCodeField.attributes["aria-invalid"], undefined);
 assert.equal(cardSecurityCodeInput.querySelector(".field__helper").attributes.role, undefined);
 
-const controlledSecurityCodeError = createCardSecurityCodeInput({
+const controlledSecurityCodeError = createTransitionalPaymentCardSecurityCodeInput({
   label: "Security code",
   value: "12",
   state: "error",
@@ -661,7 +673,7 @@ assert.equal(controlledSecurityCodeError.querySelector("input").attributes["aria
 assert.equal(controlledSecurityCodeError.querySelector(".field__helper").textContent, "Enter the security code.");
 assert.equal(controlledSecurityCodeError.querySelector(".field__helper").attributes.role, "alert");
 
-const fourDigitSecurityCode = createCardSecurityCodeInput({
+const fourDigitSecurityCode = createTransitionalPaymentCardSecurityCodeInput({
   label: "Security code",
   value: "1234",
   expectedLength: 4,
@@ -670,19 +682,19 @@ assert.equal(fourDigitSecurityCode.dataset.expectedLength, "4");
 assert.equal(fourDigitSecurityCode.dataset.validity, "valid");
 assert.equal(fourDigitSecurityCode.querySelector("input").attributes.maxlength, "4");
 
-const disabledSecurityCode = createCardSecurityCodeInput({ label: "Security code", value: "482", state: "disabled" });
+const disabledSecurityCode = createTransitionalPaymentCardSecurityCodeInput({ label: "Security code", value: "482", state: "disabled" });
 assert.equal(disabledSecurityCode.dataset.state, "disabled");
 assert.equal(disabledSecurityCode.querySelector("input").disabled, true);
 assert.equal(disabledSecurityCode.querySelector("button").disabled, true);
 
-const loadingSecurityCode = createCardSecurityCodeInput({ label: "Security code", value: "482", state: "loading" });
+const loadingSecurityCode = createTransitionalPaymentCardSecurityCodeInput({ label: "Security code", value: "482", state: "loading" });
 assert.equal(loadingSecurityCode.dataset.state, "loading");
 assert.equal(loadingSecurityCode.querySelector("input").disabled, true);
 assert.equal(loadingSecurityCode.querySelector(".field__icon--loading").className.includes("spinner"), true);
 assert.equal(loadingSecurityCode.querySelector(".field__icon--loading").attributes["aria-hidden"], "true");
 assert.equal(securityCodeField.attributes["aria-invalid"], undefined);
 
-hydrateCardSecurityCodeInput(cardSecurityCodeInput);
+hydrateTransitionalPaymentCardSecurityCodeInput(cardSecurityCodeInput);
 assert.equal(cardSecurityCodeInput.dataset.cardSecurityCodeHydrated, "true");
 
 const select = createTransitionalFieldSelect({

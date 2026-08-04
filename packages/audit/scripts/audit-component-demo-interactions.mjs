@@ -254,13 +254,6 @@ fixtures.countrySelectorOptions[1].dispatch("keydown", { key: "Enter" });
 assert.equal(fixtures.countrySelectorControl.dataset.country, "CU", "Country Selector Enter should select the active country.");
 assert.equal(fixtures.countrySelectorPrefix.textContent, "+53", "Country Selector should sync the visible calling code.");
 
-	fixtures.cardSecurityCodeInput.value = "48a2";
-	fixtures.cardSecurityCodeInput.dispatch("input");
-	assert.equal(fixtures.cardSecurityCodeInput.value, "482", "Card Security Code Input should normalize digits.");
-	assert.equal(fixtures.cardSecurityCode.dataset.validity, "valid", "Card Security Code Input should mark expected length valid.");
-	fixtures.cardSecurityCodeReveal.click();
-	assert.equal(fixtures.cardSecurityCodeInput.type, "text", "Card Security Code Input reveal action should show the value.");
-
 fixtures.dateTrigger.click();
 assert.equal(fixtures.datePanel.hidden, false, "Date Picker trigger should open the panel.");
 fixtures.dateDay.click();
@@ -333,7 +326,6 @@ console.log(JSON.stringify({
     "phone-input",
     "combobox",
     "country-selector",
-    "card-security-code-input",
     "date-picker",
     "date-range-picker",
     "tree-view",
@@ -498,11 +490,6 @@ function buildFixtures() {
   }, [countrySelectorTrigger, countrySelectorList]);
   const countrySelector = el("span", { attrs: { "data-doc-component": "country-selector" } }, [countrySelectorControl]);
 
-	  const cardSecurityCodeInput = el("input", { type: "password", attrs: { "data-card-security-code-input": "", autocomplete: "cc-csc", inputmode: "numeric", maxlength: "3" } });
-	  const cardSecurityCodeReveal = el("button", { attrs: { "data-card-security-code-reveal": "", "aria-label": "Show security code", "aria-pressed": "false" } });
-	  const cardSecurityCodeHelper = el("small", { attrs: { "data-card-security-code-helper": "" }, textContent: "Use the code printed on the card." });
-	  const cardSecurityCode = el("label", { className: "card-security-code-input", attrs: { "data-doc-component": "card-security-code-input", "data-validation-message": "Enter the security code." }, dataset: { state: "default", expectedLength: "3" } }, [cardSecurityCodeInput, cardSecurityCodeReveal, cardSecurityCodeHelper]);
-
   const dateTrigger = el("button", { attrs: { "data-date-picker-trigger": "", "aria-expanded": "false" } });
   const datePanel = el("div", { attrs: { "data-date-picker-panel": "" }, hidden: true });
   const dateInput = el("input", { attrs: { "data-date-picker-input": "" } });
@@ -609,7 +596,6 @@ function buildFixtures() {
       phone,
       combobox,
       countrySelector,
-      cardSecurityCode,
       datePicker,
       dateRangePicker,
       tree,
@@ -651,9 +637,6 @@ function buildFixtures() {
     countrySelectorSearch,
     countrySelectorOptions,
     countrySelectorPrefix,
-      cardSecurityCode,
-      cardSecurityCodeInput,
-      cardSecurityCodeReveal,
       datePicker,
       dateTrigger,
     datePanel,

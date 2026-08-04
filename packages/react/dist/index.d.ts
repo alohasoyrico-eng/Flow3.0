@@ -1,6 +1,7 @@
 export { Button } from "./Button.js";
 export { CardExpiryInput } from "./CardExpiryInput.js";
 export { CardNumberInput } from "./CardNumberInput.js";
+export { CardSecurityCodeInput } from "./CardSecurityCodeInput.js";
 export { Checkbox } from "./Checkbox.js";
 export type {
   ButtonComponent,
@@ -25,6 +26,13 @@ export type {
   CardNumberInputState,
   CardNumberMeta,
 } from "./CardNumberInput.js";
+export type {
+  CardSecurityCodeInputComponent,
+  CardSecurityCodeInputDensity,
+  CardSecurityCodeInputProps,
+  CardSecurityCodeInputState,
+  CardSecurityCodeMeta,
+} from "./CardSecurityCodeInput.js";
 export type {
   CheckboxComponent,
   CheckboxDensity,

@@ -38,7 +38,7 @@ const unprefixedFactoryNames = new Map([
   ["spinner", "createSpinner"],
   ["card-number-input", "createTransitionalPaymentCardNumberInput"],
   ["card-expiry-input", "createTransitionalPaymentCardExpiryInput"],
-  ["card-security-code-input", "createCardSecurityCodeInput"],
+  ["card-security-code-input", "createTransitionalPaymentCardSecurityCodeInput"],
   ["date-picker", "createDatePicker"],
   ["skeleton", "createSkeleton"],
   ["avatar", "createAvatar"],

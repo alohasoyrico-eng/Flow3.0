@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, CardExpiryInput, CardNumberInput, Checkbox, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
-import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
+import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
@@ -10,6 +10,8 @@ assert.equal(CardExpiryInput.displayName, "CardExpiryInput");
 assert.equal(CardExpiryInput.platformContract, cardExpiryInputPlatformContract);
 assert.equal(CardNumberInput.displayName, "CardNumberInput");
 assert.equal(CardNumberInput.platformContract, cardNumberInputPlatformContract);
+assert.equal(CardSecurityCodeInput.displayName, "CardSecurityCodeInput");
+assert.equal(CardSecurityCodeInput.platformContract, cardSecurityCodeInputPlatformContract);
 assert.equal(Checkbox.displayName, "Checkbox");
 assert.equal(Checkbox.platformContract, checkboxPlatformContract);
 assert.equal(IconButton.displayName, "IconButton");
@@ -235,6 +237,43 @@ const inheritedCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(
   value: "1228",
 }));
 assert.doesNotMatch(inheritedCardExpiryInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const cardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(CardSecurityCodeInput, {
+  label: "Security code",
+  helper: "Use the code printed on the card.",
+  value: "48a2",
+  density: "sm",
+}));
+assert.match(cardSecurityCodeInputMarkup, /class="field card-security-code-input"/);
+assert.match(cardSecurityCodeInputMarkup, /data-density="sm"/);
+assert.match(cardSecurityCodeInputMarkup, /data-state="valid"/);
+assert.match(cardSecurityCodeInputMarkup, /data-validity="valid"/);
+assert.match(cardSecurityCodeInputMarkup, /data-length="3"/);
+assert.match(cardSecurityCodeInputMarkup, /data-expected-length="3"/);
+assert.match(cardSecurityCodeInputMarkup, /class="field__control card-security-code-input__control"/);
+assert.match(cardSecurityCodeInputMarkup, /class="input card-security-code-input__input"/);
+assert.match(cardSecurityCodeInputMarkup, /autoComplete="cc-csc"|autocomplete="cc-csc"/);
+assert.match(cardSecurityCodeInputMarkup, /type="password"/);
+assert.match(cardSecurityCodeInputMarkup, /value="482"/);
+assert.match(cardSecurityCodeInputMarkup, /class="field-action card-security-code-input__action"/);
+assert.match(cardSecurityCodeInputMarkup, /aria-pressed="false"/);
+
+const revealedCardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(CardSecurityCodeInput, {
+  label: "Security code",
+  value: "1234",
+  expectedLength: 4,
+  revealed: true,
+}));
+assert.match(revealedCardSecurityCodeInputMarkup, /data-expected-length="4"/);
+assert.match(revealedCardSecurityCodeInputMarkup, /type="text"/);
+assert.match(revealedCardSecurityCodeInputMarkup, /maxlength="4"|maxLength="4"/);
+assert.match(revealedCardSecurityCodeInputMarkup, /aria-pressed="true"/);
+
+const inheritedCardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(CardSecurityCodeInput, {
+  label: "Security code",
+  value: "482",
+}));
+assert.doesNotMatch(inheritedCardSecurityCodeInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

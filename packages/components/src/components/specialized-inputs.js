@@ -254,7 +254,7 @@ export function hydrateTransitionalPaymentCardExpiryInput(root, { onValueChange 
   return root;
 }
 
-export function hydrateCardSecurityCodeInput(root, { onValueChange } = {}) {
+export function hydrateTransitionalPaymentCardSecurityCodeInput(root, { onValueChange } = {}) {
   if (!root || root.__cardSecurityCodeHydrated === true) return root;
   const input = root.querySelector?.("[data-card-security-code-input]")
     ?? Array.from(root.querySelectorAll?.("input") ?? []).find((node) => node.attributes?.["data-card-security-code-input"] !== undefined);
@@ -1110,7 +1110,7 @@ export function createTransitionalPaymentCardExpiryInput({
   return root;
 }
 
-export function createCardSecurityCodeInput({
+export function createTransitionalPaymentCardSecurityCodeInput({
   label,
   value = "",
   helper = "",
@@ -1118,7 +1118,7 @@ export function createCardSecurityCodeInput({
   disabled = false,
   loading = false,
   required = false,
-  density = "md",
+  density,
   state,
   name = "",
   placeholder = "CVC",
@@ -1210,7 +1210,7 @@ export function createCardSecurityCodeInput({
   root.append(control);
   const helperNode = appendFieldHelper(root, { id, text: resolvedHelper, target: input, className: "card-security-code-input__helper" });
   helperNode?.setAttribute("data-card-security-code-helper", "");
-  hydrateCardSecurityCodeInput(root, { onValueChange });
+  hydrateTransitionalPaymentCardSecurityCodeInput(root, { onValueChange });
   return root;
 }
 
