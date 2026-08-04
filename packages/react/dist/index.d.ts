@@ -152,6 +152,15 @@ export type {
   TagTone,
   TagVariant,
 } from "./Tag.js";
+export { Tooltip } from "./Tooltip.js";
+export type {
+  TooltipComponent,
+  TooltipDensity,
+  TooltipPlacement,
+  TooltipProps,
+  TooltipState,
+  TooltipVariant,
+} from "./Tooltip.js";
 export { TextArea } from "./TextArea.js";
 export type {
   TextAreaChangeMeta,

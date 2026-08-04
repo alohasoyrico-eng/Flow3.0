@@ -80,6 +80,10 @@
       "types": "./dist/Tag.d.ts",
       "default": "./dist/Tag.js"
     },
+    "./tooltip": {
+      "types": "./dist/Tooltip.d.ts",
+      "default": "./dist/Tooltip.js"
+    },
     "./text-area": {
       "types": "./dist/TextArea.d.ts",
       "default": "./dist/TextArea.js"

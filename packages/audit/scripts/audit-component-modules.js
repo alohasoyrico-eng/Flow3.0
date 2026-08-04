@@ -77,8 +77,10 @@ const moduleRules = [
       "createMenu",
       "createPopover",
       "createToast",
-      "createTooltip",
+      "createTransitionalTooltip",
     ],
+    publicExports: ["createDialog", "createDrawer", "createMenu", "createPopover", "createToast"],
+    internalExports: ["createTransitionalTooltip"],
   },
   {
     id: "specialized-inputs",

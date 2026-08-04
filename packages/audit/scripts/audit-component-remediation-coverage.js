@@ -195,7 +195,7 @@ function kebabToFactoryName(id) {
     breadcrumbs: "createBreadcrumbs",
     pagination: "createPagination",
     stepper: "createStepper",
-    tooltip: "createTooltip",
+    tooltip: "createTransitionalTooltip",
     toast: "createToast",
     dialog: "createDialog",
     menu: "createMenu",

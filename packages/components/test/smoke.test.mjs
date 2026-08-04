@@ -37,7 +37,6 @@ import {
   createTabs,
   createTreeView,
   createToast,
-  createTooltip,
   createAnimationAsset,
   createChartsPrimitive,
   countryFlagAssetPath,
@@ -100,6 +99,9 @@ import {
   tagPlatformAdapters,
   tagPlatformContract,
   tagPlatformProps,
+  tooltipPlatformAdapters,
+  tooltipPlatformContract,
+  tooltipPlatformProps,
   textAreaPlatformAdapters,
   textAreaPlatformContract,
   textAreaPlatformProps,
@@ -121,6 +123,7 @@ import {
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
 import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
+import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -406,7 +409,16 @@ assert.deepEqual(Object.keys(tagPlatformAdapters), ["react"]);
 assert.equal(tagPlatformAdapters.react.componentName, "Tag");
 assert.equal(tagPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.tabs.factory, "createTabs");
-assert.equal(componentContracts.tooltip.factory, "createTooltip");
+assert.equal(componentContracts.tooltip.factory, "@design-system/react/tooltip");
+assert.equal(componentContracts.tooltip.internalFactory, "createTransitionalTooltip");
+assert.equal(tooltipPlatformContract.id, "tooltip");
+assert.equal(tooltipPlatformContract.source.factory, componentContracts.tooltip.factory);
+assert.deepEqual(tooltipPlatformProps(), componentContracts.tooltip.props.map((prop) => prop.name));
+assert.deepEqual(tooltipPlatformContract.variants, componentContracts.tooltip.variants);
+assert.deepEqual(tooltipPlatformContract.states, componentContracts.tooltip.states);
+assert.deepEqual(Object.keys(tooltipPlatformAdapters), ["react"]);
+assert.equal(tooltipPlatformAdapters.react.componentName, "Tooltip");
+assert.equal(tooltipPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.toast.factory, "createToast");
 assert.equal(componentContracts.progressIndicator.factory, "createProgressIndicator");
 assert.equal(componentContracts.spinner.factory, "createSpinner");
@@ -1261,7 +1273,7 @@ assert.equal(interactiveTabs.querySelectorAll("button")[0].attributes["aria-sele
 assert.equal(globalThis.document.activeElement, interactiveTabs.querySelectorAll("button")[0]);
 assert.equal(interactiveTabs.style, "--comp-tabs-indicator-left: 8px; --comp-tabs-indicator-width: 80px");
 
-const tooltip = createTooltip({ triggerLabel: "Info", content: "Short help", id: "tip-1" });
+const tooltip = createTransitionalTooltip({ triggerLabel: "Info", content: "Short help", id: "tip-1" });
 assert.equal(tooltip.tagName, "SPAN");
 assert.equal(tooltip.className, "tooltip");
 assert.equal(tooltip.dataset.density, "md");
@@ -1272,7 +1284,7 @@ assert.equal(tooltip.querySelector(".tooltip__bubble").hidden, true);
 assert.equal(tooltip.querySelector(".tooltip__bubble").attributes.role, "tooltip");
 assert.equal(tooltip.querySelector(".tooltip__bubble").id, "tip-1");
 let tooltipOpen = null;
-const interactiveTooltip = createTooltip({
+const interactiveTooltip = createTransitionalTooltip({
   triggerLabel: "Help",
   content: "Details",
   onOpenChange(open) {
@@ -1288,12 +1300,12 @@ interactiveTooltip.querySelector("button").dispatchEvent({ type: "keydown", key:
 assert.equal(interactiveTooltip.dataset.open, "false");
 assert.equal(interactiveTooltip.dataset.state, "dismissed");
 assert.equal(tooltipOpen, false);
-const metricTooltip = createTooltip({ triggerLabel: "Cost", content: "Cost per km", variant: "metric", placement: "right", state: "open" });
+const metricTooltip = createTransitionalTooltip({ triggerLabel: "Cost", content: "Cost per km", variant: "metric", placement: "right", state: "open" });
 assert.equal(metricTooltip.dataset.variant, "metric");
 assert.equal(metricTooltip.dataset.placement, "right");
 assert.equal(metricTooltip.dataset.open, "true");
 assert.equal(metricTooltip.querySelector(".tooltip__bubble").hidden, false);
-const compactTooltip = createTooltip({ triggerLabel: "Compact", content: "Short help", density: "sm" });
+const compactTooltip = createTransitionalTooltip({ triggerLabel: "Compact", content: "Short help", density: "sm" });
 assert.equal(compactTooltip.dataset.density, "sm");
 
 const toast = createToast({ label: "Saved", description: "Policy updated", tone: "success", actionLabel: "Undo", dismissible: true, density: "sm" });

@@ -25,7 +25,6 @@ import {
   createMenu,
   createPopover,
   createToast,
-  createTooltip,
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
@@ -124,7 +123,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Input is React-primary. Use @design-system/react/input instead of the transitional DOM renderer.");
   },
   toast: createToast,
-  tooltip: createTooltip,
+  tooltip: () => {
+    throw new Error("Tooltip is React-primary. Use @design-system/react/tooltip instead of the transitional DOM renderer.");
+  },
   "tree-view": createTreeView,
 });
 
@@ -189,6 +190,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "text-area") {
     throw new Error("Text Area is React-primary. Use @design-system/react/text-area instead of renderComponentDemo.");
+  }
+  if (id === "tooltip") {
+    throw new Error("Tooltip is React-primary. Use @design-system/react/tooltip instead of renderComponentDemo.");
   }
   return factory(props);
 }

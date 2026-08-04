@@ -61,7 +61,7 @@ const unprefixedFactoryNames = new Map([
   ["breadcrumbs", "createBreadcrumbs"],
   ["pagination", "createPagination"],
   ["stepper", "createStepper"],
-  ["tooltip", "createTooltip"],
+  ["tooltip", "createTransitionalTooltip"],
   ["toast", "createToast"],
   ["dialog", "createDialog"],
   ["menu", "createMenu"],

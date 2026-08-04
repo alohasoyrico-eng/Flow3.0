@@ -491,7 +491,8 @@ export const componentContracts = {
     ]
   },
   tooltip: {
-    factory: "createTooltip",
+    factory: "@design-system/react/tooltip",
+    internalFactory: "createTransitionalTooltip",
     element: "span",
     purpose: "Expose short contextual help from a trigger without adding interactive content to the bubble.",
     variants: ["default", "icon-help", "metric", "disabled-help"],

@@ -14,6 +14,11 @@ export {
   tagPlatformProps,
 } from "./tag.js";
 export {
+  tooltipPlatformAdapters,
+  tooltipPlatformContract,
+  tooltipPlatformProps,
+} from "./tooltip.js";
+export {
   chipPlatformAdapters,
   chipPlatformContract,
   chipPlatformProps,

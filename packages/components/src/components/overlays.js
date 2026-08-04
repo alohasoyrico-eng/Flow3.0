@@ -94,7 +94,7 @@ function attachOverlayShell({
   return setOpen;
 }
 
-export function createTooltip({
+export function createTransitionalTooltip({
   triggerLabel,
   content,
   id = "",

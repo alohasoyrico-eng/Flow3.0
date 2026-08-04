@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, Tag, TextArea } from "../src/index.js";
-import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, Tag, TextArea, Tooltip } from "../src/index.js";
+import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Avatar.displayName, "Avatar");
 assert.equal(Avatar.platformContract, avatarPlatformContract);
@@ -40,6 +40,8 @@ assert.equal(Switch.displayName, "Switch");
 assert.equal(Switch.platformContract, switchPlatformContract);
 assert.equal(Tag.displayName, "Tag");
 assert.equal(Tag.platformContract, tagPlatformContract);
+assert.equal(Tooltip.displayName, "Tooltip");
+assert.equal(Tooltip.platformContract, tooltipPlatformContract);
 assert.equal(TextArea.displayName, "TextArea");
 assert.equal(TextArea.platformContract, textAreaPlatformContract);
 
@@ -205,6 +207,33 @@ const disabledTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
 }));
 assert.match(disabledTagMarkup, /disabled=""/);
 assert.match(disabledTagMarkup, /data-state="disabled"/);
+
+const tooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
+  triggerLabel: "Info",
+  content: "Short contextual help",
+  id: "tip-react",
+  placement: "right",
+  density: "sm",
+}));
+assert.match(tooltipMarkup, /class="tooltip"/);
+assert.match(tooltipMarkup, /data-placement="right"/);
+assert.match(tooltipMarkup, /data-density="sm"/);
+assert.match(tooltipMarkup, /data-open="false"/);
+assert.match(tooltipMarkup, /class="tooltip__trigger"/);
+assert.match(tooltipMarkup, /role="tooltip"/);
+assert.match(tooltipMarkup, /hidden=""/);
+
+const openTooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
+  triggerLabel: "Cost",
+  content: "Cost per km",
+  id: "tip-cost",
+  variant: "metric",
+  state: "open",
+}));
+assert.match(openTooltipMarkup, /data-variant="metric"/);
+assert.match(openTooltipMarkup, /data-open="true"/);
+assert.match(openTooltipMarkup, /aria-describedby="tip-cost"/);
+assert.doesNotMatch(openTooltipMarkup, /hidden=""/);
 
 const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
   label: "Enable fuel card",

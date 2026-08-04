@@ -16,4 +16,5 @@ export { RadioButton } from "./RadioButton.js";
 export { Select } from "./Select.js";
 export { Switch } from "./Switch.js";
 export { Tag } from "./Tag.js";
+export { Tooltip } from "./Tooltip.js";
 export { TextArea } from "./TextArea.js";
