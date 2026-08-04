@@ -86,7 +86,7 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
-import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createSwitch } from "../src/components/choices.js";
+import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
@@ -269,7 +269,8 @@ assert.deepEqual(selectPlatformContract.states, componentContracts.select.states
 assert.deepEqual(Object.keys(selectPlatformAdapters), ["react"]);
 assert.equal(selectPlatformAdapters.react.componentName, "Select");
 assert.equal(selectPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.switch.factory, "createSwitch");
+assert.equal(componentContracts.switch.factory, "@design-system/react/switch");
+assert.equal(componentContracts.switch.internalFactory, "createTransitionalChoiceSwitch");
 assert.equal(switchPlatformContract.id, "switch");
 assert.equal(switchPlatformContract.source.factory, componentContracts.switch.factory);
 assert.deepEqual(switchPlatformProps(), componentContracts.switch.props.map((prop) => prop.name));
@@ -300,7 +301,7 @@ assert.deepEqual(checkboxPlatformContract.states, componentContracts.checkbox.st
 assert.deepEqual(Object.keys(checkboxPlatformAdapters), ["react"]);
 assert.equal(checkboxPlatformAdapters.react.componentName, "Checkbox");
 assert.equal(checkboxPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.switch.factory, "createSwitch");
+assert.equal(componentContracts.switch.factory, "@design-system/react/switch");
 assert.equal(componentContracts.radioButton.factory, "@design-system/react/radio-button");
 assert.equal(componentContracts.radioButton.internalFactory, "createTransitionalChoiceRadioButton");
 assert.equal(radioButtonPlatformContract.id, "radio-button");
@@ -923,7 +924,7 @@ assert.equal(checkbox.querySelector("input").name, "receipt");
 assert.equal(checkbox.querySelector(".choice__label").textContent, "Send receipt");
 assert.equal(checkbox.querySelector(".choice__description").textContent, "Email copy to driver");
 
-const switchControl = createSwitch({
+const switchControl = createTransitionalChoiceSwitch({
   label: "Route alerts",
   description: "Notify before balance changes",
   checked: true,

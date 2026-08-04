@@ -29,7 +29,7 @@ const unprefixedFactoryNames = new Map([
   ["input", "createTransitionalFieldInput"],
   ["select", "createTransitionalFieldSelect"],
   ["radio-button", "createTransitionalChoiceRadioButton"],
-  ["switch", "createSwitch"],
+  ["switch", "createTransitionalChoiceSwitch"],
   ["tag", "createTag"],
   ["text-area", "createTransitionalFieldTextArea"],
   ["code-input", "createCodeInput"],

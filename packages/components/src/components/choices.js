@@ -92,7 +92,7 @@ export function createTransitionalChoiceCheckbox({
   return field;
 }
 
-export function createSwitch({
+export function createTransitionalChoiceSwitch({
   label,
   description = "",
   error = "",

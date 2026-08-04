@@ -308,7 +308,8 @@ export const componentContracts = {
     ]
   },
   switch: {
-    factory: "createSwitch",
+    factory: "@design-system/react/switch",
+    internalFactory: "createTransitionalChoiceSwitch",
     element: "label",
     purpose: "Toggle a persistent on/off setting with visible label, optional description, and switch semantics.",
     variants: ["default"],
