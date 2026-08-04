@@ -40,12 +40,19 @@
       }
     </script>
     <script type="module">
-      import { createCard, createIconButton, createSelect, createInput } from "../../packages/components/src/index.js";
+      import { createCard, createSelect, createInput } from "../../packages/components/src/index.js";
       import { Button } from "../../packages/react/dist/Button.js";
+      import { IconButton } from "../../packages/react/dist/IconButton.js";
 
       function mountButton(props) {
         const host = document.createElement("span");
         ReactDOM.createRoot(host).render(React.createElement(Button, props));
+        return host;
+      }
+
+      function mountIconButton(props) {
+        const host = document.createElement("span");
+        ReactDOM.createRoot(host).render(React.createElement(IconButton, props));
         return host;
       }
 
@@ -84,7 +91,7 @@
         mountButton({ label: "Approve limit" }),
         mountButton({ label: "Decline", variant: "secondary" }),
         mountButton({ label: "Block card", intent: "danger", variant: "danger" }),
-        createIconButton({ label: "Open filters", icon: "tune" }),
+        mountIconButton({ label: "Open filters", icon: "tune" }),
       );
       root.append(actions);
     </script>

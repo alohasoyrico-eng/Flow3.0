@@ -18,7 +18,6 @@ import {
   createCountrySelector,
   createDialog,
   createDrawer,
-  createIconButton,
   createBreadcrumbs,
   createEmptyState,
   createErrorPanel,
@@ -70,8 +69,11 @@ import {
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,
+  iconButtonPlatformAdapters,
+  iconButtonPlatformContract,
+  iconButtonPlatformProps,
 } from "../src/index.js";
-import { createButton } from "../src/components/actions.js";
+import { createButton, createIconButton } from "../src/components/actions.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -222,6 +224,14 @@ assert.deepEqual(Object.keys(buttonPlatformAdapters), ["react"]);
 assert.equal(buttonPlatformAdapters.react.componentName, "Button");
 assert.equal(buttonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.iconButton.factory, "createIconButton");
+assert.equal(iconButtonPlatformContract.id, "icon-button");
+assert.equal(iconButtonPlatformContract.source.factory, componentContracts.iconButton.factory);
+assert.deepEqual(iconButtonPlatformProps(), componentContracts.iconButton.props.map((prop) => prop.name));
+assert.deepEqual(iconButtonPlatformContract.variants, componentContracts.iconButton.variants);
+assert.deepEqual(iconButtonPlatformContract.states, componentContracts.iconButton.states);
+assert.deepEqual(Object.keys(iconButtonPlatformAdapters), ["react"]);
+assert.equal(iconButtonPlatformAdapters.react.componentName, "IconButton");
+assert.equal(iconButtonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.input.factory, "createInput");
 assert.equal(componentContracts.cardNumberInput.factory, "createCardNumberInput");
 assert.equal(componentContracts.cardExpiryInput.factory, "createCardExpiryInput");

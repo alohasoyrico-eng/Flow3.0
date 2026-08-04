@@ -1,4 +1,3 @@
-import { createIconButton } from "./components/actions.js?v=2";
 import { createCheckbox, createRadioButton, createSwitch } from "./components/choices.js?v=11";
 import {
   createCardSummary,
@@ -62,7 +61,9 @@ export const componentRegistry = Object.freeze({
   "empty-state": createEmptyState,
   "error-panel": createErrorPanel,
   "floating-action-button": createFloatingActionButton,
-  "icon-button": createIconButton,
+  "icon-button": () => {
+    throw new Error("Icon Button is React-primary. Use @design-system/react/icon-button instead of the transitional DOM renderer.");
+  },
   "inline-validation": createInlineValidation,
   "kpi-tile": createKpiTile,
   list: createList,
@@ -108,6 +109,9 @@ export function renderComponent(id, props = {}) {
   if (!factory) throw new Error(`Unknown Package component: ${id}`);
   if (id === "button") {
     throw new Error("Button is React-primary. Use @design-system/react/button instead of renderComponentDemo.");
+  }
+  if (id === "icon-button") {
+    throw new Error("Icon Button is React-primary. Use @design-system/react/icon-button instead of renderComponentDemo.");
   }
   return factory(props);
 }

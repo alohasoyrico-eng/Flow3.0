@@ -11,8 +11,8 @@ const moduleRules = [
     id: "actions",
     file: "packages/components/src/components/actions.js",
     exports: ["createButton", "createIconButton"],
-    publicExports: ["createIconButton"],
-    internalExports: ["createButton"],
+    publicExports: [],
+    internalExports: ["createButton", "createIconButton"],
   },
   {
     id: "choices",

@@ -16,7 +16,6 @@ const removedDocsAdapterFiles = [
 ].map((file) => path.join(root, file));
 const docsRendererFile = path.join(root, "apps/docs/component-demo.js");
 const unprefixedFactoryComponents = new Map([
-  ["icon-button", "createIconButton"],
   ["badge", "createBadge"],
   ["card", "createCard"],
   ["checkbox", "createCheckbox"],
@@ -76,9 +75,11 @@ function checkComponentRegistry() {
 
   for (const component of requiredComponentContracts) {
     const key = component.includes("-") ? `"${component}"` : component;
-    if (component === "button") {
-      if (!registrySource.includes("Button is React-primary") || registrySource.includes("button: createButton")) {
-        add("errors", registryFile, 1, "Button registry entry must reject DOM rendering and route docs through the React component.");
+    if (component === "button" || component === "icon-button") {
+      const label = component === "button" ? "Button" : "Icon Button";
+      const factory = component === "button" ? "createButton" : "createIconButton";
+      if (!registrySource.includes(`${label} is React-primary`) || registrySource.includes(`${key}: ${factory}`)) {
+        add("errors", registryFile, 1, `${label} registry entry must reject DOM rendering and route docs through the React component.`);
       }
       continue;
     }

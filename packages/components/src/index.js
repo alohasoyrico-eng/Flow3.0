@@ -1,4 +1,3 @@
-export { createIconButton } from "./components/actions.js?v=2";
 export { createCheckbox, createRadioButton, createSwitch } from "./components/choices.js?v=11";
 export {
   createCardSummary,

@@ -30,14 +30,6 @@ export const iconButtonPlatformContract = {
 };
 
 export const iconButtonPlatformAdapters = {
-  dom: {
-    package: "@design-system/components",
-    importName: iconButtonContract.factory,
-    renderMode: "factory",
-    implementationRole: "transitional-static-renderer",
-    sourceOfTruth: false,
-    styleSource: "@design-system/components/styles.css",
-  },
   react: {
     package: "@design-system/react",
     componentName: "IconButton",

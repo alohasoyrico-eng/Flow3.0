@@ -106,10 +106,13 @@ function checkPlatformAdapters() {
   if (!buttonAdapter.includes("react:")) {
     add("errors", buttonAdapterFile, 1, "Button platform contract must declare React as its implementation target.");
   }
+  if (iconButtonAdapter.includes("dom:") || iconButtonAdapter.includes('renderMode: "factory"') || iconButtonAdapter.includes('implementationRole: "transitional-static-renderer"')) {
+    add("errors", iconButtonAdapterFile, 1, "Icon Button platform contract must not advertise a DOM target once React is the public product component.");
+  }
+  if (!iconButtonAdapter.includes("react:")) {
+    add("errors", iconButtonAdapterFile, 1, "Icon Button platform contract must declare React as its implementation target.");
+  }
   for (const platform of ["dom", "react"]) {
-    if (!iconButtonAdapter.includes(`${platform}:`)) {
-      add("errors", iconButtonAdapterFile, 1, `Icon Button platform contract must declare a ${platform} implementation target.`);
-    }
     if (!inputAdapter.includes(`${platform}:`)) {
       add("errors", inputAdapterFile, 1, `Input platform contract must declare a ${platform} implementation target.`);
     }
@@ -118,7 +121,6 @@ function checkPlatformAdapters() {
     }
   }
   for (const [file, source, componentName] of [
-    [iconButtonAdapterFile, iconButtonAdapter, "Icon Button"],
     [inputAdapterFile, inputAdapter, "Input"],
     [selectAdapterFile, selectAdapter, "Select"],
   ]) {
@@ -145,6 +147,15 @@ function checkPlatformAdapters() {
   ]) {
     if (!buttonAdapter.includes(snippet)) {
       add("errors", buttonAdapterFile, 1, `Button platform contract must mark React as the only public component target; missing ${snippet}.`);
+    }
+  }
+  for (const snippet of [
+    'renderMode: "component"',
+    'implementationRole: "primary-product-component"',
+    "sourceOfTruth: true",
+  ]) {
+    if (!iconButtonAdapter.includes(snippet)) {
+      add("errors", iconButtonAdapterFile, 1, `Icon Button platform contract must mark React as the only public component target; missing ${snippet}.`);
     }
   }
   for (const token of [
