@@ -4,6 +4,7 @@ export { CardExpiryInput } from "./CardExpiryInput.js";
 export { CardNumberInput } from "./CardNumberInput.js";
 export { CardSecurityCodeInput } from "./CardSecurityCodeInput.js";
 export { Checkbox } from "./Checkbox.js";
+export { Chip } from "./Chip.js";
 export { CodeInput } from "./CodeInput.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";

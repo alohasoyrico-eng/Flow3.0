@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, Tag, TextArea } from "../src/index.js";
-import { badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, Tag, TextArea } from "../src/index.js";
+import { badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Badge.displayName, "Badge");
 assert.equal(Badge.platformContract, badgePlatformContract);
@@ -16,6 +16,8 @@ assert.equal(CardSecurityCodeInput.displayName, "CardSecurityCodeInput");
 assert.equal(CardSecurityCodeInput.platformContract, cardSecurityCodeInputPlatformContract);
 assert.equal(Checkbox.displayName, "Checkbox");
 assert.equal(Checkbox.platformContract, checkboxPlatformContract);
+assert.equal(Chip.displayName, "Chip");
+assert.equal(Chip.platformContract, chipPlatformContract);
 assert.equal(CodeInput.displayName, "CodeInput");
 assert.equal(CodeInput.platformContract, codeInputPlatformContract);
 assert.equal(DatePicker.displayName, "DatePicker");
@@ -113,6 +115,36 @@ const hiddenBadgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
 }));
 assert.match(hiddenBadgeMarkup, /hidden=""/);
 assert.match(hiddenBadgeMarkup, /data-state="hidden"/);
+
+const chipMarkup = renderToStaticMarkup(React.createElement(Chip, {
+  label: "Active",
+  variant: "filter",
+  tone: "warning",
+  selected: true,
+  removable: true,
+  icon: "filter_alt",
+  onRemoveLabel: "Remove Active",
+}));
+assert.match(chipMarkup, /^<button/);
+assert.match(chipMarkup, /class="chip"/);
+assert.match(chipMarkup, /data-variant="filter"/);
+assert.match(chipMarkup, /data-tone="warning"/);
+assert.match(chipMarkup, /data-state="selected"/);
+assert.match(chipMarkup, /data-selected="true"/);
+assert.match(chipMarkup, /data-chip-remove="true"/);
+assert.match(chipMarkup, /aria-pressed="true"/);
+assert.match(chipMarkup, /aria-label="Remove Active"/);
+assert.match(chipMarkup, /class="chip__icon"/);
+assert.match(chipMarkup, /class="chip__label">Active<\/span>/);
+assert.match(chipMarkup, /class="chip__remove"/);
+
+const staticChipMarkup = renderToStaticMarkup(React.createElement(Chip, {
+  label: "Suggested",
+  variant: "suggestion",
+}));
+assert.match(staticChipMarkup, /^<span/);
+assert.match(staticChipMarkup, /data-variant="suggestion"/);
+assert.doesNotMatch(staticChipMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /aria-pressed/);
 
 const tagMarkup = renderToStaticMarkup(React.createElement(Tag, {
   label: "Policy",

@@ -422,7 +422,8 @@ export const componentContracts = {
     ]
   },
   chip: {
-    factory: "createChip",
+    factory: "@design-system/react/chip",
+    internalFactory: "createTransitionalChip",
     element: "span | button",
     purpose: "Show a compact selected filter, token, or removable value with visible label and optional interaction state.",
     variants: ["filter", "input", "suggestion", "assist"],
@@ -430,9 +431,9 @@ export const componentContracts = {
     states: ["default", "hover", "pressed", "selected", "focus", "disabled"],
     props: [
       { name: "label", type: "string", required: true },
-      { name: "variant", type: "filter | input | suggestion | assist", required: false },
-      { name: "tone", type: "default | danger | warning", required: false },
-      { name: "state", type: "default | hover | pressed | selected | focus | disabled", required: false },
+      { name: "variant", type: "ChipVariant", required: false },
+      { name: "tone", type: "\"default\" | \"danger\" | \"warning\"", required: false },
+      { name: "state", type: "ChipState", required: false },
       { name: "selected", type: "boolean", required: false },
       { name: "disabled", type: "boolean", required: false },
       { name: "removable", type: "boolean", required: false },

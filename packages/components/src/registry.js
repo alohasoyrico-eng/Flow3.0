@@ -29,7 +29,6 @@ import {
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
-import { createChip } from "./components/status.js?v=2";
 import { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
 
 export const componentRegistry = Object.freeze({
@@ -59,7 +58,9 @@ export const componentRegistry = Object.freeze({
   checkbox: () => {
     throw new Error("Checkbox is React-primary. Use @design-system/react/checkbox instead of the transitional DOM renderer.");
   },
-  chip: createChip,
+  chip: () => {
+    throw new Error("Chip is React-primary. Use @design-system/react/chip instead of the transitional DOM renderer.");
+  },
   "chart-panel": createChartPanel,
   combobox: createCombobox,
   "country-selector": createCountrySelector,
@@ -141,6 +142,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "badge") {
     throw new Error("Badge is React-primary. Use @design-system/react/badge instead of renderComponentDemo.");
+  }
+  if (id === "chip") {
+    throw new Error("Chip is React-primary. Use @design-system/react/chip instead of renderComponentDemo.");
   }
   if (id === "tag") {
     throw new Error("Tag is React-primary. Use @design-system/react/tag instead of renderComponentDemo.");

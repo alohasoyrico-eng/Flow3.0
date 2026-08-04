@@ -9,6 +9,11 @@ export {
   tagPlatformProps,
 } from "./tag.js";
 export {
+  chipPlatformAdapters,
+  chipPlatformContract,
+  chipPlatformProps,
+} from "./chip.js";
+export {
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,

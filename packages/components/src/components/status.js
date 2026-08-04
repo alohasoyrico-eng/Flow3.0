@@ -49,7 +49,7 @@ export function createTransitionalBadge({
   return badge;
 }
 
-export function createChip({
+export function createTransitionalChip({
   label,
   variant = "filter",
   tone = "default",

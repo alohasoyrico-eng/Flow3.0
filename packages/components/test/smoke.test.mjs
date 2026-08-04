@@ -4,7 +4,6 @@ import {
   createCardSummary,
   createChartPanel,
   hydrateChartPanel,
-  createChip,
   createCombobox,
   createAccordion,
   createAuditEvent,
@@ -78,6 +77,9 @@ import {
   checkboxPlatformAdapters,
   checkboxPlatformContract,
   checkboxPlatformProps,
+  chipPlatformAdapters,
+  chipPlatformContract,
+  chipPlatformProps,
   iconButtonPlatformAdapters,
   iconButtonPlatformContract,
   iconButtonPlatformProps,
@@ -100,7 +102,7 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
-import { createTransitionalBadge, createTransitionalTag } from "../src/components/status.js?v=2";
+import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
   hydrateTransitionalPaymentCardExpiryInput,
@@ -380,7 +382,16 @@ assert.deepEqual(badgePlatformContract.states, componentContracts.badge.states);
 assert.deepEqual(Object.keys(badgePlatformAdapters), ["react"]);
 assert.equal(badgePlatformAdapters.react.componentName, "Badge");
 assert.equal(badgePlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.chip.factory, "createChip");
+assert.equal(componentContracts.chip.factory, "@design-system/react/chip");
+assert.equal(componentContracts.chip.internalFactory, "createTransitionalChip");
+assert.equal(chipPlatformContract.id, "chip");
+assert.equal(chipPlatformContract.source.factory, componentContracts.chip.factory);
+assert.deepEqual(chipPlatformProps(), componentContracts.chip.props.map((prop) => prop.name));
+assert.deepEqual(chipPlatformContract.variants, componentContracts.chip.variants);
+assert.deepEqual(chipPlatformContract.states, componentContracts.chip.states);
+assert.deepEqual(Object.keys(chipPlatformAdapters), ["react"]);
+assert.equal(chipPlatformAdapters.react.componentName, "Chip");
+assert.equal(chipPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.tag.factory, "@design-system/react/tag");
 assert.equal(componentContracts.tag.internalFactory, "createTransitionalTag");
 assert.equal(tagPlatformContract.id, "tag");
@@ -1129,7 +1140,7 @@ assert.equal(hiddenBadge.dataset.state, "hidden");
 const disabledBadge = createTransitionalBadge({ label: "4", state: "disabled" });
 assert.equal(disabledBadge.attributes["aria-disabled"], "true");
 
-const chip = createChip({ label: "Active", variant: "filter", tone: "warning", state: "selected", selected: true, removable: true, icon: "filter_alt" });
+const chip = createTransitionalChip({ label: "Active", variant: "filter", tone: "warning", state: "selected", selected: true, removable: true, icon: "filter_alt" });
 assert.equal(chip.tagName, "BUTTON");
 assert.equal(chip.className, "chip");
 assert.equal(chip.dataset.variant, "filter");
@@ -1140,12 +1151,12 @@ assert.equal(chip.attributes["aria-pressed"], "true");
 assert.equal(chip.attributes["aria-label"], "Remove Active");
 assert.equal(chip.querySelector(".chip__icon").attributes["aria-hidden"], "true");
 assert.equal(chip.querySelector(".chip__remove").textContent, "close");
-const assistChip = createChip({ label: "Export ready", variant: "assist", interactive: true, state: "focus" });
+const assistChip = createTransitionalChip({ label: "Export ready", variant: "assist", interactive: true, state: "focus" });
 assert.equal(assistChip.tagName, "BUTTON");
 assert.equal(assistChip.dataset.variant, "assist");
 assert.equal(assistChip.dataset.state, "focus");
 let chipSelected = null;
-const interactiveChip = createChip({
+const interactiveChip = createTransitionalChip({
   label: "Active",
   selected: false,
   interactive: true,
@@ -1159,7 +1170,7 @@ assert.equal(interactiveChip.dataset.selected, "true");
 assert.equal(interactiveChip.dataset.state, "selected");
 assert.equal(interactiveChip.attributes["aria-pressed"], "true");
 let removedChip = "";
-const removableChip = createChip({
+const removableChip = createTransitionalChip({
   label: "Diesel",
   removable: true,
   onRemove(label) {

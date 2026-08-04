@@ -32,6 +32,10 @@
       "types": "./dist/Checkbox.d.ts",
       "default": "./dist/Checkbox.js"
     },
+    "./chip": {
+      "types": "./dist/Chip.d.ts",
+      "default": "./dist/Chip.js"
+    },
     "./code-input": {
       "types": "./dist/CodeInput.d.ts",
       "default": "./dist/CodeInput.js"

@@ -2,16 +2,21 @@ const { fs, path, root, read, add } = require("./audit-context.js");
 
 const adapterIndexFile = path.join(root, "packages/components/src/platforms/index.js");
 const badgeAdapterFile = path.join(root, "packages/components/src/platforms/badge.js");
+const chipAdapterFile = path.join(root, "packages/components/src/platforms/chip.js");
 const tagAdapterFile = path.join(root, "packages/components/src/platforms/tag.js");
 const contractsFile = path.join(root, "packages/components/src/contracts.js");
 const reactBadgeFile = path.join(root, "packages/react/src/Badge.js");
 const reactBadgeTypesFile = path.join(root, "packages/react/src/Badge.d.ts");
+const reactChipFile = path.join(root, "packages/react/src/Chip.js");
+const reactChipTypesFile = path.join(root, "packages/react/src/Chip.d.ts");
 const reactTagFile = path.join(root, "packages/react/src/Tag.js");
 const reactTagTypesFile = path.join(root, "packages/react/src/Tag.d.ts");
 const reactIndexFile = path.join(root, "packages/react/src/index.js");
 const reactIndexTypesFile = path.join(root, "packages/react/src/index.d.ts");
 const reactDistBadgeFile = path.join(root, "packages/react/dist/Badge.js");
 const reactDistBadgeTypesFile = path.join(root, "packages/react/dist/Badge.d.ts");
+const reactDistChipFile = path.join(root, "packages/react/dist/Chip.js");
+const reactDistChipTypesFile = path.join(root, "packages/react/dist/Chip.d.ts");
 const reactDistTagFile = path.join(root, "packages/react/dist/Tag.js");
 const reactDistTagTypesFile = path.join(root, "packages/react/dist/Tag.d.ts");
 const reactPackageFile = path.join(root, "packages/react/package.json");
@@ -21,13 +26,18 @@ function checkStatusPlatformAdapters() {
   for (const file of [
     adapterIndexFile,
     badgeAdapterFile,
+    chipAdapterFile,
     tagAdapterFile,
     reactBadgeFile,
     reactBadgeTypesFile,
+    reactChipFile,
+    reactChipTypesFile,
     reactTagFile,
     reactTagTypesFile,
     reactDistBadgeFile,
     reactDistBadgeTypesFile,
+    reactDistChipFile,
+    reactDistChipTypesFile,
     reactDistTagFile,
     reactDistTagTypesFile,
   ]) {
@@ -39,10 +49,13 @@ function checkStatusPlatformAdapters() {
 
   const adapterIndex = read(adapterIndexFile);
   const badgeAdapter = read(badgeAdapterFile);
+  const chipAdapter = read(chipAdapterFile);
   const tagAdapter = read(tagAdapterFile);
   const contracts = read(contractsFile);
   const reactBadge = read(reactBadgeFile);
   const reactBadgeTypes = read(reactBadgeTypesFile);
+  const reactChip = read(reactChipFile);
+  const reactChipTypes = read(reactChipTypesFile);
   const reactTag = read(reactTagFile);
   const reactTagTypes = read(reactTagTypesFile);
   const reactIndex = read(reactIndexFile);
@@ -50,16 +63,19 @@ function checkStatusPlatformAdapters() {
   const reactPackage = read(reactPackageFile);
 
   checkAdapter("Badge", "badge", badgeAdapterFile, badgeAdapter, ["hidden", "live", "ariaLabel"]);
+  checkAdapter("Chip", "chip", chipAdapterFile, chipAdapter, ["selected", "disabled", "removable", "icon", "interactive", "onRemoveLabel"]);
   checkAdapter("Tag", "tag", tagAdapterFile, tagAdapter, ["icon", "interactive", "disabled"]);
 
   for (const [file, source, required] of [
     [reactBadgeFile, reactBadge, ["badgePlatformContract", "className: [\"badge\"", '"data-tone": resolvedTone', '"data-variant": resolvedVariant', '"data-state": resolvedState', "badge__label", "badge__icon", "badge__live"]],
     [reactBadgeTypesFile, reactBadgeTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement>", "BadgeProps", "BadgeVariant", "BadgeTone", "BadgeState", "badgePlatformContract"]],
+    [reactChipFile, reactChip, ["chipPlatformContract", "className: [\"chip\"", '"data-tone": resolvedTone', '"data-variant": resolvedVariant', '"data-state": resolvedState', "chip__label", "chip__icon", "chip__remove", "onSelectedChange", "onRemove"]],
+    [reactChipTypesFile, reactChipTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement | HTMLButtonElement>", "ChipProps", "ChipVariant", "ChipTone", "ChipState", "chipPlatformContract"]],
     [reactTagFile, reactTag, ["tagPlatformContract", "className: [\"tag\"", '"data-tone": resolvedTone', '"data-variant": resolvedVariant', '"data-state": resolvedState', "tag__label", "tag__icon", "data-interactive"]],
     [reactTagTypesFile, reactTagTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement | HTMLButtonElement>", "TagProps", "TagVariant", "TagTone", "TagState", "tagPlatformContract"]],
-    [reactPackageFile, reactPackage, ['"types": "./dist/index.d.ts"', '"./badge"', '"./tag"']],
-    [reactIndexFile, reactIndex, ["Badge", "Tag"]],
-    [reactIndexTypesFile, reactIndexTypes, ["BadgeProps", "TagProps"]],
+    [reactPackageFile, reactPackage, ['"types": "./dist/index.d.ts"', '"./badge"', '"./chip"', '"./tag"']],
+    [reactIndexFile, reactIndex, ["Badge", "Chip", "Tag"]],
+    [reactIndexTypesFile, reactIndexTypes, ["BadgeProps", "ChipProps", "TagProps"]],
   ]) {
     for (const snippet of required) {
       if (!source.includes(snippet)) {
@@ -70,8 +86,10 @@ function checkStatusPlatformAdapters() {
 
   for (const [file, source] of [
     [badgeAdapterFile, badgeAdapter],
+    [chipAdapterFile, chipAdapter],
     [tagAdapterFile, tagAdapter],
     [reactBadgeFile, reactBadge],
+    [reactChipFile, reactChip],
     [reactTagFile, reactTag],
   ]) {
     if (source.includes(forbiddenPrefix)) {
