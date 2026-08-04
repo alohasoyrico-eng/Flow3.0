@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useState } from "react";
+import React, { forwardRef, useEffect, useId, useState } from "react";
 import { codeInputPlatformContract } from "@design-system/components/platforms";
 
 function normalizeCodeValue(value, length = 6) {
@@ -49,6 +49,10 @@ export const CodeInput = forwardRef(function CodeInput({
   const isMasked = Boolean(masked) || variant === "masked";
   const activeIndex = Math.min(digits.length, Math.max(resolvedLength - 1, 0));
 
+  useEffect(() => {
+    setCurrentValue(normalizeCodeValue(value, resolvedLength));
+  }, [resolvedLength, value]);
+
   return React.createElement(
     "label",
     {
@@ -58,6 +62,7 @@ export const CodeInput = forwardRef(function CodeInput({
       "data-variant": variant,
       "data-masked": isMasked ? "true" : undefined,
       "data-focused": focused ? "true" : "false",
+      "data-length": String(resolvedLength),
     },
     React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label ?? "Security code"),
     React.createElement(

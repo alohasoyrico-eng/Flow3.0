@@ -7292,6 +7292,13 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   }
 }
 
+.code-input {
+  --code-input-slot-block-size: calc(var(--component-control-min-size) + var(--sys-frame-border-control));
+  --code-input-slot-font-size: var(--component-font-size-title-md);
+  --code-input-slot-gap: var(--sys-space-sm);
+  --code-input-slot-inline-size: var(--component-control-min-size);
+}
+
 .code-input .code-input__control {
   cursor: text;
   display: inline-grid;
@@ -7336,6 +7343,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   font-size: var(--code-input-slot-font-size, var(--component-font-size-title-md));
   font-weight: var(--sys-voice-weight-semibold);
   justify-content: center;
+  block-size: var(--code-input-slot-block-size);
+  inline-size: var(--code-input-slot-inline-size);
   min-block-size: var(--code-input-slot-block-size);
   min-inline-size: var(--code-input-slot-inline-size);
   padding: 0;
