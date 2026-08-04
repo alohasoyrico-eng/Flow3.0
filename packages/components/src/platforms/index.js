@@ -34,6 +34,11 @@ export {
   codeInputPlatformProps,
 } from "./code-input.js";
 export {
+  datePickerPlatformAdapters,
+  datePickerPlatformContract,
+  datePickerPlatformProps,
+} from "./date-picker.js";
+export {
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,

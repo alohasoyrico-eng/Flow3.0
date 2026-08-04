@@ -1214,7 +1214,7 @@ export function createTransitionalPaymentCardSecurityCodeInput({
   return root;
 }
 
-export function createDatePicker({
+export function createTransitionalDatePicker({
   label,
   value = "",
   placeholder = "Selecciona fecha",
@@ -1223,8 +1223,8 @@ export function createDatePicker({
   disabled = false,
   min = "",
   max = "",
-  density = "md",
-  state = "default",
+  density,
+  state,
   invalid = false,
   onValueChange,
   onOpenChange,
@@ -1792,7 +1792,7 @@ export function hydrateDateRangePicker(root, { placeholder = "Rango de fechas", 
   return root;
 }
 
-export function hydrateDatePicker(root, { placeholder = "Selecciona fecha", disabled = false, onValueChange, onOpenChange } = {}) {
+export function hydrateTransitionalDatePicker(root, { placeholder = "Selecciona fecha", disabled = false, onValueChange, onOpenChange } = {}) {
   if (!root || root.dataset?.datePickerReady === "true") return root;
   root.dataset.datePickerReady = "true";
   const control = root.querySelector?.("[data-date-picker-trigger]");

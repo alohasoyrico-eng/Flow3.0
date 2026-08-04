@@ -32,6 +32,10 @@
       "types": "./dist/CodeInput.d.ts",
       "default": "./dist/CodeInput.js"
     },
+    "./date-picker": {
+      "types": "./dist/DatePicker.d.ts",
+      "default": "./dist/DatePicker.js"
+    },
     "./icon-button": {
       "types": "./dist/IconButton.d.ts",
       "default": "./dist/IconButton.js"

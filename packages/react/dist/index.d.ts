@@ -4,6 +4,7 @@ export { CardNumberInput } from "./CardNumberInput.js";
 export { CardSecurityCodeInput } from "./CardSecurityCodeInput.js";
 export { Checkbox } from "./Checkbox.js";
 export { CodeInput } from "./CodeInput.js";
+export { DatePicker } from "./DatePicker.js";
 export type {
   ButtonComponent,
   ButtonDensity,
@@ -49,6 +50,12 @@ export type {
   CodeInputState,
   CodeInputVariant,
 } from "./CodeInput.js";
+export type {
+  DatePickerComponent,
+  DatePickerDensity,
+  DatePickerProps,
+  DatePickerState,
+} from "./DatePicker.js";
 export { IconButton } from "./IconButton.js";
 export type {
   IconButtonComponent,

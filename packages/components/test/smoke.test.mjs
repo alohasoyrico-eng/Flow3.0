@@ -40,7 +40,6 @@ import {
   createTag,
   createTabs,
   createTreeView,
-  createDatePicker,
   createDateRangePicker,
   createToast,
   createTooltip,
@@ -64,6 +63,9 @@ import {
   codeInputPlatformAdapters,
   codeInputPlatformContract,
   codeInputPlatformProps,
+  datePickerPlatformAdapters,
+  datePickerPlatformContract,
+  datePickerPlatformProps,
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,
@@ -99,6 +101,7 @@ import {
   hydrateTransitionalPaymentCardNumberInput,
   createTransitionalPaymentCardSecurityCodeInput,
   hydrateTransitionalPaymentCardSecurityCodeInput,
+  createTransitionalDatePicker,
   createTransitionalPhoneInput,
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
@@ -413,7 +416,16 @@ assert.deepEqual(Object.keys(phoneInputPlatformAdapters), ["react"]);
 assert.equal(phoneInputPlatformAdapters.react.componentName, "PhoneInput");
 assert.equal(phoneInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.countrySelector.factory, "createCountrySelector");
-assert.equal(componentContracts.datePicker.factory, "createDatePicker");
+assert.equal(componentContracts.datePicker.factory, "@design-system/react/date-picker");
+assert.equal(componentContracts.datePicker.internalFactory, "createTransitionalDatePicker");
+assert.equal(datePickerPlatformContract.id, "date-picker");
+assert.equal(datePickerPlatformContract.source.factory, componentContracts.datePicker.factory);
+assert.deepEqual(datePickerPlatformProps(), componentContracts.datePicker.props.map((prop) => prop.name));
+assert.deepEqual(datePickerPlatformContract.variants, componentContracts.datePicker.variants);
+assert.deepEqual(datePickerPlatformContract.states, componentContracts.datePicker.states);
+assert.deepEqual(Object.keys(datePickerPlatformAdapters), ["react"]);
+assert.equal(datePickerPlatformAdapters.react.componentName, "DatePicker");
+assert.equal(datePickerPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.dateRangePicker.factory, "createDateRangePicker");
 assert.equal(componentContracts.segmentedControl.factory, "createSegmentedControl");
 assert.equal(componentContracts.popover.factory, "createPopover");
@@ -2268,7 +2280,7 @@ assert.equal(interactivePhone.querySelector(".phone-input__country").dataset.cou
 assert.equal(phoneMeta.country, "CU");
 assert.equal(phoneMeta.e164, "+5371234567");
 
-const datePicker = createDatePicker({ label: "Service date", value: "2026-07-13", helper: "One operational date.", min: "2026-01-01", max: "2026-12-31", density: "lg", state: "focus" });
+const datePicker = createTransitionalDatePicker({ label: "Service date", value: "2026-07-13", helper: "One operational date.", min: "2026-01-01", max: "2026-12-31", density: "lg", state: "focus" });
 assert.equal(datePicker.tagName, "DIV");
 assert.equal(datePicker.className, "field date-picker");
 assert.equal(datePicker.dataset.density, "lg");
@@ -2297,7 +2309,7 @@ assert.equal(datePicker.querySelectorAll(".date-picker__day")[0].attributes.role
 assert.equal(Boolean(datePicker.querySelectorAll(".date-picker__day")[0].attributes["aria-label"]), true);
 let dateValue = "";
 let dateOpen = null;
-const interactiveDate = createDatePicker({
+const interactiveDate = createTransitionalDatePicker({
   label: "Service date",
   value: "2026-07-13",
   onValueChange(value) {

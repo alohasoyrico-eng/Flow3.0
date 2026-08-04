@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, IconButton, Input, PhoneInput, RadioButton, Select, Switch, TextArea } from "../src/index.js";
-import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, DatePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, TextArea } from "../src/index.js";
+import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, datePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
@@ -16,6 +16,8 @@ assert.equal(Checkbox.displayName, "Checkbox");
 assert.equal(Checkbox.platformContract, checkboxPlatformContract);
 assert.equal(CodeInput.displayName, "CodeInput");
 assert.equal(CodeInput.platformContract, codeInputPlatformContract);
+assert.equal(DatePicker.displayName, "DatePicker");
+assert.equal(DatePicker.platformContract, datePickerPlatformContract);
 assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
 assert.equal(Input.displayName, "Input");
@@ -344,6 +346,48 @@ const inheritedPhoneInputMarkup = renderToStaticMarkup(React.createElement(Phone
   country: "MX",
 }));
 assert.doesNotMatch(inheritedPhoneInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const datePickerMarkup = renderToStaticMarkup(React.createElement(DatePicker, {
+  label: "Service date",
+  value: "2026-07-13",
+  helper: "One operational date.",
+  min: "2026-01-01",
+  max: "2026-12-31",
+  density: "lg",
+  state: "focus",
+}));
+assert.match(datePickerMarkup, /class="field date-picker"/);
+assert.match(datePickerMarkup, /data-density="lg"/);
+assert.match(datePickerMarkup, /data-state="focus"/);
+assert.match(datePickerMarkup, /data-open="false"/);
+assert.match(datePickerMarkup, /class="field__label date-picker__label"/);
+assert.match(datePickerMarkup, /class="field__control date-picker__control"/);
+assert.match(datePickerMarkup, /data-date-picker-trigger=""/);
+assert.match(datePickerMarkup, /aria-haspopup="dialog"/);
+assert.match(datePickerMarkup, /aria-expanded="false"/);
+assert.match(datePickerMarkup, /class="field__icon date-picker__icon"/);
+assert.match(datePickerMarkup, /calendar_month/);
+assert.match(datePickerMarkup, /class="date-picker__value"/);
+assert.match(datePickerMarkup, /13 jul 2026/);
+assert.match(datePickerMarkup, /type="date"/);
+assert.match(datePickerMarkup, /data-date-picker-input=""/);
+assert.match(datePickerMarkup, /min="2026-01-01"/);
+assert.match(datePickerMarkup, /max="2026-12-31"/);
+assert.match(datePickerMarkup, /class="date-picker__panel"/);
+assert.match(datePickerMarkup, /role="dialog"/);
+assert.match(datePickerMarkup, /aria-modal="false"/);
+assert.match(datePickerMarkup, /class="date-picker__grid"/);
+assert.match(datePickerMarkup, /role="grid"/);
+assert.match(datePickerMarkup, /class="date-picker__weekday"/);
+assert.match(datePickerMarkup, /data-date-picker-day="2026-07-13"/);
+assert.match(datePickerMarkup, /aria-pressed="true"/);
+assert.match(datePickerMarkup, /class="field__helper date-picker__helper"/);
+
+const inheritedDatePickerMarkup = renderToStaticMarkup(React.createElement(DatePicker, {
+  label: "Service date",
+  value: "2026-07-13",
+}));
+assert.doesNotMatch(inheritedDatePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

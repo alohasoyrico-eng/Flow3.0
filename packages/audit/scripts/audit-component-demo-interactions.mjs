@@ -246,12 +246,6 @@ fixtures.countrySelectorOptions[1].dispatch("keydown", { key: "Enter" });
 assert.equal(fixtures.countrySelectorControl.dataset.country, "CU", "Country Selector Enter should select the active country.");
 assert.equal(fixtures.countrySelectorPrefix.textContent, "+53", "Country Selector should sync the visible calling code.");
 
-fixtures.dateTrigger.click();
-assert.equal(fixtures.datePanel.hidden, false, "Date Picker trigger should open the panel.");
-fixtures.dateDay.click();
-assert.equal(fixtures.dateInput.value, "2026-07-14", "Date Picker day click should update the native input.");
-assert.equal(fixtures.datePanel.hidden, true, "Date Picker day click should close the panel.");
-
 fixtures.dateRangeTrigger.click();
 assert.equal(fixtures.dateRangeTrigger.getAttribute("aria-expanded"), "true", "Date Range Picker click should open the range panel.");
 assert.equal(fixtures.dateRangePanel.hidden, false, "Date Range Picker click should reveal the range panel.");
@@ -316,7 +310,6 @@ console.log(JSON.stringify({
     "popover",
     "combobox",
     "country-selector",
-    "date-picker",
     "date-range-picker",
     "tree-view",
     "overlay",
@@ -468,14 +461,6 @@ function buildFixtures() {
   }, [countrySelectorTrigger, countrySelectorList]);
   const countrySelector = el("span", { attrs: { "data-doc-component": "country-selector" } }, [countrySelectorControl]);
 
-  const dateTrigger = el("button", { attrs: { "data-date-picker-trigger": "", "aria-expanded": "false" } });
-  const datePanel = el("div", { attrs: { "data-date-picker-panel": "" }, hidden: true });
-  const dateInput = el("input", { attrs: { "data-date-picker-input": "" } });
-  const dateValue = el("span", { attrs: { "data-date-picker-value": "" }, textContent: "13 Jul 2026" });
-  const dateDay = el("button", { attrs: { "data-date-picker-day": "2026-07-14", "aria-pressed": "false" }, textContent: "14" });
-  datePanel.append(dateDay);
-  const datePicker = el("div", { className: "date-picker-demo" }, [dateTrigger, datePanel, dateInput, dateValue]);
-
   const dateRangeTrigger = el("button", { attrs: { "data-date-range-picker-trigger": "", "aria-expanded": "false" } });
   const dateRangeFrom = el("input", { value: "2026-07-01", attrs: { "data-date-range-picker-from": "" } });
   const dateRangeTo = el("input", { value: "2026-07-15", attrs: { "data-date-range-picker-to": "" } });
@@ -572,7 +557,6 @@ function buildFixtures() {
       popover,
       combobox,
       countrySelector,
-      datePicker,
       dateRangePicker,
       tree,
       overlayDemo,
@@ -609,12 +593,6 @@ function buildFixtures() {
     countrySelectorSearch,
     countrySelectorOptions,
     countrySelectorPrefix,
-      datePicker,
-      dateTrigger,
-    datePanel,
-    dateInput,
-    dateValue,
-    dateDay,
     dateRangePicker,
     dateRangeTrigger,
     dateRangePanel,
