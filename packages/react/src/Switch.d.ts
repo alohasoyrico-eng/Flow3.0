@@ -1,4 +1,5 @@
-import type { switchPlatformContract } from "@design-system/components/platforms";
+import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import { switchPlatformContract } from "@design-system/components/platforms";
 
 export type SwitchState = "off" | "on" | "focus" | "pressed" | "error" | "disabled";
 export type SwitchDensity = "sm" | "md" | "lg";
@@ -7,7 +8,7 @@ export interface SwitchValueMeta {
   name: string;
 }
 
-export interface SwitchProps {
+export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "checked" | "value" | "onChange"> {
   label: string;
   description?: string;
   error?: string;
@@ -21,9 +22,8 @@ export interface SwitchProps {
   className?: string;
 }
 
-export interface SwitchComponent {
-  (props: SwitchProps): unknown;
-  displayName?: string;
+export interface SwitchComponent extends ForwardRefExoticComponent<SwitchProps & RefAttributes<HTMLInputElement>> {
+  displayName: "Switch";
   platformContract: typeof switchPlatformContract;
 }
 

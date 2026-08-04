@@ -293,7 +293,7 @@ function checkPlatformAdapters() {
     [reactSelectFile, reactSelect, ["selectPlatformContract", "className: [\"select-control\"", '"data-density": density || undefined', "select-control__trigger", "select-control__listbox", "select-control__option", "onValueChange"]],
     [reactSelectTypesFile, reactSelectTypes, ["SelectProps", "SelectVariant", "SelectDensity", "SelectState", "selectPlatformContract", "onValueChange"]],
     [reactSwitchFile, reactSwitch, ["switchPlatformContract", "className: [\"switch\"", '"data-density": density || undefined', '"data-state": normalizedState', "switch__input", "switch__track", "switch__thumb", "onCheckedChange"]],
-    [reactSwitchTypesFile, reactSwitchTypes, ["SwitchProps", "SwitchDensity", "SwitchState", "switchPlatformContract", "onCheckedChange"]],
+    [reactSwitchTypesFile, reactSwitchTypes, ["ForwardRefExoticComponent", "RefAttributes<HTMLInputElement>", "SwitchProps", "SwitchDensity", "SwitchState", "switchPlatformContract", "onCheckedChange"]],
     [reactTextAreaFile, reactTextArea, ["textAreaPlatformContract", "className: [\"field\"", '"data-density": density || undefined', "text-area__surface", "text-area__counter", "onChange"]],
     [reactTextAreaTypesFile, reactTextAreaTypes, ["TextAreaProps", "TextAreaDensity", "TextAreaState", "textAreaPlatformContract", "onChange"]],
     [reactIndexFile, reactIndex, ["Button", "Checkbox", "IconButton", "Input", "RadioButton", "Select", "Switch", "TextArea"]],
