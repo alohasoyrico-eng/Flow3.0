@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
-import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
+import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
@@ -14,6 +14,8 @@ assert.equal(CardSecurityCodeInput.displayName, "CardSecurityCodeInput");
 assert.equal(CardSecurityCodeInput.platformContract, cardSecurityCodeInputPlatformContract);
 assert.equal(Checkbox.displayName, "Checkbox");
 assert.equal(Checkbox.platformContract, checkboxPlatformContract);
+assert.equal(CodeInput.displayName, "CodeInput");
+assert.equal(CodeInput.platformContract, codeInputPlatformContract);
 assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
 assert.equal(Input.displayName, "Input");
@@ -274,6 +276,40 @@ const inheritedCardSecurityCodeInputMarkup = renderToStaticMarkup(React.createEl
   value: "482",
 }));
 assert.doesNotMatch(inheritedCardSecurityCodeInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const codeInputMarkup = renderToStaticMarkup(React.createElement(CodeInput, {
+  label: "Security code",
+  helper: "Code expires in 00:42",
+  value: "a428195",
+  length: 6,
+  variant: "sms",
+  density: "sm",
+}));
+assert.match(codeInputMarkup, /class="field code-input"/);
+assert.match(codeInputMarkup, /data-density="sm"/);
+assert.match(codeInputMarkup, /data-state="complete"/);
+assert.match(codeInputMarkup, /data-variant="sms"/);
+assert.match(codeInputMarkup, /class="code-input__control"/);
+assert.match(codeInputMarkup, /class="code-input__input"/);
+assert.match(codeInputMarkup, /autoComplete="one-time-code"|autocomplete="one-time-code"/);
+assert.match(codeInputMarkup, /value="428195"/);
+assert.match(codeInputMarkup, /class="code-input__slots"/);
+assert.match(codeInputMarkup, /data-code-slot=""/);
+assert.match(codeInputMarkup, /aria-hidden="true"/);
+assert.match(codeInputMarkup, /class="field__helper"/);
+
+const maskedCodeInputMarkup = renderToStaticMarkup(React.createElement(CodeInput, {
+  label: "Passcode",
+  value: "123456",
+  variant: "masked",
+}));
+assert.match(maskedCodeInputMarkup, /data-masked="true"/);
+
+const inheritedCodeInputMarkup = renderToStaticMarkup(React.createElement(CodeInput, {
+  label: "Security code",
+  value: "123",
+}));
+assert.doesNotMatch(inheritedCodeInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

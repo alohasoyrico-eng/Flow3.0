@@ -25,7 +25,6 @@ import {
   createMovementRow,
   createMenu,
   createMotionBoundary,
-  createCodeInput,
   createPagination,
   createPhoneInput,
   createPopover,
@@ -63,6 +62,9 @@ import {
   cardSecurityCodeInputPlatformAdapters,
   cardSecurityCodeInputPlatformContract,
   cardSecurityCodeInputPlatformProps,
+  codeInputPlatformAdapters,
+  codeInputPlatformContract,
+  codeInputPlatformProps,
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,
@@ -95,6 +97,7 @@ import {
   hydrateTransitionalPaymentCardNumberInput,
   createTransitionalPaymentCardSecurityCodeInput,
   hydrateTransitionalPaymentCardSecurityCodeInput,
+  createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
 import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
@@ -386,7 +389,16 @@ assert.equal(componentContracts.stepper.factory, "createStepper");
 assert.equal(componentContracts.chartPanel.factory, "createChartPanel");
 assert.equal(componentContracts.stationPin.factory, "createStationPin");
 assert.equal(componentContracts.routeSummary.factory, "createRouteSummary");
-assert.equal(componentContracts.codeInput.factory, "createCodeInput");
+assert.equal(componentContracts.codeInput.factory, "@design-system/react/code-input");
+assert.equal(componentContracts.codeInput.internalFactory, "createTransitionalSecurityCodeInput");
+assert.equal(codeInputPlatformContract.id, "code-input");
+assert.equal(codeInputPlatformContract.source.factory, componentContracts.codeInput.factory);
+assert.deepEqual(codeInputPlatformProps(), componentContracts.codeInput.props.map((prop) => prop.name));
+assert.deepEqual(codeInputPlatformContract.variants, componentContracts.codeInput.variants);
+assert.deepEqual(codeInputPlatformContract.states, componentContracts.codeInput.states);
+assert.deepEqual(Object.keys(codeInputPlatformAdapters), ["react"]);
+assert.equal(codeInputPlatformAdapters.react.componentName, "CodeInput");
+assert.equal(codeInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.phoneInput.factory, "createPhoneInput");
 assert.equal(componentContracts.countrySelector.factory, "createCountrySelector");
 assert.equal(componentContracts.datePicker.factory, "createDatePicker");
@@ -2129,7 +2141,7 @@ assert.equal(compactRouteSummary.querySelector(".route-summary__metrics").childr
 assert.equal(compactRouteSummary.querySelector(".icon-button__icon").textContent, "close");
 assert.equal(compactRouteSummary.querySelector(".icon-button").attributes["aria-label"], "Cancelar ruta");
 
-const codeInput = createCodeInput({ label: "Code", value: "123", length: 4, helper: "Expires soon" });
+const codeInput = createTransitionalSecurityCodeInput({ label: "Code", value: "123", length: 4, helper: "Expires soon" });
 assert.equal(codeInput.tagName, "LABEL");
 assert.equal(codeInput.className, "field code-input");
 assert.equal(codeInput.dataset.state, "default");
@@ -2149,17 +2161,17 @@ assert.equal(otpLogicalInput.attributes.maxlength, "4");
 assert.equal(codeInput.querySelector(".code-input__slots").children[0].tagName, "SPAN");
 assert.equal(codeInput.querySelector(".code-input__slots").children[0].attributes["data-code-slot"], "");
 assert.equal(otpLogicalInput.attributes["aria-describedby"], codeInput.querySelector(".field__helper").id);
-const maskedOtp = createCodeInput({ label: "Code", value: "123456", variant: "masked" });
+const maskedOtp = createTransitionalSecurityCodeInput({ label: "Code", value: "123456", variant: "masked" });
 assert.equal(maskedOtp.dataset.variant, "masked");
 assert.equal(maskedOtp.dataset.masked, "true");
 assert.equal(maskedOtp.querySelector(".code-input__slots").children[0].querySelector(".code-input__digit").textContent, "1");
-const otpError = createCodeInput({ label: "Code", value: "12", error: "Code expired" });
+const otpError = createTransitionalSecurityCodeInput({ label: "Code", value: "12", error: "Code expired" });
 assert.equal(otpError.dataset.state, "error");
 assert.equal(otpError.querySelectorAll("input")[0].attributes["aria-invalid"], "true");
 assert.equal(otpError.querySelector(".field__helper").textContent, "Code expired");
 let otpValue = "";
 let otpComplete = "";
-const interactiveOtp = createCodeInput({
+const interactiveOtp = createTransitionalSecurityCodeInput({
   label: "Code",
   length: 4,
   onValueChange(value) {

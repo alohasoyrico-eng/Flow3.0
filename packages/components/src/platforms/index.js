@@ -29,6 +29,11 @@ export {
   cardSecurityCodeInputPlatformProps,
 } from "./card-security-code-input.js";
 export {
+  codeInputPlatformAdapters,
+  codeInputPlatformContract,
+  codeInputPlatformProps,
+} from "./code-input.js";
+export {
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,

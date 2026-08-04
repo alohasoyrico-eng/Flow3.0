@@ -81,7 +81,9 @@ const moduleRules = [
   {
     id: "specialized-inputs",
     file: "packages/components/src/components/specialized-inputs.js",
-    exports: ["createDatePicker", "createCodeInput", "createPhoneInput"],
+    exports: ["createDatePicker", "createPhoneInput", "createTransitionalSecurityCodeInput"],
+    publicExports: ["createDatePicker", "createPhoneInput"],
+    internalExports: ["createTransitionalSecurityCodeInput"],
   },
   {
     id: "security",

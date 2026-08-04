@@ -28,7 +28,7 @@ import {
   createTooltip,
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
-import { createCountrySelector, createDatePicker, createDateRangePicker, createCodeInput, createPhoneInput } from "./components/specialized-inputs.js?v=28";
+import { createCountrySelector, createDatePicker, createDateRangePicker, createPhoneInput } from "./components/specialized-inputs.js?v=28";
 import { createBadge, createChip, createTag } from "./components/status.js?v=2";
 import { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
 
@@ -77,7 +77,9 @@ export const componentRegistry = Object.freeze({
   menu: createMenu,
   "motion-boundary": createMotionBoundary,
   "movement-row": createMovementRow,
-  "code-input": createCodeInput,
+  "code-input": () => {
+    throw new Error("Code Input is React-primary. Use @design-system/react/code-input instead of the transitional DOM renderer.");
+  },
   pagination: createPagination,
   "phone-input": createPhoneInput,
   popover: createPopover,
@@ -129,6 +131,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "card-security-code-input") {
     throw new Error("Card Security Code Input is React-primary. Use @design-system/react/card-security-code-input instead of renderComponentDemo.");
+  }
+  if (id === "code-input") {
+    throw new Error("Code Input is React-primary. Use @design-system/react/code-input instead of renderComponentDemo.");
   }
   if (id === "checkbox") {
     throw new Error("Checkbox is React-primary. Use @design-system/react/checkbox instead of renderComponentDemo.");

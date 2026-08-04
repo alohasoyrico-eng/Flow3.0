@@ -1,0 +1,129 @@
+import React, { forwardRef, useId, useState } from "react";
+import { codeInputPlatformContract } from "@design-system/components/platforms";
+
+function normalizeCodeValue(value, length = 6) {
+  return String(value ?? "").replace(/\D/g, "").slice(0, Number(length));
+}
+
+function resolveCodeInputState({ disabled = false, error = "", state, value = "", length = 6 } = {}) {
+  if (disabled) return "disabled";
+  if (error) return "error";
+  if (state && state !== "default") return state;
+  return value.length === Number(length) && value ? "complete" : "default";
+}
+
+function codeMeta(value, length) {
+  return {
+    value,
+    length: Number(length),
+    complete: value.length === Number(length),
+  };
+}
+
+export const CodeInput = forwardRef(function CodeInput({
+  label,
+  value = "",
+  length = 6,
+  variant = "sms",
+  masked = false,
+  helper = "",
+  disabled = false,
+  state,
+  density,
+  error = "",
+  onValueChange,
+  onComplete,
+  className = "",
+  id,
+  ...rest
+}, ref) {
+  const generatedId = useId();
+  const inputId = id ?? `code-input-${generatedId}`;
+  const resolvedLength = Math.max(1, Number(length) || 6);
+  const [focused, setFocused] = useState(state === "focus");
+  const [currentValue, setCurrentValue] = useState(normalizeCodeValue(value, resolvedLength));
+  const digits = normalizeCodeValue(currentValue, resolvedLength);
+  const resolvedState = resolveCodeInputState({ disabled, error, state, value: digits, length: resolvedLength });
+  const resolvedHelper = error || helper;
+  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const isMasked = Boolean(masked) || variant === "masked";
+  const activeIndex = Math.min(digits.length, Math.max(resolvedLength - 1, 0));
+
+  return React.createElement(
+    "label",
+    {
+      className: ["field code-input", className].filter(Boolean).join(" "),
+      "data-state": resolvedState,
+      "data-density": density || undefined,
+      "data-variant": variant,
+      "data-masked": isMasked ? "true" : undefined,
+      "data-focused": focused ? "true" : "false",
+    },
+    React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label ?? "Security code"),
+    React.createElement(
+      "span",
+      { className: "code-input__control" },
+      React.createElement("input", {
+        ...rest,
+        ref,
+        id: inputId,
+        className: "code-input__input",
+        type: "text",
+        inputMode: "numeric",
+        autoComplete: "one-time-code",
+        pattern: "[0-9]*",
+        maxLength: resolvedLength,
+        value: digits,
+        disabled: Boolean(disabled),
+        "data-code-input": "",
+        "aria-label": `${label ?? "Security code"} (${resolvedLength} digits)`,
+        "aria-describedby": describedBy,
+        "aria-invalid": error ? "true" : undefined,
+        onFocus: (event) => {
+          setFocused(true);
+          rest.onFocus?.(event);
+        },
+        onBlur: (event) => {
+          setFocused(false);
+          rest.onBlur?.(event);
+        },
+        onChange: (event) => {
+          const nextValue = normalizeCodeValue(event.target.value, resolvedLength);
+          setCurrentValue(nextValue);
+          const nextMeta = codeMeta(nextValue, resolvedLength);
+          onValueChange?.(nextValue);
+          if (nextMeta.complete) onComplete?.(nextValue);
+        },
+      }),
+      React.createElement(
+        "span",
+        { className: "code-input__slots", "aria-hidden": "true" },
+        Array.from({ length: resolvedLength }, (_, index) => {
+          const digit = digits[index] ?? "";
+          const isActive = focused && index === activeIndex && !disabled;
+          return React.createElement(
+            "span",
+            {
+              className: "code-input__slot",
+              "data-code-slot": "",
+              "data-filled": String(Boolean(digit)),
+              "data-active": String(isActive),
+              key: index,
+            },
+            digit
+              ? React.createElement("span", { className: "code-input__digit" }, digit)
+              : isActive
+                ? React.createElement("span", { className: "code-input__caret" })
+                : null,
+          );
+        }),
+      ),
+    ),
+    resolvedHelper
+      ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
+      : null,
+  );
+});
+
+CodeInput.displayName = "CodeInput";
+CodeInput.platformContract = codeInputPlatformContract;

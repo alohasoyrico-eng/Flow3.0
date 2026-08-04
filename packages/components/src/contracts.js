@@ -1202,7 +1202,8 @@ export const componentContracts = {
     ]
   },
   codeInput: {
-    factory: "createCodeInput",
+    factory: "@design-system/react/code-input",
+    internalFactory: "createTransitionalSecurityCodeInput",
     element: "label",
     purpose: "Capture SMS, OTP, or approval codes through one logical input with fixed visual slots and helper text.",
     variants: ["sms", "otp", "approval", "masked", "compact"],

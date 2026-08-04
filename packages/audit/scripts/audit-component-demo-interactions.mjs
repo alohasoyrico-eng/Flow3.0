@@ -224,10 +224,6 @@ assert.equal(fixtures.popoverPanel.hidden, false, "Popover trigger should open t
 fixtures.popover.dispatch("keydown", { key: "Escape" });
 assert.equal(fixtures.popoverPanel.hidden, true, "Popover Escape should close the panel.");
 
-fixtures.codeInput.value = "a987";
-fixtures.codeInput.dispatch("input");
-assert.equal(fixtures.codeInput.value, "98", "Code input should hydrate package-owned normalization in serialized demos.");
-
 fixtures.phoneInput.value = "5551234";
 fixtures.phoneInput.dispatch("input");
 assert.equal(fixtures.phoneInput.value, "55 5123 4", "Phone input should format digits.");
@@ -322,7 +318,6 @@ console.log(JSON.stringify({
     "segmented-control",
     "pagination",
     "popover",
-    "code-input",
     "phone-input",
     "combobox",
     "country-selector",
@@ -379,15 +374,6 @@ function buildFixtures() {
   const popoverTrigger = el("button", { attrs: { "data-popover-trigger": "", "aria-expanded": "false" }, textContent: "Details" });
   const popoverPanel = el("section", { attrs: { role: "dialog" }, hidden: true });
   const popover = el("span", { className: "popover-demo", dataset: { state: "closed" } }, [popoverTrigger, popoverPanel]);
-
-  const codeInput = el("input", { attrs: { "data-code-input": "" } });
-  const otp = el("label", { className: "code-input-demo" }, [
-    codeInput,
-    el("span", { attrs: { "aria-hidden": "true" } }, [
-      el("span", { attrs: { "data-code-slot": "" } }),
-      el("span", { attrs: { "data-code-slot": "" } }),
-    ]),
-  ]);
 
   const phoneInput = el("input", { attrs: { "data-phone-input": "" } });
   const phone = el("label", { className: "phone-input-demo" }, [phoneInput]);
@@ -592,7 +578,6 @@ function buildFixtures() {
       segmented,
       pagination,
       popover,
-      otp,
       phone,
       combobox,
       countrySelector,
@@ -622,8 +607,6 @@ function buildFixtures() {
     popover,
     popoverTrigger,
     popoverPanel,
-    otp,
-    codeInput,
     phone,
     phoneInput,
     combobox,

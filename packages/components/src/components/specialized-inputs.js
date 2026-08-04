@@ -747,7 +747,7 @@ function syncCodeSlots(root, value, disabled = false) {
   return { input, slots, currentValue };
 }
 
-export function hydrateCodeInput(root, { onValueChange, onComplete } = {}) {
+export function hydrateTransitionalSecurityCodeInput(root, { onValueChange, onComplete } = {}) {
   if (!root || root.__codeHydrated === true) return root;
   const input = getCodeInput(root);
   const slots = getCodeSlots(root);
@@ -781,7 +781,7 @@ export function hydrateCodeInput(root, { onValueChange, onComplete } = {}) {
   return root;
 }
 
-export function createCodeInput({
+export function createTransitionalSecurityCodeInput({
   label,
   value = "",
   length = 6,
@@ -790,7 +790,7 @@ export function createCodeInput({
   helper = "",
   disabled = false,
   state,
-  density = "md",
+  density,
   error = "",
   onValueChange,
   onComplete,
@@ -845,7 +845,7 @@ export function createCodeInput({
   control.append(input, slots);
   root.append(control);
   appendFieldHelper(root, { id, text: resolvedHelper, target: input });
-  hydrateCodeInput(root, { onValueChange, onComplete });
+  hydrateTransitionalSecurityCodeInput(root, { onValueChange, onComplete });
   return root;
 }
 
