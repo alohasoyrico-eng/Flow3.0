@@ -86,7 +86,7 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
-import { createCheckbox, createRadioButton, createSwitch } from "../src/components/choices.js";
+import { createTransitionalChoiceCheckbox, createRadioButton, createSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
@@ -290,7 +290,8 @@ assert.equal(textAreaPlatformAdapters.react.componentName, "TextArea");
 assert.equal(textAreaPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.combobox.factory, "createCombobox");
 assert.equal(componentContracts.card.factory, "createCard");
-assert.equal(componentContracts.checkbox.factory, "createCheckbox");
+assert.equal(componentContracts.checkbox.factory, "@design-system/react/checkbox");
+assert.equal(componentContracts.checkbox.internalFactory, "createTransitionalChoiceCheckbox");
 assert.equal(checkboxPlatformContract.id, "checkbox");
 assert.equal(checkboxPlatformContract.source.factory, componentContracts.checkbox.factory);
 assert.deepEqual(checkboxPlatformProps(), componentContracts.checkbox.props.map((prop) => prop.name));
@@ -906,7 +907,7 @@ assert.equal(statsCard.querySelector(".card__title").textContent, "Ingresos del 
 assert.equal(statsCard.querySelector(".card__value").textContent, "$2,450");
 assert.equal(statsCard.querySelector(".card__status").dataset.trend, "up");
 
-const checkbox = createCheckbox({
+const checkbox = createTransitionalChoiceCheckbox({
   label: "Send receipt",
   description: "Email copy to driver",
   checked: true,
