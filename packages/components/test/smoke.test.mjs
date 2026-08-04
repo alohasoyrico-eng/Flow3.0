@@ -40,7 +40,6 @@ import {
   createTag,
   createTabs,
   createTreeView,
-  createDateRangePicker,
   createToast,
   createTooltip,
   createAnimationAsset,
@@ -66,6 +65,9 @@ import {
   datePickerPlatformAdapters,
   datePickerPlatformContract,
   datePickerPlatformProps,
+  dateRangePickerPlatformAdapters,
+  dateRangePickerPlatformContract,
+  dateRangePickerPlatformProps,
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,
@@ -102,6 +104,7 @@ import {
   createTransitionalPaymentCardSecurityCodeInput,
   hydrateTransitionalPaymentCardSecurityCodeInput,
   createTransitionalDatePicker,
+  createTransitionalDateRangePicker,
   createTransitionalPhoneInput,
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
@@ -426,7 +429,16 @@ assert.deepEqual(datePickerPlatformContract.states, componentContracts.datePicke
 assert.deepEqual(Object.keys(datePickerPlatformAdapters), ["react"]);
 assert.equal(datePickerPlatformAdapters.react.componentName, "DatePicker");
 assert.equal(datePickerPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.dateRangePicker.factory, "createDateRangePicker");
+assert.equal(componentContracts.dateRangePicker.factory, "@design-system/react/date-range-picker");
+assert.equal(componentContracts.dateRangePicker.internalFactory, "createTransitionalDateRangePicker");
+assert.equal(dateRangePickerPlatformContract.id, "date-range-picker");
+assert.equal(dateRangePickerPlatformContract.source.factory, componentContracts.dateRangePicker.factory);
+assert.deepEqual(dateRangePickerPlatformProps(), componentContracts.dateRangePicker.props.map((prop) => prop.name));
+assert.deepEqual(dateRangePickerPlatformContract.variants, componentContracts.dateRangePicker.variants);
+assert.deepEqual(dateRangePickerPlatformContract.states, componentContracts.dateRangePicker.states);
+assert.deepEqual(Object.keys(dateRangePickerPlatformAdapters), ["react"]);
+assert.equal(dateRangePickerPlatformAdapters.react.componentName, "DateRangePicker");
+assert.equal(dateRangePickerPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.segmentedControl.factory, "createSegmentedControl");
 assert.equal(componentContracts.popover.factory, "createPopover");
 assert.equal(componentContracts.cardSummary.factory, "createCardSummary");
@@ -2335,7 +2347,7 @@ assert.equal(interactiveDate.querySelector("input").value, "2026-07-14");
 assert.equal(interactiveDate.querySelector(".date-picker__panel").hidden, true);
 assert.equal(globalThis.document.activeElement, interactiveDate.querySelector(".date-picker__control"));
 
-const dateRangePicker = createDateRangePicker({
+const dateRangePicker = createTransitionalDateRangePicker({
   label: "Reporting range",
   value: { from: "2026-07-01", to: "2026-07-15" },
   helper: "One bounded date range.",
@@ -2355,7 +2367,7 @@ assert.equal(dateRangePicker.querySelector(".date-range-picker__panel").attribut
 assert.equal(dateRangePicker.querySelector(".date-range-picker__grid").attributes.role, "grid");
 assert.equal(dateRangePicker.querySelectorAll(".date-range-picker__day").some((day) => day.dataset.rangeEdge === "start"), true);
 assert.equal(dateRangePicker.querySelectorAll(".date-range-picker__day").some((day) => day.dataset.rangeEdge === "end"), true);
-const dateRangePickerNoPresets = createDateRangePicker({
+const dateRangePickerNoPresets = createTransitionalDateRangePicker({
   label: "Export range",
   value: { from: "2026-07-01", to: "2026-07-09" },
   presets: false,
@@ -2363,7 +2375,7 @@ const dateRangePickerNoPresets = createDateRangePicker({
 assert.equal(dateRangePickerNoPresets.querySelectorAll(".date-range-picker__preset").length, 0);
 let rangeValue = null;
 let rangeOpen = null;
-const interactiveRange = createDateRangePicker({
+const interactiveRange = createTransitionalDateRangePicker({
   label: "Reporting range",
   value: {},
   onValueChange(value) {

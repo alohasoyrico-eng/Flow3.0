@@ -1417,7 +1417,7 @@ export function createTransitionalDatePicker({
   return root;
 }
 
-export function createDateRangePicker({
+export function createTransitionalDateRangePicker({
   label,
   value = {},
   from,
@@ -1426,8 +1426,8 @@ export function createDateRangePicker({
   helper = "",
   error = "",
   disabled = false,
-  density = "md",
-  state = "default",
+  density,
+  state,
   invalid = false,
   presets = true,
   presetItems,
@@ -1670,7 +1670,7 @@ export function createDateRangePicker({
   return root;
 }
 
-export function hydrateDateRangePicker(root, { placeholder = "Rango de fechas", disabled = false, onValueChange, onOpenChange } = {}) {
+export function hydrateTransitionalDateRangePicker(root, { placeholder = "Rango de fechas", disabled = false, onValueChange, onOpenChange } = {}) {
   if (!root || root.dataset?.dateRangePickerReady === "true") return root;
   root.dataset.dateRangePickerReady = "true";
   const control = root.querySelector?.("[data-date-range-picker-trigger]");

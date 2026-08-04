@@ -81,9 +81,9 @@ const moduleRules = [
   {
     id: "specialized-inputs",
     file: "packages/components/src/components/specialized-inputs.js",
-    exports: ["createTransitionalDatePicker", "createTransitionalPhoneInput", "createTransitionalSecurityCodeInput"],
+    exports: ["createTransitionalDatePicker", "createTransitionalDateRangePicker", "createTransitionalPhoneInput", "createTransitionalSecurityCodeInput"],
     publicExports: [],
-    internalExports: ["createTransitionalDatePicker", "createTransitionalPhoneInput", "createTransitionalSecurityCodeInput"],
+    internalExports: ["createTransitionalDatePicker", "createTransitionalDateRangePicker", "createTransitionalPhoneInput", "createTransitionalSecurityCodeInput"],
   },
   {
     id: "security",

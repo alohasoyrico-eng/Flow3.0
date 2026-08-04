@@ -1317,7 +1317,8 @@ export const componentContracts = {
     ]
   },
   dateRangePicker: {
-    factory: "createDateRangePicker",
+    factory: "@design-system/react/date-range-picker",
+    internalFactory: "createTransitionalDateRangePicker",
     element: "div",
     purpose: "Capture one bounded start/end date range with visible label, readable range value, local presets, calendar surface, and keyboard selection.",
     variants: ["calendar-range"],

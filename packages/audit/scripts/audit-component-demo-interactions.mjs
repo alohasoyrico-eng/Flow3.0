@@ -246,16 +246,6 @@ fixtures.countrySelectorOptions[1].dispatch("keydown", { key: "Enter" });
 assert.equal(fixtures.countrySelectorControl.dataset.country, "CU", "Country Selector Enter should select the active country.");
 assert.equal(fixtures.countrySelectorPrefix.textContent, "+53", "Country Selector should sync the visible calling code.");
 
-fixtures.dateRangeTrigger.click();
-assert.equal(fixtures.dateRangeTrigger.getAttribute("aria-expanded"), "true", "Date Range Picker click should open the range panel.");
-assert.equal(fixtures.dateRangePanel.hidden, false, "Date Range Picker click should reveal the range panel.");
-assert.equal(fixtures.dateRangeStart.getAttribute("aria-pressed"), "true", "Date Range Picker hydration should preserve start selection.");
-assert.equal(fixtures.dateRangeMiddle.getAttribute("data-in-range"), "true", "Date Range Picker hydration should preserve middle range state.");
-assert.equal(fixtures.dateRangeEnd.getAttribute("data-range-edge"), "end", "Date Range Picker hydration should preserve end selection.");
-fixtures.dateRangeNext.click();
-assert.equal(fixtures.dateRangeFrom.value, "2026-07-02", "Date Range Picker day click should start a new local range after a complete range.");
-assert.equal(fixtures.dateRangeTo.value, "", "Date Range Picker new start should clear the end date until the user selects it.");
-
 fixtures.treeControls[0].dispatch("keydown", { key: "ArrowDown" });
 assert.equal(fixtures.treeItems[1].getAttribute("aria-selected"), "true", "Tree View ArrowDown should select the next item.");
 fixtures.treeControls[0].dispatch("keydown", { key: "ArrowRight" });
@@ -310,7 +300,6 @@ console.log(JSON.stringify({
     "popover",
     "combobox",
     "country-selector",
-    "date-range-picker",
     "tree-view",
     "overlay",
     "menu",
@@ -461,22 +450,6 @@ function buildFixtures() {
   }, [countrySelectorTrigger, countrySelectorList]);
   const countrySelector = el("span", { attrs: { "data-doc-component": "country-selector" } }, [countrySelectorControl]);
 
-  const dateRangeTrigger = el("button", { attrs: { "data-date-range-picker-trigger": "", "aria-expanded": "false" } });
-  const dateRangeFrom = el("input", { value: "2026-07-01", attrs: { "data-date-range-picker-from": "" } });
-  const dateRangeTo = el("input", { value: "2026-07-15", attrs: { "data-date-range-picker-to": "" } });
-  const dateRangeValue = el("span", { attrs: { "data-date-range-picker-value": "" }, textContent: "01 jul 2026 - 15 jul 2026" });
-  const dateRangePanel = el("div", { attrs: { "data-date-range-picker-panel": "" }, hidden: true });
-  const dateRangeStart = el("button", { attrs: { "data-date-range-picker-day": "2026-07-01", "aria-pressed": "true", "data-range-edge": "start" }, textContent: "1" });
-  const dateRangeMiddle = el("button", { attrs: { "data-date-range-picker-day": "2026-07-08", "aria-pressed": "false", "data-in-range": "true" }, textContent: "8" });
-  const dateRangeEnd = el("button", { attrs: { "data-date-range-picker-day": "2026-07-15", "aria-pressed": "true", "data-range-edge": "end" }, textContent: "15" });
-  const dateRangeNext = el("button", { attrs: { "data-date-range-picker-day": "2026-07-02", "aria-pressed": "false" }, textContent: "2" });
-  dateRangePanel.append(dateRangeStart, dateRangeMiddle, dateRangeEnd, dateRangeNext);
-  const dateRangePicker = el("div", {
-    className: "date-range-picker",
-    attrs: { "data-doc-component": "date-range-picker" },
-    dataset: { from: "2026-07-01", to: "2026-07-15", open: "false" },
-  }, [dateRangeTrigger, dateRangeFrom, dateRangeTo, dateRangeValue, dateRangePanel]);
-
   const treeControls = [el("button", { attrs: { "data-tree-control": "" }, textContent: "Fleet" }), el("button", { attrs: { "data-tree-control": "" }, textContent: "Cards" })];
   const treeItems = [
     el("li", { attrs: { "data-tree-item": "", "aria-selected": "true", "aria-expanded": "false" } }, [treeControls[0]]),
@@ -557,7 +530,6 @@ function buildFixtures() {
       popover,
       combobox,
       countrySelector,
-      dateRangePicker,
       tree,
       overlayDemo,
       menu,
@@ -593,15 +565,6 @@ function buildFixtures() {
     countrySelectorSearch,
     countrySelectorOptions,
     countrySelectorPrefix,
-    dateRangePicker,
-    dateRangeTrigger,
-    dateRangePanel,
-    dateRangeFrom,
-    dateRangeTo,
-      dateRangeStart,
-      dateRangeMiddle,
-      dateRangeEnd,
-      dateRangeNext,
       tree,
       treeItems,
       treeControls,

@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, DatePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, TextArea } from "../src/index.js";
-import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, datePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, TextArea } from "../src/index.js";
+import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
@@ -18,6 +18,8 @@ assert.equal(CodeInput.displayName, "CodeInput");
 assert.equal(CodeInput.platformContract, codeInputPlatformContract);
 assert.equal(DatePicker.displayName, "DatePicker");
 assert.equal(DatePicker.platformContract, datePickerPlatformContract);
+assert.equal(DateRangePicker.displayName, "DateRangePicker");
+assert.equal(DateRangePicker.platformContract, dateRangePickerPlatformContract);
 assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
 assert.equal(Input.displayName, "Input");
@@ -388,6 +390,48 @@ const inheritedDatePickerMarkup = renderToStaticMarkup(React.createElement(DateP
   value: "2026-07-13",
 }));
 assert.doesNotMatch(inheritedDatePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const dateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
+  label: "Reporting range",
+  value: { from: "2026-07-01", to: "2026-07-15" },
+  helper: "One bounded date range.",
+  density: "sm",
+  state: "selected",
+}));
+assert.match(dateRangePickerMarkup, /class="field date-picker date-range-picker"/);
+assert.match(dateRangePickerMarkup, /data-density="sm"/);
+assert.match(dateRangePickerMarkup, /data-state="selected"/);
+assert.match(dateRangePickerMarkup, /data-open="false"/);
+assert.match(dateRangePickerMarkup, /data-from="2026-07-01"/);
+assert.match(dateRangePickerMarkup, /data-to="2026-07-15"/);
+assert.match(dateRangePickerMarkup, /class="field__label date-picker__label date-range-picker__label"/);
+assert.match(dateRangePickerMarkup, /class="field__control date-picker__control date-range-picker__control"/);
+assert.match(dateRangePickerMarkup, /data-date-range-picker-trigger=""/);
+assert.match(dateRangePickerMarkup, /aria-haspopup="dialog"/);
+assert.match(dateRangePickerMarkup, /aria-expanded="false"/);
+assert.match(dateRangePickerMarkup, /class="field__icon date-picker__icon date-range-picker__icon"/);
+assert.match(dateRangePickerMarkup, /date_range/);
+assert.match(dateRangePickerMarkup, /class="date-picker__value date-range-picker__value"/);
+assert.match(dateRangePickerMarkup, /01 jul 2026 - 15 jul 2026/);
+assert.match(dateRangePickerMarkup, /data-date-range-picker-from=""/);
+assert.match(dateRangePickerMarkup, /data-date-range-picker-to=""/);
+assert.match(dateRangePickerMarkup, /class="date-picker__panel date-range-picker__panel"/);
+assert.match(dateRangePickerMarkup, /role="dialog"/);
+assert.match(dateRangePickerMarkup, /class="date-range-picker__presets"/);
+assert.match(dateRangePickerMarkup, /class="date-range-picker__preset"/);
+assert.match(dateRangePickerMarkup, /class="date-picker__grid date-range-picker__grid"/);
+assert.match(dateRangePickerMarkup, /role="grid"/);
+assert.match(dateRangePickerMarkup, /data-date-range-picker-day="2026-07-01"/);
+assert.match(dateRangePickerMarkup, /data-range-edge="start"/);
+assert.match(dateRangePickerMarkup, /data-range-edge="end"/);
+assert.match(dateRangePickerMarkup, /data-in-range="true"/);
+assert.match(dateRangePickerMarkup, /class="field__helper date-picker__helper date-range-picker__helper"/);
+
+const inheritedDateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
+  label: "Reporting range",
+  value: { from: "2026-07-01", to: "2026-07-15" },
+}));
+assert.doesNotMatch(inheritedDateRangePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

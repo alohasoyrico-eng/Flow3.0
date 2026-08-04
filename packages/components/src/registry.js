@@ -28,7 +28,7 @@ import {
   createTooltip,
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
-import { createCountrySelector, createDateRangePicker } from "./components/specialized-inputs.js?v=28";
+import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
 import { createBadge, createChip, createTag } from "./components/status.js?v=2";
 import { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
 
@@ -64,7 +64,9 @@ export const componentRegistry = Object.freeze({
   "date-picker": () => {
     throw new Error("Date Picker is React-primary. Use @design-system/react/date-picker instead of the transitional DOM renderer.");
   },
-  "date-range-picker": createDateRangePicker,
+  "date-range-picker": () => {
+    throw new Error("Date Range Picker is React-primary. Use @design-system/react/date-range-picker instead of the transitional DOM renderer.");
+  },
   dialog: createDialog,
   drawer: createDrawer,
   "empty-state": createEmptyState,
@@ -141,6 +143,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "date-picker") {
     throw new Error("Date Picker is React-primary. Use @design-system/react/date-picker instead of renderComponentDemo.");
+  }
+  if (id === "date-range-picker") {
+    throw new Error("Date Range Picker is React-primary. Use @design-system/react/date-range-picker instead of renderComponentDemo.");
   }
   if (id === "checkbox") {
     throw new Error("Checkbox is React-primary. Use @design-system/react/checkbox instead of renderComponentDemo.");

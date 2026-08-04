@@ -8,7 +8,7 @@ const dist = path.join(root, "dist");
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 
-for (const file of ["Button.js", "Button.d.ts", "CardExpiryInput.js", "CardExpiryInput.d.ts", "CardNumberInput.js", "CardNumberInput.d.ts", "CardSecurityCodeInput.js", "CardSecurityCodeInput.d.ts", "Checkbox.js", "Checkbox.d.ts", "CodeInput.js", "CodeInput.d.ts", "DatePicker.js", "DatePicker.d.ts", "IconButton.js", "IconButton.d.ts", "Input.js", "Input.d.ts", "PhoneInput.js", "PhoneInput.d.ts", "RadioButton.js", "RadioButton.d.ts", "Select.js", "Select.d.ts", "Switch.js", "Switch.d.ts", "TextArea.js", "TextArea.d.ts", "index.js", "index.d.ts"]) {
+for (const file of ["Button.js", "Button.d.ts", "CardExpiryInput.js", "CardExpiryInput.d.ts", "CardNumberInput.js", "CardNumberInput.d.ts", "CardSecurityCodeInput.js", "CardSecurityCodeInput.d.ts", "Checkbox.js", "Checkbox.d.ts", "CodeInput.js", "CodeInput.d.ts", "DatePicker.js", "DatePicker.d.ts", "DateRangePicker.js", "DateRangePicker.d.ts", "IconButton.js", "IconButton.d.ts", "Input.js", "Input.d.ts", "PhoneInput.js", "PhoneInput.d.ts", "RadioButton.js", "RadioButton.d.ts", "Select.js", "Select.d.ts", "Switch.js", "Switch.d.ts", "TextArea.js", "TextArea.d.ts", "index.js", "index.d.ts"]) {
   fs.copyFileSync(path.join(src, file), path.join(dist, file));
 }
 

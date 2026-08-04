@@ -36,6 +36,10 @@
       "types": "./dist/DatePicker.d.ts",
       "default": "./dist/DatePicker.js"
     },
+    "./date-range-picker": {
+      "types": "./dist/DateRangePicker.d.ts",
+      "default": "./dist/DateRangePicker.js"
+    },
     "./icon-button": {
       "types": "./dist/IconButton.d.ts",
       "default": "./dist/IconButton.js"
