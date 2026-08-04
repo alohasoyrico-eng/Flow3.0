@@ -26,7 +26,6 @@ import {
   createMenu,
   createMotionBoundary,
   createPagination,
-  createPhoneInput,
   createPopover,
   createProgressIndicator,
   createQuickAction,
@@ -65,6 +64,9 @@ import {
   codeInputPlatformAdapters,
   codeInputPlatformContract,
   codeInputPlatformProps,
+  phoneInputPlatformAdapters,
+  phoneInputPlatformContract,
+  phoneInputPlatformProps,
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,
@@ -97,6 +99,7 @@ import {
   hydrateTransitionalPaymentCardNumberInput,
   createTransitionalPaymentCardSecurityCodeInput,
   hydrateTransitionalPaymentCardSecurityCodeInput,
+  createTransitionalPhoneInput,
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
@@ -399,7 +402,16 @@ assert.deepEqual(codeInputPlatformContract.states, componentContracts.codeInput.
 assert.deepEqual(Object.keys(codeInputPlatformAdapters), ["react"]);
 assert.equal(codeInputPlatformAdapters.react.componentName, "CodeInput");
 assert.equal(codeInputPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.phoneInput.factory, "createPhoneInput");
+assert.equal(componentContracts.phoneInput.factory, "@design-system/react/phone-input");
+assert.equal(componentContracts.phoneInput.internalFactory, "createTransitionalPhoneInput");
+assert.equal(phoneInputPlatformContract.id, "phone-input");
+assert.equal(phoneInputPlatformContract.source.factory, componentContracts.phoneInput.factory);
+assert.deepEqual(phoneInputPlatformProps(), componentContracts.phoneInput.props.map((prop) => prop.name));
+assert.deepEqual(phoneInputPlatformContract.variants, componentContracts.phoneInput.variants);
+assert.deepEqual(phoneInputPlatformContract.states, componentContracts.phoneInput.states);
+assert.deepEqual(Object.keys(phoneInputPlatformAdapters), ["react"]);
+assert.equal(phoneInputPlatformAdapters.react.componentName, "PhoneInput");
+assert.equal(phoneInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.countrySelector.factory, "createCountrySelector");
 assert.equal(componentContracts.datePicker.factory, "createDatePicker");
 assert.equal(componentContracts.dateRangePicker.factory, "createDateRangePicker");
@@ -857,7 +869,7 @@ hydrateCountrySelector(countrySelector);
 assert.equal(countrySelector.__countrySelectorHydrated, true);
 
 let localizedPhoneMeta = null;
-const localizedPhoneInput = createPhoneInput({
+const localizedPhoneInput = createTransitionalPhoneInput({
   label: "Mobile phone",
   country: "MX",
   value: "5518429011",
@@ -2199,7 +2211,7 @@ assert.equal(interactiveOtpSlots[2].dataset.active, "true");
 interactiveCodeInput.dispatchEvent({ type: "blur" });
 assert.equal(interactiveOtp.dataset.focused, "false");
 
-const phoneInput = createPhoneInput({ label: "Phone", value: "5551234", country: "MX", helper: "SMS only" });
+const phoneInput = createTransitionalPhoneInput({ label: "Phone", value: "5551234", country: "MX", helper: "SMS only" });
 assert.equal(phoneInput.tagName, "LABEL");
 const phoneInputClasses = phoneInput.className.split(" ");
 assert.ok(phoneInputClasses.includes("phone-input"));
@@ -2227,13 +2239,13 @@ assert.equal(phoneField.className, "input phone-input__input");
 assert.equal(phoneField.attributes["data-phone-input"], "");
 assert.equal(phoneField.attributes["aria-describedby"], phoneInput.querySelector(".field__helper").id);
 assert.equal(phoneField.value, "55 5123 4");
-const phoneError = createPhoneInput({ label: "Phone", value: "55", error: "Enter a reachable number." });
+const phoneError = createTransitionalPhoneInput({ label: "Phone", value: "55", error: "Enter a reachable number." });
 assert.equal(phoneError.dataset.state, "error");
 assert.equal(phoneError.querySelector(".phone-input__input").attributes["aria-invalid"], "true");
 assert.equal(phoneError.querySelector(".field__helper").textContent, "Enter a reachable number.");
 let phoneValue = "";
 let phoneMeta = {};
-const interactivePhone = createPhoneInput({
+const interactivePhone = createTransitionalPhoneInput({
   label: "Phone",
   country: "MX",
   onValueChange(value, meta) {

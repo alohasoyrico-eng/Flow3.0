@@ -28,7 +28,7 @@ import {
   createTooltip,
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
-import { createCountrySelector, createDatePicker, createDateRangePicker, createPhoneInput } from "./components/specialized-inputs.js?v=28";
+import { createCountrySelector, createDatePicker, createDateRangePicker } from "./components/specialized-inputs.js?v=28";
 import { createBadge, createChip, createTag } from "./components/status.js?v=2";
 import { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
 
@@ -81,7 +81,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Code Input is React-primary. Use @design-system/react/code-input instead of the transitional DOM renderer.");
   },
   pagination: createPagination,
-  "phone-input": createPhoneInput,
+  "phone-input": () => {
+    throw new Error("Phone Input is React-primary. Use @design-system/react/phone-input instead of the transitional DOM renderer.");
+  },
   popover: createPopover,
   "progress-indicator": createProgressIndicator,
   "quick-action": createQuickAction,
@@ -143,6 +145,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "input") {
     throw new Error("Input is React-primary. Use @design-system/react/input instead of renderComponentDemo.");
+  }
+  if (id === "phone-input") {
+    throw new Error("Phone Input is React-primary. Use @design-system/react/phone-input instead of renderComponentDemo.");
   }
   if (id === "radio-button") {
     throw new Error("Radio Button is React-primary. Use @design-system/react/radio-button instead of renderComponentDemo.");

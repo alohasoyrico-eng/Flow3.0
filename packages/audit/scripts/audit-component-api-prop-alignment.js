@@ -33,7 +33,7 @@ const unprefixedFactoryNames = new Map([
   ["tag", "createTag"],
   ["text-area", "createTransitionalFieldTextArea"],
   ["code-input", "createTransitionalSecurityCodeInput"],
-  ["phone-input", "createPhoneInput"],
+  ["phone-input", "createTransitionalPhoneInput"],
   ["progress-indicator", "createProgressIndicator"],
   ["spinner", "createSpinner"],
   ["card-number-input", "createTransitionalPaymentCardNumberInput"],

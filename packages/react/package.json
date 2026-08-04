@@ -40,6 +40,10 @@
       "types": "./dist/Input.d.ts",
       "default": "./dist/Input.js"
     },
+    "./phone-input": {
+      "types": "./dist/PhoneInput.d.ts",
+      "default": "./dist/PhoneInput.js"
+    },
     "./radio-button": {
       "types": "./dist/RadioButton.d.ts",
       "default": "./dist/RadioButton.js"

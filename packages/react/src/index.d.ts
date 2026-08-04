@@ -67,6 +67,16 @@ export type {
   InputValueMeta,
   InputVariant,
 } from "./Input.js";
+export { PhoneInput } from "./PhoneInput.js";
+export type {
+  PhoneCountry,
+  PhoneInputComponent,
+  PhoneInputDensity,
+  PhoneInputMeta,
+  PhoneInputProps,
+  PhoneInputState,
+  PhoneInputVariant,
+} from "./PhoneInput.js";
 export { RadioButton } from "./RadioButton.js";
 export type {
   RadioButtonComponent,

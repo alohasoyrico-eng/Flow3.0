@@ -34,6 +34,11 @@ export {
   codeInputPlatformProps,
 } from "./code-input.js";
 export {
+  phoneInputPlatformAdapters,
+  phoneInputPlatformContract,
+  phoneInputPlatformProps,
+} from "./phone-input.js";
+export {
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,

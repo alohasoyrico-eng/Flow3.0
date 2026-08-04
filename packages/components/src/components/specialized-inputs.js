@@ -653,7 +653,7 @@ export function hydrateCountrySelector(root, { onValueChange } = {}) {
   return root;
 }
 
-export function hydratePhoneInput(root, { onValueChange } = {}) {
+export function hydrateTransitionalPhoneInput(root, { onValueChange } = {}) {
   if (!root || root.__phoneHydrated === true) return root;
   const input = getPhoneInput(root);
   const countryControl = getPhoneCountryControl(root);
@@ -849,7 +849,7 @@ export function createTransitionalSecurityCodeInput({
   return root;
 }
 
-export function createPhoneInput({
+export function createTransitionalPhoneInput({
   label,
   value = "",
   prefix = "+1",
@@ -859,7 +859,7 @@ export function createPhoneInput({
   helper = "",
   disabled = false,
   state,
-  density = "md",
+  density,
   error = "",
   onValueChange,
 } = {}) {
@@ -934,7 +934,7 @@ export function createPhoneInput({
   control.append(countryControl, input);
   root.append(control);
   appendFieldHelper(root, { id, text: resolvedHelper, target: input });
-  hydratePhoneInput(root, { onValueChange });
+  hydrateTransitionalPhoneInput(root, { onValueChange });
   return root;
 }
 

@@ -224,10 +224,6 @@ assert.equal(fixtures.popoverPanel.hidden, false, "Popover trigger should open t
 fixtures.popover.dispatch("keydown", { key: "Escape" });
 assert.equal(fixtures.popoverPanel.hidden, true, "Popover Escape should close the panel.");
 
-fixtures.phoneInput.value = "5551234";
-fixtures.phoneInput.dispatch("input");
-assert.equal(fixtures.phoneInput.value, "55 5123 4", "Phone input should format digits.");
-
 fixtures.comboboxInput.value = "Luis";
 fixtures.comboboxInput.dispatch("input");
 assert.equal(fixtures.comboboxControl.dataset.open, "true", "Combobox input should open the option layer after typing.");
@@ -318,7 +314,6 @@ console.log(JSON.stringify({
     "segmented-control",
     "pagination",
     "popover",
-    "phone-input",
     "combobox",
     "country-selector",
     "date-picker",
@@ -374,9 +369,6 @@ function buildFixtures() {
   const popoverTrigger = el("button", { attrs: { "data-popover-trigger": "", "aria-expanded": "false" }, textContent: "Details" });
   const popoverPanel = el("section", { attrs: { role: "dialog" }, hidden: true });
   const popover = el("span", { className: "popover-demo", dataset: { state: "closed" } }, [popoverTrigger, popoverPanel]);
-
-  const phoneInput = el("input", { attrs: { "data-phone-input": "" } });
-  const phone = el("label", { className: "phone-input-demo" }, [phoneInput]);
 
   const comboboxInput = el("input", {
     className: "combobox__input",
@@ -578,7 +570,6 @@ function buildFixtures() {
       segmented,
       pagination,
       popover,
-      phone,
       combobox,
       countrySelector,
       datePicker,
@@ -607,8 +598,6 @@ function buildFixtures() {
     popover,
     popoverTrigger,
     popoverPanel,
-    phone,
-    phoneInput,
     combobox,
     comboboxControl,
     comboboxInput,

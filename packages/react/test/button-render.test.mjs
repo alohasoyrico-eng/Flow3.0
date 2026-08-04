@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
-import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, IconButton, Input, PhoneInput, RadioButton, Select, Switch, TextArea } from "../src/index.js";
+import { buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
@@ -20,6 +20,8 @@ assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
 assert.equal(Input.displayName, "Input");
 assert.equal(Input.platformContract, inputPlatformContract);
+assert.equal(PhoneInput.displayName, "PhoneInput");
+assert.equal(PhoneInput.platformContract, phoneInputPlatformContract);
 assert.equal(RadioButton.displayName, "RadioButton");
 assert.equal(RadioButton.platformContract, radioButtonPlatformContract);
 assert.equal(Select.displayName, "Select");
@@ -310,6 +312,38 @@ const inheritedCodeInputMarkup = renderToStaticMarkup(React.createElement(CodeIn
   value: "123",
 }));
 assert.doesNotMatch(inheritedCodeInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const phoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput, {
+  label: "Mobile phone",
+  helper: "Used for OTP and support recovery.",
+  value: "+52 55 1842 9011",
+  country: "MX",
+  density: "sm",
+}));
+assert.match(phoneInputMarkup, /class="field phone-input"/);
+assert.match(phoneInputMarkup, /data-density="sm"/);
+assert.match(phoneInputMarkup, /data-variant="country-code"/);
+assert.match(phoneInputMarkup, /class="field__control phone-input__control"/);
+assert.match(phoneInputMarkup, /class="select-control select-control--inline country-selector phone-input__country"/);
+assert.match(phoneInputMarkup, /data-country="MX"/);
+assert.match(phoneInputMarkup, /class="country-flag phone-input__flag"/);
+assert.match(phoneInputMarkup, /country-flag-icons\/3x2\/MX.svg/);
+assert.match(phoneInputMarkup, /class="select-control__code country-selector__code phone-input__prefix"/);
+assert.match(phoneInputMarkup, /\+52/);
+assert.match(phoneInputMarkup, /class="select-control__listbox country-selector__listbox phone-input__country-listbox"/);
+assert.match(phoneInputMarkup, /class="select-control__option country-selector__option phone-input__country-option"/);
+assert.match(phoneInputMarkup, /class="input phone-input__input"/);
+assert.match(phoneInputMarkup, /type="tel"/);
+assert.match(phoneInputMarkup, /autoComplete="tel-national"|autocomplete="tel-national"/);
+assert.match(phoneInputMarkup, /value="55 1842 9011"/);
+assert.match(phoneInputMarkup, /class="field__helper"/);
+
+const inheritedPhoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput, {
+  label: "Mobile phone",
+  value: "5518429011",
+  country: "MX",
+}));
+assert.doesNotMatch(inheritedPhoneInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",
