@@ -1,4 +1,4 @@
-import { createButton } from "./actions.js?v=2";
+import { createTransitionalActionButton } from "./actions.js?v=2";
 import { createBadge } from "./status.js?v=2";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
@@ -398,7 +398,7 @@ export function createTreeView({
     item.setAttribute("aria-level", String(level));
     if (expandable) item.setAttribute("aria-expanded", String(Boolean(node.expanded)));
     item.setAttribute("aria-selected", String(Boolean(node.selected)));
-    const control = createButton({
+    const control = createTransitionalActionButton({
       label: node.label ?? "Tree item",
       variant: "secondary",
       disabled: node.disabled,

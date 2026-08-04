@@ -1,7 +1,7 @@
 import { createSpinner } from "./feedback.js?v=8";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
-export function createButton({
+export function createTransitionalActionButton({
   label,
   variant = "primary",
   intent = "default",

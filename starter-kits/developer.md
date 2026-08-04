@@ -38,15 +38,16 @@ From the local split:
 
 1. Import tokens from `flow/tokens/styles.css`.
 2. Import component CSS from `flow/components/styles.css`.
-3. Import DOM helpers from `flow/components`.
-4. Import React adapters from `flow/react`.
+3. Import React product components from `flow/react`.
+4. Import package helpers from `flow/components` only for components that have not migrated to React yet.
 5. Check contracts in `flow/specs/system`.
 6. Run the relevant validation command before handing work off.
 
 Prototype example:
 
 ```js
-import { createButton, createCard, createSelect } from "flow/components";
+import { createCard } from "flow/components";
+import { Button, Select } from "flow/react";
 import "flow/tokens/styles.css";
 import "flow/components/styles.css";
 ```

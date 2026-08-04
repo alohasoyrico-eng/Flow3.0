@@ -80,7 +80,6 @@ For Azure Repos, use the same package boundary with your Azure repository URL:
 The package root exposes public install surfaces:
 
 ```js
-import { createButton } from "flow/components";
 import { Button } from "flow/react";
 import "flow/components/styles.css";
 import "flow/tokens/styles.css";

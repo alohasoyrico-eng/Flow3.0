@@ -215,10 +215,10 @@ function checkPrototypePackages() {
     if (!hasPublicComponentExport(componentText, required.exportName)) add("errors", componentSource, 1, `components export missing: ${required.exportName}.`);
     if (required.factoryName && !componentContractText.includes(`factory: "${required.factoryName}"`)) add("errors", componentContracts, 1, `components contract missing factory: ${required.factoryName}.`);
   }
-  for (const [label, factory] of [["Button", "createButton"], ["Checkbox", "createTransitionalChoiceCheckbox"], ["Icon Button", "createIconButton"], ["Input", "createTransitionalFieldInput"], ["Radio Button", "createTransitionalChoiceRadioButton"], ["Select", "createTransitionalFieldSelect"], ["Switch", "createTransitionalChoiceSwitch"], ["Text Area", "createTransitionalFieldTextArea"]]) {
+  for (const [label, factory] of [["Button", "createTransitionalActionButton"], ["Checkbox", "createTransitionalChoiceCheckbox"], ["Icon Button", "createIconButton"], ["Input", "createTransitionalFieldInput"], ["Radio Button", "createTransitionalChoiceRadioButton"], ["Select", "createTransitionalFieldSelect"], ["Switch", "createTransitionalChoiceSwitch"], ["Text Area", "createTransitionalFieldTextArea"]]) {
     if (hasPublicComponentExport(componentText, factory)) add("errors", componentSource, 1, `${label} must not be exported as a public DOM factory; React is the public product component target.`);
   }
-  for (const [label, target, internalFactory] of [["Checkbox", "checkbox", "createTransitionalChoiceCheckbox"], ["Input", "input", "createTransitionalFieldInput"], ["Radio Button", "radio-button", "createTransitionalChoiceRadioButton"], ["Select", "select", "createTransitionalFieldSelect"], ["Switch", "switch", "createTransitionalChoiceSwitch"], ["Text Area", "text-area", "createTransitionalFieldTextArea"]]) {
+  for (const [label, target, internalFactory] of [["Button", "button", "createTransitionalActionButton"], ["Checkbox", "checkbox", "createTransitionalChoiceCheckbox"], ["Input", "input", "createTransitionalFieldInput"], ["Radio Button", "radio-button", "createTransitionalChoiceRadioButton"], ["Select", "select", "createTransitionalFieldSelect"], ["Switch", "switch", "createTransitionalChoiceSwitch"], ["Text Area", "text-area", "createTransitionalFieldTextArea"]]) {
     if (!componentContractText.includes(`factory: "@design-system/react/${target}"`) || !componentContractText.includes(`internalFactory: "${internalFactory}"`)) add("errors", componentContracts, 1, `${label} contract must expose the React package target and name the transitional internal field factory separately.`);
   }
   for (const [label, hydrator] of [["Input", "hydrateInput"], ["Select", "hydrateSelect"], ["Text Area", "hydrateTransitionalTextArea"]]) {
@@ -337,7 +337,7 @@ function checkReleaseAndAdoption() {
     [releaseFile, ["npm run audit", "npm test", "npm run validate", "Architecture Gate", "CHANGELOG.md", "MIGRATE_PRODUCT_SCREEN.md", "index.html", "fleet-dashboard.html", "driver-mobile.html"]],
     [startGuideFile, ["Build a Prototype", "Change Design System", "What To Edit", "MIGRATE_PRODUCT_SCREEN.md", "npm run validate", "npm test", "fixtures/prototyping.json", "examples/prototyping/index.html"]],
     [migrationGuideFile, ["Migrate A Product Screen Into Design System", "Nothing skips a layer", "packages/specs", "packages/components", "npm run validate"]],
-    [componentSmokeTestFile, ["componentContracts", "createButton", "createIconButton", "createTransitionalChoiceCheckbox", "createTransitionalFieldInput", "createTransitionalFieldSelect", "createTransitionalFieldTextArea", "createCard", "components smoke tests passed"]],
+    [componentSmokeTestFile, ["componentContracts", "createTransitionalActionButton", "createIconButton", "createTransitionalChoiceCheckbox", "createTransitionalFieldInput", "createTransitionalFieldSelect", "createTransitionalFieldTextArea", "createCard", "components smoke tests passed"]],
   ]) {
     const text = read(file);
     for (const snippet of requiredSnippets) {

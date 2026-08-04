@@ -45,7 +45,6 @@ Product dependency from Azure Repos:
 Use only public package surfaces:
 
 ```js
-import { createButton } from "flow/components";
 import { Button } from "flow/react";
 import "flow/components/styles.css";
 import "flow/tokens/styles.css";

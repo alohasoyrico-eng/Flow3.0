@@ -21,7 +21,7 @@ const sourceFiles = {
 };
 
 const directDensityComponents = [
-  { id: "button", factory: "createButton", source: "actions", selector: '.button[data-density="sm"]', token: "--button-current-size" },
+  { id: "button", factory: "createTransitionalActionButton", source: "actions", selector: '.button[data-density="sm"]', token: "--button-current-size" },
   { id: "iconButton", factory: "createIconButton", source: "actions", selector: '.icon-button[data-density="sm"]', token: "--icon-button-size" },
   { id: "switch", factory: "createTransitionalChoiceSwitch", source: "choices", selector: '.switch[data-density="sm"]', token: "--switch-track-width" },
   { id: "progressIndicator", factory: "createProgressIndicator", source: "feedback", selector: '.progress[data-density="sm"]', token: "--progress-track-size" },

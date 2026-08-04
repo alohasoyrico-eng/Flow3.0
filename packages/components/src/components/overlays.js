@@ -1,4 +1,4 @@
-import { createButton, createIconButton } from "./actions.js?v=2";
+import { createTransitionalActionButton, createIconButton } from "./actions.js?v=2";
 import { createAvatar } from "./display.js?v=3";
 import { createProgressIndicator } from "./feedback.js?v=8";
 import { createTransitionalFieldInput } from "./fields.js?v=18";
@@ -231,7 +231,7 @@ export function createToast({
   toast.append(content);
 
   if (actionLabel) {
-    const action = createButton({ label: actionLabel, variant: "ghost", density: "sm" });
+    const action = createTransitionalActionButton({ label: actionLabel, variant: "ghost", density: "sm" });
     action.className = `toast__action ${action.className}`;
     action.setAttribute("data-toast-action", "");
     action.addEventListener?.("click", () => {
@@ -289,7 +289,7 @@ export function createDialog({
   root.dataset.density = resolvedDensity;
   const dialogId = id || `dialog-${String(label ?? "dialog").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
   const titleId = `${dialogId}-title`;
-  const trigger = createButton({ label: triggerLabel, variant: "secondary", density: resolvedDensity });
+  const trigger = createTransitionalActionButton({ label: triggerLabel, variant: "secondary", density: resolvedDensity });
   trigger.className = `${trigger.className} dialog__trigger`;
   trigger.setAttribute("data-overlay-open", "");
   trigger.setAttribute("aria-haspopup", "dialog");
@@ -354,7 +354,7 @@ export function createDialog({
       const needsDangerIntent = action.intent == null && (resolvedTone === "danger" || resolvedVariant === "destructive") && index === 0;
       const actionVariant = action.variant === "danger" ? "primary" : action.variant ?? (index === 0 ? "primary" : "secondary");
       const actionIntent = action.variant === "danger" ? "danger" : needsDangerIntent ? "danger" : action.intent;
-      const actionNode = createButton({
+      const actionNode = createTransitionalActionButton({
         ...action,
         variant: actionVariant,
         intent: actionIntent,
@@ -414,7 +414,7 @@ export function createMenu({
     ? createIconButton({ ariaLabel: label, icon: "more_horiz", variant: "ghost", density: resolvedDensity, disabled })
     : variant === "avatar-trigger"
       ? createAvatarMenuTrigger({ label, name: avatarName || triggerLabel, status: avatarStatus, size: avatarSize, disabled })
-    : createButton({ label: triggerLabel, variant: "secondary", density: resolvedDensity, trailingIcon: "expand_more", disabled });
+    : createTransitionalActionButton({ label: triggerLabel, variant: "secondary", density: resolvedDensity, trailingIcon: "expand_more", disabled });
   trigger.className = `${trigger.className} menu__trigger`;
   trigger.setAttribute("data-menu-trigger", "");
   trigger.setAttribute("aria-haspopup", "menu");
@@ -593,7 +593,7 @@ export function createDrawer({
   root.dataset.side = side;
   const drawerId = id || `drawer-${String(label ?? "drawer").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
   const titleId = `${drawerId}-title`;
-  const trigger = createButton({ label: triggerLabel, variant: "secondary", density: resolvedDensity });
+  const trigger = createTransitionalActionButton({ label: triggerLabel, variant: "secondary", density: resolvedDensity });
   trigger.className = `${trigger.className} drawer__trigger`;
   trigger.setAttribute("data-overlay-open", "");
   trigger.setAttribute("aria-haspopup", "dialog");
@@ -655,7 +655,7 @@ export function createDrawer({
     const footer = document.createElement("footer");
     for (const action of actions) {
       const actionVariant = action.intent === "danger" || action.variant === "danger" ? "primary" : action.variant;
-      const actionNode = createButton({ ...action, variant: actionVariant, intent: action.intent ?? (action.variant === "danger" ? "danger" : undefined), density: action.density ?? resolvedDensity });
+      const actionNode = createTransitionalActionButton({ ...action, variant: actionVariant, intent: action.intent ?? (action.variant === "danger" ? "danger" : undefined), density: action.density ?? resolvedDensity });
       actionNode.setAttribute("data-overlay-close", "");
       actionNode.dataset.key = action.key ?? action.label ?? "";
       actionNode.addEventListener?.("click", () => {
@@ -697,7 +697,7 @@ export function createBottomSheet({
   root.dataset.open = String(Boolean(open));
   const sheetId = id || `bottom-sheet-${String(label ?? "sheet").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
   const titleId = `${sheetId}-title`;
-  const trigger = createButton({ label: triggerLabel, variant: "secondary" });
+  const trigger = createTransitionalActionButton({ label: triggerLabel, variant: "secondary" });
   trigger.className = `${trigger.className} bottom-sheet__trigger`;
   trigger.setAttribute("data-overlay-open", "");
   trigger.setAttribute("aria-haspopup", "dialog");
@@ -742,7 +742,7 @@ export function createBottomSheet({
   if (actions.length) {
     const footer = document.createElement("footer");
     for (const action of actions) {
-      const actionNode = createButton(action);
+      const actionNode = createTransitionalActionButton(action);
       actionNode.setAttribute("data-overlay-close", "");
       actionNode.dataset.key = action.key ?? action.label ?? "";
       actionNode.addEventListener?.("click", () => {
@@ -797,7 +797,7 @@ export function createPopover({
   popover.dataset.density = resolvedDensity;
   popover.dataset.fullWidth = String(Boolean(fullWidth));
   const panelId = id || `popover-${String(triggerLabel ?? "popover").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
-  const trigger = createButton({
+  const trigger = createTransitionalActionButton({
     label: triggerLabel ?? "Open",
     variant: resolvedVariant === "metric" ? "tertiary" : "secondary",
     density: resolvedDensity,
@@ -842,7 +842,7 @@ export function createPopover({
     const footer = document.createElement("footer");
     footer.className = "popover__actions";
     for (const action of resolvedActions) {
-      const actionNode = createButton({
+      const actionNode = createTransitionalActionButton({
         ...action,
         density: action.density ?? resolvedDensity,
         variant: action.variant ?? "secondary",

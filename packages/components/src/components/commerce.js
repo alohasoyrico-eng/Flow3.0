@@ -1,4 +1,4 @@
-import { createButton, createIconButton } from "./actions.js?v=2";
+import { createTransitionalActionButton, createIconButton } from "./actions.js?v=2";
 import { createSpinner } from "./feedback.js?v=8";
 import { createBadge } from "./status.js?v=2";
 import { createChartsPrimitive } from "../primitives/charts.js?v=1";
@@ -846,7 +846,7 @@ export function createRouteSummary({
           disabled: disabled || resolvedState === "disabled" || action.disabled,
         }));
       } else {
-        footer.append(createButton({ ...action, disabled: disabled || resolvedState === "disabled" || action.disabled }));
+        footer.append(createTransitionalActionButton({ ...action, disabled: disabled || resolvedState === "disabled" || action.disabled }));
       }
     }
     summary.append(footer);

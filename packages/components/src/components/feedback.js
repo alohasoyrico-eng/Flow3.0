@@ -1,4 +1,4 @@
-import { createButton } from "./actions.js";
+import { createTransitionalActionButton } from "./actions.js";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
 let progressIndicatorId = 0;
@@ -219,7 +219,7 @@ export function createEmptyState({
   }
 
   if (action?.label) {
-    const actionNode = createButton({
+    const actionNode = createTransitionalActionButton({
       ...action,
       density: action.density ?? resolvedDensity,
       variant: action.variant ?? "primary",
@@ -280,7 +280,7 @@ export function createErrorPanel({
   panel.append(content);
 
   if (action?.label) {
-    const actionNode = createButton({
+    const actionNode = createTransitionalActionButton({
       ...action,
       density: action.density ?? resolvedDensity,
       variant: action.variant ?? "secondary",

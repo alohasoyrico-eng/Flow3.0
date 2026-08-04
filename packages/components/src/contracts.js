@@ -1,6 +1,7 @@
 export const componentContracts = {
   button: {
-    factory: "createButton",
+    factory: "@design-system/react/button",
+    internalFactory: "createTransitionalActionButton",
     element: "button",
     purpose: "Trigger a clear action with semantic emphasis, intent, state, and accessible label.",
     variants: ["primary", "secondary", "tertiary", "outlined", "ghost"],

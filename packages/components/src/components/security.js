@@ -1,4 +1,4 @@
-import { createButton } from "./actions.js?v=2";
+import { createTransitionalActionButton } from "./actions.js?v=2";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
 export function createBiometricPrompt({
@@ -55,7 +55,7 @@ export function createBiometricPrompt({
   copy.setAttribute("role", "status");
   copy.textContent = stateCopy[resolvedState] || stateCopy.default;
   content.append(title, copy);
-  const action = createButton({
+  const action = createTransitionalActionButton({
     label: resolvedState === "error" ? "Try again" : actionLabel,
     disabled,
     loading: resolvedState === "authenticating",
@@ -63,7 +63,7 @@ export function createBiometricPrompt({
   });
   action.className = `${action.className} biometric-prompt__action`;
   action.setAttribute("data-biometric-action", "");
-  const fallbackNode = createButton({ label: fallback, variant: "tertiary", disabled, density: "sm" });
+  const fallbackNode = createTransitionalActionButton({ label: fallback, variant: "tertiary", disabled, density: "sm" });
   fallbackNode.className = `${fallbackNode.className} biometric-prompt__fallback`;
   fallbackNode.setAttribute("data-biometric-fallback", "");
   prompt.append(iconNode, content, action, fallbackNode);
