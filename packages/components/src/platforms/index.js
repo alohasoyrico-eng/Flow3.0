@@ -34,6 +34,11 @@ export {
   iconButtonPlatformProps,
 } from "./icon-button.js";
 export {
+  inlineValidationPlatformAdapters,
+  inlineValidationPlatformContract,
+  inlineValidationPlatformProps,
+} from "./inline-validation.js";
+export {
   inputPlatformAdapters,
   inputPlatformContract,
   inputPlatformProps,

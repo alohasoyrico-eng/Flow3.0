@@ -10,6 +10,7 @@ export { CodeInput } from "./CodeInput.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
 export { IconButton } from "./IconButton.js";
+export { InlineValidation } from "./InlineValidation.js";
 export { Input } from "./Input.js";
 export { PhoneInput } from "./PhoneInput.js";
 export { RadioButton } from "./RadioButton.js";

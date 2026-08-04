@@ -56,6 +56,10 @@
       "types": "./dist/IconButton.d.ts",
       "default": "./dist/IconButton.js"
     },
+    "./inline-validation": {
+      "types": "./dist/InlineValidation.d.ts",
+      "default": "./dist/InlineValidation.js"
+    },
     "./input": {
       "types": "./dist/Input.d.ts",
       "default": "./dist/Input.js"

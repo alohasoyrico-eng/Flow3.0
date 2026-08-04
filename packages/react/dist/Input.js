@@ -118,7 +118,7 @@ export const Input = forwardRef(function Input({
   const resolvedHelper = error || helperText || helper;
   const isDisabled = Boolean(disabled) || Boolean(loading);
   const resolvedAlign = align === "end" || (align === "start" && numericVariants.has(variant)) ? "end" : "start";
-  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const describedBy = [resolvedHelper ? `${inputId}-helper` : "", rest["aria-describedby"]].filter(Boolean).join(" ") || undefined;
   const inputType = isRevealable && revealed ? "text" : resolvedType;
 
   return React.createElement(
@@ -156,7 +156,7 @@ export const Input = forwardRef(function Input({
         autoComplete: autocomplete || autocompleteForVariant(variant),
         "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
-        "aria-invalid": error ? "true" : undefined,
+        "aria-invalid": error ? "true" : rest["aria-invalid"],
         onChange: (event) => onValueChange?.(normalizeValue(event.target.value, variant).value, normalizeValue(event.target.value, variant)),
       }),
       suffix

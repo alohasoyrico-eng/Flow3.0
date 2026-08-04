@@ -97,6 +97,12 @@ export type {
   IconButtonType,
   IconButtonVariant,
 } from "./IconButton.js";
+export { InlineValidation } from "./InlineValidation.js";
+export type {
+  InlineValidationComponent,
+  InlineValidationProps,
+  InlineValidationState,
+} from "./InlineValidation.js";
 export { Input } from "./Input.js";
 export type {
   InputAlign,
