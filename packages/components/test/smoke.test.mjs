@@ -87,7 +87,7 @@ import {
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
 import { createCheckbox, createRadioButton, createSwitch } from "../src/components/choices.js";
-import { createTransitionalFieldInput, createTransitionalFieldSelect, createTextArea } from "../src/components/fields.js";
+import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -278,7 +278,8 @@ assert.deepEqual(switchPlatformContract.states, componentContracts.switch.states
 assert.deepEqual(Object.keys(switchPlatformAdapters), ["react"]);
 assert.equal(switchPlatformAdapters.react.componentName, "Switch");
 assert.equal(switchPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.textArea.factory, "createTextArea");
+assert.equal(componentContracts.textArea.factory, "@design-system/react/text-area");
+assert.equal(componentContracts.textArea.internalFactory, "createTransitionalFieldTextArea");
 assert.equal(textAreaPlatformContract.id, "text-area");
 assert.equal(textAreaPlatformContract.source.factory, componentContracts.textArea.factory);
 assert.deepEqual(textAreaPlatformProps(), componentContracts.textArea.props.map((prop) => prop.name));
@@ -308,7 +309,7 @@ assert.deepEqual(radioButtonPlatformContract.states, componentContracts.radioBut
 assert.deepEqual(Object.keys(radioButtonPlatformAdapters), ["react"]);
 assert.equal(radioButtonPlatformAdapters.react.componentName, "RadioButton");
 assert.equal(radioButtonPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.textArea.factory, "createTextArea");
+assert.equal(componentContracts.textArea.factory, "@design-system/react/text-area");
 assert.equal(componentContracts.badge.factory, "createBadge");
 assert.equal(componentContracts.chip.factory, "createChip");
 assert.equal(componentContracts.tag.factory, "createTag");
@@ -945,7 +946,7 @@ assert.equal(radioButton.querySelector("input").name, "cadence");
 assert.equal(radioButton.querySelector("input").value, "weekly");
 assert.equal(radioButton.querySelector("input").checked, true);
 
-const textArea = createTextArea({
+const textArea = createTransitionalFieldTextArea({
   label: "Driver notes",
   helper: "Visible to support",
   value: "Needs receipt",
@@ -967,7 +968,7 @@ assert.equal(textArea.querySelector("textarea").attributes["aria-describedby"], 
 assert.equal(textArea.querySelector(".text-area__counter").textContent, "13/120");
 
 let textAreaChangeValue = "";
-const interactiveTextArea = createTextArea({
+const interactiveTextArea = createTransitionalFieldTextArea({
   label: "Support note",
   value: "",
   maxLength: 40,
@@ -980,7 +981,7 @@ interactiveTextArea.querySelector("textarea").dispatchEvent({ type: "input" });
 assert.equal(textAreaChangeValue, "Receipt pending.");
 assert.equal(interactiveTextArea.querySelector(".text-area__counter").textContent, "16/40");
 
-const textAreaError = createTextArea({ label: "Policy exception", value: "Ok", error: "Use at least 20 characters." });
+const textAreaError = createTransitionalFieldTextArea({ label: "Policy exception", value: "Ok", error: "Use at least 20 characters." });
 assert.equal(textAreaError.dataset.state, "error");
 assert.equal(textAreaError.querySelector("textarea").attributes["aria-invalid"], "true");
 assert.equal(textAreaError.querySelector(".field__helper").textContent, "Use at least 20 characters.");

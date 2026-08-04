@@ -166,7 +166,7 @@ function kebabToFactoryName(id) {
     "radio-button": "createRadioButton",
     switch: "createSwitch",
     tag: "createTag",
-    "text-area": "createTextArea",
+    "text-area": "createTransitionalFieldTextArea",
     "code-input": "createCodeInput",
     "phone-input": "createPhoneInput",
     "progress-indicator": "createProgressIndicator",

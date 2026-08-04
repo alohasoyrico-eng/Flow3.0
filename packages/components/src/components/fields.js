@@ -196,7 +196,7 @@ export function hydrateInput(root = document) {
   }
 }
 
-export function hydrateTextArea(root = document) {
+export function hydrateTransitionalTextArea(root = document) {
   const controls = root?.matches?.(".field") ? [root] : Array.from(root?.querySelectorAll?.(".field") ?? []);
   for (const controlRoot of controls) {
     if (controlRoot.dataset?.textAreaReady === "true") continue;
@@ -767,7 +767,7 @@ export function hydrateCombobox(root, { onValueChange } = {}) {
   return root;
 }
 
-export function createTextArea({
+export function createTransitionalFieldTextArea({
   label,
   helper = "",
   helperText,

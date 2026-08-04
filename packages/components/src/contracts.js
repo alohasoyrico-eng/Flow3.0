@@ -357,7 +357,8 @@ export const componentContracts = {
     ]
   },
   textArea: {
-    factory: "createTextArea",
+    factory: "@design-system/react/text-area",
+    internalFactory: "createTransitionalFieldTextArea",
     element: "label",
     purpose: "Capture multi-line text with visible label, optional helper, and native textarea behavior.",
     variants: ["default"],

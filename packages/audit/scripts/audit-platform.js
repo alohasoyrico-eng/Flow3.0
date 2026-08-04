@@ -215,16 +215,13 @@ function checkPrototypePackages() {
     if (!hasPublicComponentExport(componentText, required.exportName)) add("errors", componentSource, 1, `components export missing: ${required.exportName}.`);
     if (required.factoryName && !componentContractText.includes(`factory: "${required.factoryName}"`)) add("errors", componentContracts, 1, `components contract missing factory: ${required.factoryName}.`);
   }
-  for (const [label, factory] of [["Button", "createButton"], ["Checkbox", "createCheckbox"], ["Icon Button", "createIconButton"], ["Input", "createTransitionalFieldInput"], ["Radio Button", "createRadioButton"], ["Select", "createTransitionalFieldSelect"], ["Switch", "createSwitch"], ["Text Area", "createTextArea"]]) {
+  for (const [label, factory] of [["Button", "createButton"], ["Checkbox", "createCheckbox"], ["Icon Button", "createIconButton"], ["Input", "createTransitionalFieldInput"], ["Radio Button", "createRadioButton"], ["Select", "createTransitionalFieldSelect"], ["Switch", "createSwitch"], ["Text Area", "createTransitionalFieldTextArea"]]) {
     if (hasPublicComponentExport(componentText, factory)) add("errors", componentSource, 1, `${label} must not be exported as a public DOM factory; React is the public product component target.`);
   }
-  if (!componentContractText.includes('factory: "@design-system/react/input"') || !componentContractText.includes('internalFactory: "createTransitionalFieldInput"')) {
-    add("errors", componentContracts, 1, "Input contract must expose the React package target and name the transitional internal field input separately.");
+  for (const [label, target, internalFactory] of [["Input", "input", "createTransitionalFieldInput"], ["Select", "select", "createTransitionalFieldSelect"], ["Text Area", "text-area", "createTransitionalFieldTextArea"]]) {
+    if (!componentContractText.includes(`factory: "@design-system/react/${target}"`) || !componentContractText.includes(`internalFactory: "${internalFactory}"`)) add("errors", componentContracts, 1, `${label} contract must expose the React package target and name the transitional internal field factory separately.`);
   }
-  if (!componentContractText.includes('factory: "@design-system/react/select"') || !componentContractText.includes('internalFactory: "createTransitionalFieldSelect"')) {
-    add("errors", componentContracts, 1, "Select contract must expose the React package target and name the transitional internal field select separately.");
-  }
-  for (const [label, hydrator] of [["Input", "hydrateInput"], ["Select", "hydrateSelect"], ["Text Area", "hydrateTextArea"]]) {
+  for (const [label, hydrator] of [["Input", "hydrateInput"], ["Select", "hydrateSelect"], ["Text Area", "hydrateTransitionalTextArea"]]) {
     if (hasPublicComponentExport(componentText, hydrator)) add("errors", componentSource, 1, `${label} must not export a public DOM hydrator; React is the public product component target.`);
   }
   for (const required of ["button", "iconButton", "input", "select", "card", "props", "accessibility", "componentContractVersion"]) {
@@ -340,7 +337,7 @@ function checkReleaseAndAdoption() {
     [releaseFile, ["npm run audit", "npm test", "npm run validate", "Architecture Gate", "CHANGELOG.md", "MIGRATE_PRODUCT_SCREEN.md", "index.html", "fleet-dashboard.html", "driver-mobile.html"]],
     [startGuideFile, ["Build a Prototype", "Change Design System", "What To Edit", "MIGRATE_PRODUCT_SCREEN.md", "npm run validate", "npm test", "fixtures/prototyping.json", "examples/prototyping/index.html"]],
     [migrationGuideFile, ["Migrate A Product Screen Into Design System", "Nothing skips a layer", "packages/specs", "packages/components", "npm run validate"]],
-    [componentSmokeTestFile, ["componentContracts", "createButton", "createIconButton", "createTransitionalFieldInput", "createTransitionalFieldSelect", "createCard", "components smoke tests passed"]],
+    [componentSmokeTestFile, ["componentContracts", "createButton", "createIconButton", "createTransitionalFieldInput", "createTransitionalFieldSelect", "createTransitionalFieldTextArea", "createCard", "components smoke tests passed"]],
   ]) {
     const text = read(file);
     for (const snippet of requiredSnippets) {
