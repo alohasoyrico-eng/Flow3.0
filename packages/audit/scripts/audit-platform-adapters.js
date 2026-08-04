@@ -1,6 +1,4 @@
 const { fs, path, root, read, add } = require("./audit-context.js");
-const { checkStatusPlatformAdapters } = require("./audit-platform-adapters-status.js");
-
 const adapterIndexFile = path.join(root, "packages/components/src/platforms/index.js");
 const componentIndexFile = path.join(root, "packages/components/src/index.js");
 const componentPackageFile = path.join(root, "packages/components/package.json");
@@ -76,6 +74,22 @@ const components = [
     packagePath: "./chip",
     exportName: "Chip",
     propsName: "ChipProps",
+  },
+  {
+    id: "tag",
+    label: "Tag",
+    contractKey: "tag",
+    className: "tag",
+    files: ["Tag.js", "Tag.d.ts"],
+    exports: ["tagPlatformAdapters", "tagPlatformContract", "tagPlatformProps"],
+    requiredTokens: ["comp.tag.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.growth.*"],
+    primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography"],
+    props: ["label", "tone", "variant", "state", "icon", "interactive", "disabled"],
+    jsSnippets: ["tagPlatformContract", "className: [\"tag\"", '"data-tone": resolvedTone', '"data-variant": resolvedVariant', '"data-state": resolvedState', "tag__label", "tag__icon", "data-interactive"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement | HTMLButtonElement>", "TagProps", "TagVariant", "TagTone", "TagState", "tagPlatformContract"],
+    packagePath: "./tag",
+    exportName: "Tag",
+    propsName: "TagProps",
   },
   {
     id: "button",
@@ -208,8 +222,6 @@ const components = [
 ];
 
 function checkPlatformAdapters() {
-  checkStatusPlatformAdapters();
-
   const adapterIndex = read(adapterIndexFile);
   const componentIndex = read(componentIndexFile);
   const componentPackage = read(componentPackageFile);

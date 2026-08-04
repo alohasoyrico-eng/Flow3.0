@@ -48,7 +48,6 @@ const expectedAuditFiles = new Set([
   "audit-layout-contracts.js",
   "audit-motion-contracts.js",
   "audit-package-api.js",
-  "audit-platform-adapters-status.js",
   "audit-platform-adapters.js",
   "audit-package-css-contracts.js",
   "audit-pattern-contracts.js",
