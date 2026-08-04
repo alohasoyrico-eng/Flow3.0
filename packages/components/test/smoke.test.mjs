@@ -52,7 +52,6 @@ import {
   createDatePicker,
   createDateRangePicker,
   createTextArea,
-  createInput,
   createToast,
   createTooltip,
   createAnimationAsset,
@@ -72,8 +71,12 @@ import {
   iconButtonPlatformAdapters,
   iconButtonPlatformContract,
   iconButtonPlatformProps,
+  inputPlatformAdapters,
+  inputPlatformContract,
+  inputPlatformProps,
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
+import { createInput } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -233,6 +236,14 @@ assert.deepEqual(Object.keys(iconButtonPlatformAdapters), ["react"]);
 assert.equal(iconButtonPlatformAdapters.react.componentName, "IconButton");
 assert.equal(iconButtonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.input.factory, "createInput");
+assert.equal(inputPlatformContract.id, "input");
+assert.equal(inputPlatformContract.source.factory, componentContracts.input.factory);
+assert.deepEqual(inputPlatformProps(), componentContracts.input.props.map((prop) => prop.name));
+assert.deepEqual(inputPlatformContract.variants, componentContracts.input.variants);
+assert.deepEqual(inputPlatformContract.states, componentContracts.input.states);
+assert.deepEqual(Object.keys(inputPlatformAdapters), ["react"]);
+assert.equal(inputPlatformAdapters.react.componentName, "Input");
+assert.equal(inputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardNumberInput.factory, "createCardNumberInput");
 assert.equal(componentContracts.cardExpiryInput.factory, "createCardExpiryInput");
 assert.equal(componentContracts.cardSecurityCodeInput.factory, "createCardSecurityCodeInput");

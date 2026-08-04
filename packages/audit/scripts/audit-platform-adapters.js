@@ -112,16 +112,18 @@ function checkPlatformAdapters() {
   if (!iconButtonAdapter.includes("react:")) {
     add("errors", iconButtonAdapterFile, 1, "Icon Button platform contract must declare React as its implementation target.");
   }
+  if (inputAdapter.includes("dom:") || inputAdapter.includes('renderMode: "factory"') || inputAdapter.includes('implementationRole: "transitional-static-renderer"')) {
+    add("errors", inputAdapterFile, 1, "Input platform contract must not advertise a DOM target once React is the public product component.");
+  }
+  if (!inputAdapter.includes("react:")) {
+    add("errors", inputAdapterFile, 1, "Input platform contract must declare React as its implementation target.");
+  }
   for (const platform of ["dom", "react"]) {
-    if (!inputAdapter.includes(`${platform}:`)) {
-      add("errors", inputAdapterFile, 1, `Input platform contract must declare a ${platform} implementation target.`);
-    }
     if (!selectAdapter.includes(`${platform}:`)) {
       add("errors", selectAdapterFile, 1, `Select platform contract must declare a ${platform} implementation target.`);
     }
   }
   for (const [file, source, componentName] of [
-    [inputAdapterFile, inputAdapter, "Input"],
     [selectAdapterFile, selectAdapter, "Select"],
   ]) {
     for (const snippet of [
@@ -156,6 +158,15 @@ function checkPlatformAdapters() {
   ]) {
     if (!iconButtonAdapter.includes(snippet)) {
       add("errors", iconButtonAdapterFile, 1, `Icon Button platform contract must mark React as the only public component target; missing ${snippet}.`);
+    }
+  }
+  for (const snippet of [
+    'renderMode: "component"',
+    'implementationRole: "primary-product-component"',
+    "sourceOfTruth: true",
+  ]) {
+    if (!inputAdapter.includes(snippet)) {
+      add("errors", inputAdapterFile, 1, `Input platform contract must mark React as the only public component target; missing ${snippet}.`);
     }
   }
   for (const token of [

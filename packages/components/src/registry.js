@@ -10,7 +10,7 @@ import {
 } from "./components/commerce.js?v=15";
 import { createAuditEvent, createAvatar, createKpiTile, createList } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
-import { createCombobox, createSelect, createTextArea, createInput } from "./components/fields.js?v=21";
+import { createCombobox, createSelect, createTextArea } from "./components/fields.js?v=21";
 import {
   createAccordion,
   createSegmentedControl,
@@ -90,7 +90,9 @@ export const componentRegistry = Object.freeze({
   tabs: createTabs,
   tag: createTag,
   "text-area": createTextArea,
-  input: createInput,
+  input: () => {
+    throw new Error("Input is React-primary. Use @design-system/react/input instead of the transitional DOM renderer.");
+  },
   toast: createToast,
   tooltip: createTooltip,
   "tree-view": createTreeView,
@@ -112,6 +114,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "icon-button") {
     throw new Error("Icon Button is React-primary. Use @design-system/react/icon-button instead of renderComponentDemo.");
+  }
+  if (id === "input") {
+    throw new Error("Input is React-primary. Use @design-system/react/input instead of renderComponentDemo.");
   }
   return factory(props);
 }

@@ -222,17 +222,16 @@ function checkPrototypePackages() {
     if (!tokenCssText.includes(required)) add("errors", tokenCss, 1, `tokens CSS variable missing: ${required}.`);
   }
   for (const required of [
-    { exportName: "createInput", factoryName: "createInput" },
     { exportName: "createSelect", factoryName: "createSelect" },
     { exportName: "createCard", factoryName: "createCard" },
   ]) {
     if (!hasPublicComponentExport(componentText, required.exportName)) add("errors", componentSource, 1, `components export missing: ${required.exportName}.`);
     if (required.factoryName && !componentContractText.includes(`factory: "${required.factoryName}"`)) add("errors", componentContracts, 1, `components contract missing factory: ${required.factoryName}.`);
   }
-  if (hasPublicComponentExport(componentText, "createButton")) add("errors", componentSource, 1, "Button must not be exported as a public DOM factory; React is the public product component target.");
-  if (hasPublicComponentExport(componentText, "createIconButton")) add("errors", componentSource, 1, "Icon Button must not be exported as a public DOM factory; React is the public product component target.");
-  if (!componentContractText.includes('factory: "createButton"')) add("errors", componentContracts, 1, "Button contract must keep the internal factory reference until all internal DOM compositions migrate.");
-  if (!componentContractText.includes('factory: "createIconButton"')) add("errors", componentContracts, 1, "Icon Button contract must keep the internal factory reference until all internal DOM compositions migrate.");
+  for (const [label, factory] of [["Button", "createButton"], ["Icon Button", "createIconButton"], ["Input", "createInput"]]) {
+    if (hasPublicComponentExport(componentText, factory)) add("errors", componentSource, 1, `${label} must not be exported as a public DOM factory; React is the public product component target.`);
+    if (!componentContractText.includes(`factory: "${factory}"`)) add("errors", componentContracts, 1, `${label} contract must keep the internal factory reference until all internal DOM compositions migrate.`);
+  }
   for (const required of ["button", "iconButton", "input", "select", "card", "props", "accessibility", "componentContractVersion"]) {
     if (!componentContractText.includes(required)) add("errors", componentContracts, 1, `components contract missing: ${required}.`);
   }
@@ -252,11 +251,12 @@ function checkPrototypePackages() {
         if (!exampleText.includes(required)) add("errors", exampleFile, 1, `Prototype index must link to ${required}.`);
       }
     } else if (exampleFile.endsWith("basic.html")) {
-      for (const required of ["createInput", "createSelect", "createCard"]) {
+      for (const required of ["createSelect", "createCard"]) {
         if (!exampleText.includes(required)) add("errors", exampleFile, 1, `Basic prototype must consume ${required}.`);
       }
       if (!exampleText.includes("packages/react/dist/Button.js") || !exampleText.includes("React.createElement(Button")) add("errors", exampleFile, 1, "Basic prototype must consume the React Button instead of the internal DOM button factory.");
       if (!exampleText.includes("packages/react/dist/IconButton.js") || !exampleText.includes("React.createElement(IconButton")) add("errors", exampleFile, 1, "Basic prototype must consume the React Icon Button instead of the internal DOM icon button factory.");
+      if (!exampleText.includes("packages/react/dist/Input.js") || !exampleText.includes("React.createElement(Input")) add("errors", exampleFile, 1, "Basic prototype must consume the React Input instead of the internal DOM input factory.");
       if (!exampleText.includes("fixtures/prototyping.json")) {
         add("errors", exampleFile, 1, "Basic prototype must consume shared prototyping fixtures.");
       }

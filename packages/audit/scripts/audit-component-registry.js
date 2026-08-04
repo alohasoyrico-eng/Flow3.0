@@ -24,7 +24,6 @@ const unprefixedFactoryComponents = new Map([
   ["error-panel", "createErrorPanel"],
   ["floating-action-button", "createFloatingActionButton"],
   ["inline-validation", "createInlineValidation"],
-  ["input", "createInput"],
   ["select", "createSelect"],
   ["radio-button", "createRadioButton"],
   ["switch", "createSwitch"],
@@ -75,9 +74,9 @@ function checkComponentRegistry() {
 
   for (const component of requiredComponentContracts) {
     const key = component.includes("-") ? `"${component}"` : component;
-    if (component === "button" || component === "icon-button") {
-      const label = component === "button" ? "Button" : "Icon Button";
-      const factory = component === "button" ? "createButton" : "createIconButton";
+    if (component === "button" || component === "icon-button" || component === "input") {
+      const label = component === "button" ? "Button" : component === "icon-button" ? "Icon Button" : "Input";
+      const factory = component === "button" ? "createButton" : component === "icon-button" ? "createIconButton" : "createInput";
       if (!registrySource.includes(`${label} is React-primary`) || registrySource.includes(`${key}: ${factory}`)) {
         add("errors", registryFile, 1, `${label} registry entry must reject DOM rendering and route docs through the React component.`);
       }
@@ -104,7 +103,7 @@ function checkComponentRegistry() {
   if (!docsRendererSource.includes("renderComponentDemo")) {
     add("errors", docsRendererFile, 1, "Docs component demo renderer must consume the official Design System registry demo renderer.");
   }
-  for (const snippet of ["componentDemoProps", "reactButtonDemo", 'data-react-component="button"', 'if (component === "button") return reactButtonDemo(demo);']) {
+  for (const snippet of ["componentDemoProps", "reactButtonDemo", 'data-react-component="button"', 'if (component === "button") return reactButtonDemo(demo);', "reactInputDemo", 'data-react-component="input"', 'if (component === "input") return reactInputDemo(demo);']) {
     if (!docsRendererSource.includes(snippet)) {
       add("errors", docsRendererFile, 1, `Docs Button demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
     }

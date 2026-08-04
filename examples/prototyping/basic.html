@@ -40,9 +40,10 @@
       }
     </script>
     <script type="module">
-      import { createCard, createSelect, createInput } from "../../packages/components/src/index.js";
+      import { createCard, createSelect } from "../../packages/components/src/index.js";
       import { Button } from "../../packages/react/dist/Button.js";
       import { IconButton } from "../../packages/react/dist/IconButton.js";
+      import { Input } from "../../packages/react/dist/Input.js";
 
       function mountButton(props) {
         const host = document.createElement("span");
@@ -53,6 +54,16 @@
       function mountIconButton(props) {
         const host = document.createElement("span");
         ReactDOM.createRoot(host).render(React.createElement(IconButton, props));
+        return host;
+      }
+
+      function mountInput(props) {
+        const host = document.createElement("span");
+        const InputDemo = () => {
+          const [value, setValue] = React.useState(props.value ?? "");
+          return React.createElement(Input, { ...props, value, onValueChange: setValue });
+        };
+        ReactDOM.createRoot(host).render(React.createElement(InputDemo));
         return host;
       }
 
@@ -78,7 +89,7 @@
           options: fixtures.fleets.map((fleet) => ({ label: fleet.label, value: fleet.id })),
           value: primaryFleet.id,
         }),
-        createInput({
+        mountInput({
           label: "Driver",
           helper: "Search by name or vehicle unit.",
           placeholder: fixtures.driverCard.driver,
