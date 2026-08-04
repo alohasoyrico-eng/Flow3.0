@@ -1,0 +1,2266 @@
+{
+  "schemaVersion": "0.1.0",
+  "updatedAt": "2026-07-24",
+  "scope": "priority components touched in the 1:1 review",
+  "status": "pass",
+  "rule": "A component can be pass only when all 13 steps are pass and evidence exists, including light and dark visual QA. Technical validation alone is not quality closure.",
+  "relatedAudits": [
+    "docs/audits/component-variant-pattern-boundary-matrix.json"
+  ],
+  "steps": [
+    {
+      "id": "zip-reference",
+      "label": "ZIP reference checked first"
+    },
+    {
+      "id": "system-architecture",
+      "label": "Architecture and ownership respected"
+    },
+    {
+      "id": "package-source",
+      "label": "Reusable package source reviewed"
+    },
+    {
+      "id": "docs-source",
+      "label": "Docs consume package source"
+    },
+    {
+      "id": "foundations-primitives",
+      "label": "Foundations and primitives consumed correctly"
+    },
+    {
+      "id": "states-variants",
+      "label": "States and variants are real"
+    },
+    {
+      "id": "interaction-logic",
+      "label": "Interaction logic works after user action"
+    },
+    {
+      "id": "motion",
+      "label": "Motion roles and rhythm verified"
+    },
+    {
+      "id": "density-layout",
+      "label": "Density and layout verified"
+    },
+    {
+      "id": "typography-iconography",
+      "label": "Typography and iconography verified"
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility behavior and contrast verified"
+    },
+    {
+      "id": "visual-qa",
+      "label": "Light and dark visual QA evidence captured"
+    },
+    {
+      "id": "validation",
+      "label": "Automated validation passed"
+    }
+  ],
+  "components": [
+    {
+      "id": "accordion",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/Accordion.jsx",
+        ".audit-reference/components/display/Accordion.d.ts",
+        ".audit-reference/components/display/Accordion.prompt.md",
+        ".audit-reference/docs/demos/accordion.html",
+        "docs/audits/accordion-1to1-quality-audit.json",
+        "docs/audits/accordion-1to1-visual-metrics.json",
+        "docs/audits/accordion-1to1-light.png",
+        "docs/audits/accordion-1to1-dark.png",
+        "packages/components/src/components/interactions.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Primary navigation remains Sidebar/Topbar pattern work; Accordion only owns bounded secondary disclosure.",
+        "Nested accordions, required-content policies, and multi-step progress remain pattern or template responsibilities."
+      ]
+    },
+    {
+      "id": "animated-moment",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/tokens/motion.css",
+        ".audit-reference/guidelines/motion.html",
+        "docs/audits/animated-moment-1to1-quality-audit.json",
+        "docs/audits/animated-moment-1to1-visual-metrics.json",
+        "docs/audits/animated-moment-1to1-light.png",
+        "docs/audits/animated-moment-1to1-dark.png",
+        "packages/components/src/components/motion.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "The onboarding card with skip, CTA, pagination dots, and slide sequencing is a pattern, not Animated Moment.",
+        "A real animation-player runtime remains outside this component until Flow defines an asset/player contract."
+      ],
+      "decision": "Closed Animated Moment as a bounded component: density and fullWidth are package props, halo/icon/copy scale with Flow component tokens, mobile remains vertical, desktop-capable full-width composition is available, and onboarding controls remain pattern scope."
+    },
+    {
+      "id": "audit-event",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/Timeline.jsx",
+        ".audit-reference/components/display/timeline-divider.card.html",
+        "packages/specs/specs/unison-system/artifacts/components/audit-event.json",
+        "packages/components/src/components/display.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/audit-event/all.json",
+        "packages/content/content/component-contracts/components/audit-event.md",
+        "docs/audits/audit-event-1to1-quality-audit.json",
+        "docs/audits/audit-event-1to1-light.png",
+        "docs/audits/audit-event-1to1-dark.png"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Ordered histories, connector rails, filters, approvals, audit tables, and investigations belong to Timeline/Table/workflow patterns.",
+        "Business variants such as permission, vehicle, card, and finance are not Audit Event variants; use tone/state/status text."
+      ],
+      "decision": "Closed Audit Event as a Desktop component for one atomic traceable record. ZIP Timeline reference informs marker, compact hierarchy, mono timestamp, and secondary copy; Flow governs colors, density, radius, focus, spacing, and state semantics. Timeline, audit log, table history, filtering, approval routing, and investigation stay in patterns.",
+      "lastValidation": "npm run validate pass",
+      "visualQa": {
+        "route": "http://127.0.0.1:53222/apps/docs/index.html?fresh=audit-event-spacing-final#/components/audit-event",
+        "designVisiblePackageRoots": 34,
+        "variants": [
+          "standard"
+        ],
+        "states": [
+          "default",
+          "verified",
+          "warning",
+          "hover",
+          "focus",
+          "critical",
+          "disabled"
+        ],
+        "densities": [
+          "md",
+          "sm",
+          "lg"
+        ],
+        "overflowCount": 0,
+        "minBadgeContrast": 4.84,
+        "layoutAfterFix": {
+          "viewport": "599x1354",
+          "visiblePackageRoots": 2,
+          "gridTemplateColumns": "26px 316px",
+          "padding": "12px 16px",
+          "gap": "12px",
+          "eventHeight": 96,
+          "contentWidth": 316,
+          "overflowX": false,
+          "overflowY": false
+        }
+      }
+    },
+    {
+      "id": "avatar",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/Avatar.jsx",
+        ".audit-reference/components/display/Avatar.d.ts",
+        ".audit-reference/components/display/Avatar.prompt.md",
+        ".audit-reference/docs/demos/avatar.html",
+        "packages/specs/specs/unison-system/artifacts/components/avatar.json",
+        "packages/components/src/components/display.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/avatar/all.json",
+        "docs/audits/avatar-1to1-visual-metrics.json",
+        "docs/audits/avatar-1to1-light.png",
+        "docs/audits/avatar-1to1-dark.png",
+        "docs/audits/avatar-1to1-quality-audit.json"
+      ],
+      "openIssues": [],
+      "decision": "Avatar remains a component; Avatar Group remains a separate boundary review item.",
+      "lastValidation": "npm run validate pass"
+    },
+    {
+      "id": "badge",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/Badge.jsx",
+        ".audit-reference/docs/demos/badge.html",
+        ".audit-reference/components/display/Badge.prompt.md",
+        "packages/specs/specs/unison-system/artifacts/components/badge.json",
+        "packages/components/src/components/status.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/badge/all.json",
+        "packages/content/content/component-copy.json",
+        "docs/audits/badge-1to1-quality-audit.json",
+        "docs/audits/badge-1to1-visual-metrics.json",
+        "docs/audits/badge-1to1-dark.png"
+      ],
+      "openIssues": [],
+      "decision": "Badge remains a bounded component for compact counts, dots, status labels, and icon markers attached to a parent. Flow owns color tokens, density, typography, focus, and motion; the ZIP reference informs subtle pill surfaces, live marker rhythm, icon/dot anatomy, and overflow behavior without changing foundations.",
+      "updatedAt": "2026-07-22"
+    },
+    {
+      "id": "biometric-prompt",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/feedback/BiometricPrompt.jsx",
+        ".audit-reference/components/feedback/BiometricPrompt.d.ts",
+        ".audit-reference/docs/demos/biometric.html",
+        "docs/audits/biometric-prompt-1to1-quality-audit.json",
+        "docs/audits/biometric-prompt-1to1-light.png",
+        "docs/audits/biometric-prompt-1to1-dark.png",
+        "packages/components/src/components/security.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/content/content/component-copy/components/biometric-prompt/all.json",
+        "packages/specs/specs/unison-system/artifacts/components/biometric-prompt.json",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Authentication orchestration, enrollment, retry policy, risk scoring, and recovery remain authentication patterns, not Biometric Prompt variants."
+      ]
+    },
+    {
+      "id": "breadcrumbs",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/navigation/Breadcrumb.jsx",
+        ".audit-reference/components/navigation/Breadcrumb.d.ts",
+        ".audit-reference/docs/demos/breadcrumb-pagination.html",
+        "docs/audits/component-variant-pattern-boundary-matrix.json",
+        "docs/audits/breadcrumbs-1to1-quality-audit.json",
+        "docs/audits/breadcrumbs-1to1-visual-metrics.json",
+        "docs/audits/breadcrumbs-1to1-light.png",
+        "docs/audits/breadcrumbs-1to1-dark.png",
+        "docs/audits/breadcrumbs-1to1-design-light.png",
+        "docs/audits/breadcrumbs-1to1-design-dark.png",
+        "packages/components/src/components/navigation.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Route architecture, app navigation shell, and responsive navigation drawer remain pattern candidates.",
+        "Pagination appears with Breadcrumbs in the ZIP demo but remains a separate component."
+      ]
+    },
+    {
+      "id": "button",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/button-1to1-visual-metrics.json",
+        "docs/audits/button-1to1-light.png",
+        "docs/audits/button-1to1-dark.png",
+        "packages/components/src/components/actions.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/content/content/component-copy/components/button/variants.json",
+        "apps/docs/gold-button-docs.js",
+        "apps/docs/gold-component-data.js",
+        "packages/audit/scripts/audit-package-css-contracts.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Action groups, toolbar layout, and step navigation remain patterns/templates; Button only owns the action trigger."
+      ]
+    },
+    {
+      "id": "card",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "packages/components/src/components/surfaces.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/specs/specs/unison-system/artifacts/components/card.json",
+        "packages/content/content/component-copy/components/card/api-foundations.json",
+        "packages/content/content/component-copy/components/card/states.json",
+        "apps/docs/gold-card-docs.js",
+        "apps/docs/gold-component-data.js",
+        "apps/docs/component-demo-interactions.js",
+        "packages/components/test/smoke.test.mjs",
+        "docs/audits/card-1to1-light.png",
+        "docs/audits/card-1to1-dark.png",
+        "packages/content/content/component-copy/components/card/variants.json",
+        "packages/content/content/component-copy/components/card/variant-state-behavior.json",
+        "docs/audits/card-1to1-visual-metrics.json",
+        "packages/content/content/component-copy/components/card/reference-compositions.json"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "CardStats is implemented as Card composition=stats because the ZIP renders it as Card + mono value + Badge, not as StatTile.",
+        "KPI Tile remains the separate component for dashboard metric ownership, thresholds, sparkline, and drill-in.",
+        "CardCompact is implemented as Card composition=compact because it changes anatomy density without becoming a base variant.",
+        "CardMedia is implemented as Card composition=media with image ratio, crop, loading, and alt rules owned by Card.",
+        "CardInteractive is Card behavior/state, not a base variant.",
+        "CardElevated, CardMinimal, and CardGhost are covered by base Card variants."
+      ],
+      "updatedAt": "2026-07-23T18:10:00.000Z",
+      "notes": [
+        "ZIP direct review found base variants default/minimal/elevated/ghost in Card.jsx.",
+        "ZIP cards-extended.html also shows CardStats, CardInteractive, CardCompact, CardMedia, CardElevated, CardMinimal, and CardGhost as reference compositions.",
+        "Design tab now uses one unified Variants map with package-backed demos: Card default, Card composition=stats for CardStats, Card interactive behavior for CardInteractive, Card composition=compact for CardCompact, Card composition=media for CardMedia, and Card variants elevated/minimal/ghost for the base variants.",
+        "CardStats was rechecked against the ZIP original and now renders three package-backed Card composition=stats surfaces with mono value, unit prefix, trend status, and no KPI Tile inside.",
+        "CardCompact was rechecked against the ZIP original and now renders the reference stack of three compact package-backed Card rows inside a tokenized 20px / 6px surface.",
+        "CardMedia was rechecked against the ZIP original and now uses full-bleed media first, 200px media height, no inner image radius, padded body below, title 16/700, detail 13/1.5, and 8px text gap.",
+        "CardElevated was rechecked against the ZIP original and now uses a 2px Flow action border, float depth, no added icon, title 16/700, detail 13/1.5, and 4px text gap.",
+        "CardMinimal was rechecked against the ZIP original and now uses transparent surface, no shadow, muted 20px icon without pill background, title 16/700, detail 13/1.5, and detail aligned under the title.",
+        "CardGhost was rechecked against the ZIP original and now renders in an inverse context with 40% translucent surface, blur(10px), translucent border, no shadow, no icon, and white 13/400 text."
+      ]
+    },
+    {
+      "id": "card-expiry-input",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/forms/Input.jsx",
+        ".audit-reference/components/forms/InputDate.jsx",
+        ".audit-reference/components/display/PaymentCard.jsx",
+        "packages/components/src/components/specialized-inputs.js",
+        "packages/components/test/smoke.test.mjs",
+        "docs/audits/card-expiry-input-1to1-visual-metrics.json",
+        "docs/audits/card-expiry-input-1to1-light.png",
+        "docs/audits/card-expiry-input-1to1-dark.png"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "card-number-input",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/forms/Input.jsx",
+        ".audit-reference/components/display/PaymentCard.jsx",
+        "packages/components/src/components/specialized-inputs.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs",
+        "docs/audits/card-number-input-1to1-visual-metrics.json",
+        "docs/audits/card-number-input-1to1-dark-quiet-metrics.json",
+        "docs/audits/card-number-input-1to1-light.png",
+        "docs/audits/card-number-input-1to1-dark-quiet.png"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "card-security-code-input",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/forms/Input.jsx",
+        ".audit-reference/components/forms/InputPassword.jsx",
+        ".audit-reference/components/display/PaymentCard.jsx",
+        "packages/components/src/components/specialized-inputs.js",
+        "packages/components/test/smoke.test.mjs",
+        "docs/audits/card-security-code-input-1to1-visual-metrics.json",
+        "docs/audits/card-security-code-input-1to1-light.png",
+        "docs/audits/card-security-code-input-1to1-dark.png"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "card-summary",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "packages/specs/specs/unison-system/artifacts/components/card-summary.json",
+        "packages/content/content/component-copy/components/card-summary/all.json",
+        "packages/content/content/component-contracts/components/card-summary.md",
+        "packages/components/src/components/commerce.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "docs/audits/card-summary-1to1-quality-audit.json",
+        "docs/audits/card-summary-1to1-visual-metrics.json",
+        "docs/audits/card-summary-1to1-light.png",
+        "docs/audits/card-summary-1to1-dark.png",
+        ".audit-reference/components/display/PaymentCard.jsx",
+        ".audit-reference/docs/demos/cards-extended.html",
+        ".audit-reference/ui_kits/onboarding-driver/index.html",
+        ".audit-reference/ui_kits/wallet/index.html"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Wallet carousel, card lifecycle actions, quick actions, transaction detail, and card-detail orchestration remain pattern responsibilities.",
+        "Card Summary owns one safe payment-card snapshot only."
+      ],
+      "decision": "Reclosed Card Summary after ZIP parity correction: default physical/virtual now follow PaymentCard geometry/anatomy, compact follows CardCompact row, limit owns metrics, and wallet/card-detail behavior remains pattern scope."
+    },
+    {
+      "id": "chart-panel",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/Charts.jsx",
+        "docs/audits/chart-panel-1to1-quality-audit.json",
+        "docs/audits/chart-panel-1to1-visual-metrics.json",
+        "docs/audits/chart-panel-1to1-light.png",
+        "docs/audits/chart-panel-1to1-dark.png",
+        "packages/components/src/components/commerce.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/test/smoke.test.mjs",
+        "docs/audits/chart-panel-zip-variants-design-metrics.json",
+        "docs/audits/chart-panel-zip-variants-design-light.png",
+        "docs/audits/chart-panel-zip-variants-design-dark.png",
+        "docs/audits/chart-panel-expanded-types-metrics.json",
+        "docs/audits/chart-panel-expanded-types-light.png",
+        "docs/audits/chart-panel-expanded-types-design-metrics.json",
+        "docs/audits/chart-panel-expanded-types-design.png",
+        "docs/audits/chart-panel-parity-595.png"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Chart Panel now covers ZIP-equivalent single-panel variants: sparkline, bars, line, area, donut, pareto, bullet, comparison, compact.",
+        "Treemap, scatter, heatmap, small multiples, gantt, waterfall, polar, and kanban exceed one panel and remain separate component/pattern inventory decisions.",
+        "Shared filters, legends, multi-series controls, and dashboard layout belong to patterns, not Chart Panel."
+      ],
+      "lastAuditedAt": "2026-07-24",
+      "notes": [
+        "Live browser QA corrected geometry and hierarchy against ZIP chart cards.",
+        "Default chart color is Flow action/primary by semantic decision; ZIP red is visual reference, not a token override.",
+        "Component-level variants now remain distinct; dashboard orchestration remains pattern/template work."
+      ]
+    },
+    {
+      "id": "checkbox",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/forms/Checkbox.jsx",
+        ".audit-reference/components/forms/Checkbox.d.ts",
+        ".audit-reference/components/forms/Checkbox.prompt.md",
+        ".audit-reference/docs/demos/checkbox-radio.html",
+        "docs/audits/checkbox-1to1-quality-audit.json",
+        "docs/audits/checkbox-1to1-light.png",
+        "docs/audits/checkbox-1to1-dark.png",
+        "packages/components/src/components/choices.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "apps/docs/gold-checkbox-docs.js",
+        "apps/docs/component-demo-interactions.js",
+        "packages/specs/specs/unison-system/artifacts/components/checkbox.json",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Checkbox Group remains separate because it owns group validation, select-all orchestration, and multi-row relationships."
+      ]
+    },
+    {
+      "id": "chip",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/Chip.jsx",
+        ".audit-reference/components/display/Chip.d.ts",
+        ".audit-reference/components/display/Chip.prompt.md",
+        ".audit-reference/_ds_bundle.js",
+        "packages/specs/specs/unison-system/artifacts/components/chip.json",
+        "packages/components/src/components/status.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/chip/all.json",
+        "docs/audits/chip-1to1-quality-audit.json",
+        "docs/audits/chip-1to1-frame-metrics.json",
+        "docs/audits/chip-1to1-visual-metrics.json",
+        "docs/audits/chip-1to1-light.png",
+        "docs/audits/chip-1to1-dark.png"
+      ],
+      "openIssues": [],
+      "decision": "Chip remains a component; groups/filter orchestration remain patterns.",
+      "lastValidation": "npm run validate pass"
+    },
+    {
+      "id": "code-input",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/code-input-1to1-quality-audit.json",
+        "docs/audits/code-input-1to1-light-qa.png",
+        "docs/audits/code-input-1to1-dark-qa.png",
+        "docs/audits/code-input-1to1-design-qa.png",
+        "docs/audits/code-input-1to1-mobile-qa.png",
+        "docs/audits/code-input-zip-reference-render.png",
+        "docs/audits/code-input-system-fit-render.png",
+        "docs/audits/component-motion-role-audit.json",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "PasscodeKeypad from the ZIP reference is tracked outside Code Input as an authentication pattern backlog item, not as a component variant."
+      ]
+    },
+    {
+      "id": "combobox",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/forms/SelectCombo.jsx",
+        ".audit-reference/components/forms/Combobox.jsx",
+        "docs/audits/combobox-1to1-quality-audit.json",
+        "docs/audits/combobox-1to1-qa-metrics.json",
+        "docs/audits/combobox-desktop-light-open-qa.png",
+        "docs/audits/combobox-mobile-dark-open-qa.png",
+        "packages/components/src/components/fields.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Select Input in the ZIP is now covered by Combobox.",
+        "Country Select and Multiple Select remain separate inventory decisions."
+      ]
+    },
+    {
+      "id": "country-selector",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/forms/SelectCountry.jsx",
+        "docs/audits/country-selector-1to1-quality-audit.json",
+        "docs/audits/country-selector-visual-qa.json",
+        "docs/audits/country-selector-desktop-light-open-qa.png",
+        "docs/audits/country-selector-mobile-dark-open-qa.png",
+        "packages/components/src/components/specialized-inputs.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Country Select in the ZIP is now covered by Country Selector.",
+        "Phone Input consumes Country Selector and remains responsible only for phone number capture and formatting.",
+        "Currency, language, and region filtering remain outside Country Selector."
+      ]
+    },
+    {
+      "id": "date-picker",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/date-picker-1to1-quality-audit.json",
+        "docs/audits/date-picker-1to1-light-open-qa.png",
+        "docs/audits/date-picker-1to1-dark-open-qa.png",
+        "docs/audits/component-motion-role-audit.json",
+        "packages/components/src/components/specialized-inputs.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "date-range-picker",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/forms/DateRangePicker.jsx",
+        ".audit-reference/components/forms/DateRangePicker.d.ts",
+        "docs/audits/date-range-picker-1to1-quality-audit.json",
+        "docs/audits/date-range-picker-1to1-visual-metrics.json",
+        "docs/audits/date-range-picker-1to1-light-open.png",
+        "docs/audits/date-range-picker-1to1-dark-open.png",
+        "packages/components/src/components/specialized-inputs.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Dashboard refresh, URL persistence, saved views, comparison ranges, fiscal calendars, and report synchronization remain pattern responsibilities.",
+        "Date Range Picker is a bounded sibling component to Date Picker because the ZIP reference exposes DateRangePicker as a reusable control."
+      ]
+    },
+    {
+      "id": "dialog",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/feedback/Dialog.jsx",
+        ".audit-reference/components/feedback/Dialog.d.ts",
+        ".audit-reference/components/feedback/Dialog.prompt.md",
+        ".audit-reference/docs/demos/dialog.html",
+        "docs/audits/dialog-1to1-quality-audit.json",
+        "docs/audits/dialog-1to1-visual-metrics.json",
+        "docs/audits/dialog-1to1-light.png",
+        "docs/audits/dialog-1to1-dark.png",
+        "packages/specs/specs/unison-system/artifacts/components/dialog.json",
+        "packages/content/content/component-copy/components/dialog/all.json",
+        "packages/components/src/components/overlays.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs",
+        "apps/docs/gold-dialog-docs.js",
+        "apps/docs/overlay-demo-interactions.js"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Confirmation policy, destructive decision rules, multi-step recovery, and required review orchestration remain pattern responsibilities."
+      ]
+    },
+    {
+      "id": "drawer",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/feedback/Drawer.jsx",
+        ".audit-reference/components/feedback/Drawer.d.ts",
+        ".audit-reference/components/feedback/Drawer.prompt.md",
+        ".audit-reference/docs/demos/drawer.html",
+        "docs/audits/drawer-1to1-quality-audit.json",
+        "docs/audits/drawer-1to1-visual-metrics.json",
+        "docs/audits/drawer-1to1-light.png",
+        "docs/audits/drawer-1to1-dark.png",
+        "packages/specs/specs/unison-system/artifacts/components/drawer.json",
+        "packages/content/content/component-copy/components/drawer/all.json",
+        "packages/components/src/components/overlays.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs",
+        "apps/docs/gold-drawer-docs.js",
+        "apps/docs/component-demo-interactions.js",
+        "apps/docs/overlay-demo-interactions.js"
+      ],
+      "openIssues": [],
+      "decision": "Drawer now matches the ZIP side-detail composition closely enough while keeping Flow as source of truth for color, spacing, radius, density, typography, motion, and composed controls.",
+      "inventoryEscalations": [
+        "Drawer Adapter remains a pattern when drawer behavior coordinates with menus, dialogs, toasts, or route-level state.",
+        "Filter drawers, detail inspection flows, and edit lifecycles must compose Drawer with existing Flow inputs/buttons instead of redefining overlay structure."
+      ],
+      "updatedAt": "2026-07-22"
+    },
+    {
+      "id": "empty-state",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/EmptyState.jsx",
+        ".audit-reference/components/display/EmptyState.d.ts",
+        ".audit-reference/components/display/EmptyState.prompt.md",
+        ".audit-reference/docs/demos/emptystate.html",
+        "docs/audits/empty-state-1to1-quality-audit.json",
+        "docs/audits/empty-state-1to1-light.png",
+        "docs/audits/empty-state-1to1-dark.png",
+        "packages/components/src/components/feedback.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Escalate onboarding sequences, multi-step education, repeated first-use guidance, and data setup journeys to patterns/templates instead of Empty State."
+      ]
+    },
+    {
+      "id": "error-panel",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/error-panel-1to1-quality-audit.json",
+        "docs/audits/error-panel-1to1-light.png",
+        "docs/audits/error-panel-1to1-dark.png",
+        "packages/components/src/components/feedback.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Escalate incident dashboards, retry orchestration, multi-error queues, and recovery workflows to patterns/templates instead of Error Panel."
+      ]
+    },
+    {
+      "id": "floating-action-button",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/actions/Button.jsx",
+        ".audit-reference/components/actions/IconButton.jsx",
+        ".audit-reference/docs/demos/button.html",
+        ".audit-reference/docs/demos/icon-button.html",
+        "docs/audits/floating-action-button-1to1-quality-audit.json",
+        "docs/audits/floating-action-button-1to1-light.png",
+        "docs/audits/floating-action-button-1to1-dark.png",
+        "packages/components/src/components/surfaces.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/content/content/component-copy/components/floating-action-button/all.json",
+        "packages/specs/specs/unison-system/artifacts/components/floating-action-button.json",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Speed dial, multi-action clusters, action rails, and safe-area placement remain pattern/template responsibilities; Floating Action Button owns one command only."
+      ]
+    },
+    {
+      "id": "icon-button",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/icon-button-1to1-quality-audit.json",
+        "docs/audits/icon-button-1to1-visual-metrics.json",
+        "docs/audits/icon-button-1to1-light.png",
+        "docs/audits/icon-button-1to1-dark.png",
+        "packages/components/src/components/actions.js",
+        "packages/components/styles/components.css",
+        "packages/audit/scripts/audit-package-css-contracts.js",
+        "apps/docs/styles/01-shell-02.css",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [
+        "Needs explicit mobile and desktop scale/composition before closure; current visual parity with the user-provided onboarding reference is not sufficient."
+      ],
+      "inventoryEscalations": [
+        "Search, Switch, and multi-option controls stay outside Icon Button even when they use compact controls in a toolbar."
+      ]
+    },
+    {
+      "id": "inline-validation",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/inline-validation-1to1-quality-audit.json",
+        "docs/audits/inline-validation-1to1-visual-metrics.json",
+        "docs/audits/inline-validation-1to1-light-qa.png",
+        "docs/audits/inline-validation-1to1-dark-qa.png",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "input",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/input-zip-parity.md",
+        "docs/audits/input-1to1-quality-audit.json",
+        "docs/audits/input-1to1-design-qa.png",
+        "docs/audits/input-1to1-mobile-design-qa.png",
+        "docs/audits/input-dark-mode-audit.png",
+        "docs/audits/component-motion-role-audit.json",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "kpi-tile",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/StatTile.jsx",
+        ".audit-reference/tokens/typography.css",
+        ".audit-reference/docs/demos/stat-donut.html",
+        ".audit-reference/ui_kits/dashboards/overview.html",
+        "docs/audits/kpi-tile-1to1-quality-audit.json",
+        "docs/audits/kpi-tile-1to1-visual-metrics.json",
+        "docs/audits/kpi-tile-1to1-light.png",
+        "docs/audits/kpi-tile-1to1-dark.png",
+        "packages/components/src/components/display.js",
+        "packages/components/styles/components.css",
+        "packages/audit/scripts/audit-package-css-contracts.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "StatTile ZIP-equivalent local variants are covered as standard, delta, threshold, sparkline, and drill-in.",
+        "Stat + Donut composition, KPI groups, dashboard formulas, shared filters, and cross-panel drill-down are pattern candidates, not KPI Tile variants."
+      ],
+      "decision": "KPI Tile remains a component for one operational metric. ZIP StatTile governs compact surface, overline label, mono value typography, delta rhythm, and trend icon sizing; Flow governs color tokens, radius, depth, state, density, focus, and motion. KPI groups, formulas, shared filters, donut pairings, and drill-down flows remain patterns.",
+      "visualQa": {
+        "route": "http://127.0.0.1:53222/apps/docs/index.html?fresh=kpi-tile-1to1-583#/components/kpi-tile",
+        "checks": {
+          "usesPackageComponent": true,
+          "baseNoRail": true,
+          "riskHasRail": true,
+          "radiusResolved": true,
+          "hasPanelDepth": true,
+          "valueMono": true,
+          "valueSize26": true,
+          "valueWeight600": true,
+          "labelOverline": true,
+          "deltaWeight600": true
+        },
+        "valueSize": "26px",
+        "valueWeight": "600",
+        "labelTracking": "0.96px",
+        "baseRail": "none",
+        "thresholdRail": "4px",
+        "radius": "16px",
+        "screenshots": [
+          "docs/audits/kpi-tile-1to1-light.png",
+          "docs/audits/kpi-tile-1to1-dark.png"
+        ]
+      },
+      "lastValidation": "npm run validate pass",
+      "updatedAt": "2026-07-24"
+    },
+    {
+      "id": "list",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/TransactionRow.jsx",
+        ".audit-reference/docs/demos/transaction-row.html",
+        "packages/specs/specs/unison-system/artifacts/components/list.json",
+        "packages/components/src/components/display.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/list/all.json",
+        "apps/docs/display-demo-interactions.js",
+        "docs/audits/list-1to1-visual-metrics.json",
+        "docs/audits/list-1to1-light.png",
+        "docs/audits/list-1to1-dark.png"
+      ],
+      "decision": "Kept List as a component: a bounded collection of repeated rows, not a workflow pattern. Aligned package implementation with documented variants and states: standard, compact, action, status, media; default, hover, selected, loading, error, disabled. Interactive rows render as buttons only for action/onSelect cases; static rows stay non-clickable list items. Overview now shows one action List and docs hydration selects action rows on click. Kept Flow primary/action and semantic danger tokens; ZIP did not override color tokens. State demos now apply row-level state to one representative row instead of contaminating the full list.",
+      "openIssues": []
+    },
+    {
+      "id": "menu",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/actions/Menu.jsx",
+        ".audit-reference/components/actions/Menu.d.ts",
+        ".audit-reference/components/actions/Menu.prompt.md",
+        ".audit-reference/docs/demos/menu.html",
+        "packages/specs/specs/unison-system/artifacts/components/menu.json",
+        "packages/components/src/components/overlays.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/menu/all.json",
+        "apps/docs/overlay-demo-interactions.js",
+        "docs/audits/menu-1to1-visual-metrics.json",
+        "docs/audits/menu-1to1-light.png",
+        "docs/audits/menu-1to1-dark.png"
+      ],
+      "openIssues": [],
+      "decision": "Menu remains a component for compact contextual action lists anchored to a trigger. Flow owns surface, color, typography, radius, depth, focus, and motion; ZIP parity informed structure, separators, density, icons, and open/close behavior.",
+      "updatedAt": "2026-07-22",
+      "lastValidation": "npm run validate pass"
+    },
+    {
+      "id": "motion-boundary",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/guidelines/motion.html",
+        ".audit-reference/tokens/motion.css",
+        "packages/components/src/components/motion.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs",
+        "apps/docs/component-demo.js",
+        "docs/audits/motion-boundary-1to1-final-visual-metrics.json",
+        "docs/audits/motion-boundary-1to1-final-dark-contrast.json",
+        "docs/audits/motion-boundary-1to1-final-light.png",
+        "docs/audits/motion-boundary-1to1-final-dark.png"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "movement-row",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/TransactionRow.jsx",
+        ".audit-reference/ui_kits/wallet/index.html",
+        ".audit-reference/components/display/fintech.card.html",
+        "packages/specs/specs/unison-system/artifacts/components/movement-row.json",
+        "packages/components/src/components/commerce.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/movement-row/all.json",
+        "packages/content/content/catalog/components-02.json",
+        "docs/audits/movement-row-1to1-quality-audit.json",
+        "docs/audits/movement-row-1to1-visual-metrics.json",
+        "docs/audits/movement-row-1to1-light.png",
+        "docs/audits/movement-row-1to1-dark.png"
+      ],
+      "openIssues": [],
+      "decision": "Movement Row stays a component: one movement record with category icon, merchant/context, signed amount, and optional pending/error status. Removed redundant approved state to match ZIP TransactionRow behavior. ZIP reference informs row anatomy, density, typography, and rhythm; Flow owns color, tokens, focus, state precedence, and package implementation.",
+      "lastValidation": "npm run validate pass",
+      "updatedAt": "2026-07-23"
+    },
+    {
+      "id": "pagination",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/navigation/Pagination.jsx",
+        ".audit-reference/components/navigation/Pagination.d.ts",
+        ".audit-reference/components/navigation/Pagination.prompt.md",
+        ".audit-reference/docs/demos/breadcrumb-pagination.html",
+        "docs/audits/component-variant-pattern-boundary-matrix.json",
+        "docs/audits/pagination-1to1-quality-audit.json",
+        "docs/audits/pagination-1to1-visual-metrics.json",
+        "docs/audits/pagination-1to1-light.png",
+        "docs/audits/pagination-1to1-dark.png",
+        "docs/audits/pagination-1to1-design-light.png",
+        "docs/audits/pagination-1to1-design-dark.png",
+        "packages/components/src/components/navigation.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Cursor and simple pagination are not closed component variants.",
+        "Data table/search result pagination and infinite loading are pattern candidates."
+      ]
+    },
+    {
+      "id": "phone-input",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/phone-input-1to1-quality-audit.json",
+        "docs/audits/phone-input-1to1-light-qa.png",
+        "docs/audits/phone-input-1to1-dark-qa.png",
+        "docs/audits/phone-input-1to1-design-qa.png",
+        "docs/audits/phone-input-1to1-mobile-qa.png",
+        "docs/audits/phone-input-1to1-light-open-qa.png",
+        "docs/audits/phone-input-1to1-dark-open-qa.png",
+        "docs/audits/phone-input-compose-qa.json",
+        "docs/audits/phone-input-compose-light-open-qa.png",
+        "docs/audits/component-motion-role-audit.json",
+        "packages/components/src/components/fields.js",
+        "packages/components/src/components/specialized-inputs.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "popover",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/feedback/Tooltip.jsx",
+        ".audit-reference/components/actions/Menu.jsx",
+        ".audit-reference/components/feedback/overlays.card.html",
+        "docs/audits/popover-1to1-quality-audit.json",
+        "docs/audits/popover-1to1-light.png",
+        "docs/audits/popover-1to1-dark.png",
+        "packages/components/src/components/overlays.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs",
+        "apps/docs/stateful-component-interactions.js",
+        "apps/docs/styles/04i-simple-component-layout.css"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Escalate long forms, search, multi-step decisions, and persistent detail panels to patterns instead of Popover."
+      ]
+    },
+    {
+      "id": "progress-indicator",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/progress-indicator-1to1-quality-audit.json",
+        "docs/audits/progress-indicator-1to1-visual-metrics.json",
+        "docs/audits/progress-indicator-1to1-states-metrics.json",
+        "docs/audits/progress-indicator-1to1-light-qa.png",
+        "docs/audits/progress-indicator-1to1-dark-qa.png",
+        "docs/audits/progress-indicator-1to1-states-qa.png",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "quick-action",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/actions/Button.jsx",
+        ".audit-reference/components/actions/IconButton.jsx",
+        ".audit-reference/components/actions/actions.card.html",
+        "packages/specs/specs/unison-system/artifacts/components/quick-action.json",
+        "packages/components/src/components/commerce.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/quick-action/all.json",
+        "packages/content/content/component-contracts/components/quick-action.md",
+        "docs/audits/quick-action-1to1-quality-audit.json",
+        "docs/audits/quick-action-1to1-visual-metrics.json",
+        "docs/audits/quick-action-1to1-dark-metrics.json"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Quick Actions Grid remains a pattern because it owns multiple shortcuts, ordering, blocked states, confirmation, and feedback orchestration.",
+        "Destructive or high-risk Quick Action usage should compose Dialog/Toast in a pattern, not inside the component."
+      ],
+      "decision": "Quick Action remains a component for one atomic shortcut command. It renders a wrapper with a circular button control and external label; the ZIP has Button/IconButton/action compositions, not a direct Quick Action component, so Flow implements variants, states, density, badge composition, and Spinner loading while Quick Actions Grid remains a pattern.",
+      "lastValidation": "npm run validate pass",
+      "visualQa": {
+        "route": "http://127.0.0.1:53222/apps/docs/index.html?fresh=quick-action-no-wrapper-surface-1#/components/quick-action",
+        "variants": [
+          "standard",
+          "destructive",
+          "compact",
+          "wide"
+        ],
+        "states": [
+          "default",
+          "hover",
+          "focus",
+          "pressed",
+          "loading",
+          "warning",
+          "disabled"
+        ],
+        "densities": [
+          "md",
+          "lg",
+          "sm"
+        ],
+        "loadingUsesSpinner": true,
+        "prefixLeaks": 0,
+        "darkMode": "verified through quiet contrast metrics",
+        "circularControl": true,
+        "rootTag": "DIV",
+        "controlTag": "BUTTON",
+        "labelOutsideCircle": true,
+        "wrapperHasNoSurface": true,
+        "labelTopGap": 12
+      }
+    },
+    {
+      "id": "radio-button",
+      "name": "Radio Button",
+      "status": "pass",
+      "platformPriority": "cross-platform",
+      "auditedAt": "2026-07-21",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/forms/Radio.jsx",
+        ".audit-reference/components/forms/Radio.d.ts",
+        ".audit-reference/components/forms/Radio.prompt.md",
+        ".audit-reference/docs/demos/checkbox-radio.html",
+        "docs/audits/radio-button-1to1-quality-audit.json",
+        "docs/audits/radio-button-1to1-light.png",
+        "docs/audits/radio-button-1to1-dark.png",
+        "packages/components/src/components/choices.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "apps/docs/gold-radio-button-docs.js",
+        "apps/docs/choice-demo-interactions.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "notes": [
+        "Atomic Radio Button is closed; Radio Group remains pattern scope, not component scope.",
+        "All docs demos are package-sourced and hydrated for real selection behavior."
+      ]
+    },
+    {
+      "id": "route-summary",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "packages/specs/specs/unison-system/artifacts/components/route-summary.json",
+        "packages/content/content/component-copy/components/route-summary/all.json",
+        "packages/content/content/component-contracts/components/route-summary.md",
+        "packages/components/src/components/commerce.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs",
+        "docs/audits/route-summary-1to1-quality-audit.json",
+        "docs/audits/route-summary-1to1-visual-metrics.json",
+        "docs/audits/route-summary-1to1-light.png",
+        "docs/audits/route-summary-1to1-dark.png",
+        ".audit-reference/ui_kits/rutas/index.html",
+        ".audit-reference/components/display/MapCanvas.jsx",
+        ".audit-reference/docs/demos/map-canvas.html"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Map routing, route ranking, filters, sequencing, and multi-route comparison remain pattern responsibilities.",
+        "Route Summary owns one route option with visible metrics and local actions only."
+      ],
+      "decision": "Route Summary stays a component for one route option or active ETA banner. Compact mirrors the ZIP Rutas banner with navigation icon, destination, distance + ETA, and Flow Icon Button close action. Standard/compare/policy remain one-option metric summaries; map, sheet, filters, route engine, ranking, and multi-route comparison stay pattern/template scope.",
+      "lastValidation": "npm run validate pass",
+      "updatedAt": "2026-07-24"
+    },
+    {
+      "id": "segmented-control",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/segmented-control-1to1-quality-audit.json",
+        "docs/audits/segmented-control-1to1-visual-metrics.json",
+        "docs/audits/segmented-control-1to1-light.png",
+        "docs/audits/segmented-control-1to1-dark.png",
+        "packages/components/src/components/interactions.js",
+        "packages/components/src/contracts.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-component-demo-interactions.mjs"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "select",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/select-1to1-quality-audit.json",
+        "docs/audits/select-family-scope-audit.json",
+        "docs/audits/select-family-qa-metrics.json",
+        "docs/audits/select-family-light-open-qa.png",
+        "docs/audits/select-family-dark-open-qa.png",
+        "docs/audits/select-1to1-light-open-qa.png",
+        "docs/audits/select-1to1-dark-open-qa.png",
+        "docs/audits/component-motion-role-audit.json",
+        "packages/components/src/components/fields.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Select Input / Combobox exists in the ZIP reference and is not covered by base Select.",
+        "Country Select exists in the ZIP reference and is currently covered only as Phone Input composition.",
+        "Multiple Select exists in the ZIP reference and must stay outside base Select."
+      ]
+    },
+    {
+      "id": "skeleton",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "not-applicable",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/skeleton-1to1-quality-audit.json",
+        "docs/audits/skeleton-1to1-visual-metrics.json",
+        "docs/audits/skeleton-1to1-variants-metrics.json",
+        "docs/audits/skeleton-1to1-light-qa.png",
+        "docs/audits/skeleton-1to1-dark-qa.png",
+        "docs/audits/skeleton-1to1-variants-qa.png",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "slider",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/slider-1to1-quality-audit.json",
+        "docs/audits/slider-1to1-light.png",
+        "docs/audits/slider-1to1-dark.png",
+        ".audit-reference/components/forms/Slider.jsx",
+        ".audit-reference/components/forms/Slider.d.ts",
+        ".audit-reference/components/forms/Slider.prompt.md",
+        ".audit-reference/docs/demos/slider.html",
+        "packages/specs/specs/unison-system/artifacts/components/slider.json",
+        "packages/components/src/components/interactions.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "apps/docs/component-demo-interactions.js",
+        "packages/content/content/component-copy/components/slider/all.json"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Exact numeric entry, financial entry, and multi-field range workflows remain Input or pattern concerns; Slider only owns bounded numeric adjustment."
+      ]
+    },
+    {
+      "id": "spinner",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "not-applicable",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/spinner-1to1-quality-audit.json",
+        "docs/audits/spinner-organic-loop-metrics.json",
+        "docs/audits/spinner-organic-loop-light.png",
+        "docs/audits/spinner-organic-loop-dark.png",
+        "packages/components/styles/components.css",
+        "packages/audit/scripts/audit-package-css-contracts.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "station-pin",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/MapCanvas.jsx",
+        ".audit-reference/ui_kits/rutas/index.html",
+        "packages/specs/specs/unison-system/artifacts/components/station-pin.json",
+        "packages/components/src/components/commerce.js",
+        "packages/components/src/registry.js",
+        "packages/components/styles/components.css",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/station-pin/all.json",
+        "packages/content/content/component-contracts/components/station-pin.md",
+        "docs/audits/station-pin-1to1-quality-audit.json",
+        "docs/audits/station-pin-1to1-visual-metrics.json",
+        "docs/audits/station-pin-1to1-light.png",
+        "docs/audits/station-pin-1to1-dark.png"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Map positioning, route drawing, filters, detail sheets, zoom behavior, and clustering rules remain patterns/templates.",
+        "Station Pin remains one compact actionable marker with visible value, accessible station identity, state, density, pointer geometry, and Flow-governed color."
+      ],
+      "decision": "Station Pin remains a component because it owns one compact actionable marker. The ZIP MapCanvas reference informs value-pill geometry, pointer shape, selected lift, mono value typography, and map-surface contrast; Flow governs color tokens, density, depth, focus, and motion.",
+      "lastValidation": "npm run validate pass",
+      "visualQa": {
+        "route": "http://127.0.0.1:53222/apps/docs/index.html?fresh=station-pin-1to1-580#/components/station-pin",
+        "variants": [
+          "fuel",
+          "ev",
+          "cluster"
+        ],
+        "states": [
+          "default",
+          "selected"
+        ],
+        "density": "md",
+        "pointerPresent": true,
+        "pointerMatchesBg": true,
+        "contrastMinimum": "light/dark pass; selected 5.62 light, 5.37 dark",
+        "darkMode": "quiet verified; cluster contrast 9.9",
+        "prefixLeaks": 0
+      },
+      "updatedAt": "2026-07-24"
+    },
+    {
+      "id": "stepper",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/navigation/Stepper.jsx",
+        ".audit-reference/components/navigation/Stepper.d.ts",
+        ".audit-reference/components/navigation/Stepper.prompt.md",
+        "docs/audits/component-variant-pattern-boundary-matrix.json",
+        "docs/audits/stepper-1to1-quality-audit.json",
+        "docs/audits/stepper-1to1-visual-metrics.json",
+        "docs/audits/stepper-1to1-light.png",
+        "docs/audits/stepper-1to1-dark.png",
+        "packages/components/src/components/navigation.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Wizard routing, validation, future-step navigation, blockers, errors, and recovery remain pattern candidates.",
+        "Review, optional, and compact are not closed Stepper variants; density and orientation cover component-scale needs."
+      ]
+    },
+    {
+      "id": "switch",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/switch-1to1-quality-audit.json",
+        "docs/audits/switch-1to1-light.png",
+        "docs/audits/switch-1to1-dark.png",
+        ".audit-reference/components/forms/Switch.jsx",
+        "packages/components/src/components/choices.js",
+        "packages/components/styles/components.css",
+        "apps/docs/choice-demo-interactions.js",
+        "packages/components/src/contracts.js"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "table",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/display/Table.jsx",
+        ".audit-reference/components/display/Table.d.ts",
+        ".audit-reference/components/display/Table.prompt.md",
+        ".audit-reference/docs/demos/table.html",
+        ".audit-reference/docs/demos/tables-extended.html",
+        "packages/specs/specs/unison-system/artifacts/components/table.json",
+        "packages/components/src/components/commerce.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/table/all.json",
+        "apps/docs/display-demo-interactions.js",
+        "docs/audits/table-1to1-visual-metrics.json",
+        "docs/audits/table-1to1-light.png",
+        "docs/audits/table-1to1-dark.png"
+      ],
+      "decision": "Kept Table as a component for comparable records, sort, single selection, dense rows, and bounded row detail. Kept filters, bulk actions, editable workflows, table trees, timelines, remote data, and pagination outside the component boundary. Replaced oversized Button-based sort controls with Table-owned header sort buttons governed by Flow tokens. Composed status cells through Badge when row values provide semantic label/tone objects. Fixed docs hydration so sort visual state, aria-sort, and row order stay synchronized after user interaction. Added declarative column priority so Table adapts in narrow demo frames without page overflow or hardcoded ZIP colors. Expand/collapse now synchronizes aria-expanded and hidden detail rows.",
+      "openIssues": []
+    },
+    {
+      "id": "tabs",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/tabs-1to1-quality-audit.json",
+        "docs/audits/tabs-1to1-visual-metrics.json",
+        "docs/audits/tabs-1to1-light.png",
+        "docs/audits/tabs-1to1-underline-light.png",
+        "docs/audits/tabs-1to1-dark.png",
+        "packages/components/src/components/interactions.js",
+        "packages/components/src/registry.js",
+        "packages/components/src/contracts.js",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Tabs stays a component for local view switching; documentation shell navigation is a separate docs implementation, and segmented choices stay in Segmented Control."
+      ]
+    },
+    {
+      "id": "tag",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/docs/registry-components.js",
+        ".audit-reference/_ds_bundle.js",
+        "packages/specs/specs/unison-system/artifacts/components/tag.json",
+        "packages/components/src/components/status.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/tag/all.json",
+        "packages/content/content/component-copy.json",
+        "docs/audits/tag-1to1-quality-audit.json",
+        "docs/audits/tag-1to1-visual-metrics.json",
+        "docs/audits/tag-1to1-dark.png"
+      ],
+      "openIssues": [],
+      "decision": "Tag remains a component because it owns one compact metadata label. Taxonomy orchestration, filtering groups, selected/removable tokens, and navigation IA remain pattern responsibilities.",
+      "updatedAt": "2026-07-22"
+    },
+    {
+      "id": "text-area",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/text-area-1to1-quality-audit.json",
+        "docs/audits/text-area-1to1-light-qa.png",
+        "docs/audits/text-area-1to1-dark-qa.png",
+        "docs/audits/component-motion-role-audit.json",
+        "packages/components/test/smoke.test.mjs"
+      ],
+      "openIssues": []
+    },
+    {
+      "id": "toast",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/feedback/Toast.jsx",
+        ".audit-reference/components/feedback/Toast.d.ts",
+        ".audit-reference/components/feedback/Toast.prompt.md",
+        ".audit-reference/docs/demos/toast.html",
+        "packages/specs/specs/unison-system/artifacts/components/toast.json",
+        "packages/components/src/components/overlays.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/toast/operational-example.json",
+        "packages/content/content/component-copy/components/toast/variants.json",
+        "packages/content/content/component-copy/components/toast/api-foundations.json",
+        "packages/content/content/component-copy/components/toast/tests-rejection-rules.json",
+        "packages/content/content/component-copy.json",
+        "apps/docs/toast-demo-interactions.js",
+        "apps/docs/styles/04o-toast-docs.css",
+        "docs/audits/toast-1to1-quality-audit.json",
+        "docs/audits/toast-1to1-visual-metrics.json",
+        "docs/audits/toast-1to1-light.png",
+        "docs/audits/toast-1to1-dark.png"
+      ],
+      "openIssues": [],
+      "decision": "Toast remains a component. It owns one non-blocking event message with optional single Flow Button action and Icon Button dismiss; queueing, stacking policy, placement orchestration, and notification center behavior remain patterns.",
+      "lastValidation": "npm run validate pass",
+      "updatedAt": "2026-07-23"
+    },
+    {
+      "id": "tooltip",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/feedback/Tooltip.jsx",
+        ".audit-reference/components/feedback/Tooltip.d.ts",
+        ".audit-reference/components/feedback/Tooltip.prompt.md",
+        ".audit-reference/docs/demos/tooltip.html",
+        "packages/specs/specs/unison-system/artifacts/components/tooltip.json",
+        "packages/components/src/components/overlays.js",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
+        "packages/components/src/registry.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/content/content/component-copy/components/tooltip/all.json",
+        "apps/docs/tooltip-demo-interactions.js",
+        "docs/audits/tooltip-1to1-quality-audit.json",
+        "docs/audits/tooltip-1to1-visual-metrics.json",
+        "docs/audits/tooltip-1to1-light.png",
+        "docs/audits/tooltip-1to1-dark.png"
+      ],
+      "openIssues": [],
+      "decision": "Tooltip remains a component. It owns non-interactive contextual disclosure for hover/focus and package-backed demos; Popover/Menu/Dialog remain separate overlay components or patterns by behavior.",
+      "lastValidation": "npm run validate pass",
+      "updatedAt": "2026-07-22"
+    },
+    {
+      "id": "tree-view",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        "docs/audits/tree-view-reclassification.md",
+        "docs/audits/tree-view-1to1-quality-audit.json",
+        "docs/audits/tree-view-1to1-visual-metrics.json",
+        "docs/audits/tree-view-1to1-light.png",
+        "docs/audits/tree-view-1to1-dark.png",
+        "docs/audits/tree-view-1to1-quiet.png",
+        "packages/components/src/components/interactions.js",
+        "packages/components/src/registry.js",
+        "packages/components/styles/components.css",
+        "apps/docs/stateful-component-interactions.js",
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-component-demo-interactions.mjs",
+        "packages/audit/scripts/audit-component-demo-registry.mjs"
+      ],
+      "openIssues": [],
+      "inventoryEscalations": [
+        "Sidebar remains a pattern because it owns shell navigation, logo/footer slots, routing groups, and drawer behavior.",
+        "Permission trees, drag sorting, virtualized trees, and tree tables remain pattern/template candidates; Tree View only owns bounded hierarchical disclosure and selection."
+      ]
+    }
+  ],
+  "summary": {
+    "total": 56,
+    "pass": 56,
+    "partial": 0,
+    "fail": 0
+  }
+}

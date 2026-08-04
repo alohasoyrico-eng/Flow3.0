@@ -1,0 +1,130 @@
+{
+  "artifacts": {
+    "primitives": {
+      "country-flags": {
+        "layer": "Primitive",
+        "platform": "System",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "requiredSections": [
+          "purpose",
+          "foundationInputs",
+          "roles",
+          "productExamples",
+          "api",
+          "tokens",
+          "states",
+          "agentInstructions",
+          "rejectIf"
+        ],
+        "maturityTarget": 3,
+        "name": "Country Flags",
+        "purpose": "Turn country-flag-icons MIT assets into implementation-ready country identity, circular flag masks, accessible labels, asset paths, and fallback behavior.",
+        "governingFoundations": [
+          "Iconography",
+          "Symbol",
+          "Accessibility",
+          "Energy",
+          "Frame"
+        ],
+        "foundationInputs": [
+          "sys.iconography.*",
+          "sys.symbol.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*"
+        ],
+        "coordinatesPrimitives": [
+          "Library Sources",
+          "Iconography",
+          "Radius",
+          "Spacing"
+        ],
+        "roles": [
+          {
+            "id": "asset",
+            "token": "countryFlag.asset",
+            "use": "Library-backed flag image for country selectors and phone inputs."
+          },
+          {
+            "id": "mask",
+            "token": "countryFlag.mask",
+            "use": "Circular visual treatment governed by component radius and frame."
+          },
+          {
+            "id": "identity",
+            "token": "countryFlag.identity",
+            "use": "Country code, country name, calling code, and selected state."
+          },
+          {
+            "id": "fallback",
+            "token": "countryFlag.fallback",
+            "use": "Text fallback when an asset cannot load."
+          }
+        ],
+        "productExamples": [
+          {
+            "context": "Phone Input",
+            "example": "Country flag sits before the calling code while the typed phone number keeps its own input space."
+          },
+          {
+            "context": "Country Selector",
+            "example": "Options pair the flag asset with country name and calling code, with flag meaning repeated in text."
+          }
+        ],
+        "api": {
+          "props": [
+            "country",
+            "label",
+            "hidden",
+            "basePath"
+          ],
+          "outputs": [
+            "countryCode",
+            "assetPath",
+            "accessibleName",
+            "fallbackLabel"
+          ]
+        },
+        "tokenDependencies": [
+          "countryFlag.*",
+          "library.*",
+          "sys.iconography.*",
+          "sys.symbol.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "icon.*",
+          "radius.*",
+          "spacing.*",
+          "country-flag-icons"
+        ],
+        "states": [
+          "loaded",
+          "fallback",
+          "decorative",
+          "informative"
+        ],
+        "agentInstructions": [
+          "Use country-flag-icons assets; do not draw country flags by hand.",
+          "Flag images are decorative when the country name or code is visible.",
+          "Expose an accessible label only when the flag is the only country identity signal.",
+          "Keep the primitive responsible for asset, mask, fallback, and country code only.",
+          "Do not fetch flag assets from a remote CDN in docs."
+        ],
+        "rejectIf": [
+          "Flag SVGs are manually drawn in component code.",
+          "The only country identity is visual color or shape.",
+          "The primitive depends on remote flag assets in docs.",
+          "There is no fallback when the flag asset fails.",
+          "Country Selector or Phone Input duplicates flag asset logic."
+        ]
+      }
+    }
+  }
+}

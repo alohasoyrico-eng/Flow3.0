@@ -1,0 +1,39 @@
+{
+  "name": "@design-system/react",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./button": {
+      "types": "./dist/Button.d.ts",
+      "default": "./dist/Button.js"
+    },
+    "./icon-button": {
+      "types": "./dist/IconButton.d.ts",
+      "default": "./dist/IconButton.js"
+    },
+    "./input": {
+      "types": "./dist/Input.d.ts",
+      "default": "./dist/Input.js"
+    },
+    "./select": {
+      "types": "./dist/Select.d.ts",
+      "default": "./dist/Select.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node test/button-render.test.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@design-system/components": "file:../components"
+  }
+}

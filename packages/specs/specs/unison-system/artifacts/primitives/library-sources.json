@@ -1,0 +1,153 @@
+{
+  "artifacts": {
+    "primitives": {
+      "library-sources": {
+        "layer": "Primitive",
+        "platform": "System",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "requiredSections": [
+          "purpose",
+          "foundationInputs",
+          "roles",
+          "productExamples",
+          "api",
+          "states",
+          "agentInstructions",
+          "rejectIf",
+          "evidence"
+        ],
+        "maturityTarget": 3,
+        "name": "Library Sources",
+        "purpose": "Govern the approved third-party and open-source visual/runtime libraries that enter Flow so components, patterns, templates, and docs consume primitive APIs instead of duplicating vendors, drawing assets ad hoc, or fetching uncontrolled sources.",
+        "governingFoundations": [
+          "Symbol",
+          "Iconography",
+          "Accessibility",
+          "Momentum",
+          "Energy",
+          "Frame"
+        ],
+        "foundationInputs": [
+          "sys.symbol.*",
+          "sys.iconography.*",
+          "sys.accessibility.*",
+          "sys.momentum.*",
+          "sys.energy.*",
+          "sys.frame.*"
+        ],
+        "coordinatesPrimitives": [
+          "Iconography",
+          "Country Flags",
+          "Animation Assets",
+          "Illustration Assets",
+          "Charts",
+          "Maps"
+        ],
+        "roles": [
+          {
+            "id": "source",
+            "token": "library.source",
+            "use": "Approved package or local vendor source with license and ownership."
+          },
+          {
+            "id": "runtime",
+            "token": "library.runtime",
+            "use": "Browser/runtime bridge used by docs and package demos without remote CDN dependence."
+          },
+          {
+            "id": "license",
+            "token": "library.license",
+            "use": "License evidence required before a source can enter Flow."
+          },
+          {
+            "id": "primitive-api",
+            "token": "library.primitiveApi",
+            "use": "The only API components and patterns may consume for that library family."
+          },
+          {
+            "id": "fallback",
+            "token": "library.fallback",
+            "use": "Accessible non-library fallback for failed or reduced environments."
+          }
+        ],
+        "productExamples": [
+          {
+            "context": "Phone Input",
+            "example": "Country flags come from country-flag-icons through Country Flags, not inline SVGs."
+          },
+          {
+            "context": "Chart Panel",
+            "example": "Charts use ECharts through Charts with accessible table fallback and interaction."
+          },
+          {
+            "context": "Animated Moment",
+            "example": "Motion assets use Lottie through Animation Assets with reduced-motion fallback."
+          },
+          {
+            "context": "Maps and Station Pins",
+            "example": "Map runtime uses MapLibre through Maps while pins and overlays remain Flow components."
+          }
+        ],
+        "api": {
+          "props": [
+            "id",
+            "library",
+            "license",
+            "source",
+            "runtime",
+            "primitive",
+            "vendorFiles",
+            "fallback"
+          ],
+          "outputs": [
+            "librarySourceRecord",
+            "approvedPrimitiveApi",
+            "vendorEvidence",
+            "fallbackRequirement"
+          ]
+        },
+        "tokenDependencies": [
+          "library.*",
+          "sys.symbol.*",
+          "sys.iconography.*",
+          "sys.accessibility.*",
+          "sys.momentum.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "icon.*",
+          "countryFlag.*",
+          "animationAsset.*",
+          "illustration.*",
+          "chart.*",
+          "map.*"
+        ],
+        "states": [
+          "approved",
+          "vendored",
+          "runtime-ready",
+          "fallback-ready",
+          "blocked"
+        ],
+        "agentInstructions": [
+          "Before introducing a library, add it to Library Sources with license, vendor/runtime, primitive API, and fallback evidence.",
+          "Components, patterns, templates, and docs must consume the owning primitive API instead of importing vendor code directly.",
+          "Do not fetch visual/runtime assets from a remote CDN in docs unless Library Sources explicitly approves that boundary.",
+          "If a library lacks license or fallback evidence, block the consuming component or pattern."
+        ],
+        "rejectIf": [
+          "A component imports or draws an asset that belongs to a library primitive.",
+          "A new vendor enters docs without license evidence.",
+          "Runtime assets load from an uncontrolled remote URL.",
+          "There is no fallback for reduced motion, missing asset, or inaccessible visual-only output.",
+          "Library ownership is documented only in an audit script and not in the primitive spec."
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@design-system/components",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./contracts": "./src/contracts.js",
+    "./platforms": "./src/platforms/index.js",
+    "./styles.css": "./styles/components.css"
+  },
+  "dependencies": {
+    "@design-system/tokens": "file:../tokens",
+    "country-flag-icons": "^1.6.20",
+    "echarts": "^6.1.0",
+    "lottie-web": "^5.13.0",
+    "maplibre-gl": "5.24.0"
+  }
+}

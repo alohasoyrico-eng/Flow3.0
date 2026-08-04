@@ -1,0 +1,189 @@
+import React, { forwardRef, useId, useState } from "react";
+import { inputPlatformContract } from "@design-system/components/platforms";
+
+const numericVariants = new Set(["number", "currency", "unit"]);
+
+function resolveInputState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
+  if (disabled) return "disabled";
+  if (loading) return "loading";
+  if (error) return "error";
+  return state ?? (value ? "filled" : "default");
+}
+
+function typeForVariant(variant, type) {
+  if (variant === "email") return "email";
+  if (variant === "password") return "password";
+  if (variant === "search") return "search";
+  if (numericVariants.has(variant)) return "text";
+  return type || "text";
+}
+
+function inputModeForVariant(variant) {
+  if (variant === "email") return "email";
+  if (numericVariants.has(variant)) return "decimal";
+  if (variant === "search") return "search";
+  return undefined;
+}
+
+function autocompleteForVariant(variant) {
+  if (variant === "email") return "email";
+  if (variant === "password") return "current-password";
+  if (variant === "search") return "off";
+  return undefined;
+}
+
+function formatValue(value, variant) {
+  const stringValue = value == null ? "" : String(value);
+  if (!stringValue || variant !== "currency") return stringValue;
+  const numeric = Number(stringValue.replace(/[^\d.-]/g, ""));
+  if (!Number.isFinite(numeric)) return stringValue;
+  return new Intl.NumberFormat("es-MX", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(numeric);
+}
+
+function normalizeValue(value, variant) {
+  const displayValue = value == null ? "" : String(value);
+  if (!numericVariants.has(variant)) {
+    return { value: displayValue, displayValue, rawValue: displayValue };
+  }
+  const normalized = displayValue.replace(/[^\d.,-]/g, "").replace(/,/g, "");
+  return {
+    value: normalized,
+    displayValue,
+    rawValue: displayValue,
+    numericValue: normalized === "" || normalized === "-" ? null : Number(normalized),
+  };
+}
+
+function spinnerNode(label) {
+  return React.createElement(
+    "span",
+    {
+      className: "spinner field__icon field__icon--loading",
+      "data-density": "sm",
+      "data-tone": "accent",
+      "data-state": "loading",
+      "aria-hidden": "true",
+    },
+    React.createElement(
+      "svg",
+      {
+        className: "spinner__svg",
+        viewBox: "0 0 40 40",
+        focusable: "false",
+        "aria-hidden": "true",
+      },
+      React.createElement("circle", { className: "spinner__track", cx: "20", cy: "20", r: "16", pathLength: "100" }),
+      React.createElement("circle", { className: "spinner__arc", cx: "20", cy: "20", r: "16", pathLength: "100" }),
+    ),
+  );
+}
+
+export const Input = forwardRef(function Input({
+  label,
+  helper = "",
+  helperText,
+  error = "",
+  value = "",
+  name = "",
+  placeholder = "",
+  disabled = false,
+  loading = false,
+  required = false,
+  density,
+  state,
+  variant = "text",
+  icon = "",
+  prefix = "",
+  suffix = "",
+  mono = false,
+  type = "text",
+  inputMode,
+  autocomplete,
+  align = "start",
+  revealable = false,
+  onValueChange,
+  className = "",
+  id,
+  ...rest
+}, ref) {
+  const generatedId = useId();
+  const inputId = id ?? `input-${generatedId}`;
+  const resolvedType = typeForVariant(variant, type);
+  const isRevealable = Boolean(revealable) || variant === "password" || resolvedType === "password";
+  const [revealed, setRevealed] = useState(false);
+  const resolvedState = resolveInputState({ disabled, loading, error, state, value });
+  const resolvedHelper = error || helperText || helper;
+  const isDisabled = Boolean(disabled) || Boolean(loading);
+  const resolvedAlign = align === "end" || (align === "start" && numericVariants.has(variant)) ? "end" : "start";
+  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const inputType = isRevealable && revealed ? "text" : resolvedType;
+
+  return React.createElement(
+    "label",
+    {
+      className: ["field", className].filter(Boolean).join(" "),
+      "data-state": resolvedState,
+      "data-density": density || undefined,
+      "data-variant": variant,
+      "data-mono": mono ? "true" : undefined,
+      "data-align": resolvedAlign === "end" ? "end" : undefined,
+    },
+    React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label ?? "Input"),
+    React.createElement(
+      "span",
+      { className: "field__control" },
+      icon
+        ? React.createElement("span", { className: "field__icon", "aria-hidden": "true" }, icon)
+        : null,
+      prefix
+        ? React.createElement("span", { className: "field__prefix", "aria-hidden": "true" }, prefix)
+        : null,
+      React.createElement("input", {
+        ...rest,
+        ref,
+        id: inputId,
+        className: "input",
+        name,
+        type: inputType,
+        value: formatValue(value, variant),
+        placeholder,
+        disabled: isDisabled,
+        required,
+        inputMode: inputMode || inputModeForVariant(variant),
+        autoComplete: autocomplete || autocompleteForVariant(variant),
+        "aria-labelledby": `${inputId}-label`,
+        "aria-describedby": describedBy,
+        "aria-invalid": error ? "true" : undefined,
+        onChange: (event) => onValueChange?.(normalizeValue(event.target.value, variant).value, normalizeValue(event.target.value, variant)),
+      }),
+      suffix
+        ? React.createElement("span", { className: "field__suffix", "aria-hidden": "true" }, suffix)
+        : null,
+      isRevealable
+        ? React.createElement(
+          "button",
+          {
+            className: "field-action field__action",
+            type: "button",
+            disabled: isDisabled,
+            "aria-label": revealed ? "Hide value" : "Show value",
+            "aria-pressed": String(revealed),
+            "data-field-action": "reveal",
+            onClick: () => setRevealed((current) => !current),
+          },
+          React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, revealed ? "visibility_off" : "visibility"),
+        )
+        : null,
+      loading ? spinnerNode(`${label ?? "Input"} loading`) : null,
+    ),
+    resolvedHelper
+      ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
+      : null,
+  );
+});
+
+Input.displayName = "Input";
+Input.platformContract = inputPlatformContract;

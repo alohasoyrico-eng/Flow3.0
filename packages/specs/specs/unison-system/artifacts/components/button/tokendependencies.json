@@ -1,0 +1,19 @@
+{
+  "artifacts": {
+    "components": {
+      "button": {
+        "tokenDependencies": [
+          "comp.button.*",
+          "sys.energy.*",
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.momentum.*",
+          "sys.accessibility.*",
+          "sys.symbol.*",
+          "sys.growth.*"
+        ]
+      }
+    }
+  }
+}

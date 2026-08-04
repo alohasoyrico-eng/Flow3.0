@@ -1,0 +1,144 @@
+{
+  "artifacts": {
+    "primitives": {
+      "animation-assets": {
+        "layer": "Primitive",
+        "platform": "System",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "requiredSections": [
+          "purpose",
+          "foundationInputs",
+          "roles",
+          "productExamples",
+          "api",
+          "tokens",
+          "states",
+          "agentInstructions",
+          "rejectIf"
+        ],
+        "maturityTarget": 3,
+        "name": "Animation Assets",
+        "purpose": "Turn lottie-web and Lottie-compatible assets into implementation-ready playback, static fallback, reduced-motion policy, lifecycle controls, and accessibility labels.",
+        "governingFoundations": [
+          "Momentum",
+          "Accessibility",
+          "Symbol",
+          "Energy",
+          "Frame"
+        ],
+        "coordinatesPrimitives": [
+          "Library Sources",
+          "Duration",
+          "Motion Curves",
+          "Loading"
+        ],
+        "foundationInputs": [
+          "sys.momentum.*",
+          "sys.accessibility.*",
+          "sys.symbol.*",
+          "sys.energy.*",
+          "sys.frame.*"
+        ],
+        "roles": [
+          {
+            "id": "runtime",
+            "token": "animationAsset.runtime",
+            "use": "Library-backed lottie-web renderer and lifecycle bridge."
+          },
+          {
+            "id": "source",
+            "token": "animationAsset.source",
+            "use": "JSON path or animation data reference owned outside bounded components."
+          },
+          {
+            "id": "fallback",
+            "token": "animationAsset.fallback",
+            "use": "Static icon and text fallback when runtime, asset, or motion permission is unavailable."
+          },
+          {
+            "id": "lifecycle",
+            "token": "animationAsset.lifecycle",
+            "use": "Play, pause, complete, disabled, and reduced-motion states."
+          }
+        ],
+        "productExamples": [
+          {
+            "context": "Animated Moment",
+            "example": "One bounded cue consumes Animation Assets for runtime/fallback without owning player logic."
+          },
+          {
+            "context": "Onboarding pattern",
+            "example": "Multi-step education can orchestrate several animation assets while the primitive owns playback."
+          },
+          {
+            "context": "Empty State",
+            "example": "A static fallback remains meaningful when reduced motion is active."
+          }
+        ],
+        "api": {
+          "props": [
+            "label",
+            "source",
+            "animationData",
+            "renderer",
+            "state",
+            "autoplay",
+            "loop",
+            "fallbackIcon",
+            "fallbackText",
+            "reducedMotion",
+            "runtime"
+          ],
+          "outputs": [
+            "animationElement",
+            "runtimeState",
+            "fallbackState",
+            "playerInstance"
+          ]
+        },
+        "tokenDependencies": [
+          "animationAsset.*",
+          "library.*",
+          "duration.*",
+          "motionCurve.*",
+          "loading.*",
+          "sys.momentum.*",
+          "sys.accessibility.*",
+          "sys.symbol.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "lottie-web"
+        ],
+        "states": [
+          "idle",
+          "playing",
+          "paused",
+          "complete",
+          "reduced-motion",
+          "disabled",
+          "fallback"
+        ],
+        "agentInstructions": [
+          "Use lottie-web through Animation Assets; do not call lottie-web directly from components or patterns.",
+          "Always provide a static fallback icon and fallback text.",
+          "Reduced motion must stop runtime playback and keep meaning visible.",
+          "Components may compose Animation Assets but must not own multi-step animation orchestration.",
+          "Do not fetch animation runtime from a remote CDN in docs."
+        ],
+        "rejectIf": [
+          "A component or pattern calls loadAnimation directly.",
+          "The runtime is loaded from a CDN in docs.",
+          "There is no static fallback for reduced motion or missing runtime.",
+          "Required meaning exists only in motion.",
+          "The primitive owns onboarding, education, campaign, or multi-step sequence rules."
+        ]
+      }
+    }
+  }
+}

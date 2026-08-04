@@ -1,0 +1,68 @@
+{
+  "name": "flow",
+  "version": "0.3.0-platform-mvp",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alohasoyrico-eng/Flow3.0.git"
+  },
+  "exports": {
+    "./tokens": "./packages/tokens/src/index.js",
+    "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
+    "./components": "./packages/components/src/index.js",
+    "./components/contracts": "./packages/components/src/contracts.js",
+    "./components/platforms": "./packages/components/src/platforms/index.js",
+    "./components/styles.css": "./packages/components/styles/components.css",
+    "./react": "./packages/react/dist/index.js",
+    "./react/button": "./packages/react/dist/Button.js",
+    "./react/icon-button": "./packages/react/dist/IconButton.js",
+    "./react/input": "./packages/react/dist/Input.js",
+    "./react/select": "./packages/react/dist/Select.js",
+    "./content/catalog": "./packages/content/content/catalog.json",
+    "./content/component-docs": "./packages/content/content/component-docs.json",
+    "./content/component-copy": "./packages/content/content/component-copy.json",
+    "./content/pattern-copy": "./packages/content/content/pattern-copy.json",
+    "./content/component-implementation-status": "./packages/content/content/component-implementation-status.json",
+    "./content/foundation-copy": "./packages/content/content/foundation-copy.json",
+    "./content/primitive-copy": "./packages/content/content/primitive-copy.json",
+    "./content/reference-copy": "./packages/content/content/reference-copy.json",
+    "./content/template-blueprints": "./packages/content/content/template-blueprints.json",
+    "./content/home": "./packages/content/content/home.json",
+    "./content/i18n-ui": "./packages/content/content/i18n/ui.json",
+    "./specs/system": "./packages/specs/specs/unison.system.json"
+  },
+  "imports": {
+    "#design-system/components": "./packages/components/src/index.js",
+    "#design-system/react": "./packages/react/src/index.js",
+    "#design-system/components-css": "./packages/components/styles/components.css",
+    "#design-system/content/catalog": "./packages/content/content/catalog.json",
+    "#design-system/content/component-docs": "./packages/content/content/component-docs.json",
+    "#design-system/content/component-copy": "./packages/content/content/component-copy.json",
+    "#design-system/content/pattern-copy": "./packages/content/content/pattern-copy.json",
+    "#design-system/content/component-implementation-status": "./packages/content/content/component-implementation-status.json",
+    "#design-system/content/foundation-copy": "./packages/content/content/foundation-copy.json",
+    "#design-system/content/primitive-copy": "./packages/content/content/primitive-copy.json",
+    "#design-system/content/reference-copy": "./packages/content/content/reference-copy.json",
+    "#design-system/content/template-blueprints": "./packages/content/content/template-blueprints.json",
+    "#design-system/content/home": "./packages/content/content/home.json",
+    "#design-system/content/i18n-ui": "./packages/content/content/i18n/ui.json",
+    "#design-system/specs/system": "./packages/specs/specs/unison.system.json",
+    "#design-system/tokens-css": "./packages/tokens/styles/tokens.css"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:react": "npm run build --workspace @design-system/react",
+    "test:react": "npm run test --workspace @design-system/react",
+    "prepare": "npm run build:react",
+    "audit:system": "node packages/audit/scripts/audit-system-scope.js",
+    "test": "node packages/components/test/smoke.test.mjs",
+    "validate:system": "npm run audit:system && npm test && npm run build:react && npm run test:react"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
