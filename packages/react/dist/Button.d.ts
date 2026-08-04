@@ -1,5 +1,5 @@
-import type { ButtonHTMLAttributes, ReactNode, Ref } from "react";
-import type { buttonPlatformContract } from "@design-system/components/platforms";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, ReactNode, RefAttributes } from "react";
+import { buttonPlatformContract } from "@design-system/components/platforms";
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary" | "outlined" | "ghost";
 export type ButtonIntent = "default" | "danger" | "warning";
@@ -22,9 +22,8 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   type?: ButtonType;
 }
 
-export interface ButtonComponent {
-  (props: ButtonProps & { ref?: Ref<HTMLButtonElement> }): ReactNode;
-  displayName?: string;
+export interface ButtonComponent extends ForwardRefExoticComponent<ButtonProps & RefAttributes<HTMLButtonElement>> {
+  displayName: "Button";
   platformContract: typeof buttonPlatformContract;
 }
 
