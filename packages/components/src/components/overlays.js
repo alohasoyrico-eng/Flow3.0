@@ -1,7 +1,7 @@
 import { createButton, createIconButton } from "./actions.js?v=2";
 import { createAvatar } from "./display.js?v=3";
 import { createProgressIndicator } from "./feedback.js?v=8";
-import { createInput } from "./fields.js?v=18";
+import { createTransitionalFieldInput } from "./fields.js?v=18";
 import { createBadge } from "./status.js?v=2";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
@@ -335,7 +335,7 @@ export function createDialog({
     const body = document.createElement("div");
     body.className = "dialog__body";
     for (const field of fields) {
-      body.append(createInput({
+      body.append(createTransitionalFieldInput({
         label: field.label,
         value: field.value ?? "",
         placeholder: field.placeholder ?? "",
@@ -648,7 +648,7 @@ export function createDrawer({
     }
   }
   for (const field of fields) {
-    body.append(createInput({ label: field.label ?? field, value: field.value ?? "", density: field.density ?? resolvedDensity }));
+    body.append(createTransitionalFieldInput({ label: field.label ?? field, value: field.value ?? "", density: field.density ?? resolvedDensity }));
   }
   panel.append(header, body);
   if (actions.length) {
@@ -827,7 +827,7 @@ export function createPopover({
     panel.append(copy);
   }
   if (resolvedVariant === "form") {
-    panel.append(createInput({
+    panel.append(createTransitionalFieldInput({
       label: field?.label ?? "Label",
       value: field?.value ?? "",
       placeholder: field?.placeholder ?? "Short value",

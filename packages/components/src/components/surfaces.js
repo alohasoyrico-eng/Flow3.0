@@ -1,6 +1,6 @@
 import { createButton, createIconButton } from "./actions.js";
 import { createSpinner } from "./feedback.js?v=8";
-import { createInput } from "./fields.js";
+import { createTransitionalFieldInput } from "./fields.js";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
 export function createCard({
@@ -204,7 +204,7 @@ export function createInlineValidation({
   const messageId = `${fieldId}-message`;
 
   if (showField) {
-    const inputControl = createInput({
+    const inputControl = createTransitionalFieldInput({
       label: label ?? "Input",
       value,
       state,

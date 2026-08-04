@@ -2,7 +2,7 @@ import { createFieldAction } from "../primitives/field-actions.js?v=2";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 import { createSpinner } from "./feedback.js?v=8";
 
-let inputId = 0;
+let transitionalInputId = 0;
 let selectId = 0;
 let comboboxId = 0;
 let textAreaId = 0;
@@ -70,7 +70,7 @@ export function appendAriaDescribedBy(node, id) {
   node.setAttribute?.("aria-describedby", current.join(" "));
 }
 
-export function createInput({
+export function createTransitionalFieldInput({
   label,
   helper = "",
   helperText,
@@ -95,7 +95,7 @@ export function createInput({
   revealable = false,
   onValueChange,
 } = {}) {
-  const id = `input-${++inputId}`;
+  const id = `input-${++transitionalInputId}`;
   const resolvedType = inputTypeForVariant(variant, type);
   const resolvedAlign = align === "end" || (align === "start" && ["number", "currency", "unit"].includes(variant)) ? "end" : "start";
   const isRevealable = Boolean(revealable) || variant === "password" || resolvedType === "password";

@@ -52,7 +52,8 @@ export const componentContracts = {
     ]
   },
   input: {
-    factory: "createInput",
+    factory: "@design-system/react/input",
+    internalFactory: "createTransitionalFieldInput",
     element: "label",
     purpose: "Capture short free-form input with visible label, helper or recovery text, density, state, optional icon, qualifiers, capture role, and native input semantics.",
     variants: ["text", "email", "password", "number", "currency", "unit", "search"],

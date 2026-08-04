@@ -47,7 +47,7 @@ const directDensityComponents = [
 ];
 
 const delegatedDensityComponents = [
-  { id: "input", factory: "createInput", source: "fields", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
+  { id: "input", factory: "createTransitionalFieldInput", source: "fields", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "combobox", factory: "createCombobox", source: "fields", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "textArea", factory: "createTextArea", source: "fields", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "cardNumberInput", factory: "createCardNumberInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },

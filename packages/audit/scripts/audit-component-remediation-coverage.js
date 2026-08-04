@@ -161,7 +161,7 @@ function kebabToFactoryName(id) {
     "error-panel": "createErrorPanel",
     "floating-action-button": "createFloatingActionButton",
     "inline-validation": "createInlineValidation",
-    input: "createInput",
+    input: "createTransitionalFieldInput",
     select: "createSelect",
     "radio-button": "createRadioButton",
     switch: "createSwitch",

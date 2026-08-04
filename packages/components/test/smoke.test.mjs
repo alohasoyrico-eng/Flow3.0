@@ -87,7 +87,7 @@ import {
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
 import { createCheckbox, createRadioButton, createSwitch } from "../src/components/choices.js";
-import { createInput, createSelect, createTextArea } from "../src/components/fields.js";
+import { createTransitionalFieldInput, createSelect, createTextArea } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -246,7 +246,8 @@ assert.deepEqual(iconButtonPlatformContract.states, componentContracts.iconButto
 assert.deepEqual(Object.keys(iconButtonPlatformAdapters), ["react"]);
 assert.equal(iconButtonPlatformAdapters.react.componentName, "IconButton");
 assert.equal(iconButtonPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.input.factory, "createInput");
+assert.equal(componentContracts.input.factory, "@design-system/react/input");
+assert.equal(componentContracts.input.internalFactory, "createTransitionalFieldInput");
 assert.equal(inputPlatformContract.id, "input");
 assert.equal(inputPlatformContract.source.factory, componentContracts.input.factory);
 assert.deepEqual(inputPlatformProps(), componentContracts.input.props.map((prop) => prop.name));
@@ -386,7 +387,7 @@ const inheritedDensityIconButton = createIconButton({ ariaLabel: "More actions",
 assert.equal(inheritedDensityIconButton.dataset.density, undefined);
 assert.equal(inheritedDensityIconButton.querySelector(".icon-button__icon").textContent, "more_horiz");
 
-const input = createInput({
+const input = createTransitionalFieldInput({
   label: "Driver",
   helper: "Search by name or vehicle",
   name: "driver",
@@ -411,20 +412,20 @@ assert.equal(input.querySelector("input").placeholder, "Alex Rivera");
 assert.equal(input.querySelector("input").value, "Alex");
 assert.equal(input.querySelector("input").attributes["aria-describedby"], input.querySelector(".field__helper").id);
 
-const inputError = createInput({ label: "Plate", value: "ABC", error: "Use format ABC-123" });
+const inputError = createTransitionalFieldInput({ label: "Plate", value: "ABC", error: "Use format ABC-123" });
 assert.equal(inputError.dataset.state, "error");
 assert.equal(inputError.dataset.density, undefined);
 assert.equal(inputError.querySelector("input").attributes["aria-invalid"], "true");
 assert.equal(inputError.querySelector(".field__helper").textContent, "Use format ABC-123");
 assert.equal(inputError.querySelector(".field__helper").attributes.role, "alert");
 
-const emailInput = createInput({ label: "Fleet admin email", value: "ops@fleet.mx", variant: "email" });
+const emailInput = createTransitionalFieldInput({ label: "Fleet admin email", value: "ops@fleet.mx", variant: "email" });
 assert.equal(emailInput.dataset.variant, "email");
 assert.equal(emailInput.querySelector("input").type, "email");
 assert.equal(emailInput.querySelector("input").attributes.autocomplete, "email");
 assert.equal(emailInput.querySelector("input").attributes.inputmode, "email");
 
-const currencyInput = createInput({ label: "Monthly limit", value: "2400.00", variant: "currency", prefix: "$", suffix: "MXN", mono: true });
+const currencyInput = createTransitionalFieldInput({ label: "Monthly limit", value: "2400.00", variant: "currency", prefix: "$", suffix: "MXN", mono: true });
 assert.equal(currencyInput.dataset.variant, "currency");
 assert.equal(currencyInput.dataset.align, "end");
 assert.equal(currencyInput.dataset.mono, "true");
@@ -434,7 +435,7 @@ assert.equal(currencyInput.querySelector("input").value, "2,400.00");
 assert.equal(currencyInput.querySelector("input").attributes.inputmode, "decimal");
 
 let currencyChangeMeta = null;
-const interactiveCurrencyInput = createInput({
+const interactiveCurrencyInput = createTransitionalFieldInput({
   label: "Monthly limit",
   variant: "currency",
   onValueChange: (value, meta) => {
@@ -453,7 +454,7 @@ assert.deepEqual(currencyChangeMeta, {
   },
 });
 
-const passwordInput = createInput({ label: "Password", value: "Miel2026!", variant: "password" });
+const passwordInput = createTransitionalFieldInput({ label: "Password", value: "Miel2026!", variant: "password" });
 const passwordField = passwordInput.querySelector("input");
 const revealButton = passwordInput.querySelector(".field-action");
 assert.equal(passwordField.type, "password");
