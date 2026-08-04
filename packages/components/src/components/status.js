@@ -119,7 +119,7 @@ export function createChip({
   return chip;
 }
 
-export function createTag({
+export function createTransitionalTag({
   label,
   variant = "metadata",
   tone = "neutral",

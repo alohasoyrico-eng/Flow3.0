@@ -36,7 +36,6 @@ import {
   createStationPin,
   createStepper,
   createTable,
-  createTag,
   createTabs,
   createTreeView,
   createToast,
@@ -94,11 +93,14 @@ import {
   switchPlatformAdapters,
   switchPlatformContract,
   switchPlatformProps,
+  tagPlatformAdapters,
+  tagPlatformContract,
+  tagPlatformProps,
   textAreaPlatformAdapters,
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
-import { createTransitionalBadge } from "../src/components/status.js?v=2";
+import { createTransitionalBadge, createTransitionalTag } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
   hydrateTransitionalPaymentCardExpiryInput,
@@ -379,7 +381,16 @@ assert.deepEqual(Object.keys(badgePlatformAdapters), ["react"]);
 assert.equal(badgePlatformAdapters.react.componentName, "Badge");
 assert.equal(badgePlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.chip.factory, "createChip");
-assert.equal(componentContracts.tag.factory, "createTag");
+assert.equal(componentContracts.tag.factory, "@design-system/react/tag");
+assert.equal(componentContracts.tag.internalFactory, "createTransitionalTag");
+assert.equal(tagPlatformContract.id, "tag");
+assert.equal(tagPlatformContract.source.factory, componentContracts.tag.factory);
+assert.deepEqual(tagPlatformProps(), componentContracts.tag.props.map((prop) => prop.name));
+assert.deepEqual(tagPlatformContract.variants, componentContracts.tag.variants);
+assert.deepEqual(tagPlatformContract.states, componentContracts.tag.states);
+assert.deepEqual(Object.keys(tagPlatformAdapters), ["react"]);
+assert.equal(tagPlatformAdapters.react.componentName, "Tag");
+assert.equal(tagPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.tabs.factory, "createTabs");
 assert.equal(componentContracts.tooltip.factory, "createTooltip");
 assert.equal(componentContracts.toast.factory, "createToast");
@@ -1159,7 +1170,7 @@ removableChip.click();
 assert.equal(removedChip, "Diesel");
 assert.equal(removableChip.hidden, true);
 
-const tag = createTag({ label: "Policy", variant: "link", tone: "info", state: "focus", icon: "verified" });
+const tag = createTransitionalTag({ label: "Policy", variant: "link", tone: "info", state: "focus", icon: "verified" });
 assert.equal(tag.tagName, "BUTTON");
 assert.equal(tag.className, "tag");
 assert.equal(tag.dataset.variant, "link");
@@ -1168,11 +1179,11 @@ assert.equal(tag.dataset.state, "focus");
 assert.equal(tag.dataset.interactive, "true");
 assert.equal(tag.disabled, false);
 assert.equal(tag.querySelector(".tag__icon").textContent, "verified");
-const staticTag = createTag({ label: "Mobile", variant: "platform", tone: "neutral" });
+const staticTag = createTransitionalTag({ label: "Mobile", variant: "platform", tone: "neutral" });
 assert.equal(staticTag.tagName, "SPAN");
 assert.equal(staticTag.dataset.variant, "platform");
 assert.equal(staticTag.dataset.tone, "neutral");
-const disabledTag = createTag({ label: "Disabled", variant: "link", state: "disabled" });
+const disabledTag = createTransitionalTag({ label: "Disabled", variant: "link", state: "disabled" });
 assert.equal(disabledTag.tagName, "BUTTON");
 assert.equal(disabledTag.disabled, true);
 assert.equal(disabledTag.dataset.state, "disabled");

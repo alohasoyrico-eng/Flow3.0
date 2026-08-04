@@ -4,6 +4,11 @@ export {
   badgePlatformProps,
 } from "./badge.js";
 export {
+  tagPlatformAdapters,
+  tagPlatformContract,
+  tagPlatformProps,
+} from "./tag.js";
+export {
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,

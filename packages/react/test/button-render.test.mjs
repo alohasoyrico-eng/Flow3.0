@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, TextArea } from "../src/index.js";
-import { badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
+import { Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, Tag, TextArea } from "../src/index.js";
+import { badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Badge.displayName, "Badge");
 assert.equal(Badge.platformContract, badgePlatformContract);
@@ -34,6 +34,8 @@ assert.equal(Select.displayName, "Select");
 assert.equal(Select.platformContract, selectPlatformContract);
 assert.equal(Switch.displayName, "Switch");
 assert.equal(Switch.platformContract, switchPlatformContract);
+assert.equal(Tag.displayName, "Tag");
+assert.equal(Tag.platformContract, tagPlatformContract);
 assert.equal(TextArea.displayName, "TextArea");
 assert.equal(TextArea.platformContract, textAreaPlatformContract);
 
@@ -111,6 +113,39 @@ const hiddenBadgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
 }));
 assert.match(hiddenBadgeMarkup, /hidden=""/);
 assert.match(hiddenBadgeMarkup, /data-state="hidden"/);
+
+const tagMarkup = renderToStaticMarkup(React.createElement(Tag, {
+  label: "Policy",
+  variant: "link",
+  tone: "info",
+  state: "focus",
+  icon: "verified",
+}));
+assert.match(tagMarkup, /^<button/);
+assert.match(tagMarkup, /class="tag"/);
+assert.match(tagMarkup, /data-variant="link"/);
+assert.match(tagMarkup, /data-tone="info"/);
+assert.match(tagMarkup, /data-state="focus"/);
+assert.match(tagMarkup, /data-interactive="true"/);
+assert.match(tagMarkup, /class="tag__icon"/);
+assert.match(tagMarkup, /class="tag__label">Policy<\/span>/);
+
+const staticTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
+  label: "Mobile",
+  variant: "platform",
+  tone: "neutral",
+}));
+assert.match(staticTagMarkup, /^<span/);
+assert.match(staticTagMarkup, /data-variant="platform"/);
+assert.doesNotMatch(staticTagMarkup, /data-interactive/);
+
+const disabledTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
+  label: "Disabled",
+  variant: "link",
+  state: "disabled",
+}));
+assert.match(disabledTagMarkup, /disabled=""/);
+assert.match(disabledTagMarkup, /data-state="disabled"/);
 
 const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
   label: "Enable fuel card",

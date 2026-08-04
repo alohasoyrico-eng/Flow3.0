@@ -29,7 +29,7 @@ import {
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
-import { createChip, createTag } from "./components/status.js?v=2";
+import { createChip } from "./components/status.js?v=2";
 import { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
 
 export const componentRegistry = Object.freeze({
@@ -111,7 +111,9 @@ export const componentRegistry = Object.freeze({
   },
   table: createTable,
   tabs: createTabs,
-  tag: createTag,
+  tag: () => {
+    throw new Error("Tag is React-primary. Use @design-system/react/tag instead of the transitional DOM renderer.");
+  },
   "text-area": () => {
     throw new Error("Text Area is React-primary. Use @design-system/react/text-area instead of the transitional DOM renderer.");
   },
@@ -139,6 +141,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "badge") {
     throw new Error("Badge is React-primary. Use @design-system/react/badge instead of renderComponentDemo.");
+  }
+  if (id === "tag") {
+    throw new Error("Tag is React-primary. Use @design-system/react/tag instead of renderComponentDemo.");
   }
   if (id === "card-security-code-input") {
     throw new Error("Card Security Code Input is React-primary. Use @design-system/react/card-security-code-input instead of renderComponentDemo.");

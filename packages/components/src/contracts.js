@@ -447,7 +447,8 @@ export const componentContracts = {
     ]
   },
   tag: {
-    factory: "createTag",
+    factory: "@design-system/react/tag",
+    internalFactory: "createTransitionalTag",
     element: "span | button",
     purpose: "Show compact metadata or optional metadata action with stable tone, icon, and label.",
     variants: ["metadata", "status", "platform", "link"],

@@ -128,6 +128,14 @@ export type {
   SwitchState,
   SwitchValueMeta,
 } from "./Switch.js";
+export { Tag } from "./Tag.js";
+export type {
+  TagComponent,
+  TagProps,
+  TagState,
+  TagTone,
+  TagVariant,
+} from "./Tag.js";
 export { TextArea } from "./TextArea.js";
 export type {
   TextAreaChangeMeta,
