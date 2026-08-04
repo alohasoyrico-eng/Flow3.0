@@ -9,7 +9,7 @@ import {
 } from "./components/commerce.js?v=15";
 import { createAuditEvent, createAvatar, createKpiTile, createList } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
-import { createCombobox, createTextArea } from "./components/fields.js?v=21";
+import { createCombobox } from "./components/fields.js?v=21";
 import {
   createAccordion,
   createSegmentedControl,
@@ -96,7 +96,9 @@ export const componentRegistry = Object.freeze({
   table: createTable,
   tabs: createTabs,
   tag: createTag,
-  "text-area": createTextArea,
+  "text-area": () => {
+    throw new Error("Text Area is React-primary. Use @design-system/react/text-area instead of the transitional DOM renderer.");
+  },
   input: () => {
     throw new Error("Input is React-primary. Use @design-system/react/input instead of the transitional DOM renderer.");
   },
@@ -136,6 +138,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "switch") {
     throw new Error("Switch is React-primary. Use @design-system/react/switch instead of renderComponentDemo.");
+  }
+  if (id === "text-area") {
+    throw new Error("Text Area is React-primary. Use @design-system/react/text-area instead of renderComponentDemo.");
   }
   return factory(props);
 }

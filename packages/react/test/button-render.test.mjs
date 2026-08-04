@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Button, Checkbox, IconButton, Input, RadioButton, Select, Switch } from "../src/index.js";
-import { buttonPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract } from "@design-system/components/platforms";
+import { Button, Checkbox, IconButton, Input, RadioButton, Select, Switch, TextArea } from "../src/index.js";
+import { buttonPlatformContract, checkboxPlatformContract, iconButtonPlatformContract, inputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, textAreaPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
@@ -18,6 +18,8 @@ assert.equal(Select.displayName, "Select");
 assert.equal(Select.platformContract, selectPlatformContract);
 assert.equal(Switch.displayName, "Switch");
 assert.equal(Switch.platformContract, switchPlatformContract);
+assert.equal(TextArea.displayName, "TextArea");
+assert.equal(TextArea.platformContract, textAreaPlatformContract);
 
 const markup = renderToStaticMarkup(React.createElement(Button, {
   label: "Approve",
@@ -101,6 +103,24 @@ assert.match(switchMarkup, /class="switch__track"/);
 assert.match(switchMarkup, /class="switch__thumb"/);
 assert.match(switchMarkup, /class="switch__label">Route alerts<\/span>/);
 assert.match(switchMarkup, /class="switch__description"/);
+
+const textAreaMarkup = renderToStaticMarkup(React.createElement(TextArea, {
+  label: "Driver notes",
+  helper: "Visible to assigned driver.",
+  value: "Customer requests child seat.",
+  density: "sm",
+  rows: 3,
+  maxLength: 120,
+}));
+assert.match(textAreaMarkup, /class="field"/);
+assert.match(textAreaMarkup, /data-density="sm"/);
+assert.match(textAreaMarkup, /data-state="filled"/);
+assert.match(textAreaMarkup, /class="text-area__surface"/);
+assert.match(textAreaMarkup, /data-has-counter="true"/);
+assert.match(textAreaMarkup, /class="text-area"/);
+assert.match(textAreaMarkup, /class="text-area__counter"/);
+assert.match(textAreaMarkup, /29\/120/);
+assert.match(textAreaMarkup, /aria-describedby="[^"]+-helper [^"]+-counter"/);
 
 const ref = createRef();
 React.createElement(Button, { ref, label: "Ref" });

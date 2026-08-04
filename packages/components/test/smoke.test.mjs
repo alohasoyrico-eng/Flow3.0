@@ -47,7 +47,6 @@ import {
   createTreeView,
   createDatePicker,
   createDateRangePicker,
-  createTextArea,
   createToast,
   createTooltip,
   createAnimationAsset,
@@ -82,10 +81,13 @@ import {
   switchPlatformAdapters,
   switchPlatformContract,
   switchPlatformProps,
+  textAreaPlatformAdapters,
+  textAreaPlatformContract,
+  textAreaPlatformProps,
 } from "../src/index.js";
 import { createButton, createIconButton } from "../src/components/actions.js";
 import { createCheckbox, createRadioButton, createSwitch } from "../src/components/choices.js";
-import { createInput, createSelect } from "../src/components/fields.js";
+import { createInput, createSelect, createTextArea } from "../src/components/fields.js";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -274,6 +276,15 @@ assert.deepEqual(switchPlatformContract.states, componentContracts.switch.states
 assert.deepEqual(Object.keys(switchPlatformAdapters), ["react"]);
 assert.equal(switchPlatformAdapters.react.componentName, "Switch");
 assert.equal(switchPlatformAdapters.react.sourceOfTruth, true);
+assert.equal(componentContracts.textArea.factory, "createTextArea");
+assert.equal(textAreaPlatformContract.id, "text-area");
+assert.equal(textAreaPlatformContract.source.factory, componentContracts.textArea.factory);
+assert.deepEqual(textAreaPlatformProps(), componentContracts.textArea.props.map((prop) => prop.name));
+assert.deepEqual(textAreaPlatformContract.variants, componentContracts.textArea.variants);
+assert.deepEqual(textAreaPlatformContract.states, componentContracts.textArea.states);
+assert.deepEqual(Object.keys(textAreaPlatformAdapters), ["react"]);
+assert.equal(textAreaPlatformAdapters.react.componentName, "TextArea");
+assert.equal(textAreaPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.combobox.factory, "createCombobox");
 assert.equal(componentContracts.card.factory, "createCard");
 assert.equal(componentContracts.checkbox.factory, "createCheckbox");

@@ -33,3 +33,8 @@ export {
   switchPlatformContract,
   switchPlatformProps,
 } from "./switch.js";
+export {
+  textAreaPlatformAdapters,
+  textAreaPlatformContract,
+  textAreaPlatformProps,
+} from "./text-area.js";

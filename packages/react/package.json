@@ -35,6 +35,10 @@
     "./switch": {
       "types": "./dist/Switch.d.ts",
       "default": "./dist/Switch.js"
+    },
+    "./text-area": {
+      "types": "./dist/TextArea.d.ts",
+      "default": "./dist/TextArea.js"
     }
   },
   "types": "./dist/index.d.ts",

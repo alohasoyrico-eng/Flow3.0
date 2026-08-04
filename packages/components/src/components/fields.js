@@ -780,7 +780,7 @@ export function createTextArea({
   required = false,
   rows = 3,
   maxLength,
-  density = "md",
+  density,
   state,
   onChange,
 } = {}) {

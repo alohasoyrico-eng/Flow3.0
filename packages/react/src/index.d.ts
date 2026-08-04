@@ -62,3 +62,11 @@ export type {
   SwitchState,
   SwitchValueMeta,
 } from "./Switch.js";
+export { TextArea } from "./TextArea.js";
+export type {
+  TextAreaChangeMeta,
+  TextAreaComponent,
+  TextAreaDensity,
+  TextAreaProps,
+  TextAreaState,
+} from "./TextArea.js";

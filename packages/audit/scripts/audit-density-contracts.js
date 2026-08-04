@@ -59,7 +59,7 @@ const delegatedDensityComponents = [
   { id: "dateRangePicker", factory: "createDateRangePicker", source: "specializedInputs", delegate: "date-picker shell", selector: '.date-picker[data-density="sm"]' },
 ];
 
-const contextInheritedDensityComponents = new Set(["button", "iconButton", "input", "select", "switch"]);
+const contextInheritedDensityComponents = new Set(["button", "iconButton", "input", "select", "switch", "textArea"]);
 
 function checkDensityContracts() {
   const contracts = read(contractsFile);

@@ -5,3 +5,4 @@ export { Input } from "./Input.js";
 export { RadioButton } from "./RadioButton.js";
 export { Select } from "./Select.js";
 export { Switch } from "./Switch.js";
+export { TextArea } from "./TextArea.js";

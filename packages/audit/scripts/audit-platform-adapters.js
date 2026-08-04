@@ -8,6 +8,7 @@ const inputAdapterFile = path.join(root, "packages/components/src/platforms/inpu
 const radioButtonAdapterFile = path.join(root, "packages/components/src/platforms/radio-button.js");
 const selectAdapterFile = path.join(root, "packages/components/src/platforms/select.js");
 const switchAdapterFile = path.join(root, "packages/components/src/platforms/switch.js");
+const textAreaAdapterFile = path.join(root, "packages/components/src/platforms/text-area.js");
 const componentIndexFile = path.join(root, "packages/components/src/index.js");
 const componentPackageFile = path.join(root, "packages/components/package.json");
 const componentCssFile = path.join(root, "packages/components/styles/components.css");
@@ -25,6 +26,7 @@ const reactRadioButtonTypesFile = path.join(root, "packages/react/src/RadioButto
 const reactSelectFile = path.join(root, "packages/react/src/Select.js");
 const reactSelectTypesFile = path.join(root, "packages/react/src/Select.d.ts");
 const reactSwitchFile = path.join(root, "packages/react/src/Switch.js"), reactSwitchTypesFile = path.join(root, "packages/react/src/Switch.d.ts");
+const reactTextAreaFile = path.join(root, "packages/react/src/TextArea.js"), reactTextAreaTypesFile = path.join(root, "packages/react/src/TextArea.d.ts");
 const reactIndexFile = path.join(root, "packages/react/src/index.js");
 const reactIndexTypesFile = path.join(root, "packages/react/src/index.d.ts");
 const reactDistButtonFile = path.join(root, "packages/react/dist/Button.js");
@@ -40,12 +42,13 @@ const reactDistRadioButtonTypesFile = path.join(root, "packages/react/dist/Radio
 const reactDistSelectFile = path.join(root, "packages/react/dist/Select.js");
 const reactDistSelectTypesFile = path.join(root, "packages/react/dist/Select.d.ts");
 const reactDistSwitchFile = path.join(root, "packages/react/dist/Switch.js"), reactDistSwitchTypesFile = path.join(root, "packages/react/dist/Switch.d.ts");
+const reactDistTextAreaFile = path.join(root, "packages/react/dist/TextArea.js"), reactDistTextAreaTypesFile = path.join(root, "packages/react/dist/TextArea.d.ts");
 const reactPackageFile = path.join(root, "packages/react/package.json");
 const reactExampleFile = path.join(root, "examples/prototyping/react-button.mjs");
 const forbiddenPrefix = "fl" + "ow-";
 
 function checkPlatformAdapters() {
-  for (const file of [adapterIndexFile, buttonAdapterFile, checkboxAdapterFile, iconButtonAdapterFile, inputAdapterFile, radioButtonAdapterFile, selectAdapterFile, switchAdapterFile, reactButtonFile, reactButtonTypesFile, reactCheckboxFile, reactCheckboxTypesFile, reactIconButtonFile, reactIconButtonTypesFile, reactInputFile, reactInputTypesFile, reactRadioButtonFile, reactRadioButtonTypesFile, reactSelectFile, reactSelectTypesFile, reactSwitchFile, reactSwitchTypesFile, reactIndexFile, reactIndexTypesFile, reactDistButtonFile, reactDistButtonTypesFile, reactDistCheckboxFile, reactDistCheckboxTypesFile, reactDistIconButtonFile, reactDistIconButtonTypesFile, reactDistInputFile, reactDistInputTypesFile, reactDistRadioButtonFile, reactDistRadioButtonTypesFile, reactDistSelectFile, reactDistSelectTypesFile, reactDistSwitchFile, reactDistSwitchTypesFile, reactPackageFile, reactExampleFile]) {
+  for (const file of [adapterIndexFile, buttonAdapterFile, checkboxAdapterFile, iconButtonAdapterFile, inputAdapterFile, radioButtonAdapterFile, selectAdapterFile, switchAdapterFile, textAreaAdapterFile, reactButtonFile, reactButtonTypesFile, reactCheckboxFile, reactCheckboxTypesFile, reactIconButtonFile, reactIconButtonTypesFile, reactInputFile, reactInputTypesFile, reactRadioButtonFile, reactRadioButtonTypesFile, reactSelectFile, reactSelectTypesFile, reactSwitchFile, reactSwitchTypesFile, reactTextAreaFile, reactTextAreaTypesFile, reactIndexFile, reactIndexTypesFile, reactDistButtonFile, reactDistButtonTypesFile, reactDistCheckboxFile, reactDistCheckboxTypesFile, reactDistIconButtonFile, reactDistIconButtonTypesFile, reactDistInputFile, reactDistInputTypesFile, reactDistRadioButtonFile, reactDistRadioButtonTypesFile, reactDistSelectFile, reactDistSelectTypesFile, reactDistSwitchFile, reactDistSwitchTypesFile, reactDistTextAreaFile, reactDistTextAreaTypesFile, reactPackageFile, reactExampleFile]) {
     if (!fs.existsSync(file)) {
       add("errors", file, 1, "Platform implementation contract is missing.");
       return;
@@ -60,6 +63,7 @@ function checkPlatformAdapters() {
   const radioButtonAdapter = read(radioButtonAdapterFile);
   const selectAdapter = read(selectAdapterFile);
   const switchAdapter = read(switchAdapterFile);
+  const textAreaAdapter = read(textAreaAdapterFile);
   const componentIndex = read(componentIndexFile);
   const componentPackage = read(componentPackageFile);
   const componentCss = read(componentCssFile);
@@ -77,6 +81,7 @@ function checkPlatformAdapters() {
   const reactSelect = read(reactSelectFile);
   const reactSelectTypes = read(reactSelectTypesFile);
   const reactSwitch = read(reactSwitchFile), reactSwitchTypes = read(reactSwitchTypesFile);
+  const reactTextArea = read(reactTextAreaFile), reactTextAreaTypes = read(reactTextAreaTypesFile);
   const reactIndex = read(reactIndexFile);
   const reactIndexTypes = read(reactIndexTypesFile);
   const reactPackage = read(reactPackageFile);
@@ -125,81 +130,21 @@ function checkPlatformAdapters() {
     }
   }
 
-  if (buttonAdapter.includes("dom:") || buttonAdapter.includes('renderMode: "factory"') || buttonAdapter.includes('implementationRole: "transitional-static-renderer"')) {
-    add("errors", buttonAdapterFile, 1, "Button platform contract must not advertise a DOM target once React is the public product component.");
-  }
-  if (!buttonAdapter.includes("react:")) {
-    add("errors", buttonAdapterFile, 1, "Button platform contract must declare React as its implementation target.");
-  }
-  if (checkboxAdapter.includes("dom:") || checkboxAdapter.includes('renderMode: "factory"') || checkboxAdapter.includes('implementationRole: "transitional-static-renderer"')) {
-    add("errors", checkboxAdapterFile, 1, "Checkbox platform contract must not advertise a DOM target once React is the public product component.");
-  }
-  if (!checkboxAdapter.includes("react:")) {
-    add("errors", checkboxAdapterFile, 1, "Checkbox platform contract must declare React as its implementation target.");
-  }
-  if (iconButtonAdapter.includes("dom:") || iconButtonAdapter.includes('renderMode: "factory"') || iconButtonAdapter.includes('implementationRole: "transitional-static-renderer"')) {
-    add("errors", iconButtonAdapterFile, 1, "Icon Button platform contract must not advertise a DOM target once React is the public product component.");
-  }
-  if (!iconButtonAdapter.includes("react:")) {
-    add("errors", iconButtonAdapterFile, 1, "Icon Button platform contract must declare React as its implementation target.");
-  }
-  if (inputAdapter.includes("dom:") || inputAdapter.includes('renderMode: "factory"') || inputAdapter.includes('implementationRole: "transitional-static-renderer"')) {
-    add("errors", inputAdapterFile, 1, "Input platform contract must not advertise a DOM target once React is the public product component.");
-  }
-  if (!inputAdapter.includes("react:")) {
-    add("errors", inputAdapterFile, 1, "Input platform contract must declare React as its implementation target.");
-  }
-  if (selectAdapter.includes("dom:") || selectAdapter.includes('renderMode: "factory"') || selectAdapter.includes('implementationRole: "transitional-static-renderer"')) {
-    add("errors", selectAdapterFile, 1, "Select platform contract must not advertise a DOM target once React is the public product component.");
-  }
-  if (!selectAdapter.includes("react:")) {
-    add("errors", selectAdapterFile, 1, "Select platform contract must declare React as its implementation target.");
-  }
-  for (const snippet of [
-    'renderMode: "component"',
-    'implementationRole: "primary-product-component"',
-    "sourceOfTruth: true",
-  ]) {
-    if (!buttonAdapter.includes(snippet)) {
-      add("errors", buttonAdapterFile, 1, `Button platform contract must mark React as the only public component target; missing ${snippet}.`);
-    }
-  }
-  for (const snippet of [
-    'renderMode: "component"',
-    'implementationRole: "primary-product-component"',
-    "sourceOfTruth: true",
-  ]) {
-    if (!checkboxAdapter.includes(snippet)) {
-      add("errors", checkboxAdapterFile, 1, `Checkbox platform contract must mark React as the only public component target; missing ${snippet}.`);
-    }
-  }
-  for (const snippet of [
-    'renderMode: "component"',
-    'implementationRole: "primary-product-component"',
-    "sourceOfTruth: true",
-  ]) {
-    if (!iconButtonAdapter.includes(snippet)) {
-      add("errors", iconButtonAdapterFile, 1, `Icon Button platform contract must mark React as the only public component target; missing ${snippet}.`);
-    }
-  }
-  for (const snippet of [
-    'renderMode: "component"',
-    'implementationRole: "primary-product-component"',
-    "sourceOfTruth: true",
-  ]) {
-    if (!inputAdapter.includes(snippet)) {
-      add("errors", inputAdapterFile, 1, `Input platform contract must mark React as the only public component target; missing ${snippet}.`);
-    }
-  }
-  for (const snippet of [
-    'renderMode: "component"',
-    'implementationRole: "primary-product-component"',
-    "sourceOfTruth: true",
-  ]) {
-    if (!selectAdapter.includes(snippet)) {
-      add("errors", selectAdapterFile, 1, `Select platform contract must mark React as the only public component target; missing ${snippet}.`);
-    }
-  }
+  if (buttonAdapter.includes("dom:") || buttonAdapter.includes('renderMode: "factory"') || buttonAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", buttonAdapterFile, 1, "Button platform contract must not advertise a DOM target once React is the public product component.");
+  if (!buttonAdapter.includes("react:")) add("errors", buttonAdapterFile, 1, "Button platform contract must declare React as its implementation target.");
+  if (checkboxAdapter.includes("dom:") || checkboxAdapter.includes('renderMode: "factory"') || checkboxAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", checkboxAdapterFile, 1, "Checkbox platform contract must not advertise a DOM target once React is the public product component.");
+  if (!checkboxAdapter.includes("react:")) add("errors", checkboxAdapterFile, 1, "Checkbox platform contract must declare React as its implementation target.");
+  if (iconButtonAdapter.includes("dom:") || iconButtonAdapter.includes('renderMode: "factory"') || iconButtonAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", iconButtonAdapterFile, 1, "Icon Button platform contract must not advertise a DOM target once React is the public product component.");
+  if (!iconButtonAdapter.includes("react:")) add("errors", iconButtonAdapterFile, 1, "Icon Button platform contract must declare React as its implementation target.");
+  if (inputAdapter.includes("dom:") || inputAdapter.includes('renderMode: "factory"') || inputAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", inputAdapterFile, 1, "Input platform contract must not advertise a DOM target once React is the public product component.");
+  if (!inputAdapter.includes("react:")) add("errors", inputAdapterFile, 1, "Input platform contract must declare React as its implementation target.");
+  if (selectAdapter.includes("dom:") || selectAdapter.includes('renderMode: "factory"') || selectAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", selectAdapterFile, 1, "Select platform contract must not advertise a DOM target once React is the public product component.");
+  if (!selectAdapter.includes("react:")) add("errors", selectAdapterFile, 1, "Select platform contract must declare React as its implementation target.");
+  for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true"]) if (!buttonAdapter.includes(snippet)) add("errors", buttonAdapterFile, 1, `Button platform contract must mark React as the only public component target; missing ${snippet}.`);
+  for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true"]) if (!checkboxAdapter.includes(snippet)) add("errors", checkboxAdapterFile, 1, `Checkbox platform contract must mark React as the only public component target; missing ${snippet}.`);
+  for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true"]) if (!iconButtonAdapter.includes(snippet)) add("errors", iconButtonAdapterFile, 1, `Icon Button platform contract must mark React as the only public component target; missing ${snippet}.`);
+  for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true"]) if (!inputAdapter.includes(snippet)) add("errors", inputAdapterFile, 1, `Input platform contract must mark React as the only public component target; missing ${snippet}.`);
+  for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true"]) if (!selectAdapter.includes(snippet)) add("errors", selectAdapterFile, 1, `Select platform contract must mark React as the only public component target; missing ${snippet}.`);
   for (const token of [
     "comp.button.*",
     "sys.energy.*",
@@ -258,6 +203,11 @@ function checkPlatformAdapters() {
   for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true", "componentContracts.switch"]) if (!switchAdapter.includes(snippet)) add("errors", switchAdapterFile, 1, `Switch platform contract missing ${snippet}.`);
   for (const token of ["comp.switch.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*"]) if (!switchAdapter.includes(token)) add("errors", switchAdapterFile, 1, `Switch platform contract must include token dependency ${token}.`);
   for (const primitive of ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "message", "measurement"]) if (!switchAdapter.includes(`"${primitive}"`)) add("errors", switchAdapterFile, 1, `Switch platform contract must include primitive dependency ${primitive}.`);
+  if (!adapterIndex.includes("textAreaPlatformContract")) add("errors", adapterIndexFile, 1, "Platform index must export Text Area platform contracts.");
+  if (textAreaAdapter.includes("dom:") || textAreaAdapter.includes('renderMode: "factory"') || textAreaAdapter.includes('implementationRole: "transitional-static-renderer"')) add("errors", textAreaAdapterFile, 1, "Text Area platform contract must not advertise a DOM target once React is the public product component.");
+  for (const snippet of ['renderMode: "component"', 'implementationRole: "primary-product-component"', "sourceOfTruth: true", "componentContracts.textArea"]) if (!textAreaAdapter.includes(snippet)) add("errors", textAreaAdapterFile, 1, `Text Area platform contract missing ${snippet}.`);
+  for (const token of ["comp.text-area.*", "component-field-*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*"]) if (!textAreaAdapter.includes(token)) add("errors", textAreaAdapterFile, 1, `Text Area platform contract must include token dependency ${token}.`);
+  for (const primitive of ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "message", "measurement"]) if (!textAreaAdapter.includes(`"${primitive}"`)) add("errors", textAreaAdapterFile, 1, `Text Area platform contract must include primitive dependency ${primitive}.`);
   for (const token of [
     "comp.input.*",
     "component-field-*",
@@ -332,7 +282,7 @@ function checkPlatformAdapters() {
     [reactButtonTypesFile, reactButtonTypes, ["ButtonProps", "ButtonVariant", "ButtonDensity", "ButtonState", "buttonPlatformContract"]],
     [reactCheckboxFile, reactCheckbox, ["checkboxPlatformContract", "className: [\"choice checkbox\"", '"data-density": density || undefined', '"data-state": normalizedState', "choice__input", "choice__mark", "choice__indicator", "onCheckedChange"]],
     [reactCheckboxTypesFile, reactCheckboxTypes, ["CheckboxProps", "CheckboxVariant", "CheckboxDensity", "CheckboxState", "checkboxPlatformContract", "onCheckedChange"]],
-    [reactPackageFile, reactPackage, ['"build": "node scripts/build.mjs"', '"test": "node test/button-render.test.mjs"', '"types": "./dist/index.d.ts"', '"./button"', '"./checkbox"', '"./radio-button"', '"./select"']],
+    [reactPackageFile, reactPackage, ['"build": "node scripts/build.mjs"', '"test": "node test/button-render.test.mjs"', '"types": "./dist/index.d.ts"', '"./button"', '"./checkbox"', '"./radio-button"', '"./select"', '"./switch"', '"./text-area"']],
     [reactExampleFile, reactExample, ['import { Button } from "@design-system/react"', 'import "@design-system/components/styles.css"']],
     [reactIconButtonFile, reactIconButton, ["iconButtonPlatformContract", "className: iconButtonClassName", '"aria-label": resolvedLabel', '"aria-pressed": selected ? "true"', '"data-density": density || undefined', "icon-button__icon", "icon-button__badge"]],
     [reactIconButtonTypesFile, reactIconButtonTypes, ["IconButtonProps", "IconButtonVariant", "IconButtonDensity", "iconButtonPlatformContract", "icon: string"]],
@@ -344,8 +294,10 @@ function checkPlatformAdapters() {
     [reactSelectTypesFile, reactSelectTypes, ["SelectProps", "SelectVariant", "SelectDensity", "SelectState", "selectPlatformContract", "onValueChange"]],
     [reactSwitchFile, reactSwitch, ["switchPlatformContract", "className: [\"switch\"", '"data-density": density || undefined', '"data-state": normalizedState', "switch__input", "switch__track", "switch__thumb", "onCheckedChange"]],
     [reactSwitchTypesFile, reactSwitchTypes, ["SwitchProps", "SwitchDensity", "SwitchState", "switchPlatformContract", "onCheckedChange"]],
-    [reactIndexFile, reactIndex, ["Button", "Checkbox", "IconButton", "Input", "RadioButton", "Select", "Switch"]],
-    [reactIndexTypesFile, reactIndexTypes, ["ButtonProps", "CheckboxProps", "IconButtonProps", "InputProps", "RadioButtonProps", "SelectProps", "SwitchProps"]],
+    [reactTextAreaFile, reactTextArea, ["textAreaPlatformContract", "className: [\"field\"", '"data-density": density || undefined', "text-area__surface", "text-area__counter", "onChange"]],
+    [reactTextAreaTypesFile, reactTextAreaTypes, ["TextAreaProps", "TextAreaDensity", "TextAreaState", "textAreaPlatformContract", "onChange"]],
+    [reactIndexFile, reactIndex, ["Button", "Checkbox", "IconButton", "Input", "RadioButton", "Select", "Switch", "TextArea"]],
+    [reactIndexTypesFile, reactIndexTypes, ["ButtonProps", "CheckboxProps", "IconButtonProps", "InputProps", "RadioButtonProps", "SelectProps", "SwitchProps", "TextAreaProps"]],
   ]) {
     for (const snippet of required) {
       if (!source.includes(snippet)) {
@@ -387,6 +339,7 @@ function checkPlatformAdapters() {
     [reactRadioButtonFile, reactRadioButton],
     [reactSelectFile, reactSelect],
     [reactSwitchFile, reactSwitch],
+    [reactTextAreaFile, reactTextArea],
   ]) {
     if (source.includes(forbiddenPrefix)) {
       add("errors", file, 1, "Platform implementation contracts must not expose the forbidden public product prefix.");

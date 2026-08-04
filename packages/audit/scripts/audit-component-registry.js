@@ -24,7 +24,6 @@ const unprefixedFactoryComponents = new Map([
   ["floating-action-button", "createFloatingActionButton"],
   ["inline-validation", "createInlineValidation"],
   ["tag", "createTag"],
-  ["text-area", "createTextArea"],
   ["code-input", "createCodeInput"],
   ["phone-input", "createPhoneInput"],
   ["progress-indicator", "createProgressIndicator"],
@@ -70,9 +69,9 @@ function checkComponentRegistry() {
 
   for (const component of requiredComponentContracts) {
     const key = component.includes("-") ? `"${component}"` : component;
-    if (["button", "checkbox", "icon-button", "input", "radio-button", "select", "switch"].includes(component)) {
-      const label = component === "button" ? "Button" : component === "checkbox" ? "Checkbox" : component === "icon-button" ? "Icon Button" : component === "input" ? "Input" : component === "radio-button" ? "Radio Button" : component === "switch" ? "Switch" : "Select";
-      const factory = component === "button" ? "createButton" : component === "checkbox" ? "createCheckbox" : component === "icon-button" ? "createIconButton" : component === "input" ? "createInput" : component === "radio-button" ? "createRadioButton" : component === "switch" ? "createSwitch" : "createSelect";
+    if (["button", "checkbox", "icon-button", "input", "radio-button", "select", "switch", "text-area"].includes(component)) {
+      const label = component === "button" ? "Button" : component === "checkbox" ? "Checkbox" : component === "icon-button" ? "Icon Button" : component === "input" ? "Input" : component === "radio-button" ? "Radio Button" : component === "switch" ? "Switch" : component === "text-area" ? "Text Area" : "Select";
+      const factory = component === "button" ? "createButton" : component === "checkbox" ? "createCheckbox" : component === "icon-button" ? "createIconButton" : component === "input" ? "createInput" : component === "radio-button" ? "createRadioButton" : component === "switch" ? "createSwitch" : component === "text-area" ? "createTextArea" : "createSelect";
       if (!registrySource.includes(`${label} is React-primary`) || registrySource.includes(`${key}: ${factory}`)) {
         add("errors", registryFile, 1, `${label} registry entry must reject DOM rendering and route docs through the React component.`);
       }
@@ -99,7 +98,7 @@ function checkComponentRegistry() {
   if (!docsRendererSource.includes("renderComponentDemo")) {
     add("errors", docsRendererFile, 1, "Docs component demo renderer must consume the official Design System registry demo renderer.");
   }
-  for (const snippet of ["componentDemoProps", "reactButtonDemo", 'data-react-component="button"', 'if (component === "button") return reactButtonDemo(demo);', "reactCheckboxDemo", 'data-react-component="checkbox"', 'if (component === "checkbox") return reactCheckboxDemo(demo);', "reactInputDemo", 'data-react-component="input"', 'if (component === "input") return reactInputDemo(demo);', "reactRadioButtonDemo", 'data-react-component="radio-button"', 'if (component === "radio-button") return reactRadioButtonDemo(demo);', "reactSelectDemo", 'data-react-component="select"', 'if (component === "select") return reactSelectDemo(demo);', "reactSwitchDemo", 'data-react-component="switch"', 'if (component === "switch") return reactSwitchDemo(demo);']) {
+  for (const snippet of ["componentDemoProps", "reactButtonDemo", 'data-react-component="button"', 'if (component === "button") return reactButtonDemo(demo);', "reactCheckboxDemo", 'data-react-component="checkbox"', 'if (component === "checkbox") return reactCheckboxDemo(demo);', "reactInputDemo", 'data-react-component="input"', 'if (component === "input") return reactInputDemo(demo);', "reactRadioButtonDemo", 'data-react-component="radio-button"', 'if (component === "radio-button") return reactRadioButtonDemo(demo);', "reactSelectDemo", 'data-react-component="select"', 'if (component === "select") return reactSelectDemo(demo);', "reactSwitchDemo", 'data-react-component="switch"', 'if (component === "switch") return reactSwitchDemo(demo);', "reactTextAreaDemo", 'data-react-component="text-area"', 'if (component === "text-area") return reactTextAreaDemo(demo);']) {
     if (!docsRendererSource.includes(snippet)) {
       add("errors", docsRendererFile, 1, `Docs Button demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
     }

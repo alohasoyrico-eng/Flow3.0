@@ -1,0 +1,29 @@
+import type { ForwardRefExoticComponent, RefAttributes, TextareaHTMLAttributes } from "react";
+import { textAreaPlatformContract } from "@design-system/components/platforms";
+
+export type TextAreaDensity = "sm" | "md" | "lg";
+export type TextAreaState = "default" | "focus" | "filled" | "loading" | "error" | "disabled";
+
+export interface TextAreaChangeMeta {
+  length: number;
+  maxLength?: number;
+}
+
+export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange"> {
+  label: string;
+  helper?: string;
+  helperText?: string;
+  error?: string;
+  value?: string;
+  loading?: boolean;
+  density?: TextAreaDensity;
+  state?: TextAreaState;
+  onChange?: (value: string, meta: TextAreaChangeMeta) => void;
+}
+
+export interface TextAreaComponent extends ForwardRefExoticComponent<TextAreaProps & RefAttributes<HTMLTextAreaElement>> {
+  displayName: "TextArea";
+  platformContract: typeof textAreaPlatformContract;
+}
+
+export const TextArea: TextAreaComponent;
