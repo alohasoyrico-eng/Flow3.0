@@ -26,7 +26,6 @@ import {
   createQuickAction,
   createRouteSummary,
   createSegmentedControl,
-  createSpinner,
   createSlider,
   createStationPin,
   createTable,
@@ -102,6 +101,9 @@ import {
   sliderPlatformAdapters,
   sliderPlatformContract,
   sliderPlatformProps,
+  spinnerPlatformAdapters,
+  spinnerPlatformContract,
+  spinnerPlatformProps,
   stepperPlatformAdapters,
   stepperPlatformContract,
   stepperPlatformProps,
@@ -467,7 +469,16 @@ assert.deepEqual(Object.keys(toastPlatformAdapters), ["react"]);
 assert.equal(toastPlatformAdapters.react.componentName, "Toast");
 assert.equal(toastPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.progressIndicator.factory, "createProgressIndicator");
-assert.equal(componentContracts.spinner.factory, "createSpinner");
+assert.equal(componentContracts.spinner.factory, "@design-system/react/spinner");
+assert.equal(componentContracts.spinner.internalFactory, "createSpinner");
+assert.equal(spinnerPlatformContract.id, "spinner");
+assert.equal(spinnerPlatformContract.source.factory, componentContracts.spinner.factory);
+assert.deepEqual(spinnerPlatformProps(), componentContracts.spinner.props.map((prop) => prop.name));
+assert.deepEqual(spinnerPlatformContract.variants, componentContracts.spinner.variants);
+assert.deepEqual(spinnerPlatformContract.states, componentContracts.spinner.states);
+assert.deepEqual(Object.keys(spinnerPlatformAdapters), ["react"]);
+assert.equal(spinnerPlatformAdapters.react.componentName, "Spinner");
+assert.equal(spinnerPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.accordion.factory, "@design-system/react/accordion");
 assert.equal(componentContracts.accordion.internalFactory, "createAccordion");
 assert.equal(accordionPlatformContract.id, "accordion");
@@ -1391,22 +1402,6 @@ assert.equal(indeterminateProgress.attributes["aria-valuemax"], undefined);
 assert.equal(indeterminateProgress.attributes["aria-valuetext"], "In progress");
 assert.equal(indeterminateProgress.querySelector(".progress__value"), null);
 assert.equal(indeterminateProgress.querySelector(".spinner"), null);
-
-const spinner = createSpinner({ label: "Checking value", density: "sm", tone: "ink" });
-assert.equal(spinner.className, "spinner");
-assert.equal(spinner.attributes.role, "status");
-assert.equal(spinner.attributes["aria-label"], "Checking value");
-assert.equal(spinner.dataset.density, "sm");
-assert.equal(spinner.dataset.tone, "ink");
-assert.equal(spinner.dataset.state, "loading");
-assert.equal(spinner.querySelector(".spinner__svg").tagName, "SVG");
-assert.equal(spinner.querySelector(".spinner__track").tagName, "CIRCLE");
-assert.equal(spinner.querySelector(".spinner__arc").tagName, "CIRCLE");
-assert.equal(spinner.querySelector(".spinner__track").attributes.pathLength, "100");
-assert.equal(spinner.querySelector(".spinner__arc").attributes.pathLength, "100");
-const decorativeSpinner = createSpinner({ decorative: true });
-assert.equal(decorativeSpinner.attributes["aria-hidden"], "true");
-assert.equal(decorativeSpinner.attributes.role, undefined);
 
 const slider = createSlider({ label: "Radius", value: 25, min: 0, max: 50, step: 5, valueLabel: "25 km" });
 assert.equal(slider.tagName, "LABEL");
