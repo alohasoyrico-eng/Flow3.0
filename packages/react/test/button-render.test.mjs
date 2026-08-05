@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -44,6 +44,8 @@ assert.equal(Pagination.displayName, "Pagination");
 assert.equal(Pagination.platformContract, paginationPlatformContract);
 assert.equal(PhoneInput.displayName, "PhoneInput");
 assert.equal(PhoneInput.platformContract, phoneInputPlatformContract);
+assert.equal(Popover.displayName, "Popover");
+assert.equal(Popover.platformContract, popoverPlatformContract);
 assert.equal(RadioButton.displayName, "RadioButton");
 assert.equal(RadioButton.platformContract, radioButtonPlatformContract);
 assert.equal(SegmentedControl.displayName, "SegmentedControl");
@@ -533,6 +535,56 @@ assert.match(openTooltipMarkup, /data-variant="metric"/);
 assert.match(openTooltipMarkup, /data-open="true"/);
 assert.match(openTooltipMarkup, /aria-describedby="tip-cost"/);
 assert.doesNotMatch(openTooltipMarkup, /hidden=""/);
+
+const popoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
+  triggerLabel: "Details",
+  title: "Card status",
+  description: "Active card",
+  id: "card-popover",
+  density: "sm",
+  variant: "metric",
+  placement: "top",
+}));
+assert.match(popoverMarkup, /^<span/);
+assert.match(popoverMarkup, /class="popover"/);
+assert.match(popoverMarkup, /data-open="false"/);
+assert.match(popoverMarkup, /data-density="sm"/);
+assert.match(popoverMarkup, /data-variant="metric"/);
+assert.match(popoverMarkup, /data-placement="top"/);
+assert.match(popoverMarkup, /class="button button--tertiary popover__trigger"/);
+assert.match(popoverMarkup, /data-popover-trigger=""/);
+assert.match(popoverMarkup, /aria-haspopup="dialog"/);
+assert.match(popoverMarkup, /aria-expanded="false"/);
+assert.match(popoverMarkup, /aria-controls="card-popover"/);
+assert.match(popoverMarkup, /class="popover__panel"/);
+assert.match(popoverMarkup, /hidden=""/);
+assert.match(popoverMarkup, /role="dialog"/);
+
+const actionPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
+  triggerLabel: "Filters",
+  title: "Local filters",
+  variant: "action",
+  open: true,
+  actions: [{ label: "Apply", key: "apply", variant: "primary" }],
+}));
+assert.match(actionPopoverMarkup, /data-open="true"/);
+assert.match(actionPopoverMarkup, /aria-expanded="true"/);
+assert.doesNotMatch(actionPopoverMarkup, /hidden=""/);
+assert.match(actionPopoverMarkup, /class="popover__actions"/);
+assert.match(actionPopoverMarkup, /data-popover-action=""/);
+assert.match(actionPopoverMarkup, /data-key="apply"/);
+
+const formPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
+  triggerLabel: "Edit",
+  title: "Local edit",
+  variant: "form",
+  open: true,
+  density: "lg",
+  field: { label: "Limit", value: "$500" },
+}));
+assert.match(formPopoverMarkup, /data-variant="form"/);
+assert.match(formPopoverMarkup, /class="field"/);
+assert.match(formPopoverMarkup, /data-density="lg"/);
 
 const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
   label: "Enable fuel card",

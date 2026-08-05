@@ -160,6 +160,17 @@ export type {
   PhoneInputState,
   PhoneInputVariant,
 } from "./PhoneInput.js";
+export { Popover } from "./Popover.js";
+export type {
+  PopoverAction,
+  PopoverComponent,
+  PopoverDensity,
+  PopoverField,
+  PopoverPlacement,
+  PopoverProps,
+  PopoverState,
+  PopoverVariant,
+} from "./Popover.js";
 export { Pagination } from "./Pagination.js";
 export type {
   PaginationComponent,

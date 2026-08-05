@@ -18,7 +18,6 @@ import {
   createMovementRow,
   createMenu,
   createMotionBoundary,
-  createPopover,
   createQuickAction,
   createRouteSummary,
   createSlider,
@@ -72,6 +71,9 @@ import {
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,
+  popoverPlatformAdapters,
+  popoverPlatformContract,
+  popoverPlatformProps,
   paginationPlatformAdapters,
   paginationPlatformContract,
   paginationPlatformProps,
@@ -655,7 +657,16 @@ assert.deepEqual(segmentedControlPlatformContract.states, componentContracts.seg
 assert.deepEqual(Object.keys(segmentedControlPlatformAdapters), ["react"]);
 assert.equal(segmentedControlPlatformAdapters.react.componentName, "SegmentedControl");
 assert.equal(segmentedControlPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.popover.factory, "createPopover");
+assert.equal(componentContracts.popover.factory, "@design-system/react/popover");
+assert.equal(componentContracts.popover.internalFactory, "createPopover");
+assert.equal(popoverPlatformContract.id, "popover");
+assert.equal(popoverPlatformContract.source.factory, componentContracts.popover.factory);
+assert.deepEqual(popoverPlatformProps(), componentContracts.popover.props.map((prop) => prop.name));
+assert.deepEqual(popoverPlatformContract.variants, componentContracts.popover.variants);
+assert.deepEqual(popoverPlatformContract.states, componentContracts.popover.states);
+assert.deepEqual(Object.keys(popoverPlatformAdapters), ["react"]);
+assert.equal(popoverPlatformAdapters.react.componentName, "Popover");
+assert.equal(popoverPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardSummary.factory, "createCardSummary");
 assert.equal(componentContracts.movementRow.factory, "createMovementRow");
 assert.equal(componentContracts.quickAction.factory, "createQuickAction");
@@ -2285,48 +2296,6 @@ interactiveRange.querySelectorAll(".date-range-picker__preset")[0].click();
 assert.equal(Boolean(rangeValue.from), true);
 assert.equal(Boolean(rangeValue.to), true);
 assert.equal(interactiveRange.querySelector(".date-range-picker__panel").hidden, true);
-
-const popover = createPopover({ triggerLabel: "Details", title: "Card status", description: "Active", id: "card-popover", density: "sm", variant: "metric", placement: "top" });
-assert.equal(popover.tagName, "SPAN");
-assert.equal(popover.className, "popover");
-assert.equal(popover.dataset.density, "sm");
-assert.equal(popover.dataset.variant, "metric");
-assert.equal(popover.dataset.placement, "top");
-assert.equal(popover.querySelector("button").dataset.density, "sm");
-assert.equal(popover.querySelector("button").attributes["aria-haspopup"], "dialog");
-assert.equal(popover.querySelector("button").attributes["data-popover-trigger"], "");
-assert.equal(popover.querySelector(".popover__panel").id, "card-popover");
-assert.equal(popover.querySelector(".popover__panel").hidden, true);
-let popoverOpen = null;
-let popoverAction = "";
-const interactivePopover = createPopover({
-  triggerLabel: "Details",
-  title: "Card status",
-  variant: "action",
-  actions: [{ label: "Apply", key: "apply" }],
-  onOpenChange(open) {
-    popoverOpen = open;
-  },
-  onAction(key) {
-    popoverAction = key;
-  },
-});
-interactivePopover.querySelector("button").click();
-assert.equal(interactivePopover.querySelector(".popover__panel").hidden, false);
-assert.equal(interactivePopover.querySelector("button").attributes["aria-expanded"], "true");
-assert.equal(popoverOpen, true);
-interactivePopover.querySelectorAll("button")[1].click();
-assert.equal(interactivePopover.querySelector(".popover__panel").hidden, true);
-assert.equal(popoverAction, "apply");
-interactivePopover.querySelector("button").click();
-interactivePopover.querySelector(".popover__panel").dispatchEvent({ type: "keydown", key: "Escape", preventDefault() { this.defaultPrevented = true; } });
-assert.equal(interactivePopover.querySelector(".popover__panel").hidden, true);
-assert.equal(globalThis.document.activeElement, interactivePopover.querySelector("button"));
-interactivePopover.querySelector("button").click();
-globalThis.document.dispatchEvent({ type: "pointerdown", target: document.createElement("span") });
-assert.equal(interactivePopover.querySelector(".popover__panel").hidden, true);
-const formPopover = createPopover({ triggerLabel: "Edit", title: "Local edit", variant: "form", field: { label: "Limit", value: "$500" }, open: true });
-assert.equal(formPopover.querySelector(".field").dataset.density, "md");
 
 const cardSummary = createCardSummary({ label: "Fuel card", meta: "Ana Sosa", number: "•••• 0420", expires: "12/28", status: "Active", metrics: [{ label: "Limit", value: "$900" }] });
 assert.equal(cardSummary.tagName, "ARTICLE");

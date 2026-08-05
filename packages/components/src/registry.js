@@ -19,7 +19,6 @@ import {
   createDialog,
   createDrawer,
   createMenu,
-  createPopover,
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
@@ -99,7 +98,9 @@ export const componentRegistry = Object.freeze({
   "phone-input": () => {
     throw new Error("Phone Input is React-primary. Use @design-system/react/phone-input instead of the transitional DOM renderer.");
   },
-  popover: createPopover,
+  popover: () => {
+    throw new Error("Popover is React-primary. Use @design-system/react/popover instead of the transitional DOM renderer.");
+  },
   "progress-indicator": () => {
     throw new Error("Progress Indicator is React-primary. Use @design-system/react/progress-indicator instead of the transitional DOM renderer.");
   },

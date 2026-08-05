@@ -134,6 +134,11 @@ export {
   segmentedControlPlatformProps,
 } from "./segmented-control.js";
 export {
+  popoverPlatformAdapters,
+  popoverPlatformContract,
+  popoverPlatformProps,
+} from "./popover.js";
+export {
   sliderPlatformAdapters,
   sliderPlatformContract,
   sliderPlatformProps,
