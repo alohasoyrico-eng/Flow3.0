@@ -26,7 +26,6 @@ import {
   createQuickAction,
   createRouteSummary,
   createSegmentedControl,
-  createSkeleton,
   createSpinner,
   createSlider,
   createStationPin,
@@ -97,6 +96,9 @@ import {
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,
+  skeletonPlatformAdapters,
+  skeletonPlatformContract,
+  skeletonPlatformProps,
   sliderPlatformAdapters,
   sliderPlatformContract,
   sliderPlatformProps,
@@ -496,7 +498,16 @@ assert.deepEqual(avatarPlatformContract.states, componentContracts.avatar.states
 assert.deepEqual(Object.keys(avatarPlatformAdapters), ["react"]);
 assert.equal(avatarPlatformAdapters.react.componentName, "Avatar");
 assert.equal(avatarPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.skeleton.factory, "createSkeleton");
+assert.equal(componentContracts.skeleton.factory, "@design-system/react/skeleton");
+assert.equal(componentContracts.skeleton.internalFactory, "createSkeleton");
+assert.equal(skeletonPlatformContract.id, "skeleton");
+assert.equal(skeletonPlatformContract.source.factory, componentContracts.skeleton.factory);
+assert.deepEqual(skeletonPlatformProps(), componentContracts.skeleton.props.map((prop) => prop.name));
+assert.deepEqual(skeletonPlatformContract.variants, componentContracts.skeleton.variants);
+assert.deepEqual(skeletonPlatformContract.states, componentContracts.skeleton.states);
+assert.deepEqual(Object.keys(skeletonPlatformAdapters), ["react"]);
+assert.equal(skeletonPlatformAdapters.react.componentName, "Skeleton");
+assert.equal(skeletonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.dialog.factory, "createDialog");
 assert.equal(componentContracts.menu.factory, "createMenu");
 assert.equal(componentContracts.drawer.factory, "createDrawer");
@@ -1459,31 +1470,6 @@ assert.equal(largeAvatar.dataset.state, "busy");
 const unknownAvatar = createTransitionalAvatar({ name: "", state: "unknown" });
 assert.equal(unknownAvatar.attributes["aria-label"], "Unknown avatar");
 assert.equal(unknownAvatar.querySelector(".avatar__initials").textContent, "?");
-
-const skeleton = createSkeleton({ label: "Loading cards", variant: "card", lines: 2 });
-assert.equal(skeleton.tagName, "DIV");
-assert.equal(skeleton.className, "skeleton skeleton--card");
-assert.equal(skeleton.attributes.role, "status");
-assert.equal(skeleton.attributes["aria-busy"], "true");
-assert.equal(skeleton.querySelectorAll(".skeleton__bone").length, 2);
-const loadedSkeleton = createSkeleton({ label: "Loaded cards", variant: "card", state: "loaded" });
-assert.equal(loadedSkeleton.attributes["aria-busy"], "false");
-const disabledSkeleton = createSkeleton({ label: "Disabled loading", variant: "text", state: "disabled" });
-assert.equal(disabledSkeleton.attributes["aria-busy"], "false");
-const circleSkeleton = createSkeleton({ label: "Loading avatar", variant: "circle", width: 36, height: 36 });
-assert.equal(circleSkeleton.className, "skeleton skeleton--circle");
-assert.equal(circleSkeleton.style, "--skeleton-width: 36px; --skeleton-height: 36px");
-assert.equal(circleSkeleton.querySelectorAll(".skeleton__bone").length, 1);
-const titleSkeleton = createSkeleton({ label: "Loading title", variant: "title", width: "70%" });
-assert.equal(titleSkeleton.className, "skeleton skeleton--title");
-assert.equal(titleSkeleton.style, "--skeleton-width: 70%");
-const tableSkeleton = createSkeleton({ label: "Loading table", variant: "table", rows: 3, columns: 4 });
-assert.equal(tableSkeleton.className, "skeleton skeleton--table");
-assert.equal(tableSkeleton.dataset.rows, "3");
-assert.equal(tableSkeleton.dataset.columns, "4");
-assert.equal(tableSkeleton.querySelectorAll(".skeleton__row").length, 3);
-assert.equal(tableSkeleton.querySelectorAll(".skeleton__cell").length, 12);
-assert.equal(tableSkeleton.querySelector(".skeleton__cell").attributes["aria-hidden"], "true");
 
 const dialog = createDialog({
   label: "Freeze card?",

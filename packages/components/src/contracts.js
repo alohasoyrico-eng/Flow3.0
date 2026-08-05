@@ -659,7 +659,8 @@ export const componentContracts = {
     ]
   },
   skeleton: {
-    factory: "createSkeleton",
+    factory: "@design-system/react/skeleton",
+    internalFactory: "createSkeleton",
     element: "div",
     purpose: "Indicate loading structure while content is pending without implying final content values.",
     variants: ["text", "title", "circle", "card", "pill", "row", "media", "chart", "table"],

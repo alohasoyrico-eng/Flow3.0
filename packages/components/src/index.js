@@ -9,7 +9,7 @@ export {
   createTable,
 } from "./components/commerce.js?v=19";
 export { createAuditEvent, createKpiTile, createList } from "./components/display.js?v=3";
-export { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
+export { createEmptyState, createErrorPanel, createProgressIndicator, createSpinner } from "./components/feedback.js?v=8";
 export { createCombobox, hydrateCombobox } from "./components/fields.js?v=21";
 export {
   createSegmentedControl,
