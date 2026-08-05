@@ -8,7 +8,6 @@ import {
   createAnimatedMoment,
   createMovementRow,
   createMotionBoundary,
-  createQuickAction,
   createRouteSummary,
   createStationPin,
   createAnimationAsset,
@@ -111,6 +110,9 @@ import {
   menuPlatformAdapters,
   menuPlatformContract,
   menuPlatformProps,
+  quickActionPlatformAdapters,
+  quickActionPlatformContract,
+  quickActionPlatformProps,
   radioButtonPlatformAdapters,
   radioButtonPlatformContract,
   radioButtonPlatformProps,
@@ -160,7 +162,7 @@ import {
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
-import { createTable } from "../src/components/commerce.js?v=15";
+import { createQuickAction, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -793,7 +795,16 @@ assert.equal(popoverPlatformAdapters.react.componentName, "Popover");
 assert.equal(popoverPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardSummary.factory, "createCardSummary");
 assert.equal(componentContracts.movementRow.factory, "createMovementRow");
-assert.equal(componentContracts.quickAction.factory, "createQuickAction");
+assert.equal(componentContracts.quickAction.factory, "@design-system/react/quick-action");
+assert.equal(componentContracts.quickAction.internalFactory, "createQuickAction");
+assert.equal(quickActionPlatformContract.id, "quick-action");
+assert.equal(quickActionPlatformContract.source.factory, componentContracts.quickAction.factory);
+assert.deepEqual(quickActionPlatformProps(), componentContracts.quickAction.props.map((prop) => prop.name));
+assert.deepEqual(quickActionPlatformContract.variants, componentContracts.quickAction.variants);
+assert.deepEqual(quickActionPlatformContract.states, componentContracts.quickAction.states);
+assert.deepEqual(Object.keys(quickActionPlatformAdapters), ["react"]);
+assert.equal(quickActionPlatformAdapters.react.componentName, "QuickAction");
+assert.equal(quickActionPlatformAdapters.react.sourceOfTruth, true);
 for (const contract of Object.values(componentContracts)) {
   assert.ok(contract.purpose.length > 20);
   assert.ok(contract.props.length >= 5);

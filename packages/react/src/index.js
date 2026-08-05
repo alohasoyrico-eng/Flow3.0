@@ -29,6 +29,7 @@ export { PhoneInput } from "./PhoneInput.js";
 export { Popover } from "./Popover.js";
 export { Pagination } from "./Pagination.js";
 export { ProgressIndicator } from "./ProgressIndicator.js";
+export { QuickAction } from "./QuickAction.js";
 export { RadioButton } from "./RadioButton.js";
 export { Select } from "./Select.js";
 export { SegmentedControl } from "./SegmentedControl.js";

@@ -33,8 +33,8 @@ const moduleRules = [
       "createStationPin",
       "createTable",
     ],
-    publicExports: ["createCardSummary", "createChartPanel", "createMovementRow", "createQuickAction", "createRouteSummary", "createStationPin"],
-    internalExports: ["createTable"],
+    publicExports: ["createCardSummary", "createChartPanel", "createMovementRow", "createRouteSummary", "createStationPin"],
+    internalExports: ["createQuickAction", "createTable"],
   },
   {
     id: "display",

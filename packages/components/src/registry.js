@@ -2,7 +2,6 @@ import {
   createCardSummary,
   createChartPanel,
   createMovementRow,
-  createQuickAction,
   createRouteSummary,
   createStationPin,
 } from "./components/commerce.js?v=15";
@@ -111,7 +110,9 @@ export const componentRegistry = Object.freeze({
   "progress-indicator": () => {
     throw new Error("Progress Indicator is React-primary. Use @design-system/react/progress-indicator instead of the transitional DOM renderer.");
   },
-  "quick-action": createQuickAction,
+  "quick-action": () => {
+    throw new Error("Quick Action is React-primary. Use @design-system/react/quick-action instead of the transitional DOM renderer.");
+  },
   "radio-button": () => {
     throw new Error("Radio Button is React-primary. Use @design-system/react/radio-button instead of the transitional DOM renderer.");
   },

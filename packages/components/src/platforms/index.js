@@ -228,3 +228,8 @@ export {
   kpiTilePlatformContract,
   kpiTilePlatformProps,
 } from "./kpi-tile.js";
+export {
+  quickActionPlatformAdapters,
+  quickActionPlatformContract,
+  quickActionPlatformProps,
+} from "./quick-action.js";
