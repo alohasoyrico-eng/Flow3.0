@@ -84,6 +84,10 @@
       "types": "./dist/ErrorPanel.d.ts",
       "default": "./dist/ErrorPanel.js"
     },
+    "./floating-action-button": {
+      "types": "./dist/FloatingActionButton.d.ts",
+      "default": "./dist/FloatingActionButton.js"
+    },
     "./icon-button": {
       "types": "./dist/IconButton.d.ts",
       "default": "./dist/IconButton.js"

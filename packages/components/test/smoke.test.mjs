@@ -6,7 +6,6 @@ import {
   createAuditEvent,
   createBiometricPrompt,
   createCountrySelector,
-  createFloatingActionButton,
   createAnimatedMoment,
   createMovementRow,
   createMotionBoundary,
@@ -69,6 +68,9 @@ import {
   errorPanelPlatformAdapters,
   errorPanelPlatformContract,
   errorPanelPlatformProps,
+  floatingActionButtonPlatformAdapters,
+  floatingActionButtonPlatformContract,
+  floatingActionButtonPlatformProps,
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,
@@ -154,6 +156,7 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
+import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
 import { createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
@@ -661,7 +664,16 @@ assert.deepEqual(kpiTilePlatformContract.states, componentContracts.kpiTile.stat
 assert.deepEqual(Object.keys(kpiTilePlatformAdapters), ["react"]);
 assert.equal(kpiTilePlatformAdapters.react.componentName, "KpiTile");
 assert.equal(kpiTilePlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.floatingActionButton.factory, "createFloatingActionButton");
+assert.equal(componentContracts.floatingActionButton.factory, "@design-system/react/floating-action-button");
+assert.equal(componentContracts.floatingActionButton.internalFactory, "createFloatingActionButton");
+assert.equal(floatingActionButtonPlatformContract.id, "floating-action-button");
+assert.equal(floatingActionButtonPlatformContract.source.factory, componentContracts.floatingActionButton.factory);
+assert.deepEqual(floatingActionButtonPlatformProps(), componentContracts.floatingActionButton.props.map((prop) => prop.name));
+assert.deepEqual(floatingActionButtonPlatformContract.variants, componentContracts.floatingActionButton.variants);
+assert.deepEqual(floatingActionButtonPlatformContract.states, componentContracts.floatingActionButton.states);
+assert.deepEqual(Object.keys(floatingActionButtonPlatformAdapters), ["react"]);
+assert.equal(floatingActionButtonPlatformAdapters.react.componentName, "FloatingActionButton");
+assert.equal(floatingActionButtonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.pagination.factory, "@design-system/react/pagination");
 assert.equal(componentContracts.pagination.internalFactory, "createPagination");
 assert.equal(componentContracts.pagination.props.some((prop) => prop.name === "onPageChange"), true);

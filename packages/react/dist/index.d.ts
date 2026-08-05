@@ -41,9 +41,18 @@ export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
+export { FloatingActionButton } from "./FloatingActionButton.js";
 export { KpiTile } from "./KpiTile.js";
 export { List } from "./List.js";
 export { Menu } from "./Menu.js";
+export type {
+  FloatingActionButtonComponent,
+  FloatingActionButtonDensity,
+  FloatingActionButtonProps,
+  FloatingActionButtonState,
+  FloatingActionButtonType,
+  FloatingActionButtonVariant,
+} from "./FloatingActionButton.js";
 export type {
   ButtonComponent,
   ButtonDensity,

@@ -17,6 +17,7 @@ export { Dialog } from "./Dialog.js";
 export { Drawer } from "./Drawer.js";
 export { EmptyState } from "./EmptyState.js";
 export { ErrorPanel } from "./ErrorPanel.js";
+export { FloatingActionButton } from "./FloatingActionButton.js";
 export { IconButton } from "./IconButton.js";
 export { InlineValidation } from "./InlineValidation.js";
 export { Input } from "./Input.js";

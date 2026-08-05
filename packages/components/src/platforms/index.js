@@ -144,6 +144,11 @@ export {
   errorPanelPlatformProps,
 } from "./error-panel.js";
 export {
+  floatingActionButtonPlatformAdapters,
+  floatingActionButtonPlatformContract,
+  floatingActionButtonPlatformProps,
+} from "./floating-action-button.js";
+export {
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,

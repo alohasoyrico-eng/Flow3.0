@@ -113,8 +113,8 @@ const moduleRules = [
     id: "surfaces",
     file: "packages/components/src/components/surfaces.js",
     exports: ["createCard", "createFloatingActionButton", "createInlineValidation"],
-    publicExports: ["createFloatingActionButton"],
-    internalExports: ["createCard", "createInlineValidation"],
+    publicExports: [],
+    internalExports: ["createCard", "createFloatingActionButton", "createInlineValidation"],
   },
 ];
 
