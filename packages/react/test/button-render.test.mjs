@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Tooltip } from "../src/index.js";
-import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Tooltip } from "../src/index.js";
+import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Avatar.displayName, "Avatar");
 assert.equal(Avatar.platformContract, avatarPlatformContract);
@@ -26,6 +26,8 @@ assert.equal(DatePicker.displayName, "DatePicker");
 assert.equal(DatePicker.platformContract, datePickerPlatformContract);
 assert.equal(DateRangePicker.displayName, "DateRangePicker");
 assert.equal(DateRangePicker.platformContract, dateRangePickerPlatformContract);
+assert.equal(EmptyState.displayName, "EmptyState");
+assert.equal(EmptyState.platformContract, emptyStatePlatformContract);
 assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
 assert.equal(Input.displayName, "Input");
@@ -218,6 +220,37 @@ assert.match(skeletonMarkup, /data-columns="3"/);
 assert.match(skeletonMarkup, /--skeleton-columns:3/);
 assert.equal((skeletonMarkup.match(/class="skeleton__row"/g) ?? []).length, 2);
 assert.equal((skeletonMarkup.match(/class="skeleton__bone skeleton__cell"/g) ?? []).length, 6);
+
+const emptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
+  title: "No vehicles match",
+  description: "Adjust search or status filters.",
+  icon: "search_off",
+  variant: "search-empty",
+  state: "action",
+  density: "sm",
+  fullWidth: true,
+  action: { label: "Clear filters", variant: "secondary", icon: "filter_alt_off" },
+}));
+assert.match(emptyStateMarkup, /^<section/);
+assert.match(emptyStateMarkup, /class="empty-state"/);
+assert.match(emptyStateMarkup, /aria-labelledby=/);
+assert.match(emptyStateMarkup, /data-variant="search-empty"/);
+assert.match(emptyStateMarkup, /data-state="action"/);
+assert.match(emptyStateMarkup, /data-density="sm"/);
+assert.match(emptyStateMarkup, /data-full-width="true"/);
+assert.match(emptyStateMarkup, /class="empty-state__icon"/);
+assert.match(emptyStateMarkup, />search_off<\/span>/);
+assert.match(emptyStateMarkup, /class="empty-state__title"/);
+assert.match(emptyStateMarkup, />No vehicles match<\/h3>/);
+assert.match(emptyStateMarkup, /class="empty-state__description"/);
+assert.match(emptyStateMarkup, /class="button button--secondary"/);
+
+const loadingEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
+  title: "Loading vehicles",
+  state: "loading",
+}));
+assert.match(loadingEmptyStateMarkup, /data-state="loading"/);
+assert.match(loadingEmptyStateMarkup, /class="spinner"/);
 assert.doesNotMatch(staticTagMarkup, /data-interactive/);
 
 const disabledTagMarkup = renderToStaticMarkup(React.createElement(Tag, {

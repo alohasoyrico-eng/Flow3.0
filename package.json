@@ -22,6 +22,7 @@
     "./react/code-input": "./packages/react/dist/CodeInput.js",
     "./react/date-picker": "./packages/react/dist/DatePicker.js",
     "./react/date-range-picker": "./packages/react/dist/DateRangePicker.js",
+    "./react/empty-state": "./packages/react/dist/EmptyState.js",
     "./react/icon-button": "./packages/react/dist/IconButton.js",
     "./react/inline-validation": "./packages/react/dist/InlineValidation.js",
     "./react/input": "./packages/react/dist/Input.js",

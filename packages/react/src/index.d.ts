@@ -89,6 +89,15 @@ export type {
   DateRangePickerState,
   DateRangePickerValue,
 } from "./DateRangePicker.js";
+export { EmptyState } from "./EmptyState.js";
+export type {
+  EmptyStateAction,
+  EmptyStateComponent,
+  EmptyStateDensity,
+  EmptyStateProps,
+  EmptyStateState,
+  EmptyStateVariant,
+} from "./EmptyState.js";
 export { IconButton } from "./IconButton.js";
 export type {
   IconButtonComponent,

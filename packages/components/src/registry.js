@@ -73,7 +73,9 @@ export const componentRegistry = Object.freeze({
   },
   dialog: createDialog,
   drawer: createDrawer,
-  "empty-state": createEmptyState,
+  "empty-state": () => {
+    throw new Error("Empty State is React-primary. Use @design-system/react/empty-state instead of the transitional DOM renderer.");
+  },
   "error-panel": createErrorPanel,
   "floating-action-button": createFloatingActionButton,
   "icon-button": () => {
@@ -168,6 +170,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "date-range-picker") {
     throw new Error("Date Range Picker is React-primary. Use @design-system/react/date-range-picker instead of renderComponentDemo.");
+  }
+  if (id === "empty-state") {
+    throw new Error("Empty State is React-primary. Use @design-system/react/empty-state instead of renderComponentDemo.");
   }
   if (id === "checkbox") {
     throw new Error("Checkbox is React-primary. Use @design-system/react/checkbox instead of renderComponentDemo.");

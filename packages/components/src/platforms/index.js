@@ -74,6 +74,11 @@ export {
   dateRangePickerPlatformProps,
 } from "./date-range-picker.js";
 export {
+  emptyStatePlatformAdapters,
+  emptyStatePlatformContract,
+  emptyStatePlatformProps,
+} from "./empty-state.js";
+export {
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,
