@@ -1067,7 +1067,8 @@ export const componentContracts = {
     ]
   },
   errorPanel: {
-    factory: "createErrorPanel",
+    factory: "@design-system/react/error-panel",
+    internalFactory: "createErrorPanel",
     element: "section",
     purpose: "Show a bounded error or warning message with recovery copy and optional local action.",
     variants: ["inline", "panel", "blocking", "empty-recovery"],

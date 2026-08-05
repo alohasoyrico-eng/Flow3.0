@@ -11,7 +11,6 @@ import {
   createDialog,
   createDrawer,
   createBreadcrumbs,
-  createErrorPanel,
   createFloatingActionButton,
   createInlineValidation,
   createKpiTile,
@@ -69,6 +68,9 @@ import {
   emptyStatePlatformAdapters,
   emptyStatePlatformContract,
   emptyStatePlatformProps,
+  errorPanelPlatformAdapters,
+  errorPanelPlatformContract,
+  errorPanelPlatformProps,
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,
@@ -565,7 +567,16 @@ assert.deepEqual(Object.keys(paginationPlatformAdapters), ["react"]);
 assert.equal(paginationPlatformAdapters.react.componentName, "Pagination");
 assert.equal(paginationPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.auditEvent.factory, "createAuditEvent");
-assert.equal(componentContracts.errorPanel.factory, "createErrorPanel");
+assert.equal(componentContracts.errorPanel.factory, "@design-system/react/error-panel");
+assert.equal(componentContracts.errorPanel.internalFactory, "createErrorPanel");
+assert.equal(errorPanelPlatformContract.id, "error-panel");
+assert.equal(errorPanelPlatformContract.source.factory, componentContracts.errorPanel.factory);
+assert.deepEqual(errorPanelPlatformProps(), componentContracts.errorPanel.props.map((prop) => prop.name));
+assert.deepEqual(errorPanelPlatformContract.variants, componentContracts.errorPanel.variants);
+assert.deepEqual(errorPanelPlatformContract.states, componentContracts.errorPanel.states);
+assert.deepEqual(Object.keys(errorPanelPlatformAdapters), ["react"]);
+assert.equal(errorPanelPlatformAdapters.react.componentName, "ErrorPanel");
+assert.equal(errorPanelPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.inlineValidation.factory, "createInlineValidation");
 assert.equal(componentContracts.stepper.factory, "@design-system/react/stepper");
 assert.equal(componentContracts.stepper.internalFactory, "createStepper");
@@ -1890,37 +1901,6 @@ assert.equal(criticalAuditEvent.dataset.state, "critical");
 assert.equal(criticalAuditEvent.dataset.density, "sm");
 assert.equal(criticalAuditEvent.querySelector(".audit-event__time").textContent, "10:21");
 assert.equal(criticalAuditEvent.querySelector("em").textContent, "Critical");
-
-let errorPanelAction = "";
-const errorPanel = createErrorPanel({
-  label: "Could not load",
-  description: "Try again",
-  variant: "blocking",
-  state: "critical",
-  density: "sm",
-  fullWidth: true,
-  icon: "priority_high",
-  action: { label: "Retry", key: "retry" },
-  onAction(key) {
-    errorPanelAction = key;
-  },
-});
-assert.equal(errorPanel.tagName, "SECTION");
-assert.equal(errorPanel.attributes.role, "alert");
-assert.equal(errorPanel.className, "error-panel error-panel--critical");
-assert.equal(errorPanel.dataset.variant, "blocking");
-assert.equal(errorPanel.dataset.state, "critical");
-assert.equal(errorPanel.dataset.density, "sm");
-assert.equal(errorPanel.dataset.fullWidth, "true");
-assert.equal(errorPanel.querySelector(".error-panel__icon").textContent, "priority_high");
-assert.equal(errorPanel.querySelector("button").textContent, "Retry");
-assert.equal(errorPanel.querySelector("button").dataset.density, "sm");
-errorPanel.querySelector("button").click();
-assert.equal(errorPanelAction, "retry");
-const warningPanel = createErrorPanel({ label: "Limited access", state: "warning", role: "status" });
-assert.equal(warningPanel.attributes.role, "status");
-const loadingPanel = createErrorPanel({ label: "Loading", state: "loading", icon: "sync" });
-assert.equal(loadingPanel.querySelector(".spinner").attributes["aria-hidden"], "true");
 
 const inlineValidation = createInlineValidation({ label: "Plate", value: "ABC-123", message: "Required", state: "error", id: "plate" });
 assert.equal(inlineValidation.tagName, "DIV");
