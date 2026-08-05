@@ -587,7 +587,8 @@ export const componentContracts = {
     ]
   },
   accordion: {
-    factory: "createAccordion",
+    factory: "@design-system/react/accordion",
+    internalFactory: "createAccordion",
     element: "div",
     purpose: "Reveal and hide bounded content sections without owning the surrounding process.",
     variants: ["single", "multiple"],

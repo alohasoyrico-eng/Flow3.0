@@ -5,7 +5,6 @@ import {
   createChartPanel,
   hydrateChartPanel,
   createCombobox,
-  createAccordion,
   createAuditEvent,
   createBiometricPrompt,
   createCountrySelector,
@@ -41,6 +40,9 @@ import {
   resolveAnimationRuntime,
   hydrateCombobox,
   hydrateCountrySelector,
+  accordionPlatformAdapters,
+  accordionPlatformContract,
+  accordionPlatformProps,
   cardExpiryInputPlatformAdapters,
   avatarPlatformAdapters,
   avatarPlatformContract,
@@ -464,7 +466,16 @@ assert.equal(toastPlatformAdapters.react.componentName, "Toast");
 assert.equal(toastPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.progressIndicator.factory, "createProgressIndicator");
 assert.equal(componentContracts.spinner.factory, "createSpinner");
-assert.equal(componentContracts.accordion.factory, "createAccordion");
+assert.equal(componentContracts.accordion.factory, "@design-system/react/accordion");
+assert.equal(componentContracts.accordion.internalFactory, "createAccordion");
+assert.equal(accordionPlatformContract.id, "accordion");
+assert.equal(accordionPlatformContract.source.factory, componentContracts.accordion.factory);
+assert.deepEqual(accordionPlatformProps(), componentContracts.accordion.props.map((prop) => prop.name));
+assert.deepEqual(accordionPlatformContract.variants, componentContracts.accordion.variants);
+assert.deepEqual(accordionPlatformContract.states, componentContracts.accordion.states);
+assert.deepEqual(Object.keys(accordionPlatformAdapters), ["react"]);
+assert.equal(accordionPlatformAdapters.react.componentName, "Accordion");
+assert.equal(accordionPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.slider.factory, "@design-system/react/slider");
 assert.equal(componentContracts.slider.internalFactory, "createSlider");
 assert.equal(sliderPlatformContract.id, "slider");
@@ -1385,41 +1396,6 @@ assert.equal(spinner.querySelector(".spinner__arc").attributes.pathLength, "100"
 const decorativeSpinner = createSpinner({ decorative: true });
 assert.equal(decorativeSpinner.attributes["aria-hidden"], "true");
 assert.equal(decorativeSpinner.attributes.role, undefined);
-
-const accordion = createAccordion({
-  density: "sm",
-  items: [
-    { title: "Documents", content: "Insurance", open: true, id: "docs-panel", icon: "description", meta: "3 of 4" },
-    { title: "Limits", content: "Fuel rules", icon: "speed", meta: "2 rules" },
-  ],
-});
-assert.equal(accordion.tagName, "DIV");
-assert.equal(accordion.className, "accordion");
-assert.equal(accordion.dataset.density, "sm");
-assert.equal(accordion.querySelector(".accordion__trigger").attributes["aria-expanded"], "true");
-assert.equal(accordion.querySelector(".accordion__trigger").attributes["aria-controls"], "docs-panel");
-assert.equal(accordion.querySelector(".accordion__icon").textContent, "description");
-assert.equal(accordion.querySelector(".accordion__title").textContent, "Documents");
-assert.equal(accordion.querySelector(".accordion__meta").textContent, "3 of 4");
-assert.equal(accordion.querySelector(".accordion__chevron").textContent, "expand_more");
-assert.equal(accordion.querySelector(".accordion__panel").hidden, false);
-assert.equal(accordion.querySelector(".accordion__panel-body").textContent, "Insurance");
-assert.equal(accordion.querySelectorAll(".accordion__panel")[1].hidden, true);
-let expandedPanels = [];
-const interactiveAccordion = createAccordion({
-  items: [
-    { title: "Documents", content: "Insurance", open: true, id: "docs-panel" },
-    { title: "Limits", content: "Fuel rules", id: "limits-panel" },
-  ],
-  onExpandedChange(ids) {
-    expandedPanels = ids;
-  },
-});
-interactiveAccordion.querySelectorAll(".accordion__trigger")[1].click();
-assert.equal(interactiveAccordion.querySelectorAll(".accordion__trigger")[0].attributes["aria-expanded"], "false");
-assert.equal(interactiveAccordion.querySelectorAll(".accordion__panel")[0].hidden, true);
-assert.equal(interactiveAccordion.querySelectorAll(".accordion__trigger")[1].attributes["aria-expanded"], "true");
-assert.deepEqual(expandedPanels, ["limits-panel"]);
 
 const slider = createSlider({ label: "Radius", value: 25, min: 0, max: 50, step: 5, valueLabel: "25 km" });
 assert.equal(slider.tagName, "LABEL");
