@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
+assert.equal(Accordion.displayName, "Accordion");
+assert.equal(Accordion.platformContract, accordionPlatformContract);
 assert.equal(Avatar.displayName, "Avatar");
 assert.equal(Avatar.platformContract, avatarPlatformContract);
 assert.equal(Badge.displayName, "Badge");
@@ -78,6 +80,28 @@ const loadingMarkup = renderToStaticMarkup(React.createElement(Button, {
 
 assert.match(loadingMarkup, /disabled=""/);
 assert.match(loadingMarkup, /aria-busy="true"/);
+
+const accordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
+  density: "sm",
+  items: [
+    { id: "docs", title: "Documents", content: "Insurance", open: true, icon: "description", meta: "3 of 4" },
+    { id: "limits", title: "Limits", content: "Daily limit", icon: "speed", meta: "2 rules" },
+  ],
+}));
+assert.match(accordionMarkup, /class="accordion"/);
+assert.match(accordionMarkup, /data-density="sm"/);
+assert.match(accordionMarkup, /data-multiple="false"/);
+assert.match(accordionMarkup, /data-accordion-trigger=""/);
+assert.match(accordionMarkup, /aria-expanded="true"/);
+assert.match(accordionMarkup, /aria-controls="[^"]+-docs"/);
+assert.match(accordionMarkup, /class="accordion__icon"/);
+assert.match(accordionMarkup, /class="accordion__title">Documents<\/span>/);
+assert.match(accordionMarkup, /class="accordion__meta">3 of 4<\/span>/);
+assert.match(accordionMarkup, /class="accordion__chevron"/);
+assert.match(accordionMarkup, /class="accordion__panel"/);
+assert.match(accordionMarkup, /role="region"/);
+assert.match(accordionMarkup, /class="accordion__panel-body">Insurance<\/div>/);
+assert.match(accordionMarkup, /hidden="">/);
 assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);

@@ -2418,6 +2418,10 @@ button.tag:disabled,
   transition: grid-template-rows var(--accordion-motion-duration) var(--accordion-motion-ease);
 }
 
+.accordion__panel[hidden] {
+  display: none;
+}
+
 .accordion__item[data-open="true"] .accordion__panel {
   grid-template-rows: 1fr;
 }

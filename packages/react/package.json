@@ -8,6 +8,10 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./accordion": {
+      "types": "./dist/Accordion.d.ts",
+      "default": "./dist/Accordion.js"
+    },
     "./avatar": {
       "types": "./dist/Avatar.d.ts",
       "default": "./dist/Avatar.js"

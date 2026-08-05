@@ -15,6 +15,7 @@
     "./components/platforms": "./packages/components/src/platforms/index.js",
     "./components/styles.css": "./packages/components/styles/components.css",
     "./react": "./packages/react/dist/index.js",
+    "./react/accordion": "./packages/react/dist/Accordion.js",
     "./react/button": "./packages/react/dist/Button.js",
     "./react/card-expiry-input": "./packages/react/dist/CardExpiryInput.js",
     "./react/card-number-input": "./packages/react/dist/CardNumberInput.js",

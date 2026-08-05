@@ -11,7 +11,6 @@ import { createAuditEvent, createKpiTile, createList } from "./components/displa
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
 import { createCombobox } from "./components/fields.js?v=21";
 import {
-  createAccordion,
   createSegmentedControl,
   createSlider,
   createTabs,
@@ -31,7 +30,9 @@ import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
 import { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
 
 export const componentRegistry = Object.freeze({
-  accordion: createAccordion,
+  accordion: () => {
+    throw new Error("Accordion is React-primary. Use @design-system/react/accordion instead of the transitional DOM renderer.");
+  },
   "animated-moment": createAnimatedMoment,
   "audit-event": createAuditEvent,
   avatar: () => {

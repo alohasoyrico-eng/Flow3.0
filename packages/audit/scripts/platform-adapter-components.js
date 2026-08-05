@@ -1,5 +1,21 @@
 const components = [
   {
+    id: "accordion",
+    label: "Accordion",
+    contractKey: "accordion",
+    className: "accordion",
+    files: ["Accordion.js", "Accordion.d.ts"],
+    exports: ["accordionPlatformAdapters", "accordionPlatformContract", "accordionPlatformProps"],
+    requiredTokens: ["comp.accordion.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.depth.*", "sys.momentum.*", "sys.state.*", "sys.tone.*", "sys.growth.*", "sys.symbol.*", "sys.iconography.*", "sys.accessibility.*"],
+    primitives: ["color", "typography", "spacing", "radius", "elevation", "focus", "disabled", "duration", "motion-curves", "iconography"],
+    props: ["items", "multiple", "density", "onExpandedChange"],
+    jsSnippets: ["accordionPlatformContract", "className: [\"accordion\"", '"data-multiple": String(Boolean(multiple))', '"data-density": resolvedDensity', '"data-accordion-trigger": ""', '"aria-expanded": String(open)', '"aria-controls": panelId', "accordion__icon", "accordion__title", "accordion__meta", "accordion__chevron", "accordion__panel", "onExpandedChange"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "AccordionProps", "AccordionItem", "AccordionDensity", "accordionPlatformContract"],
+    packagePath: "./accordion",
+    exportName: "Accordion",
+    propsName: "AccordionProps",
+  },
+  {
     id: "avatar",
     label: "Avatar",
     contractKey: "avatar",

@@ -1,4 +1,9 @@
 export {
+  accordionPlatformAdapters,
+  accordionPlatformContract,
+  accordionPlatformProps,
+} from "./accordion.js";
+export {
   avatarPlatformAdapters,
   avatarPlatformContract,
   avatarPlatformProps,

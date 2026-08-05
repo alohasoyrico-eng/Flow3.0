@@ -1,3 +1,10 @@
+export { Accordion } from "./Accordion.js";
+export type {
+  AccordionComponent,
+  AccordionDensity,
+  AccordionItem,
+  AccordionProps,
+} from "./Accordion.js";
 export { Avatar } from "./Avatar.js";
 export type {
   AvatarComponent,
