@@ -31,6 +31,7 @@ export type {
   BreadcrumbsVariant,
 } from "./Breadcrumbs.js";
 export { Button } from "./Button.js";
+export { Card } from "./Card.js";
 export { CardExpiryInput } from "./CardExpiryInput.js";
 export { CardNumberInput } from "./CardNumberInput.js";
 export { CardSecurityCodeInput } from "./CardSecurityCodeInput.js";
@@ -49,6 +50,16 @@ export type {
   ButtonType,
   ButtonVariant,
 } from "./Button.js";
+export type {
+  CardAction,
+  CardComponent,
+  CardComposition,
+  CardDensity,
+  CardProps,
+  CardState,
+  CardTrend,
+  CardVariant,
+} from "./Card.js";
 export type {
   CardExpiryInputComponent,
   CardExpiryInputDensity,

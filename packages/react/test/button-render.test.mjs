@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -14,6 +14,8 @@ assert.equal(Breadcrumbs.displayName, "Breadcrumbs");
 assert.equal(Breadcrumbs.platformContract, breadcrumbsPlatformContract);
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
+assert.equal(Card.displayName, "Card");
+assert.equal(Card.platformContract, cardPlatformContract);
 assert.equal(CardExpiryInput.displayName, "CardExpiryInput");
 assert.equal(CardExpiryInput.platformContract, cardExpiryInputPlatformContract);
 assert.equal(CardNumberInput.displayName, "CardNumberInput");
@@ -128,6 +130,63 @@ assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-dens
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);
 assert.match(loadingMarkup, /class="spinner__arc"/);
+
+const cardMarkup = renderToStaticMarkup(React.createElement(Card, {
+  title: "Wallet balance",
+  value: "8,412.50",
+  unit: "$",
+  detail: "Available for assigned drivers.",
+  status: "Healthy",
+  icon: "account_balance_wallet",
+  density: "sm",
+  fullWidth: true,
+  actions: [
+    { key: "details", label: "Details", variant: "secondary" },
+    { key: "more", icon: "more_horiz", ariaLabel: "More", iconOnly: true },
+  ],
+}));
+assert.match(cardMarkup, /^<article/);
+assert.match(cardMarkup, /class="card"/);
+assert.match(cardMarkup, /data-variant="default"/);
+assert.match(cardMarkup, /data-composition="standard"/);
+assert.match(cardMarkup, /data-state="default"/);
+assert.match(cardMarkup, /data-density="sm"/);
+assert.match(cardMarkup, /data-full-width="true"/);
+assert.match(cardMarkup, /data-interactive="false"/);
+assert.match(cardMarkup, /class="card__icon"/);
+assert.match(cardMarkup, /class="card__title">Wallet balance<\/h3>/);
+assert.match(cardMarkup, /class="card__status">Healthy<\/span>/);
+assert.match(cardMarkup, /class="card__value">8,412\.50<\/p>/);
+assert.match(cardMarkup, /class="card__detail">Available for assigned drivers\.<\/p>/);
+assert.match(cardMarkup, /class="card__actions"/);
+assert.match(cardMarkup, /class="button button--secondary"/);
+assert.match(cardMarkup, /class="icon-button icon-button--ghost"/);
+
+const selectedCardMarkup = renderToStaticMarkup(React.createElement(Card, {
+  title: "Driver card",
+  selected: true,
+  interactive: true,
+  composition: "stats",
+  unit: "$",
+  value: "1200",
+  status: "Up",
+  trend: "up",
+}));
+assert.match(selectedCardMarkup, /role="button"/);
+assert.match(selectedCardMarkup, /aria-pressed="true"/);
+assert.match(selectedCardMarkup, /data-state="selected"/);
+assert.match(selectedCardMarkup, /data-composition="stats"/);
+assert.match(selectedCardMarkup, /data-trend="up"/);
+assert.match(selectedCardMarkup, />\$1200</);
+
+const loadingCardMarkup = renderToStaticMarkup(React.createElement(Card, {
+  title: "Loading card",
+  loading: true,
+  value: "Loading",
+}));
+assert.match(loadingCardMarkup, /data-state="loading"/);
+assert.match(loadingCardMarkup, /aria-busy="true"/);
+assert.match(loadingCardMarkup, /class="spinner"/);
 
 const avatarMarkup = renderToStaticMarkup(React.createElement(Avatar, {
   name: "Ana Sosa",

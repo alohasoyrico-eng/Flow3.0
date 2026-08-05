@@ -19,7 +19,7 @@ import {
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
-import { createCard, createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
+import { createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
 
 export const componentRegistry = Object.freeze({
   accordion: () => {
@@ -40,7 +40,9 @@ export const componentRegistry = Object.freeze({
   button: () => {
     throw new Error("Button is React-primary. Use @design-system/react/button instead of the transitional DOM renderer.");
   },
-  card: createCard,
+  card: () => {
+    throw new Error("Card is React-primary. Use @design-system/react/card instead of the transitional DOM renderer.");
+  },
   "card-expiry-input": () => {
     throw new Error("Card Expiry Input is React-primary. Use @design-system/react/card-expiry-input instead of the transitional DOM renderer.");
   },

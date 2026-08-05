@@ -109,8 +109,8 @@ const moduleRules = [
     id: "surfaces",
     file: "packages/components/src/components/surfaces.js",
     exports: ["createCard", "createFloatingActionButton", "createInlineValidation"],
-    publicExports: ["createCard", "createFloatingActionButton"],
-    internalExports: ["createInlineValidation"],
+    publicExports: ["createFloatingActionButton"],
+    internalExports: ["createCard", "createInlineValidation"],
   },
 ];
 
@@ -134,10 +134,10 @@ function checkComponentModules() {
       if (!source.includes(`export function ${exportName}`) && !source.includes(`export const ${exportName}`)) {
         add("errors", file, 1, `Component module ${rule.id} must export ${exportName}.`);
       }
-      if (publicExports.includes(exportName) && (!index.includes(exportName) || !index.includes(`./components/${rule.id}.js`))) {
+      if (publicExports.includes(exportName) && (!hasNamedExport(index, exportName) || !index.includes(`./components/${rule.id}.js`))) {
         add("errors", indexFile, 1, `Public component index must re-export ${exportName} from ${rule.id} module.`);
       }
-      if (internalExports.includes(exportName) && index.includes(exportName)) {
+      if (internalExports.includes(exportName) && hasNamedExport(index, exportName)) {
         add("errors", indexFile, 1, `${exportName} is internal-only while React is the public component target; do not re-export it from the package index.`);
       }
       if (index.includes(`export function ${exportName}`)) {
@@ -145,6 +145,10 @@ function checkComponentModules() {
       }
     }
   }
+}
+
+function hasNamedExport(source, name) {
+  return new RegExp(`\\b${name}\\b`).test(source);
 }
 
 module.exports = { checkComponentModules };

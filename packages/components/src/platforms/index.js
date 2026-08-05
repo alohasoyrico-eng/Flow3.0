@@ -39,6 +39,11 @@ export {
   buttonPlatformProps,
 } from "./button.js";
 export {
+  cardPlatformAdapters,
+  cardPlatformContract,
+  cardPlatformProps,
+} from "./card.js";
+export {
   breadcrumbsPlatformAdapters,
   breadcrumbsPlatformContract,
   breadcrumbsPlatformProps,

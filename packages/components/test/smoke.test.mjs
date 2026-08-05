@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import {
-  createCard,
   createCardSummary,
   createChartPanel,
   hydrateChartPanel,
@@ -33,6 +32,9 @@ import {
   accordionPlatformContract,
   accordionPlatformProps,
   cardExpiryInputPlatformAdapters,
+  cardPlatformAdapters,
+  cardPlatformContract,
+  cardPlatformProps,
   avatarPlatformAdapters,
   avatarPlatformContract,
   avatarPlatformProps,
@@ -144,6 +146,7 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
+import { createCard } from "../src/components/surfaces.js?v=3";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -403,7 +406,16 @@ assert.deepEqual(comboboxPlatformContract.states, componentContracts.combobox.st
 assert.deepEqual(Object.keys(comboboxPlatformAdapters), ["react"]);
 assert.equal(comboboxPlatformAdapters.react.componentName, "Combobox");
 assert.equal(comboboxPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.card.factory, "createCard");
+assert.equal(componentContracts.card.factory, "@design-system/react/card");
+assert.equal(componentContracts.card.internalFactory, "createCard");
+assert.equal(cardPlatformContract.id, "card");
+assert.equal(cardPlatformContract.source.factory, componentContracts.card.factory);
+assert.deepEqual(cardPlatformProps(), componentContracts.card.props.map((prop) => prop.name));
+assert.deepEqual(cardPlatformContract.variants, componentContracts.card.variants);
+assert.deepEqual(cardPlatformContract.states, componentContracts.card.states);
+assert.deepEqual(Object.keys(cardPlatformAdapters), ["react"]);
+assert.equal(cardPlatformAdapters.react.componentName, "Card");
+assert.equal(cardPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.checkbox.factory, "@design-system/react/checkbox");
 assert.equal(componentContracts.checkbox.internalFactory, "createTransitionalChoiceCheckbox");
 assert.equal(checkboxPlatformContract.id, "checkbox");

@@ -43,8 +43,14 @@
       }
     </script>
     <script type="module">
-      import { createCard } from "../../packages/components/src/index.js";
       import { Button } from "../../packages/react/dist/Button.js";
+      import { Card } from "../../packages/react/dist/Card.js";
+
+      function mountCard(props) {
+        const host = document.createElement("span");
+        ReactDOM.createRoot(host).render(React.createElement(Card, props));
+        return host;
+      }
 
       function mountButton(props) {
         const host = document.createElement("span");
@@ -59,7 +65,7 @@
       const card = fixtures.driverCard;
 
       wallet.append(
-        createCard({
+        mountCard({
           title: `${card.driver} · ${card.vehicle}`,
           value: card.balance,
           detail: card.lastMovement,
@@ -73,7 +79,7 @@
 
       for (const movement of fixtures.movements) {
         movements.append(
-          createCard({
+          mountCard({
             title: movement.merchant,
             value: movement.amount,
             detail: "Recent movement",

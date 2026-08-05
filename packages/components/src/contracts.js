@@ -250,7 +250,8 @@ export const componentContracts = {
     ]
   },
   card: {
-    factory: "createCard",
+    factory: "@design-system/react/card",
+    internalFactory: "createCard",
     element: "article",
     purpose: "Group a product summary, state, supporting detail, and optional actions.",
     variants: ["default", "minimal", "elevated", "ghost"],

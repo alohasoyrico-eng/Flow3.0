@@ -43,9 +43,15 @@
       }
     </script>
     <script type="module">
-      import { createCard } from "../../packages/components/src/index.js";
       import { Button } from "../../packages/react/dist/Button.js";
+      import { Card } from "../../packages/react/dist/Card.js";
       import { Select } from "../../packages/react/dist/Select.js";
+
+      function mountCard(props) {
+        const host = document.createElement("span");
+        ReactDOM.createRoot(host).render(React.createElement(Card, props));
+        return host;
+      }
 
       function mountButton(props) {
         const host = document.createElement("span");
@@ -89,7 +95,7 @@
 
       for (const fleet of fixtures.fleets) {
         fleetCards.append(
-          createCard({
+          mountCard({
             title: fleet.label,
             value: fleet.weeklySpend,
             detail: `${fleet.vehicles} vehicles. ${fleet.trend}.`,

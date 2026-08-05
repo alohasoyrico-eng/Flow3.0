@@ -40,11 +40,17 @@
       }
     </script>
     <script type="module">
-      import { createCard } from "../../packages/components/src/index.js";
       import { Button } from "../../packages/react/dist/Button.js";
+      import { Card } from "../../packages/react/dist/Card.js";
       import { IconButton } from "../../packages/react/dist/IconButton.js";
       import { Input } from "../../packages/react/dist/Input.js";
       import { Select } from "../../packages/react/dist/Select.js";
+
+      function mountCard(props) {
+        const host = document.createElement("span");
+        ReactDOM.createRoot(host).render(React.createElement(Card, props));
+        return host;
+      }
 
       function mountButton(props) {
         const host = document.createElement("span");
@@ -84,7 +90,7 @@
       const primaryFleet = fixtures.fleets[0];
 
       root.append(
-        createCard({
+        mountCard({
           title: "Fleet spend",
           value: primaryFleet.weeklySpend,
           detail: primaryFleet.trend,

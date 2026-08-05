@@ -24,6 +24,10 @@
       "types": "./dist/Button.d.ts",
       "default": "./dist/Button.js"
     },
+    "./card": {
+      "types": "./dist/Card.d.ts",
+      "default": "./dist/Card.js"
+    },
     "./breadcrumbs": {
       "types": "./dist/Breadcrumbs.d.ts",
       "default": "./dist/Breadcrumbs.js"
