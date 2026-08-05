@@ -2,6 +2,7 @@ import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "r
 import { inlineValidationPlatformContract } from "@design-system/components/platforms";
 
 export type InlineValidationState = "default" | "info" | "success" | "warning" | "error" | "disabled";
+export type InlineValidationDensity = "sm" | "md" | "lg";
 
 export interface InlineValidationProps extends HTMLAttributes<HTMLDivElement> {
   label: string;
@@ -9,6 +10,7 @@ export interface InlineValidationProps extends HTMLAttributes<HTMLDivElement> {
   message?: string;
   state?: InlineValidationState;
   id?: string;
+  density?: InlineValidationDensity;
   fullWidth?: boolean;
   field?: boolean;
   live?: boolean;

@@ -12,7 +12,6 @@ import {
   createDrawer,
   createBreadcrumbs,
   createFloatingActionButton,
-  createInlineValidation,
   createKpiTile,
   createList,
   createAnimatedMoment,
@@ -92,6 +91,9 @@ import {
   iconButtonPlatformAdapters,
   iconButtonPlatformContract,
   iconButtonPlatformProps,
+  inlineValidationPlatformAdapters,
+  inlineValidationPlatformContract,
+  inlineValidationPlatformProps,
   inputPlatformAdapters,
   inputPlatformContract,
   inputPlatformProps,
@@ -577,7 +579,16 @@ assert.deepEqual(errorPanelPlatformContract.states, componentContracts.errorPane
 assert.deepEqual(Object.keys(errorPanelPlatformAdapters), ["react"]);
 assert.equal(errorPanelPlatformAdapters.react.componentName, "ErrorPanel");
 assert.equal(errorPanelPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.inlineValidation.factory, "createInlineValidation");
+assert.equal(componentContracts.inlineValidation.factory, "@design-system/react/inline-validation");
+assert.equal(componentContracts.inlineValidation.internalFactory, "createInlineValidation");
+assert.equal(inlineValidationPlatformContract.id, "inline-validation");
+assert.equal(inlineValidationPlatformContract.source.factory, componentContracts.inlineValidation.factory);
+assert.deepEqual(inlineValidationPlatformProps(), componentContracts.inlineValidation.props.map((prop) => prop.name));
+assert.deepEqual(inlineValidationPlatformContract.variants, componentContracts.inlineValidation.variants);
+assert.deepEqual(inlineValidationPlatformContract.states, componentContracts.inlineValidation.states);
+assert.deepEqual(Object.keys(inlineValidationPlatformAdapters), ["react"]);
+assert.equal(inlineValidationPlatformAdapters.react.componentName, "InlineValidation");
+assert.equal(inlineValidationPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.stepper.factory, "@design-system/react/stepper");
 assert.equal(componentContracts.stepper.internalFactory, "createStepper");
 assert.equal(stepperPlatformContract.id, "stepper");
@@ -1901,23 +1912,6 @@ assert.equal(criticalAuditEvent.dataset.state, "critical");
 assert.equal(criticalAuditEvent.dataset.density, "sm");
 assert.equal(criticalAuditEvent.querySelector(".audit-event__time").textContent, "10:21");
 assert.equal(criticalAuditEvent.querySelector("em").textContent, "Critical");
-
-const inlineValidation = createInlineValidation({ label: "Plate", value: "ABC-123", message: "Required", state: "error", id: "plate" });
-assert.equal(inlineValidation.tagName, "DIV");
-assert.equal(inlineValidation.className, "inline-validation");
-assert.equal(inlineValidation.dataset.state, "error");
-assert.equal(inlineValidation.querySelector("input").id, "plate");
-assert.equal(inlineValidation.querySelector("input").attributes["aria-invalid"], "true");
-assert.equal(inlineValidation.querySelector(".inline-validation__message").id, "plate-message");
-const inlineValidationMessage = createInlineValidation({ label: "Phone number", message: "Enter a valid phone number.", state: "warning", id: "phone" });
-assert.equal(inlineValidationMessage.dataset.field, "false");
-assert.equal(inlineValidationMessage.querySelector("input"), null);
-assert.equal(inlineValidationMessage.querySelector(".inline-validation__message").id, "phone-message");
-assert.equal(inlineValidationMessage.querySelector(".inline-validation__message").attributes.role, undefined);
-const inlineValidationLive = createInlineValidation({ label: "Vehicle ID", value: "MX-4832", message: "Vehicle ID is available.", state: "success", id: "vehicle", live: true });
-assert.equal(inlineValidationLive.querySelector(".inline-validation__message").attributes.role, "status");
-const inlineValidationLiveError = createInlineValidation({ label: "Driver email", value: "ana@", message: "Enter a complete email address.", state: "error", id: "driver-email", live: true });
-assert.equal(inlineValidationLiveError.querySelector(".inline-validation__message").attributes.role, "alert");
 
 const chartPanel = createChartPanel({ label: "Spend", value: "$12k", caption: "Last 7 days", values: [3, 6, 9] });
 assert.equal(chartPanel.tagName, "ARTICLE");

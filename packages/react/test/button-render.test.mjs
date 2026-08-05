@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, Pagination, PhoneInput, RadioButton, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, RadioButton, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -36,6 +36,8 @@ assert.equal(ErrorPanel.displayName, "ErrorPanel");
 assert.equal(ErrorPanel.platformContract, errorPanelPlatformContract);
 assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
+assert.equal(InlineValidation.displayName, "InlineValidation");
+assert.equal(InlineValidation.platformContract, inlineValidationPlatformContract);
 assert.equal(Input.displayName, "Input");
 assert.equal(Input.platformContract, inputPlatformContract);
 assert.equal(Pagination.displayName, "Pagination");
@@ -654,6 +656,24 @@ const inheritedInputMarkup = renderToStaticMarkup(React.createElement(Input, {
   value: "Alex",
 }));
 assert.doesNotMatch(inheritedInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const inlineValidationMarkup = renderToStaticMarkup(React.createElement(InlineValidation, {
+  label: "Driver email",
+  value: "ana@",
+  message: "Enter a complete email address.",
+  state: "error",
+  density: "sm",
+  live: true,
+}));
+assert.match(inlineValidationMarkup, /^<div/);
+assert.match(inlineValidationMarkup, /class="inline-validation"/);
+assert.match(inlineValidationMarkup, /data-state="error"/);
+assert.match(inlineValidationMarkup, /data-density="sm"/);
+assert.match(inlineValidationMarkup, /data-field="true"/);
+assert.match(inlineValidationMarkup, /aria-invalid="true"/);
+assert.match(inlineValidationMarkup, /role="alert"/);
+assert.match(inlineValidationMarkup, /class="field"/);
+assert.match(inlineValidationMarkup, /data-density="sm"/);
 
 const cardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput, {
   label: "Card number",

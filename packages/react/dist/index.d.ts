@@ -136,6 +136,7 @@ export type {
 export { InlineValidation } from "./InlineValidation.js";
 export type {
   InlineValidationComponent,
+  InlineValidationDensity,
   InlineValidationProps,
   InlineValidationState,
 } from "./InlineValidation.js";
