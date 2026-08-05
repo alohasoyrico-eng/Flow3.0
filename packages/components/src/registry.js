@@ -83,7 +83,9 @@ export const componentRegistry = Object.freeze({
   "icon-button": () => {
     throw new Error("Icon Button is React-primary. Use @design-system/react/icon-button instead of the transitional DOM renderer.");
   },
-  "inline-validation": createInlineValidation,
+  "inline-validation": () => {
+    throw new Error("Inline Validation is React-primary. Use @design-system/react/inline-validation instead of the transitional DOM renderer.");
+  },
   "kpi-tile": createKpiTile,
   list: createList,
   menu: createMenu,
@@ -184,6 +186,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "icon-button") {
     throw new Error("Icon Button is React-primary. Use @design-system/react/icon-button instead of renderComponentDemo.");
+  }
+  if (id === "inline-validation") {
+    throw new Error("Inline Validation is React-primary. Use @design-system/react/inline-validation instead of renderComponentDemo.");
   }
   if (id === "input") {
     throw new Error("Input is React-primary. Use @design-system/react/input instead of renderComponentDemo.");
