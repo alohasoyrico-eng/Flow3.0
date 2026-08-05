@@ -22,7 +22,6 @@ import {
   createMenu,
   createMotionBoundary,
   createPopover,
-  createProgressIndicator,
   createQuickAction,
   createRouteSummary,
   createSegmentedControl,
@@ -74,6 +73,9 @@ import {
   paginationPlatformAdapters,
   paginationPlatformContract,
   paginationPlatformProps,
+  progressIndicatorPlatformAdapters,
+  progressIndicatorPlatformContract,
+  progressIndicatorPlatformProps,
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,
@@ -468,7 +470,16 @@ assert.deepEqual(toastPlatformContract.states, componentContracts.toast.states);
 assert.deepEqual(Object.keys(toastPlatformAdapters), ["react"]);
 assert.equal(toastPlatformAdapters.react.componentName, "Toast");
 assert.equal(toastPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.progressIndicator.factory, "createProgressIndicator");
+assert.equal(componentContracts.progressIndicator.factory, "@design-system/react/progress-indicator");
+assert.equal(componentContracts.progressIndicator.internalFactory, "createProgressIndicator");
+assert.equal(progressIndicatorPlatformContract.id, "progress-indicator");
+assert.equal(progressIndicatorPlatformContract.source.factory, componentContracts.progressIndicator.factory);
+assert.deepEqual(progressIndicatorPlatformProps(), componentContracts.progressIndicator.props.map((prop) => prop.name));
+assert.deepEqual(progressIndicatorPlatformContract.variants, componentContracts.progressIndicator.variants);
+assert.deepEqual(progressIndicatorPlatformContract.states, componentContracts.progressIndicator.states);
+assert.deepEqual(Object.keys(progressIndicatorPlatformAdapters), ["react"]);
+assert.equal(progressIndicatorPlatformAdapters.react.componentName, "ProgressIndicator");
+assert.equal(progressIndicatorPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.spinner.factory, "@design-system/react/spinner");
 assert.equal(componentContracts.spinner.internalFactory, "createSpinner");
 assert.equal(spinnerPlatformContract.id, "spinner");
@@ -1359,49 +1370,6 @@ assert.equal(metricTooltip.dataset.open, "true");
 assert.equal(metricTooltip.querySelector(".tooltip__bubble").hidden, false);
 const compactTooltip = createTransitionalTooltip({ triggerLabel: "Compact", content: "Short help", density: "sm" });
 assert.equal(compactTooltip.dataset.density, "sm");
-
-const progress = createProgressIndicator({ label: "Upload", value: 30, max: 60, showValue: true, tone: "success", state: "active", density: "sm", fullWidth: true });
-assert.equal(progress.tagName, "DIV");
-assert.equal(progress.attributes.role, "progressbar");
-assert.equal(progress.dataset.tone, "success");
-assert.equal(progress.dataset.state, "active");
-assert.equal(progress.dataset.density, "sm");
-assert.equal(progress.dataset.fullWidth, "true");
-assert.equal(progress.querySelector(".progress__label").textContent, "Upload");
-assert.equal(progress.attributes["aria-labelledby"], progress.querySelector(".progress__label").id);
-assert.equal(progress.attributes["aria-valuenow"], "30");
-assert.equal(progress.attributes["aria-valuemin"], "0");
-assert.equal(progress.attributes["aria-valuemax"], "60");
-assert.equal(progress.querySelector(".progress__fill").style, "--progress-value: 50%");
-assert.equal(progress.querySelector(".progress__value").textContent, "50%");
-assert.equal(progress.querySelector(".spinner"), null);
-const clampedProgress = createProgressIndicator({ label: "Overflow", value: 120, max: 100, showValue: true });
-assert.equal(clampedProgress.attributes["aria-valuenow"], "100");
-assert.equal(clampedProgress.querySelector(".progress__fill").style, "--progress-value: 100%");
-assert.equal(clampedProgress.querySelector(".progress__value").textContent, "100%");
-const pausedProgress = createProgressIndicator({ label: "Paused upload", value: 25, max: 100, state: "paused", showValue: true });
-assert.equal(pausedProgress.attributes["aria-valuetext"], "Paused at 25%");
-const completeProgress = createProgressIndicator({ label: "Done", value: 100, max: 100, state: "complete" });
-assert.equal(completeProgress.attributes["aria-valuetext"], "Complete");
-const completeProgressClamped = createProgressIndicator({ label: "Done anyway", value: 20, max: 100, state: "complete", showValue: true });
-assert.equal(completeProgressClamped.attributes["aria-valuenow"], "100");
-assert.equal(completeProgressClamped.querySelector(".progress__fill").style, "--progress-value: 100%");
-assert.equal(completeProgressClamped.querySelector(".progress__value").textContent, "100%");
-const completeProgressOverridesIndeterminate = createProgressIndicator({ label: "Done", indeterminate: true, state: "complete", showValue: true });
-assert.equal(completeProgressOverridesIndeterminate.dataset.indeterminate, "false");
-assert.equal(completeProgressOverridesIndeterminate.attributes["aria-valuenow"], "100");
-const disabledProgress = createProgressIndicator({ label: "Unavailable", state: "disabled" });
-assert.equal(disabledProgress.attributes["aria-disabled"], "true");
-assert.equal(disabledProgress.attributes["aria-valuetext"], "Unavailable");
-const indeterminateProgress = createProgressIndicator({ label: "Syncing", state: "indeterminate", showValue: true });
-assert.equal(indeterminateProgress.dataset.indeterminate, "true");
-assert.equal(indeterminateProgress.dataset.state, "indeterminate");
-assert.equal(indeterminateProgress.querySelector(".progress__label").textContent, "Syncing");
-assert.equal(indeterminateProgress.attributes["aria-valuenow"], undefined);
-assert.equal(indeterminateProgress.attributes["aria-valuemax"], undefined);
-assert.equal(indeterminateProgress.attributes["aria-valuetext"], "In progress");
-assert.equal(indeterminateProgress.querySelector(".progress__value"), null);
-assert.equal(indeterminateProgress.querySelector(".spinner"), null);
 
 const slider = createSlider({ label: "Radius", value: 25, min: 0, max: 50, step: 5, valueLabel: "25 km" });
 assert.equal(slider.tagName, "LABEL");
