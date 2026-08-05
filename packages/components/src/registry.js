@@ -15,7 +15,7 @@ import {
   createTabs,
   createTreeView,
 } from "./components/interactions.js?v=9";
-import { createPagination, createStepper } from "./components/navigation.js";
+import { createStepper } from "./components/navigation.js";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
 import {
   createDialog,
@@ -96,7 +96,9 @@ export const componentRegistry = Object.freeze({
   "code-input": () => {
     throw new Error("Code Input is React-primary. Use @design-system/react/code-input instead of the transitional DOM renderer.");
   },
-  pagination: createPagination,
+  pagination: () => {
+    throw new Error("Pagination is React-primary. Use @design-system/react/pagination instead of the transitional DOM renderer.");
+  },
   "phone-input": () => {
     throw new Error("Phone Input is React-primary. Use @design-system/react/phone-input instead of the transitional DOM renderer.");
   },

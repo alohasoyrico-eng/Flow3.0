@@ -1010,7 +1010,8 @@ export const componentContracts = {
     ]
   },
   pagination: {
-    factory: "createPagination",
+    factory: "@design-system/react/pagination",
+    internalFactory: "createPagination",
     element: "nav",
     purpose: "Move through discrete pages of one bounded result set with numbered controls and ellipsis collapse.",
     variants: ["numbered"],

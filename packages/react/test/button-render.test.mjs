@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Slider, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, Pagination, PhoneInput, RadioButton, Select, Skeleton, Slider, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -38,6 +38,8 @@ assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
 assert.equal(Input.displayName, "Input");
 assert.equal(Input.platformContract, inputPlatformContract);
+assert.equal(Pagination.displayName, "Pagination");
+assert.equal(Pagination.platformContract, paginationPlatformContract);
 assert.equal(PhoneInput.displayName, "PhoneInput");
 assert.equal(PhoneInput.platformContract, phoneInputPlatformContract);
 assert.equal(RadioButton.displayName, "RadioButton");
@@ -208,6 +210,30 @@ assert.match(breadcrumbsMarkup, /class="breadcrumbs__target breadcrumbs__target-
 assert.match(breadcrumbsMarkup, /class="breadcrumbs__separator"/);
 assert.match(breadcrumbsMarkup, /aria-current="page"/);
 assert.match(breadcrumbsMarkup, />JMX-214-B<\/span>/);
+
+const paginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
+  label: "Fleet pages",
+  page: 4,
+  pageCount: 12,
+  state: "selected",
+  density: "sm",
+  fullWidth: true,
+}));
+assert.match(paginationMarkup, /^<nav/);
+assert.match(paginationMarkup, /class="pagination"/);
+assert.match(paginationMarkup, /aria-label="Fleet pages"/);
+assert.match(paginationMarkup, /data-variant="numbered"/);
+assert.match(paginationMarkup, /data-state="selected"/);
+assert.match(paginationMarkup, /data-density="sm"/);
+assert.match(paginationMarkup, /data-page="4"/);
+assert.match(paginationMarkup, /data-page-count="12"/);
+assert.match(paginationMarkup, /data-full-width="true"/);
+assert.match(paginationMarkup, /class="pagination__button"/);
+assert.match(paginationMarkup, /data-kind="prev"/);
+assert.match(paginationMarkup, /data-kind="next"/);
+assert.match(paginationMarkup, /class="pagination__ellipsis"/);
+assert.match(paginationMarkup, /aria-current="page"/);
+assert.match(paginationMarkup, /class="pagination__icon"/);
 
 const chipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Active",

@@ -17,6 +17,7 @@ export { IconButton } from "./IconButton.js";
 export { InlineValidation } from "./InlineValidation.js";
 export { Input } from "./Input.js";
 export { PhoneInput } from "./PhoneInput.js";
+export { Pagination } from "./Pagination.js";
 export { ProgressIndicator } from "./ProgressIndicator.js";
 export { RadioButton } from "./RadioButton.js";
 export { Select } from "./Select.js";

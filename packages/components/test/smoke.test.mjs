@@ -22,7 +22,6 @@ import {
   createMovementRow,
   createMenu,
   createMotionBoundary,
-  createPagination,
   createPopover,
   createProgressIndicator,
   createQuickAction,
@@ -75,6 +74,9 @@ import {
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,
+  paginationPlatformAdapters,
+  paginationPlatformContract,
+  paginationPlatformProps,
   buttonPlatformAdapters,
   buttonPlatformContract,
   buttonPlatformProps,
@@ -472,7 +474,17 @@ assert.equal(componentContracts.emptyState.factory, "createEmptyState");
 assert.equal(componentContracts.list.factory, "createList");
 assert.equal(componentContracts.kpiTile.factory, "createKpiTile");
 assert.equal(componentContracts.floatingActionButton.factory, "createFloatingActionButton");
-assert.equal(componentContracts.pagination.factory, "createPagination");
+assert.equal(componentContracts.pagination.factory, "@design-system/react/pagination");
+assert.equal(componentContracts.pagination.internalFactory, "createPagination");
+assert.equal(componentContracts.pagination.props.some((prop) => prop.name === "onPageChange"), true);
+assert.equal(paginationPlatformContract.id, "pagination");
+assert.equal(paginationPlatformContract.source.factory, componentContracts.pagination.factory);
+assert.deepEqual(paginationPlatformProps(), componentContracts.pagination.props.map((prop) => prop.name));
+assert.deepEqual(paginationPlatformContract.variants, componentContracts.pagination.variants);
+assert.deepEqual(paginationPlatformContract.states, componentContracts.pagination.states);
+assert.deepEqual(Object.keys(paginationPlatformAdapters), ["react"]);
+assert.equal(paginationPlatformAdapters.react.componentName, "Pagination");
+assert.equal(paginationPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.auditEvent.factory, "createAuditEvent");
 assert.equal(componentContracts.errorPanel.factory, "createErrorPanel");
 assert.equal(componentContracts.inlineValidation.factory, "createInlineValidation");
@@ -2010,35 +2022,6 @@ const disabledBreadcrumbs = createBreadcrumbs({ disabled: true, items: [{ label:
 assert.equal(disabledBreadcrumbs.dataset.state, "disabled");
 assert.equal(disabledBreadcrumbs.attributes["aria-disabled"], "true");
 assert.equal(disabledBreadcrumbs.querySelector("a"), null);
-
-const pagination = createPagination({ page: 2, pageCount: 3 });
-assert.equal(pagination.tagName, "NAV");
-assert.equal(pagination.attributes["aria-label"], "Pagination");
-assert.equal(pagination.querySelectorAll("button").length, 5);
-assert.equal(pagination.querySelectorAll("button")[2].attributes["aria-current"], "page");
-const longPagination = createPagination({ page: 6, pageCount: 12, density: "sm" });
-assert.equal(longPagination.dataset.variant, "numbered");
-assert.equal(longPagination.dataset.density, "sm");
-assert.equal(longPagination.querySelectorAll(".pagination__ellipsis").length, 2);
-assert.equal(longPagination.querySelectorAll("button").find((button) => button.attributes["aria-current"] === "page").textContent, "6");
-longPagination.querySelectorAll("button").find((button) => button.dataset.kind === "next").click();
-assert.equal(longPagination.dataset.page, "7");
-assert.equal(longPagination.querySelectorAll("button").find((button) => button.attributes["aria-current"] === "page").textContent, "7");
-let pageChange = 0;
-const interactivePagination = createPagination({
-  page: 1,
-  pageCount: 3,
-  onPageChange(page) {
-    pageChange = page;
-  },
-});
-interactivePagination.querySelectorAll("button")[4].click();
-assert.equal(pageChange, 2);
-assert.equal(interactivePagination.querySelectorAll("button")[2].attributes["aria-current"], "page");
-assert.equal(interactivePagination.querySelectorAll("button")[0].disabled, false);
-interactivePagination.querySelectorAll("button")[3].click();
-assert.equal(pageChange, 3);
-assert.equal(interactivePagination.querySelectorAll("button")[4].disabled, true);
 
 const auditEvent = createAuditEvent({ label: "Limit changed", description: "Ana updated card limit", meta: "Today", status: "Logged", icon: "history" });
 assert.equal(auditEvent.tagName, "ARTICLE");

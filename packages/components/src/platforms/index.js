@@ -44,6 +44,11 @@ export {
   breadcrumbsPlatformProps,
 } from "./breadcrumbs.js";
 export {
+  paginationPlatformAdapters,
+  paginationPlatformContract,
+  paginationPlatformProps,
+} from "./pagination.js";
+export {
   iconButtonPlatformAdapters,
   iconButtonPlatformContract,
   iconButtonPlatformProps,

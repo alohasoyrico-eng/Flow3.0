@@ -84,6 +84,10 @@
       "types": "./dist/PhoneInput.d.ts",
       "default": "./dist/PhoneInput.js"
     },
+    "./pagination": {
+      "types": "./dist/Pagination.d.ts",
+      "default": "./dist/Pagination.js"
+    },
     "./progress-indicator": {
       "types": "./dist/ProgressIndicator.d.ts",
       "default": "./dist/ProgressIndicator.js"

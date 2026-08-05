@@ -159,6 +159,14 @@ export type {
   PhoneInputState,
   PhoneInputVariant,
 } from "./PhoneInput.js";
+export { Pagination } from "./Pagination.js";
+export type {
+  PaginationComponent,
+  PaginationDensity,
+  PaginationProps,
+  PaginationState,
+  PaginationVariant,
+} from "./Pagination.js";
 export { ProgressIndicator } from "./ProgressIndicator.js";
 export type {
   ProgressIndicatorComponent,
