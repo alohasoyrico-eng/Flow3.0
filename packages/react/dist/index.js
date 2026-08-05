@@ -20,6 +20,7 @@ export { ErrorPanel } from "./ErrorPanel.js";
 export { IconButton } from "./IconButton.js";
 export { InlineValidation } from "./InlineValidation.js";
 export { Input } from "./Input.js";
+export { KpiTile } from "./KpiTile.js";
 export { List } from "./List.js";
 export { Menu } from "./Menu.js";
 export { PhoneInput } from "./PhoneInput.js";

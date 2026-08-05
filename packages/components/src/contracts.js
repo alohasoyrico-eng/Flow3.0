@@ -945,7 +945,8 @@ export const componentContracts = {
     ]
   },
   kpiTile: {
-    factory: "createKpiTile",
+    factory: "@design-system/react/kpi-tile",
+    internalFactory: "createKpiTile",
     element: "article",
     purpose: "Show one compact operational metric with label, value, optional delta, trend, threshold tone, sparkline hint, and optional drill-in affordance.",
     variants: ["standard", "delta", "threshold", "sparkline", "drill-in"],

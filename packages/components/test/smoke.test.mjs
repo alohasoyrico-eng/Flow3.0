@@ -8,7 +8,6 @@ import {
   createCountrySelector,
   createBreadcrumbs,
   createFloatingActionButton,
-  createKpiTile,
   createAnimatedMoment,
   createMovementRow,
   createMotionBoundary,
@@ -103,6 +102,9 @@ import {
   inputPlatformAdapters,
   inputPlatformContract,
   inputPlatformProps,
+  kpiTilePlatformAdapters,
+  kpiTilePlatformContract,
+  kpiTilePlatformProps,
   listPlatformAdapters,
   listPlatformContract,
   listPlatformProps,
@@ -155,7 +157,7 @@ import {
 import { createCard } from "../src/components/surfaces.js?v=3";
 import { createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
-import { createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
+import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
@@ -640,7 +642,16 @@ assert.deepEqual(listPlatformContract.states, componentContracts.list.states);
 assert.deepEqual(Object.keys(listPlatformAdapters), ["react"]);
 assert.equal(listPlatformAdapters.react.componentName, "List");
 assert.equal(listPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.kpiTile.factory, "createKpiTile");
+assert.equal(componentContracts.kpiTile.factory, "@design-system/react/kpi-tile");
+assert.equal(componentContracts.kpiTile.internalFactory, "createKpiTile");
+assert.equal(kpiTilePlatformContract.id, "kpi-tile");
+assert.equal(kpiTilePlatformContract.source.factory, componentContracts.kpiTile.factory);
+assert.deepEqual(kpiTilePlatformProps(), componentContracts.kpiTile.props.map((prop) => prop.name));
+assert.deepEqual(kpiTilePlatformContract.variants, componentContracts.kpiTile.variants);
+assert.deepEqual(kpiTilePlatformContract.states, componentContracts.kpiTile.states);
+assert.deepEqual(Object.keys(kpiTilePlatformAdapters), ["react"]);
+assert.equal(kpiTilePlatformAdapters.react.componentName, "KpiTile");
+assert.equal(kpiTilePlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.floatingActionButton.factory, "createFloatingActionButton");
 assert.equal(componentContracts.pagination.factory, "@design-system/react/pagination");
 assert.equal(componentContracts.pagination.internalFactory, "createPagination");

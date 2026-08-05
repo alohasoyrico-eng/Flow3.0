@@ -96,6 +96,10 @@
       "types": "./dist/Input.d.ts",
       "default": "./dist/Input.js"
     },
+    "./kpi-tile": {
+      "types": "./dist/KpiTile.d.ts",
+      "default": "./dist/KpiTile.js"
+    },
     "./list": {
       "types": "./dist/List.d.ts",
       "default": "./dist/List.js"

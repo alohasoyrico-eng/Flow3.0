@@ -41,6 +41,7 @@ export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
+export { KpiTile } from "./KpiTile.js";
 export { List } from "./List.js";
 export { Menu } from "./Menu.js";
 export type {
@@ -205,6 +206,16 @@ export type {
   InputValueMeta,
   InputVariant,
 } from "./Input.js";
+export type {
+  KpiTileComponent,
+  KpiTileDensity,
+  KpiTileMeta,
+  KpiTileProps,
+  KpiTileState,
+  KpiTileTone,
+  KpiTileTrend,
+  KpiTileVariant,
+} from "./KpiTile.js";
 export type {
   ListComponent,
   ListDensity,

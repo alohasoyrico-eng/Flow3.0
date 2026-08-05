@@ -208,3 +208,8 @@ export {
   listPlatformContract,
   listPlatformProps,
 } from "./list.js";
+export {
+  kpiTilePlatformAdapters,
+  kpiTilePlatformContract,
+  kpiTilePlatformProps,
+} from "./kpi-tile.js";
