@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -30,6 +30,8 @@ assert.equal(CodeInput.displayName, "CodeInput");
 assert.equal(CodeInput.platformContract, codeInputPlatformContract);
 assert.equal(Combobox.displayName, "Combobox");
 assert.equal(Combobox.platformContract, comboboxPlatformContract);
+assert.equal(CountrySelector.displayName, "CountrySelector");
+assert.equal(CountrySelector.platformContract, countrySelectorPlatformContract);
 assert.equal(DatePicker.displayName, "DatePicker");
 assert.equal(DatePicker.platformContract, datePickerPlatformContract);
 assert.equal(DateRangePicker.displayName, "DateRangePicker");
@@ -1178,6 +1180,25 @@ const inheritedCodeInputMarkup = renderToStaticMarkup(React.createElement(CodeIn
   value: "123",
 }));
 assert.doesNotMatch(inheritedCodeInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const countrySelectorMarkup = renderToStaticMarkup(React.createElement(CountrySelector, {
+  label: "Country",
+  country: "MX",
+  density: "sm",
+  inline: true,
+}));
+assert.match(countrySelectorMarkup, /class="select-control select-control--inline country-selector"/);
+assert.match(countrySelectorMarkup, /data-country="MX"/);
+assert.match(countrySelectorMarkup, /data-density="sm"/);
+assert.match(countrySelectorMarkup, /role="combobox"/);
+assert.match(countrySelectorMarkup, /aria-expanded="false"/);
+assert.match(countrySelectorMarkup, /country-flag-icons\/3x2\/MX.svg/);
+assert.match(countrySelectorMarkup, /class="country-selector__label"/);
+assert.match(countrySelectorMarkup, /Mexico/);
+assert.match(countrySelectorMarkup, /class="select-control__code country-selector__code"/);
+assert.match(countrySelectorMarkup, /\+52/);
+assert.match(countrySelectorMarkup, /role="listbox"/);
+assert.match(countrySelectorMarkup, /class="select-control__option country-selector__option"/);
 
 const phoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput, {
   label: "Mobile phone",

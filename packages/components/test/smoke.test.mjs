@@ -5,7 +5,6 @@ import {
   hydrateChartPanel,
   createAuditEvent,
   createBiometricPrompt,
-  createCountrySelector,
   createAnimatedMoment,
   createMovementRow,
   createMotionBoundary,
@@ -19,7 +18,6 @@ import {
   listCountryFlags,
   resolveAnimationRuntime,
   hydrateCombobox,
-  hydrateCountrySelector,
   accordionPlatformAdapters,
   accordionPlatformContract,
   accordionPlatformProps,
@@ -50,6 +48,9 @@ import {
   comboboxPlatformAdapters,
   comboboxPlatformContract,
   comboboxPlatformProps,
+  countrySelectorPlatformAdapters,
+  countrySelectorPlatformContract,
+  countrySelectorPlatformProps,
   datePickerPlatformAdapters,
   datePickerPlatformContract,
   datePickerPlatformProps,
@@ -156,6 +157,7 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
+import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
 import { createTable } from "../src/components/commerce.js?v=15";
@@ -739,7 +741,16 @@ assert.deepEqual(phoneInputPlatformContract.states, componentContracts.phoneInpu
 assert.deepEqual(Object.keys(phoneInputPlatformAdapters), ["react"]);
 assert.equal(phoneInputPlatformAdapters.react.componentName, "PhoneInput");
 assert.equal(phoneInputPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.countrySelector.factory, "createCountrySelector");
+assert.equal(componentContracts.countrySelector.factory, "@design-system/react/country-selector");
+assert.equal(componentContracts.countrySelector.internalFactory, "createCountrySelector");
+assert.equal(countrySelectorPlatformContract.id, "country-selector");
+assert.equal(countrySelectorPlatformContract.source.factory, componentContracts.countrySelector.factory);
+assert.deepEqual(countrySelectorPlatformProps(), componentContracts.countrySelector.props.map((prop) => prop.name));
+assert.deepEqual(countrySelectorPlatformContract.variants, componentContracts.countrySelector.variants);
+assert.deepEqual(countrySelectorPlatformContract.states, componentContracts.countrySelector.states);
+assert.deepEqual(Object.keys(countrySelectorPlatformAdapters), ["react"]);
+assert.equal(countrySelectorPlatformAdapters.react.componentName, "CountrySelector");
+assert.equal(countrySelectorPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.datePicker.factory, "@design-system/react/date-picker");
 assert.equal(componentContracts.datePicker.internalFactory, "createTransitionalDatePicker");
 assert.equal(datePickerPlatformContract.id, "date-picker");

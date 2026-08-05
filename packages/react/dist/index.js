@@ -11,6 +11,7 @@ export { Checkbox } from "./Checkbox.js";
 export { Chip } from "./Chip.js";
 export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
+export { CountrySelector } from "./CountrySelector.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
 export { Dialog } from "./Dialog.js";

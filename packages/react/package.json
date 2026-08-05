@@ -60,6 +60,10 @@
       "types": "./dist/Combobox.d.ts",
       "default": "./dist/Combobox.js"
     },
+    "./country-selector": {
+      "types": "./dist/CountrySelector.d.ts",
+      "default": "./dist/CountrySelector.js"
+    },
     "./date-picker": {
       "types": "./dist/DatePicker.d.ts",
       "default": "./dist/DatePicker.js"

@@ -236,16 +236,6 @@ assert.equal(fixtures.comboboxControl.dataset.value, "mx-8840", "Combobox select
 fixtures.comboboxClear.click();
 assert.equal(fixtures.comboboxInput.value, "", "Combobox clear action should clear visible value.");
 
-fixtures.countrySelectorTrigger.click();
-assert.equal(fixtures.countrySelectorControl.dataset.open, "true", "Country Selector trigger should open the option layer.");
-fixtures.countrySelectorSearch.value = "Cuba";
-fixtures.countrySelectorSearch.dispatch("input");
-assert.equal(fixtures.countrySelectorOptions[0].hidden, true, "Country Selector search should hide non-matching countries.");
-assert.equal(fixtures.countrySelectorOptions[1].hidden, false, "Country Selector search should keep matching countries visible.");
-fixtures.countrySelectorOptions[1].dispatch("keydown", { key: "Enter" });
-assert.equal(fixtures.countrySelectorControl.dataset.country, "CU", "Country Selector Enter should select the active country.");
-assert.equal(fixtures.countrySelectorPrefix.textContent, "+53", "Country Selector should sync the visible calling code.");
-
 fixtures.treeControls[0].dispatch("keydown", { key: "ArrowDown" });
 assert.equal(fixtures.treeItems[1].getAttribute("aria-selected"), "true", "Tree View ArrowDown should select the next item.");
 fixtures.treeControls[0].dispatch("keydown", { key: "ArrowRight" });
@@ -299,7 +289,6 @@ console.log(JSON.stringify({
     "pagination",
     "popover",
     "combobox",
-    "country-selector",
     "tree-view",
     "overlay",
     "menu",
@@ -529,7 +518,6 @@ function buildFixtures() {
       pagination,
       popover,
       combobox,
-      countrySelector,
       tree,
       overlayDemo,
       menu,
@@ -559,12 +547,6 @@ function buildFixtures() {
     comboboxInput,
     comboboxClear,
     comboboxOptions,
-    countrySelector,
-    countrySelectorControl,
-    countrySelectorTrigger,
-    countrySelectorSearch,
-    countrySelectorOptions,
-    countrySelectorPrefix,
       tree,
       treeItems,
       treeControls,

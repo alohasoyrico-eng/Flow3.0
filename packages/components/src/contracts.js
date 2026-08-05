@@ -1296,7 +1296,8 @@ export const componentContracts = {
     ]
   },
   countrySelector: {
-    factory: "createCountrySelector",
+    factory: "@design-system/react/country-selector",
+    internalFactory: "createCountrySelector",
     element: "span",
     purpose: "Choose one country with visible flag, country code, calling code, option layer, and keyboard selection.",
     variants: ["default", "inline"],

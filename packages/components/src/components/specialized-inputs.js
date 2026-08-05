@@ -1,4 +1,9 @@
 import { createCountryFlag } from "../primitives/country-flags.js?v=5";
+import {
+  countryCallingCodeOptions,
+  normalizeCountryCallingCodeOptions,
+  resolveCountryCallingCodeOption,
+} from "../primitives/country-options.js?v=1";
 import { createFieldAction } from "../primitives/field-actions.js?v=2";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 import {
@@ -18,18 +23,7 @@ let cardNumberInputId = 0;
 let cardExpiryInputId = 0;
 let cardSecurityCodeInputId = 0;
 
-const phoneCountries = Object.freeze([
-  { country: "AR", label: "Argentina", callingCode: "+54", nationalLength: 10 },
-  { country: "BR", label: "Brazil", callingCode: "+55", nationalLength: 11 },
-  { country: "CL", label: "Chile", callingCode: "+56", nationalLength: 9 },
-  { country: "CO", label: "Colombia", callingCode: "+57", nationalLength: 10 },
-  { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
-  { country: "PE", label: "Peru", callingCode: "+51", nationalLength: 9 },
-  { country: "ES", label: "Spain", callingCode: "+34", nationalLength: 9 },
-  { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
-  { country: "CA", label: "Canada", callingCode: "+1", nationalLength: 10 },
-  { country: "CU", label: "Cuba", callingCode: "+53", nationalLength: 8 },
-]);
+const phoneCountries = countryCallingCodeOptions;
 
 function addClassName(node, className) {
   if (!node || !className) return;
@@ -46,10 +40,7 @@ function createFieldLoadingSpinner(label) {
 }
 
 function resolvePhoneCountry({ country, prefix } = {}) {
-  const countryCode = String(country ?? "").toUpperCase();
-  return phoneCountries.find((item) => item.country === countryCode)
-    ?? phoneCountries.find((item) => item.callingCode === prefix)
-    ?? phoneCountries[0];
+  return resolveCountryCallingCodeOption({ country, prefix }, phoneCountries);
 }
 
 function parsePhoneValue(value, initialCountry, countryList = phoneCountries) {
@@ -371,10 +362,7 @@ export function createCountrySelector({
   onValueChange,
 } = {}) {
   const resolvedId = id ?? `country-selector-${++countrySelectorId}`;
-  const countryOptions = (countries?.length ? countries : phoneCountries).map((item) => ({
-    ...resolvePhoneCountry(item),
-    ...item,
-  }));
+  const countryOptions = normalizeCountryCallingCodeOptions(countries);
   const selectedCountry = countryOptions.find((item) => item.country === String(country ?? value).toUpperCase())
     ?? resolvePhoneCountry({ country: country ?? value });
   const root = document.createElement("span");
@@ -877,10 +865,7 @@ export function createTransitionalPhoneInput({
     className: "phone-input",
   });
   const control = createFieldSurface({ className: "phone-input__control" });
-  const countryOptions = (countries?.length ? countries : phoneCountries).map((item) => ({
-    ...resolvePhoneCountry(item),
-    ...item,
-  }));
+  const countryOptions = normalizeCountryCallingCodeOptions(countries);
   let selectedCountry = resolvePhoneCountry({ country, prefix });
   const parsed = parsePhoneValue(value, selectedCountry);
   selectedCountry = parsed.country;

@@ -39,6 +39,7 @@ export { Checkbox } from "./Checkbox.js";
 export { Chip } from "./Chip.js";
 export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
+export { CountrySelector } from "./CountrySelector.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
 export { FloatingActionButton } from "./FloatingActionButton.js";
@@ -123,6 +124,12 @@ export type {
   ComboboxState,
   ComboboxValueMeta,
 } from "./Combobox.js";
+export type {
+  CountrySelectorComponent,
+  CountrySelectorCountry,
+  CountrySelectorDensity,
+  CountrySelectorProps,
+} from "./CountrySelector.js";
 export type {
   DatePickerComponent,
   DatePickerDensity,

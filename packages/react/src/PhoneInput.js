@@ -1,36 +1,21 @@
 import React, { forwardRef, useId, useState } from "react";
-import { countryFlagAssetPath } from "@design-system/components";
+import {
+  countryFlagAssetPath,
+  countryCallingCodeOptions,
+  normalizeCountryCallingCodeOptions,
+  resolveCountryCallingCodeOption,
+} from "@design-system/components";
 import { phoneInputPlatformContract } from "@design-system/components/platforms";
 
-const defaultCountries = Object.freeze([
-  { country: "AR", label: "Argentina", callingCode: "+54", nationalLength: 10 },
-  { country: "BR", label: "Brazil", callingCode: "+55", nationalLength: 11 },
-  { country: "CL", label: "Chile", callingCode: "+56", nationalLength: 9 },
-  { country: "CO", label: "Colombia", callingCode: "+57", nationalLength: 10 },
-  { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
-  { country: "PE", label: "Peru", callingCode: "+51", nationalLength: 9 },
-  { country: "ES", label: "Spain", callingCode: "+34", nationalLength: 9 },
-  { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
-  { country: "CA", label: "Canada", callingCode: "+1", nationalLength: 10 },
-  { country: "CU", label: "Cuba", callingCode: "+53", nationalLength: 8 },
-]);
-
-function resolveCountry({ country, prefix } = {}, countries = defaultCountries) {
-  const countryCode = String(country ?? "").toUpperCase();
-  return countries.find((item) => item.country === countryCode)
-    ?? countries.find((item) => item.callingCode === prefix)
-    ?? countries[0];
+function resolveCountry({ country, prefix } = {}, countries = countryCallingCodeOptions) {
+  return resolveCountryCallingCodeOption({ country, prefix }, countries);
 }
 
 function normalizeCountries(countries) {
-  return (countries?.length ? countries : defaultCountries).map((item) => ({
-    ...resolveCountry(item),
-    ...item,
-    country: String(item.country ?? "").toUpperCase(),
-  }));
+  return normalizeCountryCallingCodeOptions(countries);
 }
 
-function parsePhoneValue(value, initialCountry, countries = defaultCountries) {
+function parsePhoneValue(value, initialCountry, countries = countryCallingCodeOptions) {
   const raw = String(value ?? "").trim();
   const match = raw.match(/^\+(\d{1,3})/);
   if (!match) return { country: initialCountry, digits: raw.replace(/\D/g, "").slice(0, initialCountry.nationalLength) };

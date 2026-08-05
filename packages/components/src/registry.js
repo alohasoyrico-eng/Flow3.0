@@ -11,7 +11,6 @@ import { createEmptyState, createErrorPanel, createProgressIndicator, createSkel
 import { createSegmentedControl } from "./components/interactions.js?v=9";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
-import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
 import { createInlineValidation } from "./components/surfaces.js?v=10";
 
 export const componentRegistry = Object.freeze({
@@ -56,7 +55,9 @@ export const componentRegistry = Object.freeze({
   combobox: () => {
     throw new Error("Combobox is React-primary. Use @design-system/react/combobox instead of the transitional DOM renderer.");
   },
-  "country-selector": createCountrySelector,
+  "country-selector": () => {
+    throw new Error("Country Selector is React-primary. Use @design-system/react/country-selector instead of the transitional DOM renderer.");
+  },
   "date-picker": () => {
     throw new Error("Date Picker is React-primary. Use @design-system/react/date-picker instead of the transitional DOM renderer.");
   },
