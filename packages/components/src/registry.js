@@ -107,7 +107,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Radio Button is React-primary. Use @design-system/react/radio-button instead of the transitional DOM renderer.");
   },
   "route-summary": createRouteSummary,
-  "segmented-control": createSegmentedControl,
+  "segmented-control": () => {
+    throw new Error("Segmented Control is React-primary. Use @design-system/react/segmented-control instead of the transitional DOM renderer.");
+  },
   select: () => {
     throw new Error("Select is React-primary. Use @design-system/react/select instead of the transitional DOM renderer.");
   },
@@ -208,6 +210,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "select") {
     throw new Error("Select is React-primary. Use @design-system/react/select instead of renderComponentDemo.");
+  }
+  if (id === "segmented-control") {
+    throw new Error("Segmented Control is React-primary. Use @design-system/react/segmented-control instead of renderComponentDemo.");
   }
   if (id === "skeleton") {
     throw new Error("Skeleton is React-primary. Use @design-system/react/skeleton instead of renderComponentDemo.");
