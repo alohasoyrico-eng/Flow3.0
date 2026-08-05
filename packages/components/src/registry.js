@@ -114,7 +114,9 @@ export const componentRegistry = Object.freeze({
   skeleton: () => {
     throw new Error("Skeleton is React-primary. Use @design-system/react/skeleton instead of the transitional DOM renderer.");
   },
-  spinner: createSpinner,
+  spinner: () => {
+    throw new Error("Spinner is React-primary. Use @design-system/react/spinner instead of the transitional DOM renderer.");
+  },
   slider: createSlider,
   "station-pin": createStationPin,
   stepper: createStepper,
@@ -209,6 +211,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "skeleton") {
     throw new Error("Skeleton is React-primary. Use @design-system/react/skeleton instead of renderComponentDemo.");
+  }
+  if (id === "spinner") {
+    throw new Error("Spinner is React-primary. Use @design-system/react/spinner instead of renderComponentDemo.");
   }
   if (id === "switch") {
     throw new Error("Switch is React-primary. Use @design-system/react/switch instead of renderComponentDemo.");
