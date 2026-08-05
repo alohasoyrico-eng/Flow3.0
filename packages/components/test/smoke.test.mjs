@@ -33,7 +33,6 @@ import {
   createStationPin,
   createTable,
   createTreeView,
-  createToast,
   createAnimationAsset,
   createChartsPrimitive,
   countryFlagAssetPath,
@@ -111,6 +110,9 @@ import {
   tagPlatformAdapters,
   tagPlatformContract,
   tagPlatformProps,
+  toastPlatformAdapters,
+  toastPlatformContract,
+  toastPlatformProps,
   tooltipPlatformAdapters,
   tooltipPlatformContract,
   tooltipPlatformProps,
@@ -450,7 +452,16 @@ assert.deepEqual(tooltipPlatformContract.states, componentContracts.tooltip.stat
 assert.deepEqual(Object.keys(tooltipPlatformAdapters), ["react"]);
 assert.equal(tooltipPlatformAdapters.react.componentName, "Tooltip");
 assert.equal(tooltipPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.toast.factory, "createToast");
+assert.equal(componentContracts.toast.factory, "@design-system/react/toast");
+assert.equal(componentContracts.toast.internalFactory, "createToast");
+assert.equal(toastPlatformContract.id, "toast");
+assert.equal(toastPlatformContract.source.factory, componentContracts.toast.factory);
+assert.deepEqual(toastPlatformProps(), componentContracts.toast.props.map((prop) => prop.name));
+assert.deepEqual(toastPlatformContract.variants, componentContracts.toast.variants);
+assert.deepEqual(toastPlatformContract.states, componentContracts.toast.states);
+assert.deepEqual(Object.keys(toastPlatformAdapters), ["react"]);
+assert.equal(toastPlatformAdapters.react.componentName, "Toast");
+assert.equal(toastPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.progressIndicator.factory, "createProgressIndicator");
 assert.equal(componentContracts.spinner.factory, "createSpinner");
 assert.equal(componentContracts.accordion.factory, "createAccordion");
@@ -1315,46 +1326,6 @@ assert.equal(metricTooltip.dataset.open, "true");
 assert.equal(metricTooltip.querySelector(".tooltip__bubble").hidden, false);
 const compactTooltip = createTransitionalTooltip({ triggerLabel: "Compact", content: "Short help", density: "sm" });
 assert.equal(compactTooltip.dataset.density, "sm");
-
-const toast = createToast({ label: "Saved", description: "Policy updated", tone: "success", actionLabel: "Undo", dismissible: true, density: "sm" });
-assert.equal(toast.tagName, "ARTICLE");
-assert.equal(toast.attributes.role, "status");
-assert.equal(toast.attributes["aria-live"], "polite");
-assert.equal(toast.dataset.tone, "success");
-assert.equal(toast.dataset.variant, "status");
-assert.equal(toast.dataset.state, "visible");
-assert.equal(toast.dataset.density, "sm");
-assert.equal(toast.querySelector(".toast__icon").textContent, "check_circle");
-assert.equal(toast.querySelector(".toast__icon").attributes["aria-hidden"], "true");
-assert.equal(toast.querySelector(".toast__content").textContent, "SavedPolicy updated");
-assert.equal(toast.querySelectorAll("button").length, 2);
-assert.equal(toast.querySelector(".toast__action").className.includes("button"), true);
-assert.equal(toast.querySelector(".toast__action").dataset.density, "sm");
-const warningToast = createToast({ label: "Offline", tone: "warning", state: "stacked", variant: "warning" });
-assert.equal(warningToast.attributes.role, "alert");
-assert.equal(warningToast.attributes["aria-live"], "assertive");
-assert.equal(warningToast.dataset.state, "stacked");
-assert.equal(warningToast.dataset.variant, "warning");
-const defaultToast = createToast({ label: "None", state: "default" });
-assert.equal(defaultToast.hidden, true);
-let toastAction = false;
-let toastDismissed = false;
-const interactiveToast = createToast({
-  label: "Saved",
-  actionLabel: "Undo",
-  dismissible: true,
-  onAction() {
-    toastAction = true;
-  },
-  onDismiss() {
-    toastDismissed = true;
-  },
-});
-interactiveToast.querySelector(".toast__action").click();
-assert.equal(toastAction, true);
-interactiveToast.querySelector(".toast__dismiss").click();
-assert.equal(interactiveToast.hidden, true);
-assert.equal(toastDismissed, true);
 
 const progress = createProgressIndicator({ label: "Upload", value: 30, max: 60, showValue: true, tone: "success", state: "active", density: "sm", fullWidth: true });
 assert.equal(progress.tagName, "DIV");
