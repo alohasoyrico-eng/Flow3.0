@@ -227,6 +227,14 @@ export type {
   SpinnerState,
   SpinnerTone,
 } from "./Spinner.js";
+export { Stepper } from "./Stepper.js";
+export type {
+  StepperComponent,
+  StepperDensity,
+  StepperOrientation,
+  StepperProps,
+  StepperStep,
+} from "./Stepper.js";
 export { Switch } from "./Switch.js";
 export type {
   SwitchComponent,

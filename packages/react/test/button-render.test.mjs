@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, Pagination, PhoneInput, RadioButton, Select, Skeleton, Slider, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, Pagination, PhoneInput, RadioButton, Select, Skeleton, Slider, Stepper, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -50,6 +50,8 @@ assert.equal(Skeleton.displayName, "Skeleton");
 assert.equal(Skeleton.platformContract, skeletonPlatformContract);
 assert.equal(Slider.displayName, "Slider");
 assert.equal(Slider.platformContract, sliderPlatformContract);
+assert.equal(Stepper.displayName, "Stepper");
+assert.equal(Stepper.platformContract, stepperPlatformContract);
 assert.equal(Switch.displayName, "Switch");
 assert.equal(Switch.platformContract, switchPlatformContract);
 assert.equal(Tag.displayName, "Tag");
@@ -338,6 +340,31 @@ assert.match(sliderMarkup, /aria-valuetext="9 km"/);
 assert.match(sliderMarkup, /class="slider__track"/);
 assert.match(sliderMarkup, /class="slider__fill"/);
 assert.match(sliderMarkup, /class="slider__thumb"/);
+
+const stepperMarkup = renderToStaticMarkup(React.createElement(Stepper, {
+  label: "Setup progress",
+  current: 1,
+  orientation: "vertical",
+  density: "lg",
+  steps: [
+    { label: "Vehicle", description: "Basic data" },
+    { label: "Driver", description: "Assignment" },
+    { label: "Confirm", description: "Review" },
+  ],
+}));
+assert.match(stepperMarkup, /^<ol/);
+assert.match(stepperMarkup, /class="stepper"/);
+assert.match(stepperMarkup, /aria-label="Setup progress"/);
+assert.match(stepperMarkup, /data-orientation="vertical"/);
+assert.match(stepperMarkup, /data-density="lg"/);
+assert.match(stepperMarkup, /data-current="1"/);
+assert.match(stepperMarkup, /class="stepper__item" data-state="complete"/);
+assert.match(stepperMarkup, /class="stepper__item" data-state="active" aria-current="step"/);
+assert.match(stepperMarkup, /class="stepper__marker"/);
+assert.match(stepperMarkup, />check<\/span>/);
+assert.match(stepperMarkup, /class="stepper__connector" data-state="complete"/);
+assert.match(stepperMarkup, /class="stepper__text"/);
+assert.match(stepperMarkup, /<strong>Driver<\/strong>/);
 
 const emptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
   title: "No vehicles match",

@@ -25,6 +25,7 @@ export { SegmentedControl } from "./SegmentedControl.js";
 export { Skeleton } from "./Skeleton.js";
 export { Slider } from "./Slider.js";
 export { Spinner } from "./Spinner.js";
+export { Stepper } from "./Stepper.js";
 export { Switch } from "./Switch.js";
 export { Tag } from "./Tag.js";
 export { Toast } from "./Toast.js";

@@ -31,7 +31,6 @@ import {
   createSpinner,
   createSlider,
   createStationPin,
-  createStepper,
   createTable,
   createTabs,
   createTreeView,
@@ -101,6 +100,9 @@ import {
   sliderPlatformAdapters,
   sliderPlatformContract,
   sliderPlatformProps,
+  stepperPlatformAdapters,
+  stepperPlatformContract,
+  stepperPlatformProps,
   switchPlatformAdapters,
   switchPlatformContract,
   switchPlatformProps,
@@ -488,7 +490,16 @@ assert.equal(paginationPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.auditEvent.factory, "createAuditEvent");
 assert.equal(componentContracts.errorPanel.factory, "createErrorPanel");
 assert.equal(componentContracts.inlineValidation.factory, "createInlineValidation");
-assert.equal(componentContracts.stepper.factory, "createStepper");
+assert.equal(componentContracts.stepper.factory, "@design-system/react/stepper");
+assert.equal(componentContracts.stepper.internalFactory, "createStepper");
+assert.equal(stepperPlatformContract.id, "stepper");
+assert.equal(stepperPlatformContract.source.factory, componentContracts.stepper.factory);
+assert.deepEqual(stepperPlatformProps(), componentContracts.stepper.props.map((prop) => prop.name));
+assert.deepEqual(stepperPlatformContract.variants, componentContracts.stepper.variants);
+assert.deepEqual(stepperPlatformContract.states, componentContracts.stepper.states);
+assert.deepEqual(Object.keys(stepperPlatformAdapters), ["react"]);
+assert.equal(stepperPlatformAdapters.react.componentName, "Stepper");
+assert.equal(stepperPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.chartPanel.factory, "createChartPanel");
 assert.equal(componentContracts.stationPin.factory, "createStationPin");
 assert.equal(componentContracts.routeSummary.factory, "createRouteSummary");
@@ -2087,20 +2098,6 @@ const inlineValidationLive = createInlineValidation({ label: "Vehicle ID", value
 assert.equal(inlineValidationLive.querySelector(".inline-validation__message").attributes.role, "status");
 const inlineValidationLiveError = createInlineValidation({ label: "Driver email", value: "ana@", message: "Enter a complete email address.", state: "error", id: "driver-email", live: true });
 assert.equal(inlineValidationLiveError.querySelector(".inline-validation__message").attributes.role, "alert");
-
-const stepper = createStepper({ current: 1, steps: [{ label: "Start" }, { label: "Review", description: "Check limits" }] });
-assert.equal(stepper.tagName, "OL");
-assert.equal(stepper.attributes["aria-label"], "Progress");
-assert.equal(stepper.dataset.orientation, "horizontal");
-assert.equal(stepper.dataset.density, "md");
-assert.equal(stepper.querySelectorAll(".stepper__item")[0].dataset.state, "complete");
-assert.equal(stepper.querySelectorAll(".stepper__item")[1].attributes["aria-current"], "step");
-assert.equal(stepper.querySelector(".stepper__marker").textContent, "check");
-const verticalStepper = createStepper({ current: 0, orientation: "vertical", density: "lg", steps: [{ label: "Vehicle" }, { label: "Driver" }, { label: "Confirm" }] });
-assert.equal(verticalStepper.dataset.orientation, "vertical");
-assert.equal(verticalStepper.dataset.density, "lg");
-assert.equal(verticalStepper.querySelectorAll(".stepper__item")[0].dataset.state, "active");
-assert.equal(verticalStepper.querySelectorAll(".stepper__item")[1].dataset.state, "pending");
 
 const chartPanel = createChartPanel({ label: "Spend", value: "$12k", caption: "Last 7 days", values: [3, 6, 9] });
 assert.equal(chartPanel.tagName, "ARTICLE");

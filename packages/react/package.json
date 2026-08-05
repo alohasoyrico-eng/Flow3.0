@@ -116,6 +116,10 @@
       "types": "./dist/Spinner.d.ts",
       "default": "./dist/Spinner.js"
     },
+    "./stepper": {
+      "types": "./dist/Stepper.d.ts",
+      "default": "./dist/Stepper.js"
+    },
     "./switch": {
       "types": "./dist/Switch.d.ts",
       "default": "./dist/Switch.js"

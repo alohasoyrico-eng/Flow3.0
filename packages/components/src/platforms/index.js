@@ -49,6 +49,11 @@ export {
   paginationPlatformProps,
 } from "./pagination.js";
 export {
+  stepperPlatformAdapters,
+  stepperPlatformContract,
+  stepperPlatformProps,
+} from "./stepper.js";
+export {
   iconButtonPlatformAdapters,
   iconButtonPlatformContract,
   iconButtonPlatformProps,

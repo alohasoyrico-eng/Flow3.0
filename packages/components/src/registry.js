@@ -15,7 +15,6 @@ import {
   createTabs,
   createTreeView,
 } from "./components/interactions.js?v=9";
-import { createStepper } from "./components/navigation.js";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
 import {
   createDialog,
@@ -127,7 +126,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Slider is React-primary. Use @design-system/react/slider instead of the transitional DOM renderer.");
   },
   "station-pin": createStationPin,
-  stepper: createStepper,
+  stepper: () => {
+    throw new Error("Stepper is React-primary. Use @design-system/react/stepper instead of the transitional DOM renderer.");
+  },
   switch: () => {
     throw new Error("Switch is React-primary. Use @design-system/react/switch instead of the transitional DOM renderer.");
   },
