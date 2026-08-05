@@ -80,6 +80,10 @@
       "types": "./dist/SegmentedControl.d.ts",
       "default": "./dist/SegmentedControl.js"
     },
+    "./spinner": {
+      "types": "./dist/Spinner.d.ts",
+      "default": "./dist/Spinner.js"
+    },
     "./switch": {
       "types": "./dist/Switch.d.ts",
       "default": "./dist/Switch.js"

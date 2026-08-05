@@ -1,5 +1,6 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
 import { cardSecurityCodeInputPlatformContract } from "@design-system/components/platforms";
+import { Spinner } from "./Spinner.js";
 
 function normalizeCardSecurityCode(value, expectedLength = 3) {
   const length = Number(expectedLength) === 4 ? 4 : 3;
@@ -21,30 +22,6 @@ function resolveCardSecurityCodeState({ disabled = false, loading = false, error
   if (state && state !== "default") return state;
   if (validity === "valid") return "valid";
   return value ? "filled" : "default";
-}
-
-function Spinner() {
-  return React.createElement(
-    "span",
-    {
-      className: "spinner field__icon field__icon--loading",
-      "data-density": "sm",
-      "data-tone": "accent",
-      "data-state": "loading",
-      "aria-hidden": "true",
-    },
-    React.createElement(
-      "svg",
-      {
-        className: "spinner__svg",
-        viewBox: "0 0 40 40",
-        focusable: "false",
-        "aria-hidden": "true",
-      },
-      React.createElement("circle", { className: "spinner__track", cx: "20", cy: "20", r: "16", pathLength: "100" }),
-      React.createElement("circle", { className: "spinner__arc", cx: "20", cy: "20", r: "16", pathLength: "100" }),
-    ),
-  );
 }
 
 export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
@@ -152,7 +129,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
           React.createElement("span", { className: "field-action__icon field__icon card-security-code-input__action-icon", "aria-hidden": "true" }, isRevealed ? "visibility_off" : "visibility"),
         )
         : null,
-      loading ? React.createElement(Spinner) : null,
+      loading ? React.createElement(Spinner, { label: `${label ?? "Security code"} loading`, density: "sm", decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement(

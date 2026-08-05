@@ -1,31 +1,8 @@
 import React, { forwardRef } from "react";
 import { buttonPlatformContract } from "@design-system/components/platforms";
+import { Spinner } from "./Spinner.js";
 
 const allowedTypes = new Set(["button", "submit", "reset"]);
-
-function spinnerNode(label) {
-  return React.createElement(
-    "span",
-    {
-      className: "spinner",
-      "data-density": "sm",
-      "data-tone": "accent",
-      "data-state": "loading",
-      "aria-hidden": "true",
-    },
-    React.createElement(
-      "svg",
-      {
-        className: "spinner__svg",
-        viewBox: "0 0 40 40",
-        focusable: "false",
-        "aria-hidden": "true",
-      },
-      React.createElement("circle", { className: "spinner__track", cx: "20", cy: "20", r: "16", pathLength: "100" }),
-      React.createElement("circle", { className: "spinner__arc", cx: "20", cy: "20", r: "16", pathLength: "100" }),
-    ),
-  );
-}
 
 function buttonClassName({ variant = "primary", intent = "default", className = "" } = {}) {
   return [
@@ -72,7 +49,7 @@ export const Button = forwardRef(function Button({
       ? React.createElement("span", { className: "button__icon", "aria-hidden": "true" }, icon)
       : null,
     resolvedState === "loading"
-      ? spinnerNode(`${label ?? "Button"} loading`)
+      ? React.createElement(Spinner, { label: `${label ?? "Button"} loading`, density: "sm", decorative: true })
       : null,
     React.createElement("span", { className: "button__label" }, buttonLabel),
     resolvedState !== "loading" && trailingIcon

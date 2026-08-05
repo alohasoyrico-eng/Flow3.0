@@ -150,6 +150,14 @@ export type {
   SegmentedControlProps,
   SegmentedControlVariant,
 } from "./SegmentedControl.js";
+export { Spinner } from "./Spinner.js";
+export type {
+  SpinnerComponent,
+  SpinnerDensity,
+  SpinnerProps,
+  SpinnerState,
+  SpinnerTone,
+} from "./Spinner.js";
 export { Switch } from "./Switch.js";
 export type {
   SwitchComponent,

@@ -1,5 +1,6 @@
 import React, { forwardRef, useId, useState } from "react";
 import { inputPlatformContract } from "@design-system/components/platforms";
+import { Spinner } from "./Spinner.js";
 
 const numericVariants = new Set(["number", "currency", "unit"]);
 
@@ -55,30 +56,6 @@ function normalizeValue(value, variant) {
     rawValue: displayValue,
     numericValue: normalized === "" || normalized === "-" ? null : Number(normalized),
   };
-}
-
-function spinnerNode(label) {
-  return React.createElement(
-    "span",
-    {
-      className: "spinner field__icon field__icon--loading",
-      "data-density": "sm",
-      "data-tone": "accent",
-      "data-state": "loading",
-      "aria-hidden": "true",
-    },
-    React.createElement(
-      "svg",
-      {
-        className: "spinner__svg",
-        viewBox: "0 0 40 40",
-        focusable: "false",
-        "aria-hidden": "true",
-      },
-      React.createElement("circle", { className: "spinner__track", cx: "20", cy: "20", r: "16", pathLength: "100" }),
-      React.createElement("circle", { className: "spinner__arc", cx: "20", cy: "20", r: "16", pathLength: "100" }),
-    ),
-  );
 }
 
 export const Input = forwardRef(function Input({
@@ -177,7 +154,7 @@ export const Input = forwardRef(function Input({
           React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, revealed ? "visibility_off" : "visibility"),
         )
         : null,
-      loading ? spinnerNode(`${label ?? "Input"} loading`) : null,
+      loading ? React.createElement(Spinner, { label: `${label ?? "Input"} loading`, density: "sm", decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)

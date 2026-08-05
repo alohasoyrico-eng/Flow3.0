@@ -28,6 +28,7 @@
     "./react/phone-input": "./packages/react/dist/PhoneInput.js",
     "./react/select": "./packages/react/dist/Select.js",
     "./react/segmented-control": "./packages/react/dist/SegmentedControl.js",
+    "./react/spinner": "./packages/react/dist/Spinner.js",
     "./react/tooltip": "./packages/react/dist/Tooltip.js",
     "./content/catalog": "./packages/content/content/catalog.json",
     "./content/component-docs": "./packages/content/content/component-docs.json",

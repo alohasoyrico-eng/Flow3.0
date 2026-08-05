@@ -89,6 +89,11 @@ export {
   segmentedControlPlatformProps,
 } from "./segmented-control.js";
 export {
+  spinnerPlatformAdapters,
+  spinnerPlatformContract,
+  spinnerPlatformProps,
+} from "./spinner.js";
+export {
   radioButtonPlatformAdapters,
   radioButtonPlatformContract,
   radioButtonPlatformProps,

@@ -1,5 +1,6 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
 import { cardNumberInputPlatformContract } from "@design-system/components/platforms";
+import { Spinner } from "./Spinner.js";
 
 function normalizeCardNumber(value) {
   return String(value ?? "").replace(/\D/g, "").slice(0, 19);
@@ -48,30 +49,6 @@ function resolveCardNumberState({ disabled = false, loading = false, error = "",
   if (state) return state;
   if (validity === "valid") return "valid";
   return value ? "filled" : "default";
-}
-
-function Spinner() {
-  return React.createElement(
-    "span",
-    {
-      className: "spinner field__icon field__icon--loading",
-      "data-density": "sm",
-      "data-tone": "accent",
-      "data-state": "loading",
-      "aria-hidden": "true",
-    },
-    React.createElement(
-      "svg",
-      {
-        className: "spinner__svg",
-        viewBox: "0 0 40 40",
-        focusable: "false",
-        "aria-hidden": "true",
-      },
-      React.createElement("circle", { className: "spinner__track", cx: "20", cy: "20", r: "16", pathLength: "100" }),
-      React.createElement("circle", { className: "spinner__arc", cx: "20", cy: "20", r: "16", pathLength: "100" }),
-    ),
-  );
 }
 
 export const CardNumberInput = forwardRef(function CardNumberInput({
@@ -170,7 +147,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
         },
         brand,
       ),
-      loading ? React.createElement(Spinner) : null,
+      loading ? React.createElement(Spinner, { label: `${label ?? "Card number"} loading`, density: "sm", decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement(
