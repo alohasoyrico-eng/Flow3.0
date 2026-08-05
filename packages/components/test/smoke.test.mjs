@@ -11,7 +11,6 @@ import {
   createDialog,
   createDrawer,
   createBreadcrumbs,
-  createEmptyState,
   createErrorPanel,
   createFloatingActionButton,
   createInlineValidation,
@@ -67,6 +66,9 @@ import {
   dateRangePickerPlatformAdapters,
   dateRangePickerPlatformContract,
   dateRangePickerPlatformProps,
+  emptyStatePlatformAdapters,
+  emptyStatePlatformContract,
+  emptyStatePlatformProps,
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,
@@ -538,7 +540,16 @@ assert.equal(componentContracts.biometricPrompt.factory, "createBiometricPrompt"
 assert.equal(componentContracts.treeView.factory, "createTreeView");
 assert.equal(componentContracts.motionBoundary.factory, "createMotionBoundary");
 assert.equal(componentContracts.animatedMoment.factory, "createAnimatedMoment");
-assert.equal(componentContracts.emptyState.factory, "createEmptyState");
+assert.equal(componentContracts.emptyState.factory, "@design-system/react/empty-state");
+assert.equal(componentContracts.emptyState.internalFactory, "createEmptyState");
+assert.equal(emptyStatePlatformContract.id, "empty-state");
+assert.equal(emptyStatePlatformContract.source.factory, componentContracts.emptyState.factory);
+assert.deepEqual(emptyStatePlatformProps(), componentContracts.emptyState.props.map((prop) => prop.name));
+assert.deepEqual(emptyStatePlatformContract.variants, componentContracts.emptyState.variants);
+assert.deepEqual(emptyStatePlatformContract.states, componentContracts.emptyState.states);
+assert.deepEqual(Object.keys(emptyStatePlatformAdapters), ["react"]);
+assert.equal(emptyStatePlatformAdapters.react.componentName, "EmptyState");
+assert.equal(emptyStatePlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.list.factory, "createList");
 assert.equal(componentContracts.kpiTile.factory, "createKpiTile");
 assert.equal(componentContracts.floatingActionButton.factory, "createFloatingActionButton");
@@ -1782,34 +1793,6 @@ assert.equal(disabledAnimatedMoment.querySelector(".animated-moment__state").tex
 const fullAnimatedMoment = createAnimatedMoment({ label: "Desktop cue", density: "sm", fullWidth: true });
 assert.equal(fullAnimatedMoment.dataset.density, "sm");
 assert.equal(fullAnimatedMoment.dataset.fullWidth, "true");
-
-let emptyStateAction = "";
-const emptyState = createEmptyState({
-  title: "No vehicles",
-  description: "Connect one to begin",
-  icon: "inbox",
-  variant: "search-empty",
-  state: "action",
-  density: "lg",
-  fullWidth: true,
-  action: { label: "Add vehicle", key: "add-vehicle" },
-  onAction(key) {
-    emptyStateAction = key;
-  },
-});
-assert.equal(emptyState.tagName, "SECTION");
-assert.equal(emptyState.className, "empty-state");
-assert.equal(emptyState.dataset.variant, "search-empty");
-assert.equal(emptyState.dataset.state, "action");
-assert.equal(emptyState.dataset.density, "lg");
-assert.equal(emptyState.dataset.fullWidth, "true");
-assert.equal(emptyState.querySelector(".empty-state__title").textContent, "No vehicles");
-assert.equal(emptyState.querySelector("button").textContent, "Add vehicle");
-assert.equal(emptyState.querySelector("button").dataset.density, "lg");
-emptyState.querySelector("button").click();
-assert.equal(emptyStateAction, "add-vehicle");
-const loadingEmptyState = createEmptyState({ title: "Resolving", icon: "hourglass_empty", state: "loading" });
-assert.equal(loadingEmptyState.querySelector(".spinner").attributes["aria-hidden"], "true");
 
 const list = createList({
   label: "Movements",
