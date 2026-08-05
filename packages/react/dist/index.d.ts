@@ -37,6 +37,7 @@ export { CardSecurityCodeInput } from "./CardSecurityCodeInput.js";
 export { Checkbox } from "./Checkbox.js";
 export { Chip } from "./Chip.js";
 export { CodeInput } from "./CodeInput.js";
+export { Combobox } from "./Combobox.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
 export type {
@@ -91,6 +92,14 @@ export type {
   CodeInputState,
   CodeInputVariant,
 } from "./CodeInput.js";
+export type {
+  ComboboxComponent,
+  ComboboxDensity,
+  ComboboxOption,
+  ComboboxProps,
+  ComboboxState,
+  ComboboxValueMeta,
+} from "./Combobox.js";
 export type {
   DatePickerComponent,
   DatePickerDensity,

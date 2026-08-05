@@ -220,7 +220,8 @@ export const componentContracts = {
     ]
   },
   combobox: {
-    factory: "createCombobox",
+    factory: "@design-system/react/combobox",
+    internalFactory: "createCombobox",
     element: "label",
     purpose: "Let users type to filter and choose one option from a known operational set.",
     variants: ["default"],

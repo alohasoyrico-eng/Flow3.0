@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -26,6 +26,8 @@ assert.equal(Chip.displayName, "Chip");
 assert.equal(Chip.platformContract, chipPlatformContract);
 assert.equal(CodeInput.displayName, "CodeInput");
 assert.equal(CodeInput.platformContract, codeInputPlatformContract);
+assert.equal(Combobox.displayName, "Combobox");
+assert.equal(Combobox.platformContract, comboboxPlatformContract);
 assert.equal(DatePicker.displayName, "DatePicker");
 assert.equal(DatePicker.platformContract, datePickerPlatformContract);
 assert.equal(DateRangePicker.displayName, "DateRangePicker");
@@ -1111,6 +1113,47 @@ assert.match(formDrawerMarkup, /class="drawer__body"/);
 assert.match(formDrawerMarkup, /class="field"/);
 assert.match(formDrawerMarkup, /data-density="md"/);
 assert.match(formDrawerMarkup, /value="Diesel"/);
+
+const comboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
+  label: "Vehicle",
+  helper: "Search by plate, driver, or fleet",
+  value: "mx-4821",
+  density: "sm",
+  state: "open",
+  options: [
+    { label: "MX-4821 - Ana Gomez", value: "mx-4821", meta: "Driver" },
+    { label: "MX-8840 - Luis Perez", value: "mx-8840", meta: "Vehicle" },
+  ],
+}));
+assert.match(comboboxMarkup, /^<label/);
+assert.match(comboboxMarkup, /class="field"/);
+assert.match(comboboxMarkup, /data-density="sm"/);
+assert.match(comboboxMarkup, /class="combobox"/);
+assert.match(comboboxMarkup, /data-open="true"/);
+assert.match(comboboxMarkup, /data-combobox-control=""/);
+assert.match(comboboxMarkup, /role="combobox"/);
+assert.match(comboboxMarkup, /aria-autocomplete="list"/);
+assert.match(comboboxMarkup, /aria-expanded="true"/);
+assert.match(comboboxMarkup, /aria-controls="[^"]+-listbox"/);
+assert.match(comboboxMarkup, /class="field__icon combobox__icon"/);
+assert.match(comboboxMarkup, /class="field-action field__action combobox__clear"/);
+assert.match(comboboxMarkup, /class="select-control__chevron combobox__chevron"/);
+assert.match(comboboxMarkup, /class="select-control__listbox combobox__listbox"/);
+assert.match(comboboxMarkup, /role="listbox"/);
+assert.match(comboboxMarkup, /class="select-control__option combobox__option"/);
+assert.match(comboboxMarkup, /aria-selected="true"/);
+assert.match(comboboxMarkup, /class="select-control__option-code combobox__option-meta">Driver<\/span>/);
+assert.match(comboboxMarkup, /class="field__helper"/);
+
+const emptyComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
+  label: "Vehicle",
+  value: "zz",
+  emptyText: "No matching options",
+  options: [{ label: "MX-4821 - Ana Gomez", value: "mx-4821" }],
+}));
+assert.match(emptyComboboxMarkup, /data-state="empty"/);
+assert.match(emptyComboboxMarkup, /class="combobox__empty"/);
+assert.match(emptyComboboxMarkup, />No matching options<\/span>/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

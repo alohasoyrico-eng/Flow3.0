@@ -52,6 +52,10 @@
       "types": "./dist/CodeInput.d.ts",
       "default": "./dist/CodeInput.js"
     },
+    "./combobox": {
+      "types": "./dist/Combobox.d.ts",
+      "default": "./dist/Combobox.js"
+    },
     "./date-picker": {
       "types": "./dist/DatePicker.d.ts",
       "default": "./dist/DatePicker.js"

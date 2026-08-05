@@ -4,7 +4,6 @@ import {
   createCardSummary,
   createChartPanel,
   hydrateChartPanel,
-  createCombobox,
   createAuditEvent,
   createBiometricPrompt,
   createCountrySelector,
@@ -54,6 +53,9 @@ import {
   codeInputPlatformAdapters,
   codeInputPlatformContract,
   codeInputPlatformProps,
+  comboboxPlatformAdapters,
+  comboboxPlatformContract,
+  comboboxPlatformProps,
   datePickerPlatformAdapters,
   datePickerPlatformContract,
   datePickerPlatformProps,
@@ -142,6 +144,7 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
+import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
 import {
@@ -390,7 +393,16 @@ assert.deepEqual(textAreaPlatformContract.states, componentContracts.textArea.st
 assert.deepEqual(Object.keys(textAreaPlatformAdapters), ["react"]);
 assert.equal(textAreaPlatformAdapters.react.componentName, "TextArea");
 assert.equal(textAreaPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.combobox.factory, "createCombobox");
+assert.equal(componentContracts.combobox.factory, "@design-system/react/combobox");
+assert.equal(componentContracts.combobox.internalFactory, "createCombobox");
+assert.equal(comboboxPlatformContract.id, "combobox");
+assert.equal(comboboxPlatformContract.source.factory, componentContracts.combobox.factory);
+assert.deepEqual(comboboxPlatformProps(), componentContracts.combobox.props.map((prop) => prop.name));
+assert.deepEqual(comboboxPlatformContract.variants, componentContracts.combobox.variants);
+assert.deepEqual(comboboxPlatformContract.states, componentContracts.combobox.states);
+assert.deepEqual(Object.keys(comboboxPlatformAdapters), ["react"]);
+assert.equal(comboboxPlatformAdapters.react.componentName, "Combobox");
+assert.equal(comboboxPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.card.factory, "createCard");
 assert.equal(componentContracts.checkbox.factory, "@design-system/react/checkbox");
 assert.equal(componentContracts.checkbox.internalFactory, "createTransitionalChoiceCheckbox");

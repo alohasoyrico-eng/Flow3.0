@@ -74,6 +74,11 @@ export {
   inputPlatformProps,
 } from "./input.js";
 export {
+  comboboxPlatformAdapters,
+  comboboxPlatformContract,
+  comboboxPlatformProps,
+} from "./combobox.js";
+export {
   cardNumberInputPlatformAdapters,
   cardNumberInputPlatformContract,
   cardNumberInputPlatformProps,

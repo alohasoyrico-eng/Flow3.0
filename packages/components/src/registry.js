@@ -9,7 +9,6 @@ import {
 } from "./components/commerce.js?v=15";
 import { createAuditEvent, createKpiTile, createList } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
-import { createCombobox } from "./components/fields.js?v=21";
 import {
   createSegmentedControl,
   createTreeView,
@@ -59,7 +58,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Chip is React-primary. Use @design-system/react/chip instead of the transitional DOM renderer.");
   },
   "chart-panel": createChartPanel,
-  combobox: createCombobox,
+  combobox: () => {
+    throw new Error("Combobox is React-primary. Use @design-system/react/combobox instead of the transitional DOM renderer.");
+  },
   "country-selector": createCountrySelector,
   "date-picker": () => {
     throw new Error("Date Picker is React-primary. Use @design-system/react/date-picker instead of the transitional DOM renderer.");
