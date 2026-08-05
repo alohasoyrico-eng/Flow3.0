@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, Dialog, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -32,6 +32,8 @@ assert.equal(DateRangePicker.displayName, "DateRangePicker");
 assert.equal(DateRangePicker.platformContract, dateRangePickerPlatformContract);
 assert.equal(Dialog.displayName, "Dialog");
 assert.equal(Dialog.platformContract, dialogPlatformContract);
+assert.equal(Drawer.displayName, "Drawer");
+assert.equal(Drawer.platformContract, drawerPlatformContract);
 assert.equal(EmptyState.displayName, "EmptyState");
 assert.equal(EmptyState.platformContract, emptyStatePlatformContract);
 assert.equal(ErrorPanel.displayName, "ErrorPanel");
@@ -1048,6 +1050,67 @@ assert.match(formDialogMarkup, /data-variant="form"/);
 assert.match(formDialogMarkup, /class="dialog__body dialog__fields"/);
 assert.match(formDialogMarkup, /class="field"/);
 assert.match(formDialogMarkup, /data-density="md"/);
+
+const closedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
+  label: "Card controls",
+  description: "Review limits.",
+  triggerLabel: "Open controls",
+  density: "sm",
+  side: "left",
+}));
+assert.match(closedDrawerMarkup, /^<div/);
+assert.match(closedDrawerMarkup, /class="drawer drawer--neutral"/);
+assert.match(closedDrawerMarkup, /data-open="false"/);
+assert.match(closedDrawerMarkup, /data-state="closed"/);
+assert.match(closedDrawerMarkup, /data-density="sm"/);
+assert.match(closedDrawerMarkup, /data-side="left"/);
+assert.match(closedDrawerMarkup, /class="button button--secondary drawer__trigger"/);
+assert.match(closedDrawerMarkup, /aria-haspopup="dialog"/);
+assert.match(closedDrawerMarkup, /aria-expanded="false"/);
+assert.match(closedDrawerMarkup, /data-overlay-open=""/);
+assert.match(closedDrawerMarkup, /class="drawer__overlay"/);
+assert.match(closedDrawerMarkup, /hidden=""/);
+
+const openDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
+  label: "Ana Sosa",
+  variant: "detail",
+  tone: "info",
+  state: "open",
+  open: true,
+  density: "md",
+  content: [
+    { type: "badge", label: "En ruta", tone: "success", live: true },
+    { type: "progress", label: "Documentos", value: 75, max: 100, showValue: true },
+  ],
+  actions: [{ key: "close", label: "Cerrar", variant: "ghost" }, { key: "save", label: "Guardar" }],
+}));
+assert.match(openDrawerMarkup, /class="drawer drawer--info"/);
+assert.match(openDrawerMarkup, /data-variant="detail"/);
+assert.match(openDrawerMarkup, /data-open="true"/);
+assert.match(openDrawerMarkup, /data-state="open"/);
+assert.match(openDrawerMarkup, /role="dialog"/);
+assert.match(openDrawerMarkup, /aria-modal="true"/);
+assert.match(openDrawerMarkup, /aria-labelledby=/);
+assert.match(openDrawerMarkup, /class="icon-button icon-button--ghost drawer__close"/);
+assert.match(openDrawerMarkup, /class="drawer__status-row"/);
+assert.match(openDrawerMarkup, /class="badge__label">En ruta<\/span>/);
+assert.match(openDrawerMarkup, /class="drawer__progress-row"/);
+assert.match(openDrawerMarkup, /class="progress"/);
+assert.match(openDrawerMarkup, /aria-valuenow="75"/);
+assert.match(openDrawerMarkup, /data-overlay-close=""/);
+assert.match(openDrawerMarkup, /data-key="save"/);
+
+const formDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
+  label: "Filter routes",
+  variant: "filter",
+  open: true,
+  fields: ["Region", { label: "Fuel type", value: "Diesel" }],
+}));
+assert.match(formDrawerMarkup, /data-variant="filter"/);
+assert.match(formDrawerMarkup, /class="drawer__body"/);
+assert.match(formDrawerMarkup, /class="field"/);
+assert.match(formDrawerMarkup, /data-density="md"/);
+assert.match(formDrawerMarkup, /value="Diesel"/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

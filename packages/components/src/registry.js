@@ -16,7 +16,6 @@ import {
 } from "./components/interactions.js?v=9";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
 import {
-  createDrawer,
   createMenu,
 } from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
@@ -71,7 +70,9 @@ export const componentRegistry = Object.freeze({
   dialog: () => {
     throw new Error("Dialog is React-primary. Use @design-system/react/dialog instead of the transitional DOM renderer.");
   },
-  drawer: createDrawer,
+  drawer: () => {
+    throw new Error("Drawer is React-primary. Use @design-system/react/drawer instead of the transitional DOM renderer.");
+  },
   "empty-state": () => {
     throw new Error("Empty State is React-primary. Use @design-system/react/empty-state instead of the transitional DOM renderer.");
   },

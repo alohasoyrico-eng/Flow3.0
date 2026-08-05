@@ -8,7 +8,6 @@ import {
   createAuditEvent,
   createBiometricPrompt,
   createCountrySelector,
-  createDrawer,
   createBreadcrumbs,
   createFloatingActionButton,
   createKpiTile,
@@ -64,6 +63,9 @@ import {
   dialogPlatformAdapters,
   dialogPlatformContract,
   dialogPlatformProps,
+  drawerPlatformAdapters,
+  drawerPlatformContract,
+  drawerPlatformProps,
   emptyStatePlatformAdapters,
   emptyStatePlatformContract,
   emptyStatePlatformProps,
@@ -553,7 +555,16 @@ assert.deepEqual(Object.keys(dialogPlatformAdapters), ["react"]);
 assert.equal(dialogPlatformAdapters.react.componentName, "Dialog");
 assert.equal(dialogPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.menu.factory, "createMenu");
-assert.equal(componentContracts.drawer.factory, "createDrawer");
+assert.equal(componentContracts.drawer.factory, "@design-system/react/drawer");
+assert.equal(componentContracts.drawer.internalFactory, "createDrawer");
+assert.equal(drawerPlatformContract.id, "drawer");
+assert.equal(drawerPlatformContract.source.factory, componentContracts.drawer.factory);
+assert.deepEqual(drawerPlatformProps(), componentContracts.drawer.props.map((prop) => prop.name));
+assert.deepEqual(drawerPlatformContract.variants, componentContracts.drawer.variants);
+assert.deepEqual(drawerPlatformContract.states, componentContracts.drawer.states);
+assert.deepEqual(Object.keys(drawerPlatformAdapters), ["react"]);
+assert.equal(drawerPlatformAdapters.react.componentName, "Drawer");
+assert.equal(drawerPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.table.factory, "createTable");
 assert.equal(componentContracts.biometricPrompt.factory, "createBiometricPrompt");
 assert.equal(componentContracts.treeView.factory, "createTreeView");
@@ -1552,62 +1563,6 @@ interactiveMenu.querySelectorAll(".menu__item")[1].click();
 assert.equal(menuSelection.key, "suspend");
 assert.equal(interactiveMenu.querySelector(".menu__panel").hidden, true);
 assert.equal(globalThis.document.activeElement, interactiveMenu.querySelector(".menu__trigger"));
-
-const drawer = createDrawer({ label: "Card controls", description: "Review limits", fields: [{ label: "Limit", value: "$900" }], actions: [{ label: "Save" }] });
-assert.equal(drawer.tagName, "DIV");
-assert.equal(drawer.className, "drawer drawer--neutral");
-assert.equal(drawer.dataset.variant, "side-sheet");
-assert.equal(drawer.dataset.state, "closed");
-assert.equal(drawer.dataset.density, "md");
-assert.equal(drawer.dataset.open, "false");
-assert.equal(drawer.querySelector(".drawer__trigger").attributes["aria-haspopup"], "dialog");
-assert.equal(drawer.querySelector(".drawer__trigger").attributes["data-overlay-open"], "");
-assert.equal(drawer.querySelector(".drawer__overlay").attributes["data-overlay-dismiss"], "");
-assert.equal(drawer.querySelector(".drawer__panel").attributes.role, "dialog");
-assert.equal(drawer.querySelector(".field__label").textContent, "Limit");
-const detailDrawer = createDrawer({
-  label: "Ana Sosa",
-  content: [
-    { type: "badge", label: "En ruta", tone: "success" },
-    { type: "progress", label: "Documentos", value: 75, max: 100, showValue: true },
-  ],
-  actions: [{ label: "Cerrar", variant: "ghost" }, { label: "Guardar" }],
-});
-assert.equal(detailDrawer.querySelector(".badge__label").textContent, "En ruta");
-assert.equal(detailDrawer.querySelector(".progress__label").textContent, "Documentos");
-assert.equal(detailDrawer.querySelector(".progress").attributes["aria-valuenow"], "75");
-assert.equal(detailDrawer.querySelector("footer").querySelector(".button--ghost").textContent, "Cerrar");
-let drawerOpen = null;
-let drawerAction = "";
-const interactiveDrawer = createDrawer({
-  label: "Card controls",
-  open: false,
-  density: "sm",
-  variant: "filter",
-  side: "left",
-  fields: [{ label: "Limit", value: "$900" }],
-  actions: [{ key: "save", label: "Save" }],
-  onOpenChange(open) {
-    drawerOpen = open;
-  },
-  onAction(key) {
-    drawerAction = key;
-  },
-});
-assert.equal(interactiveDrawer.dataset.density, "sm");
-assert.equal(interactiveDrawer.dataset.variant, "filter");
-assert.equal(interactiveDrawer.dataset.side, "left");
-assert.equal(interactiveDrawer.querySelector(".drawer__trigger").dataset.density, "sm");
-interactiveDrawer.querySelector(".drawer__trigger").click();
-assert.equal(interactiveDrawer.querySelector(".drawer__overlay").hidden, false);
-assert.equal(drawerOpen, true);
-assert.equal(globalThis.document.activeElement, interactiveDrawer.querySelector(".drawer__close"));
-interactiveDrawer.querySelector("footer").querySelector("button").click();
-assert.equal(drawerAction, "save");
-assert.equal(interactiveDrawer.querySelector(".drawer__overlay").hidden, true);
-interactiveDrawer.querySelector(".drawer__trigger").click();
-interactiveDrawer.querySelector(".drawer__overlay").dispatchEvent({ type: "click", target: interactiveDrawer.querySelector(".drawer__overlay") });
-assert.equal(interactiveDrawer.querySelector(".drawer__overlay").hidden, true);
 
 const table = createTable({
   label: "Fleet spend",

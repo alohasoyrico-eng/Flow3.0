@@ -116,6 +116,19 @@ export type {
   DialogTone,
   DialogVariant,
 } from "./Dialog.js";
+export { Drawer } from "./Drawer.js";
+export type {
+  DrawerAction,
+  DrawerComponent,
+  DrawerContent,
+  DrawerDensity,
+  DrawerField,
+  DrawerProps,
+  DrawerSide,
+  DrawerState,
+  DrawerTone,
+  DrawerVariant,
+} from "./Drawer.js";
 export { EmptyState } from "./EmptyState.js";
 export type {
   EmptyStateAction,

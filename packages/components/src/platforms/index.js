@@ -109,6 +109,11 @@ export {
   dialogPlatformProps,
 } from "./dialog.js";
 export {
+  drawerPlatformAdapters,
+  drawerPlatformContract,
+  drawerPlatformProps,
+} from "./drawer.js";
+export {
   emptyStatePlatformAdapters,
   emptyStatePlatformContract,
   emptyStatePlatformProps,

@@ -64,6 +64,10 @@
       "types": "./dist/Dialog.d.ts",
       "default": "./dist/Dialog.js"
     },
+    "./drawer": {
+      "types": "./dist/Drawer.d.ts",
+      "default": "./dist/Drawer.js"
+    },
     "./empty-state": {
       "types": "./dist/EmptyState.d.ts",
       "default": "./dist/EmptyState.js"
