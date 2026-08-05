@@ -360,6 +360,15 @@ export type {
   SpinnerState,
   SpinnerTone,
 } from "./Spinner.js";
+export { StationPin } from "./StationPin.js";
+export type {
+  StationPinComponent,
+  StationPinDensity,
+  StationPinMeta,
+  StationPinProps,
+  StationPinState,
+  StationPinVariant,
+} from "./StationPin.js";
 export { Stepper } from "./Stepper.js";
 export type {
   StepperComponent,

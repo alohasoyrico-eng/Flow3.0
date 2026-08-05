@@ -7,7 +7,6 @@ import {
   createBiometricPrompt,
   createAnimatedMoment,
   createMotionBoundary,
-  createStationPin,
   createAnimationAsset,
   createChartsPrimitive,
   countryFlagAssetPath,
@@ -120,6 +119,9 @@ import {
   routeSummaryPlatformAdapters,
   routeSummaryPlatformContract,
   routeSummaryPlatformProps,
+  stationPinPlatformAdapters,
+  stationPinPlatformContract,
+  stationPinPlatformProps,
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,
@@ -166,7 +168,7 @@ import {
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
-import { createMovementRow, createQuickAction, createRouteSummary, createTable } from "../src/components/commerce.js?v=15";
+import { createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -725,7 +727,16 @@ assert.deepEqual(Object.keys(stepperPlatformAdapters), ["react"]);
 assert.equal(stepperPlatformAdapters.react.componentName, "Stepper");
 assert.equal(stepperPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.chartPanel.factory, "createChartPanel");
-assert.equal(componentContracts.stationPin.factory, "createStationPin");
+assert.equal(componentContracts.stationPin.factory, "@design-system/react/station-pin");
+assert.equal(componentContracts.stationPin.internalFactory, "createStationPin");
+assert.equal(stationPinPlatformContract.id, "station-pin");
+assert.equal(stationPinPlatformContract.source.factory, componentContracts.stationPin.factory);
+assert.deepEqual(stationPinPlatformProps(), componentContracts.stationPin.props.map((prop) => prop.name));
+assert.deepEqual(stationPinPlatformContract.variants, componentContracts.stationPin.variants);
+assert.deepEqual(stationPinPlatformContract.states, componentContracts.stationPin.states);
+assert.deepEqual(Object.keys(stationPinPlatformAdapters), ["react"]);
+assert.equal(stationPinPlatformAdapters.react.componentName, "StationPin");
+assert.equal(stationPinPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.routeSummary.factory, "@design-system/react/route-summary");
 assert.equal(componentContracts.routeSummary.internalFactory, "createRouteSummary");
 assert.equal(routeSummaryPlatformContract.id, "route-summary");

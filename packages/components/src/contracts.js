@@ -1186,7 +1186,8 @@ export const componentContracts = {
     ]
   },
   stationPin: {
-    factory: "createStationPin",
+    factory: "@design-system/react/station-pin",
+    internalFactory: "createStationPin",
     element: "button",
     purpose: "Represent one map station marker or cluster entry with accessible station label.",
     variants: ["fuel", "ev", "service", "cluster"],
@@ -1202,7 +1203,8 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "selected", type: "boolean", required: false },
       { name: "unavailable", type: "boolean", required: false },
-      { name: "disabled", type: "boolean", required: false }
+      { name: "disabled", type: "boolean", required: false },
+      { name: "onSelect", type: "(meta: StationPinMeta) => void", required: false }
     ],
     accessibility: [
       "Expose station name in aria-label.",

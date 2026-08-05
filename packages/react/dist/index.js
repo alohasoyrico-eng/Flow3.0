@@ -38,6 +38,7 @@ export { SegmentedControl } from "./SegmentedControl.js";
 export { Skeleton } from "./Skeleton.js";
 export { Slider } from "./Slider.js";
 export { Spinner } from "./Spinner.js";
+export { StationPin } from "./StationPin.js";
 export { Stepper } from "./Stepper.js";
 export { Switch } from "./Switch.js";
 export { Tabs } from "./Tabs.js";

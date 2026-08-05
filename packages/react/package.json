@@ -148,6 +148,10 @@
       "types": "./dist/RouteSummary.d.ts",
       "default": "./dist/RouteSummary.js"
     },
+    "./station-pin": {
+      "types": "./dist/StationPin.d.ts",
+      "default": "./dist/StationPin.js"
+    },
     "./select": {
       "types": "./dist/Select.d.ts",
       "default": "./dist/Select.js"

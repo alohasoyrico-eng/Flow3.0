@@ -1,7 +1,6 @@
 import {
   createCardSummary,
   createChartPanel,
-  createStationPin,
 } from "./components/commerce.js?v=15";
 import { createAuditEvent } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
@@ -134,7 +133,9 @@ export const componentRegistry = Object.freeze({
   slider: () => {
     throw new Error("Slider is React-primary. Use @design-system/react/slider instead of the transitional DOM renderer.");
   },
-  "station-pin": createStationPin,
+  "station-pin": () => {
+    throw new Error("Station Pin is React-primary. Use @design-system/react/station-pin instead of the transitional DOM renderer.");
+  },
   stepper: () => {
     throw new Error("Stepper is React-primary. Use @design-system/react/stepper instead of the transitional DOM renderer.");
   },
