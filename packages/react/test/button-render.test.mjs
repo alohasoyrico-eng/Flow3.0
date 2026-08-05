@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -22,6 +22,8 @@ assert.equal(CardNumberInput.displayName, "CardNumberInput");
 assert.equal(CardNumberInput.platformContract, cardNumberInputPlatformContract);
 assert.equal(CardSecurityCodeInput.displayName, "CardSecurityCodeInput");
 assert.equal(CardSecurityCodeInput.platformContract, cardSecurityCodeInputPlatformContract);
+assert.equal(CardSummary.displayName, "CardSummary");
+assert.equal(CardSummary.platformContract, cardSummaryPlatformContract);
 assert.equal(Checkbox.displayName, "Checkbox");
 assert.equal(Checkbox.platformContract, checkboxPlatformContract);
 assert.equal(Chip.displayName, "Chip");
@@ -254,6 +256,30 @@ assert.match(stationPinMarkup, /aria-label="Station 24 Open 2\.4 km"/);
 assert.match(stationPinMarkup, /class="station-pin__marker material-symbol"/);
 assert.match(stationPinMarkup, /local_gas_station/);
 assert.match(stationPinMarkup, /class="station-pin__value">Open<\/span>/);
+
+const cardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
+  label: "Fleet",
+  meta: "ANA SOSA",
+  number: "**** 4821",
+  expires: "12/28",
+  metrics: [{ label: "Available", value: "$2,480" }],
+  variant: "limit",
+  state: "frozen",
+  density: "sm",
+  fullWidth: true,
+}));
+assert.match(cardSummaryMarkup, /^<article/);
+assert.match(cardSummaryMarkup, /class="card-summary"/);
+assert.match(cardSummaryMarkup, /data-variant="limit"/);
+assert.match(cardSummaryMarkup, /data-state="frozen"/);
+assert.match(cardSummaryMarkup, /data-density="sm"/);
+assert.match(cardSummaryMarkup, /data-full-width="true"/);
+assert.match(cardSummaryMarkup, /class="badge/);
+assert.match(cardSummaryMarkup, /class="card-summary__number">\*\*\*\* 4821<\/span>/);
+assert.match(cardSummaryMarkup, /class="card-summary__expires">12\/28<\/span>/);
+assert.match(cardSummaryMarkup, /class="card-summary__metrics"/);
+assert.match(cardSummaryMarkup, /Available/);
+assert.match(cardSummaryMarkup, /class="card-summary__frost"/);
 
 const accordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
   density: "sm",

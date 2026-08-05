@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import {
-  createCardSummary,
   createChartPanel,
   hydrateChartPanel,
   createAuditEvent,
@@ -21,6 +20,9 @@ import {
   cardPlatformAdapters,
   cardPlatformContract,
   cardPlatformProps,
+  cardSummaryPlatformAdapters,
+  cardSummaryPlatformContract,
+  cardSummaryPlatformProps,
   avatarPlatformAdapters,
   avatarPlatformContract,
   avatarPlatformProps,
@@ -168,7 +170,7 @@ import {
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
-import { createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
+import { createCardSummary, createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -817,7 +819,16 @@ assert.deepEqual(popoverPlatformContract.states, componentContracts.popover.stat
 assert.deepEqual(Object.keys(popoverPlatformAdapters), ["react"]);
 assert.equal(popoverPlatformAdapters.react.componentName, "Popover");
 assert.equal(popoverPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.cardSummary.factory, "createCardSummary");
+assert.equal(componentContracts.cardSummary.factory, "@design-system/react/card-summary");
+assert.equal(componentContracts.cardSummary.internalFactory, "createCardSummary");
+assert.equal(cardSummaryPlatformContract.id, "card-summary");
+assert.equal(cardSummaryPlatformContract.source.factory, componentContracts.cardSummary.factory);
+assert.deepEqual(cardSummaryPlatformProps(), componentContracts.cardSummary.props.map((prop) => prop.name));
+assert.deepEqual(cardSummaryPlatformContract.variants, componentContracts.cardSummary.variants);
+assert.deepEqual(cardSummaryPlatformContract.states, componentContracts.cardSummary.states);
+assert.deepEqual(Object.keys(cardSummaryPlatformAdapters), ["react"]);
+assert.equal(cardSummaryPlatformAdapters.react.componentName, "CardSummary");
+assert.equal(cardSummaryPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.movementRow.factory, "@design-system/react/movement-row");
 assert.equal(componentContracts.movementRow.internalFactory, "createMovementRow");
 assert.equal(movementRowPlatformContract.id, "movement-row");

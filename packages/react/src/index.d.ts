@@ -94,6 +94,15 @@ export type {
   CardSecurityCodeInputState,
   CardSecurityCodeMeta,
 } from "./CardSecurityCodeInput.js";
+export { CardSummary } from "./CardSummary.js";
+export type {
+  CardSummaryComponent,
+  CardSummaryDensity,
+  CardSummaryMetric,
+  CardSummaryProps,
+  CardSummaryState,
+  CardSummaryVariant,
+} from "./CardSummary.js";
 export type {
   CheckboxComponent,
   CheckboxDensity,

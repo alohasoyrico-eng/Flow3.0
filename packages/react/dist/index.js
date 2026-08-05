@@ -7,6 +7,7 @@ export { Card } from "./Card.js";
 export { CardExpiryInput } from "./CardExpiryInput.js";
 export { CardNumberInput } from "./CardNumberInput.js";
 export { CardSecurityCodeInput } from "./CardSecurityCodeInput.js";
+export { CardSummary } from "./CardSummary.js";
 export { Checkbox } from "./Checkbox.js";
 export { Chip } from "./Chip.js";
 export { CodeInput } from "./CodeInput.js";

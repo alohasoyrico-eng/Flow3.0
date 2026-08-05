@@ -1,5 +1,4 @@
 import {
-  createCardSummary,
   createChartPanel,
 } from "./components/commerce.js?v=15";
 import { createAuditEvent } from "./components/display.js?v=3";
@@ -40,7 +39,9 @@ export const componentRegistry = Object.freeze({
   "card-security-code-input": () => {
     throw new Error("Card Security Code Input is React-primary. Use @design-system/react/card-security-code-input instead of the transitional DOM renderer.");
   },
-  "card-summary": createCardSummary,
+  "card-summary": () => {
+    throw new Error("Card Summary is React-primary. Use @design-system/react/card-summary instead of the transitional DOM renderer.");
+  },
   checkbox: () => {
     throw new Error("Checkbox is React-primary. Use @design-system/react/checkbox instead of the transitional DOM renderer.");
   },

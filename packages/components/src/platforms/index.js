@@ -44,6 +44,11 @@ export {
   cardPlatformProps,
 } from "./card.js";
 export {
+  cardSummaryPlatformAdapters,
+  cardSummaryPlatformContract,
+  cardSummaryPlatformProps,
+} from "./card-summary.js";
+export {
   breadcrumbsPlatformAdapters,
   breadcrumbsPlatformContract,
   breadcrumbsPlatformProps,

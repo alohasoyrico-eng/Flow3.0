@@ -44,6 +44,10 @@
       "types": "./dist/CardSecurityCodeInput.d.ts",
       "default": "./dist/CardSecurityCodeInput.js"
     },
+    "./card-summary": {
+      "types": "./dist/CardSummary.d.ts",
+      "default": "./dist/CardSummary.js"
+    },
     "./checkbox": {
       "types": "./dist/Checkbox.d.ts",
       "default": "./dist/Checkbox.js"

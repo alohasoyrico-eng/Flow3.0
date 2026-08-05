@@ -1441,7 +1441,8 @@ export const componentContracts = {
     ]
   },
   cardSummary: {
-    factory: "createCardSummary",
+    factory: "@design-system/react/card-summary",
+    internalFactory: "createCardSummary",
     element: "article",
     purpose: "Summarize one card with identity metadata, masked number, status, and compact metrics.",
     variants: ["physical", "virtual", "compact", "limit"],
