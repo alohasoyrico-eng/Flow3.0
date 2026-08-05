@@ -605,7 +605,8 @@ export const componentContracts = {
     ]
   },
   slider: {
-    factory: "createSlider",
+    factory: "@design-system/react/slider",
+    internalFactory: "createSlider",
     element: "label",
     purpose: "Choose a numeric value from a bounded range with visible label, output, and native range semantics.",
     variants: ["continuous", "stepped", "bounded", "threshold", "paired-value"],
@@ -621,7 +622,9 @@ export const componentContracts = {
       { name: "state", type: "\"default\" | \"focus\" | \"dragging\" | \"disabled\" | \"error\" | \"complete\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "unit", type: "string", required: false },
-      { name: "valueLabel", type: "string", required: false }
+      { name: "valueLabel", type: "string", required: false },
+      { name: "formatValue", type: "(value: number) => string", required: false },
+      { name: "onValueChange", type: "(value: number) => void", required: false }
     ],
     accessibility: [
       "Use native range input semantics.",

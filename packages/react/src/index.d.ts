@@ -193,6 +193,15 @@ export type {
   SkeletonStyle,
   SkeletonVariant,
 } from "./Skeleton.js";
+export { Slider } from "./Slider.js";
+export type {
+  SliderComponent,
+  SliderDensity,
+  SliderProps,
+  SliderState,
+  SliderValueMeta,
+  SliderVariant,
+} from "./Slider.js";
 export { Spinner } from "./Spinner.js";
 export type {
   SpinnerComponent,

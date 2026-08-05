@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Slider, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -44,6 +44,8 @@ assert.equal(Select.displayName, "Select");
 assert.equal(Select.platformContract, selectPlatformContract);
 assert.equal(Skeleton.displayName, "Skeleton");
 assert.equal(Skeleton.platformContract, skeletonPlatformContract);
+assert.equal(Slider.displayName, "Slider");
+assert.equal(Slider.platformContract, sliderPlatformContract);
 assert.equal(Switch.displayName, "Switch");
 assert.equal(Switch.platformContract, switchPlatformContract);
 assert.equal(Tag.displayName, "Tag");
@@ -248,6 +250,38 @@ assert.match(skeletonMarkup, /data-columns="3"/);
 assert.match(skeletonMarkup, /--skeleton-columns:3/);
 assert.equal((skeletonMarkup.match(/class="skeleton__row"/g) ?? []).length, 2);
 assert.equal((skeletonMarkup.match(/class="skeleton__bone skeleton__cell"/g) ?? []).length, 6);
+
+const sliderMarkup = renderToStaticMarkup(React.createElement(Slider, {
+  label: "Search radius",
+  value: 9,
+  min: 0,
+  max: 12,
+  step: 1,
+  unit: " km",
+  variant: "stepped",
+  state: "focus",
+  density: "lg",
+  name: "radius",
+}));
+assert.match(sliderMarkup, /class="slider"/);
+assert.match(sliderMarkup, /data-variant="stepped"/);
+assert.match(sliderMarkup, /data-state="focus"/);
+assert.match(sliderMarkup, /data-density="lg"/);
+assert.match(sliderMarkup, /data-value="9"/);
+assert.match(sliderMarkup, /data-unit=" km"/);
+assert.match(sliderMarkup, /data-pct="75"/);
+assert.match(sliderMarkup, /class="slider__label">Search radius<\/span>/);
+assert.match(sliderMarkup, /class="slider__value" data-slider-output="">9 km<\/output>/);
+assert.match(sliderMarkup, /type="range"/);
+assert.match(sliderMarkup, /class="slider__input"/);
+assert.match(sliderMarkup, /name="radius"/);
+assert.match(sliderMarkup, /min="0"/);
+assert.match(sliderMarkup, /max="12"/);
+assert.match(sliderMarkup, /step="1"/);
+assert.match(sliderMarkup, /aria-valuetext="9 km"/);
+assert.match(sliderMarkup, /class="slider__track"/);
+assert.match(sliderMarkup, /class="slider__fill"/);
+assert.match(sliderMarkup, /class="slider__thumb"/);
 
 const emptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
   title: "No vehicles match",

@@ -114,6 +114,11 @@ export {
   segmentedControlPlatformProps,
 } from "./segmented-control.js";
 export {
+  sliderPlatformAdapters,
+  sliderPlatformContract,
+  sliderPlatformProps,
+} from "./slider.js";
+export {
   skeletonPlatformAdapters,
   skeletonPlatformContract,
   skeletonPlatformProps,

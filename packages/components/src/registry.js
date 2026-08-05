@@ -12,7 +12,6 @@ import { createEmptyState, createErrorPanel, createProgressIndicator, createSkel
 import { createCombobox } from "./components/fields.js?v=21";
 import {
   createSegmentedControl,
-  createSlider,
   createTabs,
   createTreeView,
 } from "./components/interactions.js?v=9";
@@ -120,7 +119,9 @@ export const componentRegistry = Object.freeze({
   spinner: () => {
     throw new Error("Spinner is React-primary. Use @design-system/react/spinner instead of the transitional DOM renderer.");
   },
-  slider: createSlider,
+  slider: () => {
+    throw new Error("Slider is React-primary. Use @design-system/react/slider instead of the transitional DOM renderer.");
+  },
   "station-pin": createStationPin,
   stepper: createStepper,
   switch: () => {

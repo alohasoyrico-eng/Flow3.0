@@ -100,6 +100,10 @@
       "types": "./dist/Skeleton.d.ts",
       "default": "./dist/Skeleton.js"
     },
+    "./slider": {
+      "types": "./dist/Slider.d.ts",
+      "default": "./dist/Slider.js"
+    },
     "./spinner": {
       "types": "./dist/Spinner.d.ts",
       "default": "./dist/Spinner.js"

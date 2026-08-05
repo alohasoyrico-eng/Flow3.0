@@ -1,0 +1,41 @@
+import type {
+  ForwardRefExoticComponent,
+  InputHTMLAttributes,
+  RefAttributes,
+} from "react";
+import { sliderPlatformContract } from "@design-system/components/platforms";
+
+export type SliderVariant = "continuous" | "stepped" | "bounded" | "threshold" | "paired-value";
+export type SliderState = "default" | "focus" | "dragging" | "disabled" | "error" | "complete";
+export type SliderDensity = "sm" | "md" | "lg";
+
+export interface SliderValueMeta {
+  name?: string;
+  min: number;
+  max: number;
+  step: number;
+  unit: string;
+}
+
+export interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "value" | "defaultValue" | "onChange" | "onInput"> {
+  label: string;
+  value?: number;
+  min?: number;
+  max?: number;
+  step?: number;
+  variant?: SliderVariant;
+  state?: SliderState;
+  density?: SliderDensity;
+  unit?: string;
+  disabled?: boolean;
+  name?: string;
+  valueLabel?: string;
+  formatValue?: (value: number) => string;
+  onValueChange?: (value: number, meta: SliderValueMeta) => void;
+}
+
+export interface SliderComponent extends ForwardRefExoticComponent<SliderProps & RefAttributes<HTMLInputElement>> {
+  platformContract: typeof sliderPlatformContract;
+}
+
+export const Slider: SliderComponent;

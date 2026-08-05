@@ -93,6 +93,9 @@ import {
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,
+  sliderPlatformAdapters,
+  sliderPlatformContract,
+  sliderPlatformProps,
   switchPlatformAdapters,
   switchPlatformContract,
   switchPlatformProps,
@@ -423,7 +426,16 @@ assert.equal(componentContracts.toast.factory, "createToast");
 assert.equal(componentContracts.progressIndicator.factory, "createProgressIndicator");
 assert.equal(componentContracts.spinner.factory, "createSpinner");
 assert.equal(componentContracts.accordion.factory, "createAccordion");
-assert.equal(componentContracts.slider.factory, "createSlider");
+assert.equal(componentContracts.slider.factory, "@design-system/react/slider");
+assert.equal(componentContracts.slider.internalFactory, "createSlider");
+assert.equal(sliderPlatformContract.id, "slider");
+assert.equal(sliderPlatformContract.source.factory, componentContracts.slider.factory);
+assert.deepEqual(sliderPlatformProps(), componentContracts.slider.props.map((prop) => prop.name));
+assert.deepEqual(sliderPlatformContract.variants, componentContracts.slider.variants);
+assert.deepEqual(sliderPlatformContract.states, componentContracts.slider.states);
+assert.deepEqual(Object.keys(sliderPlatformAdapters), ["react"]);
+assert.equal(sliderPlatformAdapters.react.componentName, "Slider");
+assert.equal(sliderPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.avatar.factory, "@design-system/react/avatar");
 assert.equal(componentContracts.avatar.internalFactory, "createTransitionalAvatar");
 assert.equal(avatarPlatformContract.id, "avatar");
