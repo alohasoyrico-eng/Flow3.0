@@ -56,6 +56,10 @@
       "types": "./dist/EmptyState.d.ts",
       "default": "./dist/EmptyState.js"
     },
+    "./error-panel": {
+      "types": "./dist/ErrorPanel.d.ts",
+      "default": "./dist/ErrorPanel.js"
+    },
     "./icon-button": {
       "types": "./dist/IconButton.d.ts",
       "default": "./dist/IconButton.js"

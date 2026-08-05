@@ -76,7 +76,9 @@ export const componentRegistry = Object.freeze({
   "empty-state": () => {
     throw new Error("Empty State is React-primary. Use @design-system/react/empty-state instead of the transitional DOM renderer.");
   },
-  "error-panel": createErrorPanel,
+  "error-panel": () => {
+    throw new Error("Error Panel is React-primary. Use @design-system/react/error-panel instead of the transitional DOM renderer.");
+  },
   "floating-action-button": createFloatingActionButton,
   "icon-button": () => {
     throw new Error("Icon Button is React-primary. Use @design-system/react/icon-button instead of the transitional DOM renderer.");
@@ -173,6 +175,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "empty-state") {
     throw new Error("Empty State is React-primary. Use @design-system/react/empty-state instead of renderComponentDemo.");
+  }
+  if (id === "error-panel") {
+    throw new Error("Error Panel is React-primary. Use @design-system/react/error-panel instead of renderComponentDemo.");
   }
   if (id === "checkbox") {
     throw new Error("Checkbox is React-primary. Use @design-system/react/checkbox instead of renderComponentDemo.");

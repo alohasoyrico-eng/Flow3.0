@@ -79,6 +79,11 @@ export {
   emptyStatePlatformProps,
 } from "./empty-state.js";
 export {
+  errorPanelPlatformAdapters,
+  errorPanelPlatformContract,
+  errorPanelPlatformProps,
+} from "./error-panel.js";
+export {
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,

@@ -98,6 +98,17 @@ export type {
   EmptyStateState,
   EmptyStateVariant,
 } from "./EmptyState.js";
+export { ErrorPanel } from "./ErrorPanel.js";
+export type {
+  ErrorPanelAction,
+  ErrorPanelComponent,
+  ErrorPanelDensity,
+  ErrorPanelProps,
+  ErrorPanelRole,
+  ErrorPanelState,
+  ErrorPanelTone,
+  ErrorPanelVariant,
+} from "./ErrorPanel.js";
 export { IconButton } from "./IconButton.js";
 export type {
   IconButtonComponent,

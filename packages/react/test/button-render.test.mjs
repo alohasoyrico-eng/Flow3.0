@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Tooltip } from "../src/index.js";
-import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Tooltip } from "../src/index.js";
+import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Avatar.displayName, "Avatar");
 assert.equal(Avatar.platformContract, avatarPlatformContract);
@@ -28,6 +28,8 @@ assert.equal(DateRangePicker.displayName, "DateRangePicker");
 assert.equal(DateRangePicker.platformContract, dateRangePickerPlatformContract);
 assert.equal(EmptyState.displayName, "EmptyState");
 assert.equal(EmptyState.platformContract, emptyStatePlatformContract);
+assert.equal(ErrorPanel.displayName, "ErrorPanel");
+assert.equal(ErrorPanel.platformContract, errorPanelPlatformContract);
 assert.equal(IconButton.displayName, "IconButton");
 assert.equal(IconButton.platformContract, iconButtonPlatformContract);
 assert.equal(Input.displayName, "Input");
@@ -251,6 +253,40 @@ const loadingEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptySt
 }));
 assert.match(loadingEmptyStateMarkup, /data-state="loading"/);
 assert.match(loadingEmptyStateMarkup, /class="spinner"/);
+
+const errorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
+  label: "Sync failed",
+  description: "We could not load the latest card data.",
+  tone: "warning",
+  variant: "blocking",
+  state: "warning",
+  density: "sm",
+  fullWidth: true,
+  action: { label: "Try again", icon: "refresh" },
+}));
+assert.match(errorPanelMarkup, /^<section/);
+assert.match(errorPanelMarkup, /class="error-panel error-panel--warning"/);
+assert.match(errorPanelMarkup, /role="status"/);
+assert.match(errorPanelMarkup, /data-variant="blocking"/);
+assert.match(errorPanelMarkup, /data-state="warning"/);
+assert.match(errorPanelMarkup, /data-density="sm"/);
+assert.match(errorPanelMarkup, /data-full-width="true"/);
+assert.match(errorPanelMarkup, /class="error-panel__icon"/);
+assert.match(errorPanelMarkup, />warning<\/span>/);
+assert.match(errorPanelMarkup, /class="error-panel__content"/);
+assert.match(errorPanelMarkup, /<strong>Sync failed<\/strong>/);
+assert.match(errorPanelMarkup, /<p>We could not load the latest card data\.<\/p>/);
+assert.match(errorPanelMarkup, /class="button button--secondary"/);
+
+const loadingErrorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
+  label: "Loading recovery",
+  state: "loading",
+  action: { label: "Wait" },
+}));
+assert.match(loadingErrorPanelMarkup, /data-state="loading"/);
+assert.match(loadingErrorPanelMarkup, /role="status"/);
+assert.match(loadingErrorPanelMarkup, /class="spinner"/);
+assert.match(loadingErrorPanelMarkup, /aria-busy="true"/);
 assert.doesNotMatch(staticTagMarkup, /data-interactive/);
 
 const disabledTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
