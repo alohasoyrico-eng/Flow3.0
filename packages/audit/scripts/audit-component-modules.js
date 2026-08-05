@@ -61,8 +61,8 @@ const moduleRules = [
     id: "interactions",
     file: "packages/components/src/components/interactions.js",
     exports: ["createAccordion", "createSegmentedControl", "createSlider", "createTabs", "createTreeView"],
-    publicExports: ["createTabs", "createTreeView"],
-    internalExports: ["createAccordion", "createSegmentedControl", "createSlider"],
+    publicExports: ["createTreeView"],
+    internalExports: ["createAccordion", "createSegmentedControl", "createSlider", "createTabs"],
   },
   {
     id: "navigation",
