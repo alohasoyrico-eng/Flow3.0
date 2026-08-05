@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Menu, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -48,6 +48,8 @@ assert.equal(InlineValidation.displayName, "InlineValidation");
 assert.equal(InlineValidation.platformContract, inlineValidationPlatformContract);
 assert.equal(Input.displayName, "Input");
 assert.equal(Input.platformContract, inputPlatformContract);
+assert.equal(Menu.displayName, "Menu");
+assert.equal(Menu.platformContract, menuPlatformContract);
 assert.equal(Pagination.displayName, "Pagination");
 assert.equal(Pagination.platformContract, paginationPlatformContract);
 assert.equal(PhoneInput.displayName, "PhoneInput");
@@ -650,6 +652,55 @@ const formPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
 assert.match(formPopoverMarkup, /data-variant="form"/);
 assert.match(formPopoverMarkup, /class="field"/);
 assert.match(formPopoverMarkup, /data-density="lg"/);
+
+const menuMarkup = renderToStaticMarkup(React.createElement(Menu, {
+  triggerLabel: "Actions",
+  label: "Driver actions",
+  open: true,
+  variant: "grouped",
+  density: "sm",
+  align: "end",
+  items: [
+    { label: "Edit", icon: "edit", key: "edit" },
+    { separator: true },
+    { label: "Suspend", icon: "block", key: "suspend", tone: "danger", shortcut: "S" },
+  ],
+}));
+assert.match(menuMarkup, /^<span/);
+assert.match(menuMarkup, /class="menu"/);
+assert.match(menuMarkup, /data-variant="grouped"/);
+assert.match(menuMarkup, /data-density="sm"/);
+assert.match(menuMarkup, /data-align="end"/);
+assert.match(menuMarkup, /data-open="true"/);
+assert.match(menuMarkup, /data-state="open"/);
+assert.match(menuMarkup, /class="button button--secondary menu__trigger"/);
+assert.match(menuMarkup, /aria-haspopup="menu"/);
+assert.match(menuMarkup, /aria-expanded="true"/);
+assert.match(menuMarkup, /class="menu__panel"/);
+assert.match(menuMarkup, /role="menu"/);
+assert.match(menuMarkup, /class="menu__separator"/);
+assert.match(menuMarkup, /class="menu__item-icon"/);
+assert.match(menuMarkup, /class="menu__item-shortcut">S<\/kbd>/);
+assert.match(menuMarkup, /data-tone="danger"/);
+
+const iconMenuMarkup = renderToStaticMarkup(React.createElement(Menu, {
+  triggerLabel: "More",
+  label: "More actions",
+  variant: "icon-trigger",
+  items: [{ label: "Open", key: "open" }],
+}));
+assert.match(iconMenuMarkup, /class="icon-button icon-button--ghost menu__trigger"/);
+
+const avatarMenuMarkup = renderToStaticMarkup(React.createElement(Menu, {
+  triggerLabel: "Ana Sosa",
+  label: "Account menu",
+  variant: "avatar-trigger",
+  avatarName: "Ana Sosa",
+  avatarStatus: "online",
+  items: [{ label: "Profile", key: "profile" }],
+}));
+assert.match(avatarMenuMarkup, /class="menu__trigger menu__trigger--avatar"/);
+assert.match(avatarMenuMarkup, /class="avatar avatar--md"/);
 
 const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
   label: "Enable fuel card",

@@ -14,9 +14,6 @@ import {
   createTreeView,
 } from "./components/interactions.js?v=9";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
-import {
-  createMenu,
-} from "./components/overlays.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
 import { createFloatingActionButton, createInlineValidation } from "./components/surfaces.js?v=10";
@@ -91,7 +88,9 @@ export const componentRegistry = Object.freeze({
   },
   "kpi-tile": createKpiTile,
   list: createList,
-  menu: createMenu,
+  menu: () => {
+    throw new Error("Menu is React-primary. Use @design-system/react/menu instead of the transitional DOM renderer.");
+  },
   "motion-boundary": createMotionBoundary,
   "movement-row": createMovementRow,
   "code-input": () => {

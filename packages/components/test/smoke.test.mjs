@@ -12,7 +12,6 @@ import {
   createList,
   createAnimatedMoment,
   createMovementRow,
-  createMenu,
   createMotionBoundary,
   createQuickAction,
   createRouteSummary,
@@ -106,6 +105,9 @@ import {
   inputPlatformAdapters,
   inputPlatformContract,
   inputPlatformProps,
+  menuPlatformAdapters,
+  menuPlatformContract,
+  menuPlatformProps,
   radioButtonPlatformAdapters,
   radioButtonPlatformContract,
   radioButtonPlatformProps,
@@ -166,6 +168,7 @@ import { createTransitionalActionButton, createTransitionalActionIconButton } fr
 import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
+import { createMenu } from "../src/components/overlays.js?v=5";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -578,7 +581,16 @@ assert.deepEqual(dialogPlatformContract.states, componentContracts.dialog.states
 assert.deepEqual(Object.keys(dialogPlatformAdapters), ["react"]);
 assert.equal(dialogPlatformAdapters.react.componentName, "Dialog");
 assert.equal(dialogPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.menu.factory, "createMenu");
+assert.equal(componentContracts.menu.factory, "@design-system/react/menu");
+assert.equal(componentContracts.menu.internalFactory, "createMenu");
+assert.equal(menuPlatformContract.id, "menu");
+assert.equal(menuPlatformContract.source.factory, componentContracts.menu.factory);
+assert.deepEqual(menuPlatformProps(), componentContracts.menu.props.map((prop) => prop.name));
+assert.deepEqual(menuPlatformContract.variants, componentContracts.menu.variants);
+assert.deepEqual(menuPlatformContract.states, componentContracts.menu.states);
+assert.deepEqual(Object.keys(menuPlatformAdapters), ["react"]);
+assert.equal(menuPlatformAdapters.react.componentName, "Menu");
+assert.equal(menuPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.drawer.factory, "@design-system/react/drawer");
 assert.equal(componentContracts.drawer.internalFactory, "createDrawer");
 assert.equal(drawerPlatformContract.id, "drawer");

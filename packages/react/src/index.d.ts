@@ -41,6 +41,7 @@ export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
+export { Menu } from "./Menu.js";
 export type {
   ButtonComponent,
   ButtonDensity,
@@ -125,6 +126,15 @@ export type {
   DateRangePickerState,
   DateRangePickerValue,
 } from "./DateRangePicker.js";
+export type {
+  MenuAlign,
+  MenuComponent,
+  MenuDensity,
+  MenuItem,
+  MenuProps,
+  MenuState,
+  MenuVariant,
+} from "./Menu.js";
 export { Dialog } from "./Dialog.js";
 export type {
   DialogAction,

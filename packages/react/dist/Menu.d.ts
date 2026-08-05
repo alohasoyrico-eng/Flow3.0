@@ -1,0 +1,42 @@
+import type { AvatarProps } from "./Avatar.js";
+import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import { menuPlatformContract } from "@design-system/components/platforms";
+
+export type MenuVariant = "actions" | "grouped" | "selection" | "danger" | "icon-trigger" | "avatar-trigger";
+export type MenuDensity = "sm" | "md" | "lg";
+export type MenuState = "default" | "closed" | "open" | "focus" | "disabled";
+export type MenuAlign = "start" | "end" | "right";
+
+export interface MenuItem {
+  label?: string;
+  icon?: string;
+  key?: string;
+  disabled?: boolean;
+  separator?: boolean;
+  tone?: string;
+  shortcut?: string;
+}
+
+export interface MenuProps extends Omit<HTMLAttributes<HTMLSpanElement>, "onSelect"> {
+  triggerLabel: string;
+  items: Array<MenuItem | "divider">;
+  open?: boolean;
+  label?: string;
+  variant?: MenuVariant;
+  avatarName?: string;
+  avatarStatus?: AvatarProps["status"];
+  avatarSize?: AvatarProps["size"];
+  density?: MenuDensity;
+  state?: MenuState;
+  align?: MenuAlign;
+  disabled?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  onSelect?: (item: MenuItem) => void;
+}
+
+export interface MenuComponent extends ForwardRefExoticComponent<MenuProps & RefAttributes<HTMLSpanElement>> {
+  displayName: "Menu";
+  platformContract: typeof menuPlatformContract;
+}
+
+export const Menu: MenuComponent;

@@ -96,6 +96,10 @@
       "types": "./dist/Input.d.ts",
       "default": "./dist/Input.js"
     },
+    "./menu": {
+      "types": "./dist/Menu.d.ts",
+      "default": "./dist/Menu.js"
+    },
     "./phone-input": {
       "types": "./dist/PhoneInput.d.ts",
       "default": "./dist/PhoneInput.js"

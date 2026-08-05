@@ -69,6 +69,11 @@ export {
   iconButtonPlatformProps,
 } from "./icon-button.js";
 export {
+  menuPlatformAdapters,
+  menuPlatformContract,
+  menuPlatformProps,
+} from "./menu.js";
+export {
   inlineValidationPlatformAdapters,
   inlineValidationPlatformContract,
   inlineValidationPlatformProps,

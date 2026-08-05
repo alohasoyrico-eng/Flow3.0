@@ -720,10 +720,11 @@ export const componentContracts = {
     ]
   },
   menu: {
-    factory: "createMenu",
+    factory: "@design-system/react/menu",
+    internalFactory: "createMenu",
     element: "span",
     purpose: "Expose one compact contextual action list anchored to a trigger.",
-    variants: ["actions", "grouped", "selection", "danger", "icon-trigger"],
+    variants: ["actions", "grouped", "selection", "danger", "icon-trigger", "avatar-trigger"],
     intents: ["neutral", "danger"],
     states: ["default", "closed", "open", "focus", "disabled"],
     props: [
@@ -735,6 +736,9 @@ export const componentContracts = {
       { name: "state", type: "\"default\" | \"closed\" | \"open\" | \"focus\" | \"disabled\"", required: false },
       { name: "align", type: "\"start\" | \"end\"", required: false },
       { name: "label", type: "string", required: false },
+      { name: "avatarName", type: "string", required: false },
+      { name: "avatarStatus", type: "\"none\" | \"online\" | \"busy\" | \"offline\"", required: false },
+      { name: "avatarSize", type: "\"sm\" | \"md\" | \"lg\" | \"xl\"", required: false },
       { name: "disabled", type: "boolean", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false },
       { name: "onSelect", type: "(item: MenuItem) => void", required: false }
