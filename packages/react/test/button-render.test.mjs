@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Menu, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, List, Menu, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, listPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -48,6 +48,8 @@ assert.equal(InlineValidation.displayName, "InlineValidation");
 assert.equal(InlineValidation.platformContract, inlineValidationPlatformContract);
 assert.equal(Input.displayName, "Input");
 assert.equal(Input.platformContract, inputPlatformContract);
+assert.equal(List.displayName, "List");
+assert.equal(List.platformContract, listPlatformContract);
 assert.equal(Menu.displayName, "Menu");
 assert.equal(Menu.platformContract, menuPlatformContract);
 assert.equal(Pagination.displayName, "Pagination");
@@ -134,6 +136,38 @@ assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-dens
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);
 assert.match(loadingMarkup, /class="spinner__arc"/);
+
+const listMarkup = renderToStaticMarkup(React.createElement(List, {
+  label: "Fleet tasks",
+  variant: "action",
+  state: "selected",
+  density: "sm",
+  interactive: true,
+  items: [
+    { key: "docs", label: "Documents", meta: "3 pending", value: "75%", icon: "description", state: "selected" },
+    { key: "fuel", label: "Fuel card", meta: "Needs review", value: "$842", icon: "credit_card", tone: "danger" },
+  ],
+}));
+assert.match(listMarkup, /^<ul/);
+assert.match(listMarkup, /class="list"/);
+assert.match(listMarkup, /role="list"/);
+assert.match(listMarkup, /aria-label="Fleet tasks"/);
+assert.match(listMarkup, /data-variant="action"/);
+assert.match(listMarkup, /data-state="selected"/);
+assert.match(listMarkup, /data-density="sm"/);
+assert.match(listMarkup, /data-interactive="true"/);
+assert.match(listMarkup, /<button class="list__item"/);
+assert.match(listMarkup, /data-key="docs"/);
+assert.match(listMarkup, /aria-current="true"/);
+assert.match(listMarkup, /class="list__icon material-symbol"/);
+assert.match(listMarkup, /class="list__content"/);
+assert.match(listMarkup, /class="list__value">75%<\/span>/);
+
+const passiveListMarkup = renderToStaticMarkup(React.createElement(List, {
+  items: [{ label: "Ana Sosa", meta: "Driver", value: "Active" }],
+}));
+assert.match(passiveListMarkup, /<span class="list__item"/);
+assert.doesNotMatch(passiveListMarkup, /<button/);
 
 const cardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Wallet balance",

@@ -9,7 +9,6 @@ import {
   createBreadcrumbs,
   createFloatingActionButton,
   createKpiTile,
-  createList,
   createAnimatedMoment,
   createMovementRow,
   createMotionBoundary,
@@ -104,6 +103,9 @@ import {
   inputPlatformAdapters,
   inputPlatformContract,
   inputPlatformProps,
+  listPlatformAdapters,
+  listPlatformContract,
+  listPlatformProps,
   menuPlatformAdapters,
   menuPlatformContract,
   menuPlatformProps,
@@ -153,7 +155,7 @@ import {
 import { createCard } from "../src/components/surfaces.js?v=3";
 import { createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
-import { createTransitionalAvatar } from "../src/components/display.js?v=3";
+import { createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
@@ -628,7 +630,16 @@ assert.deepEqual(emptyStatePlatformContract.states, componentContracts.emptyStat
 assert.deepEqual(Object.keys(emptyStatePlatformAdapters), ["react"]);
 assert.equal(emptyStatePlatformAdapters.react.componentName, "EmptyState");
 assert.equal(emptyStatePlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.list.factory, "createList");
+assert.equal(componentContracts.list.factory, "@design-system/react/list");
+assert.equal(componentContracts.list.internalFactory, "createList");
+assert.equal(listPlatformContract.id, "list");
+assert.equal(listPlatformContract.source.factory, componentContracts.list.factory);
+assert.deepEqual(listPlatformProps(), componentContracts.list.props.map((prop) => prop.name));
+assert.deepEqual(listPlatformContract.variants, componentContracts.list.variants);
+assert.deepEqual(listPlatformContract.states, componentContracts.list.states);
+assert.deepEqual(Object.keys(listPlatformAdapters), ["react"]);
+assert.equal(listPlatformAdapters.react.componentName, "List");
+assert.equal(listPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.kpiTile.factory, "createKpiTile");
 assert.equal(componentContracts.floatingActionButton.factory, "createFloatingActionButton");
 assert.equal(componentContracts.pagination.factory, "@design-system/react/pagination");

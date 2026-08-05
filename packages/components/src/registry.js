@@ -6,7 +6,7 @@ import {
   createRouteSummary,
   createStationPin,
 } from "./components/commerce.js?v=15";
-import { createAuditEvent, createKpiTile, createList } from "./components/display.js?v=3";
+import { createAuditEvent, createKpiTile } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
 import {
   createSegmentedControl,
@@ -86,7 +86,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Inline Validation is React-primary. Use @design-system/react/inline-validation instead of the transitional DOM renderer.");
   },
   "kpi-tile": createKpiTile,
-  list: createList,
+  list: () => {
+    throw new Error("List is React-primary. Use @design-system/react/list instead of the transitional DOM renderer.");
+  },
   menu: () => {
     throw new Error("Menu is React-primary. Use @design-system/react/menu instead of the transitional DOM renderer.");
   },

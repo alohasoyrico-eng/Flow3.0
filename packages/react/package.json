@@ -96,6 +96,10 @@
       "types": "./dist/Input.d.ts",
       "default": "./dist/Input.js"
     },
+    "./list": {
+      "types": "./dist/List.d.ts",
+      "default": "./dist/List.js"
+    },
     "./menu": {
       "types": "./dist/Menu.d.ts",
       "default": "./dist/Menu.js"

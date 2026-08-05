@@ -41,6 +41,7 @@ export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
+export { List } from "./List.js";
 export { Menu } from "./Menu.js";
 export type {
   ButtonComponent,
@@ -204,6 +205,14 @@ export type {
   InputValueMeta,
   InputVariant,
 } from "./Input.js";
+export type {
+  ListComponent,
+  ListDensity,
+  ListItem,
+  ListProps,
+  ListState,
+  ListVariant,
+} from "./List.js";
 export { PhoneInput } from "./PhoneInput.js";
 export type {
   PhoneCountry,

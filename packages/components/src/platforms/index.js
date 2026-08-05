@@ -203,3 +203,8 @@ export {
   tablePlatformContract,
   tablePlatformProps,
 } from "./table.js";
+export {
+  listPlatformAdapters,
+  listPlatformContract,
+  listPlatformProps,
+} from "./list.js";
