@@ -152,6 +152,10 @@
       "types": "./dist/Tabs.d.ts",
       "default": "./dist/Tabs.js"
     },
+    "./table": {
+      "types": "./dist/Table.d.ts",
+      "default": "./dist/Table.js"
+    },
     "./tag": {
       "types": "./dist/Tag.d.ts",
       "default": "./dist/Tag.js"

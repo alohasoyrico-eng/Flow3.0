@@ -198,3 +198,8 @@ export {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "./text-area.js";
+export {
+  tablePlatformAdapters,
+  tablePlatformContract,
+  tablePlatformProps,
+} from "./table.js";

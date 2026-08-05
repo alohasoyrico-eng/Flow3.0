@@ -780,7 +780,8 @@ export const componentContracts = {
     ]
   },
   table: {
-    factory: "createTable",
+    factory: "@design-system/react/table",
+    internalFactory: "createTable",
     element: "div",
     purpose: "Render comparable records with semantic table structure, columns, rows, row keys, and optional local sort indicators.",
     variants: ["standard", "dense", "sortable", "selectable", "expandable"],

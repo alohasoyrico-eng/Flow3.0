@@ -5,7 +5,6 @@ import {
   createQuickAction,
   createRouteSummary,
   createStationPin,
-  createTable,
 } from "./components/commerce.js?v=15";
 import { createAuditEvent, createKpiTile, createList } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
@@ -135,7 +134,9 @@ export const componentRegistry = Object.freeze({
   switch: () => {
     throw new Error("Switch is React-primary. Use @design-system/react/switch instead of the transitional DOM renderer.");
   },
-  table: createTable,
+  table: () => {
+    throw new Error("Table is React-primary. Use @design-system/react/table instead of the transitional DOM renderer.");
+  },
   tabs: () => {
     throw new Error("Tabs is React-primary. Use @design-system/react/tabs instead of the transitional DOM renderer.");
   },

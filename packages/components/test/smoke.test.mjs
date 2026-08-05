@@ -17,7 +17,6 @@ import {
   createRouteSummary,
   createSlider,
   createStationPin,
-  createTable,
   createTreeView,
   createAnimationAsset,
   createChartsPrimitive,
@@ -132,6 +131,9 @@ import {
   tabsPlatformAdapters,
   tabsPlatformContract,
   tabsPlatformProps,
+  tablePlatformAdapters,
+  tablePlatformContract,
+  tablePlatformProps,
   switchPlatformAdapters,
   switchPlatformContract,
   switchPlatformProps,
@@ -149,6 +151,7 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import { createCard } from "../src/components/surfaces.js?v=3";
+import { createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -601,7 +604,16 @@ assert.deepEqual(drawerPlatformContract.states, componentContracts.drawer.states
 assert.deepEqual(Object.keys(drawerPlatformAdapters), ["react"]);
 assert.equal(drawerPlatformAdapters.react.componentName, "Drawer");
 assert.equal(drawerPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.table.factory, "createTable");
+assert.equal(componentContracts.table.factory, "@design-system/react/table");
+assert.equal(componentContracts.table.internalFactory, "createTable");
+assert.equal(tablePlatformContract.id, "table");
+assert.equal(tablePlatformContract.source.factory, componentContracts.table.factory);
+assert.deepEqual(tablePlatformProps(), componentContracts.table.props.map((prop) => prop.name));
+assert.deepEqual(tablePlatformContract.variants, componentContracts.table.variants);
+assert.deepEqual(tablePlatformContract.states, componentContracts.table.states);
+assert.deepEqual(Object.keys(tablePlatformAdapters), ["react"]);
+assert.equal(tablePlatformAdapters.react.componentName, "Table");
+assert.equal(tablePlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.biometricPrompt.factory, "createBiometricPrompt");
 assert.equal(componentContracts.treeView.factory, "createTreeView");
 assert.equal(componentContracts.motionBoundary.factory, "createMotionBoundary");

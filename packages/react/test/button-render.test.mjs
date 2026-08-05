@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Menu, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Menu, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -72,6 +72,8 @@ assert.equal(Switch.displayName, "Switch");
 assert.equal(Switch.platformContract, switchPlatformContract);
 assert.equal(Tabs.displayName, "Tabs");
 assert.equal(Tabs.platformContract, tabsPlatformContract);
+assert.equal(Table.displayName, "Table");
+assert.equal(Table.platformContract, tablePlatformContract);
 assert.equal(Tag.displayName, "Tag");
 assert.equal(Tag.platformContract, tagPlatformContract);
 assert.equal(Toast.displayName, "Toast");
@@ -331,6 +333,55 @@ assert.match(paginationMarkup, /data-kind="next"/);
 assert.match(paginationMarkup, /class="pagination__ellipsis"/);
 assert.match(paginationMarkup, /aria-current="page"/);
 assert.match(paginationMarkup, /class="pagination__icon"/);
+
+const tableColumns = [
+  { key: "plate", label: "Plate", mono: true, sortable: true },
+  { key: "status", label: "Status" },
+  { key: "spend", label: "Spend", align: "right", mono: true, sortable: true, sortValue: (row) => row.spendValue },
+];
+const tableRows = [
+  { id: "mx-1", plate: "JMX-214-B", status: { label: "Active", tone: "success" }, spend: "$842", spendValue: 842, detail: "Last fuel stop 08:30" },
+  { id: "mx-2", plate: "JMX-778-C", status: { label: "Review", tone: "warning" }, spend: "$420", spendValue: 420 },
+];
+const tableMarkup = renderToStaticMarkup(React.createElement(Table, {
+  label: "Fleet spend",
+  rowKey: "id",
+  variant: "sortable",
+  density: "sm",
+  sortKey: "spend",
+  selectedKey: "mx-1",
+  columns: tableColumns,
+  rows: tableRows,
+}));
+assert.match(tableMarkup, /^<div/);
+assert.match(tableMarkup, /class="table"/);
+assert.match(tableMarkup, /data-variant="sortable"/);
+assert.match(tableMarkup, /data-state="sorted"/);
+assert.match(tableMarkup, /data-density="sm"/);
+assert.match(tableMarkup, /aria-label="Fleet spend"/);
+assert.match(tableMarkup, /aria-sort="ascending"/);
+assert.match(tableMarkup, /class="table__sort"/);
+assert.match(tableMarkup, /data-table-sort=""/);
+assert.match(tableMarkup, /data-selected="true"/);
+assert.match(tableMarkup, /class="badge"/);
+assert.match(tableMarkup, /data-align="right"/);
+assert.match(tableMarkup, /data-mono="true"/);
+
+const expandableTableMarkup = renderToStaticMarkup(React.createElement(Table, {
+  label: "Expandable fleet",
+  rowKey: "id",
+  variant: "expandable",
+  state: "expanded",
+  columns: tableColumns.slice(0, 2),
+  rows: tableRows,
+  expandedKey: "mx-1",
+}));
+assert.match(expandableTableMarkup, /data-variant="expandable"/);
+assert.match(expandableTableMarkup, /data-state="expanded"/);
+assert.match(expandableTableMarkup, /aria-expanded="true"/);
+assert.match(expandableTableMarkup, /class="table__expander"/);
+assert.match(expandableTableMarkup, /class="table__detail-row"/);
+assert.match(expandableTableMarkup, /class="table__detail"[^>]*>Last fuel stop 08:30/);
 
 const chipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Active",

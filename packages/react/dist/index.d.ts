@@ -316,6 +316,17 @@ export type {
   TabsProps,
   TabsVariant,
 } from "./Tabs.js";
+export { Table } from "./Table.js";
+export type {
+  TableColumn,
+  TableComponent,
+  TableDensity,
+  TableProps,
+  TableRow,
+  TableSortDirection,
+  TableState,
+  TableVariant,
+} from "./Table.js";
 export { Tag } from "./Tag.js";
 export type {
   TagComponent,
