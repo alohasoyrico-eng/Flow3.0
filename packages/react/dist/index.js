@@ -27,6 +27,7 @@ export { Slider } from "./Slider.js";
 export { Spinner } from "./Spinner.js";
 export { Stepper } from "./Stepper.js";
 export { Switch } from "./Switch.js";
+export { Tabs } from "./Tabs.js";
 export { Tag } from "./Tag.js";
 export { Toast } from "./Toast.js";
 export { Tooltip } from "./Tooltip.js";

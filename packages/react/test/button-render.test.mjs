@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, Pagination, PhoneInput, RadioButton, Select, Skeleton, Slider, Stepper, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, Pagination, PhoneInput, RadioButton, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -54,6 +54,8 @@ assert.equal(Stepper.displayName, "Stepper");
 assert.equal(Stepper.platformContract, stepperPlatformContract);
 assert.equal(Switch.displayName, "Switch");
 assert.equal(Switch.platformContract, switchPlatformContract);
+assert.equal(Tabs.displayName, "Tabs");
+assert.equal(Tabs.platformContract, tabsPlatformContract);
 assert.equal(Tag.displayName, "Tag");
 assert.equal(Tag.platformContract, tagPlatformContract);
 assert.equal(Toast.displayName, "Toast");
@@ -212,6 +214,26 @@ assert.match(breadcrumbsMarkup, /class="breadcrumbs__target breadcrumbs__target-
 assert.match(breadcrumbsMarkup, /class="breadcrumbs__separator"/);
 assert.match(breadcrumbsMarkup, /aria-current="page"/);
 assert.match(breadcrumbsMarkup, />JMX-214-B<\/span>/);
+
+const tabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
+  label: "Fleet views",
+  selectedKey: "cards",
+  variant: "underline",
+  items: [
+    { key: "drivers", label: "Drivers", icon: "person" },
+    { key: "cards", label: "Cards", count: 8 },
+  ],
+}));
+assert.match(tabsMarkup, /^<div/);
+assert.match(tabsMarkup, /class="tabs"/);
+assert.match(tabsMarkup, /role="tablist"/);
+assert.match(tabsMarkup, /aria-label="Fleet views"/);
+assert.match(tabsMarkup, /data-variant="underline"/);
+assert.match(tabsMarkup, /data-tabs-item=""/);
+assert.match(tabsMarkup, /aria-selected="true"/);
+assert.match(tabsMarkup, /class="tabs__icon"/);
+assert.match(tabsMarkup, /class="tabs__label">Cards<\/span>/);
+assert.match(tabsMarkup, /class="badge"/);
 
 const paginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
   label: "Fleet pages",

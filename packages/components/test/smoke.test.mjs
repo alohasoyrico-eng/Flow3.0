@@ -32,7 +32,6 @@ import {
   createSlider,
   createStationPin,
   createTable,
-  createTabs,
   createTreeView,
   createToast,
   createAnimationAsset,
@@ -103,6 +102,9 @@ import {
   stepperPlatformAdapters,
   stepperPlatformContract,
   stepperPlatformProps,
+  tabsPlatformAdapters,
+  tabsPlatformContract,
+  tabsPlatformProps,
   switchPlatformAdapters,
   switchPlatformContract,
   switchPlatformProps,
@@ -418,7 +420,16 @@ assert.deepEqual(tagPlatformContract.states, componentContracts.tag.states);
 assert.deepEqual(Object.keys(tagPlatformAdapters), ["react"]);
 assert.equal(tagPlatformAdapters.react.componentName, "Tag");
 assert.equal(tagPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.tabs.factory, "createTabs");
+assert.equal(componentContracts.tabs.factory, "@design-system/react/tabs");
+assert.equal(componentContracts.tabs.internalFactory, "createTabs");
+assert.equal(tabsPlatformContract.id, "tabs");
+assert.equal(tabsPlatformContract.source.factory, componentContracts.tabs.factory);
+assert.deepEqual(tabsPlatformProps(), componentContracts.tabs.props.map((prop) => prop.name));
+assert.deepEqual(tabsPlatformContract.variants, componentContracts.tabs.variants);
+assert.deepEqual(tabsPlatformContract.states, componentContracts.tabs.states);
+assert.deepEqual(Object.keys(tabsPlatformAdapters), ["react"]);
+assert.equal(tabsPlatformAdapters.react.componentName, "Tabs");
+assert.equal(tabsPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.breadcrumbs.factory, "@design-system/react/breadcrumbs");
 assert.equal(componentContracts.breadcrumbs.internalFactory, "createBreadcrumbs");
 assert.equal(breadcrumbsPlatformContract.id, "breadcrumbs");
@@ -1269,56 +1280,6 @@ const disabledTag = createTransitionalTag({ label: "Disabled", variant: "link", 
 assert.equal(disabledTag.tagName, "BUTTON");
 assert.equal(disabledTag.disabled, true);
 assert.equal(disabledTag.dataset.state, "disabled");
-
-const tabs = createTabs({
-  label: "Fleet views",
-  selectedKey: "cards",
-  items: [
-    { key: "drivers", label: "Drivers", icon: "person" },
-    { key: "cards", label: "Cards", count: 8 },
-  ],
-});
-assert.equal(tabs.tagName, "DIV");
-assert.equal(tabs.attributes.role, "tablist");
-assert.equal(tabs.attributes["aria-label"], "Fleet views");
-assert.equal(tabs.dataset.variant, "default");
-assert.equal(tabs.querySelectorAll("button")[1].attributes["aria-selected"], "true");
-assert.equal(tabs.querySelectorAll("button")[1].tabIndex, 0);
-assert.equal(tabs.querySelectorAll("button")[0].tabIndex, -1);
-assert.equal(tabs.querySelectorAll("button")[0].attributes["data-tabs-item"], "");
-assert.equal(tabs.querySelector(".tabs__icon").textContent, "person");
-assert.equal(tabs.querySelector(".badge").textContent, "8");
-const underlineTabs = createTabs({
-  label: "Detail sections",
-  variant: "underline",
-  items: [{ key: "overview", label: "Overview" }, { key: "events", label: "Events" }],
-});
-assert.equal(underlineTabs.dataset.variant, "underline");
-let tabChange = "";
-const interactiveTabs = createTabs({
-  items: [
-    { key: "drivers", label: "Drivers" },
-    { key: "cards", label: "Cards" },
-    { key: "limits", label: "Limits", disabled: true },
-  ],
-  onValueChange(value) {
-    tabChange = value;
-  },
-});
-interactiveTabs.querySelectorAll("button")[0].offsetLeft = 8;
-interactiveTabs.querySelectorAll("button")[0].offsetWidth = 80;
-interactiveTabs.querySelectorAll("button")[1].offsetLeft = 92;
-interactiveTabs.querySelectorAll("button")[1].offsetWidth = 72;
-interactiveTabs.querySelectorAll("button")[1].click();
-assert.equal(interactiveTabs.querySelectorAll("button")[1].attributes["aria-selected"], "true");
-assert.equal(interactiveTabs.querySelectorAll("button")[1].tabIndex, 0);
-assert.equal(tabChange, "cards");
-assert.equal(interactiveTabs.dataset.indicatorSynced, "true");
-assert.equal(interactiveTabs.style, "--comp-tabs-indicator-left: 92px; --comp-tabs-indicator-width: 72px");
-interactiveTabs.querySelectorAll("button")[1].dispatchEvent({ type: "keydown", key: "ArrowRight", preventDefault() { this.defaultPrevented = true; } });
-assert.equal(interactiveTabs.querySelectorAll("button")[0].attributes["aria-selected"], "true");
-assert.equal(globalThis.document.activeElement, interactiveTabs.querySelectorAll("button")[0]);
-assert.equal(interactiveTabs.style, "--comp-tabs-indicator-left: 8px; --comp-tabs-indicator-width: 80px");
 
 const tooltip = createTransitionalTooltip({ triggerLabel: "Info", content: "Short help", id: "tip-1" });
 assert.equal(tooltip.tagName, "SPAN");

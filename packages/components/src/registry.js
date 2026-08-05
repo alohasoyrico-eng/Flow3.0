@@ -12,7 +12,6 @@ import { createEmptyState, createErrorPanel, createProgressIndicator, createSkel
 import { createCombobox } from "./components/fields.js?v=21";
 import {
   createSegmentedControl,
-  createTabs,
   createTreeView,
 } from "./components/interactions.js?v=9";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
@@ -133,7 +132,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Switch is React-primary. Use @design-system/react/switch instead of the transitional DOM renderer.");
   },
   table: createTable,
-  tabs: createTabs,
+  tabs: () => {
+    throw new Error("Tabs is React-primary. Use @design-system/react/tabs instead of the transitional DOM renderer.");
+  },
   tag: () => {
     throw new Error("Tag is React-primary. Use @design-system/react/tag instead of the transitional DOM renderer.");
   },
@@ -177,6 +178,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "tag") {
     throw new Error("Tag is React-primary. Use @design-system/react/tag instead of renderComponentDemo.");
+  }
+  if (id === "tabs") {
+    throw new Error("Tabs is React-primary. Use @design-system/react/tabs instead of renderComponentDemo.");
   }
   if (id === "card-security-code-input") {
     throw new Error("Card Security Code Input is React-primary. Use @design-system/react/card-security-code-input instead of renderComponentDemo.");

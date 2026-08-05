@@ -54,6 +54,11 @@ export {
   stepperPlatformProps,
 } from "./stepper.js";
 export {
+  tabsPlatformAdapters,
+  tabsPlatformContract,
+  tabsPlatformProps,
+} from "./tabs.js";
+export {
   iconButtonPlatformAdapters,
   iconButtonPlatformContract,
   iconButtonPlatformProps,

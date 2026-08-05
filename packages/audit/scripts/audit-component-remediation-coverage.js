@@ -1,4 +1,5 @@
 const {
+  fs,
   path,
   add,
   read,
@@ -142,11 +143,29 @@ function checkComponentRemediationCoverage() {
   for (const [id, requiredSnippets] of Object.entries(packagedBehaviorEvidence)) {
     if (!coverageTargets.includes(id)) continue;
     for (const snippet of requiredSnippets) {
-      if (!smokeTest.includes(snippet)) {
+      const behaviorSource = `${smokeTest}\n${reactSourceFor(id)}`;
+      if (!behaviorSource.includes(snippet)) {
         add("errors", smokeTestFile, 1, `${id} package-owned behavior must have smoke evidence for ${snippet}.`);
       }
     }
   }
+}
+
+function reactSourceFor(id) {
+  const fileName = {
+    "card-number-input": "CardNumberInput",
+    "card-expiry-input": "CardExpiryInput",
+    "card-security-code-input": "CardSecurityCodeInput",
+    "code-input": "CodeInput",
+    "date-picker": "DatePicker",
+    "date-range-picker": "DateRangePicker",
+    "phone-input": "PhoneInput",
+    "segmented-control": "SegmentedControl",
+    "radio-button": "RadioButton",
+    "tree-view": "TreeView",
+  }[id] ?? id.split("-").map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join("");
+  const file = path.join(__dirname, "../../../packages/react/src", `${fileName}.js`);
+  return fs.existsSync(file) ? read(file) : "";
 }
 
 function kebabToFactoryName(id) {

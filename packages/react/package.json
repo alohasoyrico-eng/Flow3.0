@@ -124,6 +124,10 @@
       "types": "./dist/Switch.d.ts",
       "default": "./dist/Switch.js"
     },
+    "./tabs": {
+      "types": "./dist/Tabs.d.ts",
+      "default": "./dist/Tabs.js"
+    },
     "./tag": {
       "types": "./dist/Tag.d.ts",
       "default": "./dist/Tag.js"

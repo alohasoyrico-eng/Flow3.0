@@ -243,6 +243,13 @@ export type {
   SwitchState,
   SwitchValueMeta,
 } from "./Switch.js";
+export { Tabs } from "./Tabs.js";
+export type {
+  TabsComponent,
+  TabsItem,
+  TabsProps,
+  TabsVariant,
+} from "./Tabs.js";
 export { Tag } from "./Tag.js";
 export type {
   TagComponent,
