@@ -105,6 +105,17 @@ export type {
   DateRangePickerState,
   DateRangePickerValue,
 } from "./DateRangePicker.js";
+export { Dialog } from "./Dialog.js";
+export type {
+  DialogAction,
+  DialogComponent,
+  DialogDensity,
+  DialogField,
+  DialogProps,
+  DialogState,
+  DialogTone,
+  DialogVariant,
+} from "./Dialog.js";
 export { EmptyState } from "./EmptyState.js";
 export type {
   EmptyStateAction,

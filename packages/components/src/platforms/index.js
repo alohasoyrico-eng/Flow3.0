@@ -104,6 +104,11 @@ export {
   dateRangePickerPlatformProps,
 } from "./date-range-picker.js";
 export {
+  dialogPlatformAdapters,
+  dialogPlatformContract,
+  dialogPlatformProps,
+} from "./dialog.js";
+export {
   emptyStatePlatformAdapters,
   emptyStatePlatformContract,
   emptyStatePlatformProps,

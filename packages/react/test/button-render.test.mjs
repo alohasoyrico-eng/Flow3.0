@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, Dialog, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -30,6 +30,8 @@ assert.equal(DatePicker.displayName, "DatePicker");
 assert.equal(DatePicker.platformContract, datePickerPlatformContract);
 assert.equal(DateRangePicker.displayName, "DateRangePicker");
 assert.equal(DateRangePicker.platformContract, dateRangePickerPlatformContract);
+assert.equal(Dialog.displayName, "Dialog");
+assert.equal(Dialog.platformContract, dialogPlatformContract);
 assert.equal(EmptyState.displayName, "EmptyState");
 assert.equal(EmptyState.platformContract, emptyStatePlatformContract);
 assert.equal(ErrorPanel.displayName, "ErrorPanel");
@@ -994,6 +996,58 @@ const inheritedDateRangePickerMarkup = renderToStaticMarkup(React.createElement(
   value: { from: "2026-07-01", to: "2026-07-15" },
 }));
 assert.doesNotMatch(inheritedDateRangePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const closedDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
+  label: "Freeze card?",
+  description: "Driver cannot spend until review ends.",
+  triggerLabel: "Open review",
+  density: "sm",
+}));
+assert.match(closedDialogMarkup, /^<div/);
+assert.match(closedDialogMarkup, /class="dialog dialog--neutral"/);
+assert.match(closedDialogMarkup, /data-open="false"/);
+assert.match(closedDialogMarkup, /data-state="closed"/);
+assert.match(closedDialogMarkup, /data-density="sm"/);
+assert.match(closedDialogMarkup, /class="button button--secondary dialog__trigger"/);
+assert.match(closedDialogMarkup, /aria-haspopup="dialog"/);
+assert.match(closedDialogMarkup, /aria-expanded="false"/);
+assert.match(closedDialogMarkup, /data-overlay-open=""/);
+assert.match(closedDialogMarkup, /class="dialog__overlay"/);
+assert.match(closedDialogMarkup, /hidden=""/);
+
+const openDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
+  label: "Freeze card?",
+  description: "Driver cannot spend until review ends.",
+  variant: "destructive",
+  tone: "danger",
+  state: "open",
+  open: true,
+  density: "lg",
+  actions: [{ key: "cancel", label: "Cancel", variant: "ghost" }, { key: "confirm", label: "Confirm", variant: "danger" }],
+}));
+assert.match(openDialogMarkup, /class="dialog dialog--danger"/);
+assert.match(openDialogMarkup, /data-variant="destructive"/);
+assert.match(openDialogMarkup, /data-open="true"/);
+assert.match(openDialogMarkup, /data-state="open"/);
+assert.match(openDialogMarkup, /role="dialog"/);
+assert.match(openDialogMarkup, /aria-modal="true"/);
+assert.match(openDialogMarkup, /aria-labelledby=/);
+assert.match(openDialogMarkup, /class="dialog__icon"/);
+assert.match(openDialogMarkup, />warning<\/span>/);
+assert.match(openDialogMarkup, /class="icon-button icon-button--ghost dialog__close"/);
+assert.match(openDialogMarkup, /data-overlay-close=""/);
+assert.match(openDialogMarkup, /data-key="confirm"/);
+
+const formDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
+  label: "Edit driver",
+  variant: "form",
+  open: true,
+  fields: [{ label: "Driver", value: "Ana Sosa" }],
+}));
+assert.match(formDialogMarkup, /data-variant="form"/);
+assert.match(formDialogMarkup, /class="dialog__body dialog__fields"/);
+assert.match(formDialogMarkup, /class="field"/);
+assert.match(formDialogMarkup, /data-density="md"/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

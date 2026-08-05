@@ -60,6 +60,10 @@
       "types": "./dist/DateRangePicker.d.ts",
       "default": "./dist/DateRangePicker.js"
     },
+    "./dialog": {
+      "types": "./dist/Dialog.d.ts",
+      "default": "./dist/Dialog.js"
+    },
     "./empty-state": {
       "types": "./dist/EmptyState.d.ts",
       "default": "./dist/EmptyState.js"

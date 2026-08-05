@@ -16,7 +16,6 @@ import {
 } from "./components/interactions.js?v=9";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
 import {
-  createDialog,
   createDrawer,
   createMenu,
 } from "./components/overlays.js?v=5";
@@ -69,7 +68,9 @@ export const componentRegistry = Object.freeze({
   "date-range-picker": () => {
     throw new Error("Date Range Picker is React-primary. Use @design-system/react/date-range-picker instead of the transitional DOM renderer.");
   },
-  dialog: createDialog,
+  dialog: () => {
+    throw new Error("Dialog is React-primary. Use @design-system/react/dialog instead of the transitional DOM renderer.");
+  },
   drawer: createDrawer,
   "empty-state": () => {
     throw new Error("Empty State is React-primary. Use @design-system/react/empty-state instead of the transitional DOM renderer.");

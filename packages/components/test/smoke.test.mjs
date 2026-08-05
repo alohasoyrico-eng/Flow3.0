@@ -8,7 +8,6 @@ import {
   createAuditEvent,
   createBiometricPrompt,
   createCountrySelector,
-  createDialog,
   createDrawer,
   createBreadcrumbs,
   createFloatingActionButton,
@@ -62,6 +61,9 @@ import {
   dateRangePickerPlatformAdapters,
   dateRangePickerPlatformContract,
   dateRangePickerPlatformProps,
+  dialogPlatformAdapters,
+  dialogPlatformContract,
+  dialogPlatformProps,
   emptyStatePlatformAdapters,
   emptyStatePlatformContract,
   emptyStatePlatformProps,
@@ -540,7 +542,16 @@ assert.deepEqual(skeletonPlatformContract.states, componentContracts.skeleton.st
 assert.deepEqual(Object.keys(skeletonPlatformAdapters), ["react"]);
 assert.equal(skeletonPlatformAdapters.react.componentName, "Skeleton");
 assert.equal(skeletonPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.dialog.factory, "createDialog");
+assert.equal(componentContracts.dialog.factory, "@design-system/react/dialog");
+assert.equal(componentContracts.dialog.internalFactory, "createDialog");
+assert.equal(dialogPlatformContract.id, "dialog");
+assert.equal(dialogPlatformContract.source.factory, componentContracts.dialog.factory);
+assert.deepEqual(dialogPlatformProps(), componentContracts.dialog.props.map((prop) => prop.name));
+assert.deepEqual(dialogPlatformContract.variants, componentContracts.dialog.variants);
+assert.deepEqual(dialogPlatformContract.states, componentContracts.dialog.states);
+assert.deepEqual(Object.keys(dialogPlatformAdapters), ["react"]);
+assert.equal(dialogPlatformAdapters.react.componentName, "Dialog");
+assert.equal(dialogPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.menu.factory, "createMenu");
 assert.equal(componentContracts.drawer.factory, "createDrawer");
 assert.equal(componentContracts.table.factory, "createTable");
@@ -1488,58 +1499,6 @@ assert.equal(largeAvatar.dataset.state, "busy");
 const unknownAvatar = createTransitionalAvatar({ name: "", state: "unknown" });
 assert.equal(unknownAvatar.attributes["aria-label"], "Unknown avatar");
 assert.equal(unknownAvatar.querySelector(".avatar__initials").textContent, "?");
-
-const dialog = createDialog({
-  label: "Freeze card?",
-  description: "Driver cannot spend",
-  variant: "destructive",
-  tone: "danger",
-  density: "sm",
-  fields: [{ label: "Reason", value: "Risk review" }],
-  actions: [{ label: "Confirm", variant: "danger" }],
-});
-assert.equal(dialog.tagName, "DIV");
-assert.equal(dialog.className, "dialog dialog--danger");
-assert.equal(dialog.dataset.variant, "destructive");
-assert.equal(dialog.dataset.state, "open");
-assert.equal(dialog.dataset.tone, "danger");
-assert.equal(dialog.dataset.density, "sm");
-assert.equal(dialog.querySelector(".dialog__trigger").attributes["aria-haspopup"], "dialog");
-assert.equal(dialog.querySelector(".dialog__trigger").dataset.density, "sm");
-assert.equal(dialog.querySelector(".dialog__trigger").attributes["data-overlay-open"], "");
-assert.equal(dialog.querySelector(".dialog__overlay").attributes["data-overlay-dismiss"], "");
-assert.equal(dialog.querySelector(".dialog__panel").attributes.role, "dialog");
-assert.equal(dialog.querySelector(".dialog__panel").attributes["aria-modal"], "true");
-assert.equal(dialog.querySelector(".dialog__icon").textContent, "warning");
-assert.equal(dialog.querySelector(".field").dataset.density, "sm");
-assert.equal(dialog.querySelector("footer").querySelector("button").textContent, "Confirm");
-assert.equal(dialog.querySelector("footer").querySelector("button").className, "button button--primary button--danger");
-assert.equal(dialog.querySelector("footer").querySelector("button").dataset.density, "sm");
-let dialogOpen = null;
-let dialogAction = "";
-const interactiveDialog = createDialog({
-  label: "Freeze card?",
-  open: false,
-  actions: [{ key: "confirm", label: "Confirm" }],
-  onOpenChange(open) {
-    dialogOpen = open;
-  },
-  onAction(key) {
-    dialogAction = key;
-  },
-});
-interactiveDialog.querySelector(".dialog__trigger").click();
-assert.equal(interactiveDialog.querySelector(".dialog__overlay").hidden, false);
-assert.equal(interactiveDialog.querySelector(".dialog__trigger").attributes["aria-expanded"], "true");
-assert.equal(globalThis.document.activeElement, interactiveDialog.querySelector(".dialog__close"));
-assert.equal(dialogOpen, true);
-interactiveDialog.querySelector("footer").querySelector("button").click();
-assert.equal(dialogAction, "confirm");
-assert.equal(interactiveDialog.querySelector(".dialog__overlay").hidden, true);
-assert.equal(globalThis.document.activeElement, interactiveDialog.querySelector(".dialog__trigger"));
-interactiveDialog.querySelector(".dialog__trigger").click();
-interactiveDialog.dispatchEvent({ type: "keydown", key: "Escape", preventDefault() { this.defaultPrevented = true; } });
-assert.equal(interactiveDialog.querySelector(".dialog__overlay").hidden, true);
 
 const menu = createMenu({ triggerLabel: "Actions", items: [{ label: "Edit" }, { separator: true }, { label: "Suspend", tone: "danger" }] });
 assert.equal(menu.tagName, "SPAN");
