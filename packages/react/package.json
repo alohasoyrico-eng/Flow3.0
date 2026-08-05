@@ -144,6 +144,10 @@
       "types": "./dist/RadioButton.d.ts",
       "default": "./dist/RadioButton.js"
     },
+    "./route-summary": {
+      "types": "./dist/RouteSummary.d.ts",
+      "default": "./dist/RouteSummary.js"
+    },
     "./select": {
       "types": "./dist/Select.d.ts",
       "default": "./dist/Select.js"

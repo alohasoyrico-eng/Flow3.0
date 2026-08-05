@@ -32,6 +32,7 @@ export { Pagination } from "./Pagination.js";
 export { ProgressIndicator } from "./ProgressIndicator.js";
 export { QuickAction } from "./QuickAction.js";
 export { RadioButton } from "./RadioButton.js";
+export { RouteSummary } from "./RouteSummary.js";
 export { Select } from "./Select.js";
 export { SegmentedControl } from "./SegmentedControl.js";
 export { Skeleton } from "./Skeleton.js";

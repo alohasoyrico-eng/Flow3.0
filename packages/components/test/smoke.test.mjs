@@ -7,7 +7,6 @@ import {
   createBiometricPrompt,
   createAnimatedMoment,
   createMotionBoundary,
-  createRouteSummary,
   createStationPin,
   createAnimationAsset,
   createChartsPrimitive,
@@ -118,6 +117,9 @@ import {
   radioButtonPlatformAdapters,
   radioButtonPlatformContract,
   radioButtonPlatformProps,
+  routeSummaryPlatformAdapters,
+  routeSummaryPlatformContract,
+  routeSummaryPlatformProps,
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,
@@ -164,7 +166,7 @@ import {
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
-import { createMovementRow, createQuickAction, createTable } from "../src/components/commerce.js?v=15";
+import { createMovementRow, createQuickAction, createRouteSummary, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -724,7 +726,16 @@ assert.equal(stepperPlatformAdapters.react.componentName, "Stepper");
 assert.equal(stepperPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.chartPanel.factory, "createChartPanel");
 assert.equal(componentContracts.stationPin.factory, "createStationPin");
-assert.equal(componentContracts.routeSummary.factory, "createRouteSummary");
+assert.equal(componentContracts.routeSummary.factory, "@design-system/react/route-summary");
+assert.equal(componentContracts.routeSummary.internalFactory, "createRouteSummary");
+assert.equal(routeSummaryPlatformContract.id, "route-summary");
+assert.equal(routeSummaryPlatformContract.source.factory, componentContracts.routeSummary.factory);
+assert.deepEqual(routeSummaryPlatformProps(), componentContracts.routeSummary.props.map((prop) => prop.name));
+assert.deepEqual(routeSummaryPlatformContract.variants, componentContracts.routeSummary.variants);
+assert.deepEqual(routeSummaryPlatformContract.states, componentContracts.routeSummary.states);
+assert.deepEqual(Object.keys(routeSummaryPlatformAdapters), ["react"]);
+assert.equal(routeSummaryPlatformAdapters.react.componentName, "RouteSummary");
+assert.equal(routeSummaryPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.codeInput.factory, "@design-system/react/code-input");
 assert.equal(componentContracts.codeInput.internalFactory, "createTransitionalSecurityCodeInput");
 assert.equal(codeInputPlatformContract.id, "code-input");

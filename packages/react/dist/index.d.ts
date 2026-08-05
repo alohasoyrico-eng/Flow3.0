@@ -306,6 +306,17 @@ export type {
   RadioButtonValueMeta,
   RadioButtonVariant,
 } from "./RadioButton.js";
+export { RouteSummary } from "./RouteSummary.js";
+export type {
+  RouteMetric,
+  RouteSummaryAction,
+  RouteSummaryComponent,
+  RouteSummaryDensity,
+  RouteSummaryProps,
+  RouteSummaryState,
+  RouteSummaryTone,
+  RouteSummaryVariant,
+} from "./RouteSummary.js";
 export { Select } from "./Select.js";
 export type {
   SelectComponent,

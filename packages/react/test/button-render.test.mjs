@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -70,6 +70,8 @@ assert.equal(QuickAction.displayName, "QuickAction");
 assert.equal(QuickAction.platformContract, quickActionPlatformContract);
 assert.equal(RadioButton.displayName, "RadioButton");
 assert.equal(RadioButton.platformContract, radioButtonPlatformContract);
+assert.equal(RouteSummary.displayName, "RouteSummary");
+assert.equal(RouteSummary.platformContract, routeSummaryPlatformContract);
 assert.equal(SegmentedControl.displayName, "SegmentedControl");
 assert.equal(SegmentedControl.platformContract, segmentedControlPlatformContract);
 assert.equal(Select.displayName, "Select");
@@ -199,6 +201,36 @@ assert.match(movementRowMarkup, /Fuel purchase/);
 assert.match(movementRowMarkup, /Today/);
 assert.match(movementRowMarkup, /class="movement-row__amount">-\$842\.00<\/strong>/);
 assert.match(movementRowMarkup, /class="movement-row__status">Pending<\/small>/);
+
+const routeSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  label: "Fast route",
+  description: "Best option for current policy.",
+  metrics: [{ label: "ETA", value: "18 min" }, { label: "Distance", value: "12.4 km" }],
+  actions: [{ label: "Start route" }, { label: "Compare", variant: "secondary" }],
+  variant: "compare",
+  state: "selected",
+  density: "sm",
+  tone: "info",
+  fullWidth: true,
+}));
+assert.match(routeSummaryMarkup, /^<article/);
+assert.match(routeSummaryMarkup, /class="route-summary"/);
+assert.match(routeSummaryMarkup, /data-variant="compare"/);
+assert.match(routeSummaryMarkup, /data-state="selected"/);
+assert.match(routeSummaryMarkup, /data-density="sm"/);
+assert.match(routeSummaryMarkup, /data-tone="info"/);
+assert.match(routeSummaryMarkup, /data-full-width="true"/);
+assert.match(routeSummaryMarkup, /aria-selected="true"/);
+assert.match(routeSummaryMarkup, /class="route-summary__icon/);
+assert.match(routeSummaryMarkup, /navigation/);
+assert.match(routeSummaryMarkup, /class="route-summary__label"/);
+assert.match(routeSummaryMarkup, /Fast route/);
+assert.match(routeSummaryMarkup, /Best option for current policy/);
+assert.match(routeSummaryMarkup, /class="route-summary__metrics"/);
+assert.match(routeSummaryMarkup, /ETA/);
+assert.match(routeSummaryMarkup, /18 min/);
+assert.match(routeSummaryMarkup, /class="button button--primary"/);
+assert.match(routeSummaryMarkup, /Start route/);
 
 const accordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
   density: "sm",

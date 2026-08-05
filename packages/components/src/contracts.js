@@ -1211,7 +1211,8 @@ export const componentContracts = {
     ]
   },
   routeSummary: {
-    factory: "createRouteSummary",
+    factory: "@design-system/react/route-summary",
+    internalFactory: "createRouteSummary",
     element: "article",
     purpose: "Summarize one route option with metrics and optional local actions.",
     variants: ["standard", "compact", "compare", "policy"],

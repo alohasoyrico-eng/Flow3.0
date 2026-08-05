@@ -238,3 +238,8 @@ export {
   quickActionPlatformContract,
   quickActionPlatformProps,
 } from "./quick-action.js";
+export {
+  routeSummaryPlatformAdapters,
+  routeSummaryPlatformContract,
+  routeSummaryPlatformProps,
+} from "./route-summary.js";

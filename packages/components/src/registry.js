@@ -1,7 +1,6 @@
 import {
   createCardSummary,
   createChartPanel,
-  createRouteSummary,
   createStationPin,
 } from "./components/commerce.js?v=15";
 import { createAuditEvent } from "./components/display.js?v=3";
@@ -117,7 +116,9 @@ export const componentRegistry = Object.freeze({
   "radio-button": () => {
     throw new Error("Radio Button is React-primary. Use @design-system/react/radio-button instead of the transitional DOM renderer.");
   },
-  "route-summary": createRouteSummary,
+  "route-summary": () => {
+    throw new Error("Route Summary is React-primary. Use @design-system/react/route-summary instead of the transitional DOM renderer.");
+  },
   "segmented-control": () => {
     throw new Error("Segmented Control is React-primary. Use @design-system/react/segmented-control instead of the transitional DOM renderer.");
   },
