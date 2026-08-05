@@ -99,7 +99,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Phone Input is React-primary. Use @design-system/react/phone-input instead of the transitional DOM renderer.");
   },
   popover: createPopover,
-  "progress-indicator": createProgressIndicator,
+  "progress-indicator": () => {
+    throw new Error("Progress Indicator is React-primary. Use @design-system/react/progress-indicator instead of the transitional DOM renderer.");
+  },
   "quick-action": createQuickAction,
   "radio-button": () => {
     throw new Error("Radio Button is React-primary. Use @design-system/react/radio-button instead of the transitional DOM renderer.");
@@ -195,6 +197,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "phone-input") {
     throw new Error("Phone Input is React-primary. Use @design-system/react/phone-input instead of renderComponentDemo.");
+  }
+  if (id === "progress-indicator") {
+    throw new Error("Progress Indicator is React-primary. Use @design-system/react/progress-indicator instead of renderComponentDemo.");
   }
   if (id === "radio-button") {
     throw new Error("Radio Button is React-primary. Use @design-system/react/radio-button instead of renderComponentDemo.");
