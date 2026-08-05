@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Switch, Tag, TextArea, Tooltip } from "../src/index.js";
-import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Tooltip } from "../src/index.js";
+import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Avatar.displayName, "Avatar");
 assert.equal(Avatar.platformContract, avatarPlatformContract);
@@ -36,6 +36,8 @@ assert.equal(RadioButton.displayName, "RadioButton");
 assert.equal(RadioButton.platformContract, radioButtonPlatformContract);
 assert.equal(Select.displayName, "Select");
 assert.equal(Select.platformContract, selectPlatformContract);
+assert.equal(Skeleton.displayName, "Skeleton");
+assert.equal(Skeleton.platformContract, skeletonPlatformContract);
 assert.equal(Switch.displayName, "Switch");
 assert.equal(Switch.platformContract, switchPlatformContract);
 assert.equal(Tag.displayName, "Tag");
@@ -198,6 +200,24 @@ const staticTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
 }));
 assert.match(staticTagMarkup, /^<span/);
 assert.match(staticTagMarkup, /data-variant="platform"/);
+
+const skeletonMarkup = renderToStaticMarkup(React.createElement(Skeleton, {
+  label: "Table loading",
+  variant: "table",
+  rows: 2,
+  columns: 3,
+  fullWidth: true,
+}));
+assert.match(skeletonMarkup, /class="skeleton skeleton--table"/);
+assert.match(skeletonMarkup, /role="status"/);
+assert.match(skeletonMarkup, /aria-busy="true"/);
+assert.match(skeletonMarkup, /aria-label="Table loading"/);
+assert.match(skeletonMarkup, /data-variant="table"/);
+assert.match(skeletonMarkup, /data-rows="2"/);
+assert.match(skeletonMarkup, /data-columns="3"/);
+assert.match(skeletonMarkup, /--skeleton-columns:3/);
+assert.equal((skeletonMarkup.match(/class="skeleton__row"/g) ?? []).length, 2);
+assert.equal((skeletonMarkup.match(/class="skeleton__bone skeleton__cell"/g) ?? []).length, 6);
 assert.doesNotMatch(staticTagMarkup, /data-interactive/);
 
 const disabledTagMarkup = renderToStaticMarkup(React.createElement(Tag, {

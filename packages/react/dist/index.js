@@ -17,6 +17,7 @@ export { ProgressIndicator } from "./ProgressIndicator.js";
 export { RadioButton } from "./RadioButton.js";
 export { Select } from "./Select.js";
 export { SegmentedControl } from "./SegmentedControl.js";
+export { Skeleton } from "./Skeleton.js";
 export { Spinner } from "./Spinner.js";
 export { Switch } from "./Switch.js";
 export { Tag } from "./Tag.js";

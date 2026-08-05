@@ -158,6 +158,14 @@ export type {
   SegmentedControlProps,
   SegmentedControlVariant,
 } from "./SegmentedControl.js";
+export { Skeleton } from "./Skeleton.js";
+export type {
+  SkeletonComponent,
+  SkeletonProps,
+  SkeletonState,
+  SkeletonStyle,
+  SkeletonVariant,
+} from "./Skeleton.js";
 export { Spinner } from "./Spinner.js";
 export type {
   SpinnerComponent,

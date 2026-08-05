@@ -84,6 +84,10 @@
       "types": "./dist/SegmentedControl.d.ts",
       "default": "./dist/SegmentedControl.js"
     },
+    "./skeleton": {
+      "types": "./dist/Skeleton.d.ts",
+      "default": "./dist/Skeleton.js"
+    },
     "./spinner": {
       "types": "./dist/Spinner.d.ts",
       "default": "./dist/Spinner.js"
