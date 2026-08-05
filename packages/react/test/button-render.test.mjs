@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Tooltip } from "../src/index.js";
-import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Avatar.displayName, "Avatar");
 assert.equal(Avatar.platformContract, avatarPlatformContract);
@@ -46,6 +46,8 @@ assert.equal(Switch.displayName, "Switch");
 assert.equal(Switch.platformContract, switchPlatformContract);
 assert.equal(Tag.displayName, "Tag");
 assert.equal(Tag.platformContract, tagPlatformContract);
+assert.equal(Toast.displayName, "Toast");
+assert.equal(Toast.platformContract, toastPlatformContract);
 assert.equal(Tooltip.displayName, "Tooltip");
 assert.equal(Tooltip.platformContract, tooltipPlatformContract);
 assert.equal(TextArea.displayName, "TextArea");
@@ -296,6 +298,47 @@ const disabledTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
 }));
 assert.match(disabledTagMarkup, /disabled=""/);
 assert.match(disabledTagMarkup, /data-state="disabled"/);
+
+const toastMarkup = renderToStaticMarkup(React.createElement(Toast, {
+  label: "Route updated",
+  description: "The driver received the new route.",
+  tone: "success",
+  variant: "undo",
+  state: "action",
+  density: "sm",
+  actionLabel: "Undo",
+  dismissible: true,
+}));
+assert.match(toastMarkup, /^<article/);
+assert.match(toastMarkup, /class="toast"/);
+assert.match(toastMarkup, /role="status"/);
+assert.match(toastMarkup, /aria-live="polite"/);
+assert.match(toastMarkup, /data-tone="success"/);
+assert.match(toastMarkup, /data-variant="undo"/);
+assert.match(toastMarkup, /data-state="action"/);
+assert.match(toastMarkup, /data-density="sm"/);
+assert.match(toastMarkup, /class="toast__icon"/);
+assert.match(toastMarkup, />check_circle<\/span>/);
+assert.match(toastMarkup, /class="toast__content"/);
+assert.match(toastMarkup, /<strong>Route updated<\/strong>/);
+assert.match(toastMarkup, /<p>The driver received the new route\.<\/p>/);
+assert.match(toastMarkup, /class="button button--ghost toast__action"/);
+assert.match(toastMarkup, /data-toast-action=""/);
+assert.match(toastMarkup, /class="icon-button icon-button--ghost toast__dismiss"/);
+assert.match(toastMarkup, /data-toast-dismiss=""/);
+
+const warningToastMarkup = renderToStaticMarkup(React.createElement(Toast, {
+  label: "Policy conflict",
+  tone: "warning",
+}));
+assert.match(warningToastMarkup, /role="alert"/);
+assert.match(warningToastMarkup, /aria-live="assertive"/);
+
+const hiddenToastMarkup = renderToStaticMarkup(React.createElement(Toast, {
+  label: "Hidden",
+  state: "default",
+}));
+assert.match(hiddenToastMarkup, /hidden=""/);
 
 const tooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
   triggerLabel: "Info",

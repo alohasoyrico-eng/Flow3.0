@@ -33,6 +33,7 @@
     "./react/segmented-control": "./packages/react/dist/SegmentedControl.js",
     "./react/skeleton": "./packages/react/dist/Skeleton.js",
     "./react/spinner": "./packages/react/dist/Spinner.js",
+    "./react/toast": "./packages/react/dist/Toast.js",
     "./react/tooltip": "./packages/react/dist/Tooltip.js",
     "./content/catalog": "./packages/content/content/catalog.json",
     "./content/component-docs": "./packages/content/content/component-docs.json",

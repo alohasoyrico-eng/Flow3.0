@@ -108,6 +108,10 @@
       "types": "./dist/Tag.d.ts",
       "default": "./dist/Tag.js"
     },
+    "./toast": {
+      "types": "./dist/Toast.d.ts",
+      "default": "./dist/Toast.js"
+    },
     "./tooltip": {
       "types": "./dist/Tooltip.d.ts",
       "default": "./dist/Tooltip.js"

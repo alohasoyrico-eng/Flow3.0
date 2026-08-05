@@ -136,7 +136,9 @@ export const componentRegistry = Object.freeze({
   input: () => {
     throw new Error("Input is React-primary. Use @design-system/react/input instead of the transitional DOM renderer.");
   },
-  toast: createToast,
+  toast: () => {
+    throw new Error("Toast is React-primary. Use @design-system/react/toast instead of the transitional DOM renderer.");
+  },
   tooltip: () => {
     throw new Error("Tooltip is React-primary. Use @design-system/react/tooltip instead of the transitional DOM renderer.");
   },
@@ -225,6 +227,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "text-area") {
     throw new Error("Text Area is React-primary. Use @design-system/react/text-area instead of renderComponentDemo.");
+  }
+  if (id === "toast") {
+    throw new Error("Toast is React-primary. Use @design-system/react/toast instead of renderComponentDemo.");
   }
   if (id === "tooltip") {
     throw new Error("Tooltip is React-primary. Use @design-system/react/tooltip instead of renderComponentDemo.");

@@ -23,5 +23,6 @@ export { Skeleton } from "./Skeleton.js";
 export { Spinner } from "./Spinner.js";
 export { Switch } from "./Switch.js";
 export { Tag } from "./Tag.js";
+export { Toast } from "./Toast.js";
 export { Tooltip } from "./Tooltip.js";
 export { TextArea } from "./TextArea.js";

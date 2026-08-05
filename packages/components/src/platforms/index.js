@@ -19,6 +19,11 @@ export {
   tooltipPlatformProps,
 } from "./tooltip.js";
 export {
+  toastPlatformAdapters,
+  toastPlatformContract,
+  toastPlatformProps,
+} from "./toast.js";
+export {
   chipPlatformAdapters,
   chipPlatformContract,
   chipPlatformProps,

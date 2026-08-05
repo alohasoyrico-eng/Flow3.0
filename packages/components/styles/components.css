@@ -1996,6 +1996,10 @@ button.tag:disabled,
   transition: var(--comp-toast-transition);
 }
 
+.toast[hidden] {
+  display: none;
+}
+
 .toast[data-density="sm"] {
   --comp-toast-inline-size: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-page)));
   --comp-toast-padding-block: var(--sys-space-sm);
