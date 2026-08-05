@@ -14,7 +14,7 @@ export {
   createTabs,
   createTreeView,
 } from "./components/interactions.js?v=9";
-export { createBreadcrumbs, createPagination, createStepper } from "./components/navigation.js?v=3";
+export { createPagination, createStepper } from "./components/navigation.js?v=3";
 export { createMotionBoundary, createAnimatedMoment } from "./components/motion.js?v=5";
 export { createBiometricPrompt } from "./components/security.js?v=3";
 export { createCountrySelector, hydrateCountrySelector } from "./components/specialized-inputs.js?v=28";

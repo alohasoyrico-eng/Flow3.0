@@ -6,7 +6,6 @@ import {
   createAuditEvent,
   createBiometricPrompt,
   createCountrySelector,
-  createBreadcrumbs,
   createFloatingActionButton,
   createAnimatedMoment,
   createMovementRow,
@@ -176,6 +175,7 @@ import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, 
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
 import { createMenu } from "../src/components/overlays.js?v=5";
+import { createBreadcrumbs } from "../src/components/navigation.js?v=3";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
