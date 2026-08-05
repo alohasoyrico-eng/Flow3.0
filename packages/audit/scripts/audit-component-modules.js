@@ -68,8 +68,8 @@ const moduleRules = [
     id: "navigation",
     file: "packages/components/src/components/navigation.js",
     exports: ["createBreadcrumbs", "createPagination", "createStepper"],
-    publicExports: ["createStepper"],
-    internalExports: ["createBreadcrumbs", "createPagination"],
+    publicExports: [],
+    internalExports: ["createBreadcrumbs", "createPagination", "createStepper"],
   },
   {
     id: "motion",
