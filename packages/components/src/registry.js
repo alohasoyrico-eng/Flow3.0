@@ -1,7 +1,6 @@
 import {
   createCardSummary,
   createChartPanel,
-  createMovementRow,
   createRouteSummary,
   createStationPin,
 } from "./components/commerce.js?v=15";
@@ -94,7 +93,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Menu is React-primary. Use @design-system/react/menu instead of the transitional DOM renderer.");
   },
   "motion-boundary": createMotionBoundary,
-  "movement-row": createMovementRow,
+  "movement-row": () => {
+    throw new Error("Movement Row is React-primary. Use @design-system/react/movement-row instead of the transitional DOM renderer.");
+  },
   "code-input": () => {
     throw new Error("Code Input is React-primary. Use @design-system/react/code-input instead of the transitional DOM renderer.");
   },

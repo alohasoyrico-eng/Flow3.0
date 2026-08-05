@@ -25,6 +25,7 @@ export { Input } from "./Input.js";
 export { KpiTile } from "./KpiTile.js";
 export { List } from "./List.js";
 export { Menu } from "./Menu.js";
+export { MovementRow } from "./MovementRow.js";
 export { PhoneInput } from "./PhoneInput.js";
 export { Popover } from "./Popover.js";
 export { Pagination } from "./Pagination.js";

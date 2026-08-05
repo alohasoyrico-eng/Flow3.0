@@ -240,6 +240,16 @@ export type {
   ListState,
   ListVariant,
 } from "./List.js";
+export { MovementRow } from "./MovementRow.js";
+export type {
+  MovementRowCategory,
+  MovementRowComponent,
+  MovementRowDensity,
+  MovementRowMeta,
+  MovementRowProps,
+  MovementRowState,
+  MovementRowVariant,
+} from "./MovementRow.js";
 export { PhoneInput } from "./PhoneInput.js";
 export type {
   PhoneCountry,

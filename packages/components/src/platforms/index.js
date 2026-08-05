@@ -229,6 +229,11 @@ export {
   kpiTilePlatformProps,
 } from "./kpi-tile.js";
 export {
+  movementRowPlatformAdapters,
+  movementRowPlatformContract,
+  movementRowPlatformProps,
+} from "./movement-row.js";
+export {
   quickActionPlatformAdapters,
   quickActionPlatformContract,
   quickActionPlatformProps,

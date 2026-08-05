@@ -6,7 +6,6 @@ import {
   createAuditEvent,
   createBiometricPrompt,
   createAnimatedMoment,
-  createMovementRow,
   createMotionBoundary,
   createRouteSummary,
   createStationPin,
@@ -110,6 +109,9 @@ import {
   menuPlatformAdapters,
   menuPlatformContract,
   menuPlatformProps,
+  movementRowPlatformAdapters,
+  movementRowPlatformContract,
+  movementRowPlatformProps,
   quickActionPlatformAdapters,
   quickActionPlatformContract,
   quickActionPlatformProps,
@@ -162,7 +164,7 @@ import {
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
-import { createQuickAction, createTable } from "../src/components/commerce.js?v=15";
+import { createMovementRow, createQuickAction, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -794,7 +796,16 @@ assert.deepEqual(Object.keys(popoverPlatformAdapters), ["react"]);
 assert.equal(popoverPlatformAdapters.react.componentName, "Popover");
 assert.equal(popoverPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardSummary.factory, "createCardSummary");
-assert.equal(componentContracts.movementRow.factory, "createMovementRow");
+assert.equal(componentContracts.movementRow.factory, "@design-system/react/movement-row");
+assert.equal(componentContracts.movementRow.internalFactory, "createMovementRow");
+assert.equal(movementRowPlatformContract.id, "movement-row");
+assert.equal(movementRowPlatformContract.source.factory, componentContracts.movementRow.factory);
+assert.deepEqual(movementRowPlatformProps(), componentContracts.movementRow.props.map((prop) => prop.name));
+assert.deepEqual(movementRowPlatformContract.variants, componentContracts.movementRow.variants);
+assert.deepEqual(movementRowPlatformContract.states, componentContracts.movementRow.states);
+assert.deepEqual(Object.keys(movementRowPlatformAdapters), ["react"]);
+assert.equal(movementRowPlatformAdapters.react.componentName, "MovementRow");
+assert.equal(movementRowPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.quickAction.factory, "@design-system/react/quick-action");
 assert.equal(componentContracts.quickAction.internalFactory, "createQuickAction");
 assert.equal(quickActionPlatformContract.id, "quick-action");

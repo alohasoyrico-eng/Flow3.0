@@ -116,6 +116,10 @@
       "types": "./dist/Menu.d.ts",
       "default": "./dist/Menu.js"
     },
+    "./movement-row": {
+      "types": "./dist/MovementRow.d.ts",
+      "default": "./dist/MovementRow.js"
+    },
     "./phone-input": {
       "types": "./dist/PhoneInput.d.ts",
       "default": "./dist/PhoneInput.js"

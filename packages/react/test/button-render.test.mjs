@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, Pagination, PhoneInput, Popover, QuickAction, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -58,6 +58,8 @@ assert.equal(List.displayName, "List");
 assert.equal(List.platformContract, listPlatformContract);
 assert.equal(Menu.displayName, "Menu");
 assert.equal(Menu.platformContract, menuPlatformContract);
+assert.equal(MovementRow.displayName, "MovementRow");
+assert.equal(MovementRow.platformContract, movementRowPlatformContract);
 assert.equal(Pagination.displayName, "Pagination");
 assert.equal(Pagination.platformContract, paginationPlatformContract);
 assert.equal(PhoneInput.displayName, "PhoneInput");
@@ -171,6 +173,32 @@ const loadingQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickA
 }));
 assert.match(loadingQuickActionMarkup, /aria-busy="true"/);
 assert.match(loadingQuickActionMarkup, /class="spinner/);
+
+const movementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
+  label: "Fuel purchase",
+  meta: "Today",
+  amount: "-$842.00",
+  status: "Pending",
+  category: "fuel",
+  variant: "standard",
+  state: "pending",
+  density: "sm",
+  fullWidth: true,
+}));
+assert.match(movementRowMarkup, /^<button/);
+assert.match(movementRowMarkup, /class="movement-row"/);
+assert.match(movementRowMarkup, /data-variant="standard"/);
+assert.match(movementRowMarkup, /data-state="pending"/);
+assert.match(movementRowMarkup, /data-density="sm"/);
+assert.match(movementRowMarkup, /data-category="fuel"/);
+assert.match(movementRowMarkup, /data-full-width="true"/);
+assert.match(movementRowMarkup, /class="movement-row__icon/);
+assert.match(movementRowMarkup, /local_gas_station/);
+assert.match(movementRowMarkup, /class="movement-row__content"/);
+assert.match(movementRowMarkup, /Fuel purchase/);
+assert.match(movementRowMarkup, /Today/);
+assert.match(movementRowMarkup, /class="movement-row__amount">-\$842\.00<\/strong>/);
+assert.match(movementRowMarkup, /class="movement-row__status">Pending<\/small>/);
 
 const accordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
   density: "sm",
