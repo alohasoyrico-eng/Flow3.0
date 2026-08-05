@@ -123,6 +123,14 @@ export type {
   PhoneInputState,
   PhoneInputVariant,
 } from "./PhoneInput.js";
+export { ProgressIndicator } from "./ProgressIndicator.js";
+export type {
+  ProgressIndicatorComponent,
+  ProgressIndicatorDensity,
+  ProgressIndicatorProps,
+  ProgressIndicatorState,
+  ProgressIndicatorTone,
+} from "./ProgressIndicator.js";
 export { RadioButton } from "./RadioButton.js";
 export type {
   RadioButtonComponent,

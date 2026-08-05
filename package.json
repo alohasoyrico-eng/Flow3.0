@@ -26,6 +26,7 @@
     "./react/inline-validation": "./packages/react/dist/InlineValidation.js",
     "./react/input": "./packages/react/dist/Input.js",
     "./react/phone-input": "./packages/react/dist/PhoneInput.js",
+    "./react/progress-indicator": "./packages/react/dist/ProgressIndicator.js",
     "./react/select": "./packages/react/dist/Select.js",
     "./react/segmented-control": "./packages/react/dist/SegmentedControl.js",
     "./react/spinner": "./packages/react/dist/Spinner.js",

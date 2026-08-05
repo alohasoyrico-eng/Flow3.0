@@ -68,6 +68,10 @@
       "types": "./dist/PhoneInput.d.ts",
       "default": "./dist/PhoneInput.js"
     },
+    "./progress-indicator": {
+      "types": "./dist/ProgressIndicator.d.ts",
+      "default": "./dist/ProgressIndicator.js"
+    },
     "./radio-button": {
       "types": "./dist/RadioButton.d.ts",
       "default": "./dist/RadioButton.js"

@@ -79,6 +79,11 @@ export {
   phoneInputPlatformProps,
 } from "./phone-input.js";
 export {
+  progressIndicatorPlatformAdapters,
+  progressIndicatorPlatformContract,
+  progressIndicatorPlatformProps,
+} from "./progress-indicator.js";
+export {
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,
