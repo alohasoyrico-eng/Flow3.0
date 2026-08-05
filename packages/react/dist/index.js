@@ -40,4 +40,5 @@ export { Table } from "./Table.js";
 export { Tag } from "./Tag.js";
 export { Toast } from "./Toast.js";
 export { Tooltip } from "./Tooltip.js";
+export { TreeView } from "./TreeView.js";
 export { TextArea } from "./TextArea.js";

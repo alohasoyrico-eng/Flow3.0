@@ -834,18 +834,21 @@ export const componentContracts = {
     ]
   },
   treeView: {
-    factory: "createTreeView",
+    factory: "@design-system/react/tree-view",
+    internalFactory: "createTreeView",
     element: "ul",
     purpose: "Render one hierarchical navigation or selection tree with tree and treeitem semantics.",
     variants: ["standard"],
     intents: ["navigation", "selection"],
-    states: ["collapsed", "expanded", "selected", "disabled"],
+    states: ["default", "hover", "focus", "expanded", "selected", "disabled"],
     props: [
       { name: "label", type: "string", required: true },
-      { name: "nodes", type: "Array<{ label: string, level?: number, expanded?: boolean, selected?: boolean, disabled?: boolean }>", required: true },
-      { name: "state", type: "string", required: false },
+      { name: "nodes", type: "TreeViewNode[]", required: true },
+      { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"expanded\" | \"selected\" | \"disabled\"", required: false },
       { name: "selectedKey", type: "string", required: false },
-      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false }
+      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+      { name: "onSelect", type: "(key: string) => void", required: false },
+      { name: "onExpandedChange", type: "(expandedKeys: string[]) => void", required: false }
     ],
     accessibility: [
       "Use role tree and treeitem.",

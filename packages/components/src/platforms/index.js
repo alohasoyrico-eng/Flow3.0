@@ -64,6 +64,11 @@ export {
   tabsPlatformProps,
 } from "./tabs.js";
 export {
+  treeViewPlatformAdapters,
+  treeViewPlatformContract,
+  treeViewPlatformProps,
+} from "./tree-view.js";
+export {
   iconButtonPlatformAdapters,
   iconButtonPlatformContract,
   iconButtonPlatformProps,

@@ -116,7 +116,7 @@ const componentIds = [
 const failures = [];
 for (const componentId of componentIds) {
   const html = componentDemo(componentId, {});
-  const expectedSource = new Set(["accordion", "avatar", "badge", "breadcrumbs", "button", "card", "card-expiry-input", "card-number-input", "card-security-code-input", "checkbox", "chip", "code-input", "combobox", "date-picker", "date-range-picker", "dialog", "drawer", "empty-state", "error-panel", "icon-button", "inline-validation", "input", "kpi-tile", "list", "menu", "pagination", "phone-input", "popover", "progress-indicator", "radio-button", "select", "segmented-control", "skeleton", "slider", "spinner", "stepper", "switch", "tabs", "table", "tag", "text-area", "toast", "tooltip"]).has(componentId) ? 'data-component-source="react"' : 'data-component-source="package"';
+  const expectedSource = new Set(["accordion", "avatar", "badge", "breadcrumbs", "button", "card", "card-expiry-input", "card-number-input", "card-security-code-input", "checkbox", "chip", "code-input", "combobox", "date-picker", "date-range-picker", "dialog", "drawer", "empty-state", "error-panel", "icon-button", "inline-validation", "input", "kpi-tile", "list", "menu", "pagination", "phone-input", "popover", "progress-indicator", "radio-button", "select", "segmented-control", "skeleton", "slider", "spinner", "stepper", "switch", "tabs", "table", "tag", "text-area", "toast", "tooltip", "tree-view"]).has(componentId) ? 'data-component-source="react"' : 'data-component-source="package"';
   if (!html.includes(expectedSource)) {
     failures.push(componentId);
   }

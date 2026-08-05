@@ -13,7 +13,6 @@ import {
   createQuickAction,
   createRouteSummary,
   createStationPin,
-  createTreeView,
   createAnimationAsset,
   createChartsPrimitive,
   countryFlagAssetPath,
@@ -148,6 +147,9 @@ import {
   tooltipPlatformAdapters,
   tooltipPlatformContract,
   tooltipPlatformProps,
+  treeViewPlatformAdapters,
+  treeViewPlatformContract,
+  treeViewPlatformProps,
   textAreaPlatformAdapters,
   textAreaPlatformContract,
   textAreaPlatformProps,
@@ -175,7 +177,7 @@ import { createTransitionalFieldInput, createTransitionalFieldSelect, createTran
 import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
 import { createMenu } from "../src/components/overlays.js?v=5";
 import { createBreadcrumbs } from "../src/components/navigation.js?v=3";
-import { createSlider } from "../src/components/interactions.js?v=9";
+import { createSlider, createTreeView } from "../src/components/interactions.js?v=9";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -619,7 +621,14 @@ assert.deepEqual(Object.keys(tablePlatformAdapters), ["react"]);
 assert.equal(tablePlatformAdapters.react.componentName, "Table");
 assert.equal(tablePlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.biometricPrompt.factory, "createBiometricPrompt");
-assert.equal(componentContracts.treeView.factory, "createTreeView");
+assert.equal(componentContracts.treeView.factory, "@design-system/react/tree-view");
+assert.equal(componentContracts.treeView.internalFactory, "createTreeView");
+assert.equal(treeViewPlatformContract.id, "tree-view");
+assert.equal(treeViewPlatformContract.source.factory, componentContracts.treeView.factory);
+assert.deepEqual(treeViewPlatformProps(), componentContracts.treeView.props.map((prop) => prop.name));
+assert.deepEqual(Object.keys(treeViewPlatformAdapters), ["react"]);
+assert.equal(treeViewPlatformAdapters.react.componentName, "TreeView");
+assert.equal(treeViewPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.motionBoundary.factory, "createMotionBoundary");
 assert.equal(componentContracts.animatedMoment.factory, "createAnimatedMoment");
 assert.equal(componentContracts.emptyState.factory, "@design-system/react/empty-state");

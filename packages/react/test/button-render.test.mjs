@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, KpiTile, List, Menu, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, KpiTile, List, Menu, Pagination, PhoneInput, Popover, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -84,6 +84,8 @@ assert.equal(Toast.displayName, "Toast");
 assert.equal(Toast.platformContract, toastPlatformContract);
 assert.equal(Tooltip.displayName, "Tooltip");
 assert.equal(Tooltip.platformContract, tooltipPlatformContract);
+assert.equal(TreeView.displayName, "TreeView");
+assert.equal(TreeView.platformContract, treeViewPlatformContract);
 assert.equal(TextArea.displayName, "TextArea");
 assert.equal(TextArea.platformContract, textAreaPlatformContract);
 
@@ -215,6 +217,29 @@ const kpiSparklineMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
 }));
 assert.match(kpiSparklineMarkup, /class="kpi-tile__sparkline"/);
 assert.match(kpiSparklineMarkup, /<polyline points="/);
+
+const treeViewMarkup = renderToStaticMarkup(React.createElement(TreeView, {
+  label: "Fleet hierarchy",
+  density: "sm",
+  nodes: [
+    { key: "fleet", label: "Fleet", level: 1, expanded: true, icon: "account_tree" },
+    { key: "cards", label: "Cards", level: 2, selected: true },
+    { key: "card-4821", label: "Card 4821", level: 5 },
+  ],
+}));
+assert.match(treeViewMarkup, /^<ul/);
+assert.match(treeViewMarkup, /class="tree-view"/);
+assert.match(treeViewMarkup, /role="tree"/);
+assert.match(treeViewMarkup, /aria-label="Fleet hierarchy"/);
+assert.match(treeViewMarkup, /data-density="sm"/);
+assert.match(treeViewMarkup, /data-tree-item=""/);
+assert.match(treeViewMarkup, /aria-level="5"/);
+assert.match(treeViewMarkup, /aria-expanded="true"/);
+assert.match(treeViewMarkup, /aria-selected="true"/);
+assert.match(treeViewMarkup, /data-tree-control=""/);
+assert.match(treeViewMarkup, /role="treeitem"/);
+assert.equal((treeViewMarkup.match(/aria-expanded=/g) ?? []).length, 1);
+assert.equal((treeViewMarkup.match(/aria-selected=/g) ?? []).length, 3);
 
 const cardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Wallet balance",

@@ -373,6 +373,14 @@ export type {
   TooltipState,
   TooltipVariant,
 } from "./Tooltip.js";
+export { TreeView } from "./TreeView.js";
+export type {
+  TreeViewComponent,
+  TreeViewDensity,
+  TreeViewNode,
+  TreeViewProps,
+  TreeViewState,
+} from "./TreeView.js";
 export { TextArea } from "./TextArea.js";
 export type {
   TextAreaChangeMeta,

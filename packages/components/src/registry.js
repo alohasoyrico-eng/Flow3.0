@@ -8,10 +8,7 @@ import {
 } from "./components/commerce.js?v=15";
 import { createAuditEvent } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
-import {
-  createSegmentedControl,
-  createTreeView,
-} from "./components/interactions.js?v=9";
+import { createSegmentedControl } from "./components/interactions.js?v=9";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createCountrySelector } from "./components/specialized-inputs.js?v=28";
@@ -159,7 +156,9 @@ export const componentRegistry = Object.freeze({
   tooltip: () => {
     throw new Error("Tooltip is React-primary. Use @design-system/react/tooltip instead of the transitional DOM renderer.");
   },
-  "tree-view": createTreeView,
+  "tree-view": () => {
+    throw new Error("Tree View is React-primary. Use @design-system/react/tree-view instead of the transitional DOM renderer.");
+  },
 });
 
 export function listComponents() {
@@ -253,6 +252,9 @@ export function renderComponent(id, props = {}) {
   }
   if (id === "tooltip") {
     throw new Error("Tooltip is React-primary. Use @design-system/react/tooltip instead of renderComponentDemo.");
+  }
+  if (id === "tree-view") {
+    throw new Error("Tree View is React-primary. Use @design-system/react/tree-view instead of renderComponentDemo.");
   }
   return factory(props);
 }

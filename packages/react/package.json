@@ -176,6 +176,10 @@
       "types": "./dist/Tooltip.d.ts",
       "default": "./dist/Tooltip.js"
     },
+    "./tree-view": {
+      "types": "./dist/TreeView.d.ts",
+      "default": "./dist/TreeView.js"
+    },
     "./text-area": {
       "types": "./dist/TextArea.d.ts",
       "default": "./dist/TextArea.js"
