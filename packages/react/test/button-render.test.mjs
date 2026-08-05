@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, RadioButton, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, InlineValidation, Input, Pagination, PhoneInput, RadioButton, SegmentedControl, Select, Skeleton, Slider, Stepper, Switch, Tabs, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, paginationPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -46,6 +46,8 @@ assert.equal(PhoneInput.displayName, "PhoneInput");
 assert.equal(PhoneInput.platformContract, phoneInputPlatformContract);
 assert.equal(RadioButton.displayName, "RadioButton");
 assert.equal(RadioButton.platformContract, radioButtonPlatformContract);
+assert.equal(SegmentedControl.displayName, "SegmentedControl");
+assert.equal(SegmentedControl.platformContract, segmentedControlPlatformContract);
 assert.equal(Select.displayName, "Select");
 assert.equal(Select.platformContract, selectPlatformContract);
 assert.equal(Skeleton.displayName, "Skeleton");
@@ -566,6 +568,29 @@ assert.match(radioButtonMarkup, /name="route"/);
 assert.match(radioButtonMarkup, /class="choice__mark"/);
 assert.match(radioButtonMarkup, /class="choice__label">Fastest route<\/span>/);
 assert.match(radioButtonMarkup, /class="choice__description"/);
+
+const segmentedControlMarkup = renderToStaticMarkup(React.createElement(SegmentedControl, {
+  label: "View mode",
+  variant: "icon-only",
+  density: "sm",
+  selectedKey: "map",
+  items: [
+    { key: "map", label: "Map", icon: "map" },
+    { key: "list", label: "List", icon: "view_list" },
+  ],
+}));
+assert.match(segmentedControlMarkup, /^<div/);
+assert.match(segmentedControlMarkup, /class="segmented-control"/);
+assert.match(segmentedControlMarkup, /role="tablist"/);
+assert.match(segmentedControlMarkup, /aria-label="View mode"/);
+assert.match(segmentedControlMarkup, /data-variant="icon-only"/);
+assert.match(segmentedControlMarkup, /data-density="sm"/);
+assert.match(segmentedControlMarkup, /class="segmented-control__indicator"/);
+assert.match(segmentedControlMarkup, /data-segmented-control-item=""/);
+assert.match(segmentedControlMarkup, /data-icon-only="true"/);
+assert.match(segmentedControlMarkup, /aria-selected="true"/);
+assert.match(segmentedControlMarkup, /aria-label="Map"/);
+assert.match(segmentedControlMarkup, /class="segmented-control__icon"/);
 
 const switchMarkup = renderToStaticMarkup(React.createElement(Switch, {
   label: "Route alerts",

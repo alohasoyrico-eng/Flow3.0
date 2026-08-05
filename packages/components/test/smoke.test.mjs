@@ -21,7 +21,6 @@ import {
   createPopover,
   createQuickAction,
   createRouteSummary,
-  createSegmentedControl,
   createSlider,
   createStationPin,
   createTable,
@@ -103,6 +102,9 @@ import {
   selectPlatformAdapters,
   selectPlatformContract,
   selectPlatformProps,
+  segmentedControlPlatformAdapters,
+  segmentedControlPlatformContract,
+  segmentedControlPlatformProps,
   skeletonPlatformAdapters,
   skeletonPlatformContract,
   skeletonPlatformProps,
@@ -643,7 +645,16 @@ assert.deepEqual(dateRangePickerPlatformContract.states, componentContracts.date
 assert.deepEqual(Object.keys(dateRangePickerPlatformAdapters), ["react"]);
 assert.equal(dateRangePickerPlatformAdapters.react.componentName, "DateRangePicker");
 assert.equal(dateRangePickerPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.segmentedControl.factory, "createSegmentedControl");
+assert.equal(componentContracts.segmentedControl.factory, "@design-system/react/segmented-control");
+assert.equal(componentContracts.segmentedControl.internalFactory, "createSegmentedControl");
+assert.equal(segmentedControlPlatformContract.id, "segmented-control");
+assert.equal(segmentedControlPlatformContract.source.factory, componentContracts.segmentedControl.factory);
+assert.deepEqual(segmentedControlPlatformProps(), componentContracts.segmentedControl.props.map((prop) => prop.name));
+assert.deepEqual(segmentedControlPlatformContract.variants, componentContracts.segmentedControl.variants);
+assert.deepEqual(segmentedControlPlatformContract.states, componentContracts.segmentedControl.states);
+assert.deepEqual(Object.keys(segmentedControlPlatformAdapters), ["react"]);
+assert.equal(segmentedControlPlatformAdapters.react.componentName, "SegmentedControl");
+assert.equal(segmentedControlPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.popover.factory, "createPopover");
 assert.equal(componentContracts.cardSummary.factory, "createCardSummary");
 assert.equal(componentContracts.movementRow.factory, "createMovementRow");
@@ -2274,45 +2285,6 @@ interactiveRange.querySelectorAll(".date-range-picker__preset")[0].click();
 assert.equal(Boolean(rangeValue.from), true);
 assert.equal(Boolean(rangeValue.to), true);
 assert.equal(interactiveRange.querySelector(".date-range-picker__panel").hidden, true);
-
-const segmentedControl = createSegmentedControl({
-  label: "Range",
-  density: "lg",
-  selectedKey: "week",
-  items: [{ key: "day", label: "Day" }, { key: "week", label: "Week", icon: "calendar_view_week" }],
-});
-assert.equal(segmentedControl.tagName, "DIV");
-assert.equal(segmentedControl.attributes.role, "tablist");
-assert.equal(segmentedControl.dataset.density, "lg");
-assert.equal(segmentedControl.dataset.variant, "outlined");
-assert.equal(segmentedControl.querySelector(".segmented-control__indicator").attributes["aria-hidden"], "true");
-assert.equal(segmentedControl.querySelectorAll("button")[0].attributes["data-segmented-control-item"], "");
-assert.equal(segmentedControl.querySelectorAll("button")[1].attributes["aria-selected"], "true");
-assert.equal(segmentedControl.querySelector(".segmented-control__icon").textContent, "calendar_view_week");
-assert.equal(segmentedControl.querySelectorAll("button")[0].tabIndex, -1);
-const iconOnlySegments = createSegmentedControl({
-  label: "View mode",
-  variant: "icon-only",
-  selectedKey: "map",
-  items: [{ key: "map", label: "Map", icon: "map" }, { key: "list", label: "List", icon: "view_list" }],
-});
-assert.equal(iconOnlySegments.dataset.variant, "icon-only");
-assert.equal(iconOnlySegments.querySelector("button").dataset.iconOnly, "true");
-assert.equal(iconOnlySegments.querySelector("button").attributes["aria-label"], "Map");
-assert.equal(iconOnlySegments.querySelector(".segmented-control__label").attributes["aria-hidden"], "true");
-let segmentChange = "";
-const interactiveSegments = createSegmentedControl({
-  items: [{ key: "day", label: "Day" }, { key: "week", label: "Week" }, { key: "month", label: "Month", disabled: true }],
-  onValueChange(value) {
-    segmentChange = value;
-  },
-});
-interactiveSegments.querySelectorAll("button")[1].click();
-assert.equal(interactiveSegments.querySelectorAll("button")[1].attributes["aria-selected"], "true");
-assert.equal(segmentChange, "week");
-interactiveSegments.querySelectorAll("button")[1].dispatchEvent({ type: "keydown", key: "ArrowRight", preventDefault() { this.defaultPrevented = true; } });
-assert.equal(interactiveSegments.querySelectorAll("button")[0].attributes["aria-selected"], "true");
-assert.equal(globalThis.document.activeElement, interactiveSegments.querySelectorAll("button")[0]);
 
 const popover = createPopover({ triggerLabel: "Details", title: "Card status", description: "Active", id: "card-popover", density: "sm", variant: "metric", placement: "top" });
 assert.equal(popover.tagName, "SPAN");

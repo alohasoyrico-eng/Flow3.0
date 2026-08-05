@@ -1370,7 +1370,8 @@ export const componentContracts = {
     ]
   },
   segmentedControl: {
-    factory: "createSegmentedControl",
+    factory: "@design-system/react/segmented-control",
+    internalFactory: "createSegmentedControl",
     element: "div",
     purpose: "Switch between a small set of local mutually exclusive modes.",
     variants: ["outlined", "toolbar", "compact", "icon-only"],
