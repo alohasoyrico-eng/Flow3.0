@@ -1,7 +1,6 @@
 import {
   createChartPanel,
 } from "./components/commerce.js?v=15";
-import { createAuditEvent } from "./components/display.js?v=3";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
 import { createSegmentedControl } from "./components/interactions.js?v=9";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
@@ -13,7 +12,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Accordion is React-primary. Use @design-system/react/accordion instead of the transitional DOM renderer.");
   },
   "animated-moment": createAnimatedMoment,
-  "audit-event": createAuditEvent,
+  "audit-event": () => {
+    throw new Error("Audit Event is React-primary. Use @design-system/react/audit-event instead of the transitional DOM renderer.");
+  },
   avatar: () => {
     throw new Error("Avatar is React-primary. Use @design-system/react/avatar instead of the transitional DOM renderer.");
   },

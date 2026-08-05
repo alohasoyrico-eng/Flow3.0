@@ -4,6 +4,11 @@ export {
   accordionPlatformProps,
 } from "./accordion.js";
 export {
+  auditEventPlatformAdapters,
+  auditEventPlatformContract,
+  auditEventPlatformProps,
+} from "./audit-event.js";
+export {
   avatarPlatformAdapters,
   avatarPlatformContract,
   avatarPlatformProps,

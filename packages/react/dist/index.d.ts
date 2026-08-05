@@ -5,6 +5,14 @@ export type {
   AccordionItem,
   AccordionProps,
 } from "./Accordion.js";
+export { AuditEvent } from "./AuditEvent.js";
+export type {
+  AuditEventComponent,
+  AuditEventDensity,
+  AuditEventProps,
+  AuditEventState,
+  AuditEventTone,
+} from "./AuditEvent.js";
 export { Avatar } from "./Avatar.js";
 export type {
   AvatarComponent,

@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import {
   createChartPanel,
   hydrateChartPanel,
-  createAuditEvent,
   createBiometricPrompt,
   createAnimatedMoment,
   createMotionBoundary,
@@ -13,6 +12,9 @@ import {
   listCountryFlags,
   resolveAnimationRuntime,
   hydrateCombobox,
+  auditEventPlatformAdapters,
+  auditEventPlatformContract,
+  auditEventPlatformProps,
   accordionPlatformAdapters,
   accordionPlatformContract,
   accordionPlatformProps,
@@ -170,6 +172,7 @@ import {
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
+import { createAuditEvent } from "../src/components/display.js?v=3";
 import { createCardSummary, createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
@@ -697,7 +700,16 @@ assert.deepEqual(paginationPlatformContract.states, componentContracts.paginatio
 assert.deepEqual(Object.keys(paginationPlatformAdapters), ["react"]);
 assert.equal(paginationPlatformAdapters.react.componentName, "Pagination");
 assert.equal(paginationPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.auditEvent.factory, "createAuditEvent");
+assert.equal(componentContracts.auditEvent.factory, "@design-system/react/audit-event");
+assert.equal(componentContracts.auditEvent.internalFactory, "createAuditEvent");
+assert.equal(auditEventPlatformContract.id, "audit-event");
+assert.equal(auditEventPlatformContract.source.factory, componentContracts.auditEvent.factory);
+assert.deepEqual(auditEventPlatformProps(), componentContracts.auditEvent.props.map((prop) => prop.name));
+assert.deepEqual(auditEventPlatformContract.variants, componentContracts.auditEvent.variants);
+assert.deepEqual(auditEventPlatformContract.states, componentContracts.auditEvent.states);
+assert.deepEqual(Object.keys(auditEventPlatformAdapters), ["react"]);
+assert.equal(auditEventPlatformAdapters.react.componentName, "AuditEvent");
+assert.equal(auditEventPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.errorPanel.factory, "@design-system/react/error-panel");
 assert.equal(componentContracts.errorPanel.internalFactory, "createErrorPanel");
 assert.equal(errorPanelPlatformContract.id, "error-panel");

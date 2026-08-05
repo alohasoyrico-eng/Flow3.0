@@ -12,6 +12,10 @@
       "types": "./dist/Accordion.d.ts",
       "default": "./dist/Accordion.js"
     },
+    "./audit-event": {
+      "types": "./dist/AuditEvent.d.ts",
+      "default": "./dist/AuditEvent.js"
+    },
     "./avatar": {
       "types": "./dist/Avatar.d.ts",
       "default": "./dist/Avatar.js"
