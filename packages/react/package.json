@@ -24,6 +24,10 @@
       "types": "./dist/Button.d.ts",
       "default": "./dist/Button.js"
     },
+    "./breadcrumbs": {
+      "types": "./dist/Breadcrumbs.d.ts",
+      "default": "./dist/Breadcrumbs.js"
+    },
     "./card-number-input": {
       "types": "./dist/CardNumberInput.d.ts",
       "default": "./dist/CardNumberInput.js"

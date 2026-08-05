@@ -39,6 +39,11 @@ export {
   buttonPlatformProps,
 } from "./button.js";
 export {
+  breadcrumbsPlatformAdapters,
+  breadcrumbsPlatformContract,
+  breadcrumbsPlatformProps,
+} from "./breadcrumbs.js";
+export {
   iconButtonPlatformAdapters,
   iconButtonPlatformContract,
   iconButtonPlatformProps,

@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, Avatar, Badge, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Slider, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
-import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
+import { Accordion, Avatar, Badge, Breadcrumbs, Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, DatePicker, DateRangePicker, EmptyState, ErrorPanel, IconButton, Input, PhoneInput, RadioButton, Select, Skeleton, Slider, Switch, Tag, TextArea, Toast, Tooltip } from "../src/index.js";
+import { accordionPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardSecurityCodeInputPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, iconButtonPlatformContract, inputPlatformContract, phoneInputPlatformContract, radioButtonPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, switchPlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -10,6 +10,8 @@ assert.equal(Avatar.displayName, "Avatar");
 assert.equal(Avatar.platformContract, avatarPlatformContract);
 assert.equal(Badge.displayName, "Badge");
 assert.equal(Badge.platformContract, badgePlatformContract);
+assert.equal(Breadcrumbs.displayName, "Breadcrumbs");
+assert.equal(Breadcrumbs.platformContract, breadcrumbsPlatformContract);
 assert.equal(Button.displayName, "Button");
 assert.equal(Button.platformContract, buttonPlatformContract);
 assert.equal(CardExpiryInput.displayName, "CardExpiryInput");
@@ -178,6 +180,34 @@ const hiddenBadgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
 }));
 assert.match(hiddenBadgeMarkup, /hidden=""/);
 assert.match(hiddenBadgeMarkup, /data-state="hidden"/);
+
+const breadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
+  label: "Fleet path",
+  variant: "overflow",
+  state: "collapsed",
+  density: "sm",
+  maxItems: 4,
+  items: [
+    { label: "Fleet", href: "#/fleet" },
+    { label: "Regions", href: "#/regions" },
+    { label: "North", href: "#/north" },
+    { label: "Cards", href: "#/cards" },
+    { label: "JMX-214-B", current: true },
+  ],
+}));
+assert.match(breadcrumbsMarkup, /^<nav/);
+assert.match(breadcrumbsMarkup, /class="breadcrumbs"/);
+assert.match(breadcrumbsMarkup, /aria-label="Fleet path"/);
+assert.match(breadcrumbsMarkup, /data-variant="overflow"/);
+assert.match(breadcrumbsMarkup, /data-state="collapsed"/);
+assert.match(breadcrumbsMarkup, /data-density="sm"/);
+assert.match(breadcrumbsMarkup, /<ol>/);
+assert.match(breadcrumbsMarkup, /class="breadcrumbs__item"/);
+assert.match(breadcrumbsMarkup, /href="#\/fleet"/);
+assert.match(breadcrumbsMarkup, /class="breadcrumbs__target breadcrumbs__target--collapsed"/);
+assert.match(breadcrumbsMarkup, /class="breadcrumbs__separator"/);
+assert.match(breadcrumbsMarkup, /aria-current="page"/);
+assert.match(breadcrumbsMarkup, />JMX-214-B<\/span>/);
 
 const chipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Active",

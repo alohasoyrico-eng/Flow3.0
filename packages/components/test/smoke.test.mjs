@@ -52,6 +52,9 @@ import {
   badgePlatformAdapters,
   badgePlatformContract,
   badgePlatformProps,
+  breadcrumbsPlatformAdapters,
+  breadcrumbsPlatformContract,
+  breadcrumbsPlatformProps,
   cardExpiryInputPlatformContract,
   cardExpiryInputPlatformProps,
   cardNumberInputPlatformAdapters,
@@ -412,6 +415,16 @@ assert.deepEqual(Object.keys(tagPlatformAdapters), ["react"]);
 assert.equal(tagPlatformAdapters.react.componentName, "Tag");
 assert.equal(tagPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.tabs.factory, "createTabs");
+assert.equal(componentContracts.breadcrumbs.factory, "@design-system/react/breadcrumbs");
+assert.equal(componentContracts.breadcrumbs.internalFactory, "createBreadcrumbs");
+assert.equal(breadcrumbsPlatformContract.id, "breadcrumbs");
+assert.equal(breadcrumbsPlatformContract.source.factory, componentContracts.breadcrumbs.factory);
+assert.deepEqual(breadcrumbsPlatformProps(), componentContracts.breadcrumbs.props.map((prop) => prop.name));
+assert.deepEqual(breadcrumbsPlatformContract.variants, componentContracts.breadcrumbs.variants);
+assert.deepEqual(breadcrumbsPlatformContract.states, componentContracts.breadcrumbs.states);
+assert.deepEqual(Object.keys(breadcrumbsPlatformAdapters), ["react"]);
+assert.equal(breadcrumbsPlatformAdapters.react.componentName, "Breadcrumbs");
+assert.equal(breadcrumbsPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.tooltip.factory, "@design-system/react/tooltip");
 assert.equal(componentContracts.tooltip.internalFactory, "createTransitionalTooltip");
 assert.equal(tooltipPlatformContract.id, "tooltip");
@@ -459,7 +472,6 @@ assert.equal(componentContracts.emptyState.factory, "createEmptyState");
 assert.equal(componentContracts.list.factory, "createList");
 assert.equal(componentContracts.kpiTile.factory, "createKpiTile");
 assert.equal(componentContracts.floatingActionButton.factory, "createFloatingActionButton");
-assert.equal(componentContracts.breadcrumbs.factory, "createBreadcrumbs");
 assert.equal(componentContracts.pagination.factory, "createPagination");
 assert.equal(componentContracts.auditEvent.factory, "createAuditEvent");
 assert.equal(componentContracts.errorPanel.factory, "createErrorPanel");

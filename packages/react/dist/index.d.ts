@@ -21,6 +21,15 @@ export type {
   BadgeTone,
   BadgeVariant,
 } from "./Badge.js";
+export { Breadcrumbs } from "./Breadcrumbs.js";
+export type {
+  BreadcrumbItem,
+  BreadcrumbsComponent,
+  BreadcrumbsDensity,
+  BreadcrumbsProps,
+  BreadcrumbsState,
+  BreadcrumbsVariant,
+} from "./Breadcrumbs.js";
 export { Button } from "./Button.js";
 export { CardExpiryInput } from "./CardExpiryInput.js";
 export { CardNumberInput } from "./CardNumberInput.js";

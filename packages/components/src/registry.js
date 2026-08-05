@@ -15,7 +15,7 @@ import {
   createTabs,
   createTreeView,
 } from "./components/interactions.js?v=9";
-import { createBreadcrumbs, createPagination, createStepper } from "./components/navigation.js";
+import { createPagination, createStepper } from "./components/navigation.js";
 import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
 import {
   createDialog,
@@ -41,7 +41,9 @@ export const componentRegistry = Object.freeze({
     throw new Error("Badge is React-primary. Use @design-system/react/badge instead of the transitional DOM renderer.");
   },
   "biometric-prompt": createBiometricPrompt,
-  breadcrumbs: createBreadcrumbs,
+  breadcrumbs: () => {
+    throw new Error("Breadcrumbs is React-primary. Use @design-system/react/breadcrumbs instead of the transitional DOM renderer.");
+  },
   button: () => {
     throw new Error("Button is React-primary. Use @design-system/react/button instead of the transitional DOM renderer.");
   },
