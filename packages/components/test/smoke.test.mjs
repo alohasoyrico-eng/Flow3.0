@@ -12,7 +12,6 @@ import {
   createMotionBoundary,
   createQuickAction,
   createRouteSummary,
-  createSlider,
   createStationPin,
   createTreeView,
   createAnimationAsset,
@@ -176,6 +175,7 @@ import { createTransitionalFieldInput, createTransitionalFieldSelect, createTran
 import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
 import { createMenu } from "../src/components/overlays.js?v=5";
 import { createBreadcrumbs } from "../src/components/navigation.js?v=3";
+import { createSlider } from "../src/components/interactions.js?v=9";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {

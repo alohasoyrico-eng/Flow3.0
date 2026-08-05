@@ -10,7 +10,6 @@ export {
 export { createAuditEvent } from "./components/display.js?v=3";
 export { hydrateCombobox } from "./components/fields.js?v=21";
 export {
-  createSlider,
   createTabs,
   createTreeView,
 } from "./components/interactions.js?v=9";
