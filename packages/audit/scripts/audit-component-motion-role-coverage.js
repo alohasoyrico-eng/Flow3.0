@@ -44,13 +44,29 @@ function cssBlocks(text) {
   return blocks;
 }
 
+function declarations(text) {
+  const output = new Map();
+  const pattern = /(?<name>--[a-z0-9-]+)\s*:\s*(?<value>[^;]+);/g;
+  for (const match of text.matchAll(pattern)) {
+    output.set(match.groups.name, match.groups.value.trim());
+  }
+  return output;
+}
+
 function isMotionBody(body) {
   return /\b(?:transition|animation)\s*:/.test(body);
 }
 
-function hasRole(blocks, role) {
+function hasRole(blocks, role, declaredTokens) {
   const tokens = roleTokens[role] ?? [];
-  return blocks.some((block) => tokens.some((token) => block.body.includes(token)));
+  return blocks.some((block) => {
+    if (tokens.some((token) => block.body.includes(token))) return true;
+    const usedTokens = [...block.body.matchAll(/var\((--[a-z0-9-]+)/g)].map((match) => match[1]);
+    return usedTokens.some((usedToken) => {
+      const value = declaredTokens.get(usedToken) ?? "";
+      return tokens.some((token) => value.includes(token));
+    });
+  });
 }
 
 function checkPriorityComponentMotionRoles() {
@@ -61,6 +77,7 @@ function checkPriorityComponentMotionRoles() {
   }
   const css = read(packageCssFile);
   const blocks = cssBlocks(css);
+  const declaredTokens = declarations(css);
 
   for (const component of contract.components) {
     const scopedBlocks = blocks.filter((block) => selectorBelongsToComponent(block.selector, component.selectors));
@@ -72,7 +89,7 @@ function checkPriorityComponentMotionRoles() {
     }
 
     for (const role of component.requiredRoles) {
-      if (!hasRole(scopedBlocks, role)) {
+      if (!hasRole(scopedBlocks, role, declaredTokens)) {
         add("errors", packageCssFile, 1, `Motion role coverage for ${component.id} must include ${role} role tokens for: ${component.covers.join(", ")}.`);
       }
     }

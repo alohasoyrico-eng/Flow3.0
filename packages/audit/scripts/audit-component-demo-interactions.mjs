@@ -213,7 +213,7 @@ assert.equal(fixtures.sliderOutput.textContent, "75 km", "Slider output should p
 
 fixtures.segmented.children[2].click();
 assert.equal(fixtures.segmented.children[2].getAttribute("aria-selected"), "true", "Segmented Control click should select the clicked item.");
-assert.equal(fixtures.segmentedIndicator.style.values["--segmented-control-index"], "1", "Segmented Control click should sync the sliding indicator.");
+assert.equal(fixtures.segmentedIndicator.style.values["--comp-segmented-control-index"], "1", "Segmented Control click should sync the sliding indicator.");
 
 fixtures.paginationNext.click();
 assert.equal(fixtures.paginationPage3.getAttribute("aria-current"), "page", "Pagination next should advance to page 3.");

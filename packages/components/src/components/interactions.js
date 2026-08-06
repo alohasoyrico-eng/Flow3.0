@@ -392,8 +392,8 @@ export function createTreeView({
     const level = Math.max(1, Math.min(5, Number(node.level ?? 1)));
     const expandable = node.expanded != null;
     item.dataset.level = String(level);
-    if (item.style?.setProperty) item.style.setProperty("--tree-view-depth-offset", String(level - 1));
-    else item.style = `--tree-view-depth-offset: ${level - 1}`;
+    if (item.style?.setProperty) item.style.setProperty("--comp-tree-view-depth-offset", String(level - 1));
+    else item.style = `--comp-tree-view-depth-offset: ${level - 1}`;
     item.setAttribute("role", "none");
     item.setAttribute("aria-level", String(level));
     if (expandable) item.setAttribute("aria-expanded", String(Boolean(node.expanded)));
@@ -468,16 +468,16 @@ export function createSegmentedControl({
   const indicator = document.createElement("span");
   indicator.className = "segmented-control__indicator";
   indicator.setAttribute("aria-hidden", "true");
-  setStyleProperty(indicator, "--segmented-control-index", "0");
-  setStyleProperty(indicator, "--segmented-control-count", String(Math.max(items.length, 1)));
-  setStyleProperty(control, "--segmented-control-count", String(Math.max(items.length, 1)));
+  setStyleProperty(indicator, "--comp-segmented-control-index", "0");
+  setStyleProperty(indicator, "--comp-segmented-control-count", String(Math.max(items.length, 1)));
+  setStyleProperty(control, "--comp-segmented-control-count", String(Math.max(items.length, 1)));
   control.append(indicator);
   const buttons = [];
   const syncIndicator = (button) => {
     const index = Math.max(0, buttons.indexOf(button));
-    setStyleProperty(indicator, "--segmented-control-index", String(index));
-    setStyleProperty(indicator, "--segmented-control-count", String(Math.max(buttons.length, 1)));
-    setStyleProperty(control, "--segmented-control-count", String(Math.max(buttons.length, 1)));
+    setStyleProperty(indicator, "--comp-segmented-control-index", String(index));
+    setStyleProperty(indicator, "--comp-segmented-control-count", String(Math.max(buttons.length, 1)));
+    setStyleProperty(control, "--comp-segmented-control-count", String(Math.max(buttons.length, 1)));
   };
   const enabledButtons = () => buttons.filter((button) => !button.disabled);
   const selectItem = (button, notify = true) => {

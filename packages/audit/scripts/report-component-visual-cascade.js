@@ -80,6 +80,13 @@ const componentClassAliases = {
   "animated-moment": ["animated-moment"],
 };
 
+const componentTokenAliases = {
+  "floating-action-button": ["floating-action-button"],
+  "progress-indicator": ["progress-indicator"],
+  "radio-button": ["radio-button"],
+  "select": ["select"],
+};
+
 const allowedRawGeometry = [
   /^0(?:px|rem|em)?$/,
   /^1px$/,
@@ -142,6 +149,7 @@ function collectDeclarationFindings(rule) {
   const rawTypography = [];
   const localRadiusComposition = [];
   const componentTokenUses = [];
+  const compTokenUses = [];
   const foundationTokenUses = [];
   const declarations = [...rule.body.matchAll(/(?<property>[-a-z0-9]+|--[-a-z0-9]+)\s*:\s*(?<value>[^;]+);/g)];
   for (const declaration of declarations) {
@@ -177,7 +185,10 @@ function collectDeclarationFindings(rule) {
       }
     }
 
-    for (const token of value.matchAll(/var\(\s*(--(?:component|comp)-[a-z0-9-]+)/g)) componentTokenUses.push(token[1]);
+    for (const token of value.matchAll(/var\(\s*(--(?:component|comp)-[a-z0-9-]+)/g)) {
+      componentTokenUses.push(token[1]);
+      if (token[1].startsWith("--comp-")) compTokenUses.push(token[1]);
+    }
     for (const token of value.matchAll(/var\(\s*(--sys-[a-z0-9-]+)/g)) foundationTokenUses.push(token[1]);
   }
 
@@ -187,6 +198,7 @@ function collectDeclarationFindings(rule) {
     rawTypography,
     localRadiusComposition,
     componentTokenUses,
+    compTokenUses,
     foundationTokenUses,
   };
 }
@@ -257,7 +269,12 @@ function createReport() {
       ? docsRenderer.includes(`data-react-component="${component}"`) || docsRenderer.includes(`reactIsland("${component}"`)
       : null;
     const componentTokenUses = [...new Set(flatten("componentTokenUses"))].sort();
+    const compTokenUses = [...new Set(flatten("compTokenUses"))].sort();
     const foundationTokenUses = [...new Set(flatten("foundationTokenUses"))].sort();
+    const tokenAliases = componentTokenAliases[component] ?? [component];
+    const componentTokenFamilyUses = compTokenUses.filter((token) => (
+      tokenAliases.some((alias) => token === `--comp-${alias}` || token.startsWith(`--comp-${alias}-`))
+    ));
     const blockers = [];
     const reviews = [];
 
@@ -268,6 +285,7 @@ function createReport() {
     if (hasReactFile && !hasPlatformContract) reviews.push("React component does not declare its platform contract.");
     if (!rules.length) reviews.push("No component CSS rules matched this component; it may be piggybacking on another component or missing explicit styling.");
     if (!componentTokenUses.length && !foundationTokenUses.length) reviews.push("Matched CSS rules do not reference Flow component/foundation tokens.");
+    if (!componentTokenFamilyUses.length) reviews.push(`Matched CSS rules do not consume this component's own token family: ${tokenAliases.map((alias) => `--comp-${alias}-*`).join(" or ")}.`);
 
     const hardcodedColors = flatten("hardcodedColors");
     const rawGeometry = flatten("rawGeometry");
@@ -298,7 +316,10 @@ function createReport() {
       css: {
         aliases,
         matchedRules: rules.length,
+        tokenAliases,
         componentTokenUses,
+        compTokenUses,
+        componentTokenFamilyUses,
         foundationTokenUses,
         hardcodedColors,
         rawGeometry,
@@ -314,7 +335,7 @@ function createReport() {
   const blockers = components.flatMap((component) => component.blockers.map((message) => `${component.id}: ${message}`));
   const reviewItems = components.filter((component) => component.status === "review").length;
   const report = {
-    status: blockers.length ? "fail" : "pass",
+    status: blockers.length ? "fail" : reviewItems ? "review" : "pass",
     audit: "component visual cascade",
     principle: "Every component must render through the React package, consume Flow visual roles through CSS/tokens, and use docs demos that expose layout/density problems instead of hiding them behind local styling.",
     inventory: {
@@ -397,7 +418,12 @@ function main() {
       process.exit(1);
     }
     if (report.status !== "pass") {
-      console.error(`Component visual cascade audit failed: ${report.blockers.join("; ")}`);
+      const reviewSummary = report.components
+        .filter((component) => component.status === "review")
+        .map((component) => `${component.id}: ${component.reviews[0]}`)
+        .slice(0, 12)
+        .join("; ");
+      console.error(`Component visual cascade audit ${report.status}: ${report.blockers.join("; ") || reviewSummary}`);
       process.exit(1);
     }
     return;

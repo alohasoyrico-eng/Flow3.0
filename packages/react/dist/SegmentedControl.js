@@ -79,15 +79,15 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
       "data-density": density || undefined,
       style: {
         ...(rest.style ?? {}),
-        "--segmented-control-count": String(Math.max(normalizedItems.length, 1)),
+        "--comp-segmented-control-count": String(Math.max(normalizedItems.length, 1)),
       },
     },
     React.createElement("span", {
       className: "segmented-control__indicator",
       "aria-hidden": "true",
       style: {
-        "--segmented-control-index": String(activeIndex),
-        "--segmented-control-count": String(Math.max(normalizedItems.length, 1)),
+        "--comp-segmented-control-index": String(activeIndex),
+        "--comp-segmented-control-count": String(Math.max(normalizedItems.length, 1)),
       },
     }),
     normalizedItems.map((item) => {

@@ -259,22 +259,22 @@ function checkPackageCssContracts() {
   const sliderLgBlock = blocks.find((block) => normalizedSelector(block) === ".slider[data-density=\"lg\"]");
   const sliderTrackBlock = blocks.find((block) => normalizedSelector(block).replace(/\s+/g, "") === ".slider__track,.slider__fill");
   const sliderThumbBlock = blocks.find((block) => normalizedSelector(block) === ".slider__thumb");
-  if (!sliderBlock?.body.includes("--slider-track-size: var(--component-slider-track-size-md)")) {
+  if (!sliderBlock?.body.includes("--comp-slider-track-size: var(--component-slider-track-size-md)")) {
     add("errors", packageCssFile, sliderBlock ? lineNumber(text, sliderBlock.index) : 1, "Slider md density must define the package-owned track size.");
   }
-  if (!sliderBlock?.body.includes("--slider-thumb-border-width: calc(var(--component-border-width) * 3)")) {
+  if (!sliderBlock?.body.includes("--comp-slider-thumb-border-width: calc(var(--component-border-width) * 3)")) {
     add("errors", packageCssFile, sliderBlock ? lineNumber(text, sliderBlock.index) : 1, "Slider md density must define the package-owned thumb border width.");
   }
-  if (!sliderSmBlock?.body.includes("--slider-track-size: var(--component-slider-track-size-sm)") || !sliderSmBlock?.body.includes("--slider-thumb-size: var(--component-slider-thumb-size-sm)") || !sliderSmBlock?.body.includes("--slider-thumb-border-width: calc(var(--component-border-width) * 2)")) {
+  if (!sliderSmBlock?.body.includes("--comp-slider-track-size: var(--component-slider-track-size-sm)") || !sliderSmBlock?.body.includes("--comp-slider-thumb-size: var(--component-slider-thumb-size-sm)") || !sliderSmBlock?.body.includes("--comp-slider-thumb-border-width: calc(var(--component-border-width) * 2)")) {
     add("errors", packageCssFile, sliderSmBlock ? lineNumber(text, sliderSmBlock.index) : 1, "Slider sm density must scale track, thumb, and thumb border geometry.");
   }
-  if (!sliderLgBlock?.body.includes("--slider-track-size: var(--component-slider-track-size-lg)") || !sliderLgBlock?.body.includes("--slider-thumb-size: var(--component-slider-thumb-size-lg)") || !sliderLgBlock?.body.includes("--slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 5)")) {
+  if (!sliderLgBlock?.body.includes("--comp-slider-track-size: var(--component-slider-track-size-lg)") || !sliderLgBlock?.body.includes("--comp-slider-thumb-size: var(--component-slider-thumb-size-lg)") || !sliderLgBlock?.body.includes("--comp-slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 5)")) {
     add("errors", packageCssFile, sliderLgBlock ? lineNumber(text, sliderLgBlock.index) : 1, "Slider lg density must scale track, thumb, and halo geometry.");
   }
-  if (!sliderTrackBlock?.body.includes("block-size: var(--slider-track-size)") || !sliderTrackBlock?.body.includes("border-radius: var(--slider-track-radius)")) {
+  if (!sliderTrackBlock?.body.includes("block-size: var(--comp-slider-track-size)") || !sliderTrackBlock?.body.includes("border-radius: var(--comp-slider-track-radius)")) {
     add("errors", packageCssFile, sliderTrackBlock ? lineNumber(text, sliderTrackBlock.index) : 1, "Slider track and fill must consume the density-owned track size and radius.");
   }
-  if (!sliderThumbBlock?.body.includes("border: var(--slider-thumb-border-width) solid var(--slider-state-color)") || !sliderThumbBlock?.body.includes("inline-size: var(--slider-thumb-size)")) {
+  if (!sliderThumbBlock?.body.includes("border: var(--comp-slider-thumb-border-width) solid var(--comp-slider-state-color)") || !sliderThumbBlock?.body.includes("inline-size: var(--comp-slider-thumb-size)")) {
     add("errors", packageCssFile, sliderThumbBlock ? lineNumber(text, sliderThumbBlock.index) : 1, "Slider thumb must consume density-owned size and border variables.");
   }
 
@@ -301,19 +301,19 @@ function checkPackageCssContracts() {
   if (spinnerBlock?.body.includes("animation:") || spinnerBlock?.body.includes("border:")) {
     add("errors", packageCssFile, spinnerBlock ? lineNumber(text, spinnerBlock.index) : 1, "Spinner base must not fake motion or geometry with border styles; use the SVG track and arc.");
   }
-  if (!spinnerBlock?.body.includes("--spinner-spin-ease: var(--component-loading-easing-linear)")) {
+  if (!spinnerBlock?.body.includes("--comp-spinner-spin-ease: var(--component-loading-easing-linear)")) {
     add("errors", packageCssFile, spinnerBlock ? lineNumber(text, spinnerBlock.index) : 1, "Spinner must use the linear continuous motion alias.");
   }
-  if (!spinnerBlock?.body.includes("--spinner-rhythm-ease: var(--component-ease-loading-rhythm)")) {
+  if (!spinnerBlock?.body.includes("--comp-spinner-rhythm-ease: var(--component-ease-loading-rhythm)")) {
     add("errors", packageCssFile, spinnerBlock ? lineNumber(text, spinnerBlock.index) : 1, "Spinner must use the loading rhythm alias for arc motion.");
   }
-  if (!spinnerSvgBlock?.body.includes("animation: spinner-spin var(--spinner-spin-cycle) var(--spinner-spin-ease) infinite")) {
+  if (!spinnerSvgBlock?.body.includes("animation: spinner-spin var(--comp-spinner-spin-cycle) var(--comp-spinner-spin-ease) infinite")) {
     add("errors", packageCssFile, spinnerSvgBlock ? lineNumber(text, spinnerSvgBlock.index) : 1, "Spinner SVG must own the shared continuous spin animation.");
   }
-  if (!spinnerArcBlock?.body.includes("animation: spinner-arc-breathe var(--spinner-rhythm-cycle) var(--spinner-rhythm-ease) infinite alternate")) {
+  if (!spinnerArcBlock?.body.includes("animation: spinner-arc-breathe var(--comp-spinner-rhythm-cycle) var(--comp-spinner-rhythm-ease) infinite alternate")) {
     add("errors", packageCssFile, spinnerArcBlock ? lineNumber(text, spinnerArcBlock.index) : 1, "Spinner arc must breathe with an alternating loading rhythm so the loop does not visibly reset.");
   }
-  if (!spinnerArcBlock?.body.includes("stroke-dasharray") || !spinnerArcBlock?.body.includes("stroke: var(--spinner-tone)")) {
+  if (!spinnerArcBlock?.body.includes("stroke-dasharray") || !spinnerArcBlock?.body.includes("stroke: var(--comp-spinner-tone)")) {
     add("errors", packageCssFile, spinnerArcBlock ? lineNumber(text, spinnerArcBlock.index) : 1, "Spinner active arc must be one SVG stroke segment using the semantic tone.");
   }
   if (!text.includes("@keyframes spinner-arc-breathe")) {
@@ -326,7 +326,9 @@ function checkPackageCssContracts() {
   if (/stroke-dashoffset/.test(spinnerArcKeyframes)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("@keyframes spinner-arc-breathe")), "Spinner arc rhythm must not animate dashoffset because it creates a visible loop reset.");
   }
-  if (!/from\s*{[\s\S]*?stroke-dasharray:\s*30 100/.test(spinnerArcKeyframes) || !/to\s*{[\s\S]*?stroke-dasharray:\s*74 100/.test(spinnerArcKeyframes)) {
+  const usesLiteralEndpoints = /from\s*{[\s\S]*?stroke-dasharray:\s*30 100/.test(spinnerArcKeyframes) && /to\s*{[\s\S]*?stroke-dasharray:\s*74 100/.test(spinnerArcKeyframes);
+  const usesComponentEndpoints = /from\s*{[\s\S]*?stroke-dasharray:\s*var\(--comp-spinner-arc-start\)/.test(spinnerArcKeyframes) && /to\s*{[\s\S]*?stroke-dasharray:\s*var\(--comp-spinner-arc-end\)/.test(spinnerArcKeyframes);
+  if (!usesLiteralEndpoints && !usesComponentEndpoints) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("@keyframes spinner-arc-breathe")), "Spinner arc breathing keyframes must use two stable endpoints for the alternating loop.");
   }
   if (/scale\(|translateY\(|cubic-bezier|ease-emphasis/.test(spinnerKeyframes)) {
@@ -341,10 +343,10 @@ function checkPackageCssContracts() {
 
   const motionBoundaryEnteringBlock = cssBlocks(text).find((block) => block.selector === '.motion-boundary[data-state="entering"] .motion-boundary__cue');
   const motionBoundaryExitingBlock = cssBlocks(text).find((block) => block.selector === '.motion-boundary[data-state="exiting"] .motion-boundary__cue');
-  if (!motionBoundaryEnteringBlock?.body.includes("--motion-boundary-cue-ease: var(--component-ease-enter)")) {
+  if (!motionBoundaryEnteringBlock?.body.includes("--comp-motion-boundary-cue-ease: var(--component-ease-enter)")) {
     add("errors", packageCssFile, motionBoundaryEnteringBlock ? lineNumber(text, motionBoundaryEnteringBlock.index) : 1, "Motion Boundary entering state must use the package enter motion role.");
   }
-  if (!motionBoundaryExitingBlock?.body.includes("--motion-boundary-cue-ease: var(--component-ease-exit)")) {
+  if (!motionBoundaryExitingBlock?.body.includes("--comp-motion-boundary-cue-ease: var(--component-ease-exit)")) {
     add("errors", packageCssFile, motionBoundaryExitingBlock ? lineNumber(text, motionBoundaryExitingBlock.index) : 1, "Motion Boundary exiting state must use the package exit motion role.");
   }
 
