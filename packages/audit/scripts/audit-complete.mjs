@@ -9,6 +9,7 @@ const auditScriptsDir = path.join(root, "packages/audit/scripts");
 const forbiddenPrefix = "fl" + "ow-";
 
 const expectedAuditFiles = new Set([
+  "audit-adoption-readiness.js",
   "audit-accessibility-contracts.js",
   "audit-architecture-gate.js",
   "audit-batch-zip-parity.js",

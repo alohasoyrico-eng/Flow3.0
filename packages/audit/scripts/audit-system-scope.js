@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { checkSystemArchitectureGate } = require("./audit-architecture-gate.js");
+const { checkAdoptionReadiness } = require("./audit-adoption-readiness.js");
 const { checkMachineReadableSpec } = require("./audit-spec.js");
 const { checkComponentContracts } = require("./audit-component-contracts.js");
 const { checkPatternContracts } = require("./audit-pattern-contracts.js");
@@ -12,6 +13,7 @@ const { checkPlatformAdapters } = require("./audit-platform-adapters.js");
 const { finishAudit } = require("./audit-result.js");
 
 checkSystemArchitectureGate();
+checkAdoptionReadiness();
 checkMachineReadableSpec();
 checkComponentContracts();
 checkPatternContracts();
