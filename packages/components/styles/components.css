@@ -8492,6 +8492,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   inline-size: 100%;
 }
 
+.popover[data-open="true"] {
+  z-index: var(--sys-depth-z-dropdown);
+}
+
 .popover[data-density="sm"] {
   --popover-gap: var(--sys-space-2xs);
   --popover-panel-padding: var(--sys-space-sm);
@@ -8523,6 +8527,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   padding: var(--popover-panel-padding);
   position: absolute;
   z-index: var(--sys-depth-z-dropdown);
+}
+
+.popover__panel[hidden] {
+  display: none;
 }
 
 .popover[data-placement="top"] .popover__panel {

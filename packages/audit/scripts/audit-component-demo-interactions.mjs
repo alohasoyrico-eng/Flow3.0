@@ -220,9 +220,9 @@ assert.equal(fixtures.paginationPage3.getAttribute("aria-current"), "page", "Pag
 assert.equal(fixtures.paginationNext.disabled, true, "Pagination next should disable on the last page.");
 
 fixtures.popoverTrigger.click();
-assert.equal(fixtures.popoverPanel.hidden, false, "Popover trigger should open the panel.");
-fixtures.popover.dispatch("keydown", { key: "Escape" });
-assert.equal(fixtures.popoverPanel.hidden, true, "Popover Escape should close the panel.");
+assert.equal(fixtures.popover.dataset.statefulReady, "true", "Popover docs should mark the React demo ready.");
+assert.equal(fixtures.popoverTrigger.getAttribute("aria-expanded"), "false", "Popover docs runtime should not duplicate React open state.");
+assert.equal(fixtures.popoverPanel.hidden, true, "Popover docs runtime should leave closed React panels hidden.");
 
 fixtures.comboboxInput.value = "Luis";
 fixtures.comboboxInput.dispatch("input");
@@ -333,7 +333,7 @@ function buildFixtures() {
 
   const popoverTrigger = el("button", { attrs: { "data-popover-trigger": "", "aria-expanded": "false" }, textContent: "Details" });
   const popoverPanel = el("section", { attrs: { role: "dialog" }, hidden: true });
-  const popover = el("span", { className: "popover-demo", dataset: { state: "closed" } }, [popoverTrigger, popoverPanel]);
+  const popover = el("span", { className: "popover", attrs: { "data-doc-component": "popover", "data-open": "false" }, dataset: { state: "closed" } }, [popoverTrigger, popoverPanel]);
 
   const comboboxInput = el("input", {
     className: "combobox__input",

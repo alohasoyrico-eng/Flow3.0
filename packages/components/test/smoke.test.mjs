@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import {
   hydrateChartPanel,
   createAnimationAsset,
@@ -203,6 +204,8 @@ import { createTransitionalActionButton, createTransitionalActionIconButton } fr
 import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
+
+const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { createMenu } from "../src/components/overlays.js?v=5";
 import { createBreadcrumbs } from "../src/components/navigation.js?v=3";
 import { createSlider, createTreeView } from "../src/components/interactions.js?v=9";
@@ -877,6 +880,7 @@ assert.deepEqual(popoverPlatformContract.states, componentContracts.popover.stat
 assert.deepEqual(Object.keys(popoverPlatformAdapters), ["react"]);
 assert.equal(popoverPlatformAdapters.react.componentName, "Popover");
 assert.equal(popoverPlatformAdapters.react.sourceOfTruth, true);
+assert.match(componentsCss, /\.popover__panel\[hidden\]\s*\{[^}]*display:\s*none;/);
 assert.equal(componentContracts.cardSummary.factory, "@design-system/react/card-summary");
 assert.equal(componentContracts.cardSummary.internalFactory, "createCardSummary");
 assert.equal(cardSummaryPlatformContract.id, "card-summary");
