@@ -811,7 +811,8 @@ export const componentContracts = {
     ]
   },
   biometricPrompt: {
-    factory: "createBiometricPrompt",
+    factory: "@design-system/react/biometric-prompt",
+    internalFactory: "createBiometricPrompt",
     element: "section",
     purpose: "Show one local biometric authentication prompt with icon, copy, primary action, fallback text, and explicit state.",
     variants: ["fingerprint", "face", "passcode", "fallback"],

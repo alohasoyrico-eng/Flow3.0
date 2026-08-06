@@ -28,6 +28,10 @@
       "types": "./dist/Badge.d.ts",
       "default": "./dist/Badge.js"
     },
+    "./biometric-prompt": {
+      "types": "./dist/BiometricPrompt.d.ts",
+      "default": "./dist/BiometricPrompt.js"
+    },
     "./button": {
       "types": "./dist/Button.d.ts",
       "default": "./dist/Button.js"

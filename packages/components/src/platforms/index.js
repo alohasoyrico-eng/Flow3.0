@@ -24,6 +24,11 @@ export {
   badgePlatformProps,
 } from "./badge.js";
 export {
+  biometricPromptPlatformAdapters,
+  biometricPromptPlatformContract,
+  biometricPromptPlatformProps,
+} from "./biometric-prompt.js";
+export {
   tagPlatformAdapters,
   tagPlatformContract,
   tagPlatformProps,

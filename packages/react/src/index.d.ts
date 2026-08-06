@@ -37,6 +37,14 @@ export type {
   BadgeTone,
   BadgeVariant,
 } from "./Badge.js";
+export { BiometricPrompt } from "./BiometricPrompt.js";
+export type {
+  BiometricPromptComponent,
+  BiometricPromptDensity,
+  BiometricPromptProps,
+  BiometricPromptState,
+  BiometricPromptVariant,
+} from "./BiometricPrompt.js";
 export { Breadcrumbs } from "./Breadcrumbs.js";
 export type {
   BreadcrumbItem,

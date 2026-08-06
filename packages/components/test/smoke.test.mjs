@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import {
   createChartPanel,
   hydrateChartPanel,
-  createBiometricPrompt,
   createMotionBoundary,
   createAnimationAsset,
   createChartsPrimitive,
@@ -33,6 +32,9 @@ import {
   badgePlatformAdapters,
   badgePlatformContract,
   badgePlatformProps,
+  biometricPromptPlatformAdapters,
+  biometricPromptPlatformContract,
+  biometricPromptPlatformProps,
   breadcrumbsPlatformAdapters,
   breadcrumbsPlatformContract,
   breadcrumbsPlatformProps,
@@ -176,6 +178,7 @@ import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
 import { createAuditEvent } from "../src/components/display.js?v=3";
 import { createAnimatedMoment } from "../src/components/motion.js?v=5";
+import { createBiometricPrompt } from "../src/components/security.js?v=3";
 import { createCardSummary, createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
@@ -641,7 +644,16 @@ assert.deepEqual(tablePlatformContract.states, componentContracts.table.states);
 assert.deepEqual(Object.keys(tablePlatformAdapters), ["react"]);
 assert.equal(tablePlatformAdapters.react.componentName, "Table");
 assert.equal(tablePlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.biometricPrompt.factory, "createBiometricPrompt");
+assert.equal(componentContracts.biometricPrompt.factory, "@design-system/react/biometric-prompt");
+assert.equal(componentContracts.biometricPrompt.internalFactory, "createBiometricPrompt");
+assert.equal(biometricPromptPlatformContract.id, "biometric-prompt");
+assert.equal(biometricPromptPlatformContract.source.factory, componentContracts.biometricPrompt.factory);
+assert.deepEqual(biometricPromptPlatformProps(), componentContracts.biometricPrompt.props.map((prop) => prop.name));
+assert.deepEqual(biometricPromptPlatformContract.variants, componentContracts.biometricPrompt.variants);
+assert.deepEqual(biometricPromptPlatformContract.states, componentContracts.biometricPrompt.states);
+assert.deepEqual(Object.keys(biometricPromptPlatformAdapters), ["react"]);
+assert.equal(biometricPromptPlatformAdapters.react.componentName, "BiometricPrompt");
+assert.equal(biometricPromptPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.treeView.factory, "@design-system/react/tree-view");
 assert.equal(componentContracts.treeView.internalFactory, "createTreeView");
 assert.equal(treeViewPlatformContract.id, "tree-view");

@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
-import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
+import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, biometricPromptPlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -14,6 +14,8 @@ assert.equal(Avatar.displayName, "Avatar");
 assert.equal(Avatar.platformContract, avatarPlatformContract);
 assert.equal(Badge.displayName, "Badge");
 assert.equal(Badge.platformContract, badgePlatformContract);
+assert.equal(BiometricPrompt.displayName, "BiometricPrompt");
+assert.equal(BiometricPrompt.platformContract, biometricPromptPlatformContract);
 assert.equal(Breadcrumbs.displayName, "Breadcrumbs");
 assert.equal(Breadcrumbs.platformContract, breadcrumbsPlatformContract);
 assert.equal(Button.displayName, "Button");
@@ -333,6 +335,36 @@ assert.match(animatedMomentMarkup, /data-animation-runtime="fallback"/);
 assert.match(animatedMomentMarkup, /class="animation-asset__fallback-icon material-symbol"/);
 assert.match(animatedMomentMarkup, /class="animated-moment__state">Complete<\/span>/);
 assert.match(animatedMomentMarkup, /data-animated-moment-cue=""/);
+
+const biometricPromptMarkup = renderToStaticMarkup(React.createElement(BiometricPrompt, {
+  label: "Confirm it is you",
+  description: "Look at the camera.",
+  variant: "face",
+  state: "authenticating",
+  actionLabel: "Use face ID",
+  fallback: "Use passcode instead",
+  density: "sm",
+  fullWidth: true,
+}));
+assert.match(biometricPromptMarkup, /^<section/);
+assert.match(biometricPromptMarkup, /class="biometric-prompt"/);
+assert.match(biometricPromptMarkup, /data-variant="face"/);
+assert.match(biometricPromptMarkup, /data-state="authenticating"/);
+assert.match(biometricPromptMarkup, /data-density="sm"/);
+assert.match(biometricPromptMarkup, /data-full-width="true"/);
+assert.match(biometricPromptMarkup, /role="group"/);
+assert.match(biometricPromptMarkup, /aria-label="Confirm it is you"/);
+assert.match(biometricPromptMarkup, /class="biometric-prompt__icon material-symbol"/);
+assert.match(biometricPromptMarkup, /face/);
+assert.match(biometricPromptMarkup, /class="biometric-prompt__content"/);
+assert.match(biometricPromptMarkup, /role="status"/);
+assert.match(biometricPromptMarkup, /Look at the camera/);
+assert.match(biometricPromptMarkup, /class="button button--primary biometric-prompt__action"/);
+assert.match(biometricPromptMarkup, /aria-busy="true"/);
+assert.match(biometricPromptMarkup, /data-state="loading"/);
+assert.match(biometricPromptMarkup, /data-biometric-action=""/);
+assert.match(biometricPromptMarkup, /class="button button--tertiary biometric-prompt__fallback"/);
+assert.match(biometricPromptMarkup, /data-biometric-fallback=""/);
 
 const accordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
   density: "sm",

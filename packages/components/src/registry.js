@@ -4,7 +4,6 @@ import {
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
 import { createSegmentedControl } from "./components/interactions.js?v=9";
 import { createMotionBoundary } from "./components/motion.js?v=5";
-import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createInlineValidation } from "./components/surfaces.js?v=10";
 
 export const componentRegistry = Object.freeze({
@@ -23,7 +22,9 @@ export const componentRegistry = Object.freeze({
   badge: () => {
     throw new Error("Badge is React-primary. Use @design-system/react/badge instead of the transitional DOM renderer.");
   },
-  "biometric-prompt": createBiometricPrompt,
+  "biometric-prompt": () => {
+    throw new Error("Biometric Prompt is React-primary. Use @design-system/react/biometric-prompt instead of the transitional DOM renderer.");
+  },
   breadcrumbs: () => {
     throw new Error("Breadcrumbs is React-primary. Use @design-system/react/breadcrumbs instead of the transitional DOM renderer.");
   },

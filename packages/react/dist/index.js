@@ -3,6 +3,7 @@ export { AnimatedMoment } from "./AnimatedMoment.js";
 export { AuditEvent } from "./AuditEvent.js";
 export { Avatar } from "./Avatar.js";
 export { Badge } from "./Badge.js";
+export { BiometricPrompt } from "./BiometricPrompt.js";
 export { Breadcrumbs } from "./Breadcrumbs.js";
 export { Button } from "./Button.js";
 export { Card } from "./Card.js";
