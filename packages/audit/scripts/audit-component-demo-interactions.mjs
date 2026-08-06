@@ -252,11 +252,7 @@ assert.equal(fixtures.menuPanel.hidden, true, "Menu item click should close the 
 
 assert.equal(fixtures.accordion.dataset.demoReady, "true", "Accordion React island should be registered without legacy DOM state ownership.");
 
-fixtures.tableSort.click();
-assert.equal(fixtures.tableSort.dataset.active, "true", "Table sort should mark the sorted column active.");
-assert.equal(fixtures.tableSort.dataset.dir, "asc", "Table sort should set initial ascending direction.");
-fixtures.tableRow.click();
-assert.equal(fixtures.tableRow.dataset.selected, "true", "Table row click should select the row.");
+assert.equal(fixtures.table.dataset.demoReady, "true", "Table setup should only mark React demos ready; interaction belongs to the React component.");
 
 fixtures.tooltipTrigger.dispatch("mouseenter");
 assert.equal(fixtures.tooltip.dataset.open, "true", "Tooltip mouseenter should open tooltip.");
@@ -457,10 +453,7 @@ function buildFixtures() {
 
   const accordion = el("span", { attrs: { "data-doc-component": "accordion" } });
 
-  const tableSort = el("button", { attrs: { "data-table-sort": "" }, dataset: { active: "false", dir: "" } });
-  const tableRow = el("tr", {}, [el("td", { textContent: "JMX" })]);
-  const tbody = el("tbody", {}, [tableRow]);
-  const table = el("div", { className: "table-demo" }, [el("table", {}, [el("thead", {}, [el("tr", {}, [el("th", {}, [tableSort])])]), tbody])]);
+  const table = el("span", { attrs: { "data-doc-component": "table" } });
 
   const tooltipTrigger = el("button", { className: "tooltip-demo__trigger" });
   const tooltipBubble = el("span", { className: "tooltip-demo__bubble", id: "tip-1" });
@@ -554,8 +547,6 @@ function buildFixtures() {
     menuItem,
     accordion,
     table,
-    tableSort,
-    tableRow,
     tooltip: tooltipRoot,
     tooltipTrigger,
     toast: toastRoot,
