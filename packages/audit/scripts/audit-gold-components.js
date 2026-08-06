@@ -265,7 +265,7 @@ function checkGoldComponentTokens() {
     ["--comp-tag-hover-transform: scale(var(--sys-momentum-scale-hover))", "Interactive Tag hover motion must use valid spring scale from Momentum tokens."],
     ["--comp-tag-press-transform: scale(var(--sys-momentum-scale-press))", "Interactive Tag press motion must use valid press scale from Momentum tokens."],
     ["--comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch)", "Tabs must move a benchmark-style active indicator with left/width spring motion."],
-    [".tabs-demo::before", "Tabs must render a moving active indicator instead of styling the selected tab as a static button."],
+    [".tabs::before", "Tabs must render a moving active indicator instead of styling the selected tab as a static button."],
     ["--comp-tooltip-bubble-bg: var(--sys-energy-text-primary)", "Tooltip bubble must use a high-contrast layer surface from Design System Energy."],
     ["--comp-tooltip-transition: opacity var(--component-duration-state) var(--component-ease-press), transform var(--component-duration-state) var(--component-ease-press)", "Tooltip motion must use ZIP-like scale with Design System Momentum."],
     ["--comp-toast-shadow: var(--sys-depth-elevation-3)", "Toast must use Depth as a floating feedback layer."],
@@ -311,7 +311,7 @@ function checkGoldComponentTokens() {
   if (!layoutText.includes("content-shell density-responsive")) {
     add("errors", docsLayoutFile, 1, "Documentation shell must apply responsive Density context.");
   }
-  for (const required of ['class="detail-tabs tabs-demo"', 'data-variant="default"', 'role="tablist"', 'role="tab"', 'aria-selected=', 'tabindex=']) {
+  for (const required of ['class="detail-tabs detail-tablist"', 'data-variant="default"', 'role="tablist"', 'role="tab"', 'aria-selected=', 'tabindex=']) {
     if (!layoutText.includes(required)) {
       add("errors", docsLayoutFile, 1, `Documentation detail tabs must dogfood the Tabs component contract: ${required}.`);
     }

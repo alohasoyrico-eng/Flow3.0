@@ -324,7 +324,7 @@ function checkComponentSpecificDemoQuality(component, copy, contract) {
     if (!tabsCss.includes("--comp-tabs-focus-offset: var(--sys-a11y-focus-offset);")) {
       add("errors", tabsCssFile, 1, "Tabs focus ring must sit outside the pill enough to avoid being masked by the track.");
     }
-    if (!/\.tabs-demo \[role="tab"\]:focus,\s*\.tabs-demo \[role="tab"\]:focus-visible,\s*\.tabs-demo\[data-state="focus"\] \[role="tab"\]\[aria-selected="true"\]\s*\{[^}]*z-index:\s*var\(--sys-depth-z-floating\);[^}]*outline:\s*var\(--comp-tabs-focus-ring\);/s.test(tabsCss)) {
+    if (!/\.detail-tablist \[role="tab"\]:focus,\s*\.detail-tablist \[role="tab"\]:focus-visible,\s*\.detail-tablist\[data-state="focus"\] \[role="tab"\]\[aria-selected="true"\]\s*\{[^}]*z-index:\s*var\(--sys-depth-z-floating\);[^}]*outline:\s*var\(--comp-tabs-focus-ring\);/s.test(tabsCss)) {
       add("errors", tabsCssFile, 1, "Tabs focus state must render above the indicator for both interactive focus and focus demos.");
     }
   }

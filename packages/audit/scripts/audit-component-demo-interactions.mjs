@@ -309,7 +309,7 @@ function buildFixtures() {
     el("span", { attrs: { "aria-hidden": "true" }, dataset: { chipRemoveIcon: "true" }, textContent: "close" }),
   ]);
 
-  const tabs = el("div", { className: "tabs-demo" }, [
+  const tabs = el("div", { className: "detail-tablist" }, [
     el("button", { attrs: { role: "tab", "aria-selected": "true" }, offsetLeft: 0, offsetWidth: 80, textContent: "One" }),
     el("button", { attrs: { role: "tab", "aria-selected": "false" }, offsetLeft: 80, offsetWidth: 80, textContent: "Two" }),
   ]);

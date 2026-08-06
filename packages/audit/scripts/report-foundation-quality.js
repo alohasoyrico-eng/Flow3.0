@@ -43,7 +43,7 @@ const componentNeedles = {
   badge: ["--comp-badge", ".badge-", "badge-demo"],
   chip: ["--comp-chip", ".chip"],
   tag: ["--comp-tag", ".tag-", "tag-demo"],
-  tabs: ["--comp-tabs", ".tabs-", "tabs-demo"],
+  tabs: ["--comp-tabs", ".tabs-", "detail-tablist"],
 };
 
 const statusRank = {
