@@ -101,8 +101,8 @@ export function createChartsPrimitive({
       confine: true,
       trigger: ["bars", "comparison", "pareto", "bullet", "line", "area", "sparkline", "compact"].includes(resolvedType) ? "axis" : "item",
     },
-    xAxis: ["donut", "bullet"].includes(resolvedType) ? undefined : { type: "category", data: axisData, show: false },
-    yAxis: ["donut", "bullet"].includes(resolvedType) ? undefined : { type: "value", show: false },
+    xAxis: resolvedType === "donut" ? undefined : { type: "category", data: axisData, show: false },
+    yAxis: resolvedType === "donut" ? undefined : { type: "value", show: false },
   };
 
   if (["sparkline", "compact", "line", "area"].includes(resolvedType)) {
@@ -139,7 +139,17 @@ export function createChartsPrimitive({
       },
     ];
   } else if (resolvedType === "bullet") {
-    echartsOption.series = [{ name: label, type: "bar", data: resolvedValues, markLine: { data: thresholds } }];
+    const maxValue = Math.max(...resolvedValues, 100, ...thresholds.map((item) => Number(item.value)).filter(Number.isFinite));
+    echartsOption.grid = { left: 0, right: 0, top: 0, bottom: 0, containLabel: false };
+    echartsOption.xAxis = { type: "value", min: 0, max: maxValue, show: false };
+    echartsOption.yAxis = { type: "category", data: resolvedLabels, show: false };
+    echartsOption.series = [{
+      name: label,
+      type: "bar",
+      data: resolvedValues,
+      barCategoryGap: "42%",
+      markLine: thresholds.length ? { symbol: "none", data: thresholds } : undefined,
+    }];
   }
 
   return {
