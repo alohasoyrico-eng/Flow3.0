@@ -218,6 +218,37 @@
   --component-fab-size-sm: var(--component-inline-size-lg);
   --component-fab-size-md: calc(var(--component-inline-size-lg) + var(--sys-space-sm));
   --component-fab-size-lg: calc(var(--component-control-min-size) + var(--sys-space-xl));
+  --comp-floating-action-button-size-sm: var(--component-fab-size-sm);
+  --comp-floating-action-button-size-md: var(--component-fab-size-md);
+  --comp-floating-action-button-size-lg: var(--component-fab-size-lg);
+  --comp-floating-action-button-size: var(--sys-density-control-height);
+  --comp-floating-action-button-mini-size: var(--comp-floating-action-button-size-sm);
+  --comp-floating-action-button-icon-size-sm: var(--component-font-size-icon-sm);
+  --comp-floating-action-button-icon-size-md: var(--component-font-size-icon-md);
+  --comp-floating-action-button-icon-size-lg: var(--component-font-size-icon-lg);
+  --comp-floating-action-button-icon-size: var(--sys-icon-size-md);
+  --comp-floating-action-button-padding-x-sm: var(--sys-space-md);
+  --comp-floating-action-button-padding-x-md: var(--sys-space-lg);
+  --comp-floating-action-button-padding-x-lg: var(--sys-space-xl);
+  --comp-floating-action-button-padding-x: var(--sys-density-control-padding-x);
+  --comp-floating-action-button-gap: var(--sys-space-sm);
+  --comp-floating-action-button-radius: var(--component-radius-pill);
+  --comp-floating-action-button-bg: var(--sys-color-action);
+  --comp-floating-action-button-bg-hover: var(--sys-color-action-hover);
+  --comp-floating-action-button-accent-bg: var(--sys-color-success);
+  --comp-floating-action-button-text: var(--sys-color-action-text);
+  --comp-floating-action-button-shadow: var(--component-depth-raised);
+  --comp-floating-action-button-shadow-hover: var(--component-depth-raised-strong);
+  --comp-floating-action-button-font-weight: var(--sys-voice-weight-extrabold);
+  --comp-floating-action-button-motion-duration: var(--component-duration-state);
+  --comp-floating-action-button-motion-ease: var(--component-ease-state);
+  --comp-floating-action-button-motion-enter: var(--component-ease-enter);
+  --comp-floating-action-button-hover-transform: var(--component-transform-lift-hover);
+  --comp-floating-action-button-press-transform: var(--component-transform-rest-quiet);
+  --comp-floating-action-button-focus-width: var(--component-focus-ring-width);
+  --comp-floating-action-button-focus-color: var(--sys-color-focus);
+  --comp-floating-action-button-focus-offset: var(--component-focus-ring-offset);
+  --comp-floating-action-button-disabled-opacity: var(--sys-disabled-readable-opacity);
   --component-error-panel-icon-size: var(--component-list-icon-box-size);
   --component-error-panel-icon-size-sm: var(--component-list-icon-box-size-sm);
   --component-error-panel-icon-size-lg: var(--component-list-icon-box-size-lg);
@@ -3438,55 +3469,55 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .fab {
   align-items: center;
-  --fab-size: var(--component-fab-size-md);
-  --fab-icon-size: var(--component-font-size-icon-md);
-  --fab-padding: var(--sys-space-lg);
-  background: var(--sys-color-action);
+  --fab-size: var(--comp-floating-action-button-size-md);
+  --fab-icon-size: var(--comp-floating-action-button-icon-size-md);
+  --fab-padding: var(--comp-floating-action-button-padding-x-md);
+  background: var(--comp-floating-action-button-bg);
   border: 0;
-  border-radius: var(--component-radius-pill);
-  box-shadow: var(--component-depth-raised);
-  color: var(--sys-color-action-text);
+  border-radius: var(--comp-floating-action-button-radius);
+  box-shadow: var(--comp-floating-action-button-shadow);
+  color: var(--comp-floating-action-button-text);
   cursor: pointer;
   display: inline-flex;
-  font-weight: var(--sys-voice-weight-extrabold);
-  gap: var(--sys-space-sm);
+  font-weight: var(--comp-floating-action-button-font-weight);
+  gap: var(--comp-floating-action-button-gap);
   inline-size: fit-content;
   justify-content: center;
   min-block-size: var(--fab-size);
   min-inline-size: var(--fab-size);
   padding: 0 var(--fab-padding);
   transition:
-    background-color var(--component-duration-state) var(--component-ease-state),
-    box-shadow var(--component-duration-state) var(--component-ease-state),
-    transform var(--component-duration-state) var(--component-ease-enter);
+    background-color var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease),
+    box-shadow var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease),
+    transform var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-enter);
 }
 
 .fab[data-density="sm"] {
-  --fab-size: var(--component-fab-size-sm);
-  --fab-icon-size: var(--component-font-size-icon-sm);
-  --fab-padding: var(--sys-space-md);
+  --fab-size: var(--comp-floating-action-button-size-sm);
+  --fab-icon-size: var(--comp-floating-action-button-icon-size-sm);
+  --fab-padding: var(--comp-floating-action-button-padding-x-sm);
 }
 
 .fab[data-density="lg"] {
-  --fab-size: var(--component-fab-size-lg);
-  --fab-icon-size: var(--component-font-size-icon-lg);
-  --fab-padding: var(--sys-space-xl);
+  --fab-size: var(--comp-floating-action-button-size-lg);
+  --fab-icon-size: var(--comp-floating-action-button-icon-size-lg);
+  --fab-padding: var(--comp-floating-action-button-padding-x-lg);
 }
 
 .fab[data-variant="accent"] {
-  background: var(--sys-color-success);
+  background: var(--comp-floating-action-button-accent-bg);
 }
 
 .fab[data-variant="mini"] {
-  --fab-size: var(--component-fab-size-sm);
-  --fab-icon-size: var(--component-font-size-icon-sm);
+  --fab-size: var(--comp-floating-action-button-mini-size);
+  --fab-icon-size: var(--comp-floating-action-button-icon-size-sm);
   --fab-padding: 0;
 }
 
 .fab:hover:not(:disabled) {
-  background: var(--sys-color-action-hover);
-  box-shadow: var(--component-depth-raised-strong);
-  transform: var(--component-transform-lift-hover);
+  background: var(--comp-floating-action-button-bg-hover);
+  box-shadow: var(--comp-floating-action-button-shadow-hover);
+  transform: var(--comp-floating-action-button-hover-transform);
 }
 
 .fab[data-variant="accent"]:hover:not(:disabled) {
@@ -3498,12 +3529,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab[data-state="hover"]:not(:disabled) {
-  box-shadow: var(--component-depth-raised-strong);
-  transform: var(--component-transform-lift-hover);
+  box-shadow: var(--comp-floating-action-button-shadow-hover);
+  transform: var(--comp-floating-action-button-hover-transform);
 }
 
 .fab[data-state="pressed"]:not(:disabled) {
-  transform: var(--component-transform-rest-quiet);
+  transform: var(--comp-floating-action-button-press-transform);
 }
 
 .fab[data-extended="false"] {
@@ -3515,18 +3546,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-floating-action-button-focus-width) solid var(--comp-floating-action-button-focus-color);
+  outline-offset: var(--comp-floating-action-button-focus-offset);
 }
 
 .fab[data-state="focus"] {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-floating-action-button-focus-width) solid var(--comp-floating-action-button-focus-color);
+  outline-offset: var(--comp-floating-action-button-focus-offset);
 }
 
 .fab:disabled {
   cursor: not-allowed;
-  opacity: var(--sys-disabled-readable-opacity);
+  opacity: var(--comp-floating-action-button-disabled-opacity);
 }
 
 .breadcrumbs ol,
