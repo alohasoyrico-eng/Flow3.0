@@ -449,7 +449,7 @@ function buildFixtures() {
   const overlayTrigger = el("button", { attrs: { "data-overlay-open": "", "aria-expanded": "true" } });
   const overlayClose = el("button", { attrs: { "data-overlay-close": "" } });
   const overlayPanel = el("div", { attrs: { "data-overlay-dismiss": "" } }, [overlayClose]);
-  const overlayDemo = el("div", { className: "dialog-demo", dataset: { state: "open" } }, [overlayTrigger, overlayPanel]);
+  const overlayDemo = el("div", { className: "overlay-demo-fixture", attrs: { "data-doc-component": "dialog" }, dataset: { state: "open" } }, [overlayTrigger, overlayPanel]);
 
   const menuTrigger = el("button", { attrs: { "data-menu-trigger": "", "aria-expanded": "false" } });
   const menuPanel = el("div", { attrs: { "data-menu-panel": "" }, hidden: true });

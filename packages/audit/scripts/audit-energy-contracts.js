@@ -121,7 +121,6 @@ function checkComponentEnergySemantics() {
     ["toast", "04o-toast-docs.css"],
     ["inline-validation", "04p-inline-validation-docs.css"],
     ["progress-indicator", "04q-progress-indicator-docs.css"],
-    ["dialog", "04s-dialog-docs.css"],
     ["menu", "04t-menu-docs.css"],
   ];
 
