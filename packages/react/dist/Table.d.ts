@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
-import type { tablePlatformContract } from "../../components/src/platforms/index.js";
+import type { tablePlatformContract } from "#flow/platforms";
 
 export type TableVariant = "standard" | "dense" | "sortable" | "selectable" | "expandable";
 export type TableState = "default" | "hover" | "focus" | "selected" | "sorted" | "expanded";

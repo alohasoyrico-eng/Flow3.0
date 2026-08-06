@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { animatedMomentPlatformContract } from "../../components/src/platforms/index.js";
+import { animatedMomentPlatformContract } from "#flow/platforms";
 
 const validVariants = new Set(["success", "empty", "loading", "celebration"]);
 const validStates = new Set(["idle", "playing", "paused", "complete", "reduced-motion", "disabled"]);

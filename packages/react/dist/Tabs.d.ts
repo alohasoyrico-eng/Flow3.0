@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { tabsPlatformContract } from "../../components/src/platforms/index.js";
+import { tabsPlatformContract } from "#flow/platforms";
 import type { BadgeProps } from "./Badge.js";
 
 export type TabsVariant = "default" | "underline";

@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useRef, useState } from "react";
-import { popoverPlatformContract } from "../../components/src/platforms/index.js";
+import { popoverPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { Input } from "./Input.js";
 

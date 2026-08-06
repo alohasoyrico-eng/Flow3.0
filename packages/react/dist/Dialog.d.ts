@@ -1,7 +1,7 @@
 import type { ButtonProps } from "./Button.js";
 import type { InputProps } from "./Input.js";
 import type { HTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
-import { dialogPlatformContract } from "../../components/src/platforms/index.js";
+import { dialogPlatformContract } from "#flow/platforms";
 
 export type DialogVariant = "confirmation" | "destructive" | "form" | "review" | "success";
 export type DialogTone = "neutral" | "info" | "success" | "danger";

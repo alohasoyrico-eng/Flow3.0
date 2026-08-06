@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { toastPlatformContract } from "../../components/src/platforms/index.js";
+import { toastPlatformContract } from "#flow/platforms";
 
 export type ToastTone = "neutral" | "info" | "success" | "warning" | "danger";
 export type ToastVariant = "status" | "progress" | "warning" | "recovery" | "undo";

@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import { inputPlatformContract } from "../../components/src/platforms/index.js";
+import { inputPlatformContract } from "#flow/platforms";
 
 export type InputVariant = "text" | "email" | "password" | "number" | "currency" | "unit" | "search";
 export type InputDensity = "sm" | "md" | "lg";

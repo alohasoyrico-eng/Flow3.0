@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { buttonPlatformContract } from "../../components/src/platforms/index.js";
+import { buttonPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 
 const allowedTypes = new Set(["button", "submit", "reset"]);

@@ -3,7 +3,7 @@ import type {
   ForwardRefExoticComponent,
   RefAttributes,
 } from "react";
-import type { cardSummaryPlatformContract } from "../../components/src/platforms/index.js";
+import type { cardSummaryPlatformContract } from "#flow/platforms";
 
 export type CardSummaryVariant = "physical" | "virtual" | "compact" | "limit";
 export type CardSummaryState = "default" | "hover" | "focus" | "active" | "warning" | "frozen" | "disabled";

@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
-import { cardExpiryInputPlatformContract } from "../../components/src/platforms/index.js";
+import { cardExpiryInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 
 function normalizeCardExpiry(value) {

@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import type { paginationPlatformContract } from "../../components/src/platforms/index.js";
+import type { paginationPlatformContract } from "#flow/platforms";
 
 export type PaginationVariant = "numbered";
 export type PaginationState = "default" | "hover" | "focus" | "selected" | "disabled";

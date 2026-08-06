@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, ReactNode, RefAttributes } from "react";
-import { buttonPlatformContract } from "../../components/src/platforms/index.js";
+import { buttonPlatformContract } from "#flow/platforms";
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary" | "outlined" | "ghost";
 export type ButtonIntent = "default" | "danger" | "warning";

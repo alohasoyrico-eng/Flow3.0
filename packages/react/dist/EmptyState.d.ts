@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { emptyStatePlatformContract } from "../../components/src/platforms/index.js";
+import { emptyStatePlatformContract } from "#flow/platforms";
 import type { ButtonProps } from "./Button.js";
 
 export type EmptyStateVariant = "first-use" | "search-empty" | "permission" | "error" | "maintenance";

@@ -1,7 +1,7 @@
 import type { ButtonProps } from "./Button.js";
 import type { InputProps } from "./Input.js";
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { popoverPlatformContract } from "../../components/src/platforms/index.js";
+import { popoverPlatformContract } from "#flow/platforms";
 
 export type PopoverVariant = "information" | "action" | "form" | "metric";
 export type PopoverState = "default" | "closed" | "open" | "hover" | "focus" | "warning" | "disabled";

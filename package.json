@@ -101,6 +101,10 @@
     "./specs/system": "./packages/specs/specs/unison.system.json"
   },
   "imports": {
+    "#flow/components": "./packages/components/src/index.js",
+    "#flow/platforms": "./packages/components/src/platforms/index.js",
+    "#flow/tokens": "./packages/tokens/src/index.js",
+    "#flow/tokens-css": "./packages/tokens/styles/tokens.css",
     "#design-system/components": "./packages/components/src/index.js",
     "#design-system/react": "./packages/react/src/index.js",
     "#design-system/components-css": "./packages/components/styles/components.css",

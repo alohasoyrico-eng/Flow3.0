@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, RefAttributes, TextareaHTMLAttributes } from "react";
-import { textAreaPlatformContract } from "../../components/src/platforms/index.js";
+import { textAreaPlatformContract } from "#flow/platforms";
 
 export type TextAreaDensity = "sm" | "md" | "lg";
 export type TextAreaState = "default" | "focus" | "filled" | "loading" | "error" | "disabled";

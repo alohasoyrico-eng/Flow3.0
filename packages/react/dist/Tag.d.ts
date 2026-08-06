@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { tagPlatformContract } from "../../components/src/platforms/index.js";
+import { tagPlatformContract } from "#flow/platforms";
 
 export type TagVariant = "metadata" | "status" | "platform" | "link";
 export type TagTone = "neutral" | "info" | "success" | "warning" | "danger";

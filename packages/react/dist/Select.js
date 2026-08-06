@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useState } from "react";
-import { selectPlatformContract } from "../../components/src/platforms/index.js";
+import { selectPlatformContract } from "#flow/platforms";
 
 function selectedOptionFor(options, value) {
   return options.find((option) => (option.value ?? option.label ?? "") === value)

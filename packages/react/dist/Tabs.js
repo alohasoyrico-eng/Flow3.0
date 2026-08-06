@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
-import { tabsPlatformContract } from "../../components/src/platforms/index.js";
+import { tabsPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 
 const allowedVariants = new Set(["default", "underline"]);

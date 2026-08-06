@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useId, useMemo, useRef, useState } from "react";
-import { datePickerPlatformContract } from "../../components/src/platforms/index.js";
+import { datePickerPlatformContract } from "#flow/platforms";
 
 function parseDate(value) {
   if (!value) return null;

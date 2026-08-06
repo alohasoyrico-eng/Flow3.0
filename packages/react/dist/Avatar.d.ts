@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { avatarPlatformContract } from "../../components/src/platforms/index.js";
+import { avatarPlatformContract } from "#flow/platforms";
 
 export type AvatarSize = "sm" | "md" | "lg" | "xl";
 export type AvatarStatus = "none" | "online" | "busy" | "offline";

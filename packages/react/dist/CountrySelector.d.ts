@@ -3,7 +3,7 @@ import type {
   HTMLAttributes,
   RefAttributes,
 } from "react";
-import type { countrySelectorPlatformContract } from "../../components/src/platforms/index.js";
+import type { countrySelectorPlatformContract } from "#flow/platforms";
 
 export type CountrySelectorDensity = "sm" | "md" | "lg";
 

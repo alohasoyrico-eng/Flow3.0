@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { quickActionPlatformContract } from "../../components/src/platforms/index.js";
+import { quickActionPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 import { Spinner } from "./Spinner.js";
 

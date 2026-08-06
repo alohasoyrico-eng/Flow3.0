@@ -3,7 +3,7 @@ import type {
   ForwardRefExoticComponent,
   RefAttributes,
 } from "react";
-import type { auditEventPlatformContract } from "../../components/src/platforms/index.js";
+import type { auditEventPlatformContract } from "#flow/platforms";
 
 export type AuditEventTone = "neutral" | "info" | "success" | "warning" | "danger" | "action";
 export type AuditEventState = "default" | "hover" | "focus" | "verified" | "warning" | "critical" | "disabled";

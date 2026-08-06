@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useRef, useState } from "react";
-import { drawerPlatformContract } from "../../components/src/platforms/index.js";
+import { drawerPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";

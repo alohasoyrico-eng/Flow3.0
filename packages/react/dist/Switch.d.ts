@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import { switchPlatformContract } from "../../components/src/platforms/index.js";
+import { switchPlatformContract } from "#flow/platforms";
 
 export type SwitchState = "off" | "on" | "focus" | "pressed" | "error" | "disabled";
 export type SwitchDensity = "sm" | "md" | "lg";

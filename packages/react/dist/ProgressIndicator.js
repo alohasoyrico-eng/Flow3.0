@@ -1,5 +1,5 @@
 import React, { forwardRef, useId } from "react";
-import { progressIndicatorPlatformContract } from "../../components/src/platforms/index.js";
+import { progressIndicatorPlatformContract } from "#flow/platforms";
 
 const validDensities = new Set(["sm", "md"]);
 const validTones = new Set(["accent", "success", "warning", "danger", "ink"]);

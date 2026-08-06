@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { cardPlatformContract } from "../../components/src/platforms/index.js";
+import { cardPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Spinner } from "./Spinner.js";

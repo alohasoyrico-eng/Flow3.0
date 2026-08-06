@@ -10,8 +10,8 @@ fs.mkdirSync(dist, { recursive: true });
 
 function rewritePublishedImports(source) {
   return source
-    .replaceAll('"@design-system/components/platforms"', '"../../components/src/platforms/index.js"')
-    .replaceAll('"@design-system/components"', '"../../components/src/index.js"');
+    .replaceAll('"@design-system/components/platforms"', '"#flow/platforms"')
+    .replaceAll('"@design-system/components"', '"#flow/components"');
 }
 
 for (const file of fs.readdirSync(src).filter((entry) => entry.endsWith(".js") || entry.endsWith(".d.ts"))) {

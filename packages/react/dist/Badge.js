@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { badgePlatformContract } from "../../components/src/platforms/index.js";
+import { badgePlatformContract } from "#flow/platforms";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger", "accent"]);
 const validVariants = new Set(["count", "dot", "status", "icon"]);

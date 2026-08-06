@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
-import { chartPanelPlatformContract } from "../../components/src/platforms/index.js";
-import { createChartsPrimitive } from "../../components/src/index.js";
+import { chartPanelPlatformContract } from "#flow/platforms";
+import { createChartsPrimitive } from "#flow/components";
 
 const validVariants = new Set(["sparkline", "bars", "line", "area", "donut", "pareto", "bullet", "comparison", "compact"]);
 const validStates = new Set(["default", "focus", "hover", "warning", "error", "disabled"]);

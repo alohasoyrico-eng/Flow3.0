@@ -3,7 +3,7 @@ import type {
   HTMLAttributes,
   RefAttributes,
 } from "react";
-import type { biometricPromptPlatformContract } from "../../components/src/platforms/index.js";
+import type { biometricPromptPlatformContract } from "#flow/platforms";
 
 export type BiometricPromptVariant = "fingerprint" | "face" | "passcode" | "fallback";
 export type BiometricPromptState = "default" | "focus" | "authenticating" | "success" | "warning" | "error" | "disabled" | "scanning";

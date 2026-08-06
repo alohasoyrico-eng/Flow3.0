@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { spinnerPlatformContract } from "../../components/src/platforms/index.js";
+import { spinnerPlatformContract } from "#flow/platforms";
 
 export type SpinnerDensity = "sm" | "md" | "lg";
 export type SpinnerTone = "accent" | "ink" | "success" | "warning" | "danger";

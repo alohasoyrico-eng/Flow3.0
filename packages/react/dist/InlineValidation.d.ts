@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { inlineValidationPlatformContract } from "../../components/src/platforms/index.js";
+import { inlineValidationPlatformContract } from "#flow/platforms";
 
 export type InlineValidationState = "default" | "info" | "success" | "warning" | "error" | "disabled";
 export type InlineValidationDensity = "sm" | "md" | "lg";

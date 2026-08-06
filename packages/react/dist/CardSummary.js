@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { cardSummaryPlatformContract } from "../../components/src/platforms/index.js";
+import { cardSummaryPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 
 const validVariants = new Set(["physical", "virtual", "compact", "limit"]);

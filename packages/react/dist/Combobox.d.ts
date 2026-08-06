@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import type { comboboxPlatformContract } from "../../components/src/platforms/index.js";
+import type { comboboxPlatformContract } from "#flow/platforms";
 
 export type ComboboxDensity = "sm" | "md" | "lg";
 export type ComboboxState = "default" | "open" | "focus" | "filled" | "empty" | "error" | "disabled";

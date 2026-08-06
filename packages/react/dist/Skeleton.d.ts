@@ -1,5 +1,5 @@
 import type { CSSProperties, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { skeletonPlatformContract } from "../../components/src/platforms/index.js";
+import { skeletonPlatformContract } from "#flow/platforms";
 
 export type SkeletonVariant = "text" | "title" | "circle" | "card" | "pill" | "row" | "media" | "chart" | "table";
 export type SkeletonState = "default" | "loading" | "stale" | "paused" | "loaded" | "disabled";

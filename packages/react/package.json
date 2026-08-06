@@ -233,6 +233,10 @@
       "default": "./dist/TextArea.js"
     }
   },
+  "imports": {
+    "#flow/components": "@design-system/components",
+    "#flow/platforms": "@design-system/components/platforms"
+  },
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "node scripts/build.mjs",

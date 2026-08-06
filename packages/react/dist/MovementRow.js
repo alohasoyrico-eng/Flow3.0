@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { movementRowPlatformContract } from "../../components/src/platforms/index.js";
+import { movementRowPlatformContract } from "#flow/platforms";
 
 const validVariants = new Set(["standard", "refund", "declined", "compact"]);
 const validStates = new Set(["default", "hover", "focus", "pending", "error", "disabled"]);

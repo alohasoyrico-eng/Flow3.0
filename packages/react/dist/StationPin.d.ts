@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
-import type { stationPinPlatformContract } from "../../components/src/platforms/index.js";
+import type { stationPinPlatformContract } from "#flow/platforms";
 
 export type StationPinVariant = "fuel" | "ev" | "service" | "cluster";
 export type StationPinState = "default" | "hover" | "focus" | "selected" | "unavailable" | "disabled";

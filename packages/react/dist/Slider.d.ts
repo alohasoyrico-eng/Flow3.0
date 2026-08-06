@@ -3,7 +3,7 @@ import type {
   InputHTMLAttributes,
   RefAttributes,
 } from "react";
-import { sliderPlatformContract } from "../../components/src/platforms/index.js";
+import { sliderPlatformContract } from "#flow/platforms";
 
 export type SliderVariant = "continuous" | "stepped" | "bounded" | "threshold" | "paired-value";
 export type SliderState = "default" | "focus" | "dragging" | "disabled" | "error" | "complete";

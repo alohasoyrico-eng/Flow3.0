@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import { phoneInputPlatformContract } from "../../components/src/platforms/index.js";
+import { phoneInputPlatformContract } from "#flow/platforms";
 
 export type PhoneInputDensity = "sm" | "md" | "lg";
 export type PhoneInputVariant = "country-code" | "compact" | "otp-handoff" | "readonly";

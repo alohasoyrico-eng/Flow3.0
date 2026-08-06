@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
-import { accordionPlatformContract } from "../../components/src/platforms/index.js";
+import { accordionPlatformContract } from "#flow/platforms";
 
 const validDensities = new Set(["sm", "md", "lg"]);
 

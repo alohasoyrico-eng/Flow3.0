@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
-import { sliderPlatformContract } from "../../components/src/platforms/index.js";
+import { sliderPlatformContract } from "#flow/platforms";
 
 const allowedVariants = new Set(["continuous", "stepped", "bounded", "threshold", "paired-value"]);
 const allowedStates = new Set(["default", "focus", "dragging", "disabled", "error", "complete"]);

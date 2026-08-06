@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { segmentedControlPlatformContract } from "../../components/src/platforms/index.js";
+import { segmentedControlPlatformContract } from "#flow/platforms";
 
 export type SegmentedControlDensity = "sm" | "md" | "lg";
 export type SegmentedControlVariant = "outlined" | "toolbar" | "compact" | "icon-only";

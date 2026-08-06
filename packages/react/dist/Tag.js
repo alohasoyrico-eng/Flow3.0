@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { tagPlatformContract } from "../../components/src/platforms/index.js";
+import { tagPlatformContract } from "#flow/platforms";
 
 const validVariants = new Set(["metadata", "status", "platform", "link"]);
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);

@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { listPlatformContract } from "../../components/src/platforms/index.js";
+import { listPlatformContract } from "#flow/platforms";
 
 const validVariants = new Set(["standard", "compact", "action", "status", "media"]);
 const validStates = new Set(["default", "hover", "selected", "loading", "error", "disabled"]);

@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import { cardSecurityCodeInputPlatformContract } from "../../components/src/platforms/index.js";
+import { cardSecurityCodeInputPlatformContract } from "#flow/platforms";
 
 export type CardSecurityCodeInputDensity = "sm" | "md" | "lg";
 export type CardSecurityCodeInputState = "default" | "filled" | "valid" | "loading" | "error" | "disabled";

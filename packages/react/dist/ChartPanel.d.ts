@@ -3,7 +3,7 @@ import type {
   HTMLAttributes,
   RefAttributes,
 } from "react";
-import type { chartPanelPlatformContract } from "../../components/src/platforms/index.js";
+import type { chartPanelPlatformContract } from "#flow/platforms";
 
 export type ChartPanelVariant = "sparkline" | "bar" | "bars" | "line" | "area" | "donut" | "pareto" | "bullet" | "comparison" | "compact";
 export type ChartPanelState = "default" | "focus" | "hover" | "warning" | "error" | "disabled";

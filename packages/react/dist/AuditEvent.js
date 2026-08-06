@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { auditEventPlatformContract } from "../../components/src/platforms/index.js";
+import { auditEventPlatformContract } from "#flow/platforms";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger", "action"]);
 const validStates = new Set(["default", "hover", "focus", "verified", "warning", "critical", "disabled"]);

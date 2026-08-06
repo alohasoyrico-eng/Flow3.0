@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import { cardNumberInputPlatformContract } from "../../components/src/platforms/index.js";
+import { cardNumberInputPlatformContract } from "#flow/platforms";
 
 export type CardNumberInputDensity = "sm" | "md" | "lg";
 export type CardNumberInputState = "default" | "filled" | "valid" | "loading" | "error" | "disabled";

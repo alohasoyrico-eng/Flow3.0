@@ -3,7 +3,7 @@ import type {
   ForwardRefExoticComponent,
   RefAttributes,
 } from "react";
-import type { floatingActionButtonPlatformContract } from "../../components/src/platforms/index.js";
+import type { floatingActionButtonPlatformContract } from "#flow/platforms";
 
 export type FloatingActionButtonVariant = "primary" | "accent" | "extended" | "mini";
 export type FloatingActionButtonState = "default" | "hover" | "focus" | "pressed" | "loading" | "disabled";

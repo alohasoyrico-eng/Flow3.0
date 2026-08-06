@@ -1,5 +1,5 @@
 import React, { forwardRef, useId } from "react";
-import { motionBoundaryPlatformContract } from "../../components/src/platforms/index.js";
+import { motionBoundaryPlatformContract } from "#flow/platforms";
 
 const validVariants = new Set(["fade", "slide", "collapse", "route"]);
 const validStates = new Set(["idle", "entering", "active", "exiting", "reduced-motion", "disabled"]);

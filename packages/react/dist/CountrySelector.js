@@ -3,8 +3,8 @@ import {
   countryFlagAssetPath,
   normalizeCountryCallingCodeOptions,
   resolveCountryCallingCodeOption,
-} from "../../components/src/index.js";
-import { countrySelectorPlatformContract } from "../../components/src/platforms/index.js";
+} from "#flow/components";
+import { countrySelectorPlatformContract } from "#flow/platforms";
 
 function CountryFlag({ country, className = "" }) {
   const code = String(country ?? "MX").toUpperCase();

@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
-import { checkboxPlatformContract } from "../../components/src/platforms/index.js";
+import { checkboxPlatformContract } from "#flow/platforms";
 
 function normalizeState({ checked, indeterminate, disabled, state, error }) {
   if (disabled) return "disabled";

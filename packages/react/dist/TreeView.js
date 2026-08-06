@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo, useRef, useState } from "react";
-import { treeViewPlatformContract } from "../../components/src/platforms/index.js";
+import { treeViewPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 
 const validDensities = new Set(["sm", "md", "lg"]);

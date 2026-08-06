@@ -4,8 +4,8 @@ import {
   countryCallingCodeOptions,
   normalizeCountryCallingCodeOptions,
   resolveCountryCallingCodeOption,
-} from "../../components/src/index.js";
-import { phoneInputPlatformContract } from "../../components/src/platforms/index.js";
+} from "#flow/components";
+import { phoneInputPlatformContract } from "#flow/platforms";
 
 function resolveCountry({ country, prefix } = {}, countries = countryCallingCodeOptions) {
   return resolveCountryCallingCodeOption({ country, prefix }, countries);

@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import { checkboxPlatformContract } from "../../components/src/platforms/index.js";
+import { checkboxPlatformContract } from "#flow/platforms";
 
 export type CheckboxVariant = "default" | "descriptive" | "select-all" | "compact";
 export type CheckboxState = "unchecked" | "checked" | "indeterminate" | "focus" | "error" | "disabled";

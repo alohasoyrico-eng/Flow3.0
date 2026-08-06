@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { errorPanelPlatformContract } from "../../components/src/platforms/index.js";
+import { errorPanelPlatformContract } from "#flow/platforms";
 import type { ButtonProps } from "./Button.js";
 
 export type ErrorPanelVariant = "inline" | "panel" | "blocking" | "empty-recovery";

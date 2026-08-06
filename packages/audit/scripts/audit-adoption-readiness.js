@@ -41,6 +41,17 @@ function checkReleasePackageMetadata(rootPackage) {
   if (rootPackage.publishConfig?.access !== "public") {
     add("errors", rootPackageFile, 1, "Flow3.0 package publishConfig.access must be public.");
   }
+  const requiredPrivateImports = {
+    "#flow/components": "./packages/components/src/index.js",
+    "#flow/platforms": "./packages/components/src/platforms/index.js",
+    "#flow/tokens": "./packages/tokens/src/index.js",
+    "#flow/tokens-css": "./packages/tokens/styles/tokens.css",
+  };
+  for (const [key, target] of Object.entries(requiredPrivateImports)) {
+    if (rootPackage.imports?.[key] !== target) {
+      add("errors", rootPackageFile, 1, `Flow3.0 package imports must map ${key} to ${target}.`);
+    }
+  }
   for (const peer of ["react", "react-dom"]) {
     if (!rootPackage.peerDependencies?.[peer]) {
       add("errors", rootPackageFile, 1, `Flow3.0 package must declare ${peer} as a peer dependency for React consumers.`);
@@ -125,6 +136,16 @@ function checkReactExportParity(rootPackage, reactPackage, reactIndex, reactType
 }
 
 function checkReactPackageTargets(reactPackage) {
+  const requiredPrivateImports = {
+    "#flow/components": "@design-system/components",
+    "#flow/platforms": "@design-system/components/platforms",
+  };
+  for (const [key, target] of Object.entries(requiredPrivateImports)) {
+    if (reactPackage.imports?.[key] !== target) {
+      add("errors", reactPackageFile, 1, `@design-system/react package imports must map ${key} to ${target} so local repo usage and published usage share one import contract.`);
+    }
+  }
+
   for (const [key, value] of Object.entries(reactPackage.exports ?? {})) {
     const target = typeof value === "string" ? value : value.default;
     const types = typeof value === "object" ? value.types : "";
@@ -179,7 +200,10 @@ function checkReactDoesNotDependOnDocs() {
       add("errors", file, 1, "Published React dist must not import workspace-only @design-system/components; use package-relative imports.");
     }
     if (file.includes(`${path.sep}packages${path.sep}react${path.sep}dist${path.sep}`) && source.includes("@alohasoyrico-eng/flow")) {
-      add("errors", file, 1, "Published React dist must use package-relative imports so it works in source, file, alias, and GitHub Packages installs.");
+      add("errors", file, 1, "Published React dist must use #flow/* private package imports so it works in source, file, alias, and GitHub Packages installs.");
+    }
+    if (file.includes(`${path.sep}packages${path.sep}react${path.sep}dist${path.sep}`) && source.includes("../../components/src")) {
+      add("errors", file, 1, "Published React dist must not deep-import component source paths; use the #flow/* private package imports.");
     }
   }
 }

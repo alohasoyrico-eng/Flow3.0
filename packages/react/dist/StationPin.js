@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
-import { createMapsPrimitive } from "../../components/src/index.js";
-import { stationPinPlatformContract } from "../../components/src/platforms/index.js";
+import { createMapsPrimitive } from "#flow/components";
+import { stationPinPlatformContract } from "#flow/platforms";
 
 const validVariants = new Set(["fuel", "ev", "service", "cluster"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "unavailable", "disabled"]);

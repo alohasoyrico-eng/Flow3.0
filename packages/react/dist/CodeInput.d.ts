@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import { codeInputPlatformContract } from "../../components/src/platforms/index.js";
+import { codeInputPlatformContract } from "#flow/platforms";
 
 export type CodeInputDensity = "sm" | "md" | "lg";
 export type CodeInputVariant = "sms" | "otp" | "approval" | "masked" | "compact";

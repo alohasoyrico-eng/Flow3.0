@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { floatingActionButtonPlatformContract } from "../../components/src/platforms/index.js";
+import { floatingActionButtonPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 
 const validVariants = new Set(["primary", "accent", "extended", "mini"]);

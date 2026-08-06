@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { chipPlatformContract } from "../../components/src/platforms/index.js";
+import { chipPlatformContract } from "#flow/platforms";
 
 export type ChipVariant = "filter" | "input" | "suggestion" | "assist";
 export type ChipTone = "default" | "danger" | "warning";

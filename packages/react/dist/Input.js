@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useState } from "react";
-import { inputPlatformContract } from "../../components/src/platforms/index.js";
+import { inputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 
 const numericVariants = new Set(["number", "currency", "unit"]);

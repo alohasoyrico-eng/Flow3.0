@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useState } from "react";
-import { textAreaPlatformContract } from "../../components/src/platforms/index.js";
+import { textAreaPlatformContract } from "#flow/platforms";
 
 function resolveState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
   if (disabled) return "disabled";
