@@ -255,6 +255,53 @@
   --component-error-panel-empty-icon-size: var(--component-empty-state-icon-size-md);
   --component-card-icon-size-compact: var(--component-field-icon-action-size-sm);
   --component-card-icon-size-md: var(--component-field-icon-action-size-lg);
+  --comp-card-summary-width: min(100%, var(--component-content-size-md));
+  --comp-card-summary-gap-sm: var(--sys-space-sm);
+  --comp-card-summary-gap-md: var(--sys-space-md);
+  --comp-card-summary-gap-lg: var(--sys-space-lg);
+  --comp-card-summary-padding-sm: var(--sys-space-md);
+  --comp-card-summary-padding-md: var(--sys-space-lg);
+  --comp-card-summary-padding-lg: var(--sys-space-xl);
+  --comp-card-summary-radius: var(--sys-frame-radius-surface);
+  --comp-card-summary-metric-radius: var(--sys-radius-md);
+  --comp-card-summary-bg: var(--sys-color-surface-sunken, var(--sys-color-text));
+  --comp-card-summary-bg-virtual: var(--sys-color-action);
+  --comp-card-summary-bg-compact: var(--sys-color-surface);
+  --comp-card-summary-fg: var(--sys-color-action-text);
+  --comp-card-summary-fg-compact: var(--sys-color-text);
+  --comp-card-summary-muted: color-mix(in srgb, var(--comp-card-summary-fg) 62%, transparent);
+  --comp-card-summary-muted-compact: var(--sys-color-text-muted);
+  --comp-card-summary-tone: var(--sys-color-action);
+  --comp-card-summary-tone-virtual: var(--sys-color-info, var(--sys-color-action));
+  --comp-card-summary-tone-warning: var(--sys-color-warning);
+  --comp-card-summary-icon-size-sm: var(--component-icon-size-lg);
+  --comp-card-summary-icon-size-md: var(--component-inline-size-sm);
+  --comp-card-summary-icon-size-lg: calc(var(--component-inline-size-sm) + var(--component-offset-xs));
+  --comp-card-summary-chip-block-sm: var(--component-inline-size-sm);
+  --comp-card-summary-chip-block-md: calc(var(--component-control-min-size) - var(--sys-space-lg));
+  --comp-card-summary-chip-block-lg: var(--component-inline-size-md);
+  --comp-card-summary-chip-inline-sm: var(--component-inline-size-md);
+  --comp-card-summary-chip-inline-md: var(--component-inline-size-md);
+  --comp-card-summary-chip-inline-lg: calc(var(--component-control-min-size) - var(--sys-space-xs));
+  --comp-card-summary-number-size-sm: var(--component-font-size-body);
+  --comp-card-summary-number-size-md: var(--component-font-size-body-lg);
+  --comp-card-summary-number-size-lg: var(--component-font-size-title-md);
+  --comp-card-summary-metric-min-sm: calc(var(--component-control-min-size) * 2);
+  --comp-card-summary-metric-min-md: calc(var(--component-control-min-size) * 2.5);
+  --comp-card-summary-metric-min-lg: calc(var(--component-control-min-size) * 3);
+  --comp-card-summary-shadow-hover: var(--component-depth-card-hover);
+  --comp-card-summary-shadow-active: var(--component-depth-raised-soft);
+  --comp-card-summary-motion-duration: var(--component-duration-state);
+  --comp-card-summary-motion-press-duration: var(--component-duration-press);
+  --comp-card-summary-motion-ease: var(--component-ease-state);
+  --comp-card-summary-motion-press-ease: var(--component-ease-press);
+  --comp-card-summary-hover-transform: var(--component-transform-lift-hover);
+  --comp-card-summary-focus-width: var(--component-focus-ring-width);
+  --comp-card-summary-focus-color: var(--sys-color-focus);
+  --comp-card-summary-focus-offset: var(--component-focus-ring-offset);
+  --comp-card-summary-disabled-border: var(--component-disabled-border);
+  --comp-card-summary-disabled-text: var(--component-disabled-text);
+  --comp-card-summary-disabled-opacity: var(--component-opacity-disabled);
   --component-dialog-icon-size: var(--component-control-min-size);
   --component-dialog-icon-size-sm: var(--component-list-icon-box-size);
   --component-dialog-icon-size-lg: var(--component-inline-size-lg);
@@ -8612,54 +8659,54 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary {
-  --card-summary-gap: var(--sys-space-md);
-  --card-summary-padding: var(--sys-space-lg);
-  --card-summary-icon-size: var(--component-inline-size-sm);
-  --card-summary-chip-block: calc(var(--component-control-min-size) - var(--sys-space-lg));
-  --card-summary-chip-inline: var(--component-inline-size-md);
-  --card-summary-number-size: var(--component-font-size-body-lg);
-  --card-summary-metric-min: calc(var(--component-control-min-size) * 2.5);
-  --card-summary-tone: var(--sys-color-action);
-  --card-summary-bg: var(--sys-color-surface-sunken, var(--sys-color-text));
-  --card-summary-fg: var(--sys-color-action-text);
-  --card-summary-muted: color-mix(in srgb, var(--card-summary-fg) 62%, transparent);
+  --card-summary-gap: var(--comp-card-summary-gap-md);
+  --card-summary-padding: var(--comp-card-summary-padding-md);
+  --card-summary-icon-size: var(--comp-card-summary-icon-size-md);
+  --card-summary-chip-block: var(--comp-card-summary-chip-block-md);
+  --card-summary-chip-inline: var(--comp-card-summary-chip-inline-md);
+  --card-summary-number-size: var(--comp-card-summary-number-size-md);
+  --card-summary-metric-min: var(--comp-card-summary-metric-min-md);
+  --card-summary-tone: var(--comp-card-summary-tone);
+  --card-summary-bg: var(--comp-card-summary-bg);
+  --card-summary-fg: var(--comp-card-summary-fg);
+  --card-summary-muted: var(--comp-card-summary-muted);
   aspect-ratio: 1.586;
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--card-summary-fg) 8%, transparent), transparent 42%),
     var(--card-summary-bg);
-  border-radius: var(--sys-frame-radius-surface);
+  border-radius: var(--comp-card-summary-radius);
   color: var(--card-summary-fg);
   gap: var(--card-summary-gap);
-  inline-size: min(100%, var(--component-content-size-md));
+  inline-size: var(--comp-card-summary-width);
   overflow: hidden;
   padding: var(--card-summary-padding);
   position: relative;
   transition:
-    background-color var(--component-duration-state) var(--component-ease-state),
-    border-color var(--component-duration-state) var(--component-ease-state),
-    box-shadow var(--component-duration-state) var(--component-ease-state),
-    color var(--component-duration-state) var(--component-ease-state),
-    transform var(--component-duration-press) var(--component-ease-press);
+    background-color var(--comp-card-summary-motion-duration) var(--comp-card-summary-motion-ease),
+    border-color var(--comp-card-summary-motion-duration) var(--comp-card-summary-motion-ease),
+    box-shadow var(--comp-card-summary-motion-duration) var(--comp-card-summary-motion-ease),
+    color var(--comp-card-summary-motion-duration) var(--comp-card-summary-motion-ease),
+    transform var(--comp-card-summary-motion-press-duration) var(--comp-card-summary-motion-press-ease);
 }
 
 .card-summary[data-density="sm"] {
-  --card-summary-gap: var(--sys-space-sm);
-  --card-summary-padding: var(--sys-space-md);
-  --card-summary-icon-size: var(--component-icon-size-lg);
-  --card-summary-chip-block: var(--component-inline-size-sm);
-  --card-summary-chip-inline: var(--component-inline-size-md);
-  --card-summary-number-size: var(--component-font-size-body);
-  --card-summary-metric-min: calc(var(--component-control-min-size) * 2);
+  --card-summary-gap: var(--comp-card-summary-gap-sm);
+  --card-summary-padding: var(--comp-card-summary-padding-sm);
+  --card-summary-icon-size: var(--comp-card-summary-icon-size-sm);
+  --card-summary-chip-block: var(--comp-card-summary-chip-block-sm);
+  --card-summary-chip-inline: var(--comp-card-summary-chip-inline-sm);
+  --card-summary-number-size: var(--comp-card-summary-number-size-sm);
+  --card-summary-metric-min: var(--comp-card-summary-metric-min-sm);
 }
 
 .card-summary[data-density="lg"] {
-  --card-summary-gap: var(--sys-space-lg);
-  --card-summary-padding: var(--sys-space-xl);
-  --card-summary-icon-size: calc(var(--component-inline-size-sm) + var(--component-offset-xs));
-  --card-summary-chip-block: var(--component-inline-size-md);
-  --card-summary-chip-inline: calc(var(--component-control-min-size) - var(--sys-space-xs));
-  --card-summary-number-size: var(--component-font-size-title-md);
-  --card-summary-metric-min: calc(var(--component-control-min-size) * 3);
+  --card-summary-gap: var(--comp-card-summary-gap-lg);
+  --card-summary-padding: var(--comp-card-summary-padding-lg);
+  --card-summary-icon-size: var(--comp-card-summary-icon-size-lg);
+  --card-summary-chip-block: var(--comp-card-summary-chip-block-lg);
+  --card-summary-chip-inline: var(--comp-card-summary-chip-inline-lg);
+  --card-summary-number-size: var(--comp-card-summary-number-size-lg);
+  --card-summary-metric-min: var(--comp-card-summary-metric-min-lg);
 }
 
 .card-summary[data-full-width="true"] {
@@ -8667,12 +8714,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-variant="virtual"] {
-  --card-summary-tone: var(--sys-color-info, var(--sys-color-action));
-  --card-summary-bg: var(--sys-color-action);
+  --card-summary-tone: var(--comp-card-summary-tone-virtual);
+  --card-summary-bg: var(--comp-card-summary-bg-virtual);
 }
 
 .card-summary[data-state="warning"] {
-  --card-summary-tone: var(--sys-color-warning);
+  --card-summary-tone: var(--comp-card-summary-tone-warning);
   border-color: color-mix(in srgb, var(--sys-color-warning) 38%, var(--sys-color-border));
 }
 
@@ -8682,26 +8729,26 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .card-summary[data-state="hover"],
 .card-summary:hover {
-  box-shadow: var(--component-depth-card-hover);
-  transform: var(--component-transform-lift-hover);
+  box-shadow: var(--comp-card-summary-shadow-hover);
+  transform: var(--comp-card-summary-hover-transform);
 }
 
 .card-summary[data-state="focus"],
 .card-summary:focus-visible {
-  border-color: var(--sys-color-focus);
-  outline: var(--component-focus-ring-width) solid color-mix(in srgb, var(--sys-color-focus) 35%, transparent);
-  outline-offset: var(--component-focus-ring-offset);
+  border-color: var(--comp-card-summary-focus-color);
+  outline: var(--comp-card-summary-focus-width) solid color-mix(in srgb, var(--comp-card-summary-focus-color) 35%, transparent);
+  outline-offset: var(--comp-card-summary-focus-offset);
 }
 
 .card-summary[data-state="active"] {
   border-color: color-mix(in srgb, var(--card-summary-tone) 34%, var(--sys-color-border));
-  box-shadow: var(--component-depth-raised-soft);
+  box-shadow: var(--comp-card-summary-shadow-active);
 }
 
 .card-summary[data-state="disabled"] {
-  border-color: var(--component-disabled-border);
-  color: var(--component-disabled-text);
-  opacity: var(--component-opacity-disabled);
+  border-color: var(--comp-card-summary-disabled-border);
+  color: var(--comp-card-summary-disabled-text);
+  opacity: var(--comp-card-summary-disabled-opacity);
 }
 
 .card-summary header {
@@ -8771,9 +8818,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-variant="compact"] {
-  --card-summary-bg: var(--sys-color-surface);
-  --card-summary-fg: var(--sys-color-text);
-  --card-summary-muted: var(--sys-color-text-muted);
+  --card-summary-bg: var(--comp-card-summary-bg-compact);
+  --card-summary-fg: var(--comp-card-summary-fg-compact);
+  --card-summary-muted: var(--comp-card-summary-muted-compact);
   aspect-ratio: auto;
   --card-summary-padding: var(--sys-space-md);
   align-items: center;
@@ -8835,7 +8882,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .card-summary .card-summary__metrics {
   background: color-mix(in srgb, var(--card-summary-fg) 10%, transparent);
   border: var(--component-border-width) solid color-mix(in srgb, var(--card-summary-fg) 14%, transparent);
-  border-radius: var(--sys-radius-md);
+  border-radius: var(--comp-card-summary-metric-radius);
   grid-template-columns: repeat(auto-fit, minmax(var(--card-summary-metric-min), 1fr));
   padding: var(--sys-space-sm);
 }
