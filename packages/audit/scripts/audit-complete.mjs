@@ -65,6 +65,7 @@ const expectedAuditFiles = new Set([
   "audit-template-composition.js",
   "audit-voice-contracts.js",
   "report-foundation-accessibility-cascade.js",
+  "report-component-visual-cascade.js",
   "report-foundation-depth-cascade.js",
   "report-foundation-energy-cascade.js",
   "report-foundation-frame-cascade.js",
@@ -151,6 +152,7 @@ const checks = [
   ["component demo registry", () => run("node", ["packages/audit/scripts/audit-component-demo-registry.mjs"])],
   ["component catalog classification", () => run("node", ["packages/audit/scripts/audit-component-catalog-classification.mjs"])],
   ["component demo interactions", () => run("node", ["packages/audit/scripts/audit-component-demo-interactions.mjs"])],
+  ["component visual cascade report", () => run("node", ["packages/audit/scripts/report-component-visual-cascade.js", "--check"])],
 ];
 
 const summary = {
