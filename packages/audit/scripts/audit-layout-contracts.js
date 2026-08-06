@@ -40,8 +40,8 @@ function checkFullWidthDemos() {
   const css = readDocsCss();
   const packageCssFile = path.join(root, "packages/components/styles/components.css");
   const packageCss = fs.existsSync(packageCssFile) ? read(packageCssFile) : "";
-  if (!docsRenderer.includes('node.setAttribute("data-full-width", String(Boolean(demo.fullWidth)))')) {
-    add("errors", docsRendererFile, 1, "Package-backed component demos must expose data-full-width from content.");
+  if (!docsRenderer.includes('data-full-width="${String(Boolean(fullWidth))}"')) {
+    add("errors", docsRendererFile, 1, "React-backed component demos must expose data-full-width from content.");
   }
   requireCss(/\.docs-package-demo\[data-full-width="true"\]\s*{[^}]*inline-size:\s*100%;[^}]*max-inline-size:\s*100%;/s, "Package-backed full-width demos must fill their documentation container through the docs package hook.");
   if (!/\.button\[data-full-width="true"\]\s*{[^}]*inline-size:\s*100%;/s.test(packageCss)) {

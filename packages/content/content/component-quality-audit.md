@@ -120,7 +120,7 @@ Animated Moment is the resolved generic component name. It remains a bounded loc
 - 2026-07-13: Added package hooks and docs behavior for Tabs, Slider, and Tree View.
 - 2026-07-13: Improved Phone Input masking and Date Picker calendar panel without changing foundations or primitives.
 - 2026-07-13: Improved Motion Boundary and Animated Moment local motion quality without changing foundations, primitives, or token naming.
-- 2026-07-16: Replaced docs component adapters with the Package component registry; all 50 documented components must render through `componentDemo()` and `renderComponentDemo`.
+- 2026-08-05: Removed the transitional DOM demo renderer from the Package component registry; all documented components must render through React islands backed by `componentDemoProps`, and missing React demos must surface as visible docs errors.
 - 2026-07-13: Added `audit:component-demo-interactions` so key docs interactions must update state, ARIA, hidden panels, values, and dismissal behavior before validation passes.
 - 2026-07-13: Added audited behavior contracts for the 19 contract-pending components, separating package-owned, docs-only, and pattern-owned behavior.
 - 2026-07-13: Started component module split by moving Badge, Chip, and Tag into `packages/components/src/components/status.js` while preserving public imports from `src/index.js`.

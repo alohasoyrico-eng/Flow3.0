@@ -33,12 +33,12 @@ Docs still consumes the transitional Package component JavaScript bridge through
 
 - `apps/docs/component-demo.js`
   - imports `#design-system/components`
-  - uses `renderComponentDemo`
+  - uses `componentDemoProps` to normalize React demo props
 - `apps/docs/stateful-component-interactions.js`
   - imports `#design-system/components`
   - uses public hydrators
 
-This bridge is not the long-term product implementation. It exists so the current static docs app can render while Flow migrates components one by one. For any component with a React implementation, the source of truth is:
+The DOM demo bridge is no longer part of the product implementation. Docs renders component examples through React islands. For component APIs, the source of truth is:
 
 - `@design-system/react`
   - React component API, types, events, and refs.
@@ -142,11 +142,11 @@ They are audited but not active in the monorepo. The docs manifest uses package 
    - Status: in progress through `#design-system/*` aliases backed by package exports.
 2. Docs must not import component internals such as `components/fields.js`, `registry.js`, or package CSS internals.
    - Status: done for component JS and CSS runtime.
-3. Docs demos may render migrated components through React components from `@design-system/react`; non-migrated components may use public factories, public hydrators, or `renderComponentDemo` as a transitional bridge.
+3. Docs demos must render components through React components from `@design-system/react`; missing React coverage must be visible as a docs error, not hidden behind a DOM fallback.
 4. Design System package tests must run without `apps/docs`.
 5. Docs runtime tests must run against a declared Design System package version.
 6. Integration audits may compare docs content to Design System contracts, but they should be explicitly named as integration checks.
-7. Platform contracts must mark React as the primary product component target and DOM as a transitional static renderer.
+7. Platform contracts must mark React as the primary product component target; DOM demo renderers are not an accepted parallel implementation path.
 
 ## Public Package Surface
 

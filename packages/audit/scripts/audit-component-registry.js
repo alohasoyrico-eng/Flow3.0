@@ -15,110 +15,71 @@ const removedDocsAdapterFiles = [
   "apps/docs/component-table-demo-adapter.js",
 ].map((file) => path.join(root, file));
 const docsRendererFile = path.join(root, "apps/docs/component-demo.js");
-const unprefixedFactoryComponents = new Map([
-  ["empty-state", "createEmptyState"],
-  ["error-panel", "createErrorPanel"],
-  ["floating-action-button", "createFloatingActionButton"],
-  ["inline-validation", "createInlineValidation"],
-  ["progress-indicator", "createProgressIndicator"],
-  ["spinner", "createSpinner"],
-  ["skeleton", "createSkeleton"],
-  ["accordion", "createAccordion"],
-  ["slider", "createSlider"],
-  ["tree-view", "createTreeView"],
-  ["segmented-control", "createSegmentedControl"],
-  ["breadcrumbs", "createBreadcrumbs"],
-  ["pagination", "createPagination"],
-  ["stepper", "createStepper"],
-  ["toast", "createToast"],
-]);
+
+const forbiddenPackageRegistryApi = [
+  "componentRegistry",
+  "renderComponentDemo",
+  "renderComponent(",
+  "listComponents",
+  "hasComponent",
+];
 
 function checkComponentRegistry() {
   const registrySource = read(registryFile);
   const indexSource = read(indexFile);
-
-  for (const component of requiredComponentContracts) {
-    const key = component.includes("-") ? `"${component}"` : component;
-    if (["accordion", "animated-moment", "audit-event", "avatar", "badge", "biometric-prompt", "breadcrumbs", "button", "card", "card-expiry-input", "card-number-input", "card-security-code-input", "card-summary", "chart-panel", "checkbox", "chip", "code-input", "combobox", "country-selector", "date-picker", "date-range-picker", "dialog", "drawer", "empty-state", "error-panel", "floating-action-button", "icon-button", "inline-validation", "input", "kpi-tile", "list", "menu", "motion-boundary", "movement-row", "pagination", "phone-input", "popover", "progress-indicator", "quick-action", "radio-button", "route-summary", "station-pin", "select", "segmented-control", "skeleton", "slider", "spinner", "stepper", "switch", "tabs", "table", "tag", "text-area", "toast", "tooltip", "tree-view"].includes(component)) {
-      const label = component === "accordion" ? "Accordion" : component === "animated-moment" ? "Animated Moment" : component === "audit-event" ? "Audit Event" : component === "avatar" ? "Avatar" : component === "badge" ? "Badge" : component === "biometric-prompt" ? "Biometric Prompt" : component === "breadcrumbs" ? "Breadcrumbs" : component === "button" ? "Button" : component === "card" ? "Card" : component === "card-expiry-input" ? "Card Expiry Input" : component === "card-number-input" ? "Card Number Input" : component === "card-security-code-input" ? "Card Security Code Input" : component === "card-summary" ? "Card Summary" : component === "chart-panel" ? "Chart Panel" : component === "checkbox" ? "Checkbox" : component === "chip" ? "Chip" : component === "code-input" ? "Code Input" : component === "combobox" ? "Combobox" : component === "country-selector" ? "Country Selector" : component === "date-picker" ? "Date Picker" : component === "date-range-picker" ? "Date Range Picker" : component === "dialog" ? "Dialog" : component === "drawer" ? "Drawer" : component === "empty-state" ? "Empty State" : component === "error-panel" ? "Error Panel" : component === "floating-action-button" ? "Floating Action Button" : component === "icon-button" ? "Icon Button" : component === "inline-validation" ? "Inline Validation" : component === "input" ? "Input" : component === "kpi-tile" ? "KPI Tile" : component === "list" ? "List" : component === "menu" ? "Menu" : component === "motion-boundary" ? "Motion Boundary" : component === "movement-row" ? "Movement Row" : component === "pagination" ? "Pagination" : component === "phone-input" ? "Phone Input" : component === "popover" ? "Popover" : component === "progress-indicator" ? "Progress Indicator" : component === "quick-action" ? "Quick Action" : component === "radio-button" ? "Radio Button" : component === "route-summary" ? "Route Summary" : component === "station-pin" ? "Station Pin" : component === "segmented-control" ? "Segmented Control" : component === "skeleton" ? "Skeleton" : component === "slider" ? "Slider" : component === "spinner" ? "Spinner" : component === "stepper" ? "Stepper" : component === "switch" ? "Switch" : component === "tabs" ? "Tabs" : component === "table" ? "Table" : component === "tag" ? "Tag" : component === "text-area" ? "Text Area" : component === "toast" ? "Toast" : component === "tooltip" ? "Tooltip" : component === "tree-view" ? "Tree View" : "Select";
-      const factory = component === "accordion" ? "createAccordion" : component === "animated-moment" ? "createAnimatedMoment" : component === "audit-event" ? "createAuditEvent" : component === "avatar" ? "createTransitionalAvatar" : component === "badge" ? "createTransitionalBadge" : component === "biometric-prompt" ? "createBiometricPrompt" : component === "breadcrumbs" ? "createBreadcrumbs" : component === "button" ? "createTransitionalActionButton" : component === "card" ? "createCard" : component === "card-expiry-input" ? "createTransitionalPaymentCardExpiryInput" : component === "card-number-input" ? "createTransitionalPaymentCardNumberInput" : component === "card-security-code-input" ? "createTransitionalPaymentCardSecurityCodeInput" : component === "card-summary" ? "createCardSummary" : component === "chart-panel" ? "createChartPanel" : component === "checkbox" ? "createTransitionalChoiceCheckbox" : component === "chip" ? "createTransitionalChip" : component === "code-input" ? "createTransitionalSecurityCodeInput" : component === "combobox" ? "createCombobox" : component === "country-selector" ? "createCountrySelector" : component === "date-picker" ? "createTransitionalDatePicker" : component === "date-range-picker" ? "createTransitionalDateRangePicker" : component === "dialog" ? "createDialog" : component === "drawer" ? "createDrawer" : component === "empty-state" ? "createEmptyState" : component === "error-panel" ? "createErrorPanel" : component === "floating-action-button" ? "createFloatingActionButton" : component === "icon-button" ? "createTransitionalActionIconButton" : component === "inline-validation" ? "createInlineValidation" : component === "input" ? "createTransitionalFieldInput" : component === "kpi-tile" ? "createKpiTile" : component === "list" ? "createList" : component === "menu" ? "createMenu" : component === "motion-boundary" ? "createMotionBoundary" : component === "movement-row" ? "createMovementRow" : component === "pagination" ? "createPagination" : component === "phone-input" ? "createTransitionalPhoneInput" : component === "popover" ? "createPopover" : component === "progress-indicator" ? "createProgressIndicator" : component === "quick-action" ? "createQuickAction" : component === "radio-button" ? "createTransitionalChoiceRadioButton" : component === "route-summary" ? "createRouteSummary" : component === "station-pin" ? "createStationPin" : component === "segmented-control" ? "createSegmentedControl" : component === "skeleton" ? "createSkeleton" : component === "slider" ? "createSlider" : component === "spinner" ? "createSpinner" : component === "stepper" ? "createStepper" : component === "switch" ? "createTransitionalChoiceSwitch" : component === "tabs" ? "createTabs" : component === "table" ? "createTable" : component === "tag" ? "createTransitionalTag" : component === "text-area" ? "createTransitionalFieldTextArea" : component === "toast" ? "createToast" : component === "tooltip" ? "createTransitionalTooltip" : component === "tree-view" ? "createTreeView" : "createTransitionalFieldSelect";
-      if (!registrySource.includes(`${label} is React-primary`) || registrySource.includes(`${key}: ${factory}`)) {
-        add("errors", registryFile, 1, `${label} registry entry must reject DOM rendering and route docs through the React component.`);
-      }
-      continue;
-    }
-    const expectedFactory = unprefixedFactoryComponents.get(component);
-    const expectedFactoryReference = expectedFactory ? `${key}: ${expectedFactory}` : `${key}: create`;
-    if (!registrySource.includes(expectedFactoryReference)) {
-      add("errors", registryFile, 1, `Package component registry missing gold component: ${component}.`);
-    }
-  }
-
-  for (const exportName of ["componentRegistry", "renderComponent", "renderComponentDemo", "componentDemoProps", "listComponents", "hasComponent"]) {
-    if (!indexSource.includes(exportName)) {
-      add("errors", indexFile, 1, `Design System package index must export ${exportName}.`);
-    }
-  }
-
-  if (!registrySource.includes("componentDemoProps") || !registrySource.includes("renderComponentDemo")) {
-    add("errors", registryFile, 1, "Package component registry must own demo prop normalization and demo rendering.");
-  }
-
   const docsRendererSource = read(docsRendererFile);
-  const docsRendererAuditSource = docsRendererSource.replace(/reactIsland\("([^"]+)"/g, 'data-react-component="$1"');
-  if (!docsRendererSource.includes("renderComponentDemo")) {
-    add("errors", docsRendererFile, 1, "Docs component demo renderer must consume the official Design System registry demo renderer.");
+
+  if (!registrySource.includes("export function componentDemoProps")) {
+    add("errors", registryFile, 1, "Package component registry must only own componentDemoProps normalization for React demos.");
   }
-  for (const snippet of ["componentDemoProps", "reactAccordionDemo", 'data-react-component="accordion"', 'if (component === "accordion") return reactAccordionDemo(demo);', "reactAvatarDemo", 'data-react-component="avatar"', 'if (component === "avatar") return reactAvatarDemo(demo);', "reactBadgeDemo", 'data-react-component="badge"', 'if (component === "badge") return reactBadgeDemo(demo);', "reactBreadcrumbsDemo", 'data-react-component="breadcrumbs"', 'if (component === "breadcrumbs") return reactBreadcrumbsDemo(demo);', "reactChipDemo", 'data-react-component="chip"', 'if (component === "chip") return reactChipDemo(demo);', "reactTagDemo", 'data-react-component="tag"', 'if (component === "tag") return reactTagDemo(demo);', "reactButtonDemo", 'data-react-component="button"', 'if (component === "button") return reactButtonDemo(demo);', "reactCardDemo", 'data-react-component="card"', 'if (component === "card") return reactCardDemo(demo);', "reactCardExpiryInputDemo", 'data-react-component="card-expiry-input"', 'if (component === "card-expiry-input") return reactCardExpiryInputDemo(demo);', "reactCardNumberInputDemo", 'data-react-component="card-number-input"', 'if (component === "card-number-input") return reactCardNumberInputDemo(demo);', "reactCardSecurityCodeInputDemo", 'data-react-component="card-security-code-input"', 'if (component === "card-security-code-input") return reactCardSecurityCodeInputDemo(demo);', "reactCheckboxDemo", 'data-react-component="checkbox"', 'if (component === "checkbox") return reactCheckboxDemo(demo);', "reactCodeInputDemo", 'data-react-component="code-input"', 'if (component === "code-input") return reactCodeInputDemo(demo);', "reactComboboxDemo", 'data-react-component="combobox"', 'if (component === "combobox") return reactComboboxDemo(demo);', "reactCountrySelectorDemo", 'data-react-component="country-selector"', 'if (component === "country-selector") return reactCountrySelectorDemo(demo);', "reactDatePickerDemo", 'data-react-component="date-picker"', 'if (component === "date-picker") return reactDatePickerDemo(demo);', "reactDateRangePickerDemo", 'data-react-component="date-range-picker"', 'if (component === "date-range-picker") return reactDateRangePickerDemo(demo);', "reactDrawerDemo", 'data-react-component="drawer"', 'if (component === "drawer") return reactDrawerDemo(demo);', "reactEmptyStateDemo", 'data-react-component="empty-state"', 'if (component === "empty-state") return reactEmptyStateDemo(demo);', "reactErrorPanelDemo", 'data-react-component="error-panel"', 'if (component === "error-panel") return reactErrorPanelDemo(demo);', "reactFloatingActionButtonDemo", 'data-react-component="floating-action-button"', 'if (component === "floating-action-button") return reactFloatingActionButtonDemo(demo);', "reactInlineValidationDemo", 'data-react-component="inline-validation"', 'if (component === "inline-validation") return reactInlineValidationDemo(demo);', "reactInputDemo", 'data-react-component="input"', 'if (component === "input") return reactInputDemo(demo);', "reactKpiTileDemo", 'data-react-component="kpi-tile"', 'if (component === "kpi-tile") return reactKpiTileDemo(demo);', "reactListDemo", 'data-react-component="list"', 'if (component === "list") return reactListDemo(demo);', "reactMenuDemo", 'data-react-component="menu"', 'if (component === "menu") return reactMenuDemo(demo);', "reactMovementRowDemo", 'data-react-component="movement-row"', 'if (component === "movement-row") return reactMovementRowDemo(demo);', "reactPaginationDemo", 'data-react-component="pagination"', 'if (component === "pagination") return reactPaginationDemo(demo);', "reactPhoneInputDemo", 'data-react-component="phone-input"', 'if (component === "phone-input") return reactPhoneInputDemo(demo);', "reactProgressIndicatorDemo", 'data-react-component="progress-indicator"', 'if (component === "progress-indicator") return reactProgressIndicatorDemo(demo);', "reactQuickActionDemo", 'data-react-component="quick-action"', 'if (component === "quick-action") return reactQuickActionDemo(demo);', "reactRadioButtonDemo", 'data-react-component="radio-button"', 'if (component === "radio-button") return reactRadioButtonDemo(demo);', "reactRouteSummaryDemo", 'data-react-component="route-summary"', 'if (component === "route-summary") return reactRouteSummaryDemo(demo);', "reactSelectDemo", 'data-react-component="select"', 'if (component === "select") return reactSelectDemo(demo);', "reactSegmentedControlDemo", 'data-react-component="segmented-control"', 'if (component === "segmented-control") return reactSegmentedControlDemo(demo);', "reactSkeletonDemo", 'data-react-component="skeleton"', 'if (component === "skeleton") return reactSkeletonDemo(demo);', "reactSliderDemo", 'data-react-component="slider"', 'if (component === "slider") return reactSliderDemo(demo);', "reactSpinnerDemo", 'data-react-component="spinner"', 'if (component === "spinner") return reactSpinnerDemo(demo);', "reactStepperDemo", 'data-react-component="stepper"', 'if (component === "stepper") return reactStepperDemo(demo);', "reactSwitchDemo", 'data-react-component="switch"', 'if (component === "switch") return reactSwitchDemo(demo);', "reactTabsDemo", 'data-react-component="tabs"', 'if (component === "tabs") return reactTabsDemo(demo);', "reactTableDemo", 'data-react-component="table"', 'if (component === "table") return reactTableDemo(demo);', "reactTextAreaDemo", 'data-react-component="text-area"', 'if (component === "text-area") return reactTextAreaDemo(demo);', "reactToastDemo", 'data-react-component="toast"', 'if (component === "toast") return reactToastDemo(demo);', "reactTreeViewDemo", 'data-react-component="tree-view"', 'if (component === "tree-view") return reactTreeViewDemo(demo);']) {
-    if (!docsRendererAuditSource.includes(snippet)) {
-      add("errors", docsRendererFile, 1, `Docs Button demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
+
+  for (const forbidden of forbiddenPackageRegistryApi) {
+    if (registrySource.includes(forbidden)) {
+      add("errors", registryFile, 1, `Package component registry must not expose transitional DOM demo API: ${forbidden}.`);
     }
   }
-  for (const snippet of ["reactStationPinDemo", 'data-react-component="station-pin"', 'if (component === "station-pin") return reactStationPinDemo(demo);']) {
-    if (!docsRendererAuditSource.includes(snippet)) {
-      add("errors", docsRendererFile, 1, `Docs Station Pin demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
+
+  if (!indexSource.includes("componentDemoProps")) {
+    add("errors", indexFile, 1, "Design System package index must export componentDemoProps.");
+  }
+
+  for (const forbidden of forbiddenPackageRegistryApi) {
+    if (indexSource.includes(forbidden)) {
+      add("errors", indexFile, 1, `Design System package index must not export transitional DOM demo API: ${forbidden}.`);
     }
   }
-  for (const snippet of ["reactCardSummaryDemo", 'data-react-component="card-summary"', 'if (component === "card-summary") return reactCardSummaryDemo(demo);']) {
-    if (!docsRendererAuditSource.includes(snippet)) {
-      add("errors", docsRendererFile, 1, `Docs Card Summary demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
+
+  if (!docsRendererSource.includes("componentDemoProps")) {
+    add("errors", docsRendererFile, 1, "Docs component demo renderer must consume componentDemoProps from the Design System package.");
+  }
+
+  if (!docsRendererSource.includes("docs-demo-error")) {
+    add("errors", docsRendererFile, 1, "Docs component demo renderer must show a visible error when a React demo is missing.");
+  }
+
+  for (const forbidden of ["renderComponentDemo", "renderComponent(", "componentRegistry"]) {
+    if (docsRendererSource.includes(forbidden)) {
+      add("errors", docsRendererFile, 1, `Docs component demo renderer must not use transitional DOM demo API: ${forbidden}.`);
     }
   }
-  for (const snippet of ["reactChartPanelDemo", 'data-react-component="chart-panel"', 'if (component === "chart-panel") return reactChartPanelDemo(demo);']) {
-    if (!docsRendererAuditSource.includes(snippet)) {
-      add("errors", docsRendererFile, 1, `Docs Chart Panel demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
-    }
-  }
-  for (const snippet of ["reactAuditEventDemo", 'data-react-component="audit-event"', 'if (component === "audit-event") return reactAuditEventDemo(demo);']) {
-    if (!docsRendererAuditSource.includes(snippet)) {
-      add("errors", docsRendererFile, 1, `Docs Audit Event demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
-    }
-  }
-  for (const snippet of ["reactAnimatedMomentDemo", 'data-react-component="animated-moment"', 'if (component === "animated-moment") return reactAnimatedMomentDemo(demo);']) {
-    if (!docsRendererAuditSource.includes(snippet)) {
-      add("errors", docsRendererFile, 1, `Docs Animated Moment demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
-    }
-  }
-  for (const snippet of ["reactMotionBoundaryDemo", 'data-react-component="motion-boundary"', 'if (component === "motion-boundary") return reactMotionBoundaryDemo(demo);']) {
-    if (!docsRendererAuditSource.includes(snippet)) {
-      add("errors", docsRendererFile, 1, `Docs Motion Boundary demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
-    }
-  }
-  for (const snippet of ["reactBiometricPromptDemo", 'data-react-component="biometric-prompt"', 'if (component === "biometric-prompt") return reactBiometricPromptDemo(demo);']) {
-    if (!docsRendererAuditSource.includes(snippet)) {
-      add("errors", docsRendererFile, 1, `Docs Biometric Prompt demo must mount the React component before registry DOM rendering; missing ${snippet}.`);
-    }
-  }
-  if (docsRendererSource.indexOf('if (component === "button") return reactButtonDemo(demo);') > docsRendererSource.indexOf("renderComponentDemo(component, demo)")) {
-    add("errors", docsRendererFile, 1, "Docs Button demo must short-circuit to React before calling renderComponentDemo.");
-  }
+
   if (/import\s+\{[^}]*create[A-Z]/.test(docsRendererSource) || /\bcreate[A-Z][A-Za-z0-9_]*\(/.test(docsRendererSource.replace(/\bdocument\.create[A-Z][A-Za-z0-9_]*\(/g, ""))) {
     add("errors", docsRendererFile, 1, "Docs component demo renderer must not import or call create* factories directly.");
   }
 
+  const docsRendererAuditSource = docsRendererSource.replace(/reactIsland\("([^"]+)"/g, 'data-react-component="$1"');
+  for (const component of requiredComponentContracts) {
+    if (!docsRendererAuditSource.includes(`data-react-component="${component}"`)) {
+      add("errors", docsRendererFile, 1, `Docs demo renderer must mount ${component} through a React island.`);
+    }
+    if (!docsRendererSource.includes(`if (component === "${component}")`)) {
+      add("errors", docsRendererFile, 1, `Docs demo renderer must short-circuit ${component} before the missing-demo error.`);
+    }
+  }
+
   for (const file of removedDocsAdapterFiles) {
     if (require("fs").existsSync(file)) {
-      add("errors", file, 1, "Docs component adapters are no longer allowed; consume apps/docs/component-demo.js and the Design System registry.");
+      add("errors", file, 1, "Docs component adapters are no longer allowed; consume apps/docs/component-demo.js and React islands.");
     }
   }
 }
