@@ -1,7 +1,6 @@
 import assert from "node:assert/strict";
 import {
   hydrateChartPanel,
-  createMotionBoundary,
   createAnimationAsset,
   createChartsPrimitive,
   countryFlagAssetPath,
@@ -117,6 +116,9 @@ import {
   menuPlatformAdapters,
   menuPlatformContract,
   menuPlatformProps,
+  motionBoundaryPlatformAdapters,
+  motionBoundaryPlatformContract,
+  motionBoundaryPlatformProps,
   movementRowPlatformAdapters,
   movementRowPlatformContract,
   movementRowPlatformProps,
@@ -179,7 +181,7 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
 import { createAuditEvent } from "../src/components/display.js?v=3";
-import { createAnimatedMoment } from "../src/components/motion.js?v=5";
+import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
 import { createCardSummary, createChartPanel, createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
@@ -664,7 +666,16 @@ assert.deepEqual(treeViewPlatformProps(), componentContracts.treeView.props.map(
 assert.deepEqual(Object.keys(treeViewPlatformAdapters), ["react"]);
 assert.equal(treeViewPlatformAdapters.react.componentName, "TreeView");
 assert.equal(treeViewPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.motionBoundary.factory, "createMotionBoundary");
+assert.equal(componentContracts.motionBoundary.factory, "@design-system/react/motion-boundary");
+assert.equal(componentContracts.motionBoundary.internalFactory, "createMotionBoundary");
+assert.equal(motionBoundaryPlatformContract.id, "motion-boundary");
+assert.equal(motionBoundaryPlatformContract.source.factory, componentContracts.motionBoundary.factory);
+assert.deepEqual(motionBoundaryPlatformProps(), componentContracts.motionBoundary.props.map((prop) => prop.name));
+assert.deepEqual(motionBoundaryPlatformContract.variants, componentContracts.motionBoundary.variants);
+assert.deepEqual(motionBoundaryPlatformContract.states, componentContracts.motionBoundary.states);
+assert.deepEqual(Object.keys(motionBoundaryPlatformAdapters), ["react"]);
+assert.equal(motionBoundaryPlatformAdapters.react.componentName, "MotionBoundary");
+assert.equal(motionBoundaryPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.animatedMoment.factory, "@design-system/react/animated-moment");
 assert.equal(componentContracts.animatedMoment.internalFactory, "createAnimatedMoment");
 assert.equal(animatedMomentPlatformContract.id, "animated-moment");

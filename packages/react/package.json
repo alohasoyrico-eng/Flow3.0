@@ -136,6 +136,10 @@
       "types": "./dist/Menu.d.ts",
       "default": "./dist/Menu.js"
     },
+    "./motion-boundary": {
+      "types": "./dist/MotionBoundary.d.ts",
+      "default": "./dist/MotionBoundary.js"
+    },
     "./movement-row": {
       "types": "./dist/MovementRow.d.ts",
       "default": "./dist/MovementRow.js"

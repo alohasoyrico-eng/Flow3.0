@@ -858,7 +858,8 @@ export const componentContracts = {
     ]
   },
   motionBoundary: {
-    factory: "createMotionBoundary",
+    factory: "@design-system/react/motion-boundary",
+    internalFactory: "createMotionBoundary",
     element: "div",
     purpose: "Wrap one bounded region with explicit local motion state, variant, and reduced-motion signal.",
     variants: ["fade", "slide", "collapse", "route"],

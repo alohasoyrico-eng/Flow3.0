@@ -9,6 +9,11 @@ export {
   animatedMomentPlatformProps,
 } from "./animated-moment.js";
 export {
+  motionBoundaryPlatformAdapters,
+  motionBoundaryPlatformContract,
+  motionBoundaryPlatformProps,
+} from "./motion-boundary.js";
+export {
   auditEventPlatformAdapters,
   auditEventPlatformContract,
   auditEventPlatformProps,

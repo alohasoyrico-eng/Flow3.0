@@ -197,6 +197,13 @@ export type {
   MenuState,
   MenuVariant,
 } from "./Menu.js";
+export { MotionBoundary } from "./MotionBoundary.js";
+export type {
+  MotionBoundaryComponent,
+  MotionBoundaryProps,
+  MotionBoundaryState,
+  MotionBoundaryVariant,
+} from "./MotionBoundary.js";
 export { Dialog } from "./Dialog.js";
 export type {
   DialogAction,

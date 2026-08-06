@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, ChartPanel, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
-import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, biometricPromptPlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, chartPanelPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
+import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, ChartPanel, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MotionBoundary, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, biometricPromptPlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, chartPanelPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, motionBoundaryPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -68,6 +68,8 @@ assert.equal(List.displayName, "List");
 assert.equal(List.platformContract, listPlatformContract);
 assert.equal(Menu.displayName, "Menu");
 assert.equal(Menu.platformContract, menuPlatformContract);
+assert.equal(MotionBoundary.displayName, "MotionBoundary");
+assert.equal(MotionBoundary.platformContract, motionBoundaryPlatformContract);
 assert.equal(MovementRow.displayName, "MovementRow");
 assert.equal(MovementRow.platformContract, movementRowPlatformContract);
 assert.equal(Pagination.displayName, "Pagination");
@@ -1725,6 +1727,28 @@ const emptyComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
 assert.match(emptyComboboxMarkup, /data-state="empty"/);
 assert.match(emptyComboboxMarkup, /class="combobox__empty"/);
 assert.match(emptyComboboxMarkup, />No matching options<\/span>/);
+
+const motionBoundaryMarkup = renderToStaticMarkup(React.createElement(MotionBoundary, {
+  label: "Panel transition",
+  description: "Route content enters as a bounded region.",
+  variant: "route",
+  state: "entering",
+  reducedMotion: true,
+}));
+assert.match(motionBoundaryMarkup, /^<div/);
+assert.match(motionBoundaryMarkup, /class="motion-boundary"/);
+assert.match(motionBoundaryMarkup, /data-variant="route"/);
+assert.match(motionBoundaryMarkup, /data-state="reduced-motion"/);
+assert.match(motionBoundaryMarkup, /data-reduced-motion="true"/);
+assert.match(motionBoundaryMarkup, /role="group"/);
+assert.match(motionBoundaryMarkup, /aria-labelledby="[^"]+-label"/);
+assert.match(motionBoundaryMarkup, /aria-describedby="[^"]+-description [^"]+-state"/);
+assert.match(motionBoundaryMarkup, /class="motion-boundary__icon material-symbol"/);
+assert.match(motionBoundaryMarkup, /class="motion-boundary__content"/);
+assert.match(motionBoundaryMarkup, /Panel transition/);
+assert.match(motionBoundaryMarkup, /Route content enters as a bounded region/);
+assert.match(motionBoundaryMarkup, /class="motion-boundary__state"[^>]*>Reduced motion<\/span>/);
+assert.match(motionBoundaryMarkup, /class="motion-boundary__cue" data-motion-cue=""/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

@@ -1,6 +1,5 @@
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
 import { createSegmentedControl } from "./components/interactions.js?v=9";
-import { createMotionBoundary } from "./components/motion.js?v=5";
 import { createInlineValidation } from "./components/surfaces.js?v=10";
 
 export const componentRegistry = Object.freeze({
@@ -94,7 +93,9 @@ export const componentRegistry = Object.freeze({
   menu: () => {
     throw new Error("Menu is React-primary. Use @design-system/react/menu instead of the transitional DOM renderer.");
   },
-  "motion-boundary": createMotionBoundary,
+  "motion-boundary": () => {
+    throw new Error("Motion Boundary is React-primary. Use @design-system/react/motion-boundary instead of the transitional DOM renderer.");
+  },
   "movement-row": () => {
     throw new Error("Movement Row is React-primary. Use @design-system/react/movement-row instead of the transitional DOM renderer.");
   },
