@@ -43,7 +43,7 @@ export const List = forwardRef(function List({
       const key = String(item.key ?? item.label ?? index);
       const rowState = normalize(item.state ?? resolvedState, validStates, resolvedState);
       const rowTone = item.tone ?? (rowState === "error" ? "danger" : "");
-      const disabled = rowState === "disabled" || resolvedState === "disabled";
+      const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
       const Control = isInteractive ? "button" : "span";
       return React.createElement(
         "li",

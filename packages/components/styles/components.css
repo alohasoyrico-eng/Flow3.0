@@ -215,6 +215,45 @@
   --component-list-icon-box-size: calc(var(--component-control-min-size) - var(--sys-space-md) + var(--sys-frame-space-micro));
   --component-list-icon-box-size-sm: var(--component-field-icon-action-size-lg);
   --component-list-icon-box-size-lg: var(--component-inline-size-lg);
+  --comp-list-item-padding-sm: var(--sys-space-sm);
+  --comp-list-item-padding-md: var(--sys-space-md);
+  --comp-list-item-padding-lg: var(--sys-space-lg);
+  --comp-list-item-gap-sm: var(--sys-space-xs);
+  --comp-list-item-gap-md: var(--sys-space-sm);
+  --comp-list-item-gap-lg: var(--sys-space-md);
+  --comp-list-item-min-block-sm: var(--sys-frame-height-control-sm);
+  --comp-list-item-min-block-md: var(--sys-frame-height-control-md);
+  --comp-list-item-min-block-lg: var(--sys-frame-height-control-lg);
+  --comp-list-icon-size-sm: var(--component-font-size-title-sm);
+  --comp-list-icon-size-md: var(--component-font-size-title-md);
+  --comp-list-icon-size-lg: var(--component-font-size-icon-md);
+  --comp-list-icon-box-size-sm: var(--component-list-icon-box-size-sm);
+  --comp-list-icon-box-size-md: var(--component-list-icon-box-size);
+  --comp-list-icon-box-size-lg: var(--component-list-icon-box-size-lg);
+  --comp-list-icon-box-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
+  --comp-list-meta-size-sm: var(--component-font-size-caption);
+  --comp-list-meta-size-md: var(--component-font-size-small);
+  --comp-list-meta-size-lg: var(--component-font-size-label);
+  --comp-list-bg: transparent;
+  --comp-list-fg: var(--sys-color-text);
+  --comp-list-muted-fg: var(--sys-color-text-muted);
+  --comp-list-border: var(--sys-color-border);
+  --comp-list-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
+  --comp-list-shadow: var(--component-depth-panel);
+  --comp-list-hover-bg: color-mix(in srgb, var(--sys-color-action) 6%, var(--sys-color-surface));
+  --comp-list-selected-bg: color-mix(in srgb, var(--sys-color-action) 8%, var(--sys-color-surface));
+  --comp-list-selected-accent: var(--sys-color-action);
+  --comp-list-danger-bg: color-mix(in srgb, var(--sys-color-danger) 7%, var(--sys-color-surface));
+  --comp-list-icon-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
+  --comp-list-icon-fg: var(--sys-color-action);
+  --comp-list-icon-danger-bg: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
+  --comp-list-icon-danger-fg: var(--sys-color-danger);
+  --comp-list-focus-width: var(--component-focus-ring-width);
+  --comp-list-focus-color: var(--sys-color-focus);
+  --comp-list-focus-offset: var(--component-focus-ring-offset);
+  --comp-list-disabled-opacity: var(--component-opacity-disabled);
+  --comp-list-motion-duration: var(--component-duration-snappy);
+  --comp-list-motion-ease: var(--component-ease-state);
   --component-fab-size-sm: var(--component-inline-size-lg);
   --component-fab-size-md: calc(var(--component-inline-size-lg) + var(--sys-space-sm));
   --component-fab-size-lg: calc(var(--component-control-min-size) + var(--sys-space-xl));
@@ -3312,16 +3351,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .list {
-  --list-item-padding: var(--sys-space-md);
-  --list-item-gap: var(--sys-space-sm);
-  --list-item-min-block: var(--sys-frame-height-control-md);
-  --list-icon-size: var(--component-font-size-title-md);
-  --list-icon-box-size: var(--component-list-icon-box-size);
-  --list-icon-box-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
-  --list-meta-size: var(--component-font-size-small);
-  border: var(--component-border-width) solid var(--sys-color-border);
-  border-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
-  box-shadow: var(--component-depth-panel);
+  --list-item-padding: var(--comp-list-item-padding-md);
+  --list-item-gap: var(--comp-list-item-gap-md);
+  --list-item-min-block: var(--comp-list-item-min-block-md);
+  --list-icon-size: var(--comp-list-icon-size-md);
+  --list-icon-box-size: var(--comp-list-icon-box-size-md);
+  --list-meta-size: var(--comp-list-meta-size-md);
+  border: var(--component-border-width) solid var(--comp-list-border);
+  border-radius: var(--comp-list-radius);
+  box-shadow: var(--comp-list-shadow);
   list-style: none;
   margin: 0;
   overflow: hidden;
@@ -3329,21 +3367,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .list[data-density="sm"] {
-  --list-item-padding: var(--sys-space-sm);
-  --list-item-gap: var(--sys-space-xs);
-  --list-item-min-block: var(--sys-frame-height-control-sm);
-  --list-icon-size: var(--component-font-size-title-sm);
-  --list-icon-box-size: var(--component-list-icon-box-size-sm);
-  --list-meta-size: var(--component-font-size-caption);
+  --list-item-padding: var(--comp-list-item-padding-sm);
+  --list-item-gap: var(--comp-list-item-gap-sm);
+  --list-item-min-block: var(--comp-list-item-min-block-sm);
+  --list-icon-size: var(--comp-list-icon-size-sm);
+  --list-icon-box-size: var(--comp-list-icon-box-size-sm);
+  --list-meta-size: var(--comp-list-meta-size-sm);
 }
 
 .list[data-density="lg"] {
-  --list-item-padding: var(--sys-space-lg);
-  --list-item-gap: var(--sys-space-md);
-  --list-item-min-block: var(--sys-frame-height-control-lg);
-  --list-icon-size: var(--component-font-size-icon-md);
-  --list-icon-box-size: var(--component-list-icon-box-size-lg);
-  --list-meta-size: var(--component-font-size-label);
+  --list-item-padding: var(--comp-list-item-padding-lg);
+  --list-item-gap: var(--comp-list-item-gap-lg);
+  --list-item-min-block: var(--comp-list-item-min-block-lg);
+  --list-icon-size: var(--comp-list-icon-size-lg);
+  --list-icon-box-size: var(--comp-list-icon-box-size-lg);
+  --list-meta-size: var(--comp-list-meta-size-lg);
 }
 
 .list__row {
@@ -3352,11 +3390,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .list__item {
   align-items: center;
-  background: transparent;
+  background: var(--comp-list-bg);
   border: 0;
   border-radius: 0;
   box-sizing: border-box;
-  color: var(--sys-color-text);
+  color: var(--comp-list-fg);
   display: grid;
   gap: var(--list-item-gap);
   grid-template-columns: auto 1fr auto;
@@ -3365,9 +3403,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   padding: var(--list-item-padding);
   text-align: start;
   transition:
-    background-color var(--component-duration-snappy) var(--component-ease-state),
-    box-shadow var(--component-duration-snappy) var(--component-ease-state),
-    transform var(--component-duration-snappy) var(--component-ease-state);
+    background-color var(--comp-list-motion-duration) var(--comp-list-motion-ease),
+    box-shadow var(--comp-list-motion-duration) var(--comp-list-motion-ease),
+    transform var(--comp-list-motion-duration) var(--comp-list-motion-ease);
 }
 
 .list__item:is(button) {
@@ -3378,36 +3416,36 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .list__item:is(button):hover,
 .list__item[data-state="hover"],
 .list__item:is(button):focus-visible {
-  background: color-mix(in srgb, var(--sys-color-action) 6%, var(--sys-color-surface));
+  background: var(--comp-list-hover-bg);
 }
 
 .list__item:is(button):focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
-  outline-offset: calc(var(--component-focus-ring-offset) * -1);
+  outline: var(--comp-list-focus-width) solid var(--comp-list-focus-color);
+  outline-offset: calc(var(--comp-list-focus-offset) * -1);
 }
 
 .list__item[data-state="selected"] {
-  background: color-mix(in srgb, var(--sys-color-action) 8%, var(--sys-color-surface));
-  box-shadow: inset var(--component-focus-ring-width) 0 0 var(--sys-color-action);
+  background: var(--comp-list-selected-bg);
+  box-shadow: inset var(--comp-list-focus-width) 0 0 var(--comp-list-selected-accent);
 }
 
 .list__item[data-state="error"],
 .list__item[data-tone="danger"] {
-  background: color-mix(in srgb, var(--sys-color-danger) 7%, var(--sys-color-surface));
+  background: var(--comp-list-danger-bg);
 }
 
 .list__item[data-state="disabled"],
 .list__item:disabled {
   cursor: not-allowed;
-  opacity: var(--component-opacity-disabled);
+  opacity: var(--comp-list-disabled-opacity);
 }
 
 .list__icon {
   align-items: center;
-  background: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
+  background: var(--comp-list-icon-bg);
   block-size: var(--list-icon-box-size);
-  border-radius: var(--list-icon-box-radius);
-  color: var(--sys-color-action);
+  border-radius: var(--comp-list-icon-box-radius);
+  color: var(--comp-list-icon-fg);
   display: inline-flex;
   font-size: var(--list-icon-size);
   inline-size: var(--list-icon-box-size);
@@ -3417,12 +3455,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .list__item[data-tone="danger"] .list__icon,
 .list__item[data-state="error"] .list__icon {
-  background: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
-  color: var(--sys-color-danger);
+  background: var(--comp-list-icon-danger-bg);
+  color: var(--comp-list-icon-danger-fg);
 }
 
 .list__row + .list__row {
-  border-block-start: 1px solid var(--sys-color-border);
+  border-block-start: var(--component-border-width) solid var(--comp-list-border);
 }
 
 .list__content {
@@ -3432,7 +3470,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .list__content small,
 .list__value {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-list-muted-fg);
   font-size: var(--list-meta-size);
 }
 
