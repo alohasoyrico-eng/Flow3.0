@@ -205,11 +205,12 @@ function collectDocsFindings(component) {
     if (!componentPattern.test(basename)) continue;
 
     let match;
-    const legacyPattern = /\.([a-z0-9-]+-demo)\b/g;
+    const legacyPattern = /\.([a-z0-9-]*demo[a-z0-9-]*)\b/g;
     while ((match = legacyPattern.exec(source))) {
       const selector = match[1];
       if (selector.startsWith("docs-")) continue;
-      if (selector.includes(`${component}-demo`) || selector.includes(component.split("-")[0])) {
+      const isDirectComponentDemo = selector === `${component}-demo` || selector === `${component}-doc-demo`;
+      if (isDirectComponentDemo) {
         findings.push({
           file: rel(file),
           line: lineNumber(source, match.index),
