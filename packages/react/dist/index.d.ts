@@ -5,6 +5,14 @@ export type {
   AccordionItem,
   AccordionProps,
 } from "./Accordion.js";
+export { AnimatedMoment } from "./AnimatedMoment.js";
+export type {
+  AnimatedMomentComponent,
+  AnimatedMomentDensity,
+  AnimatedMomentProps,
+  AnimatedMomentState,
+  AnimatedMomentVariant,
+} from "./AnimatedMoment.js";
 export { AuditEvent } from "./AuditEvent.js";
 export type {
   AuditEventComponent,

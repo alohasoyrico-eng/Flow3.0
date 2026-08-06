@@ -3,7 +3,6 @@ import {
   createChartPanel,
   hydrateChartPanel,
   createBiometricPrompt,
-  createAnimatedMoment,
   createMotionBoundary,
   createAnimationAsset,
   createChartsPrimitive,
@@ -12,6 +11,9 @@ import {
   listCountryFlags,
   resolveAnimationRuntime,
   hydrateCombobox,
+  animatedMomentPlatformAdapters,
+  animatedMomentPlatformContract,
+  animatedMomentPlatformProps,
   auditEventPlatformAdapters,
   auditEventPlatformContract,
   auditEventPlatformProps,
@@ -173,6 +175,7 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createCard } from "../src/components/surfaces.js?v=3";
 import { createAuditEvent } from "../src/components/display.js?v=3";
+import { createAnimatedMoment } from "../src/components/motion.js?v=5";
 import { createCardSummary, createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
@@ -648,7 +651,16 @@ assert.deepEqual(Object.keys(treeViewPlatformAdapters), ["react"]);
 assert.equal(treeViewPlatformAdapters.react.componentName, "TreeView");
 assert.equal(treeViewPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.motionBoundary.factory, "createMotionBoundary");
-assert.equal(componentContracts.animatedMoment.factory, "createAnimatedMoment");
+assert.equal(componentContracts.animatedMoment.factory, "@design-system/react/animated-moment");
+assert.equal(componentContracts.animatedMoment.internalFactory, "createAnimatedMoment");
+assert.equal(animatedMomentPlatformContract.id, "animated-moment");
+assert.equal(animatedMomentPlatformContract.source.factory, componentContracts.animatedMoment.factory);
+assert.deepEqual(animatedMomentPlatformProps(), componentContracts.animatedMoment.props.map((prop) => prop.name));
+assert.deepEqual(animatedMomentPlatformContract.variants, componentContracts.animatedMoment.variants);
+assert.deepEqual(animatedMomentPlatformContract.states, componentContracts.animatedMoment.states);
+assert.deepEqual(Object.keys(animatedMomentPlatformAdapters), ["react"]);
+assert.equal(animatedMomentPlatformAdapters.react.componentName, "AnimatedMoment");
+assert.equal(animatedMomentPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.emptyState.factory, "@design-system/react/empty-state");
 assert.equal(componentContracts.emptyState.internalFactory, "createEmptyState");
 assert.equal(emptyStatePlatformContract.id, "empty-state");

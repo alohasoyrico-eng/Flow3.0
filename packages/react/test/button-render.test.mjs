@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, AuditEvent, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
-import { accordionPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
+import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
+assert.equal(AnimatedMoment.displayName, "AnimatedMoment");
+assert.equal(AnimatedMoment.platformContract, animatedMomentPlatformContract);
 assert.equal(AuditEvent.displayName, "AuditEvent");
 assert.equal(AuditEvent.platformContract, auditEventPlatformContract);
 assert.equal(Avatar.displayName, "Avatar");
@@ -304,6 +306,33 @@ assert.match(auditEventMarkup, /Document rejected/);
 assert.match(auditEventMarkup, /class="audit-event__meta"/);
 assert.match(auditEventMarkup, /class="audit-event__time">10:21<\/time>/);
 assert.match(auditEventMarkup, /<em>Critical<\/em>/);
+
+const animatedMomentMarkup = renderToStaticMarkup(React.createElement(AnimatedMoment, {
+  label: "Action complete",
+  description: "Static success",
+  variant: "celebration",
+  state: "complete",
+  density: "sm",
+  fullWidth: true,
+  reducedMotionFallback: "Reduced motion fallback",
+}));
+assert.match(animatedMomentMarkup, /^<div/);
+assert.match(animatedMomentMarkup, /class="animated-moment"/);
+assert.match(animatedMomentMarkup, /data-variant="celebration"/);
+assert.match(animatedMomentMarkup, /data-state="complete"/);
+assert.match(animatedMomentMarkup, /data-density="sm"/);
+assert.match(animatedMomentMarkup, /data-full-width="true"/);
+assert.match(animatedMomentMarkup, /role="img"/);
+assert.match(animatedMomentMarkup, /aria-label="Action complete: Complete"/);
+assert.match(animatedMomentMarkup, /class="animated-moment__icon material-symbol"/);
+assert.match(animatedMomentMarkup, /class="animated-moment__stage"/);
+assert.match(animatedMomentMarkup, /data-animated-moment-stage=""/);
+assert.match(animatedMomentMarkup, /class="animation-asset animated-moment__asset"/);
+assert.match(animatedMomentMarkup, /data-animation-library="lottie-web"/);
+assert.match(animatedMomentMarkup, /data-animation-runtime="fallback"/);
+assert.match(animatedMomentMarkup, /class="animation-asset__fallback-icon material-symbol"/);
+assert.match(animatedMomentMarkup, /class="animated-moment__state">Complete<\/span>/);
+assert.match(animatedMomentMarkup, /data-animated-moment-cue=""/);
 
 const accordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
   density: "sm",

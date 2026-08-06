@@ -75,6 +75,8 @@ const moduleRules = [
     id: "motion",
     file: "packages/components/src/components/motion.js",
     exports: ["createAnimatedMoment", "createMotionBoundary"],
+    publicExports: ["createMotionBoundary"],
+    internalExports: ["createAnimatedMoment"],
   },
   {
     id: "overlays",

@@ -3,7 +3,7 @@ import {
 } from "./components/commerce.js?v=15";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
 import { createSegmentedControl } from "./components/interactions.js?v=9";
-import { createAnimatedMoment, createMotionBoundary } from "./components/motion.js?v=5";
+import { createMotionBoundary } from "./components/motion.js?v=5";
 import { createBiometricPrompt } from "./components/security.js?v=3";
 import { createInlineValidation } from "./components/surfaces.js?v=10";
 
@@ -11,7 +11,9 @@ export const componentRegistry = Object.freeze({
   accordion: () => {
     throw new Error("Accordion is React-primary. Use @design-system/react/accordion instead of the transitional DOM renderer.");
   },
-  "animated-moment": createAnimatedMoment,
+  "animated-moment": () => {
+    throw new Error("Animated Moment is React-primary. Use @design-system/react/animated-moment instead of the transitional DOM renderer.");
+  },
   "audit-event": () => {
     throw new Error("Audit Event is React-primary. Use @design-system/react/audit-event instead of the transitional DOM renderer.");
   },

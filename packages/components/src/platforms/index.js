@@ -4,6 +4,11 @@ export {
   accordionPlatformProps,
 } from "./accordion.js";
 export {
+  animatedMomentPlatformAdapters,
+  animatedMomentPlatformContract,
+  animatedMomentPlatformProps,
+} from "./animated-moment.js";
+export {
   auditEventPlatformAdapters,
   auditEventPlatformContract,
   auditEventPlatformProps,

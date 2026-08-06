@@ -1,4 +1,5 @@
 export { Accordion } from "./Accordion.js";
+export { AnimatedMoment } from "./AnimatedMoment.js";
 export { AuditEvent } from "./AuditEvent.js";
 export { Avatar } from "./Avatar.js";
 export { Badge } from "./Badge.js";
