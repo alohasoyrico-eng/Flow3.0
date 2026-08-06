@@ -250,9 +250,7 @@ assert.equal(fixtures.menuPanel.hidden, false, "Menu trigger should open the men
 fixtures.menuItem.click();
 assert.equal(fixtures.menuPanel.hidden, true, "Menu item click should close the menu.");
 
-fixtures.accordionTrigger.click();
-assert.equal(fixtures.accordionItem.dataset.open, "true", "Accordion trigger should open the item.");
-assert.equal(fixtures.accordionPanel.hidden, false, "Accordion trigger should reveal the panel.");
+assert.equal(fixtures.accordion.dataset.demoReady, "true", "Accordion React island should be registered without legacy DOM state ownership.");
 
 fixtures.tableSort.click();
 assert.equal(fixtures.tableSort.dataset.active, "true", "Table sort should mark the sorted column active.");
@@ -457,10 +455,7 @@ function buildFixtures() {
   menuPanel.append(menuItem);
   const menu = el("span", { className: "menu-demo", dataset: { open: "false" } }, [menuTrigger, menuPanel]);
 
-  const accordionTrigger = el("button", { attrs: { "data-accordion-trigger": "", "aria-expanded": "false" } });
-  const accordionPanel = el("div", { attrs: { "data-accordion-panel": "" }, hidden: true });
-  const accordionItem = el("section", { className: "accordion-demo__item", attrs: { "data-accordion-item": "" }, dataset: { open: "false" } }, [accordionTrigger, accordionPanel]);
-  const accordion = el("div", { className: "accordion-demo" }, [accordionItem]);
+  const accordion = el("span", { attrs: { "data-doc-component": "accordion" } });
 
   const tableSort = el("button", { attrs: { "data-table-sort": "" }, dataset: { active: "false", dir: "" } });
   const tableRow = el("tr", {}, [el("td", { textContent: "JMX" })]);
@@ -558,9 +553,6 @@ function buildFixtures() {
     menuPanel,
     menuItem,
     accordion,
-    accordionItem,
-    accordionTrigger,
-    accordionPanel,
     table,
     tableSort,
     tableRow,
