@@ -347,6 +347,38 @@
   --comp-card-summary-disabled-border: var(--component-disabled-border);
   --comp-card-summary-disabled-text: var(--component-disabled-text);
   --comp-card-summary-disabled-opacity: var(--component-opacity-disabled);
+  --comp-table-cell-padding-block-sm: var(--sys-space-xs);
+  --comp-table-cell-padding-block-md: var(--sys-space-sm);
+  --comp-table-cell-padding-block-lg: var(--sys-space-md);
+  --comp-table-cell-padding-inline-sm: var(--sys-space-sm);
+  --comp-table-cell-padding-inline-md: var(--sys-space-md);
+  --comp-table-cell-padding-inline-lg: var(--sys-space-lg);
+  --comp-table-header-size-sm: var(--component-font-size-caption);
+  --comp-table-header-size-md: var(--component-font-size-caption);
+  --comp-table-header-size-lg: var(--component-font-size-small);
+  --comp-table-body-size-sm: var(--component-font-size-caption);
+  --comp-table-body-size-md: var(--component-font-size-small);
+  --comp-table-body-size-lg: var(--component-font-size-body);
+  --comp-table-min-inline-size: min(var(--component-content-size-lg), 100%);
+  --comp-table-border: var(--sys-color-border);
+  --comp-table-header-bg: color-mix(in srgb, var(--sys-color-surface-raised) 80%, var(--sys-color-surface));
+  --comp-table-header-fg: var(--sys-color-text-muted);
+  --comp-table-row-hover-bg: color-mix(in srgb, var(--sys-color-action) 5%, var(--sys-color-surface));
+  --comp-table-row-selected-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
+  --comp-table-row-selected-accent: var(--sys-color-action);
+  --comp-table-focus-color: var(--sys-color-focus);
+  --comp-table-focus-width: var(--component-focus-ring-width);
+  --comp-table-focus-offset: var(--component-focus-ring-offset);
+  --comp-table-detail-bg: var(--comp-table-header-bg);
+  --comp-table-detail-fg: var(--sys-color-text-muted);
+  --comp-table-sort-icon-size: var(--component-font-size-body);
+  --comp-table-sort-icon-opacity: var(--sys-state-muted-opacity);
+  --comp-table-expander-size: var(--component-control-min-size);
+  --comp-table-expander-fg: var(--sys-color-text-muted);
+  --comp-table-expander-active-fg: var(--sys-color-action);
+  --comp-table-motion-duration: var(--component-duration-snappy);
+  --comp-table-motion-ease: var(--component-ease-state);
+  --comp-table-motion-press-ease: var(--component-ease-press);
   --comp-movement-row-width: 100%;
   --comp-movement-row-min-block-size-sm: calc(var(--component-control-min-size) + var(--sys-space-sm));
   --comp-movement-row-min-block-size-md: var(--component-block-size-sm);
@@ -4990,12 +5022,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table {
-  --table-cell-block-padding: var(--sys-space-sm);
-  --table-cell-inline-padding: var(--sys-space-md);
-  --table-header-size: var(--component-font-size-caption);
-  --table-body-size: var(--component-font-size-small);
-  --table-row-transition: background-color var(--component-duration-snappy) var(--component-ease-state),
-    box-shadow var(--component-duration-snappy) var(--component-ease-state);
+  --table-cell-block-padding: var(--comp-table-cell-padding-block-md);
+  --table-cell-inline-padding: var(--comp-table-cell-padding-inline-md);
+  --table-header-size: var(--comp-table-header-size-md);
+  --table-body-size: var(--comp-table-body-size-md);
+  --table-row-transition: background-color var(--comp-table-motion-duration) var(--comp-table-motion-ease),
+    box-shadow var(--comp-table-motion-duration) var(--comp-table-motion-ease);
   -webkit-overflow-scrolling: touch;
   container-type: inline-size;
   overflow: auto;
@@ -5003,27 +5035,28 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table[data-density="sm"],
 .table[data-variant="dense"] {
-  --table-cell-block-padding: var(--sys-space-xs);
-  --table-cell-inline-padding: var(--sys-space-sm);
-  --table-body-size: var(--component-font-size-caption);
+  --table-cell-block-padding: var(--comp-table-cell-padding-block-sm);
+  --table-cell-inline-padding: var(--comp-table-cell-padding-inline-sm);
+  --table-header-size: var(--comp-table-header-size-sm);
+  --table-body-size: var(--comp-table-body-size-sm);
 }
 
 .table[data-density="lg"] {
-  --table-cell-block-padding: var(--sys-space-md);
-  --table-cell-inline-padding: var(--sys-space-lg);
-  --table-header-size: var(--component-font-size-small);
-  --table-body-size: var(--component-font-size-body);
+  --table-cell-block-padding: var(--comp-table-cell-padding-block-lg);
+  --table-cell-inline-padding: var(--comp-table-cell-padding-inline-lg);
+  --table-header-size: var(--comp-table-header-size-lg);
+  --table-body-size: var(--comp-table-body-size-lg);
 }
 
 .table table {
   border-collapse: collapse;
   inline-size: 100%;
-  min-inline-size: min(var(--component-content-size-lg), 100%);
+  min-inline-size: var(--comp-table-min-inline-size);
 }
 
 .table th,
 .table td {
-  border-block-end: 1px solid var(--sys-color-border);
+  border-block-end: var(--component-border-width) solid var(--comp-table-border);
   font-size: var(--table-body-size);
   padding: var(--table-cell-block-padding) var(--table-cell-inline-padding);
   text-align: start;
@@ -5031,8 +5064,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table th {
-  background: color-mix(in srgb, var(--sys-color-surface-raised) 80%, var(--sys-color-surface));
-  color: var(--sys-color-text-muted);
+  background: var(--comp-table-header-bg);
+  color: var(--comp-table-header-fg);
   font-size: var(--table-header-size);
   font-weight: var(--sys-voice-weight-extrabold);
   letter-spacing: 0;
@@ -5045,13 +5078,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table tbody tr:hover,
 .table tbody tr[data-state="hover"] {
-  background: color-mix(in srgb, var(--sys-color-action) 5%, var(--sys-color-surface));
+  background: var(--comp-table-row-hover-bg);
 }
 
 .table tbody tr:focus-visible,
 .table tbody tr[data-state="focus"] {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
-  outline-offset: calc(var(--component-focus-ring-offset) * -1);
+  outline: var(--comp-table-focus-width) solid var(--comp-table-focus-color);
+  outline-offset: calc(var(--comp-table-focus-offset) * -1);
 }
 
 .table [data-align="right"] {
@@ -5063,8 +5096,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table tr[data-selected="true"] {
-  background: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  box-shadow: inset var(--component-focus-ring-width) 0 0 var(--sys-color-action);
+  background: var(--comp-table-row-selected-bg);
+  box-shadow: inset var(--comp-table-focus-width) 0 0 var(--comp-table-row-selected-accent);
 }
 
 .table__sort {
@@ -5084,19 +5117,19 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   text-align: inherit;
   text-transform: inherit;
   transition:
-    color var(--component-duration-snappy) var(--component-ease-state),
-    transform var(--component-duration-snappy) var(--component-ease-state);
+    color var(--comp-table-motion-duration) var(--comp-table-motion-ease),
+    transform var(--comp-table-motion-duration) var(--comp-table-motion-ease);
 }
 
 .table__sort::after {
   content: "unfold_more";
   font-family: var(--sys-font-icon);
-  font-size: var(--component-font-size-body);
+  font-size: var(--comp-table-sort-icon-size);
   line-height: 1;
-  opacity: 0.55;
+  opacity: var(--comp-table-sort-icon-opacity);
   transition:
-    opacity var(--component-duration-snappy) var(--component-ease-state),
-    transform var(--component-duration-snappy) var(--component-ease-press);
+    opacity var(--comp-table-motion-duration) var(--comp-table-motion-ease),
+    transform var(--comp-table-motion-duration) var(--comp-table-motion-press-ease);
 }
 
 .table__sort[data-active="true"][data-dir="asc"]::after {
@@ -5111,7 +5144,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table__expander-head,
 .table__expander-cell {
-  inline-size: calc(var(--component-control-min-size) + var(--sys-space-sm));
+  inline-size: calc(var(--comp-table-expander-size) + var(--sys-space-sm));
   padding-inline-end: 0;
 }
 
@@ -5119,30 +5152,30 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   align-items: center;
   background: transparent;
   border: 0;
-  color: var(--sys-color-text-muted);
+  color: var(--comp-table-expander-fg);
   cursor: pointer;
   display: inline-flex;
   font-family: var(--sys-font-icon);
   font-size: var(--component-font-size-body);
   justify-content: center;
-  min-block-size: var(--component-control-min-size);
-  min-inline-size: var(--component-control-min-size);
+  min-block-size: var(--comp-table-expander-size);
+  min-inline-size: var(--comp-table-expander-size);
   padding: 0;
   transition:
-    color var(--component-duration-snappy) var(--component-ease-state),
-    transform var(--component-duration-snappy) var(--component-ease-press);
+    color var(--comp-table-motion-duration) var(--comp-table-motion-ease),
+    transform var(--comp-table-motion-duration) var(--comp-table-motion-press-ease);
 }
 
 .table tr[aria-expanded="true"] .table__expander {
-  color: var(--sys-color-action);
+  color: var(--comp-table-expander-active-fg);
   transform: var(--component-transform-rotate-quarter);
 }
 
 .table__detail {
-  background: color-mix(in srgb, var(--sys-color-surface-raised) 80%, var(--sys-color-surface));
-  color: var(--sys-color-text-muted);
+  background: var(--comp-table-detail-bg);
+  color: var(--comp-table-detail-fg);
   padding-block: var(--sys-space-md);
-  padding-inline-start: calc(var(--component-control-min-size) + var(--table-cell-inline-padding));
+  padding-inline-start: calc(var(--comp-table-expander-size) + var(--table-cell-inline-padding));
 }
 
 @container (max-width: 32rem) {

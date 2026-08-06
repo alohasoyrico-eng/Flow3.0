@@ -111,7 +111,7 @@ export const Table = forwardRef(function Table({
           expandable ? React.createElement("th", { className: "table__expander-head", scope: "col" }) : null,
           columns.map((column) => {
             const active = currentSort.key === column.key;
-            const canSort = column.sortable || (sortable && active);
+            const canSort = column.sortable || sortable;
             return React.createElement(
               "th",
               {
