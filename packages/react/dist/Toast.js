@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import { toastPlatformContract } from "@design-system/components/platforms";
+import { toastPlatformContract } from "../../components/src/platforms/index.js";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 

@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
-import { codeInputPlatformContract } from "@design-system/components/platforms";
+import { codeInputPlatformContract } from "../../components/src/platforms/index.js";
 
 function normalizeCodeValue(value, length = 6) {
   return String(value ?? "").replace(/\D/g, "").slice(0, Number(length));

@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { tooltipPlatformContract } from "@design-system/components/platforms";
+import { tooltipPlatformContract } from "../../components/src/platforms/index.js";
 
 export type TooltipPlacement = "top" | "right" | "bottom" | "left";
 export type TooltipVariant = "default" | "icon-help" | "metric" | "disabled-help";

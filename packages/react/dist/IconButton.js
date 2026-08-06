@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { iconButtonPlatformContract } from "@design-system/components/platforms";
+import { iconButtonPlatformContract } from "../../components/src/platforms/index.js";
 
 const allowedTypes = new Set(["button", "submit", "reset"]);
 

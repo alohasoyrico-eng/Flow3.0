@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { biometricPromptPlatformContract } from "@design-system/components/platforms";
+import { biometricPromptPlatformContract } from "../../components/src/platforms/index.js";
 import { Button } from "./Button.js";
 
 const validVariants = new Set(["fingerprint", "face", "passcode", "fallback"]);

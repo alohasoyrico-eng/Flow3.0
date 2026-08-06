@@ -1,6 +1,6 @@
 import type { AvatarProps } from "./Avatar.js";
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { menuPlatformContract } from "@design-system/components/platforms";
+import { menuPlatformContract } from "../../components/src/platforms/index.js";
 
 export type MenuVariant = "actions" | "grouped" | "selection" | "danger" | "icon-trigger" | "avatar-trigger";
 export type MenuDensity = "sm" | "md" | "lg";

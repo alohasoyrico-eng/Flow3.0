@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import { radioButtonPlatformContract } from "@design-system/components/platforms";
+import { radioButtonPlatformContract } from "../../components/src/platforms/index.js";
 
 export type RadioButtonVariant = "default" | "descriptive" | "compact" | "critical";
 export type RadioButtonState = "unselected" | "selected" | "focus" | "error" | "disabled";

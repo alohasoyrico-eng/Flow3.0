@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from "react";
-import { stepperPlatformContract } from "@design-system/components/platforms";
+import { stepperPlatformContract } from "../../components/src/platforms/index.js";
 
 const allowedOrientations = new Set(["horizontal", "vertical"]);
 const allowedDensities = new Set(["sm", "md", "lg"]);

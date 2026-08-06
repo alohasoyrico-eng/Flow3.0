@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { spinnerPlatformContract } from "@design-system/components/platforms";
+import { spinnerPlatformContract } from "../../components/src/platforms/index.js";
 
 const validDensities = new Set(["sm", "md", "lg"]);
 const validTones = new Set(["accent", "ink", "success", "warning", "danger"]);

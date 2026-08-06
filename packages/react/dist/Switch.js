@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import { switchPlatformContract } from "@design-system/components/platforms";
+import { switchPlatformContract } from "../../components/src/platforms/index.js";
 
 function normalizeState({ checked, disabled, state, error }) {
   if (disabled) return "disabled";

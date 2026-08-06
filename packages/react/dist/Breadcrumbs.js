@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from "react";
-import { breadcrumbsPlatformContract } from "@design-system/components/platforms";
+import { breadcrumbsPlatformContract } from "../../components/src/platforms/index.js";
 
 const allowedVariants = new Set(["standard", "compact", "overflow", "mobile"]);
 const allowedStates = new Set(["default", "hover", "focus", "collapsed", "current", "disabled"]);

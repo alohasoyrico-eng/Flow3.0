@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
-import type { listPlatformContract } from "@design-system/components/platforms";
+import type { listPlatformContract } from "../../components/src/platforms/index.js";
 
 export type ListVariant = "standard" | "compact" | "action" | "status" | "media";
 export type ListState = "default" | "hover" | "selected" | "loading" | "error" | "disabled";

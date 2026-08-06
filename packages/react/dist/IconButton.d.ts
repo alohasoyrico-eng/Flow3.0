@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
-import { iconButtonPlatformContract } from "@design-system/components/platforms";
+import { iconButtonPlatformContract } from "../../components/src/platforms/index.js";
 
 export type IconButtonVariant = "ghost" | "tonal" | "primary" | "accent";
 export type IconButtonDensity = "sm" | "md" | "lg";

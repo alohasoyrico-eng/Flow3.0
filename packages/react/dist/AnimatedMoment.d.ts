@@ -3,7 +3,7 @@ import type {
   HTMLAttributes,
   RefAttributes,
 } from "react";
-import type { animatedMomentPlatformContract } from "@design-system/components/platforms";
+import type { animatedMomentPlatformContract } from "../../components/src/platforms/index.js";
 
 export type AnimatedMomentVariant = "success" | "empty" | "loading" | "celebration";
 export type AnimatedMomentState = "idle" | "playing" | "paused" | "complete" | "reduced-motion" | "disabled";

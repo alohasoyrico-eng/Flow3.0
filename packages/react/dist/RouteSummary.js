@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { routeSummaryPlatformContract } from "@design-system/components/platforms";
+import { routeSummaryPlatformContract } from "../../components/src/platforms/index.js";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 

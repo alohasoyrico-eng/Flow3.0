@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
-import { comboboxPlatformContract } from "@design-system/components/platforms";
+import { comboboxPlatformContract } from "../../components/src/platforms/index.js";
 
 function optionValue(option) {
   return option.value ?? option.label ?? "";

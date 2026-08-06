@@ -4,7 +4,7 @@ import type {
   MouseEvent,
   RefAttributes,
 } from "react";
-import { breadcrumbsPlatformContract } from "@design-system/components/platforms";
+import { breadcrumbsPlatformContract } from "../../components/src/platforms/index.js";
 
 export type BreadcrumbsVariant = "standard" | "compact" | "overflow" | "mobile";
 export type BreadcrumbsState = "default" | "hover" | "focus" | "collapsed" | "current" | "disabled";

@@ -7,6 +7,9 @@ const reactTypesIndexFile = path.join(root, "packages/react/src/index.d.ts");
 const componentsPackageFile = path.join(root, "packages/components/package.json");
 const tokensPackageFile = path.join(root, "packages/tokens/package.json");
 const docsSplitPackageFile = path.join(root, "repo-split-output/FlowDocs/package.json");
+const readmeFile = path.join(root, "README.md");
+const releaseFile = path.join(root, "RELEASE.md");
+const startFile = path.join(root, "START.md");
 
 function checkAdoptionReadiness() {
   const rootPackage = readJson(rootPackageFile);
@@ -16,14 +19,48 @@ function checkAdoptionReadiness() {
   const reactIndex = read(reactIndexFile);
   const reactTypesIndex = read(reactTypesIndexFile);
 
+  checkReleasePackageMetadata(rootPackage);
   checkCoreExports(rootPackage, componentsPackage, tokensPackage);
   checkReactExportParity(rootPackage, reactPackage, reactIndex, reactTypesIndex);
   checkReactPackageTargets(reactPackage);
   checkDocsSplitConsumerBoundary();
   checkReactDoesNotDependOnDocs();
+  checkInstallDocs();
+}
 
+function checkReleasePackageMetadata(rootPackage) {
   if (rootPackage.private === true) {
-    add("warnings", rootPackageFile, 1, "Flow3.0 is still private; GitHub/file consumption works, but npm package adoption requires a deliberate release decision.");
+    add("errors", rootPackageFile, 1, "Flow3.0 package must not be private; it is intended for product adoption through GitHub Packages.");
+  }
+  if (rootPackage.name !== "@alohasoyrico-eng/flow") {
+    add("errors", rootPackageFile, 1, "Flow3.0 package name must be @alohasoyrico-eng/flow for GitHub Packages publishing.");
+  }
+  if (rootPackage.publishConfig?.registry !== "https://npm.pkg.github.com") {
+    add("errors", rootPackageFile, 1, "Flow3.0 package must publish to GitHub Packages.");
+  }
+  if (rootPackage.publishConfig?.access !== "public") {
+    add("errors", rootPackageFile, 1, "Flow3.0 package publishConfig.access must be public.");
+  }
+  for (const peer of ["react", "react-dom"]) {
+    if (!rootPackage.peerDependencies?.[peer]) {
+      add("errors", rootPackageFile, 1, `Flow3.0 package must declare ${peer} as a peer dependency for React consumers.`);
+    }
+  }
+  for (const artifact of [
+    "packages/tokens/src",
+    "packages/tokens/styles",
+    "packages/components/src",
+    "packages/components/styles",
+    "packages/react/dist",
+    "packages/content/content",
+    "packages/specs/specs",
+    "README.md",
+    "RELEASE.md",
+    "START.md",
+  ]) {
+    if (!rootPackage.files?.includes(artifact)) {
+      add("errors", rootPackageFile, 1, `Flow3.0 package files must include ${artifact}.`);
+    }
   }
 }
 
@@ -110,6 +147,23 @@ function checkDocsSplitConsumerBoundary() {
   }
 }
 
+function checkInstallDocs() {
+  for (const file of [readmeFile, releaseFile, startFile]) {
+    const source = read(file);
+    for (const snippet of [
+      "https://npm.pkg.github.com",
+      "npm:@alohasoyrico-eng/flow@0.3.0-platform-mvp",
+      "flow/react",
+      "flow/components/styles.css",
+      "flow/tokens/styles.css",
+    ]) {
+      if (!source.includes(snippet)) {
+        add("errors", file, 1, `Install documentation must include ${snippet}.`);
+      }
+    }
+  }
+}
+
 function checkReactDoesNotDependOnDocs() {
   const files = [
     ...listFiles(path.join(root, "packages/react/src")),
@@ -120,6 +174,12 @@ function checkReactDoesNotDependOnDocs() {
     const source = read(file);
     if (source.includes("apps/docs") || source.includes("#design-system/docs")) {
       add("errors", file, 1, "React package must not depend on FlowDocs implementation paths.");
+    }
+    if (file.includes(`${path.sep}packages${path.sep}react${path.sep}dist${path.sep}`) && source.includes("@design-system/components")) {
+      add("errors", file, 1, "Published React dist must not import workspace-only @design-system/components; use package-relative imports.");
+    }
+    if (file.includes(`${path.sep}packages${path.sep}react${path.sep}dist${path.sep}`) && source.includes("@alohasoyrico-eng/flow")) {
+      add("errors", file, 1, "Published React dist must use package-relative imports so it works in source, file, alias, and GitHub Packages installs.");
     }
   }
 }

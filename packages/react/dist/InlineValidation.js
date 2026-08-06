@@ -1,5 +1,5 @@
 import React, { forwardRef, useId } from "react";
-import { inlineValidationPlatformContract } from "@design-system/components/platforms";
+import { inlineValidationPlatformContract } from "../../components/src/platforms/index.js";
 import { Input } from "./Input.js";
 
 const validStates = new Set(["default", "info", "success", "warning", "error", "disabled"]);

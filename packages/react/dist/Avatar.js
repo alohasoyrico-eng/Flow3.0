@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { avatarPlatformContract } from "@design-system/components/platforms";
+import { avatarPlatformContract } from "../../components/src/platforms/index.js";
 
 const validSizes = new Set(["sm", "md", "lg", "xl"]);
 const validStatuses = new Set(["none", "online", "busy", "offline"]);

@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
-import type { cardPlatformContract } from "@design-system/components/platforms";
+import type { cardPlatformContract } from "../../components/src/platforms/index.js";
 import type { ButtonProps } from "./Button.js";
 import type { IconButtonProps } from "./IconButton.js";
 

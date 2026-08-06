@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
-import { accordionPlatformContract } from "@design-system/components/platforms";
+import { accordionPlatformContract } from "../../components/src/platforms/index.js";
 
 export type AccordionDensity = "sm" | "md" | "lg";
 

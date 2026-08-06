@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
-import { datePickerPlatformContract } from "@design-system/components/platforms";
+import { datePickerPlatformContract } from "../../components/src/platforms/index.js";
 
 export type DatePickerDensity = "sm" | "md" | "lg";
 export type DatePickerState = "default" | "hover" | "focus" | "selected" | "warning" | "error" | "disabled";

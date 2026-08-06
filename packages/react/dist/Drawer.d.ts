@@ -1,6 +1,6 @@
 import type { ButtonProps } from "./Button.js";
 import type { InputProps } from "./Input.js";
-import type { drawerPlatformContract } from "@design-system/components/platforms";
+import type { drawerPlatformContract } from "../../components/src/platforms/index.js";
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 
 export type DrawerVariant = "side-sheet" | "filter" | "detail" | "edit" | "review";

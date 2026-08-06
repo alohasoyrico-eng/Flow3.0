@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { kpiTilePlatformContract } from "@design-system/components/platforms";
+import { kpiTilePlatformContract } from "../../components/src/platforms/index.js";
 
 const validVariants = new Set(["standard", "delta", "threshold", "sparkline", "drill-in"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "loading", "risk", "disabled"]);

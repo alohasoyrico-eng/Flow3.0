@@ -1,5 +1,5 @@
 import React, { forwardRef, useId } from "react";
-import { emptyStatePlatformContract } from "@design-system/components/platforms";
+import { emptyStatePlatformContract } from "../../components/src/platforms/index.js";
 import { Button } from "./Button.js";
 import { Spinner } from "./Spinner.js";
 

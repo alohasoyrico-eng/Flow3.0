@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
-import { cardExpiryInputPlatformContract } from "@design-system/components/platforms";
+import { cardExpiryInputPlatformContract } from "../../components/src/platforms/index.js";
 
 export type CardExpiryInputDensity = "sm" | "md" | "lg";
 export type CardExpiryInputState = "default" | "filled" | "valid" | "loading" | "error" | "disabled";

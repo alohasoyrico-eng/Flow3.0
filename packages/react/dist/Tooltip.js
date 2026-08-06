@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useState } from "react";
-import { tooltipPlatformContract } from "@design-system/components/platforms";
+import { tooltipPlatformContract } from "../../components/src/platforms/index.js";
 
 const validPlacements = new Set(["top", "right", "bottom", "left"]);
 const validVariants = new Set(["default", "icon-help", "metric", "disabled-help"]);

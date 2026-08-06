@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import type { stepperPlatformContract } from "@design-system/components/platforms";
+import type { stepperPlatformContract } from "../../components/src/platforms/index.js";
 
 export type StepperOrientation = "horizontal" | "vertical";
 export type StepperDensity = "sm" | "md" | "lg";

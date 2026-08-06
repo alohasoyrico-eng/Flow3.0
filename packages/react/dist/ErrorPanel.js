@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { errorPanelPlatformContract } from "@design-system/components/platforms";
+import { errorPanelPlatformContract } from "../../components/src/platforms/index.js";
 import { Button } from "./Button.js";
 import { Spinner } from "./Spinner.js";
 

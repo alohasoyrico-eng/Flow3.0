@@ -1,8 +1,24 @@
 {
-  "name": "flow",
+  "name": "@alohasoyrico-eng/flow",
   "version": "0.3.0-platform-mvp",
-  "private": true,
   "type": "module",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "files": [
+    "packages/tokens/src",
+    "packages/tokens/styles",
+    "packages/components/src",
+    "packages/components/styles",
+    "packages/react/dist",
+    "packages/content/content",
+    "packages/specs/specs",
+    "README.md",
+    "CHANGELOG.md",
+    "RELEASE.md",
+    "START.md"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/alohasoyrico-eng/Flow3.0.git"
@@ -116,5 +132,9 @@
   "devDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   }
 }

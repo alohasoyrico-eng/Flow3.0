@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { progressIndicatorPlatformContract } from "@design-system/components/platforms";
+import { progressIndicatorPlatformContract } from "../../components/src/platforms/index.js";
 
 export type ProgressIndicatorDensity = "sm" | "md";
 export type ProgressIndicatorTone = "accent" | "success" | "warning" | "danger" | "ink";

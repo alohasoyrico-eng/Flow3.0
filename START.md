@@ -22,22 +22,27 @@ npm install
 npm run validate:docs
 ```
 
-Product dependency from GitHub:
+Product dependency from GitHub Packages:
+
+```ini
+@alohasoyrico-eng:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
 
 ```json
 {
   "dependencies": {
-    "flow": "github:alohasoyrico-eng/Flow3.0#main"
+    "flow": "npm:@alohasoyrico-eng/flow@0.3.0-platform-mvp"
   }
 }
 ```
 
-Product dependency from Azure Repos:
+Local product dependency while preparing a release:
 
 ```json
 {
   "dependencies": {
-    "flow": "git+ssh://git@ssh.dev.azure.com:v3/{org}/{project}/Flow3.0#main"
+    "flow": "file:../Flow3.0"
   }
 }
 ```

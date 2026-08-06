@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useRef, useState } from "react";
-import { dialogPlatformContract } from "@design-system/components/platforms";
+import { dialogPlatformContract } from "../../components/src/platforms/index.js";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";

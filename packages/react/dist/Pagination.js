@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
-import { paginationPlatformContract } from "@design-system/components/platforms";
+import { paginationPlatformContract } from "../../components/src/platforms/index.js";
 
 const allowedStates = new Set(["default", "hover", "focus", "selected", "disabled"]);
 

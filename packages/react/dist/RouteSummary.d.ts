@@ -3,7 +3,7 @@ import type {
   ForwardRefExoticComponent,
   RefAttributes,
 } from "react";
-import type { routeSummaryPlatformContract } from "@design-system/components/platforms";
+import type { routeSummaryPlatformContract } from "../../components/src/platforms/index.js";
 
 export type RouteSummaryVariant = "standard" | "compact" | "compare" | "policy";
 export type RouteSummaryState = "default" | "hover" | "focus" | "selected" | "warning" | "disabled";

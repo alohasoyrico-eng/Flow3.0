@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { chipPlatformContract } from "@design-system/components/platforms";
+import { chipPlatformContract } from "../../components/src/platforms/index.js";
 
 const validVariants = new Set(["filter", "input", "suggestion", "assist"]);
 const validTones = new Set(["default", "danger", "warning"]);

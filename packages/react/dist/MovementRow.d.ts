@@ -3,7 +3,7 @@ import type {
   ForwardRefExoticComponent,
   RefAttributes,
 } from "react";
-import type { movementRowPlatformContract } from "@design-system/components/platforms";
+import type { movementRowPlatformContract } from "../../components/src/platforms/index.js";
 
 export type MovementRowVariant = "standard" | "refund" | "declined" | "compact";
 export type MovementRowState = "default" | "hover" | "focus" | "pending" | "error" | "disabled";

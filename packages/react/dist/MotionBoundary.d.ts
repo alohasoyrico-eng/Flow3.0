@@ -3,7 +3,7 @@ import type {
   HTMLAttributes,
   RefAttributes,
 } from "react";
-import type { motionBoundaryPlatformContract } from "@design-system/components/platforms";
+import type { motionBoundaryPlatformContract } from "../../components/src/platforms/index.js";
 
 export type MotionBoundaryVariant = "fade" | "slide" | "collapse" | "route";
 export type MotionBoundaryState = "idle" | "entering" | "active" | "exiting" | "reduced-motion" | "disabled";

@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import type { kpiTilePlatformContract } from "@design-system/components/platforms";
+import type { kpiTilePlatformContract } from "../../components/src/platforms/index.js";
 
 export type KpiTileVariant = "standard" | "delta" | "threshold" | "sparkline" | "drill-in";
 export type KpiTileState = "default" | "hover" | "focus" | "selected" | "loading" | "risk" | "disabled";

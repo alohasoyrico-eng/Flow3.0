@@ -3,7 +3,7 @@ import type {
   ForwardRefExoticComponent,
   RefAttributes,
 } from "react";
-import type { quickActionPlatformContract } from "@design-system/components/platforms";
+import type { quickActionPlatformContract } from "../../components/src/platforms/index.js";
 
 export type QuickActionVariant = "standard" | "destructive" | "compact" | "wide";
 export type QuickActionState = "default" | "hover" | "focus" | "pressed" | "loading" | "warning" | "disabled";

@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import type { treeViewPlatformContract } from "@design-system/components/platforms";
+import type { treeViewPlatformContract } from "../../components/src/platforms/index.js";
 
 export type TreeViewDensity = "sm" | "md" | "lg";
 export type TreeViewState = "default" | "hover" | "focus" | "expanded" | "selected" | "disabled";

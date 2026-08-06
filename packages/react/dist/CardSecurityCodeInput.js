@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
-import { cardSecurityCodeInputPlatformContract } from "@design-system/components/platforms";
+import { cardSecurityCodeInputPlatformContract } from "../../components/src/platforms/index.js";
 import { Spinner } from "./Spinner.js";
 
 function normalizeCardSecurityCode(value, expectedLength = 3) {

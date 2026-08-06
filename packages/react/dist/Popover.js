@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useRef, useState } from "react";
-import { popoverPlatformContract } from "@design-system/components/platforms";
+import { popoverPlatformContract } from "../../components/src/platforms/index.js";
 import { Button } from "./Button.js";
 import { Input } from "./Input.js";
 

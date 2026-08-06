@@ -1,5 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { badgePlatformContract } from "@design-system/components/platforms";
+import { badgePlatformContract } from "../../components/src/platforms/index.js";
 
 export type BadgeTone = "neutral" | "info" | "success" | "warning" | "danger" | "accent";
 export type BadgeVariant = "count" | "dot" | "status" | "icon";

@@ -57,22 +57,29 @@ npm install
 npm run validate:docs
 ```
 
-For a GitHub dependency before registry publishing:
+For GitHub Packages, configure the organization registry:
+
+```ini
+@alohasoyrico-eng:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Install the package with the product-facing alias `flow`:
 
 ```json
 {
   "dependencies": {
-    "flow": "github:alohasoyrico-eng/Flow3.0#main"
+    "flow": "npm:@alohasoyrico-eng/flow@0.3.0-platform-mvp"
   }
 }
 ```
 
-For Azure Repos, use the same package boundary with your Azure repository URL:
+For local development before publishing a new release, keep the same alias:
 
 ```json
 {
   "dependencies": {
-    "flow": "git+ssh://git@ssh.dev.azure.com:v3/{org}/{project}/Flow3.0#main"
+    "flow": "file:../Flow3.0"
   }
 }
 ```
@@ -86,6 +93,16 @@ import "flow/tokens/styles.css";
 ```
 
 Do not import from `flow/packages/...` in consuming products. That bypasses the public contract and makes future platform, token, and docs splits brittle.
+
+Public package artifacts are intentionally explicit:
+
+- `flow/tokens` and `flow/tokens/styles.css`
+- `flow/components`, `flow/components/contracts`, `flow/components/platforms`, and `flow/components/styles.css`
+- `flow/react` and `flow/react/*` subpaths
+- `flow/content/*` for catalog, copy, implementation status, templates, and i18n
+- `flow/specs/system` for machine-readable system contracts
+
+Release policy starts on SemVer pre-release discipline: patch for fixes, minor for new public components or tokens, and major only when public API or token semantics break. Run `npm run validate` before any release.
 
 ## Architecture Boundaries
 
@@ -116,7 +133,7 @@ Design System is at `0.3.0-platform-mvp`.
 
 It includes the repo split, manifest, Architecture Gate, starter tokens, starter components, React adapter coverage for active components, shared prototype fixtures, release checklist, starter kits, and runnable prototype examples.
 
-Starter components currently include Button, Icon Button, Text Field, Select, and Card.
+React coverage currently exposes every registered component through `flow/react` and `flow/react/*`.
 
 See `START.md` for what to edit and where.
 

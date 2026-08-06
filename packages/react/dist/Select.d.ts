@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
-import { selectPlatformContract } from "@design-system/components/platforms";
+import { selectPlatformContract } from "../../components/src/platforms/index.js";
 
 export type SelectDensity = "sm" | "md" | "lg";
 export type SelectVariant = "default" | "inline";

@@ -1,5 +1,5 @@
 import React, { forwardRef, useId, useMemo, useRef, useState } from "react";
-import { segmentedControlPlatformContract } from "@design-system/components/platforms";
+import { segmentedControlPlatformContract } from "../../components/src/platforms/index.js";
 
 function itemKey(item) {
   return item?.key ?? item?.value ?? item?.label ?? "";

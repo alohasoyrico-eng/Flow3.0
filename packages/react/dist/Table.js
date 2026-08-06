@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo, useState } from "react";
-import { tablePlatformContract } from "@design-system/components/platforms";
+import { tablePlatformContract } from "../../components/src/platforms/index.js";
 import { Badge } from "./Badge.js";
 
 const validVariants = new Set(["standard", "dense", "sortable", "selectable", "expandable"]);

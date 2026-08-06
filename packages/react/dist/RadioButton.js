@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import { radioButtonPlatformContract } from "@design-system/components/platforms";
+import { radioButtonPlatformContract } from "../../components/src/platforms/index.js";
 
 function normalizeState({ checked, disabled, state, error }) {
   if (disabled) return "disabled";
