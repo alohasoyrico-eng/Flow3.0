@@ -4010,7 +4010,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card {
   --card-padding: var(--sys-space-xl);
   --card-gap: var(--sys-space-md);
-  --card-radius: calc(var(--sys-radius-md) + var(--sys-space-sm));
+  --card-radius: var(--sys-frame-radius-surface);
   --card-shadow-rest: var(--sys-elevation-card, var(--component-depth-low-medium));
   --card-shadow-hover: var(--sys-elevation-card-hover, var(--component-depth-card-hover));
   --card-lift-hover: calc(var(--sys-space-xs) * -0.75);

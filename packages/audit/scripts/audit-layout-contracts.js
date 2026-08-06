@@ -29,6 +29,8 @@ function checkDemoGridLayout() {
   }
 
   requireCss(/\.button-demo-grid\s*{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*18rem\),\s*1fr\)\);/s, "Default demo grids need an 18rem useful minimum.");
+  requireCss(/\.card-scenario-grid\s*{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*18rem\),\s*1fr\)\);/s, "Card scenario demos need the same 18rem useful minimum as standard component demos.");
+  requireCss(/\.card-reference-compositions__grid\s*{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*18rem\),\s*1fr\)\);/s, "Card composition demos need the same 18rem useful minimum as standard component demos.");
   requireCss(/\.state-behavior-grid\s*{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*24rem\),\s*1fr\)\);/s, "State behavior grids need a wider 24rem useful minimum.");
   requireCss(/\.tabs-doc-demo-grid\s*{[^}]*grid-template-columns:\s*repeat\(auto-fit,\s*minmax\(min\(100%,\s*28rem\),\s*1fr\)\);/s, "Tabs demos need a 28rem useful minimum so tab labels do not compress.");
   requireCss(/@media \(max-width:\s*900px\)\s*{[\s\S]*\.button-demo-grid,[\s\S]*\.state-behavior-grid,[\s\S]*\.full-width-demo,[\s\S]*grid-template-columns:\s*1fr;/s, "Documentation demos must collapse to one column at tablet/phone widths.");
@@ -43,11 +45,11 @@ function checkFullWidthDemos() {
   if (!docsRenderer.includes('data-full-width="${String(Boolean(fullWidth))}"')) {
     add("errors", docsRendererFile, 1, "React-backed component demos must expose data-full-width from content.");
   }
-  requireCss(/\.docs-package-demo\[data-full-width="true"\]\s*{[^}]*inline-size:\s*100%;[^}]*max-inline-size:\s*100%;/s, "Package-backed full-width demos must fill their documentation container through the docs package hook.");
+  requireCss(/\.docs-package-demo\[data-full-width="true"\]\s*{[^}]*inline-size:\s*100%;[^}]*max-inline-size:\s*100%;/s, "React-backed full-width demos must fill their documentation container through the docs package hook.");
   if (!/\.button\[data-full-width="true"\]\s*{[^}]*inline-size:\s*100%;/s.test(packageCss)) {
     add("errors", packageCssFile, 1, "Button full-width behavior must be owned by the package source.");
   }
-  requireCss(/\.table-doc-demo-grid \.table-demo\s*{[^}]*inline-size:\s*100%;/s, "Table demos inside wide documentation grids must fill their container.");
+  requireCss(/\.docs-demo-layout--table \.table\.docs-package-demo\s*{[^}]*inline-size:\s*100%;/s, "React Table demos inside documentation layouts must fill their container.");
 }
 
 function checkLayoutContracts() {
