@@ -255,6 +255,51 @@
   --component-error-panel-empty-icon-size: var(--component-empty-state-icon-size-md);
   --component-card-icon-size-compact: var(--component-field-icon-action-size-sm);
   --component-card-icon-size-md: var(--component-field-icon-action-size-lg);
+  --comp-card-padding-sm: var(--sys-space-lg);
+  --comp-card-padding-md: var(--sys-space-xl);
+  --comp-card-padding-lg: calc(var(--sys-space-xl) + var(--sys-space-sm));
+  --comp-card-gap-sm: var(--sys-space-sm);
+  --comp-card-gap-md: var(--sys-space-md);
+  --comp-card-gap-lg: var(--sys-space-lg);
+  --comp-card-radius: var(--sys-frame-radius-surface);
+  --comp-card-bg: var(--sys-color-surface);
+  --comp-card-bg-muted: color-mix(in srgb, var(--sys-color-surface) 72%, var(--sys-color-bg));
+  --comp-card-bg-selected: color-mix(in srgb, var(--sys-color-action) 7%, var(--sys-color-surface));
+  --comp-card-border: color-mix(in srgb, var(--sys-color-border) 82%, transparent);
+  --comp-card-border-hover: color-mix(in srgb, var(--sys-color-action) 18%, var(--sys-color-border));
+  --comp-card-border-selected: color-mix(in srgb, var(--sys-color-action) 42%, var(--sys-color-border));
+  --comp-card-border-error: color-mix(in srgb, var(--sys-color-danger) 58%, var(--sys-color-border));
+  --comp-card-fg: var(--sys-color-text);
+  --comp-card-muted-fg: var(--sys-color-text-muted);
+  --comp-card-shadow-rest: var(--sys-elevation-card, var(--component-depth-low-medium));
+  --comp-card-shadow-hover: var(--sys-elevation-card-hover, var(--component-depth-card-hover));
+  --comp-card-shadow-selected: var(--component-depth-action-hover);
+  --comp-card-shadow-error: var(--component-depth-danger);
+  --comp-card-hover-transform: var(--component-transform-lift-hover);
+  --comp-card-icon-size-sm: var(--component-card-icon-size-sm);
+  --comp-card-icon-size-md: var(--component-card-icon-size-md);
+  --comp-card-icon-size-lg: var(--component-card-icon-size-lg);
+  --comp-card-icon-size-compact: var(--component-card-icon-size-compact);
+  --comp-card-icon-font-size-sm: var(--component-font-size-title-md);
+  --comp-card-icon-font-size-md: var(--component-font-size-title-lg);
+  --comp-card-icon-font-size-lg: var(--component-font-size-title-lg);
+  --comp-card-title-size-sm: var(--component-font-size-caption);
+  --comp-card-title-size-md: var(--component-font-size-body);
+  --comp-card-title-size-lg: var(--component-font-size-title-sm);
+  --comp-card-value-size-sm: var(--component-font-size-title-sm);
+  --comp-card-value-size-md: var(--component-font-size-title-md);
+  --comp-card-value-size-lg: var(--component-font-size-title-lg);
+  --comp-card-status-bg: color-mix(in srgb, var(--sys-color-action) 9%, var(--sys-color-surface));
+  --comp-card-status-border: color-mix(in srgb, var(--sys-color-action) 20%, var(--sys-color-border));
+  --comp-card-status-fg: var(--sys-color-text);
+  --comp-card-icon-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
+  --comp-card-icon-fg: var(--sys-color-action);
+  --comp-card-focus-color: var(--sys-color-focus);
+  --comp-card-focus-width: var(--component-focus-ring-width);
+  --comp-card-focus-offset: var(--component-focus-ring-offset);
+  --comp-card-motion-duration: var(--component-duration-state);
+  --comp-card-motion-ease: var(--component-ease-state);
+  --comp-card-motion-press-ease: var(--component-ease-press);
   --comp-card-summary-width: min(100%, var(--component-content-size-md));
   --comp-card-summary-gap-sm: var(--sys-space-sm);
   --comp-card-summary-gap-md: var(--sys-space-md);
@@ -4133,49 +4178,45 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card {
-  --card-padding: var(--sys-space-xl);
-  --card-gap: var(--sys-space-md);
-  --card-radius: var(--sys-frame-radius-surface);
-  --card-shadow-rest: var(--sys-elevation-card, var(--component-depth-low-medium));
-  --card-shadow-hover: var(--sys-elevation-card-hover, var(--component-depth-card-hover));
-  --card-lift-hover: calc(var(--sys-space-xs) * -0.75);
-  --card-icon-size: var(--component-card-icon-size-md);
-  --card-icon-font-size: var(--component-font-size-title-lg);
-  --card-title-size: var(--component-font-size-body);
-  --card-value-size: var(--component-font-size-title-md);
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid color-mix(in srgb, var(--sys-color-border) 82%, transparent);
-  border-radius: var(--card-radius);
-  box-shadow: var(--card-shadow-rest);
-  color: var(--sys-color-text);
+  --card-padding: var(--comp-card-padding-md);
+  --card-gap: var(--comp-card-gap-md);
+  --card-icon-size: var(--comp-card-icon-size-md);
+  --card-icon-font-size: var(--comp-card-icon-font-size-md);
+  --card-title-size: var(--comp-card-title-size-md);
+  --card-value-size: var(--comp-card-value-size-md);
+  background: var(--comp-card-bg);
+  border: var(--component-border-width) solid var(--comp-card-border);
+  border-radius: var(--comp-card-radius);
+  box-shadow: var(--comp-card-shadow-rest);
+  color: var(--comp-card-fg);
   display: grid;
   gap: var(--card-gap);
   min-inline-size: 0;
   padding: var(--card-padding);
   transition:
-    background-color var(--component-duration-state) var(--component-ease-state),
-    border-color var(--component-duration-state) var(--component-ease-state),
-    box-shadow var(--component-duration-state) var(--component-ease-state),
-    opacity var(--component-duration-state) var(--component-ease-state),
-    transform var(--component-duration-state) var(--component-ease-press);
+    background-color var(--comp-card-motion-duration) var(--comp-card-motion-ease),
+    border-color var(--comp-card-motion-duration) var(--comp-card-motion-ease),
+    box-shadow var(--comp-card-motion-duration) var(--comp-card-motion-ease),
+    opacity var(--comp-card-motion-duration) var(--comp-card-motion-ease),
+    transform var(--comp-card-motion-duration) var(--comp-card-motion-press-ease);
 }
 
 .card[data-density="sm"] {
-  --card-padding: var(--sys-space-lg);
-  --card-gap: var(--sys-space-sm);
-  --card-icon-size: var(--component-card-icon-size-sm);
-  --card-icon-font-size: var(--component-font-size-title-md);
-  --card-title-size: var(--component-font-size-caption);
-  --card-value-size: var(--component-font-size-title-sm);
+  --card-padding: var(--comp-card-padding-sm);
+  --card-gap: var(--comp-card-gap-sm);
+  --card-icon-size: var(--comp-card-icon-size-sm);
+  --card-icon-font-size: var(--comp-card-icon-font-size-sm);
+  --card-title-size: var(--comp-card-title-size-sm);
+  --card-value-size: var(--comp-card-value-size-sm);
 }
 
 .card[data-density="lg"] {
-  --card-padding: calc(var(--sys-space-xl) + var(--sys-space-sm));
-  --card-gap: var(--sys-space-lg);
-  --card-icon-size: var(--component-card-icon-size-lg);
-  --card-icon-font-size: var(--component-font-size-title-lg);
-  --card-title-size: var(--component-font-size-title-sm);
-  --card-value-size: var(--component-font-size-title-lg);
+  --card-padding: var(--comp-card-padding-lg);
+  --card-gap: var(--comp-card-gap-lg);
+  --card-icon-size: var(--comp-card-icon-size-lg);
+  --card-icon-font-size: var(--comp-card-icon-font-size-lg);
+  --card-title-size: var(--comp-card-title-size-lg);
+  --card-value-size: var(--comp-card-value-size-lg);
 }
 
 .card[data-full-width="true"] {
@@ -4185,7 +4226,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card[data-composition="compact"] {
   --card-padding: var(--sys-space-sm) var(--sys-space-md);
   --card-gap: var(--sys-space-sm);
-  --card-icon-size: var(--component-card-icon-size-compact);
+  --card-icon-size: var(--comp-card-icon-size-compact);
   --card-icon-font-size: var(--component-font-size-body);
   --card-title-size: var(--component-font-size-label);
   --card-value-size: var(--component-font-size-body);
@@ -4332,9 +4373,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-variant="elevated"] {
   --card-gap: var(--sys-space-xs);
-  border-color: var(--sys-color-action);
+  border-color: var(--comp-card-icon-fg);
   border-width: calc(var(--component-border-width) * 2);
-  box-shadow: var(--card-shadow-hover);
+  box-shadow: var(--comp-card-shadow-hover);
 }
 
 .card[data-variant="elevated"] .card__title {
@@ -4364,7 +4405,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-state="muted"] {
-  background: color-mix(in srgb, var(--sys-color-surface) 72%, var(--sys-color-bg));
+  background: var(--comp-card-bg-muted);
   box-shadow: none;
 }
 
@@ -4374,28 +4415,28 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-state="hover"],
 .card[data-interactive="true"]:hover {
-  border-color: color-mix(in srgb, var(--sys-color-action) 18%, var(--sys-color-border));
-  box-shadow: var(--card-shadow-hover);
-  transform: translateY(var(--card-lift-hover));
+  border-color: var(--comp-card-border-hover);
+  box-shadow: var(--comp-card-shadow-hover);
+  transform: var(--comp-card-hover-transform);
 }
 
 .card[data-state="focus"],
 .card[data-interactive="true"]:focus-visible {
-  border-color: var(--sys-color-focus);
-  box-shadow: var(--card-shadow-hover);
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
-  outline-offset: var(--component-focus-ring-offset);
+  border-color: var(--comp-card-focus-color);
+  box-shadow: var(--comp-card-shadow-hover);
+  outline: var(--comp-card-focus-width) solid var(--comp-card-focus-color);
+  outline-offset: var(--comp-card-focus-offset);
 }
 
 .card[data-state="selected"] {
-  background: color-mix(in srgb, var(--sys-color-action) 7%, var(--sys-color-surface));
-  border-color: color-mix(in srgb, var(--sys-color-action) 42%, var(--sys-color-border));
-  box-shadow: var(--component-depth-action-hover);
+  background: var(--comp-card-bg-selected);
+  border-color: var(--comp-card-border-selected);
+  box-shadow: var(--comp-card-shadow-selected);
 }
 
 .card[data-state="error"] {
-  border-color: color-mix(in srgb, var(--sys-color-danger) 58%, var(--sys-color-border));
-  box-shadow: var(--component-depth-danger);
+  border-color: var(--comp-card-border-error);
+  box-shadow: var(--comp-card-shadow-error);
 }
 
 .card[data-state="disabled"] {
@@ -4421,9 +4462,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card__icon {
   align-items: center;
-  background: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
+  background: var(--comp-card-icon-bg);
   border-radius: var(--component-radius-pill);
-  color: var(--sys-color-action);
+  color: var(--comp-card-icon-fg);
   display: inline-flex;
   flex: 0 0 auto;
   font-family: var(--sys-font-icon);
@@ -4446,10 +4487,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card__status {
-  background: color-mix(in srgb, var(--sys-color-action) 9%, var(--sys-color-surface));
-  border: var(--component-border-width) solid color-mix(in srgb, var(--sys-color-action) 20%, var(--sys-color-border));
+  background: var(--comp-card-status-bg);
+  border: var(--component-border-width) solid var(--comp-card-status-border);
   border-radius: var(--component-radius-pill);
-  color: var(--sys-color-text);
+  color: var(--comp-card-status-fg);
   font-size: var(--component-font-size-caption);
   font-weight: var(--sys-voice-weight-extrabold);
   padding: var(--sys-space-xs) var(--sys-space-sm);
