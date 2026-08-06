@@ -32,6 +32,7 @@ export interface BreadcrumbsProps extends Omit<HTMLAttributes<HTMLElement>, "onC
 }
 
 export interface BreadcrumbsComponent extends ForwardRefExoticComponent<BreadcrumbsProps & RefAttributes<HTMLElement>> {
+  displayName: "Breadcrumbs";
   platformContract: typeof breadcrumbsPlatformContract;
 }
 

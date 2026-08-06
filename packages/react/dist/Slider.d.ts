@@ -35,6 +35,7 @@ export interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
 }
 
 export interface SliderComponent extends ForwardRefExoticComponent<SliderProps & RefAttributes<HTMLInputElement>> {
+  displayName: "Slider";
   platformContract: typeof sliderPlatformContract;
 }
 

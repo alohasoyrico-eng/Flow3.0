@@ -58,6 +58,7 @@ const { checkVoiceContracts } = require("./audit-voice-contracts.js");
 const { checkFoundationCascadeContracts } = require("./audit-foundation-cascade-contracts.js");
 const { checkDensityContracts } = require("./audit-density-contracts.js");
 const { checkPackageCssContracts } = require("./audit-package-css-contracts.js");
+const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js");
 const { checkTemplateComposition } = require("./audit-template-composition.js");
 const {
   checkDocsComponentCssOwnership,
@@ -108,6 +109,7 @@ checkVoiceContracts();
 checkFoundationCascadeContracts();
 checkDensityContracts();
 checkPackageCssContracts();
+checkReactPrimaryContract();
 checkTemplateComposition();
 checkTemplateBlueprints();
 checkI18nReadiness();

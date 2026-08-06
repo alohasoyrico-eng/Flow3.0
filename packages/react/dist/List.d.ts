@@ -27,6 +27,7 @@ export interface ListProps extends Omit<HTMLAttributes<HTMLUListElement>, "onSel
 }
 
 export interface ListComponent extends ForwardRefExoticComponent<ListProps & RefAttributes<HTMLUListElement>> {
+  displayName: "List";
   platformContract: typeof listPlatformContract;
 }
 

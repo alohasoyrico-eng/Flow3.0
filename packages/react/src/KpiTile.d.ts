@@ -35,6 +35,7 @@ export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "onSelec
 }
 
 export interface KpiTileComponent extends ForwardRefExoticComponent<KpiTileProps & RefAttributes<HTMLElement>> {
+  displayName: "KpiTile";
   platformContract: typeof kpiTilePlatformContract;
 }
 

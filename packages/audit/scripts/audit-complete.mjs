@@ -57,6 +57,7 @@ const expectedAuditFiles = new Set([
   "audit-primitive-contracts.js",
   "audit-repo-boundary-runner.js",
   "audit-repo-boundary.js",
+  "audit-react-primary-contract.js",
   "audit-result.js",
   "audit-routes.js",
   "audit-spec.js",
