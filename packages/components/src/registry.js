@@ -1,6 +1,3 @@
-import {
-  createChartPanel,
-} from "./components/commerce.js?v=15";
 import { createEmptyState, createErrorPanel, createProgressIndicator, createSkeleton, createSpinner } from "./components/feedback.js?v=8";
 import { createSegmentedControl } from "./components/interactions.js?v=9";
 import { createMotionBoundary } from "./components/motion.js?v=5";
@@ -52,7 +49,9 @@ export const componentRegistry = Object.freeze({
   chip: () => {
     throw new Error("Chip is React-primary. Use @design-system/react/chip instead of the transitional DOM renderer.");
   },
-  "chart-panel": createChartPanel,
+  "chart-panel": () => {
+    throw new Error("Chart Panel is React-primary. Use @design-system/react/chart-panel instead of the transitional DOM renderer.");
+  },
   combobox: () => {
     throw new Error("Combobox is React-primary. Use @design-system/react/combobox instead of the transitional DOM renderer.");
   },

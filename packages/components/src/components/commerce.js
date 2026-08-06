@@ -709,10 +709,16 @@ export function hydrateChartPanel(root, { echarts } = {}) {
     return null;
   }
   if (!chartModel?.echartsOption) return null;
+  let instance;
+  try {
+    instance = echarts.init(chartMount, null, { renderer: "svg" });
+    instance.setOption(enhanceEchartsOption(root, chartModel.echartsOption));
+  } catch {
+    instance?.dispose?.();
+    return null;
+  }
   chartMount.hidden = false;
   fallbackPlot?.setAttribute?.("hidden", "true");
-  const instance = echarts.init(chartMount, null, { renderer: "svg" });
-  instance.setOption(enhanceEchartsOption(root, chartModel.echartsOption));
   root.dataset.hydrated = "true";
   globalThis.requestAnimationFrame?.(() => instance.resize?.());
   return instance;

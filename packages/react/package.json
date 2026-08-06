@@ -60,6 +60,10 @@
       "types": "./dist/CardSummary.d.ts",
       "default": "./dist/CardSummary.js"
     },
+    "./chart-panel": {
+      "types": "./dist/ChartPanel.d.ts",
+      "default": "./dist/ChartPanel.js"
+    },
     "./checkbox": {
       "types": "./dist/Checkbox.d.ts",
       "default": "./dist/Checkbox.js"

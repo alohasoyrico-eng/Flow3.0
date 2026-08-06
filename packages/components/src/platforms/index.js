@@ -44,6 +44,11 @@ export {
   toastPlatformProps,
 } from "./toast.js";
 export {
+  chartPanelPlatformAdapters,
+  chartPanelPlatformContract,
+  chartPanelPlatformProps,
+} from "./chart-panel.js";
+export {
   chipPlatformAdapters,
   chipPlatformContract,
   chipPlatformProps,

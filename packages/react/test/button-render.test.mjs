@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
-import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, biometricPromptPlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
+import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, ChartPanel, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, biometricPromptPlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, chartPanelPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -30,6 +30,8 @@ assert.equal(CardSecurityCodeInput.displayName, "CardSecurityCodeInput");
 assert.equal(CardSecurityCodeInput.platformContract, cardSecurityCodeInputPlatformContract);
 assert.equal(CardSummary.displayName, "CardSummary");
 assert.equal(CardSummary.platformContract, cardSummaryPlatformContract);
+assert.equal(ChartPanel.displayName, "ChartPanel");
+assert.equal(ChartPanel.platformContract, chartPanelPlatformContract);
 assert.equal(Checkbox.displayName, "Checkbox");
 assert.equal(Checkbox.platformContract, checkboxPlatformContract);
 assert.equal(Chip.displayName, "Chip");
@@ -286,6 +288,38 @@ assert.match(cardSummaryMarkup, /class="card-summary__expires">12\/28<\/span>/);
 assert.match(cardSummaryMarkup, /class="card-summary__metrics"/);
 assert.match(cardSummaryMarkup, /Available/);
 assert.match(cardSummaryMarkup, /class="card-summary__frost"/);
+
+const chartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
+  label: "Spend",
+  value: "$12k",
+  caption: "Last 7 days",
+  values: [3, 6, 9],
+  valueLabels: ["Mon", "Tue", "Wed"],
+  variant: "bars",
+  state: "warning",
+  tone: "info",
+  density: "sm",
+  fullWidth: true,
+}));
+assert.match(chartPanelMarkup, /^<article/);
+assert.match(chartPanelMarkup, /class="chart-panel"/);
+assert.match(chartPanelMarkup, /data-chart-primitive="charts"/);
+assert.match(chartPanelMarkup, /data-chart-engine="echarts-option"/);
+assert.match(chartPanelMarkup, /data-variant="bars"/);
+assert.match(chartPanelMarkup, /data-state="warning"/);
+assert.match(chartPanelMarkup, /data-tone="info"/);
+assert.match(chartPanelMarkup, /data-density="sm"/);
+assert.match(chartPanelMarkup, /data-full-width="true"/);
+assert.match(chartPanelMarkup, /<output>\$12k<\/output>/);
+assert.match(chartPanelMarkup, /<figure role="group" aria-label="Spend\. \$12k\. Last 7 days\. bars chart/);
+assert.match(chartPanelMarkup, /class="chart-panel__plot" role="list"/);
+assert.match(chartPanelMarkup, /class="chart-panel__bar-group"/);
+assert.match(chartPanelMarkup, /class="chart-panel__tooltip" role="status" aria-live="polite"/);
+assert.match(chartPanelMarkup, /class="chart-panel__echarts" aria-hidden="true"/);
+assert.match(chartPanelMarkup, /class="chart-panel__option">/);
+assert.match(chartPanelMarkup, /&quot;engine&quot;:&quot;apache-echarts&quot;/);
+assert.match(chartPanelMarkup, /&quot;type&quot;:&quot;bars&quot;/);
+assert.match(chartPanelMarkup, /&quot;tableFallback&quot;:\[/);
 
 const auditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
   label: "Document rejected",

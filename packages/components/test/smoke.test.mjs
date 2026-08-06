@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import {
-  createChartPanel,
   hydrateChartPanel,
   createMotionBoundary,
   createAnimationAsset,
@@ -26,6 +25,9 @@ import {
   cardSummaryPlatformAdapters,
   cardSummaryPlatformContract,
   cardSummaryPlatformProps,
+  chartPanelPlatformAdapters,
+  chartPanelPlatformContract,
+  chartPanelPlatformProps,
   avatarPlatformAdapters,
   avatarPlatformContract,
   avatarPlatformProps,
@@ -179,7 +181,7 @@ import { createCard } from "../src/components/surfaces.js?v=3";
 import { createAuditEvent } from "../src/components/display.js?v=3";
 import { createAnimatedMoment } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
-import { createCardSummary, createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
+import { createCardSummary, createChartPanel, createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -764,7 +766,16 @@ assert.deepEqual(stepperPlatformContract.states, componentContracts.stepper.stat
 assert.deepEqual(Object.keys(stepperPlatformAdapters), ["react"]);
 assert.equal(stepperPlatformAdapters.react.componentName, "Stepper");
 assert.equal(stepperPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.chartPanel.factory, "createChartPanel");
+assert.equal(componentContracts.chartPanel.factory, "@design-system/react/chart-panel");
+assert.equal(componentContracts.chartPanel.internalFactory, "createChartPanel");
+assert.equal(chartPanelPlatformContract.id, "chart-panel");
+assert.equal(chartPanelPlatformContract.source.factory, componentContracts.chartPanel.factory);
+assert.deepEqual(chartPanelPlatformProps(), componentContracts.chartPanel.props.map((prop) => prop.name));
+assert.deepEqual(chartPanelPlatformContract.variants, componentContracts.chartPanel.variants);
+assert.deepEqual(chartPanelPlatformContract.states, componentContracts.chartPanel.states);
+assert.deepEqual(Object.keys(chartPanelPlatformAdapters), ["react"]);
+assert.equal(chartPanelPlatformAdapters.react.componentName, "ChartPanel");
+assert.equal(chartPanelPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.stationPin.factory, "@design-system/react/station-pin");
 assert.equal(componentContracts.stationPin.internalFactory, "createStationPin");
 assert.equal(stationPinPlatformContract.id, "station-pin");
@@ -2089,6 +2100,22 @@ const hydratedChart = hydrateChartPanel(chartPanel, {
 assert.ok(hydratedChart);
 assert.equal(hydratedOption.series[0].type, "line");
 assert.equal(chartPanel.querySelector(".chart-panel__plot").attributes.hidden, "true");
+const failedHydrationChart = createChartPanel({ label: "Bad option", values: [1, 2, 3] });
+const failedHydration = hydrateChartPanel(failedHydrationChart, {
+  echarts: {
+    init() {
+      return {
+        setOption() {
+          throw new Error("vendor option failed");
+        },
+        dispose() {},
+      };
+    },
+  },
+});
+assert.equal(failedHydration, null);
+assert.equal(failedHydrationChart.dataset.hydrated, undefined);
+assert.equal(failedHydrationChart.querySelector(".chart-panel__plot").attributes.hidden, undefined);
 const chartPanelLine = createChartPanel({ label: "Spend trend", variant: "line", state: "warning", density: "sm", fullWidth: true, values: [2, 5, 4] });
 assert.equal(chartPanelLine.dataset.variant, "line");
 assert.equal(chartPanelLine.dataset.state, "warning");

@@ -1159,7 +1159,8 @@ export const componentContracts = {
     ]
   },
   chartPanel: {
-    factory: "createChartPanel",
+    factory: "@design-system/react/chart-panel",
+    internalFactory: "createChartPanel",
     element: "article",
     purpose: "Show one compact chart summary by framing the Charts primitive with title, value, caption, ECharts option output, and read-only fallback plot.",
     variants: ["sparkline", "bars", "line", "area", "donut", "pareto", "bullet", "comparison", "compact"],

@@ -127,6 +127,17 @@ export type {
   CardSummaryState,
   CardSummaryVariant,
 } from "./CardSummary.js";
+export { ChartPanel } from "./ChartPanel.js";
+export type {
+  ChartPanelComponent,
+  ChartPanelDensity,
+  ChartPanelProps,
+  ChartPanelSegment,
+  ChartPanelSeries,
+  ChartPanelState,
+  ChartPanelTone,
+  ChartPanelVariant,
+} from "./ChartPanel.js";
 export type {
   CheckboxComponent,
   CheckboxDensity,
