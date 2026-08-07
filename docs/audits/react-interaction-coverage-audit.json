@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 41,
-    "review": 15,
+    "pass": 42,
+    "review": 14,
     "fail": 0,
-    "missingTestCallbacks": 19
+    "missingTestCallbacks": 17
   },
   "components": [
     {
@@ -584,13 +584,13 @@
         "onAction",
         "onOpenChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onAction",
         "onOpenChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "ProgressIndicator",

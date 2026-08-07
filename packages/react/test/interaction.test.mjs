@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -599,6 +599,38 @@ try {
     e164: "+15512345678",
     nationalNumber: "5512345678",
   });
+
+  cleanup();
+
+  const popoverOpenChanges = [];
+  const popoverActions = [];
+  const { getByRole: getPopoverRole } = render(React.createElement(Popover, {
+    triggerLabel: "Open filters",
+    title: "Filter routes",
+    description: "Adjust visible routes.",
+    variant: "action",
+    actions: [{ key: "apply", label: "Apply", variant: "primary" }],
+    onOpenChange: (open) => popoverOpenChanges.push(open),
+    onAction: (key) => popoverActions.push(key),
+  }));
+
+  const popoverTrigger = getPopoverRole("button", { name: /open filters/i });
+  assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false");
+  fireEvent.click(popoverTrigger);
+  await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "true"));
+  assert.equal(getPopoverRole("dialog", { name: /filter routes/i }).hidden, false);
+  assert.deepEqual(popoverOpenChanges, [true]);
+
+  fireEvent.click(getPopoverRole("button", { name: /apply/i }));
+  await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(popoverActions, ["apply"]);
+  assert.deepEqual(popoverOpenChanges, [true, false]);
+
+  fireEvent.click(popoverTrigger);
+  await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "true"));
+  fireEvent.keyDown(getPopoverRole("dialog", { name: /filter routes/i }), { key: "Escape" });
+  await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(popoverOpenChanges, [true, false, true, false]);
 } finally {
   cleanup();
   dom.window.close();
