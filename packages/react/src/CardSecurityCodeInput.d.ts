@@ -20,6 +20,8 @@ export interface CardSecurityCodeInputProps extends Omit<InputHTMLAttributes<HTM
   expectedLength?: 3 | 4;
   validationMessage?: string;
   revealable?: boolean;
+  revealLabel?: string;
+  hideLabel?: string;
   revealed?: boolean;
   onValueChange?: (digits: string, meta: CardSecurityCodeMeta) => void;
 }

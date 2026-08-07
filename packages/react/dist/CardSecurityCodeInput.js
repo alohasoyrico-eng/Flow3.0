@@ -42,6 +42,8 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   expectedLength = 3,
   validationMessage = "",
   revealable = true,
+  revealLabel,
+  hideLabel,
   revealed,
   onValueChange,
   className = "",
@@ -62,6 +64,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   const resolvedError = error || localError;
   const resolvedHelper = resolvedError || helper;
   const isDisabled = Boolean(disabled || loading);
+  const canReveal = Boolean(revealable && revealLabel && hideLabel);
   const resolvedState = resolveCardSecurityCodeState({ disabled, loading, error: resolvedError, state, value: digits, validity });
   const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
   const meta = useMemo(() => ({
@@ -124,7 +127,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
           });
         },
       }),
-      revealable
+      canReveal
         ? React.createElement(
           "button",
           {
@@ -133,7 +136,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
             disabled: isDisabled,
             "data-field-action": "reveal",
             "data-card-security-code-reveal": "",
-            "aria-label": isRevealed ? "Hide security code" : "Show security code",
+            "aria-label": isRevealed ? hideLabel : revealLabel,
             "aria-pressed": String(isRevealed),
             onClick: () => {
               if (!isRevealedControlled) setInternalRevealed((next) => !next);
@@ -142,7 +145,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
           React.createElement("span", { className: "field-action__icon field__icon card-security-code-input__action-icon", "aria-hidden": "true" }, isRevealed ? "visibility_off" : "visibility"),
         )
         : null,
-      loading ? React.createElement(Spinner, { label: label ? `${label} loading` : "Loading", density, decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { density, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement(

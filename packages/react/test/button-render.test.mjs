@@ -1740,6 +1740,8 @@ const cardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(Car
   helper: "Use the code printed on the card.",
   value: "48a2",
   density: "sm",
+  revealLabel: "Reveal CVC",
+  hideLabel: "Conceal CVC",
 }));
 assert.match(cardSecurityCodeInputMarkup, /class="field card-security-code-input"/);
 assert.match(cardSecurityCodeInputMarkup, /data-density="sm"/);
@@ -1760,6 +1762,8 @@ const revealedCardSecurityCodeInputMarkup = renderToStaticMarkup(React.createEle
   value: "1234",
   expectedLength: 4,
   revealed: true,
+  revealLabel: "Reveal CVC",
+  hideLabel: "Conceal CVC",
 }));
 assert.match(revealedCardSecurityCodeInputMarkup, /data-expected-length="4"/);
 assert.match(revealedCardSecurityCodeInputMarkup, /type="text"/);
@@ -1774,6 +1778,8 @@ assert.doesNotMatch(inheritedCardSecurityCodeInputMarkup.match(/^<label[^>]+>/)?
 
 const unnamedCardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(CardSecurityCodeInput));
 assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /aria-label="Security code"/);
+assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /Show security code|Hide security code/);
+assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /data-card-security-code-reveal/);
 
 const codeInputMarkup = renderToStaticMarkup(React.createElement(CodeInput, {
   label: "Security code",

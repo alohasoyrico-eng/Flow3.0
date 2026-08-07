@@ -203,6 +203,8 @@ try {
   const { getByLabelText: getSecurityCodeLabel, getByRole: getSecurityCodeRole, rerender: rerenderSecurityCode } = render(React.createElement(CardSecurityCodeInput, {
     label: "Security code",
     expectedLength: 4,
+    revealLabel: "Reveal CVC",
+    hideLabel: "Conceal CVC",
     onValueChange: (digits, meta) => securityCodeChanges.push({ digits, meta }),
   }));
 
@@ -215,7 +217,7 @@ try {
   assert.equal(securityCodeChanges.at(-1).meta.validity, "valid");
   assert.equal(securityCodeChanges.at(-1).meta.complete, true);
 
-  const revealButton = getSecurityCodeRole("button", { name: /show security code/i });
+  const revealButton = getSecurityCodeRole("button", { name: /reveal cvc/i });
   assert.equal(securityCodeInput.type, "password");
   fireEvent.click(revealButton);
   await waitFor(() => assert.equal(securityCodeInput.type, "text"));
@@ -226,6 +228,8 @@ try {
     expectedLength: 4,
     value: "9876",
     revealed: false,
+    revealLabel: "Reveal CVC",
+    hideLabel: "Conceal CVC",
     onValueChange: (digits, meta) => securityCodeChanges.push({ digits, meta }),
   }));
   await waitFor(() => assert.equal(securityCodeInput.value, "9876"));
