@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { cardNumberInputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
+import { flowRestProps } from "./internal/props.js";
 
 function normalizeCardNumber(value) {
   return String(value ?? "").replace(/\D/g, "").slice(0, 19);
@@ -109,7 +110,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
       { className: "field__control card-number-input__control" },
       React.createElement("span", { className: "field__icon card-number-input__icon", "aria-hidden": "true" }, "credit_card"),
       React.createElement("input", {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         id: inputId,
         name,

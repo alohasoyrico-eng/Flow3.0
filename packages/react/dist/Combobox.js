@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { comboboxPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function optionValue(option) {
   return option.value ?? option.label ?? "";
@@ -109,7 +110,7 @@ export const Combobox = forwardRef(function Combobox({
       },
       icon ? React.createElement("span", { className: "field__icon combobox__icon", "aria-hidden": "true" }, icon) : null,
       React.createElement("input", {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         id: comboboxId,
         className: "input combobox__input",

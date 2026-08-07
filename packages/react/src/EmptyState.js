@@ -2,6 +2,7 @@ import React, { forwardRef, useId } from "react";
 import { emptyStatePlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { Spinner } from "./Spinner.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["first-use", "search-empty", "permission", "error", "maintenance"]);
 const validStates = new Set(["default", "action", "search-empty", "permission", "loading", "error"]);
@@ -42,7 +43,7 @@ export const EmptyState = forwardRef(function EmptyState({
   return React.createElement(
     "section",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       id,
       className: ["empty-state", className].filter(Boolean).join(" "),

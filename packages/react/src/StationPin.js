@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { createMapsPrimitive } from "@design-system/components";
 import { stationPinPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fuel", "ev", "service", "cluster"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "unavailable", "disabled"]);
@@ -56,7 +57,7 @@ export const StationPin = forwardRef(function StationPin({
   return React.createElement(
     "button",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       type: rest.type ?? "button",
       className: ["station-pin", className].filter(Boolean).join(" "),

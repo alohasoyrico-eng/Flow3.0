@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { switchPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function normalizeState({ checked, disabled, state, error }) {
   if (disabled) return "disabled";
@@ -49,7 +50,7 @@ export const Switch = forwardRef(function Switch({
       "data-invalid": isInvalid ? "true" : undefined,
     },
     React.createElement("input", {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       type: "checkbox",
       className: "switch__input",

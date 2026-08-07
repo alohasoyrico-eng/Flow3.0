@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { inputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
+import { flowRestProps } from "./internal/props.js";
 
 const numericVariants = new Set(["number", "currency", "unit"]);
 
@@ -131,7 +132,7 @@ export const Input = forwardRef(function Input({
         ? React.createElement("span", { className: "field__prefix", "aria-hidden": "true" }, prefix)
         : null,
       React.createElement("input", {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         id: inputId,
         className: "input",

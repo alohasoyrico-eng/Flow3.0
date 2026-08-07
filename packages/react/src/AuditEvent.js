@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { auditEventPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger", "action"]);
 const validStates = new Set(["default", "hover", "focus", "verified", "warning", "critical", "disabled"]);
@@ -41,7 +42,7 @@ export const AuditEvent = forwardRef(function AuditEvent({
   return React.createElement(
     "article",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["audit-event", className].filter(Boolean).join(" "),
       "data-tone": statusTone,

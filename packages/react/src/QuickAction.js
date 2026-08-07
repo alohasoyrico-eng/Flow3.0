@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import { quickActionPlatformContract } from "@design-system/components/platforms";
 import { Badge } from "./Badge.js";
 import { Spinner } from "./Spinner.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "destructive", "compact", "wide"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "warning", "disabled"]);
@@ -44,7 +45,7 @@ export const QuickAction = forwardRef(function QuickAction({
     React.createElement(
       "button",
       {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         type: validTypes.has(type) ? type : "button",
         className: "quick-action__control",

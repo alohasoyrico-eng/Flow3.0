@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { sliderPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const allowedVariants = new Set(["continuous", "stepped", "bounded", "threshold", "paired-value"]);
 const allowedStates = new Set(["default", "focus", "dragging", "disabled", "error", "complete"]);
@@ -103,7 +104,7 @@ export const Slider = forwardRef(function Slider({
       "span",
       { className: "slider__control" },
       React.createElement("input", {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         type: "range",
         className: "slider__input",

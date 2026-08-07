@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { spinnerPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validDensities = new Set(["sm", "md", "lg"]);
 const validTones = new Set(["accent", "ink", "success", "warning", "danger"]);
@@ -32,7 +33,7 @@ export const Spinner = forwardRef(function Spinner({
   return React.createElement(
     "span",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["spinner", className].filter(Boolean).join(" "),
       role: isDecorative ? undefined : "status",

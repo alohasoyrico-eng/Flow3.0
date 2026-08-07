@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { chartPanelPlatformContract } from "#flow/platforms";
 import { createChartsPrimitive } from "#flow/components";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["sparkline", "bars", "line", "area", "donut", "pareto", "bullet", "comparison", "compact"]);
 const validStates = new Set(["default", "focus", "hover", "warning", "error", "disabled"]);
@@ -189,7 +190,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
   return React.createElement(
     "article",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["chart-panel", className].filter(Boolean).join(" "),
       "data-chart-primitive": "charts",

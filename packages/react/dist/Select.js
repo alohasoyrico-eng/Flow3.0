@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { selectPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function selectedOptionFor(options, value) {
   return options.find((option) => (option.value ?? option.label ?? "") === value)
@@ -69,7 +70,7 @@ export const Select = forwardRef(function Select({
       React.createElement(
         "button",
         {
-          ...rest,
+          ...flowRestProps(rest),
           ref,
           type: "button",
           className: "select-control__trigger",

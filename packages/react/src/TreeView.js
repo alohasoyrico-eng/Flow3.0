@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { treeViewPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validDensities = new Set(["sm", "md", "lg"]);
 const validStates = new Set(["default", "hover", "focus", "expanded", "selected", "disabled"]);
@@ -98,7 +99,7 @@ export const TreeView = forwardRef(function TreeView({
   return React.createElement(
     "ul",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["tree-view", className].filter(Boolean).join(" "),
       role: "tree",

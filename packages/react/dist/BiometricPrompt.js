@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { biometricPromptPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fingerprint", "face", "passcode", "fallback"]);
 const validStates = new Set(["default", "focus", "authenticating", "success", "warning", "error", "disabled"]);
@@ -62,7 +63,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
   return React.createElement(
     "section",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["biometric-prompt", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,

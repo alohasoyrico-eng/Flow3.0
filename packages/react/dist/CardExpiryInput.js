@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { cardExpiryInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
+import { flowRestProps } from "./internal/props.js";
 
 function normalizeCardExpiry(value) {
   return String(value ?? "").replace(/\D/g, "").slice(0, 4);
@@ -103,7 +104,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
       { className: "field__control card-expiry-input__control" },
       React.createElement("span", { className: "field__icon card-expiry-input__icon", "aria-hidden": "true" }, "calendar_month"),
       React.createElement("input", {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         id: inputId,
         name,

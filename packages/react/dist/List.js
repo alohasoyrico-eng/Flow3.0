@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { listPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "compact", "action", "status", "media"]);
 const validStates = new Set(["default", "hover", "selected", "loading", "error", "disabled"]);
@@ -36,7 +37,7 @@ export const List = forwardRef(function List({
   return React.createElement(
     "ul",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["list", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,

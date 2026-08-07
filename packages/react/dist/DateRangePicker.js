@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useId, useMemo, useRef, useState } from "react";
 import { dateRangePickerPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function parseDate(value) {
   if (!value) return null;
@@ -220,7 +221,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
     React.createElement(
       "button",
       {
-        ...rest,
+        ...flowRestProps(rest),
         ref: (node) => {
           controlRef.current = node;
           if (typeof ref === "function") ref(node);

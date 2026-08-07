@@ -174,12 +174,14 @@ function checkReactComponent(file, shared) {
     if (artifactSource.includes("apps/docs") || artifactSource.includes("#design-system/docs")) {
       add("errors", artifact, 1, `${name} published React artifact must not depend on docs.`);
     }
+    checkPublishedLocalImports({ name, artifact, artifactSource });
   }
 
   if (source.includes("innerHTML") || source.includes("insertAdjacentHTML")) {
     add("errors", sourceFile, 1, `${name} React source must not inject HTML strings as a parallel DOM implementation.`);
   }
   checkInlineStyleContract({ name, sourceFile, source });
+  checkRestPropContract({ name, sourceFile, source });
   if (source.includes("createTransitional") || source.includes("createCard(") || source.includes("createTable(")) {
     add("errors", sourceFile, 1, `${name} React source must not call component DOM factories; React is the primary implementation.`);
   }
@@ -190,6 +192,24 @@ function checkReactComponent(file, shared) {
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {
     add("errors", sourceFile, 1, `${name} React source imports non-primitive implementation helpers from components: ${illegalImports.join(", ")}.`);
+  }
+}
+
+function checkRestPropContract({ name, sourceFile, source }) {
+  const directRestSpread = source.search(/^\s*\.\.\.rest,\s*$/m);
+  if (directRestSpread >= 0) {
+    add("errors", sourceFile, lineForIndex(source, directRestSpread), `${name} React source must sanitize rest props with flowRestProps(rest) so style cannot bypass Flow tokens.`);
+  }
+}
+
+function checkPublishedLocalImports({ name, artifact, artifactSource }) {
+  for (const match of artifactSource.matchAll(/from\s+"(\.[^"]+)"/g)) {
+    const importPath = match[1];
+    const resolved = path.join(path.dirname(artifact), importPath);
+    const candidates = path.extname(resolved) ? [resolved] : [`${resolved}.js`, `${resolved}.d.ts`];
+    if (!candidates.some((candidate) => fs.existsSync(candidate))) {
+      add("errors", artifact, lineForIndex(artifactSource, match.index), `${name} published React artifact imports missing local file ${importPath}.`);
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { tabsPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
+import { flowRestProps } from "./internal/props.js";
 
 const allowedVariants = new Set(["default", "underline"]);
 
@@ -88,7 +89,7 @@ export const Tabs = forwardRef(function Tabs({
   return React.createElement(
     "div",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref: (node) => {
         rootRef.current = node;
         if (typeof ref === "function") ref(node);

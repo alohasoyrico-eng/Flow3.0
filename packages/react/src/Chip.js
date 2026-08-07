@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { chipPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["filter", "input", "suggestion", "assist"]);
 const validTones = new Set(["default", "danger", "warning"]);
@@ -59,7 +60,7 @@ export const Chip = forwardRef(function Chip({
   return React.createElement(
     element,
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["chip", className].filter(Boolean).join(" "),
       type: isInteractive ? type : undefined,

@@ -14,9 +14,21 @@ function rewritePublishedImports(source) {
     .replaceAll('"@design-system/components"', '"#flow/components"');
 }
 
-for (const file of fs.readdirSync(src).filter((entry) => entry.endsWith(".js") || entry.endsWith(".d.ts"))) {
-  const source = fs.readFileSync(path.join(src, file), "utf8");
-  fs.writeFileSync(path.join(dist, file), rewritePublishedImports(source));
+function copySourceTree(fromDir, toDir) {
+  fs.mkdirSync(toDir, { recursive: true });
+  for (const entry of fs.readdirSync(fromDir, { withFileTypes: true })) {
+    const from = path.join(fromDir, entry.name);
+    const to = path.join(toDir, entry.name);
+    if (entry.isDirectory()) {
+      copySourceTree(from, to);
+      continue;
+    }
+    if (!entry.name.endsWith(".js") && !entry.name.endsWith(".d.ts")) continue;
+    const source = fs.readFileSync(from, "utf8");
+    fs.writeFileSync(to, rewritePublishedImports(source));
+  }
 }
+
+copySourceTree(src, dist);
 
 console.log(JSON.stringify({ status: "pass", package: "@design-system/react", outDir: "dist" }));

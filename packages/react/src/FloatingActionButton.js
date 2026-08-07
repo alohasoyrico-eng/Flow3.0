@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { floatingActionButtonPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["primary", "accent", "extended", "mini"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "disabled"]);
@@ -33,7 +34,7 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
   return React.createElement(
     "button",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       type: validTypes.has(type) ? type : "button",
       className: ["fab", className].filter(Boolean).join(" "),

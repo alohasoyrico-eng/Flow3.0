@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { codeInputPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function normalizeCodeValue(value, length = 6) {
   return String(value ?? "").replace(/\D/g, "").slice(0, Number(length));
@@ -70,7 +71,7 @@ export const CodeInput = forwardRef(function CodeInput({
       "span",
       { className: "code-input__control" },
       React.createElement("input", {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         id: inputId,
         className: "code-input__input",

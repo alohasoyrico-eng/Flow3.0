@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { movementRowPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "refund", "declined", "compact"]);
 const validStates = new Set(["default", "hover", "focus", "pending", "error", "disabled"]);
@@ -54,7 +55,7 @@ export const MovementRow = forwardRef(function MovementRow({
   return React.createElement(
     "button",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       type: ["button", "submit", "reset"].includes(type) ? type : "button",
       className: ["movement-row", className].filter(Boolean).join(" "),

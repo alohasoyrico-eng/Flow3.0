@@ -3,6 +3,7 @@ import { dialogPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["confirmation", "destructive", "form", "review", "success"]);
 const validStates = new Set(["open", "focus", "closing", "default", "closed"]);
@@ -89,7 +90,7 @@ export const Dialog = forwardRef(function Dialog({
   return React.createElement(
     "div",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["dialog", `dialog--${resolvedTone}`, className].filter(Boolean).join(" "),
       "data-open": String(Boolean(isOpen)),

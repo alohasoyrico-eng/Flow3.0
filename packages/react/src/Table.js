@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { tablePlatformContract } from "@design-system/components/platforms";
 import { Badge } from "./Badge.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "dense", "sortable", "selectable", "expandable"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "sorted", "expanded"]);
@@ -107,7 +108,7 @@ export const Table = forwardRef(function Table({
   return React.createElement(
     "div",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["table", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,

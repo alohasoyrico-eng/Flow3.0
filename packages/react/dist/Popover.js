@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { popoverPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { Input } from "./Input.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["information", "action", "form", "metric"]);
 const validStates = new Set(["default", "closed", "open", "hover", "focus", "warning", "disabled"]);
@@ -76,7 +77,7 @@ export const Popover = forwardRef(function Popover({
   return React.createElement(
     "span",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["popover", className].filter(Boolean).join(" "),
       "data-open": String(Boolean(isOpen)),

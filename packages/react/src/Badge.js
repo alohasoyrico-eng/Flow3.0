@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { badgePlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger", "accent"]);
 const validVariants = new Set(["count", "dot", "status", "icon"]);
@@ -38,7 +39,7 @@ export const Badge = forwardRef(function Badge({
   return React.createElement(
     "span",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["badge", className].filter(Boolean).join(" "),
       hidden: resolvedState === "hidden",

@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { skeletonPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["text", "title", "circle", "card", "pill", "row", "media", "chart", "table"]);
 const validStates = new Set(["default", "loading", "stale", "paused", "loaded", "disabled"]);
@@ -54,7 +55,7 @@ export const Skeleton = forwardRef(function Skeleton({
   return React.createElement(
     "div",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["skeleton", `skeleton--${resolvedVariant}`, className].filter(Boolean).join(" "),
       role: "status",

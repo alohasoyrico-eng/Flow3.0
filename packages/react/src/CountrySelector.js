@@ -5,6 +5,7 @@ import {
   resolveCountryCallingCodeOption,
 } from "@design-system/components";
 import { countrySelectorPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function CountryFlag({ country, className = "" }) {
   const code = String(country ?? "MX").toUpperCase();
@@ -91,7 +92,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
   return React.createElement(
     "span",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["select-control", inline ? "select-control--inline" : "", "country-selector", className].filter(Boolean).join(" "),
       "data-country-selector": "",

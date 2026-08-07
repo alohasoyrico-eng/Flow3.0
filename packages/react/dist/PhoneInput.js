@@ -6,6 +6,7 @@ import {
   resolveCountryCallingCodeOption,
 } from "#flow/components";
 import { phoneInputPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function resolveCountry({ country, prefix } = {}, countries = countryCallingCodeOptions) {
   return resolveCountryCallingCodeOption({ country, prefix }, countries);
@@ -233,7 +234,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
         ),
       ),
       React.createElement("input", {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         id: inputId,
         className: "input phone-input__input",

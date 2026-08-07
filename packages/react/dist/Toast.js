@@ -2,6 +2,7 @@ import React, { forwardRef, useState } from "react";
 import { toastPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validVariants = new Set(["status", "progress", "warning", "recovery", "undo"]);
@@ -46,7 +47,7 @@ export const Toast = forwardRef(function Toast({
   return React.createElement(
     "article",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["toast", className].filter(Boolean).join(" "),
       hidden,

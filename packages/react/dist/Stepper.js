@@ -1,5 +1,6 @@
 import React, { forwardRef, useMemo } from "react";
 import { stepperPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const allowedOrientations = new Set(["horizontal", "vertical"]);
 const allowedDensities = new Set(["sm", "md", "lg"]);
@@ -30,7 +31,7 @@ export const Stepper = forwardRef(function Stepper({
   return React.createElement(
     "ol",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["stepper", className].filter(Boolean).join(" "),
       "aria-label": label,

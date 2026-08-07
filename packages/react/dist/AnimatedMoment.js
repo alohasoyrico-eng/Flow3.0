@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { animatedMomentPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["success", "empty", "loading", "celebration"]);
 const validStates = new Set(["idle", "playing", "paused", "complete", "reduced-motion", "disabled"]);
@@ -55,7 +56,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   return React.createElement(
     "div",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["animated-moment", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,

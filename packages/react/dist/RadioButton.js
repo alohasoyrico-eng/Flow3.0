@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { radioButtonPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function normalizeState({ checked, disabled, state, error }) {
   if (disabled) return "disabled";
@@ -57,7 +58,7 @@ export const RadioButton = forwardRef(function RadioButton({
       "data-invalid": isInvalid ? "true" : undefined,
     },
     React.createElement("input", {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       type: "radio",
       className: "choice__input",

@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { avatarPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validSizes = new Set(["sm", "md", "lg", "xl"]);
 const validStatuses = new Set(["none", "online", "busy", "offline"]);
@@ -41,7 +42,7 @@ export const Avatar = forwardRef(function Avatar({
   return React.createElement(
     "span",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["avatar", `avatar--${resolvedSize}`, className].filter(Boolean).join(" "),
       "aria-label": ariaLabel || sourceName || "Unknown avatar",

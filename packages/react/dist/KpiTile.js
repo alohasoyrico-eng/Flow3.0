@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { kpiTilePlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "delta", "threshold", "sparkline", "drill-in"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "loading", "risk", "disabled"]);
@@ -56,7 +57,7 @@ export const KpiTile = forwardRef(function KpiTile({
   return React.createElement(
     Element,
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["kpi-tile", `kpi-tile--${resolvedTone}`, className].filter(Boolean).join(" "),
       href: href || undefined,

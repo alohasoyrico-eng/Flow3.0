@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { textAreaPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function resolveState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
   if (disabled) return "disabled";
@@ -63,7 +64,7 @@ export const TextArea = forwardRef(function TextArea({
       "span",
       { className: "text-area__surface", "data-has-counter": maxLength != null ? "true" : undefined },
       React.createElement("textarea", {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         id: textAreaId,
         className: "text-area",

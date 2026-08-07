@@ -3,6 +3,7 @@ import { cardPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Spinner } from "./Spinner.js";
+import { flowRestProps } from "./internal/props.js";
 
 const variants = new Set(["default", "minimal", "elevated", "ghost"]);
 const compositions = new Set(["standard", "compact", "media", "stats"]);
@@ -105,7 +106,7 @@ export const Card = forwardRef(function Card({
   return React.createElement(
     "article",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["card", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,

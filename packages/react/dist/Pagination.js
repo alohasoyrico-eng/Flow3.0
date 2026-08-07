@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { paginationPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const allowedStates = new Set(["default", "hover", "focus", "selected", "disabled"]);
 
@@ -81,7 +82,7 @@ export const Pagination = forwardRef(function Pagination({
   return React.createElement(
     "nav",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["pagination", className].filter(Boolean).join(" "),
       "aria-label": label,

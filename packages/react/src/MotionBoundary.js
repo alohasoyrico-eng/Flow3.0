@@ -1,5 +1,6 @@
 import React, { forwardRef, useId } from "react";
 import { motionBoundaryPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fade", "slide", "collapse", "route"]);
 const validStates = new Set(["idle", "entering", "active", "exiting", "reduced-motion", "disabled"]);
@@ -46,7 +47,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   return React.createElement(
     "div",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["motion-boundary", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,

@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { tagPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["metadata", "status", "platform", "link"]);
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
@@ -39,7 +40,7 @@ export const Tag = forwardRef(function Tag({
   return React.createElement(
     element,
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["tag", className].filter(Boolean).join(" "),
       type: isInteractive ? type : undefined,

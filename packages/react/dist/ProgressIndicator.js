@@ -1,5 +1,6 @@
 import React, { forwardRef, useId } from "react";
 import { progressIndicatorPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validDensities = new Set(["sm", "md", "lg"]);
 const validTones = new Set(["accent", "success", "warning", "danger", "ink"]);
@@ -57,7 +58,7 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
   return React.createElement(
     "div",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       id,
       className: ["progress", className].filter(Boolean).join(" "),

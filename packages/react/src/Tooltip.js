@@ -1,5 +1,6 @@
 import React, { forwardRef, useId, useState } from "react";
 import { tooltipPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const validPlacements = new Set(["top", "right", "bottom", "left"]);
 const validVariants = new Set(["default", "icon-help", "metric", "disabled-help"]);
@@ -51,7 +52,7 @@ export const Tooltip = forwardRef(function Tooltip({
   return React.createElement(
     "span",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["tooltip", className].filter(Boolean).join(" "),
       "data-placement": resolvedPlacement,

@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import { routeSummaryPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "compact", "compare", "policy"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "warning", "disabled"]);
@@ -71,7 +72,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
   return React.createElement(
     "article",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["route-summary", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,

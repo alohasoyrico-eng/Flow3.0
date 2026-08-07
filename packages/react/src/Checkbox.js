@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { checkboxPlatformContract } from "@design-system/components/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function normalizeState({ checked, indeterminate, disabled, state, error }) {
   if (disabled) return "disabled";
@@ -74,7 +75,7 @@ export const Checkbox = forwardRef(function Checkbox({
       "data-invalid": isInvalid ? "true" : undefined,
     },
     React.createElement("input", {
-      ...rest,
+      ...flowRestProps(rest),
       ref: assignRef,
       type: "checkbox",
       className: "choice__input",

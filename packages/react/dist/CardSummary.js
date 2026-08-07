@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { cardSummaryPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
+import { flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["physical", "virtual", "compact", "limit"]);
 const validStates = new Set(["default", "hover", "focus", "active", "warning", "frozen", "disabled"]);
@@ -42,7 +43,7 @@ export const CardSummary = forwardRef(function CardSummary({
   return React.createElement(
     "article",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       className: ["card-summary", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,

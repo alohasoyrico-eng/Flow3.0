@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { cardSecurityCodeInputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
+import { flowRestProps } from "./internal/props.js";
 
 function normalizeCardSecurityCode(value, expectedLength = 3) {
   const length = Number(expectedLength) === 4 ? 4 : 3;
@@ -89,7 +90,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
       { className: "field__control card-security-code-input__control" },
       React.createElement("span", { className: "field__icon card-security-code-input__icon", "aria-hidden": "true" }, "pin"),
       React.createElement("input", {
-        ...rest,
+        ...flowRestProps(rest),
         ref,
         id: inputId,
         name,

@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { iconButtonPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 const allowedTypes = new Set(["button", "submit", "reset"]);
 
@@ -25,7 +26,7 @@ export const IconButton = forwardRef(function IconButton({
   return React.createElement(
     "button",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       type: allowedTypes.has(type) ? type : "button",
       className: iconButtonClassName({ variant, className }),

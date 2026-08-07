@@ -1,5 +1,6 @@
 import React, { forwardRef, useId, useMemo, useRef, useState } from "react";
 import { segmentedControlPlatformContract } from "#flow/platforms";
+import { flowRestProps } from "./internal/props.js";
 
 function itemKey(item) {
   return item?.key ?? item?.value ?? item?.label ?? "";
@@ -70,7 +71,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
   return React.createElement(
     "div",
     {
-      ...rest,
+      ...flowRestProps(rest),
       ref,
       id: controlId,
       className: ["segmented-control", className].filter(Boolean).join(" "),
