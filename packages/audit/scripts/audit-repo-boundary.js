@@ -284,8 +284,9 @@ function checkRepoBoundary() {
 
   checkSplitManifest(systemSplitManifestFile, "Design System", {
     "audit:system": "node packages/audit/scripts/audit-system-scope.js",
+    "audit:consumer-install": "node packages/audit/scripts/audit-consumer-install.mjs",
     test: "node packages/components/test/smoke.test.mjs",
-    "validate:system": "npm run audit:system && npm test && npm run build:react && npm run test:react",
+    "validate:system": "npm run audit:system && npm test && npm run build:react && npm run test:react && npm run audit:consumer-install",
   });
   checkSplitManifest(docsSplitManifestFile, "Docs", {
     "build:docs-content": "node scripts/build-docs-content.mjs",
