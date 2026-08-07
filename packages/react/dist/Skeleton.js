@@ -26,7 +26,7 @@ function toCssLength(value) {
 }
 
 export const Skeleton = forwardRef(function Skeleton({
-  label = "Content loading",
+  label = "",
   variant = "text",
   lines = 3,
   rows,
@@ -60,7 +60,7 @@ export const Skeleton = forwardRef(function Skeleton({
       className: ["skeleton", `skeleton--${resolvedVariant}`, className].filter(Boolean).join(" "),
       role: "status",
       "aria-busy": String(isBusy),
-      "aria-label": label,
+      "aria-label": label || undefined,
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
       "data-full-width": String(Boolean(fullWidth)),

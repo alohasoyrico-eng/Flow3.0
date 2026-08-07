@@ -12,6 +12,7 @@ const visibleTriggerDefaultsByFile = new Map([
   ["Popover.js", ["Open"]],
   ["Pagination.js", ["Pagination", "Previous page", "Next page", "Page"]],
   ["SegmentedControl.js", ["First", "Second", "Third", "Option"]],
+  ["Skeleton.js", ["Content loading"]],
   ["StationPin.js", ["Station", "Station pin"]],
   ["Stepper.js", ["Step", "Progress"]],
   ["InlineValidation.js", ["Input"]],
