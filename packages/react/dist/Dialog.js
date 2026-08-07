@@ -33,7 +33,7 @@ export const Dialog = forwardRef(function Dialog({
   tone = "neutral",
   variant = "confirmation",
   state = "closed",
-  density = "md",
+  density,
   icon = "",
   fields = [],
   id = "",
@@ -47,7 +47,7 @@ export const Dialog = forwardRef(function Dialog({
   const closeRef = useRef(null);
   const resolvedVariant = normalize(variant, validVariants, "confirmation");
   const resolvedTone = resolveTone(tone, resolvedVariant);
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const initialState = normalize(state, validStates, "closed");
   const initiallyOpen = Boolean(open);
   const [isOpen, setIsOpen] = useState(initiallyOpen);

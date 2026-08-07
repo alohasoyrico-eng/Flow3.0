@@ -681,7 +681,6 @@ export const componentContracts = {
   },
   dialog: {
     factory: "@design-system/react/dialog",
-    internalFactory: "createDialog",
     element: "div",
     purpose: "Mount one blocking dialog surface with trigger, modal semantics, title, description, and local actions.",
     variants: ["confirmation", "destructive", "form", "review", "success"],

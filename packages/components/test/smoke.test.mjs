@@ -593,7 +593,6 @@ assert.deepEqual(Object.keys(skeletonPlatformAdapters), ["react"]);
 assert.equal(skeletonPlatformAdapters.react.componentName, "Skeleton");
 assert.equal(skeletonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.dialog.factory, "@design-system/react/dialog");
-assert.equal(componentContracts.dialog.internalFactory, "createDialog");
 assert.equal(dialogPlatformContract.id, "dialog");
 assert.equal(dialogPlatformContract.source.factory, componentContracts.dialog.factory);
 assert.deepEqual(dialogPlatformProps(), componentContracts.dialog.props.map((prop) => prop.name));

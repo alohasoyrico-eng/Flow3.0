@@ -1825,7 +1825,7 @@ const formDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
 assert.match(formDialogMarkup, /data-variant="form"/);
 assert.match(formDialogMarkup, /class="dialog__body dialog__fields"/);
 assert.match(formDialogMarkup, /class="field"/);
-assert.match(formDialogMarkup, /data-density="md"/);
+assert.doesNotMatch(formDialogMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const closedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Card controls",

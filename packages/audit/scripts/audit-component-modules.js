@@ -74,11 +74,10 @@ const moduleRules = [
     id: "overlays",
     file: "packages/components/src/components/overlays.js",
     exports: [
-      "createDialog",
       "createDrawer",
     ],
     publicExports: [],
-    internalExports: ["createDialog", "createDrawer"],
+    internalExports: ["createDrawer"],
   },
   {
     id: "specialized-inputs",
