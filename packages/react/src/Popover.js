@@ -47,6 +47,7 @@ export const Popover = forwardRef(function Popover({
   const panelId = id || `popover-${slug(triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const resolvedActions = actions;
   const isDisabled = disabled || interactionState === "disabled";
+  const hasField = Boolean(field?.label || field?.value || field?.placeholder || field?.helper);
 
   useEffect(() => {
     if (!isOpenControlled) return;
@@ -111,7 +112,7 @@ export const Popover = forwardRef(function Popover({
       },
       title ? React.createElement("strong", null, title) : null,
       description ? React.createElement("p", null, description) : null,
-      resolvedVariant === "form"
+      resolvedVariant === "form" && hasField
         ? React.createElement(Input, {
           label: field?.label ?? "",
           value: field?.value ?? "",

@@ -185,20 +185,17 @@ function checkReactComponent(file, shared) {
     checkPublishedLocalImports({ name, artifact, artifactSource });
   }
 
-  if (source.includes("innerHTML") || source.includes("insertAdjacentHTML")) {
-    add("errors", sourceFile, 1, `${name} React source must not inject HTML strings as a parallel DOM implementation.`);
-  }
+  if (source.includes("innerHTML") || source.includes("insertAdjacentHTML")) add("errors", sourceFile, 1, `${name} React source must not inject HTML strings as a parallel DOM implementation.`);
   checkInlineStyleContract({ name, sourceFile, source });
   checkRuntimeDomMutationContract({ name, sourceFile, source });
   checkReactDensityCascade({ add, componentName: name, sourceFile, source });
   checkRestPropContract({ name, sourceFile, source });
-  if (source.includes("createTransitional") || source.includes("createCard(") || source.includes("createTable(")) {
-    add("errors", sourceFile, 1, `${name} React source must not call component DOM factories; React is the primary implementation.`);
-  }
+  if (source.includes("createTransitional") || source.includes("createCard(") || source.includes("createTable(")) add("errors", sourceFile, 1, `${name} React source must not call component DOM factories; React is the primary implementation.`);
   if (source.includes("onOpenChange") && /\bopen\s*=\s*false\b/.test(source)) add("errors", sourceFile, 1, `${name} React source must preserve controlled vs uncontrolled open semantics; destructure open as openProp instead of defaulting to false.`);
   if (name === "Select" && /options\.find\(\(option\) => !option\.disabled\)/.test(source)) add("errors", sourceFile, 1, "Select must not auto-select the first enabled option; selected value belongs to product code or user interaction.");
   if (["CardSummary", "RouteSummary"].includes(name) && /metric\?\.(?:label|value)\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, `${name} metrics must not render empty text nodes; filter incomplete metrics before rendering.`);
   if (name === "Menu" && /item\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Menu items must not render empty labels; filter unlabeled menu items before rendering.");
+  if (name === "Popover" && source.includes('resolvedVariant === "form"\n        ? React.createElement(Input')) add("errors", sourceFile, 1, "Popover form variant must not render an empty Input when no field content is provided.");
   const componentImports = importsFromComponents(source);
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {
