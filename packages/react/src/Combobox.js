@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { comboboxPlatformContract } from "@design-system/components/platforms";
 
 function optionValue(option) {
@@ -26,7 +26,7 @@ export const Combobox = forwardRef(function Combobox({
   helper = "",
   icon = "search",
   options = [],
-  value = "",
+  value,
   name = "",
   placeholder = "Search or select",
   emptyText = "No results",
@@ -40,9 +40,11 @@ export const Combobox = forwardRef(function Combobox({
 }, ref) {
   const generatedId = useId();
   const comboboxId = id ?? `combobox-${generatedId}`;
-  const initialOption = selectedOptionFor(options, value);
-  const [currentValue, setCurrentValue] = useState(value);
-  const [inputValue, setInputValue] = useState(initialOption ? optionLabel(initialOption) : value);
+  const isValueControlled = value !== undefined;
+  const initialValue = value ?? "";
+  const initialOption = selectedOptionFor(options, initialValue);
+  const [currentValue, setCurrentValue] = useState(initialValue);
+  const [inputValue, setInputValue] = useState(initialOption ? optionLabel(initialOption) : initialValue);
   const [open, setOpen] = useState(state === "open");
   const [activeIndex, setActiveIndex] = useState(0);
   const query = inputValue.trim().toLowerCase();
@@ -60,11 +62,19 @@ export const Combobox = forwardRef(function Combobox({
   const selectedOption = selectedOptionFor(options, currentValue);
   const selectedValue = selectedOption ? optionValue(selectedOption) : currentValue;
 
+  useEffect(() => {
+    if (!isValueControlled) return;
+    const nextOption = selectedOptionFor(options, value);
+    setCurrentValue(value ?? "");
+    setInputValue(nextOption ? optionLabel(nextOption) : value ?? "");
+    setActiveIndex(0);
+  }, [isValueControlled, options, value]);
+
   const commitOption = (option) => {
     if (!option || option.disabled) return;
     const nextValue = optionValue(option);
     const nextLabel = optionLabel(option);
-    setCurrentValue(nextValue);
+    if (!isValueControlled) setCurrentValue(nextValue);
     setInputValue(nextLabel);
     setOpen(false);
     setActiveIndex(0);
@@ -72,7 +82,7 @@ export const Combobox = forwardRef(function Combobox({
   };
 
   const clearValue = () => {
-    setCurrentValue("");
+    if (!isValueControlled) setCurrentValue("");
     setInputValue("");
     setOpen(true);
     setActiveIndex(0);
@@ -122,7 +132,7 @@ export const Combobox = forwardRef(function Combobox({
         onChange: (event) => {
           const nextValue = event.target.value;
           setInputValue(nextValue);
-          setCurrentValue(nextValue);
+          if (!isValueControlled) setCurrentValue(nextValue);
           setOpen(true);
           setActiveIndex(0);
           onValueChange?.(nextValue, { label: nextValue, meta: "", inputValue: nextValue });

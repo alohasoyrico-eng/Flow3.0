@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { cardNumberInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 
@@ -53,7 +53,7 @@ function resolveCardNumberState({ disabled = false, loading = false, error = "",
 
 export const CardNumberInput = forwardRef(function CardNumberInput({
   label,
-  value = "",
+  value,
   helper = "",
   error = "",
   disabled = false,
@@ -71,7 +71,8 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
 }, ref) {
   const generatedId = useId();
   const inputId = id ?? `card-number-input-${generatedId}`;
-  const [currentValue, setCurrentValue] = useState(value);
+  const isValueControlled = value !== undefined;
+  const [currentValue, setCurrentValue] = useState(value ?? "");
   const digits = normalizeCardNumber(currentValue);
   const formattedValue = formatCardNumber(digits);
   const validity = cardNumberValidity(digits);
@@ -86,6 +87,10 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
     brand,
     luhnValid: validity === "valid",
   }), [brand, formattedValue, validity]);
+
+  useEffect(() => {
+    if (isValueControlled) setCurrentValue(value ?? "");
+  }, [isValueControlled, value]);
 
   return React.createElement(
     "label",
@@ -128,7 +133,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
           const nextFormatted = formatCardNumber(nextDigits);
           const nextValidity = cardNumberValidity(nextDigits);
           const nextBrand = cardNumberBrand(nextDigits);
-          setCurrentValue(nextDigits);
+          if (!isValueControlled) setCurrentValue(nextDigits);
           onValueChange?.(nextDigits, {
             formatted: nextFormatted,
             validity: nextValidity,

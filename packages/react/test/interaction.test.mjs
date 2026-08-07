@@ -114,7 +114,7 @@ try {
   cleanup();
 
   const expiryChanges = [];
-  const { getByLabelText } = render(React.createElement(CardExpiryInput, {
+  const { getByLabelText, rerender: rerenderExpiry } = render(React.createElement(CardExpiryInput, {
     label: "Expiry date",
     onValueChange: (value, meta) => expiryChanges.push({ value, meta }),
   }));
@@ -129,10 +129,17 @@ try {
   assert.equal(expiryChanges.at(-1).meta.year, "28");
   assert.equal(expiryChanges.at(-1).meta.validity, "valid");
 
+  rerenderExpiry(React.createElement(CardExpiryInput, {
+    label: "Expiry date",
+    value: "1029",
+    onValueChange: (value, meta) => expiryChanges.push({ value, meta }),
+  }));
+  await waitFor(() => assert.equal(expiryInput.value, "10/29"));
+
   cleanup();
 
   const cardNumberChanges = [];
-  const { getByLabelText: getCardNumberLabel } = render(React.createElement(CardNumberInput, {
+  const { getByLabelText: getCardNumberLabel, rerender: rerenderCardNumber } = render(React.createElement(CardNumberInput, {
     label: "Card number",
     onValueChange: (digits, meta) => cardNumberChanges.push({ digits, meta }),
   }));
@@ -147,10 +154,17 @@ try {
   assert.equal(cardNumberChanges.at(-1).meta.validity, "valid");
   assert.equal(cardNumberChanges.at(-1).meta.luhnValid, true);
 
+  rerenderCardNumber(React.createElement(CardNumberInput, {
+    label: "Card number",
+    value: "5555555555554444",
+    onValueChange: (digits, meta) => cardNumberChanges.push({ digits, meta }),
+  }));
+  await waitFor(() => assert.equal(cardNumberInput.value, "5555 5555 5555 4444"));
+
   cleanup();
 
   const securityCodeChanges = [];
-  const { getByLabelText: getSecurityCodeLabel, getByRole: getSecurityCodeRole } = render(React.createElement(CardSecurityCodeInput, {
+  const { getByLabelText: getSecurityCodeLabel, getByRole: getSecurityCodeRole, rerender: rerenderSecurityCode } = render(React.createElement(CardSecurityCodeInput, {
     label: "Security code",
     expectedLength: 4,
     onValueChange: (digits, meta) => securityCodeChanges.push({ digits, meta }),
@@ -170,6 +184,16 @@ try {
   fireEvent.click(revealButton);
   await waitFor(() => assert.equal(securityCodeInput.type, "text"));
   assert.equal(revealButton.getAttribute("aria-pressed"), "true");
+
+  rerenderSecurityCode(React.createElement(CardSecurityCodeInput, {
+    label: "Security code",
+    expectedLength: 4,
+    value: "9876",
+    revealed: false,
+    onValueChange: (digits, meta) => securityCodeChanges.push({ digits, meta }),
+  }));
+  await waitFor(() => assert.equal(securityCodeInput.value, "9876"));
+  await waitFor(() => assert.equal(securityCodeInput.type, "password"));
 
   cleanup();
 
@@ -253,7 +277,7 @@ try {
   cleanup();
 
   const comboboxChanges = [];
-  const { getByRole: getComboboxRole } = render(React.createElement(Combobox, {
+  const { getByRole: getComboboxRole, rerender: rerenderCombobox } = render(React.createElement(Combobox, {
     label: "Driver",
     options: [
       { label: "Ana Sosa", value: "ana", meta: "Driver" },
@@ -277,6 +301,17 @@ try {
   await waitFor(() => assert.equal(comboboxInput.value, ""));
   assert.equal(comboboxChanges.at(-1).value, "");
   assert.deepEqual(comboboxChanges.at(-1).meta, { label: "", meta: "", inputValue: "", cleared: true });
+
+  rerenderCombobox(React.createElement(Combobox, {
+    label: "Driver",
+    value: "luis",
+    options: [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Driver" },
+    ],
+    onValueChange: (value, meta) => comboboxChanges.push({ value, meta }),
+  }));
+  await waitFor(() => assert.equal(comboboxInput.value, "Luis Perez"));
 
   cleanup();
 
@@ -827,7 +862,7 @@ try {
   cleanup();
 
   const selectChanges = [];
-  const { getByRole: getSelectRole } = render(React.createElement(Select, {
+  const { getByRole: getSelectRole, rerender: rerenderSelect } = render(React.createElement(Select, {
     label: "Country",
     value: "mx",
     options: [
@@ -849,6 +884,18 @@ try {
   fireEvent.click(getSelectRole("option", { name: /united states/i }));
   await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(selectChanges, [{ value: "us", meta: { label: "United States", meta: "+1" } }]);
+
+  rerenderSelect(React.createElement(Select, {
+    label: "Country",
+    value: "mx",
+    options: [
+      { label: "Mexico", value: "mx", meta: "+52" },
+      { label: "Canada", value: "ca", meta: "+1", disabled: true },
+      { label: "United States", value: "us", meta: "+1" },
+    ],
+    onValueChange: (value, meta) => selectChanges.push({ value, meta }),
+  }));
+  await waitFor(() => assert.equal(selectTrigger.textContent.includes("Mexico"), true));
 
   cleanup();
 
@@ -1010,7 +1057,6 @@ try {
   const textAreaChanges = [];
   const { getByLabelText: getTextAreaLabel, getByText: getTextAreaText, rerender: rerenderTextArea } = render(React.createElement(TextArea, {
     label: "Notes",
-    value: "",
     maxLength: 20,
     onChange: (value, meta) => textAreaChanges.push({ value, meta }),
   }));
@@ -1030,6 +1076,15 @@ try {
 
   fireEvent.change(getTextAreaLabel(/notes/i), { target: { value: "Blocked" } });
   assert.equal(textAreaChanges.length, 1);
+
+  rerenderTextArea(React.createElement(TextArea, {
+    label: "Notes",
+    value: "Externally updated",
+    maxLength: 30,
+    onChange: (value, meta) => textAreaChanges.push({ value, meta }),
+  }));
+  await waitFor(() => assert.equal(notesTextArea.value, "Externally updated"));
+  getTextAreaText("18/30");
 
   cleanup();
 

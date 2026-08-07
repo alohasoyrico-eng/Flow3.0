@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { cardSecurityCodeInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 
@@ -26,7 +26,7 @@ function resolveCardSecurityCodeState({ disabled = false, loading = false, error
 
 export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   label,
-  value = "",
+  value,
   helper = "",
   error = "",
   disabled = false,
@@ -39,7 +39,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   expectedLength = 3,
   validationMessage = "Enter the security code.",
   revealable = true,
-  revealed = false,
+  revealed,
   onValueChange,
   className = "",
   id,
@@ -48,8 +48,11 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   const generatedId = useId();
   const inputId = id ?? `card-security-code-input-${generatedId}`;
   const resolvedLength = Number(expectedLength) === 4 ? 4 : 3;
-  const [currentValue, setCurrentValue] = useState(value);
-  const [isRevealed, setIsRevealed] = useState(Boolean(revealed));
+  const isValueControlled = value !== undefined;
+  const [currentValue, setCurrentValue] = useState(value ?? "");
+  const [internalRevealed, setInternalRevealed] = useState(Boolean(revealed));
+  const isRevealedControlled = revealed !== undefined;
+  const isRevealed = isRevealedControlled ? Boolean(revealed) : internalRevealed;
   const digits = normalizeCardSecurityCode(currentValue, resolvedLength);
   const validity = cardSecurityCodeValidity(digits, resolvedLength);
   const localError = validity === "invalid" ? validationMessage : "";
@@ -63,6 +66,10 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
     expectedLength: resolvedLength,
     complete: validity === "valid",
   }), [resolvedLength, validity]);
+
+  useEffect(() => {
+    if (isValueControlled) setCurrentValue(value ?? "");
+  }, [isValueControlled, value]);
 
   return React.createElement(
     "label",
@@ -105,7 +112,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
         onChange: (event) => {
           const nextDigits = normalizeCardSecurityCode(event.target.value, resolvedLength);
           const nextValidity = cardSecurityCodeValidity(nextDigits, resolvedLength);
-          setCurrentValue(nextDigits);
+          if (!isValueControlled) setCurrentValue(nextDigits);
           onValueChange?.(nextDigits, {
             validity: nextValidity,
             expectedLength: resolvedLength,
@@ -124,7 +131,9 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
             "data-card-security-code-reveal": "",
             "aria-label": isRevealed ? "Hide security code" : "Show security code",
             "aria-pressed": String(isRevealed),
-            onClick: () => setIsRevealed((next) => !next),
+            onClick: () => {
+              if (!isRevealedControlled) setInternalRevealed((next) => !next);
+            },
           },
           React.createElement("span", { className: "field-action__icon field__icon card-security-code-input__action-icon", "aria-hidden": "true" }, isRevealed ? "visibility_off" : "visibility"),
         )

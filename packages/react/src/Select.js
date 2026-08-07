@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useState } from "react";
+import React, { forwardRef, useEffect, useId, useState } from "react";
 import { selectPlatformContract } from "@design-system/components/platforms";
 
 function selectedOptionFor(options, value) {
@@ -13,7 +13,7 @@ export const Select = forwardRef(function Select({
   helper = "",
   icon = "",
   options = [],
-  value = "",
+  value,
   name = "",
   disabled = false,
   density,
@@ -26,17 +26,22 @@ export const Select = forwardRef(function Select({
 }, ref) {
   const generatedId = useId();
   const selectId = id ?? `select-${generatedId}`;
-  const [currentValue, setCurrentValue] = useState(value);
+  const isValueControlled = value !== undefined;
+  const [currentValue, setCurrentValue] = useState(value ?? "");
   const [open, setOpen] = useState(state === "open");
   const selectedOption = selectedOptionFor(options, currentValue);
   const selectedValue = selectedOption.value ?? selectedOption.label ?? "";
   const isOpen = open;
   const resolvedState = disabled ? "disabled" : state || "default";
   const activeIndex = Math.max(options.indexOf(selectedOption), 0);
+  useEffect(() => {
+    if (isValueControlled) setCurrentValue(value ?? "");
+  }, [isValueControlled, value]);
+
   const commitOption = (option) => {
     if (option.disabled) return;
     const optionValue = option.value ?? option.label ?? "";
-    setCurrentValue(optionValue);
+    if (!isValueControlled) setCurrentValue(optionValue);
     setOpen(false);
     onValueChange?.(optionValue, { label: option.label ?? "", meta: option.meta ?? "" });
   };

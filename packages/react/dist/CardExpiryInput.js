@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { cardExpiryInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 
@@ -42,7 +42,7 @@ function resolveCardExpiryState({ disabled = false, loading = false, error = "",
 
 export const CardExpiryInput = forwardRef(function CardExpiryInput({
   label,
-  value = "",
+  value,
   helper = "",
   error = "",
   disabled = false,
@@ -61,7 +61,8 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
 }, ref) {
   const generatedId = useId();
   const inputId = id ?? `card-expiry-input-${generatedId}`;
-  const [currentValue, setCurrentValue] = useState(value);
+  const isValueControlled = value !== undefined;
+  const [currentValue, setCurrentValue] = useState(value ?? "");
   const digits = normalizeCardExpiry(currentValue);
   const formattedValue = formatCardExpiry(digits);
   const validity = cardExpiryValidity(digits);
@@ -78,6 +79,10 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
     validity,
     expired: validity === "expired",
   }), [digits, month, validity, year]);
+
+  useEffect(() => {
+    if (isValueControlled) setCurrentValue(value ?? "");
+  }, [isValueControlled, value]);
 
   return React.createElement(
     "label",
@@ -123,7 +128,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
           const nextFormatted = formatCardExpiry(nextDigits);
           const nextValidity = cardExpiryValidity(nextDigits);
           const parsed = parseCardExpiry(nextDigits);
-          setCurrentValue(nextDigits);
+          if (!isValueControlled) setCurrentValue(nextDigits);
           onValueChange?.(nextFormatted, {
             digits: nextDigits,
             month: parsed.month,

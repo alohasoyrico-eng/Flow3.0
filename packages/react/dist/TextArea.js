@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useState } from "react";
+import React, { forwardRef, useEffect, useId, useState } from "react";
 import { textAreaPlatformContract } from "#flow/platforms";
 
 function resolveState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
@@ -13,7 +13,7 @@ export const TextArea = forwardRef(function TextArea({
   helper = "",
   helperText,
   error = "",
-  value = "",
+  value,
   name = "",
   placeholder = "",
   disabled = false,
@@ -30,6 +30,7 @@ export const TextArea = forwardRef(function TextArea({
 }, ref) {
   const generatedId = useId();
   const textAreaId = id ?? `text-area-${generatedId}`;
+  const isValueControlled = value !== undefined;
   const [currentValue, setCurrentValue] = useState(value ?? "");
   const resolvedHelper = error || helperText || helper;
   const resolvedState = resolveState({ disabled, loading, error, state, value: currentValue });
@@ -39,10 +40,14 @@ export const TextArea = forwardRef(function TextArea({
   const describedBy = [helperId, counterId].filter(Boolean).join(" ") || undefined;
   const counterText = maxLength != null ? `${String(currentValue ?? "").length}/${Number(maxLength)}` : "";
 
+  useEffect(() => {
+    if (isValueControlled) setCurrentValue(value ?? "");
+  }, [isValueControlled, value]);
+
   const handleChange = (event) => {
     if (isDisabled) return;
     const nextValue = event.target.value;
-    setCurrentValue(nextValue);
+    if (!isValueControlled) setCurrentValue(nextValue);
     onChange?.(nextValue, { maxLength: maxLength == null ? undefined : Number(maxLength), length: String(nextValue).length });
   };
 

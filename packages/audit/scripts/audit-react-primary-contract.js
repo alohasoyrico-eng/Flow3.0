@@ -68,6 +68,7 @@ function checkReactPrimaryContract() {
   }
 
   checkControlledOpenCoverage(componentFiles, componentContractsSource);
+  checkControlledValueCoverage(componentFiles);
 }
 
 function checkReactComponent(file, shared) {
@@ -186,6 +187,21 @@ function checkControlledOpenCoverage(componentFiles, contractsSource) {
     const controlledRerender = new RegExp(`rerender${componentName}[\\s\\S]{0,900}\\bopen:\\s*true[\\s\\S]{0,900}rerender${componentName}[\\s\\S]{0,900}\\bopen:\\s*false`);
     if (!componentRender.test(interactionSource) || !controlledRerender.test(interactionSource)) {
       add("errors", reactInteractionTestFile, 1, `${componentName} exposes open/onOpenChange and must test controlled open rerender from true back to false.`);
+    }
+  }
+}
+
+function checkControlledValueCoverage(componentFiles) {
+  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
+  for (const file of componentFiles) {
+    const componentName = path.basename(file, ".js");
+    const sourceFile = path.join(reactSrcDir, file);
+    const source = read(sourceFile);
+    if (!source.includes("isValueControlled")) continue;
+
+    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bvalue:\\s*`);
+    if (!controlledRerender.test(interactionSource)) {
+      add("errors", reactInteractionTestFile, 1, `${componentName} declares isValueControlled and must test external value rerender coverage.`);
     }
   }
 }
