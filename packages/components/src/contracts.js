@@ -579,6 +579,7 @@ export const componentContracts = {
     props: [
       { name: "items", type: "Array<{ title: string, content: string | Node, open?: boolean, icon?: string, meta?: string, disabled?: boolean }>", required: true },
       { name: "multiple", type: "boolean", required: false },
+      { name: "expandedIds", type: "string[]", required: false },
       { name: "onExpandedChange", type: "(expandedIds: string[]) => void", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "variant", type: "\"single\" | \"multiple\"", required: false }

@@ -22,7 +22,7 @@ const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecu
 
 try {
   const expandedChanges = [];
-  const { getByRole } = render(React.createElement(Accordion, {
+  const { getByRole, rerender: rerenderAccordion } = render(React.createElement(Accordion, {
     items: [
       { id: "overview", title: "Overview", content: "Route overview" },
       { id: "pricing", title: "Pricing", content: "Route pricing" },
@@ -44,6 +44,17 @@ try {
   assert.equal(overviewTrigger.getAttribute("aria-expanded"), "false");
   assert.equal(pricingTrigger.getAttribute("aria-expanded"), "true");
   assert.deepEqual(expandedChanges.at(-1), ["pricing"]);
+
+  rerenderAccordion(React.createElement(Accordion, {
+    expandedIds: ["overview"],
+    items: [
+      { id: "overview", title: "Overview", content: "Route overview" },
+      { id: "pricing", title: "Pricing", content: "Route pricing" },
+    ],
+    onExpandedChange: (expandedIds) => expandedChanges.push(expandedIds),
+  }));
+  await waitFor(() => assert.equal(overviewTrigger.getAttribute("aria-expanded"), "true"));
+  assert.equal(pricingTrigger.getAttribute("aria-expanded"), "false");
 
   cleanup();
 

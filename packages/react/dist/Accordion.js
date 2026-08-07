@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { accordionPlatformContract } from "#flow/platforms";
 
 const validDensities = new Set(["sm", "md", "lg"]);
@@ -27,6 +27,7 @@ function renderContent(content) {
 export const Accordion = forwardRef(function Accordion({
   items = [],
   multiple = false,
+  expandedIds,
   density,
   onExpandedChange,
   className = "",
@@ -35,20 +36,28 @@ export const Accordion = forwardRef(function Accordion({
   const reactId = useId();
   const resolvedDensity = normalizeDensity(density);
   const normalizedItems = useMemo(() => normalizeItems(items), [items]);
+  const isExpandedIdsControlled = expandedIds !== undefined;
   const initialOpenIds = normalizedItems.filter((item) => item.open).map((item) => item.id);
-  const [openIds, setOpenIds] = useState(() => multiple ? initialOpenIds : initialOpenIds.slice(0, 1));
+  const [openIds, setOpenIds] = useState(() => {
+    const initialIds = expandedIds ?? initialOpenIds;
+    return multiple ? initialIds : initialIds.slice(0, 1);
+  });
+
+  useEffect(() => {
+    if (!isExpandedIdsControlled) return;
+    const nextIds = expandedIds ?? [];
+    setOpenIds(multiple ? nextIds : nextIds.slice(0, 1));
+  }, [expandedIds, isExpandedIdsControlled, multiple]);
 
   const setItemOpen = (item, open) => {
     if (item.disabled) return;
-    setOpenIds((current) => {
-      const next = open
-        ? multiple
-          ? [...new Set([...current, item.id])]
-          : [item.id]
-        : current.filter((id) => id !== item.id);
-      onExpandedChange?.(next);
-      return next;
-    });
+    const next = open
+      ? multiple
+        ? [...new Set([...openIds, item.id])]
+        : [item.id]
+      : openIds.filter((id) => id !== item.id);
+    if (!isExpandedIdsControlled) setOpenIds(next);
+    onExpandedChange?.(next);
   };
 
   return React.createElement(

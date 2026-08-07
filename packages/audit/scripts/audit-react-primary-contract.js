@@ -73,6 +73,7 @@ function checkReactPrimaryContract() {
   checkControlledSelectedKeyCoverage(componentFiles);
   checkControlledSortCoverage(componentFiles);
   checkControlledExpandedKeyCoverage(componentFiles);
+  checkControlledExpandedIdsCoverage(componentFiles);
 }
 
 function checkReactComponent(file, shared) {
@@ -266,6 +267,21 @@ function checkControlledExpandedKeyCoverage(componentFiles) {
     const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bexpandedKey:\\s*`);
     if (!controlledRerender.test(interactionSource)) {
       add("errors", reactInteractionTestFile, 1, `${componentName} declares isExpandedKeyControlled and must test external expandedKey rerender coverage.`);
+    }
+  }
+}
+
+function checkControlledExpandedIdsCoverage(componentFiles) {
+  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
+  for (const file of componentFiles) {
+    const componentName = path.basename(file, ".js");
+    const sourceFile = path.join(reactSrcDir, file);
+    const source = read(sourceFile);
+    if (!source.includes("isExpandedIdsControlled")) continue;
+
+    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bexpandedIds:\\s*`);
+    if (!controlledRerender.test(interactionSource)) {
+      add("errors", reactInteractionTestFile, 1, `${componentName} declares isExpandedIdsControlled and must test external expandedIds rerender coverage.`);
     }
   }
 }

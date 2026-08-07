@@ -18,6 +18,7 @@ export interface AccordionItem {
 export interface AccordionProps extends HTMLAttributes<HTMLDivElement> {
   items: AccordionItem[];
   multiple?: boolean;
+  expandedIds?: string[];
   density?: AccordionDensity;
   onExpandedChange?: (expandedIds: string[]) => void;
 }
