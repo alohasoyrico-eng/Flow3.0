@@ -8,6 +8,7 @@ const semanticAriaDefaultsByFile = new Map([
   ["BiometricPrompt.js", ["Biometric authentication"]],
   ["CardExpiryInput.js", ["Expiry date"]],
   ["CardNumberInput.js", ["Card number"]],
+  ["CardSecurityCodeInput.js", ["Security code"]],
   ["DatePicker.js", ["Date picker", "Date picker native input", "Date picker calendar", "native picker"]],
   ["DateRangePicker.js", ["Date range picker", "Date range calendar", "Start date", "End date", "start date", "end date"]],
   ["PhoneInput.js", ["Phone input", "Country options", "Country code", "country options", "country code"]],

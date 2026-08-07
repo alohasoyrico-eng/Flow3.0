@@ -110,7 +110,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
         spellCheck: false,
         "data-card-security-code-input": "",
         "aria-labelledby": label ? `${inputId}-label` : undefined,
-        "aria-label": label ? undefined : "Security code",
+        "aria-label": label ? undefined : rest["aria-label"],
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {
