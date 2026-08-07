@@ -1780,6 +1780,10 @@ const inheritedCodeInputMarkup = renderToStaticMarkup(React.createElement(CodeIn
 }));
 assert.doesNotMatch(inheritedCodeInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const unnamedCodeInputMarkup = renderToStaticMarkup(React.createElement(CodeInput));
+assert.doesNotMatch(unnamedCodeInputMarkup, /digit code/);
+assert.doesNotMatch(unnamedCodeInputMarkup, /digits/);
+
 const countrySelectorMarkup = renderToStaticMarkup(React.createElement(CountrySelector, {
   label: "Country",
   country: "MX",

@@ -87,7 +87,8 @@ export const CodeInput = forwardRef(function CodeInput({
         value: digits,
         disabled: Boolean(disabled),
         "data-code-input": "",
-        "aria-label": label ? `${label} (${resolvedLength} digits)` : `${resolvedLength} digit code`,
+        "aria-labelledby": label ? `${inputId}-label` : undefined,
+        "aria-label": label ? undefined : rest["aria-label"],
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
         onFocus: (event) => {
