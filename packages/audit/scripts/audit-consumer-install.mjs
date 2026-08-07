@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { createRequire } from "node:module";
 import { spawnSync } from "node:child_process";
 
 const root = process.cwd();
@@ -131,6 +132,14 @@ console.log(markup.length);
 
 function auditInstalledPackage(consumerDir) {
   const packageRoot = path.join(consumerDir, "node_modules/@alohasoyrico-eng/flow");
+  const consumerRequire = createRequire(path.join(consumerDir, "package.json"));
+  const installedPackage = JSON.parse(fs.readFileSync(path.join(packageRoot, "package.json"), "utf8"));
+  for (const [key, value] of Object.entries(installedPackage.exports ?? {})) {
+    if (!key.startsWith("./react")) continue;
+    const packagePath = key === "./react" ? "@alohasoyrico-eng/flow/react" : `@alohasoyrico-eng/flow/${key.slice(2)}`;
+    consumerRequire.resolve(packagePath);
+    if (!value?.types || !value?.default) throw new Error(`React export ${key} must publish types and default targets.`);
+  }
   for (const forbiddenPath of ["apps/docs", "repo-split-output", "node_modules"]) {
     if (fs.existsSync(path.join(packageRoot, forbiddenPath))) {
       throw new Error(`Installed package must not include ${forbiddenPath}.`);
@@ -150,10 +159,22 @@ function auditInstalledPackage(consumerDir) {
     if (relative.startsWith("packages/react/dist/") && source.includes("@design-system/components")) {
       offenders.push(`${relative}: workspace component import`);
     }
+    if (relative.startsWith("packages/react/dist/") && relative.endsWith(".d.ts") && exposesInheritedStyleType(source)) {
+      offenders.push(`${relative}: inherited style type`);
+    }
   }
   if (offenders.length) {
     throw new Error(`Installed package has consumer boundary offenders: ${offenders.slice(0, 20).join(", ")}`);
   }
+}
+
+function exposesInheritedStyleType(source) {
+  for (const match of source.matchAll(/^export interface [A-Za-z][A-Za-z0-9]* extends ([^{]+)\{/gm)) {
+    const inherited = match[1];
+    const inheritsDomAttributes = /(?:^|[^A-Za-z])(?:HTMLAttributes|ButtonHTMLAttributes|InputHTMLAttributes|TextareaHTMLAttributes)\b/.test(inherited);
+    if (inheritsDomAttributes && !inherited.includes("\"style\"")) return true;
+  }
+  return false;
 }
 
 function listFiles(dir) {
