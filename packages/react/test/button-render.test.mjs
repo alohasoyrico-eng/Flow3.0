@@ -652,7 +652,8 @@ const avatarMarkup = renderToStaticMarkup(React.createElement(Avatar, {
   density: "lg",
 }));
 assert.match(avatarMarkup, /^<span/);
-assert.match(avatarMarkup, /class="avatar avatar--lg"/);
+assert.match(avatarMarkup, /class="avatar"/);
+assert.match(avatarMarkup, /data-density="lg"/);
 assert.match(avatarMarkup, /aria-label="Ana Sosa"/);
 assert.match(avatarMarkup, /data-status="online"/);
 assert.match(avatarMarkup, /data-state="online"/);
@@ -664,9 +665,10 @@ assert.match(avatarMarkup, /class="avatar__status"/);
 const imageAvatarMarkup = renderToStaticMarkup(React.createElement(Avatar, {
   name: "Luis Vera",
   src: "/avatars/luis.png",
+  size: "lg",
   state: "disabled",
 }));
-assert.match(imageAvatarMarkup, /class="avatar avatar--md"/);
+assert.match(imageAvatarMarkup, /class="avatar avatar--lg"/);
 assert.match(imageAvatarMarkup, /data-state="disabled"/);
 assert.match(imageAvatarMarkup, /src="\/avatars\/luis.png"/);
 assert.match(imageAvatarMarkup, /alt="Luis Vera"/);

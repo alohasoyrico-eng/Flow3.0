@@ -9,7 +9,7 @@ export interface AvatarProps extends Omit<HTMLAttributes<HTMLSpanElement>, "styl
   name: string;
   src?: string;
   size?: AvatarSize;
-  density?: AvatarSize;
+  density?: "sm" | "md" | "lg";
   status?: AvatarStatus;
   state?: AvatarState;
   ariaLabel?: string;

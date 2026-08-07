@@ -3,6 +3,7 @@ import { avatarPlatformContract } from "@design-system/components/platforms";
 import { flowRestProps } from "./internal/props.js";
 
 const validSizes = new Set(["sm", "md", "lg", "xl"]);
+const validDensities = new Set(["sm", "md", "lg"]);
 const validStatuses = new Set(["none", "online", "busy", "offline"]);
 const validStates = new Set(["default", "disabled", "unknown"]);
 
@@ -26,7 +27,7 @@ function colorIndexFromName(name) {
 export const Avatar = forwardRef(function Avatar({
   name,
   src = "",
-  size = "md",
+  size,
   density,
   status = "none",
   state = "default",
@@ -34,7 +35,8 @@ export const Avatar = forwardRef(function Avatar({
   className = "",
   ...rest
 }, ref) {
-  const resolvedSize = validSizes.has(density ?? size) ? density ?? size : "md";
+  const resolvedSize = validSizes.has(size) ? size : "";
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const resolvedStatus = validStatuses.has(status) ? status : "none";
   const resolvedState = state === "disabled" ? "disabled" : resolvedStatus !== "none" ? resolvedStatus : validStates.has(state) ? state : "default";
   const sourceName = String(name ?? "");
@@ -44,8 +46,9 @@ export const Avatar = forwardRef(function Avatar({
     {
       ...flowRestProps(rest),
       ref,
-      className: ["avatar", `avatar--${resolvedSize}`, className].filter(Boolean).join(" "),
+      className: ["avatar", resolvedSize ? `avatar--${resolvedSize}` : "", className].filter(Boolean).join(" "),
       "aria-label": ariaLabel || sourceName || "Unknown avatar",
+      "data-density": resolvedDensity,
       "data-status": resolvedStatus,
       "data-state": resolvedState,
       "data-color-index": colorIndexFromName(sourceName),

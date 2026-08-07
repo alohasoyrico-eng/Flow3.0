@@ -3450,6 +3450,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .avatar--lg { --comp-avatar-size: 48px; }
 .avatar--xl { --comp-avatar-size: 64px; }
 
+.avatar[data-density="sm"] { --comp-avatar-size: calc(var(--sys-density-control-height) - var(--sys-space-5)); }
+.avatar[data-density="lg"] { --comp-avatar-size: calc(var(--sys-density-control-height) + var(--sys-space-4)); }
+
 .avatar[data-color-index="0"] { --comp-avatar-bg: var(--sys-color-danger); }
 .avatar[data-color-index="1"] { --comp-avatar-bg: var(--sys-color-success); }
 .avatar[data-color-index="2"] { --comp-avatar-bg: var(--sys-color-action); }
