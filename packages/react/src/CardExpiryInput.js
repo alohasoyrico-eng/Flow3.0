@@ -52,7 +52,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
   density,
   state,
   name = "",
-  placeholder = "MM/YY",
+  placeholder = "",
   validationMessage = "",
   expiredMessage = "",
   onValueChange,
