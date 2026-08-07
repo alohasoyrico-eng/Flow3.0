@@ -41,7 +41,6 @@ const unprefixedFactoryNames = new Map([
   ["tree-view", "createTreeView"],
   ["segmented-control", "createSegmentedControl"],
   ["tooltip", "createTransitionalTooltip"],
-  ["toast", "createToast"],
   ["dialog", "createDialog"],
   ["menu", "createMenu"],
   ["drawer", "createDrawer"],

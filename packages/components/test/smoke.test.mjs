@@ -532,7 +532,6 @@ assert.deepEqual(Object.keys(tooltipPlatformAdapters), ["react"]);
 assert.equal(tooltipPlatformAdapters.react.componentName, "Tooltip");
 assert.equal(tooltipPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.toast.factory, "@design-system/react/toast");
-assert.equal(componentContracts.toast.internalFactory, "createToast");
 assert.equal(toastPlatformContract.id, "toast");
 assert.equal(toastPlatformContract.source.factory, componentContracts.toast.factory);
 assert.deepEqual(toastPlatformProps(), componentContracts.toast.props.map((prop) => prop.name));

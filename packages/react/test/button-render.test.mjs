@@ -1174,6 +1174,7 @@ const hiddenToastMarkup = renderToStaticMarkup(React.createElement(Toast, {
   state: "default",
 }));
 assert.match(hiddenToastMarkup, /hidden=""/);
+assert.doesNotMatch(hiddenToastMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const tooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
   triggerLabel: "Info",

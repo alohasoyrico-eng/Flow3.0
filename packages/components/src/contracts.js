@@ -517,7 +517,6 @@ export const componentContracts = {
   },
   toast: {
     factory: "@design-system/react/toast",
-    internalFactory: "createToast",
     element: "article",
     purpose: "Show non-blocking feedback with status or alert semantics, concise copy, and optional single action.",
     variants: ["status", "progress", "warning", "recovery", "undo"],

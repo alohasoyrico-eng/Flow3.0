@@ -26,7 +26,7 @@ export const Toast = forwardRef(function Toast({
   tone = "neutral",
   variant = "status",
   state = "visible",
-  density = "md",
+  density,
   icon = "",
   actionLabel = "",
   dismissible = false,
@@ -38,7 +38,7 @@ export const Toast = forwardRef(function Toast({
   const resolvedTone = normalize(tone, validTones, "neutral");
   const resolvedVariant = normalize(variant, validVariants, "status");
   const resolvedState = normalize(state, validStates, "visible");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const [dismissed, setDismissed] = useState(false);
   const hidden = dismissed || resolvedState === "default";
   const role = resolvedTone === "danger" || resolvedTone === "warning" ? "alert" : "status";
