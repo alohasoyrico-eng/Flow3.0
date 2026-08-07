@@ -869,6 +869,8 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "fullWidth", type: "boolean", required: false },
       { name: "icon", type: "IconName", required: false },
+      { name: "animationSource", type: "string", required: false },
+      { name: "animationData", type: "AnimatedMomentAnimationData", required: false },
       { name: "reducedMotionFallback", type: "string", required: false }
     ],
     accessibility: [
