@@ -47,7 +47,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
   density,
   inline = false,
   searchable = true,
-  searchPlaceholder = "Search country or code",
+  searchPlaceholder = "",
   ariaLabel,
   listboxLabel,
   className = "",
