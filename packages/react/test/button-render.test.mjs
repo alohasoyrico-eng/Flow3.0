@@ -1834,6 +1834,7 @@ assert.doesNotMatch(inheritedCardSecurityCodeInputMarkup.match(/^<label[^>]+>/)?
 
 const unnamedCardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(CardSecurityCodeInput));
 assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /aria-label="Security code"/);
+assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /placeholder="CVC"/);
 assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /Show security code|Hide security code/);
 assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /data-card-security-code-reveal/);
 

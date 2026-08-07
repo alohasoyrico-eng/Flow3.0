@@ -38,7 +38,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   density,
   state,
   name = "",
-  placeholder = "CVC",
+  placeholder = "",
   expectedLength = 3,
   validationMessage = "",
   revealable = true,
