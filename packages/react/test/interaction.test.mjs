@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -816,6 +816,31 @@ try {
   fireEvent.click(getStationRole("button", { name: /station 24/i }));
   assert.deepEqual(stationClicks, ["click"]);
   assert.deepEqual(stationSelections, [{ label: "Station 24", value: "Open", variant: "ev", state: "default" }]);
+
+  cleanup();
+
+  const switchChanges = [];
+  const { getByRole: getSwitchRole, rerender: rerenderSwitch } = render(React.createElement(Switch, {
+    label: "Enable notifications",
+    name: "notifications",
+    onCheckedChange: (checked, meta) => switchChanges.push({ checked, meta }),
+  }));
+
+  const switchInput = getSwitchRole("switch", { name: /enable notifications/i });
+  assert.equal(switchInput.getAttribute("aria-checked"), "false");
+  fireEvent.click(switchInput);
+  await waitFor(() => assert.equal(switchInput.getAttribute("aria-checked"), "true"));
+  assert.deepEqual(switchChanges, [{ checked: true, meta: { name: "notifications" } }]);
+
+  rerenderSwitch(React.createElement(Switch, {
+    label: "Enable notifications",
+    name: "notifications",
+    disabled: true,
+    onCheckedChange: (checked, meta) => switchChanges.push({ checked, meta }),
+  }));
+
+  fireEvent.click(getSwitchRole("switch", { name: /enable notifications/i }));
+  assert.equal(switchChanges.length, 1);
 } finally {
   cleanup();
   dom.window.close();
