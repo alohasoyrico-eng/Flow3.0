@@ -7,7 +7,6 @@ export const kpiTilePlatformContract = {
   layer: "component",
   source: {
     factory: kpiTileContract.factory,
-    internalFactory: kpiTileContract.internalFactory,
     cssClass: "kpi-tile",
     contract: "@design-system/components/contracts#kpiTile",
   },

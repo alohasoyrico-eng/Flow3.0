@@ -185,7 +185,7 @@ import { createAnimatedMoment, createMotionBoundary } from "../src/components/mo
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
 import { createCardSummary, createChartPanel, createMovementRow, createQuickAction, createRouteSummary, createStationPin } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
-import { createKpiTile, createTransitionalAvatar } from "../src/components/display.js?v=3";
+import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
@@ -708,7 +708,6 @@ assert.deepEqual(Object.keys(listPlatformAdapters), ["react"]);
 assert.equal(listPlatformAdapters.react.componentName, "List");
 assert.equal(listPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.kpiTile.factory, "@design-system/react/kpi-tile");
-assert.equal(componentContracts.kpiTile.internalFactory, "createKpiTile");
 assert.equal(kpiTilePlatformContract.id, "kpi-tile");
 assert.equal(kpiTilePlatformContract.source.factory, componentContracts.kpiTile.factory);
 assert.deepEqual(kpiTilePlatformProps(), componentContracts.kpiTile.props.map((prop) => prop.name));
@@ -1828,26 +1827,6 @@ assert.equal(disabledAnimatedMoment.querySelector(".animated-moment__state").tex
 const fullAnimatedMoment = createAnimatedMoment({ label: "Desktop cue", density: "sm", fullWidth: true });
 assert.equal(fullAnimatedMoment.dataset.density, "sm");
 assert.equal(fullAnimatedMoment.dataset.fullWidth, "true");
-
-const kpiTile = createKpiTile({ label: "Fuel spend", value: "$84.2k", delta: "+12%", trend: "up", icon: "payments", variant: "delta" });
-assert.equal(kpiTile.tagName, "ARTICLE");
-assert.equal(kpiTile.className, "kpi-tile kpi-tile--neutral");
-assert.equal(kpiTile.dataset.variant, "delta");
-assert.equal(kpiTile.querySelector("strong").textContent, "$84.2k");
-assert.equal(kpiTile.querySelector(".kpi-tile__icon").attributes["aria-hidden"], "true");
-assert.equal(kpiTile.querySelector(".kpi-tile__trend-icon").textContent, "trending_up");
-
-const kpiSparkline = createKpiTile({ label: "Resolved cases", value: "94%", variant: "sparkline", values: [20, 28, 36] });
-assert.equal(kpiSparkline.children.find((child) => child.attributes?.class === "kpi-tile__sparkline").attributes["aria-hidden"], "true");
-
-const kpiDrillIn = createKpiTile({ label: "Cards at risk", value: "18", variant: "drill-in", href: "#cards", state: "selected" });
-assert.equal(kpiDrillIn.tagName, "A");
-assert.equal(kpiDrillIn.attributes.href, "#cards");
-assert.equal(kpiDrillIn.querySelector(".kpi-tile__affordance").textContent, "arrow_forward");
-
-const kpiLoading = createKpiTile({ label: "Loading", value: "0", loading: true });
-assert.equal(kpiLoading.dataset.state, "loading");
-assert.equal(kpiLoading.querySelector(".kpi-tile__loading").attributes["aria-hidden"], "true");
 
 const fab = createFloatingActionButton({ label: "Add movement", icon: "add", extended: true });
 assert.equal(fab.tagName, "BUTTON");

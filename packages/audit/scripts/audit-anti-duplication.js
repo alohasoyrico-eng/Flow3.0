@@ -185,6 +185,21 @@ function checkReactOnlyComponentBoundaries() {
       pattern: /import\s*\{[^}]*createList[^}]*\}|createList\(/,
       message: "List smoke coverage must use React render tests, not the removed DOM factory.",
     },
+    {
+      file: displayFile,
+      pattern: /export function createKpiTile\b/,
+      message: "KPI Tile must not reintroduce a DOM factory; React KpiTile is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createKpiTile"/,
+      message: "KPI Tile contract must not name a DOM internalFactory; React KpiTile owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createKpiTile[^}]*\}|createKpiTile\(/,
+      message: "KPI Tile smoke coverage must use React render tests, not the removed DOM factory.",
+    },
   ];
   for (const check of checks) {
     if (!fs.existsSync(check.file)) continue;

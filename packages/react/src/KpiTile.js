@@ -32,7 +32,7 @@ export const KpiTile = forwardRef(function KpiTile({
   icon = "",
   variant = "standard",
   state = "default",
-  density = "md",
+  density,
   values = [],
   href = "",
   selected = false,
@@ -47,7 +47,7 @@ export const KpiTile = forwardRef(function KpiTile({
   const resolvedTone = normalize(tone, validTones, "neutral");
   const resolvedTrend = normalize(trend, validTrends, "flat");
   const resolvedState = loading ? "loading" : disabled ? "disabled" : normalize(state, validStates, "default");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const interactive = Boolean(href || onSelect || resolvedVariant === "drill-in");
   const Element = href ? "a" : "article";
   const selectMeta = { label, value, delta, tone: resolvedTone, variant: resolvedVariant };
@@ -67,7 +67,7 @@ export const KpiTile = forwardRef(function KpiTile({
       "aria-disabled": disabled ? "true" : undefined,
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "data-selected": selected ? "true" : undefined,
       onClick: (event) => {
         if (disabled || loading) {

@@ -487,6 +487,12 @@ assert.match(kpiMarkup, /class="kpi-tile__value">\$84\.2k<\/strong>/);
 assert.match(kpiMarkup, /class="kpi-tile__delta" data-trend="up"/);
 assert.match(kpiMarkup, /trending_up/);
 
+const inheritedKpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
+  label: "Inherited KPI density",
+  value: "42",
+}));
+assert.doesNotMatch(inheritedKpiMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const kpiLinkMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
   label: "Cards at risk",
   value: "18",
