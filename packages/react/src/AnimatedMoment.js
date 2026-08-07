@@ -35,7 +35,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   description = "",
   variant = "success",
   state = "playing",
-  density = "md",
+  density,
   fullWidth = false,
   icon = "",
   animationSource = "",
@@ -46,7 +46,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "success");
   const resolvedState = normalize(state, validStates, "idle");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const resolvedLabel = label ?? "Animated moment";
   const resolvedIcon = variantIcon(resolvedVariant, icon);
   const hasAsset = Boolean(animationSource || animationData);

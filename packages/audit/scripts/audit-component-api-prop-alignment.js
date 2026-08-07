@@ -48,7 +48,6 @@ const unprefixedFactoryNames = new Map([
   ["menu", "createMenu"],
   ["drawer", "createDrawer"],
   ["popover", "createPopover"],
-  ["animated-moment", "createAnimatedMoment"],
 ]);
 
 function factoryName(id) {

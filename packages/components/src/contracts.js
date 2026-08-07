@@ -875,7 +875,6 @@ export const componentContracts = {
   },
   animatedMoment: {
     factory: "@design-system/react/animated-moment",
-    internalFactory: "createAnimatedMoment",
     element: "div",
     purpose: "Render one bounded animation moment with label, state, static fallback text, and no process orchestration.",
     variants: ["success", "empty", "loading", "celebration"],

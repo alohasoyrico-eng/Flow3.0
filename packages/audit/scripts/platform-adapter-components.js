@@ -41,7 +41,7 @@ const components = [
     requiredTokens: ["comp.animated-moment.*", "primitive.animation-assets.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.symbol.*", "sys.growth.*", "sys.iconography.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "animation-assets", "message", "measurement"],
     props: ["label", "description", "variant", "state", "density", "fullWidth", "icon", "reducedMotionFallback"],
-    jsSnippets: ["animatedMomentPlatformContract", "className: [\"animated-moment\"", '"data-variant": resolvedVariant', '"data-state": resolvedState', '"data-density": resolvedDensity', '"data-full-width": String(Boolean(fullWidth))', "animation-asset animated-moment__asset", '"data-animation-library": "lottie-web"', "animated-moment__stage", "animated-moment__state", "animated-moment__cue"],
+    jsSnippets: ["animatedMomentPlatformContract", "className: [\"animated-moment\"", '"data-variant": resolvedVariant', '"data-state": resolvedState', '"data-density": resolvedDensity', "validDensities.has(density) ? density : undefined", '"data-full-width": String(Boolean(fullWidth))', "animation-asset animated-moment__asset", '"data-animation-library": "lottie-web"', "animated-moment__stage", "animated-moment__state", "animated-moment__cue"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "AnimatedMomentProps", "AnimatedMomentVariant", "AnimatedMomentState", "AnimatedMomentDensity", "animatedMomentPlatformContract"],
     packagePath: "./animated-moment",
     exportName: "AnimatedMoment",

@@ -178,7 +178,6 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
-import { createAnimatedMoment } from "../src/components/motion.js?v=5";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -669,7 +668,6 @@ assert.deepEqual(Object.keys(motionBoundaryPlatformAdapters), ["react"]);
 assert.equal(motionBoundaryPlatformAdapters.react.componentName, "MotionBoundary");
 assert.equal(motionBoundaryPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.animatedMoment.factory, "@design-system/react/animated-moment");
-assert.equal(componentContracts.animatedMoment.internalFactory, "createAnimatedMoment");
 assert.equal(animatedMomentPlatformContract.id, "animated-moment");
 assert.equal(animatedMomentPlatformContract.source.factory, componentContracts.animatedMoment.factory);
 assert.deepEqual(animatedMomentPlatformProps(), componentContracts.animatedMoment.props.map((prop) => prop.name));
@@ -1740,36 +1738,6 @@ assert.equal(interactiveTree.querySelectorAll(".tree-view__item")[0].getAttribut
 assert.equal(interactiveTree.querySelectorAll(".tree-view__control")[0].getAttribute("aria-expanded"), "true");
 assert.equal(interactiveTree.querySelector(".button__icon--trailing").textContent, "expand_more");
 assert.equal(interactiveTree.querySelectorAll(".tree-view__item")[1].hidden, false);
-
-const animatedMoment = createAnimatedMoment({ label: "Action complete", state: "complete", reducedMotionFallback: "Static success" });
-assert.equal(animatedMoment.tagName, "DIV");
-assert.equal(animatedMoment.className, "animated-moment");
-assert.equal(animatedMoment.attributes.role, "img");
-assert.equal(animatedMoment.dataset.variant, "success");
-assert.equal(animatedMoment.dataset.state, "complete");
-assert.equal(animatedMoment.dataset.density, "md");
-assert.equal(animatedMoment.dataset.fullWidth, "false");
-assert.equal(animatedMoment.attributes["aria-label"], "Action complete: Complete");
-assert.equal(animatedMoment.querySelector(".animated-moment__icon").textContent, "shield");
-assert.equal(animatedMoment.querySelector(".animated-moment__stage").attributes["data-animated-moment-stage"], "");
-assert.equal(animatedMoment.querySelector(".animated-moment__stage").children.length, 1);
-assert.equal(animatedMoment.querySelector(".animated-moment__asset").dataset.animationLibrary, "lottie-web");
-assert.equal(animatedMoment.querySelector(".animated-moment__asset").dataset.animationRuntime, "fallback");
-assert.equal(animatedMoment.querySelector(".animated-moment__asset").dataset.state, "complete");
-assert.equal(animatedMoment.querySelector(".animated-moment__state").textContent, "Complete");
-assert.equal(animatedMoment.querySelector(".animated-moment__cue").attributes["data-animated-moment-cue"], "");
-assert.equal(animatedMoment.querySelector(".animated-moment__cue").attributes["aria-hidden"], "true");
-
-const disabledAnimatedMoment = createAnimatedMoment({ label: "Offline", variant: "nonsense", state: "disabled" });
-assert.equal(disabledAnimatedMoment.dataset.variant, "success");
-assert.equal(disabledAnimatedMoment.dataset.state, "disabled");
-assert.equal(disabledAnimatedMoment.attributes["aria-disabled"], "true");
-assert.equal(disabledAnimatedMoment.attributes["aria-label"], "Offline: Disabled");
-assert.equal(disabledAnimatedMoment.querySelector(".animated-moment__state").textContent, "Disabled");
-
-const fullAnimatedMoment = createAnimatedMoment({ label: "Desktop cue", density: "sm", fullWidth: true });
-assert.equal(fullAnimatedMoment.dataset.density, "sm");
-assert.equal(fullAnimatedMoment.dataset.fullWidth, "true");
 
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");

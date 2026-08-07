@@ -167,6 +167,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Stepper", "createStepper", "navigation"],
     ["Biometric Prompt", "createBiometricPrompt", "security"],
     ["Motion Boundary", "createMotionBoundary", "motion"],
+    ["Animated Moment", "createAnimatedMoment", "motion"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {
