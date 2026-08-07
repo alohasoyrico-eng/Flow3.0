@@ -72,6 +72,11 @@ function checkAllPlatformFilesHaveReactPrimary(shared) {
     if (!adapter.includes('implementationRole: "primary-product-component"') || !adapter.includes("sourceOfTruth: true")) {
       add("errors", adapterFile, 1, `${componentName} platform adapter must declare React as the primary source of truth.`);
     }
+    for (const requiredExport of ["PlatformContract", "PlatformAdapters", "PlatformProps"]) {
+      if (!exportedNames.some((exportName) => exportName.endsWith(requiredExport))) {
+        add("errors", adapterFile, 1, `${componentName} platform adapter must export ${requiredExport}.`);
+      }
+    }
 
     for (const exportName of exportedNames) {
       if (!shared.adapterIndex.includes(exportName)) {
