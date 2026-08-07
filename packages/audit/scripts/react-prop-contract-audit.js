@@ -1,13 +1,17 @@
 const { inheritedReactPropNames, semanticInheritedPropsFor } = require("./react-contract-shared.js");
 
-const compositionPropTypes = {
+const publicContractPropTypes = {
   Accordion: { items: "AccordionItem[]" },
   Breadcrumbs: { items: "BreadcrumbItem[]" },
   CardSummary: { metrics: "CardSummaryMetric[]" },
   ChartPanel: { comparisons: "ChartPanelSeries[]", segments: "ChartPanelSegment[]", series: "ChartPanelSeries[]" },
-  Combobox: { options: "ComboboxOption[]" },
+  Combobox: { options: "ComboboxOption[]", onValueChange: "(value: string, meta: ComboboxValueMeta) => void" },
   CountrySelector: { countries: "CountrySelectorCountry[]" },
-  DateRangePicker: { presetItems: "DateRangePickerPreset[]" },
+  DateRangePicker: {
+    value: "DateRangePickerValue",
+    presetItems: "DateRangePickerPreset[]",
+    onValueChange: "(value: DateRangePickerValue) => void",
+  },
   Dialog: { fields: "DialogField[]" },
   Drawer: { fields: "DrawerField[]" },
   List: { items: "ListItem[]" },
@@ -16,7 +20,7 @@ const compositionPropTypes = {
   Popover: { field: "PopoverField" },
   RouteSummary: { metrics: "RouteMetric[]" },
   SegmentedControl: { items: "SegmentedControlItem[]" },
-  Select: { options: "SelectOption[]" },
+  Select: { options: "SelectOption[]", onValueChange: "(value: string, meta: SelectValueMeta) => void" },
   Stepper: { steps: "StepperStep[]" },
   Table: { columns: "TableColumn[]" },
   Tabs: { items: "TabsItem[]" },
@@ -117,8 +121,8 @@ function checkNoOpenVisualSemanticTypes({ add, componentName, typesFile, types }
   }
 }
 
-function checkCompositionPropContractTypes({ add, componentName, typesFile, contractBody }) {
-  const expectedTypes = compositionPropTypes[componentName];
+function checkPublicNamedPropContractTypes({ add, componentName, typesFile, contractBody }) {
+  const expectedTypes = publicContractPropTypes[componentName];
   if (!expectedTypes || !contractBody) return;
   for (const [propName, expectedType] of Object.entries(expectedTypes)) {
     const propMatch = new RegExp(`\\{ name: "${propName}", type: "([^"]+)"`).exec(contractBody);
@@ -138,7 +142,7 @@ function checkReactPropContracts(args) {
   checkActionCallbackPayloads(args);
   checkActionPropContractTypes(args);
   checkNoOpenVisualSemanticTypes(args);
-  checkCompositionPropContractTypes(args);
+  checkPublicNamedPropContractTypes(args);
 }
 
 module.exports = { checkReactPropContracts };

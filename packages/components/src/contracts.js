@@ -203,7 +203,7 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "variant", type: "\"default\" | \"inline\"", required: false },
       { name: "state", type: "\"default\" | \"open\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"", required: false },
-      { name: "onValueChange", type: "(value: string, meta: { label: string, meta: string }) => void", required: false }
+      { name: "onValueChange", type: "(value: string, meta: SelectValueMeta) => void", required: false }
     ],
     accessibility: [
       "Keep the visible label associated with the select.",
@@ -232,7 +232,7 @@ export const componentContracts = {
       { name: "disabled", type: "boolean", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "state", type: "\"default\" | \"open\" | \"focus\" | \"filled\" | \"empty\" | \"error\" | \"disabled\"", required: false },
-      { name: "onValueChange", type: "(value: string, meta: { label: string, meta: string, inputValue?: string, cleared?: boolean }) => void", required: false }
+      { name: "onValueChange", type: "(value: string, meta: ComboboxValueMeta) => void", required: false }
     ],
     accessibility: [
       "Keep the visible label associated with the editable combobox input.",
@@ -1331,7 +1331,7 @@ export const componentContracts = {
     states: ["default", "hover", "focus", "selected", "warning", "error", "disabled"],
     props: [
       { name: "label", type: "string", required: true },
-      { name: "value", type: "{ from?: string; to?: string }", required: false },
+      { name: "value", type: "DateRangePickerValue", required: false },
       { name: "from", type: "string", required: false },
       { name: "to", type: "string", required: false },
       { name: "placeholder", type: "string", required: false },
@@ -1344,7 +1344,7 @@ export const componentContracts = {
       { name: "presets", type: "boolean", required: false },
       { name: "presetItems", type: "DateRangePickerPreset[]", required: false },
       { name: "open", type: "boolean", required: false },
-      { name: "onValueChange", type: "(range: { from?: string; to?: string }) => void", required: false },
+      { name: "onValueChange", type: "(value: DateRangePickerValue) => void", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false }
     ],
     accessibility: [
