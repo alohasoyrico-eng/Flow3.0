@@ -513,6 +513,20 @@
   --comp-card-gap-sm: var(--sys-space-sm);
   --comp-card-gap-md: var(--sys-space-md);
   --comp-card-gap-lg: var(--sys-space-lg);
+  --comp-card-compact-padding: var(--sys-space-sm) var(--sys-space-md);
+  --comp-card-compact-gap: var(--sys-space-sm);
+  --comp-card-compact-title-size: var(--component-font-size-label);
+  --comp-card-compact-value-size: var(--component-font-size-body);
+  --comp-card-media-padding: var(--sys-space-xl);
+  --comp-card-media-gap: var(--sys-space-sm);
+  --comp-card-media-title-size: var(--component-font-size-body);
+  --comp-card-media-detail-size: var(--component-font-size-small);
+  --comp-card-stats-padding: var(--sys-space-lg);
+  --comp-card-stats-gap: var(--sys-space-xs);
+  --comp-card-stats-title-size: var(--component-font-size-caption);
+  --comp-card-stats-value-size: var(--component-font-size-title-lg);
+  --comp-card-minimal-gap: calc(var(--sys-space-xs) / 2) calc(var(--sys-space-sm) + var(--component-border-width) * 2);
+  --comp-card-elevated-gap: var(--sys-space-xs);
   --comp-card-radius: var(--sys-frame-radius-surface);
   --comp-card-bg: var(--sys-color-surface);
   --comp-card-bg-muted: color-mix(in srgb, var(--sys-color-surface) 72%, var(--sys-color-bg));
@@ -4750,12 +4764,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-composition="compact"] {
-  --card-padding: var(--sys-space-sm) var(--sys-space-md);
-  --card-gap: var(--sys-space-sm);
+  --card-padding: var(--comp-card-compact-padding);
+  --card-gap: var(--comp-card-compact-gap);
   --card-icon-size: var(--comp-card-icon-size-compact);
   --card-icon-font-size: var(--component-font-size-body);
-  --card-title-size: var(--component-font-size-label);
-  --card-value-size: var(--component-font-size-body);
+  --card-title-size: var(--comp-card-compact-title-size);
+  --card-value-size: var(--comp-card-compact-value-size);
   align-items: center;
   box-shadow: none;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -4780,7 +4794,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-composition="media"] {
   --card-padding: 0;
-  --card-gap: var(--sys-space-sm);
+  --card-gap: var(--comp-card-media-gap);
   --card-media-block-size: calc(var(--component-control-min-size) * 4 + var(--sys-space-xl));
   overflow: clip;
 }
@@ -4797,7 +4811,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   display: grid;
   gap: var(--card-gap);
   min-inline-size: 0;
-  padding: var(--sys-space-xl);
+  padding: var(--comp-card-media-padding);
 }
 
 .card[data-composition="media"] .card__header,
@@ -4806,19 +4820,20 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-composition="media"] .card__title {
-  font-size: var(--component-font-size-body);
+  font-size: var(--comp-card-media-title-size);
   font-weight: var(--sys-voice-weight-bold);
   line-height: var(--sys-voice-line-height-tight);
 }
 
 .card[data-composition="media"] .card__detail {
-  font-size: var(--component-font-size-small);
+  font-size: var(--comp-card-media-detail-size);
   line-height: var(--sys-voice-line-height-normal);
 }
 
 .card[data-composition="stats"] {
-  --card-padding: var(--sys-space-lg);
-  --card-gap: var(--sys-space-xs);
+  --card-padding: var(--comp-card-stats-padding);
+  --card-gap: var(--comp-card-stats-gap);
+  --card-value-size: var(--comp-card-stats-value-size);
 }
 
 .card[data-composition="stats"] .card__header,
@@ -4829,7 +4844,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card[data-composition="stats"] .card__title {
   color: var(--sys-color-text-muted);
   font-family: var(--sys-font-body);
-  font-size: var(--component-font-size-caption);
+  font-size: var(--comp-card-stats-title-size);
   font-weight: var(--sys-voice-weight-semibold);
   letter-spacing: var(--sys-voice-letter-spacing-widest);
   line-height: var(--sys-voice-line-height-tight);
@@ -4838,7 +4853,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-composition="stats"] .card__value {
   font-family: var(--component-font-family-mono);
-  font-size: var(--component-font-size-title-lg);
+  font-size: var(--card-value-size);
   font-weight: var(--sys-voice-weight-semibold);
   line-height: var(--sys-voice-line-height-compact);
   margin-block: var(--sys-space-xs) calc(var(--sys-space-sm) - var(--sys-space-xs) / 2);
@@ -4867,7 +4882,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-variant="minimal"] {
-  --card-gap: calc(var(--sys-space-xs) / 2) calc(var(--sys-space-sm) + var(--component-border-width) * 2);
+  --card-gap: var(--comp-card-minimal-gap);
   background: transparent;
   border-color: transparent;
   box-shadow: none;
@@ -4898,7 +4913,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-variant="elevated"] {
-  --card-gap: var(--sys-space-xs);
+  --card-gap: var(--comp-card-elevated-gap);
   border-color: var(--comp-card-icon-fg);
   border-width: calc(var(--component-border-width) * 2);
   box-shadow: var(--comp-card-shadow-hover);
