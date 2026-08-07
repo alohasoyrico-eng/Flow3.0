@@ -1,8 +1,5 @@
 import assert from "node:assert/strict";
-import React from "react";
 import { JSDOM } from "jsdom";
-import { cleanup, fireEvent, render } from "@testing-library/react";
-import { Accordion, Breadcrumbs, Card } from "../src/index.js";
 
 const dom = new JSDOM("<!doctype html><html><body></body></html>", {
   url: "http://localhost/",
@@ -16,6 +13,10 @@ Object.defineProperty(globalThis, "navigator", {
   configurable: true,
   value: dom.window.navigator,
 });
+
+const React = await import("react");
+const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -107,6 +108,24 @@ try {
   assert.equal(nestedCardActions[0][0], "freeze");
   assert.equal(nestedCardActions[0][1].label, "Freeze");
   assert.equal(nestedCardActions[0][2].type, "click");
+
+  cleanup();
+
+  const expiryChanges = [];
+  const { getByLabelText } = render(React.createElement(CardExpiryInput, {
+    label: "Expiry date",
+    onValueChange: (value, meta) => expiryChanges.push({ value, meta }),
+  }));
+
+  const expiryInput = getByLabelText(/expiry date/i);
+  fireEvent.input(expiryInput, { target: { value: "1228" } });
+
+  await waitFor(() => assert.equal(expiryInput.value, "12/28"));
+  assert.equal(expiryChanges.at(-1).value, "12/28");
+  assert.equal(expiryChanges.at(-1).meta.digits, "1228");
+  assert.equal(expiryChanges.at(-1).meta.month, "12");
+  assert.equal(expiryChanges.at(-1).meta.year, "28");
+  assert.equal(expiryChanges.at(-1).meta.validity, "valid");
 } finally {
   cleanup();
   dom.window.close();
