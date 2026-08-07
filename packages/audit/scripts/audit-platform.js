@@ -209,19 +209,8 @@ function checkPrototypePackages() {
   for (const required of ["--sys-color-action", "--sys-space-md", "--sys-radius-md", "--sys-font-body"]) {
     if (!tokenCssText.includes(required)) add("errors", tokenCss, 1, `tokens CSS variable missing: ${required}.`);
   }
-  for (const [label, factory] of [["Button", "createTransitionalActionButton"], ["Card", "createCard"], ["Card Expiry Input", "createTransitionalPaymentCardExpiryInput"], ["Card Number Input", "createTransitionalPaymentCardNumberInput"], ["Card Security Code Input", "createTransitionalPaymentCardSecurityCodeInput"], ["Code Input", "createTransitionalSecurityCodeInput"], ["Date Picker", "createTransitionalDatePicker"], ["Date Range Picker", "createTransitionalDateRangePicker"], ["Icon Button", "createTransitionalActionIconButton"], ["KPI Tile", "createKpiTile"], ["List", "createList"], ["Phone Input", "createTransitionalPhoneInput"], ["Spinner", "createSpinner"], ["Table", "createTable"]]) {
-    if (hasPublicComponentExport(componentText, factory)) add("errors", componentSource, 1, `${label} must not be exported as a public DOM factory; React is the public product component target.`);
-  }
-  for (const [label, target, internalFactory] of []) {
-    if (!componentContractText.includes(`factory: "@design-system/react/${target}"`) || !componentContractText.includes(`internalFactory: "${internalFactory}"`)) add("errors", componentContracts, 1, `${label} contract must expose the React package target and name the transitional internal field factory separately.`);
-  }
-  for (const [label, target, factory] of [["Button", "button", "createTransitionalActionButton"], ["Icon Button", "icon-button", "createTransitionalActionIconButton"], ["Card Number Input", "card-number-input", "createTransitionalPaymentCardNumberInput"], ["Card Expiry Input", "card-expiry-input", "createTransitionalPaymentCardExpiryInput"], ["Card Security Code Input", "card-security-code-input", "createTransitionalPaymentCardSecurityCodeInput"], ["Code Input", "code-input", "createTransitionalSecurityCodeInput"], ["Phone Input", "phone-input", "createTransitionalPhoneInput"], ["Country Selector", "country-selector", "createCountrySelector"], ["Date Picker", "date-picker", "createTransitionalDatePicker"], ["Date Range Picker", "date-range-picker", "createTransitionalDateRangePicker"], ["Spinner", "spinner", "createSpinner"], ["Card", "card", "createCard"], ["Table", "table", "createTable"], ["List", "list", "createList"], ["KPI Tile", "kpi-tile", "createKpiTile"], ["Audit Event", "audit-event", "createAuditEvent"], ["Chart Panel", "chart-panel", "createChartPanel"], ["Station Pin", "station-pin", "createStationPin"], ["Route Summary", "route-summary", "createRouteSummary"], ["Card Summary", "card-summary", "createCardSummary"], ["Movement Row", "movement-row", "createMovementRow"], ["Quick Action", "quick-action", "createQuickAction"], ["Floating Action Button", "floating-action-button", "createFloatingActionButton"], ["Inline Validation", "inline-validation", "createInlineValidation"], ["Empty State", "empty-state", "createEmptyState"], ["Error Panel", "error-panel", "createErrorPanel"], ["Skeleton", "skeleton", "createSkeleton"], ["Breadcrumbs", "breadcrumbs", "createBreadcrumbs"], ["Pagination", "pagination", "createPagination"], ["Stepper", "stepper", "createStepper"], ["Biometric Prompt", "biometric-prompt", "createBiometricPrompt"], ["Motion Boundary", "motion-boundary", "createMotionBoundary"], ["Animated Moment", "animated-moment", "createAnimatedMoment"], ["Chip", "chip", "createTransitionalChip"], ["Tag", "tag", "createTransitionalTag"], ["Toast", "toast", "createToast"], ["Accordion", "accordion", "createAccordion"], ["Slider", "slider", "createSlider"], ["Segmented Control", "segmented-control", "createSegmentedControl"], ["Tree View", "tree-view", "createTreeView"], ["Tabs", "tabs", "createTabs"], ["Tooltip", "tooltip", "createTransitionalTooltip"], ["Popover", "popover", "createPopover"], ["Menu", "menu", "createMenu"], ["Dialog", "dialog", "createDialog"], ["Drawer", "drawer", "createDrawer"], ["Badge", "badge", "createTransitionalBadge"], ["Avatar", "avatar", "createTransitionalAvatar"], ["Progress Indicator", "progress-indicator", "createProgressIndicator"], ["Checkbox", "checkbox", "createTransitionalChoiceCheckbox"], ["Switch", "switch", "createTransitionalChoiceSwitch"], ["Radio Button", "radio-button", "createTransitionalChoiceRadioButton"], ["Text Area", "text-area", "createTransitionalFieldTextArea"], ["Input", "input", "createTransitionalFieldInput"], ["Select", "select", "createTransitionalFieldSelect"]]) {
-    if (!componentContractText.includes(`factory: "@design-system/react/${target}"`)) add("errors", componentContracts, 1, `${label} contract must expose the React package target.`);
-    if (componentContractText.includes(`internalFactory: "${factory}"`)) add("errors", componentContracts, 1, `${label} must not keep a DOM internalFactory; React is the single product component implementation.`);
-  }
-  for (const [label, hydrator] of []) {
-    if (hasPublicComponentExport(componentText, hydrator)) add("errors", componentSource, 1, `${label} must not export a public DOM hydrator; React is the public product component target.`);
-  }
+  checkPublicComponentIndex(componentSource, componentText);
+  checkComponentFactoryContracts(componentContracts, componentContractText);
   for (const required of ["button", "iconButton", "input", "select", "card", "props", "accessibility", "componentContractVersion"]) {
     if (!componentContractText.includes(required)) add("errors", componentContracts, 1, `components contract missing: ${required}.`);
   }
@@ -262,9 +251,21 @@ function checkPrototypePackages() {
   }
 }
 
-function hasPublicComponentExport(source, name) {
-  return source.includes(`export function ${name}`)
-    || new RegExp(`export \\{[^}]*\\b${name}\\b[^}]*\\} from`).test(source);
+function checkPublicComponentIndex(componentSource, componentText) {
+  const allowedPrimitiveFactories = new Set(["createAnimationAsset", "createChartsPrimitive", "createCountryFlag", "createIllustrationAsset", "createMapsPrimitive"]);
+  for (const match of componentText.matchAll(/\b(create|hydrate)[A-Z][A-Za-z0-9]*\b/g)) {
+    const name = match[0];
+    if (allowedPrimitiveFactories.has(name)) continue;
+    add("errors", componentSource, 1, `${name} must not be exported from package components; React is the public product component implementation.`);
+  }
+}
+
+function checkComponentFactoryContracts(componentContracts, componentContractText) {
+  for (const match of componentContractText.matchAll(/factory:\s*"([^"]+)"/g)) {
+    const factory = match[1];
+    if (!factory.startsWith("@design-system/react/")) add("errors", componentContracts, 1, `Component factory must point to @design-system/react, found ${factory}.`);
+  }
+  if (componentContractText.includes("internalFactory")) add("errors", componentContracts, 1, "Component contracts must not keep internalFactory; React is the single product component implementation.");
 }
 
 function checkReleaseAndAdoption() {
