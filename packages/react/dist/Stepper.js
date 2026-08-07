@@ -23,7 +23,7 @@ export const Stepper = forwardRef(function Stepper({
   ...rest
 }, ref) {
   const resolvedOrientation = allowedOrientations.has(orientation) ? orientation : "horizontal";
-  const resolvedDensity = allowedDensities.has(density) ? density : "md";
+  const resolvedDensity = allowedDensities.has(density) ? density : undefined;
   const resolvedSteps = useMemo(() => normalizeSteps(steps), [steps]);
   const currentIndex = Math.max(0, Math.min(Number(current) || 0, resolvedSteps.length - 1));
 
