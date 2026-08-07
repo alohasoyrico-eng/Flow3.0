@@ -80,7 +80,7 @@ const displayFallbackTermsByFile = new Map([
   ["TextArea.js", ["Text area"]],
   ["MovementRow.js", ["Movement", "Pending", "Declined"]],
   ["MotionBoundary.js", ["Panel transition", "Controls the entrance"]],
-  ["QuickAction.js", ["Action"]],
+  ["QuickAction.js", ["Action", "Loading", " loading"]],
   ["RadioButton.js", ["Radio button"]],
   ["Switch.js", ["Switch"]],
   ["Tag.js", ["Tag"]],

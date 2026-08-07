@@ -197,6 +197,7 @@ const loadingQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickA
 }));
 assert.match(loadingQuickActionMarkup, /aria-busy="true"/);
 assert.match(loadingQuickActionMarkup, /class="spinner/);
+assert.doesNotMatch(loadingQuickActionMarkup, /Sync loading|Loading/);
 
 const inheritedQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction, {
   label: "Inherited action density",
