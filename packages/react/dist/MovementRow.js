@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { movementRowPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "refund", "declined", "compact"]);
 const validStates = new Set(["default", "hover", "focus", "pending", "error", "disabled"]);
@@ -62,7 +62,7 @@ export const MovementRow = forwardRef(function MovementRow({
       disabled: blocked,
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity || undefined,
+      ...flowDensityProps(resolvedDensity),
       "data-category": resolvedCategory,
       "data-full-width": String(Boolean(fullWidth)),
       onClick: (event) => {

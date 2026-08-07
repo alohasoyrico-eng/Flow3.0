@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { buttonPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const allowedTypes = new Set(["button", "submit", "reset"]);
 
@@ -42,7 +42,7 @@ export const Button = forwardRef(function Button({
       className: buttonClassName({ variant, intent, className }),
       disabled: resolvedState === "disabled" || resolvedState === "loading",
       "aria-busy": resolvedState === "loading" ? "true" : undefined,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
       "data-state": resolvedState,
       "data-full-width": String(Boolean(fullWidth)),
     },

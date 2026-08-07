@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { switchPlatformContract } from "@design-system/components/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function normalizeState({ checked, disabled, state, error }) {
   if (disabled) return "disabled";
@@ -45,7 +45,7 @@ export const Switch = forwardRef(function Switch({
     {
       className: ["switch", className].filter(Boolean).join(" "),
       "data-state": normalizedState,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
       "data-checked": String(currentChecked),
       "data-invalid": isInvalid ? "true" : undefined,
     },

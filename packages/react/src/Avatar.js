@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { avatarPlatformContract } from "@design-system/components/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validSizes = new Set(["sm", "md", "lg", "xl"]);
 const validDensities = new Set(["sm", "md", "lg"]);
@@ -48,7 +48,7 @@ export const Avatar = forwardRef(function Avatar({
       ref,
       className: ["avatar", resolvedSize ? `avatar--${resolvedSize}` : "", className].filter(Boolean).join(" "),
       "aria-label": ariaLabel || sourceName || "Unknown avatar",
-      "data-density": resolvedDensity,
+      ...flowDensityProps(resolvedDensity),
       "data-status": resolvedStatus,
       "data-state": resolvedState,
       "data-color-index": colorIndexFromName(sourceName),

@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { listPlatformContract } from "@design-system/components/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "compact", "action", "status", "media"]);
 const validStates = new Set(["default", "hover", "selected", "loading", "error", "disabled"]);
@@ -42,7 +42,7 @@ export const List = forwardRef(function List({
       className: ["list", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity || undefined,
+      ...flowDensityProps(resolvedDensity),
       "data-interactive": String(isInteractive),
       role: "list",
       "aria-label": label || undefined,

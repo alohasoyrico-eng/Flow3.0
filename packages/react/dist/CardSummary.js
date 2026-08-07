@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { cardSummaryPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["physical", "virtual", "compact", "limit"]);
 const validStates = new Set(["default", "hover", "focus", "active", "warning", "frozen", "disabled"]);
@@ -48,7 +48,7 @@ export const CardSummary = forwardRef(function CardSummary({
       className: ["card-summary", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity || undefined,
+      ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
       tabIndex: ["hover", "focus", "active"].includes(resolvedState) ? 0 : rest.tabIndex,

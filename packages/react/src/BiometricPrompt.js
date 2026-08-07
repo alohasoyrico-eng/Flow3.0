@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { biometricPromptPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fingerprint", "face", "passcode", "fallback"]);
 const validStates = new Set(["default", "focus", "authenticating", "success", "warning", "error", "disabled"]);
@@ -68,7 +68,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
       className: ["biometric-prompt", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       role: "group",
       "aria-label": label ?? "Biometric authentication",

@@ -5,7 +5,7 @@ import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
 import { ProgressIndicator } from "./ProgressIndicator.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["side-sheet", "filter", "detail", "edit", "review"]);
 const validStates = new Set(["closed", "default", "open", "focus", "closing"]);
@@ -134,7 +134,7 @@ export const Drawer = forwardRef(function Drawer({
       "data-variant": resolvedVariant,
       "data-state": isOpen ? interactionState : interactionState === "default" ? "default" : "closed",
       "data-tone": resolvedTone,
-      "data-density": resolvedDensity,
+      ...flowDensityProps(resolvedDensity),
       "data-open": String(Boolean(isOpen)),
       "data-side": resolvedSide,
     },

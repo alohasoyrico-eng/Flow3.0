@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { auditEventPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger", "action"]);
 const validStates = new Set(["default", "hover", "focus", "verified", "warning", "critical", "disabled"]);
@@ -47,7 +47,7 @@ export const AuditEvent = forwardRef(function AuditEvent({
       className: ["audit-event", className].filter(Boolean).join(" "),
       "data-tone": statusTone,
       "data-state": resolvedState,
-      "data-density": resolvedDensity || undefined,
+      ...flowDensityProps(resolvedDensity),
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
     },
     icon ? React.createElement("span", { className: "audit-event__icon material-symbol", "aria-hidden": "true" }, icon) : null,

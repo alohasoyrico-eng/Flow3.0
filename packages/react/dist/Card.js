@@ -3,7 +3,7 @@ import { cardPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Spinner } from "./Spinner.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const variants = new Set(["default", "minimal", "elevated", "ghost"]);
 const compositions = new Set(["standard", "compact", "media", "stats"]);
@@ -112,7 +112,7 @@ export const Card = forwardRef(function Card({
       "data-variant": resolvedVariant,
       "data-composition": resolvedComposition,
       "data-state": resolvedState,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
       "data-full-width": String(Boolean(fullWidth)),
       "data-interactive": String(isInteractive),
       tabIndex: isInteractive ? (isDisabled ? -1 : 0) : rest.tabIndex,

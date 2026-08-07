@@ -6,7 +6,7 @@ import {
   resolveCountryCallingCodeOption,
 } from "#flow/components";
 import { phoneInputPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function resolveCountry({ country, prefix } = {}, countries = countryCallingCodeOptions) {
   return resolveCountryCallingCodeOption({ country, prefix }, countries);
@@ -132,7 +132,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
     {
       className: ["field", "phone-input", className].filter(Boolean).join(" "),
       "data-state": resolvedState,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
       "data-variant": variant,
     },
     React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label ?? "Phone number"),
@@ -149,7 +149,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
           "data-country": selectedCountry.country,
           "data-value": selectedCountry.country,
           "data-open": String(open),
-          "data-density": density || undefined,
+          ...flowDensityProps(density),
           "data-state": disabled || isReadonly ? "disabled" : error ? "error" : undefined,
         },
         React.createElement(

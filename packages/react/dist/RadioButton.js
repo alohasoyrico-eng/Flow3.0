@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { radioButtonPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function normalizeState({ checked, disabled, state, error }) {
   if (disabled) return "disabled";
@@ -54,7 +54,7 @@ export const RadioButton = forwardRef(function RadioButton({
       "data-checked": String(currentChecked),
       "data-variant": variant,
       "data-state": normalizedState,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
       "data-invalid": isInvalid ? "true" : undefined,
     },
     React.createElement("input", {

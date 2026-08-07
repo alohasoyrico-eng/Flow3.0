@@ -1,6 +1,6 @@
 import React, { forwardRef, useId } from "react";
 import { progressIndicatorPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validDensities = new Set(["sm", "md", "lg"]);
 const validTones = new Set(["accent", "success", "warning", "danger", "ink"]);
@@ -71,7 +71,7 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
       "data-tone": normalizeTone(tone),
       "data-state": resolvedState,
-      "data-density": normalizeDensity(density),
+      ...flowDensityProps(normalizeDensity(density)),
       "data-full-width": String(Boolean(fullWidth)),
       "data-indeterminate": String(Boolean(isIndeterminate)),
     },

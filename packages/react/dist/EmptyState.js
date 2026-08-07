@@ -2,7 +2,7 @@ import React, { forwardRef, useId } from "react";
 import { emptyStatePlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { Spinner } from "./Spinner.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["first-use", "search-empty", "permission", "error", "maintenance"]);
 const validStates = new Set(["default", "action", "search-empty", "permission", "loading", "error"]);
@@ -50,7 +50,7 @@ export const EmptyState = forwardRef(function EmptyState({
       "aria-labelledby": titleId,
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity || undefined,
+      ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
     },
     showIcon

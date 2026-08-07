@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { comboboxPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function optionValue(option) {
   return option.value ?? option.label ?? "";
@@ -95,7 +95,7 @@ export const Combobox = forwardRef(function Combobox({
     {
       className: ["field", className].filter(Boolean).join(" "),
       "data-state": resolvedState,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
     },
     React.createElement("span", { className: "field__label", id: `${comboboxId}-label` }, label ?? "Combobox"),
     React.createElement(
@@ -104,7 +104,7 @@ export const Combobox = forwardRef(function Combobox({
         className: "combobox",
         "data-open": String(isOpen),
         "data-state": resolvedState,
-        "data-density": density || undefined,
+        ...flowDensityProps(density),
         "data-value": selectedValue,
         "data-combobox-control": "",
       },

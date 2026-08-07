@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { animatedMomentPlatformContract } from "@design-system/components/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["success", "empty", "loading", "celebration"]);
 const validStates = new Set(["idle", "playing", "paused", "complete", "reduced-motion", "disabled"]);
@@ -61,7 +61,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
       className: ["animated-moment", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       role: "img",
       "aria-label": `${resolvedLabel}: ${stateLabel(resolvedState)}`,

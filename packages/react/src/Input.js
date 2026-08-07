@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { inputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const numericVariants = new Set(["number", "currency", "unit"]);
 
@@ -116,7 +116,7 @@ export const Input = forwardRef(function Input({
     {
       className: ["field", className].filter(Boolean).join(" "),
       "data-state": resolvedState,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
       "data-variant": variant,
       "data-mono": mono ? "true" : undefined,
       "data-align": resolvedAlign === "end" ? "end" : undefined,

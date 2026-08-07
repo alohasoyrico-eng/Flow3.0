@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { tablePlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "dense", "sortable", "selectable", "expandable"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "sorted", "expanded"]);
@@ -113,7 +113,7 @@ export const Table = forwardRef(function Table({
       className: ["table", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": interactionState,
-      "data-density": resolvedDensity || undefined,
+      ...flowDensityProps(resolvedDensity),
     },
     React.createElement(
       "table",

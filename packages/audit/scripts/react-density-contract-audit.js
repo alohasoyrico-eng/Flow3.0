@@ -1,4 +1,7 @@
 function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
+  if (source.includes('"data-density"')) {
+    add("errors", sourceFile, 1, `${componentName} React source must use flowDensityProps() instead of writing data-density directly.`);
+  }
   if (/\bdensity\s*=\s*["'](?:sm|md|lg)["']/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must not assign a local default density; density must inherit through the Flow cascade unless product code opts in.`);
   }

@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { paginationPlatformContract } from "@design-system/components/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const allowedStates = new Set(["default", "hover", "focus", "selected", "disabled"]);
 
@@ -89,7 +89,7 @@ export const Pagination = forwardRef(function Pagination({
       "aria-disabled": disabled ? "true" : undefined,
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
       "data-page": String(currentPage),
       "data-page-count": String(totalPages),
       "data-full-width": fullWidth ? "true" : undefined,

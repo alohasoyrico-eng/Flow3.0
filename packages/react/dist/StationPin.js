@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { createMapsPrimitive } from "#flow/components";
 import { stationPinPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fuel", "ev", "service", "cluster"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "unavailable", "disabled"]);
@@ -63,7 +63,7 @@ export const StationPin = forwardRef(function StationPin({
       className: ["station-pin", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity || undefined,
+      ...flowDensityProps(resolvedDensity),
       "data-map-primitive": "maps",
       disabled: blocked,
       "aria-pressed": resolvedState === "selected" ? "true" : undefined,

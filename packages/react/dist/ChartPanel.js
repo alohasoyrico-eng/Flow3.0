@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { chartPanelPlatformContract } from "#flow/platforms";
 import { createChartsPrimitive } from "#flow/components";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["sparkline", "bars", "line", "area", "donut", "pareto", "bullet", "comparison", "compact"]);
 const validStates = new Set(["default", "focus", "hover", "warning", "error", "disabled"]);
@@ -198,7 +198,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
       "data-variant": chartPrimitive.type,
       "data-state": resolvedState,
       "data-tone": resolvedTone,
-      "data-density": resolvedDensity || undefined,
+      ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
     },
     React.createElement(

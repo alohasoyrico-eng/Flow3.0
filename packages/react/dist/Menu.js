@@ -3,7 +3,7 @@ import { menuPlatformContract } from "#flow/platforms";
 import { Avatar } from "./Avatar.js";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["actions", "grouped", "selection", "danger", "icon-trigger", "avatar-trigger"]);
 const validStates = new Set(["default", "closed", "open", "focus", "disabled"]);
@@ -111,7 +111,7 @@ export const Menu = forwardRef(function Menu({
       ref,
       className: ["menu", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
-      "data-density": resolvedDensity,
+      ...flowDensityProps(resolvedDensity),
       "data-state": isDisabled ? "disabled" : interactionState,
       "data-align": resolvedAlign,
       "data-open": String(Boolean(isOpen)),

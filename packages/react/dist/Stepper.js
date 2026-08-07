@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from "react";
 import { stepperPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const allowedOrientations = new Set(["horizontal", "vertical"]);
 const allowedDensities = new Set(["sm", "md", "lg"]);
@@ -36,7 +36,7 @@ export const Stepper = forwardRef(function Stepper({
       className: ["stepper", className].filter(Boolean).join(" "),
       "aria-label": label,
       "data-orientation": resolvedOrientation,
-      "data-density": resolvedDensity,
+      ...flowDensityProps(resolvedDensity),
       "data-current": String(currentIndex),
     },
     resolvedSteps.flatMap((step, index) => {

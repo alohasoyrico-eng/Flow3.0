@@ -117,7 +117,7 @@ const componentQualityRequirements = {
       ".table__detail",
     ],
     reactSnippets: [
-      '"data-density": resolvedDensity',
+      'flowDensityProps(resolvedDensity)',
       'className: "table__sort"',
       'className: "table__detail"',
     ],

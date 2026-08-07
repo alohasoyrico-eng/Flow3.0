@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { textAreaPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function resolveState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
   if (disabled) return "disabled";
@@ -57,7 +57,7 @@ export const TextArea = forwardRef(function TextArea({
     {
       className: ["field", className].filter(Boolean).join(" "),
       "data-state": resolvedState,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
     },
     React.createElement("span", { className: "field__label", id: `${textAreaId}-label` }, label ?? "Text area"),
     React.createElement(

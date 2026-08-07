@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { treeViewPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validDensities = new Set(["sm", "md", "lg"]);
 const validStates = new Set(["default", "hover", "focus", "expanded", "selected", "disabled"]);
@@ -105,7 +105,7 @@ export const TreeView = forwardRef(function TreeView({
       role: "tree",
       "aria-label": label,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      ...flowDensityProps(resolvedDensity),
     },
     normalizedNodes.map((node) => {
       const isExpanded = expanded.includes(node.key);

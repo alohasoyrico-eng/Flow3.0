@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { accordionPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validDensities = new Set(["sm", "md", "lg"]);
 const validVariants = new Set(["single", "multiple"]);
@@ -73,7 +73,7 @@ export const Accordion = forwardRef(function Accordion({
       className: ["accordion", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-multiple": String(allowsMultiple),
-      "data-density": resolvedDensity,
+      ...flowDensityProps(resolvedDensity),
     },
     normalizedItems.map((item, index) => {
       const open = openIds.includes(item.id);

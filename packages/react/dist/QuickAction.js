@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { quickActionPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 import { Spinner } from "./Spinner.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "destructive", "compact", "wide"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "warning", "disabled"]);
@@ -40,7 +40,7 @@ export const QuickAction = forwardRef(function QuickAction({
       className: ["quick-action", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity || undefined,
+      ...flowDensityProps(resolvedDensity),
     },
     React.createElement(
       "button",

@@ -1,6 +1,6 @@
 import React, { forwardRef, useId, useMemo, useRef, useState } from "react";
 import { segmentedControlPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function itemKey(item) {
   return item?.key ?? item?.value ?? item?.label ?? "";
@@ -78,7 +78,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
       role: "tablist",
       "aria-label": resolvedLabel,
       "data-variant": variant,
-      "data-density": density || undefined,
+      ...flowDensityProps(density),
       style: {
         "--comp-segmented-control-count": String(Math.max(normalizedItems.length, 1)),
       },

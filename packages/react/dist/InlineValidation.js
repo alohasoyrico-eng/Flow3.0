@@ -1,7 +1,7 @@
 import React, { forwardRef, useId } from "react";
 import { inlineValidationPlatformContract } from "#flow/platforms";
 import { Input } from "./Input.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validStates = new Set(["default", "info", "success", "warning", "error", "disabled"]);
 const validDensities = new Set(["sm", "md", "lg"]);
@@ -47,7 +47,7 @@ export const InlineValidation = forwardRef(function InlineValidation({
       className: ["inline-validation", className].filter(Boolean).join(" "),
       "aria-label": !showField && label ? label : rest["aria-label"],
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       "data-field": String(Boolean(showField)),
     },
