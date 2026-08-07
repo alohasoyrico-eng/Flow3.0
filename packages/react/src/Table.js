@@ -31,7 +31,8 @@ export const Table = forwardRef(function Table({
   columns = [],
   rows = [],
   rowKey = "id",
-  label = "Table",
+  label = "",
+  getExpandLabel,
   variant = "standard",
   state = "default",
   density,
@@ -115,7 +116,7 @@ export const Table = forwardRef(function Table({
     },
     React.createElement(
       "table",
-      { "aria-label": label },
+      { "aria-label": label || undefined },
       React.createElement(
         "thead",
         null,
@@ -161,6 +162,7 @@ export const Table = forwardRef(function Table({
           const selected = currentSelected ? currentSelected === key : initialState === "selected" && index === 1;
           const expanded = currentExpanded === key;
           const interactive = selectable || expandable;
+          const expandLabel = typeof getExpandLabel === "function" ? getExpandLabel(row, { expanded, key }) : undefined;
           const rowNode = React.createElement(
             "tr",
             {
@@ -188,7 +190,7 @@ export const Table = forwardRef(function Table({
                   type: "button",
                   className: "table__expander",
                   "data-table-expand": "",
-                  "aria-label": `${expanded ? "Collapse" : "Expand"} ${row.label ?? row.plate ?? key}`,
+                  "aria-label": expandLabel || undefined,
                   "aria-expanded": String(expanded),
                   onClick: (event) => {
                     event.stopPropagation();

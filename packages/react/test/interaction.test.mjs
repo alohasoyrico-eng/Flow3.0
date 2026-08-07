@@ -1256,6 +1256,7 @@ try {
   const expandedRows = [];
   const { getByRole: getTableRole, rerender: rerenderExpandedTable } = render(React.createElement(Table, {
     label: "Vehicle details",
+    getExpandLabel: (row, { expanded }) => `${expanded ? "Close" : "Open"} ${row.plate}`,
     variant: "expandable",
     columns: tableColumns,
     rows: tableRows,
@@ -1263,7 +1264,7 @@ try {
     onExpandedChange: (key) => expandedRows.push(key),
   }));
 
-  const expandUnit24 = getTableRole("button", { name: /expand abc-123/i });
+  const expandUnit24 = getTableRole("button", { name: /open abc-123/i });
   assert.equal(expandUnit24.getAttribute("aria-expanded"), "false");
   fireEvent.click(expandUnit24);
   await waitFor(() => assert.equal(expandUnit24.getAttribute("aria-expanded"), "true"));
@@ -1275,6 +1276,7 @@ try {
 
   rerenderExpandedTable(React.createElement(Table, {
     label: "Vehicle details",
+    getExpandLabel: (row, { expanded }) => `${expanded ? "Close" : "Open"} ${row.plate}`,
     variant: "expandable",
     expandedKey: "unit-31",
     columns: tableColumns,
@@ -1282,7 +1284,7 @@ try {
     renderDetail: (row) => `${row.plate} detail`,
     onExpandedChange: (key) => expandedRows.push(key),
   }));
-  await waitFor(() => assert.equal(getTableRole("button", { name: /collapse xyz-789/i }).getAttribute("aria-expanded"), "true"));
+  await waitFor(() => assert.equal(getTableRole("button", { name: /close xyz-789/i }).getAttribute("aria-expanded"), "true"));
 
   cleanup();
 

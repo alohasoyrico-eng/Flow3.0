@@ -897,9 +897,15 @@ const inheritedTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   rows: tableRows,
 }));
 assert.doesNotMatch(inheritedTableMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+const unnamedTableMarkup = renderToStaticMarkup(React.createElement(Table, {
+  columns: tableColumns,
+  rows: tableRows,
+}));
+assert.doesNotMatch(unnamedTableMarkup, /aria-label="Table"/);
 
 const expandableTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   label: "Expandable fleet",
+  getExpandLabel: (row, { expanded }) => `${expanded ? "Close" : "Open"} ${row.plate}`,
   rowKey: "id",
   variant: "expandable",
   state: "expanded",
@@ -910,6 +916,7 @@ const expandableTableMarkup = renderToStaticMarkup(React.createElement(Table, {
 assert.match(expandableTableMarkup, /data-variant="expandable"/);
 assert.match(expandableTableMarkup, /data-state="expanded"/);
 assert.match(expandableTableMarkup, /aria-expanded="true"/);
+assert.match(expandableTableMarkup, /aria-label="Close JMX-214-B"/);
 assert.match(expandableTableMarkup, /class="table__expander"/);
 assert.match(expandableTableMarkup, /class="table__detail-row"/);
 assert.match(expandableTableMarkup, /class="table__detail"[^>]*>Last fuel stop 08:30/);

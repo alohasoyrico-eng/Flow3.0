@@ -19,6 +19,7 @@ const visibleTriggerDefaultsByFile = new Map([
   ["PhoneInput.js", ["No results", "MX", "+1"]],
   ["List.js", ["Loading"]],
   ["Tabs.js", ["Overview", "Details", "Settings", "Tab"]],
+  ["Table.js", ["Table", "Expand", "Collapse"]],
   ["Tooltip.js", ["Info", "Tooltip"]],
   ["Toast.js", ["Toast"]],
   ["TreeView.js", ["Fleet", "Cards", "Tree item", "Tree view"]],
