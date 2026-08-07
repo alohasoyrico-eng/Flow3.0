@@ -1,6 +1,6 @@
 import React, { forwardRef, useId, useState } from "react";
 import { tooltipPlatformContract } from "#flow/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validPlacements = new Set(["top", "right", "bottom", "left"]);
 const validVariants = new Set(["default", "icon-help", "metric", "disabled-help"]);
@@ -55,9 +55,9 @@ export const Tooltip = forwardRef(function Tooltip({
       ref,
       className: ["tooltip", className].filter(Boolean).join(" "),
       "data-placement": resolvedPlacement,
-      "data-variant": resolvedVariant,
+      ...flowVariantProps(resolvedVariant),
       ...flowDensityProps(resolvedDensity),
-      "data-state": interactionState,
+      ...flowStateProps(interactionState),
       "data-open": String(isOpen),
     },
     React.createElement(

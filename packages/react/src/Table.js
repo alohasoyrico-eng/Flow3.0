@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { tablePlatformContract } from "@design-system/components/platforms";
 import { Badge } from "./Badge.js";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "dense", "sortable", "selectable", "expandable"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "sorted", "expanded"]);
@@ -107,8 +107,8 @@ export const Table = forwardRef(function Table({
       ...flowRestProps(rest),
       ref,
       className: ["table", className].filter(Boolean).join(" "),
-      "data-variant": resolvedVariant,
-      "data-state": interactionState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(interactionState),
       ...flowDensityProps(resolvedDensity),
     },
     React.createElement(
@@ -166,7 +166,7 @@ export const Table = forwardRef(function Table({
               "data-key": key,
               "data-label": row.label ?? row.plate ?? key,
               "data-selected": String(selected),
-              "data-state": initialState === "hover" && index === 0 ? "hover" : initialState === "focus" && index === 0 ? "focus" : undefined,
+              ...flowStateProps(initialState === "hover" && index === 0 ? "hover" : initialState === "focus" && index === 0 ? "focus" : undefined),
               tabIndex: interactive ? 0 : undefined,
               "aria-expanded": expandable ? String(expanded) : undefined,
               onClick: selectable ? () => selectRow(key) : undefined,

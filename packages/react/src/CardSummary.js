@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { cardSummaryPlatformContract } from "@design-system/components/platforms";
 import { Badge } from "./Badge.js";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["physical", "virtual", "compact", "limit"]);
 const validStates = new Set(["default", "hover", "focus", "active", "warning", "frozen", "disabled"]);
@@ -41,8 +41,8 @@ export const CardSummary = forwardRef(function CardSummary({
       ...flowRestProps(rest),
       ref,
       className: ["card-summary", className].filter(Boolean).join(" "),
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,

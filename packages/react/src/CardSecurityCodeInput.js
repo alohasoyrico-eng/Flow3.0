@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { cardSecurityCodeInputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function normalizeCardSecurityCode(value, expectedLength = 3) {
   const length = Number(expectedLength) === 4 ? 4 : 3;
@@ -76,7 +76,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
     "label",
     {
       className: ["field card-security-code-input", className].filter(Boolean).join(" "),
-      "data-state": resolvedState,
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
       "data-mono": "true",
       "data-validity": validity,

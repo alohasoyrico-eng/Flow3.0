@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { cardNumberInputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function normalizeCardNumber(value) {
   return String(value ?? "").replace(/\D/g, "").slice(0, 19);
@@ -97,7 +97,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
     "label",
     {
       className: ["field card-number-input", className].filter(Boolean).join(" "),
-      "data-state": resolvedState,
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
       "data-mono": "true",
       "data-validity": validity,

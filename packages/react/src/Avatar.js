@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { avatarPlatformContract } from "@design-system/components/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validSizes = new Set(["sm", "md", "lg", "xl"]);
 const validStatuses = new Set(["none", "online", "busy", "offline"]);
@@ -49,7 +49,7 @@ export const Avatar = forwardRef(function Avatar({
       "aria-label": ariaLabel || sourceName || "Unknown avatar",
       ...flowDensityProps(resolvedDensity),
       "data-status": resolvedStatus,
-      "data-state": resolvedState,
+      ...flowStateProps(resolvedState),
       "data-color-index": colorIndexFromName(sourceName),
     },
     src

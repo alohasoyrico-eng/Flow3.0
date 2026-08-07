@@ -2,7 +2,7 @@ import React, { forwardRef, useState } from "react";
 import { toastPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validVariants = new Set(["status", "progress", "warning", "recovery", "undo"]);
@@ -48,9 +48,9 @@ export const Toast = forwardRef(function Toast({
       hidden,
       role,
       "aria-live": role === "alert" ? "assertive" : "polite",
-      "data-tone": resolvedTone,
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowToneProps(resolvedTone),
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
     },
     React.createElement("span", { className: "toast__icon", "aria-hidden": "true" }, icon || toneIcons[resolvedTone]),

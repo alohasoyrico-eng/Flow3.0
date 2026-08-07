@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { animatedMomentPlatformContract } from "@design-system/components/platforms";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["success", "empty", "loading", "celebration"]);
 const validStates = new Set(["idle", "playing", "paused", "complete", "reduced-motion", "disabled"]);
@@ -54,8 +54,8 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
       ...flowRestProps(rest),
       ref,
       className: ["animated-moment", className].filter(Boolean).join(" "),
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       role: "img",
@@ -72,7 +72,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
           className: "animation-asset animated-moment__asset",
           "data-animation-library": "lottie-web",
           "data-animation-runtime": canAnimate ? "available" : "fallback",
-          "data-state": resolvedState,
+          ...flowStateProps(resolvedState),
           "data-renderer": "svg",
           "data-animated-moment-asset": "",
           role: "img",

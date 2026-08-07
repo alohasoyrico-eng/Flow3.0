@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { codeInputPlatformContract } from "#flow/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function normalizeCodeValue(value, length = 6) {
   return String(value ?? "").replace(/\D/g, "").slice(0, Number(length));
@@ -59,9 +59,9 @@ export const CodeInput = forwardRef(function CodeInput({
     "label",
     {
       className: ["field code-input", className].filter(Boolean).join(" "),
-      "data-state": resolvedState,
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
-      "data-variant": variant,
+      ...flowVariantProps(variant),
       "data-masked": isMasked ? "true" : undefined,
       "data-focused": focused ? "true" : "false",
       "data-length": String(resolvedLength),

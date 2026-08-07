@@ -20,6 +20,18 @@ export function normalizeFlowValue(value, allowedValues, fallback) {
   return allowedValues?.has?.(value) ? value : fallback;
 }
 
+export function flowVariantProps(variant) {
+  return variant ? { "data-variant": variant } : {};
+}
+
+export function flowStateProps(state) {
+  return state ? { "data-state": state } : {};
+}
+
+export function flowToneProps(tone) {
+  return tone ? { "data-tone": tone } : {};
+}
+
 export function flowDensityProps(density) {
   const normalizedDensity = normalizeFlowDensity(density);
   return normalizedDensity ? { "data-density": normalizedDensity } : {};

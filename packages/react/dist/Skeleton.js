@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { skeletonPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["text", "title", "circle", "card", "pill", "row", "media", "chart", "table"]);
 const validStates = new Set(["default", "loading", "stale", "paused", "loaded", "disabled"]);
@@ -61,8 +61,8 @@ export const Skeleton = forwardRef(function Skeleton({
       role: "status",
       "aria-busy": String(isBusy),
       "aria-label": label,
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       "data-full-width": String(Boolean(fullWidth)),
       "data-rows": resolvedVariant === "table" ? String(rowCount) : undefined,
       "data-columns": resolvedVariant === "table" ? String(columnCount) : undefined,

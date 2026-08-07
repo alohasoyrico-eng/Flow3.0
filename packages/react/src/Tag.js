@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { tagPlatformContract } from "@design-system/components/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["metadata", "status", "platform", "link"]);
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
@@ -46,9 +46,9 @@ export const Tag = forwardRef(function Tag({
       type: isInteractive ? type : undefined,
       disabled: isInteractive ? resolvedState === "disabled" : undefined,
       "aria-disabled": !isInteractive && resolvedState === "disabled" ? "true" : undefined,
-      "data-variant": resolvedVariant,
-      "data-tone": resolvedTone,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowToneProps(resolvedTone),
+      ...flowStateProps(resolvedState),
       "data-interactive": isInteractive ? "true" : undefined,
     },
     icon ? React.createElement("span", { className: "tag__icon", "aria-hidden": "true" }, icon) : null,

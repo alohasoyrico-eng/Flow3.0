@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { movementRowPlatformContract } from "@design-system/components/platforms";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "refund", "declined", "compact"]);
 const validStates = new Set(["default", "hover", "focus", "pending", "error", "disabled"]);
@@ -55,8 +55,8 @@ export const MovementRow = forwardRef(function MovementRow({
       type: ["button", "submit", "reset"].includes(type) ? type : "button",
       className: ["movement-row", className].filter(Boolean).join(" "),
       disabled: blocked,
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-category": resolvedCategory,
       "data-full-width": String(Boolean(fullWidth)),

@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { selectPlatformContract } from "#flow/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function selectedOptionFor(options, value) {
   return options.find((option) => (option.value ?? option.label ?? "") === value)
@@ -51,7 +51,7 @@ export const Select = forwardRef(function Select({
     "span",
     {
       className: ["field", className].filter(Boolean).join(" "),
-      "data-state": resolvedState,
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
       role: "group",
       "aria-labelledby": `${selectId}-label`,
@@ -62,7 +62,7 @@ export const Select = forwardRef(function Select({
       {
         className: ["select-control", variant === "inline" ? "select-control--inline" : ""].filter(Boolean).join(" "),
         "data-open": String(isOpen),
-        "data-state": resolvedState,
+        ...flowStateProps(resolvedState),
         ...flowDensityProps(density),
         "data-value": selectedValue,
         "data-select-control": "",

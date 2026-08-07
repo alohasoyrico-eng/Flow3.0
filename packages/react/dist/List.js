@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { listPlatformContract } from "#flow/platforms";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "compact", "action", "status", "media"]);
 const validStates = new Set(["default", "hover", "selected", "loading", "error", "disabled"]);
@@ -35,8 +35,8 @@ export const List = forwardRef(function List({
       ...flowRestProps(rest),
       ref,
       className: ["list", className].filter(Boolean).join(" "),
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-interactive": String(isInteractive),
       role: "list",
@@ -59,8 +59,8 @@ export const List = forwardRef(function List({
             className: "list__item",
             type: isInteractive ? "button" : undefined,
             disabled: isInteractive ? disabled : undefined,
-            "data-state": rowState,
-            "data-tone": rowTone || undefined,
+            ...flowStateProps(rowState),
+            ...flowToneProps(rowTone || undefined),
             "data-key": isInteractive ? key : undefined,
             "aria-current": rowState === "selected" ? "true" : undefined,
             "aria-busy": rowState === "loading" ? "true" : undefined,

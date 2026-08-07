@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { floatingActionButtonPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["primary", "accent", "extended", "mini"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "disabled"]);
@@ -36,8 +36,8 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
       disabled: resolvedState === "disabled" || resolvedState === "loading",
       "aria-label": resolvedLabel,
       "aria-busy": resolvedState === "loading" ? "true" : undefined,
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-extended": String(isExtended),
     },

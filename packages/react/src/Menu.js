@@ -3,7 +3,7 @@ import { menuPlatformContract } from "@design-system/components/platforms";
 import { Avatar } from "./Avatar.js";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["actions", "grouped", "selection", "danger", "icon-trigger", "avatar-trigger"]);
 const validStates = new Set(["default", "closed", "open", "focus", "disabled"]);
@@ -105,9 +105,9 @@ export const Menu = forwardRef(function Menu({
       ...flowRestProps(rest),
       ref,
       className: ["menu", className].filter(Boolean).join(" "),
-      "data-variant": resolvedVariant,
+      ...flowVariantProps(resolvedVariant),
       ...flowDensityProps(resolvedDensity),
-      "data-state": isDisabled ? "disabled" : interactionState,
+      ...flowStateProps(isDisabled ? "disabled" : interactionState),
       "data-align": resolvedAlign,
       "data-open": String(Boolean(isOpen)),
     },
@@ -141,7 +141,7 @@ export const Menu = forwardRef(function Menu({
             role: "menuitem",
             tabIndex: -1,
             "data-key": key,
-            "data-tone": item.tone || undefined,
+            ...flowToneProps(item.tone || undefined),
             "aria-disabled": item.disabled ? "true" : undefined,
             onClick: () => {
               if (item.disabled) return;

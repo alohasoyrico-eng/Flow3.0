@@ -2,7 +2,7 @@ import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { popoverPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { Input } from "./Input.js";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["information", "action", "form", "metric"]);
 const validStates = new Set(["default", "closed", "open", "hover", "focus", "warning", "disabled"]);
@@ -76,8 +76,8 @@ export const Popover = forwardRef(function Popover({
       ref,
       className: ["popover", className].filter(Boolean).join(" "),
       "data-open": String(Boolean(isOpen)),
-      "data-variant": resolvedVariant,
-      "data-state": isDisabled ? "disabled" : interactionState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(isDisabled ? "disabled" : interactionState),
       "data-placement": resolvedPlacement,
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),

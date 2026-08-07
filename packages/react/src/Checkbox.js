@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { checkboxPlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function normalizeState({ checked, indeterminate, disabled, state, error }) {
   if (disabled) return "disabled";
@@ -69,8 +69,8 @@ export const Checkbox = forwardRef(function Checkbox({
       className: ["choice checkbox", className].filter(Boolean).join(" "),
       "data-checked": String(currentChecked),
       "data-indeterminate": String(currentIndeterminate),
-      "data-variant": variant,
-      "data-state": normalizedState,
+      ...flowVariantProps(variant),
+      ...flowStateProps(normalizedState),
       ...flowDensityProps(density),
       "data-invalid": isInvalid ? "true" : undefined,
     },

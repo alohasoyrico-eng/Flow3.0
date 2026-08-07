@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { badgePlatformContract } from "@design-system/components/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger", "accent"]);
 const validVariants = new Set(["count", "dot", "status", "icon"]);
@@ -47,9 +47,9 @@ export const Badge = forwardRef(function Badge({
       "aria-live": live ? "polite" : rest["aria-live"],
       "aria-label": ariaLabel || rest["aria-label"],
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
-      "data-tone": resolvedTone,
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowToneProps(resolvedTone),
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       "data-live": live ? "true" : undefined,
     },
     live ? React.createElement("span", { className: "badge__live", "aria-hidden": "true" }) : null,

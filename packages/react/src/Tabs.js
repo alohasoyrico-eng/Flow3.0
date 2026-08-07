@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { tabsPlatformContract } from "@design-system/components/platforms";
 import { Badge } from "./Badge.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const allowedVariants = new Set(["default", "underline"]);
 
@@ -100,7 +100,7 @@ export const Tabs = forwardRef(function Tabs({
       className: ["tabs", className].filter(Boolean).join(" "),
       role: "tablist",
       "aria-label": label,
-      "data-variant": resolvedVariant,
+      ...flowVariantProps(resolvedVariant),
       ...flowDensityProps(resolvedDensity),
     },
     normalizedItems.map((item) => {

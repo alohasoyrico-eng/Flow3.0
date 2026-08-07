@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { spinnerPlatformContract } from "#flow/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["accent", "ink", "success", "warning", "danger"]);
 const validStates = new Set(["default", "loading", "decorative", "subtle", "disabled"]);
@@ -36,8 +36,8 @@ export const Spinner = forwardRef(function Spinner({
       "aria-hidden": isDecorative ? "true" : undefined,
       "aria-label": isDecorative ? undefined : label,
       ...flowDensityProps(normalizeFlowDensity(density)),
-      "data-tone": normalizeTone(tone),
-      "data-state": resolvedState,
+      ...flowToneProps(normalizeTone(tone)),
+      ...flowStateProps(resolvedState),
     },
     React.createElement(
       "svg",

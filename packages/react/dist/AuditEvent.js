@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { auditEventPlatformContract } from "#flow/platforms";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger", "action"]);
 const validStates = new Set(["default", "hover", "focus", "verified", "warning", "critical", "disabled"]);
@@ -40,8 +40,8 @@ export const AuditEvent = forwardRef(function AuditEvent({
       ...flowRestProps(rest),
       ref,
       className: ["audit-event", className].filter(Boolean).join(" "),
-      "data-tone": statusTone,
-      "data-state": resolvedState,
+      ...flowToneProps(statusTone),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
     },

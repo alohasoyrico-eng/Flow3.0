@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { errorPanelPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { Spinner } from "./Spinner.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["inline", "panel", "blocking", "empty-recovery"]);
 const validStates = new Set(["default", "warning", "error", "critical", "loading", "disabled"]);
@@ -52,8 +52,8 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
       ref,
       className: ["error-panel", `error-panel--${resolvedTone}`, className].filter(Boolean).join(" "),
       role: resolvedRole,
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
     },

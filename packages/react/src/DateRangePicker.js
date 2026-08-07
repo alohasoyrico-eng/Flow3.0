@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useId, useMemo, useRef, useState } from "react";
 import { dateRangePickerPlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function parseDate(value) {
   if (!value) return null;
@@ -211,7 +211,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
     {
       className: ["field date-picker date-range-picker", className].filter(Boolean).join(" "),
       ref: rootRef,
-      "data-state": resolvedState,
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
       "data-open": String(open),
       "data-from": range.from,

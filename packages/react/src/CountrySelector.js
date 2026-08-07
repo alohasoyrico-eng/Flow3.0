@@ -5,7 +5,7 @@ import {
   resolveCountryCallingCodeOption,
 } from "@design-system/components";
 import { countrySelectorPlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function CountryFlag({ country, className = "" }) {
   const code = String(country ?? "MX").toUpperCase();
@@ -100,7 +100,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
       "data-value": selectedCountry.country,
       "data-open": String(open),
       ...flowDensityProps(density),
-      "data-state": resolvedState === "default" ? undefined : resolvedState,
+      ...flowStateProps(resolvedState === "default" ? undefined : resolvedState),
     },
     React.createElement(
       "span",

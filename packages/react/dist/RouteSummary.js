@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { routeSummaryPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "compact", "compare", "policy"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "warning", "disabled"]);
@@ -70,10 +70,10 @@ export const RouteSummary = forwardRef(function RouteSummary({
       ...flowRestProps(rest),
       ref,
       className: ["route-summary", className].filter(Boolean).join(" "),
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
-      "data-tone": resolvedTone,
+      ...flowToneProps(resolvedTone),
       "data-full-width": String(Boolean(fullWidth)),
       "aria-selected": resolvedState === "selected" ? "true" : undefined,
       "aria-disabled": isDisabled ? "true" : undefined,

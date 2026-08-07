@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { accordionPlatformContract } from "@design-system/components/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["single", "multiple"]);
 
@@ -67,7 +67,7 @@ export const Accordion = forwardRef(function Accordion({
       ...flowRestProps(rest),
       ref,
       className: ["accordion", className].filter(Boolean).join(" "),
-      "data-variant": resolvedVariant,
+      ...flowVariantProps(resolvedVariant),
       "data-multiple": String(allowsMultiple),
       ...flowDensityProps(resolvedDensity),
     },

@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from "react";
 import { stepperPlatformContract } from "#flow/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const allowedOrientations = new Set(["horizontal", "vertical"]);
 
@@ -45,7 +45,7 @@ export const Stepper = forwardRef(function Stepper({
         {
           key: `step-${step.id ?? step.label ?? index}`,
           className: "stepper__item",
-          "data-state": stepState,
+          ...flowStateProps(stepState),
           "aria-current": index === currentIndex ? "step" : undefined,
         },
         React.createElement(
@@ -66,7 +66,7 @@ export const Stepper = forwardRef(function Stepper({
         React.createElement("span", {
           key: `connector-${step.id ?? step.label ?? index}`,
           className: "stepper__connector",
-          "data-state": index < currentIndex ? "complete" : "pending",
+          ...flowStateProps(index < currentIndex ? "complete" : "pending"),
           "aria-hidden": "true",
         }),
       ];

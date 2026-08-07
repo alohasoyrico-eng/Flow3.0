@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { kpiTilePlatformContract } from "#flow/platforms";
-import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "delta", "threshold", "sparkline", "drill-in"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "loading", "risk", "disabled"]);
@@ -61,8 +61,8 @@ export const KpiTile = forwardRef(function KpiTile({
       "aria-label": accessibleLabel,
       "aria-pressed": selected ? "true" : undefined,
       "aria-disabled": disabled ? "true" : undefined,
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-selected": selected ? "true" : undefined,
       onClick: (event) => {

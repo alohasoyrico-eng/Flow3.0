@@ -25,6 +25,9 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (/function normalize\(value,\s*(?:allowed|valid),\s*fallback\)\s*\{\s*return (?:allowed|valid)\.has\(value\) \? value : fallback;\s*\}/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must use normalizeFlowValue() from internal/props.js instead of duplicating generic value normalization.`);
   }
+  if (source.includes('"data-variant"') || source.includes('"data-state"') || source.includes('"data-tone"')) {
+    add("errors", sourceFile, 1, `${componentName} React source must emit semantic data attributes through flowVariantProps(), flowStateProps(), or flowToneProps().`);
+  }
   if (source.includes('"data-density"')) {
     add("errors", sourceFile, 1, `${componentName} React source must use flowDensityProps() instead of writing data-density directly.`);
   }

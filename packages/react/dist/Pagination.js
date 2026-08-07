@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { paginationPlatformContract } from "#flow/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const allowedStates = new Set(["default", "hover", "focus", "selected", "disabled"]);
 
@@ -29,7 +29,7 @@ function PaginationButton({ label, icon, kind, page, current = false, disabled =
       className: "pagination__button",
       type: "button",
       "data-kind": kind,
-      "data-state": current ? "selected" : "default",
+      ...flowStateProps(current ? "selected" : "default"),
       "data-page": page ? String(page) : undefined,
       disabled,
       "aria-current": current ? "page" : undefined,
@@ -87,8 +87,8 @@ export const Pagination = forwardRef(function Pagination({
       className: ["pagination", className].filter(Boolean).join(" "),
       "aria-label": label,
       "aria-disabled": disabled ? "true" : undefined,
-      "data-variant": resolvedVariant,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
       "data-page": String(currentPage),
       "data-page-count": String(totalPages),

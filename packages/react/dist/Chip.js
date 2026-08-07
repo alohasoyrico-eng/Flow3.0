@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { chipPlatformContract } from "#flow/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["filter", "input", "suggestion", "assist"]);
 const validTones = new Set(["default", "danger", "warning"]);
@@ -69,9 +69,9 @@ export const Chip = forwardRef(function Chip({
       "aria-label": removable ? onRemoveLabel || `Remove ${label ?? "chip"}` : rest["aria-label"],
       "aria-pressed": isInteractive ? String(isSelected) : undefined,
       "aria-disabled": !isInteractive && resolvedState === "disabled" ? "true" : undefined,
-      "data-variant": resolvedVariant,
-      "data-tone": resolvedTone,
-      "data-state": resolvedState,
+      ...flowVariantProps(resolvedVariant),
+      ...flowToneProps(resolvedTone),
+      ...flowStateProps(resolvedState),
       "data-selected": String(isSelected),
       "data-chip-remove": removable ? "true" : undefined,
     },
