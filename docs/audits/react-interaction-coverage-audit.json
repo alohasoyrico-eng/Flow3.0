@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 52,
-    "review": 4,
+    "pass": 53,
+    "review": 3,
     "fail": 0,
-    "missingTestCallbacks": 5
+    "missingTestCallbacks": 4
   },
   "components": [
     {
@@ -833,12 +833,12 @@
       "sourceCovered": [
         "onChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Toast",

@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -910,6 +910,32 @@ try {
   fireEvent.keyDown(overviewTab, { key: "ArrowRight" });
   assert.deepEqual(tabChanges, ["build", "build"]);
   assert.equal(getTabsRole("tablist", { name: /component sections/i }).dataset.indicatorSynced, "true");
+
+  cleanup();
+
+  const textAreaChanges = [];
+  const { getByLabelText: getTextAreaLabel, getByText: getTextAreaText, rerender: rerenderTextArea } = render(React.createElement(TextArea, {
+    label: "Notes",
+    value: "",
+    maxLength: 20,
+    onChange: (value, meta) => textAreaChanges.push({ value, meta }),
+  }));
+
+  const notesTextArea = getTextAreaLabel(/notes/i);
+  fireEvent.change(notesTextArea, { target: { value: "Route ready" } });
+  await waitFor(() => assert.equal(notesTextArea.value, "Route ready"));
+  getTextAreaText("11/20");
+  assert.deepEqual(textAreaChanges, [{ value: "Route ready", meta: { maxLength: 20, length: 11 } }]);
+
+  rerenderTextArea(React.createElement(TextArea, {
+    label: "Notes",
+    value: "Route ready",
+    loading: true,
+    onChange: (value, meta) => textAreaChanges.push({ value, meta }),
+  }));
+
+  fireEvent.change(getTextAreaLabel(/notes/i), { target: { value: "Blocked" } });
+  assert.equal(textAreaChanges.length, 1);
 } finally {
   cleanup();
   dom.window.close();

@@ -40,6 +40,7 @@ export const TextArea = forwardRef(function TextArea({
   const counterText = maxLength != null ? `${String(currentValue ?? "").length}/${Number(maxLength)}` : "";
 
   const handleChange = (event) => {
+    if (isDisabled) return;
     const nextValue = event.target.value;
     setCurrentValue(nextValue);
     onChange?.(nextValue, { maxLength: maxLength == null ? undefined : Number(maxLength), length: String(nextValue).length });
