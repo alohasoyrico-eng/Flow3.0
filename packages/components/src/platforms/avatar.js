@@ -7,7 +7,6 @@ export const avatarPlatformContract = {
   layer: "component",
   source: {
     factory: avatarContract.factory,
-    internalFactory: avatarContract.internalFactory,
     cssClass: "avatar",
     contract: "@design-system/components/contracts#avatar",
   },

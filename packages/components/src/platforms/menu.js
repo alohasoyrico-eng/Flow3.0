@@ -7,7 +7,6 @@ export const menuPlatformContract = {
   layer: "component",
   source: {
     factory: menuContract.factory,
-    internalFactory: menuContract.internalFactory,
     cssClass: "menu",
     contract: "@design-system/components/contracts#menu",
   },

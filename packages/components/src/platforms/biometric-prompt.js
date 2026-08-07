@@ -7,7 +7,6 @@ export const biometricPromptPlatformContract = {
   layer: "component",
   source: {
     factory: biometricPromptContract.factory,
-    internalFactory: biometricPromptContract.internalFactory,
     cssClass: "biometric-prompt",
     contract: "@design-system/components/contracts#biometricPrompt",
   },

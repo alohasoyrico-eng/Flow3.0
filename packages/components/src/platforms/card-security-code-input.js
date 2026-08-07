@@ -7,7 +7,6 @@ export const cardSecurityCodeInputPlatformContract = {
   layer: "component",
   source: {
     factory: cardSecurityCodeInputContract.factory,
-    internalFactory: cardSecurityCodeInputContract.internalFactory,
     cssClass: "field",
     contract: "@design-system/components/contracts#cardSecurityCodeInput",
   },

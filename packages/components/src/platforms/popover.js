@@ -7,7 +7,6 @@ export const popoverPlatformContract = {
   layer: "component",
   source: {
     factory: popoverContract.factory,
-    internalFactory: popoverContract.internalFactory,
     cssClass: "popover",
     contract: "@design-system/components/contracts#popover",
   },

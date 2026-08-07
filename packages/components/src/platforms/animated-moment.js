@@ -7,7 +7,6 @@ export const animatedMomentPlatformContract = {
   layer: "component",
   source: {
     factory: animatedMomentContract.factory,
-    internalFactory: animatedMomentContract.internalFactory,
     cssClass: "animated-moment",
     contract: "@design-system/components/contracts#animatedMoment",
   },

@@ -7,7 +7,6 @@ export const drawerPlatformContract = {
   layer: "component",
   source: {
     factory: drawerContract.factory,
-    internalFactory: drawerContract.internalFactory,
     cssClass: "drawer",
     contract: "@design-system/components/contracts#drawer",
   },

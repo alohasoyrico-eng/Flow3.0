@@ -7,7 +7,6 @@ export const badgePlatformContract = {
   layer: "component",
   source: {
     factory: badgeContract.factory,
-    internalFactory: badgeContract.internalFactory,
     cssClass: "badge",
     contract: "@design-system/components/contracts#badge",
   },

@@ -7,7 +7,6 @@ export const chipPlatformContract = {
   layer: "component",
   source: {
     factory: chipContract.factory,
-    internalFactory: chipContract.internalFactory,
     cssClass: "chip",
     contract: "@design-system/components/contracts#chip",
   },

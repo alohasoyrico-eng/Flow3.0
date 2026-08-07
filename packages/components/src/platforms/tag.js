@@ -7,7 +7,6 @@ export const tagPlatformContract = {
   layer: "component",
   source: {
     factory: tagContract.factory,
-    internalFactory: tagContract.internalFactory,
     cssClass: "tag",
     contract: "@design-system/components/contracts#tag",
   },

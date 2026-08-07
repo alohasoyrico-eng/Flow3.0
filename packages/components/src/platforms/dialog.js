@@ -7,7 +7,6 @@ export const dialogPlatformContract = {
   layer: "component",
   source: {
     factory: dialogContract.factory,
-    internalFactory: dialogContract.internalFactory,
     cssClass: "dialog",
     contract: "@design-system/components/contracts#dialog",
   },

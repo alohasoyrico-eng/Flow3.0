@@ -7,7 +7,6 @@ export const dateRangePickerPlatformContract = {
   layer: "component",
   source: {
     factory: dateRangePickerContract.factory,
-    internalFactory: dateRangePickerContract.internalFactory,
     cssClass: "field",
     contract: "@design-system/components/contracts#dateRangePicker",
   },

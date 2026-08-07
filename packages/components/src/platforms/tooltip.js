@@ -7,7 +7,6 @@ export const tooltipPlatformContract = {
   layer: "component",
   source: {
     factory: tooltipContract.factory,
-    internalFactory: tooltipContract.internalFactory,
     cssClass: "tooltip",
     contract: "@design-system/components/contracts#tooltip",
   },

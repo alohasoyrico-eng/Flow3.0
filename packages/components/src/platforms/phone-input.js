@@ -7,7 +7,6 @@ export const phoneInputPlatformContract = {
   layer: "component",
   source: {
     factory: phoneInputContract.factory,
-    internalFactory: phoneInputContract.internalFactory,
     cssClass: "field",
     contract: "@design-system/components/contracts#phoneInput",
   },

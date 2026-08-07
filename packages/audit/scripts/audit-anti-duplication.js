@@ -156,6 +156,7 @@ function checkReactOnlyComponentBoundaries() {
   const contractsFile = path.join(root, "packages/components/src/contracts.js");
   const smokeFile = path.join(root, "packages/components/test/smoke.test.mjs");
   const componentsDir = path.join(root, "packages/components/src/components");
+  const platformsDir = path.join(root, "packages/components/src/platforms");
   const reactDir = path.join(root, "packages/react/src");
   const reactComponents = fs.existsSync(reactDir)
     ? fs.readdirSync(reactDir).filter((file) => /^[A-Z].*\.js$/.test(file)).map((file) => path.basename(file, ".js")).sort()
@@ -179,6 +180,16 @@ function checkReactOnlyComponentBoundaries() {
   const internalFactoryMatch = /internalFactory\s*:/.exec(contractsSource);
   if (internalFactoryMatch) {
     add("errors", contractsFile, lineForIndex(contractsSource, internalFactoryMatch.index), "Component contracts must not expose internalFactory; React package exports are the implementation contract.");
+  }
+
+  if (fs.existsSync(platformsDir)) {
+    for (const file of walkFiles(platformsDir, (candidate) => /\.js$/.test(candidate))) {
+      const source = read(file);
+      const platformInternalFactoryMatch = /internalFactory\s*:/.exec(source);
+      if (platformInternalFactoryMatch) {
+        add("errors", file, lineForIndex(source, platformInternalFactoryMatch.index), "Platform contracts must not expose internalFactory; React package exports are the implementation contract.");
+      }
+    }
   }
 
   for (const componentName of reactComponents) {

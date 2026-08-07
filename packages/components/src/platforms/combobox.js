@@ -7,7 +7,6 @@ export const comboboxPlatformContract = {
   layer: "component",
   source: {
     factory: comboboxContract.factory,
-    internalFactory: comboboxContract.internalFactory,
     cssClass: "field",
     contract: "@design-system/components/contracts#combobox",
   },

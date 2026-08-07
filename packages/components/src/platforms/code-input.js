@@ -7,7 +7,6 @@ export const codeInputPlatformContract = {
   layer: "component",
   source: {
     factory: codeInputContract.factory,
-    internalFactory: codeInputContract.internalFactory,
     cssClass: "field",
     contract: "@design-system/components/contracts#codeInput",
   },

@@ -7,7 +7,6 @@ export const motionBoundaryPlatformContract = {
   layer: "component",
   source: {
     factory: motionBoundaryContract.factory,
-    internalFactory: motionBoundaryContract.internalFactory,
     cssClass: "motion-boundary",
     contract: "@design-system/components/contracts#motionBoundary",
   },
