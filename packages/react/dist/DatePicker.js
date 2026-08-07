@@ -201,7 +201,7 @@ export const DatePicker = forwardRef(function DatePicker({
         "aria-expanded": String(open),
         "aria-controls": panelId,
         "aria-labelledby": label ? `${controlId}-label` : undefined,
-        "aria-label": label ? undefined : "Date picker",
+        "aria-label": label ? undefined : rest["aria-label"],
         "aria-describedby": describedBy,
         "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
         onClick: () => {
@@ -230,7 +230,7 @@ export const DatePicker = forwardRef(function DatePicker({
       max,
       tabIndex: -1,
       "data-date-picker-input": "",
-      "aria-label": label ? `${label} native picker` : "Date picker native input",
+      "aria-hidden": "true",
       onChange: (event) => {
         if (event.target.value) commitValue(event.target.value);
       },
@@ -244,7 +244,8 @@ export const DatePicker = forwardRef(function DatePicker({
         "data-date-picker-panel": "",
         role: "dialog",
         "aria-modal": "false",
-        "aria-label": calendarLabel || (label ? `${label} calendar` : "Date picker calendar"),
+        "aria-label": calendarLabel || undefined,
+        "aria-labelledby": calendarLabel ? undefined : label ? `${controlId}-label` : undefined,
         onKeyDown: (event) => {
           if (event.key !== "Escape") return;
           event.preventDefault();

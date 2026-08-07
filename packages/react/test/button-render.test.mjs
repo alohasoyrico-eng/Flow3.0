@@ -1875,6 +1875,11 @@ const inheritedDatePickerMarkup = renderToStaticMarkup(React.createElement(DateP
 }));
 assert.doesNotMatch(inheritedDatePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const unnamedDatePickerMarkup = renderToStaticMarkup(React.createElement(DatePicker));
+assert.doesNotMatch(unnamedDatePickerMarkup, /Date picker/);
+assert.doesNotMatch(unnamedDatePickerMarkup, /native picker/);
+assert.doesNotMatch(unnamedDatePickerMarkup, /Date picker calendar/);
+
 const dateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
   label: "Reporting range",
   value: { from: "2026-07-01", to: "2026-07-15" },
