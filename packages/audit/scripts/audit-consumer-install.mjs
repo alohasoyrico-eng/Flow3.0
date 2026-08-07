@@ -10,6 +10,13 @@ const root = process.cwd();
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "consumer-install-"));
 const cacheDir = path.join(os.tmpdir(), "ds-npm-cache");
 let packedTarball = "";
+const forbiddenInheritedDomProps = [
+  "contentEditable",
+  "dangerouslySetInnerHTML",
+  "style",
+  "suppressContentEditableWarning",
+  "suppressHydrationWarning",
+];
 
 try {
   const tarball = packFlow();
@@ -159,8 +166,9 @@ function auditInstalledPackage(consumerDir) {
     if (relative.startsWith("packages/react/dist/") && source.includes("@design-system/components")) {
       offenders.push(`${relative}: workspace component import`);
     }
-    if (relative.startsWith("packages/react/dist/") && relative.endsWith(".d.ts") && exposesInheritedStyleType(source)) {
-      offenders.push(`${relative}: inherited style type`);
+    if (relative.startsWith("packages/react/dist/") && relative.endsWith(".d.ts")) {
+      const missing = missingInheritedDomEscapeOmissions(source);
+      if (missing.length) offenders.push(`${relative}: inherited DOM escape props ${missing.join(", ")}`);
     }
   }
   if (offenders.length) {
@@ -168,13 +176,17 @@ function auditInstalledPackage(consumerDir) {
   }
 }
 
-function exposesInheritedStyleType(source) {
+function missingInheritedDomEscapeOmissions(source) {
+  const missing = new Set();
   for (const match of source.matchAll(/^export interface [A-Za-z][A-Za-z0-9]* extends ([^{]+)\{/gm)) {
     const inherited = match[1];
     const inheritsDomAttributes = /(?:^|[^A-Za-z])(?:HTMLAttributes|ButtonHTMLAttributes|InputHTMLAttributes|TextareaHTMLAttributes)\b/.test(inherited);
-    if (inheritsDomAttributes && !inherited.includes("\"style\"")) return true;
+    if (!inheritsDomAttributes) continue;
+    for (const prop of forbiddenInheritedDomProps) {
+      if (!inherited.includes(`"${prop}"`)) missing.add(prop);
+    }
   }
-  return false;
+  return [...missing].sort();
 }
 
 function listFiles(dir) {

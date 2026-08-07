@@ -15,7 +15,7 @@ export interface CardSummaryMetric {
   value: string;
 }
 
-export interface CardSummaryProps extends Omit<HTMLAttributes<HTMLElement>, "style"> {
+export interface CardSummaryProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   meta?: string;
   number?: string;

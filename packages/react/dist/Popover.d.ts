@@ -14,7 +14,7 @@ export interface PopoverAction extends ButtonProps {
 
 export interface PopoverField extends Pick<InputProps, "label" | "value" | "placeholder" | "helper"> {}
 
-export interface PopoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "onChange"> {
+export interface PopoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   triggerLabel: string;
   title: string;
   description?: string;

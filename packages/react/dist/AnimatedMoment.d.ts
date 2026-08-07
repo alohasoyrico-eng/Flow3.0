@@ -9,7 +9,7 @@ export type AnimatedMomentVariant = "success" | "empty" | "loading" | "celebrati
 export type AnimatedMomentState = "idle" | "playing" | "paused" | "complete" | "reduced-motion" | "disabled";
 export type AnimatedMomentDensity = "sm" | "md" | "lg";
 
-export interface AnimatedMomentProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
+export interface AnimatedMomentProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   description?: string;
   variant?: AnimatedMomentVariant;

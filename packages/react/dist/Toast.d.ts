@@ -6,7 +6,7 @@ export type ToastVariant = "status" | "progress" | "warning" | "recovery" | "und
 export type ToastState = "default" | "visible" | "action" | "stacked" | "exiting";
 export type ToastDensity = "sm" | "md" | "lg";
 
-export interface ToastProps extends Omit<HTMLAttributes<HTMLElement>, "style"> {
+export interface ToastProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label?: string;
   description?: string;
   tone?: ToastTone;

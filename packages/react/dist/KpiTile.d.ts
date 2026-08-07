@@ -15,7 +15,7 @@ export interface KpiTileMeta {
   variant: KpiTileVariant;
 }
 
-export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onSelect"> {
+export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label?: string;
   value?: string;
   delta?: string;

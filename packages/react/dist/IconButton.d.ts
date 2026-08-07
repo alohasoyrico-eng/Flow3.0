@@ -5,7 +5,7 @@ export type IconButtonVariant = "ghost" | "tonal" | "primary" | "accent";
 export type IconButtonDensity = "sm" | "md" | "lg";
 export type IconButtonType = "button" | "submit" | "reset";
 
-export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children"> {
+export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   ariaLabel?: string;
   label?: string;
   icon: string;

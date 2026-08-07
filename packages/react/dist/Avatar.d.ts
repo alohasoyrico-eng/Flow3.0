@@ -5,7 +5,7 @@ export type AvatarSize = "sm" | "md" | "lg" | "xl";
 export type AvatarStatus = "none" | "online" | "busy" | "offline";
 export type AvatarState = "default" | "online" | "busy" | "offline" | "disabled" | "unknown";
 
-export interface AvatarProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style"> {
+export interface AvatarProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   name: string;
   src?: string;
   size?: AvatarSize;

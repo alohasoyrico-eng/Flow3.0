@@ -10,7 +10,7 @@ export interface EmptyStateAction extends ButtonProps {
   key?: string;
 }
 
-export interface EmptyStateProps extends Omit<HTMLAttributes<HTMLElement>, "style"> {
+export interface EmptyStateProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   title?: string;
   label?: string;
   description?: string;

@@ -19,7 +19,7 @@ export interface BreadcrumbItem {
   onClick?: (item: BreadcrumbItem, event?: MouseEvent<HTMLAnchorElement>) => void;
 }
 
-export interface BreadcrumbsProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onClick"> {
+export interface BreadcrumbsProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onClick" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   items: BreadcrumbItem[];
   label?: string;
   maxItems?: number;

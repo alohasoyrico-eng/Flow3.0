@@ -20,7 +20,7 @@ export interface MovementRowMeta {
   state: MovementRowState;
 }
 
-export interface MovementRowProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style"> {
+export interface MovementRowProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   meta?: string;
   amount?: string;

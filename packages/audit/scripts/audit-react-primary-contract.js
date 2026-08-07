@@ -1,5 +1,6 @@
 const { fs, path, root, read, readJson, add } = require("./audit-context.js");
 const { checkReactPropContracts } = require("./react-prop-contract-audit.js");
+const { checkDomEscapeTypeContract, forbiddenInheritedDomProps } = require("./react-dom-escape-contract.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
@@ -153,7 +154,7 @@ function checkReactComponent(file, shared) {
   }
 
   checkReactPropContracts({ add, componentName: name, typesFile, types, contractBody });
-  checkStylePropTypeContract({ name, typesFile, types });
+  checkDomEscapeTypeContract({ add, name, typesFile, types });
   if (!shared.reactIndex.includes(`export { ${name} } from "./${file}"`)) {
     add("errors", reactIndexFile, 1, `React index must export ${name} from ${file}.`);
   }
@@ -202,13 +203,10 @@ function checkReactComponent(file, shared) {
 function checkRestPropContract({ name, sourceFile, source }) {
   const directRestSpread = source.search(/^\s*\.\.\.rest,\s*$/m);
   if (directRestSpread >= 0) add("errors", sourceFile, 1, `${name} React source must sanitize rest props with flowRestProps(rest) so style cannot bypass Flow tokens.`);
-}
-
-function checkStylePropTypeContract({ name, typesFile, types }) {
-  for (const match of types.matchAll(/^export interface ([A-Za-z][A-Za-z0-9]*) extends ([^{]+)\{/gm)) {
-    const [, interfaceName, inheritedTypes] = match;
-    if (!/(?:^|[^A-Za-z])(?:HTMLAttributes|ButtonHTMLAttributes|InputHTMLAttributes|TextareaHTMLAttributes)\b/.test(inheritedTypes) || inheritedTypes.includes('"style"')) continue;
-    add("errors", typesFile, 1, `${name} React type ${interfaceName} must omit inherited style so product code cannot bypass Flow tokens.`);
+  const restPropsFile = path.join(reactSrcDir, "internal/props.js");
+  const restPropsSource = read(restPropsFile);
+  for (const prop of forbiddenInheritedDomProps) {
+    if (!restPropsSource.includes(prop)) add("errors", restPropsFile, 1, `flowRestProps must strip ${prop} so product code cannot bypass Flow-owned rendering.`);
   }
 }
 

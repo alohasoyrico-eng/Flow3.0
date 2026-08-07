@@ -16,7 +16,7 @@ export interface AccordionItem {
   meta?: string;
 }
 
-export interface AccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
+export interface AccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   items: AccordionItem[];
   variant?: AccordionVariant;
   multiple?: boolean;

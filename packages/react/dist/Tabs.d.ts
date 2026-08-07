@@ -4,7 +4,7 @@ import type { BadgeProps } from "./Badge.js";
 
 export type TabsVariant = "default" | "underline";
 
-export interface TabsItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "onChange"> {
+export interface TabsItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   key?: string;
   value?: string;
   label: string;
@@ -15,7 +15,7 @@ export interface TabsItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 
   disabled?: boolean;
 }
 
-export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "onChange"> {
+export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label?: string;
   items: TabsItem[];
   selectedKey?: string;

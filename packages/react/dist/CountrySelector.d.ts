@@ -14,7 +14,7 @@ export interface CountrySelectorCountry {
   nationalLength: number;
 }
 
-export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style"> {
+export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label?: string;
   value?: string;
   country?: string;

@@ -4,7 +4,7 @@ import { skeletonPlatformContract } from "#flow/platforms";
 export type SkeletonVariant = "text" | "title" | "circle" | "card" | "pill" | "row" | "media" | "chart" | "table";
 export type SkeletonState = "default" | "loading" | "stale" | "paused" | "loaded" | "disabled";
 
-export interface SkeletonProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
+export interface SkeletonProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label?: string;
   variant?: SkeletonVariant;
   lines?: number;

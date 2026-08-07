@@ -16,7 +16,7 @@ export interface QuickActionMeta {
   state: QuickActionState;
 }
 
-export interface QuickActionProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style"> {
+export interface QuickActionProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   icon?: string;
   badge?: string;

@@ -10,7 +10,7 @@ export type CardDensity = "sm" | "md" | "lg";
 export type CardTrend = "up" | "down" | "neutral";
 export type CardAction = (ButtonProps | (IconButtonProps & { iconOnly?: boolean })) & { key?: string };
 
-export interface CardProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "title" | "onAction"> {
+export interface CardProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "title" | "onAction" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   title: ReactNode;
   value?: ReactNode;
   unit?: string;

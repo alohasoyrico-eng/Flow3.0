@@ -5,7 +5,7 @@ export type ChipVariant = "filter" | "input" | "suggestion" | "assist";
 export type ChipTone = "default" | "danger" | "warning";
 export type ChipState = "default" | "hover" | "pressed" | "selected" | "focus" | "disabled";
 
-export interface ChipProps extends Omit<HTMLAttributes<HTMLSpanElement> & ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "onSelect"> {
+export interface ChipProps extends Omit<HTMLAttributes<HTMLSpanElement> & ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   variant?: ChipVariant;
   tone?: ChipTone;

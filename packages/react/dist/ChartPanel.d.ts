@@ -22,7 +22,7 @@ export interface ChartPanelSeries {
   values: number[];
 }
 
-export interface ChartPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style"> {
+export interface ChartPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   value?: string;
   caption?: string;

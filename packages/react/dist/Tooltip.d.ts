@@ -6,7 +6,7 @@ export type TooltipVariant = "default" | "icon-help" | "metric" | "disabled-help
 export type TooltipDensity = "sm" | "md" | "lg";
 export type TooltipState = "default" | "hover" | "focus" | "open" | "disabled" | "dismissed";
 
-export interface TooltipProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style"> {
+export interface TooltipProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   triggerLabel: string;
   content: string;
   id?: string;

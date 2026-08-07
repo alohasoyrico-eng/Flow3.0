@@ -14,7 +14,7 @@ export interface DialogAction extends ButtonProps {
 
 export interface DialogField extends InputProps {}
 
-export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
+export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   description?: string;
   triggerLabel?: string;

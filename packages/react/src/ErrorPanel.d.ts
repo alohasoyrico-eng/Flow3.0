@@ -12,7 +12,7 @@ export interface ErrorPanelAction extends ButtonProps {
   key?: string;
 }
 
-export interface ErrorPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style"> {
+export interface ErrorPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label?: string;
   description?: string;
   action?: ErrorPanelAction;

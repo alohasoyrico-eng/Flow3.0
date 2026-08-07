@@ -80,10 +80,15 @@ for (const [id, contract] of Object.entries(componentContracts)) {
     const markup = renderToStaticMarkup(React.createElement(Component, {
       ...fixtureForContract(id, contract),
       "data-contract-render": id,
+      contentEditable: true,
+      dangerouslySetInnerHTML: { __html: "<strong>Injected markup</strong>" },
       style: { color: "rgb(255, 0, 0)", marginTop: 77 },
+      suppressContentEditableWarning: true,
+      suppressHydrationWarning: true,
     }));
     assert.ok(markup.length > 0, `${componentName} rendered empty markup`);
     assert.doesNotMatch(markup, /rgb\(255,\s*0,\s*0\)|margin-top:\s*77px/i, `${componentName} leaked external style prop`);
+    assert.doesNotMatch(markup, /Injected markup|contenteditable=/i, `${componentName} leaked external DOM escape props`);
     assert.doesNotMatch(markup, /apps\/docs|docs-demo|gold-/i, `${componentName} leaked docs-only markup`);
   } catch (error) {
     failures.push(`${componentName}: ${error.message}`);

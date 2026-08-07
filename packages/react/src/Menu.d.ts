@@ -17,7 +17,7 @@ export interface MenuItem {
   shortcut?: string;
 }
 
-export interface MenuProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "onSelect"> {
+export interface MenuProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   triggerLabel: string;
   items: Array<MenuItem | "divider">;
   open?: boolean;

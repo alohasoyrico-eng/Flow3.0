@@ -20,7 +20,7 @@ export type DrawerContent =
   | { type: "progress"; key?: string; label?: string; value?: number; max?: number; showValue?: boolean; tone?: "accent" | "success" | "warning" | "danger" | "ink" }
   | { type: "text"; key?: string; label?: string; copy?: string };
 
-export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
+export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   description?: string;
   triggerLabel?: string;
