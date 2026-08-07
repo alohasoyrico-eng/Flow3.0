@@ -68,6 +68,7 @@ function checkReactPrimaryContract() {
   }
 
   checkOpenChangeContractConsistency(componentContractsSource);
+  checkValueChangeContractConsistency(componentContractsSource);
   checkControlledOpenCoverage(componentFiles, componentContractsSource);
   checkControlledValueCoverage(componentFiles);
   checkControlledCheckedCoverage(componentFiles);
@@ -83,6 +84,18 @@ function checkOpenChangeContractConsistency(contractsSource) {
     const [, contractKey, body] = match;
     if (body.includes('{ name: "onOpenChange"') && !body.includes('{ name: "open"')) {
       add("errors", componentContractsFile, 1, `${contractKey} exposes onOpenChange and must also expose open so React can be controlled by product code.`);
+    }
+  }
+}
+
+function checkValueChangeContractConsistency(contractsSource) {
+  for (const match of contractsSource.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {
+    const [, contractKey, body] = match;
+    if (!body.includes('{ name: "onValueChange"')) continue;
+    const hasControlledValue = ["value", "selectedKey", "from", "to", "country"]
+      .some((name) => body.includes(`{ name: "${name}"`));
+    if (!hasControlledValue) {
+      add("errors", componentContractsFile, 1, `${contractKey} exposes onValueChange and must declare the controlled value prop that product code owns.`);
     }
   }
 }
