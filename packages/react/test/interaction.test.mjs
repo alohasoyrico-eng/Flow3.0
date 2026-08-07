@@ -16,7 +16,7 @@ Object.defineProperty(globalThis, "navigator", {
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -275,6 +275,31 @@ try {
   await waitFor(() => assert.equal(comboboxInput.value, ""));
   assert.equal(comboboxChanges.at(-1).value, "");
   assert.deepEqual(comboboxChanges.at(-1).meta, { label: "", meta: "", inputValue: "", cleared: true });
+
+  cleanup();
+
+  const countryChanges = [];
+  const countries = [
+    { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
+    { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
+  ];
+  const { getByRole: getCountryRole } = render(React.createElement(CountrySelector, {
+    label: "Country",
+    country: "MX",
+    countries,
+    onValueChange: (countryCode, option) => countryChanges.push({ countryCode, option }),
+  }));
+
+  const countryTrigger = getCountryRole("combobox", { name: /country/i });
+  assert.equal(countryTrigger.getAttribute("aria-expanded"), "false");
+  fireEvent.click(countryTrigger);
+  assert.equal(countryTrigger.getAttribute("aria-expanded"), "true");
+
+  fireEvent.click(getCountryRole("option", { name: /united states/i }));
+  await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "false"));
+  assert.equal(countryChanges.at(-1).countryCode, "US");
+  assert.equal(countryChanges.at(-1).option.label, "United States");
+  assert.equal(countryChanges.at(-1).option.callingCode, "+1");
 } finally {
   cleanup();
   dom.window.close();

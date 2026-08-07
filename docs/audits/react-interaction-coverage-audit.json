@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 29,
-    "review": 27,
+    "pass": 30,
+    "review": 26,
     "fail": 0,
-    "missingTestCallbacks": 36
+    "missingTestCallbacks": 35
   },
   "components": [
     {
@@ -285,12 +285,12 @@
       "sourceCovered": [
         "onValueChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onValueChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "DatePicker",
