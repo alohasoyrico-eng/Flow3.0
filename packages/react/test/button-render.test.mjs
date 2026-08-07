@@ -1978,6 +1978,7 @@ const unnamedDatePickerMarkup = renderToStaticMarkup(React.createElement(DatePic
 assert.doesNotMatch(unnamedDatePickerMarkup, /Date picker/);
 assert.doesNotMatch(unnamedDatePickerMarkup, /native picker/);
 assert.doesNotMatch(unnamedDatePickerMarkup, /Date picker calendar/);
+assert.doesNotMatch(unnamedDatePickerMarkup, /Previous month|Next month/);
 
 const dateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
   label: "Reporting range",
