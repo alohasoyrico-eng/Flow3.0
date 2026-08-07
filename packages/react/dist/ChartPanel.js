@@ -174,7 +174,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
   const resolvedLabels = labels.length ? labels : valueLabels.length ? valueLabels : resolvedValues.map((_, index) => `Value ${index + 1}`);
   const chartPrimitive = createChartsPrimitive({
     type: resolvedVariant,
-    label: label ?? "Chart",
+    label: label ?? "",
     value,
     caption,
     values: resolvedValues,
@@ -210,7 +210,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
       React.createElement(
         "div",
         null,
-        React.createElement("strong", null, label ?? "Chart"),
+        label ? React.createElement("strong", null, label) : null,
         caption ? React.createElement("p", null, caption) : null,
       ),
       value ? React.createElement("output", null, value) : null,

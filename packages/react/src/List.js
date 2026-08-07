@@ -77,7 +77,7 @@ export const List = forwardRef(function List({
           React.createElement(
             "span",
             { className: "list__content" },
-            React.createElement("strong", null, rowState === "loading" ? "Loading item" : item.label ?? "List item"),
+            rowState === "loading" || item.label ? React.createElement("strong", null, rowState === "loading" ? "Loading" : item.label) : null,
             item.meta ? React.createElement("small", null, item.meta) : null,
           ),
           item.value ? React.createElement("span", { className: "list__value" }, item.value) : null,

@@ -47,7 +47,7 @@ export const KpiTile = forwardRef(function KpiTile({
   const interactive = Boolean(href || onSelect || resolvedVariant === "drill-in");
   const Element = href ? "a" : "article";
   const selectMeta = { label, value, delta, tone: resolvedTone, variant: resolvedVariant };
-  const accessibleLabel = ariaLabel || (interactive ? `${label ?? "KPI"} ${value ?? "0"}${delta ? `, ${delta}` : ""}` : undefined);
+  const accessibleLabel = ariaLabel || (interactive && (label || value || delta) ? `${label ?? ""} ${value ?? ""}${delta ? `, ${delta}` : ""}`.trim() : undefined);
 
   return React.createElement(
     Element,
@@ -83,10 +83,10 @@ export const KpiTile = forwardRef(function KpiTile({
     React.createElement(
       "header",
       null,
-      React.createElement("span", { className: "kpi-tile__label" }, label ?? "KPI"),
+      label ? React.createElement("span", { className: "kpi-tile__label" }, label) : null,
       icon ? React.createElement("span", { className: "kpi-tile__icon", "aria-hidden": "true" }, icon) : null,
     ),
-    React.createElement("strong", { className: "kpi-tile__value" }, value ?? "0"),
+    value ? React.createElement("strong", { className: "kpi-tile__value" }, value) : null,
     loading
       ? React.createElement("span", { className: "kpi-tile__loading", "aria-hidden": "true" })
       : delta

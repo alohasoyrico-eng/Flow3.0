@@ -51,7 +51,7 @@ export const CardSummary = forwardRef(function CardSummary({
     React.createElement(
       "header",
       null,
-      React.createElement("strong", { className: "card-summary__brand" }, label ?? "Card"),
+      label ? React.createElement("strong", { className: "card-summary__brand" }, label) : null,
       React.createElement(Badge, {
         label: statusLabel,
         tone: statusToneFor(resolvedState),

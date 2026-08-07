@@ -35,7 +35,7 @@ export const EmptyState = forwardRef(function EmptyState({
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalizeState(state);
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedTitle = title ?? label ?? "No results";
+  const resolvedTitle = title ?? label ?? "";
   const showIcon = Boolean(icon) || resolvedState === "loading";
   const actionLabel = action?.label;
 

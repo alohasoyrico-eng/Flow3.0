@@ -77,12 +77,14 @@ export const Card = forwardRef(function Card({
   const header = React.createElement(
     "div",
     { className: "card__header", key: "header" },
-    React.createElement(
-      "div",
-      { className: "card__heading" },
-      icon ? React.createElement("span", { className: "card__icon", "aria-hidden": "true" }, icon) : null,
-      React.createElement("h3", { className: "card__title" }, title ?? "Card"),
-    ),
+    title || icon
+      ? React.createElement(
+        "div",
+        { className: "card__heading" },
+        icon ? React.createElement("span", { className: "card__icon", "aria-hidden": "true" }, icon) : null,
+        title ? React.createElement("h3", { className: "card__title" }, title) : null,
+      )
+      : null,
     status ? React.createElement(
       "span",
       { className: "card__status", "data-trend": resolvedComposition === "stats" ? (trends.has(trend) ? trend : "neutral") : undefined },
@@ -95,7 +97,7 @@ export const Card = forwardRef(function Card({
       ? React.createElement(
         "div",
         { className: "card__loading", key: "loading" },
-        React.createElement(Spinner, { label: `${title ?? "Card"} loading`, density }),
+        React.createElement(Spinner, { label: title ? `${title} loading` : "Loading", density }),
         React.createElement("span", null, value || "Loading"),
       )
       : [

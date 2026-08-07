@@ -3,6 +3,14 @@ const { fs, path, root, read, add } = require("./audit-context.js");
 const reactSrcDir = path.join(root, "packages/react/src");
 const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días"];
 const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save"];
+const displayFallbackTermsByFile = new Map([
+  ["Card.js", ["Card"]],
+  ["CardSummary.js", ["Card"]],
+  ["ChartPanel.js", ["Chart"]],
+  ["EmptyState.js", ["No results"]],
+  ["KpiTile.js", ["KPI"]],
+  ["List.js", ["List item", "Loading item"]],
+]);
 
 function isFormatMask(value) {
   return /^[A-Z0-9\s/+()-]+$/.test(value);
@@ -34,6 +42,17 @@ function checkReactCopyContract() {
           file,
           index + 1,
           `React Copy Contract: component-visible default copy "${matchedContentDefault}" belongs in content/docs/consumer props.`
+        );
+      }
+
+      const displayFallbackTerms = displayFallbackTermsByFile.get(fileName) ?? [];
+      const matchedDisplayFallback = displayFallbackTerms.find((term) => line.includes(`?? "${term}"`) || line.includes(`?? '${term}'`));
+      if (matchedDisplayFallback) {
+        add(
+          "errors",
+          file,
+          index + 1,
+          `React Copy Contract: display component fallback "${matchedDisplayFallback}" belongs in content/docs/consumer props.`
         );
       }
 
