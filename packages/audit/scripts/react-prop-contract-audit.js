@@ -1,5 +1,27 @@
 const { inheritedReactPropNames, semanticInheritedPropsFor } = require("./react-contract-shared.js");
 
+const compositionPropTypes = {
+  Accordion: { items: "AccordionItem[]" },
+  Breadcrumbs: { items: "BreadcrumbItem[]" },
+  CardSummary: { metrics: "CardSummaryMetric[]" },
+  ChartPanel: { comparisons: "ChartPanelSeries[]", segments: "ChartPanelSegment[]", series: "ChartPanelSeries[]" },
+  Combobox: { options: "ComboboxOption[]" },
+  CountrySelector: { countries: "CountrySelectorCountry[]" },
+  DateRangePicker: { presetItems: "DateRangePickerPreset[]" },
+  Dialog: { fields: "DialogField[]" },
+  Drawer: { fields: "DrawerField[]" },
+  List: { items: "ListItem[]" },
+  Menu: { items: "Array<MenuItem | \"divider\">" },
+  PhoneInput: { countries: "PhoneCountry[]" },
+  Popover: { field: "PopoverField" },
+  RouteSummary: { metrics: "RouteMetric[]" },
+  SegmentedControl: { items: "SegmentedControlItem[]" },
+  Select: { options: "SelectOption[]" },
+  Stepper: { steps: "StepperStep[]" },
+  Table: { columns: "TableColumn[]" },
+  Tabs: { items: "TabsItem[]" },
+};
+
 function propsBodyFor(types, componentName) {
   return types.match(new RegExp(`export interface ${componentName}Props[^\\\\{]*\\\\{([\\\\s\\\\S]*?)\\\\n\\\\}`))?.[1] ?? "";
 }
@@ -95,6 +117,17 @@ function checkNoOpenVisualSemanticTypes({ add, componentName, typesFile, types }
   }
 }
 
+function checkCompositionPropContractTypes({ add, componentName, typesFile, contractBody }) {
+  const expectedTypes = compositionPropTypes[componentName];
+  if (!expectedTypes || !contractBody) return;
+  for (const [propName, expectedType] of Object.entries(expectedTypes)) {
+    const propMatch = new RegExp(`\\{ name: "${propName}", type: "([^"]+)"`).exec(contractBody);
+    if (propMatch && propMatch[1] !== expectedType) {
+      add("errors", typesFile, 1, `${componentName} contract must type ${propName} as ${expectedType}, not ${propMatch[1]}.`);
+    }
+  }
+}
+
 function checkReactPropContracts(args) {
   checkPublicCallbackContract(args);
   checkPublicPropContract(args);
@@ -105,6 +138,7 @@ function checkReactPropContracts(args) {
   checkActionCallbackPayloads(args);
   checkActionPropContractTypes(args);
   checkNoOpenVisualSemanticTypes(args);
+  checkCompositionPropContractTypes(args);
 }
 
 module.exports = { checkReactPropContracts };

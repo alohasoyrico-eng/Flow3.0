@@ -15,6 +15,10 @@ export type TableBadgeCell = {
 };
 export type TableCellValue = ReactNode | TableBadgeCell;
 export type TableRow = Record<string, TableCellValue>;
+export type TableSort = {
+  key: string;
+  direction: TableSortDirection;
+};
 
 export interface TableColumn {
   key: string;
@@ -41,7 +45,7 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"
   selectedKey?: string;
   expandedKey?: string;
   renderDetail?: (row: TableRow) => ReactNode;
-  onSortChange?: (sort: { key: string; direction: TableSortDirection }) => void;
+  onSortChange?: (sort: TableSort) => void;
   onRowSelect?: (key: string) => void;
   onExpandedChange?: (key: string) => void;
 }
