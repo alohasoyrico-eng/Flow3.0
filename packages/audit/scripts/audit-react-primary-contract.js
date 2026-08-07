@@ -1,5 +1,5 @@
 const { fs, path, root, read, readJson, add } = require("./audit-context.js");
-const { inheritedReactPropNames } = require("./react-contract-shared.js");
+const { inheritedReactPropNames, semanticInheritedPropsFor } = require("./react-contract-shared.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
@@ -10,7 +10,6 @@ const reactRefTestFile = path.join(root, "packages/react/test/ref.test.mjs");
 const reactInteractionTestFile = path.join(root, "packages/react/test/interaction.test.mjs");
 const rootPackageFile = path.join(root, "package.json");
 const componentContractsFile = path.join(root, "packages/components/src/contracts.js");
-
 const allowedPrimitiveImports = new Set([
   "createChartsPrimitive",
   "createMapsPrimitive",
@@ -155,6 +154,7 @@ function checkReactComponent(file, shared) {
 
   checkPublicCallbackContract({ name, typesFile, types, contractBody });
   checkPublicPropContract({ name, typesFile, types, contractBody });
+  checkSemanticInheritedPropContract({ name, typesFile, types, contractBody });
   if (!shared.reactIndex.includes(`export { ${name} } from "./${file}"`)) {
     add("errors", reactIndexFile, 1, `React index must export ${name} from ${file}.`);
   }
@@ -193,6 +193,15 @@ function checkReactComponent(file, shared) {
   if (illegalImports.length) {
     add("errors", sourceFile, 1, `${name} React source imports non-primitive implementation helpers from components: ${illegalImports.join(", ")}.`);
   }
+}
+
+function checkSemanticInheritedPropContract({ name, typesFile, types, contractBody }) {
+  const requiredProps = semanticInheritedPropsFor(name);
+  if (!requiredProps.length || !contractBody) return;
+  const missing = requiredProps
+    .filter((propName) => new RegExp(`\\b${propName}\\??:`).test(types))
+    .filter((propName) => !contractBody.includes(`{ name: "${propName}"`));
+  if (missing.length) add("errors", typesFile, 1, `${name} React types expose semantic inherited props missing from component contract: ${missing.join(", ")}.`);
 }
 
 function checkPublicPropContract({ name, typesFile, types, contractBody }) {

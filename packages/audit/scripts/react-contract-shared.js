@@ -22,4 +22,15 @@ const inheritedReactPropNames = new Set([
   "defaultValue",
 ]);
 
-module.exports = { inheritedReactPropNames };
+const semanticInheritedPropsByComponent = {
+  StationPin: ["value"],
+};
+
+function semanticInheritedPropsFor(componentName) {
+  return semanticInheritedPropsByComponent[componentName] ?? [];
+}
+
+module.exports = {
+  inheritedReactPropNames,
+  semanticInheritedPropsFor,
+};

@@ -1163,6 +1163,7 @@ export const componentContracts = {
     states: ["default", "hover", "focus", "selected", "unavailable", "disabled"],
     props: [
       { name: "label", type: "string", required: true },
+      { name: "value", type: "string", required: false },
       { name: "meta", type: "string", required: false },
       { name: "icon", type: "string", required: false },
       { name: "count", type: "number", required: false },
