@@ -6867,7 +6867,8 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-stepper-connector-min-inline: var(--component-inline-size-sm);
   --comp-stepper-connector-margin-block: calc((var(--component-control-min-size) - var(--sys-space-lg) - var(--component-offset-xs) - var(--component-focus-ring-offset)) / 2);
   --comp-stepper-connector-margin-inline: var(--sys-space-sm);
-  --comp-stepper-current-scale: 1.08;
+  --comp-stepper-item-gap: calc(var(--sys-space-sm) + (var(--component-border-width) * 2));
+  --comp-stepper-current-scale: var(--component-scale-raised);
   align-items: flex-start;
   display: flex;
   flex-direction: row;
@@ -6891,7 +6892,7 @@ body[data-contrast="quiet"] .inline-validation {
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
-  gap: calc(var(--sys-space-sm) + 2px);
+  gap: var(--comp-stepper-item-gap);
   min-inline-size: 0;
   text-align: center;
 }

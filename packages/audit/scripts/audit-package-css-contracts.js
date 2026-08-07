@@ -290,6 +290,15 @@ function checkPackageCssContracts() {
     add("errors", packageCssFile, sliderThumbBlock ? lineNumber(text, sliderThumbBlock.index) : 1, "Slider thumb must consume density-owned size and border variables.");
   }
 
+  const stepperBlock = blocks.find((block) => normalizedSelector(block) === ".stepper");
+  const stepperItemBlock = blocks.find((block) => normalizedSelector(block) === ".stepper__item");
+  if (!stepperBlock?.body.includes("--comp-stepper-current-scale: var(--component-scale-raised)") || !stepperBlock?.body.includes("--comp-stepper-item-gap:")) {
+    add("errors", packageCssFile, stepperBlock ? lineNumber(text, stepperBlock.index) : 1, "Stepper must expose current marker scale and item spacing through component aliases.");
+  }
+  if (!stepperItemBlock?.body.includes("gap: var(--comp-stepper-item-gap)")) {
+    add("errors", packageCssFile, stepperItemBlock ? lineNumber(text, stepperItemBlock.index) : 1, "Stepper item rhythm must consume its component gap alias.");
+  }
+
   const iconButtonBlock = blocks.find((block) => block.selector === ".icon-button");
   const iconButtonIconBlock = blocks.find((block) => block.selector === ".icon-button__icon");
   const iconButtonBadgeBlock = blocks.find((block) => block.selector === ".icon-button__badge");
