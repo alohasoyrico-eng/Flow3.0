@@ -2,6 +2,13 @@
 
 ## 0.3.0-platform-mvp
 
+- Added GitHub Packages metadata for `@alohasoyrico-eng/flow` with public package exports.
+- Added React implementation exports for every accepted component through `flow/react` and `flow/react/*`.
+- Added a React primary contract audit for refs, types, display names, platform contracts, and public export parity.
+- Added an isolated consumer install audit that installs the packed package outside FlowDocs and renders a real React screen.
+- Added anti-duplication governance so docs cannot create parallel visual implementations for package-owned components or shared patterns.
+- Added release guidance for SemVer, changelog policy, package dry runs, consumer smoke tests, and normal push/tag flow.
+- No breaking changes for public import paths in this release line.
 - Moved the documentation app to `apps/docs`.
 - Moved machine-readable contracts to `packages/specs`.
 - Moved artifact inventory, component copy, i18n shell copy, and template blueprints to `packages/content`.

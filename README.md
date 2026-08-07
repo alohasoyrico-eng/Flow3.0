@@ -33,7 +33,7 @@ Open:
 | Architecture Gate | `packages/audit` |
 | Prototype tokens | `packages/tokens` |
 | Prototype components | `packages/components` |
-| React adapters | `packages/react` |
+| React implementation | `packages/react` |
 | Future platform adapters | Generated only when a real Angular or Flutter consumer exists |
 | Runnable prototypes | `examples/prototyping` |
 
@@ -131,7 +131,7 @@ npm run validate
 
 Design System is at `0.3.0-platform-mvp`.
 
-It includes the repo split, manifest, Architecture Gate, starter tokens, starter components, React adapter coverage for active components, shared prototype fixtures, release checklist, starter kits, and runnable prototype examples.
+It includes the repo split, manifest, Architecture Gate, starter tokens, starter components, React implementation coverage for active components, shared prototype fixtures, release checklist, starter kits, and runnable prototype examples.
 
 React coverage currently exposes every registered component through `flow/react` and `flow/react/*`.
 

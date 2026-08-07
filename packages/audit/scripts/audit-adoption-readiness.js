@@ -25,7 +25,7 @@ function checkAdoptionReadiness() {
   checkReactPackageTargets(reactPackage);
   checkDocsSplitConsumerBoundary();
   checkReactDoesNotDependOnDocs();
-  checkInstallDocs();
+  checkInstallDocs(rootPackage);
 }
 
 function checkReleasePackageMetadata(rootPackage) {
@@ -71,6 +71,9 @@ function checkReleasePackageMetadata(rootPackage) {
   ]) {
     if (!rootPackage.files?.includes(artifact)) {
       add("errors", rootPackageFile, 1, `Flow3.0 package files must include ${artifact}.`);
+    }
+    if (!fs.existsSync(path.join(root, artifact))) {
+      add("errors", rootPackageFile, 1, `Flow3.0 package files includes ${artifact}, but the artifact does not exist.`);
     }
   }
 }
@@ -168,7 +171,66 @@ function checkDocsSplitConsumerBoundary() {
   }
 }
 
-function checkInstallDocs() {
+function checkInstallDocs(rootPackage) {
+  const docs = {
+    [readmeFile]: [
+      "React implementation",
+      "npm run validate:system",
+      "npm run validate:docs",
+    ],
+    [startFile]: [
+      "React implementation",
+      "FlowDocs",
+      "consumes `flow`",
+    ],
+    [releaseFile]: [
+      "Release Principles",
+      "npm pack --dry-run",
+      "npm publish",
+      "Consumer Smoke Test",
+      "SemVer",
+      "CHANGELOG.md",
+      "Do not force-push",
+      "If the isolated consumer install gate fails, the release does not ship.",
+    ],
+    [path.join(root, "CHANGELOG.md")]: [
+      "GitHub Packages",
+      "React implementation exports",
+      "isolated consumer install audit",
+      "anti-duplication governance",
+      "No breaking changes",
+    ],
+    [path.join(root, "agents/codex-agent.md")]: [
+      "packages/specs/specs/unison.system.json",
+      "Reject Work When",
+      "Raw token values",
+    ],
+    [path.join(root, "prompts/component-authoring.md")]: [
+      "Required Output",
+      "Machine Contract",
+      "Rejection Criteria",
+    ],
+  };
+
+  for (const [file, snippets] of Object.entries(docs)) {
+    if (!fs.existsSync(file)) {
+      add("errors", file, 1, "Adoption documentation artifact is missing.");
+      continue;
+    }
+    const source = read(file);
+    for (const snippet of snippets) {
+      if (!source.includes(snippet)) {
+        add("errors", file, 1, `Adoption documentation must include ${snippet}.`);
+      }
+    }
+  }
+
+  const changelogFile = path.join(root, "CHANGELOG.md");
+  const changelog = read(changelogFile);
+  if (!changelog.includes(`## ${rootPackage.version}`)) {
+    add("errors", changelogFile, 1, `CHANGELOG.md must include a heading for package version ${rootPackage.version}.`);
+  }
+
   for (const file of [readmeFile, releaseFile, startFile]) {
     const source = read(file);
     for (const snippet of [

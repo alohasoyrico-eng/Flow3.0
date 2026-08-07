@@ -6,7 +6,7 @@ Design System is now split into packages. Start with the package that matches th
 
 The split target is two repos:
 
-- `alohasoyrico-eng/Flow3.0`: foundations, primitives, tokens, components, platform adapters, specs, content, audits, and agent guidance.
+- `alohasoyrico-eng/Flow3.0`: foundations, primitives, tokens, components, React implementation, future platform adapters, specs, content, audits, and agent guidance.
 - `alohasoyrico-eng/FlowDocs`: documentation app that consumes `flow`.
 
 Local setup:
@@ -148,7 +148,7 @@ For product-screen migrations, use `MIGRATE_PRODUCT_SCREEN.md`.
 - Add validation rules to the matching audit module, not to the runner.
 - Treat `audit-system.js` as orchestration only.
 - Consuming apps import from public package exports, never from `flow/packages/...`.
-- React, Angular, and Flutter adapters must derive API from the component contract, not recreate it.
+- React implementation and future Angular/Flutter adapters must derive API from the component contract, not recreate it.
 
 ## Validation
 
