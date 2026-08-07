@@ -2,6 +2,7 @@ const { fs, path, root, read, readJson, add } = require("./audit-context.js");
 const { checkReactPropContracts } = require("./react-prop-contract-audit.js");
 const { checkDomEscapeTypeContract, forbiddenInheritedDomProps } = require("./react-dom-escape-contract.js");
 const { checkDensityContractConsistency, checkReactDensityCascade } = require("./react-density-contract-audit.js");
+const { checkRuntimeDomMutationContract } = require("./react-runtime-dom-mutation-audit.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
@@ -180,6 +181,7 @@ function checkReactComponent(file, shared) {
     add("errors", sourceFile, 1, `${name} React source must not inject HTML strings as a parallel DOM implementation.`);
   }
   checkInlineStyleContract({ name, sourceFile, source });
+  checkRuntimeDomMutationContract({ name, sourceFile, source });
   checkReactDensityCascade({ add, componentName: name, sourceFile, source });
   checkRestPropContract({ name, sourceFile, source });
   if (source.includes("createTransitional") || source.includes("createCard(") || source.includes("createTable(")) {
