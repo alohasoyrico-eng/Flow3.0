@@ -7,7 +7,7 @@ const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const semanticAriaDefaultsByFile = new Map([
   ["BiometricPrompt.js", ["Biometric authentication"]],
   ["CardExpiryInput.js", ["Expiry date"]],
-  ["CardNumberInput.js", ["Card number"]],
+  ["CardNumberInput.js", ["Card number", "Loading", " loading"]],
   ["CardSecurityCodeInput.js", ["Security code", "Show security code", "Hide security code"]],
   ["CodeInput.js", ["digit code", "digits"]],
   ["DatePicker.js", ["Date picker", "Date picker native input", "Date picker calendar", "native picker"]],
