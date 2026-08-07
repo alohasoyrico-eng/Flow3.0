@@ -65,6 +65,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
   const resolvedLabel = label ?? "";
   const isDisabled = resolvedState === "disabled";
   const isCompact = resolvedVariant === "compact";
+  const visibleMetrics = metrics.filter((metric) => metric?.label && metric?.value);
 
   return React.createElement(
     "article",
@@ -94,15 +95,15 @@ export const RouteSummary = forwardRef(function RouteSummary({
         description ? React.createElement("small", null, description) : null,
       ),
     ),
-    metrics?.length
+    visibleMetrics.length
       ? React.createElement(
           "div",
           { className: "route-summary__metrics" },
-          metrics.map((metric, index) => React.createElement(
+          visibleMetrics.map((metric, index) => React.createElement(
             "span",
-            { key: metric?.key ?? `${metric?.label ?? "metric"}-${index}` },
-            React.createElement("small", null, metric?.label ?? ""),
-            React.createElement("strong", null, metric?.value ?? ""),
+            { key: metric.key ?? `${metric.label}-${index}` },
+            React.createElement("small", null, metric.label),
+            React.createElement("strong", null, metric.value),
           )),
         )
       : null,

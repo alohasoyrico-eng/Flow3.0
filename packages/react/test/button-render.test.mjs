@@ -294,6 +294,13 @@ const unnamedCompactRouteActionMarkup = renderToStaticMarkup(React.createElement
 assert.doesNotMatch(unnamedCompactRouteActionMarkup, /Route action/);
 assert.doesNotMatch(unnamedCompactRouteActionMarkup.match(/<button[^>]+>/)?.[0] ?? "", /aria-label=/);
 
+const incompleteMetricRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  label: "Airport run",
+  metrics: [{ label: "Stops" }, { value: "18 min" }],
+}));
+assert.doesNotMatch(incompleteMetricRouteSummaryMarkup, /class="route-summary__metrics"/);
+assert.doesNotMatch(incompleteMetricRouteSummaryMarkup, /<small><\/small>|<strong><\/strong>/);
+
 const stationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
   label: "Station 24",
   value: "Open",
