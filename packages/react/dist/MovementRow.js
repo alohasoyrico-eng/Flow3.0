@@ -32,8 +32,7 @@ export const MovementRow = forwardRef(function MovementRow({
 }, ref) {
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "standard");
   const resolvedCategory = normalizeFlowValue(category, validCategories, "transfer");
-  const inferredState = status === "Pending" ? "pending" : status === "Declined" ? "error" : "default";
-  const resolvedState = disabled ? "disabled" : validStates.has(state) ? state : inferredState;
+  const resolvedState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedLabel = label ?? "";
   const blocked = disabled || resolvedState === "disabled";

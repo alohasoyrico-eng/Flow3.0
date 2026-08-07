@@ -55,7 +55,7 @@ const displayFallbackTermsByFile = new Map([
   ["Combobox.js", ["Combobox"]],
   ["Slider.js", ["Slider"]],
   ["TextArea.js", ["Text area"]],
-  ["MovementRow.js", ["Movement"]],
+  ["MovementRow.js", ["Movement", "Pending", "Declined"]],
   ["MotionBoundary.js", ["Panel transition", "Controls the entrance"]],
   ["QuickAction.js", ["Action"]],
   ["RadioButton.js", ["Radio button"]],

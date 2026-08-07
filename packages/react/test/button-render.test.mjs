@@ -230,6 +230,13 @@ const inheritedMovementRowMarkup = renderToStaticMarkup(React.createElement(Move
   label: "Inherited movement density",
 }));
 assert.doesNotMatch(inheritedMovementRowMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
+const copyOnlyMovementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
+  label: "Copy-only state",
+  status: "Pending",
+  state: "invalid-state",
+}));
+assert.match(copyOnlyMovementRowMarkup, /data-state="default"/);
+assert.doesNotMatch(copyOnlyMovementRowMarkup, /data-state="pending"/);
 
 const routeSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Fast route",
