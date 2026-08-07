@@ -89,6 +89,12 @@ function checkActionPropContractTypes({ add, componentName, typesFile, types, co
   }
 }
 
+function checkNoOpenVisualSemanticTypes({ add, componentName, typesFile, types }) {
+  for (const match of types.matchAll(/^\s*(variant|tone|intent|state|density)\??:\s*string;/gm)) {
+    add("errors", typesFile, 1, `${componentName} React type ${match[1]} must use an explicit union or shared semantic type, not string.`);
+  }
+}
+
 function checkReactPropContracts(args) {
   checkPublicCallbackContract(args);
   checkPublicPropContract(args);
@@ -98,6 +104,7 @@ function checkReactPropContracts(args) {
   checkNoOpaqueCallbackTypes(args);
   checkActionCallbackPayloads(args);
   checkActionPropContractTypes(args);
+  checkNoOpenVisualSemanticTypes(args);
 }
 
 module.exports = { checkReactPropContracts };
