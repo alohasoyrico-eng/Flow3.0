@@ -176,9 +176,6 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
-import {
-  createTransitionalDateRangePicker,
-} from "../src/components/specialized-inputs.js?v=28";
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
@@ -783,7 +780,6 @@ assert.deepEqual(Object.keys(datePickerPlatformAdapters), ["react"]);
 assert.equal(datePickerPlatformAdapters.react.componentName, "DatePicker");
 assert.equal(datePickerPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.dateRangePicker.factory, "@design-system/react/date-range-picker");
-assert.equal(componentContracts.dateRangePicker.internalFactory, "createTransitionalDateRangePicker");
 assert.equal(dateRangePickerPlatformContract.id, "date-range-picker");
 assert.equal(dateRangePickerPlatformContract.source.factory, componentContracts.dateRangePicker.factory);
 assert.deepEqual(dateRangePickerPlatformProps(), componentContracts.dateRangePicker.props.map((prop) => prop.name));
@@ -864,57 +860,5 @@ assert.equal(primitiveAnimation.dataset.animationRuntime, "fallback");
 assert.equal(primitiveAnimation.dataset.state, "playing");
 assert.equal(primitiveAnimation.querySelector(".animation-asset__fallback-icon").textContent, "shield");
 assert.equal(typeof resolveAnimationRuntime({ loadAnimation() {} })?.loadAnimation, "function");
-
-const dateRangePicker = createTransitionalDateRangePicker({
-  label: "Reporting range",
-  value: { from: "2026-07-01", to: "2026-07-15" },
-  helper: "One bounded date range.",
-  density: "md",
-  state: "selected",
-});
-assert.equal(dateRangePicker.tagName, "DIV");
-assert.equal(dateRangePicker.className, "field date-picker date-range-picker");
-assert.equal(dateRangePicker.dataset.state, "selected");
-assert.equal(dateRangePicker.dataset.from, "2026-07-01");
-assert.equal(dateRangePicker.dataset.to, "2026-07-15");
-assert.equal(dateRangePicker.querySelector(".date-range-picker__control").attributes["data-date-range-picker-trigger"], "");
-assert.equal(dateRangePicker.querySelector(".date-range-picker__control").attributes["aria-controls"], dateRangePicker.querySelector(".date-range-picker__panel").id);
-assert.equal(dateRangePicker.querySelector(".date-range-picker__value").textContent, "01 jul 2026 - 15 jul 2026");
-assert.equal(dateRangePicker.querySelectorAll(".date-range-picker__preset").length, 3);
-assert.equal(dateRangePicker.querySelector(".date-range-picker__panel").attributes.role, "dialog");
-assert.equal(dateRangePicker.querySelector(".date-range-picker__grid").attributes.role, "grid");
-assert.equal(dateRangePicker.querySelectorAll(".date-range-picker__day").some((day) => day.dataset.rangeEdge === "start"), true);
-assert.equal(dateRangePicker.querySelectorAll(".date-range-picker__day").some((day) => day.dataset.rangeEdge === "end"), true);
-const dateRangePickerNoPresets = createTransitionalDateRangePicker({
-  label: "Export range",
-  value: { from: "2026-07-01", to: "2026-07-09" },
-  presets: false,
-});
-assert.equal(dateRangePickerNoPresets.querySelectorAll(".date-range-picker__preset").length, 0);
-let rangeValue = null;
-let rangeOpen = null;
-const interactiveRange = createTransitionalDateRangePicker({
-  label: "Reporting range",
-  value: {},
-  onValueChange(value) {
-    rangeValue = value;
-  },
-  onOpenChange(open) {
-    rangeOpen = open;
-  },
-});
-interactiveRange.querySelector(".date-range-picker__control").click();
-assert.equal(interactiveRange.querySelector(".date-range-picker__panel").hidden, false);
-assert.equal(rangeOpen, true);
-const firstInteractiveRangeDay = interactiveRange.querySelector(".date-range-picker__day");
-const firstInteractiveRangeDate = firstInteractiveRangeDay.attributes["data-date-range-picker-day"];
-firstInteractiveRangeDay.click();
-assert.equal(rangeValue.from, firstInteractiveRangeDate);
-assert.equal(rangeValue.to, "");
-assert.equal(interactiveRange.dataset.from, firstInteractiveRangeDate);
-interactiveRange.querySelectorAll(".date-range-picker__preset")[0].click();
-assert.equal(Boolean(rangeValue.from), true);
-assert.equal(Boolean(rangeValue.to), true);
-assert.equal(interactiveRange.querySelector(".date-range-picker__panel").hidden, true);
 
 console.log("components smoke tests passed");

@@ -172,9 +172,7 @@ function reactSourceFor(id) {
 }
 
 function kebabToFactoryName(id) {
-  const unprefixedFactoryNames = {
-    "date-range-picker": "createTransitionalDateRangePicker",
-  };
+  const unprefixedFactoryNames = {};
   if (unprefixedFactoryNames[id]) return unprefixedFactoryNames[id];
   return `create${id.split("-").map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join("")}`;
 }

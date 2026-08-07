@@ -13,7 +13,6 @@ const ignoredParserTokens = new Set(["false", "true"]);
 const publicPropAliases = {};
 const unprefixedFactoryNames = new Map([
   ["spinner", "createSpinner"],
-  ["date-range-picker", "createTransitionalDateRangePicker"],
 ]);
 
 function factoryName(id) {

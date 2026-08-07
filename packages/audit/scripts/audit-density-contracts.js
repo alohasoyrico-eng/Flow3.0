@@ -42,13 +42,12 @@ const reactDensityComponents = [
   { id: "phoneInput", file: path.join(root, "packages/react/src/PhoneInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "countrySelector", file: path.join(root, "packages/react/src/CountrySelector.js"), selector: '.select-control[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "datePicker", file: path.join(root, "packages/react/src/DatePicker.js"), selector: '.date-picker[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
+  { id: "dateRangePicker", file: path.join(root, "packages/react/src/DateRangePicker.js"), selector: '.date-picker[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
 ];
 
-const delegatedDensityComponents = [
-  { id: "dateRangePicker", factory: "createTransitionalDateRangePicker", source: "specializedInputs", delegate: "date-picker shell", selector: '.date-picker[data-density="sm"]' },
-];
+const delegatedDensityComponents = [];
 
-const contextInheritedDensityComponents = new Set(["dateRangePicker"]);
+const contextInheritedDensityComponents = new Set([]);
 
 function checkDensityContracts() {
   const contracts = read(contractsFile);
