@@ -172,7 +172,6 @@ function kebabToFactoryName(id) {
   const unprefixedFactoryNames = {
     button: "createTransitionalActionButton",
     "icon-button": "createTransitionalActionIconButton",
-    input: "createTransitionalFieldInput",
     select: "createTransitionalFieldSelect",
     "code-input": "createTransitionalSecurityCodeInput",
     "phone-input": "createTransitionalPhoneInput",

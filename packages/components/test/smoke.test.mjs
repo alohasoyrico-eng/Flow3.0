@@ -192,7 +192,7 @@ import {
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
-import { createTransitionalFieldInput, createTransitionalFieldSelect } from "../src/components/fields.js";
+import { createTransitionalFieldSelect } from "../src/components/fields.js";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
@@ -356,7 +356,6 @@ assert.deepEqual(Object.keys(iconButtonPlatformAdapters), ["react"]);
 assert.equal(iconButtonPlatformAdapters.react.componentName, "IconButton");
 assert.equal(iconButtonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.input.factory, "@design-system/react/input");
-assert.equal(componentContracts.input.internalFactory, "createTransitionalFieldInput");
 assert.equal(inputPlatformContract.id, "input");
 assert.equal(inputPlatformContract.source.factory, componentContracts.input.factory);
 assert.deepEqual(inputPlatformProps(), componentContracts.input.props.map((prop) => prop.name));
@@ -900,87 +899,6 @@ assert.equal(iconButton.querySelector(".icon-button__badge").attributes["aria-hi
 const inheritedDensityIconButton = createTransitionalActionIconButton({ ariaLabel: "More actions", icon: "more_horiz" });
 assert.equal(inheritedDensityIconButton.dataset.density, undefined);
 assert.equal(inheritedDensityIconButton.querySelector(".icon-button__icon").textContent, "more_horiz");
-
-const input = createTransitionalFieldInput({
-  label: "Driver",
-  helper: "Search by name or vehicle",
-  name: "driver",
-  placeholder: "Alex Rivera",
-  value: "Alex",
-  density: "sm",
-  icon: "badge",
-  suffix: "ID",
-  mono: true,
-});
-assert.equal(input.tagName, "LABEL");
-assert.equal(input.dataset.state, "filled");
-assert.equal(input.dataset.density, "sm");
-assert.equal(input.dataset.mono, "true");
-assert.equal(input.querySelector(".field__label").textContent, "Driver");
-assert.equal(input.querySelector(".field__helper").textContent, "Search by name or vehicle");
-assert.equal(input.querySelector(".field__icon").attributes["aria-hidden"], "true");
-assert.equal(input.querySelector(".field__suffix").attributes["aria-hidden"], "true");
-assert.equal(input.querySelector(".field__suffix").textContent, "ID");
-assert.equal(input.querySelector("input").className, "input");
-assert.equal(input.querySelector("input").placeholder, "Alex Rivera");
-assert.equal(input.querySelector("input").value, "Alex");
-assert.equal(input.querySelector("input").attributes["aria-describedby"], input.querySelector(".field__helper").id);
-
-const inputError = createTransitionalFieldInput({ label: "Plate", value: "ABC", error: "Use format ABC-123" });
-assert.equal(inputError.dataset.state, "error");
-assert.equal(inputError.dataset.density, undefined);
-assert.equal(inputError.querySelector("input").attributes["aria-invalid"], "true");
-assert.equal(inputError.querySelector(".field__helper").textContent, "Use format ABC-123");
-assert.equal(inputError.querySelector(".field__helper").attributes.role, "alert");
-
-const emailInput = createTransitionalFieldInput({ label: "Fleet admin email", value: "ops@fleet.mx", variant: "email" });
-assert.equal(emailInput.dataset.variant, "email");
-assert.equal(emailInput.querySelector("input").type, "email");
-assert.equal(emailInput.querySelector("input").attributes.autocomplete, "email");
-assert.equal(emailInput.querySelector("input").attributes.inputmode, "email");
-
-const currencyInput = createTransitionalFieldInput({ label: "Monthly limit", value: "2400.00", variant: "currency", prefix: "$", suffix: "MXN", mono: true });
-assert.equal(currencyInput.dataset.variant, "currency");
-assert.equal(currencyInput.dataset.align, "end");
-assert.equal(currencyInput.dataset.mono, "true");
-assert.equal(currencyInput.querySelector(".field__prefix").textContent, "$");
-assert.equal(currencyInput.querySelector(".field__suffix").textContent, "MXN");
-assert.equal(currencyInput.querySelector("input").value, "2,400.00");
-assert.equal(currencyInput.querySelector("input").attributes.inputmode, "decimal");
-
-let currencyChangeMeta = null;
-const interactiveCurrencyInput = createTransitionalFieldInput({
-  label: "Monthly limit",
-  variant: "currency",
-  onValueChange: (value, meta) => {
-    currencyChangeMeta = { value, meta };
-  },
-});
-interactiveCurrencyInput.querySelector("input").value = "2,950.50";
-interactiveCurrencyInput.querySelector("input").dispatchEvent({ type: "input" });
-assert.deepEqual(currencyChangeMeta, {
-  value: "2950.50",
-  meta: {
-    value: "2950.50",
-    displayValue: "2,950.50",
-    rawValue: "2,950.50",
-    numericValue: 2950.5,
-  },
-});
-
-const passwordInput = createTransitionalFieldInput({ label: "Password", value: "Miel2026!", variant: "password" });
-const passwordField = passwordInput.querySelector("input");
-const revealButton = passwordInput.querySelector(".field-action");
-assert.equal(passwordField.type, "password");
-assert.equal(revealButton.dataset.fieldAction, "reveal");
-assert.equal(revealButton.attributes["aria-label"], "Show value");
-revealButton.click();
-assert.equal(passwordField.type, "text");
-assert.equal(revealButton.attributes["aria-label"], "Hide value");
-assert.equal(revealButton.attributes["aria-pressed"], "true");
-revealButton.click();
-assert.equal(passwordField.type, "password");
-assert.equal(revealButton.attributes["aria-pressed"], "false");
 
 let cardNumberMeta = null;
 const cardNumberInput = createTransitionalPaymentCardNumberInput({

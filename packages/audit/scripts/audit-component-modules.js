@@ -45,9 +45,9 @@ const moduleRules = [
   {
     id: "fields",
     file: "packages/components/src/components/fields.js",
-    exports: ["createCombobox", "createTransitionalFieldSelect", "createTransitionalFieldInput"],
+    exports: ["createCombobox", "createTransitionalFieldSelect"],
     publicExports: [],
-    internalExports: ["createCombobox", "createTransitionalFieldSelect", "createTransitionalFieldInput"],
+    internalExports: ["createCombobox", "createTransitionalFieldSelect"],
   },
   {
     id: "interactions",
