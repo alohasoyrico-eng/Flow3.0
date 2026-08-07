@@ -674,6 +674,7 @@ const unnamedTreeViewMarkup = renderToStaticMarkup(React.createElement(TreeView,
   nodes: [{ id: "root" }],
 }));
 assert.doesNotMatch(unnamedTreeViewMarkup, /Tree view|Tree item 1/);
+assert.doesNotMatch(unnamedTreeViewMarkup, /role="treeitem"/);
 assert.doesNotMatch(unnamedTreeViewMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const cardMarkup = renderToStaticMarkup(React.createElement(Card, {

@@ -11,11 +11,11 @@ function nodeKey(node, index) {
 
 function normalizeNodes(nodes) {
   const source = Array.isArray(nodes) ? nodes : [];
-  return source.map((node, index) => ({
+  return source.filter((node) => node?.label).map((node, index) => ({
     ...node,
     key: nodeKey(node, index),
-    label: node?.label ?? "",
-    ariaLabel: node?.ariaLabel ?? node?.["aria-label"] ?? node?.label ?? "",
+    label: node.label,
+    ariaLabel: node?.ariaLabel ?? node?.["aria-label"] ?? node.label,
     level: Math.max(1, Math.min(5, Number(node?.level ?? 1))),
     expandable: node?.expanded != null,
     expanded: Boolean(node?.expanded),
