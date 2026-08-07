@@ -67,6 +67,7 @@ export const DatePicker = forwardRef(function DatePicker({
   density,
   state,
   invalid = false,
+  open: openProp,
   onValueChange,
   onOpenChange,
   className = "",
@@ -81,7 +82,9 @@ export const DatePicker = forwardRef(function DatePicker({
   const controlRef = useRef(null);
   const isValueControlled = value !== undefined;
   const [selectedValue, setSelectedValue] = useState(value ?? "");
-  const [open, setOpenState] = useState(false);
+  const isOpenControlled = openProp !== undefined;
+  const [internalOpen, setInternalOpen] = useState(false);
+  const open = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [viewDate, setViewDate] = useState(() => clampViewDate(value));
   const resolvedState = resolveDatePickerState({ disabled, error, invalid, state, value: selectedValue });
   const helperText = error || helper;
@@ -105,8 +108,9 @@ export const DatePicker = forwardRef(function DatePicker({
   }, [open]);
 
   const setOpen = (nextOpen, restoreFocus = false) => {
-    setOpenState(Boolean(nextOpen));
-    onOpenChange?.(Boolean(nextOpen));
+    const normalizedOpen = Boolean(nextOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedOpen);
+    onOpenChange?.(normalizedOpen);
     if (restoreFocus) requestAnimationFrame(() => controlRef.current?.focus());
   };
 

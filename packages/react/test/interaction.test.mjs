@@ -408,6 +408,28 @@ try {
   }));
   await waitFor(() => assert.equal(dateTrigger.textContent.includes("20 jul 2026"), true));
 
+  rerenderDatePicker(React.createElement(DatePicker, {
+    label: "Service date",
+    value: "2026-07-20",
+    min: "2026-07-01",
+    max: "2026-07-31",
+    open: true,
+    onValueChange: (value) => dateValues.push(value),
+    onOpenChange: (open) => dateOpenChanges.push(open),
+  }));
+  await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "true"));
+
+  rerenderDatePicker(React.createElement(DatePicker, {
+    label: "Service date",
+    value: "2026-07-20",
+    min: "2026-07-01",
+    max: "2026-07-31",
+    open: false,
+    onValueChange: (value) => dateValues.push(value),
+    onOpenChange: (open) => dateOpenChanges.push(open),
+  }));
+  await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "false"));
+
   cleanup();
 
   const dateRangeValues = [];
@@ -438,6 +460,26 @@ try {
     onOpenChange: (open) => dateRangeOpenChanges.push(open),
   }));
   await waitFor(() => assert.equal(dateRangeTrigger.textContent.includes("10 jul 2026 - 20 jul 2026"), true));
+
+  rerenderDateRangePicker(React.createElement(DateRangePicker, {
+    label: "Service range",
+    value: { from: "2026-07-10", to: "2026-07-20" },
+    presets: false,
+    open: true,
+    onValueChange: (value) => dateRangeValues.push(value),
+    onOpenChange: (open) => dateRangeOpenChanges.push(open),
+  }));
+  await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "true"));
+
+  rerenderDateRangePicker(React.createElement(DateRangePicker, {
+    label: "Service range",
+    value: { from: "2026-07-10", to: "2026-07-20" },
+    presets: false,
+    open: false,
+    onValueChange: (value) => dateRangeValues.push(value),
+    onOpenChange: (open) => dateRangeOpenChanges.push(open),
+  }));
+  await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));
 
   cleanup();
 

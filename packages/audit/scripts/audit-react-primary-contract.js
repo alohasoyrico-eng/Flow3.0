@@ -67,6 +67,7 @@ function checkReactPrimaryContract() {
     });
   }
 
+  checkOpenChangeContractConsistency(componentContractsSource);
   checkControlledOpenCoverage(componentFiles, componentContractsSource);
   checkControlledValueCoverage(componentFiles);
   checkControlledCheckedCoverage(componentFiles);
@@ -75,6 +76,15 @@ function checkReactPrimaryContract() {
   checkControlledExpandedKeyCoverage(componentFiles);
   checkControlledExpandedIdsCoverage(componentFiles);
   checkControlledPageCoverage(componentFiles);
+}
+
+function checkOpenChangeContractConsistency(contractsSource) {
+  for (const match of contractsSource.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {
+    const [, contractKey, body] = match;
+    if (body.includes('{ name: "onOpenChange"') && !body.includes('{ name: "open"')) {
+      add("errors", componentContractsFile, 1, `${contractKey} exposes onOpenChange and must also expose open so React can be controlled by product code.`);
+    }
+  }
 }
 
 function checkReactComponent(file, shared) {

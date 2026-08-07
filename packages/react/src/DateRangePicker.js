@@ -80,6 +80,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   invalid = false,
   presets = true,
   presetItems,
+  open: openProp,
   onValueChange,
   onOpenChange,
   className = "",
@@ -96,7 +97,9 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const initialFrom = from ?? value?.from ?? "";
   const initialTo = to ?? value?.to ?? "";
   const [range, setRange] = useState({ from: initialFrom, to: initialTo });
-  const [open, setOpenState] = useState(false);
+  const isOpenControlled = openProp !== undefined;
+  const [internalOpen, setInternalOpen] = useState(false);
+  const open = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [viewDate, setViewDate] = useState(() => clampViewDate(initialFrom || initialTo));
   const helperText = error || helper;
   const resolvedState = resolveDateRangePickerState({ disabled, error, invalid, state, from: range.from, to: range.to });
@@ -123,8 +126,9 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   }, [open]);
 
   const setOpen = (nextOpen, restoreFocus = false) => {
-    setOpenState(Boolean(nextOpen));
-    onOpenChange?.(Boolean(nextOpen));
+    const normalizedOpen = Boolean(nextOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedOpen);
+    onOpenChange?.(normalizedOpen);
     if (restoreFocus) requestAnimationFrame(() => controlRef.current?.focus());
   };
 

@@ -1303,6 +1303,7 @@ export const componentContracts = {
       { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"warning\" | \"error\" | \"disabled\"", required: false },
       { name: "invalid", type: "boolean", required: false },
       { name: "disabled", type: "boolean", required: false },
+      { name: "open", type: "boolean", required: false },
       { name: "onValueChange", type: "(value: string) => void", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false }
     ],
@@ -1334,6 +1335,7 @@ export const componentContracts = {
       { name: "disabled", type: "boolean", required: false },
       { name: "presets", type: "boolean", required: false },
       { name: "presetItems", type: "Array<{ label: string; days: number }>", required: false },
+      { name: "open", type: "boolean", required: false },
       { name: "onValueChange", type: "(range: { from?: string; to?: string }) => void", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false }
     ],
@@ -1385,6 +1387,7 @@ export const componentContracts = {
       { name: "disabled", type: "boolean", required: false },
       { name: "actions", type: "Array<{ label: string, variant?: string, key?: string }>", required: false },
       { name: "field", type: "{ label?: string, value?: string, placeholder?: string, helper?: string }", required: false },
+      { name: "open", type: "boolean", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false },
       { name: "onAction", type: "(key: string) => void", required: false }
     ],

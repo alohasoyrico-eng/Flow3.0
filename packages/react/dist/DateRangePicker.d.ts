@@ -20,6 +20,7 @@ export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButt
   invalid?: boolean;
   presets?: boolean;
   presetItems?: DateRangePickerPreset[];
+  open?: boolean;
   onValueChange?: (value: DateRangePickerValue) => void;
   onOpenChange?: (open: boolean) => void;
 }
