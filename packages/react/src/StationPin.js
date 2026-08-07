@@ -27,12 +27,12 @@ export const StationPin = forwardRef(function StationPin({
   const resolvedState = disabled ? "disabled" : unavailable ? "unavailable" : selected ? "selected" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const markerCount = count != null || resolvedVariant === "cluster" ? count ?? 6 : null;
-  const visibleValue = markerCount != null ? String(markerCount) : value || label || "Station";
+  const visibleValue = markerCount != null ? String(markerCount) : value || label || "";
   const blocked = resolvedState === "disabled" || resolvedState === "unavailable";
   const mapPrimitive = createMapsPrimitive({
     permission: "granted",
     pins: [{
-      label: label ?? visibleValue,
+      label: label ?? visibleValue ?? "Station pin",
       value: value && value !== label ? value : "",
       meta,
       variant: resolvedVariant,
@@ -41,7 +41,7 @@ export const StationPin = forwardRef(function StationPin({
       unavailable: resolvedState === "unavailable",
     }],
   });
-  const accessibleLabel = mapPrimitive.mapLayerModel.pins[0]?.accessibleLabel ?? String(label ?? visibleValue);
+  const accessibleLabel = mapPrimitive.mapLayerModel.pins[0]?.accessibleLabel ?? String((label ?? visibleValue) || "Station pin");
 
   function handleClick(event) {
     if (blocked) return;
@@ -74,7 +74,7 @@ export const StationPin = forwardRef(function StationPin({
       },
       markerCount != null ? String(markerCount) : icon,
     ),
-    markerCount == null ? React.createElement("span", { className: "station-pin__value" }, visibleValue) : null,
+    markerCount == null && visibleValue ? React.createElement("span", { className: "station-pin__value" }, visibleValue) : null,
   );
 });
 

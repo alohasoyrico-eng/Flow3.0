@@ -24,7 +24,7 @@ function resolveTone(state, tone) {
 }
 
 export const ErrorPanel = forwardRef(function ErrorPanel({
-  label = "Something needs attention",
+  label = "",
   description = "",
   action,
   tone = "error",
@@ -52,6 +52,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
       ref,
       className: ["error-panel", `error-panel--${resolvedTone}`, className].filter(Boolean).join(" "),
       role: resolvedRole,
+      "aria-label": label ? undefined : "Error panel",
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
@@ -67,7 +68,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
     React.createElement(
       "div",
       { className: "error-panel__content" },
-      React.createElement("strong", null, label),
+      label ? React.createElement("strong", null, label) : null,
       description ? React.createElement("p", null, description) : null,
     ),
     actionLabel

@@ -7,9 +7,12 @@ const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const visibleTriggerDefaultsByFile = new Map([
   ["Dialog.js", ["Dialog", "Open dialog"]],
   ["Drawer.js", ["Drawer", "Open drawer", "Progress"]],
+  ["ErrorPanel.js", ["Something needs attention"]],
   ["Popover.js", ["Open"]],
+  ["StationPin.js", ["Station"]],
   ["Tabs.js", ["Overview", "Details", "Settings", "Tab"]],
   ["Tooltip.js", ["Info", "Tooltip"]],
+  ["Toast.js", ["Toast"]],
 ]);
 const displayFallbackTermsByFile = new Map([
   ["Card.js", ["Card", "Loading"]],
