@@ -75,11 +75,13 @@ const duplicateConceptClassPatterns = [
     message: "Account menu must use avatarMenuMarkup as the single visual source; do not keep a parallel account menu implementation.",
   },
 ];
+const protectedComponentRoots = new Set(["button", "card", "dialog", "drawer", "menu", "popover"]);
 
 function checkAntiDuplicationGovernance() {
   checkDocsDoNotOwnPackageComponentMarkup();
   checkKnownDuplicateConcepts();
   checkReactOnlyComponentBoundaries();
+  checkReactComponentClassOwnership();
 }
 
 function checkDocsDoNotOwnPackageComponentMarkup() {
@@ -177,6 +179,66 @@ function checkReactOnlyComponentBoundaries() {
   }
 }
 
+function checkReactComponentClassOwnership() {
+  const reactDir = path.join(root, "packages/react/src");
+  if (!fs.existsSync(reactDir)) return;
+  for (const file of fs.readdirSync(reactDir).filter((candidate) => /^[A-Z].*\.js$/.test(candidate)).sort()) {
+    const componentName = path.basename(file, ".js");
+    const sourceFile = path.join(reactDir, file);
+    const source = read(sourceFile);
+    const allowedRoots = allowedClassRootsForReactComponent(componentName);
+    for (const match of source.matchAll(/\bclassName\s*:\s*(?:\[([^\]]+)\]|["'`]([^"'`]+)["'`])/g)) {
+      const roots = classRootsFromClassExpression(match[1] ?? match[2] ?? "");
+      const illegalRoots = [...roots].filter((rootToken) => !allowedRoots.has(rootToken));
+      const protectedLeaks = illegalRoots.filter((rootToken) => protectedComponentRoots.has(rootToken));
+      if (!illegalRoots.length) continue;
+      add(
+        "errors",
+        sourceFile,
+        lineForIndex(source, match.index),
+        `${componentName} must not author another component visual root (${illegalRoots.join(", ")}); compose ${protectedLeaks.length ? "the protected React component" : "that React component"} instead of duplicating its classes.`
+      );
+    }
+  }
+}
+
+function allowedClassRootsForReactComponent(componentName) {
+  const explicit = {
+    CardExpiryInput: ["card-expiry-input", "field"],
+    CardNumberInput: ["card-number-input", "field"],
+    CardSecurityCodeInput: ["card-security-code-input", "field"],
+    CodeInput: ["code-input", "field"],
+    Combobox: ["combobox", "field", "select-control"],
+    CountrySelector: ["country-flag", "country-selector", "select-control"],
+    DatePicker: ["date-picker", "field"],
+    DateRangePicker: ["date-picker", "date-range-picker", "field"],
+    FloatingActionButton: ["fab"],
+    InlineValidation: ["inline-validation"],
+    Input: ["field"],
+    KpiTile: ["kpi-tile"],
+    MotionBoundary: ["motion-boundary"],
+    MovementRow: ["movement-row"],
+    PhoneInput: ["country-flag", "country-selector", "field", "phone-input", "select-control"],
+    ProgressIndicator: ["progress"],
+    RadioButton: ["choice", "radio"],
+    RouteSummary: ["route-summary"],
+    SegmentedControl: ["segmented-control"],
+    Select: ["field", "select-control"],
+    TextArea: ["field", "text-area"],
+    TreeView: ["tree-view"],
+  }[componentName];
+  return new Set(explicit ?? [kebab(componentName)]);
+}
+
+function classRootsFromClassExpression(value) {
+  const roots = new Set();
+  for (const token of value.match(/[a-z][a-z0-9-]*(?:__[a-z0-9-]+|--[a-z0-9-]+)?/g) ?? []) {
+    const rootToken = componentRootForClassToken(token);
+    if (rootToken) roots.add(rootToken);
+  }
+  return roots;
+}
+
 function isAllowedComponentHelper(file, name) {
   return normalize(file).endsWith("packages/components/src/components/fields.js")
     && new Set(["createFieldShell", "createFieldSurface"]).has(name);
@@ -213,6 +275,13 @@ function labelForComponentName(value) {
   return value
     .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
     .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2");
+}
+
+function kebab(value) {
+  return value
+    .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+    .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
+    .toLowerCase();
 }
 
 function lineForIndex(text, index) {
