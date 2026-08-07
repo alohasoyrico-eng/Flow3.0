@@ -18,10 +18,10 @@ function enabledItems(panel) {
 }
 
 export const Menu = forwardRef(function Menu({
-  triggerLabel = "Actions",
+  triggerLabel = "",
   items = [],
   open: openProp,
-  label = "Menu",
+  label = "",
   variant = "actions",
   avatarName = "",
   avatarStatus = "none",
@@ -49,12 +49,7 @@ export const Menu = forwardRef(function Menu({
   const menuId = `menu-${slug(label || triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const isDisabled = disabled || interactionState === "disabled";
   const resolvedAlign = align === "end" || align === "right" ? "end" : "start";
-  const resolvedItems = items.length ? items : [
-    { label: "Edit", icon: "edit", key: "edit" },
-    { label: "Duplicate", icon: "content_copy", key: "duplicate" },
-    { separator: true },
-    { label: resolvedVariant === "danger" ? "Delete" : "Archive", icon: resolvedVariant === "danger" ? "delete" : "archive", tone: resolvedVariant === "danger" ? "danger" : undefined, key: resolvedVariant === "danger" ? "delete" : "archive" },
-  ];
+  const resolvedItems = items;
 
   useEffect(() => {
     if (!isOpenControlled) return;
@@ -91,6 +86,7 @@ export const Menu = forwardRef(function Menu({
     className: "menu__trigger",
     "data-menu-trigger": "",
     "aria-haspopup": "menu",
+    "aria-label": triggerLabel ? undefined : "Open menu",
     "aria-expanded": String(Boolean(isOpen)),
     "aria-controls": menuId,
     onClick: () => setOpen(!isOpen, { focusFirst: !isOpen }),
@@ -113,9 +109,9 @@ export const Menu = forwardRef(function Menu({
       "data-open": String(Boolean(isOpen)),
     },
     resolvedVariant === "icon-trigger"
-      ? React.createElement(IconButton, { ...triggerProps, ariaLabel: label || triggerLabel, icon: "more_horiz", variant: "ghost", density: resolvedDensity })
+      ? React.createElement(IconButton, { ...triggerProps, ariaLabel: label || triggerLabel || "Open menu", icon: "more_horiz", variant: "ghost", density: resolvedDensity })
       : resolvedVariant === "avatar-trigger"
-        ? React.createElement("button", { ...triggerProps, type: "button", className: "menu__trigger menu__trigger--avatar", "aria-label": label || "Account menu" }, React.createElement(Avatar, { name: avatarName || triggerLabel, status: avatarStatus, size: avatarSize, density: resolvedDensity }))
+        ? React.createElement("button", { ...triggerProps, type: "button", className: "menu__trigger menu__trigger--avatar", "aria-label": label || "Account menu" }, React.createElement(Avatar, { name: avatarName, status: avatarStatus, size: avatarSize, density: resolvedDensity }))
         : React.createElement(Button, { ...triggerProps, label: triggerLabel, variant: "secondary", density: resolvedDensity, trailingIcon: isOpen ? "expand_less" : "expand_more" }),
     React.createElement(
       "div",
@@ -126,7 +122,7 @@ export const Menu = forwardRef(function Menu({
         hidden: !isOpen,
         id: menuId,
         role: "menu",
-        "aria-label": label,
+        "aria-label": label || "Menu",
         onKeyDown: onPanelKeyDown,
       },
       resolvedItems.map((item, index) => {

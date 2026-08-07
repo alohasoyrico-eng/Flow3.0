@@ -8,7 +8,9 @@ const visibleTriggerDefaultsByFile = new Map([
   ["Dialog.js", ["Dialog", "Open dialog"]],
   ["Drawer.js", ["Drawer", "Open drawer", "Progress"]],
   ["ErrorPanel.js", ["Something needs attention"]],
+  ["Menu.js", ["Actions", "Menu", "Edit", "Duplicate", "Delete", "Archive"]],
   ["Popover.js", ["Open"]],
+  ["SegmentedControl.js", ["First", "Second", "Third", "Option"]],
   ["StationPin.js", ["Station"]],
   ["Tabs.js", ["Overview", "Details", "Settings", "Tab"]],
   ["Tooltip.js", ["Info", "Tooltip"]],
@@ -67,7 +69,7 @@ function checkReactCopyContract() {
     lines.forEach((line, index) => {
       if (!/["'`]/.test(line)) return;
       const isReactMetadata = line.includes(".displayName") || line.includes(".platformContract");
-      const isAriaName = line.includes('"aria-label"') || line.includes("'aria-label'");
+      const isAriaName = line.includes('"aria-label"') || line.includes("'aria-label'") || line.includes("ariaLabel");
       const matchedTerm = localeSpecificTerms.find((term) => line.includes(term));
       if (matchedTerm) {
         add(

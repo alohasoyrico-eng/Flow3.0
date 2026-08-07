@@ -9,14 +9,11 @@ function itemKey(item) {
 }
 
 function normalizeItems(items) {
-  return (items?.length ? items : [
-    { key: "first", label: "First" },
-    { key: "second", label: "Second" },
-    { key: "third", label: "Third" },
-  ]).map((item) => ({
+  return (Array.isArray(items) ? items : []).map((item, index) => ({
     ...item,
-    key: itemKey(item),
-    label: item?.label ?? itemKey(item) ?? "Option",
+    key: itemKey(item) || `option-${index + 1}`,
+    label: item?.label ?? "",
+    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item?.label ?? `Option ${index + 1}`,
   }));
 }
 
@@ -99,7 +96,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
           disabled: Boolean(item.disabled),
           tabIndex: selected ? 0 : -1,
           "aria-selected": String(selected),
-          "aria-label": iconOnly ? item.label : undefined,
+          "aria-label": iconOnly || !item.label ? item.ariaLabel : undefined,
           "data-segmented-control-item": "",
           "data-key": item.key,
           "data-icon-only": iconOnly ? "true" : undefined,
