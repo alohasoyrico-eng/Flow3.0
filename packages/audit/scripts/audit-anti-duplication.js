@@ -79,6 +79,7 @@ const duplicateConceptClassPatterns = [
 function checkAntiDuplicationGovernance() {
   checkDocsDoNotOwnPackageComponentMarkup();
   checkKnownDuplicateConcepts();
+  checkReactOnlyComponentBoundaries();
 }
 
 function checkDocsDoNotOwnPackageComponentMarkup() {
@@ -129,6 +130,35 @@ function checkKnownDuplicateConcepts() {
         }
       }
     }
+  }
+}
+
+function checkReactOnlyComponentBoundaries() {
+  const surfacesFile = path.join(root, "packages/components/src/components/surfaces.js");
+  const contractsFile = path.join(root, "packages/components/src/contracts.js");
+  const smokeFile = path.join(root, "packages/components/test/smoke.test.mjs");
+  const checks = [
+    {
+      file: surfacesFile,
+      pattern: /export function createCard\b/,
+      message: "Card must not reintroduce a DOM factory; React Card is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createCard"/,
+      message: "Card contract must not name a DOM internalFactory; React Card owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{\s*createCard\s*\}|createCard\(/,
+      message: "Card smoke coverage must use React render tests, not the removed DOM factory.",
+    },
+  ];
+  for (const check of checks) {
+    if (!fs.existsSync(check.file)) continue;
+    const source = read(check.file);
+    const match = check.pattern.exec(source);
+    if (match) add("errors", check.file, lineForIndex(source, match.index), check.message);
   }
 }
 

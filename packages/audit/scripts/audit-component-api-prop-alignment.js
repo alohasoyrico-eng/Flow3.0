@@ -19,7 +19,6 @@ const unprefixedFactoryNames = new Map([
   ["button", "createTransitionalActionButton"],
   ["icon-button", "createTransitionalActionIconButton"],
   ["badge", "createTransitionalBadge"],
-  ["card", "createCard"],
   ["checkbox", "createTransitionalChoiceCheckbox"],
   ["chip", "createTransitionalChip"],
   ["empty-state", "createEmptyState"],

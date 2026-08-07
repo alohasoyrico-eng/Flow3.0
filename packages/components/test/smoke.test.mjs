@@ -180,7 +180,6 @@ import {
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
-import { createCard } from "../src/components/surfaces.js?v=3";
 import { createAuditEvent } from "../src/components/display.js?v=3";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
@@ -450,9 +449,10 @@ assert.deepEqual(Object.keys(comboboxPlatformAdapters), ["react"]);
 assert.equal(comboboxPlatformAdapters.react.componentName, "Combobox");
 assert.equal(comboboxPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.card.factory, "@design-system/react/card");
-assert.equal(componentContracts.card.internalFactory, "createCard");
+assert.equal(componentContracts.card.internalFactory, undefined);
 assert.equal(cardPlatformContract.id, "card");
 assert.equal(cardPlatformContract.source.factory, componentContracts.card.factory);
+assert.equal(cardPlatformContract.source.internalFactory, undefined);
 assert.deepEqual(cardPlatformProps(), componentContracts.card.props.map((prop) => prop.name));
 assert.deepEqual(cardPlatformContract.variants, componentContracts.card.variants);
 assert.deepEqual(cardPlatformContract.states, componentContracts.card.states);
@@ -1401,68 +1401,6 @@ localizedPhoneField.dispatchEvent({ type: "input" });
 assert.equal(localizedPhoneInput.querySelector(".phone-input__country").dataset.country, "MX");
 assert.equal(localizedPhoneInput.querySelector(".phone-input__prefix").textContent, "+52");
 assert.equal(localizedPhoneField.value, "55 5123 4567");
-
-const card = createCard({
-  title: "Fleet spend",
-  value: "$42,800",
-  detail: "Above threshold",
-  status: "Review",
-  icon: "monitoring",
-  variant: "elevated",
-  state: "selected",
-  density: "sm",
-  fullWidth: true,
-  actions: [{ label: "Open" }, { label: "Export", variant: "secondary" }],
-});
-assert.equal(card.tagName, "ARTICLE");
-assert.equal(card.className, "card");
-assert.equal(card.dataset.variant, "elevated");
-assert.equal(card.dataset.state, "selected");
-assert.equal(card.dataset.density, "sm");
-assert.equal(card.dataset.fullWidth, "true");
-assert.equal(card.dataset.interactive, "false");
-assert.equal(card.querySelector(".card__icon").textContent, "monitoring");
-assert.equal(card.querySelector(".card__title").textContent, "Fleet spend");
-assert.equal(card.querySelector(".card__value").textContent, "$42,800");
-assert.equal(card.querySelector(".card__status").textContent, "Review");
-assert.equal(card.querySelectorAll("button").length, 2);
-
-const iconActionCard = createCard({
-  title: "Vehicle",
-  actions: [{ ariaLabel: "Edit vehicle", icon: "edit", iconOnly: true }],
-});
-assert.equal(iconActionCard.querySelector(".icon-button").dataset.density, "md");
-assert.equal(iconActionCard.querySelector(".icon-button__icon").textContent, "edit");
-assert.equal(iconActionCard.dataset.interactive, "false");
-
-let cardActionCount = 0;
-const interactiveCard = createCard({ title: "Station detail", interactive: true, onAction: () => { cardActionCount += 1; } });
-assert.equal(interactiveCard.dataset.interactive, "true");
-assert.equal(interactiveCard.dataset.variant, "default");
-assert.equal(interactiveCard.getAttribute("role"), "button");
-interactiveCard.dispatchEvent({ type: "click" });
-interactiveCard.dispatchEvent({ type: "keydown", key: "Enter", preventDefault() {} });
-assert.equal(cardActionCount, 2);
-
-const loadingCard = createCard({ title: "Fleet spend", state: "loading" });
-assert.equal(loadingCard.getAttribute("aria-busy"), "true");
-assert.equal(loadingCard.querySelector(".spinner").dataset.density, "sm");
-
-const compactCard = createCard({ title: "Tarjeta ****4102", status: "Activa", composition: "compact", density: "sm" });
-assert.equal(compactCard.dataset.composition, "compact");
-
-const mediaCard = createCard({ title: "Programa", detail: "Beneficios de viaje", composition: "media", media: "/media/card.jpg", mediaAlt: "Driver benefits" });
-assert.equal(mediaCard.dataset.composition, "media");
-assert.equal(mediaCard.querySelector(".card__media").getAttribute("alt"), "Driver benefits");
-assert.equal(mediaCard.children[0].className, "card__media");
-assert.equal(mediaCard.children[1].className, "card__body");
-assert.equal(mediaCard.querySelector(".card__body").querySelector(".card__title").textContent, "Programa");
-
-const statsCard = createCard({ title: "Ingresos del mes", value: "2,450", unit: "$", status: "+12.5%", trend: "up", composition: "stats" });
-assert.equal(statsCard.dataset.composition, "stats");
-assert.equal(statsCard.querySelector(".card__title").textContent, "Ingresos del mes");
-assert.equal(statsCard.querySelector(".card__value").textContent, "$2,450");
-assert.equal(statsCard.querySelector(".card__status").dataset.trend, "up");
 
 const checkbox = createTransitionalChoiceCheckbox({
   label: "Send receipt",

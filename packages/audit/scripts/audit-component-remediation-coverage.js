@@ -173,7 +173,6 @@ function kebabToFactoryName(id) {
     button: "createTransitionalActionButton",
     "icon-button": "createTransitionalActionIconButton",
     badge: "createTransitionalBadge",
-    card: "createCard",
     checkbox: "createTransitionalChoiceCheckbox",
     chip: "createTransitionalChip",
     "empty-state": "createEmptyState",
