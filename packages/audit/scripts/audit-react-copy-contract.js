@@ -7,6 +7,7 @@ const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const semanticAriaDefaultsByFile = new Map([
   ["BiometricPrompt.js", ["Biometric authentication"]],
   ["ProgressIndicator.js", ["Progress", "In progress", "Complete", "Unavailable", "Paused at", "Error at"]],
+  ["Slider.js", ["Slider"]],
 ]);
 const visibleTriggerDefaultsByFile = new Map([
   ["Avatar.js", ["Unknown avatar"]],

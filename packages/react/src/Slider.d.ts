@@ -18,7 +18,7 @@ export interface SliderValueMeta {
 }
 
 export interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "type" | "value" | "defaultValue" | "onChange" | "onInput" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label: string;
+  label?: string;
   value?: number;
   min?: number;
   max?: number;
