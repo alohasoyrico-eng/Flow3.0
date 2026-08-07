@@ -15,7 +15,7 @@ function normalizeItems(items) {
     ...item,
     key: itemKey(item) || `tab-${index + 1}`,
     label: item?.label ?? "",
-    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item?.label ?? `Tab ${index + 1}`,
+    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item?.label ?? "",
   }));
 }
 
@@ -24,7 +24,7 @@ function selectedFromItems(items, selectedKey) {
 }
 
 export const Tabs = forwardRef(function Tabs({
-  label = "Tabs",
+  label = "",
   items = [],
   selectedKey,
   variant = "default",

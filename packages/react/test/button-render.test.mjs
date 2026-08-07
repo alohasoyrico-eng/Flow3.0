@@ -799,6 +799,10 @@ assert.match(tabsMarkup, /aria-selected="true"/);
 assert.match(tabsMarkup, /class="tabs__icon"/);
 assert.match(tabsMarkup, /class="tabs__label">Cards<\/span>/);
 assert.match(tabsMarkup, /class="badge"/);
+const unnamedTabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
+  items: [{ key: "overview", icon: "dashboard" }],
+}));
+assert.doesNotMatch(unnamedTabsMarkup, /aria-label="Tabs"|Tab 1/);
 
 const paginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
   label: "Fleet pages",
