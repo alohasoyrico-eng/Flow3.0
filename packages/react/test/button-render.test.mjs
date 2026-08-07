@@ -1209,6 +1209,7 @@ const loadingEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptySt
 }));
 assert.match(loadingEmptyStateMarkup, /data-state="loading"/);
 assert.match(loadingEmptyStateMarkup, /class="spinner"/);
+assert.doesNotMatch(loadingEmptyStateMarkup, /Loading empty state/);
 
 const inheritedEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
   title: "Inherited empty density",
