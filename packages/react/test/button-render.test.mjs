@@ -165,6 +165,7 @@ assert.match(loadingFabMarkup, /disabled=""/);
 assert.match(loadingFabMarkup, /aria-busy="true"/);
 assert.match(loadingFabMarkup, /class="spinner"/);
 assert.doesNotMatch(loadingFabMarkup, /class="fab__icon"/);
+assert.doesNotMatch(loadingFabMarkup, /Saving movement loading|Loading/);
 
 const inheritedFabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton, {
   label: "Inherited fab density",
