@@ -86,6 +86,7 @@ State precedence: disabled, open, focus, default, closed
 
 - Use a trigger with aria-haspopup menu and aria-expanded.
 - Use role menu and menuitem for the floating panel and actions.
+- Keyboard users move through enabled menu items with Arrow keys, Home, and End.
 - Escape closes the menu and returns focus to the trigger.
 - Disabled items remain visible only when they explain unavailable actions.
 - Do not place long forms, filters, or rich content inside Menu.

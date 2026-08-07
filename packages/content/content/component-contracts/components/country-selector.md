@@ -86,6 +86,7 @@ State precedence: disabled, error, open, focus, default
 - Expose combobox/listbox semantics with aria-expanded and aria-controls.
 - Keep country label and calling code available as text.
 - Do not use the flag as the only accessible signal.
+- Escape closes the country list without changing the selected country.
 - Return focus to the trigger after selection.
 
 ## Foundations

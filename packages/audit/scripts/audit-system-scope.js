@@ -12,6 +12,7 @@ const { checkPackageCssContracts } = require("./audit-package-css-contracts.js")
 const { checkPlatformAdapters } = require("./audit-platform-adapters.js");
 const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js");
 const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
+const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
 const { finishAudit } = require("./audit-result.js");
 
 checkSystemArchitectureGate();
@@ -26,5 +27,6 @@ checkPackageCssContracts();
 checkPlatformAdapters();
 checkReactPrimaryContract();
 checkAntiDuplicationGovernance();
+checkManualAccessibility();
 
 finishAudit();

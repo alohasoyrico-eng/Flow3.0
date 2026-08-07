@@ -89,6 +89,7 @@ State precedence: disabled, error, open, focus, empty, filled, default
 - Expose aria-autocomplete=list, aria-expanded, aria-controls, and aria-activedescendant.
 - Keep option text and metadata available as text, not icon-only.
 - Show visible empty-state copy when filtering has no matches.
+- Escape closes the option layer without changing the current input value.
 - Return focus to the input after selecting or clearing.
 
 ## Foundations
