@@ -10,7 +10,7 @@ export type BiometricPromptState = "default" | "focus" | "authenticating" | "suc
 export type BiometricPromptDensity = "sm" | "md" | "lg";
 
 export interface BiometricPromptProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label: string;
+  label?: string;
   description?: string;
   variant?: BiometricPromptVariant;
   state?: BiometricPromptState;

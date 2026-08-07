@@ -58,7 +58,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       role: "group",
-      "aria-label": label ?? "Biometric authentication",
+      "aria-label": label || undefined,
     },
     React.createElement(
       "span",

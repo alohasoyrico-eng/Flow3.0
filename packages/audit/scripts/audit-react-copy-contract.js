@@ -5,6 +5,7 @@ const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días", 
 const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save", "7 days", "30 days", "90 days"];
 const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const semanticAriaDefaultsByFile = new Map([
+  ["BiometricPrompt.js", ["Biometric authentication"]],
   ["ProgressIndicator.js", ["Progress", "In progress", "Complete", "Unavailable", "Paused at", "Error at"]],
 ]);
 const visibleTriggerDefaultsByFile = new Map([

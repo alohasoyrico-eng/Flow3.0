@@ -470,6 +470,9 @@ assert.match(biometricPromptMarkup, /data-state="loading"/);
 assert.match(biometricPromptMarkup, /data-biometric-action=""/);
 assert.match(biometricPromptMarkup, /class="button button--tertiary biometric-prompt__fallback"/);
 assert.match(biometricPromptMarkup, /data-biometric-fallback=""/);
+const unnamedBiometricPromptMarkup = renderToStaticMarkup(React.createElement(BiometricPrompt));
+assert.doesNotMatch(unnamedBiometricPromptMarkup, /Biometric authentication/);
+assert.doesNotMatch(unnamedBiometricPromptMarkup.match(/^<section[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const accordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
   density: "sm",
