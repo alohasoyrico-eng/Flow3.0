@@ -895,14 +895,13 @@ try {
   cleanup();
 
   const segmentChanges = [];
-  const { getByRole: getSegmentRole } = render(React.createElement(SegmentedControl, {
+  const { getByRole: getSegmentRole, rerender: rerenderSegmentedControl } = render(React.createElement(SegmentedControl, {
     label: "View mode",
     items: [
       { key: "list", label: "List" },
       { key: "map", label: "Map", disabled: true },
       { key: "timeline", label: "Timeline" },
     ],
-    selectedKey: "list",
     onValueChange: (key) => segmentChanges.push(key),
   }));
 
@@ -910,10 +909,23 @@ try {
   const timelineSegment = getSegmentRole("tab", { name: /timeline/i });
   assert.equal(listSegment.getAttribute("aria-selected"), "true");
   fireEvent.click(timelineSegment);
+  await waitFor(() => assert.equal(timelineSegment.getAttribute("aria-selected"), "true"));
   assert.deepEqual(segmentChanges, ["timeline"]);
 
   fireEvent.keyDown(listSegment, { key: "ArrowRight" });
-  assert.deepEqual(segmentChanges, ["timeline", "timeline"]);
+  assert.deepEqual(segmentChanges, ["timeline", "list"]);
+
+  rerenderSegmentedControl(React.createElement(SegmentedControl, {
+    label: "View mode",
+    selectedKey: "list",
+    items: [
+      { key: "list", label: "List" },
+      { key: "map", label: "Map", disabled: true },
+      { key: "timeline", label: "Timeline" },
+    ],
+    onValueChange: (key) => segmentChanges.push(key),
+  }));
+  await waitFor(() => assert.equal(listSegment.getAttribute("aria-selected"), "true"));
 
   cleanup();
 
@@ -1088,14 +1100,13 @@ try {
   cleanup();
 
   const tabChanges = [];
-  const { getByRole: getTabsRole } = render(React.createElement(Tabs, {
+  const { getByRole: getTabsRole, rerender: rerenderTabs } = render(React.createElement(Tabs, {
     label: "Component sections",
     items: [
       { key: "overview", label: "Overview" },
       { key: "design", label: "Design", disabled: true },
       { key: "build", label: "Build" },
     ],
-    selectedKey: "overview",
     onValueChange: (key) => tabChanges.push(key),
   }));
 
@@ -1103,11 +1114,24 @@ try {
   const buildTab = getTabsRole("tab", { name: /build/i });
   assert.equal(overviewTab.getAttribute("aria-selected"), "true");
   fireEvent.click(buildTab);
+  await waitFor(() => assert.equal(buildTab.getAttribute("aria-selected"), "true"));
   assert.deepEqual(tabChanges, ["build"]);
 
   fireEvent.keyDown(overviewTab, { key: "ArrowRight" });
-  assert.deepEqual(tabChanges, ["build", "build"]);
+  assert.deepEqual(tabChanges, ["build", "overview"]);
   assert.equal(getTabsRole("tablist", { name: /component sections/i }).dataset.indicatorSynced, "true");
+
+  rerenderTabs(React.createElement(Tabs, {
+    label: "Component sections",
+    selectedKey: "overview",
+    items: [
+      { key: "overview", label: "Overview" },
+      { key: "design", label: "Design", disabled: true },
+      { key: "build", label: "Build" },
+    ],
+    onValueChange: (key) => tabChanges.push(key),
+  }));
+  await waitFor(() => assert.equal(overviewTab.getAttribute("aria-selected"), "true"));
 
   cleanup();
 

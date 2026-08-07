@@ -31,7 +31,7 @@ function nextEnabledKey(items, currentKey, direction) {
 export const SegmentedControl = forwardRef(function SegmentedControl({
   label,
   items,
-  selectedKey = "",
+  selectedKey,
   onValueChange,
   variant = "outlined",
   density,
@@ -42,16 +42,17 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
   const generatedId = useId();
   const controlId = id ?? `segmented-control-${generatedId}`;
   const normalizedItems = useMemo(() => normalizeItems(items), [items]);
+  const isSelectedKeyControlled = selectedKey !== undefined;
   const [currentKey, setCurrentKey] = useState(() => selectedFromItems(normalizedItems, selectedKey));
   const itemRefs = useRef(new Map());
-  const activeKey = selectedKey || currentKey || selectedFromItems(normalizedItems, selectedKey);
+  const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
   const activeIndex = Math.max(0, normalizedItems.findIndex((item) => item.key === activeKey));
   const resolvedLabel = label ?? "Options";
 
   const commitKey = (nextKey, restoreFocus = false) => {
     const option = normalizedItems.find((item) => item.key === nextKey);
     if (!option || option.disabled) return;
-    setCurrentKey(nextKey);
+    if (!isSelectedKeyControlled) setCurrentKey(nextKey);
     onValueChange?.(nextKey);
     if (restoreFocus) requestAnimationFrame(() => itemRefs.current.get(nextKey)?.focus());
   };

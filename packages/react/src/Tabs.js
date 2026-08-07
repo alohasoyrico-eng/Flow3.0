@@ -28,18 +28,19 @@ function selectedFromItems(items, selectedKey) {
 export const Tabs = forwardRef(function Tabs({
   label = "Tabs",
   items = [],
-  selectedKey = "",
+  selectedKey,
   variant = "default",
   onValueChange,
   className = "",
   ...rest
 }, ref) {
   const normalizedItems = useMemo(() => normalizeItems(items), [items]);
+  const isSelectedKeyControlled = selectedKey !== undefined;
   const [currentKey, setCurrentKey] = useState(() => selectedFromItems(normalizedItems, selectedKey));
   const rootRef = useRef(null);
   const tabRefs = useRef(new Map());
   const resolvedVariant = allowedVariants.has(variant) ? variant : "default";
-  const activeKey = selectedKey || currentKey || selectedFromItems(normalizedItems, selectedKey);
+  const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
 
   const syncIndicator = (key = activeKey) => {
     const root = rootRef.current;
@@ -51,8 +52,8 @@ export const Tabs = forwardRef(function Tabs({
   };
 
   useEffect(() => {
-    setCurrentKey(selectedFromItems(normalizedItems, selectedKey));
-  }, [normalizedItems, selectedKey]);
+    if (isSelectedKeyControlled) setCurrentKey(selectedFromItems(normalizedItems, selectedKey));
+  }, [isSelectedKeyControlled, normalizedItems, selectedKey]);
 
   useEffect(() => {
     syncIndicator(activeKey);
@@ -66,7 +67,7 @@ export const Tabs = forwardRef(function Tabs({
   const commitKey = (nextKey, restoreFocus = false) => {
     const tab = normalizedItems.find((item) => item.key === nextKey);
     if (!tab || tab.disabled) return;
-    setCurrentKey(nextKey);
+    if (!isSelectedKeyControlled) setCurrentKey(nextKey);
     onValueChange?.(nextKey);
     const schedule = globalThis.requestAnimationFrame ?? ((callback) => globalThis.setTimeout?.(callback, 0));
     schedule(() => syncIndicator(nextKey));

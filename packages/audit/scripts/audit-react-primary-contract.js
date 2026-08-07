@@ -70,6 +70,7 @@ function checkReactPrimaryContract() {
   checkControlledOpenCoverage(componentFiles, componentContractsSource);
   checkControlledValueCoverage(componentFiles);
   checkControlledCheckedCoverage(componentFiles);
+  checkControlledSelectedKeyCoverage(componentFiles);
 }
 
 function checkReactComponent(file, shared) {
@@ -218,6 +219,21 @@ function checkControlledCheckedCoverage(componentFiles) {
     const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bchecked:\\s*`);
     if (!controlledRerender.test(interactionSource)) {
       add("errors", reactInteractionTestFile, 1, `${componentName} declares isCheckedControlled and must test external checked rerender coverage.`);
+    }
+  }
+}
+
+function checkControlledSelectedKeyCoverage(componentFiles) {
+  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
+  for (const file of componentFiles) {
+    const componentName = path.basename(file, ".js");
+    const sourceFile = path.join(reactSrcDir, file);
+    const source = read(sourceFile);
+    if (!source.includes("isSelectedKeyControlled")) continue;
+
+    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bselectedKey:\\s*`);
+    if (!controlledRerender.test(interactionSource)) {
+      add("errors", reactInteractionTestFile, 1, `${componentName} declares isSelectedKeyControlled and must test external selectedKey rerender coverage.`);
     }
   }
 }
