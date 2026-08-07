@@ -5,6 +5,8 @@ import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDens
 
 const validVariants = new Set(["standard", "dense", "sortable", "selectable", "expandable"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "sorted", "expanded"]);
+const validColumnAlignments = new Set(["right"]);
+const validColumnPriorities = new Set(["primary", "secondary", "tertiary"]);
 
 function sortValue(row, column) {
   if (typeof column.sortValue === "function") return column.sortValue(row);
@@ -129,8 +131,8 @@ export const Table = forwardRef(function Table({
               {
                 key: column.key,
                 scope: "col",
-                "data-align": column.align || undefined,
-                "data-priority": column.priority || undefined,
+                "data-align": normalizeFlowValue(column.align, validColumnAlignments, undefined),
+                "data-priority": normalizeFlowValue(column.priority, validColumnPriorities, undefined),
                 "aria-sort": canSort ? (active ? currentSort.direction : "none") : undefined,
               },
               canSort
@@ -200,9 +202,9 @@ export const Table = forwardRef(function Table({
               "td",
               {
                 key: column.key,
-                "data-align": column.align || undefined,
+                "data-align": normalizeFlowValue(column.align, validColumnAlignments, undefined),
                 "data-mono": column.mono ? "true" : undefined,
-                "data-priority": column.priority || undefined,
+                "data-priority": normalizeFlowValue(column.priority, validColumnPriorities, undefined),
               },
               renderCell(typeof column.render === "function" ? column.render(row) : row[column.key], resolvedDensity || undefined),
             )),

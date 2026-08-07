@@ -5,15 +5,17 @@ export type TableVariant = "standard" | "dense" | "sortable" | "selectable" | "e
 export type TableState = "default" | "hover" | "focus" | "selected" | "sorted" | "expanded";
 export type TableDensity = "sm" | "md" | "lg";
 export type TableSortDirection = "ascending" | "descending";
+export type TableColumnAlign = "left" | "right";
+export type TableColumnPriority = "primary" | "secondary" | "tertiary";
 export type TableRow = Record<string, unknown>;
 
 export interface TableColumn {
   key: string;
   label: string;
   sortable?: boolean;
-  align?: string;
+  align?: TableColumnAlign;
   mono?: boolean;
-  priority?: "primary" | "secondary" | "tertiary" | string;
+  priority?: TableColumnPriority;
   sortValue?: (row: TableRow) => string | number | null | undefined;
   render?: (row: TableRow) => ReactNode;
 }

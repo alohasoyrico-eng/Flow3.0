@@ -4,6 +4,8 @@ import type {
   RefAttributes,
 } from "react";
 import type { routeSummaryPlatformContract } from "@design-system/components/platforms";
+import type { ButtonVariant } from "./Button.js";
+import type { IconButtonVariant } from "./IconButton.js";
 
 export type RouteSummaryVariant = "standard" | "compact" | "compare" | "policy";
 export type RouteSummaryState = "default" | "hover" | "focus" | "selected" | "warning" | "disabled";
@@ -22,7 +24,7 @@ export interface RouteSummaryAction {
   ariaLabel?: string;
   icon?: string;
   trailingIcon?: string;
-  variant?: string;
+  variant?: ButtonVariant | IconButtonVariant;
   intent?: string;
   density?: RouteSummaryDensity;
   disabled?: boolean;
