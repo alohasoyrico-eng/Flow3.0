@@ -200,7 +200,6 @@ import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { createMenu } from "../src/components/overlays.js?v=5";
-import { createTreeView } from "../src/components/interactions.js?v=9";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -646,7 +645,6 @@ assert.deepEqual(Object.keys(biometricPromptPlatformAdapters), ["react"]);
 assert.equal(biometricPromptPlatformAdapters.react.componentName, "BiometricPrompt");
 assert.equal(biometricPromptPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.treeView.factory, "@design-system/react/tree-view");
-assert.equal(componentContracts.treeView.internalFactory, "createTreeView");
 assert.equal(treeViewPlatformContract.id, "tree-view");
 assert.equal(treeViewPlatformContract.source.factory, componentContracts.treeView.factory);
 assert.deepEqual(treeViewPlatformProps(), componentContracts.treeView.props.map((prop) => prop.name));
@@ -1579,52 +1577,6 @@ interactiveMenu.querySelectorAll(".menu__item")[1].click();
 assert.equal(menuSelection.key, "suspend");
 assert.equal(interactiveMenu.querySelector(".menu__panel").hidden, true);
 assert.equal(globalThis.document.activeElement, interactiveMenu.querySelector(".menu__trigger"));
-
-const treeView = createTreeView({ label: "Fleet tree", density: "lg", nodes: [{ label: "Fleet North", level: 1, expanded: true, icon: "account_tree" }, { label: "Cards", level: 2, selected: true }, { label: "Cards ending 4821", level: 5 }] });
-assert.equal(treeView.tagName, "UL");
-assert.equal(treeView.className, "tree-view");
-assert.equal(treeView.dataset.density, "lg");
-assert.equal(treeView.attributes.role, "tree");
-assert.equal(treeView.querySelectorAll(".tree-view__item").length, 3);
-assert.equal(treeView.querySelector(".tree-view__item").attributes["data-tree-item"], "");
-assert.equal(treeView.querySelector(".tree-view__item").getAttribute("aria-expanded"), "true");
-assert.equal(treeView.querySelector(".tree-view__control").attributes["data-tree-control"], "");
-assert.equal(treeView.querySelector(".tree-view__control").dataset.density, "lg");
-assert.equal(treeView.querySelector(".tree-view__control").querySelector(".button__icon").textContent, "account_tree");
-assert.equal(treeView.querySelector(".tree-view__control").querySelector(".button__icon--trailing").textContent, "expand_more");
-assert.equal(treeView.querySelectorAll(".tree-view__control")[1].querySelector(".button__icon"), null);
-assert.equal(treeView.querySelectorAll(".tree-view__item")[2].getAttribute("aria-level"), "5");
-let treeSelection = "";
-let treeExpanded = [];
-const interactiveTree = createTreeView({
-  label: "Fleet tree",
-  nodes: [
-    { key: "fleet", label: "Fleet North", level: 1, expanded: true },
-    { key: "cards", label: "Cards", level: 2, selected: true },
-    { key: "limits", label: "Limits", level: 2 },
-  ],
-  onSelect(key) {
-    treeSelection = key;
-  },
-  onExpandedChange(keys) {
-    treeExpanded = keys;
-  },
-});
-interactiveTree.querySelectorAll(".tree-view__control")[1].dispatchEvent({ type: "keydown", key: "ArrowUp", preventDefault() { this.defaultPrevented = true; } });
-assert.equal(globalThis.document.activeElement, interactiveTree.querySelectorAll(".tree-view__control")[0]);
-interactiveTree.querySelectorAll(".tree-view__control")[0].dispatchEvent({ type: "keydown", key: "ArrowLeft", preventDefault() { this.defaultPrevented = true; } });
-assert.deepEqual(treeExpanded, []);
-assert.equal(interactiveTree.querySelectorAll(".tree-view__item")[0].getAttribute("aria-expanded"), "false");
-assert.equal(interactiveTree.querySelectorAll(".tree-view__control")[0].getAttribute("aria-expanded"), "false");
-assert.equal(interactiveTree.querySelector(".button__icon--trailing").textContent, "expand_more");
-assert.equal(interactiveTree.querySelectorAll(".tree-view__item")[1].hidden, true);
-interactiveTree.querySelectorAll(".tree-view__control")[0].click();
-assert.equal(treeSelection, "fleet");
-assert.deepEqual(treeExpanded, ["fleet"]);
-assert.equal(interactiveTree.querySelectorAll(".tree-view__item")[0].getAttribute("aria-expanded"), "true");
-assert.equal(interactiveTree.querySelectorAll(".tree-view__control")[0].getAttribute("aria-expanded"), "true");
-assert.equal(interactiveTree.querySelector(".button__icon--trailing").textContent, "expand_more");
-assert.equal(interactiveTree.querySelectorAll(".tree-view__item")[1].hidden, false);
 
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");

@@ -827,7 +827,6 @@ export const componentContracts = {
   },
   treeView: {
     factory: "@design-system/react/tree-view",
-    internalFactory: "createTreeView",
     element: "ul",
     purpose: "Render one hierarchical navigation or selection tree with tree and treeitem semantics.",
     variants: ["standard"],

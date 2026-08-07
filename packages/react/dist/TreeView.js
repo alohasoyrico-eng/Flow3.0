@@ -44,7 +44,7 @@ export const TreeView = forwardRef(function TreeView({
   label = "Tree view",
   nodes = [],
   state = "expanded",
-  density = "md",
+  density,
   selectedKey = "",
   onSelect,
   onExpandedChange,
@@ -55,7 +55,7 @@ export const TreeView = forwardRef(function TreeView({
   const [selected, setSelected] = useState(() => selectedKey || normalizedNodes.find((node) => node.selected)?.key || "");
   const [expanded, setExpanded] = useState(() => normalizedNodes.filter((node) => node.expanded).map((node) => node.key));
   const controlRefs = useRef(new Map());
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const resolvedState = normalize(state, validStates, "expanded");
   const visible = visibleKeys(normalizedNodes, expanded);
 
@@ -115,7 +115,7 @@ export const TreeView = forwardRef(function TreeView({
           "data-level": String(node.level),
           role: "none",
           hidden: !isVisible,
-          style: { "--tree-view-depth-offset": String(node.level - 1) },
+          style: { "--comp-tree-view-depth-offset": String(node.level - 1) },
         },
         React.createElement(Button, {
           ref: (control) => {

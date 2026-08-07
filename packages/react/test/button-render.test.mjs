@@ -581,6 +581,12 @@ assert.match(treeViewMarkup, /data-tree-control=""/);
 assert.match(treeViewMarkup, /role="treeitem"/);
 assert.equal((treeViewMarkup.match(/aria-expanded=/g) ?? []).length, 1);
 assert.equal((treeViewMarkup.match(/aria-selected=/g) ?? []).length, 3);
+assert.match(treeViewMarkup, /--comp-tree-view-depth-offset:4/);
+const inheritedTreeViewMarkup = renderToStaticMarkup(React.createElement(TreeView, {
+  label: "Inherited tree",
+  nodes: [{ key: "root", label: "Root", level: 1 }],
+}));
+assert.doesNotMatch(inheritedTreeViewMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const cardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Wallet balance",
