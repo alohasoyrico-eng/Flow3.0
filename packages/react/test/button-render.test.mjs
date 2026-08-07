@@ -2004,6 +2004,7 @@ assert.doesNotMatch(unnamedDatePickerMarkup, /Date picker/);
 assert.doesNotMatch(unnamedDatePickerMarkup, /native picker/);
 assert.doesNotMatch(unnamedDatePickerMarkup, /Date picker calendar/);
 assert.doesNotMatch(unnamedDatePickerMarkup, /Previous month|Next month/);
+assert.doesNotMatch(unnamedDatePickerMarkup, /date-picker__value/);
 
 const dateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
   label: "Reporting range",

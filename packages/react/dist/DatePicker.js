@@ -96,6 +96,7 @@ export const DatePicker = forwardRef(function DatePicker({
   const helperText = error || helper;
   const todayValue = useMemo(() => dateIso(new Date()), []);
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
+  const visibleValue = formatDateLabel(selectedValue, locale) || placeholder;
 
   useEffect(() => {
     if (!isValueControlled) return;
@@ -219,7 +220,7 @@ export const DatePicker = forwardRef(function DatePicker({
         },
       },
       React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "calendar_month"),
-      React.createElement("span", { className: "date-picker__value", "data-date-picker-value": "" }, formatDateLabel(selectedValue, locale) || placeholder),
+      visibleValue ? React.createElement("span", { className: "date-picker__value", "data-date-picker-value": "" }, visibleValue) : null,
     ),
     React.createElement("input", {
       type: "date",
