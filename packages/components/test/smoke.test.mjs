@@ -519,7 +519,6 @@ assert.deepEqual(Object.keys(progressIndicatorPlatformAdapters), ["react"]);
 assert.equal(progressIndicatorPlatformAdapters.react.componentName, "ProgressIndicator");
 assert.equal(progressIndicatorPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.spinner.factory, "@design-system/react/spinner");
-assert.equal(componentContracts.spinner.internalFactory, "createSpinner");
 assert.equal(spinnerPlatformContract.id, "spinner");
 assert.equal(spinnerPlatformContract.source.factory, componentContracts.spinner.factory);
 assert.deepEqual(spinnerPlatformProps(), componentContracts.spinner.props.map((prop) => prop.name));

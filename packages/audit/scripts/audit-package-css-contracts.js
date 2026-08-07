@@ -6,7 +6,7 @@ const {
 } = require("./audit-context.js");
 
 const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css");
-const packageFeedbackFile = path.join(process.cwd(), "packages/components/src/components/feedback.js");
+const packageSpinnerFile = path.join(process.cwd(), "packages/react/src/Spinner.js");
 
 function cssBlocks(text) {
   const blocks = [];
@@ -31,7 +31,7 @@ function selectorKey(block) {
 
 function checkPackageCssContracts() {
   const text = read(packageCssFile);
-  const feedbackSource = read(packageFeedbackFile);
+  const spinnerSource = read(packageSpinnerFile);
   const requiredAliases = [
     "--component-control-min-size",
     "--component-focus-ring-width",
@@ -319,8 +319,8 @@ function checkPackageCssContracts() {
   if (!text.includes("@keyframes spinner-arc-breathe")) {
     add("errors", packageCssFile, 1, "Spinner must define arc breathing keyframes so compact loading is not a flat rotation.");
   }
-  if (!feedbackSource.includes('track.setAttribute("pathLength", "100")') || !feedbackSource.includes('arc.setAttribute("pathLength", "100")')) {
-    add("errors", packageFeedbackFile, 1, "Spinner SVG track and arc must normalize pathLength to 100 so dash rhythm is stable across browsers.");
+  if (!spinnerSource.includes('className: "spinner__track"') || !spinnerSource.includes('className: "spinner__arc"') || !spinnerSource.includes('pathLength: "100"')) {
+    add("errors", packageSpinnerFile, 1, "Spinner SVG track and arc must normalize pathLength to 100 so dash rhythm is stable across browsers.");
   }
   const spinnerArcKeyframes = text.match(/@keyframes\s+spinner-arc-breathe\s*{[\s\S]*?\n}/)?.[0] ?? "";
   if (/stroke-dashoffset/.test(spinnerArcKeyframes)) {

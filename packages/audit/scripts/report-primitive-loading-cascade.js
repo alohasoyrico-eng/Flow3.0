@@ -17,8 +17,9 @@ const jsonOutput = path.join(outputDir, "primitive-loading-cascade-audit.json");
 const markdownOutput = path.join(outputDir, "primitive-loading-cascade-audit.md");
 const tokenCssFile = resolveBoundaryPath("#design-system/tokens-css", "packages/tokens/styles/tokens.css");
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
-const feedbackModuleFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/components/feedback.js");
-const actionsModuleFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/components/actions.js");
+const spinnerModuleFile = path.join(root, "packages/react/src/Spinner.js");
+const buttonModuleFile = path.join(root, "packages/react/src/Button.js");
+const progressIndicatorModuleFile = path.join(root, "packages/react/src/ProgressIndicator.js");
 const loadingSpecFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/loading.json");
 const loadingContractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/loading.md");
 const accessibilityReportFile = path.join(root, "docs/audits/foundation-accessibility-cascade-audit.json");
@@ -234,8 +235,9 @@ function writeReport(report) {
 function createReport() {
   const tokenCss = readIfExists(tokenCssFile);
   const componentCss = readIfExists(componentCssFile);
-  const feedbackSource = readIfExists(feedbackModuleFile);
-  const actionsSource = readIfExists(actionsModuleFile);
+  const spinnerSource = readIfExists(spinnerModuleFile);
+  const buttonSource = readIfExists(buttonModuleFile);
+  const progressIndicatorSource = readIfExists(progressIndicatorModuleFile);
   const docsCssFiles = docsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
   const loadingSpec = readJson(loadingSpecFile)?.artifacts?.primitives?.loading;
   const contract = readIfExists(loadingContractFile);
@@ -263,9 +265,10 @@ function createReport() {
   const rawLoadingDurations = findRawLoadingDurations(scannedCss);
   const componentLoadingTokenUses = countMatches(componentCss, /var\(--(?:sys-loading|component-loading|component-duration-loading|component-duration-shimmer|component-duration-progress|component-ease-loading)[a-z0-9-]*/g);
   const docsLoadingTokenUses = docsCssFiles.reduce((total, file) => total + countMatches(readIfExists(file), /var\(--(?:sys-loading|component-loading|component-duration-loading|component-duration-shimmer|component-duration-progress|component-ease-loading|comp-[a-z0-9-]+-loading)[a-z0-9-]*/g), 0);
-  const ariaBusyUses = countMatches(feedbackSource, /aria-busy/g) + countMatches(actionsSource, /aria-busy/g);
-  const statusRoleUses = countMatches(feedbackSource, /role", "status"|role', 'status'/g) + countMatches(actionsSource, /role", "status"|role', 'status'/g);
-  const progressbarRoleUses = countMatches(feedbackSource, /role", "progressbar"|role', 'progressbar'/g);
+  const loadingComponentSource = [spinnerSource, buttonSource, progressIndicatorSource].join("\n");
+  const ariaBusyUses = countMatches(loadingComponentSource, /aria-busy/g);
+  const statusRoleUses = countMatches(loadingComponentSource, /role:\s*isDecorative\s*\?\s*undefined\s*:\s*"status"|role",\s*"status"|role', 'status'/g);
+  const progressbarRoleUses = countMatches(loadingComponentSource, /role:\s*"progressbar"|role",\s*"progressbar"|role', 'progressbar'/g);
   const componentRefs = collectArtifactRefs(componentDir, /Loading|loading|skeleton|stale|sync|progress|aria-busy/i);
   const patternRefs = collectArtifactRefs(patternDir, /Loading|loading|skeleton|stale|sync|progress|aria-busy/i);
   const templateRefs = collectArtifactRefs(templateDir, /Loading|loading|skeleton|stale|sync|progress|aria-busy/i);

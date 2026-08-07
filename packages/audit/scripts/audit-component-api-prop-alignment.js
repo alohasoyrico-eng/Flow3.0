@@ -11,9 +11,7 @@ const componentSourceRoot = path.join(root, "packages/components/src/components"
 
 const ignoredParserTokens = new Set(["false", "true"]);
 const publicPropAliases = {};
-const unprefixedFactoryNames = new Map([
-  ["spinner", "createSpinner"],
-]);
+const unprefixedFactoryNames = new Map([]);
 
 function factoryName(id) {
   if (unprefixedFactoryNames.has(id)) return unprefixedFactoryNames.get(id);

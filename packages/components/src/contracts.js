@@ -551,7 +551,6 @@ export const componentContracts = {
   },
   spinner: {
     factory: "@design-system/react/spinner",
-    internalFactory: "createSpinner",
     element: "span",
     purpose: "Indicate compact indeterminate loading without implying progress value.",
     variants: ["circular"],

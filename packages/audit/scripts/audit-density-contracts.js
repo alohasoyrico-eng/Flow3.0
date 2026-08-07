@@ -12,7 +12,6 @@ const sourceFiles = {
   choices: path.join(root, "packages/components/src/components/choices.js"),
   commerce: path.join(root, "packages/components/src/components/commerce.js"),
   display: path.join(root, "packages/components/src/components/display.js"),
-  feedback: path.join(root, "packages/components/src/components/feedback.js"),
   fields: path.join(root, "packages/components/src/components/fields.js"),
   interactions: path.join(root, "packages/components/src/components/interactions.js"),
   navigation: path.join(root, "packages/components/src/components/navigation.js"),
@@ -21,13 +20,13 @@ const sourceFiles = {
 };
 
 const directDensityComponents = [
-  { id: "spinner", factory: "createSpinner", source: "feedback", selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size" },
   { id: "breadcrumbs", factory: "createBreadcrumbs", source: "navigation", selector: '.breadcrumbs[data-density="sm"]', token: "--comp-breadcrumbs-target-block" },
   { id: "pagination", factory: "createPagination", source: "navigation", selector: '.pagination[data-density="sm"]', token: "--comp-pagination-size" },
   { id: "stepper", factory: "createStepper", source: "navigation", selector: '.stepper[data-density="sm"]', token: "--comp-stepper-marker-size" },
 ];
 
 const reactDensityComponents = [
+  { id: "spinner", file: path.join(root, "packages/react/src/Spinner.js"), selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size", snippets: ['"data-density": normalizeDensity(density)'] },
   { id: "button", file: path.join(root, "packages/react/src/Button.js"), selector: '.button[data-density="sm"]', token: "--button-current-size", snippets: ['"data-density": density || undefined'] },
   { id: "iconButton", file: path.join(root, "packages/react/src/IconButton.js"), selector: '.icon-button[data-density="sm"]', token: "--icon-button-size", snippets: ['"data-density": density || undefined'] },
   { id: "input", file: path.join(root, "packages/react/src/Input.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },

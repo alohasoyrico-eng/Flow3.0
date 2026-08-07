@@ -218,6 +218,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Date Picker Hydrator", "hydrateTransitionalDatePicker", "specializedInputs"],
     ["Date Range Picker", "createTransitionalDateRangePicker", "specializedInputs"],
     ["Date Range Picker Hydrator", "hydrateTransitionalDateRangePicker", "specializedInputs"],
+    ["Spinner", "createSpinner", "feedback"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {
