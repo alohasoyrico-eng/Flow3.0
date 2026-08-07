@@ -16,7 +16,7 @@ Object.defineProperty(globalThis, "navigator", {
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -168,6 +168,27 @@ try {
   fireEvent.click(revealButton);
   await waitFor(() => assert.equal(securityCodeInput.type, "text"));
   assert.equal(revealButton.getAttribute("aria-pressed"), "true");
+
+  cleanup();
+
+  const checkboxChanges = [];
+  const { getByLabelText: getCheckboxLabel } = render(React.createElement(Checkbox, {
+    label: "Enable fuel card",
+    value: "fuel-card",
+    indeterminate: true,
+    onCheckedChange: (checked, meta) => checkboxChanges.push({ checked, meta }),
+  }));
+
+  const checkboxInput = getCheckboxLabel(/enable fuel card/i);
+  assert.equal(checkboxInput.indeterminate, true);
+  assert.equal(checkboxInput.getAttribute("aria-checked"), "mixed");
+
+  fireEvent.click(checkboxInput);
+  await waitFor(() => assert.equal(checkboxInput.checked, true));
+  assert.equal(checkboxInput.indeterminate, false);
+  assert.equal(checkboxInput.getAttribute("aria-checked"), "true");
+  assert.equal(checkboxChanges.at(-1).checked, true);
+  assert.deepEqual(checkboxChanges.at(-1).meta, { indeterminate: false, value: "fuel-card" });
 } finally {
   cleanup();
   dom.window.close();

@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 25,
-    "review": 31,
+    "pass": 26,
+    "review": 30,
     "fail": 0,
-    "missingTestCallbacks": 42
+    "missingTestCallbacks": 41
   },
   "components": [
     {
@@ -211,12 +211,12 @@
       "sourceCovered": [
         "onCheckedChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onCheckedChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Chip",
