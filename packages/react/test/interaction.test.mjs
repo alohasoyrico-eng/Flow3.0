@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -936,6 +936,28 @@ try {
 
   fireEvent.change(getTextAreaLabel(/notes/i), { target: { value: "Blocked" } });
   assert.equal(textAreaChanges.length, 1);
+
+  cleanup();
+
+  const toastActions = [];
+  const toastDismissals = [];
+  const { getByRole: getToastRole } = render(React.createElement(Toast, {
+    label: "Route saved",
+    description: "Changes are available.",
+    actionLabel: "Undo",
+    dismissible: true,
+    onAction: () => toastActions.push("undo"),
+    onDismiss: () => toastDismissals.push("dismiss"),
+  }));
+
+  const toastRegion = getToastRole("status");
+  assert.equal(toastRegion.hidden, false);
+  fireEvent.click(getToastRole("button", { name: /undo/i }));
+  assert.deepEqual(toastActions, ["undo"]);
+
+  fireEvent.click(getToastRole("button", { name: /dismiss notification/i }));
+  assert.deepEqual(toastDismissals, ["dismiss"]);
+  assert.equal(toastRegion.hidden, true);
 } finally {
   cleanup();
   dom.window.close();

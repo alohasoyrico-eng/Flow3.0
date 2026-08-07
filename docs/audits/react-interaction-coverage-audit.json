@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 53,
-    "review": 3,
+    "pass": 54,
+    "review": 2,
     "fail": 0,
-    "missingTestCallbacks": 4
+    "missingTestCallbacks": 2
   },
   "components": [
     {
@@ -852,13 +852,13 @@
         "onAction",
         "onDismiss"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onAction",
         "onDismiss"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Tooltip",
