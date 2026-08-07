@@ -38,9 +38,9 @@ const moduleRules = [
   {
     id: "feedback",
     file: "packages/components/src/components/feedback.js",
-    exports: ["createEmptyState", "createErrorPanel", "createProgressIndicator", "createSkeleton", "createSpinner"],
+    exports: ["createErrorPanel", "createProgressIndicator", "createSkeleton", "createSpinner"],
     publicExports: [],
-    internalExports: ["createEmptyState", "createErrorPanel", "createProgressIndicator", "createSkeleton", "createSpinner"],
+    internalExports: ["createErrorPanel", "createProgressIndicator", "createSkeleton", "createSpinner"],
   },
   {
     id: "fields",

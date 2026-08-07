@@ -335,6 +335,21 @@ function checkReactOnlyComponentBoundaries() {
       pattern: /import\s*\{[^}]*createInlineValidation[^}]*\}|createInlineValidation\(/,
       message: "Inline Validation smoke coverage must use React render tests, not the removed DOM factory.",
     },
+    {
+      file: path.join(root, "packages/components/src/components/feedback.js"),
+      pattern: /export function createEmptyState\b/,
+      message: "Empty State must not reintroduce a DOM factory; React EmptyState is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createEmptyState"/,
+      message: "Empty State contract must not name a DOM internalFactory; React EmptyState owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createEmptyState[^}]*\}|createEmptyState\(/,
+      message: "Empty State smoke coverage must use React render tests, not the removed DOM factory.",
+    },
   ];
   for (const check of checks) {
     if (!fs.existsSync(check.file)) continue;

@@ -173,65 +173,6 @@ export function createSkeleton({
   return skeleton;
 }
 
-export function createEmptyState({
-  title,
-  description = "",
-  icon = "",
-  action,
-  variant = "first-use",
-  state = "default",
-  density = "md",
-  fullWidth = false,
-  onAction,
-} = {}) {
-  const resolvedVariant = ["first-use", "search-empty", "permission", "error", "maintenance"].includes(variant) ? variant : "first-use";
-  const resolvedDensity = ["sm", "md", "lg"].includes(density) ? density : "md";
-  const resolvedState = ["default", "action", "search-empty", "permission", "loading", "error"].includes(state) ? state : "default";
-  const empty = document.createElement("section");
-  empty.className = "empty-state";
-  empty.dataset.variant = resolvedVariant;
-  empty.dataset.state = resolvedState;
-  empty.dataset.density = resolvedDensity;
-  empty.dataset.fullWidth = String(Boolean(fullWidth));
-
-  if (icon) {
-    const iconNode = document.createElement("span");
-    iconNode.className = "empty-state__icon";
-    iconNode.setAttribute("aria-hidden", "true");
-    if (resolvedState === "loading") {
-      iconNode.append(createSpinner({ label: "Loading empty state", density: "sm", decorative: true }));
-    } else {
-      setIconGlyph(iconNode, icon);
-    }
-    empty.append(iconNode);
-  }
-
-  const titleNode = document.createElement("h3");
-  titleNode.className = "empty-state__title";
-  titleNode.textContent = title ?? "No results";
-  empty.append(titleNode);
-
-  if (description) {
-    const descriptionNode = document.createElement("p");
-    descriptionNode.className = "empty-state__description";
-    descriptionNode.textContent = description;
-    empty.append(descriptionNode);
-  }
-
-  if (action?.label) {
-    const actionNode = createTransitionalActionButton({
-      ...action,
-      density: action.density ?? resolvedDensity,
-      variant: action.variant ?? "primary",
-    });
-    actionNode.addEventListener?.("click", () => {
-      if (typeof onAction === "function") onAction(action.key ?? action.label);
-    });
-    empty.append(actionNode);
-  }
-  return empty;
-}
-
 export function createErrorPanel({
   label,
   description = "",

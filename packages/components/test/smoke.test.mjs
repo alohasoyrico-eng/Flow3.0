@@ -685,7 +685,6 @@ assert.deepEqual(Object.keys(animatedMomentPlatformAdapters), ["react"]);
 assert.equal(animatedMomentPlatformAdapters.react.componentName, "AnimatedMoment");
 assert.equal(animatedMomentPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.emptyState.factory, "@design-system/react/empty-state");
-assert.equal(componentContracts.emptyState.internalFactory, "createEmptyState");
 assert.equal(emptyStatePlatformContract.id, "empty-state");
 assert.equal(emptyStatePlatformContract.source.factory, componentContracts.emptyState.factory);
 assert.deepEqual(emptyStatePlatformProps(), componentContracts.emptyState.props.map((prop) => prop.name));

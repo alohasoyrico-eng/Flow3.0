@@ -902,7 +902,6 @@ export const componentContracts = {
   },
   emptyState: {
     factory: "@design-system/react/empty-state",
-    internalFactory: "createEmptyState",
     element: "section",
     purpose: "Explain a bounded empty condition with title, optional description, icon, and one local action.",
     variants: ["first-use", "search-empty", "permission", "error", "maintenance"],

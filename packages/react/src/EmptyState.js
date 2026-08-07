@@ -15,10 +15,6 @@ function normalizeState(state) {
   return validStates.has(state) ? state : "default";
 }
 
-function normalizeDensity(density) {
-  return validDensities.has(density) ? density : "md";
-}
-
 export const EmptyState = forwardRef(function EmptyState({
   title,
   label,
@@ -27,7 +23,7 @@ export const EmptyState = forwardRef(function EmptyState({
   action,
   variant = "first-use",
   state = "default",
-  density = "md",
+  density,
   fullWidth = false,
   onAction,
   className = "",
@@ -38,7 +34,7 @@ export const EmptyState = forwardRef(function EmptyState({
   const titleId = id ? `${id}-title` : `empty-state-title-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalizeState(state);
-  const resolvedDensity = normalizeDensity(density);
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const resolvedTitle = title ?? label ?? "No results";
   const showIcon = Boolean(icon) || resolvedState === "loading";
   const actionLabel = action?.label;
@@ -53,7 +49,7 @@ export const EmptyState = forwardRef(function EmptyState({
       "aria-labelledby": titleId,
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "data-full-width": String(Boolean(fullWidth)),
     },
     showIcon
@@ -73,7 +69,7 @@ export const EmptyState = forwardRef(function EmptyState({
       ? React.createElement(Button, {
         ...action,
         label: actionLabel,
-        density: action.density ?? resolvedDensity,
+        density: action.density ?? (resolvedDensity || undefined),
         variant: action.variant ?? "primary",
         onClick: (event) => {
           action.onClick?.(event);

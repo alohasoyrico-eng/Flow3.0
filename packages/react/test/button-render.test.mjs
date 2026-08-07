@@ -1076,6 +1076,13 @@ const loadingEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptySt
 assert.match(loadingEmptyStateMarkup, /data-state="loading"/);
 assert.match(loadingEmptyStateMarkup, /class="spinner"/);
 
+const inheritedEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
+  title: "Inherited empty density",
+  action: { label: "Retry" },
+}));
+assert.doesNotMatch(inheritedEmptyStateMarkup.match(/^<section[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(inheritedEmptyStateMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const errorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
   label: "Sync failed",
   description: "We could not load the latest card data.",
