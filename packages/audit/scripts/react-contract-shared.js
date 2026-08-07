@@ -1,0 +1,25 @@
+const inheritedReactPropNames = new Set([
+  "children",
+  "className",
+  "style",
+  "id",
+  "role",
+  "tabIndex",
+  "title",
+  "href",
+  "onClick",
+  "name",
+  "placeholder",
+  "disabled",
+  "required",
+  "type",
+  "inputMode",
+  "rows",
+  "min",
+  "max",
+  "value",
+  "checked",
+  "defaultValue",
+]);
+
+module.exports = { inheritedReactPropNames };

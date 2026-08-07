@@ -765,6 +765,7 @@ export const componentContracts = {
     intents: ["data"],
     states: ["default", "hover", "focus", "selected", "sorted", "expanded"],
     props: [
+      { name: "label", type: "string", required: false },
       { name: "columns", type: "Array<{ key: string, label: string, sortable?: boolean, align?: string, mono?: boolean, sortValue?: Function, render?: Function }>", required: true },
       { name: "rows", type: "Array<Record<string, string | number | object>>", required: true },
       { name: "rowKey", type: "string", required: true },
