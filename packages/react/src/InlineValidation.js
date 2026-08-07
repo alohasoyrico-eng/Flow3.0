@@ -52,7 +52,8 @@ export const InlineValidation = forwardRef(function InlineValidation({
     },
     showField
       ? React.createElement(Input, {
-          label: label ?? "Input",
+          label: label ?? "",
+          "aria-label": label ? undefined : "Input",
           value,
           state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : value ? "filled" : "default",
           disabled: resolvedState === "disabled",

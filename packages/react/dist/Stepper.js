@@ -5,10 +5,11 @@ import { flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps }
 const allowedOrientations = new Set(["horizontal", "vertical"]);
 
 function normalizeSteps(steps) {
-  const sourceSteps = Array.isArray(steps) && steps.length ? steps : [{ label: "Step 1" }];
+  const sourceSteps = Array.isArray(steps) ? steps : [];
   return sourceSteps.map((step, index) => ({
     ...step,
-    label: step?.label ?? `Step ${index + 1}`,
+    label: step?.label ?? "",
+    ariaLabel: step?.ariaLabel ?? step?.["aria-label"] ?? step?.label ?? `Step ${index + 1}`,
     description: step?.description ?? "",
   }));
 }
@@ -47,6 +48,7 @@ export const Stepper = forwardRef(function Stepper({
           className: "stepper__item",
           ...flowStateProps(stepState),
           "aria-current": index === currentIndex ? "step" : undefined,
+          "aria-label": step.label ? undefined : step.ariaLabel,
         },
         React.createElement(
           "span",
@@ -56,7 +58,7 @@ export const Stepper = forwardRef(function Stepper({
         React.createElement(
           "span",
           { className: "stepper__text" },
-          React.createElement("strong", null, step.label),
+          step.label ? React.createElement("strong", null, step.label) : null,
           step.description ? React.createElement("small", null, step.description) : null,
         ),
       );
