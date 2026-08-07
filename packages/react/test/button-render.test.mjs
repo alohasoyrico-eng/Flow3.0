@@ -1711,6 +1711,8 @@ assert.doesNotMatch(inheritedPhoneInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "",
 const datePickerMarkup = renderToStaticMarkup(React.createElement(DatePicker, {
   label: "Service date",
   value: "2026-07-13",
+  locale: "es-MX",
+  weekdays: ["L", "M", "X", "J", "V", "S", "D"],
   helper: "One operational date.",
   min: "2026-01-01",
   max: "2026-12-31",
@@ -1753,7 +1755,13 @@ assert.doesNotMatch(inheritedDatePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /
 const dateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
   label: "Reporting range",
   value: { from: "2026-07-01", to: "2026-07-15" },
+  locale: "es-MX",
+  weekdays: ["L", "M", "X", "J", "V", "S", "D"],
   helper: "One bounded date range.",
+  presetItems: [
+    { label: "Last 7 days", days: 7 },
+    { label: "Last 30 days", days: 30 },
+  ],
   density: "sm",
   state: "selected",
 }));

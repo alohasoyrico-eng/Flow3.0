@@ -18,6 +18,11 @@ export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButt
   density?: DateRangePickerDensity;
   state?: DateRangePickerState;
   invalid?: boolean;
+  locale?: string | string[];
+  weekdays?: string[];
+  calendarLabel?: string;
+  previousMonthLabel?: string;
+  nextMonthLabel?: string;
   presets?: boolean;
   presetItems?: DateRangePickerPreset[];
   open?: boolean;

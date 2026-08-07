@@ -35,12 +35,12 @@ function autocompleteForVariant(variant) {
   return undefined;
 }
 
-function formatValue(value, variant) {
+function formatValue(value, variant, locale) {
   const stringValue = value == null ? "" : String(value);
   if (!stringValue || variant !== "currency") return stringValue;
   const numeric = Number(stringValue.replace(/[^\d.-]/g, ""));
   if (!Number.isFinite(numeric)) return stringValue;
-  return new Intl.NumberFormat("es-MX", {
+  return new Intl.NumberFormat(locale, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(numeric);
@@ -83,6 +83,7 @@ export const Input = forwardRef(function Input({
   autocomplete,
   align = "start",
   revealable = false,
+  locale,
   onValueChange,
   className = "",
   id,
@@ -140,7 +141,7 @@ export const Input = forwardRef(function Input({
         className: "input",
         name,
         type: inputType,
-        value: formatValue(currentValue, resolvedVariant),
+        value: formatValue(currentValue, resolvedVariant, locale),
         placeholder,
         disabled: isDisabled,
         required,

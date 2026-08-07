@@ -1,8 +1,8 @@
 const { fs, path, root, read, add } = require("./audit-context.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
-const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días"];
-const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save"];
+const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días", "es-MX", "\"L\", \"M\", \"X\", \"J\", \"V\", \"S\", \"D\""];
+const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save", "7 days", "30 days", "90 days"];
 const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const visibleTriggerDefaultsByFile = new Map([
   ["Dialog.js", ["Dialog", "Open dialog"]],

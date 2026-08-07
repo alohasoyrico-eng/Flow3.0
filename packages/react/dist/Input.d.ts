@@ -28,6 +28,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   loading?: boolean;
   align?: InputAlign;
   revealable?: boolean;
+  locale?: string | string[];
   autocomplete?: string;
   onValueChange?: (value: string, meta: InputValueMeta) => void;
 }

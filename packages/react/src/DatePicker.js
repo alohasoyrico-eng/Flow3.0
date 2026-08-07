@@ -14,22 +14,22 @@ function dateIso(date) {
   return `${date.getFullYear()}-${month}-${day}`;
 }
 
-function formatDateLabel(value) {
+function formatDateLabel(value, locale) {
   const date = parseDate(value);
   if (!date) return "";
-  return new Intl.DateTimeFormat("es-MX", { day: "2-digit", month: "short", year: "numeric" })
+  return new Intl.DateTimeFormat(locale, { day: "2-digit", month: "short", year: "numeric" })
     .format(date)
     .replace(".", "");
 }
 
-function formatDateLongLabel(value) {
+function formatDateLongLabel(value, locale) {
   const date = parseDate(value);
   if (!date) return "";
-  return new Intl.DateTimeFormat("es-MX", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(date);
+  return new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(date);
 }
 
-function formatMonthLabel(date) {
-  const label = new Intl.DateTimeFormat("es-MX", { month: "long", year: "numeric" }).format(date);
+function formatMonthLabel(date, locale) {
+  const label = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(date);
   return label.charAt(0).toUpperCase() + label.slice(1);
 }
 
@@ -68,6 +68,11 @@ export const DatePicker = forwardRef(function DatePicker({
   density,
   state,
   invalid = false,
+  locale,
+  weekdays = [],
+  calendarLabel,
+  previousMonthLabel = "Previous month",
+  nextMonthLabel = "Next month",
   open: openProp,
   onValueChange,
   onOpenChange,
@@ -146,7 +151,7 @@ export const DatePicker = forwardRef(function DatePicker({
       "data-date-picker-day": isoValue,
       "data-today": isoValue === todayValue ? "true" : undefined,
       "aria-current": isoValue === todayValue ? "date" : undefined,
-      "aria-label": formatDateLongLabel(isoValue),
+      "aria-label": formatDateLongLabel(isoValue, locale),
       "aria-pressed": String(isoValue === selectedValue),
       onClick: () => {
         if (!isDisabled) commitValue(isoValue);
@@ -214,7 +219,7 @@ export const DatePicker = forwardRef(function DatePicker({
         },
       },
       React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "calendar_month"),
-      React.createElement("span", { className: "date-picker__value", "data-date-picker-value": "" }, formatDateLabel(selectedValue) || placeholder),
+      React.createElement("span", { className: "date-picker__value", "data-date-picker-value": "" }, formatDateLabel(selectedValue, locale) || placeholder),
     ),
     React.createElement("input", {
       type: "date",
@@ -239,7 +244,7 @@ export const DatePicker = forwardRef(function DatePicker({
         "data-date-picker-panel": "",
         role: "dialog",
         "aria-modal": "false",
-        "aria-label": label ? `${label} calendar` : "Date picker calendar",
+        "aria-label": calendarLabel || (label ? `${label} calendar` : "Date picker calendar"),
         onKeyDown: (event) => {
           if (event.key !== "Escape") return;
           event.preventDefault();
@@ -252,14 +257,14 @@ export const DatePicker = forwardRef(function DatePicker({
         React.createElement("button", {
           type: "button",
           className: "date-picker__nav",
-          "aria-label": "Mes anterior",
+          "aria-label": previousMonthLabel,
           onClick: () => moveMonth(-1),
         }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_left")),
-        React.createElement("strong", { id: monthId, "data-date-picker-month": "" }, formatMonthLabel(viewDate)),
+        React.createElement("strong", { id: monthId, "data-date-picker-month": "" }, formatMonthLabel(viewDate, locale)),
         React.createElement("button", {
           type: "button",
           className: "date-picker__nav",
-          "aria-label": "Mes siguiente",
+          "aria-label": nextMonthLabel,
           onClick: () => moveMonth(1),
         }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_right")),
       ),
@@ -271,7 +276,7 @@ export const DatePicker = forwardRef(function DatePicker({
           role: "grid",
           "aria-labelledby": monthId,
         },
-        ["L", "M", "X", "J", "V", "S", "D"].map((day) => React.createElement("span", { key: day, className: "date-picker__weekday", role: "columnheader" }, day)),
+        weekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)),
         dayButtons,
       ),
     ),

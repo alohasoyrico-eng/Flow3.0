@@ -14,22 +14,22 @@ function dateIso(date) {
   return `${date.getFullYear()}-${month}-${day}`;
 }
 
-function formatDateLabel(value) {
+function formatDateLabel(value, locale) {
   const date = parseDate(value);
   if (!date) return "";
-  return new Intl.DateTimeFormat("es-MX", { day: "2-digit", month: "short", year: "numeric" })
+  return new Intl.DateTimeFormat(locale, { day: "2-digit", month: "short", year: "numeric" })
     .format(date)
     .replace(".", "");
 }
 
-function formatDateLongLabel(value) {
+function formatDateLongLabel(value, locale) {
   const date = parseDate(value);
   if (!date) return "";
-  return new Intl.DateTimeFormat("es-MX", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(date);
+  return new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(date);
 }
 
-function formatMonthLabel(date) {
-  const label = new Intl.DateTimeFormat("es-MX", { month: "long", year: "numeric" }).format(date);
+function formatMonthLabel(date, locale) {
+  const label = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(date);
   return label.charAt(0).toUpperCase() + label.slice(1);
 }
 
@@ -56,16 +56,10 @@ function clampViewDate(value) {
   return parseDate(value) ?? new Date();
 }
 
-function rangeLabel({ from, to, placeholder }) {
+function rangeLabel({ from, to, placeholder, locale }) {
   if (!from) return placeholder;
-  return `${formatDateLabel(from)} - ${to ? formatDateLabel(to) : "..."}`;
+  return `${formatDateLabel(from, locale)} - ${to ? formatDateLabel(to, locale) : "..."}`;
 }
-
-const defaultPresets = Object.freeze([
-  { label: "7 days", days: 7 },
-  { label: "30 days", days: 30 },
-  { label: "90 days", days: 90 },
-]);
 
 export const DateRangePicker = forwardRef(function DateRangePicker({
   label,
@@ -79,7 +73,12 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   density,
   state,
   invalid = false,
-  presets = true,
+  locale,
+  weekdays = [],
+  calendarLabel,
+  previousMonthLabel = "Previous month",
+  nextMonthLabel = "Next month",
+  presets,
   presetItems,
   open: openProp,
   onValueChange,
@@ -106,7 +105,8 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const resolvedState = resolveDateRangePickerState({ disabled, error, invalid, state, from: range.from, to: range.to });
   const todayValue = useMemo(() => dateIso(new Date()), []);
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
-  const presetOptions = presetItems ?? defaultPresets;
+  const presetOptions = Array.isArray(presetItems) ? presetItems : [];
+  const showPresets = presets ?? presetOptions.length > 0;
 
   useEffect(() => {
     if (!isValueControlled) return;
@@ -186,7 +186,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       "data-range-edge": isFrom ? "start" : isTo ? "end" : undefined,
       "data-in-range": inRange ? "true" : undefined,
       "aria-current": isoValue === todayValue ? "date" : undefined,
-      "aria-label": formatDateLongLabel(isoValue),
+      "aria-label": formatDateLongLabel(isoValue, locale),
       "aria-pressed": String(isFrom || isTo),
       onClick: () => selectDate(isoValue),
       onKeyDown: (event) => {
@@ -254,7 +254,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         },
       },
       React.createElement("span", { className: "field__icon date-picker__icon date-range-picker__icon", "aria-hidden": "true" }, "date_range"),
-      React.createElement("span", { className: "date-picker__value date-range-picker__value", "data-date-range-picker-value": "" }, rangeLabel({ ...range, placeholder })),
+      React.createElement("span", { className: "date-picker__value date-range-picker__value", "data-date-range-picker-value": "" }, rangeLabel({ ...range, placeholder, locale })),
     ),
     React.createElement("input", {
       type: "date",
@@ -285,14 +285,14 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         "data-date-range-picker-panel": "",
         role: "dialog",
         "aria-modal": "false",
-        "aria-label": label ? `${label} calendar` : "Date range calendar",
+        "aria-label": calendarLabel || (label ? `${label} calendar` : "Date range calendar"),
         onKeyDown: (event) => {
           if (event.key !== "Escape") return;
           event.preventDefault();
           setOpen(false, true);
         },
       },
-      presets
+      showPresets
         ? React.createElement("div", { className: "date-range-picker__presets" }, presetOptions.map((preset) => React.createElement("button", {
           key: `${preset.label}-${preset.days}`,
           type: "button",
@@ -306,14 +306,14 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         React.createElement("button", {
           type: "button",
           className: "date-picker__nav",
-          "aria-label": "Mes anterior",
+          "aria-label": previousMonthLabel,
           onClick: () => moveMonth(-1),
         }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_left")),
-        React.createElement("strong", { id: monthId, "data-date-range-picker-month": "" }, formatMonthLabel(viewDate)),
+        React.createElement("strong", { id: monthId, "data-date-range-picker-month": "" }, formatMonthLabel(viewDate, locale)),
         React.createElement("button", {
           type: "button",
           className: "date-picker__nav",
-          "aria-label": "Mes siguiente",
+          "aria-label": nextMonthLabel,
           onClick: () => moveMonth(1),
         }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_right")),
       ),
@@ -325,7 +325,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
           role: "grid",
           "aria-labelledby": monthId,
         },
-        ["L", "M", "X", "J", "V", "S", "D"].map((day) => React.createElement("span", { key: day, className: "date-picker__weekday", role: "columnheader" }, day)),
+        weekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)),
         dayButtons,
       ),
     ),

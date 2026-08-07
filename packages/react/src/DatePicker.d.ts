@@ -16,6 +16,11 @@ export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   density?: DatePickerDensity;
   state?: DatePickerState;
   invalid?: boolean;
+  locale?: string | string[];
+  weekdays?: string[];
+  calendarLabel?: string;
+  previousMonthLabel?: string;
+  nextMonthLabel?: string;
   open?: boolean;
   onValueChange?: (value: string) => void;
   onOpenChange?: (open: boolean) => void;

@@ -406,6 +406,7 @@ try {
   const { getByRole: getDateRole, rerender: rerenderDatePicker } = render(React.createElement(DatePicker, {
     label: "Service date",
     value: "2026-07-13",
+    locale: "es-MX",
     min: "2026-07-01",
     max: "2026-07-31",
     onValueChange: (value) => dateValues.push(value),
@@ -426,6 +427,7 @@ try {
   rerenderDatePicker(React.createElement(DatePicker, {
     label: "Service date",
     value: "2026-07-20",
+    locale: "es-MX",
     min: "2026-07-01",
     max: "2026-07-31",
     onValueChange: (value) => dateValues.push(value),
@@ -436,6 +438,7 @@ try {
   rerenderDatePicker(React.createElement(DatePicker, {
     label: "Service date",
     value: "2026-07-20",
+    locale: "es-MX",
     min: "2026-07-01",
     max: "2026-07-31",
     open: true,
@@ -447,6 +450,7 @@ try {
   rerenderDatePicker(React.createElement(DatePicker, {
     label: "Service date",
     value: "2026-07-20",
+    locale: "es-MX",
     min: "2026-07-01",
     max: "2026-07-31",
     open: false,
@@ -462,6 +466,7 @@ try {
   const { getByRole: getDateRangeRole, rerender: rerenderDateRangePicker } = render(React.createElement(DateRangePicker, {
     label: "Service range",
     from: "2026-07-01",
+    locale: "es-MX",
     presets: false,
     onValueChange: (value) => dateRangeValues.push(value),
     onOpenChange: (open) => dateRangeOpenChanges.push(open),
@@ -480,6 +485,7 @@ try {
   rerenderDateRangePicker(React.createElement(DateRangePicker, {
     label: "Service range",
     value: { from: "2026-07-10", to: "2026-07-20" },
+    locale: "es-MX",
     presets: false,
     onValueChange: (value) => dateRangeValues.push(value),
     onOpenChange: (open) => dateRangeOpenChanges.push(open),
@@ -489,6 +495,7 @@ try {
   rerenderDateRangePicker(React.createElement(DateRangePicker, {
     label: "Service range",
     value: { from: "2026-07-10", to: "2026-07-20" },
+    locale: "es-MX",
     presets: false,
     open: true,
     onValueChange: (value) => dateRangeValues.push(value),
@@ -499,6 +506,7 @@ try {
   rerenderDateRangePicker(React.createElement(DateRangePicker, {
     label: "Service range",
     value: { from: "2026-07-10", to: "2026-07-20" },
+    locale: "es-MX",
     presets: false,
     open: false,
     onValueChange: (value) => dateRangeValues.push(value),
