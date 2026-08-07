@@ -194,6 +194,8 @@ function checkReactOnlyComponentBoundaries() {
     ["Text Area Hydrator", "hydrateTransitionalTextArea", "fields"],
     ["Input", "createTransitionalFieldInput", "fields"],
     ["Input Hydrator", "hydrateInput", "fields"],
+    ["Select", "createTransitionalFieldSelect", "fields"],
+    ["Select Hydrator", "hydrateTransitionalSelect", "fields"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

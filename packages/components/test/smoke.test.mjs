@@ -192,7 +192,6 @@ import {
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
-import { createTransitionalFieldSelect } from "../src/components/fields.js";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
@@ -395,7 +394,6 @@ assert.deepEqual(Object.keys(cardSecurityCodeInputPlatformAdapters), ["react"]);
 assert.equal(cardSecurityCodeInputPlatformAdapters.react.componentName, "CardSecurityCodeInput");
 assert.equal(cardSecurityCodeInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.select.factory, "@design-system/react/select");
-assert.equal(componentContracts.select.internalFactory, "createTransitionalFieldSelect");
 assert.equal(selectPlatformContract.id, "select");
 assert.equal(selectPlatformContract.source.factory, componentContracts.select.factory);
 assert.deepEqual(selectPlatformProps(), componentContracts.select.props.map((prop) => prop.name));
@@ -1083,81 +1081,6 @@ assert.equal(securityCodeField.attributes["aria-invalid"], undefined);
 
 hydrateTransitionalPaymentCardSecurityCodeInput(cardSecurityCodeInput);
 assert.equal(cardSecurityCodeInput.dataset.cardSecurityCodeHydrated, "true");
-
-const select = createTransitionalFieldSelect({
-  label: "Fleet",
-  helper: "Choose a fleet",
-  icon: "local_taxi",
-  name: "fleet",
-  value: "north",
-  density: "sm",
-  state: "focus",
-  options: [
-    { label: "North", value: "north" },
-    { label: "South", value: "south", disabled: true },
-  ],
-});
-assert.equal(select.tagName, "LABEL");
-assert.equal(select.className, "field");
-assert.equal(select.dataset.density, "sm");
-assert.equal(select.dataset.state, "focus");
-assert.equal(select.querySelector(".field__label").textContent, "Fleet");
-assert.equal(select.querySelector(".field__helper").textContent, "Choose a fleet");
-assert.equal(select.querySelector(".select-control").className, "select-control");
-assert.equal(select.querySelector(".select-control").dataset.state, "focus");
-assert.equal(select.querySelector(".select-control").dataset.density, "sm");
-assert.equal(select.querySelector(".select-control__icon").textContent, "local_taxi");
-assert.equal(select.querySelector(".select-control__icon").attributes["aria-hidden"], "true");
-assert.equal(select.querySelector(".select-control__trigger").attributes.role, "combobox");
-assert.equal(select.querySelector(".select-control__trigger").attributes["aria-expanded"], "false");
-assert.equal(select.querySelector(".select-control__trigger").attributes["aria-activedescendant"], select.querySelectorAll(".select-control__option")[0].id);
-assert.equal(select.querySelector(".select-control__trigger").textContent, "local_taxiNorthexpand_more");
-assert.equal(select.querySelector("input").type, "hidden");
-assert.equal(select.querySelector("input").name, "fleet");
-assert.equal(select.querySelector("input").value, "north");
-assert.equal(select.querySelectorAll(".select-control__option").length, 2);
-assert.equal(select.querySelectorAll(".select-control__option")[0].dataset.selected, "true");
-assert.equal(select.querySelectorAll(".select-control__option")[1].dataset.disabled, "true");
-const inlineSelect = createTransitionalFieldSelect({
-  label: "Country code",
-  variant: "inline",
-  value: "MX",
-  options: [
-    { label: "Mexico", value: "MX", meta: "+52" },
-    { label: "Cuba", value: "CU", meta: "+53" },
-  ],
-});
-assert.equal(inlineSelect.querySelector(".select-control").className, "select-control select-control--inline");
-assert.equal(inlineSelect.querySelector(".select-control__trigger").attributes.role, "combobox");
-assert.equal(inlineSelect.querySelector(".select-control__trigger").textContent, "Mexico+52expand_more");
-assert.equal(inlineSelect.querySelectorAll(".select-control__option").length, 2);
-assert.equal(inlineSelect.querySelector(".select-control__option").dataset.selected, "true");
-assert.equal(inlineSelect.dataset.density, undefined);
-assert.equal(inlineSelect.querySelector(".select-control").dataset.density, undefined);
-let selectChange = null;
-const interactiveSelect = createTransitionalFieldSelect({
-  label: "Fleet",
-  value: "north",
-  onValueChange(value, meta) {
-    selectChange = { value, meta };
-  },
-  options: [
-    { label: "North", value: "north" },
-    { label: "South", value: "south", disabled: true },
-    { label: "West", value: "west", meta: "3" },
-  ],
-});
-const interactiveSelectControl = interactiveSelect.querySelector(".select-control");
-const interactiveSelectTrigger = interactiveSelect.querySelector(".select-control__trigger");
-const interactiveSelectOptions = interactiveSelect.querySelectorAll(".select-control__option");
-interactiveSelectTrigger.dispatchEvent({ type: "keydown", key: "ArrowDown", preventDefault() {} });
-assert.equal(interactiveSelectControl.dataset.open, "true");
-interactiveSelectOptions[0].dispatchEvent({ type: "keydown", key: "ArrowDown", preventDefault() {} });
-assert.equal(interactiveSelectTrigger.attributes["aria-activedescendant"], interactiveSelectOptions[2].id);
-interactiveSelectOptions[2].dispatchEvent({ type: "keydown", key: "Enter", preventDefault() {} });
-assert.equal(interactiveSelect.querySelector(".select-control__value").textContent, "West");
-assert.equal(selectChange.value, "west");
-assert.equal(selectChange.meta.meta, "3");
 
 let comboboxChange = null;
 const combobox = createCombobox({

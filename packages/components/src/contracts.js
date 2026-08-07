@@ -191,7 +191,6 @@ export const componentContracts = {
   },
   select: {
     factory: "@design-system/react/select",
-    internalFactory: "createTransitionalFieldSelect",
     element: "label",
     purpose: "Let users choose one option from a named operational set.",
     variants: ["default", "inline"],

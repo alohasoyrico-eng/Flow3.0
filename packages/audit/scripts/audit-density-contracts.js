@@ -31,6 +31,7 @@ const directDensityComponents = [
 
 const reactDensityComponents = [
   { id: "input", file: path.join(root, "packages/react/src/Input.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
+  { id: "select", file: path.join(root, "packages/react/src/Select.js"), selector: '.select-control[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "switch", file: path.join(root, "packages/react/src/Switch.js"), selector: '.switch[data-density="sm"]', token: "--switch-track-width", snippets: ['"data-density": density || undefined'] },
   { id: "textArea", file: path.join(root, "packages/react/src/TextArea.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
 ];
@@ -41,14 +42,13 @@ const delegatedDensityComponents = [
   { id: "cardExpiryInput", factory: "createTransitionalPaymentCardExpiryInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "cardSecurityCodeInput", factory: "createTransitionalPaymentCardSecurityCodeInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "codeInput", factory: "createTransitionalSecurityCodeInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
-  { id: "select", factory: "createTransitionalFieldSelect", source: "fields", delegate: "createSelectControl", selector: '.select-control[data-density="sm"]' },
   { id: "countrySelector", factory: "createCountrySelector", source: "specializedInputs", delegate: "createSelectControl", selector: '.select-control[data-density="sm"]' },
   { id: "phoneInput", factory: "createTransitionalPhoneInput", source: "specializedInputs", delegate: "createFieldShell and createCountrySelector", selector: '.field[data-density="sm"]' },
   { id: "datePicker", factory: "createTransitionalDatePicker", source: "specializedInputs", delegate: "createFieldShell", selector: '.date-picker[data-density="sm"]' },
   { id: "dateRangePicker", factory: "createTransitionalDateRangePicker", source: "specializedInputs", delegate: "date-picker shell", selector: '.date-picker[data-density="sm"]' },
 ];
 
-const contextInheritedDensityComponents = new Set(["button", "cardExpiryInput", "cardNumberInput", "cardSecurityCodeInput", "codeInput", "datePicker", "dateRangePicker", "iconButton", "phoneInput", "select"]);
+const contextInheritedDensityComponents = new Set(["button", "cardExpiryInput", "cardNumberInput", "cardSecurityCodeInput", "codeInput", "datePicker", "dateRangePicker", "iconButton", "phoneInput"]);
 
 function checkDensityContracts() {
   const contracts = read(contractsFile);
