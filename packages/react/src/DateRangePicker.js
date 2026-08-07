@@ -107,6 +107,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
   const presetOptions = Array.isArray(presetItems) ? presetItems : [];
   const showPresets = presets ?? presetOptions.length > 0;
+  const visibleValue = rangeLabel({ ...range, placeholder, locale });
 
   useEffect(() => {
     if (!isValueControlled) return;
@@ -254,7 +255,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         },
       },
       React.createElement("span", { className: "field__icon date-picker__icon date-range-picker__icon", "aria-hidden": "true" }, "date_range"),
-      React.createElement("span", { className: "date-picker__value date-range-picker__value", "data-date-range-picker-value": "" }, rangeLabel({ ...range, placeholder, locale })),
+      visibleValue ? React.createElement("span", { className: "date-picker__value date-range-picker__value", "data-date-range-picker-value": "" }, visibleValue) : null,
     ),
     React.createElement("input", {
       type: "date",

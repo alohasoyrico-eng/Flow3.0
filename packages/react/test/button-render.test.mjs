@@ -2060,6 +2060,7 @@ assert.doesNotMatch(unnamedDateRangePickerMarkup, /Date range calendar/);
 assert.doesNotMatch(unnamedDateRangePickerMarkup, /Start date/);
 assert.doesNotMatch(unnamedDateRangePickerMarkup, /End date/);
 assert.doesNotMatch(unnamedDateRangePickerMarkup, /Previous month|Next month/);
+assert.doesNotMatch(unnamedDateRangePickerMarkup, /date-range-picker__value/);
 
 const closedDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   label: "Freeze card?",
