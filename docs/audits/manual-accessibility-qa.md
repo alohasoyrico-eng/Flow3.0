@@ -20,3 +20,20 @@ This checklist is the release gate for interactive Flow components that cannot b
 ## Release Rule
 
 Manual QA evidence must identify the component, viewport, density, color mode, keyboard path, screen reader pass/fail, and any known exception. A component can keep shipping only when the package-owned React implementation and this manual checklist agree.
+
+## Evidence Register
+
+Each release candidate must update this table before publishing. `Not run` is allowed during development, but release readiness requires every required component to be `Pass` or explicitly `Exception accepted` with a linked issue.
+
+| Component | Status | Viewport | Density | Color mode | Keyboard path | Screen reader | Reduced motion | Evidence / issue |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dialog | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, Tab cycle, action, Escape, focus return | Not run | Not run | TBD |
+| drawer | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, Tab cycle, scroll, Escape, focus return | Not run | Not run | TBD |
+| menu | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, Arrow keys, Home/End, Escape, disabled item | Not run | Not run | TBD |
+| popover | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, action, Escape, focus return | Not run | Not run | TBD |
+| tooltip | Not run | desktop + mobile | sm/md/lg | light/dark | hover, focus, blur, Escape | Not run | Not run | TBD |
+| select | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, Arrow keys, selection, Escape | Not run | Not run | TBD |
+| combobox | Not run | desktop + mobile | sm/md/lg | light/dark | type, Arrow keys, Enter, clear, Escape | Not run | Not run | TBD |
+| country-selector | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, search, Arrow keys, selection, Escape | Not run | Not run | TBD |
+| date-picker | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, grid navigation, month navigation, Escape, focus return | Not run | Not run | TBD |
+| date-range-picker | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, start/end selection, presets, month navigation, Escape | Not run | Not run | TBD |

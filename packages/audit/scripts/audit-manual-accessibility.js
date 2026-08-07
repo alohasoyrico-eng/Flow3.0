@@ -221,13 +221,27 @@ function checkContract(component) {
 function checkManualQaGuide() {
   const guide = requireFile(manualQaFile, "Manual accessibility QA guide is required for release readiness.");
   if (!guide) return;
+  const normalizedGuide = guide.toLowerCase();
+
+  if (!guide.includes("## Evidence Register")) {
+    add("errors", manualQaFile, 1, "Manual accessibility QA guide must include an Evidence Register.");
+  }
+
+  for (const column of ["Component", "Status", "Viewport", "Density", "Color mode", "Keyboard path", "Screen reader", "Reduced motion", "Evidence / issue"]) {
+    if (!guide.includes(column)) {
+      add("errors", manualQaFile, 1, `Manual accessibility Evidence Register must include column: ${column}.`);
+    }
+  }
 
   for (const component of interactiveComponents) {
     if (!guide.includes(`| ${component.id} |`)) {
       add("errors", manualQaFile, 1, `Manual accessibility QA guide must include ${component.id}.`);
     }
+    if (!normalizedGuide.includes(`| ${component.id} | not run |`) && !normalizedGuide.includes(`| ${component.id} | pass |`) && !normalizedGuide.includes(`| ${component.id} | exception accepted |`)) {
+      add("errors", manualQaFile, 1, `Manual accessibility Evidence Register must track status for ${component.id}.`);
+    }
     for (const item of component.checklist) {
-      if (!guide.toLowerCase().includes(item.toLowerCase())) {
+      if (!normalizedGuide.includes(item.toLowerCase())) {
         add("errors", manualQaFile, 1, `Manual accessibility QA guide must cover ${component.id}: ${item}.`);
       }
     }
