@@ -524,6 +524,11 @@ const emptyAccordionMarkup = renderToStaticMarkup(React.createElement(Accordion,
 }));
 assert.doesNotMatch(emptyAccordionMarkup, /Section/);
 assert.doesNotMatch(emptyAccordionMarkup, /accordion__item/);
+const unnamedAccordionItemMarkup = renderToStaticMarkup(React.createElement(Accordion, {
+  items: [{ id: "empty", ariaLabel: "Consumer section", content: "Panel" }],
+}));
+assert.doesNotMatch(unnamedAccordionItemMarkup, /class="accordion__title"><\/span>/);
+assert.match(unnamedAccordionItemMarkup, /aria-label="Consumer section"/);
 assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);

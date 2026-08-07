@@ -8,6 +8,7 @@ export interface AccordionItem {
   id?: string;
   title?: string;
   label?: string;
+  ariaLabel?: string;
   content?: ReactNode;
   description?: ReactNode;
   open?: boolean;

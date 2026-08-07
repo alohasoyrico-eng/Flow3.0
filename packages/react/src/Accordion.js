@@ -11,6 +11,7 @@ function normalizeItems(items) {
     ...item,
     id: item.id || `accordion-panel-${index}`,
     title: item.title ?? item.label ?? "",
+    ariaLabel: item.ariaLabel ?? item["aria-label"] ?? "",
     content: item.content ?? item.description ?? "",
     open: Boolean(item.open),
   }));
@@ -93,12 +94,13 @@ export const Accordion = forwardRef(function Accordion({
             "data-accordion-trigger": "",
             "aria-expanded": String(open),
             "aria-controls": panelId,
+            "aria-label": item.title ? undefined : item.ariaLabel || undefined,
             onClick: () => setItemOpen(item, !open),
           },
           item.icon
             ? React.createElement("span", { className: "accordion__icon", "aria-hidden": "true" }, item.icon)
             : null,
-          React.createElement("span", { className: "accordion__title" }, item.title),
+          item.title ? React.createElement("span", { className: "accordion__title" }, item.title) : null,
           item.meta ? React.createElement("span", { className: "accordion__meta" }, item.meta) : null,
           React.createElement("span", { className: "accordion__chevron", "aria-hidden": "true" }, "expand_more"),
         ),
