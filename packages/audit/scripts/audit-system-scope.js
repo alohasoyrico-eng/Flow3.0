@@ -13,6 +13,7 @@ const { checkPackageCssContracts } = require("./audit-package-css-contracts.js")
 const { checkPlatformAdapters } = require("./audit-platform-adapters.js");
 const { checkDensityContracts } = require("./audit-density-contracts.js");
 const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js");
+const { checkReactContractTriangle } = require("./audit-react-contract-triangle.js");
 const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
 const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
 const { checkComponentVisualCascade } = require("./report-component-visual-cascade.js");
@@ -32,6 +33,7 @@ checkPackageCssContracts();
 checkPlatformAdapters();
 checkDensityContracts();
 checkReactPrimaryContract();
+checkReactContractTriangle();
 checkAntiDuplicationGovernance();
 checkManualAccessibility();
 checkComponentVisualCascade();

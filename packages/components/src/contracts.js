@@ -473,7 +473,8 @@ export const componentContracts = {
       { name: "items", type: "TabsItem[]", required: true },
       { name: "selectedKey", type: "string", required: false },
       { name: "onValueChange", type: "(key: string) => void", required: false },
-      { name: "variant", type: "\"default\" | \"underline\"", required: false }
+      { name: "variant", type: "\"default\" | \"underline\"", required: false },
+      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false }
     ],
     accessibility: [
       "Use role tablist and role tab.",
@@ -613,9 +614,11 @@ export const componentContracts = {
       { name: "state", type: "\"default\" | \"focus\" | \"dragging\" | \"disabled\" | \"error\" | \"complete\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "unit", type: "string", required: false },
+      { name: "disabled", type: "boolean", required: false },
+      { name: "name", type: "string", required: false },
       { name: "valueLabel", type: "string", required: false },
       { name: "formatValue", type: "(value: number) => string", required: false },
-      { name: "onValueChange", type: "(value: number) => void", required: false }
+      { name: "onValueChange", type: "(value: number, meta: SliderValueMeta) => void", required: false }
     ],
     accessibility: [
       "Use native range input semantics.",
@@ -846,6 +849,7 @@ export const componentContracts = {
       { name: "description", type: "string", required: false },
       { name: "variant", type: "MotionBoundaryVariant", required: false },
       { name: "state", type: "MotionBoundaryState", required: false },
+      { name: "icon", type: "string", required: false },
       { name: "reducedMotion", type: "boolean", required: false }
     ],
     accessibility: [
@@ -888,6 +892,7 @@ export const componentContracts = {
     states: ["default", "action", "search-empty", "permission", "loading", "error"],
     props: [
       { name: "title", type: "string", required: false },
+      { name: "label", type: "string", required: false },
       { name: "description", type: "string", required: false },
       { name: "icon", type: "string", required: false },
       { name: "action", type: "EmptyStateAction", required: false },
@@ -1426,7 +1431,8 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "icon", type: "string", required: false },
       { name: "fullWidth", type: "boolean", required: false },
-      { name: "disabled", type: "boolean", required: false }
+      { name: "disabled", type: "boolean", required: false },
+      { name: "onSelect", type: "(meta: MovementRowMeta) => void", required: false }
     ],
     accessibility: [
       "Keep card identity and status visible.",
@@ -1451,7 +1457,8 @@ export const componentContracts = {
       { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"pending\" | \"error\" | \"disabled\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "fullWidth", type: "boolean", required: false },
-      { name: "disabled", type: "boolean", required: false }
+      { name: "disabled", type: "boolean", required: false },
+      { name: "onSelect", type: "(meta: MovementRowMeta) => void", required: false }
     ],
     accessibility: [
       "Expose the row as a button only when it opens local detail.",
@@ -1475,7 +1482,9 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "loading", type: "boolean", required: false },
       { name: "disabled", type: "boolean", required: false },
-      { name: "tone", type: "\"neutral\" | \"danger\"", required: false }
+      { name: "tone", type: "\"neutral\" | \"danger\"", required: false },
+      { name: "type", type: "\"button\" | \"submit\" | \"reset\"", required: false },
+      { name: "onAction", type: "(meta: QuickActionMeta) => void", required: false }
     ],
     accessibility: [
       "Keep the action label visible.",

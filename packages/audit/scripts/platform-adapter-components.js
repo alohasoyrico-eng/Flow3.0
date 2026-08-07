@@ -376,7 +376,7 @@ const components = [
     exports: ["quickActionPlatformAdapters", "quickActionPlatformContract", "quickActionPlatformProps"],
     requiredTokens: ["comp.quick-action.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography"],
-    props: ["label", "icon", "badge", "variant", "state", "density", "disabled", "loading", "type", "ariaLabel", "onAction"],
+    props: ["label", "icon", "badge", "variant", "state", "density", "disabled", "loading", "type", "onAction"],
     jsSnippets: ["quickActionPlatformContract", "React.createElement(Badge", "React.createElement(Spinner", "className: [\"quick-action\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', 'flowDensityProps(resolvedDensity)', "quick-action__control", "quick-action__icon", "quick-action__label", "onAction"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLButtonElement>", "QuickActionProps", "QuickActionVariant", "QuickActionState", "QuickActionDensity", "QuickActionMeta", "quickActionPlatformContract"],
     packagePath: "./quick-action",

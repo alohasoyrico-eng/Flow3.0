@@ -24,6 +24,7 @@ function checkSystemArchitectureGate() {
     "packages/audit/scripts/audit-system-scope.js",
     "packages/audit/scripts/audit-architecture-gate.js",
     "packages/audit/scripts/audit-package-api.js",
+    "packages/audit/scripts/audit-react-contract-triangle.js",
     "packages/audit/scripts/audit-result.js",
     "packages/tokens/package.json",
     "packages/tokens/src/index.js",
