@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -729,6 +729,32 @@ try {
 
   fireEvent.keyDown(listSegment, { key: "ArrowRight" });
   assert.deepEqual(segmentChanges, ["timeline", "timeline"]);
+
+  cleanup();
+
+  const selectChanges = [];
+  const { getByRole: getSelectRole } = render(React.createElement(Select, {
+    label: "Country",
+    value: "mx",
+    options: [
+      { label: "Mexico", value: "mx", meta: "+52" },
+      { label: "Canada", value: "ca", meta: "+1", disabled: true },
+      { label: "United States", value: "us", meta: "+1" },
+    ],
+    onValueChange: (value, meta) => selectChanges.push({ value, meta }),
+  }));
+
+  const selectTrigger = getSelectRole("combobox", { name: /country/i });
+  assert.equal(selectTrigger.getAttribute("aria-expanded"), "false");
+  fireEvent.click(selectTrigger);
+  assert.equal(selectTrigger.getAttribute("aria-expanded"), "true");
+
+  fireEvent.click(getSelectRole("option", { name: /canada/i }));
+  assert.deepEqual(selectChanges, []);
+
+  fireEvent.click(getSelectRole("option", { name: /united states/i }));
+  await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(selectChanges, [{ value: "us", meta: { label: "United States", meta: "+1" } }]);
 } finally {
   cleanup();
   dom.window.close();
