@@ -106,6 +106,7 @@ try {
     title: "Wallet balance",
     value: "$8,412.50",
     interactive: true,
+    actionKey: "wallet-balance",
     actions: [],
     onAction: (...args) => cardActions.push(args),
   }));
@@ -113,11 +114,15 @@ try {
   const interactiveCard = getCardRole("button", { name: /wallet balance/i });
   fireEvent.click(interactiveCard);
   assert.equal(cardActions.length, 1);
-  assert.equal(cardActions[0][0].type, "click");
+  assert.equal(cardActions[0][0], "wallet-balance");
+  assert.equal(cardActions[0][1], undefined);
+  assert.equal(cardActions[0][2].type, "click");
 
   fireEvent.keyDown(interactiveCard, { key: "Enter" });
   assert.equal(cardActions.length, 2);
-  assert.equal(cardActions[1][0].key, "Enter");
+  assert.equal(cardActions[1][0], "wallet-balance");
+  assert.equal(cardActions[1][1], undefined);
+  assert.equal(cardActions[1][2].key, "Enter");
 
   cleanup();
 

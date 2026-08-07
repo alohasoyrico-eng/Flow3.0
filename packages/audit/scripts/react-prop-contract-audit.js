@@ -64,12 +64,19 @@ function checkNoOpaqueRecordTypes({ add, componentName, typesFile, types }) {
   }
 }
 
+function checkNoOpaqueCallbackTypes({ add, componentName, typesFile, types }) {
+  for (const match of propsBodyFor(types, componentName).matchAll(/^\s*(on[A-Z][A-Za-z0-9]*)\??:\s*\([^;]*\bunknown\b[^;]*;/gm)) {
+    add("errors", typesFile, 1, `${componentName} React callback ${match[1]} must not expose unknown arguments; define a product event contract.`);
+  }
+}
+
 function checkReactPropContracts(args) {
   checkPublicCallbackContract(args);
   checkPublicPropContract(args);
   checkSemanticInheritedPropContract(args);
   checkRequiredPropContract(args);
   checkNoOpaqueRecordTypes(args);
+  checkNoOpaqueCallbackTypes(args);
 }
 
 module.exports = { checkReactPropContracts };

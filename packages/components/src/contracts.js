@@ -268,8 +268,9 @@ export const componentContracts = {
       { name: "selected", type: "boolean", required: false },
       { name: "disabled", type: "boolean", required: false },
       { name: "loading", type: "boolean", required: false },
+      { name: "actionKey", type: "string", required: false },
       { name: "actions", type: "(ButtonProps | IconButtonProps & { iconOnly?: boolean })[]", required: false },
-      { name: "onAction", type: "event", required: false }
+      { name: "onAction", type: "(key: string, action?: CardAction, event?: MouseEvent<HTMLElement>) => void", required: false }
     ],
     accessibility: [
       "Use a meaningful title.",

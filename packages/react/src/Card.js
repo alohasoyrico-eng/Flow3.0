@@ -61,6 +61,7 @@ export const Card = forwardRef(function Card({
   selected = false,
   disabled = false,
   loading = false,
+  actionKey,
   actions = [],
   onAction,
   className = "",
@@ -69,6 +70,7 @@ export const Card = forwardRef(function Card({
   const resolvedVariant = variants.has(variant) ? variant : "default";
   const resolvedComposition = compositions.has(composition) ? composition : "standard";
   const resolvedState = resolveState({ disabled, loading, selected, state });
+  const resolvedActionKey = actionKey ?? (typeof title === "string" ? title : "card");
   const hasActions = Array.isArray(actions) && actions.length > 0;
   const isInteractive = !hasActions && Boolean(interactive || resolvedState === "interactive" || resolvedState === "hover" || resolvedState === "focus" || selected || onAction);
   const isDisabled = resolvedState === "disabled" || resolvedState === "loading";
@@ -120,12 +122,18 @@ export const Card = forwardRef(function Card({
       "aria-pressed": isInteractive ? String(resolvedState === "selected") : rest["aria-pressed"],
       "aria-disabled": resolvedState === "disabled" ? "true" : rest["aria-disabled"],
       "aria-busy": resolvedState === "loading" ? "true" : rest["aria-busy"],
-      onClick: isInteractive && !isDisabled ? onAction : rest.onClick,
+      onClick: isInteractive && !isDisabled
+        ? (event) => {
+          rest.onClick?.(event);
+          onAction?.(resolvedActionKey, undefined, event);
+        }
+        : rest.onClick,
       onKeyDown: isInteractive && !isDisabled
         ? (event) => {
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
-          onAction?.(event);
+          rest.onKeyDown?.(event);
+          onAction?.(resolvedActionKey, undefined, event);
         }
         : rest.onKeyDown,
     },

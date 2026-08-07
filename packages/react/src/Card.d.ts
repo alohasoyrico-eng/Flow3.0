@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactNode, RefAttributes } from "react";
 import type { cardPlatformContract } from "@design-system/components/platforms";
 import type { ButtonProps } from "./Button.js";
 import type { IconButtonProps } from "./IconButton.js";
@@ -29,8 +29,9 @@ export interface CardProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "
   selected?: boolean;
   disabled?: boolean;
   loading?: boolean;
+  actionKey?: string;
   actions?: CardAction[];
-  onAction?: (eventOrKey: unknown, action?: CardAction, event?: unknown) => void;
+  onAction?: (key: string, action?: CardAction, event?: MouseEvent<HTMLElement>) => void;
 }
 
 export interface CardComponent extends ForwardRefExoticComponent<CardProps & RefAttributes<HTMLElement>> {
