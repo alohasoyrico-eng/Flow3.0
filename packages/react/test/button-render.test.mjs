@@ -2215,6 +2215,13 @@ assert.match(formDrawerMarkup, /class="field"/);
 assert.doesNotMatch(formDrawerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(formDrawerMarkup, /value="Diesel"/);
 
+const emptyContentDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
+  label: "Details",
+  open: true,
+  content: [{ type: "badge" }, { type: "progress", value: 75 }, { type: "text" }],
+}));
+assert.doesNotMatch(emptyContentDrawerMarkup, /drawer__status-row|drawer__progress-row|drawer__supporting-copy/);
+
 const unnamedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer));
 assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Open drawer"/);
 assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Drawer"/);

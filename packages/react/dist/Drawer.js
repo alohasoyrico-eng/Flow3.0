@@ -18,6 +18,7 @@ function slug(value) {
 
 function renderContentItem(item, density, index) {
   if (item?.type === "badge") {
+    if (!item.label) return null;
     return React.createElement(
       "div",
       { className: "drawer__status-row", key: item.key ?? item.label ?? index },
@@ -31,11 +32,12 @@ function renderContentItem(item, density, index) {
     );
   }
   if (item?.type === "progress") {
+    if (!item.label) return null;
     return React.createElement(
       "div",
       { className: "drawer__progress-row", key: item.key ?? item.label ?? index },
       React.createElement(ProgressIndicator, {
-        label: item.label ?? "",
+        label: item.label,
         value: item.value ?? 0,
         max: item.max ?? 100,
         showValue: item.showValue ?? true,
@@ -46,10 +48,12 @@ function renderContentItem(item, density, index) {
     );
   }
   if (item?.type === "text") {
+    const copy = item.copy ?? item.label;
+    if (!copy) return null;
     return React.createElement(
       "p",
-      { className: "drawer__supporting-copy", key: item.key ?? item.copy ?? item.label ?? index },
-      item.copy ?? item.label ?? "",
+      { className: "drawer__supporting-copy", key: item.key ?? copy ?? index },
+      copy,
     );
   }
   return null;
