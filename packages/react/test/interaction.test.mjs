@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -659,6 +659,33 @@ try {
   fireEvent.click(getQuickActionRole("button", { name: /scan card/i }));
   assert.deepEqual(quickActionClicks, ["click"]);
   assert.deepEqual(quickActions, [{ label: "Scan card", variant: "destructive", state: "default" }]);
+
+  cleanup();
+
+  const radioChanges = [];
+  const { getByLabelText: getRadioLabel, rerender: rerenderRadio } = render(React.createElement(RadioButton, {
+    label: "Card payment",
+    name: "payment",
+    value: "card",
+    onCheckedChange: (checked, meta) => radioChanges.push({ checked, meta }),
+  }));
+
+  const radioInput = getRadioLabel(/card payment/i);
+  assert.equal(radioInput.checked, false);
+  fireEvent.click(radioInput);
+  await waitFor(() => assert.equal(radioInput.checked, true));
+  assert.deepEqual(radioChanges, [{ checked: true, meta: { value: "card" } }]);
+
+  rerenderRadio(React.createElement(RadioButton, {
+    label: "Card payment",
+    name: "payment",
+    value: "card",
+    disabled: true,
+    onCheckedChange: (checked, meta) => radioChanges.push({ checked, meta }),
+  }));
+
+  fireEvent.click(getRadioLabel(/card payment/i));
+  assert.deepEqual(radioChanges, [{ checked: true, meta: { value: "card" } }]);
 } finally {
   cleanup();
   dom.window.close();

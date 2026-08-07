@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 43,
-    "review": 13,
+    "pass": 44,
+    "review": 12,
     "fail": 0,
-    "missingTestCallbacks": 16
+    "missingTestCallbacks": 15
   },
   "components": [
     {
@@ -630,12 +630,12 @@
       "sourceCovered": [
         "onCheckedChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onCheckedChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "RouteSummary",
