@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 35,
-    "review": 21,
+    "pass": 36,
+    "review": 20,
     "fail": 0,
-    "missingTestCallbacks": 26
+    "missingTestCallbacks": 25
   },
   "components": [
     {
@@ -399,12 +399,12 @@
       "sourceCovered": [
         "onAction"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onAction"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "FloatingActionButton",

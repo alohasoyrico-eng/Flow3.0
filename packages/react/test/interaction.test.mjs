@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -414,6 +414,24 @@ try {
   fireEvent.click(getEmptyStateRole("button", { name: /clear filters/i }));
   assert.deepEqual(emptyStateClicks, ["click"]);
   assert.deepEqual(emptyStateActions, ["clear-filters"]);
+
+  cleanup();
+
+  const errorPanelActions = [];
+  const errorPanelClicks = [];
+  const { getByRole: getErrorPanelRole } = render(React.createElement(ErrorPanel, {
+    label: "Sync failed",
+    action: {
+      key: "retry",
+      label: "Retry",
+      onClick: (event) => errorPanelClicks.push(event.type),
+    },
+    onAction: (key) => errorPanelActions.push(key),
+  }));
+
+  fireEvent.click(getErrorPanelRole("button", { name: /retry/i }));
+  assert.deepEqual(errorPanelClicks, ["click"]);
+  assert.deepEqual(errorPanelActions, ["retry"]);
 } finally {
   cleanup();
   dom.window.close();
