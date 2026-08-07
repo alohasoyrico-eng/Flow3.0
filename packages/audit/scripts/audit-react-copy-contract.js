@@ -39,7 +39,7 @@ const visibleTriggerDefaultsByFile = new Map([
   ["List.js", ["Loading"]],
   ["Tabs.js", ["Overview", "Details", "Settings", "Tab"]],
   ["Table.js", ["Table", "Expand", "Collapse"]],
-  ["Tooltip.js", ["Info", "Tooltip"]],
+  ["Tooltip.js", ["Info", "Tooltip", "Tooltip trigger"]],
   ["Toast.js", ["Toast"]],
   ["TreeView.js", ["Fleet", "Cards", "Tree item", "Tree view"]],
   ["Breadcrumbs.js", ["Home", "Breadcrumbs", "Collapsed breadcrumb items"]],

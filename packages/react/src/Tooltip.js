@@ -13,6 +13,7 @@ function normalizeState({ disabled, state }) {
 
 export const Tooltip = forwardRef(function Tooltip({
   triggerLabel,
+  triggerAriaLabel,
   content,
   id,
   placement = "top",
@@ -69,7 +70,7 @@ export const Tooltip = forwardRef(function Tooltip({
         disabled: isDisabled,
         "aria-disabled": isDisabled ? "true" : undefined,
         "aria-describedby": isOpen && content ? tooltipId : undefined,
-        "aria-label": triggerLabel ? undefined : "Tooltip trigger",
+        "aria-label": triggerLabel ? undefined : triggerAriaLabel,
         onMouseEnter: () => setOpen(true, "hover"),
         onMouseLeave: () => setOpen(false, "default"),
         onFocus: () => setOpen(true, "focus"),
@@ -84,7 +85,7 @@ export const Tooltip = forwardRef(function Tooltip({
           onOpenChange?.(false);
         },
       },
-      triggerLabel ?? "?",
+      triggerLabel ?? "",
     ),
     content ? React.createElement(
       "span",
