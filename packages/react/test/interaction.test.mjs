@@ -782,29 +782,35 @@ try {
   const { getByRole: getPaginationRole, rerender: rerenderPagination } = render(React.createElement(Pagination, {
     pageCount: 12,
     label: "Results pages",
+    previousLabel: "Previous results page",
+    nextLabel: "Next results page",
+    getPageLabel: (page) => `Results page ${page}`,
     onPageChange: (page) => pageChanges.push(page),
   }));
 
-  const pageOneButton = getPaginationRole("button", { name: /^page 1$/i });
+  const pageOneButton = getPaginationRole("button", { name: /^results page 1$/i });
   assert.equal(pageOneButton.getAttribute("aria-current"), "page");
 
-  fireEvent.click(getPaginationRole("button", { name: /next page/i }));
-  await waitFor(() => assert.equal(getPaginationRole("button", { name: /^page 2$/i }).getAttribute("aria-current"), "page"));
+  fireEvent.click(getPaginationRole("button", { name: /next results page/i }));
+  await waitFor(() => assert.equal(getPaginationRole("button", { name: /^results page 2$/i }).getAttribute("aria-current"), "page"));
   assert.deepEqual(pageChanges, [2]);
 
-  fireEvent.click(getPaginationRole("button", { name: /next page/i }));
-  await waitFor(() => assert.equal(getPaginationRole("button", { name: /^page 3$/i }).getAttribute("aria-current"), "page"));
+  fireEvent.click(getPaginationRole("button", { name: /next results page/i }));
+  await waitFor(() => assert.equal(getPaginationRole("button", { name: /^results page 3$/i }).getAttribute("aria-current"), "page"));
   assert.deepEqual(pageChanges, [2, 3]);
 
   rerenderPagination(React.createElement(Pagination, {
     page: 5,
     pageCount: 12,
     label: "Results pages",
+    previousLabel: "Previous results page",
+    nextLabel: "Next results page",
+    getPageLabel: (page) => `Results page ${page}`,
     disabled: true,
     onPageChange: (page) => pageChanges.push(page),
   }));
 
-  fireEvent.click(getPaginationRole("button", { name: /page 6/i }));
+  fireEvent.click(getPaginationRole("button", { name: /results page 6/i }));
   assert.deepEqual(pageChanges, [2, 3]);
 
   cleanup();

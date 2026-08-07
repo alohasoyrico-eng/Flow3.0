@@ -824,6 +824,9 @@ assert.doesNotMatch(unnamedTabsMarkup, /aria-label="Tabs"|Tab 1/);
 
 const paginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
   label: "Fleet pages",
+  previousLabel: "Previous fleet page",
+  nextLabel: "Next fleet page",
+  getPageLabel: (page) => `Fleet page ${page}`,
   page: 4,
   pageCount: 12,
   state: "selected",
@@ -845,6 +848,14 @@ assert.match(paginationMarkup, /data-kind="next"/);
 assert.match(paginationMarkup, /class="pagination__ellipsis"/);
 assert.match(paginationMarkup, /aria-current="page"/);
 assert.match(paginationMarkup, /class="pagination__icon"/);
+assert.match(paginationMarkup, /aria-label="Previous fleet page"/);
+assert.match(paginationMarkup, /aria-label="Fleet page 4"/);
+assert.match(paginationMarkup, /aria-label="Next fleet page"/);
+const unnamedPaginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
+  pageCount: 3,
+}));
+assert.doesNotMatch(unnamedPaginationMarkup, /Pagination|Previous page|Next page|Page 1/);
+assert.doesNotMatch(unnamedPaginationMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const tableColumns = [
   { key: "plate", label: "Plate", mono: true, sortable: true },

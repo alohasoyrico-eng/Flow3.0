@@ -22,7 +22,7 @@ function resolvePaginationItems(page, pages) {
   return items;
 }
 
-function PaginationButton({ label, icon, kind, page, current = false, disabled = false, onClick }) {
+function PaginationButton({ label, ariaLabel, icon, kind, page, current = false, disabled = false, onClick }) {
   return React.createElement(
     "button",
     {
@@ -33,7 +33,7 @@ function PaginationButton({ label, icon, kind, page, current = false, disabled =
       "data-page": page ? String(page) : undefined,
       disabled,
       "aria-current": current ? "page" : undefined,
-      "aria-label": kind === "page" ? `Page ${label}` : label,
+      "aria-label": ariaLabel || undefined,
       onClick,
     },
     icon
@@ -45,7 +45,10 @@ function PaginationButton({ label, icon, kind, page, current = false, disabled =
 export const Pagination = forwardRef(function Pagination({
   page,
   pageCount = 1,
-  label = "Pagination",
+  label = "",
+  previousLabel = "",
+  nextLabel = "",
+  getPageLabel,
   variant = "numbered",
   state = "default",
   density,
@@ -85,7 +88,7 @@ export const Pagination = forwardRef(function Pagination({
       ...flowRestProps(rest),
       ref,
       className: ["pagination", className].filter(Boolean).join(" "),
-      "aria-label": label,
+      "aria-label": label || undefined,
       "aria-disabled": disabled ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
@@ -96,7 +99,8 @@ export const Pagination = forwardRef(function Pagination({
     },
     React.createElement(PaginationButton, {
       icon: "chevron_left",
-      label: "Previous page",
+      label: previousLabel,
+      ariaLabel: previousLabel,
       kind: "prev",
       disabled: disabled || currentPage <= 1,
       onClick: () => requestPage(currentPage - 1),
@@ -114,6 +118,7 @@ export const Pagination = forwardRef(function Pagination({
       : React.createElement(PaginationButton, {
           key: item,
           label: String(item),
+          ariaLabel: typeof getPageLabel === "function" ? getPageLabel(item) : undefined,
           kind: "page",
           page: item,
           current: item === currentPage,
@@ -122,7 +127,8 @@ export const Pagination = forwardRef(function Pagination({
         })),
     React.createElement(PaginationButton, {
       icon: "chevron_right",
-      label: "Next page",
+      label: nextLabel,
+      ariaLabel: nextLabel,
       kind: "next",
       disabled: disabled || currentPage >= totalPages,
       onClick: () => requestPage(currentPage + 1),
