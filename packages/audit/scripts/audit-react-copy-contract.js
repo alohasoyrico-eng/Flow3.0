@@ -15,6 +15,7 @@ const visibleTriggerDefaultsByFile = new Map([
   ["Stepper.js", ["Step"]],
   ["InlineValidation.js", ["Input"]],
   ["CountrySelector.js", ["No results"]],
+  ["PhoneInput.js", ["No results"]],
   ["List.js", ["Loading"]],
   ["Tabs.js", ["Overview", "Details", "Settings", "Tab"]],
   ["Tooltip.js", ["Info", "Tooltip"]],

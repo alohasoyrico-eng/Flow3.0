@@ -84,6 +84,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
   density,
   error = "",
   name = "",
+  emptyText = "",
   onValueChange,
   className = "",
   id,
@@ -234,7 +235,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
               React.createElement("span", { className: "country-selector__option-check", "aria-hidden": "true" }, "check"),
             );
           }),
-          React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: true }, "No results"),
+          emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: true }, emptyText) : null,
         ),
       ),
       React.createElement("input", {

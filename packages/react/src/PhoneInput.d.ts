@@ -18,7 +18,7 @@ export type PhoneInputMeta = {
 };
 
 export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label: string;
+  label?: string;
   value?: string;
   prefix?: string;
   country?: string;
@@ -29,6 +29,7 @@ export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputEleme
   state?: PhoneInputState;
   density?: PhoneInputDensity;
   error?: string;
+  emptyText?: string;
   onValueChange?: (nationalNumber: string, meta: PhoneInputMeta) => void;
 }
 
