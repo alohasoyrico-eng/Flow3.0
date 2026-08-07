@@ -189,7 +189,6 @@ function kebabToFactoryName(id) {
     "card-security-code-input": "createTransitionalPaymentCardSecurityCodeInput",
     "date-picker": "createTransitionalDatePicker",
     "date-range-picker": "createTransitionalDateRangePicker",
-    skeleton: "createSkeleton",
     avatar: "createTransitionalAvatar",
     tabs: "createTabs",
     accordion: "createAccordion",

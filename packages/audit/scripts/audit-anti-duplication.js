@@ -158,6 +158,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Inline Validation", "createInlineValidation", "surfaces"],
     ["Empty State", "createEmptyState", "feedback"],
     ["Error Panel", "createErrorPanel", "feedback"],
+    ["Skeleton", "createSkeleton", "feedback"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

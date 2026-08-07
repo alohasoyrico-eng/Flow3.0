@@ -1,6 +1,3 @@
-import { createTransitionalActionButton } from "./actions.js";
-import { setIconGlyph } from "../primitives/iconography.js?v=1";
-
 let progressIndicatorId = 0;
 
 export function createSpinner({
@@ -112,63 +109,4 @@ export function createProgressIndicator({
   track.append(fill);
   progress.append(track);
   return progress;
-}
-
-export function createSkeleton({
-  label = "Content loading",
-  variant = "text",
-  lines = 3,
-  busy = true,
-  state = busy ? "loading" : "loaded",
-  fullWidth = false,
-  width = "",
-  height = "",
-  rows,
-  columns = 4,
-} = {}) {
-  const skeleton = document.createElement("div");
-  skeleton.className = ["skeleton", `skeleton--${variant}`].join(" ");
-  skeleton.dataset.variant = variant;
-  skeleton.dataset.state = state;
-  skeleton.dataset.fullWidth = String(Boolean(fullWidth));
-  const rowCount = Math.max(1, Math.min(8, Number(rows ?? lines)));
-  const columnCount = Math.max(2, Math.min(6, Number(columns)));
-  if (variant === "table") {
-    skeleton.dataset.rows = String(rowCount);
-    skeleton.dataset.columns = String(columnCount);
-  }
-  const styleVars = [];
-  if (width) styleVars.push(`--skeleton-width: ${typeof width === "number" ? `${width}px` : String(width)}`);
-  if (height) styleVars.push(`--skeleton-height: ${typeof height === "number" ? `${height}px` : String(height)}`);
-  if (variant === "table") styleVars.push(`--skeleton-columns: ${columnCount}`);
-  if (styleVars.length) skeleton.style = styleVars.join("; ");
-  const isBusy = Boolean(busy) && !["loaded", "complete", "disabled"].includes(state);
-  skeleton.setAttribute("role", "status");
-  skeleton.setAttribute("aria-busy", String(isBusy));
-  skeleton.setAttribute("aria-label", label);
-
-  if (variant === "table") {
-    for (let rowIndex = 0; rowIndex < rowCount; rowIndex += 1) {
-      const row = document.createElement("span");
-      row.className = "skeleton__row";
-      row.setAttribute("aria-hidden", "true");
-      for (let columnIndex = 0; columnIndex < columnCount; columnIndex += 1) {
-        const bone = document.createElement("span");
-        bone.className = "skeleton__bone skeleton__cell";
-        bone.setAttribute("aria-hidden", "true");
-        row.append(bone);
-      }
-      skeleton.append(row);
-    }
-    return skeleton;
-  }
-
-  const count = ["circle", "pill", "title"].includes(variant) ? 1 : Math.max(1, Math.min(6, Number(lines)));
-  for (let index = 0; index < count; index += 1) {
-    const bone = document.createElement("span");
-    bone.className = "skeleton__bone";
-    bone.setAttribute("aria-hidden", "true");
-    skeleton.append(bone);
-  }
-  return skeleton;
 }

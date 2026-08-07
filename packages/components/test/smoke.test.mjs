@@ -598,7 +598,6 @@ assert.deepEqual(Object.keys(avatarPlatformAdapters), ["react"]);
 assert.equal(avatarPlatformAdapters.react.componentName, "Avatar");
 assert.equal(avatarPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.skeleton.factory, "@design-system/react/skeleton");
-assert.equal(componentContracts.skeleton.internalFactory, "createSkeleton");
 assert.equal(skeletonPlatformContract.id, "skeleton");
 assert.equal(skeletonPlatformContract.source.factory, componentContracts.skeleton.factory);
 assert.deepEqual(skeletonPlatformProps(), componentContracts.skeleton.props.map((prop) => prop.name));
