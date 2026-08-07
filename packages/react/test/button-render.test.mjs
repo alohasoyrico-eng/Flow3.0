@@ -1895,7 +1895,7 @@ const formDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Filter routes",
   variant: "filter",
   open: true,
-  fields: ["Region", { label: "Fuel type", value: "Diesel" }],
+  fields: [{ label: "Region" }, { label: "Fuel type", value: "Diesel" }],
 }));
 assert.match(formDrawerMarkup, /data-variant="filter"/);
 assert.match(formDrawerMarkup, /class="drawer__body"/);

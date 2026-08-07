@@ -29,7 +29,7 @@ export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style
   tone?: DrawerTone;
   density?: DrawerDensity;
   side?: DrawerSide;
-  fields?: Array<DrawerField | string>;
+  fields?: DrawerField[];
   content?: DrawerContent[];
   actions?: DrawerAction[];
   open?: boolean;

@@ -37,6 +37,9 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (/if \(state && state !== "default"\) return state;/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must normalize explicit state props against the component state contract before returning them.`);
   }
+  if (/typeof \w+ === "string" \? \{ label: \w+ \}/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must not accept string shortcuts for structured component composition props; use typed objects.`);
+  }
   if (source.includes('"data-density"')) {
     add("errors", sourceFile, 1, `${componentName} React source must use flowDensityProps() instead of writing data-density directly.`);
   }

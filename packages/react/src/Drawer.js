@@ -16,10 +16,6 @@ function slug(value) {
   return String(value ?? "drawer").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-function normalizeField(field) {
-  return typeof field === "string" ? { label: field } : field ?? {};
-}
-
 function renderContentItem(item, density, index) {
   if (item?.type === "badge") {
     return React.createElement(
@@ -188,7 +184,7 @@ export const Drawer = forwardRef(function Drawer({
           { className: "drawer__body" },
           content.map((item, index) => renderContentItem(item, resolvedDensity, index)),
           fields.map((field, index) => {
-            const normalized = normalizeField(field);
+            const normalized = field ?? {};
             return React.createElement(Input, {
               ...normalized,
               key: normalized.name ?? normalized.label ?? index,
