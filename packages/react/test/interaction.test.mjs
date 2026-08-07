@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -706,6 +706,29 @@ try {
   fireEvent.click(getRouteRole("button", { name: /assign/i }));
   assert.deepEqual(routeActions, ["assign"]);
   assert.deepEqual(routeClicks, ["click"]);
+
+  cleanup();
+
+  const segmentChanges = [];
+  const { getByRole: getSegmentRole } = render(React.createElement(SegmentedControl, {
+    label: "View mode",
+    items: [
+      { key: "list", label: "List" },
+      { key: "map", label: "Map", disabled: true },
+      { key: "timeline", label: "Timeline" },
+    ],
+    selectedKey: "list",
+    onValueChange: (key) => segmentChanges.push(key),
+  }));
+
+  const listSegment = getSegmentRole("tab", { name: /list/i });
+  const timelineSegment = getSegmentRole("tab", { name: /timeline/i });
+  assert.equal(listSegment.getAttribute("aria-selected"), "true");
+  fireEvent.click(timelineSegment);
+  assert.deepEqual(segmentChanges, ["timeline"]);
+
+  fireEvent.keyDown(listSegment, { key: "ArrowRight" });
+  assert.deepEqual(segmentChanges, ["timeline", "timeline"]);
 } finally {
   cleanup();
   dom.window.close();
