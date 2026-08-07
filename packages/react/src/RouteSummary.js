@@ -46,7 +46,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
   actions = [],
   variant = "standard",
   state = "default",
-  density = "md",
+  density,
   tone = "neutral",
   icon = "navigation",
   selected = false,
@@ -57,7 +57,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "standard");
   const resolvedState = disabled ? "disabled" : selected ? "selected" : normalize(state, validStates, "default");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const resolvedTone = normalize(tone, validTones, resolvedState === "warning" || resolvedVariant === "policy" ? "warning" : "neutral");
   const resolvedLabel = label ?? "Route";
   const isDisabled = resolvedState === "disabled";
@@ -71,7 +71,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
       className: ["route-summary", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "data-tone": resolvedTone,
       "data-full-width": String(Boolean(fullWidth)),
       "aria-selected": resolvedState === "selected" ? "true" : undefined,
@@ -107,7 +107,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
       ? React.createElement(
           "footer",
           null,
-          actions.map((action, index) => renderAction(action, index, { compact: isCompact, density: resolvedDensity, disabled: isDisabled })),
+          actions.map((action, index) => renderAction(action, index, { compact: isCompact, density: resolvedDensity || undefined, disabled: isDisabled })),
         )
       : null,
   );

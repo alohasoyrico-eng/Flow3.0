@@ -245,6 +245,21 @@ function checkReactOnlyComponentBoundaries() {
       pattern: /import\s*\{[^}]*createStationPin[^}]*\}|createStationPin\(/,
       message: "Station Pin smoke coverage must use React render tests, not the removed DOM factory.",
     },
+    {
+      file: commerceFile,
+      pattern: /export function createRouteSummary\b/,
+      message: "Route Summary must not reintroduce a DOM factory; React RouteSummary is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createRouteSummary"/,
+      message: "Route Summary contract must not name a DOM internalFactory; React RouteSummary owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createRouteSummary[^}]*\}|createRouteSummary\(/,
+      message: "Route Summary smoke coverage must use React render tests, not the removed DOM factory.",
+    },
   ];
   for (const check of checks) {
     if (!fs.existsSync(check.file)) continue;

@@ -7,7 +7,6 @@ export const routeSummaryPlatformContract = {
   layer: "component",
   source: {
     factory: routeSummaryContract.factory,
-    internalFactory: routeSummaryContract.internalFactory,
     cssClass: "route-summary",
     contract: "@design-system/components/contracts#routeSummary",
   },

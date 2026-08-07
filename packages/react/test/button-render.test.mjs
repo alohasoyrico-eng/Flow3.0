@@ -246,6 +246,13 @@ assert.match(routeSummaryMarkup, /18 min/);
 assert.match(routeSummaryMarkup, /class="button button--primary"/);
 assert.match(routeSummaryMarkup, /Start route/);
 
+const inheritedRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  label: "Inherited route density",
+  actions: [{ label: "Start route" }],
+}));
+assert.doesNotMatch(inheritedRouteSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(inheritedRouteSummaryMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const stationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
   label: "Station 24",
   value: "Open",

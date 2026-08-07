@@ -28,10 +28,9 @@ const moduleRules = [
       "createCardSummary",
       "createMovementRow",
       "createQuickAction",
-      "createRouteSummary",
     ],
     publicExports: [],
-    internalExports: ["createCardSummary", "createMovementRow", "createQuickAction", "createRouteSummary"],
+    internalExports: ["createCardSummary", "createMovementRow", "createQuickAction"],
   },
   {
     id: "display",

@@ -181,7 +181,7 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
-import { createCardSummary, createMovementRow, createQuickAction, createRouteSummary } from "../src/components/commerce.js?v=15";
+import { createCardSummary, createMovementRow, createQuickAction } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -793,7 +793,6 @@ assert.deepEqual(Object.keys(stationPinPlatformAdapters), ["react"]);
 assert.equal(stationPinPlatformAdapters.react.componentName, "StationPin");
 assert.equal(stationPinPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.routeSummary.factory, "@design-system/react/route-summary");
-assert.equal(componentContracts.routeSummary.internalFactory, "createRouteSummary");
 assert.equal(routeSummaryPlatformContract.id, "route-summary");
 assert.equal(routeSummaryPlatformContract.source.factory, componentContracts.routeSummary.factory);
 assert.deepEqual(routeSummaryPlatformProps(), componentContracts.routeSummary.props.map((prop) => prop.name));
@@ -1881,36 +1880,6 @@ assert.equal(primitiveAnimation.dataset.animationRuntime, "fallback");
 assert.equal(primitiveAnimation.dataset.state, "playing");
 assert.equal(primitiveAnimation.querySelector(".animation-asset__fallback-icon").textContent, "shield");
 assert.equal(typeof resolveAnimationRuntime({ loadAnimation() {} })?.loadAnimation, "function");
-const routeSummary = createRouteSummary({
-  label: "Route A",
-  description: "Fastest",
-  metrics: [{ label: "Stops", value: "8" }],
-  actions: [{ label: "Choose" }],
-  variant: "compare",
-  state: "selected",
-  density: "sm",
-  icon: "navigation",
-  fullWidth: true,
-});
-assert.equal(routeSummary.tagName, "ARTICLE");
-assert.equal(routeSummary.className, "route-summary");
-assert.equal(routeSummary.dataset.variant, "compare");
-assert.equal(routeSummary.dataset.state, "selected");
-assert.equal(routeSummary.dataset.density, "sm");
-assert.equal(routeSummary.dataset.fullWidth, "true");
-assert.equal(routeSummary.attributes["aria-selected"], "true");
-assert.equal(routeSummary.querySelector(".route-summary__icon").textContent, "navigation");
-assert.equal(routeSummary.querySelector(".route-summary__metrics").textContent, "Stops8");
-assert.equal(routeSummary.querySelector("button").textContent, "Choose");
-const disabledRouteSummary = createRouteSummary({ label: "Route B", state: "disabled", actions: [{ label: "Choose" }] });
-assert.equal(disabledRouteSummary.attributes["aria-disabled"], "true");
-assert.equal(disabledRouteSummary.querySelector("button").disabled, true);
-const compactRouteSummary = createRouteSummary({ label: "Hacia G500 Roma Norte", description: "0.9 km · llegas en 4 min", variant: "compact", actions: [{ label: "Cancelar ruta", icon: "close" }] });
-assert.equal(compactRouteSummary.dataset.variant, "compact");
-assert.equal(compactRouteSummary.querySelector(".route-summary__metrics").children.length, 0);
-assert.equal(compactRouteSummary.querySelector(".icon-button__icon").textContent, "close");
-assert.equal(compactRouteSummary.querySelector(".icon-button").attributes["aria-label"], "Cancelar ruta");
-
 const codeInput = createTransitionalSecurityCodeInput({ label: "Code", value: "123", length: 4, helper: "Expires soon" });
 assert.equal(codeInput.tagName, "LABEL");
 assert.equal(codeInput.className, "field code-input");
