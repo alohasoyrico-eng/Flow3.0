@@ -712,7 +712,6 @@ export const componentContracts = {
   },
   menu: {
     factory: "@design-system/react/menu",
-    internalFactory: "createMenu",
     element: "span",
     purpose: "Expose one compact contextual action list anchored to a trigger.",
     variants: ["actions", "grouped", "selection", "danger", "icon-trigger", "avatar-trigger"],

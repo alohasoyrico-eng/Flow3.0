@@ -189,7 +189,6 @@ function kebabToFactoryName(id) {
     "date-range-picker": "createTransitionalDateRangePicker",
     avatar: "createTransitionalAvatar",
     dialog: "createDialog",
-    menu: "createMenu",
     drawer: "createDrawer",
   };
   if (unprefixedFactoryNames[id]) return unprefixedFactoryNames[id];

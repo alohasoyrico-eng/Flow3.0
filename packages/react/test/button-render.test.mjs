@@ -1328,6 +1328,13 @@ const avatarMenuMarkup = renderToStaticMarkup(React.createElement(Menu, {
 assert.match(avatarMenuMarkup, /class="menu__trigger menu__trigger--avatar"/);
 assert.match(avatarMenuMarkup, /class="avatar avatar--md"/);
 
+const inheritedMenuMarkup = renderToStaticMarkup(React.createElement(Menu, {
+  triggerLabel: "Actions",
+  label: "Inherited density",
+  items: [{ label: "Open", key: "open" }],
+}));
+assert.doesNotMatch(inheritedMenuMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
   label: "Enable fuel card",
   description: "Applies to active drivers.",

@@ -198,7 +198,6 @@ import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, 
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
-import { createMenu } from "../src/components/overlays.js?v=5";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -604,7 +603,6 @@ assert.deepEqual(Object.keys(dialogPlatformAdapters), ["react"]);
 assert.equal(dialogPlatformAdapters.react.componentName, "Dialog");
 assert.equal(dialogPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.menu.factory, "@design-system/react/menu");
-assert.equal(componentContracts.menu.internalFactory, "createMenu");
 assert.equal(menuPlatformContract.id, "menu");
 assert.equal(menuPlatformContract.source.factory, componentContracts.menu.factory);
 assert.deepEqual(menuPlatformProps(), componentContracts.menu.props.map((prop) => prop.name));
@@ -1485,59 +1483,6 @@ assert.equal(largeAvatar.dataset.state, "busy");
 const unknownAvatar = createTransitionalAvatar({ name: "", state: "unknown" });
 assert.equal(unknownAvatar.attributes["aria-label"], "Unknown avatar");
 assert.equal(unknownAvatar.querySelector(".avatar__initials").textContent, "?");
-
-const menu = createMenu({ triggerLabel: "Actions", items: [{ label: "Edit" }, { separator: true }, { label: "Suspend", tone: "danger" }] });
-assert.equal(menu.tagName, "SPAN");
-assert.equal(menu.className, "menu");
-assert.equal(menu.dataset.variant, "actions");
-assert.equal(menu.dataset.density, "md");
-assert.equal(menu.dataset.state, "default");
-assert.equal(menu.dataset.open, "false");
-assert.equal(menu.querySelector(".menu__trigger").attributes["aria-haspopup"], "menu");
-assert.equal(menu.querySelector(".menu__trigger").attributes["data-menu-trigger"], "");
-assert.equal(menu.querySelector(".menu__trigger").attributes["aria-expanded"], "false");
-assert.equal(menu.querySelector(".menu__panel").attributes["data-menu-panel"], "");
-assert.equal(menu.querySelector(".menu__panel").hidden, true);
-assert.equal(menu.querySelector(".menu__panel").attributes.role, "menu");
-assert.equal(menu.querySelectorAll(".menu__item").length, 2);
-assert.equal(menu.querySelector(".menu__separator").attributes.role, "separator");
-assert.equal(menu.querySelectorAll(".menu__item")[1].dataset.tone, "danger");
-assert.equal(menu.querySelectorAll(".menu__item")[1].textContent, "Suspend");
-let menuOpen = null;
-let menuSelection = null;
-const interactiveMenu = createMenu({
-  open: false,
-  variant: "grouped",
-  density: "sm",
-  align: "end",
-  items: [{ key: "edit", label: "Edit", icon: "edit" }, "divider", { key: "suspend", label: "Suspend", tone: "danger", shortcut: "⌘D" }],
-  onOpenChange(open) {
-    menuOpen = open;
-  },
-  onSelect(item) {
-    menuSelection = item;
-  },
-});
-assert.equal(interactiveMenu.dataset.variant, "grouped");
-assert.equal(interactiveMenu.dataset.density, "sm");
-assert.equal(interactiveMenu.dataset.align, "end");
-assert.equal(interactiveMenu.querySelector(".menu__trigger").dataset.density, "sm");
-interactiveMenu.querySelector(".menu__trigger").click();
-assert.equal(interactiveMenu.querySelector(".menu__panel").hidden, false);
-assert.equal(interactiveMenu.querySelector(".menu__trigger").attributes["aria-expanded"], "true");
-assert.equal(menuOpen, true);
-assert.equal(globalThis.document.activeElement, interactiveMenu.querySelectorAll(".menu__item")[0]);
-interactiveMenu.querySelector(".menu__panel").dispatchEvent({
-  type: "keydown",
-  key: "ArrowDown",
-  target: interactiveMenu.querySelectorAll(".menu__item")[0],
-  preventDefault() { this.defaultPrevented = true; },
-});
-assert.equal(globalThis.document.activeElement, interactiveMenu.querySelectorAll(".menu__item")[1]);
-interactiveMenu.querySelectorAll(".menu__item")[1].click();
-assert.equal(menuSelection.key, "suspend");
-assert.equal(interactiveMenu.querySelector(".menu__panel").hidden, true);
-assert.equal(globalThis.document.activeElement, interactiveMenu.querySelector(".menu__trigger"));
 
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");

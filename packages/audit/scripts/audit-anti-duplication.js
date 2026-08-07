@@ -181,6 +181,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Tabs", "createTabs", "interactions"],
     ["Tooltip", "createTransitionalTooltip", "overlays"],
     ["Popover", "createPopover", "overlays"],
+    ["Menu", "createMenu", "overlays"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

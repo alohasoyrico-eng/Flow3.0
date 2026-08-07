@@ -29,7 +29,7 @@ export const Menu = forwardRef(function Menu({
   avatarName = "",
   avatarStatus = "none",
   avatarSize = "md",
-  density = "md",
+  density,
   state = "default",
   align = "start",
   disabled = false,
@@ -42,7 +42,7 @@ export const Menu = forwardRef(function Menu({
   const triggerRef = useRef(null);
   const panelRef = useRef(null);
   const resolvedVariant = normalize(variant, validVariants, "actions");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const initialState = disabled ? "disabled" : normalize(state, validStates, "default");
   const initiallyOpen = Boolean(open) || initialState === "open" || initialState === "focus";
   const [isOpen, setIsOpen] = useState(initiallyOpen);

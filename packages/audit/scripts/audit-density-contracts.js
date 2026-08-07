@@ -28,7 +28,6 @@ const directDensityComponents = [
   { id: "spinner", factory: "createSpinner", source: "feedback", selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size" },
   { id: "dialog", factory: "createDialog", source: "overlays", selector: '.dialog[data-density="sm"]', token: "--comp-dialog-icon-size" },
   { id: "drawer", factory: "createDrawer", source: "overlays", selector: '.drawer[data-density="sm"]', token: "--comp-drawer-panel-padding" },
-  { id: "menu", factory: "createMenu", source: "overlays", selector: '.menu[data-density="sm"]', token: "--comp-menu-item-height" },
   { id: "breadcrumbs", factory: "createBreadcrumbs", source: "navigation", selector: '.breadcrumbs[data-density="sm"]', token: "--comp-breadcrumbs-target-block" },
   { id: "pagination", factory: "createPagination", source: "navigation", selector: '.pagination[data-density="sm"]', token: "--comp-pagination-size" },
   { id: "stepper", factory: "createStepper", source: "navigation", selector: '.stepper[data-density="sm"]', token: "--comp-stepper-marker-size" },
@@ -98,10 +97,6 @@ function checkDensityContracts() {
     add("errors", sourceFiles.fields, 1, "Select control must only expose data-density when density is explicitly supplied.");
   }
 
-  const menuBody = factoryBody(read(sourceFiles.overlays), "createMenu");
-  if (!menuBody.includes("density: resolvedDensity")) {
-    add("errors", sourceFiles.overlays, 1, "Menu trigger must forward resolved density to Button or Icon Button instead of using a fixed trigger size.");
-  }
 }
 
 function contractDeclaresDensity(contracts, id) {
