@@ -25,6 +25,7 @@ export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElemen
   inline?: boolean;
   searchable?: boolean;
   searchPlaceholder?: string;
+  emptyText?: string;
   ariaLabel?: string;
   listboxLabel?: string;
   onValueChange?: (countryCode: string, country: CountrySelectorCountry) => void;

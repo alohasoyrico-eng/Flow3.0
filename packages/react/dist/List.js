@@ -65,6 +65,7 @@ export const List = forwardRef(function List({
             "data-key": isInteractive ? key : undefined,
             "aria-current": rowState === "selected" ? "true" : undefined,
             "aria-busy": rowState === "loading" ? "true" : undefined,
+            "aria-label": rowState === "loading" && !item.label ? "Loading item" : undefined,
             onClick: isInteractive ? () => {
               if (disabled) return;
               if (!isSelectedKeyControlled) setCurrentSelectedKey(key);
@@ -77,7 +78,7 @@ export const List = forwardRef(function List({
           React.createElement(
             "span",
             { className: "list__content" },
-            rowState === "loading" || item.label ? React.createElement("strong", null, rowState === "loading" ? "Loading" : item.label) : null,
+            item.label ? React.createElement("strong", null, item.label) : null,
             item.meta ? React.createElement("small", null, item.meta) : null,
           ),
           item.value ? React.createElement("span", { className: "list__value" }, item.value) : null,

@@ -48,6 +48,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
   inline = false,
   searchable = true,
   searchPlaceholder = "",
+  emptyText = "",
   ariaLabel,
   listboxLabel,
   className = "",
@@ -222,7 +223,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
           React.createElement("span", { className: "country-selector__option-check", "aria-hidden": "true" }, "check"),
         );
       }),
-      React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, "No results"),
+      emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null,
     ),
   );
 });
