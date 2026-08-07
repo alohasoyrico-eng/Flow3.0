@@ -139,7 +139,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
       ...flowDensityProps(density),
       ...flowVariantProps(resolvedVariant),
     },
-    React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label ?? "Phone number"),
+    label ? React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label) : null,
     React.createElement(
       "span",
       { className: "field__control phone-input__control" },
@@ -167,7 +167,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
             "aria-expanded": String(open),
             "aria-haspopup": "listbox",
             "aria-controls": `${inputId}-country-list`,
-            "aria-label": `${label ?? "Phone number"} country code, ${selectedCountry.label} ${selectedCountry.callingCode}`,
+            "aria-label": label ? `${label} country code, ${selectedCountry.label} ${selectedCountry.callingCode}` : `Country code, ${selectedCountry.label} ${selectedCountry.callingCode}`,
             "aria-disabled": disabled || isReadonly ? "true" : undefined,
             onClick: () => {
               if (!disabled && !isReadonly) setOpen((current) => !current);
@@ -202,7 +202,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
             "data-country-selector-list": "",
             "data-phone-country-list": "",
             role: "listbox",
-            "aria-label": `${label ?? "Phone number"} country options`,
+            "aria-label": label ? `${label} country options` : "Country options",
           },
           countryOptions.map((option) => {
             const selected = option.country === selectedCountry.country;
@@ -250,7 +250,8 @@ export const PhoneInput = forwardRef(function PhoneInput({
         disabled,
         readOnly: isReadonly,
         "data-phone-input": "",
-        "aria-labelledby": `${inputId}-label`,
+        "aria-labelledby": label ? `${inputId}-label` : undefined,
+        "aria-label": label ? undefined : "Phone input",
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
         onChange: (event) => commitDigits(event.target.value),

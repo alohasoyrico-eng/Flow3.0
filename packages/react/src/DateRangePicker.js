@@ -217,7 +217,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       "data-from": range.from,
       "data-to": range.to,
     },
-    React.createElement("span", { className: "field__label date-picker__label date-range-picker__label", id: `${controlId}-label` }, label ?? "Date range"),
+    label ? React.createElement("span", { className: "field__label date-picker__label date-range-picker__label", id: `${controlId}-label` }, label) : null,
     React.createElement(
       "button",
       {
@@ -235,7 +235,8 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         "aria-haspopup": "dialog",
         "aria-expanded": String(open),
         "aria-controls": panelId,
-        "aria-labelledby": `${controlId}-label`,
+        "aria-labelledby": label ? `${controlId}-label` : undefined,
+        "aria-label": label ? undefined : "Date range picker",
         "aria-describedby": describedBy,
         "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
         onClick: () => {
@@ -262,7 +263,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       disabled,
       tabIndex: -1,
       "data-date-range-picker-from": "",
-      "aria-label": `${label ?? "Date range"} start date`,
+      "aria-label": label ? `${label} start date` : "Start date",
       onChange: (event) => commitRange({ from: event.target.value, to: range.to }),
     }),
     React.createElement("input", {
@@ -272,7 +273,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       disabled,
       tabIndex: -1,
       "data-date-range-picker-to": "",
-      "aria-label": `${label ?? "Date range"} end date`,
+      "aria-label": label ? `${label} end date` : "End date",
       onChange: (event) => commitRange({ from: range.from, to: event.target.value }),
     }),
     React.createElement(
@@ -284,7 +285,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         "data-date-range-picker-panel": "",
         role: "dialog",
         "aria-modal": "false",
-        "aria-label": `${label ?? "Date range"} calendar`,
+        "aria-label": label ? `${label} calendar` : "Date range calendar",
         onKeyDown: (event) => {
           if (event.key !== "Escape") return;
           event.preventDefault();

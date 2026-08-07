@@ -59,7 +59,8 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
       id,
       className: ["progress", className].filter(Boolean).join(" "),
       role: "progressbar",
-      "aria-labelledby": labelId,
+      "aria-labelledby": label ? labelId : undefined,
+      "aria-label": label ? undefined : "Progress",
       "aria-valuemin": "0",
       "aria-valuemax": isIndeterminate ? undefined : String(numericMax),
       "aria-valuenow": isIndeterminate ? undefined : String(numericValue),
@@ -74,7 +75,7 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
     React.createElement(
       "span",
       { className: "progress__meta" },
-      React.createElement("span", { className: "progress__label", id: labelId }, label ?? "Progress"),
+      label ? React.createElement("span", { className: "progress__label", id: labelId }, label) : null,
       showValue && !isIndeterminate
         ? React.createElement("span", { className: "progress__value" }, `${Math.round(percent)}%`)
         : null,

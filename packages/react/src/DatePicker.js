@@ -177,7 +177,7 @@ export const DatePicker = forwardRef(function DatePicker({
       ...flowDensityProps(density),
       "data-open": String(open),
     },
-    React.createElement("span", { className: "field__label date-picker__label", id: `${controlId}-label` }, label ?? "Date"),
+    label ? React.createElement("span", { className: "field__label date-picker__label", id: `${controlId}-label` }, label) : null,
     React.createElement(
       "button",
       {
@@ -195,7 +195,8 @@ export const DatePicker = forwardRef(function DatePicker({
         "aria-haspopup": "dialog",
         "aria-expanded": String(open),
         "aria-controls": panelId,
-        "aria-labelledby": `${controlId}-label`,
+        "aria-labelledby": label ? `${controlId}-label` : undefined,
+        "aria-label": label ? undefined : "Date picker",
         "aria-describedby": describedBy,
         "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
         onClick: () => {
@@ -224,7 +225,7 @@ export const DatePicker = forwardRef(function DatePicker({
       max,
       tabIndex: -1,
       "data-date-picker-input": "",
-      "aria-label": `${label ?? "Date"} native picker`,
+      "aria-label": label ? `${label} native picker` : "Date picker native input",
       onChange: (event) => {
         if (event.target.value) commitValue(event.target.value);
       },
@@ -238,7 +239,7 @@ export const DatePicker = forwardRef(function DatePicker({
         "data-date-picker-panel": "",
         role: "dialog",
         "aria-modal": "false",
-        "aria-label": `${label ?? "Date"} calendar`,
+        "aria-label": label ? `${label} calendar` : "Date picker calendar",
         onKeyDown: (event) => {
           if (event.key !== "Escape") return;
           event.preventDefault();

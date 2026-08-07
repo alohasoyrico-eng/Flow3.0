@@ -97,7 +97,7 @@ export const Slider = forwardRef(function Slider({
     React.createElement(
       "span",
       { className: "slider__meta" },
-      React.createElement("span", { className: "slider__label" }, label ?? "Slider"),
+      label ? React.createElement("span", { className: "slider__label" }, label) : null,
       React.createElement("output", { className: "slider__value", "data-slider-output": "" }, formattedValue),
     ),
     React.createElement(
@@ -109,7 +109,7 @@ export const Slider = forwardRef(function Slider({
         type: "range",
         className: "slider__input",
         "data-slider-input": "",
-        "aria-label": label ?? "Slider",
+        "aria-label": label || "Slider",
         "aria-valuetext": formattedValue,
         "aria-invalid": normalizedState === "error" ? "true" : undefined,
         name,

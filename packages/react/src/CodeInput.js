@@ -70,7 +70,7 @@ export const CodeInput = forwardRef(function CodeInput({
       "data-focused": focused ? "true" : "false",
       "data-length": String(resolvedLength),
     },
-    React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label ?? "Security code"),
+    label ? React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label) : null,
     React.createElement(
       "span",
       { className: "code-input__control" },
@@ -87,7 +87,7 @@ export const CodeInput = forwardRef(function CodeInput({
         value: digits,
         disabled: Boolean(disabled),
         "data-code-input": "",
-        "aria-label": `${label ?? "Security code"} (${resolvedLength} digits)`,
+        "aria-label": label ? `${label} (${resolvedLength} digits)` : `${resolvedLength} digit code`,
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
         onFocus: (event) => {

@@ -86,7 +86,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
       "data-expected-length": String(resolvedLength),
       "data-validation-message": validationMessage,
     },
-    React.createElement("span", { className: "field__label card-security-code-input__label", id: `${inputId}-label` }, label ?? "Security code"),
+    label ? React.createElement("span", { className: "field__label card-security-code-input__label", id: `${inputId}-label` }, label) : null,
     React.createElement(
       "span",
       { className: "field__control card-security-code-input__control" },
@@ -109,7 +109,8 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
         enterKeyHint: "next",
         spellCheck: false,
         "data-card-security-code-input": "",
-        "aria-labelledby": `${inputId}-label`,
+        "aria-labelledby": label ? `${inputId}-label` : undefined,
+        "aria-label": label ? undefined : "Security code",
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {
@@ -141,7 +142,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
           React.createElement("span", { className: "field-action__icon field__icon card-security-code-input__action-icon", "aria-hidden": "true" }, isRevealed ? "visibility_off" : "visibility"),
         )
         : null,
-      loading ? React.createElement(Spinner, { label: `${label ?? "Security code"} loading`, density, decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { label: label ? `${label} loading` : "Loading", density, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement(
