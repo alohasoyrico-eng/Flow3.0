@@ -16,7 +16,7 @@ Object.defineProperty(globalThis, "navigator", {
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -144,6 +144,30 @@ try {
   assert.equal(cardNumberChanges.at(-1).meta.brand, "Visa");
   assert.equal(cardNumberChanges.at(-1).meta.validity, "valid");
   assert.equal(cardNumberChanges.at(-1).meta.luhnValid, true);
+
+  cleanup();
+
+  const securityCodeChanges = [];
+  const { getByLabelText: getSecurityCodeLabel, getByRole: getSecurityCodeRole } = render(React.createElement(CardSecurityCodeInput, {
+    label: "Security code",
+    expectedLength: 4,
+    onValueChange: (digits, meta) => securityCodeChanges.push({ digits, meta }),
+  }));
+
+  const securityCodeInput = getSecurityCodeLabel(/security code/i, { selector: "input" });
+  fireEvent.input(securityCodeInput, { target: { value: "12345" } });
+
+  await waitFor(() => assert.equal(securityCodeInput.value, "1234"));
+  assert.equal(securityCodeChanges.at(-1).digits, "1234");
+  assert.equal(securityCodeChanges.at(-1).meta.expectedLength, 4);
+  assert.equal(securityCodeChanges.at(-1).meta.validity, "valid");
+  assert.equal(securityCodeChanges.at(-1).meta.complete, true);
+
+  const revealButton = getSecurityCodeRole("button", { name: /show security code/i });
+  assert.equal(securityCodeInput.type, "password");
+  fireEvent.click(revealButton);
+  await waitFor(() => assert.equal(securityCodeInput.type, "text"));
+  assert.equal(revealButton.getAttribute("aria-pressed"), "true");
 } finally {
   cleanup();
   dom.window.close();

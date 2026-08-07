@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 24,
-    "review": 32,
+    "pass": 25,
+    "review": 31,
     "fail": 0,
-    "missingTestCallbacks": 43
+    "missingTestCallbacks": 42
   },
   "components": [
     {
@@ -172,12 +172,12 @@
       "sourceCovered": [
         "onValueChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onValueChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "CardSummary",
