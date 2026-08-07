@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -841,6 +841,51 @@ try {
 
   fireEvent.click(getSwitchRole("switch", { name: /enable notifications/i }));
   assert.equal(switchChanges.length, 1);
+
+  cleanup();
+
+  const tableColumns = [
+    { key: "plate", label: "Plate" },
+    { key: "driver", label: "Driver" },
+  ];
+  const tableRows = [
+    { id: "unit-24", plate: "ABC-123", driver: "Ana" },
+    { id: "unit-31", plate: "XYZ-789", driver: "Luis" },
+  ];
+  const rowSelections = [];
+  const { container: selectableTableContainer } = render(React.createElement(Table, {
+    label: "Vehicles",
+    variant: "selectable",
+    columns: tableColumns,
+    rows: tableRows,
+    onRowSelect: (key) => rowSelections.push(key),
+  }));
+
+  fireEvent.click(selectableTableContainer.querySelector('tr[data-key="unit-31"]'));
+  assert.deepEqual(rowSelections, ["unit-31"]);
+  assert.equal(selectableTableContainer.querySelector('tr[data-key="unit-31"]').getAttribute("data-selected"), "true");
+
+  cleanup();
+
+  const expandedRows = [];
+  const { getByRole: getTableRole } = render(React.createElement(Table, {
+    label: "Vehicle details",
+    variant: "expandable",
+    columns: tableColumns,
+    rows: tableRows,
+    renderDetail: (row) => `${row.plate} detail`,
+    onExpandedChange: (key) => expandedRows.push(key),
+  }));
+
+  const expandUnit24 = getTableRole("button", { name: /expand abc-123/i });
+  assert.equal(expandUnit24.getAttribute("aria-expanded"), "false");
+  fireEvent.click(expandUnit24);
+  await waitFor(() => assert.equal(expandUnit24.getAttribute("aria-expanded"), "true"));
+  assert.deepEqual(expandedRows, ["unit-24"]);
+
+  fireEvent.click(expandUnit24);
+  await waitFor(() => assert.equal(expandUnit24.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(expandedRows, ["unit-24", ""]);
 } finally {
   cleanup();
   dom.window.close();

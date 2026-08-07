@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 50,
-    "review": 6,
+    "pass": 51,
+    "review": 5,
     "fail": 0,
-    "missingTestCallbacks": 8
+    "missingTestCallbacks": 6
   },
   "components": [
     {
@@ -787,13 +787,13 @@
         "onExpandedChange",
         "onRowSelect"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onExpandedChange",
         "onRowSelect"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Tabs",
