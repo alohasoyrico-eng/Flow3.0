@@ -1223,7 +1223,7 @@ export const componentContracts = {
       { name: "masked", type: "boolean", required: false },
       { name: "helper", type: "string", required: false },
       { name: "disabled", type: "boolean", required: false },
-      { name: "state", type: "string", required: false },
+      { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"complete\" | \"warning\" | \"error\" | \"disabled\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "error", type: "string", required: false },
       { name: "onValueChange", type: "(value: string) => void", required: false },
@@ -1252,7 +1252,7 @@ export const componentContracts = {
       { name: "variant", type: "\"country-code\" | \"compact\" | \"otp-handoff\" | \"readonly\"", required: false },
       { name: "helper", type: "string", required: false },
       { name: "disabled", type: "boolean", required: false },
-      { name: "state", type: "string", required: false },
+      { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"valid\" | \"warning\" | \"error\" | \"disabled\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "error", type: "string", required: false },
       { name: "onValueChange", type: "(nationalNumber: string, meta: PhoneMeta) => void", required: false }

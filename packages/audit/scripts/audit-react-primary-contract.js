@@ -1,7 +1,7 @@
 const { fs, path, root, read, readJson, add } = require("./audit-context.js");
 const { checkReactPropContracts } = require("./react-prop-contract-audit.js");
 const { checkDomEscapeTypeContract, forbiddenInheritedDomProps } = require("./react-dom-escape-contract.js");
-const { checkDensityContractConsistency, checkReactDensityCascade } = require("./react-density-contract-audit.js");
+const { checkDensityContractConsistency, checkReactDensityCascade, checkStateContractConsistency } = require("./react-density-contract-audit.js");
 const { checkRuntimeDomMutationContract } = require("./react-runtime-dom-mutation-audit.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -65,6 +65,7 @@ function checkReactPrimaryContract() {
 
   checkOpenChangeContractConsistency(componentContractsSource);
   checkValueChangeContractConsistency(componentContractsSource);
+  checkStateContractConsistency({ add, contractsSource: componentContractsSource, componentContractsFile });
   checkControlledOpenCoverage(componentFiles, componentContractsSource);
   checkControlledValueCoverage(componentFiles);
   checkControlledCheckedCoverage(componentFiles);

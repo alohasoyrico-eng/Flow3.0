@@ -3,6 +3,7 @@ import { codeInputPlatformContract } from "#flow/platforms";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["sms", "otp", "approval", "masked", "compact"]);
+const validStates = new Set(["default", "hover", "focus", "complete", "warning", "error", "disabled"]);
 
 function normalizeCodeValue(value, length = 6) {
   return String(value ?? "").replace(/\D/g, "").slice(0, Number(length));
@@ -11,7 +12,7 @@ function normalizeCodeValue(value, length = 6) {
 function resolveCodeInputState({ disabled = false, error = "", state, value = "", length = 6 } = {}) {
   if (disabled) return "disabled";
   if (error) return "error";
-  if (state && state !== "default") return state;
+  if (state && state !== "default") return normalizeFlowValue(state, validStates, "default");
   return value.length === Number(length) && value ? "complete" : "default";
 }
 

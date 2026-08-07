@@ -34,6 +34,9 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (/\bflowToneProps\(\s*item\.tone\b/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must normalize item tone props before passing them into flowToneProps().`);
   }
+  if (/if \(state && state !== "default"\) return state;/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must normalize explicit state props against the component state contract before returning them.`);
+  }
   if (source.includes('"data-density"')) {
     add("errors", sourceFile, 1, `${componentName} React source must use flowDensityProps() instead of writing data-density directly.`);
   }
@@ -101,7 +104,17 @@ function checkDensityContractConsistency({ add, contractsSource, componentContra
   }
 }
 
+function checkStateContractConsistency({ add, contractsSource, componentContractsFile }) {
+  for (const match of contractsSource.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {
+    const [, contractKey, body] = match;
+    if (body.includes('{ name: "state", type: "string"')) {
+      add("errors", componentContractsFile, 1, `${contractKey} state prop must use an explicit union from its component contract, not string.`);
+    }
+  }
+}
+
 module.exports = {
   checkDensityContractConsistency,
   checkReactDensityCascade,
+  checkStateContractConsistency,
 };

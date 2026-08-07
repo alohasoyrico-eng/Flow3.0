@@ -9,6 +9,7 @@ import { phoneInputPlatformContract } from "#flow/platforms";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["country-code", "compact", "otp-handoff", "readonly"]);
+const validStates = new Set(["default", "hover", "focus", "valid", "warning", "error", "disabled"]);
 
 function resolveCountry({ country, prefix } = {}, countries = countryCallingCodeOptions) {
   return resolveCountryCallingCodeOption({ country, prefix }, countries);
@@ -99,7 +100,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
   const [open, setOpen] = useState(state === "open");
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "country-code");
   const isReadonly = resolvedVariant === "readonly";
-  const resolvedState = disabled ? "disabled" : error ? "error" : state ?? "default";
+  const resolvedState = disabled ? "disabled" : error ? "error" : normalizeFlowValue(state, validStates, "default");
   const resolvedHelper = error || helper;
   const formattedValue = formatPhoneValue(digits, selectedCountry.nationalLength);
   const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;

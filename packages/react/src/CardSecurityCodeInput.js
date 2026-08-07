@@ -1,7 +1,9 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { cardSecurityCodeInputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
+
+const validStates = new Set(["default", "filled", "valid", "loading", "error", "disabled"]);
 
 function normalizeCardSecurityCode(value, expectedLength = 3) {
   const length = Number(expectedLength) === 4 ? 4 : 3;
@@ -20,7 +22,7 @@ function resolveCardSecurityCodeState({ disabled = false, loading = false, error
   if (disabled) return "disabled";
   if (loading) return "loading";
   if (error) return "error";
-  if (state && state !== "default") return state;
+  if (state && state !== "default") return normalizeFlowValue(state, validStates, "default");
   if (validity === "valid") return "valid";
   return value ? "filled" : "default";
 }
