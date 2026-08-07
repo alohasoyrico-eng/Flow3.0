@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -984,6 +984,32 @@ try {
   fireEvent.keyDown(tooltipTrigger, { key: "Escape" });
   await waitFor(() => assert.equal(tooltipBubble.hidden, true));
   assert.deepEqual(tooltipOpenChanges, [true, false, true, false]);
+
+  cleanup();
+
+  const treeSelections = [];
+  const treeExpandedChanges = [];
+  const { getByRole: getTreeRole } = render(React.createElement(TreeView, {
+    label: "Docs navigation",
+    nodes: [
+      { key: "components", label: "Components", level: 1, expanded: false, icon: "category" },
+      { key: "button", label: "Button", level: 2 },
+      { key: "input", label: "Input", level: 2 },
+    ],
+    onSelect: (key) => treeSelections.push(key),
+    onExpandedChange: (keys) => treeExpandedChanges.push(keys),
+  }));
+
+  const componentsTreeItem = getTreeRole("treeitem", { name: /components/i });
+  assert.equal(componentsTreeItem.getAttribute("aria-expanded"), "false");
+  fireEvent.click(componentsTreeItem);
+  await waitFor(() => assert.equal(componentsTreeItem.getAttribute("aria-expanded"), "true"));
+  assert.deepEqual(treeSelections, ["components"]);
+  assert.deepEqual(treeExpandedChanges, [["components"]]);
+
+  fireEvent.keyDown(componentsTreeItem, { key: "ArrowLeft" });
+  await waitFor(() => assert.equal(componentsTreeItem.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(treeExpandedChanges, [["components"], []]);
 } finally {
   cleanup();
   dom.window.close();
