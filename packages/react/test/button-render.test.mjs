@@ -673,6 +673,12 @@ assert.match(cardMarkup, /class="card__actions"/);
 assert.match(cardMarkup, /class="button button--secondary"/);
 assert.match(cardMarkup, /class="icon-button icon-button--ghost"/);
 
+const unnamedCardActionMarkup = renderToStaticMarkup(React.createElement(Card, {
+  title: "Card controls",
+  actions: [{ key: "more", icon: "more_horiz", iconOnly: true }],
+}));
+assert.doesNotMatch(unnamedCardActionMarkup, /Card action/);
+
 const selectedCardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Driver card",
   selected: true,
@@ -698,6 +704,7 @@ const loadingCardMarkup = renderToStaticMarkup(React.createElement(Card, {
 assert.match(loadingCardMarkup, /data-state="loading"/);
 assert.match(loadingCardMarkup, /aria-busy="true"/);
 assert.match(loadingCardMarkup, /class="spinner"/);
+assert.doesNotMatch(loadingCardMarkup, /Loading card loading/);
 
 const avatarMarkup = renderToStaticMarkup(React.createElement(Avatar, {
   name: "Ana Sosa",

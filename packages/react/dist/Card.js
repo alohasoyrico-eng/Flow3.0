@@ -29,7 +29,7 @@ function cardAction(action, density, index, onAction) {
     ? React.createElement(IconButton, {
       key,
       ...actionProps,
-      ariaLabel: action.ariaLabel ?? action.label ?? "Card action",
+      ariaLabel: action.ariaLabel ?? action.label,
       density,
       variant: action.variant ?? "ghost",
       onClick: handleClick,
@@ -97,7 +97,7 @@ export const Card = forwardRef(function Card({
       ? React.createElement(
         "div",
         { className: "card__loading", key: "loading" },
-        React.createElement(Spinner, { label: title ? `${title} loading` : "Loading", density }),
+        React.createElement(Spinner, { density, decorative: true }),
         value ? React.createElement("span", null, value) : null,
       )
       : [
