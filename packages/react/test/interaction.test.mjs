@@ -16,7 +16,7 @@ Object.defineProperty(globalThis, "navigator", {
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -247,6 +247,34 @@ try {
   await waitFor(() => assert.equal(codeInput.value, "1234"));
   assert.deepEqual(codeValues, ["1234"]);
   assert.deepEqual(completedCodes, ["1234"]);
+
+  cleanup();
+
+  const comboboxChanges = [];
+  const { getByRole: getComboboxRole } = render(React.createElement(Combobox, {
+    label: "Driver",
+    options: [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Driver" },
+    ],
+    onValueChange: (value, meta) => comboboxChanges.push({ value, meta }),
+  }));
+
+  const comboboxInput = getComboboxRole("combobox", { name: /driver/i });
+  fireEvent.focus(comboboxInput);
+  fireEvent.input(comboboxInput, { target: { value: "Ana" } });
+  assert.equal(comboboxChanges.at(-1).value, "Ana");
+  assert.equal(comboboxChanges.at(-1).meta.inputValue, "Ana");
+
+  fireEvent.click(getComboboxRole("option", { name: /ana sosa/i }));
+  await waitFor(() => assert.equal(comboboxInput.value, "Ana Sosa"));
+  assert.equal(comboboxChanges.at(-1).value, "ana");
+  assert.deepEqual(comboboxChanges.at(-1).meta, { label: "Ana Sosa", meta: "Driver", inputValue: "Ana Sosa" });
+
+  fireEvent.click(getComboboxRole("button", { name: /clear selection/i }));
+  await waitFor(() => assert.equal(comboboxInput.value, ""));
+  assert.equal(comboboxChanges.at(-1).value, "");
+  assert.deepEqual(comboboxChanges.at(-1).meta, { label: "", meta: "", inputValue: "", cleared: true });
 } finally {
   cleanup();
   dom.window.close();

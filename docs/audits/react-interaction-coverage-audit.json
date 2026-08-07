@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 28,
-    "review": 28,
+    "pass": 29,
+    "review": 27,
     "fail": 0,
-    "missingTestCallbacks": 37
+    "missingTestCallbacks": 36
   },
   "components": [
     {
@@ -268,12 +268,12 @@
       "sourceCovered": [
         "onValueChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onValueChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "CountrySelector",
