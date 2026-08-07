@@ -17,9 +17,9 @@ const moduleRules = [
   {
     id: "choices",
     file: "packages/components/src/components/choices.js",
-    exports: ["createTransitionalChoiceCheckbox", "createTransitionalChoiceRadioButton", "createTransitionalChoiceSwitch"],
+    exports: ["createTransitionalChoiceRadioButton", "createTransitionalChoiceSwitch"],
     publicExports: [],
-    internalExports: ["createTransitionalChoiceCheckbox", "createTransitionalChoiceRadioButton", "createTransitionalChoiceSwitch"],
+    internalExports: ["createTransitionalChoiceRadioButton", "createTransitionalChoiceSwitch"],
   },
   {
     id: "commerce",

@@ -287,7 +287,6 @@ export const componentContracts = {
   },
   checkbox: {
     factory: "@design-system/react/checkbox",
-    internalFactory: "createTransitionalChoiceCheckbox",
     element: "label",
     purpose: "Let users choose one or more independent options with visible label, optional description, and native checkbox semantics.",
     variants: ["default", "descriptive", "select-all", "compact"],

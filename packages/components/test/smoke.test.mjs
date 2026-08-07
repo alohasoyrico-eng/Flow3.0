@@ -192,7 +192,7 @@ import {
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
-import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
+import { createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
@@ -448,7 +448,6 @@ assert.deepEqual(Object.keys(cardPlatformAdapters), ["react"]);
 assert.equal(cardPlatformAdapters.react.componentName, "Card");
 assert.equal(cardPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.checkbox.factory, "@design-system/react/checkbox");
-assert.equal(componentContracts.checkbox.internalFactory, "createTransitionalChoiceCheckbox");
 assert.equal(checkboxPlatformContract.id, "checkbox");
 assert.equal(checkboxPlatformContract.source.factory, componentContracts.checkbox.factory);
 assert.deepEqual(checkboxPlatformProps(), componentContracts.checkbox.props.map((prop) => prop.name));
@@ -1352,21 +1351,6 @@ localizedPhoneField.dispatchEvent({ type: "input" });
 assert.equal(localizedPhoneInput.querySelector(".phone-input__country").dataset.country, "MX");
 assert.equal(localizedPhoneInput.querySelector(".phone-input__prefix").textContent, "+52");
 assert.equal(localizedPhoneField.value, "55 5123 4567");
-
-const checkbox = createTransitionalChoiceCheckbox({
-  label: "Send receipt",
-  description: "Email copy to driver",
-  checked: true,
-  name: "receipt",
-});
-assert.equal(checkbox.tagName, "LABEL");
-assert.equal(checkbox.className, "choice checkbox");
-assert.equal(checkbox.dataset.checked, "true");
-assert.equal(checkbox.querySelector("input").type, "checkbox");
-assert.equal(checkbox.querySelector("input").checked, true);
-assert.equal(checkbox.querySelector("input").name, "receipt");
-assert.equal(checkbox.querySelector(".choice__label").textContent, "Send receipt");
-assert.equal(checkbox.querySelector(".choice__description").textContent, "Email copy to driver");
 
 const switchControl = createTransitionalChoiceSwitch({
   label: "Route alerts",
