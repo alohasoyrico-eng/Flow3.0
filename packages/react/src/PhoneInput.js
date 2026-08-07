@@ -85,6 +85,8 @@ export const PhoneInput = forwardRef(function PhoneInput({
   error = "",
   name = "",
   emptyText = "",
+  countryTriggerLabel,
+  countryOptionsLabel,
   onValueChange,
   className = "",
   id,
@@ -168,7 +170,8 @@ export const PhoneInput = forwardRef(function PhoneInput({
             "aria-expanded": String(open),
             "aria-haspopup": "listbox",
             "aria-controls": `${inputId}-country-list`,
-            "aria-label": label ? `${label} country code, ${selectedCountry.label} ${selectedCountry.callingCode}` : `Country code, ${selectedCountry.label} ${selectedCountry.callingCode}`,
+            "aria-label": countryTriggerLabel,
+            "aria-labelledby": countryTriggerLabel ? undefined : label ? `${inputId}-label` : undefined,
             "aria-disabled": disabled || isReadonly ? "true" : undefined,
             onClick: () => {
               if (!disabled && !isReadonly) setOpen((current) => !current);
@@ -203,7 +206,8 @@ export const PhoneInput = forwardRef(function PhoneInput({
             "data-country-selector-list": "",
             "data-phone-country-list": "",
             role: "listbox",
-            "aria-label": label ? `${label} country options` : "Country options",
+            "aria-label": countryOptionsLabel,
+            "aria-labelledby": countryOptionsLabel ? undefined : label ? `${inputId}-label` : undefined,
           },
           countryOptions.map((option) => {
             const selected = option.country === selectedCountry.country;
@@ -252,7 +256,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
         readOnly: isReadonly,
         "data-phone-input": "",
         "aria-labelledby": label ? `${inputId}-label` : undefined,
-        "aria-label": label ? undefined : "Phone input",
+        "aria-label": label ? undefined : rest["aria-label"],
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
         onChange: (event) => commitDigits(event.target.value),

@@ -1795,6 +1795,8 @@ assert.doesNotMatch(consumerDefaultCountrySelectorMarkup, /data-country="MX"/);
 
 const phoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput, {
   label: "Mobile phone",
+  countryTriggerLabel: "Mobile phone country selector",
+  countryOptionsLabel: "Mobile phone country list",
   helper: "Used for OTP and support recovery.",
   value: "+52 55 1842 9011",
   country: "MX",
@@ -1830,6 +1832,11 @@ const inheritedPhoneInputMarkup = renderToStaticMarkup(React.createElement(Phone
   country: "MX",
 }));
 assert.doesNotMatch(inheritedPhoneInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const unnamedPhoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput));
+assert.doesNotMatch(unnamedPhoneInputMarkup, /Phone input/);
+assert.doesNotMatch(unnamedPhoneInputMarkup, /Country options/);
+assert.doesNotMatch(unnamedPhoneInputMarkup, /Country code/);
 
 const datePickerMarkup = renderToStaticMarkup(React.createElement(DatePicker, {
   label: "Service date",

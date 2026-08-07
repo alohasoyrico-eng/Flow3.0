@@ -822,6 +822,8 @@ try {
   ];
   const { getByLabelText: getPhoneLabel, getByRole: getPhoneRole, rerender: rerenderPhoneInput } = render(React.createElement(PhoneInput, {
     label: "Phone number",
+    countryTriggerLabel: "Phone number country code",
+    countryOptionsLabel: "Phone number country options",
     country: "MX",
     countries: phoneCountries,
     onValueChange: (value, meta) => phoneChanges.push({ value, meta }),
@@ -852,6 +854,8 @@ try {
 
   rerenderPhoneInput(React.createElement(PhoneInput, {
     label: "Phone number",
+    countryTriggerLabel: "Phone number country code",
+    countryOptionsLabel: "Phone number country options",
     value: "+525598765432",
     country: "MX",
     countries: phoneCountries,

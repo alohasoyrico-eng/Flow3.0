@@ -30,6 +30,8 @@ export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputEleme
   density?: PhoneInputDensity;
   error?: string;
   emptyText?: string;
+  countryTriggerLabel?: string;
+  countryOptionsLabel?: string;
   onValueChange?: (nationalNumber: string, meta: PhoneInputMeta) => void;
 }
 
