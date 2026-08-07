@@ -16,7 +16,7 @@ export const QuickAction = forwardRef(function QuickAction({
   label,
   icon = "",
   badge = "",
-  variant = "standard",
+  variant,
   state = "default",
   density,
   loading = false,

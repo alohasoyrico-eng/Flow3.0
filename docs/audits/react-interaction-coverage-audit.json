@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 42,
-    "review": 14,
+    "pass": 43,
+    "review": 13,
     "fail": 0,
-    "missingTestCallbacks": 17
+    "missingTestCallbacks": 16
   },
   "components": [
     {
@@ -613,12 +613,12 @@
       "sourceCovered": [
         "onAction"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onAction"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "RadioButton",
