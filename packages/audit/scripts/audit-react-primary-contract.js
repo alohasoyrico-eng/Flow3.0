@@ -1,5 +1,5 @@
 const { fs, path, root, read, readJson, add } = require("./audit-context.js");
-const { inheritedReactPropNames, semanticInheritedPropsFor } = require("./react-contract-shared.js");
+const { checkReactPropContracts } = require("./react-prop-contract-audit.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
@@ -152,9 +152,7 @@ function checkReactComponent(file, shared) {
     }
   }
 
-  checkPublicCallbackContract({ name, typesFile, types, contractBody });
-  checkPublicPropContract({ name, typesFile, types, contractBody });
-  checkSemanticInheritedPropContract({ name, typesFile, types, contractBody });
+  checkReactPropContracts({ add, componentName: name, typesFile, types, contractBody });
   if (!shared.reactIndex.includes(`export { ${name} } from "./${file}"`)) {
     add("errors", reactIndexFile, 1, `React index must export ${name} from ${file}.`);
   }
@@ -192,38 +190,6 @@ function checkReactComponent(file, shared) {
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {
     add("errors", sourceFile, 1, `${name} React source imports non-primitive implementation helpers from components: ${illegalImports.join(", ")}.`);
-  }
-}
-
-function checkSemanticInheritedPropContract({ name, typesFile, types, contractBody }) {
-  const requiredProps = semanticInheritedPropsFor(name);
-  if (!requiredProps.length || !contractBody) return;
-  const missing = requiredProps
-    .filter((propName) => new RegExp(`\\b${propName}\\??:`).test(types))
-    .filter((propName) => !contractBody.includes(`{ name: "${propName}"`));
-  if (missing.length) add("errors", typesFile, 1, `${name} React types expose semantic inherited props missing from component contract: ${missing.join(", ")}.`);
-}
-
-function checkPublicPropContract({ name, typesFile, types, contractBody }) {
-  const propsBody = types.match(new RegExp(`export interface ${name}Props[^\\\\{]*\\\\{([\\\\s\\\\S]*?)\\\\n\\\\}`))?.[1] ?? "";
-  if (!propsBody || !contractBody) return;
-  const publicProps = [...propsBody.matchAll(/^\s*([A-Za-z][A-Za-z0-9]*)\??:/gm)]
-    .map((match) => match[1])
-    .filter((propName) => !inheritedReactPropNames.has(propName));
-  const missing = publicProps.filter((propName) => !contractBody.includes(`{ name: "${propName}"`));
-  if (missing.length) {
-    add("errors", typesFile, 1, `${name} React types expose public props missing from component contract: ${missing.join(", ")}.`);
-  }
-}
-
-function checkPublicCallbackContract({ name, typesFile, types, contractBody }) {
-  const propsBody = types.match(new RegExp(`export interface ${name}Props[^\\\\{]*\\\\{([\\\\s\\\\S]*?)\\\\n\\\\}`))?.[1] ?? "";
-  if (!propsBody || !contractBody) return;
-  const publicCallbacks = [...propsBody.matchAll(/^\s*(on[A-Z][A-Za-z0-9]*)\??:/gm)]
-    .map((match) => match[1]);
-  const missing = publicCallbacks.filter((callbackName) => !contractBody.includes(`{ name: "${callbackName}"`));
-  if (missing.length) {
-    add("errors", typesFile, 1, `${name} React types expose public callbacks missing from component contract: ${missing.join(", ")}.`);
   }
 }
 

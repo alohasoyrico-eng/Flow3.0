@@ -7,7 +7,7 @@ export const componentContracts = {
     intents: ["default", "danger", "warning"],
     states: ["default", "hover", "focus", "pressed", "disabled", "loading"],
     props: [
-      { name: "label", type: "string", required: true },
+      { name: "label", type: "string", required: false },
       { name: "variant", type: "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"", required: false },
       { name: "intent", type: "\"default\" | \"danger\" | \"warning\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
@@ -34,7 +34,7 @@ export const componentContracts = {
     intents: ["default"],
     states: ["default", "hover", "pressed", "selected", "badged", "focus", "disabled"],
     props: [
-      { name: "ariaLabel", type: "string", required: true },
+      { name: "ariaLabel", type: "string", required: false },
       { name: "label", type: "string", required: false },
       { name: "icon", type: "string", required: true },
       { name: "variant", type: "\"ghost\" | \"tonal\" | \"primary\" | \"accent\"", required: false },
@@ -468,7 +468,7 @@ export const componentContracts = {
     intents: ["default"],
     states: ["default", "hover", "selected", "focus", "overflow", "disabled"],
     props: [
-      { name: "label", type: "string", required: true },
+      { name: "label", type: "string", required: false },
       { name: "items", type: "Array<{ key?: string, value?: string, label: string, icon?: string, count?: number, badge?: BadgeProps, disabled?: boolean }>", required: true },
       { name: "selectedKey", type: "string", required: false },
       { name: "onValueChange", type: "(key: string) => void", required: false },
@@ -513,7 +513,7 @@ export const componentContracts = {
     intents: ["neutral", "info", "success", "warning", "danger"],
     states: ["default", "visible", "action", "stacked", "exiting"],
     props: [
-      { name: "label", type: "string", required: true },
+      { name: "label", type: "string", required: false },
       { name: "description", type: "string", required: false },
       { name: "tone", type: "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"", required: false },
       { name: "variant", type: "\"status\" | \"progress\" | \"warning\" | \"recovery\" | \"undo\"", required: false },
@@ -768,7 +768,7 @@ export const componentContracts = {
       { name: "label", type: "string", required: false },
       { name: "columns", type: "Array<{ key: string, label: string, sortable?: boolean, align?: string, mono?: boolean, sortValue?: Function, render?: Function }>", required: true },
       { name: "rows", type: "Array<Record<string, string | number | object>>", required: true },
-      { name: "rowKey", type: "string", required: true },
+      { name: "rowKey", type: "string", required: false },
       { name: "variant", type: "\"standard\" | \"dense\" | \"sortable\" | \"selectable\" | \"expandable\"", required: false },
       { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"sorted\" | \"expanded\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
@@ -803,7 +803,7 @@ export const componentContracts = {
       { name: "actionLabel", type: "string", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "fullWidth", type: "boolean", required: false },
-      { name: "fallback", type: "string", required: true }
+      { name: "fallback", type: "string", required: false }
     ],
     accessibility: [
       "Provide visible prompt copy and an accessible group label.",
@@ -819,7 +819,7 @@ export const componentContracts = {
     intents: ["navigation", "selection"],
     states: ["default", "hover", "focus", "expanded", "selected", "disabled"],
     props: [
-      { name: "label", type: "string", required: true },
+      { name: "label", type: "string", required: false },
       { name: "nodes", type: "TreeViewNode[]", required: true },
       { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"expanded\" | \"selected\" | \"disabled\"", required: false },
       { name: "selectedKey", type: "string", required: false },
@@ -884,7 +884,7 @@ export const componentContracts = {
     intents: ["neutral"],
     states: ["default", "action", "search-empty", "permission", "loading", "error"],
     props: [
-      { name: "title", type: "string", required: true },
+      { name: "title", type: "string", required: false },
       { name: "description", type: "string", required: false },
       { name: "icon", type: "string", required: false },
       { name: "action", type: "ButtonProps", required: false },
@@ -931,7 +931,7 @@ export const componentContracts = {
     intents: ["neutral", "info", "success", "warning", "danger"],
     states: ["default", "hover", "focus", "selected", "loading", "risk", "disabled"],
     props: [
-      { name: "label", type: "string", required: true },
+      { name: "label", type: "string", required: false },
       { name: "value", type: "string", required: true },
       { name: "delta", type: "string", required: false },
       { name: "trend", type: "\"up\" | \"down\" | \"flat\"", required: false },
@@ -1061,7 +1061,7 @@ export const componentContracts = {
     intents: ["warning", "error", "critical"],
     states: ["default", "warning", "error", "critical", "loading", "disabled"],
     props: [
-      { name: "label", type: "string", required: true },
+      { name: "label", type: "string", required: false },
       { name: "description", type: "string", required: false },
       { name: "action", type: "ButtonProps", required: false },
       { name: "tone", type: "\"warning\" | \"error\" | \"critical\"", required: false },
