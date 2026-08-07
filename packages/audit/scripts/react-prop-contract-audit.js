@@ -78,6 +78,17 @@ function checkActionCallbackPayloads({ add, componentName, typesFile, types }) {
   }
 }
 
+function checkActionPropContractTypes({ add, componentName, typesFile, types, contractBody }) {
+  const actionType = `${componentName}Action`;
+  if (!types.includes(`interface ${actionType}`) || !contractBody) return;
+  for (const propName of ["action", "actions"]) {
+    const propMatch = new RegExp(`\\{ name: "${propName}", type: "([^"]+)"`).exec(contractBody);
+    if (propMatch && !propMatch[1].includes(actionType)) {
+      add("errors", typesFile, 1, `${componentName} contract must type ${propName} with ${actionType}, not ${propMatch[1]}.`);
+    }
+  }
+}
+
 function checkReactPropContracts(args) {
   checkPublicCallbackContract(args);
   checkPublicPropContract(args);
@@ -86,6 +97,7 @@ function checkReactPropContracts(args) {
   checkNoOpaqueRecordTypes(args);
   checkNoOpaqueCallbackTypes(args);
   checkActionCallbackPayloads(args);
+  checkActionPropContractTypes(args);
 }
 
 module.exports = { checkReactPropContracts };
