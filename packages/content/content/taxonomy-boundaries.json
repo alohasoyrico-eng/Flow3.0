@@ -1,0 +1,78 @@
+{
+  "version": "2026-08-06",
+  "rules": [
+    "Primitive is implementation material, not a user-facing workflow.",
+    "Component is a bounded reusable unit with local anatomy, state, accessibility, and API.",
+    "Pattern coordinates multiple components, data, policy, validation, recovery, routing, or responsive orchestration.",
+    "Template proves one or more patterns in a complete product shell or domain surface.",
+    "Docs may demonstrate taxonomy decisions but must not promote a forbidden component artifact."
+  ],
+  "decisions": [
+    {
+      "id": "alert-strip",
+      "layer": "non-component",
+      "replacement": "notification-panel",
+      "reason": "Persistent alert aggregation is feedback orchestration; Toast, Error Panel, Badge, Button, and Notification Panel own the reusable parts."
+    },
+    {
+      "id": "bottom-sheet",
+      "layer": "pattern",
+      "replacement": "bottom-sheet",
+      "reason": "Bottom Sheet is a 100% mobile overlay pattern with focus, dismissal, drag/state, and responsive orchestration beyond a bounded component."
+    },
+    {
+      "id": "checkbox-group",
+      "layer": "pattern",
+      "replacement": "checkbox-group",
+      "reason": "Checkbox remains atomic; group label, select-all, mixed state, shared validation, and analytics are pattern-owned."
+    },
+    {
+      "id": "radio-group",
+      "layer": "pattern",
+      "replacement": "radio-group",
+      "reason": "Radio Button remains atomic; exclusive group question, shared name, arrow navigation, validation, and layout are pattern-owned."
+    },
+    {
+      "id": "avatar-group",
+      "layer": "pattern",
+      "replacement": "avatar-group",
+      "reason": "Avatar remains atomic; overflow, stacking, disclosure, permissions, and member detail are pattern-owned."
+    },
+    {
+      "id": "data-table",
+      "layer": "pattern",
+      "replacement": "virtual-data-table",
+      "reason": "Table remains the component; sorting, filtering, pagination, column config, remote loading, and bulk actions belong to data-table patterns."
+    },
+    {
+      "id": "dashboard-filter-bar",
+      "layer": "pattern",
+      "replacement": "advanced-filters",
+      "reason": "Filter bars coordinate query state, dependencies, saved views, refresh, and dashboard feedback."
+    },
+    {
+      "id": "driver-management-table",
+      "layer": "pattern",
+      "replacement": "driver-and-vehicle-administration",
+      "reason": "Driver table behavior includes invite, suspend, edit, audit, permissions, and remote data operations."
+    },
+    {
+      "id": "vehicle-management-table",
+      "layer": "pattern",
+      "replacement": "driver-and-vehicle-administration",
+      "reason": "Vehicle table behavior includes assignment, maintenance metadata, document state, grouping, and lifecycle."
+    },
+    {
+      "id": "sort-control",
+      "layer": "pattern",
+      "replacement": "toolbar",
+      "reason": "Sorting usually belongs to table/list state, persistence, refresh, and result feedback."
+    },
+    {
+      "id": "chart-legend-item",
+      "layer": "pattern",
+      "replacement": "chart-legend-item",
+      "reason": "Legend items are chart interaction patterns; they must not be promoted as standalone components."
+    }
+  ]
+}

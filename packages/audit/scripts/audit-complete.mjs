@@ -67,6 +67,7 @@ const expectedAuditFiles = new Set([
   "audit-system-scope.js",
   "audit-system.js",
   "audit-table-contracts.js",
+  "audit-taxonomy-boundaries.js",
   "audit-template-composition.js",
   "audit-voice-contracts.js",
   "report-foundation-accessibility-cascade.js",

@@ -40,6 +40,7 @@ const { checkDemoLayoutContracts } = require("./audit-demo-layout-contracts.js")
 const { checkImplementationStatus } = require("./audit-component-implementation-status.js");
 const { checkComponentContracts } = require("./audit-component-contracts.js");
 const { checkPatternContracts } = require("./audit-pattern-contracts.js");
+const { checkTaxonomyBoundaries } = require("./audit-taxonomy-boundaries.js");
 const { checkComponentBehaviorContracts } = require("./audit-component-behavior-contracts.js");
 const { checkComponentModules } = require("./audit-component-modules.js");
 const { checkComponentApiPropAlignment } = require("./audit-component-api-prop-alignment.js");
@@ -93,6 +94,7 @@ checkDemoLayoutContracts();
 checkImplementationStatus();
 checkComponentContracts();
 checkPatternContracts();
+checkTaxonomyBoundaries();
 checkComponentBehaviorContracts();
 checkComponentModules();
 checkComponentApiPropAlignment();
