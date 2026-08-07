@@ -136,113 +136,50 @@ function checkKnownDuplicateConcepts() {
 function checkReactOnlyComponentBoundaries() {
   const contractsFile = path.join(root, "packages/components/src/contracts.js");
   const smokeFile = path.join(root, "packages/components/test/smoke.test.mjs");
-  const sourceFiles = {
-    commerce: path.join(root, "packages/components/src/components/commerce.js"),
-    display: path.join(root, "packages/components/src/components/display.js"),
-    feedback: path.join(root, "packages/components/src/components/feedback.js"),
-    fields: path.join(root, "packages/components/src/components/fields.js"),
-    interactions: path.join(root, "packages/components/src/components/interactions.js"),
-    overlays: path.join(root, "packages/components/src/components/overlays.js"),
-    motion: path.join(root, "packages/components/src/components/motion.js"),
-    navigation: path.join(root, "packages/components/src/components/navigation.js"),
-    security: path.join(root, "packages/components/src/components/security.js"),
-    status: path.join(root, "packages/components/src/components/status.js"),
-    surfaces: path.join(root, "packages/components/src/components/surfaces.js"),
-    specializedInputs: path.join(root, "packages/components/src/components/specialized-inputs.js"),
-  };
-  const reactOnlyComponents = [
-    ["Button", "createTransitionalActionButton", "actions"],
-    ["Icon Button", "createTransitionalActionIconButton", "actions"],
-    ["Card", "createCard", "surfaces"],
-    ["Table", "createTable", "commerce"],
-    ["List", "createList", "display"],
-    ["KPI Tile", "createKpiTile", "display"],
-    ["Audit Event", "createAuditEvent", "display"],
-    ["Chart Panel", "createChartPanel", "commerce"],
-    ["Station Pin", "createStationPin", "commerce"],
-    ["Route Summary", "createRouteSummary", "commerce"],
-    ["Card Summary", "createCardSummary", "commerce"],
-    ["Movement Row", "createMovementRow", "commerce"],
-    ["Quick Action", "createQuickAction", "commerce"],
-    ["Floating Action Button", "createFloatingActionButton", "surfaces"],
-    ["Inline Validation", "createInlineValidation", "surfaces"],
-    ["Empty State", "createEmptyState", "feedback"],
-    ["Error Panel", "createErrorPanel", "feedback"],
-    ["Skeleton", "createSkeleton", "feedback"],
-    ["Breadcrumbs", "createBreadcrumbs", "navigation"],
-    ["Pagination", "createPagination", "navigation"],
-    ["Stepper", "createStepper", "navigation"],
-    ["Biometric Prompt", "createBiometricPrompt", "security"],
-    ["Motion Boundary", "createMotionBoundary", "motion"],
-    ["Animated Moment", "createAnimatedMoment", "motion"],
-    ["Chip", "createTransitionalChip", "status"],
-    ["Tag", "createTransitionalTag", "status"],
-    ["Toast", "createToast", "overlays"],
-    ["Accordion", "createAccordion", "interactions"],
-    ["Slider", "createSlider", "interactions"],
-    ["Segmented Control", "createSegmentedControl", "interactions"],
-    ["Tree View", "createTreeView", "interactions"],
-    ["Tabs", "createTabs", "interactions"],
-    ["Tooltip", "createTransitionalTooltip", "overlays"],
-    ["Popover", "createPopover", "overlays"],
-    ["Menu", "createMenu", "overlays"],
-    ["Dialog", "createDialog", "overlays"],
-    ["Drawer", "createDrawer", "overlays"],
-    ["Badge", "createTransitionalBadge", "status"],
-    ["Avatar", "createTransitionalAvatar", "display"],
-    ["Progress Indicator", "createProgressIndicator", "feedback"],
-    ["Checkbox", "createTransitionalChoiceCheckbox", "choices"],
-    ["Switch", "createTransitionalChoiceSwitch", "choices"],
-    ["Radio Button", "createTransitionalChoiceRadioButton", "choices"],
-    ["Text Area", "createTransitionalFieldTextArea", "fields"],
-    ["Text Area Hydrator", "hydrateTransitionalTextArea", "fields"],
-    ["Input", "createTransitionalFieldInput", "fields"],
-    ["Input Hydrator", "hydrateInput", "fields"],
-    ["Select", "createTransitionalFieldSelect", "fields"],
-    ["Select Hydrator", "hydrateTransitionalSelect", "fields"],
-    ["Combobox", "createCombobox", "fields"],
-    ["Combobox Hydrator", "hydrateCombobox", "fields"],
-    ["Card Number Input", "createTransitionalPaymentCardNumberInput", "specializedInputs"],
-    ["Card Number Input Hydrator", "hydrateTransitionalPaymentCardNumberInput", "specializedInputs"],
-    ["Card Expiry Input", "createTransitionalPaymentCardExpiryInput", "specializedInputs"],
-    ["Card Expiry Input Hydrator", "hydrateTransitionalPaymentCardExpiryInput", "specializedInputs"],
-    ["Card Security Code Input", "createTransitionalPaymentCardSecurityCodeInput", "specializedInputs"],
-    ["Card Security Code Input Hydrator", "hydrateTransitionalPaymentCardSecurityCodeInput", "specializedInputs"],
-    ["Code Input", "createTransitionalSecurityCodeInput", "specializedInputs"],
-    ["Code Input Hydrator", "hydrateTransitionalSecurityCodeInput", "specializedInputs"],
-    ["Phone Input", "createTransitionalPhoneInput", "specializedInputs"],
-    ["Phone Input Hydrator", "hydrateTransitionalPhoneInput", "specializedInputs"],
-    ["Country Selector", "createCountrySelector", "specializedInputs"],
-    ["Country Selector Hydrator", "hydrateCountrySelector", "specializedInputs"],
-    ["Date Picker", "createTransitionalDatePicker", "specializedInputs"],
-    ["Date Picker Hydrator", "hydrateTransitionalDatePicker", "specializedInputs"],
-    ["Date Range Picker", "createTransitionalDateRangePicker", "specializedInputs"],
-    ["Date Range Picker Hydrator", "hydrateTransitionalDateRangePicker", "specializedInputs"],
-    ["Spinner", "createSpinner", "feedback"],
-  ];
-  const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
-    {
-      file: sourceFiles[sourceKey],
-      pattern: new RegExp(`export function ${factory}\\b`),
-      message: `${label} must not reintroduce a DOM factory; React ${label.replace(/\s+/g, "")} is the single product component implementation.`,
-    },
-    {
-      file: contractsFile,
-      pattern: new RegExp(`internalFactory:\\s*"${factory}"`),
-      message: `${label} contract must not name a DOM internalFactory; React ${label.replace(/\s+/g, "")} owns the component implementation.`,
-    },
-    {
-      file: smokeFile,
-      pattern: new RegExp(`import\\s*\\{[^}]*${factory}\\b[^}]*\\}|${factory}\\(`),
-      message: `${label} smoke coverage must use React render tests, not the removed DOM factory.`,
-    },
-  ]);
-  for (const check of checks) {
-    if (!fs.existsSync(check.file)) continue;
-    const source = read(check.file);
-    const match = check.pattern.exec(source);
-    if (match) add("errors", check.file, lineForIndex(source, match.index), check.message);
+  const componentsDir = path.join(root, "packages/components/src/components");
+  const reactDir = path.join(root, "packages/react/src");
+  const reactComponents = fs.existsSync(reactDir)
+    ? fs.readdirSync(reactDir).filter((file) => /^[A-Z].*\.js$/.test(file)).map((file) => path.basename(file, ".js")).sort()
+    : [];
+
+  for (const file of walkFiles(componentsDir, (candidate) => /\.js$/.test(candidate))) {
+    const source = read(file);
+    for (const match of source.matchAll(/export function ((?:create|hydrate)[A-Z][A-Za-z0-9]*)\b/g)) {
+      const name = match[1];
+      if (isAllowedComponentHelper(file, name)) continue;
+      add(
+        "errors",
+        file,
+        lineForIndex(source, match.index),
+        `${name} must not live in packages/components/src/components; React is the primary product implementation and DOM factories/hydrators are not allowed.`
+      );
+    }
   }
+
+  const contractsSource = fs.existsSync(contractsFile) ? read(contractsFile) : "";
+  const smokeSource = fs.existsSync(smokeFile) ? read(smokeFile) : "";
+  const internalFactoryMatch = /internalFactory\s*:/.exec(contractsSource);
+  if (internalFactoryMatch) {
+    add("errors", contractsFile, lineForIndex(contractsSource, internalFactoryMatch.index), "Component contracts must not expose internalFactory; React package exports are the implementation contract.");
+  }
+
+  for (const componentName of reactComponents) {
+    const label = labelForComponentName(componentName);
+    const forbiddenFactory = new RegExp(`\\b(?:create|hydrate)(?:Transitional)?[A-Za-z0-9]*${componentName}\\b`);
+    const contractMatch = forbiddenFactory.exec(contractsSource);
+    if (contractMatch) {
+      add("errors", contractsFile, lineForIndex(contractsSource, contractMatch.index), `${label} contract must not name a DOM factory or hydrator; React ${componentName} owns the implementation.`);
+    }
+    const smokeMatch = forbiddenFactory.exec(smokeSource);
+    if (smokeMatch) {
+      add("errors", smokeFile, lineForIndex(smokeSource, smokeMatch.index), `${label} smoke coverage must use React render tests, not DOM factory or hydrator coverage.`);
+    }
+  }
+}
+
+function isAllowedComponentHelper(file, name) {
+  return normalize(file).endsWith("packages/components/src/components/fields.js")
+    && new Set(["createFieldShell", "createFieldSurface"]).has(name);
 }
 
 function componentRootForClassToken(token) {
@@ -270,6 +207,12 @@ function walkFiles(dir, matcher, output = []) {
 
 function normalize(value) {
   return value.split(path.sep).join("/");
+}
+
+function labelForComponentName(value) {
+  return value
+    .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+    .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2");
 }
 
 function lineForIndex(text, index) {
