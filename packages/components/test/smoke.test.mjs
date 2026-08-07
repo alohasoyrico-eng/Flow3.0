@@ -181,7 +181,6 @@ import {
   createTransitionalDatePicker,
   createTransitionalDateRangePicker,
   createTransitionalPhoneInput,
-  createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
@@ -751,7 +750,6 @@ assert.deepEqual(Object.keys(routeSummaryPlatformAdapters), ["react"]);
 assert.equal(routeSummaryPlatformAdapters.react.componentName, "RouteSummary");
 assert.equal(routeSummaryPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.codeInput.factory, "@design-system/react/code-input");
-assert.equal(componentContracts.codeInput.internalFactory, "createTransitionalSecurityCodeInput");
 assert.equal(codeInputPlatformContract.id, "code-input");
 assert.equal(codeInputPlatformContract.source.factory, componentContracts.codeInput.factory);
 assert.deepEqual(codeInputPlatformProps(), componentContracts.codeInput.props.map((prop) => prop.name));
@@ -940,63 +938,6 @@ assert.equal(primitiveAnimation.dataset.animationRuntime, "fallback");
 assert.equal(primitiveAnimation.dataset.state, "playing");
 assert.equal(primitiveAnimation.querySelector(".animation-asset__fallback-icon").textContent, "shield");
 assert.equal(typeof resolveAnimationRuntime({ loadAnimation() {} })?.loadAnimation, "function");
-const codeInput = createTransitionalSecurityCodeInput({ label: "Code", value: "123", length: 4, helper: "Expires soon" });
-assert.equal(codeInput.tagName, "LABEL");
-assert.equal(codeInput.className, "field code-input");
-assert.equal(codeInput.dataset.state, "default");
-assert.equal(codeInput.querySelector(".field__label").textContent, "Code");
-assert.equal(codeInput.querySelector(".field__helper").textContent, "Expires soon");
-assert.equal(codeInput.querySelector(".code-input__slots").attributes["aria-hidden"], "true");
-assert.equal(codeInput.querySelector(".code-input__slots").children.length, 4);
-assert.equal(codeInput.querySelectorAll("input").length, 1);
-const otpLogicalInput = codeInput.querySelectorAll("input")[0];
-assert.equal(otpLogicalInput.value, "123");
-assert.equal(otpLogicalInput.attributes["data-code-input"], "");
-assert.equal(otpLogicalInput.autocomplete, "one-time-code");
-assert.equal(otpLogicalInput.attributes.inputmode, "numeric");
-assert.equal(otpLogicalInput.attributes.autocomplete, "one-time-code");
-assert.equal(otpLogicalInput.attributes.pattern, "[0-9]*");
-assert.equal(otpLogicalInput.attributes.maxlength, "4");
-assert.equal(codeInput.querySelector(".code-input__slots").children[0].tagName, "SPAN");
-assert.equal(codeInput.querySelector(".code-input__slots").children[0].attributes["data-code-slot"], "");
-assert.equal(otpLogicalInput.attributes["aria-describedby"], codeInput.querySelector(".field__helper").id);
-const maskedOtp = createTransitionalSecurityCodeInput({ label: "Code", value: "123456", variant: "masked" });
-assert.equal(maskedOtp.dataset.variant, "masked");
-assert.equal(maskedOtp.dataset.masked, "true");
-assert.equal(maskedOtp.querySelector(".code-input__slots").children[0].querySelector(".code-input__digit").textContent, "1");
-const otpError = createTransitionalSecurityCodeInput({ label: "Code", value: "12", error: "Code expired" });
-assert.equal(otpError.dataset.state, "error");
-assert.equal(otpError.querySelectorAll("input")[0].attributes["aria-invalid"], "true");
-assert.equal(otpError.querySelector(".field__helper").textContent, "Code expired");
-let otpValue = "";
-let otpComplete = "";
-const interactiveOtp = createTransitionalSecurityCodeInput({
-  label: "Code",
-  length: 4,
-  onValueChange(value) {
-    otpValue = value;
-  },
-  onComplete(value) {
-    otpComplete = value;
-  },
-});
-const interactiveCodeInput = interactiveOtp.querySelectorAll("input")[0];
-interactiveCodeInput.value = "a7890";
-interactiveCodeInput.dispatchEvent({ type: "input" });
-assert.equal(interactiveCodeInput.value, "7890");
-const interactiveOtpSlots = interactiveOtp.querySelector(".code-input__slots").children;
-assert.equal(interactiveOtpSlots[0].dataset.filled, "true");
-assert.equal(interactiveOtpSlots[3].textContent, "0");
-assert.equal(otpValue, "7890");
-assert.equal(otpComplete, "7890");
-assert.equal(interactiveCodeInput.autocomplete, "one-time-code"); // Native paste and Backspace stay on the single logical input.
-interactiveCodeInput.dispatchEvent({ type: "focus" });
-assert.equal(interactiveOtp.dataset.focused, "true");
-interactiveCodeInput.value = "12";
-interactiveCodeInput.dispatchEvent({ type: "input" });
-assert.equal(interactiveOtpSlots[2].dataset.active, "true");
-interactiveCodeInput.dispatchEvent({ type: "blur" });
-assert.equal(interactiveOtp.dataset.focused, "false");
 
 const phoneInput = createTransitionalPhoneInput({ label: "Phone", value: "5551234", country: "MX", helper: "SMS only" });
 assert.equal(phoneInput.tagName, "LABEL");
