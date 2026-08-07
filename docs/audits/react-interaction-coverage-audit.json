@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 20,
-    "review": 36,
+    "pass": 21,
+    "review": 35,
     "fail": 0,
-    "missingTestCallbacks": 47
+    "missingTestCallbacks": 46
   },
   "components": [
     {
@@ -93,12 +93,12 @@
       "sourceCovered": [
         "onClick"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onClick"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Button",

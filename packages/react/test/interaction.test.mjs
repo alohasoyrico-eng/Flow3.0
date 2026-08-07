@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import React from "react";
 import { JSDOM } from "jsdom";
 import { cleanup, fireEvent, render } from "@testing-library/react";
-import { Accordion } from "../src/index.js";
+import { Accordion, Breadcrumbs } from "../src/index.js";
 
 const dom = new JSDOM("<!doctype html><html><body></body></html>", {
   url: "http://localhost/",
@@ -41,6 +41,29 @@ try {
   assert.equal(overviewTrigger.getAttribute("aria-expanded"), "false");
   assert.equal(pricingTrigger.getAttribute("aria-expanded"), "true");
   assert.deepEqual(expandedChanges.at(-1), ["pricing"]);
+
+  cleanup();
+
+  const clickedBreadcrumbs = [];
+  const { getByRole: getBreadcrumbRole } = render(React.createElement(Breadcrumbs, {
+    items: [
+      {
+        id: "fleet",
+        label: "Fleet",
+        href: "/fleet",
+        onClick: (item, event) => clickedBreadcrumbs.push({
+          item,
+          defaultPrevented: event.defaultPrevented,
+        }),
+      },
+      { id: "vehicle", label: "Vehicle", current: true },
+    ],
+  }));
+
+  fireEvent.click(getBreadcrumbRole("link", { name: /fleet/i }));
+  assert.equal(clickedBreadcrumbs.length, 1);
+  assert.equal(clickedBreadcrumbs[0].item.id, "fleet");
+  assert.equal(clickedBreadcrumbs[0].defaultPrevented, true);
 } finally {
   cleanup();
   dom.window.close();

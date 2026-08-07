@@ -97,7 +97,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
                   onClick: typeof item.onClick === "function"
                     ? (event) => {
                         event.preventDefault();
-                        item.onClick(item);
+                        item.onClick(item, event);
                       }
                     : undefined,
                 },
