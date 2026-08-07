@@ -1556,6 +1556,9 @@ assert.match(textAreaMarkup, /class="text-area__counter"/);
 assert.match(textAreaMarkup, /29\/120/);
 assert.match(textAreaMarkup, /aria-describedby="[^"]+-helper [^"]+-counter"/);
 
+const unnamedTextAreaMarkup = renderToStaticMarkup(React.createElement(TextArea));
+assert.doesNotMatch(unnamedTextAreaMarkup, /aria-label="Text area"/);
+
 const ref = createRef();
 React.createElement(Button, { ref, label: "Ref" });
 

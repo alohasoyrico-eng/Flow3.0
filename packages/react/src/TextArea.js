@@ -76,7 +76,7 @@ export const TextArea = forwardRef(function TextArea({
         rows,
         maxLength: maxLength == null ? undefined : Number(maxLength),
         "aria-labelledby": label ? `${textAreaId}-label` : undefined,
-        "aria-label": label ? undefined : "Text area",
+        "aria-label": label ? undefined : rest["aria-label"],
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
         onChange: handleChange,

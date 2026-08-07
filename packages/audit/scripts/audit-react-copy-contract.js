@@ -11,6 +11,7 @@ const semanticAriaDefaultsByFile = new Map([
   ["PhoneInput.js", ["Phone input", "Country options", "Country code", "country options", "country code"]],
   ["ProgressIndicator.js", ["Progress", "In progress", "Complete", "Unavailable", "Paused at", "Error at"]],
   ["Slider.js", ["Slider"]],
+  ["TextArea.js", ["Text area"]],
 ]);
 const visibleTriggerDefaultsByFile = new Map([
   ["Avatar.js", ["Unknown avatar"]],

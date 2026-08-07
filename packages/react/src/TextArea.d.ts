@@ -10,7 +10,7 @@ export interface TextAreaChangeMeta {
 }
 
 export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label: string;
+  label?: string;
   helper?: string;
   helperText?: string;
   error?: string;
