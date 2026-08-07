@@ -1285,7 +1285,6 @@ export const componentContracts = {
   },
   datePicker: {
     factory: "@design-system/react/date-picker",
-    internalFactory: "createTransitionalDatePicker",
     element: "div",
     purpose: "Capture one operational date with visible label, readable selected value, calendar affordance, locale rules, disabled dates, and validation states.",
     variants: ["calendar"],

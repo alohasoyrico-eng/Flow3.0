@@ -177,7 +177,6 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import {
-  createTransitionalDatePicker,
   createTransitionalDateRangePicker,
 } from "../src/components/specialized-inputs.js?v=28";
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
@@ -775,7 +774,6 @@ assert.deepEqual(Object.keys(countrySelectorPlatformAdapters), ["react"]);
 assert.equal(countrySelectorPlatformAdapters.react.componentName, "CountrySelector");
 assert.equal(countrySelectorPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.datePicker.factory, "@design-system/react/date-picker");
-assert.equal(componentContracts.datePicker.internalFactory, "createTransitionalDatePicker");
 assert.equal(datePickerPlatformContract.id, "date-picker");
 assert.equal(datePickerPlatformContract.source.factory, componentContracts.datePicker.factory);
 assert.deepEqual(datePickerPlatformProps(), componentContracts.datePicker.props.map((prop) => prop.name));
@@ -866,61 +864,6 @@ assert.equal(primitiveAnimation.dataset.animationRuntime, "fallback");
 assert.equal(primitiveAnimation.dataset.state, "playing");
 assert.equal(primitiveAnimation.querySelector(".animation-asset__fallback-icon").textContent, "shield");
 assert.equal(typeof resolveAnimationRuntime({ loadAnimation() {} })?.loadAnimation, "function");
-
-const datePicker = createTransitionalDatePicker({ label: "Service date", value: "2026-07-13", helper: "One operational date.", min: "2026-01-01", max: "2026-12-31", density: "lg", state: "focus" });
-assert.equal(datePicker.tagName, "DIV");
-assert.equal(datePicker.className, "field date-picker");
-assert.equal(datePicker.dataset.density, "lg");
-assert.equal(datePicker.dataset.state, "focus");
-assert.equal(datePicker.querySelector(".field__label").textContent, "Service date");
-assert.equal(datePicker.querySelector(".date-picker__control").attributes["data-date-picker-trigger"], "");
-assert.equal(datePicker.querySelector(".date-picker__control").attributes["aria-controls"], datePicker.querySelector(".date-picker__panel").id);
-assert.equal(datePicker.querySelector(".date-picker__control").attributes["aria-labelledby"], datePicker.querySelector(".date-picker__label").id);
-assert.equal(datePicker.querySelector(".date-picker__control").attributes["aria-describedby"], datePicker.querySelector(".date-picker__helper").id);
-assert.equal(datePicker.querySelector(".date-picker__value").textContent, "13 jul 2026");
-assert.equal(datePicker.querySelector(".field__helper").textContent, "One operational date.");
-assert.equal(datePicker.querySelector("input").type, "date");
-assert.equal(datePicker.querySelector("input").attributes["data-date-picker-input"], "");
-assert.equal(datePicker.querySelector("input").min, "2026-01-01");
-assert.equal(datePicker.querySelector("input").max, "2026-12-31");
-assert.equal(datePicker.querySelector(".date-picker__panel").attributes.role, "dialog");
-assert.equal(datePicker.querySelector(".date-picker__panel").attributes["aria-modal"], "false");
-assert.equal(datePicker.querySelector(".date-picker__panel").hidden, true);
-assert.equal(datePicker.querySelectorAll("strong")[0].textContent, "Julio 2026");
-assert.equal(datePicker.querySelector(".date-picker__grid").attributes.role, "grid");
-assert.equal(datePicker.querySelector(".date-picker__grid").attributes["aria-labelledby"], datePicker.querySelectorAll("strong")[0].id);
-assert.equal(datePicker.querySelectorAll(".date-picker__weekday").map((day) => day.textContent).join(""), "LMXJVSD");
-assert.equal(datePicker.querySelectorAll(".date-picker__weekday")[0].attributes.role, "columnheader");
-assert.equal(datePicker.querySelectorAll(".date-picker__nav").length, 2);
-assert.equal(datePicker.querySelectorAll(".date-picker__day")[0].attributes.role, "gridcell");
-assert.equal(Boolean(datePicker.querySelectorAll(".date-picker__day")[0].attributes["aria-label"]), true);
-let dateValue = "";
-let dateOpen = null;
-const interactiveDate = createTransitionalDatePicker({
-  label: "Service date",
-  value: "2026-07-13",
-  onValueChange(value) {
-    dateValue = value;
-  },
-  onOpenChange(open) {
-    dateOpen = open;
-  },
-});
-interactiveDate.querySelector(".date-picker__control").click();
-assert.equal(interactiveDate.querySelector(".date-picker__panel").hidden, false);
-assert.equal(interactiveDate.querySelector(".date-picker__control").attributes["aria-expanded"], "true");
-assert.equal(dateOpen, true);
-interactiveDate.querySelectorAll(".date-picker__nav")[1].click();
-assert.equal(interactiveDate.querySelectorAll("strong")[0].textContent, "Agosto 2026");
-interactiveDate.querySelectorAll(".date-picker__nav")[0].click();
-assert.equal(interactiveDate.querySelectorAll("strong")[0].textContent, "Julio 2026");
-const nextDateButton = interactiveDate.querySelectorAll(".date-picker__day")
-  .find((button) => button.attributes["data-date-picker-day"] === "2026-07-14");
-nextDateButton.click();
-assert.equal(dateValue, "2026-07-14");
-assert.equal(interactiveDate.querySelector("input").value, "2026-07-14");
-assert.equal(interactiveDate.querySelector(".date-picker__panel").hidden, true);
-assert.equal(globalThis.document.activeElement, interactiveDate.querySelector(".date-picker__control"));
 
 const dateRangePicker = createTransitionalDateRangePicker({
   label: "Reporting range",

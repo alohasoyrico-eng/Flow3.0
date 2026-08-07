@@ -41,14 +41,14 @@ const reactDensityComponents = [
   { id: "codeInput", file: path.join(root, "packages/react/src/CodeInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "phoneInput", file: path.join(root, "packages/react/src/PhoneInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "countrySelector", file: path.join(root, "packages/react/src/CountrySelector.js"), selector: '.select-control[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
+  { id: "datePicker", file: path.join(root, "packages/react/src/DatePicker.js"), selector: '.date-picker[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
 ];
 
 const delegatedDensityComponents = [
-  { id: "datePicker", factory: "createTransitionalDatePicker", source: "specializedInputs", delegate: "createFieldShell", selector: '.date-picker[data-density="sm"]' },
   { id: "dateRangePicker", factory: "createTransitionalDateRangePicker", source: "specializedInputs", delegate: "date-picker shell", selector: '.date-picker[data-density="sm"]' },
 ];
 
-const contextInheritedDensityComponents = new Set(["datePicker", "dateRangePicker"]);
+const contextInheritedDensityComponents = new Set(["dateRangePicker"]);
 
 function checkDensityContracts() {
   const contracts = read(contractsFile);
