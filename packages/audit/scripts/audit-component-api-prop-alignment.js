@@ -12,7 +12,6 @@ const componentSourceRoot = path.join(root, "packages/components/src/components"
 const ignoredParserTokens = new Set(["false", "true"]);
 const publicPropAliases = {};
 const unprefixedFactoryNames = new Map([
-  ["icon-button", "createTransitionalActionIconButton"],
   ["code-input", "createTransitionalSecurityCodeInput"],
   ["phone-input", "createTransitionalPhoneInput"],
   ["spinner", "createSpinner"],

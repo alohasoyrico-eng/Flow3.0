@@ -189,8 +189,6 @@ import {
   createTransitionalPhoneInput,
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
-import { createTransitionalActionIconButton } from "../src/components/actions.js";
-
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
@@ -342,7 +340,6 @@ assert.deepEqual(Object.keys(buttonPlatformAdapters), ["react"]);
 assert.equal(buttonPlatformAdapters.react.componentName, "Button");
 assert.equal(buttonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.iconButton.factory, "@design-system/react/icon-button");
-assert.equal(componentContracts.iconButton.internalFactory, "createTransitionalActionIconButton");
 assert.equal(iconButtonPlatformContract.id, "icon-button");
 assert.equal(iconButtonPlatformContract.source.factory, componentContracts.iconButton.factory);
 assert.deepEqual(iconButtonPlatformProps(), componentContracts.iconButton.props.map((prop) => prop.name));
@@ -863,18 +860,6 @@ for (const contract of Object.values(componentContracts)) {
   assert.ok(contract.props.length >= 5);
   assert.ok(contract.accessibility.length >= 3);
 }
-
-const iconButton = createTransitionalActionIconButton({ ariaLabel: "Open filters", icon: "tune", variant: "tonal", density: "sm", selected: true, badge: true });
-assert.equal(iconButton.tagName, "BUTTON");
-assert.equal(iconButton.className, "icon-button icon-button--tonal");
-assert.equal(iconButton.attributes["aria-label"], "Open filters");
-assert.equal(iconButton.attributes["aria-pressed"], "true");
-assert.equal(iconButton.dataset.density, "sm");
-assert.equal(iconButton.querySelector(".icon-button__icon").attributes["aria-hidden"], "true");
-assert.equal(iconButton.querySelector(".icon-button__badge").attributes["aria-hidden"], "true");
-const inheritedDensityIconButton = createTransitionalActionIconButton({ ariaLabel: "More actions", icon: "more_horiz" });
-assert.equal(inheritedDensityIconButton.dataset.density, undefined);
-assert.equal(inheritedDensityIconButton.querySelector(".icon-button__icon").textContent, "more_horiz");
 
 let cardNumberMeta = null;
 const cardNumberInput = createTransitionalPaymentCardNumberInput({

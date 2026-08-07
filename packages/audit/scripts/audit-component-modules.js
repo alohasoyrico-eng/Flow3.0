@@ -10,9 +10,9 @@ const moduleRules = [
   {
     id: "actions",
     file: "packages/components/src/components/actions.js",
-    exports: ["createTransitionalActionIconButton"],
+    exports: [],
     publicExports: [],
-    internalExports: ["createTransitionalActionIconButton"],
+    internalExports: [],
   },
   {
     id: "choices",

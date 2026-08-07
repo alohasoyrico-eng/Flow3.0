@@ -151,6 +151,7 @@ function checkReactOnlyComponentBoundaries() {
   };
   const reactOnlyComponents = [
     ["Button", "createTransitionalActionButton", "actions"],
+    ["Icon Button", "createTransitionalActionIconButton", "actions"],
     ["Card", "createCard", "surfaces"],
     ["Table", "createTable", "commerce"],
     ["List", "createList", "display"],

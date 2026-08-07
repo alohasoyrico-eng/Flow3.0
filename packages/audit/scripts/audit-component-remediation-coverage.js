@@ -170,7 +170,6 @@ function reactSourceFor(id) {
 
 function kebabToFactoryName(id) {
   const unprefixedFactoryNames = {
-    "icon-button": "createTransitionalActionIconButton",
     "code-input": "createTransitionalSecurityCodeInput",
     "phone-input": "createTransitionalPhoneInput",
     "card-number-input": "createTransitionalPaymentCardNumberInput",
