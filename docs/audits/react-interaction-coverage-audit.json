@@ -116,13 +116,16 @@
       "source": "packages/react/src/Card.js",
       "types": "packages/react/src/Card.d.ts",
       "callbacks": [
-        "onAction"
+        "onAction",
+        "onClick"
       ],
       "sourceCovered": [
-        "onAction"
+        "onAction",
+        "onClick"
       ],
       "testCovered": [
-        "onAction"
+        "onAction",
+        "onClick"
       ],
       "missingInSource": [],
       "missingInTests": [],
@@ -338,14 +341,17 @@
       "types": "packages/react/src/Dialog.d.ts",
       "callbacks": [
         "onAction",
+        "onClick",
         "onOpenChange"
       ],
       "sourceCovered": [
         "onAction",
+        "onClick",
         "onOpenChange"
       ],
       "testCovered": [
         "onAction",
+        "onClick",
         "onOpenChange"
       ],
       "missingInSource": [],
@@ -358,14 +364,17 @@
       "types": "packages/react/src/Drawer.d.ts",
       "callbacks": [
         "onAction",
+        "onClick",
         "onOpenChange"
       ],
       "sourceCovered": [
         "onAction",
+        "onClick",
         "onOpenChange"
       ],
       "testCovered": [
         "onAction",
+        "onClick",
         "onOpenChange"
       ],
       "missingInSource": [],
@@ -377,13 +386,16 @@
       "source": "packages/react/src/EmptyState.js",
       "types": "packages/react/src/EmptyState.d.ts",
       "callbacks": [
-        "onAction"
+        "onAction",
+        "onClick"
       ],
       "sourceCovered": [
-        "onAction"
+        "onAction",
+        "onClick"
       ],
       "testCovered": [
-        "onAction"
+        "onAction",
+        "onClick"
       ],
       "missingInSource": [],
       "missingInTests": [],
@@ -394,13 +406,16 @@
       "source": "packages/react/src/ErrorPanel.js",
       "types": "packages/react/src/ErrorPanel.d.ts",
       "callbacks": [
-        "onAction"
+        "onAction",
+        "onClick"
       ],
       "sourceCovered": [
-        "onAction"
+        "onAction",
+        "onClick"
       ],
       "testCovered": [
-        "onAction"
+        "onAction",
+        "onClick"
       ],
       "missingInSource": [],
       "missingInTests": [],
@@ -578,14 +593,17 @@
       "types": "packages/react/src/Popover.d.ts",
       "callbacks": [
         "onAction",
+        "onClick",
         "onOpenChange"
       ],
       "sourceCovered": [
         "onAction",
+        "onClick",
         "onOpenChange"
       ],
       "testCovered": [
         "onAction",
+        "onClick",
         "onOpenChange"
       ],
       "missingInSource": [],
@@ -781,15 +799,18 @@
       "types": "packages/react/src/Table.d.ts",
       "callbacks": [
         "onExpandedChange",
-        "onRowSelect"
+        "onRowSelect",
+        "onSortChange"
       ],
       "sourceCovered": [
         "onExpandedChange",
-        "onRowSelect"
+        "onRowSelect",
+        "onSortChange"
       ],
       "testCovered": [
         "onExpandedChange",
-        "onRowSelect"
+        "onRowSelect",
+        "onSortChange"
       ],
       "missingInSource": [],
       "missingInTests": [],

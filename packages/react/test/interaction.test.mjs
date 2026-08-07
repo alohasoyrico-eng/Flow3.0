@@ -510,11 +510,12 @@ try {
 
   const dialogOpenChanges = [];
   const dialogActions = [];
+  const dialogActionClicks = [];
   const { getByRole: getDialogRole, rerender: rerenderDialog } = render(React.createElement(Dialog, {
     label: "Confirm route",
     description: "Review before assigning.",
     triggerLabel: "Open review",
-    actions: [{ key: "confirm", label: "Confirm" }],
+    actions: [{ key: "confirm", label: "Confirm", onClick: (event) => dialogActionClicks.push(event.type) }],
     onOpenChange: (open) => dialogOpenChanges.push(open),
     onAction: (key) => dialogActions.push(key),
   }));
@@ -527,6 +528,7 @@ try {
 
   fireEvent.click(getDialogRole("button", { name: /confirm/i }));
   await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(dialogActionClicks, ["click"]);
   assert.deepEqual(dialogActions, ["confirm"]);
   assert.deepEqual(dialogOpenChanges, [true, false]);
 
