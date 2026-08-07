@@ -1572,6 +1572,7 @@ assert.match(cardExpiryInputMarkup, /value="12\/28"/);
 const invalidCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(CardExpiryInput, {
   label: "Expiry date",
   value: "1328",
+  validationMessage: "Check the expiry date.",
 }));
 assert.match(invalidCardExpiryInputMarkup, /data-state="error"/);
 assert.match(invalidCardExpiryInputMarkup, /data-validity="invalid"/);

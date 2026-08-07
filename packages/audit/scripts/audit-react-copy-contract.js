@@ -3,6 +3,7 @@ const { fs, path, root, read, add } = require("./audit-context.js");
 const reactSrcDir = path.join(root, "packages/react/src");
 const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días"];
 const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save"];
+const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const displayFallbackTermsByFile = new Map([
   ["Card.js", ["Card"]],
   ["CardSummary.js", ["Card"]],
@@ -46,6 +47,16 @@ function checkReactCopyContract() {
           file,
           index + 1,
           `React Copy Contract: component-visible default copy "${matchedContentDefault}" belongs in content/docs/consumer props.`
+        );
+      }
+
+      const matchedValidationDefault = validationContentDefaults.find((term) => line.includes(`"${term}`) || line.includes(`'${term}`));
+      if (matchedValidationDefault) {
+        add(
+          "errors",
+          file,
+          index + 1,
+          `React Copy Contract: validation copy "${matchedValidationDefault}" belongs in content/docs/consumer props.`
         );
       }
 

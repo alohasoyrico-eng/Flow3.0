@@ -64,7 +64,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
   state,
   name = "",
   placeholder = "5231 0000 0000 0000",
-  validationMessage = "Check the card number.",
+  validationMessage = "",
   onValueChange,
   className = "",
   id,

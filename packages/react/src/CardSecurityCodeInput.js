@@ -40,7 +40,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   name = "",
   placeholder = "CVC",
   expectedLength = 3,
-  validationMessage = "Enter the security code.",
+  validationMessage = "",
   revealable = true,
   revealed,
   onValueChange,
