@@ -94,9 +94,9 @@ const moduleRules = [
   {
     id: "security",
     file: "packages/components/src/components/security.js",
-    exports: ["createBiometricPrompt"],
+    exports: [],
     publicExports: [],
-    internalExports: ["createBiometricPrompt"],
+    internalExports: [],
   },
   {
     id: "status",

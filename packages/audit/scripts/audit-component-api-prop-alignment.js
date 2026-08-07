@@ -50,7 +50,6 @@ const unprefixedFactoryNames = new Map([
   ["popover", "createPopover"],
   ["motion-boundary", "createMotionBoundary"],
   ["animated-moment", "createAnimatedMoment"],
-  ["biometric-prompt", "createBiometricPrompt"],
 ]);
 
 function factoryName(id) {

@@ -137,7 +137,7 @@ const components = [
     requiredTokens: ["comp.biometric-prompt.*", "comp.button.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.symbol.*", "sys.growth.*", "sys.iconography.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "message", "measurement"],
     props: ["label", "description", "variant", "state", "actionLabel", "density", "fullWidth", "fallback"],
-    jsSnippets: ["biometricPromptPlatformContract", "React.createElement(Button", "className: [\"biometric-prompt\"", '"data-variant": resolvedVariant', '"data-state": resolvedState', '"data-density": resolvedDensity', '"data-full-width": String(Boolean(fullWidth))', "biometric-prompt__icon", "biometric-prompt__content", "biometric-prompt__action", "data-biometric-action", "biometric-prompt__fallback", "data-biometric-fallback"],
+    jsSnippets: ["biometricPromptPlatformContract", "React.createElement(Button", "className: [\"biometric-prompt\"", '"data-variant": resolvedVariant', '"data-state": resolvedState', '"data-density": resolvedDensity', "validDensities.has(density) ? density : undefined", '"data-full-width": String(Boolean(fullWidth))', "biometric-prompt__icon", "biometric-prompt__content", "biometric-prompt__action", "data-biometric-action", "biometric-prompt__fallback", "data-biometric-fallback"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "BiometricPromptProps", "BiometricPromptVariant", "BiometricPromptState", "BiometricPromptDensity", "biometricPromptPlatformContract"],
     packagePath: "./biometric-prompt",
     exportName: "BiometricPrompt",

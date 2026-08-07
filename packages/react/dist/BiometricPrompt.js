@@ -49,14 +49,14 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
   actionLabel = "Use biometrics",
   fallback = "Use passcode instead",
   icon = "",
-  density = "md",
+  density,
   fullWidth = false,
   className = "",
   ...rest
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "fingerprint");
   const resolvedState = normalizeState(state);
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const disabled = resolvedState === "disabled";
 
   return React.createElement(

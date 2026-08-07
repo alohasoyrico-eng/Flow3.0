@@ -179,7 +179,6 @@ import {
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
-import { createBiometricPrompt } from "../src/components/security.js?v=3";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -644,7 +643,6 @@ assert.deepEqual(Object.keys(tablePlatformAdapters), ["react"]);
 assert.equal(tablePlatformAdapters.react.componentName, "Table");
 assert.equal(tablePlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.biometricPrompt.factory, "@design-system/react/biometric-prompt");
-assert.equal(componentContracts.biometricPrompt.internalFactory, "createBiometricPrompt");
 assert.equal(biometricPromptPlatformContract.id, "biometric-prompt");
 assert.equal(biometricPromptPlatformContract.source.factory, componentContracts.biometricPrompt.factory);
 assert.deepEqual(biometricPromptPlatformProps(), componentContracts.biometricPrompt.props.map((prop) => prop.name));
@@ -1697,14 +1695,6 @@ interactiveMenu.querySelectorAll(".menu__item")[1].click();
 assert.equal(menuSelection.key, "suspend");
 assert.equal(interactiveMenu.querySelector(".menu__panel").hidden, true);
 assert.equal(globalThis.document.activeElement, interactiveMenu.querySelector(".menu__trigger"));
-
-const biometricPrompt = createBiometricPrompt({ label: "Confirm it is you", variant: "face", state: "authenticating" });
-assert.equal(biometricPrompt.tagName, "SECTION");
-assert.equal(biometricPrompt.className, "biometric-prompt");
-assert.equal(biometricPrompt.attributes.role, "group");
-assert.equal(biometricPrompt.dataset.variant, "face");
-assert.equal(biometricPrompt.querySelector(".biometric-prompt__fallback").textContent, "Use passcode instead");
-assert.equal(biometricPrompt.querySelector(".biometric-prompt__fallback").attributes["data-biometric-fallback"], "");
 
 const treeView = createTreeView({ label: "Fleet tree", density: "lg", nodes: [{ label: "Fleet North", level: 1, expanded: true, icon: "account_tree" }, { label: "Cards", level: 2, selected: true }, { label: "Cards ending 4821", level: 5 }] });
 assert.equal(treeView.tagName, "UL");
