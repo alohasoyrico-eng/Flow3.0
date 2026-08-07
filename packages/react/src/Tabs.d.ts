@@ -1,9 +1,19 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import { tabsPlatformContract } from "@design-system/components/platforms";
-import type { BadgeProps } from "./Badge.js";
+import type { BadgeState, BadgeTone, BadgeVariant } from "./Badge.js";
 
 export type TabsVariant = "default" | "underline";
 export type TabsDensity = "sm" | "md" | "lg";
+export interface TabsBadge {
+  label: string;
+  tone?: BadgeTone;
+  variant?: BadgeVariant;
+  state?: BadgeState;
+  hidden?: boolean;
+  live?: boolean;
+  icon?: string;
+  ariaLabel?: string;
+}
 
 export interface TabsItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   key?: string;
@@ -11,7 +21,7 @@ export interface TabsItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 
   label: string;
   icon?: string;
   count?: number;
-  badge?: BadgeProps;
+  badge?: TabsBadge;
   selected?: boolean;
   disabled?: boolean;
 }

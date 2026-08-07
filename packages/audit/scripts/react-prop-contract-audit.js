@@ -116,6 +116,9 @@ function checkActionPropContractTypes({ add, componentName, typesFile, types, co
 }
 
 function checkNoCrossComponentPropInheritance({ add, componentName, typesFile, types }) {
+  if (/import\s+type\s+\{[^}]*[A-Za-z][A-Za-z0-9]*Props[^}]*\}\s+from\s+"\.\/[A-Za-z][A-Za-z0-9]*\.js"/.test(types)) {
+    add("errors", typesFile, 1, `${componentName} React types must not import another component Props type; use local semantic types or child semantic unions instead.`);
+  }
   if (/\b(?:Action|Field)\s+extends\s+(?:ButtonProps|InputProps|IconButtonProps)\b/.test(types)) {
     add("errors", typesFile, 1, `${componentName} local Action/Field types must declare their own public contract instead of extending another component Props type.`);
   }

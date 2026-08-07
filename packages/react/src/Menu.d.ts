@@ -1,4 +1,4 @@
-import type { AvatarProps } from "./Avatar.js";
+import type { AvatarSize, AvatarStatus } from "./Avatar.js";
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import { menuPlatformContract } from "@design-system/components/platforms";
 
@@ -25,8 +25,8 @@ export interface MenuProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style"
   label?: string;
   variant?: MenuVariant;
   avatarName?: string;
-  avatarStatus?: AvatarProps["status"];
-  avatarSize?: AvatarProps["size"];
+  avatarStatus?: AvatarStatus;
+  avatarSize?: AvatarSize;
   density?: MenuDensity;
   state?: MenuState;
   align?: MenuAlign;
