@@ -4,6 +4,7 @@ import { flowToneProps, flowStateProps, flowVariantProps, normalizeFlowValue, no
 
 const validVariants = new Set(["standard", "compact", "action", "status", "media"]);
 const validStates = new Set(["default", "hover", "selected", "loading", "error", "disabled"]);
+const validItemTones = new Set(["danger"]);
 
 export const List = forwardRef(function List({
   items = [],
@@ -47,7 +48,7 @@ export const List = forwardRef(function List({
       const key = String(item.key ?? item.label ?? index);
       const isSelected = currentSelectedKey === key;
       const rowState = normalizeFlowValue(isSelected ? "selected" : item.state ?? resolvedState, validStates, resolvedState);
-      const rowTone = item.tone ?? (rowState === "error" ? "danger" : "");
+      const rowTone = normalizeFlowValue(item.tone ?? (rowState === "error" ? "danger" : ""), validItemTones, "");
       const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
       const Control = isInteractive ? "button" : "span";
       return React.createElement(

@@ -4,6 +4,7 @@ import type { listPlatformContract } from "@design-system/components/platforms";
 export type ListVariant = "standard" | "compact" | "action" | "status" | "media";
 export type ListState = "default" | "hover" | "selected" | "loading" | "error" | "disabled";
 export type ListDensity = "sm" | "md" | "lg";
+export type ListItemTone = "danger";
 
 export interface ListItem {
   key?: string;
@@ -11,8 +12,8 @@ export interface ListItem {
   meta?: ReactNode;
   value?: ReactNode;
   icon?: string;
-  state?: ListState | string;
-  tone?: string;
+  state?: ListState;
+  tone?: ListItemTone;
   disabled?: boolean;
 }
 

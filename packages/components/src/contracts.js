@@ -908,7 +908,7 @@ export const componentContracts = {
     intents: ["default"],
     states: ["default", "hover", "selected", "loading", "error", "disabled"],
     props: [
-      { name: "items", type: "Array<{ key?: string, label: string, meta?: string, value?: string, icon?: string, state?: string, tone?: string }>", required: true },
+      { name: "items", type: "Array<{ key?: string, label: string, meta?: string, value?: string, icon?: string, state?: \"default\" | \"hover\" | \"selected\" | \"loading\" | \"error\" | \"disabled\", tone?: \"danger\" }>", required: true },
       { name: "variant", type: "\"standard\" | \"compact\" | \"action\" | \"status\" | \"media\"", required: false },
       { name: "state", type: "\"default\" | \"hover\" | \"selected\" | \"loading\" | \"error\" | \"disabled\"", required: false },
       { name: "interactive", type: "boolean", required: false },
