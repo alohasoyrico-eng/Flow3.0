@@ -308,6 +308,10 @@ const inheritedStationPinMarkup = renderToStaticMarkup(React.createElement(Stati
   label: "Inherited station density",
 }));
 assert.doesNotMatch(inheritedStationPinMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
+const unnamedStationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
+  value: "",
+}));
+assert.doesNotMatch(unnamedStationPinMarkup, /Station pin|Station 1/);
 
 const cardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
   label: "Fleet",

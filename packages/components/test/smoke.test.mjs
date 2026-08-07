@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import {
   createAnimationAsset,
   createChartsPrimitive,
+  createMapsPrimitive,
   countryFlagAssetPath,
   hasCountryFlag,
   listCountryFlags,
@@ -854,6 +855,9 @@ assert.deepEqual(unlabeledPrimitiveChart.tableFallback.map((row) => row.label), 
 const emptyPrimitiveChart = createChartsPrimitive();
 assert.equal(emptyPrimitiveChart.textSummary.includes("32"), false);
 assert.equal(emptyPrimitiveChart.tableFallback.length, 0);
+const unnamedMapPrimitive = createMapsPrimitive({ permission: "granted", pins: [{}] });
+assert.equal(unnamedMapPrimitive.mapLayerModel.pins[0].label, "");
+assert.equal(unnamedMapPrimitive.mapLayerModel.pins[0].accessibleLabel, "");
 const primitiveAnimation = createAnimationAsset({
   label: "Success motion",
   state: "playing",

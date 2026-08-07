@@ -32,7 +32,7 @@ export const StationPin = forwardRef(function StationPin({
   const mapPrimitive = createMapsPrimitive({
     permission: "granted",
     pins: [{
-      label: label ?? visibleValue ?? "Station pin",
+      label: label ?? visibleValue ?? "",
       value: value && value !== label ? value : "",
       meta,
       variant: resolvedVariant,
@@ -41,7 +41,7 @@ export const StationPin = forwardRef(function StationPin({
       unavailable: resolvedState === "unavailable",
     }],
   });
-  const accessibleLabel = mapPrimitive.mapLayerModel.pins[0]?.accessibleLabel ?? String((label ?? visibleValue) || "Station pin");
+  const accessibleLabel = mapPrimitive.mapLayerModel.pins[0]?.accessibleLabel ?? String(label ?? visibleValue ?? "");
 
   function handleClick(event) {
     if (blocked) return;

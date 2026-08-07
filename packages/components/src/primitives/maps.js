@@ -14,7 +14,7 @@ function resolveMapRuntime(runtime) {
 
 function normalizePin(pin = {}, index = 0) {
   const state = pin.unavailable ? "unavailable" : pin.selected ? "selected" : validPinStates.has(pin.state) ? pin.state : "default";
-  const label = pin.label ?? pin.name ?? `Station ${index + 1}`;
+  const label = pin.label ?? pin.name ?? "";
   const value = pin.value ?? pin.distance ?? "";
   const meta = pin.meta ?? pin.status ?? "";
   const route = pin.route ?? pin.eta ?? "";
