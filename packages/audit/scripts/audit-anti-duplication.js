@@ -165,7 +165,6 @@ function checkReactOnlyComponentBoundaries() {
     const source = read(file);
     for (const match of source.matchAll(/export function ((?:create|hydrate)[A-Z][A-Za-z0-9]*)\b/g)) {
       const name = match[1];
-      if (isAllowedComponentHelper(file, name)) continue;
       add(
         "errors",
         file,
@@ -264,11 +263,6 @@ function classRootsFromClassExpression(value) {
     if (rootToken) roots.add(rootToken);
   }
   return roots;
-}
-
-function isAllowedComponentHelper(file, name) {
-  return normalize(file).endsWith("packages/components/src/components/fields.js")
-    && new Set(["createFieldShell", "createFieldSurface"]).has(name);
 }
 
 function componentRootForClassToken(token) {
