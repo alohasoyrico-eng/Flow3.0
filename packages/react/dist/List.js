@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { listPlatformContract } from "#flow/platforms";
 
 const validVariants = new Set(["standard", "compact", "action", "status", "media"]);
@@ -15,6 +15,7 @@ export const List = forwardRef(function List({
   label = "",
   variant = "standard",
   state = "default",
+  selectedKey,
   density,
   onSelect,
   className = "",
@@ -24,6 +25,13 @@ export const List = forwardRef(function List({
   const resolvedState = normalize(state, validStates, "default");
   const resolvedDensity = validDensities.has(density) ? density : "";
   const isInteractive = Boolean(interactive || resolvedVariant === "action" || typeof onSelect === "function");
+  const initialSelectedKey = selectedKey ?? items.find((item) => item.state === "selected")?.key ?? "";
+  const isSelectedKeyControlled = selectedKey !== undefined;
+  const [currentSelectedKey, setCurrentSelectedKey] = useState(String(initialSelectedKey));
+
+  useEffect(() => {
+    if (isSelectedKeyControlled) setCurrentSelectedKey(String(selectedKey ?? ""));
+  }, [isSelectedKeyControlled, selectedKey]);
 
   return React.createElement(
     "ul",
@@ -41,7 +49,8 @@ export const List = forwardRef(function List({
     },
     items.map((item, index) => {
       const key = String(item.key ?? item.label ?? index);
-      const rowState = normalize(item.state ?? resolvedState, validStates, resolvedState);
+      const isSelected = currentSelectedKey === key;
+      const rowState = normalize(isSelected ? "selected" : item.state ?? resolvedState, validStates, resolvedState);
       const rowTone = item.tone ?? (rowState === "error" ? "danger" : "");
       const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
       const Control = isInteractive ? "button" : "span";
@@ -60,7 +69,9 @@ export const List = forwardRef(function List({
             "aria-current": rowState === "selected" ? "true" : undefined,
             "aria-busy": rowState === "loading" ? "true" : undefined,
             onClick: isInteractive ? () => {
-              if (!disabled) onSelect?.(key);
+              if (disabled) return;
+              if (!isSelectedKeyControlled) setCurrentSelectedKey(key);
+              onSelect?.(key);
             } : undefined,
           },
           item.icon

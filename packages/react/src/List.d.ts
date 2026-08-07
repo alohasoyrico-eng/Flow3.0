@@ -22,6 +22,7 @@ export interface ListProps extends Omit<HTMLAttributes<HTMLUListElement>, "onSel
   state?: ListState;
   interactive?: boolean;
   label?: string;
+  selectedKey?: string;
   density?: ListDensity;
   onSelect?: (key: string) => void;
 }

@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -951,6 +951,39 @@ try {
   fireEvent.click(getRouteRole("button", { name: /assign/i }));
   assert.deepEqual(routeActions, ["assign"]);
   assert.deepEqual(routeClicks, ["click"]);
+
+  cleanup();
+
+  const listSelections = [];
+  const { getByRole: getListRole, rerender: rerenderList } = render(React.createElement(List, {
+    label: "Fleet tasks",
+    variant: "action",
+    items: [
+      { key: "docs", label: "Documents", meta: "3 pending" },
+      { key: "fuel", label: "Fuel card", meta: "Needs review" },
+    ],
+    onSelect: (key) => listSelections.push(key),
+  }));
+
+  const documentsRow = getListRole("button", { name: /documents/i });
+  const fuelRow = getListRole("button", { name: /fuel card/i });
+  assert.equal(documentsRow.getAttribute("aria-current"), null);
+  fireEvent.click(documentsRow);
+  await waitFor(() => assert.equal(documentsRow.getAttribute("aria-current"), "true"));
+  assert.deepEqual(listSelections, ["docs"]);
+
+  rerenderList(React.createElement(List, {
+    label: "Fleet tasks",
+    variant: "action",
+    selectedKey: "fuel",
+    items: [
+      { key: "docs", label: "Documents", meta: "3 pending" },
+      { key: "fuel", label: "Fuel card", meta: "Needs review" },
+    ],
+    onSelect: (key) => listSelections.push(key),
+  }));
+  await waitFor(() => assert.equal(fuelRow.getAttribute("aria-current"), "true"));
+  assert.equal(documentsRow.getAttribute("aria-current"), null);
 
   cleanup();
 

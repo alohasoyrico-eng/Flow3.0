@@ -908,6 +908,7 @@ export const componentContracts = {
       { name: "state", type: "\"default\" | \"hover\" | \"selected\" | \"loading\" | \"error\" | \"disabled\"", required: false },
       { name: "interactive", type: "boolean", required: false },
       { name: "label", type: "string", required: false },
+      { name: "selectedKey", type: "string", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "onSelect", type: "(key: string) => void", required: false }
     ],
