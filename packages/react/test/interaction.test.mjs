@@ -333,6 +333,8 @@ try {
   const comboboxChanges = [];
   const { getByRole: getComboboxRole, rerender: rerenderCombobox } = render(React.createElement(Combobox, {
     label: "Driver",
+    optionsLabel: "Driver options",
+    clearSelectionLabel: "Clear driver",
     options: [
       { label: "Ana Sosa", value: "ana", meta: "Driver" },
       { label: "Luis Perez", value: "luis", meta: "Driver" },
@@ -351,13 +353,15 @@ try {
   assert.equal(comboboxChanges.at(-1).value, "ana");
   assert.deepEqual(comboboxChanges.at(-1).meta, { label: "Ana Sosa", meta: "Driver", inputValue: "Ana Sosa" });
 
-  fireEvent.click(getComboboxRole("button", { name: /clear selection/i }));
+  fireEvent.click(getComboboxRole("button", { name: /clear driver/i }));
   await waitFor(() => assert.equal(comboboxInput.value, ""));
   assert.equal(comboboxChanges.at(-1).value, "");
   assert.deepEqual(comboboxChanges.at(-1).meta, { label: "", meta: "", inputValue: "", cleared: true });
 
   rerenderCombobox(React.createElement(Combobox, {
     label: "Driver",
+    optionsLabel: "Driver options",
+    clearSelectionLabel: "Clear driver",
     value: "luis",
     options: [
       { label: "Ana Sosa", value: "ana", meta: "Driver" },

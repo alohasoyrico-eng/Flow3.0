@@ -72,7 +72,7 @@ const displayFallbackTermsByFile = new Map([
   ["PhoneInput.js", ["Phone number"]],
   ["ProgressIndicator.js", ["Progress"]],
   ["Select.js", ["Select"]],
-  ["Combobox.js", ["Combobox"]],
+  ["Combobox.js", ["Combobox", "Options", "Clear selection"]],
   ["Slider.js", ["Slider"]],
   ["TextArea.js", ["Text area"]],
   ["MovementRow.js", ["Movement", "Pending", "Declined"]],

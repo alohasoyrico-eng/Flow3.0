@@ -2073,6 +2073,8 @@ assert.match(formDrawerMarkup, /value="Diesel"/);
 const comboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
   label: "Vehicle",
   helper: "Search by plate, driver, or fleet",
+  optionsLabel: "Vehicle options",
+  clearSelectionLabel: "Clear vehicle",
   value: "mx-4821",
   density: "sm",
   state: "open",
@@ -2103,6 +2105,8 @@ assert.match(comboboxMarkup, /class="field__helper"/);
 
 const emptyComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
   label: "Vehicle",
+  optionsLabel: "Vehicle options",
+  clearSelectionLabel: "Clear vehicle",
   value: "zz",
   emptyText: "No matching options",
   options: [{ label: "MX-4821 - Ana Gomez", value: "mx-4821" }],
@@ -2110,6 +2114,11 @@ const emptyComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
 assert.match(emptyComboboxMarkup, /data-state="empty"/);
 assert.match(emptyComboboxMarkup, /class="combobox__empty"/);
 assert.match(emptyComboboxMarkup, />No matching options<\/span>/);
+
+const unnamedComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox));
+assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Combobox"/);
+assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Options"/);
+assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Clear selection"/);
 
 const motionBoundaryMarkup = renderToStaticMarkup(React.createElement(MotionBoundary, {
   label: "Panel transition",

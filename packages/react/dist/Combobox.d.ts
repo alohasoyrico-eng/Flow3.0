@@ -19,10 +19,12 @@ export interface ComboboxValueMeta {
 }
 
 export interface ComboboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "onChange" | "value" | "size" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label: string;
+  label?: string;
   helper?: string;
   icon?: string;
   options: ComboboxOption[];
+  optionsLabel?: string;
+  clearSelectionLabel?: string;
   value?: string;
   name?: string;
   placeholder?: string;
