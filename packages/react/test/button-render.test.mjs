@@ -954,8 +954,8 @@ assert.match(progressIndicatorMarkup, /data-indeterminate="false"/);
 assert.match(progressIndicatorMarkup, /class="progress__label" id="docs-progress-label">Documents<\/span>/);
 assert.match(progressIndicatorMarkup, /class="progress__value">75%<\/span>/);
 assert.match(progressIndicatorMarkup, /class="progress__track"/);
-assert.match(progressIndicatorMarkup, /class="progress__fill"/);
-assert.match(progressIndicatorMarkup, /--progress-value:75%/);
+assert.match(progressIndicatorMarkup, /<progress class="progress__meter" max="100" value="75"/);
+assert.doesNotMatch(progressIndicatorMarkup, /style="/);
 
 const indeterminateProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator, {
   label: "Syncing policies",

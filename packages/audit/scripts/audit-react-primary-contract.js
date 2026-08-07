@@ -28,7 +28,6 @@ const allowedInlineStyleKeys = [
   "--comp-segmented-control-count",
   "--comp-segmented-control-index",
   "--comp-tree-view-depth-offset",
-  "--progress-value",
 ];
 
 function checkReactPrimaryContract() {

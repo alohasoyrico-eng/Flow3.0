@@ -2908,18 +2908,39 @@ button.tag:disabled,
   overflow: hidden;
 }
 
-.progress__fill {
-  background: var(--comp-progress-indicator-tone);
+.progress__meter {
+  appearance: none;
+  background: transparent;
   border-radius: inherit;
+  border: 0;
   block-size: 100%;
   display: block;
-  inline-size: var(--progress-value, 0%);
+  inline-size: 100%;
+  overflow: hidden;
+}
+
+.progress__meter::-webkit-progress-bar {
+  background: transparent;
+  border-radius: inherit;
+}
+
+.progress__meter::-webkit-progress-value {
+  background: var(--comp-progress-indicator-tone);
+  border-radius: inherit;
   transition:
     inline-size var(--comp-progress-indicator-motion-duration) var(--comp-progress-indicator-motion-ease),
     background-color var(--comp-progress-indicator-state-duration) var(--comp-progress-indicator-state-ease);
 }
 
-.progress[data-indeterminate="true"] .progress__fill {
+.progress__meter::-moz-progress-bar {
+  background: var(--comp-progress-indicator-tone);
+  border-radius: inherit;
+  transition:
+    inline-size var(--comp-progress-indicator-motion-duration) var(--comp-progress-indicator-motion-ease),
+    background-color var(--comp-progress-indicator-state-duration) var(--comp-progress-indicator-state-ease);
+}
+
+.progress[data-indeterminate="true"] .progress__meter {
   animation: progress-indeterminate var(--comp-progress-indicator-indeterminate-duration) var(--comp-progress-indicator-indeterminate-ease) infinite;
   inline-size: 42%;
 }
@@ -6725,7 +6746,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .progress__fill,
+  .progress__meter,
   .spinner,
   .spinner__svg,
   .spinner__arc,

@@ -86,7 +86,13 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
     React.createElement(
       "span",
       { className: "progress__track" },
-      React.createElement("span", { className: "progress__fill", style: { "--progress-value": `${percent}%` } }),
+      React.createElement("progress", {
+        className: "progress__meter",
+        max: numericMax,
+        value: isIndeterminate ? undefined : numericValue,
+        tabIndex: -1,
+        "aria-hidden": "true",
+      }),
     ),
   );
 });

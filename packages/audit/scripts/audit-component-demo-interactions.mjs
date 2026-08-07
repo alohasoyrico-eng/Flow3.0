@@ -267,7 +267,8 @@ assert.equal(fixtures.toast.removed, true, "Toast dismiss should remove the toas
 
 assert.equal(fixtures.progress.querySelector(".progress__label").textContent, "Upload", "Progress Indicator should keep a visible label.");
 assert.equal(fixtures.progress.attributes["aria-labelledby"], fixtures.progress.querySelector(".progress__label").id, "Progress Indicator should use visible label as accessible name.");
-assert.equal(fixtures.progressFill.style.values["--progress-value"], "60%", "Progress Indicator should set progress percentage on the package fill.");
+assert.equal(fixtures.progressMeter.attributes.value, "60", "Progress Indicator should set determinate progress through the native progress value.");
+assert.equal(fixtures.progressMeter.attributes.max, "100", "Progress Indicator should set determinate progress through the native progress max.");
 assert.equal(fixtures.progress.attributes["aria-valuenow"], "60", "Progress Indicator should keep determinate aria-valuenow in sync.");
 assert.equal(fixtures.progress.attributes["aria-valuemax"], "100", "Progress Indicator should keep determinate aria-valuemax in sync.");
 assert.equal(fixtures.indeterminateProgress.attributes["aria-valuenow"], undefined, "Indeterminate progress must not expose fake aria-valuenow.");
@@ -465,7 +466,7 @@ function buildFixtures() {
 
   const progressLabel = el("span", { className: "progress__label", attrs: { id: "progress-audit-label" }, textContent: "Upload" });
   const progressValue = el("span", { className: "progress__value", textContent: "60%" });
-  const progressFill = el("span", { className: "progress__fill" });
+  const progressMeter = el("progress", { className: "progress__meter", attrs: { value: "60", max: "100", "aria-hidden": "true" } });
   const progressNode = el("div", {
     className: "progress",
     attrs: {
@@ -478,7 +479,7 @@ function buildFixtures() {
     dataset: { value: "60", max: "100", indeterminate: "false" },
   }, [
     el("span", { className: "progress__meta" }, [progressLabel, progressValue]),
-    el("span", { className: "progress__track" }, [progressFill]),
+    el("span", { className: "progress__track" }, [progressMeter]),
   ]);
   const progressRoot = el("div", { dataset: { docComponent: "progress-indicator", value: "60", max: "100" } }, [progressNode]);
   const indeterminateProgress = el("div", {
@@ -493,7 +494,7 @@ function buildFixtures() {
     el("span", { className: "progress__meta" }, [
       el("span", { className: "progress__label", attrs: { id: "progress-indeterminate-label" }, textContent: "Syncing" }),
     ]),
-    el("span", { className: "progress__track" }, [el("span", { className: "progress__fill" })]),
+    el("span", { className: "progress__track" }, [el("progress", { className: "progress__meter", attrs: { max: "100", "aria-hidden": "true" } })]),
   ]);
 
   return {
@@ -553,7 +554,7 @@ function buildFixtures() {
     toastAction,
     toastDismiss,
     progress: progressNode,
-    progressFill,
+    progressMeter,
     indeterminateProgress,
   };
 }
