@@ -23,11 +23,14 @@ const sourceFiles = {
 const directDensityComponents = [
   { id: "button", factory: "createTransitionalActionButton", source: "actions", selector: '.button[data-density="sm"]', token: "--button-current-size" },
   { id: "iconButton", factory: "createTransitionalActionIconButton", source: "actions", selector: '.icon-button[data-density="sm"]', token: "--icon-button-size" },
-  { id: "switch", factory: "createTransitionalChoiceSwitch", source: "choices", selector: '.switch[data-density="sm"]', token: "--switch-track-width" },
   { id: "spinner", factory: "createSpinner", source: "feedback", selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size" },
   { id: "breadcrumbs", factory: "createBreadcrumbs", source: "navigation", selector: '.breadcrumbs[data-density="sm"]', token: "--comp-breadcrumbs-target-block" },
   { id: "pagination", factory: "createPagination", source: "navigation", selector: '.pagination[data-density="sm"]', token: "--comp-pagination-size" },
   { id: "stepper", factory: "createStepper", source: "navigation", selector: '.stepper[data-density="sm"]', token: "--comp-stepper-marker-size" },
+];
+
+const reactDensityComponents = [
+  { id: "switch", file: path.join(root, "packages/react/src/Switch.js"), selector: '.switch[data-density="sm"]', token: "--switch-track-width", snippets: ['"data-density": density || undefined'] },
 ];
 
 const delegatedDensityComponents = [
@@ -45,7 +48,7 @@ const delegatedDensityComponents = [
   { id: "dateRangePicker", factory: "createTransitionalDateRangePicker", source: "specializedInputs", delegate: "date-picker shell", selector: '.date-picker[data-density="sm"]' },
 ];
 
-const contextInheritedDensityComponents = new Set(["button", "cardExpiryInput", "cardNumberInput", "cardSecurityCodeInput", "codeInput", "datePicker", "dateRangePicker", "iconButton", "input", "phoneInput", "select", "switch", "textArea"]);
+const contextInheritedDensityComponents = new Set(["button", "cardExpiryInput", "cardNumberInput", "cardSecurityCodeInput", "codeInput", "datePicker", "dateRangePicker", "iconButton", "input", "phoneInput", "select", "textArea"]);
 
 function checkDensityContracts() {
   const contracts = read(contractsFile);
@@ -87,6 +90,22 @@ function checkDensityContracts() {
       add("errors", sourceFiles[component.source], 1, `${component.factory} must forward density to its owned package shell.`);
     }
     checkCssDensity(css, component.selector, null, component.id);
+  }
+
+  for (const component of reactDensityComponents) {
+    if (!contractDeclaresDensity(contracts, component.id)) {
+      add("errors", contractsFile, 1, `${component.id} must declare density before React source can expose density variants.`);
+    }
+    const source = read(component.file);
+    for (const snippet of component.snippets) {
+      if (!source.includes(snippet)) {
+        add("errors", component.file, 1, `${component.id} React implementation must inherit density by writing ${snippet}.`);
+      }
+    }
+    if (source.includes('density = "md"')) {
+      add("errors", component.file, 1, `${component.id} React implementation must inherit density from context; do not default density to md.`);
+    }
+    checkCssDensity(css, component.selector, component.token, component.id);
   }
 
   const selectControlBody = functionBody(read(sourceFiles.fields), "createSelectControl");

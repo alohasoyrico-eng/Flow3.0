@@ -192,7 +192,7 @@ import {
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
-import { createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
+import { createTransitionalChoiceRadioButton } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
@@ -407,7 +407,6 @@ assert.deepEqual(Object.keys(selectPlatformAdapters), ["react"]);
 assert.equal(selectPlatformAdapters.react.componentName, "Select");
 assert.equal(selectPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.switch.factory, "@design-system/react/switch");
-assert.equal(componentContracts.switch.internalFactory, "createTransitionalChoiceSwitch");
 assert.equal(switchPlatformContract.id, "switch");
 assert.equal(switchPlatformContract.source.factory, componentContracts.switch.factory);
 assert.deepEqual(switchPlatformProps(), componentContracts.switch.props.map((prop) => prop.name));
@@ -1351,17 +1350,6 @@ localizedPhoneField.dispatchEvent({ type: "input" });
 assert.equal(localizedPhoneInput.querySelector(".phone-input__country").dataset.country, "MX");
 assert.equal(localizedPhoneInput.querySelector(".phone-input__prefix").textContent, "+52");
 assert.equal(localizedPhoneField.value, "55 5123 4567");
-
-const switchControl = createTransitionalChoiceSwitch({
-  label: "Route alerts",
-  description: "Notify before balance changes",
-  checked: true,
-});
-assert.equal(switchControl.tagName, "LABEL");
-assert.equal(switchControl.className, "switch");
-assert.equal(switchControl.querySelector("input").attributes.role, "switch");
-assert.equal(switchControl.querySelector("input").attributes["aria-checked"], "true");
-assert.equal(switchControl.querySelector(".switch__label").textContent, "Route alerts");
 
 const radioButton = createTransitionalChoiceRadioButton({
   label: "Weekly",

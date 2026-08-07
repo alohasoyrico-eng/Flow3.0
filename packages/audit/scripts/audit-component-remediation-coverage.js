@@ -175,7 +175,6 @@ function kebabToFactoryName(id) {
     input: "createTransitionalFieldInput",
     select: "createTransitionalFieldSelect",
     "radio-button": "createTransitionalChoiceRadioButton",
-    switch: "createTransitionalChoiceSwitch",
     "text-area": "createTransitionalFieldTextArea",
     "code-input": "createTransitionalSecurityCodeInput",
     "phone-input": "createTransitionalPhoneInput",
