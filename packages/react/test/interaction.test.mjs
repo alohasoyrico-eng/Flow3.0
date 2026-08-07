@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -958,6 +958,32 @@ try {
   fireEvent.click(getToastRole("button", { name: /dismiss notification/i }));
   assert.deepEqual(toastDismissals, ["dismiss"]);
   assert.equal(toastRegion.hidden, true);
+
+  cleanup();
+
+  const tooltipOpenChanges = [];
+  const { getByRole: getTooltipRole } = render(React.createElement(Tooltip, {
+    triggerLabel: "Help",
+    content: "Helpful context",
+    onOpenChange: (open) => tooltipOpenChanges.push(open),
+  }));
+
+  const tooltipTrigger = getTooltipRole("button", { name: /help/i });
+  const tooltipBubble = getTooltipRole("tooltip", { hidden: true });
+  assert.equal(tooltipBubble.hidden, true);
+  fireEvent.mouseEnter(tooltipTrigger);
+  await waitFor(() => assert.equal(tooltipBubble.hidden, false));
+  assert.deepEqual(tooltipOpenChanges, [true]);
+
+  fireEvent.mouseLeave(tooltipTrigger);
+  await waitFor(() => assert.equal(tooltipBubble.hidden, true));
+  assert.deepEqual(tooltipOpenChanges, [true, false]);
+
+  fireEvent.focus(tooltipTrigger);
+  await waitFor(() => assert.equal(tooltipBubble.hidden, false));
+  fireEvent.keyDown(tooltipTrigger, { key: "Escape" });
+  await waitFor(() => assert.equal(tooltipBubble.hidden, true));
+  assert.deepEqual(tooltipOpenChanges, [true, false, true, false]);
 } finally {
   cleanup();
   dom.window.close();

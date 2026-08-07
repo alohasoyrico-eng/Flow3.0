@@ -8,16 +8,15 @@ React components that declare callback props must use them in source and must ha
 
 - Components audited: 56
 - Components with callbacks: 39
-- Pass: 54
-- Review: 2
+- Pass: 55
+- Review: 1
 - Fail: 0
-- Missing callback test assertions: 2
+- Missing callback test assertions: 1
 
 ## Missing Interaction Tests
 
 | Component | Missing callback coverage |
 | --- | --- |
-| Tooltip | onOpenChange |
 | TreeView | onExpandedChange |
 
 ## Missing Source Usage

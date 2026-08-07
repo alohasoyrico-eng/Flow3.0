@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 54,
-    "review": 2,
+    "pass": 55,
+    "review": 1,
     "fail": 0,
-    "missingTestCallbacks": 2
+    "missingTestCallbacks": 1
   },
   "components": [
     {
@@ -870,12 +870,12 @@
       "sourceCovered": [
         "onOpenChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onOpenChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "TreeView",
