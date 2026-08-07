@@ -1750,6 +1750,13 @@ assert.doesNotMatch(inheritedCardExpiryInputMarkup.match(/^<label[^>]+>/)?.[0] ?
 const unnamedCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(CardExpiryInput));
 assert.doesNotMatch(unnamedCardExpiryInputMarkup, /aria-label="Expiry date"/);
 
+const loadingCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(CardExpiryInput, {
+  label: "Expiry date",
+  loading: true,
+}));
+assert.match(loadingCardExpiryInputMarkup, /class="spinner/);
+assert.doesNotMatch(loadingCardExpiryInputMarkup, /Expiry date loading|Loading/);
+
 const cardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(CardSecurityCodeInput, {
   label: "Security code",
   helper: "Use the code printed on the card.",
