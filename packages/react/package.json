@@ -240,7 +240,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node test/button-render.test.mjs && node test/interaction.test.mjs"
+    "test": "node test/button-render.test.mjs && node test/interaction.test.mjs && node test/ref.test.mjs"
   },
   "peerDependencies": {
     "react": ">=18"

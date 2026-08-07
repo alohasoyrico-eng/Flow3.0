@@ -5,6 +5,7 @@ const reactDistDir = path.join(root, "packages/react/dist");
 const reactIndexFile = path.join(reactSrcDir, "index.js");
 const reactTypesIndexFile = path.join(reactSrcDir, "index.d.ts");
 const reactPackageFile = path.join(root, "packages/react/package.json");
+const reactRefTestFile = path.join(root, "packages/react/test/ref.test.mjs");
 const rootPackageFile = path.join(root, "package.json");
 
 const allowedPrimitiveImports = new Set([
@@ -38,6 +39,20 @@ function checkReactPrimaryContract() {
   if (!componentFiles.length) {
     add("errors", reactSrcDir, 1, "React package must expose primary component source files.");
     return;
+  }
+
+  if (!reactPackage?.scripts?.test?.includes("test/ref.test.mjs")) {
+    add("errors", reactPackageFile, 1, "React package test script must run test/ref.test.mjs so ForwardRefExoticComponent is verified at runtime.");
+  }
+  if (!fs.existsSync(reactRefTestFile)) {
+    add("errors", reactRefTestFile, 1, "React package must include a runtime ref forwarding test for all contracted components.");
+  } else {
+    const refTest = read(reactRefTestFile);
+    for (const snippet of ["componentContracts", "React.createRef()", "ref.current instanceof HTMLElement"]) {
+      if (!refTest.includes(snippet)) {
+        add("errors", reactRefTestFile, 1, `React ref test must derive coverage from contracts and assert runtime refs: ${snippet}.`);
+      }
+    }
   }
 
   for (const file of componentFiles) {
