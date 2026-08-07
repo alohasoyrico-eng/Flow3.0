@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -686,6 +686,26 @@ try {
 
   fireEvent.click(getRadioLabel(/card payment/i));
   assert.deepEqual(radioChanges, [{ checked: true, meta: { value: "card" } }]);
+
+  cleanup();
+
+  const routeClicks = [];
+  const routeActions = [];
+  const { container: routeContainer, getByRole: getRouteRole } = render(React.createElement(RouteSummary, {
+    label: "Route 24",
+    description: "Centro to Norte",
+    metrics: [{ label: "ETA", value: "18 min" }],
+    actions: [{ key: "assign", label: "Assign", onAction: () => routeActions.push("assign") }],
+    onClick: (event) => routeClicks.push(event.type),
+  }));
+
+  const routeSummary = routeContainer.querySelector(".route-summary");
+  fireEvent.click(routeSummary);
+  assert.deepEqual(routeClicks, ["click"]);
+
+  fireEvent.click(getRouteRole("button", { name: /assign/i }));
+  assert.deepEqual(routeActions, ["assign"]);
+  assert.deepEqual(routeClicks, ["click"]);
 } finally {
   cleanup();
   dom.window.close();

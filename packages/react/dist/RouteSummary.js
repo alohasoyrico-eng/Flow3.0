@@ -14,6 +14,11 @@ function normalize(value, allowed, fallback) {
 
 function renderAction(action, index, { compact, density, disabled }) {
   const actionDisabled = Boolean(disabled || action?.disabled);
+  const actionHandler = action?.onAction ?? action?.onClick;
+  const handleActionClick = (event) => {
+    event.stopPropagation();
+    actionHandler?.(event);
+  };
   if (compact) {
     return React.createElement(IconButton, {
       key: action?.key ?? `${action?.label ?? "action"}-${index}`,
@@ -22,7 +27,7 @@ function renderAction(action, index, { compact, density, disabled }) {
       variant: action?.variant ?? "ghost",
       density: action?.density ?? "sm",
       disabled: actionDisabled,
-      onClick: action?.onAction ?? action?.onClick,
+      onClick: handleActionClick,
     });
   }
   return React.createElement(Button, {
@@ -35,7 +40,7 @@ function renderAction(action, index, { compact, density, disabled }) {
     density: action?.density ?? density,
     disabled: actionDisabled,
     loading: Boolean(action?.loading),
-    onClick: action?.onAction ?? action?.onClick,
+    onClick: handleActionClick,
   });
 }
 

@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 44,
-    "review": 12,
+    "pass": 45,
+    "review": 11,
     "fail": 0,
-    "missingTestCallbacks": 15
+    "missingTestCallbacks": 13
   },
   "components": [
     {
@@ -649,13 +649,13 @@
         "onAction",
         "onClick"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onAction",
         "onClick"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "SegmentedControl",
