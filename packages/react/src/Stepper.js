@@ -6,10 +6,10 @@ const allowedOrientations = new Set(["horizontal", "vertical"]);
 
 function normalizeSteps(steps) {
   const sourceSteps = Array.isArray(steps) ? steps : [];
-  return sourceSteps.map((step, index) => ({
+  return sourceSteps.map((step) => ({
     ...step,
     label: step?.label ?? "",
-    ariaLabel: step?.ariaLabel ?? step?.["aria-label"] ?? step?.label ?? `Step ${index + 1}`,
+    ariaLabel: step?.ariaLabel ?? step?.["aria-label"] ?? step?.label ?? "",
     description: step?.description ?? "",
   }));
 }
@@ -17,7 +17,7 @@ function normalizeSteps(steps) {
 export const Stepper = forwardRef(function Stepper({
   steps = [],
   current = 0,
-  label = "Progress",
+  label = "",
   orientation = "horizontal",
   density,
   className = "",
@@ -34,7 +34,7 @@ export const Stepper = forwardRef(function Stepper({
       ...flowRestProps(rest),
       ref,
       className: ["stepper", className].filter(Boolean).join(" "),
-      "aria-label": label,
+      "aria-label": label || undefined,
       "data-orientation": resolvedOrientation,
       ...flowDensityProps(resolvedDensity),
       "data-current": String(currentIndex),
