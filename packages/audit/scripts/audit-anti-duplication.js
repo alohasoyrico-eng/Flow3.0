@@ -80,6 +80,7 @@ const protectedComponentRoots = new Set(["button", "card", "dialog", "drawer", "
 function checkAntiDuplicationGovernance() {
   checkDocsDoNotOwnPackageComponentMarkup();
   checkKnownDuplicateConcepts();
+  checkPrimitiveInteractiveDomFactories();
   checkReactOnlyComponentBoundaries();
   checkReactComponentClassOwnership();
 }
@@ -131,6 +132,22 @@ function checkKnownDuplicateConcepts() {
           add("errors", file, lineForIndex(source, match.index), `${check.concept}: ${check.message}`);
         }
       }
+    }
+  }
+}
+
+function checkPrimitiveInteractiveDomFactories() {
+  const primitivesDir = path.join(root, "packages/components/src/primitives");
+  if (!fs.existsSync(primitivesDir)) return;
+  for (const file of walkFiles(primitivesDir, (candidate) => /\.js$/.test(candidate))) {
+    const source = read(file);
+    for (const match of source.matchAll(/document\.createElement\(\s*["'`](button|input|select|textarea)["'`]\s*\)/g)) {
+      add(
+        "errors",
+        file,
+        lineForIndex(source, match.index),
+        `Primitives must not create interactive ${match[1]} DOM controls; React components own product interaction surfaces.`
+      );
     }
   }
 }
