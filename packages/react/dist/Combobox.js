@@ -97,7 +97,7 @@ export const Combobox = forwardRef(function Combobox({
       ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
     },
-    React.createElement("span", { className: "field__label", id: `${comboboxId}-label` }, label ?? "Combobox"),
+    label ? React.createElement("span", { className: "field__label", id: `${comboboxId}-label` }, label) : null,
     React.createElement(
       "span",
       {
@@ -126,7 +126,8 @@ export const Combobox = forwardRef(function Combobox({
         "aria-expanded": String(isOpen),
         "aria-haspopup": "listbox",
         "aria-controls": `${comboboxId}-listbox`,
-        "aria-labelledby": `${comboboxId}-label`,
+        "aria-label": label ? undefined : "Combobox",
+        "aria-labelledby": label ? `${comboboxId}-label` : undefined,
         "aria-invalid": resolvedState === "error" ? "true" : undefined,
         "aria-activedescendant": isOpen && activeOption ? `${comboboxId}-option-${options.indexOf(activeOption)}` : undefined,
         onFocus: () => setOpen(true),
@@ -180,7 +181,7 @@ export const Combobox = forwardRef(function Combobox({
           className: "select-control__listbox combobox__listbox",
           role: "listbox",
           "data-combobox-listbox": "",
-          "aria-label": `${label ?? "Combobox"} options`,
+          "aria-label": label ? `${label} options` : "Options",
         },
         filteredOptions.map((option) => {
           const valueKey = optionValue(option);

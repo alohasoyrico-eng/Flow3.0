@@ -54,9 +54,9 @@ export const Select = forwardRef(function Select({
       ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
       role: "group",
-      "aria-labelledby": `${selectId}-label`,
+      "aria-labelledby": label ? `${selectId}-label` : undefined,
     },
-    React.createElement("span", { className: "field__label", id: `${selectId}-label` }, label ?? "Select"),
+    label ? React.createElement("span", { className: "field__label", id: `${selectId}-label` }, label) : null,
     React.createElement(
       "span",
       {
@@ -80,8 +80,8 @@ export const Select = forwardRef(function Select({
           "aria-expanded": String(isOpen),
           "aria-haspopup": "listbox",
           "aria-controls": `${selectId}-listbox`,
-          "aria-label": label ?? "Select",
-          "aria-labelledby": `${selectId}-label`,
+          "aria-label": label ? undefined : "Select",
+          "aria-labelledby": label ? `${selectId}-label` : undefined,
           "aria-invalid": state === "error" ? "true" : undefined,
           "aria-activedescendant": `${selectId}-option-${activeIndex}`,
           onClick: () => setOpen((current) => !current),
@@ -108,7 +108,7 @@ export const Select = forwardRef(function Select({
           className: "select-control__listbox",
           role: "listbox",
           "data-select-listbox": "",
-          "aria-label": `${label ?? "Select"} options`,
+          "aria-label": label ? `${label} options` : "Options",
         },
         options.map((option, index) => {
           const optionValue = option.value ?? option.label ?? "";

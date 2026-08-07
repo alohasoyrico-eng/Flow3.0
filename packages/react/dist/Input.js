@@ -123,7 +123,7 @@ export const Input = forwardRef(function Input({
       "data-mono": mono ? "true" : undefined,
       "data-align": resolvedAlign === "end" ? "end" : undefined,
     },
-    React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label ?? "Input"),
+    label ? React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label) : null,
     React.createElement(
       "span",
       { className: "field__control" },
@@ -146,7 +146,7 @@ export const Input = forwardRef(function Input({
         required,
         inputMode: inputMode || inputModeForVariant(resolvedVariant),
         autoComplete: autocomplete || autocompleteForVariant(resolvedVariant),
-        "aria-labelledby": `${inputId}-label`,
+        "aria-labelledby": label ? `${inputId}-label` : undefined,
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : rest["aria-invalid"],
         onChange: handleChange,
@@ -169,7 +169,7 @@ export const Input = forwardRef(function Input({
           React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, revealed ? "visibility_off" : "visibility"),
         )
         : null,
-      loading ? React.createElement(Spinner, { label: `${label ?? "Input"} loading`, density, decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { label: label ? `${label} loading` : "Loading", density, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
