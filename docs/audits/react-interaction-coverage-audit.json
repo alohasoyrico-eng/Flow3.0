@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 39,
-    "review": 17,
+    "pass": 40,
+    "review": 16,
     "fail": 0,
-    "missingTestCallbacks": 21
+    "missingTestCallbacks": 20
   },
   "components": [
     {
@@ -548,12 +548,12 @@
       "sourceCovered": [
         "onPageChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onPageChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "PhoneInput",

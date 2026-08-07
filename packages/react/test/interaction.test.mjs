@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -531,6 +531,37 @@ try {
   fireEvent.click(getMovementRole("button", { name: /fuel charge/i }));
   assert.equal(movementClicks.length, 1);
   assert.equal(selectedMovements.length, 1);
+
+  cleanup();
+
+  const pageChanges = [];
+  const { getByRole: getPaginationRole, rerender: rerenderPagination } = render(React.createElement(Pagination, {
+    page: 3,
+    pageCount: 12,
+    label: "Results pages",
+    onPageChange: (page) => pageChanges.push(page),
+  }));
+
+  const pageThreeButton = getPaginationRole("button", { name: /page 3/i });
+  assert.equal(pageThreeButton.getAttribute("aria-current"), "page");
+  fireEvent.click(getPaginationRole("button", { name: /page 4/i }));
+  await waitFor(() => assert.equal(getPaginationRole("button", { name: /page 4/i }).getAttribute("aria-current"), "page"));
+  assert.deepEqual(pageChanges, [4]);
+
+  fireEvent.click(getPaginationRole("button", { name: /next page/i }));
+  await waitFor(() => assert.equal(getPaginationRole("button", { name: /page 5/i }).getAttribute("aria-current"), "page"));
+  assert.deepEqual(pageChanges, [4, 5]);
+
+  rerenderPagination(React.createElement(Pagination, {
+    page: 5,
+    pageCount: 12,
+    label: "Results pages",
+    disabled: true,
+    onPageChange: (page) => pageChanges.push(page),
+  }));
+
+  fireEvent.click(getPaginationRole("button", { name: /page 6/i }));
+  assert.deepEqual(pageChanges, [4, 5]);
 } finally {
   cleanup();
   dom.window.close();
