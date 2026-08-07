@@ -26,7 +26,7 @@ export const CardSummary = forwardRef(function CardSummary({
   expires = "",
   variant = "physical",
   state = "default",
-  density = "md",
+  density,
   icon = "",
   fullWidth = false,
   disabled = false,
@@ -35,7 +35,7 @@ export const CardSummary = forwardRef(function CardSummary({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "physical");
   const resolvedState = disabled ? "disabled" : normalize(state, validStates, "default");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const statusLabel = status || (resolvedState === "frozen" ? "Frozen" : resolvedState === "warning" ? "Review" : "Active");
   const resolvedIcon = icon || (resolvedVariant === "virtual" ? "smartphone" : resolvedState === "frozen" ? "ac_unit" : "contactless");
 
@@ -47,7 +47,7 @@ export const CardSummary = forwardRef(function CardSummary({
       className: ["card-summary", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "data-full-width": String(Boolean(fullWidth)),
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
       tabIndex: ["hover", "focus", "active"].includes(resolvedState) ? 0 : rest.tabIndex,

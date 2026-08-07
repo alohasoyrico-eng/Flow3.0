@@ -181,7 +181,7 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
-import { createCardSummary, createMovementRow, createQuickAction } from "../src/components/commerce.js?v=15";
+import { createMovementRow, createQuickAction } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -873,7 +873,6 @@ assert.equal(popoverPlatformAdapters.react.componentName, "Popover");
 assert.equal(popoverPlatformAdapters.react.sourceOfTruth, true);
 assert.match(componentsCss, /\.popover__panel\[hidden\]\s*\{[^}]*display:\s*none;/);
 assert.equal(componentContracts.cardSummary.factory, "@design-system/react/card-summary");
-assert.equal(componentContracts.cardSummary.internalFactory, "createCardSummary");
 assert.equal(cardSummaryPlatformContract.id, "card-summary");
 assert.equal(cardSummaryPlatformContract.source.factory, componentContracts.cardSummary.factory);
 assert.deepEqual(cardSummaryPlatformProps(), componentContracts.cardSummary.props.map((prop) => prop.name));
@@ -2101,17 +2100,6 @@ interactiveRange.querySelectorAll(".date-range-picker__preset")[0].click();
 assert.equal(Boolean(rangeValue.from), true);
 assert.equal(Boolean(rangeValue.to), true);
 assert.equal(interactiveRange.querySelector(".date-range-picker__panel").hidden, true);
-
-const cardSummary = createCardSummary({ label: "Fuel card", meta: "Ana Sosa", number: "•••• 0420", expires: "12/28", status: "Active", metrics: [{ label: "Limit", value: "$900" }] });
-assert.equal(cardSummary.tagName, "ARTICLE");
-assert.equal(cardSummary.className, "card-summary");
-assert.equal(cardSummary.querySelector(".card-summary__number").textContent, "•••• 0420");
-assert.equal(cardSummary.querySelector(".card-summary__expires").textContent, "12/28");
-assert.equal(cardSummary.querySelector(".card-summary__metrics"), null);
-const limitCardSummary = createCardSummary({ variant: "limit", label: "Fleet", meta: "Ana Sosa", number: "•••• 0420", metrics: [{ label: "Limit", value: "$900" }] });
-assert.equal(limitCardSummary.querySelector(".card-summary__metrics").textContent, "Limit$900");
-const frozenCardSummary = createCardSummary({ state: "frozen", label: "Fleet", meta: "Ana Sosa", number: "•••• 0420" });
-assert.equal(frozenCardSummary.querySelector(".card-summary__frost").textContent, "ac_unitFrozen");
 
 const movementRow = createMovementRow({ label: "Fuel purchase", meta: "Today", amount: "−$842.00", status: "Pending", category: "fuel", state: "pending", density: "sm" });
 assert.equal(movementRow.tagName, "BUTTON");

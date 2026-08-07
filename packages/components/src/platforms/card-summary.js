@@ -7,7 +7,6 @@ export const cardSummaryPlatformContract = {
   layer: "component",
   source: {
     factory: cardSummaryContract.factory,
-    internalFactory: cardSummaryContract.internalFactory,
     cssClass: "card-summary",
     contract: "@design-system/components/contracts#cardSummary",
   },

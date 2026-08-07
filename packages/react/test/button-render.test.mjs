@@ -303,6 +303,11 @@ assert.match(cardSummaryMarkup, /class="card-summary__metrics"/);
 assert.match(cardSummaryMarkup, /Available/);
 assert.match(cardSummaryMarkup, /class="card-summary__frost"/);
 
+const inheritedCardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
+  label: "Inherited card density",
+}));
+assert.doesNotMatch(inheritedCardSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const chartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
   label: "Spend",
   value: "$12k",

@@ -25,12 +25,11 @@ const moduleRules = [
     id: "commerce",
     file: "packages/components/src/components/commerce.js",
     exports: [
-      "createCardSummary",
       "createMovementRow",
       "createQuickAction",
     ],
     publicExports: [],
-    internalExports: ["createCardSummary", "createMovementRow", "createQuickAction"],
+    internalExports: ["createMovementRow", "createQuickAction"],
   },
   {
     id: "display",
