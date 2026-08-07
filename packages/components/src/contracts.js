@@ -153,7 +153,6 @@ export const componentContracts = {
   },
   cardSecurityCodeInput: {
     factory: "@design-system/react/card-security-code-input",
-    internalFactory: "createTransitionalPaymentCardSecurityCodeInput",
     element: "label",
     purpose: "Capture one card security code with numeric keyboard, cc-csc autocomplete, local length validation, optional reveal, helper/error copy, and Design System field states.",
     variants: ["default"],

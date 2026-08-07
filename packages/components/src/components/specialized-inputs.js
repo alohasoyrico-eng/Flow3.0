@@ -4,7 +4,6 @@ import {
   normalizeCountryCallingCodeOptions,
   resolveCountryCallingCodeOption,
 } from "../primitives/country-options.js?v=1";
-import { createFieldAction } from "../primitives/field-actions.js?v=2";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 import {
   appendFieldHelper,
@@ -19,7 +18,6 @@ let phoneInputId = 0;
 let countrySelectorId = 0;
 let datePickerId = 0;
 let dateRangePickerId = 0;
-let cardSecurityCodeInputId = 0;
 
 const phoneCountries = countryCallingCodeOptions;
 
@@ -63,78 +61,6 @@ function nodeAttribute(node, name) {
   if (value != null) return value;
   const attribute = node?.attributes?.[name];
   return typeof attribute === "object" && attribute !== null && "value" in attribute ? attribute.value : attribute;
-}
-
-function normalizeCardSecurityCode(value, maxLength = 4) {
-  return String(value ?? "").replace(/\D/g, "").slice(0, maxLength);
-}
-
-function cardSecurityCodeValidity(value, expectedLength = 3) {
-  const maxLength = expectedLength === 4 ? 4 : 3;
-  const digits = normalizeCardSecurityCode(value, maxLength);
-  if (!digits) return "empty";
-  if (digits.length < expectedLength) return "incomplete";
-  return digits.length === expectedLength ? "valid" : "invalid";
-}
-
-export function hydrateTransitionalPaymentCardSecurityCodeInput(root, { onValueChange } = {}) {
-  if (!root || root.__cardSecurityCodeHydrated === true) return root;
-  const input = root.querySelector?.("[data-card-security-code-input]")
-    ?? Array.from(root.querySelectorAll?.("input") ?? []).find((node) => node.attributes?.["data-card-security-code-input"] !== undefined);
-  if (!input) return root;
-  root.__cardSecurityCodeHydrated = true;
-  root.dataset.cardSecurityCodeHydrated = "true";
-  const helper = root.querySelector?.("[data-card-security-code-helper]")
-    ?? root.querySelector?.(".card-security-code-input__helper")
-    ?? root.querySelector?.(".field__helper");
-  const reveal = root.querySelector?.("[data-card-security-code-reveal]")
-    ?? Array.from(root.querySelectorAll?.("button") ?? []).find((node) => node.attributes?.["data-card-security-code-reveal"] !== undefined || node.dataset?.cardSecurityCodeReveal !== undefined);
-  const revealIcon = reveal?.querySelector?.(".card-security-code-input__action-icon")
-    ?? reveal?.querySelector?.(".field__icon");
-  const defaultHelper = root.dataset.defaultHelper ?? helper?.textContent ?? "";
-  const validationMessage = root.dataset.validationMessage || "Enter the security code.";
-  const expectedLength = Number(root.dataset.expectedLength || input.getAttribute?.("maxlength") || 3);
-  if (reveal) {
-    reveal.addEventListener?.("click", () => {
-      const nextRevealed = input.type === "password";
-      input.type = nextRevealed ? "text" : "password";
-      reveal.setAttribute?.("aria-pressed", String(nextRevealed));
-      reveal.setAttribute?.("aria-label", nextRevealed ? "Hide security code" : "Show security code");
-      if (revealIcon) revealIcon.textContent = nextRevealed ? "visibility_off" : "visibility";
-    });
-  }
-  const sync = () => {
-    const digits = normalizeCardSecurityCode(input.value, expectedLength === 4 ? 4 : 3);
-    if (input.value !== digits) input.value = digits;
-    input.setAttribute?.("value", digits);
-    const validity = cardSecurityCodeValidity(digits, expectedLength === 4 ? 4 : 3);
-    root.dataset.validity = validity;
-    root.dataset.length = String(digits.length);
-    if (root.dataset.stateLocked === "true") {
-      if (typeof onValueChange === "function") onValueChange(digits, { validity, expectedLength: expectedLength === 4 ? 4 : 3, complete: validity === "valid" });
-      return;
-    }
-    if (root.dataset.errorLocked === "true") {
-      root.dataset.state = "error";
-      input.setAttribute?.("aria-invalid", "true");
-      if (helper) helper.textContent = defaultHelper || validationMessage;
-      helper?.setAttribute?.("role", "alert");
-    } else if (validity === "invalid") {
-      root.dataset.state = "error";
-      input.setAttribute?.("aria-invalid", "true");
-      if (helper) helper.textContent = validationMessage;
-      helper?.setAttribute?.("role", "alert");
-    } else {
-      if (!root.dataset.errorLocked) root.dataset.state = validity === "valid" ? "valid" : digits ? "filled" : "default";
-      removeNodeAttribute(input, "aria-invalid");
-      if (helper) helper.textContent = defaultHelper;
-      removeNodeAttribute(helper, "role");
-    }
-    if (typeof onValueChange === "function") onValueChange(digits, { validity, expectedLength: expectedLength === 4 ? 4 : 3, complete: validity === "valid" });
-  };
-  input.addEventListener?.("input", sync);
-  sync();
-  return root;
 }
 
 function getPhoneInput(root) {
@@ -752,110 +678,6 @@ export function createTransitionalPhoneInput({
   root.append(control);
   appendFieldHelper(root, { id, text: resolvedHelper, target: input });
   hydrateTransitionalPhoneInput(root, { onValueChange });
-  return root;
-}
-
-export function createTransitionalPaymentCardSecurityCodeInput({
-  label,
-  value = "",
-  helper = "",
-  error = "",
-  disabled = false,
-  loading = false,
-  required = false,
-  density,
-  state,
-  name = "",
-  placeholder = "CVC",
-  expectedLength = 3,
-  validationMessage = "Enter the security code.",
-  revealable = true,
-  revealed = false,
-  onValueChange,
-} = {}) {
-  const id = `card-security-code-input-${++cardSecurityCodeInputId}`;
-  const resolvedLength = Number(expectedLength) === 4 ? 4 : 3;
-  const digits = normalizeCardSecurityCode(value, resolvedLength);
-  const validity = cardSecurityCodeValidity(digits, resolvedLength);
-  const localError = validity === "invalid" || state === "error" ? validationMessage : "";
-  const resolvedError = error || localError;
-  const resolvedHelper = resolvedError || helper;
-  const isLoading = Boolean(loading) || state === "loading";
-  const isDisabledState = Boolean(disabled) || state === "disabled";
-  const isDisabled = isDisabledState || isLoading;
-  const resolvedState = resolveFieldState({ disabled: isDisabledState, loading: isLoading, error: resolvedError, state, value: digits });
-  const { root } = createFieldShell({
-    id,
-    label,
-    fallbackLabel: "Security code",
-    state: resolvedState,
-    density,
-    mono: true,
-    className: "card-security-code-input",
-  });
-  root.dataset.validity = validity;
-  root.dataset.length = String(digits.length);
-  root.dataset.expectedLength = String(resolvedLength);
-  root.dataset.defaultHelper = helper;
-  root.dataset.validationMessage = validationMessage;
-  if (state === "disabled" || state === "loading") root.dataset.stateLocked = "true";
-  if (resolvedError) root.dataset.errorLocked = error || state === "error" ? "true" : "false";
-  addClassName(root.querySelector(".field__label"), "card-security-code-input__label");
-
-  const control = createFieldSurface({ className: "card-security-code-input__control" });
-
-  const iconNode = document.createElement("span");
-  iconNode.className = "field__icon card-security-code-input__icon";
-  iconNode.setAttribute("aria-hidden", "true");
-  setIconGlyph(iconNode, "pin");
-
-  const input = document.createElement("input");
-  input.className = "input card-security-code-input__input";
-  input.id = id;
-  input.name = name;
-  input.type = revealable && !revealed ? "password" : "text";
-  input.inputMode = "numeric";
-  input.autocomplete = "cc-csc";
-  input.placeholder = placeholder;
-  input.value = digits;
-  input.disabled = isDisabled;
-  input.required = Boolean(required);
-  input.maxLength = resolvedLength;
-  input.setAttribute("data-card-security-code-input", "");
-  input.setAttribute("inputmode", "numeric");
-  input.setAttribute("autocomplete", "cc-csc");
-  input.setAttribute("placeholder", placeholder);
-  input.setAttribute("value", digits);
-  input.setAttribute("maxlength", String(resolvedLength));
-  input.setAttribute("aria-labelledby", `${id}-label`);
-  input.setAttribute("pattern", "[0-9]*");
-  input.setAttribute("enterkeyhint", "next");
-  input.spellcheck = false;
-  if (resolvedError) input.setAttribute("aria-invalid", "true");
-
-  control.append(iconNode, input);
-  if (revealable) {
-    const action = createFieldAction({
-      action: "reveal",
-      ariaLabel: revealed ? "Hide security code" : "Show security code",
-      icon: revealed ? "visibility_off" : "visibility",
-      pressed: Boolean(revealed),
-      disabled: isDisabled,
-    });
-    action.className = `${action.className} card-security-code-input__action`;
-    action.setAttribute("data-card-security-code-reveal", "");
-    const actionIcon = action.querySelector(".field-action__icon");
-    addClassName(actionIcon, "card-security-code-input__action-icon");
-    control.append(action);
-  }
-  if (isLoading) {
-    control.append(createFieldLoadingSpinner(`${label ?? "Security code"} loading`));
-  }
-
-  root.append(control);
-  const helperNode = appendFieldHelper(root, { id, text: resolvedHelper, target: input, className: "card-security-code-input__helper" });
-  helperNode?.setAttribute("data-card-security-code-helper", "");
-  hydrateTransitionalPaymentCardSecurityCodeInput(root, { onValueChange });
   return root;
 }
 

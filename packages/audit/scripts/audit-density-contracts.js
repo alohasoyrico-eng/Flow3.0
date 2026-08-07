@@ -37,10 +37,10 @@ const reactDensityComponents = [
   { id: "combobox", file: path.join(root, "packages/react/src/Combobox.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "cardNumberInput", file: path.join(root, "packages/react/src/CardNumberInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "cardExpiryInput", file: path.join(root, "packages/react/src/CardExpiryInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
+  { id: "cardSecurityCodeInput", file: path.join(root, "packages/react/src/CardSecurityCodeInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
 ];
 
 const delegatedDensityComponents = [
-  { id: "cardSecurityCodeInput", factory: "createTransitionalPaymentCardSecurityCodeInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "codeInput", factory: "createTransitionalSecurityCodeInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "countrySelector", factory: "createCountrySelector", source: "specializedInputs", delegate: "createSelectControl", selector: '.select-control[data-density="sm"]' },
   { id: "phoneInput", factory: "createTransitionalPhoneInput", source: "specializedInputs", delegate: "createFieldShell and createCountrySelector", selector: '.field[data-density="sm"]' },
@@ -48,7 +48,7 @@ const delegatedDensityComponents = [
   { id: "dateRangePicker", factory: "createTransitionalDateRangePicker", source: "specializedInputs", delegate: "date-picker shell", selector: '.date-picker[data-density="sm"]' },
 ];
 
-const contextInheritedDensityComponents = new Set(["cardSecurityCodeInput", "codeInput", "datePicker", "dateRangePicker", "phoneInput"]);
+const contextInheritedDensityComponents = new Set(["codeInput", "datePicker", "dateRangePicker", "phoneInput"]);
 
 function checkDensityContracts() {
   const contracts = read(contractsFile);

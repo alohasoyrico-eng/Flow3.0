@@ -178,8 +178,6 @@ import {
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import {
-  createTransitionalPaymentCardSecurityCodeInput,
-  hydrateTransitionalPaymentCardSecurityCodeInput,
   createTransitionalDatePicker,
   createTransitionalDateRangePicker,
   createTransitionalPhoneInput,
@@ -372,7 +370,6 @@ assert.deepEqual(Object.keys(cardExpiryInputPlatformAdapters), ["react"]);
 assert.equal(cardExpiryInputPlatformAdapters.react.componentName, "CardExpiryInput");
 assert.equal(cardExpiryInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardSecurityCodeInput.factory, "@design-system/react/card-security-code-input");
-assert.equal(componentContracts.cardSecurityCodeInput.internalFactory, "createTransitionalPaymentCardSecurityCodeInput");
 assert.equal(cardSecurityCodeInputPlatformContract.id, "card-security-code-input");
 assert.equal(cardSecurityCodeInputPlatformContract.source.factory, componentContracts.cardSecurityCodeInput.factory);
 assert.deepEqual(cardSecurityCodeInputPlatformProps(), componentContracts.cardSecurityCodeInput.props.map((prop) => prop.name));
@@ -854,90 +851,6 @@ for (const contract of Object.values(componentContracts)) {
   assert.ok(contract.props.length >= 5);
   assert.ok(contract.accessibility.length >= 3);
 }
-
-let cardSecurityCodeMeta = null;
-const cardSecurityCodeInput = createTransitionalPaymentCardSecurityCodeInput({
-  label: "Security code",
-  value: "48a2",
-  helper: "Use the code printed on the card.",
-  onValueChange: (digits, meta) => { cardSecurityCodeMeta = { digits, meta }; },
-});
-const securityCodeField = cardSecurityCodeInput.querySelector("input");
-const securityCodeReveal = cardSecurityCodeInput.querySelector("button");
-assert.equal(cardSecurityCodeInput.className, "field card-security-code-input");
-assert.equal(cardSecurityCodeInput.dataset.state, "valid");
-assert.equal(cardSecurityCodeInput.dataset.validity, "valid");
-assert.equal(cardSecurityCodeInput.dataset.mono, "true");
-assert.equal(cardSecurityCodeInput.dataset.expectedLength, "3");
-assert.equal(cardSecurityCodeInput.querySelector(".card-security-code-input__icon").textContent, "pin");
-assert.equal(securityCodeField.value, "482");
-assert.equal(securityCodeField.type, "password");
-assert.equal(securityCodeField.attributes.inputmode, "numeric");
-assert.equal(securityCodeField.attributes.autocomplete, "cc-csc");
-assert.equal(securityCodeField.attributes.maxlength, "3");
-assert.equal(securityCodeField.attributes.pattern, "[0-9]*");
-assert.equal(securityCodeField.attributes.enterkeyhint, "next");
-assert.equal(securityCodeField.attributes["aria-labelledby"], cardSecurityCodeInput.querySelector(".field__label").id);
-assert.equal(securityCodeField.attributes["aria-describedby"], cardSecurityCodeInput.querySelector(".field__helper").id);
-assert.equal(cardSecurityCodeMeta.digits, "482");
-assert.equal(cardSecurityCodeMeta.meta.complete, true);
-assert.equal(cardSecurityCodeMeta.meta.expectedLength, 3);
-assert.equal(securityCodeReveal.className, "field-action card-security-code-input__action");
-assert.equal(securityCodeReveal.dataset.fieldAction, "reveal");
-assert.equal(securityCodeReveal.querySelector(".field-action__icon").className, "field-action__icon field__icon card-security-code-input__action-icon");
-assert.equal(securityCodeReveal.attributes["aria-label"], "Show security code");
-assert.equal(securityCodeReveal.attributes["aria-pressed"], "false");
-securityCodeReveal.click();
-assert.equal(securityCodeField.type, "text");
-assert.equal(securityCodeReveal.querySelector(".field-action__icon").textContent, "visibility_off");
-assert.equal(securityCodeReveal.attributes["aria-label"], "Hide security code");
-assert.equal(securityCodeReveal.attributes["aria-pressed"], "true");
-
-securityCodeField.value = "12";
-securityCodeField.dispatchEvent({ type: "input" });
-assert.equal(cardSecurityCodeInput.dataset.validity, "incomplete");
-assert.equal(cardSecurityCodeInput.dataset.state, "filled");
-
-securityCodeField.value = "482";
-securityCodeField.dispatchEvent({ type: "input" });
-assert.equal(cardSecurityCodeInput.dataset.validity, "valid");
-assert.equal(cardSecurityCodeInput.dataset.state, "valid");
-assert.equal(securityCodeField.attributes["aria-invalid"], undefined);
-assert.equal(cardSecurityCodeInput.querySelector(".field__helper").attributes.role, undefined);
-
-const controlledSecurityCodeError = createTransitionalPaymentCardSecurityCodeInput({
-  label: "Security code",
-  value: "12",
-  state: "error",
-});
-assert.equal(controlledSecurityCodeError.dataset.state, "error");
-assert.equal(controlledSecurityCodeError.querySelector("input").attributes["aria-invalid"], "true");
-assert.equal(controlledSecurityCodeError.querySelector(".field__helper").textContent, "Enter the security code.");
-assert.equal(controlledSecurityCodeError.querySelector(".field__helper").attributes.role, "alert");
-
-const fourDigitSecurityCode = createTransitionalPaymentCardSecurityCodeInput({
-  label: "Security code",
-  value: "1234",
-  expectedLength: 4,
-});
-assert.equal(fourDigitSecurityCode.dataset.expectedLength, "4");
-assert.equal(fourDigitSecurityCode.dataset.validity, "valid");
-assert.equal(fourDigitSecurityCode.querySelector("input").attributes.maxlength, "4");
-
-const disabledSecurityCode = createTransitionalPaymentCardSecurityCodeInput({ label: "Security code", value: "482", state: "disabled" });
-assert.equal(disabledSecurityCode.dataset.state, "disabled");
-assert.equal(disabledSecurityCode.querySelector("input").disabled, true);
-assert.equal(disabledSecurityCode.querySelector("button").disabled, true);
-
-const loadingSecurityCode = createTransitionalPaymentCardSecurityCodeInput({ label: "Security code", value: "482", state: "loading" });
-assert.equal(loadingSecurityCode.dataset.state, "loading");
-assert.equal(loadingSecurityCode.querySelector("input").disabled, true);
-assert.equal(loadingSecurityCode.querySelector(".field__icon--loading").className.includes("spinner"), true);
-assert.equal(loadingSecurityCode.querySelector(".field__icon--loading").attributes["aria-hidden"], "true");
-assert.equal(securityCodeField.attributes["aria-invalid"], undefined);
-
-hydrateTransitionalPaymentCardSecurityCodeInput(cardSecurityCodeInput);
-assert.equal(cardSecurityCodeInput.dataset.cardSecurityCodeHydrated, "true");
 
 let selectedCountryMeta = null;
 const countrySelector = createCountrySelector({
