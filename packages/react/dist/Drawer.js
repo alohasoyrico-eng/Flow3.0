@@ -35,7 +35,7 @@ function renderContentItem(item, density, index) {
       "div",
       { className: "drawer__progress-row", key: item.key ?? item.label ?? index },
       React.createElement(ProgressIndicator, {
-        label: item.label ?? "Progress",
+        label: item.label ?? "",
         value: item.value ?? 0,
         max: item.max ?? 100,
         showValue: item.showValue ?? true,
@@ -56,9 +56,9 @@ function renderContentItem(item, density, index) {
 }
 
 export const Drawer = forwardRef(function Drawer({
-  label = "Drawer",
+  label = "",
   description = "",
-  triggerLabel = "Open drawer",
+  triggerLabel = "",
   variant = "side-sheet",
   state = "closed",
   tone = "neutral",
@@ -88,7 +88,7 @@ export const Drawer = forwardRef(function Drawer({
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
   const drawerId = id || `drawer-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const titleId = `${drawerId}-title`;
+  const titleId = label ? `${drawerId}-title` : undefined;
   const resolvedActions = actions;
 
   useEffect(() => {
@@ -134,6 +134,7 @@ export const Drawer = forwardRef(function Drawer({
       density: resolvedDensity,
       className: "drawer__trigger",
       "data-overlay-open": "",
+      "aria-label": triggerLabel ? undefined : "Open drawer",
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": drawerId,
@@ -158,12 +159,13 @@ export const Drawer = forwardRef(function Drawer({
           role: "dialog",
           "aria-modal": "true",
           "aria-labelledby": titleId,
+          "aria-label": label ? undefined : "Drawer",
           onClick: (event) => event.stopPropagation(),
         },
         React.createElement(
           "header",
           null,
-          React.createElement("strong", { id: titleId }, label),
+          label ? React.createElement("strong", { id: titleId }, label) : null,
           React.createElement(IconButton, {
             ref: closeRef,
             icon: "close",

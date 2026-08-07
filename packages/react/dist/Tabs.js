@@ -10,15 +10,12 @@ function itemKey(item) {
 }
 
 function normalizeItems(items) {
-  const sourceItems = Array.isArray(items) && items.length ? items : [
-    { key: "overview", label: "Overview" },
-    { key: "details", label: "Details" },
-    { key: "settings", label: "Settings" },
-  ];
+  const sourceItems = Array.isArray(items) ? items : [];
   return sourceItems.map((item, index) => ({
     ...item,
     key: itemKey(item) || `tab-${index + 1}`,
-    label: item?.label ?? itemKey(item) ?? `Tab ${index + 1}`,
+    label: item?.label ?? "",
+    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item?.label ?? `Tab ${index + 1}`,
   }));
 }
 
@@ -119,6 +116,7 @@ export const Tabs = forwardRef(function Tabs({
           disabled: Boolean(item.disabled),
           tabIndex: selected ? 0 : -1,
           "aria-selected": String(selected),
+          "aria-label": item.label ? undefined : item.ariaLabel,
           "data-tabs-item": "",
           "data-key": item.key,
           onClick: () => commitKey(item.key),

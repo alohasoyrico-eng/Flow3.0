@@ -21,9 +21,9 @@ function resolveTone(tone, variant) {
 }
 
 export const Dialog = forwardRef(function Dialog({
-  label = "Dialog",
+  label = "",
   description = "",
-  triggerLabel = "Open dialog",
+  triggerLabel = "",
   actions = [],
   open: openProp,
   tone = "neutral",
@@ -51,7 +51,7 @@ export const Dialog = forwardRef(function Dialog({
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
   const dialogId = id || `dialog-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const titleId = `${dialogId}-title`;
+  const titleId = label ? `${dialogId}-title` : undefined;
   const resolvedIcon = icon || { danger: "warning", info: "info", success: "check_circle", neutral: "" }[resolvedTone];
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
@@ -98,6 +98,7 @@ export const Dialog = forwardRef(function Dialog({
       density: resolvedDensity,
       className: "dialog__trigger",
       "data-overlay-open": "",
+      "aria-label": triggerLabel ? undefined : "Open dialog",
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": dialogId,
@@ -122,6 +123,7 @@ export const Dialog = forwardRef(function Dialog({
           role: "dialog",
           "aria-modal": "true",
           "aria-labelledby": titleId,
+          "aria-label": label ? undefined : "Dialog",
           onClick: (event) => event.stopPropagation(),
         },
         React.createElement(
@@ -131,7 +133,7 @@ export const Dialog = forwardRef(function Dialog({
           React.createElement(
             "div",
             { className: "dialog__content" },
-            React.createElement("h3", { id: titleId }, label),
+            label ? React.createElement("h3", { id: titleId }, label) : null,
             description ? React.createElement("p", null, description) : null,
           ),
           React.createElement(IconButton, {

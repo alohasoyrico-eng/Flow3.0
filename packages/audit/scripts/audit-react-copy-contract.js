@@ -5,7 +5,10 @@ const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días"];
 const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save"];
 const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const visibleTriggerDefaultsByFile = new Map([
+  ["Dialog.js", ["Dialog", "Open dialog"]],
+  ["Drawer.js", ["Drawer", "Open drawer", "Progress"]],
   ["Popover.js", ["Open"]],
+  ["Tabs.js", ["Overview", "Details", "Settings", "Tab"]],
   ["Tooltip.js", ["Info", "Tooltip"]],
 ]);
 const displayFallbackTermsByFile = new Map([
@@ -61,6 +64,7 @@ function checkReactCopyContract() {
     lines.forEach((line, index) => {
       if (!/["'`]/.test(line)) return;
       const isReactMetadata = line.includes(".displayName") || line.includes(".platformContract");
+      const isAriaName = line.includes('"aria-label"') || line.includes("'aria-label'");
       const matchedTerm = localeSpecificTerms.find((term) => line.includes(term));
       if (matchedTerm) {
         add(
@@ -103,7 +107,7 @@ function checkReactCopyContract() {
       }
 
       const visibleTriggerDefaults = visibleTriggerDefaultsByFile.get(fileName) ?? [];
-      const matchedTriggerDefault = isReactMetadata ? undefined : visibleTriggerDefaults.find((term) => line.includes(`= "${term}"`) || line.includes(`= '${term}'`) || line.includes(`?? "${term}"`) || line.includes(`?? '${term}'`));
+      const matchedTriggerDefault = isReactMetadata || isAriaName ? undefined : visibleTriggerDefaults.find((term) => line.includes(`= "${term}"`) || line.includes(`= '${term}'`) || line.includes(`?? "${term}"`) || line.includes(`?? '${term}'`));
       if (matchedTriggerDefault) {
         add(
           "errors",
