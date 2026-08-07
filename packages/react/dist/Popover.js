@@ -122,8 +122,8 @@ export const Popover = forwardRef(function Popover({
         ? React.createElement(
           "footer",
           { className: "popover__actions" },
-          resolvedActions.map((action) => {
-            const actionLabel = action.label ?? "Action";
+          resolvedActions.filter((action) => action?.label).map((action) => {
+            const actionLabel = action.label;
             return React.createElement(Button, {
               ...action,
               key: action.key ?? actionLabel,

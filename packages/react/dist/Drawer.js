@@ -195,8 +195,8 @@ export const Drawer = forwardRef(function Drawer({
           ? React.createElement(
             "footer",
             null,
-            resolvedActions.map((action, index) => {
-              const actionLabel = action.label ?? "Action";
+            resolvedActions.filter((action) => action?.label).map((action, index) => {
+              const actionLabel = action.label;
               const actionVariant = action.intent === "danger" || action.variant === "danger" ? "primary" : action.variant ?? (index === 0 ? "primary" : "secondary");
               return React.createElement(Button, {
                 ...action,

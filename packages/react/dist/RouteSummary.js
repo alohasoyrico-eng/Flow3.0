@@ -27,9 +27,10 @@ function renderAction(action, index, { compact, density, disabled }) {
       onClick: handleActionClick,
     });
   }
+  if (!action?.label) return null;
   return React.createElement(Button, {
     key: actionKey,
-    label: action?.label ?? "Action",
+    label: action.label,
     icon: action?.icon,
     trailingIcon: action?.trailingIcon,
     variant: action?.variant ?? (index === 0 ? "primary" : "secondary"),

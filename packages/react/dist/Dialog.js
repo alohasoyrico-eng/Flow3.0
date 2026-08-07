@@ -161,8 +161,8 @@ export const Dialog = forwardRef(function Dialog({
           ? React.createElement(
             "footer",
             null,
-            resolvedActions.map((action, index) => {
-              const actionLabel = action.label ?? "Action";
+            resolvedActions.filter((action) => action?.label).map((action, index) => {
+              const actionLabel = action.label;
               const needsDangerIntent = action.intent == null && resolvedTone === "danger" && index === 0;
               return React.createElement(Button, {
                 ...action,

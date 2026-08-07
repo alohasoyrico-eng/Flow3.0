@@ -10,6 +10,10 @@ const displayFallbackTermsByFile = new Map([
   ["EmptyState.js", ["No results"]],
   ["KpiTile.js", ["KPI"]],
   ["List.js", ["List item", "Loading item"]],
+  ["Dialog.js", ["Action"]],
+  ["Drawer.js", ["Action"]],
+  ["Popover.js", ["Action"]],
+  ["RouteSummary.js", ["Action"]],
 ]);
 
 function isFormatMask(value) {
