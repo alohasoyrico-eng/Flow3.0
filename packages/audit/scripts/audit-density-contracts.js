@@ -1,4 +1,5 @@
 const {
+  fs,
   path,
   root,
   read,
@@ -7,132 +8,74 @@ const {
 
 const contractsFile = path.join(root, "packages/components/src/contracts.js");
 const packageCssFile = path.join(root, "packages/components/styles/components.css");
-const sourceFiles = {
-  actions: path.join(root, "packages/components/src/components/actions.js"),
-  choices: path.join(root, "packages/components/src/components/choices.js"),
-  commerce: path.join(root, "packages/components/src/components/commerce.js"),
-  display: path.join(root, "packages/components/src/components/display.js"),
-  fields: path.join(root, "packages/components/src/components/fields.js"),
-  interactions: path.join(root, "packages/components/src/components/interactions.js"),
-  navigation: path.join(root, "packages/components/src/components/navigation.js"),
-  overlays: path.join(root, "packages/components/src/components/overlays.js"),
-  specializedInputs: path.join(root, "packages/components/src/components/specialized-inputs.js"),
+const reactSrcDir = path.join(root, "packages/react/src");
+
+const cssDensityContracts = {
+  breadcrumbs: { selector: '.breadcrumbs[data-density="sm"]', token: "--comp-breadcrumbs-target-block" },
+  button: { selector: '.button[data-density="sm"]', token: "--button-current-size" },
+  card: { selector: '.card[data-density="sm"]', token: "--comp-card-padding" },
+  chartPanel: { selector: '.chart-panel[data-density="sm"]', token: "--comp-chart-panel-plot-size" },
+  codeInput: { selector: '.code-input[data-density="sm"] .code-input__slot', token: "--comp-code-input-slot-block-size-sm" },
+  iconButton: { selector: '.icon-button[data-density="sm"]', token: "--icon-button-size" },
+  pagination: { selector: '.pagination[data-density="sm"]', token: "--comp-pagination-size" },
+  spinner: { selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size" },
+  stepper: { selector: '.stepper[data-density="sm"]', token: "--comp-stepper-marker-size" },
+  switch: { selector: '.switch[data-density="sm"]', token: "--switch-track-width" },
+  table: { selector: '.table[data-density="sm"]', token: "--comp-table-cell-padding-block-sm" },
 };
-
-const directDensityComponents = [
-  { id: "breadcrumbs", factory: "createBreadcrumbs", source: "navigation", selector: '.breadcrumbs[data-density="sm"]', token: "--comp-breadcrumbs-target-block" },
-  { id: "pagination", factory: "createPagination", source: "navigation", selector: '.pagination[data-density="sm"]', token: "--comp-pagination-size" },
-  { id: "stepper", factory: "createStepper", source: "navigation", selector: '.stepper[data-density="sm"]', token: "--comp-stepper-marker-size" },
-];
-
-const reactDensityComponents = [
-  { id: "spinner", file: path.join(root, "packages/react/src/Spinner.js"), selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size", snippets: ['"data-density": normalizeDensity(density)'] },
-  { id: "button", file: path.join(root, "packages/react/src/Button.js"), selector: '.button[data-density="sm"]', token: "--button-current-size", snippets: ['"data-density": density || undefined'] },
-  { id: "iconButton", file: path.join(root, "packages/react/src/IconButton.js"), selector: '.icon-button[data-density="sm"]', token: "--icon-button-size", snippets: ['"data-density": density || undefined'] },
-  { id: "input", file: path.join(root, "packages/react/src/Input.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "select", file: path.join(root, "packages/react/src/Select.js"), selector: '.select-control[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "switch", file: path.join(root, "packages/react/src/Switch.js"), selector: '.switch[data-density="sm"]', token: "--switch-track-width", snippets: ['"data-density": density || undefined'] },
-  { id: "textArea", file: path.join(root, "packages/react/src/TextArea.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "combobox", file: path.join(root, "packages/react/src/Combobox.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "cardNumberInput", file: path.join(root, "packages/react/src/CardNumberInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "cardExpiryInput", file: path.join(root, "packages/react/src/CardExpiryInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "cardSecurityCodeInput", file: path.join(root, "packages/react/src/CardSecurityCodeInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "codeInput", file: path.join(root, "packages/react/src/CodeInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "phoneInput", file: path.join(root, "packages/react/src/PhoneInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "countrySelector", file: path.join(root, "packages/react/src/CountrySelector.js"), selector: '.select-control[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "datePicker", file: path.join(root, "packages/react/src/DatePicker.js"), selector: '.date-picker[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-  { id: "dateRangePicker", file: path.join(root, "packages/react/src/DateRangePicker.js"), selector: '.date-picker[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
-];
-
-const delegatedDensityComponents = [];
-
-const contextInheritedDensityComponents = new Set([]);
 
 function checkDensityContracts() {
   const contracts = read(contractsFile);
   const css = read(packageCssFile);
-  const allComponents = [...directDensityComponents, ...delegatedDensityComponents];
+  const reactFiles = reactComponentFiles();
+  const densityContracts = contractIdsWithDensity(contracts);
 
-  for (const component of allComponents) {
-    if (!contractDeclaresDensity(contracts, component.id)) {
-      add("errors", contractsFile, 1, `${component.id} must declare density before package source can expose density variants.`);
-    }
-    const source = read(sourceFiles[component.source]);
-    const body = factoryBody(source, component.factory);
-    if (!body) {
-      add("errors", sourceFiles[component.source], 1, `${component.factory} must exist for density contract enforcement.`);
+  for (const id of densityContracts) {
+    const component = reactFiles.get(id);
+    if (!component) {
+      add("errors", contractsFile, 1, `${id} declares density but has no matching React source component.`);
       continue;
     }
-    if (contextInheritedDensityComponents.has(component.id) && body.includes('density = "md"')) {
-      add("errors", sourceFiles[component.source], 1, `${component.factory} must inherit density from context; do not default density to md.`);
-    } else if (!contextInheritedDensityComponents.has(component.id) && !body.includes('density = "md"')) {
-      add("errors", sourceFiles[component.source], 1, `${component.factory} must default density to md.`);
-    }
-  }
 
-  for (const component of directDensityComponents) {
-    const source = read(sourceFiles[component.source]);
-    const body = factoryBody(source, component.factory);
-    if (contextInheritedDensityComponents.has(component.id) && !/if\s*\(density\)\s*\w+\.dataset\.density\s*=\s*density/.test(body)) {
-      add("errors", sourceFiles[component.source], 1, `${component.factory} must only write data-density when density is explicitly supplied.`);
-    } else if (!contextInheritedDensityComponents.has(component.id) && !/dataset\.density\s*=\s*(?:density|resolvedDensity)/.test(body) && !body.includes("createFieldShell({")) {
-      add("errors", sourceFiles[component.source], 1, `${component.factory} must expose data-density on its package root.`);
-    }
-    checkCssDensity(css, component.selector, component.token, component.id);
-  }
-
-  for (const component of delegatedDensityComponents) {
-    const source = read(sourceFiles[component.source]);
-    const body = factoryBody(source, component.factory);
-    if (!body.includes("density")) {
-      add("errors", sourceFiles[component.source], 1, `${component.factory} must forward density to its owned package shell.`);
-    }
-    checkCssDensity(css, component.selector, null, component.id);
-  }
-
-  for (const component of reactDensityComponents) {
-    if (!contractDeclaresDensity(contracts, component.id)) {
-      add("errors", contractsFile, 1, `${component.id} must declare density before React source can expose density variants.`);
-    }
     const source = read(component.file);
-    for (const snippet of component.snippets) {
-      if (!source.includes(snippet)) {
-        add("errors", component.file, 1, `${component.id} React implementation must inherit density by writing ${snippet}.`);
-      }
+    if (!source.includes("flowDensityProps(")) {
+      add("errors", component.file, 1, `${component.name} must route density through flowDensityProps() so theme/density cascade stays centralized.`);
     }
-    if (source.includes('density = "md"')) {
-      add("errors", component.file, 1, `${component.id} React implementation must inherit density from context; do not default density to md.`);
+    if (source.includes('"data-density"')) {
+      add("errors", component.file, 1, `${component.name} must not write data-density directly; use flowDensityProps().`);
     }
-    checkCssDensity(css, component.selector, component.token, component.id);
+    if (/\bdensity\s*=\s*["'](?:sm|md|lg)["']|\bdensity:\s*["'](?:sm|md|lg)["']/.test(source)) {
+      add("errors", component.file, 1, `${component.name} must not assign local fixed density; inherit density unless product code opts in.`);
+    }
+    if (/validDensities\.has\(density\)\s*\?\s*density\s*:\s*["'](?:sm|md|lg)["']/.test(source)) {
+      add("errors", component.file, 1, `${component.name} normalizeDensity() must fall back to undefined, not a fixed density.`);
+    }
+    if (/\bdensity\s*(?:\?\?|\|\|)\s*["'](?:sm|md|lg)["']/.test(source) || /\bdensity:\s*[^,\n]*(?:\?\?|\|\|)\s*["'](?:sm|md|lg)["']/.test(source)) {
+      add("errors", component.file, 1, `${component.name} must not fallback child density to a fixed value; pass inherited density or omit it.`);
+    }
+
+    const cssContract = cssDensityContracts[id];
+    if (cssContract) checkCssDensity(css, cssContract.selector, cssContract.token, id);
   }
+}
 
-  const selectControlBody = functionBody(read(sourceFiles.fields), "createSelectControl");
-  if (!/if\s*\(density\)\s*control\.dataset\.density\s*=\s*density/.test(selectControlBody)) {
-    add("errors", sourceFiles.fields, 1, "Select control must only expose data-density when density is explicitly supplied.");
+function reactComponentFiles() {
+  const files = new Map();
+  for (const file of fs.readdirSync(reactSrcDir)) {
+    if (!/^[A-Z].*\.js$/.test(file)) continue;
+    const name = path.basename(file, ".js");
+    files.set(lowerFirst(name), { name, file: path.join(reactSrcDir, file) });
   }
-
+  return files;
 }
 
-function contractDeclaresDensity(contracts, id) {
-  const keyIndex = contracts.indexOf(`${id}: {`);
-  if (keyIndex < 0) return false;
-  const nextComponentIndex = contracts.indexOf("\n  },", keyIndex);
-  const block = contracts.slice(keyIndex, nextComponentIndex > keyIndex ? nextComponentIndex : keyIndex + 1200);
-  return block.includes('name: "density"');
-}
-
-function factoryBody(source, factoryName) {
-  return functionBody(source, factoryName);
-}
-
-function functionBody(source, name) {
-  const startPattern = new RegExp(`(?:export\\s+)?function\\s+${name}\\s*\\(`);
-  const match = startPattern.exec(source);
-  if (!match) return "";
-  const nextMatch = /\n(?:export\s+)?function\s+[A-Za-z0-9_]+\s*\(/g;
-  nextMatch.lastIndex = match.index + 1;
-  const next = nextMatch.exec(source);
-  return source.slice(match.index, next?.index ?? source.length);
+function contractIdsWithDensity(contracts) {
+  const ids = [];
+  for (const match of contracts.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {
+    const [, id, body] = match;
+    if (body.includes('{ name: "density"')) ids.push(id);
+  }
+  return ids;
 }
 
 function checkCssDensity(css, smSelector, token, id) {
@@ -146,6 +89,10 @@ function checkCssDensity(css, smSelector, token, id) {
   if (token && !css.includes(token)) {
     add("errors", packageCssFile, 1, `${id} density CSS must use ${token} instead of one-off sizing.`);
   }
+}
+
+function lowerFirst(value) {
+  return value ? value[0].toLowerCase() + value.slice(1) : value;
 }
 
 module.exports = { checkDensityContracts };
