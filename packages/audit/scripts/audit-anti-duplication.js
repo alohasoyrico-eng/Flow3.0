@@ -150,6 +150,7 @@ function checkReactOnlyComponentBoundaries() {
     surfaces: path.join(root, "packages/components/src/components/surfaces.js"),
   };
   const reactOnlyComponents = [
+    ["Button", "createTransitionalActionButton", "actions"],
     ["Card", "createCard", "surfaces"],
     ["Table", "createTable", "commerce"],
     ["List", "createList", "display"],

@@ -189,7 +189,7 @@ import {
   createTransitionalPhoneInput,
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
-import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
+import { createTransitionalActionIconButton } from "../src/components/actions.js";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
@@ -333,7 +333,6 @@ globalThis.document = {
 assert.equal(componentContractVersion, "0.1.0");
 assert.deepEqual(Object.keys(componentContracts), ["button", "iconButton", "input", "cardNumberInput", "cardExpiryInput", "cardSecurityCodeInput", "select", "combobox", "card", "checkbox", "switch", "radioButton", "textArea", "badge", "chip", "tag", "tabs", "tooltip", "toast", "progressIndicator", "spinner", "accordion", "slider", "avatar", "skeleton", "dialog", "menu", "drawer", "table", "biometricPrompt", "treeView", "motionBoundary", "animatedMoment", "emptyState", "list", "kpiTile", "floatingActionButton", "breadcrumbs", "pagination", "auditEvent", "errorPanel", "inlineValidation", "stepper", "chartPanel", "stationPin", "routeSummary", "codeInput", "phoneInput", "countrySelector", "datePicker", "dateRangePicker", "segmentedControl", "popover", "cardSummary", "movementRow", "quickAction"]);
 assert.equal(componentContracts.button.factory, "@design-system/react/button");
-assert.equal(componentContracts.button.internalFactory, "createTransitionalActionButton");
 assert.equal(buttonPlatformContract.id, "button");
 assert.equal(buttonPlatformContract.source.factory, componentContracts.button.factory);
 assert.deepEqual(buttonPlatformProps(), componentContracts.button.props.map((prop) => prop.name));
@@ -864,24 +863,6 @@ for (const contract of Object.values(componentContracts)) {
   assert.ok(contract.props.length >= 5);
   assert.ok(contract.accessibility.length >= 3);
 }
-
-const button = createTransitionalActionButton({ label: "Approve", icon: "check", trailingIcon: "arrow_forward", variant: "outlined", density: "sm", fullWidth: true, state: "pressed" });
-assert.equal(button.tagName, "BUTTON");
-assert.equal(button.type, "button");
-assert.equal(button.disabled, false);
-assert.equal(button.className, "button button--outlined");
-assert.equal(button.dataset.density, "sm");
-assert.equal(button.dataset.fullWidth, "true");
-assert.equal(button.dataset.state, "pressed");
-assert.equal(button.querySelector(".button__icon").attributes["aria-hidden"], "true");
-assert.equal(button.querySelector(".button__icon--trailing").textContent, "arrow_forward");
-assert.equal(button.querySelector(".button__label").textContent, "Approve");
-const loadingButton = createTransitionalActionButton({ label: "Saving", loading: true });
-assert.equal(loadingButton.disabled, true);
-assert.equal(loadingButton.dataset.density, undefined);
-assert.equal(loadingButton.attributes["aria-busy"], "true");
-assert.equal(loadingButton.querySelector(".spinner").attributes["aria-hidden"], "true");
-assert.equal(loadingButton.querySelector(".button__label").textContent, "Saving");
 
 const iconButton = createTransitionalActionIconButton({ ariaLabel: "Open filters", icon: "tune", variant: "tonal", density: "sm", selected: true, badge: true });
 assert.equal(iconButton.tagName, "BUTTON");
