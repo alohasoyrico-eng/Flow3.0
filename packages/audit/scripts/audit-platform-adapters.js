@@ -33,6 +33,7 @@ function checkPlatformAdapters() {
   for (const component of components) {
     checkComponent(component, { adapterIndex, contracts, reactIndex, reactIndexTypes, reactPackage });
   }
+  checkAllPlatformFilesHaveReactPrimary({ adapterIndex, reactIndex, reactIndexTypes, reactPackage });
 
   if (!reactExample.includes('import { Button } from "@design-system/react"') || !reactExample.includes('import "@design-system/components/styles.css"')) {
     add("errors", reactExampleFile, 1, "React prototype example must consume the React component entrypoint and component CSS.");
@@ -49,6 +50,51 @@ function checkPlatformAdapters() {
   }
   for (const cssDependency of ["--comp-select-control-size: var(--sys-density-control-height)", "--comp-select-padding-start", ".select-control[data-density=\"sm\"]", ".select-control[data-density=\"lg\"]", ".select-control__trigger"]) {
     if (!componentCss.includes(cssDependency)) add("errors", componentCssFile, 1, `Select CSS must expose cascade dependency ${cssDependency}.`);
+  }
+}
+
+function checkAllPlatformFilesHaveReactPrimary(shared) {
+  const platformsDir = path.join(root, "packages/components/src/platforms");
+  for (const fileName of fs.readdirSync(platformsDir).filter((file) => file.endsWith(".js") && file !== "index.js").sort()) {
+    const adapterFile = path.join(platformsDir, fileName);
+    const id = path.basename(fileName, ".js");
+    const adapter = read(adapterFile);
+    const componentName = adapter.match(/componentName:\s*["']([^"']+)["']/)?.[1];
+    const exportedNames = [
+      ...adapter.matchAll(/export const ([A-Za-z0-9]+Platform(?:Adapters|Contract))\b/g),
+      ...adapter.matchAll(/export function ([A-Za-z0-9]+PlatformProps)\b/g),
+    ].map((match) => match[1]);
+
+    if (!componentName) {
+      add("errors", adapterFile, 1, `${id} platform adapter must declare its React componentName.`);
+      continue;
+    }
+    if (!adapter.includes('implementationRole: "primary-product-component"') || !adapter.includes("sourceOfTruth: true")) {
+      add("errors", adapterFile, 1, `${componentName} platform adapter must declare React as the primary source of truth.`);
+    }
+
+    for (const exportName of exportedNames) {
+      if (!shared.adapterIndex.includes(exportName)) {
+        add("errors", adapterIndexFile, 1, `Platform index must export ${exportName}.`);
+      }
+    }
+    for (const file of [
+      path.join(root, `packages/react/src/${componentName}.js`),
+      path.join(root, `packages/react/src/${componentName}.d.ts`),
+      path.join(root, `packages/react/dist/${componentName}.js`),
+      path.join(root, `packages/react/dist/${componentName}.d.ts`),
+    ]) {
+      if (!fs.existsSync(file)) add("errors", file, 1, `${componentName} React primary implementation is missing for ${id}.`);
+    }
+    if (!shared.reactPackage.includes(`"./${id}"`)) {
+      add("errors", reactPackageFile, 1, `React package must export ./${id}.`);
+    }
+    if (!shared.reactIndex.includes(componentName)) {
+      add("errors", reactIndexFile, 1, `React index must export ${componentName}.`);
+    }
+    if (!shared.reactIndexTypes.includes(`${componentName}Props`)) {
+      add("errors", reactIndexTypesFile, 1, `React type index must export ${componentName}Props.`);
+    }
   }
 }
 
