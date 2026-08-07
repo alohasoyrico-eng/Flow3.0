@@ -23,7 +23,7 @@ const semanticAriaDefaultsByFile = new Map([
 const visibleTriggerDefaultsByFile = new Map([
   ["Avatar.js", ["Unknown avatar"]],
   ["Dialog.js", ["Dialog", "Open dialog", "Close dialog"]],
-  ["Drawer.js", ["Drawer", "Open drawer", "Progress"]],
+  ["Drawer.js", ["Drawer", "Open drawer", "Close drawer", "Progress"]],
   ["ErrorPanel.js", ["Something needs attention"]],
   ["Menu.js", ["Actions", "Menu", "Edit", "Duplicate", "Delete", "Archive"]],
   ["Popover.js", ["Open"]],

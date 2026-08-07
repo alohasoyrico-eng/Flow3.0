@@ -2048,6 +2048,7 @@ assert.match(closedDrawerMarkup, /hidden=""/);
 
 const openDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Ana Sosa",
+  closeLabel: "Close Ana Sosa details",
   variant: "detail",
   tone: "info",
   state: "open",
@@ -2077,6 +2078,7 @@ assert.match(openDrawerMarkup, /data-key="save"/);
 
 const formDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Filter routes",
+  closeLabel: "Close route filters",
   variant: "filter",
   open: true,
   fields: [{ label: "Region" }, { label: "Fuel type", value: "Diesel" }],
@@ -2086,6 +2088,11 @@ assert.match(formDrawerMarkup, /class="drawer__body"/);
 assert.match(formDrawerMarkup, /class="field"/);
 assert.doesNotMatch(formDrawerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(formDrawerMarkup, /value="Diesel"/);
+
+const unnamedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer));
+assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Open drawer"/);
+assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Drawer"/);
+assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Close drawer"/);
 
 const comboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
   label: "Vehicle",
