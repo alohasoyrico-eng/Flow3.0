@@ -608,7 +608,6 @@ export const componentContracts = {
   },
   slider: {
     factory: "@design-system/react/slider",
-    internalFactory: "createSlider",
     element: "label",
     purpose: "Choose a numeric value from a bounded range with visible label, output, and native range semantics.",
     variants: ["continuous", "stepped", "bounded", "threshold", "paired-value"],

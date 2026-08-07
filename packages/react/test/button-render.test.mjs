@@ -1023,6 +1023,10 @@ assert.match(sliderMarkup, /aria-valuetext="9 km"/);
 assert.match(sliderMarkup, /class="slider__track"/);
 assert.match(sliderMarkup, /class="slider__fill"/);
 assert.match(sliderMarkup, /class="slider__thumb"/);
+const inheritedSliderMarkup = renderToStaticMarkup(React.createElement(Slider, {
+  label: "Inherited radius",
+}));
+assert.doesNotMatch(inheritedSliderMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const stepperMarkup = renderToStaticMarkup(React.createElement(Stepper, {
   label: "Setup progress",

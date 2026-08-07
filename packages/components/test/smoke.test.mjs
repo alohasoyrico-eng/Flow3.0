@@ -200,7 +200,7 @@ import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { createMenu } from "../src/components/overlays.js?v=5";
-import { createSlider, createTreeView } from "../src/components/interactions.js?v=9";
+import { createTreeView } from "../src/components/interactions.js?v=9";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
 class TestNode {
@@ -570,7 +570,6 @@ assert.deepEqual(Object.keys(accordionPlatformAdapters), ["react"]);
 assert.equal(accordionPlatformAdapters.react.componentName, "Accordion");
 assert.equal(accordionPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.slider.factory, "@design-system/react/slider");
-assert.equal(componentContracts.slider.internalFactory, "createSlider");
 assert.equal(sliderPlatformContract.id, "slider");
 assert.equal(sliderPlatformContract.source.factory, componentContracts.slider.factory);
 assert.deepEqual(sliderPlatformProps(), componentContracts.slider.props.map((prop) => prop.name));
@@ -1513,54 +1512,6 @@ assert.equal(metricTooltip.dataset.open, "true");
 assert.equal(metricTooltip.querySelector(".tooltip__bubble").hidden, false);
 const compactTooltip = createTransitionalTooltip({ triggerLabel: "Compact", content: "Short help", density: "sm" });
 assert.equal(compactTooltip.dataset.density, "sm");
-
-const slider = createSlider({ label: "Radius", value: 25, min: 0, max: 50, step: 5, valueLabel: "25 km" });
-assert.equal(slider.tagName, "LABEL");
-assert.equal(slider.className, "slider");
-assert.equal(slider.dataset.value, "25");
-assert.equal(slider.dataset.density, "md");
-assert.equal(slider.querySelector("input").type, "range");
-assert.equal(slider.querySelector("input").attributes["data-slider-input"], "");
-assert.equal(slider.querySelector("input").value, 25);
-assert.equal(slider.querySelector("input").min, 0);
-assert.equal(slider.querySelector("input").max, 50);
-assert.equal(slider.querySelector("input").step, 5);
-assert.equal(slider.querySelector(".slider__value").textContent, "25 km");
-assert.equal(slider.querySelector(".slider__value").attributes["data-slider-output"], "");
-assert.equal(slider.querySelector(".slider__control").className, "slider__control");
-assert.equal(slider.querySelector(".slider__track").attributes["aria-hidden"], "true");
-assert.equal(slider.querySelector(".slider__fill").attributes["aria-hidden"], "true");
-assert.equal(slider.querySelector(".slider__thumb").attributes["aria-hidden"], "true");
-let sliderValue = 0;
-const interactiveSlider = createSlider({
-  label: "Radius",
-  value: 10,
-  min: 0,
-  max: 50,
-  formatValue(value) {
-    return `${value} km`;
-  },
-  onValueChange(value) {
-    sliderValue = value;
-  },
-});
-interactiveSlider.querySelector("input").value = "25";
-interactiveSlider.querySelector("input").dispatchEvent({ type: "input" });
-assert.equal(interactiveSlider.dataset.value, "25");
-assert.equal(interactiveSlider.dataset.pct, "50");
-assert.equal(interactiveSlider.getAttribute("style"), null);
-assert.equal(interactiveSlider.querySelector(".slider__value").textContent, "25 km");
-assert.equal(sliderValue, 25);
-interactiveSlider.querySelector("input").dispatchEvent({ type: "pointerdown" });
-assert.equal(interactiveSlider.dataset.dragging, "true");
-interactiveSlider.querySelector("input").dispatchEvent({ type: "pointerup" });
-assert.equal(interactiveSlider.dataset.dragging, "false");
-const compactSlider = createSlider({ label: "Compact radius", density: "sm" });
-assert.equal(compactSlider.dataset.density, "sm");
-assert.equal(compactSlider.getAttribute("style"), null);
-const roomySlider = createSlider({ label: "Roomy radius", density: "lg" });
-assert.equal(roomySlider.dataset.density, "lg");
-assert.equal(roomySlider.getAttribute("style"), null);
 
 const avatar = createTransitionalAvatar({ name: "Ana Sosa", status: "online" });
 assert.equal(avatar.tagName, "SPAN");
