@@ -13,10 +13,12 @@ Object.defineProperty(globalThis, "navigator", {
   configurable: true,
   value: dom.window.navigator,
 });
+globalThis.requestAnimationFrame = (callback) => setTimeout(callback, 0);
+globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -300,6 +302,30 @@ try {
   assert.equal(countryChanges.at(-1).countryCode, "US");
   assert.equal(countryChanges.at(-1).option.label, "United States");
   assert.equal(countryChanges.at(-1).option.callingCode, "+1");
+
+  cleanup();
+
+  const dateValues = [];
+  const dateOpenChanges = [];
+  const { getByRole: getDateRole } = render(React.createElement(DatePicker, {
+    label: "Service date",
+    value: "2026-07-13",
+    min: "2026-07-01",
+    max: "2026-07-31",
+    onValueChange: (value) => dateValues.push(value),
+    onOpenChange: (open) => dateOpenChanges.push(open),
+  }));
+
+  const dateTrigger = getDateRole("button", { name: /service date/i });
+  assert.equal(dateTrigger.getAttribute("aria-expanded"), "false");
+  fireEvent.click(dateTrigger);
+  assert.equal(dateTrigger.getAttribute("aria-expanded"), "true");
+  assert.deepEqual(dateOpenChanges, [true]);
+
+  fireEvent.click(getDateRole("gridcell", { name: /miércoles, 15 de julio de 2026/i }));
+  await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(dateValues, ["2026-07-15"]);
+  assert.deepEqual(dateOpenChanges, [true, false]);
 } finally {
   cleanup();
   dom.window.close();

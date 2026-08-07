@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 30,
-    "review": 26,
+    "pass": 31,
+    "review": 25,
     "fail": 0,
-    "missingTestCallbacks": 35
+    "missingTestCallbacks": 33
   },
   "components": [
     {
@@ -304,13 +304,13 @@
         "onOpenChange",
         "onValueChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onOpenChange",
         "onValueChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "DateRangePicker",
