@@ -58,11 +58,18 @@ function checkRequiredPropContract({ add, componentName, typesFile, types, contr
   }
 }
 
+function checkNoOpaqueRecordTypes({ add, componentName, typesFile, types }) {
+  if (types.includes("Record<string, unknown>")) {
+    add("errors", typesFile, 1, `${componentName} React types must not expose opaque Record<string, unknown>; define the allowed value contract explicitly.`);
+  }
+}
+
 function checkReactPropContracts(args) {
   checkPublicCallbackContract(args);
   checkPublicPropContract(args);
   checkSemanticInheritedPropContract(args);
   checkRequiredPropContract(args);
+  checkNoOpaqueRecordTypes(args);
 }
 
 module.exports = { checkReactPropContracts };

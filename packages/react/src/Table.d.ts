@@ -7,7 +7,14 @@ export type TableDensity = "sm" | "md" | "lg";
 export type TableSortDirection = "ascending" | "descending";
 export type TableColumnAlign = "left" | "right";
 export type TableColumnPriority = "primary" | "secondary" | "tertiary";
-export type TableRow = Record<string, unknown>;
+export type TableBadgeCell = {
+  label: string;
+  tone?: "neutral" | "info" | "success" | "warning" | "danger";
+  variant?: "status" | "counter" | "indicator" | "soft" | "strong";
+  icon?: string;
+};
+export type TableCellValue = ReactNode | TableBadgeCell;
+export type TableRow = Record<string, TableCellValue>;
 
 export interface TableColumn {
   key: string;

@@ -767,7 +767,7 @@ export const componentContracts = {
     props: [
       { name: "label", type: "string", required: false },
       { name: "columns", type: "Array<{ key: string, label: string, sortable?: boolean, align?: \"left\" | \"right\", mono?: boolean, priority?: \"primary\" | \"secondary\" | \"tertiary\", sortValue?: (row: TableRow) => string | number | null | undefined, render?: (row: TableRow) => ReactNode }>", required: true },
-      { name: "rows", type: "TableRow[]", required: true },
+      { name: "rows", type: "Array<Record<string, TableCellValue>>", required: true },
       { name: "rowKey", type: "string", required: false },
       { name: "variant", type: "\"standard\" | \"dense\" | \"sortable\" | \"selectable\" | \"expandable\"", required: false },
       { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"sorted\" | \"expanded\"", required: false },
