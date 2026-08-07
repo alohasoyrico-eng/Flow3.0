@@ -1,4 +1,5 @@
 const { path, read, add, lineNumber } = require("./audit-context.js");
+const { checkTokenizedVisualProperties } = require("./audit-tokenized-css-properties.js");
 
 const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css");
 const packageSpinnerFile = path.join(process.cwd(), "packages/react/src/Spinner.js");
@@ -119,6 +120,7 @@ function checkPackageCssContracts() {
     const sourceIndex = text.indexOf("font-size:", text.indexOf("}") + 1);
     add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package typography must use internal font-size aliases instead of raw rem or px values.");
   }
+  checkTokenizedVisualProperties(cssWithoutDefinitions, text);
   const rawTransformIndex = cssWithoutDefinitions.search(/transform:\s*[^;]*(?:translate[XY]?\([^)]*\d+px|scale\((?:0\.98|0\.985|1\.04)\))/);
   if (rawTransformIndex >= 0) {
     const sourceIndex = text.indexOf(cssWithoutDefinitions.match(/transform:\s*[^;]*(?:translate[XY]?\([^)]*\d+px|scale\((?:0\.98|0\.985|1\.04)\))/)?.[0] ?? "", text.indexOf("}") + 1);
