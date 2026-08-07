@@ -178,8 +178,6 @@ import {
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import {
-  createTransitionalPaymentCardExpiryInput,
-  hydrateTransitionalPaymentCardExpiryInput,
   createTransitionalPaymentCardSecurityCodeInput,
   hydrateTransitionalPaymentCardSecurityCodeInput,
   createTransitionalDatePicker,
@@ -365,7 +363,6 @@ assert.deepEqual(Object.keys(cardNumberInputPlatformAdapters), ["react"]);
 assert.equal(cardNumberInputPlatformAdapters.react.componentName, "CardNumberInput");
 assert.equal(cardNumberInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardExpiryInput.factory, "@design-system/react/card-expiry-input");
-assert.equal(componentContracts.cardExpiryInput.internalFactory, "createTransitionalPaymentCardExpiryInput");
 assert.equal(cardExpiryInputPlatformContract.id, "card-expiry-input");
 assert.equal(cardExpiryInputPlatformContract.source.factory, componentContracts.cardExpiryInput.factory);
 assert.deepEqual(cardExpiryInputPlatformProps(), componentContracts.cardExpiryInput.props.map((prop) => prop.name));
@@ -857,60 +854,6 @@ for (const contract of Object.values(componentContracts)) {
   assert.ok(contract.props.length >= 5);
   assert.ok(contract.accessibility.length >= 3);
 }
-
-let cardExpiryMeta = null;
-const cardExpiryInput = createTransitionalPaymentCardExpiryInput({
-  label: "Expiry date",
-  value: "1228",
-  helper: "Use the expiry printed on the card.",
-  onValueChange: (value, meta) => { cardExpiryMeta = { value, meta }; },
-});
-const expiryField = cardExpiryInput.querySelector("input");
-assert.equal(cardExpiryInput.className, "field card-expiry-input");
-assert.equal(cardExpiryInput.dataset.state, "valid");
-assert.equal(cardExpiryInput.dataset.validity, "valid");
-assert.equal(cardExpiryInput.dataset.mono, "true");
-assert.equal(expiryField.value, "12/28");
-assert.equal(expiryField.attributes.inputmode, "numeric");
-assert.equal(expiryField.attributes.autocomplete, "cc-exp");
-assert.equal(expiryField.attributes.pattern, "[0-9/ ]*");
-assert.equal(expiryField.attributes.enterkeyhint, "next");
-assert.equal(expiryField.attributes.maxlength, "5");
-assert.equal(expiryField.maxLength, 5);
-assert.equal(expiryField.attributes["aria-labelledby"], cardExpiryInput.querySelector(".field__label").id);
-assert.equal(expiryField.attributes["aria-describedby"], cardExpiryInput.querySelector(".field__helper").id);
-assert.equal(cardExpiryMeta.value, "12/28");
-assert.equal(cardExpiryMeta.meta.month, "12");
-assert.equal(cardExpiryMeta.meta.year, "28");
-assert.equal(cardExpiryMeta.meta.expired, false);
-
-expiryField.value = "1328";
-expiryField.dispatchEvent({ type: "input" });
-assert.equal(expiryField.value, "13/28");
-assert.equal(cardExpiryInput.dataset.validity, "invalid");
-assert.equal(cardExpiryInput.dataset.state, "error");
-assert.equal(expiryField.attributes["aria-invalid"], "true");
-assert.equal(cardExpiryInput.querySelector(".field__helper").textContent, "Check the expiry date.");
-assert.equal(cardExpiryInput.querySelector(".field__helper").attributes.role, "alert");
-
-expiryField.value = "0125";
-expiryField.dispatchEvent({ type: "input" });
-assert.equal(expiryField.value, "01/25");
-assert.equal(cardExpiryInput.dataset.validity, "expired");
-assert.equal(cardExpiryInput.dataset.state, "error");
-assert.equal(cardExpiryInput.querySelector(".field__helper").textContent, "Use a card that has not expired.");
-
-expiryField.value = "0329";
-expiryField.dispatchEvent({ type: "input" });
-assert.equal(expiryField.value, "03/29");
-assert.equal(cardExpiryInput.dataset.validity, "valid");
-assert.equal(cardExpiryInput.dataset.state, "valid");
-assert.equal(expiryField.attributes["aria-invalid"], undefined);
-assert.equal(cardExpiryInput.querySelector(".field__helper").textContent, "Use the expiry printed on the card.");
-assert.equal(cardExpiryInput.querySelector(".field__helper").attributes.role, undefined);
-
-hydrateTransitionalPaymentCardExpiryInput(cardExpiryInput);
-assert.equal(cardExpiryInput.dataset.cardExpiryHydrated, "true");
 
 let cardSecurityCodeMeta = null;
 const cardSecurityCodeInput = createTransitionalPaymentCardSecurityCodeInput({

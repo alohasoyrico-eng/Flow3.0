@@ -19,7 +19,6 @@ let phoneInputId = 0;
 let countrySelectorId = 0;
 let datePickerId = 0;
 let dateRangePickerId = 0;
-let cardExpiryInputId = 0;
 let cardSecurityCodeInputId = 0;
 
 const phoneCountries = countryCallingCodeOptions;
@@ -66,35 +65,6 @@ function nodeAttribute(node, name) {
   return typeof attribute === "object" && attribute !== null && "value" in attribute ? attribute.value : attribute;
 }
 
-function normalizeCardExpiry(value) {
-  return String(value ?? "").replace(/\D/g, "").slice(0, 4);
-}
-
-function formatCardExpiry(value) {
-  const digits = normalizeCardExpiry(value);
-  if (digits.length <= 2) return digits;
-  return `${digits.slice(0, 2)}/${digits.slice(2)}`;
-}
-
-function parseCardExpiry(value) {
-  const digits = normalizeCardExpiry(value);
-  if (digits.length < 4) return { digits, month: "", year: "" };
-  return { digits, month: digits.slice(0, 2), year: digits.slice(2, 4) };
-}
-
-function cardExpiryValidity(value, now = new Date()) {
-  const { digits, month, year } = parseCardExpiry(value);
-  if (!digits) return "empty";
-  if (digits.length < 4) return "incomplete";
-  const monthNumber = Number(month);
-  if (monthNumber < 1 || monthNumber > 12) return "invalid";
-  const yearNumber = 2000 + Number(year);
-  const currentMonth = now.getMonth() + 1;
-  const currentYear = now.getFullYear();
-  if (yearNumber < currentYear || (yearNumber === currentYear && monthNumber < currentMonth)) return "expired";
-  return "valid";
-}
-
 function normalizeCardSecurityCode(value, maxLength = 4) {
   return String(value ?? "").replace(/\D/g, "").slice(0, maxLength);
 }
@@ -105,52 +75,6 @@ function cardSecurityCodeValidity(value, expectedLength = 3) {
   if (!digits) return "empty";
   if (digits.length < expectedLength) return "incomplete";
   return digits.length === expectedLength ? "valid" : "invalid";
-}
-
-export function hydrateTransitionalPaymentCardExpiryInput(root, { onValueChange } = {}) {
-  if (!root || root.__cardExpiryHydrated === true) return root;
-  const input = root.querySelector?.("[data-card-expiry-input]")
-    ?? Array.from(root.querySelectorAll?.("input") ?? []).find((node) => node.attributes?.["data-card-expiry-input"] !== undefined);
-  if (!input) return root;
-  root.__cardExpiryHydrated = true;
-  root.dataset.cardExpiryHydrated = "true";
-  const helper = root.querySelector?.("[data-card-expiry-helper]")
-    ?? root.querySelector?.(".card-expiry-input__helper")
-    ?? root.querySelector?.(".field__helper");
-  const defaultHelper = root.dataset.defaultHelper ?? helper?.textContent ?? "";
-  const validationMessage = root.dataset.validationMessage || "Check the expiry date.";
-  const expiredMessage = root.dataset.expiredMessage || "Use a card that has not expired.";
-  const sync = () => {
-    const digits = normalizeCardExpiry(input.value);
-    const formatted = formatCardExpiry(digits);
-    if (input.value !== formatted) input.value = formatted;
-    input.setAttribute?.("value", formatted);
-    const validity = cardExpiryValidity(digits);
-    const { month, year } = parseCardExpiry(digits);
-    root.dataset.validity = validity;
-    root.dataset.month = month;
-    root.dataset.year = year;
-    if (root.dataset.errorLocked === "true") {
-      root.dataset.state = "error";
-      input.setAttribute?.("aria-invalid", "true");
-      if (helper) helper.textContent = defaultHelper || validationMessage;
-      helper?.setAttribute?.("role", "alert");
-    } else if (validity === "invalid" || validity === "expired") {
-      root.dataset.state = "error";
-      input.setAttribute?.("aria-invalid", "true");
-      if (helper) helper.textContent = validity === "expired" ? expiredMessage : validationMessage;
-      helper?.setAttribute?.("role", "alert");
-    } else {
-      if (!root.dataset.errorLocked) root.dataset.state = validity === "valid" ? "valid" : digits ? "filled" : "default";
-      removeNodeAttribute(input, "aria-invalid");
-      if (helper) helper.textContent = defaultHelper;
-      removeNodeAttribute(helper, "role");
-    }
-    if (typeof onValueChange === "function") onValueChange(formatted, { digits, month, year, validity, expired: validity === "expired" });
-  };
-  input.addEventListener?.("input", sync);
-  sync();
-  return root;
 }
 
 export function hydrateTransitionalPaymentCardSecurityCodeInput(root, { onValueChange } = {}) {
@@ -828,92 +752,6 @@ export function createTransitionalPhoneInput({
   root.append(control);
   appendFieldHelper(root, { id, text: resolvedHelper, target: input });
   hydrateTransitionalPhoneInput(root, { onValueChange });
-  return root;
-}
-
-export function createTransitionalPaymentCardExpiryInput({
-  label,
-  value = "",
-  helper = "",
-  error = "",
-  disabled = false,
-  loading = false,
-  required = false,
-  density,
-  state,
-  name = "",
-  placeholder = "MM/YY",
-  validationMessage = "Check the expiry date.",
-  expiredMessage = "Use a card that has not expired.",
-  onValueChange,
-} = {}) {
-  const id = `card-expiry-input-${++cardExpiryInputId}`;
-  const digits = normalizeCardExpiry(value);
-  const formattedValue = formatCardExpiry(digits);
-  const validity = cardExpiryValidity(digits);
-  const localError = validity === "invalid" ? validationMessage : validity === "expired" ? expiredMessage : "";
-  const resolvedError = error || localError;
-  const resolvedHelper = resolvedError || helper;
-  const resolvedState = resolveFieldState({ disabled, loading, error: resolvedError, state, value: digits });
-  const { month, year } = parseCardExpiry(digits);
-  const { root } = createFieldShell({
-    id,
-    label,
-    fallbackLabel: "Expiry date",
-    state: resolvedState,
-    density,
-    mono: true,
-    className: "card-expiry-input",
-  });
-  root.dataset.validity = validity;
-  root.dataset.month = month;
-  root.dataset.year = year;
-  root.dataset.defaultHelper = helper;
-  root.dataset.validationMessage = validationMessage;
-  root.dataset.expiredMessage = expiredMessage;
-  if (resolvedError) root.dataset.errorLocked = error ? "true" : "false";
-  addClassName(root.querySelector(".field__label"), "card-expiry-input__label");
-
-  const control = createFieldSurface({ className: "card-expiry-input__control" });
-
-  const iconNode = document.createElement("span");
-  iconNode.className = "field__icon card-expiry-input__icon";
-  iconNode.setAttribute("aria-hidden", "true");
-  setIconGlyph(iconNode, "calendar_month");
-
-  const input = document.createElement("input");
-  input.className = "input card-expiry-input__input";
-  input.id = id;
-  input.name = name;
-  input.type = "text";
-  input.inputMode = "numeric";
-  input.autocomplete = "cc-exp";
-  input.placeholder = placeholder;
-  input.value = formattedValue;
-  input.disabled = Boolean(disabled || loading);
-  input.required = Boolean(required);
-  input.setAttribute("data-card-expiry-input", "");
-  input.setAttribute("inputmode", "numeric");
-  input.setAttribute("autocomplete", "cc-exp");
-  input.setAttribute("placeholder", placeholder);
-  input.setAttribute("value", formattedValue);
-  input.setAttribute("aria-labelledby", `${id}-label`);
-  input.setAttribute("pattern", "[0-9/ ]*");
-  input.setAttribute("enterkeyhint", "next");
-  input.maxLength = 5;
-  input.setAttribute("maxlength", "5");
-  input.spellcheck = false;
-  if (resolvedError) input.setAttribute("aria-invalid", "true");
-
-  control.append(iconNode, input);
-  if (loading) {
-    control.append(createFieldLoadingSpinner(`${label ?? "Expiry date"} loading`));
-  }
-
-  root.append(control);
-  const helperNode = appendFieldHelper(root, { id, text: resolvedHelper, target: input, className: "card-expiry-input__helper" });
-  helperNode?.setAttribute("data-card-expiry-helper", "");
-  hydrateTransitionalPaymentCardExpiryInput(root, { onValueChange });
   return root;
 }
 

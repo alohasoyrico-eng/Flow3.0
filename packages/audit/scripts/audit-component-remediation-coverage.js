@@ -163,6 +163,7 @@ function reactSourceFor(id) {
     "segmented-control": "SegmentedControl",
     "radio-button": "RadioButton",
     "card-number-input": "CardNumberInput",
+    "card-expiry-input": "CardExpiryInput",
     "tree-view": "TreeView",
   }[id] ?? id.split("-").map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`).join("");
   const file = path.join(__dirname, "../../../packages/react/src", `${fileName}.js`);
@@ -173,7 +174,6 @@ function kebabToFactoryName(id) {
   const unprefixedFactoryNames = {
     "code-input": "createTransitionalSecurityCodeInput",
     "phone-input": "createTransitionalPhoneInput",
-    "card-expiry-input": "createTransitionalPaymentCardExpiryInput",
     "card-security-code-input": "createTransitionalPaymentCardSecurityCodeInput",
     "date-picker": "createTransitionalDatePicker",
     "date-range-picker": "createTransitionalDateRangePicker",

@@ -204,6 +204,8 @@ function checkReactOnlyComponentBoundaries() {
     ["Combobox Hydrator", "hydrateCombobox", "fields"],
     ["Card Number Input", "createTransitionalPaymentCardNumberInput", "specializedInputs"],
     ["Card Number Input Hydrator", "hydrateTransitionalPaymentCardNumberInput", "specializedInputs"],
+    ["Card Expiry Input", "createTransitionalPaymentCardExpiryInput", "specializedInputs"],
+    ["Card Expiry Input Hydrator", "hydrateTransitionalPaymentCardExpiryInput", "specializedInputs"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {
