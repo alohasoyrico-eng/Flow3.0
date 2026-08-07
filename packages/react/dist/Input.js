@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useState } from "react";
+import React, { forwardRef, useEffect, useId, useState } from "react";
 import { inputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 
@@ -63,7 +63,7 @@ export const Input = forwardRef(function Input({
   helper = "",
   helperText,
   error = "",
-  value = "",
+  value,
   name = "",
   placeholder = "",
   disabled = false,
@@ -90,13 +90,25 @@ export const Input = forwardRef(function Input({
   const inputId = id ?? `input-${generatedId}`;
   const resolvedType = typeForVariant(variant, type);
   const isRevealable = Boolean(revealable) || variant === "password" || resolvedType === "password";
+  const isValueControlled = value !== undefined;
+  const [currentValue, setCurrentValue] = useState(value ?? "");
   const [revealed, setRevealed] = useState(false);
-  const resolvedState = resolveInputState({ disabled, loading, error, state, value });
+  const resolvedState = resolveInputState({ disabled, loading, error, state, value: currentValue });
   const resolvedHelper = error || helperText || helper;
   const isDisabled = Boolean(disabled) || Boolean(loading);
   const resolvedAlign = align === "end" || (align === "start" && numericVariants.has(variant)) ? "end" : "start";
   const describedBy = [resolvedHelper ? `${inputId}-helper` : "", rest["aria-describedby"]].filter(Boolean).join(" ") || undefined;
   const inputType = isRevealable && revealed ? "text" : resolvedType;
+
+  useEffect(() => {
+    if (isValueControlled) setCurrentValue(value ?? "");
+  }, [isValueControlled, value]);
+
+  const handleChange = (event) => {
+    const meta = normalizeValue(event.target.value, variant);
+    if (!isValueControlled) setCurrentValue(meta.value);
+    onValueChange?.(meta.value, meta);
+  };
 
   return React.createElement(
     "label",
@@ -125,7 +137,7 @@ export const Input = forwardRef(function Input({
         className: "input",
         name,
         type: inputType,
-        value: formatValue(value, variant),
+        value: formatValue(currentValue, variant),
         placeholder,
         disabled: isDisabled,
         required,
@@ -134,7 +146,7 @@ export const Input = forwardRef(function Input({
         "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : rest["aria-invalid"],
-        onChange: (event) => onValueChange?.(normalizeValue(event.target.value, variant).value, normalizeValue(event.target.value, variant)),
+        onChange: handleChange,
       }),
       suffix
         ? React.createElement("span", { className: "field__suffix", "aria-hidden": "true" }, suffix)
