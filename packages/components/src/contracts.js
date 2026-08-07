@@ -1005,7 +1005,7 @@ export const componentContracts = {
     intents: ["navigation"],
     states: ["default", "hover", "focus", "selected", "disabled"],
     props: [
-      { name: "page", type: "number", required: true },
+      { name: "page", type: "number", required: false },
       { name: "pageCount", type: "number", required: true },
       { name: "label", type: "string", required: false },
       { name: "variant", type: "numbered", required: false },

@@ -42,7 +42,7 @@ function PaginationButton({ label, icon, kind, page, current = false, disabled =
 }
 
 export const Pagination = forwardRef(function Pagination({
-  page = 1,
+  page,
   pageCount = 1,
   label = "Pagination",
   variant = "numbered",
@@ -54,15 +54,16 @@ export const Pagination = forwardRef(function Pagination({
   className = "",
   ...rest
 }, ref) {
-  const normalized = useMemo(() => normalizePage(page, pageCount), [page, pageCount]);
+  const isPageControlled = page !== undefined;
+  const normalized = useMemo(() => normalizePage(page ?? 1, pageCount), [page, pageCount]);
   const [currentPage, setCurrentPage] = useState(normalized.currentPage);
   const resolvedState = disabled ? "disabled" : allowedStates.has(state) ? state : "default";
   const resolvedVariant = "numbered";
   const totalPages = normalized.totalPages;
 
   useEffect(() => {
-    setCurrentPage(normalized.currentPage);
-  }, [normalized.currentPage]);
+    if (isPageControlled) setCurrentPage(normalized.currentPage);
+  }, [isPageControlled, normalized.currentPage]);
 
   const visibleItems = useMemo(
     () => resolvePaginationItems(currentPage, totalPages),
@@ -73,7 +74,7 @@ export const Pagination = forwardRef(function Pagination({
     if (disabled) return;
     const next = normalizePage(nextPage, totalPages).currentPage;
     if (next === currentPage) return;
-    setCurrentPage(next);
+    if (!isPageControlled) setCurrentPage(next);
     if (typeof onPageChange === "function") onPageChange(next);
   };
 
