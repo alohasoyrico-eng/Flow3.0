@@ -63,7 +63,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
   density,
   state,
   name = "",
-  placeholder = "5231 0000 0000 0000",
+  placeholder = "",
   validationMessage = "",
   onValueChange,
   className = "",

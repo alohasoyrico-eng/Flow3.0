@@ -1740,6 +1740,7 @@ assert.doesNotMatch(inheritedCardNumberInputMarkup.match(/^<label[^>]+>/)?.[0] ?
 
 const unnamedCardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput));
 assert.doesNotMatch(unnamedCardNumberInputMarkup, /aria-label="Card number"/);
+assert.doesNotMatch(unnamedCardNumberInputMarkup, /placeholder="5231 0000 0000 0000"/);
 
 const loadingCardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput, {
   label: "Card number",
