@@ -1,6 +1,7 @@
 import type {
   HTMLAttributes,
   ForwardRefExoticComponent,
+  MouseEvent,
   RefAttributes,
 } from "react";
 import type { routeSummaryPlatformContract } from "#flow/platforms";
@@ -29,8 +30,8 @@ export interface RouteSummaryAction {
   density?: RouteSummaryDensity;
   disabled?: boolean;
   loading?: boolean;
-  onAction?: () => void;
-  onClick?: () => void;
+  onAction?: (key: string, action: RouteSummaryAction, event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface RouteSummaryProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {

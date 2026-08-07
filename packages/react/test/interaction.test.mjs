@@ -963,7 +963,7 @@ try {
     label: "Route 24",
     description: "Centro to Norte",
     metrics: [{ label: "ETA", value: "18 min" }],
-    actions: [{ key: "assign", label: "Assign", onAction: () => routeActions.push("assign") }],
+    actions: [{ key: "assign", label: "Assign", onAction: (...args) => routeActions.push(args) }],
     onClick: (event) => routeClicks.push(event.type),
   }));
 
@@ -972,7 +972,10 @@ try {
   assert.deepEqual(routeClicks, ["click"]);
 
   fireEvent.click(getRouteRole("button", { name: /assign/i }));
-  assert.deepEqual(routeActions, ["assign"]);
+  assert.equal(routeActions.length, 1);
+  assert.equal(routeActions[0][0], "assign");
+  assert.equal(routeActions[0][1].label, "Assign");
+  assert.equal(routeActions[0][2].type, "click");
   assert.deepEqual(routeClicks, ["click"]);
 
   cleanup();

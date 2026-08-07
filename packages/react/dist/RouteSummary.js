@@ -10,14 +10,15 @@ const validTones = new Set(["neutral", "info", "warning"]);
 
 function renderAction(action, index, { compact, density, disabled }) {
   const actionDisabled = Boolean(disabled || action?.disabled);
-  const actionHandler = action?.onAction ?? action?.onClick;
+  const actionKey = action?.key ?? action?.label ?? `action-${index}`;
   const handleActionClick = (event) => {
     event.stopPropagation();
-    actionHandler?.(event);
+    action?.onClick?.(event);
+    action?.onAction?.(String(actionKey), action, event);
   };
   if (compact) {
     return React.createElement(IconButton, {
-      key: action?.key ?? `${action?.label ?? "action"}-${index}`,
+      key: actionKey,
       icon: action?.icon ?? "close",
       ariaLabel: action?.ariaLabel ?? action?.label ?? "Cancel route",
       variant: action?.variant ?? "ghost",
@@ -27,7 +28,7 @@ function renderAction(action, index, { compact, density, disabled }) {
     });
   }
   return React.createElement(Button, {
-    key: action?.key ?? `${action?.label ?? "action"}-${index}`,
+    key: actionKey,
     label: action?.label ?? "Action",
     icon: action?.icon,
     trailingIcon: action?.trailingIcon,

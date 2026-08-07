@@ -746,7 +746,7 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "side", type: "\"left\" | \"right\"", required: false },
       { name: "fields", type: "Array<{ label: string, value?: string }>", required: false },
-      { name: "actions", type: "ButtonProps[]", required: false },
+      { name: "actions", type: "RouteSummaryAction[]", required: false },
       { name: "open", type: "boolean", required: false },
       { name: "id", type: "string", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false },

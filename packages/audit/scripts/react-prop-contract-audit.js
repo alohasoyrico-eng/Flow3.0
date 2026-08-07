@@ -70,6 +70,14 @@ function checkNoOpaqueCallbackTypes({ add, componentName, typesFile, types }) {
   }
 }
 
+function checkActionCallbackPayloads({ add, componentName, typesFile, types }) {
+  for (const match of types.matchAll(/export interface ([A-Za-z][A-Za-z0-9]*Action)\b[\s\S]*?^\}/gm)) {
+    if (/^\s*onAction\??:\s*\(\)\s*=>\s*void;/m.test(match[0])) {
+      add("errors", typesFile, 1, `${componentName} ${match[1]} must expose a semantic action payload instead of onAction: () => void.`);
+    }
+  }
+}
+
 function checkReactPropContracts(args) {
   checkPublicCallbackContract(args);
   checkPublicPropContract(args);
@@ -77,6 +85,7 @@ function checkReactPropContracts(args) {
   checkRequiredPropContract(args);
   checkNoOpaqueRecordTypes(args);
   checkNoOpaqueCallbackTypes(args);
+  checkActionCallbackPayloads(args);
 }
 
 module.exports = { checkReactPropContracts };
