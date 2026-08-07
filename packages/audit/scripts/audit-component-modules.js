@@ -123,6 +123,11 @@ function checkComponentModules() {
     const source = read(file);
     const publicExports = rule.publicExports ?? rule.exports;
     const internalExports = rule.internalExports ?? [];
+    const actualExports = [...source.matchAll(/^export\s+(?:function|const)\s+([A-Za-z][A-Za-z0-9]*)/gm)].map((match) => match[1]);
+    const unexpectedExports = actualExports.filter((name) => !rule.exports.includes(name));
+    if (unexpectedExports.length) {
+      add("errors", file, 1, `Component module ${rule.id} has unexpected exports: ${unexpectedExports.join(", ")}.`);
+    }
     for (const exportName of rule.exports) {
       if (!source.includes(`export function ${exportName}`) && !source.includes(`export const ${exportName}`)) {
         add("errors", file, 1, `Component module ${rule.id} must export ${exportName}.`);
