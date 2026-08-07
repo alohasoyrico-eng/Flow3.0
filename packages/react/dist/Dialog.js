@@ -29,7 +29,7 @@ export const Dialog = forwardRef(function Dialog({
   description = "",
   triggerLabel = "Open dialog",
   actions = [],
-  open = false,
+  open: openProp,
   tone = "neutral",
   variant = "confirmation",
   state = "closed",
@@ -49,8 +49,10 @@ export const Dialog = forwardRef(function Dialog({
   const resolvedTone = resolveTone(tone, resolvedVariant);
   const resolvedDensity = validDensities.has(density) ? density : undefined;
   const initialState = normalize(state, validStates, "closed");
-  const initiallyOpen = Boolean(open);
-  const [isOpen, setIsOpen] = useState(initiallyOpen);
+  const isOpenControlled = openProp !== undefined;
+  const initiallyOpen = Boolean(openProp) || initialState === "open" || initialState === "focus";
+  const [internalOpen, setInternalOpen] = useState(initiallyOpen);
+  const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
   const dialogId = id || `dialog-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = `${dialogId}-title`;
@@ -58,7 +60,7 @@ export const Dialog = forwardRef(function Dialog({
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     const normalizedOpen = Boolean(nextOpen);
-    setIsOpen(normalizedOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedOpen);
     setInteractionState(normalizedOpen ? "open" : "closed");
     onOpenChange?.(normalizedOpen);
     if (normalizedOpen) requestAnimationFrame(() => closeRef.current?.focus());
@@ -79,10 +81,10 @@ export const Dialog = forwardRef(function Dialog({
   ];
 
   useEffect(() => {
-    const normalizedOpen = Boolean(open);
-    setIsOpen(normalizedOpen);
+    if (!isOpenControlled) return;
+    const normalizedOpen = Boolean(openProp);
     setInteractionState(normalizedOpen ? "open" : initialState === "default" ? "default" : "closed");
-  }, [open, initialState]);
+  }, [openProp, initialState, isOpenControlled]);
 
   return React.createElement(
     "div",

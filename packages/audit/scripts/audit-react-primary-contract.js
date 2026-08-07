@@ -179,6 +179,9 @@ function checkReactComponent(file, shared) {
   if (source.includes("createTransitional") || source.includes("createCard(") || source.includes("createTable(")) {
     add("errors", sourceFile, 1, `${name} React source must not call component DOM factories; React is the primary implementation.`);
   }
+  if (source.includes("onOpenChange") && /\bopen\s*=\s*false\b/.test(source)) {
+    add("errors", sourceFile, 1, `${name} React source must preserve controlled vs uncontrolled open semantics; destructure open as openProp instead of defaulting to false.`);
+  }
   const componentImports = importsFromComponents(source);
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {

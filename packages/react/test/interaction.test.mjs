@@ -870,10 +870,8 @@ try {
   await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false"));
 
   fireEvent.click(popoverTrigger);
-  await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "true"));
-  fireEvent.keyDown(getPopoverRole("dialog", { name: /filter routes/i }), { key: "Escape" });
-  await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false"));
-  assert.deepEqual(popoverOpenChanges, [true, false, true, false]);
+  await waitFor(() => assert.deepEqual(popoverOpenChanges, [true, false, true]));
+  assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false");
 
   cleanup();
 

@@ -21,7 +21,7 @@ export const Popover = forwardRef(function Popover({
   title = "Popover",
   description = "",
   id = "",
-  open = false,
+  open: openProp,
   variant = "information",
   state = "default",
   placement = "bottom",
@@ -41,8 +41,10 @@ export const Popover = forwardRef(function Popover({
   const resolvedPlacement = normalize(placement, validPlacements, "bottom");
   const resolvedDensity = validDensities.has(density) ? density : undefined;
   const initialState = disabled ? "disabled" : normalize(state, validStates, "default");
-  const initiallyOpen = Boolean(open) || ["open", "focus", "warning"].includes(initialState);
-  const [isOpen, setIsOpen] = useState(initiallyOpen);
+  const isOpenControlled = openProp !== undefined;
+  const initiallyOpen = Boolean(openProp) || ["open", "focus", "warning"].includes(initialState);
+  const [internalOpen, setInternalOpen] = useState(initiallyOpen);
+  const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? "open" : initialState);
   const panelId = id || `popover-${slug(triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const resolvedActions = actions.length ? actions : resolvedVariant === "action"
@@ -51,15 +53,15 @@ export const Popover = forwardRef(function Popover({
   const isDisabled = disabled || interactionState === "disabled";
 
   useEffect(() => {
-    const normalizedOpen = Boolean(open) || ["open", "focus", "warning"].includes(initialState);
-    setIsOpen(normalizedOpen);
+    if (!isOpenControlled) return;
+    const normalizedOpen = Boolean(openProp);
     setInteractionState(normalizedOpen ? "open" : initialState);
-  }, [open, initialState]);
+  }, [openProp, initialState, isOpenControlled]);
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     if (isDisabled) return;
     const normalizedOpen = Boolean(nextOpen);
-    setIsOpen(normalizedOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedOpen);
     setInteractionState(normalizedOpen ? "open" : "closed");
     onOpenChange?.(normalizedOpen);
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());

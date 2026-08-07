@@ -23,7 +23,7 @@ function enabledItems(panel) {
 export const Menu = forwardRef(function Menu({
   triggerLabel = "Actions",
   items = [],
-  open = false,
+  open: openProp,
   label = "Menu",
   variant = "actions",
   avatarName = "",
@@ -44,8 +44,10 @@ export const Menu = forwardRef(function Menu({
   const resolvedVariant = normalize(variant, validVariants, "actions");
   const resolvedDensity = validDensities.has(density) ? density : undefined;
   const initialState = disabled ? "disabled" : normalize(state, validStates, "default");
-  const initiallyOpen = Boolean(open) || initialState === "open" || initialState === "focus";
-  const [isOpen, setIsOpen] = useState(initiallyOpen);
+  const isOpenControlled = openProp !== undefined;
+  const initiallyOpen = Boolean(openProp) || initialState === "open" || initialState === "focus";
+  const [internalOpen, setInternalOpen] = useState(initiallyOpen);
+  const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? "open" : initialState);
   const menuId = `menu-${slug(label || triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const isDisabled = disabled || interactionState === "disabled";
@@ -58,15 +60,15 @@ export const Menu = forwardRef(function Menu({
   ];
 
   useEffect(() => {
-    const normalizedOpen = Boolean(open) || initialState === "open" || initialState === "focus";
-    setIsOpen(normalizedOpen);
+    if (!isOpenControlled) return;
+    const normalizedOpen = Boolean(openProp);
     setInteractionState(normalizedOpen ? "open" : initialState);
-  }, [open, initialState]);
+  }, [openProp, initialState, isOpenControlled]);
 
   const setOpen = (nextOpen, { restoreFocus = false, focusFirst = false } = {}) => {
     if (isDisabled) return;
     const normalizedOpen = Boolean(nextOpen);
-    setIsOpen(normalizedOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedOpen);
     setInteractionState(normalizedOpen ? "open" : "closed");
     onOpenChange?.(normalizedOpen);
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());

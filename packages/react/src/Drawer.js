@@ -74,7 +74,7 @@ export const Drawer = forwardRef(function Drawer({
   fields = [],
   content = [],
   actions = [],
-  open = false,
+  open: openProp,
   id = "",
   onOpenChange,
   onAction,
@@ -89,8 +89,10 @@ export const Drawer = forwardRef(function Drawer({
   const resolvedTone = normalize(tone, validTones, "neutral");
   const resolvedDensity = validDensities.has(density) ? density : undefined;
   const resolvedSide = normalize(side, validSides, "right");
-  const initiallyOpen = Boolean(open);
-  const [isOpen, setIsOpenState] = useState(initiallyOpen);
+  const isOpenControlled = openProp !== undefined;
+  const initiallyOpen = Boolean(openProp) || initialState === "open" || initialState === "focus";
+  const [internalOpen, setInternalOpen] = useState(initiallyOpen);
+  const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
   const drawerId = id || `drawer-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = `${drawerId}-title`;
@@ -100,14 +102,14 @@ export const Drawer = forwardRef(function Drawer({
   ];
 
   useEffect(() => {
-    const normalizedOpen = Boolean(open);
-    setIsOpenState(normalizedOpen);
+    if (!isOpenControlled) return;
+    const normalizedOpen = Boolean(openProp);
     setInteractionState(normalizedOpen ? "open" : initialState === "default" ? "default" : "closed");
-  }, [open, initialState]);
+  }, [openProp, initialState, isOpenControlled]);
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     const normalizedOpen = Boolean(nextOpen);
-    setIsOpenState(normalizedOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedOpen);
     setInteractionState(normalizedOpen ? "open" : "closed");
     onOpenChange?.(normalizedOpen);
     if (normalizedOpen) requestAnimationFrame(() => closeRef.current?.focus());
