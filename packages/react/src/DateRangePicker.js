@@ -68,7 +68,7 @@ const defaultPresets = Object.freeze([
 
 export const DateRangePicker = forwardRef(function DateRangePicker({
   label,
-  value = {},
+  value,
   from,
   to,
   placeholder = "Rango de fechas",
@@ -92,6 +92,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const monthId = `${controlId}-month`;
   const rootRef = useRef(null);
   const controlRef = useRef(null);
+  const isValueControlled = value !== undefined;
   const initialFrom = from ?? value?.from ?? "";
   const initialTo = to ?? value?.to ?? "";
   const [range, setRange] = useState({ from: initialFrom, to: initialTo });
@@ -104,11 +105,12 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const presetOptions = presetItems ?? defaultPresets;
 
   useEffect(() => {
+    if (!isValueControlled) return;
     const nextFrom = from ?? value?.from ?? "";
     const nextTo = to ?? value?.to ?? "";
     setRange({ from: nextFrom, to: nextTo });
     if (nextFrom || nextTo) setViewDate(clampViewDate(nextFrom || nextTo));
-  }, [from, to, value?.from, value?.to]);
+  }, [from, isValueControlled, to, value?.from, value?.to]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -127,7 +129,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   };
 
   const commitRange = (nextRange, close = false) => {
-    setRange(nextRange);
+    if (!isValueControlled) setRange(nextRange);
     if (nextRange.from || nextRange.to) setViewDate(clampViewDate(nextRange.from || nextRange.to));
     onValueChange?.(nextRange);
     if (close) setOpen(false, true);

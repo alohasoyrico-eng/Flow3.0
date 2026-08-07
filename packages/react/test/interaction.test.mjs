@@ -351,7 +351,7 @@ try {
 
   const dateValues = [];
   const dateOpenChanges = [];
-  const { getByRole: getDateRole } = render(React.createElement(DatePicker, {
+  const { getByRole: getDateRole, rerender: rerenderDatePicker } = render(React.createElement(DatePicker, {
     label: "Service date",
     value: "2026-07-13",
     min: "2026-07-01",
@@ -371,11 +371,21 @@ try {
   assert.deepEqual(dateValues, ["2026-07-15"]);
   assert.deepEqual(dateOpenChanges, [true, false]);
 
+  rerenderDatePicker(React.createElement(DatePicker, {
+    label: "Service date",
+    value: "2026-07-20",
+    min: "2026-07-01",
+    max: "2026-07-31",
+    onValueChange: (value) => dateValues.push(value),
+    onOpenChange: (open) => dateOpenChanges.push(open),
+  }));
+  await waitFor(() => assert.equal(dateTrigger.textContent.includes("20 jul 2026"), true));
+
   cleanup();
 
   const dateRangeValues = [];
   const dateRangeOpenChanges = [];
-  const { getByRole: getDateRangeRole } = render(React.createElement(DateRangePicker, {
+  const { getByRole: getDateRangeRole, rerender: rerenderDateRangePicker } = render(React.createElement(DateRangePicker, {
     label: "Service range",
     from: "2026-07-01",
     presets: false,
@@ -392,6 +402,15 @@ try {
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(dateRangeValues, [{ from: "2026-07-01", to: "2026-07-15" }]);
   assert.deepEqual(dateRangeOpenChanges, [true, false]);
+
+  rerenderDateRangePicker(React.createElement(DateRangePicker, {
+    label: "Service range",
+    value: { from: "2026-07-10", to: "2026-07-20" },
+    presets: false,
+    onValueChange: (value) => dateRangeValues.push(value),
+    onOpenChange: (open) => dateRangeOpenChanges.push(open),
+  }));
+  await waitFor(() => assert.equal(dateRangeTrigger.textContent.includes("10 jul 2026 - 20 jul 2026"), true));
 
   cleanup();
 
@@ -684,7 +703,7 @@ try {
     { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
     { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
   ];
-  const { getByLabelText: getPhoneLabel, getByRole: getPhoneRole } = render(React.createElement(PhoneInput, {
+  const { getByLabelText: getPhoneLabel, getByRole: getPhoneRole, rerender: rerenderPhoneInput } = render(React.createElement(PhoneInput, {
     label: "Phone number",
     country: "MX",
     countries: phoneCountries,
@@ -713,6 +732,16 @@ try {
     e164: "+15512345678",
     nationalNumber: "5512345678",
   });
+
+  rerenderPhoneInput(React.createElement(PhoneInput, {
+    label: "Phone number",
+    value: "+525598765432",
+    country: "MX",
+    countries: phoneCountries,
+    onValueChange: (value, meta) => phoneChanges.push({ value, meta }),
+  }));
+  await waitFor(() => assert.equal(phoneInput.value, "55 9876 5432"));
+  await waitFor(() => assert.equal(phoneCountryTrigger.textContent.includes("+52"), true));
 
   cleanup();
 

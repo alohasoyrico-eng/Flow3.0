@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useState } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import {
   countryFlagAssetPath,
   countryCallingCodeOptions,
@@ -69,7 +69,7 @@ function flagNode(country) {
 
 export const PhoneInput = forwardRef(function PhoneInput({
   label,
-  value = "",
+  value,
   prefix = "+1",
   country,
   countries,
@@ -87,9 +87,10 @@ export const PhoneInput = forwardRef(function PhoneInput({
 }, ref) {
   const generatedId = useId();
   const inputId = id ?? `phone-input-${generatedId}`;
-  const countryOptions = normalizeCountries(countries);
-  const initialCountry = resolveCountry({ country, prefix }, countryOptions);
-  const parsed = parsePhoneValue(value, initialCountry, countryOptions);
+  const countryOptions = useMemo(() => normalizeCountries(countries), [countries]);
+  const initialCountry = useMemo(() => resolveCountry({ country, prefix }, countryOptions), [country, countryOptions, prefix]);
+  const isValueControlled = value !== undefined;
+  const parsed = parsePhoneValue(value ?? "", initialCountry, countryOptions);
   const [selectedCountry, setSelectedCountry] = useState(parsed.country);
   const [digits, setDigits] = useState(parsed.digits);
   const [open, setOpen] = useState(state === "open");
@@ -99,12 +100,21 @@ export const PhoneInput = forwardRef(function PhoneInput({
   const formattedValue = formatPhoneValue(digits, selectedCountry.nationalLength);
   const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
 
+  useEffect(() => {
+    if (!isValueControlled) return;
+    const nextParsed = parsePhoneValue(value ?? "", initialCountry, countryOptions);
+    setSelectedCountry(nextParsed.country);
+    setDigits(nextParsed.digits);
+  }, [countryOptions, initialCountry, isValueControlled, value]);
+
   const commitDigits = (nextValue, countryValue = selectedCountry) => {
     const parsedNext = parsePhoneValue(nextValue, countryValue, countryOptions);
     const nextCountry = parsedNext.country;
     const nextDigits = parsedNext.digits.slice(0, nextCountry.nationalLength);
-    setSelectedCountry(nextCountry);
-    setDigits(nextDigits);
+    if (!isValueControlled) {
+      setSelectedCountry(nextCountry);
+      setDigits(nextDigits);
+    }
     onValueChange?.(nextDigits, countryMeta(nextCountry, nextDigits));
   };
 

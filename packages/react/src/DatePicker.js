@@ -57,7 +57,7 @@ function clampViewDate(value) {
 
 export const DatePicker = forwardRef(function DatePicker({
   label,
-  value = "",
+  value,
   placeholder = "Selecciona fecha",
   helper = "",
   error = "",
@@ -79,7 +79,8 @@ export const DatePicker = forwardRef(function DatePicker({
   const monthId = `${controlId}-month`;
   const rootRef = useRef(null);
   const controlRef = useRef(null);
-  const [selectedValue, setSelectedValue] = useState(value);
+  const isValueControlled = value !== undefined;
+  const [selectedValue, setSelectedValue] = useState(value ?? "");
   const [open, setOpenState] = useState(false);
   const [viewDate, setViewDate] = useState(() => clampViewDate(value));
   const resolvedState = resolveDatePickerState({ disabled, error, invalid, state, value: selectedValue });
@@ -88,9 +89,10 @@ export const DatePicker = forwardRef(function DatePicker({
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
 
   useEffect(() => {
-    setSelectedValue(value);
+    if (!isValueControlled) return;
+    setSelectedValue(value ?? "");
     if (value) setViewDate(clampViewDate(value));
-  }, [value]);
+  }, [isValueControlled, value]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -109,7 +111,7 @@ export const DatePicker = forwardRef(function DatePicker({
   };
 
   const commitValue = (nextValue) => {
-    setSelectedValue(nextValue);
+    if (!isValueControlled) setSelectedValue(nextValue);
     setViewDate(clampViewDate(nextValue));
     onValueChange?.(nextValue);
     setOpen(false, true);
