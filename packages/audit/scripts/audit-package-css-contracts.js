@@ -1,9 +1,4 @@
-const {
-  path,
-  read,
-  add,
-  lineNumber,
-} = require("./audit-context.js");
+const { path, read, add, lineNumber } = require("./audit-context.js");
 
 const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css");
 const packageSpinnerFile = path.join(process.cwd(), "packages/react/src/Spinner.js");
@@ -180,6 +175,7 @@ function checkPackageCssContracts() {
   const selectListboxBlock = blocks.find((block) => selectorKey(block) === ".select-control__listbox,.country-selector__listbox,.phone-input__country-listbox");
   const selectOpenListboxBlock = blocks.find((block) => selectorKey(block) === ".select-control[data-open=\"true\"] .select-control__listbox,.country-selector[data-open=\"true\"] .country-selector__listbox");
   const selectOptionBlock = blocks.find((block) => selectorKey(block) === ".select-control__option,.country-selector__option,.phone-input__country-option");
+  const countrySelectorBlock = blocks.find((block) => selectorKey(block) === ".country-selector"), inlineCountryListboxBlock = blocks.find((block) => selectorKey(block) === ".country-selector.select-control--inline .country-selector__listbox,.phone-input__country-listbox");
   if (/--select-|--component-select/.test(text)) {
     add("errors", packageCssFile, 1, "Select must use the component alias family --comp-select-*; legacy --select-* and --component-select-* aliases are not allowed.");
   }
@@ -200,6 +196,12 @@ function checkPackageCssContracts() {
   }
   if (!selectOptionBlock?.body.includes("min-block-size: var(--comp-select-option-min-size)") || !selectOptionBlock?.body.includes("padding: 0 var(--comp-select-option-padding-x)")) {
     add("errors", packageCssFile, selectOptionBlock ? lineNumber(text, selectOptionBlock.index) : 1, "Select options must consume comp Select density/frame aliases.");
+  }
+  if (!countrySelectorBlock?.body.includes("--comp-country-selector-inline-listbox-max-inline-size:") || !countrySelectorBlock?.body.includes("--comp-country-selector-inline-listbox-inline-size: min(var(--comp-country-selector-inline-listbox-max-inline-size)")) {
+    add("errors", packageCssFile, countrySelectorBlock ? lineNumber(text, countrySelectorBlock.index) : 1, "Country Selector inline listbox width must be exposed through component frame aliases.");
+  }
+  if (!inlineCountryListboxBlock?.body.includes("inline-size: var(--comp-country-selector-inline-listbox-inline-size)")) {
+    add("errors", packageCssFile, inlineCountryListboxBlock ? lineNumber(text, inlineCountryListboxBlock.index) : 1, "Country Selector and Phone Input inline listboxes must consume the shared component width alias.");
   }
 
   const cardNumberBlock = blocks.find((block) => selectorKey(block) === ".card-number-input,.card-expiry-input,.card-security-code-input");
@@ -290,8 +292,7 @@ function checkPackageCssContracts() {
     add("errors", packageCssFile, sliderThumbBlock ? lineNumber(text, sliderThumbBlock.index) : 1, "Slider thumb must consume density-owned size and border variables.");
   }
 
-  const stepperBlock = blocks.find((block) => normalizedSelector(block) === ".stepper");
-  const stepperItemBlock = blocks.find((block) => normalizedSelector(block) === ".stepper__item");
+  const stepperBlock = blocks.find((block) => normalizedSelector(block) === ".stepper"), stepperItemBlock = blocks.find((block) => normalizedSelector(block) === ".stepper__item");
   if (!stepperBlock?.body.includes("--comp-stepper-current-scale: var(--component-scale-raised)") || !stepperBlock?.body.includes("--comp-stepper-item-gap:")) {
     add("errors", packageCssFile, stepperBlock ? lineNumber(text, stepperBlock.index) : 1, "Stepper must expose current marker scale and item spacing through component aliases.");
   }

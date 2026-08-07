@@ -8270,7 +8270,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-inline-trigger-color: var(--sys-color-text-muted);
   --comp-country-selector-inline-trigger-gap: var(--sys-space-xs);
   --comp-country-selector-inline-trigger-padding-end: var(--comp-select-inline-padding-end);
-  --comp-country-selector-inline-listbox-inline-size: min(17rem, calc(100vw - (var(--sys-space-md) * 2)));
+  --comp-country-selector-inline-listbox-max-inline-size: calc(var(--component-control-min-size) * 6);
+  --comp-country-selector-inline-listbox-inline-size: min(var(--comp-country-selector-inline-listbox-max-inline-size), calc(100vw - (var(--sys-space-md) * 2)));
   --comp-country-selector-flag-size: calc(var(--component-inline-size-sm) - var(--component-focus-ring-offset));
   --comp-country-selector-flag-radius: var(--component-radius-pill);
   --comp-country-selector-flag-ring: var(--component-depth-border-ring);
@@ -8619,7 +8620,6 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control--inline .select-control__listbox,
 .country-selector.select-control--inline .country-selector__listbox,
 .phone-input__country-listbox {
-  inline-size: min(17rem, calc(100vw - (var(--sys-space-md) * 2)));
   inset-inline-end: auto;
 }
 
