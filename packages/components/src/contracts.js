@@ -424,7 +424,6 @@ export const componentContracts = {
   },
   chip: {
     factory: "@design-system/react/chip",
-    internalFactory: "createTransitionalChip",
     element: "span | button",
     purpose: "Show a compact selected filter, token, or removable value with visible label and optional interaction state.",
     variants: ["filter", "input", "suggestion", "assist"],

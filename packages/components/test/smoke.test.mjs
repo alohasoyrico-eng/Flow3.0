@@ -180,7 +180,7 @@ import {
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
-import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
+import { createTransitionalBadge, createTransitionalTag } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
   hydrateTransitionalPaymentCardExpiryInput,
@@ -485,7 +485,6 @@ assert.deepEqual(Object.keys(badgePlatformAdapters), ["react"]);
 assert.equal(badgePlatformAdapters.react.componentName, "Badge");
 assert.equal(badgePlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.chip.factory, "@design-system/react/chip");
-assert.equal(componentContracts.chip.internalFactory, "createTransitionalChip");
 assert.equal(chipPlatformContract.id, "chip");
 assert.equal(chipPlatformContract.source.factory, componentContracts.chip.factory);
 assert.deepEqual(chipPlatformProps(), componentContracts.chip.props.map((prop) => prop.name));
@@ -1482,47 +1481,6 @@ assert.equal(hiddenBadge.hidden, true);
 assert.equal(hiddenBadge.dataset.state, "hidden");
 const disabledBadge = createTransitionalBadge({ label: "4", state: "disabled" });
 assert.equal(disabledBadge.attributes["aria-disabled"], "true");
-
-const chip = createTransitionalChip({ label: "Active", variant: "filter", tone: "warning", state: "selected", selected: true, removable: true, icon: "filter_alt" });
-assert.equal(chip.tagName, "BUTTON");
-assert.equal(chip.className, "chip");
-assert.equal(chip.dataset.variant, "filter");
-assert.equal(chip.dataset.tone, "warning");
-assert.equal(chip.dataset.state, "selected");
-assert.equal(chip.dataset.selected, "true");
-assert.equal(chip.attributes["aria-pressed"], "true");
-assert.equal(chip.attributes["aria-label"], "Remove Active");
-assert.equal(chip.querySelector(".chip__icon").attributes["aria-hidden"], "true");
-assert.equal(chip.querySelector(".chip__remove").textContent, "close");
-const assistChip = createTransitionalChip({ label: "Export ready", variant: "assist", interactive: true, state: "focus" });
-assert.equal(assistChip.tagName, "BUTTON");
-assert.equal(assistChip.dataset.variant, "assist");
-assert.equal(assistChip.dataset.state, "focus");
-let chipSelected = null;
-const interactiveChip = createTransitionalChip({
-  label: "Active",
-  selected: false,
-  interactive: true,
-  onSelectedChange(selected) {
-    chipSelected = selected;
-  },
-});
-interactiveChip.click();
-assert.equal(chipSelected, true);
-assert.equal(interactiveChip.dataset.selected, "true");
-assert.equal(interactiveChip.dataset.state, "selected");
-assert.equal(interactiveChip.attributes["aria-pressed"], "true");
-let removedChip = "";
-const removableChip = createTransitionalChip({
-  label: "Diesel",
-  removable: true,
-  onRemove(label) {
-    removedChip = label;
-  },
-});
-removableChip.click();
-assert.equal(removedChip, "Diesel");
-assert.equal(removableChip.hidden, true);
 
 const tag = createTransitionalTag({ label: "Policy", variant: "link", tone: "info", state: "focus", icon: "verified" });
 assert.equal(tag.tagName, "BUTTON");

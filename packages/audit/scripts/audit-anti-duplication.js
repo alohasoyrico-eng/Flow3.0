@@ -143,6 +143,7 @@ function checkReactOnlyComponentBoundaries() {
     motion: path.join(root, "packages/components/src/components/motion.js"),
     navigation: path.join(root, "packages/components/src/components/navigation.js"),
     security: path.join(root, "packages/components/src/components/security.js"),
+    status: path.join(root, "packages/components/src/components/status.js"),
     surfaces: path.join(root, "packages/components/src/components/surfaces.js"),
   };
   const reactOnlyComponents = [
@@ -168,6 +169,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Biometric Prompt", "createBiometricPrompt", "security"],
     ["Motion Boundary", "createMotionBoundary", "motion"],
     ["Animated Moment", "createAnimatedMoment", "motion"],
+    ["Chip", "createTransitionalChip", "status"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {
