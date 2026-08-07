@@ -236,7 +236,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         "aria-expanded": String(open),
         "aria-controls": panelId,
         "aria-labelledby": label ? `${controlId}-label` : undefined,
-        "aria-label": label ? undefined : "Date range picker",
+        "aria-label": label ? undefined : rest["aria-label"],
         "aria-describedby": describedBy,
         "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
         onClick: () => {
@@ -263,7 +263,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       disabled,
       tabIndex: -1,
       "data-date-range-picker-from": "",
-      "aria-label": label ? `${label} start date` : "Start date",
+      "aria-hidden": "true",
       onChange: (event) => commitRange({ from: event.target.value, to: range.to }),
     }),
     React.createElement("input", {
@@ -273,7 +273,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       disabled,
       tabIndex: -1,
       "data-date-range-picker-to": "",
-      "aria-label": label ? `${label} end date` : "End date",
+      "aria-hidden": "true",
       onChange: (event) => commitRange({ from: range.from, to: event.target.value }),
     }),
     React.createElement(
@@ -285,7 +285,8 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         "data-date-range-picker-panel": "",
         role: "dialog",
         "aria-modal": "false",
-        "aria-label": calendarLabel || (label ? `${label} calendar` : "Date range calendar"),
+        "aria-label": calendarLabel || undefined,
+        "aria-labelledby": calendarLabel ? undefined : label ? `${controlId}-label` : undefined,
         onKeyDown: (event) => {
           if (event.key !== "Escape") return;
           event.preventDefault();

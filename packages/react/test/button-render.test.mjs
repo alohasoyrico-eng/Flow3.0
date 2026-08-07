@@ -1928,6 +1928,12 @@ const inheritedDateRangePickerMarkup = renderToStaticMarkup(React.createElement(
 }));
 assert.doesNotMatch(inheritedDateRangePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const unnamedDateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker));
+assert.doesNotMatch(unnamedDateRangePickerMarkup, /Date range picker/);
+assert.doesNotMatch(unnamedDateRangePickerMarkup, /Date range calendar/);
+assert.doesNotMatch(unnamedDateRangePickerMarkup, /Start date/);
+assert.doesNotMatch(unnamedDateRangePickerMarkup, /End date/);
+
 const closedDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   label: "Freeze card?",
   description: "Driver cannot spend until review ends.",
