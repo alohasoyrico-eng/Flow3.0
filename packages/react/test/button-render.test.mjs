@@ -2308,4 +2308,16 @@ const unnamedSelectMarkup = renderToStaticMarkup(React.createElement(Select));
 assert.doesNotMatch(unnamedSelectMarkup, /aria-label="Select"/);
 assert.doesNotMatch(unnamedSelectMarkup, /aria-label="Options"/);
 
+const unselectedSelectMarkup = renderToStaticMarkup(React.createElement(Select, {
+  label: "Fleet",
+  options: [
+    { label: "North", value: "north" },
+    { label: "South", value: "south" },
+  ],
+}));
+assert.doesNotMatch(unselectedSelectMarkup, /class="select-control__value"/);
+assert.match(unselectedSelectMarkup, /class="select-control"[^>]*data-value=""/);
+assert.doesNotMatch(unselectedSelectMarkup, /aria-activedescendant=/);
+assert.doesNotMatch(unselectedSelectMarkup, /aria-selected="true"/);
+
 console.log("react action and field component render tests passed");

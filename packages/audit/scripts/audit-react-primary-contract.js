@@ -198,6 +198,7 @@ function checkReactComponent(file, shared) {
   if (source.includes("onOpenChange") && /\bopen\s*=\s*false\b/.test(source)) {
     add("errors", sourceFile, 1, `${name} React source must preserve controlled vs uncontrolled open semantics; destructure open as openProp instead of defaulting to false.`);
   }
+  if (name === "Select" && /options\.find\(\(option\) => !option\.disabled\)/.test(source)) add("errors", sourceFile, 1, "Select must not auto-select the first enabled option; selected value belongs to product code or user interaction.");
   const componentImports = importsFromComponents(source);
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {
@@ -395,5 +396,4 @@ function contractBodyFor(source, contractKey) {
   const match = source.match(new RegExp(`^\\\\s+${contractKey}:\\\\s*\\\\{([\\\\s\\\\S]*?)(?=^\\\\s+[a-z][A-Za-z0-9]*:\\\\s*\\\\{|\\\\n\\\\};)`, "m"));
   return match?.[1] ?? "";
 }
-
 module.exports = { checkReactPrimaryContract };

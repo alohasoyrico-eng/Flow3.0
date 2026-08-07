@@ -3,9 +3,8 @@ import { selectPlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function selectedOptionFor(options, value) {
+  if (!value) return null;
   return options.find((option) => (option.value ?? option.label ?? "") === value)
-    ?? options.find((option) => !option.disabled)
-    ?? options[0]
     ?? { label: value, value };
 }
 
@@ -32,7 +31,8 @@ export const Select = forwardRef(function Select({
   const [currentValue, setCurrentValue] = useState(value ?? "");
   const [open, setOpen] = useState(state === "open");
   const selectedOption = selectedOptionFor(options, currentValue);
-  const selectedValue = selectedOption.value ?? selectedOption.label ?? "";
+  const selectedValue = selectedOption ? selectedOption.value ?? selectedOption.label ?? "" : "";
+  const selectedLabel = selectedOption ? selectedOption.label ?? selectedOption.value ?? "" : "";
   const isOpen = open;
   const resolvedState = disabled ? "disabled" : state || "default";
   const activeIndex = Math.max(options.indexOf(selectedOption), 0);
@@ -84,7 +84,7 @@ export const Select = forwardRef(function Select({
           "aria-label": label ? undefined : rest["aria-label"],
           "aria-labelledby": label ? `${selectId}-label` : undefined,
           "aria-invalid": state === "error" ? "true" : undefined,
-          "aria-activedescendant": `${selectId}-option-${activeIndex}`,
+          "aria-activedescendant": selectedOption ? `${selectId}-option-${activeIndex}` : undefined,
           onClick: () => setOpen((current) => !current),
           onKeyDown: (event) => {
             if (["ArrowDown", "Enter", " "].includes(event.key)) {
@@ -98,8 +98,8 @@ export const Select = forwardRef(function Select({
           },
         },
         icon ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, icon) : null,
-        React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedOption.label ?? selectedOption.value ?? ""),
-        selectedOption.meta ? React.createElement("span", { className: "select-control__option-code", "data-select-value-meta": "" }, selectedOption.meta) : null,
+        selectedLabel ? React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedLabel) : null,
+        selectedOption?.meta ? React.createElement("span", { className: "select-control__option-code", "data-select-value-meta": "" }, selectedOption.meta) : null,
         React.createElement("span", { className: "select-control__chevron", "aria-hidden": "true" }, "expand_more"),
       ),
       React.createElement(
