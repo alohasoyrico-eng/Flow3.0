@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { movementRowPlatformContract } from "@design-system/components/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "refund", "declined", "compact"]);
 const validStates = new Set(["default", "hover", "focus", "pending", "error", "disabled"]);
@@ -13,10 +13,6 @@ const categoryIcons = {
   transfer: "sync_alt",
   income: "south_west",
 };
-
-function normalize(value, allowed, fallback) {
-  return allowed.has(value) ? value : fallback;
-}
 
 export const MovementRow = forwardRef(function MovementRow({
   label,
@@ -34,8 +30,8 @@ export const MovementRow = forwardRef(function MovementRow({
   type = "button",
   ...rest
 }, ref) {
-  const resolvedVariant = normalize(variant, validVariants, "standard");
-  const resolvedCategory = normalize(category, validCategories, "transfer");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "standard");
+  const resolvedCategory = normalizeFlowValue(category, validCategories, "transfer");
   const inferredState = status === "Pending" ? "pending" : status === "Declined" ? "error" : "default";
   const resolvedState = disabled ? "disabled" : validStates.has(state) ? state : inferredState;
   const resolvedDensity = normalizeFlowDensity(density);

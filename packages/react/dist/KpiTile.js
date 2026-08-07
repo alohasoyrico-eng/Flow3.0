@@ -1,15 +1,11 @@
 import React, { forwardRef } from "react";
 import { kpiTilePlatformContract } from "#flow/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "delta", "threshold", "sparkline", "drill-in"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "loading", "risk", "disabled"]);
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validTrends = new Set(["up", "down", "flat"]);
-
-function normalize(value, allowed, fallback) {
-  return allowed.has(value) ? value : fallback;
-}
 
 function sparklinePoints(values) {
   const safeValues = (values.length ? values : [24, 32, 28, 44, 38, 52]).map((item) => Number.isFinite(Number(item)) ? Math.max(0, Number(item)) : 0);
@@ -43,10 +39,10 @@ export const KpiTile = forwardRef(function KpiTile({
   className = "",
   ...rest
 }, ref) {
-  const resolvedVariant = normalize(variant, validVariants, "standard");
-  const resolvedTone = normalize(tone, validTones, "neutral");
-  const resolvedTrend = normalize(trend, validTrends, "flat");
-  const resolvedState = loading ? "loading" : disabled ? "disabled" : normalize(state, validStates, "default");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "standard");
+  const resolvedTone = normalizeFlowValue(tone, validTones, "neutral");
+  const resolvedTrend = normalizeFlowValue(trend, validTrends, "flat");
+  const resolvedState = loading ? "loading" : disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const interactive = Boolean(href || onSelect || resolvedVariant === "drill-in");
   const Element = href ? "a" : "article";

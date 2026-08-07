@@ -1,18 +1,14 @@
 import React, { forwardRef } from "react";
 import { chartPanelPlatformContract } from "#flow/platforms";
 import { createChartsPrimitive } from "#flow/components";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["sparkline", "bars", "line", "area", "donut", "pareto", "bullet", "comparison", "compact"]);
 const validStates = new Set(["default", "focus", "hover", "warning", "error", "disabled"]);
 const validTones = new Set(["neutral", "info", "warning", "danger"]);
 
-function normalize(value, allowed, fallback) {
-  return allowed.has(value) ? value : fallback;
-}
-
 function normalizeVariant(variant) {
-  return variant === "bar" ? "bars" : normalize(variant, validVariants, "sparkline");
+  return variant === "bar" ? "bars" : normalizeFlowValue(variant, validVariants, "sparkline");
 }
 
 function normalizeValues(values = []) {
@@ -171,8 +167,8 @@ export const ChartPanel = forwardRef(function ChartPanel({
   ...rest
 }, ref) {
   const resolvedVariant = normalizeVariant(variant);
-  const resolvedState = normalize(state, validStates, "default");
-  const resolvedTone = normalize(tone, validTones, "neutral");
+  const resolvedState = normalizeFlowValue(state, validStates, "default");
+  const resolvedTone = normalizeFlowValue(tone, validTones, "neutral");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedValues = normalizeValues(values);
   const resolvedLabels = labels.length ? labels : valueLabels.length ? valueLabels : resolvedValues.map((_, index) => `Value ${index + 1}`);

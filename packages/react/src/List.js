@@ -1,13 +1,9 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { listPlatformContract } from "@design-system/components/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "compact", "action", "status", "media"]);
 const validStates = new Set(["default", "hover", "selected", "loading", "error", "disabled"]);
-
-function normalize(value, allowed, fallback) {
-  return allowed.has(value) ? value : fallback;
-}
 
 export const List = forwardRef(function List({
   items = [],
@@ -21,8 +17,8 @@ export const List = forwardRef(function List({
   className = "",
   ...rest
 }, ref) {
-  const resolvedVariant = normalize(variant, validVariants, "standard");
-  const resolvedState = normalize(state, validStates, "default");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "standard");
+  const resolvedState = normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const isInteractive = Boolean(interactive || resolvedVariant === "action" || typeof onSelect === "function");
   const initialSelectedKey = selectedKey ?? items.find((item) => item.state === "selected")?.key ?? "";
@@ -50,7 +46,7 @@ export const List = forwardRef(function List({
     items.map((item, index) => {
       const key = String(item.key ?? item.label ?? index);
       const isSelected = currentSelectedKey === key;
-      const rowState = normalize(isSelected ? "selected" : item.state ?? resolvedState, validStates, resolvedState);
+      const rowState = normalizeFlowValue(isSelected ? "selected" : item.state ?? resolvedState, validStates, resolvedState);
       const rowTone = item.tone ?? (rowState === "error" ? "danger" : "");
       const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
       const Control = isInteractive ? "button" : "span";

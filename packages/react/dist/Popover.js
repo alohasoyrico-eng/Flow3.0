@@ -2,15 +2,11 @@ import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { popoverPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { Input } from "./Input.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["information", "action", "form", "metric"]);
 const validStates = new Set(["default", "closed", "open", "hover", "focus", "warning", "disabled"]);
 const validPlacements = new Set(["top", "right", "bottom", "left"]);
-
-function normalize(value, valid, fallback) {
-  return valid.has(value) ? value : fallback;
-}
 
 function slug(value) {
   return String(value ?? "popover").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -37,10 +33,10 @@ export const Popover = forwardRef(function Popover({
 }, ref) {
   const reactId = useId();
   const triggerRef = useRef(null);
-  const resolvedVariant = normalize(variant, validVariants, "information");
-  const resolvedPlacement = normalize(placement, validPlacements, "bottom");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "information");
+  const resolvedPlacement = normalizeFlowValue(placement, validPlacements, "bottom");
   const resolvedDensity = normalizeFlowDensity(density);
-  const initialState = disabled ? "disabled" : normalize(state, validStates, "default");
+  const initialState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const isOpenControlled = openProp !== undefined;
   const initiallyOpen = Boolean(openProp) || ["open", "focus", "warning"].includes(initialState);
   const [internalOpen, setInternalOpen] = useState(initiallyOpen);

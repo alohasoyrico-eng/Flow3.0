@@ -3,14 +3,10 @@ import { menuPlatformContract } from "#flow/platforms";
 import { Avatar } from "./Avatar.js";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["actions", "grouped", "selection", "danger", "icon-trigger", "avatar-trigger"]);
 const validStates = new Set(["default", "closed", "open", "focus", "disabled"]);
-
-function normalize(value, valid, fallback) {
-  return valid.has(value) ? value : fallback;
-}
 
 function slug(value) {
   return String(value ?? "menu").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -41,9 +37,9 @@ export const Menu = forwardRef(function Menu({
   const reactId = useId();
   const triggerRef = useRef(null);
   const panelRef = useRef(null);
-  const resolvedVariant = normalize(variant, validVariants, "actions");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "actions");
   const resolvedDensity = normalizeFlowDensity(density);
-  const initialState = disabled ? "disabled" : normalize(state, validStates, "default");
+  const initialState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const isOpenControlled = openProp !== undefined;
   const initiallyOpen = Boolean(openProp) || initialState === "open" || initialState === "focus";
   const [internalOpen, setInternalOpen] = useState(initiallyOpen);

@@ -1,18 +1,14 @@
 import React, { forwardRef, useId } from "react";
 import { motionBoundaryPlatformContract } from "@design-system/components/platforms";
-import { flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fade", "slide", "collapse", "route"]);
 const validStates = new Set(["idle", "entering", "active", "exiting", "reduced-motion", "disabled"]);
 
-function normalize(value, allowed, fallback) {
-  return allowed.has(value) ? value : fallback;
-}
-
 function normalizeState(state, reducedMotion) {
   if (state === "disabled") return "disabled";
   if (reducedMotion || state === "reduced-motion") return "reduced-motion";
-  return normalize(state, validStates, "active");
+  return normalizeFlowValue(state, validStates, "active");
 }
 
 function stateLabel(state) {
@@ -38,7 +34,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
 }, ref) {
   const generatedId = useId();
   const id = `motion-boundary-${generatedId.replace(/:/g, "")}`;
-  const resolvedVariant = normalize(variant, validVariants, "fade");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "fade");
   const resolvedState = normalizeState(state, reducedMotion);
   const isReducedMotion = Boolean(reducedMotion || resolvedState === "reduced-motion");
   const resolvedLabel = label ?? "Panel transition";

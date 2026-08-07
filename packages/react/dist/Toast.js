@@ -2,7 +2,7 @@ import React, { forwardRef, useState } from "react";
 import { toastPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validVariants = new Set(["status", "progress", "warning", "recovery", "undo"]);
@@ -15,10 +15,6 @@ const toneIcons = {
   warning: "warning",
   danger: "error",
 };
-
-function normalize(value, valid, fallback) {
-  return valid.has(value) ? value : fallback;
-}
 
 export const Toast = forwardRef(function Toast({
   label = "Toast",
@@ -35,9 +31,9 @@ export const Toast = forwardRef(function Toast({
   className = "",
   ...rest
 }, ref) {
-  const resolvedTone = normalize(tone, validTones, "neutral");
-  const resolvedVariant = normalize(variant, validVariants, "status");
-  const resolvedState = normalize(state, validStates, "visible");
+  const resolvedTone = normalizeFlowValue(tone, validTones, "neutral");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "status");
+  const resolvedState = normalizeFlowValue(state, validStates, "visible");
   const resolvedDensity = normalizeFlowDensity(density);
   const [dismissed, setDismissed] = useState(false);
   const hidden = dismissed || resolvedState === "default";

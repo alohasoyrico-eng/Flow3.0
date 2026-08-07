@@ -1,14 +1,10 @@
 import React, { forwardRef } from "react";
 import { createMapsPrimitive } from "#flow/components";
 import { stationPinPlatformContract } from "#flow/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fuel", "ev", "service", "cluster"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "unavailable", "disabled"]);
-
-function normalize(value, allowed, fallback) {
-  return allowed.has(value) ? value : fallback;
-}
 
 export const StationPin = forwardRef(function StationPin({
   label,
@@ -27,8 +23,8 @@ export const StationPin = forwardRef(function StationPin({
   onClick,
   ...rest
 }, ref) {
-  const resolvedVariant = normalize(variant, validVariants, "fuel");
-  const resolvedState = disabled ? "disabled" : unavailable ? "unavailable" : selected ? "selected" : normalize(state, validStates, "default");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "fuel");
+  const resolvedState = disabled ? "disabled" : unavailable ? "unavailable" : selected ? "selected" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const markerCount = count != null || resolvedVariant === "cluster" ? count ?? 6 : null;
   const visibleValue = markerCount != null ? String(markerCount) : value || label || "Station";

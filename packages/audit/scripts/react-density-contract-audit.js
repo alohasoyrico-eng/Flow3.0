@@ -22,6 +22,9 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (/new Set\(\s*\[\s*["']sm["']\s*,\s*["']md["']\s*,\s*["']lg["']\s*\]\s*\)/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must use normalizeFlowDensity() from internal/props.js instead of redefining the density vocabulary.`);
   }
+  if (/function normalize\(value,\s*(?:allowed|valid),\s*fallback\)\s*\{\s*return (?:allowed|valid)\.has\(value\) \? value : fallback;\s*\}/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must use normalizeFlowValue() from internal/props.js instead of duplicating generic value normalization.`);
+  }
   if (source.includes('"data-density"')) {
     add("errors", sourceFile, 1, `${componentName} React source must use flowDensityProps() instead of writing data-density directly.`);
   }

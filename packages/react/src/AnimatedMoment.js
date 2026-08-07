@@ -1,13 +1,9 @@
 import React, { forwardRef } from "react";
 import { animatedMomentPlatformContract } from "@design-system/components/platforms";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["success", "empty", "loading", "celebration"]);
 const validStates = new Set(["idle", "playing", "paused", "complete", "reduced-motion", "disabled"]);
-
-function normalize(value, allowed, fallback) {
-  return allowed.has(value) ? value : fallback;
-}
 
 function stateLabel(state) {
   return {
@@ -44,8 +40,8 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   className = "",
   ...rest
 }, ref) {
-  const resolvedVariant = normalize(variant, validVariants, "success");
-  const resolvedState = normalize(state, validStates, "idle");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "success");
+  const resolvedState = normalizeFlowValue(state, validStates, "idle");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedLabel = label ?? "Animated moment";
   const resolvedIcon = variantIcon(resolvedVariant, icon);

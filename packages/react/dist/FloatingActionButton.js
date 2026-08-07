@@ -1,15 +1,11 @@
 import React, { forwardRef } from "react";
 import { floatingActionButtonPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["primary", "accent", "extended", "mini"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "disabled"]);
 const validTypes = new Set(["button", "submit", "reset"]);
-
-function normalize(value, valid, fallback) {
-  return valid.has(value) ? value : fallback;
-}
 
 export const FloatingActionButton = forwardRef(function FloatingActionButton({
   label,
@@ -24,8 +20,8 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
   className = "",
   ...rest
 }, ref) {
-  const resolvedVariant = normalize(variant, validVariants, "primary");
-  const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : normalize(state, validStates, "default");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "primary");
+  const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedLabel = label ?? "Create";
   const isExtended = Boolean(extended) || resolvedVariant === "extended";

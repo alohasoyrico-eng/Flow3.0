@@ -1,13 +1,9 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { treeViewPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validStates = new Set(["default", "hover", "focus", "expanded", "selected", "disabled"]);
-
-function normalize(value, valid, fallback) {
-  return valid.has(value) ? value : fallback;
-}
 
 function nodeKey(node, index) {
   return String(node?.key ?? node?.id ?? node?.label ?? `tree-item-${index}`);
@@ -57,7 +53,7 @@ export const TreeView = forwardRef(function TreeView({
   const [expanded, setExpanded] = useState(() => normalizedNodes.filter((node) => node.expanded).map((node) => node.key));
   const controlRefs = useRef(new Map());
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedState = normalize(state, validStates, "expanded");
+  const resolvedState = normalizeFlowValue(state, validStates, "expanded");
   const visible = visibleKeys(normalizedNodes, expanded);
 
   useEffect(() => {

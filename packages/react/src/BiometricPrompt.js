@@ -1,17 +1,13 @@
 import React, { forwardRef } from "react";
 import { biometricPromptPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fingerprint", "face", "passcode", "fallback"]);
 const validStates = new Set(["default", "focus", "authenticating", "success", "warning", "error", "disabled"]);
 
-function normalize(value, allowed, fallback) {
-  return allowed.has(value) ? value : fallback;
-}
-
 function normalizeState(state) {
-  return state === "scanning" ? "authenticating" : normalize(state, validStates, "default");
+  return state === "scanning" ? "authenticating" : normalizeFlowValue(state, validStates, "default");
 }
 
 function promptIcon(variant, state, icon) {
@@ -54,7 +50,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
   className = "",
   ...rest
 }, ref) {
-  const resolvedVariant = normalize(variant, validVariants, "fingerprint");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "fingerprint");
   const resolvedState = normalizeState(state);
   const resolvedDensity = normalizeFlowDensity(density);
   const disabled = resolvedState === "disabled";

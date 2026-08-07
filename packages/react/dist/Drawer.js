@@ -5,16 +5,12 @@ import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
 import { ProgressIndicator } from "./ProgressIndicator.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["side-sheet", "filter", "detail", "edit", "review"]);
 const validStates = new Set(["closed", "default", "open", "focus", "closing"]);
 const validTones = new Set(["neutral", "info", "danger"]);
 const validSides = new Set(["left", "right"]);
-
-function normalize(value, valid, fallback) {
-  return valid.has(value) ? value : fallback;
-}
 
 function slug(value) {
   return String(value ?? "drawer").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -85,11 +81,11 @@ export const Drawer = forwardRef(function Drawer({
   const reactId = useId();
   const triggerRef = useRef(null);
   const closeRef = useRef(null);
-  const resolvedVariant = normalize(variant, validVariants, "side-sheet");
-  const initialState = normalize(state, validStates, "closed");
-  const resolvedTone = normalize(tone, validTones, "neutral");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "side-sheet");
+  const initialState = normalizeFlowValue(state, validStates, "closed");
+  const resolvedTone = normalizeFlowValue(tone, validTones, "neutral");
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedSide = normalize(side, validSides, "right");
+  const resolvedSide = normalizeFlowValue(side, validSides, "right");
   const isOpenControlled = openProp !== undefined;
   const initiallyOpen = Boolean(openProp) || initialState === "open" || initialState === "focus";
   const [internalOpen, setInternalOpen] = useState(initiallyOpen);

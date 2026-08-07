@@ -3,15 +3,11 @@ import { dialogPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["confirmation", "destructive", "form", "review", "success"]);
 const validStates = new Set(["open", "focus", "closing", "default", "closed"]);
 const validTones = new Set(["neutral", "info", "success", "danger"]);
-
-function normalize(value, valid, fallback) {
-  return valid.has(value) ? value : fallback;
-}
 
 function slug(value) {
   return String(value ?? "dialog").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -45,10 +41,10 @@ export const Dialog = forwardRef(function Dialog({
   const reactId = useId();
   const triggerRef = useRef(null);
   const closeRef = useRef(null);
-  const resolvedVariant = normalize(variant, validVariants, "confirmation");
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "confirmation");
   const resolvedTone = resolveTone(tone, resolvedVariant);
   const resolvedDensity = normalizeFlowDensity(density);
-  const initialState = normalize(state, validStates, "closed");
+  const initialState = normalizeFlowValue(state, validStates, "closed");
   const isOpenControlled = openProp !== undefined;
   const initiallyOpen = Boolean(openProp) || initialState === "open" || initialState === "focus";
   const [internalOpen, setInternalOpen] = useState(initiallyOpen);

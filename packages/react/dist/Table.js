@@ -1,14 +1,10 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { tablePlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
-import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "dense", "sortable", "selectable", "expandable"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "sorted", "expanded"]);
-
-function normalize(value, valid, fallback) {
-  return valid.has(value) ? value : fallback;
-}
 
 function sortValue(row, column) {
   if (typeof column.sortValue === "function") return column.sortValue(row);
@@ -49,8 +45,8 @@ export const Table = forwardRef(function Table({
   className = "",
   ...rest
 }, ref) {
-  const resolvedVariant = dense ? "dense" : normalize(variant, validVariants, "standard");
-  const initialState = normalize(state, validStates, "default");
+  const resolvedVariant = dense ? "dense" : normalizeFlowValue(variant, validVariants, "standard");
+  const initialState = normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const sortable = resolvedVariant === "sortable" || columns.some((column) => column.sortable);
   const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
