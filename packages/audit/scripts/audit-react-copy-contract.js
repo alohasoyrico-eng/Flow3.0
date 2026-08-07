@@ -17,11 +17,17 @@ const displayFallbackTermsByFile = new Map([
   ["RouteSummary.js", ["Action", "Route"]],
   ["AuditEvent.js", ["Audit event", "Verified", "Review", "Critical"]],
   ["AnimatedMoment.js", ["Animated moment", "Action complete"]],
+  ["Badge.js", ["Badge"]],
   ["Button.js", ["Button"]],
+  ["Checkbox.js", ["Checkbox"]],
+  ["Chip.js", ["Chip"]],
   ["FloatingActionButton.js", ["Create"]],
   ["MovementRow.js", ["Movement"]],
   ["MotionBoundary.js", ["Panel transition", "Controls the entrance"]],
   ["QuickAction.js", ["Action"]],
+  ["RadioButton.js", ["Radio button"]],
+  ["Switch.js", ["Switch"]],
+  ["Tag.js", ["Tag"]],
 ]);
 
 function isFormatMask(value) {

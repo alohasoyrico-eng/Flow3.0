@@ -103,7 +103,7 @@ export const Checkbox = forwardRef(function Checkbox({
     React.createElement(
       "span",
       { className: "choice__text" },
-      React.createElement("span", { className: "choice__label" }, label ?? "Checkbox"),
+      label ? React.createElement("span", { className: "choice__label" }, label) : null,
       description ? React.createElement("span", { className: "choice__description" }, description) : null,
       error ? React.createElement("span", { className: "choice__error" }, error) : null,
     ),

@@ -52,7 +52,7 @@ export const Tag = forwardRef(function Tag({
       "data-interactive": isInteractive ? "true" : undefined,
     },
     icon ? React.createElement("span", { className: "tag__icon", "aria-hidden": "true" }, icon) : null,
-    React.createElement("span", { className: "tag__label" }, label ?? "Tag"),
+    label ? React.createElement("span", { className: "tag__label" }, label) : null,
   );
 });
 

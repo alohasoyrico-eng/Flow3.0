@@ -721,7 +721,7 @@ const dotBadgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
 }));
 assert.match(dotBadgeMarkup, /data-variant="dot"/);
 assert.match(dotBadgeMarkup, /aria-label="Unread updates"/);
-assert.match(dotBadgeMarkup, /class="badge__label"><\/span>/);
+assert.doesNotMatch(dotBadgeMarkup, /class="badge__label"/);
 
 const hiddenBadgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
   label: "0",

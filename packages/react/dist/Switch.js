@@ -71,7 +71,7 @@ export const Switch = forwardRef(function Switch({
     React.createElement(
       "span",
       { className: "switch__text" },
-      React.createElement("span", { className: "switch__label" }, label ?? "Switch"),
+      label ? React.createElement("span", { className: "switch__label" }, label) : null,
       description ? React.createElement("span", { className: "switch__description" }, description) : null,
       error ? React.createElement("span", { className: "switch__error" }, error) : null,
     ),

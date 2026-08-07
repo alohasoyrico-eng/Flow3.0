@@ -34,7 +34,7 @@ export const Badge = forwardRef(function Badge({
   const resolvedTone = normalizeTone(tone);
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalizeState({ hidden, state });
-  const text = resolvedVariant === "dot" ? "" : label ?? "Badge";
+  const text = resolvedVariant === "dot" ? "" : label ?? "";
 
   return React.createElement(
     "span",
@@ -56,7 +56,7 @@ export const Badge = forwardRef(function Badge({
     resolvedVariant === "icon" && icon
       ? React.createElement("span", { className: "badge__icon", "aria-hidden": "true" }, icon)
       : null,
-    React.createElement("span", { className: "badge__label" }, text),
+    text ? React.createElement("span", { className: "badge__label" }, text) : null,
   );
 });
 
