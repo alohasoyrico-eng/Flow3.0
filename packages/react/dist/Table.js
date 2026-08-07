@@ -210,7 +210,7 @@ export const Table = forwardRef(function Table({
             )),
           );
           if (!expandable) return [rowNode];
-          const detail = typeof renderDetail === "function" ? renderDetail(row) : row.detail ?? "Recent activity and supporting row detail.";
+          const detail = typeof renderDetail === "function" ? renderDetail(row) : row.detail ?? "";
           return [
             rowNode,
             React.createElement(

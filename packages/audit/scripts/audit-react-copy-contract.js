@@ -2,6 +2,7 @@ const { fs, path, root, read, add } = require("./audit-context.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
 const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días"];
+const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save"];
 
 function isFormatMask(value) {
   return /^[A-Z0-9\s/+()-]+$/.test(value);
@@ -23,6 +24,16 @@ function checkReactCopyContract() {
           file,
           index + 1,
           `React Copy Contract: locale-specific copy "${matchedTerm.trim()}" cannot live in the React component package. Pass it from content/docs/consumer props instead.`
+        );
+      }
+
+      const matchedContentDefault = componentContentDefaults.find((term) => line.includes(`"${term}`) || line.includes(`'${term}`));
+      if (matchedContentDefault) {
+        add(
+          "errors",
+          file,
+          index + 1,
+          `React Copy Contract: component-visible default copy "${matchedContentDefault}" belongs in content/docs/consumer props.`
         );
       }
 

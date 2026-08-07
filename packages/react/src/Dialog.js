@@ -71,10 +71,7 @@ export const Dialog = forwardRef(function Dialog({
     closeDialog();
   };
 
-  const resolvedActions = actions.length ? actions : [
-    { label: resolvedTone === "danger" ? "Confirm" : "Continue", key: "confirm", variant: "primary" },
-    { label: "Cancel", key: "cancel", variant: "secondary" },
-  ];
+  const resolvedActions = actions;
 
   useEffect(() => {
     if (!isOpenControlled) return;

@@ -26,15 +26,7 @@ function promptIcon(variant, state, icon) {
 
 function stateCopy(state, description) {
   if (description) return description;
-  return {
-    default: "Confirm your identity to continue.",
-    focus: "Confirm your identity to continue.",
-    authenticating: "Verifying identity...",
-    success: "Identity confirmed.",
-    warning: "Use the secure fallback if biometrics are not available.",
-    error: "We could not verify you. Try again or use the fallback.",
-    disabled: "Biometric authentication is not available right now.",
-  }[state] ?? "Confirm your identity to continue.";
+  return "";
 }
 
 export const BiometricPrompt = forwardRef(function BiometricPrompt({
@@ -42,8 +34,8 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
   description = "",
   variant = "fingerprint",
   state = "default",
-  actionLabel = "Use biometrics",
-  fallback = "Use passcode instead",
+  actionLabel = "",
+  fallback = "",
   icon = "",
   density,
   fullWidth = false,
@@ -76,26 +68,26 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
     React.createElement(
       "div",
       { className: "biometric-prompt__content" },
-      React.createElement("strong", null, label ?? "Confirm it is you"),
-      React.createElement("p", { role: "status" }, stateCopy(resolvedState, description)),
+      label ? React.createElement("strong", null, label) : null,
+      stateCopy(resolvedState, description) ? React.createElement("p", { role: "status" }, stateCopy(resolvedState, description)) : null,
     ),
-    React.createElement(Button, {
-      className: "biometric-prompt__action",
-      label: resolvedState === "error" ? "Try again" : actionLabel,
-      disabled,
-      loading: resolvedState === "authenticating",
-      fullWidth: true,
-      density: resolvedDensity,
-      "data-biometric-action": "",
-    }),
-    React.createElement(Button, {
-      className: "biometric-prompt__fallback",
-      label: fallback,
-      variant: "tertiary",
-      disabled,
-      density: resolvedDensity,
-      "data-biometric-fallback": "",
-    }),
+    actionLabel ? React.createElement(Button, {
+        className: "biometric-prompt__action",
+        label: actionLabel,
+        disabled,
+        loading: resolvedState === "authenticating",
+        fullWidth: true,
+        density: resolvedDensity,
+        "data-biometric-action": "",
+      }) : null,
+    fallback ? React.createElement(Button, {
+        className: "biometric-prompt__fallback",
+        label: fallback,
+        variant: "tertiary",
+        disabled,
+        density: resolvedDensity,
+        "data-biometric-fallback": "",
+      }) : null,
   );
 });
 

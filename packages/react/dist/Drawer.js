@@ -89,10 +89,7 @@ export const Drawer = forwardRef(function Drawer({
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
   const drawerId = id || `drawer-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = `${drawerId}-title`;
-  const resolvedActions = actions.length ? actions : [
-    { label: "Save", key: "save", variant: "primary" },
-    { label: "Cancel", key: "cancel", variant: "ghost" },
-  ];
+  const resolvedActions = actions;
 
   useEffect(() => {
     if (!isOpenControlled) return;

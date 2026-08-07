@@ -14,7 +14,7 @@ function slug(value) {
 
 export const Popover = forwardRef(function Popover({
   triggerLabel = "Open",
-  title = "Popover",
+  title = "",
   description = "",
   id = "",
   open: openProp,
@@ -43,9 +43,7 @@ export const Popover = forwardRef(function Popover({
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? "open" : initialState);
   const panelId = id || `popover-${slug(triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const resolvedActions = actions.length ? actions : resolvedVariant === "action"
-    ? [{ label: "Apply", variant: "primary" }, { label: "Cancel", variant: "secondary" }]
-    : [];
+  const resolvedActions = actions;
   const isDisabled = disabled || interactionState === "disabled";
 
   useEffect(() => {
@@ -108,14 +106,14 @@ export const Popover = forwardRef(function Popover({
         "aria-label": title || triggerLabel || "Popover",
         onKeyDown: closeFromKeyboard,
       },
-      React.createElement("strong", null, title || "Popover"),
+      title ? React.createElement("strong", null, title) : null,
       description ? React.createElement("p", null, description) : null,
       resolvedVariant === "form"
         ? React.createElement(Input, {
-          label: field?.label ?? "Label",
+          label: field?.label ?? "",
           value: field?.value ?? "",
-          placeholder: field?.placeholder ?? "Short value",
-          helper: field?.helper ?? "Keep this field local to the trigger.",
+          placeholder: field?.placeholder ?? "",
+          helper: field?.helper ?? "",
           density: resolvedDensity,
           readOnly: true,
         })
