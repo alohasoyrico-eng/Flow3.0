@@ -178,6 +178,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Slider", "createSlider", "interactions"],
     ["Segmented Control", "createSegmentedControl", "interactions"],
     ["Tree View", "createTreeView", "interactions"],
+    ["Tabs", "createTabs", "interactions"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

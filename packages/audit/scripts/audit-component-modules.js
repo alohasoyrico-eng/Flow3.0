@@ -52,9 +52,9 @@ const moduleRules = [
   {
     id: "interactions",
     file: "packages/components/src/components/interactions.js",
-    exports: ["createTabs"],
+    exports: [],
     publicExports: [],
-    internalExports: ["createTabs"],
+    internalExports: [],
   },
   {
     id: "navigation",

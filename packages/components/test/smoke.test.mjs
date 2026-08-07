@@ -502,7 +502,6 @@ assert.deepEqual(Object.keys(tagPlatformAdapters), ["react"]);
 assert.equal(tagPlatformAdapters.react.componentName, "Tag");
 assert.equal(tagPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.tabs.factory, "@design-system/react/tabs");
-assert.equal(componentContracts.tabs.internalFactory, "createTabs");
 assert.equal(tabsPlatformContract.id, "tabs");
 assert.equal(tabsPlatformContract.source.factory, componentContracts.tabs.factory);
 assert.deepEqual(tabsPlatformProps(), componentContracts.tabs.props.map((prop) => prop.name));

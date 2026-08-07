@@ -471,7 +471,6 @@ export const componentContracts = {
   },
   tabs: {
     factory: "@design-system/react/tabs",
-    internalFactory: "createTabs",
     element: "div",
     purpose: "Switch between sibling views inside one bounded region with tablist, tab selection, and keyboard-ready semantics.",
     variants: ["default", "underline"],
