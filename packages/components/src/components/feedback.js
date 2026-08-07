@@ -1,5 +1,3 @@
-let progressIndicatorId = 0;
-
 export function createSpinner({
   label = "Loading",
   density = "md",
@@ -43,70 +41,4 @@ export function createSpinner({
     spinner.setAttribute("aria-label", label);
   }
   return spinner;
-}
-
-export function createProgressIndicator({
-  label = "Progress",
-  value = 0,
-  max = 100,
-  indeterminate = false,
-  showValue = false,
-  tone = "accent",
-  state = "active",
-  density = "md",
-  fullWidth = false,
-} = {}) {
-  const numericMax = Number(max) > 0 ? Number(max) : 100;
-  const numericValue = state === "complete" ? numericMax : Math.max(0, Math.min(numericMax, Number(value) || 0));
-  const percent = Math.max(0, Math.min(100, (numericValue / numericMax) * 100));
-  const resolvedState = ["paused", "complete", "error", "disabled"].includes(state) ? state : state === "indeterminate" ? "indeterminate" : state;
-  indeterminate = !["paused", "complete", "error", "disabled"].includes(resolvedState) && (Boolean(indeterminate) || resolvedState === "indeterminate");
-  const progress = document.createElement("div");
-  progress.className = "progress";
-  progress.setAttribute("role", "progressbar");
-  progress.setAttribute("aria-valuemin", "0");
-  progress.dataset.tone = tone;
-  progress.dataset.state = resolvedState;
-  progress.dataset.density = density;
-  progress.dataset.fullWidth = String(Boolean(fullWidth));
-  if (!indeterminate) {
-    progress.setAttribute("aria-valuemax", String(numericMax));
-    progress.setAttribute("aria-valuenow", String(numericValue));
-    if (resolvedState === "paused") progress.setAttribute("aria-valuetext", `Paused at ${Math.round(percent)}%`);
-    if (resolvedState === "complete") progress.setAttribute("aria-valuetext", "Complete");
-    if (resolvedState === "error") progress.setAttribute("aria-valuetext", `Error at ${Math.round(percent)}%`);
-    if (resolvedState === "disabled") {
-      progress.setAttribute("aria-disabled", "true");
-      progress.setAttribute("aria-valuetext", "Unavailable");
-    }
-  } else {
-    progress.setAttribute("aria-valuetext", "In progress");
-  }
-  progress.dataset.indeterminate = String(indeterminate);
-
-  const labelId = `progress-label-${++progressIndicatorId}`;
-  const meta = document.createElement("span");
-  meta.className = "progress__meta";
-  const labelNode = document.createElement("span");
-  labelNode.className = "progress__label";
-  labelNode.id = labelId;
-  labelNode.textContent = label;
-  progress.setAttribute("aria-labelledby", labelId);
-  meta.append(labelNode);
-  if (showValue && !indeterminate) {
-    const valueNode = document.createElement("span");
-    valueNode.className = "progress__value";
-    valueNode.textContent = `${Math.round(percent)}%`;
-    meta.append(valueNode);
-  }
-  progress.append(meta);
-
-  const track = document.createElement("span");
-  track.className = "progress__track";
-  const fill = document.createElement("span");
-  fill.className = "progress__fill";
-  fill.style = `--progress-value: ${percent}%`;
-  track.append(fill);
-  progress.append(track);
-  return progress;
 }

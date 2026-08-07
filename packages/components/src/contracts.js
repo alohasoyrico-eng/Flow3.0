@@ -538,7 +538,6 @@ export const componentContracts = {
   },
   progressIndicator: {
     factory: "@design-system/react/progress-indicator",
-    internalFactory: "createProgressIndicator",
     element: "div",
     purpose: "Communicate visible system progress with determinate or indeterminate linear progressbar semantics; compact circular waiting belongs to Spinner.",
     variants: ["linear", "indeterminate"],

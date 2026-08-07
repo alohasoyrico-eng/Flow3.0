@@ -24,7 +24,6 @@ const directDensityComponents = [
   { id: "button", factory: "createTransitionalActionButton", source: "actions", selector: '.button[data-density="sm"]', token: "--button-current-size" },
   { id: "iconButton", factory: "createTransitionalActionIconButton", source: "actions", selector: '.icon-button[data-density="sm"]', token: "--icon-button-size" },
   { id: "switch", factory: "createTransitionalChoiceSwitch", source: "choices", selector: '.switch[data-density="sm"]', token: "--switch-track-width" },
-  { id: "progressIndicator", factory: "createProgressIndicator", source: "feedback", selector: '.progress[data-density="sm"]', token: "--comp-progress-indicator-track-size" },
   { id: "spinner", factory: "createSpinner", source: "feedback", selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size" },
   { id: "breadcrumbs", factory: "createBreadcrumbs", source: "navigation", selector: '.breadcrumbs[data-density="sm"]', token: "--comp-breadcrumbs-target-block" },
   { id: "pagination", factory: "createPagination", source: "navigation", selector: '.pagination[data-density="sm"]', token: "--comp-pagination-size" },

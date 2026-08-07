@@ -533,7 +533,6 @@ assert.deepEqual(Object.keys(toastPlatformAdapters), ["react"]);
 assert.equal(toastPlatformAdapters.react.componentName, "Toast");
 assert.equal(toastPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.progressIndicator.factory, "@design-system/react/progress-indicator");
-assert.equal(componentContracts.progressIndicator.internalFactory, "createProgressIndicator");
 assert.equal(progressIndicatorPlatformContract.id, "progress-indicator");
 assert.equal(progressIndicatorPlatformContract.source.factory, componentContracts.progressIndicator.factory);
 assert.deepEqual(progressIndicatorPlatformProps(), componentContracts.progressIndicator.props.map((prop) => prop.name));

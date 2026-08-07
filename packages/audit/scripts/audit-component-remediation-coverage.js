@@ -180,7 +180,6 @@ function kebabToFactoryName(id) {
     "text-area": "createTransitionalFieldTextArea",
     "code-input": "createTransitionalSecurityCodeInput",
     "phone-input": "createTransitionalPhoneInput",
-    "progress-indicator": "createProgressIndicator",
     "card-number-input": "createTransitionalPaymentCardNumberInput",
     "card-expiry-input": "createTransitionalPaymentCardExpiryInput",
     "card-security-code-input": "createTransitionalPaymentCardSecurityCodeInput",
