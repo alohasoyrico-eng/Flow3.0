@@ -19,7 +19,6 @@ let phoneInputId = 0;
 let countrySelectorId = 0;
 let datePickerId = 0;
 let dateRangePickerId = 0;
-let cardNumberInputId = 0;
 let cardExpiryInputId = 0;
 let cardSecurityCodeInputId = 0;
 
@@ -53,46 +52,6 @@ function parsePhoneValue(value, initialCountry, countryList = phoneCountries) {
     country: matched,
     digits: raw.slice(matched.callingCode.length).replace(/\D/g, "").slice(0, matched.nationalLength),
   };
-}
-
-function normalizeCardNumber(value) {
-  return String(value ?? "").replace(/\D/g, "").slice(0, 19);
-}
-
-function formatCardNumber(value) {
-  return normalizeCardNumber(value).replace(/(.{4})/g, "$1 ").trim();
-}
-
-function isCardNumberLuhnValid(digits) {
-  const value = normalizeCardNumber(digits);
-  if (value.length < 12) return false;
-  let sum = 0;
-  let shouldDouble = false;
-  for (let index = value.length - 1; index >= 0; index -= 1) {
-    let digit = Number(value[index]);
-    if (shouldDouble) {
-      digit *= 2;
-      if (digit > 9) digit -= 9;
-    }
-    sum += digit;
-    shouldDouble = !shouldDouble;
-  }
-  return sum % 10 === 0;
-}
-
-function cardNumberValidity(digits) {
-  const value = normalizeCardNumber(digits);
-  if (!value) return "empty";
-  if (value.length < 12) return "incomplete";
-  return isCardNumberLuhnValid(value) ? "valid" : "invalid";
-}
-
-function cardNumberBrand(digits) {
-  const value = normalizeCardNumber(digits);
-  if (/^4/.test(value)) return "Visa";
-  if (/^5[1-5]/.test(value) || /^2(2[2-9]|[3-6]|7[01]|720)/.test(value)) return "Mastercard";
-  if (/^3[47]/.test(value)) return "American Express";
-  return "";
 }
 
 function removeNodeAttribute(node, name) {
@@ -146,57 +105,6 @@ function cardSecurityCodeValidity(value, expectedLength = 3) {
   if (!digits) return "empty";
   if (digits.length < expectedLength) return "incomplete";
   return digits.length === expectedLength ? "valid" : "invalid";
-}
-
-export function hydrateTransitionalPaymentCardNumberInput(root, { onValueChange } = {}) {
-  if (!root || root.__cardNumberHydrated === true) return root;
-  const input = root.querySelector?.("[data-card-number-input]")
-    ?? Array.from(root.querySelectorAll?.("input") ?? []).find((node) => node.attributes?.["data-card-number-input"] !== undefined);
-  if (!input) return root;
-  root.__cardNumberHydrated = true;
-  root.dataset.cardNumberHydrated = "true";
-  const helper = root.querySelector?.("[data-card-number-helper]")
-    ?? root.querySelector?.(".card-number-input__helper")
-    ?? root.querySelector?.(".field__helper")
-    ?? Array.from(root.querySelectorAll?.("*") ?? []).find((node) => node.attributes?.["data-card-number-helper"] !== undefined);
-  const defaultHelper = root.dataset.defaultHelper ?? helper?.textContent ?? "";
-  const brandNode = root.querySelector?.("[data-card-number-brand]")
-    ?? root.querySelector?.(".card-number-input__brand");
-  const validationMessage = root.dataset.validationMessage || "Check the card number.";
-  const sync = () => {
-    const digits = normalizeCardNumber(input.value);
-    const formatted = formatCardNumber(digits);
-    if (input.value !== formatted) input.value = formatted;
-    input.setAttribute?.("value", formatted);
-    const validity = cardNumberValidity(digits);
-    const brand = cardNumberBrand(digits);
-    root.dataset.validity = validity;
-    root.dataset.brand = brand;
-    if (brandNode) {
-      brandNode.textContent = brand;
-      brandNode.hidden = !brand;
-    }
-    if (root.dataset.errorLocked === "true") {
-      root.dataset.state = "error";
-      input.setAttribute?.("aria-invalid", "true");
-      if (helper) helper.textContent = defaultHelper || validationMessage;
-      helper?.setAttribute?.("role", "alert");
-    } else if (validity === "invalid") {
-      root.dataset.state = "error";
-      input.setAttribute?.("aria-invalid", "true");
-      if (helper) helper.textContent = validationMessage;
-      helper?.setAttribute?.("role", "alert");
-    } else {
-      if (!root.dataset.errorLocked) root.dataset.state = validity === "valid" ? "valid" : digits ? "filled" : "default";
-      removeNodeAttribute(input, "aria-invalid");
-      if (helper) helper.textContent = defaultHelper;
-      removeNodeAttribute(helper, "role");
-    }
-    if (typeof onValueChange === "function") onValueChange(digits, { formatted, validity, brand, luhnValid: validity === "valid" });
-  };
-  input.addEventListener?.("input", sync);
-  sync();
-  return root;
 }
 
 export function hydrateTransitionalPaymentCardExpiryInput(root, { onValueChange } = {}) {
@@ -920,92 +828,6 @@ export function createTransitionalPhoneInput({
   root.append(control);
   appendFieldHelper(root, { id, text: resolvedHelper, target: input });
   hydrateTransitionalPhoneInput(root, { onValueChange });
-  return root;
-}
-
-export function createTransitionalPaymentCardNumberInput({
-  label,
-  value = "",
-  helper = "",
-  error = "",
-  disabled = false,
-  loading = false,
-  required = false,
-  density,
-  state,
-  name = "",
-  placeholder = "5231 0000 0000 0000",
-  validationMessage = "Check the card number.",
-  onValueChange,
-} = {}) {
-  const id = `card-number-input-${++cardNumberInputId}`;
-  const digits = normalizeCardNumber(value);
-  const formattedValue = formatCardNumber(digits);
-  const validity = cardNumberValidity(digits);
-  const resolvedError = error || (validity === "invalid" ? validationMessage : "");
-  const resolvedHelper = resolvedError || helper;
-  const resolvedState = resolveFieldState({ disabled, loading, error: resolvedError, state, value: digits });
-  const { root } = createFieldShell({
-    id,
-    label,
-    fallbackLabel: "Card number",
-    state: resolvedState,
-    density,
-    mono: true,
-    className: "card-number-input",
-  });
-  root.dataset.validity = validity;
-  root.dataset.brand = cardNumberBrand(digits);
-  root.dataset.defaultHelper = helper;
-  root.dataset.validationMessage = validationMessage;
-  if (resolvedError) root.dataset.errorLocked = error || state === "error" ? "true" : "false";
-  addClassName(root.querySelector(".field__label"), "card-number-input__label");
-
-  const control = createFieldSurface({ className: "card-number-input__control" });
-
-  const iconNode = document.createElement("span");
-  iconNode.className = "field__icon card-number-input__icon";
-  iconNode.setAttribute("aria-hidden", "true");
-  setIconGlyph(iconNode, "credit_card");
-
-  const input = document.createElement("input");
-  input.className = "input card-number-input__input";
-  input.id = id;
-  input.name = name;
-  input.type = "text";
-  input.inputMode = "numeric";
-  input.autocomplete = "cc-number";
-  input.placeholder = placeholder;
-  input.value = formattedValue;
-  input.disabled = Boolean(disabled || loading);
-  input.required = Boolean(required);
-  input.setAttribute("data-card-number-input", "");
-  input.setAttribute("inputmode", "numeric");
-  input.setAttribute("autocomplete", "cc-number");
-  input.setAttribute("placeholder", placeholder);
-  input.setAttribute("value", formattedValue);
-  input.setAttribute("aria-labelledby", `${id}-label`);
-  input.setAttribute("pattern", "[0-9 ]*");
-  input.setAttribute("enterkeyhint", "next");
-  input.spellcheck = false;
-  if (resolvedError) input.setAttribute("aria-invalid", "true");
-
-  control.append(iconNode, input);
-  const brandNode = document.createElement("span");
-  brandNode.className = "field__suffix card-number-input__brand";
-  brandNode.setAttribute("data-card-number-brand", "");
-  brandNode.setAttribute("aria-hidden", "true");
-  brandNode.textContent = root.dataset.brand;
-  brandNode.hidden = !root.dataset.brand;
-  control.append(brandNode);
-  if (loading) {
-    control.append(createFieldLoadingSpinner(`${label ?? "Card number"} loading`));
-  }
-
-  root.append(control);
-  const helperNode = appendFieldHelper(root, { id, text: resolvedHelper, target: input, className: "card-number-input__helper" });
-  helperNode?.setAttribute("data-card-number-helper", "");
-  hydrateTransitionalPaymentCardNumberInput(root, { onValueChange });
   return root;
 }
 

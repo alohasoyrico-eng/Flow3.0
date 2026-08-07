@@ -180,8 +180,6 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import {
   createTransitionalPaymentCardExpiryInput,
   hydrateTransitionalPaymentCardExpiryInput,
-  createTransitionalPaymentCardNumberInput,
-  hydrateTransitionalPaymentCardNumberInput,
   createTransitionalPaymentCardSecurityCodeInput,
   hydrateTransitionalPaymentCardSecurityCodeInput,
   createTransitionalDatePicker,
@@ -358,7 +356,6 @@ assert.deepEqual(Object.keys(inputPlatformAdapters), ["react"]);
 assert.equal(inputPlatformAdapters.react.componentName, "Input");
 assert.equal(inputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.cardNumberInput.factory, "@design-system/react/card-number-input");
-assert.equal(componentContracts.cardNumberInput.internalFactory, "createTransitionalPaymentCardNumberInput");
 assert.equal(cardNumberInputPlatformContract.id, "card-number-input");
 assert.equal(cardNumberInputPlatformContract.source.factory, componentContracts.cardNumberInput.factory);
 assert.deepEqual(cardNumberInputPlatformProps(), componentContracts.cardNumberInput.props.map((prop) => prop.name));
@@ -860,52 +857,6 @@ for (const contract of Object.values(componentContracts)) {
   assert.ok(contract.props.length >= 5);
   assert.ok(contract.accessibility.length >= 3);
 }
-
-let cardNumberMeta = null;
-const cardNumberInput = createTransitionalPaymentCardNumberInput({
-  label: "Card number",
-  value: "4111111111111111",
-  helper: "Use the number printed on the front of the card.",
-  onValueChange: (digits, meta) => { cardNumberMeta = { digits, meta }; },
-});
-const cardField = cardNumberInput.querySelector("input");
-const cardBrand = cardNumberInput.querySelector(".card-number-input__brand");
-assert.equal(cardNumberInput.className, "field card-number-input");
-assert.equal(cardNumberInput.dataset.state, "valid");
-assert.equal(cardNumberInput.dataset.validity, "valid");
-assert.equal(cardNumberInput.dataset.brand, "Visa");
-assert.equal(cardNumberInput.dataset.mono, "true");
-assert.equal(cardField.value, "4111 1111 1111 1111");
-assert.equal(cardField.attributes.inputmode, "numeric");
-assert.equal(cardField.attributes.autocomplete, "cc-number");
-assert.equal(cardField.attributes.pattern, "[0-9 ]*");
-assert.equal(cardField.attributes.enterkeyhint, "next");
-assert.equal(cardField.attributes["aria-labelledby"], cardNumberInput.querySelector(".field__label").id);
-assert.equal(cardField.attributes["aria-describedby"], cardNumberInput.querySelector(".field__helper").id);
-assert.equal(cardBrand.textContent, "Visa");
-assert.equal(cardBrand.hidden, false);
-assert.equal(cardNumberMeta.digits, "4111111111111111");
-assert.equal(cardNumberMeta.meta.luhnValid, true);
-
-cardField.value = "4111111111111112";
-cardField.dispatchEvent({ type: "input" });
-assert.equal(cardNumberInput.dataset.validity, "invalid");
-assert.equal(cardNumberInput.dataset.state, "error");
-assert.equal(cardField.attributes["aria-invalid"], "true");
-assert.equal(cardNumberInput.querySelector(".field__helper").textContent, "Check the card number.");
-assert.equal(cardNumberInput.querySelector(".field__helper").attributes.role, "alert");
-
-cardField.value = "5555555555554444";
-cardField.dispatchEvent({ type: "input" });
-assert.equal(cardNumberInput.dataset.validity, "valid");
-assert.equal(cardNumberInput.dataset.state, "valid");
-assert.equal(cardNumberInput.dataset.brand, "Mastercard");
-assert.equal(cardBrand.textContent, "Mastercard");
-assert.equal(cardNumberInput.querySelector(".field__helper").textContent, "Use the number printed on the front of the card.");
-assert.equal(cardNumberInput.querySelector(".field__helper").attributes.role, undefined);
-
-hydrateTransitionalPaymentCardNumberInput(cardNumberInput);
-assert.equal(cardNumberInput.dataset.cardNumberHydrated, "true");
 
 let cardExpiryMeta = null;
 const cardExpiryInput = createTransitionalPaymentCardExpiryInput({

@@ -148,6 +148,7 @@ function checkReactOnlyComponentBoundaries() {
     security: path.join(root, "packages/components/src/components/security.js"),
     status: path.join(root, "packages/components/src/components/status.js"),
     surfaces: path.join(root, "packages/components/src/components/surfaces.js"),
+    specializedInputs: path.join(root, "packages/components/src/components/specialized-inputs.js"),
   };
   const reactOnlyComponents = [
     ["Button", "createTransitionalActionButton", "actions"],
@@ -201,6 +202,8 @@ function checkReactOnlyComponentBoundaries() {
     ["Select Hydrator", "hydrateTransitionalSelect", "fields"],
     ["Combobox", "createCombobox", "fields"],
     ["Combobox Hydrator", "hydrateCombobox", "fields"],
+    ["Card Number Input", "createTransitionalPaymentCardNumberInput", "specializedInputs"],
+    ["Card Number Input Hydrator", "hydrateTransitionalPaymentCardNumberInput", "specializedInputs"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

@@ -92,7 +92,6 @@ export const componentContracts = {
   },
   cardNumberInput: {
     factory: "@design-system/react/card-number-input",
-    internalFactory: "createTransitionalPaymentCardNumberInput",
     element: "label",
     purpose: "Capture one grouped card number with numeric keyboard, cc-number autocomplete, local Luhn validation, helper/error copy, and Design System field states.",
     variants: ["default"],
