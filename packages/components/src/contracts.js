@@ -981,7 +981,6 @@ export const componentContracts = {
   },
   floatingActionButton: {
     factory: "@design-system/react/floating-action-button",
-    internalFactory: "createFloatingActionButton",
     element: "button",
     purpose: "Expose a prominent local primary action with icon-only or extended label treatment.",
     variants: ["primary", "accent", "extended", "mini"],

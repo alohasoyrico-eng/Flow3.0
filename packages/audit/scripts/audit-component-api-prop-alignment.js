@@ -23,7 +23,6 @@ const unprefixedFactoryNames = new Map([
   ["chip", "createTransitionalChip"],
   ["empty-state", "createEmptyState"],
   ["error-panel", "createErrorPanel"],
-  ["floating-action-button", "createFloatingActionButton"],
   ["inline-validation", "createInlineValidation"],
   ["input", "createTransitionalFieldInput"],
   ["select", "createTransitionalFieldSelect"],

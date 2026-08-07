@@ -164,6 +164,11 @@ assert.match(loadingFabMarkup, /aria-busy="true"/);
 assert.match(loadingFabMarkup, /class="spinner"/);
 assert.doesNotMatch(loadingFabMarkup, /class="fab__icon"/);
 
+const inheritedFabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton, {
+  label: "Inherited fab density",
+}));
+assert.doesNotMatch(inheritedFabMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const quickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction, {
   label: "Freeze",
   icon: "lock",

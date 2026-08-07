@@ -178,7 +178,6 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
-import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
 import { createCombobox } from "../src/components/fields.js?v=21";
@@ -714,7 +713,6 @@ assert.deepEqual(Object.keys(kpiTilePlatformAdapters), ["react"]);
 assert.equal(kpiTilePlatformAdapters.react.componentName, "KpiTile");
 assert.equal(kpiTilePlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.floatingActionButton.factory, "@design-system/react/floating-action-button");
-assert.equal(componentContracts.floatingActionButton.internalFactory, "createFloatingActionButton");
 assert.equal(floatingActionButtonPlatformContract.id, "floating-action-button");
 assert.equal(floatingActionButtonPlatformContract.source.factory, componentContracts.floatingActionButton.factory);
 assert.deepEqual(floatingActionButtonPlatformProps(), componentContracts.floatingActionButton.props.map((prop) => prop.name));
@@ -1817,13 +1815,6 @@ assert.equal(disabledAnimatedMoment.querySelector(".animated-moment__state").tex
 const fullAnimatedMoment = createAnimatedMoment({ label: "Desktop cue", density: "sm", fullWidth: true });
 assert.equal(fullAnimatedMoment.dataset.density, "sm");
 assert.equal(fullAnimatedMoment.dataset.fullWidth, "true");
-
-const fab = createFloatingActionButton({ label: "Add movement", icon: "add", extended: true });
-assert.equal(fab.tagName, "BUTTON");
-assert.equal(fab.className, "fab");
-assert.equal(fab.dataset.extended, "true");
-assert.equal(fab.attributes["aria-label"], "Add movement");
-assert.equal(fab.querySelector(".fab__label").textContent, "Add movement");
 
 const breadcrumbs = createBreadcrumbs({ items: [{ label: "Fleet", href: "#fleet" }, { label: "Cards", current: true }] });
 assert.equal(breadcrumbs.tagName, "NAV");
