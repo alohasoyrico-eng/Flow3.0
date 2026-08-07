@@ -1646,6 +1646,14 @@ const unnamedRevealInputMarkup = renderToStaticMarkup(React.createElement(Input,
 }));
 assert.doesNotMatch(unnamedRevealInputMarkup, /aria-label="Show value"/);
 assert.doesNotMatch(unnamedRevealInputMarkup, /aria-label="Hide value"/);
+assert.doesNotMatch(unnamedRevealInputMarkup, /data-field-action="reveal"/);
+
+const loadingInputMarkup = renderToStaticMarkup(React.createElement(Input, {
+  label: "Amount",
+  loading: true,
+}));
+assert.match(loadingInputMarkup, /class="spinner/);
+assert.doesNotMatch(loadingInputMarkup, /Amount loading|Loading/);
 
 const inlineValidationMarkup = renderToStaticMarkup(React.createElement(InlineValidation, {
   label: "Driver email",

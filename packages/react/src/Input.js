@@ -96,6 +96,7 @@ export const Input = forwardRef(function Input({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "text");
   const resolvedType = typeForVariant(resolvedVariant, type);
   const isRevealable = Boolean(revealable) || resolvedVariant === "password" || resolvedType === "password";
+  const canReveal = Boolean(isRevealable && revealLabel && hideLabel);
   const isValueControlled = value !== undefined;
   const [currentValue, setCurrentValue] = useState(value ?? "");
   const [revealed, setRevealed] = useState(false);
@@ -104,7 +105,7 @@ export const Input = forwardRef(function Input({
   const isDisabled = Boolean(disabled) || Boolean(loading);
   const resolvedAlign = align === "end" || (align === "start" && numericVariants.has(resolvedVariant)) ? "end" : "start";
   const describedBy = [resolvedHelper ? `${inputId}-helper` : "", rest["aria-describedby"]].filter(Boolean).join(" ") || undefined;
-  const inputType = isRevealable && revealed ? "text" : resolvedType;
+  const inputType = canReveal && revealed ? "text" : resolvedType;
 
   useEffect(() => {
     if (isValueControlled) setCurrentValue(value ?? "");
@@ -157,7 +158,7 @@ export const Input = forwardRef(function Input({
       suffix
         ? React.createElement("span", { className: "field__suffix", "aria-hidden": "true" }, suffix)
         : null,
-      isRevealable
+      canReveal
         ? React.createElement(
           "button",
           {
@@ -172,7 +173,7 @@ export const Input = forwardRef(function Input({
           React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, revealed ? "visibility_off" : "visibility"),
         )
         : null,
-      loading ? React.createElement(Spinner, { label: label ? `${label} loading` : "Loading", density, decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { density, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)

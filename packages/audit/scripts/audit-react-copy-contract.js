@@ -13,7 +13,7 @@ const semanticAriaDefaultsByFile = new Map([
   ["DatePicker.js", ["Date picker", "Date picker native input", "Date picker calendar", "native picker"]],
   ["DateRangePicker.js", ["Date range picker", "Date range calendar", "Start date", "End date", "start date", "end date"]],
   ["ErrorPanel.js", ["Error panel"]],
-  ["Input.js", ["Show value", "Hide value"]],
+  ["Input.js", ["Show value", "Hide value", "Loading", " loading"]],
   ["PhoneInput.js", ["Phone input", "Country options", "Country code", "country options", "country code"]],
   ["ProgressIndicator.js", ["Progress", "In progress", "Complete", "Unavailable", "Paused at", "Error at"]],
   ["Select.js", ["Select", "Options"]],
