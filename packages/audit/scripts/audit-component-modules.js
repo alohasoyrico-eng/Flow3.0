@@ -6,147 +6,42 @@ const {
   read,
 } = require("./audit-context.js");
 
-const moduleRules = [
-  {
-    id: "actions",
-    file: "packages/components/src/components/actions.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "choices",
-    file: "packages/components/src/components/choices.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "commerce",
-    file: "packages/components/src/components/commerce.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "display",
-    file: "packages/components/src/components/display.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "feedback",
-    file: "packages/components/src/components/feedback.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "fields",
-    file: "packages/components/src/components/fields.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "interactions",
-    file: "packages/components/src/components/interactions.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "navigation",
-    file: "packages/components/src/components/navigation.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "motion",
-    file: "packages/components/src/components/motion.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "overlays",
-    file: "packages/components/src/components/overlays.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "specialized-inputs",
-    file: "packages/components/src/components/specialized-inputs.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "security",
-    file: "packages/components/src/components/security.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "status",
-    file: "packages/components/src/components/status.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-  {
-    id: "surfaces",
-    file: "packages/components/src/components/surfaces.js",
-    exports: [],
-    publicExports: [],
-    internalExports: [],
-  },
-];
-
 function checkComponentModules() {
   const indexFile = path.join(root, "packages/components/src/index.js");
   const index = read(indexFile);
+
   if (/^export function create/m.test(index)) {
-    add("errors", indexFile, 1, "Public component index must stay declarative; place component factories in focused modules.");
+    add("errors", indexFile, 1, "Public component index must stay declarative; React owns product component implementations.");
   }
 
-  for (const rule of moduleRules) {
-    const file = path.join(root, rule.file);
-    if (!fs.existsSync(file)) {
-      add("errors", file, 1, `Missing component module: ${rule.id}.`);
-      continue;
-    }
-    const source = read(file);
-    const publicExports = rule.publicExports ?? rule.exports;
-    const internalExports = rule.internalExports ?? [];
-    const actualExports = [...source.matchAll(/^export\s+(?:function|const)\s+([A-Za-z][A-Za-z0-9]*)/gm)].map((match) => match[1]);
-    const unexpectedExports = actualExports.filter((name) => !rule.exports.includes(name));
-    if (unexpectedExports.length) {
-      add("errors", file, 1, `Component module ${rule.id} has unexpected exports: ${unexpectedExports.join(", ")}.`);
-    }
-    for (const exportName of rule.exports) {
-      if (!source.includes(`export function ${exportName}`) && !source.includes(`export const ${exportName}`)) {
-        add("errors", file, 1, `Component module ${rule.id} must export ${exportName}.`);
-      }
-      if (publicExports.includes(exportName) && (!hasNamedExport(index, exportName) || !index.includes(`./components/${rule.id}.js`))) {
-        add("errors", indexFile, 1, `Public component index must re-export ${exportName} from ${rule.id} module.`);
-      }
-      if (internalExports.includes(exportName) && hasNamedExport(index, exportName)) {
-        add("errors", indexFile, 1, `${exportName} is internal-only while React is the public component target; do not re-export it from the package index.`);
-      }
-      if (index.includes(`export function ${exportName}`)) {
-        add("errors", indexFile, 1, `Public component index must not redefine ${exportName}; keep it in ${rule.id} module.`);
-      }
-    }
+  if (index.includes("./components/")) {
+    add("errors", indexFile, 1, "Public component index must not re-export packages/components/src/components; use contracts, platforms, primitives, or React.");
+  }
+
+  const legacyComponentsDir = path.join(root, "packages/components/src/components");
+  if (!fs.existsSync(legacyComponentsDir)) return;
+
+  for (const file of walkFiles(legacyComponentsDir, (candidate) => /\.js$/.test(candidate))) {
+    add(
+      "errors",
+      file,
+      1,
+      "packages/components/src/components is a retired DOM implementation boundary; product components must live in packages/react and metadata in packages/components/src/platforms."
+    );
   }
 }
 
-function hasNamedExport(source, name) {
-  return new RegExp(`\\b${name}\\b`).test(source);
+function walkFiles(dir, matcher, output = []) {
+  if (!fs.existsSync(dir)) return output;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      walkFiles(fullPath, matcher, output);
+      continue;
+    }
+    if (matcher(fullPath)) output.push(fullPath);
+  }
+  return output;
 }
 
 module.exports = { checkComponentModules };
