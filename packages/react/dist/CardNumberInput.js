@@ -127,7 +127,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
         spellCheck: false,
         "data-card-number-input": "",
         "aria-labelledby": label ? `${inputId}-label` : undefined,
-        "aria-label": label ? undefined : "Card number",
+        "aria-label": label ? undefined : rest["aria-label"],
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {
