@@ -22,7 +22,7 @@ function codeMeta(value, length) {
 
 export const CodeInput = forwardRef(function CodeInput({
   label,
-  value = "",
+  value,
   length = 6,
   variant = "sms",
   masked = false,
@@ -40,8 +40,9 @@ export const CodeInput = forwardRef(function CodeInput({
   const generatedId = useId();
   const inputId = id ?? `code-input-${generatedId}`;
   const resolvedLength = Math.max(1, Number(length) || 6);
+  const isValueControlled = value !== undefined;
   const [focused, setFocused] = useState(state === "focus");
-  const [currentValue, setCurrentValue] = useState(normalizeCodeValue(value, resolvedLength));
+  const [currentValue, setCurrentValue] = useState(normalizeCodeValue(value ?? "", resolvedLength));
   const digits = normalizeCodeValue(currentValue, resolvedLength);
   const resolvedState = resolveCodeInputState({ disabled, error, state, value: digits, length: resolvedLength });
   const resolvedHelper = error || helper;
@@ -50,8 +51,8 @@ export const CodeInput = forwardRef(function CodeInput({
   const activeIndex = Math.min(digits.length, Math.max(resolvedLength - 1, 0));
 
   useEffect(() => {
-    setCurrentValue(normalizeCodeValue(value, resolvedLength));
-  }, [resolvedLength, value]);
+    if (isValueControlled) setCurrentValue(normalizeCodeValue(value ?? "", resolvedLength));
+  }, [isValueControlled, resolvedLength, value]);
 
   return React.createElement(
     "label",
@@ -94,7 +95,7 @@ export const CodeInput = forwardRef(function CodeInput({
         },
         onChange: (event) => {
           const nextValue = normalizeCodeValue(event.target.value, resolvedLength);
-          setCurrentValue(nextValue);
+          if (!isValueControlled) setCurrentValue(nextValue);
           const nextMeta = codeMeta(nextValue, resolvedLength);
           onValueChange?.(nextValue);
           if (nextMeta.complete) onComplete?.(nextValue);

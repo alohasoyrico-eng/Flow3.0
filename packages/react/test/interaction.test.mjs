@@ -259,7 +259,7 @@ try {
 
   const codeValues = [];
   const completedCodes = [];
-  const { getByLabelText: getCodeLabel } = render(React.createElement(CodeInput, {
+  const { getByLabelText: getCodeLabel, rerender: rerenderCodeInput } = render(React.createElement(CodeInput, {
     label: "SMS code",
     length: 4,
     onValueChange: (value) => codeValues.push(value),
@@ -273,6 +273,15 @@ try {
   await waitFor(() => assert.equal(codeInput.value, "1234"));
   assert.deepEqual(codeValues, ["1234"]);
   assert.deepEqual(completedCodes, ["1234"]);
+
+  rerenderCodeInput(React.createElement(CodeInput, {
+    label: "SMS code",
+    length: 4,
+    value: "9876",
+    onValueChange: (value) => codeValues.push(value),
+    onComplete: (value) => completedCodes.push(value),
+  }));
+  await waitFor(() => assert.equal(codeInput.value, "9876"));
 
   cleanup();
 
@@ -902,7 +911,6 @@ try {
   const sliderChanges = [];
   const { getByRole: getSliderRole, getByText: getSliderText, rerender: rerenderSlider } = render(React.createElement(Slider, {
     label: "Search radius",
-    value: 9,
     min: 0,
     max: 20,
     step: 1,

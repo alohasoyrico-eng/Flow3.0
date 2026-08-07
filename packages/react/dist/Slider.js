@@ -30,7 +30,7 @@ function formatSliderValue({ value, initialValue, valueLabel, unit, formatValue 
 
 export const Slider = forwardRef(function Slider({
   label,
-  value = 0,
+  value,
   min = 0,
   max = 100,
   step = 1,
@@ -46,8 +46,9 @@ export const Slider = forwardRef(function Slider({
   className = "",
   ...rest
 }, ref) {
-  const initialValueRef = useRef(value);
-  const [currentValue, setCurrentValue] = useState(clampValue(value, min, max));
+  const isValueControlled = value !== undefined;
+  const initialValueRef = useRef(value ?? min);
+  const [currentValue, setCurrentValue] = useState(clampValue(value ?? min, min, max));
   const [dragging, setDragging] = useState(false);
   const normalizedVariant = allowedVariants.has(variant) ? variant : "continuous";
   const normalizedState = normalizeState({ disabled, state, dragging });
@@ -58,13 +59,13 @@ export const Slider = forwardRef(function Slider({
   );
 
   useEffect(() => {
-    setCurrentValue(clampValue(value, min, max));
-  }, [max, min, value]);
+    if (isValueControlled) setCurrentValue(clampValue(value ?? min, min, max));
+  }, [isValueControlled, max, min, value]);
 
   const handleChange = (event) => {
     if (disabled) return;
     const nextValue = clampValue(event.currentTarget.value, min, max);
-    setCurrentValue(nextValue);
+    if (!isValueControlled) setCurrentValue(nextValue);
     onValueChange?.(nextValue, { name, min: Number(min), max: Number(max), step: Number(step), unit });
   };
 
