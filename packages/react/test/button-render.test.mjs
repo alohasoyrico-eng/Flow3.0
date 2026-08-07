@@ -948,6 +948,12 @@ assert.match(chipMarkup, /aria-label="Remove Active"/);
 assert.match(chipMarkup, /class="chip__icon"/);
 assert.match(chipMarkup, /class="chip__label">Active<\/span>/);
 assert.match(chipMarkup, /class="chip__remove"/);
+const unnamedRemoveChipMarkup = renderToStaticMarkup(React.createElement(Chip, {
+  label: "Active",
+  removable: true,
+}));
+assert.doesNotMatch(unnamedRemoveChipMarkup, /Remove Active|Remove chip/);
+assert.doesNotMatch(unnamedRemoveChipMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const staticChipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Suggested",

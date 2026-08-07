@@ -66,7 +66,7 @@ export const Chip = forwardRef(function Chip({
       type: isInteractive ? type : undefined,
       disabled: isInteractive ? resolvedState === "disabled" : undefined,
       onClick: isInteractive ? handleClick : rest.onClick,
-      "aria-label": removable ? onRemoveLabel || `Remove ${label ?? "chip"}` : rest["aria-label"],
+      "aria-label": removable ? onRemoveLabel || undefined : rest["aria-label"],
       "aria-pressed": isInteractive ? String(isSelected) : undefined,
       "aria-disabled": !isInteractive && resolvedState === "disabled" ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),

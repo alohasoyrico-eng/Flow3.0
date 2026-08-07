@@ -49,7 +49,7 @@ const displayFallbackTermsByFile = new Map([
   ["Badge.js", ["Badge"]],
   ["Button.js", ["Button"]],
   ["Checkbox.js", ["Checkbox"]],
-  ["Chip.js", ["Chip"]],
+  ["Chip.js", ["Chip", "Remove"]],
   ["CardNumberInput.js", ["Card number"]],
   ["CardExpiryInput.js", ["Expiry date"]],
   ["CodeInput.js", ["Security code"]],
