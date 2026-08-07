@@ -7,7 +7,6 @@ export const movementRowPlatformContract = {
   layer: "component",
   source: {
     factory: movementRowContract.factory,
-    internalFactory: movementRowContract.internalFactory,
     cssClass: "movement-row",
     contract: "@design-system/components/contracts#movementRow",
   },

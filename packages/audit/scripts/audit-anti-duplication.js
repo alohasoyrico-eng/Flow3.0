@@ -275,6 +275,21 @@ function checkReactOnlyComponentBoundaries() {
       pattern: /import\s*\{[^}]*createCardSummary[^}]*\}|createCardSummary\(/,
       message: "Card Summary smoke coverage must use React render tests, not the removed DOM factory.",
     },
+    {
+      file: commerceFile,
+      pattern: /export function createMovementRow\b/,
+      message: "Movement Row must not reintroduce a DOM factory; React MovementRow is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createMovementRow"/,
+      message: "Movement Row contract must not name a DOM internalFactory; React MovementRow owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createMovementRow[^}]*\}|createMovementRow\(/,
+      message: "Movement Row smoke coverage must use React render tests, not the removed DOM factory.",
+    },
   ];
   for (const check of checks) {
     if (!fs.existsSync(check.file)) continue;

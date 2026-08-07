@@ -1466,7 +1466,6 @@ export const componentContracts = {
   },
   movementRow: {
     factory: "@design-system/react/movement-row",
-    internalFactory: "createMovementRow",
     element: "button",
     purpose: "Represent one movement row with label, metadata, amount, and status.",
     variants: ["standard", "refund", "declined", "compact"],

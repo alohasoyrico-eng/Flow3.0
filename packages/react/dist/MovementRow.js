@@ -26,7 +26,7 @@ export const MovementRow = forwardRef(function MovementRow({
   category = "transfer",
   variant = "standard",
   state = "default",
-  density = "md",
+  density,
   fullWidth = false,
   disabled = false,
   onSelect,
@@ -38,7 +38,7 @@ export const MovementRow = forwardRef(function MovementRow({
   const resolvedCategory = normalize(category, validCategories, "transfer");
   const inferredState = status === "Pending" ? "pending" : status === "Declined" ? "error" : "default";
   const resolvedState = disabled ? "disabled" : validStates.has(state) ? state : inferredState;
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const resolvedLabel = label ?? "Movement";
   const blocked = disabled || resolvedState === "disabled";
   const selectMeta = {
@@ -61,7 +61,7 @@ export const MovementRow = forwardRef(function MovementRow({
       disabled: blocked,
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "data-category": resolvedCategory,
       "data-full-width": String(Boolean(fullWidth)),
       onClick: (event) => {

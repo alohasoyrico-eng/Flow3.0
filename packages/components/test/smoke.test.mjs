@@ -181,7 +181,7 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
-import { createMovementRow, createQuickAction } from "../src/components/commerce.js?v=15";
+import { createQuickAction } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -882,7 +882,6 @@ assert.deepEqual(Object.keys(cardSummaryPlatformAdapters), ["react"]);
 assert.equal(cardSummaryPlatformAdapters.react.componentName, "CardSummary");
 assert.equal(cardSummaryPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.movementRow.factory, "@design-system/react/movement-row");
-assert.equal(componentContracts.movementRow.internalFactory, "createMovementRow");
 assert.equal(movementRowPlatformContract.id, "movement-row");
 assert.equal(movementRowPlatformContract.source.factory, componentContracts.movementRow.factory);
 assert.deepEqual(movementRowPlatformProps(), componentContracts.movementRow.props.map((prop) => prop.name));
@@ -2100,16 +2099,6 @@ interactiveRange.querySelectorAll(".date-range-picker__preset")[0].click();
 assert.equal(Boolean(rangeValue.from), true);
 assert.equal(Boolean(rangeValue.to), true);
 assert.equal(interactiveRange.querySelector(".date-range-picker__panel").hidden, true);
-
-const movementRow = createMovementRow({ label: "Fuel purchase", meta: "Today", amount: "−$842.00", status: "Pending", category: "fuel", state: "pending", density: "sm" });
-assert.equal(movementRow.tagName, "BUTTON");
-assert.equal(movementRow.className, "movement-row");
-assert.equal(movementRow.dataset.category, "fuel");
-assert.equal(movementRow.dataset.state, "pending");
-assert.equal(movementRow.dataset.density, "sm");
-assert.equal(movementRow.querySelector(".movement-row__icon").textContent, "local_gas_station");
-assert.equal(movementRow.querySelector(".movement-row__content").textContent, "Fuel purchaseToday");
-assert.equal(movementRow.querySelector(".movement-row__value").textContent, "−$842.00Pending");
 
 const quickAction = createQuickAction({ label: "Freeze", icon: "lock", badge: "2", variant: "destructive", state: "warning", density: "sm" });
 assert.equal(quickAction.tagName, "DIV");

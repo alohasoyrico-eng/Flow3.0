@@ -216,6 +216,11 @@ assert.match(movementRowMarkup, /Today/);
 assert.match(movementRowMarkup, /class="movement-row__amount">-\$842\.00<\/strong>/);
 assert.match(movementRowMarkup, /class="movement-row__status">Pending<\/small>/);
 
+const inheritedMovementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
+  label: "Inherited movement density",
+}));
+assert.doesNotMatch(inheritedMovementRowMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const routeSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Fast route",
   description: "Best option for current policy.",
