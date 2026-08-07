@@ -268,6 +268,14 @@ const inheritedRouteSummaryMarkup = renderToStaticMarkup(React.createElement(Rou
 assert.doesNotMatch(inheritedRouteSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedRouteSummaryMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const inheritedCompactRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  label: "Inherited compact route density",
+  variant: "compact",
+  actions: [{ label: "Cancel route" }],
+}));
+assert.doesNotMatch(inheritedCompactRouteSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(inheritedCompactRouteSummaryMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const stationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
   label: "Station 24",
   value: "Open",

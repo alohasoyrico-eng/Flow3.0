@@ -26,7 +26,7 @@ function renderAction(action, index, { compact, density, disabled }) {
       icon: action?.icon ?? "close",
       ariaLabel: action?.ariaLabel ?? action?.label ?? "Cancel route",
       variant: action?.variant ?? "ghost",
-      density: action?.density ?? "sm",
+      density: action?.density ?? density,
       disabled: actionDisabled,
       onClick: handleActionClick,
     });

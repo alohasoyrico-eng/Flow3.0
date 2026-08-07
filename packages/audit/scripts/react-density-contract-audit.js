@@ -5,6 +5,9 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (/\bdensity\s*=\s*["'](?:sm|md|lg)["']/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must not assign a local default density; density must inherit through the Flow cascade unless product code opts in.`);
   }
+  if (/\bdensity\s*(?:\?\?|\|\|)\s*["'](?:sm|md|lg)["']/.test(source) || /\bdensity:\s*[^,\n]*(?:\?\?|\|\|)\s*["'](?:sm|md|lg)["']/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must not fallback nested component density to a fixed value; pass inherited density or omit it.`);
+  }
   if (/\bdensity\s*\?\?\s*size\b|\bsize\s*\?\?\s*density\b/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must not treat density as a size alias; density controls cascade while size is an explicit component prop.`);
   }
