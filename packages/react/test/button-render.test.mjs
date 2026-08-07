@@ -1703,6 +1703,9 @@ const inheritedCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(
 }));
 assert.doesNotMatch(inheritedCardExpiryInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const unnamedCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(CardExpiryInput));
+assert.doesNotMatch(unnamedCardExpiryInputMarkup, /aria-label="Expiry date"/);
+
 const cardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(CardSecurityCodeInput, {
   label: "Security code",
   helper: "Use the code printed on the card.",

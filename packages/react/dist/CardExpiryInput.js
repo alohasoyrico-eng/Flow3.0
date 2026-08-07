@@ -122,7 +122,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
         spellCheck: false,
         "data-card-expiry-input": "",
         "aria-labelledby": label ? `${inputId}-label` : undefined,
-        "aria-label": label ? undefined : "Expiry date",
+        "aria-label": label ? undefined : rest["aria-label"],
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {
