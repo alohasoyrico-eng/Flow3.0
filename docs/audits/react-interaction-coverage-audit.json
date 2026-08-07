@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 34,
-    "review": 22,
+    "pass": 35,
+    "review": 21,
     "fail": 0,
-    "missingTestCallbacks": 27
+    "missingTestCallbacks": 26
   },
   "components": [
     {
@@ -382,12 +382,12 @@
       "sourceCovered": [
         "onAction"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onAction"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "ErrorPanel",

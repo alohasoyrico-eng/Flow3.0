@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -396,6 +396,24 @@ try {
   await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(drawerActions, ["save"]);
   assert.deepEqual(drawerOpenChanges, [true, false]);
+
+  cleanup();
+
+  const emptyStateActions = [];
+  const emptyStateClicks = [];
+  const { getByRole: getEmptyStateRole } = render(React.createElement(EmptyState, {
+    title: "No vehicles match",
+    action: {
+      key: "clear-filters",
+      label: "Clear filters",
+      onClick: (event) => emptyStateClicks.push(event.type),
+    },
+    onAction: (key) => emptyStateActions.push(key),
+  }));
+
+  fireEvent.click(getEmptyStateRole("button", { name: /clear filters/i }));
+  assert.deepEqual(emptyStateClicks, ["click"]);
+  assert.deepEqual(emptyStateActions, ["clear-filters"]);
 } finally {
   cleanup();
   dom.window.close();
