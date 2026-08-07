@@ -59,6 +59,7 @@ function renderBars(values, labels) {
   const max = Math.max(...safeValues, 1);
   return safeValues.map((value, index) => {
     const text = `${labels[index] ?? `Value ${index + 1}`}: ${value}`;
+    const percent = Math.max(8, Math.round((value / max) * 100));
     return React.createElement(
       "span",
       {
@@ -68,11 +69,11 @@ function renderBars(values, labels) {
         tabIndex: 0,
         "data-tooltip": text,
       },
-      React.createElement("span", {
-        className: "chart-panel__bar",
-        style: { "--chart-value": `${Math.max(8, Math.round((value / max) * 100))}%`, "--chart-index": String(index) },
-        "data-max": value === max ? "true" : undefined,
-      }),
+      React.createElement(
+        "svg",
+        { className: "chart-panel__bar-svg", viewBox: "0 0 12 100", preserveAspectRatio: "none", "aria-hidden": "true" },
+        React.createElement("rect", { className: "chart-panel__bar", x: "0", y: String(100 - percent), width: "12", height: String(percent), "data-max": value === max ? "true" : undefined }),
+      ),
       React.createElement("small", null, labels[index] ?? `Value ${index + 1}`),
     );
   });
@@ -94,7 +95,7 @@ function renderBullet(values, labels) {
     "span",
     { key: index, className: "chart-panel__bullet", role: "listitem", tabIndex: 0, "data-tooltip": `${labels[index] ?? `Value ${index + 1}`}: ${value}` },
     React.createElement("b", null, labels[index] ?? `Value ${index + 1}`),
-    React.createElement("i", { style: { "--chart-value": `${Math.round((value / max) * 100)}%`, "--chart-target": "80%" } }),
+    React.createElement("progress", { className: "chart-panel__bullet-meter", max, value, tabIndex: -1, "aria-hidden": "true" }),
     React.createElement("em", null, String(value)),
   ));
 }
@@ -105,16 +106,23 @@ function renderComparison(comparisons, values, labels) {
   return labels.map((label, index) => React.createElement(
     "span",
     { key: label, className: "chart-panel__comparison-group", role: "listitem", tabIndex: 0, "data-tooltip": label },
-    source.map((item, seriesIndex) => {
-      const value = normalizeValues(item.values)[index] ?? 0;
-      return React.createElement("span", {
-        key: item.id ?? item.label,
-        className: "chart-panel__comparison-bar",
-        title: `${item.label}: ${value}`,
-        "data-series": String(seriesIndex + 1),
-        style: { "--chart-value": `${Math.round((value / max) * 100)}%`, "--chart-index": String(index) },
-      });
-    }),
+    React.createElement(
+      "svg",
+      { className: "chart-panel__comparison-bars", viewBox: "0 0 24 100", preserveAspectRatio: "none", "aria-hidden": "true" },
+      source.map((item, seriesIndex) => {
+        const value = normalizeValues(item.values)[index] ?? 0;
+        const percent = Math.round((value / max) * 100);
+        return React.createElement("rect", {
+          key: item.id ?? item.label,
+          className: "chart-panel__comparison-bar",
+          x: String(seriesIndex * 10),
+          y: String(100 - percent),
+          width: "8",
+          height: String(percent),
+          "data-series": String(seriesIndex + 1),
+        });
+      }),
+    ),
   ));
 }
 

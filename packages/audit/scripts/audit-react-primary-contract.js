@@ -21,11 +21,7 @@ const allowedPrimitiveImports = new Set([
   "resolveCountryCallingCodeOption",
 ]);
 
-const allowedInlineStyleKeys = [
-  "--chart-index",
-  "--chart-target",
-  "--chart-value",
-];
+const allowedInlineStyleKeys = [];
 
 function checkReactPrimaryContract() {
   const reactIndex = read(reactIndexFile);
