@@ -6071,15 +6071,31 @@ body[data-contrast="quiet"] .tree-view {
   transform-origin: center;
 }
 
-.tree-view__item[aria-expanded="true"] > .tree-view__control .button__icon--trailing,
-.tree-view__item[aria-expanded="true"] > .button.tree-view__control .button__icon--trailing,
-.tree-view .tree-view__item[aria-expanded="true"] > .button.tree-view__control .button__icon--trailing {
+.tree-view__item[data-expanded="true"] > .tree-view__control .button__icon--trailing,
+.tree-view__item[data-expanded="true"] > .button.tree-view__control .button__icon--trailing,
+.tree-view .tree-view__item[data-expanded="true"] > .button.tree-view__control .button__icon--trailing {
   transform: var(--component-transform-rotate-expanded);
 }
 
 .tree-view__item {
-  margin-inline-start: calc(var(--comp-tree-view-indent) * var(--comp-tree-view-depth-offset, 0));
+  margin-inline-start: 0;
   transition: margin-inline-start var(--comp-tree-view-motion-duration) var(--comp-tree-view-motion-ease);
+}
+
+.tree-view__item[data-level="2"] {
+  margin-inline-start: var(--comp-tree-view-indent);
+}
+
+.tree-view__item[data-level="3"] {
+  margin-inline-start: calc(var(--comp-tree-view-indent) * 2);
+}
+
+.tree-view__item[data-level="4"] {
+  margin-inline-start: calc(var(--comp-tree-view-indent) * 3);
+}
+
+.tree-view__item[data-level="5"] {
+  margin-inline-start: calc(var(--comp-tree-view-indent) * 4);
 }
 
 .tree-view__item:not([hidden]) > .tree-view__control,
@@ -6095,24 +6111,24 @@ body[data-contrast="quiet"] .tree-view {
   color: var(--sys-color-text);
 }
 
-.tree-view__item[aria-selected="true"] .tree-view__control,
-.tree-view__item[aria-selected="true"] .button.tree-view__control,
-.tree-view .tree-view__item[aria-selected="true"] .button.tree-view__control {
+.tree-view__item[data-selected="true"] .tree-view__control,
+.tree-view__item[data-selected="true"] .button.tree-view__control,
+.tree-view .tree-view__item[data-selected="true"] .button.tree-view__control {
   background: var(--comp-tree-view-selected-bg);
   border-color: var(--comp-tree-view-selected-border);
   box-shadow: none;
   color: var(--comp-tree-view-selected-text);
 }
 
-.tree-view__item[aria-expanded="true"]:not([aria-selected="true"]) .tree-view__control,
-.tree-view__item[aria-expanded="true"]:not([aria-selected="true"]) .button.tree-view__control,
-.tree-view .tree-view__item[aria-expanded="true"]:not([aria-selected="true"]) .button.tree-view__control {
+.tree-view__item[data-expanded="true"]:not([data-selected="true"]) .tree-view__control,
+.tree-view__item[data-expanded="true"]:not([data-selected="true"]) .button.tree-view__control,
+.tree-view .tree-view__item[data-expanded="true"]:not([data-selected="true"]) .button.tree-view__control {
   color: var(--comp-tree-view-expanded-text);
 }
 
-.tree-view__item:not([aria-selected="true"]) .tree-view__control:hover:not(:disabled),
-.tree-view__item:not([aria-selected="true"]) .button.tree-view__control:hover:not(:disabled),
-.tree-view .tree-view__item:not([aria-selected="true"]) .button.tree-view__control:hover:not(:disabled) {
+.tree-view__item:not([data-selected="true"]) .tree-view__control:hover:not(:disabled),
+.tree-view__item:not([data-selected="true"]) .button.tree-view__control:hover:not(:disabled),
+.tree-view .tree-view__item:not([data-selected="true"]) .button.tree-view__control:hover:not(:disabled) {
   background: var(--comp-tree-view-hover-bg);
   border-color: var(--comp-tree-view-hover-border);
   box-shadow:

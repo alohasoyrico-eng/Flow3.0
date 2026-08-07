@@ -119,9 +119,10 @@ export const TreeView = forwardRef(function TreeView({
           "data-tree-item": "",
           "data-key": node.key,
           "data-level": String(node.level),
+          "data-expanded": node.expandable ? String(isExpanded) : undefined,
+          "data-selected": String(isSelected),
           role: "none",
           hidden: !isVisible,
-          style: { "--comp-tree-view-depth-offset": String(node.level - 1) },
         },
         React.createElement(Button, {
           ref: (control) => {

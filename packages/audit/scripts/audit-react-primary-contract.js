@@ -25,7 +25,6 @@ const allowedInlineStyleKeys = [
   "--chart-index",
   "--chart-target",
   "--chart-value",
-  "--comp-tree-view-depth-offset",
 ];
 
 function checkReactPrimaryContract() {

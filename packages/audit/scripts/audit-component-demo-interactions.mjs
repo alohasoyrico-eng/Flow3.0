@@ -237,9 +237,9 @@ fixtures.comboboxClear.click();
 assert.equal(fixtures.comboboxInput.value, "", "Combobox clear action should clear visible value.");
 
 fixtures.treeControls[0].dispatch("keydown", { key: "ArrowDown" });
-assert.equal(fixtures.treeItems[1].getAttribute("aria-selected"), "true", "Tree View ArrowDown should select the next item.");
+assert.equal(fixtures.treeItems[1].dataset.selected, "true", "Tree View ArrowDown should select the next item.");
 fixtures.treeControls[0].dispatch("keydown", { key: "ArrowRight" });
-assert.equal(fixtures.treeItems[0].getAttribute("aria-expanded"), "true", "Tree View ArrowRight should expand expandable items.");
+assert.equal(fixtures.treeItems[0].dataset.expanded, "true", "Tree View ArrowRight should expand expandable items.");
 
 fixtures.overlayClose.click();
 assert.equal(fixtures.overlayPanel.hidden, true, "Overlay close should hide the overlay surface.");
@@ -437,8 +437,8 @@ function buildFixtures() {
 
   const treeControls = [el("button", { attrs: { "data-tree-control": "" }, textContent: "Fleet" }), el("button", { attrs: { "data-tree-control": "" }, textContent: "Cards" })];
   const treeItems = [
-    el("li", { attrs: { "data-tree-item": "", "aria-selected": "true", "aria-expanded": "false" } }, [treeControls[0]]),
-    el("li", { attrs: { "data-tree-item": "", "aria-selected": "false" } }, [treeControls[1]]),
+    el("li", { attrs: { "data-tree-item": "" }, dataset: { selected: "true", expanded: "false" } }, [treeControls[0]]),
+    el("li", { attrs: { "data-tree-item": "" }, dataset: { selected: "false" } }, [treeControls[1]]),
   ];
   const tree = el("ul", { attrs: { "data-doc-component": "tree-view" } }, treeItems);
 
