@@ -98,7 +98,7 @@ export const Card = forwardRef(function Card({
         "div",
         { className: "card__loading", key: "loading" },
         React.createElement(Spinner, { label: title ? `${title} loading` : "Loading", density }),
-        React.createElement("span", null, value || "Loading"),
+        value ? React.createElement("span", null, value) : null,
       )
       : [
         value ? React.createElement("p", { className: "card__value", key: "value" }, resolvedComposition === "stats" ? `${unit}${value}` : value) : null,

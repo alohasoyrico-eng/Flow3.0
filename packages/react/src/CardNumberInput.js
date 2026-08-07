@@ -104,7 +104,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
       "data-brand": brand,
       "data-validation-message": validationMessage,
     },
-    React.createElement("span", { className: "field__label card-number-input__label", id: `${inputId}-label` }, label ?? "Card number"),
+    label ? React.createElement("span", { className: "field__label card-number-input__label", id: `${inputId}-label` }, label) : null,
     React.createElement(
       "span",
       { className: "field__control card-number-input__control" },
@@ -126,7 +126,8 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
         enterKeyHint: "next",
         spellCheck: false,
         "data-card-number-input": "",
-        "aria-labelledby": `${inputId}-label`,
+        "aria-labelledby": label ? `${inputId}-label` : undefined,
+        "aria-label": label ? undefined : "Card number",
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {
@@ -153,7 +154,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
         },
         brand,
       ),
-      loading ? React.createElement(Spinner, { label: `${label ?? "Card number"} loading`, density, decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { label: label ? `${label} loading` : "Loading", density, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement(

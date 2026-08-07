@@ -5,7 +5,7 @@ const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días"];
 const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save"];
 const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const displayFallbackTermsByFile = new Map([
-  ["Card.js", ["Card"]],
+  ["Card.js", ["Card", "Loading"]],
   ["CardSummary.js", ["Card", "Active", "Frozen", "Review"]],
   ["ChartPanel.js", ["Chart"]],
   ["EmptyState.js", ["No results"]],
@@ -21,6 +21,8 @@ const displayFallbackTermsByFile = new Map([
   ["Button.js", ["Button"]],
   ["Checkbox.js", ["Checkbox"]],
   ["Chip.js", ["Chip"]],
+  ["CardNumberInput.js", ["Card number"]],
+  ["CardExpiryInput.js", ["Expiry date"]],
   ["CodeInput.js", ["Security code"]],
   ["CardSecurityCodeInput.js", ["Security code"]],
   ["DatePicker.js", ["Date"]],

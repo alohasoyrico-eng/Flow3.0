@@ -98,7 +98,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
       "data-validation-message": validationMessage,
       "data-expired-message": expiredMessage,
     },
-    React.createElement("span", { className: "field__label card-expiry-input__label", id: `${inputId}-label` }, label ?? "Expiry date"),
+    label ? React.createElement("span", { className: "field__label card-expiry-input__label", id: `${inputId}-label` }, label) : null,
     React.createElement(
       "span",
       { className: "field__control card-expiry-input__control" },
@@ -121,7 +121,8 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
         maxLength: 5,
         spellCheck: false,
         "data-card-expiry-input": "",
-        "aria-labelledby": `${inputId}-label`,
+        "aria-labelledby": label ? `${inputId}-label` : undefined,
+        "aria-label": label ? undefined : "Expiry date",
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {
@@ -139,7 +140,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
           });
         },
       }),
-      loading ? React.createElement(Spinner, { label: `${label ?? "Expiry date"} loading`, density, decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { label: label ? `${label} loading` : "Loading", density, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement(
