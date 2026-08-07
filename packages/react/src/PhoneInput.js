@@ -48,7 +48,7 @@ function countryMeta(country, digits) {
 }
 
 function flagNode(country) {
-  const code = String(country.country ?? "MX").toUpperCase();
+  const code = String(country.country ?? "").toUpperCase();
   return React.createElement(
     "span",
     {
@@ -74,7 +74,7 @@ function flagNode(country) {
 export const PhoneInput = forwardRef(function PhoneInput({
   label,
   value,
-  prefix = "+1",
+  prefix = "",
   country,
   countries,
   variant = "country-code",

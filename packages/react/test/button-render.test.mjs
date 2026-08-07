@@ -1693,6 +1693,12 @@ assert.match(countrySelectorMarkup, /class="select-control__code country-selecto
 assert.match(countrySelectorMarkup, /\+52/);
 assert.match(countrySelectorMarkup, /role="listbox"/);
 assert.match(countrySelectorMarkup, /class="select-control__option country-selector__option"/);
+const consumerDefaultCountrySelectorMarkup = renderToStaticMarkup(React.createElement(CountrySelector, {
+  label: "Country",
+  countries: [{ country: "BR", label: "Brazil", callingCode: "+55", nationalLength: 11 }],
+}));
+assert.match(consumerDefaultCountrySelectorMarkup, /data-country="BR"/);
+assert.doesNotMatch(consumerDefaultCountrySelectorMarkup, /data-country="MX"/);
 
 const phoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput, {
   label: "Mobile phone",
@@ -1718,6 +1724,12 @@ assert.match(phoneInputMarkup, /type="tel"/);
 assert.match(phoneInputMarkup, /autoComplete="tel-national"|autocomplete="tel-national"/);
 assert.match(phoneInputMarkup, /value="55 1842 9011"/);
 assert.match(phoneInputMarkup, /class="field__helper"/);
+const consumerDefaultPhoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput, {
+  label: "Mobile phone",
+  countries: [{ country: "BR", label: "Brazil", callingCode: "+55", nationalLength: 11 }],
+}));
+assert.match(consumerDefaultPhoneInputMarkup, /data-country="BR"/);
+assert.doesNotMatch(consumerDefaultPhoneInputMarkup, /data-country="MX"/);
 
 const inheritedPhoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput, {
   label: "Mobile phone",

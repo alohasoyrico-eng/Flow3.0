@@ -8,7 +8,7 @@ import { countrySelectorPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function CountryFlag({ country, className = "" }) {
-  const code = String(country ?? "MX").toUpperCase();
+  const code = String(country ?? "").toUpperCase();
   return React.createElement(
     "span",
     {
@@ -38,7 +38,7 @@ function matchesQuery(option, query) {
 }
 
 export const CountrySelector = forwardRef(function CountrySelector({
-  label = "Country",
+  label = "",
   value,
   country,
   countries,
@@ -161,7 +161,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
         className: "select-control__listbox country-selector__listbox",
         "data-country-selector-list": "",
         role: "listbox",
-        "aria-label": listboxLabel ?? `${label} options`,
+        "aria-label": listboxLabel ?? (label ? `${label} options` : undefined),
       },
       searchable
         ? React.createElement(
