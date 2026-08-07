@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -348,6 +348,30 @@ try {
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(dateRangeValues, [{ from: "2026-07-01", to: "2026-07-15" }]);
   assert.deepEqual(dateRangeOpenChanges, [true, false]);
+
+  cleanup();
+
+  const dialogOpenChanges = [];
+  const dialogActions = [];
+  const { getByRole: getDialogRole } = render(React.createElement(Dialog, {
+    label: "Confirm route",
+    description: "Review before assigning.",
+    triggerLabel: "Open review",
+    actions: [{ key: "confirm", label: "Confirm" }],
+    onOpenChange: (open) => dialogOpenChanges.push(open),
+    onAction: (key) => dialogActions.push(key),
+  }));
+
+  const dialogTrigger = getDialogRole("button", { name: /open review/i });
+  fireEvent.click(dialogTrigger);
+  await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "true"));
+  assert.equal(getDialogRole("dialog", { name: /confirm route/i }).hidden, false);
+  assert.deepEqual(dialogOpenChanges, [true]);
+
+  fireEvent.click(getDialogRole("button", { name: /confirm/i }));
+  await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(dialogActions, ["confirm"]);
+  assert.deepEqual(dialogOpenChanges, [true, false]);
 } finally {
   cleanup();
   dom.window.close();

@@ -8,16 +8,15 @@ React components that declare callback props must use them in source and must ha
 
 - Components audited: 56
 - Components with callbacks: 39
-- Pass: 32
-- Review: 24
+- Pass: 33
+- Review: 23
 - Fail: 0
-- Missing callback test assertions: 31
+- Missing callback test assertions: 29
 
 ## Missing Interaction Tests
 
 | Component | Missing callback coverage |
 | --- | --- |
-| Dialog | onAction, onOpenChange |
 | Drawer | onAction, onOpenChange |
 | EmptyState | onAction |
 | ErrorPanel | onAction |

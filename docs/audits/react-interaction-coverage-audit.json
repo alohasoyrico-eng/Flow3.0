@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 32,
-    "review": 24,
+    "pass": 33,
+    "review": 23,
     "fail": 0,
-    "missingTestCallbacks": 31
+    "missingTestCallbacks": 29
   },
   "components": [
     {
@@ -344,13 +344,13 @@
         "onAction",
         "onOpenChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onAction",
         "onOpenChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Drawer",
