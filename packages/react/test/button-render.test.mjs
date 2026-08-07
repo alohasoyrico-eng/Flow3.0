@@ -622,6 +622,11 @@ const inheritedTreeViewMarkup = renderToStaticMarkup(React.createElement(TreeVie
   nodes: [{ key: "root", label: "Root", level: 1 }],
 }));
 assert.doesNotMatch(inheritedTreeViewMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /data-density=/);
+const unnamedTreeViewMarkup = renderToStaticMarkup(React.createElement(TreeView, {
+  nodes: [{ id: "root" }],
+}));
+assert.doesNotMatch(unnamedTreeViewMarkup, /Tree view|Tree item 1/);
+assert.doesNotMatch(unnamedTreeViewMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const cardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Wallet balance",

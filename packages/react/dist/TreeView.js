@@ -15,7 +15,7 @@ function normalizeNodes(nodes) {
     ...node,
     key: nodeKey(node, index),
     label: node?.label ?? "",
-    ariaLabel: node?.ariaLabel ?? node?.["aria-label"] ?? node?.label ?? `Tree item ${index + 1}`,
+    ariaLabel: node?.ariaLabel ?? node?.["aria-label"] ?? node?.label ?? "",
     level: Math.max(1, Math.min(5, Number(node?.level ?? 1))),
     expandable: node?.expanded != null,
     expanded: Boolean(node?.expanded),
@@ -34,7 +34,7 @@ function visibleKeys(nodes, expandedKeys) {
 }
 
 export const TreeView = forwardRef(function TreeView({
-  label = "Tree view",
+  label = "",
   nodes = [],
   state = "expanded",
   density,
@@ -95,7 +95,7 @@ export const TreeView = forwardRef(function TreeView({
       ref,
       className: ["tree-view", className].filter(Boolean).join(" "),
       role: "tree",
-      "aria-label": label,
+      "aria-label": label || undefined,
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
     },
