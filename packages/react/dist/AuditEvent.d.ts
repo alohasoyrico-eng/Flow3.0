@@ -9,7 +9,7 @@ export type AuditEventTone = "neutral" | "info" | "success" | "warning" | "dange
 export type AuditEventState = "default" | "hover" | "focus" | "verified" | "warning" | "critical" | "disabled";
 export type AuditEventDensity = "sm" | "md" | "lg";
 
-export interface AuditEventProps extends HTMLAttributes<HTMLElement> {
+export interface AuditEventProps extends Omit<HTMLAttributes<HTMLElement>, "style"> {
   label: string;
   description?: string;
   meta?: string;

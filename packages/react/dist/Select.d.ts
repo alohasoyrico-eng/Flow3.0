@@ -15,7 +15,7 @@ export type SelectValueMeta = {
   meta: string;
 };
 
-export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "value" | "onChange"> {
+export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "value" | "onChange"> {
   label: string;
   helper?: string;
   icon?: string;

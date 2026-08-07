@@ -9,7 +9,7 @@ export type CardSecurityCodeMeta = {
   complete: boolean;
 };
 
-export interface CardSecurityCodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "prefix" | "onChange"> {
+export interface CardSecurityCodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange"> {
   label: string;
   helper?: string;
   error?: string;

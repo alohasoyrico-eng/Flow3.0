@@ -6,7 +6,7 @@ export type DateRangePickerState = "default" | "hover" | "focus" | "selected" | 
 export type DateRangePickerValue = { from?: string; to?: string };
 export type DateRangePickerPreset = { label: string; days: number };
 
-export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "onChange"> {
+export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange"> {
   label: string;
   value?: DateRangePickerValue;
   from?: string;

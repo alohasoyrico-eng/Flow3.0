@@ -14,7 +14,7 @@ export interface CountrySelectorCountry {
   nationalLength: number;
 }
 
-export interface CountrySelectorProps extends HTMLAttributes<HTMLSpanElement> {
+export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style"> {
   label?: string;
   value?: string;
   country?: string;

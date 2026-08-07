@@ -7,7 +7,7 @@ export type ButtonDensity = "sm" | "md" | "lg";
 export type ButtonState = "default" | "hover" | "focus" | "pressed" | "disabled" | "loading";
 export type ButtonType = "button" | "submit" | "reset";
 
-export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "type"> {
+export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "type"> {
   label?: string;
   children?: ReactNode;
   variant?: ButtonVariant;

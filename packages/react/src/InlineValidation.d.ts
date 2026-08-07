@@ -4,7 +4,7 @@ import { inlineValidationPlatformContract } from "@design-system/components/plat
 export type InlineValidationState = "default" | "info" | "success" | "warning" | "error" | "disabled";
 export type InlineValidationDensity = "sm" | "md" | "lg";
 
-export interface InlineValidationProps extends HTMLAttributes<HTMLDivElement> {
+export interface InlineValidationProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
   label: string;
   value?: string;
   message?: string;

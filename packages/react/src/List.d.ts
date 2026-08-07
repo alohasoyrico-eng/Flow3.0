@@ -16,7 +16,7 @@ export interface ListItem {
   disabled?: boolean;
 }
 
-export interface ListProps extends Omit<HTMLAttributes<HTMLUListElement>, "onSelect"> {
+export interface ListProps extends Omit<HTMLAttributes<HTMLUListElement>, "style" | "onSelect"> {
   items: ListItem[];
   variant?: ListVariant;
   state?: ListState;

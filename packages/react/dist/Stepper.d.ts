@@ -10,7 +10,7 @@ export interface StepperStep {
   description?: string;
 }
 
-export interface StepperProps extends HTMLAttributes<HTMLOListElement> {
+export interface StepperProps extends Omit<HTMLAttributes<HTMLOListElement>, "style"> {
   steps: StepperStep[];
   current?: number;
   label?: string;

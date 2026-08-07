@@ -17,7 +17,7 @@ export type PhoneInputMeta = {
   nationalNumber: string;
 };
 
-export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "prefix" | "onChange"> {
+export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "prefix" | "onChange"> {
   label: string;
   value?: string;
   prefix?: string;

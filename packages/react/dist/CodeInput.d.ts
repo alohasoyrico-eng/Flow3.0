@@ -5,7 +5,7 @@ export type CodeInputDensity = "sm" | "md" | "lg";
 export type CodeInputVariant = "sms" | "otp" | "approval" | "masked" | "compact";
 export type CodeInputState = "default" | "hover" | "focus" | "complete" | "warning" | "error" | "disabled";
 
-export interface CodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "onChange"> {
+export interface CodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "onChange"> {
   label: string;
   value?: string;
   length?: number;

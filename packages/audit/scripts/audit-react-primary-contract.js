@@ -153,6 +153,7 @@ function checkReactComponent(file, shared) {
   }
 
   checkReactPropContracts({ add, componentName: name, typesFile, types, contractBody });
+  checkStylePropTypeContract({ name, typesFile, types });
   if (!shared.reactIndex.includes(`export { ${name} } from "./${file}"`)) {
     add("errors", reactIndexFile, 1, `React index must export ${name} from ${file}.`);
   }
@@ -198,7 +199,16 @@ function checkReactComponent(file, shared) {
 function checkRestPropContract({ name, sourceFile, source }) {
   const directRestSpread = source.search(/^\s*\.\.\.rest,\s*$/m);
   if (directRestSpread >= 0) {
-    add("errors", sourceFile, lineForIndex(source, directRestSpread), `${name} React source must sanitize rest props with flowRestProps(rest) so style cannot bypass Flow tokens.`);
+    add("errors", sourceFile, 1, `${name} React source must sanitize rest props with flowRestProps(rest) so style cannot bypass Flow tokens.`);
+  }
+}
+
+function checkStylePropTypeContract({ name, typesFile, types }) {
+  for (const match of types.matchAll(/^export interface ([A-Za-z][A-Za-z0-9]*) extends ([^{]+)\{/gm)) {
+    const [, interfaceName, inheritedTypes] = match;
+    if (!/(?:^|[^A-Za-z])(?:HTMLAttributes|ButtonHTMLAttributes|InputHTMLAttributes|TextareaHTMLAttributes)\b/.test(inheritedTypes)) continue;
+    if (inheritedTypes.includes('"style"')) continue;
+    add("errors", typesFile, 1, `${name} React type ${interfaceName} must omit inherited style so product code cannot bypass Flow tokens.`);
   }
 }
 
@@ -208,7 +218,7 @@ function checkPublishedLocalImports({ name, artifact, artifactSource }) {
     const resolved = path.join(path.dirname(artifact), importPath);
     const candidates = path.extname(resolved) ? [resolved] : [`${resolved}.js`, `${resolved}.d.ts`];
     if (!candidates.some((candidate) => fs.existsSync(candidate))) {
-      add("errors", artifact, lineForIndex(artifactSource, match.index), `${name} published React artifact imports missing local file ${importPath}.`);
+      add("errors", artifact, 1, `${name} published React artifact imports missing local file ${importPath}.`);
     }
   }
 }

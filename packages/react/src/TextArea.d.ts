@@ -9,7 +9,7 @@ export interface TextAreaChangeMeta {
   maxLength?: number;
 }
 
-export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange"> {
+export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "style" | "onChange"> {
   label: string;
   helper?: string;
   helperText?: string;

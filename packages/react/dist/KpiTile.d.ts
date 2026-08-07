@@ -15,7 +15,7 @@ export interface KpiTileMeta {
   variant: KpiTileVariant;
 }
 
-export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "onSelect"> {
+export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onSelect"> {
   label?: string;
   value?: string;
   delta?: string;

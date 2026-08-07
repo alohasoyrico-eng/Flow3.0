@@ -5,7 +5,7 @@ export type ProgressIndicatorDensity = "sm" | "md" | "lg";
 export type ProgressIndicatorTone = "accent" | "success" | "warning" | "danger" | "ink";
 export type ProgressIndicatorState = "default" | "active" | "indeterminate" | "paused" | "complete" | "error" | "disabled";
 
-export interface ProgressIndicatorProps extends HTMLAttributes<HTMLDivElement> {
+export interface ProgressIndicatorProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
   label: string;
   value?: number;
   max?: number;

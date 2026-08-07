@@ -12,7 +12,7 @@ export interface StationPinMeta {
   state?: StationPinState;
 }
 
-export interface StationPinProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface StationPinProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style"> {
   label: string;
   value?: string;
   meta?: string;

@@ -5,7 +5,7 @@ export type TagVariant = "metadata" | "status" | "platform" | "link";
 export type TagTone = "neutral" | "info" | "success" | "warning" | "danger";
 export type TagState = "default" | "hover" | "pressed" | "focus" | "disabled";
 
-export interface TagProps extends Omit<HTMLAttributes<HTMLSpanElement> & ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
+export interface TagProps extends Omit<HTMLAttributes<HTMLSpanElement> & ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled"> {
   label: string;
   variant?: TagVariant;
   tone?: TagTone;

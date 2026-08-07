@@ -15,7 +15,7 @@ export interface TreeViewNode {
   icon?: string;
 }
 
-export interface TreeViewProps extends Omit<HTMLAttributes<HTMLUListElement>, "onSelect"> {
+export interface TreeViewProps extends Omit<HTMLAttributes<HTMLUListElement>, "style" | "onSelect"> {
   label?: string;
   nodes: TreeViewNode[];
   state?: TreeViewState;

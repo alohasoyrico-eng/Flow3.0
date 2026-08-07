@@ -13,7 +13,7 @@ export type SegmentedControlItem = {
   disabled?: boolean;
 };
 
-export interface SegmentedControlProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
+export interface SegmentedControlProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "onChange"> {
   label: string;
   items: SegmentedControlItem[];
   selectedKey?: string;

@@ -18,7 +18,7 @@ export interface TableColumn {
   render?: (row: TableRow) => ReactNode;
 }
 
-export interface TableProps extends HTMLAttributes<HTMLDivElement> {
+export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
   columns: TableColumn[];
   rows: TableRow[];
   rowKey?: string;

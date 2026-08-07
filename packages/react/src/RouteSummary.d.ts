@@ -31,7 +31,7 @@ export interface RouteSummaryAction {
   onClick?: () => void;
 }
 
-export interface RouteSummaryProps extends HTMLAttributes<HTMLElement> {
+export interface RouteSummaryProps extends Omit<HTMLAttributes<HTMLElement>, "style"> {
   label: string;
   description?: string;
   metrics?: RouteMetric[];

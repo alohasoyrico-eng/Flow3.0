@@ -4,7 +4,7 @@ import { datePickerPlatformContract } from "#flow/platforms";
 export type DatePickerDensity = "sm" | "md" | "lg";
 export type DatePickerState = "default" | "hover" | "focus" | "selected" | "warning" | "error" | "disabled";
 
-export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value" | "onChange"> {
+export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange"> {
   label: string;
   value?: string;
   placeholder?: string;

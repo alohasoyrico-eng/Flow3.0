@@ -5,7 +5,7 @@ export type BadgeTone = "neutral" | "info" | "success" | "warning" | "danger" | 
 export type BadgeVariant = "count" | "dot" | "status" | "icon";
 export type BadgeState = "default" | "hover" | "focus" | "overflow" | "hidden" | "disabled";
 
-export interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, "hidden"> {
+export interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "hidden"> {
   label: string;
   tone?: BadgeTone;
   variant?: BadgeVariant;

@@ -18,7 +18,7 @@ export interface ComboboxValueMeta {
   cleared?: boolean;
 }
 
-export interface ComboboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "size"> {
+export interface ComboboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "onChange" | "value" | "size"> {
   label: string;
   helper?: string;
   icon?: string;

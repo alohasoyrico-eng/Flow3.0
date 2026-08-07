@@ -11,7 +11,7 @@ export type CardExpiryMeta = {
   expired: boolean;
 };
 
-export interface CardExpiryInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "prefix" | "onChange"> {
+export interface CardExpiryInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange"> {
   label: string;
   helper?: string;
   error?: string;

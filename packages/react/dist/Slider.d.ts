@@ -17,7 +17,7 @@ export interface SliderValueMeta {
   unit: string;
 }
 
-export interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "value" | "defaultValue" | "onChange" | "onInput"> {
+export interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "type" | "value" | "defaultValue" | "onChange" | "onInput"> {
   label: string;
   value?: number;
   min?: number;

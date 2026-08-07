@@ -8,7 +8,7 @@ import type { motionBoundaryPlatformContract } from "#flow/platforms";
 export type MotionBoundaryVariant = "fade" | "slide" | "collapse" | "route";
 export type MotionBoundaryState = "idle" | "entering" | "active" | "exiting" | "reduced-motion" | "disabled";
 
-export interface MotionBoundaryProps extends HTMLAttributes<HTMLDivElement> {
+export interface MotionBoundaryProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
   label: string;
   description?: string;
   variant?: MotionBoundaryVariant;

@@ -5,7 +5,7 @@ export type SpinnerDensity = "sm" | "md" | "lg";
 export type SpinnerTone = "accent" | "ink" | "success" | "warning" | "danger";
 export type SpinnerState = "default" | "loading" | "decorative" | "subtle" | "disabled";
 
-export interface SpinnerProps extends HTMLAttributes<HTMLSpanElement> {
+export interface SpinnerProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style"> {
   label?: string;
   density?: SpinnerDensity;
   tone?: SpinnerTone;

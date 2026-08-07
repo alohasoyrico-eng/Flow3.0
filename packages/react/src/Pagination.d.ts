@@ -5,7 +5,7 @@ export type PaginationVariant = "numbered";
 export type PaginationState = "default" | "hover" | "focus" | "selected" | "disabled";
 export type PaginationDensity = "sm" | "md" | "lg";
 
-export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "onChange"> {
+export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onChange"> {
   page?: number;
   pageCount: number;
   label?: string;

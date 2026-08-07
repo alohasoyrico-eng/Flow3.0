@@ -10,7 +10,7 @@ export type FloatingActionButtonState = "default" | "hover" | "focus" | "pressed
 export type FloatingActionButtonDensity = "sm" | "md" | "lg";
 export type FloatingActionButtonType = "button" | "submit" | "reset";
 
-export interface FloatingActionButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface FloatingActionButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style"> {
   label: string;
   icon?: string;
   variant?: FloatingActionButtonVariant;
