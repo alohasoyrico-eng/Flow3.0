@@ -59,7 +59,7 @@ function clampViewDate(value) {
 export const DatePicker = forwardRef(function DatePicker({
   label,
   value,
-  placeholder = "Selecciona fecha",
+  placeholder = "",
   helper = "",
   error = "",
   disabled = false,

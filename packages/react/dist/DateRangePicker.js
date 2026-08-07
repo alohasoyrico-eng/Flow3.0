@@ -62,9 +62,9 @@ function rangeLabel({ from, to, placeholder }) {
 }
 
 const defaultPresets = Object.freeze([
-  { label: "7 dias", days: 7 },
-  { label: "30 dias", days: 30 },
-  { label: "90 dias", days: 90 },
+  { label: "7 days", days: 7 },
+  { label: "30 days", days: 30 },
+  { label: "90 days", days: 90 },
 ]);
 
 export const DateRangePicker = forwardRef(function DateRangePicker({
@@ -72,7 +72,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   value,
   from,
   to,
-  placeholder = "Rango de fechas",
+  placeholder = "",
   helper = "",
   error = "",
   disabled = false,
