@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, ChartPanel, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MotionBoundary, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, Spinner, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, ChartPanel, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MotionBoundary, MovementRow, Pagination, PhoneInput, Popover, ProgressIndicator, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, Spinner, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
 import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, biometricPromptPlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, chartPanelPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, motionBoundaryPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
@@ -847,6 +847,58 @@ assert.match(skeletonMarkup, /data-columns="3"/);
 assert.match(skeletonMarkup, /--skeleton-columns:3/);
 assert.equal((skeletonMarkup.match(/class="skeleton__row"/g) ?? []).length, 2);
 assert.equal((skeletonMarkup.match(/class="skeleton__bone skeleton__cell"/g) ?? []).length, 6);
+
+const progressIndicatorMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator, {
+  label: "Documents",
+  value: 75,
+  max: 100,
+  showValue: true,
+  tone: "success",
+  state: "active",
+  density: "lg",
+  fullWidth: true,
+  id: "docs-progress",
+}));
+assert.match(progressIndicatorMarkup, /^<div/);
+assert.match(progressIndicatorMarkup, /class="progress"/);
+assert.match(progressIndicatorMarkup, /role="progressbar"/);
+assert.match(progressIndicatorMarkup, /id="docs-progress"/);
+assert.match(progressIndicatorMarkup, /aria-labelledby="docs-progress-label"/);
+assert.match(progressIndicatorMarkup, /aria-valuemin="0"/);
+assert.match(progressIndicatorMarkup, /aria-valuemax="100"/);
+assert.match(progressIndicatorMarkup, /aria-valuenow="75"/);
+assert.match(progressIndicatorMarkup, /data-tone="success"/);
+assert.match(progressIndicatorMarkup, /data-state="active"/);
+assert.match(progressIndicatorMarkup, /data-density="lg"/);
+assert.match(progressIndicatorMarkup, /data-full-width="true"/);
+assert.match(progressIndicatorMarkup, /data-indeterminate="false"/);
+assert.match(progressIndicatorMarkup, /class="progress__label" id="docs-progress-label">Documents<\/span>/);
+assert.match(progressIndicatorMarkup, /class="progress__value">75%<\/span>/);
+assert.match(progressIndicatorMarkup, /class="progress__track"/);
+assert.match(progressIndicatorMarkup, /class="progress__fill"/);
+assert.match(progressIndicatorMarkup, /--progress-value:75%/);
+
+const indeterminateProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator, {
+  label: "Syncing policies",
+  indeterminate: true,
+}));
+assert.match(indeterminateProgressMarkup, /data-indeterminate="true"/);
+assert.match(indeterminateProgressMarkup, /aria-valuetext="In progress"/);
+assert.doesNotMatch(indeterminateProgressMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /aria-valuenow=/);
+assert.doesNotMatch(indeterminateProgressMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /aria-valuemax=/);
+assert.doesNotMatch(indeterminateProgressMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const completeProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator, {
+  label: "Upload",
+  value: 12,
+  max: 24,
+  state: "complete",
+  showValue: true,
+}));
+assert.match(completeProgressMarkup, /data-state="complete"/);
+assert.match(completeProgressMarkup, /aria-valuenow="24"/);
+assert.match(completeProgressMarkup, /aria-valuetext="Complete"/);
+assert.match(completeProgressMarkup, /class="progress__value">100%<\/span>/);
 
 const spinnerMarkup = renderToStaticMarkup(React.createElement(Spinner, {
   label: "Loading route",

@@ -1,13 +1,13 @@
 import React, { forwardRef, useId } from "react";
 import { progressIndicatorPlatformContract } from "#flow/platforms";
 
-const validDensities = new Set(["sm", "md"]);
+const validDensities = new Set(["sm", "md", "lg"]);
 const validTones = new Set(["accent", "success", "warning", "danger", "ink"]);
 const terminalStates = new Set(["paused", "complete", "error", "disabled"]);
 const validStates = new Set(["default", "active", "indeterminate", "paused", "complete", "error", "disabled"]);
 
 function normalizeDensity(density) {
-  return validDensities.has(density) ? density : "md";
+  return validDensities.has(density) ? density : undefined;
 }
 
 function normalizeTone(tone) {
@@ -44,7 +44,7 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
   showValue = false,
   tone = "accent",
   state = "active",
-  density = "md",
+  density,
   fullWidth = false,
   className = "",
   id,

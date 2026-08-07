@@ -1,7 +1,7 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import { progressIndicatorPlatformContract } from "@design-system/components/platforms";
 
-export type ProgressIndicatorDensity = "sm" | "md";
+export type ProgressIndicatorDensity = "sm" | "md" | "lg";
 export type ProgressIndicatorTone = "accent" | "success" | "warning" | "danger" | "ink";
 export type ProgressIndicatorState = "default" | "active" | "indeterminate" | "paused" | "complete" | "error" | "disabled";
 
