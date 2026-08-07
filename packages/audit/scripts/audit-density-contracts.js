@@ -40,10 +40,10 @@ const reactDensityComponents = [
   { id: "cardSecurityCodeInput", file: path.join(root, "packages/react/src/CardSecurityCodeInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "codeInput", file: path.join(root, "packages/react/src/CodeInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "phoneInput", file: path.join(root, "packages/react/src/PhoneInput.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
+  { id: "countrySelector", file: path.join(root, "packages/react/src/CountrySelector.js"), selector: '.select-control[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
 ];
 
 const delegatedDensityComponents = [
-  { id: "countrySelector", factory: "createCountrySelector", source: "specializedInputs", delegate: "createSelectControl", selector: '.select-control[data-density="sm"]' },
   { id: "datePicker", factory: "createTransitionalDatePicker", source: "specializedInputs", delegate: "createFieldShell", selector: '.date-picker[data-density="sm"]' },
   { id: "dateRangePicker", factory: "createTransitionalDateRangePicker", source: "specializedInputs", delegate: "date-picker shell", selector: '.date-picker[data-density="sm"]' },
 ];

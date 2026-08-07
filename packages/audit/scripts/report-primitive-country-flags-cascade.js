@@ -18,7 +18,7 @@ const componentPackageFile = path.join(root, "packages/components/package.json")
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const primitiveFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/primitives/country-flags.js");
 const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/index.js");
-const specializedInputsFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/components/specialized-inputs.js");
+const reactCountrySelectorFile = path.join(root, "packages/react/src/CountrySelector.js");
 const specFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/country-flags.json");
 const contractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/country-flags.md");
 const vendorDir = path.join(root, "apps/docs/vendor/country-flag-icons/3x2");
@@ -71,7 +71,7 @@ const packageJson = readJson(componentPackageFile);
 const css = readIfExists(componentCssFile);
 const primitive = readIfExists(primitiveFile);
 const index = readIfExists(componentIndexFile);
-const specializedInputs = readIfExists(specializedInputsFile);
+const reactCountrySelector = readIfExists(reactCountrySelectorFile);
 const specWrapper = readJson(specFile);
 const spec = specWrapper.artifacts?.primitives?.["country-flags"] ?? specWrapper;
 const contract = readIfExists(contractFile);
@@ -105,7 +105,7 @@ const implementation = {
   cssAssetFillsMask: /\.country-flag__asset,\s*\n\.country-flag img,\s*\n\.country-flag__fallback\s*\{[\s\S]*block-size:\s*100%;[\s\S]*inline-size:\s*100%;/.test(css),
   cssAssetAvoidsOwnBorder: !/\.country-flag__(?:asset|img)[\s\S]{0,160}border:/.test(css),
   cssNoSvgTarget: !/\.country-flag\s+svg/.test(css),
-  countrySelectorConsumesPrimitive: /createCountryFlag/.test(specializedInputs) && !/countryFlagData|createElementNS/.test(specializedInputs),
+  countrySelectorConsumesPrimitive: /countryFlagAssetPath/.test(reactCountrySelector) && !/countryFlagData|createElementNS/.test(reactCountrySelector),
 };
 
 const gaps = [];

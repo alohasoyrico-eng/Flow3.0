@@ -176,7 +176,6 @@ import {
   textAreaPlatformContract,
   textAreaPlatformProps,
 } from "../src/index.js";
-import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import {
   createTransitionalDatePicker,
   createTransitionalDateRangePicker,
@@ -767,7 +766,6 @@ assert.deepEqual(Object.keys(phoneInputPlatformAdapters), ["react"]);
 assert.equal(phoneInputPlatformAdapters.react.componentName, "PhoneInput");
 assert.equal(phoneInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.countrySelector.factory, "@design-system/react/country-selector");
-assert.equal(componentContracts.countrySelector.internalFactory, "createCountrySelector");
 assert.equal(countrySelectorPlatformContract.id, "country-selector");
 assert.equal(countrySelectorPlatformContract.source.factory, componentContracts.countrySelector.factory);
 assert.deepEqual(countrySelectorPlatformProps(), componentContracts.countrySelector.props.map((prop) => prop.name));
@@ -848,35 +846,6 @@ for (const contract of Object.values(componentContracts)) {
   assert.ok(contract.accessibility.length >= 3);
 }
 
-let selectedCountryMeta = null;
-const countrySelector = createCountrySelector({
-  label: "Country",
-  value: "MX",
-  onValueChange: (countryCode, meta) => { selectedCountryMeta = { countryCode, meta }; },
-});
-assert.equal(countrySelector.className, "select-control country-selector");
-assert.equal(countrySelector.dataset.country, "MX");
-assert.equal(countrySelector.querySelector(".country-selector__trigger").attributes.role, "combobox");
-assert.equal(countrySelector.querySelector(".country-selector__trigger").attributes["aria-expanded"], "false");
-assert.equal(countrySelector.querySelector(".country-selector__label").textContent, "Mexico");
-assert.equal(countrySelector.querySelector(".country-selector__code").textContent, "+52");
-assert.equal(countrySelector.querySelectorAll(".country-selector__option").length, 10);
-assert.equal(countrySelector.querySelector(".country-selector__option-check").textContent, "check");
-countrySelector.querySelector(".country-selector__trigger").click();
-assert.equal(countrySelector.dataset.open, "true");
-countrySelector.querySelector(".country-selector__search-input").value = "zzzz";
-countrySelector.querySelector(".country-selector__search-input").dispatchEvent({ type: "input" });
-assert.equal(countrySelector.querySelector(".country-selector__empty").hidden, false);
-const cubaCountryOption = countrySelector.querySelectorAll(".country-selector__option")[9];
-cubaCountryOption.dispatchEvent({ type: "keydown", key: "Enter", preventDefault() { this.defaultPrevented = true; } });
-assert.equal(countrySelector.dataset.country, "CU");
-assert.equal(countrySelector.dataset.value, "CU");
-assert.equal(countrySelector.querySelector(".country-selector__label").textContent, "Cuba");
-assert.equal(countrySelector.querySelector(".country-selector__code").textContent, "+53");
-assert.equal(selectedCountryMeta.countryCode, "CU");
-assert.equal(selectedCountryMeta.meta.callingCode, "+53");
-hydrateCountrySelector(countrySelector);
-assert.equal(countrySelector.__countrySelectorHydrated, true);
 assert.ok(listCountryFlags().length > 200);
 assert.equal(hasCountryFlag("MX"), true);
 assert.equal(hasCountryFlag("ZZ"), false);
