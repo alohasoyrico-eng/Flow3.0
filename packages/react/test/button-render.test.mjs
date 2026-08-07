@@ -1885,7 +1885,7 @@ const formDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
 assert.match(formDrawerMarkup, /data-variant="filter"/);
 assert.match(formDrawerMarkup, /class="drawer__body"/);
 assert.match(formDrawerMarkup, /class="field"/);
-assert.match(formDrawerMarkup, /data-density="md"/);
+assert.doesNotMatch(formDrawerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(formDrawerMarkup, /value="Diesel"/);
 
 const comboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {

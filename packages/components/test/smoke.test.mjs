@@ -611,7 +611,6 @@ assert.deepEqual(Object.keys(menuPlatformAdapters), ["react"]);
 assert.equal(menuPlatformAdapters.react.componentName, "Menu");
 assert.equal(menuPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.drawer.factory, "@design-system/react/drawer");
-assert.equal(componentContracts.drawer.internalFactory, "createDrawer");
 assert.equal(drawerPlatformContract.id, "drawer");
 assert.equal(drawerPlatformContract.source.factory, componentContracts.drawer.factory);
 assert.deepEqual(drawerPlatformProps(), componentContracts.drawer.props.map((prop) => prop.name));

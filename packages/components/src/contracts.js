@@ -740,7 +740,6 @@ export const componentContracts = {
   },
   drawer: {
     factory: "@design-system/react/drawer",
-    internalFactory: "createDrawer",
     element: "div",
     purpose: "Mount one side drawer surface with trigger, dialog semantics, header, body, and local actions.",
     variants: ["side-sheet", "filter", "detail", "edit", "review"],

@@ -69,7 +69,7 @@ export const Drawer = forwardRef(function Drawer({
   variant = "side-sheet",
   state = "closed",
   tone = "neutral",
-  density = "md",
+  density,
   side = "right",
   fields = [],
   content = [],
@@ -87,7 +87,7 @@ export const Drawer = forwardRef(function Drawer({
   const resolvedVariant = normalize(variant, validVariants, "side-sheet");
   const initialState = normalize(state, validStates, "closed");
   const resolvedTone = normalize(tone, validTones, "neutral");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const resolvedSide = normalize(side, validSides, "right");
   const initiallyOpen = Boolean(open);
   const [isOpen, setIsOpenState] = useState(initiallyOpen);

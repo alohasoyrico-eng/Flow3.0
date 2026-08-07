@@ -73,11 +73,9 @@ const moduleRules = [
   {
     id: "overlays",
     file: "packages/components/src/components/overlays.js",
-    exports: [
-      "createDrawer",
-    ],
+    exports: [],
     publicExports: [],
-    internalExports: ["createDrawer"],
+    internalExports: [],
   },
   {
     id: "specialized-inputs",
