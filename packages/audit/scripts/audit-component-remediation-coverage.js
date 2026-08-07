@@ -177,7 +177,6 @@ function kebabToFactoryName(id) {
     chip: "createTransitionalChip",
     "empty-state": "createEmptyState",
     "error-panel": "createErrorPanel",
-    "inline-validation": "createInlineValidation",
     input: "createTransitionalFieldInput",
     select: "createTransitionalFieldSelect",
     "radio-button": "createTransitionalChoiceRadioButton",

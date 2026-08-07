@@ -3,6 +3,7 @@ import { inlineValidationPlatformContract } from "@design-system/components/plat
 import { Input } from "./Input.js";
 
 const validStates = new Set(["default", "info", "success", "warning", "error", "disabled"]);
+const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalizeState(state) {
   return validStates.has(state) ? state : "default";
@@ -27,6 +28,7 @@ export const InlineValidation = forwardRef(function InlineValidation({
 }, ref) {
   const generatedId = useId();
   const resolvedState = normalizeState(state);
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const showField = field ?? value !== "";
   const fieldId = id || `inline-validation-${slug(label)}-${generatedId}`;
   const messageId = `${fieldId}-message`;
@@ -44,7 +46,7 @@ export const InlineValidation = forwardRef(function InlineValidation({
       className: ["inline-validation", className].filter(Boolean).join(" "),
       "aria-label": !showField && label ? label : rest["aria-label"],
       "data-state": resolvedState,
-      "data-density": density,
+      "data-density": resolvedDensity,
       "data-full-width": String(Boolean(fullWidth)),
       "data-field": String(Boolean(showField)),
     },
@@ -54,7 +56,7 @@ export const InlineValidation = forwardRef(function InlineValidation({
           value,
           state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : value ? "filled" : "default",
           disabled: resolvedState === "disabled",
-          density,
+          density: resolvedDensity,
           id: fieldId,
           "aria-describedby": message ? messageId : undefined,
           "aria-invalid": resolvedState === "error" ? "true" : undefined,

@@ -108,9 +108,9 @@ const moduleRules = [
   {
     id: "surfaces",
     file: "packages/components/src/components/surfaces.js",
-    exports: ["createInlineValidation"],
+    exports: [],
     publicExports: [],
-    internalExports: ["createInlineValidation"],
+    internalExports: [],
   },
 ];
 

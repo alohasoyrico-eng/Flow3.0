@@ -1108,7 +1108,6 @@ export const componentContracts = {
   },
   inlineValidation: {
     factory: "@design-system/react/inline-validation",
-    internalFactory: "createInlineValidation",
     element: "div",
     purpose: "Pair one field with inline validation copy and state without owning form submission.",
     variants: ["info", "success", "warning", "error"],

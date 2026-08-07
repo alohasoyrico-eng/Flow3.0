@@ -752,7 +752,6 @@ assert.deepEqual(Object.keys(errorPanelPlatformAdapters), ["react"]);
 assert.equal(errorPanelPlatformAdapters.react.componentName, "ErrorPanel");
 assert.equal(errorPanelPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.inlineValidation.factory, "@design-system/react/inline-validation");
-assert.equal(componentContracts.inlineValidation.internalFactory, "createInlineValidation");
 assert.equal(inlineValidationPlatformContract.id, "inline-validation");
 assert.equal(inlineValidationPlatformContract.source.factory, componentContracts.inlineValidation.factory);
 assert.deepEqual(inlineValidationPlatformProps(), componentContracts.inlineValidation.props.map((prop) => prop.name));

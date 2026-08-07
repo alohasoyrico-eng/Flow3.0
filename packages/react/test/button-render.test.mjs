@@ -1452,6 +1452,13 @@ assert.match(inlineValidationMarkup, /role="alert"/);
 assert.match(inlineValidationMarkup, /class="field"/);
 assert.match(inlineValidationMarkup, /data-density="sm"/);
 
+const inheritedInlineValidationMarkup = renderToStaticMarkup(React.createElement(InlineValidation, {
+  label: "Inherited inline density",
+  value: "Alex",
+}));
+assert.doesNotMatch(inheritedInlineValidationMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(inheritedInlineValidationMarkup.match(/<label[^>]+class="field"[^>]*>/)?.[0] ?? "", /data-density=/);
+
 const cardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput, {
   label: "Card number",
   helper: "Use the number printed on the front of the card.",

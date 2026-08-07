@@ -320,6 +320,21 @@ function checkReactOnlyComponentBoundaries() {
       pattern: /import\s*\{[^}]*createFloatingActionButton[^}]*\}|createFloatingActionButton\(/,
       message: "Floating Action Button smoke coverage must use React render tests, not the removed DOM factory.",
     },
+    {
+      file: surfacesFile,
+      pattern: /export function createInlineValidation\b/,
+      message: "Inline Validation must not reintroduce a DOM factory; React InlineValidation is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createInlineValidation"/,
+      message: "Inline Validation contract must not name a DOM internalFactory; React InlineValidation owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createInlineValidation[^}]*\}|createInlineValidation\(/,
+      message: "Inline Validation smoke coverage must use React render tests, not the removed DOM factory.",
+    },
   ];
   for (const check of checks) {
     if (!fs.existsSync(check.file)) continue;
