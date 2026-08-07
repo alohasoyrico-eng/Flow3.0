@@ -1704,6 +1704,15 @@ const inheritedInlineValidationMarkup = renderToStaticMarkup(React.createElement
 }));
 assert.doesNotMatch(inheritedInlineValidationMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedInlineValidationMarkup.match(/<label[^>]+class="field"[^>]*>/)?.[0] ?? "", /data-density=/);
+const unnamedInlineValidationMarkup = renderToStaticMarkup(React.createElement(InlineValidation, {
+  value: "Alex",
+}));
+assert.doesNotMatch(unnamedInlineValidationMarkup, /aria-label="Input"/);
+const explicitInlineValidationFieldMarkup = renderToStaticMarkup(React.createElement(InlineValidation, {
+  value: "Alex",
+  fieldAriaLabel: "Driver field",
+}));
+assert.match(explicitInlineValidationFieldMarkup, /aria-label="Driver field"/);
 
 const cardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput, {
   label: "Card number",

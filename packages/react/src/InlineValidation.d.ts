@@ -13,6 +13,7 @@ export interface InlineValidationProps extends Omit<HTMLAttributes<HTMLDivElemen
   density?: InlineValidationDensity;
   fullWidth?: boolean;
   field?: boolean;
+  fieldAriaLabel?: string;
   live?: boolean;
 }
 
