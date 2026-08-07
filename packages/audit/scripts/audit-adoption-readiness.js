@@ -86,13 +86,13 @@ function checkCoreExports(rootPackage, componentsPackage, tokensPackage) {
     "./components/contracts": "./packages/components/src/contracts.js",
     "./components/platforms": "./packages/components/src/platforms/index.js",
     "./components/styles.css": "./packages/components/styles/components.css",
-    "./react": "./packages/react/dist/index.js",
+    "./react": { types: "./packages/react/dist/index.d.ts", default: "./packages/react/dist/index.js" },
   };
   for (const [key, target] of Object.entries(requiredRootExports)) {
-    if (rootPackage.exports?.[key] !== target) {
+    if (!sameExport(rootPackage.exports?.[key], target)) {
       add("errors", rootPackageFile, 1, `Root package must export ${key} to ${target}.`);
     }
-    checkTargetExists(rootPackageFile, target, `Root package export ${key}`);
+    for (const exportTarget of exportTargets(target)) checkTargetExists(rootPackageFile, exportTarget, `Root package export ${key}`);
   }
 
   for (const key of [".", "./contracts", "./platforms", "./styles.css"]) {
@@ -116,12 +116,15 @@ function checkReactExportParity(rootPackage, reactPackage, reactIndex, reactType
     const target = typeof reactExport === "string" ? reactExport : reactExport.default;
     const typesTarget = typeof reactExport === "object" ? reactExport.types : "";
     const expectedRootTarget = `./packages/react/${target.replace(/^\.\//, "")}`;
+    const expectedRootTypes = typesTarget ? `./packages/react/${typesTarget.replace(/^\.\//, "")}` : "";
+    const rootExport = rootExports[rootKey];
 
-    if (rootExports[rootKey] !== expectedRootTarget) {
+    if (!rootExport || rootExport.default !== expectedRootTarget || rootExport.types !== expectedRootTypes) {
       add("errors", rootPackageFile, 1, `Root package must mirror @design-system/react export ${reactKey} as ${rootKey}.`);
     }
     checkTargetExists(rootPackageFile, expectedRootTarget, `Root package export ${rootKey}`);
-    if (typesTarget) checkTargetExists(reactPackageFile, `./packages/react/${typesTarget.replace(/^\.\//, "")}`, `React type export ${reactKey}`);
+    if (expectedRootTypes) checkTargetExists(rootPackageFile, expectedRootTypes, `Root package type export ${rootKey}`);
+    if (typesTarget) checkTargetExists(reactPackageFile, expectedRootTypes, `React type export ${reactKey}`);
   }
 
   const componentFiles = fs.readdirSync(path.join(root, "packages/react/src"))
@@ -136,6 +139,15 @@ function checkReactExportParity(rootPackage, reactPackage, reactIndex, reactType
       add("errors", reactTypesIndexFile, 1, `React type index must export ${exportName}Props.`);
     }
   }
+}
+
+function sameExport(actual, expected) {
+  if (typeof expected === "string") return actual === expected;
+  return actual?.default === expected.default && actual?.types === expected.types;
+}
+
+function exportTargets(value) {
+  return typeof value === "string" ? [value] : [value.default, value.types].filter(Boolean);
 }
 
 function checkReactPackageTargets(reactPackage) {

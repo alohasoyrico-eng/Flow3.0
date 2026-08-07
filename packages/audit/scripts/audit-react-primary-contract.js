@@ -164,8 +164,11 @@ function checkReactComponent(file, shared) {
   if (!reactExport || reactExport.default !== `./dist/${file}` || reactExport.types !== `./dist/${typeFile}`) {
     add("errors", reactPackageFile, 1, `@design-system/react must export ${packagePath} with default and types dist targets.`);
   }
-  if (shared.rootPackage.exports?.[rootPackagePath] !== `./packages/react/dist/${file}`) {
-    add("errors", rootPackageFile, 1, `Root package must export ${rootPackagePath} to React dist.`);
+  const rootReactExport = shared.rootPackage.exports?.[rootPackagePath];
+  const expectedRootDefault = `./packages/react/dist/${file}`;
+  const expectedRootTypes = `./packages/react/dist/${typeFile}`;
+  if (!rootReactExport || rootReactExport.default !== expectedRootDefault || rootReactExport.types !== expectedRootTypes) {
+    add("errors", rootPackageFile, 1, `Root package must export ${rootPackagePath} with React dist default and types targets.`);
   }
 
   for (const [artifact, artifactSource] of [[distFile, dist], [distTypesFile, distTypes]]) {
@@ -198,16 +201,13 @@ function checkReactComponent(file, shared) {
 
 function checkRestPropContract({ name, sourceFile, source }) {
   const directRestSpread = source.search(/^\s*\.\.\.rest,\s*$/m);
-  if (directRestSpread >= 0) {
-    add("errors", sourceFile, 1, `${name} React source must sanitize rest props with flowRestProps(rest) so style cannot bypass Flow tokens.`);
-  }
+  if (directRestSpread >= 0) add("errors", sourceFile, 1, `${name} React source must sanitize rest props with flowRestProps(rest) so style cannot bypass Flow tokens.`);
 }
 
 function checkStylePropTypeContract({ name, typesFile, types }) {
   for (const match of types.matchAll(/^export interface ([A-Za-z][A-Za-z0-9]*) extends ([^{]+)\{/gm)) {
     const [, interfaceName, inheritedTypes] = match;
-    if (!/(?:^|[^A-Za-z])(?:HTMLAttributes|ButtonHTMLAttributes|InputHTMLAttributes|TextareaHTMLAttributes)\b/.test(inheritedTypes)) continue;
-    if (inheritedTypes.includes('"style"')) continue;
+    if (!/(?:^|[^A-Za-z])(?:HTMLAttributes|ButtonHTMLAttributes|InputHTMLAttributes|TextareaHTMLAttributes)\b/.test(inheritedTypes) || inheritedTypes.includes('"style"')) continue;
     add("errors", typesFile, 1, `${name} React type ${interfaceName} must omit inherited style so product code cannot bypass Flow tokens.`);
   }
 }
@@ -225,9 +225,7 @@ function checkPublishedLocalImports({ name, artifact, artifactSource }) {
 
 function checkInlineStyleContract({ name, sourceFile, source }) {
   const restStyleIndex = source.search(/\brest\.style\b/);
-  if (restStyleIndex >= 0) {
-    add("errors", sourceFile, lineForIndex(source, restStyleIndex), `${name} React source must not merge rest.style into component-owned inline variables; expose Flow props/tokens instead.`);
-  }
+  if (restStyleIndex >= 0) add("errors", sourceFile, 1, `${name} React source must not merge rest.style into component-owned inline variables; expose Flow props/tokens instead.`);
   for (const match of source.matchAll(/style:\s*\{([\s\S]*?)\}/g)) {
     const body = match[1];
     const chunk = source.slice(match.index, match.index + 360);
