@@ -80,7 +80,8 @@ export const componentContracts = {
       { name: "inputMode", type: "string", required: false },
       { name: "autocomplete", type: "string", required: false },
       { name: "align", type: "\"start\" | \"end\"", required: false },
-      { name: "revealable", type: "boolean", required: false }
+      { name: "revealable", type: "boolean", required: false },
+      { name: "onValueChange", type: "(value: string, meta: InputValueMeta) => void", required: false }
     ],
     accessibility: [
       "Keep the visible label associated with the input.",
@@ -296,7 +297,8 @@ export const componentContracts = {
       { name: "disabled", type: "boolean", required: false },
       { name: "name", type: "string", required: false },
       { name: "value", type: "string", required: false },
-      { name: "required", type: "boolean", required: false }
+      { name: "required", type: "boolean", required: false },
+      { name: "onCheckedChange", type: "(checked: boolean, meta: CheckboxValueMeta) => void", required: false }
     ],
     accessibility: [
       "Use native checkbox input semantics.",
@@ -320,7 +322,8 @@ export const componentContracts = {
       { name: "checked", type: "boolean", required: false },
       { name: "disabled", type: "boolean", required: false },
       { name: "name", type: "string", required: false },
-      { name: "required", type: "boolean", required: false }
+      { name: "required", type: "boolean", required: false },
+      { name: "onCheckedChange", type: "(checked: boolean, meta: SwitchValueMeta) => void", required: false }
     ],
     accessibility: [
       "Use role switch on the native checkbox input.",
@@ -346,7 +349,8 @@ export const componentContracts = {
       { name: "disabled", type: "boolean", required: false },
       { name: "name", type: "string", required: true },
       { name: "value", type: "string", required: false },
-      { name: "required", type: "boolean", required: false }
+      { name: "required", type: "boolean", required: false },
+      { name: "onCheckedChange", type: "(checked: boolean, meta: RadioButtonValueMeta) => void", required: false }
     ],
     accessibility: [
       "Use native radio input semantics.",

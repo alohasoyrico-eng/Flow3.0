@@ -64,6 +64,7 @@ function checkReactPrimaryContract() {
       reactTypesIndex,
       reactPackage,
       rootPackage,
+      componentContractsSource,
     });
   }
 
@@ -116,6 +117,8 @@ function checkReactComponent(file, shared) {
   const propsName = `${name}Props`;
   const componentName = `${name}Component`;
   const contractName = `${lowerFirst(name)}PlatformContract`;
+  const contractKey = lowerFirst(name);
+  const contractBody = contractBodyFor(shared.componentContractsSource, contractKey);
 
   for (const requiredFile of [typesFile, distFile, distTypesFile]) {
     if (!fs.existsSync(requiredFile)) {
@@ -149,6 +152,7 @@ function checkReactComponent(file, shared) {
     }
   }
 
+  checkPublicCallbackContract({ name, typesFile, types, contractBody });
   if (!shared.reactIndex.includes(`export { ${name} } from "./${file}"`)) {
     add("errors", reactIndexFile, 1, `React index must export ${name} from ${file}.`);
   }
@@ -186,6 +190,17 @@ function checkReactComponent(file, shared) {
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {
     add("errors", sourceFile, 1, `${name} React source imports non-primitive implementation helpers from components: ${illegalImports.join(", ")}.`);
+  }
+}
+
+function checkPublicCallbackContract({ name, typesFile, types, contractBody }) {
+  const propsBody = types.match(new RegExp(`export interface ${name}Props[^\\\\{]*\\\\{([\\\\s\\\\S]*?)\\\\n\\\\}`))?.[1] ?? "";
+  if (!propsBody || !contractBody) return;
+  const publicCallbacks = [...propsBody.matchAll(/^\s*(on[A-Z][A-Za-z0-9]*)\??:/gm)]
+    .map((match) => match[1]);
+  const missing = publicCallbacks.filter((callbackName) => !contractBody.includes(`{ name: "${callbackName}"`));
+  if (missing.length) {
+    add("errors", typesFile, 1, `${name} React types expose public callbacks missing from component contract: ${missing.join(", ")}.`);
   }
 }
 
@@ -350,6 +365,12 @@ function pascal(value) {
 
 function lowerFirst(value) {
   return `${value.charAt(0).toLowerCase()}${value.slice(1)}`;
+}
+
+function contractBodyFor(source, contractKey) {
+  if (!source) return "";
+  const match = source.match(new RegExp(`^\\\\s+${contractKey}:\\\\s*\\\\{([\\\\s\\\\S]*?)(?=^\\\\s+[a-z][A-Za-z0-9]*:\\\\s*\\\\{|\\\\n\\\\};)`, "m"));
+  return match?.[1] ?? "";
 }
 
 module.exports = { checkReactPrimaryContract };
