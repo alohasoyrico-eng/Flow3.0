@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 31,
-    "review": 25,
+    "pass": 32,
+    "review": 24,
     "fail": 0,
-    "missingTestCallbacks": 33
+    "missingTestCallbacks": 31
   },
   "components": [
     {
@@ -324,13 +324,13 @@
         "onOpenChange",
         "onValueChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onOpenChange",
         "onValueChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Dialog",

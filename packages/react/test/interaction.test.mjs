@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -326,6 +326,28 @@ try {
   await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(dateValues, ["2026-07-15"]);
   assert.deepEqual(dateOpenChanges, [true, false]);
+
+  cleanup();
+
+  const dateRangeValues = [];
+  const dateRangeOpenChanges = [];
+  const { getByRole: getDateRangeRole } = render(React.createElement(DateRangePicker, {
+    label: "Service range",
+    from: "2026-07-01",
+    presets: false,
+    onValueChange: (value) => dateRangeValues.push(value),
+    onOpenChange: (open) => dateRangeOpenChanges.push(open),
+  }));
+
+  const dateRangeTrigger = getDateRangeRole("button", { name: /service range/i });
+  fireEvent.click(dateRangeTrigger);
+  assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "true");
+  assert.deepEqual(dateRangeOpenChanges, [true]);
+
+  fireEvent.click(getDateRangeRole("gridcell", { name: /miércoles, 15 de julio de 2026/i }));
+  await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(dateRangeValues, [{ from: "2026-07-01", to: "2026-07-15" }]);
+  assert.deepEqual(dateRangeOpenChanges, [true, false]);
 } finally {
   cleanup();
   dom.window.close();
