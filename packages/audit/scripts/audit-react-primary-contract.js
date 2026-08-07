@@ -16,6 +16,16 @@ const allowedPrimitiveImports = new Set([
   "resolveCountryCallingCodeOption",
 ]);
 
+const allowedInlineStyleKeys = [
+  "--chart-index",
+  "--chart-target",
+  "--chart-value",
+  "--comp-segmented-control-count",
+  "--comp-segmented-control-index",
+  "--comp-tree-view-depth-offset",
+  "--progress-value",
+];
+
 function checkReactPrimaryContract() {
   const reactIndex = read(reactIndexFile);
   const reactTypesIndex = read(reactTypesIndexFile);
@@ -115,6 +125,7 @@ function checkReactComponent(file, shared) {
   if (source.includes("innerHTML") || source.includes("insertAdjacentHTML")) {
     add("errors", sourceFile, 1, `${name} React source must not inject HTML strings as a parallel DOM implementation.`);
   }
+  checkInlineStyleContract({ name, sourceFile, source });
   if (source.includes("createTransitional") || source.includes("createCard(") || source.includes("createTable(")) {
     add("errors", sourceFile, 1, `${name} React source must not call component DOM factories; React is the primary implementation.`);
   }
@@ -122,6 +133,24 @@ function checkReactComponent(file, shared) {
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {
     add("errors", sourceFile, 1, `${name} React source imports non-primitive implementation helpers from components: ${illegalImports.join(", ")}.`);
+  }
+}
+
+function checkInlineStyleContract({ name, sourceFile, source }) {
+  for (const match of source.matchAll(/style:\s*\{([\s\S]*?)\}/g)) {
+    const body = match[1];
+    const chunk = source.slice(match.index, match.index + 360);
+    const inlineKeys = [...body.matchAll(/(?:"([^"]+)"|'([^']+)'|([A-Za-z_$][\w$-]*))\s*:/g)]
+      .map((keyMatch) => keyMatch[1] ?? keyMatch[2] ?? keyMatch[3])
+      .filter(Boolean);
+    const illegalKeys = inlineKeys.filter((key) => !allowedInlineStyleKeys.includes(key));
+    if (illegalKeys.length) {
+      add("errors", sourceFile, 1, `${name} React source must not own inline visual styles (${illegalKeys.join(", ")}); use Flow tokens/classes and reserve style for approved dynamic CSS custom properties.`);
+    }
+    const spreadCount = (body.match(/\.\.\./g) ?? []).length;
+    if (spreadCount > 1 || (spreadCount === 1 && !chunk.includes("...(rest.style ?? {})"))) {
+      add("errors", sourceFile, 1, `${name} React source must not merge arbitrary inline style objects except top-level rest.style passthrough when dynamic CSS variables are required.`);
+    }
   }
 }
 
