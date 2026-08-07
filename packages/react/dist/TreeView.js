@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { treeViewPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 
@@ -45,13 +45,14 @@ export const TreeView = forwardRef(function TreeView({
   nodes = [],
   state = "expanded",
   density,
-  selectedKey = "",
+  selectedKey,
   onSelect,
   onExpandedChange,
   className = "",
   ...rest
 }, ref) {
   const normalizedNodes = useMemo(() => normalizeNodes(nodes), [nodes]);
+  const isSelectedKeyControlled = selectedKey !== undefined;
   const [selected, setSelected] = useState(() => selectedKey || normalizedNodes.find((node) => node.selected)?.key || "");
   const [expanded, setExpanded] = useState(() => normalizedNodes.filter((node) => node.expanded).map((node) => node.key));
   const controlRefs = useRef(new Map());
@@ -59,10 +60,14 @@ export const TreeView = forwardRef(function TreeView({
   const resolvedState = normalize(state, validStates, "expanded");
   const visible = visibleKeys(normalizedNodes, expanded);
 
+  useEffect(() => {
+    if (isSelectedKeyControlled) setSelected(selectedKey || "");
+  }, [isSelectedKeyControlled, selectedKey]);
+
   const focusKey = (key) => requestAnimationFrame(() => controlRefs.current.get(key)?.focus());
   const commitSelected = (node) => {
     if (!node || node.disabled) return;
-    setSelected(node.key);
+    if (!isSelectedKeyControlled) setSelected(node.key);
     onSelect?.(node.key);
     focusKey(node.key);
   };

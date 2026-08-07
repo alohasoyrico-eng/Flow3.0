@@ -1070,7 +1070,7 @@ try {
     { id: "unit-31", plate: "XYZ-789", driver: "Luis" },
   ];
   const rowSelections = [];
-  const { container: selectableTableContainer } = render(React.createElement(Table, {
+  const { container: selectableTableContainer, rerender: rerenderTable } = render(React.createElement(Table, {
     label: "Vehicles",
     variant: "selectable",
     columns: tableColumns,
@@ -1081,6 +1081,16 @@ try {
   fireEvent.click(selectableTableContainer.querySelector('tr[data-key="unit-31"]'));
   assert.deepEqual(rowSelections, ["unit-31"]);
   assert.equal(selectableTableContainer.querySelector('tr[data-key="unit-31"]').getAttribute("data-selected"), "true");
+
+  rerenderTable(React.createElement(Table, {
+    label: "Vehicles",
+    variant: "selectable",
+    selectedKey: "unit-24",
+    columns: tableColumns,
+    rows: tableRows,
+    onRowSelect: (key) => rowSelections.push(key),
+  }));
+  await waitFor(() => assert.equal(selectableTableContainer.querySelector('tr[data-key="unit-24"]').getAttribute("data-selected"), "true"));
 
   cleanup();
 
@@ -1226,7 +1236,7 @@ try {
 
   const treeSelections = [];
   const treeExpandedChanges = [];
-  const { getByRole: getTreeRole } = render(React.createElement(TreeView, {
+  const { getByRole: getTreeRole, rerender: rerenderTreeView } = render(React.createElement(TreeView, {
     label: "Docs navigation",
     nodes: [
       { key: "components", label: "Components", level: 1, expanded: false, icon: "category" },
@@ -1247,6 +1257,19 @@ try {
   fireEvent.keyDown(componentsTreeItem, { key: "ArrowLeft" });
   await waitFor(() => assert.equal(componentsTreeItem.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(treeExpandedChanges, [["components"], []]);
+
+  rerenderTreeView(React.createElement(TreeView, {
+    label: "Docs navigation",
+    selectedKey: "input",
+    nodes: [
+      { key: "components", label: "Components", level: 1, expanded: true, icon: "category" },
+      { key: "button", label: "Button", level: 2 },
+      { key: "input", label: "Input", level: 2 },
+    ],
+    onSelect: (key) => treeSelections.push(key),
+    onExpandedChange: (keys) => treeExpandedChanges.push(keys),
+  }));
+  await waitFor(() => assert.equal(document.querySelector('[data-key="input"] [role="treeitem"]').getAttribute("aria-selected"), "true"));
 } finally {
   cleanup();
   dom.window.close();

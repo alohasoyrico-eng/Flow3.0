@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { tablePlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 
@@ -39,7 +39,7 @@ export const Table = forwardRef(function Table({
   dense = false,
   sortKey = "",
   sortDir = "ascending",
-  selectedKey = "",
+  selectedKey,
   expandedKey = "",
   renderDetail,
   onSortChange,
@@ -54,9 +54,14 @@ export const Table = forwardRef(function Table({
   const sortable = resolvedVariant === "sortable" || columns.some((column) => column.sortable);
   const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
   const expandable = resolvedVariant === "expandable" || Boolean(renderDetail || expandedKey);
+  const isSelectedKeyControlled = selectedKey !== undefined;
   const [currentSort, setCurrentSort] = useState({ key: sortKey, direction: sortDir });
   const [currentSelected, setCurrentSelected] = useState(String(selectedKey || ""));
   const [currentExpanded, setCurrentExpanded] = useState(String(expandedKey || (initialState === "expanded" ? rows[0]?.[rowKey] ?? "" : "")));
+
+  useEffect(() => {
+    if (isSelectedKeyControlled) setCurrentSelected(String(selectedKey || ""));
+  }, [isSelectedKeyControlled, selectedKey]);
 
   const sortedRows = useMemo(() => {
     if (!currentSort.key) return [...rows];
@@ -80,7 +85,7 @@ export const Table = forwardRef(function Table({
     onSortChange?.({ key, direction });
   };
   const selectRow = (key) => {
-    setCurrentSelected(String(key));
+    if (!isSelectedKeyControlled) setCurrentSelected(String(key));
     onRowSelect?.(String(key));
   };
   const toggleExpanded = (key) => {
