@@ -554,6 +554,12 @@ assert.match(passiveListMarkup, /<span class="list__item"/);
 assert.doesNotMatch(passiveListMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(passiveListMarkup, /<button/);
 
+const loadingListItemMarkup = renderToStaticMarkup(React.createElement(List, {
+  items: [{ key: "loading-row", state: "loading" }],
+}));
+assert.match(loadingListItemMarkup, /aria-busy="true"/);
+assert.doesNotMatch(loadingListItemMarkup, /Loading item/);
+
 const kpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
   label: "Fuel spend",
   value: "$84.2k",

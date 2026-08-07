@@ -16,6 +16,7 @@ const semanticAriaDefaultsByFile = new Map([
   ["EmptyState.js", ["Loading empty state"]],
   ["ErrorPanel.js", ["Error panel", "Loading error panel"]],
   ["Input.js", ["Show value", "Hide value", "Loading", " loading"]],
+  ["List.js", ["Loading item"]],
   ["PhoneInput.js", ["Phone input", "Country options", "Country code", "country options", "country code"]],
   ["ProgressIndicator.js", ["Progress", "In progress", "Complete", "Unavailable", "Paused at", "Error at"]],
   ["Select.js", ["Select", "Options"]],

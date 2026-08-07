@@ -65,7 +65,6 @@ export const List = forwardRef(function List({
             "data-key": isInteractive ? key : undefined,
             "aria-current": rowState === "selected" ? "true" : undefined,
             "aria-busy": rowState === "loading" ? "true" : undefined,
-            "aria-label": rowState === "loading" && !item.label ? "Loading item" : undefined,
             onClick: isInteractive ? () => {
               if (disabled) return;
               if (!isSelectedKeyControlled) setCurrentSelectedKey(key);
