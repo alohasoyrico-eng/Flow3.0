@@ -21,7 +21,7 @@ export const IconButton = forwardRef(function IconButton({
   className = "",
   ...rest
 }, ref) {
-  const resolvedLabel = ariaLabel ?? label ?? icon ?? "Action";
+  const resolvedLabel = ariaLabel ?? label ?? "";
 
   return React.createElement(
     "button",
@@ -31,7 +31,7 @@ export const IconButton = forwardRef(function IconButton({
       type: allowedTypes.has(type) ? type : "button",
       className: iconButtonClassName({ variant, className }),
       disabled,
-      "aria-label": resolvedLabel,
+      "aria-label": resolvedLabel || undefined,
       "aria-pressed": selected ? "true" : undefined,
       ...flowDensityProps(density),
     },

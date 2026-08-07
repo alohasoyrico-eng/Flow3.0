@@ -52,6 +52,7 @@ const displayFallbackTermsByFile = new Map([
   ["DatePicker.js", ["Date"]],
   ["DateRangePicker.js", ["Date range"]],
   ["FloatingActionButton.js", ["Create"]],
+  ["IconButton.js", ["Action"]],
   ["Input.js", ["Input"]],
   ["PhoneInput.js", ["Phone number"]],
   ["ProgressIndicator.js", ["Progress"]],

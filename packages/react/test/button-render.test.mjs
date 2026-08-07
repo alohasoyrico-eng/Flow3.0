@@ -1553,6 +1553,11 @@ const inheritedIconButtonMarkup = renderToStaticMarkup(React.createElement(IconB
   icon: "more_horiz",
 }));
 assert.doesNotMatch(inheritedIconButtonMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
+const unnamedIconButtonMarkup = renderToStaticMarkup(React.createElement(IconButton, {
+  icon: "settings",
+}));
+assert.doesNotMatch(unnamedIconButtonMarkup, /Action/);
+assert.doesNotMatch(unnamedIconButtonMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const inputMarkup = renderToStaticMarkup(React.createElement(Input, {
   label: "Amount",
