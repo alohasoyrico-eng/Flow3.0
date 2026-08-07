@@ -7,11 +7,11 @@ const validVariants = new Set(["single", "multiple"]);
 
 function normalizeItems(items) {
   const sourceItems = Array.isArray(items) ? items : [];
-  return sourceItems.map((item, index) => ({
+  return sourceItems.filter((item) => item?.title || item?.label || item?.ariaLabel || item?.["aria-label"]).map((item, index) => ({
     ...item,
     id: item.id || `accordion-panel-${index}`,
     title: item.title ?? item.label ?? "",
-    ariaLabel: item.ariaLabel ?? item["aria-label"] ?? "",
+    ariaLabel: item.ariaLabel ?? item["aria-label"],
     content: item.content ?? item.description ?? "",
     open: Boolean(item.open),
   }));

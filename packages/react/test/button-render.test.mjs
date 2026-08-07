@@ -539,6 +539,10 @@ const emptyAccordionMarkup = renderToStaticMarkup(React.createElement(Accordion,
 }));
 assert.doesNotMatch(emptyAccordionMarkup, /Section/);
 assert.doesNotMatch(emptyAccordionMarkup, /accordion__item/);
+const incompleteAccordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
+  items: [{ id: "ghost", content: "Panel" }],
+}));
+assert.doesNotMatch(incompleteAccordionMarkup, /accordion__item|data-accordion-trigger/);
 const unnamedAccordionItemMarkup = renderToStaticMarkup(React.createElement(Accordion, {
   items: [{ id: "empty", ariaLabel: "Consumer section", content: "Panel" }],
 }));
