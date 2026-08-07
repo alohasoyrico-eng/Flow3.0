@@ -15,14 +15,14 @@ export const List = forwardRef(function List({
   label = "",
   variant = "standard",
   state = "default",
-  density = "md",
+  density,
   onSelect,
   className = "",
   ...rest
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "standard");
   const resolvedState = normalize(state, validStates, "default");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const isInteractive = Boolean(interactive || resolvedVariant === "action" || typeof onSelect === "function");
 
   return React.createElement(
@@ -33,7 +33,7 @@ export const List = forwardRef(function List({
       className: ["list", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "data-interactive": String(isInteractive),
       role: "list",
       "aria-label": label || undefined,

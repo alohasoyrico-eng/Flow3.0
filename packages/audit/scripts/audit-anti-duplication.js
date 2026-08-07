@@ -136,6 +136,7 @@ function checkKnownDuplicateConcepts() {
 function checkReactOnlyComponentBoundaries() {
   const surfacesFile = path.join(root, "packages/components/src/components/surfaces.js");
   const commerceFile = path.join(root, "packages/components/src/components/commerce.js");
+  const displayFile = path.join(root, "packages/components/src/components/display.js");
   const contractsFile = path.join(root, "packages/components/src/contracts.js");
   const smokeFile = path.join(root, "packages/components/test/smoke.test.mjs");
   const checks = [
@@ -168,6 +169,21 @@ function checkReactOnlyComponentBoundaries() {
       file: smokeFile,
       pattern: /import\s*\{[^}]*createTable[^}]*\}|createTable\(/,
       message: "Table smoke coverage must use React render tests, not the removed DOM factory.",
+    },
+    {
+      file: displayFile,
+      pattern: /export function createList\b/,
+      message: "List must not reintroduce a DOM factory; React List is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createList"/,
+      message: "List contract must not name a DOM internalFactory; React List owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createList[^}]*\}|createList\(/,
+      message: "List smoke coverage must use React render tests, not the removed DOM factory.",
     },
   ];
   for (const check of checks) {

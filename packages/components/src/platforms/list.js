@@ -7,7 +7,6 @@ export const listPlatformContract = {
   layer: "component",
   source: {
     factory: listContract.factory,
-    internalFactory: listContract.internalFactory,
     cssClass: "list",
     contract: "@design-system/components/contracts#list",
   },

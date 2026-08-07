@@ -38,9 +38,9 @@ const moduleRules = [
   {
     id: "display",
     file: "packages/components/src/components/display.js",
-    exports: ["createAuditEvent", "createTransitionalAvatar", "createKpiTile", "createList"],
+    exports: ["createAuditEvent", "createTransitionalAvatar", "createKpiTile"],
     publicExports: [],
-    internalExports: ["createAuditEvent", "createTransitionalAvatar", "createKpiTile", "createList"],
+    internalExports: ["createAuditEvent", "createTransitionalAvatar", "createKpiTile"],
   },
   {
     id: "feedback",

@@ -185,7 +185,7 @@ import { createAnimatedMoment, createMotionBoundary } from "../src/components/mo
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
 import { createCardSummary, createChartPanel, createMovementRow, createQuickAction, createRouteSummary, createStationPin } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
-import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
+import { createKpiTile, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
@@ -699,7 +699,6 @@ assert.deepEqual(Object.keys(emptyStatePlatformAdapters), ["react"]);
 assert.equal(emptyStatePlatformAdapters.react.componentName, "EmptyState");
 assert.equal(emptyStatePlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.list.factory, "@design-system/react/list");
-assert.equal(componentContracts.list.internalFactory, "createList");
 assert.equal(listPlatformContract.id, "list");
 assert.equal(listPlatformContract.source.factory, componentContracts.list.factory);
 assert.deepEqual(listPlatformProps(), componentContracts.list.props.map((prop) => prop.name));
@@ -1829,23 +1828,6 @@ assert.equal(disabledAnimatedMoment.querySelector(".animated-moment__state").tex
 const fullAnimatedMoment = createAnimatedMoment({ label: "Desktop cue", density: "sm", fullWidth: true });
 assert.equal(fullAnimatedMoment.dataset.density, "sm");
 assert.equal(fullAnimatedMoment.dataset.fullWidth, "true");
-
-const list = createList({
-  label: "Movements",
-  density: "sm",
-  variant: "action",
-  state: "selected",
-  items: [{ key: "fuel", label: "Fuel purchase", meta: "Today", value: "$842", icon: "local_gas_station" }],
-});
-assert.equal(list.tagName, "UL");
-assert.equal(list.dataset.variant, "action");
-assert.equal(list.dataset.state, "selected");
-assert.equal(list.dataset.density, "sm");
-assert.equal(list.attributes.role, "list");
-assert.equal(list.attributes["aria-label"], "Movements");
-assert.equal(list.querySelector(".list__item").tagName, "BUTTON");
-assert.equal(list.querySelector(".list__item").attributes["aria-current"], "true");
-assert.equal(list.querySelector(".list__value").textContent, "$842");
 
 const kpiTile = createKpiTile({ label: "Fuel spend", value: "$84.2k", delta: "+12%", trend: "up", icon: "payments", variant: "delta" });
 assert.equal(kpiTile.tagName, "ARTICLE");

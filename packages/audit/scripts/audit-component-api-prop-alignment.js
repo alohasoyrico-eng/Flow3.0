@@ -42,7 +42,6 @@ const unprefixedFactoryNames = new Map([
   ["date-range-picker", "createTransitionalDateRangePicker"],
   ["skeleton", "createSkeleton"],
   ["avatar", "createTransitionalAvatar"],
-  ["list", "createList"],
   ["kpi-tile", "createKpiTile"],
   ["audit-event", "createAuditEvent"],
   ["chart-panel", "createChartPanel"],

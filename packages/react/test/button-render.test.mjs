@@ -458,6 +458,7 @@ const passiveListMarkup = renderToStaticMarkup(React.createElement(List, {
   items: [{ label: "Ana Sosa", meta: "Driver", value: "Active" }],
 }));
 assert.match(passiveListMarkup, /<span class="list__item"/);
+assert.doesNotMatch(passiveListMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(passiveListMarkup, /<button/);
 
 const kpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {

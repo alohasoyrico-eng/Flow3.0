@@ -34,7 +34,6 @@ const directDensityComponents = [
   { id: "errorPanel", factory: "createErrorPanel", source: "feedback", selector: '.error-panel[data-density="sm"]', token: "--comp-error-panel-icon-size" },
   { id: "dialog", factory: "createDialog", source: "overlays", selector: '.dialog[data-density="sm"]', token: "--comp-dialog-icon-size" },
   { id: "drawer", factory: "createDrawer", source: "overlays", selector: '.drawer[data-density="sm"]', token: "--comp-drawer-panel-padding" },
-  { id: "list", factory: "createList", source: "display", selector: '.list[data-density="sm"]', token: "--list-item-padding" },
   { id: "kpiTile", factory: "createKpiTile", source: "display", selector: '.kpi-tile[data-density="sm"]', token: "--comp-kpi-tile-padding" },
   { id: "menu", factory: "createMenu", source: "overlays", selector: '.menu[data-density="sm"]', token: "--comp-menu-item-height" },
   { id: "breadcrumbs", factory: "createBreadcrumbs", source: "navigation", selector: '.breadcrumbs[data-density="sm"]', token: "--comp-breadcrumbs-target-block" },

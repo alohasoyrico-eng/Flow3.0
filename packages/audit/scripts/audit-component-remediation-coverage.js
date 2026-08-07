@@ -195,7 +195,6 @@ function kebabToFactoryName(id) {
     "date-range-picker": "createTransitionalDateRangePicker",
     skeleton: "createSkeleton",
     avatar: "createTransitionalAvatar",
-    list: "createList",
     "kpi-tile": "createKpiTile",
     "audit-event": "createAuditEvent",
     "chart-panel": "createChartPanel",

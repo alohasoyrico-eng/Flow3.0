@@ -927,7 +927,6 @@ export const componentContracts = {
   },
   list: {
     factory: "@design-system/react/list",
-    internalFactory: "createList",
     element: "ul",
     purpose: "Render a bounded collection of rows with label, metadata, optional icon, and optional value.",
     variants: ["standard", "compact", "action", "status", "media"],
