@@ -117,7 +117,6 @@ export const Slider = forwardRef(function Slider({
         step,
         disabled: disabled || normalizedState === "disabled",
         onChange: handleChange,
-        onInput: handleChange,
         onPointerDown: handlePointerDown,
         onPointerUp: handlePointerUp,
         onPointerCancel: handlePointerUp,

@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 47,
-    "review": 9,
+    "pass": 48,
+    "review": 8,
     "fail": 0,
-    "missingTestCallbacks": 11
+    "missingTestCallbacks": 10
   },
   "components": [
     {
@@ -712,12 +712,12 @@
       "sourceCovered": [
         "onValueChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onValueChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Spinner",

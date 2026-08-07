@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -755,6 +755,38 @@ try {
   fireEvent.click(getSelectRole("option", { name: /united states/i }));
   await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(selectChanges, [{ value: "us", meta: { label: "United States", meta: "+1" } }]);
+
+  cleanup();
+
+  const sliderChanges = [];
+  const { getByRole: getSliderRole, getByText: getSliderText, rerender: rerenderSlider } = render(React.createElement(Slider, {
+    label: "Search radius",
+    value: 9,
+    min: 0,
+    max: 20,
+    step: 1,
+    unit: " km",
+    name: "radius",
+    onValueChange: (value, meta) => sliderChanges.push({ value, meta }),
+  }));
+
+  const sliderInput = getSliderRole("slider", { name: /search radius/i });
+  fireEvent.input(sliderInput, { target: { value: "12" } });
+  await waitFor(() => assert.equal(sliderInput.value, "12"));
+  getSliderText("12 km");
+  assert.deepEqual(sliderChanges, [{ value: 12, meta: { name: "radius", min: 0, max: 20, step: 1, unit: " km" } }]);
+
+  rerenderSlider(React.createElement(Slider, {
+    label: "Search radius",
+    value: 12,
+    min: 0,
+    max: 20,
+    disabled: true,
+    onValueChange: (value, meta) => sliderChanges.push({ value, meta }),
+  }));
+
+  fireEvent.input(getSliderRole("slider", { name: /search radius/i }), { target: { value: "14" } });
+  assert.equal(sliderChanges.length, 1);
 } finally {
   cleanup();
   dom.window.close();
