@@ -62,7 +62,7 @@ export const QuickAction = forwardRef(function QuickAction({
         "span",
         { className: "quick-action__icon", "aria-hidden": "true" },
         resolvedState === "loading"
-          ? React.createElement(Spinner, { label: `${resolvedLabel} loading`, density: "sm", decorative: true })
+          ? React.createElement(Spinner, { label: `${resolvedLabel} loading`, density: resolvedDensity || undefined, decorative: true })
           : icon,
       ),
     ),

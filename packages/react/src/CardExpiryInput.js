@@ -139,7 +139,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
           });
         },
       }),
-      loading ? React.createElement(Spinner, { label: `${label ?? "Expiry date"} loading`, density: "sm", decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { label: `${label ?? "Expiry date"} loading`, density, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement(

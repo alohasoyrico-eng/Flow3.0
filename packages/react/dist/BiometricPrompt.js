@@ -98,7 +98,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
       label: fallback,
       variant: "tertiary",
       disabled,
-      density: "sm",
+      density: resolvedDensity,
       "data-biometric-fallback": "",
     }),
   );

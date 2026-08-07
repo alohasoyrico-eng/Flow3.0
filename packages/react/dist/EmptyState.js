@@ -58,7 +58,7 @@ export const EmptyState = forwardRef(function EmptyState({
         "span",
         { className: "empty-state__icon", "aria-hidden": "true" },
         resolvedState === "loading"
-          ? React.createElement(Spinner, { label: "Loading empty state", density: "sm", decorative: true })
+          ? React.createElement(Spinner, { label: "Loading empty state", density: resolvedDensity || undefined, decorative: true })
           : icon,
       )
       : null,

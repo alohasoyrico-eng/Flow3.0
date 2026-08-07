@@ -47,7 +47,7 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
       "data-extended": String(isExtended),
     },
     resolvedState === "loading"
-      ? React.createElement(Spinner, { label: `${resolvedLabel} loading`, density: "sm", decorative: true })
+      ? React.createElement(Spinner, { label: `${resolvedLabel} loading`, density: resolvedDensity || undefined, decorative: true })
       : React.createElement("span", { className: "fab__icon", "aria-hidden": "true" }, icon),
     isExtended ? React.createElement("span", { className: "fab__label" }, resolvedLabel) : null,
   );

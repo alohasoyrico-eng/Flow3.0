@@ -50,7 +50,7 @@ export const Button = forwardRef(function Button({
       ? React.createElement("span", { className: "button__icon", "aria-hidden": "true" }, icon)
       : null,
     resolvedState === "loading"
-      ? React.createElement(Spinner, { label: `${label ?? "Button"} loading`, density: "sm", decorative: true })
+      ? React.createElement(Spinner, { label: `${label ?? "Button"} loading`, density, decorative: true })
       : null,
     React.createElement("span", { className: "button__label" }, buttonLabel),
     resolvedState !== "loading" && trailingIcon

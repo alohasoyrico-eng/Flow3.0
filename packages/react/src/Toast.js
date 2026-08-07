@@ -69,7 +69,7 @@ export const Toast = forwardRef(function Toast({
       ? React.createElement(Button, {
         label: actionLabel,
         variant: "ghost",
-        density: "sm",
+        density: resolvedDensity,
         className: "toast__action",
         "data-toast-action": "",
         onClick: () => onAction?.(),
