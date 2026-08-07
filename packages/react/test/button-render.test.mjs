@@ -1205,6 +1205,12 @@ assert.match(tooltipMarkup, /class="tooltip__trigger"/);
 assert.match(tooltipMarkup, /role="tooltip"/);
 assert.match(tooltipMarkup, /hidden=""/);
 
+const inheritedTooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
+  triggerLabel: "Info",
+  content: "Inherited density",
+}));
+assert.doesNotMatch(inheritedTooltipMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const openTooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
   triggerLabel: "Cost",
   content: "Cost per km",

@@ -17,7 +17,7 @@ export const Tooltip = forwardRef(function Tooltip({
   id,
   placement = "top",
   variant = "default",
-  density = "md",
+  density,
   state = "default",
   disabled = false,
   onOpenChange,
@@ -28,7 +28,7 @@ export const Tooltip = forwardRef(function Tooltip({
   const tooltipId = id || `tooltip-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const resolvedPlacement = validPlacements.has(placement) ? placement : "top";
   const resolvedVariant = validVariants.has(variant) ? variant : "default";
-  const resolvedDensity = validDensities.has(density) ? density : "md";
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const resolvedState = normalizeState({ disabled, state });
   const initiallyOpen = ["hover", "focus", "open", "disabled"].includes(resolvedState);
   const [open, setOpenState] = useState(initiallyOpen);

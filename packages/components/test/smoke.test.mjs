@@ -196,7 +196,6 @@ import {
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
 import { createTransitionalChoiceCheckbox, createTransitionalChoiceRadioButton, createTransitionalChoiceSwitch } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
-import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { createMenu } from "../src/components/overlays.js?v=5";
@@ -520,7 +519,6 @@ assert.deepEqual(Object.keys(breadcrumbsPlatformAdapters), ["react"]);
 assert.equal(breadcrumbsPlatformAdapters.react.componentName, "Breadcrumbs");
 assert.equal(breadcrumbsPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.tooltip.factory, "@design-system/react/tooltip");
-assert.equal(componentContracts.tooltip.internalFactory, "createTransitionalTooltip");
 assert.equal(tooltipPlatformContract.id, "tooltip");
 assert.equal(tooltipPlatformContract.source.factory, componentContracts.tooltip.factory);
 assert.deepEqual(tooltipPlatformProps(), componentContracts.tooltip.props.map((prop) => prop.name));
@@ -1473,41 +1471,6 @@ assert.equal(hiddenBadge.hidden, true);
 assert.equal(hiddenBadge.dataset.state, "hidden");
 const disabledBadge = createTransitionalBadge({ label: "4", state: "disabled" });
 assert.equal(disabledBadge.attributes["aria-disabled"], "true");
-
-const tooltip = createTransitionalTooltip({ triggerLabel: "Info", content: "Short help", id: "tip-1" });
-assert.equal(tooltip.tagName, "SPAN");
-assert.equal(tooltip.className, "tooltip");
-assert.equal(tooltip.dataset.density, "md");
-assert.equal(tooltip.dataset.state, "default");
-assert.equal(tooltip.dataset.variant, "default");
-assert.equal(tooltip.querySelector("button").attributes["aria-describedby"], undefined);
-assert.equal(tooltip.querySelector(".tooltip__bubble").hidden, true);
-assert.equal(tooltip.querySelector(".tooltip__bubble").attributes.role, "tooltip");
-assert.equal(tooltip.querySelector(".tooltip__bubble").id, "tip-1");
-let tooltipOpen = null;
-const interactiveTooltip = createTransitionalTooltip({
-  triggerLabel: "Help",
-  content: "Details",
-  onOpenChange(open) {
-    tooltipOpen = open;
-  },
-});
-interactiveTooltip.querySelector("button").dispatchEvent({ type: "focus" });
-assert.equal(interactiveTooltip.dataset.open, "true");
-assert.equal(interactiveTooltip.dataset.state, "focus");
-assert.equal(interactiveTooltip.querySelector("button").attributes["aria-describedby"], "tooltip-help");
-assert.equal(tooltipOpen, true);
-interactiveTooltip.querySelector("button").dispatchEvent({ type: "keydown", key: "Escape", preventDefault() { this.defaultPrevented = true; } });
-assert.equal(interactiveTooltip.dataset.open, "false");
-assert.equal(interactiveTooltip.dataset.state, "dismissed");
-assert.equal(tooltipOpen, false);
-const metricTooltip = createTransitionalTooltip({ triggerLabel: "Cost", content: "Cost per km", variant: "metric", placement: "right", state: "open" });
-assert.equal(metricTooltip.dataset.variant, "metric");
-assert.equal(metricTooltip.dataset.placement, "right");
-assert.equal(metricTooltip.dataset.open, "true");
-assert.equal(metricTooltip.querySelector(".tooltip__bubble").hidden, false);
-const compactTooltip = createTransitionalTooltip({ triggerLabel: "Compact", content: "Short help", density: "sm" });
-assert.equal(compactTooltip.dataset.density, "sm");
 
 const avatar = createTransitionalAvatar({ name: "Ana Sosa", status: "online" });
 assert.equal(avatar.tagName, "SPAN");

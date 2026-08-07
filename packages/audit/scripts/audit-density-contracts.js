@@ -26,7 +26,6 @@ const directDensityComponents = [
   { id: "switch", factory: "createTransitionalChoiceSwitch", source: "choices", selector: '.switch[data-density="sm"]', token: "--switch-track-width" },
   { id: "progressIndicator", factory: "createProgressIndicator", source: "feedback", selector: '.progress[data-density="sm"]', token: "--comp-progress-indicator-track-size" },
   { id: "spinner", factory: "createSpinner", source: "feedback", selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size" },
-  { id: "tooltip", factory: "createTransitionalTooltip", source: "overlays", selector: '.tooltip[data-density="sm"]', token: "--comp-tooltip-trigger-min-block" },
   { id: "popover", factory: "createPopover", source: "overlays", selector: '.popover[data-density="sm"]', token: "--comp-popover-panel-padding" },
   { id: "dialog", factory: "createDialog", source: "overlays", selector: '.dialog[data-density="sm"]', token: "--comp-dialog-icon-size" },
   { id: "drawer", factory: "createDrawer", source: "overlays", selector: '.drawer[data-density="sm"]', token: "--comp-drawer-panel-padding" },
