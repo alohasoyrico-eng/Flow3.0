@@ -15,7 +15,7 @@ function normalizeState(state) {
 }
 
 export const Spinner = forwardRef(function Spinner({
-  label = "Loading",
+  label = "",
   density,
   tone = "accent",
   state = "loading",
@@ -34,7 +34,7 @@ export const Spinner = forwardRef(function Spinner({
       className: ["spinner", className].filter(Boolean).join(" "),
       role: isDecorative ? undefined : "status",
       "aria-hidden": isDecorative ? "true" : undefined,
-      "aria-label": isDecorative ? undefined : label,
+      "aria-label": !isDecorative && label ? label : undefined,
       ...flowDensityProps(normalizeFlowDensity(density)),
       ...flowToneProps(normalizeTone(tone)),
       ...flowStateProps(resolvedState),

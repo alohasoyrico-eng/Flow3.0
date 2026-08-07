@@ -1072,6 +1072,9 @@ const inheritedSpinnerMarkup = renderToStaticMarkup(React.createElement(Spinner,
   label: "Loading inherited density",
 }));
 assert.doesNotMatch(inheritedSpinnerMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /data-density=/);
+const unnamedSpinnerMarkup = renderToStaticMarkup(React.createElement(Spinner));
+assert.doesNotMatch(unnamedSpinnerMarkup, /Loading/);
+assert.doesNotMatch(unnamedSpinnerMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const decorativeSpinnerMarkup = renderToStaticMarkup(React.createElement(Spinner, {
   decorative: true,
