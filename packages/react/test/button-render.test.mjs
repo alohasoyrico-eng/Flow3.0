@@ -138,6 +138,8 @@ const loadingMarkup = renderToStaticMarkup(React.createElement(Button, {
 
 assert.match(loadingMarkup, /disabled=""/);
 assert.match(loadingMarkup, /aria-busy="true"/);
+assert.match(loadingMarkup, /class="spinner/);
+assert.doesNotMatch(loadingMarkup, /Saving loading|Loading/);
 
 const fabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton, {
   label: "Add movement",
