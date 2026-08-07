@@ -741,7 +741,6 @@ assert.deepEqual(Object.keys(auditEventPlatformAdapters), ["react"]);
 assert.equal(auditEventPlatformAdapters.react.componentName, "AuditEvent");
 assert.equal(auditEventPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.errorPanel.factory, "@design-system/react/error-panel");
-assert.equal(componentContracts.errorPanel.internalFactory, "createErrorPanel");
 assert.equal(errorPanelPlatformContract.id, "error-panel");
 assert.equal(errorPanelPlatformContract.source.factory, componentContracts.errorPanel.factory);
 assert.deepEqual(errorPanelPlatformProps(), componentContracts.errorPanel.props.map((prop) => prop.name));

@@ -16,10 +16,6 @@ function normalizeState(state) {
   return validStates.has(state) ? state : "error";
 }
 
-function normalizeDensity(density) {
-  return validDensities.has(density) ? density : "md";
-}
-
 function resolveTone(state, tone) {
   if (state === "warning") return "warning";
   if (state === "critical") return "critical";
@@ -34,7 +30,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
   tone = "error",
   variant = "panel",
   state = "error",
-  density = "md",
+  density,
   fullWidth = false,
   icon = "",
   role,
@@ -44,7 +40,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
 }, ref) {
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalizeState(state);
-  const resolvedDensity = normalizeDensity(density);
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const resolvedTone = resolveTone(resolvedState, tone);
   const resolvedRole = role ?? (resolvedTone === "warning" || resolvedState === "loading" ? "status" : "alert");
   const actionLabel = action?.label;
@@ -58,7 +54,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
       role: resolvedRole,
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "data-full-width": String(Boolean(fullWidth)),
     },
     React.createElement(
@@ -78,7 +74,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
       ? React.createElement(Button, {
         ...action,
         label: actionLabel,
-        density: action.density ?? resolvedDensity,
+        density: action.density ?? (resolvedDensity || undefined),
         variant: action.variant ?? "secondary",
         disabled: resolvedState === "disabled" || action.disabled,
         loading: resolvedState === "loading" || action.loading,

@@ -1116,6 +1116,14 @@ assert.match(loadingErrorPanelMarkup, /data-state="loading"/);
 assert.match(loadingErrorPanelMarkup, /role="status"/);
 assert.match(loadingErrorPanelMarkup, /class="spinner"/);
 assert.match(loadingErrorPanelMarkup, /aria-busy="true"/);
+
+const inheritedErrorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
+  label: "Inherited error density",
+  action: { label: "Retry" },
+}));
+assert.doesNotMatch(inheritedErrorPanelMarkup.match(/^<section[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(inheritedErrorPanelMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
 assert.doesNotMatch(staticTagMarkup, /data-interactive/);
 
 const disabledTagMarkup = renderToStaticMarkup(React.createElement(Tag, {

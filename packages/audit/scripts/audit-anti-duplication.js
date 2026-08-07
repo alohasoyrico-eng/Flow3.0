@@ -134,223 +134,48 @@ function checkKnownDuplicateConcepts() {
 }
 
 function checkReactOnlyComponentBoundaries() {
-  const surfacesFile = path.join(root, "packages/components/src/components/surfaces.js");
-  const commerceFile = path.join(root, "packages/components/src/components/commerce.js");
-  const displayFile = path.join(root, "packages/components/src/components/display.js");
   const contractsFile = path.join(root, "packages/components/src/contracts.js");
   const smokeFile = path.join(root, "packages/components/test/smoke.test.mjs");
-  const checks = [
-    {
-      file: surfacesFile,
-      pattern: /export function createCard\b/,
-      message: "Card must not reintroduce a DOM factory; React Card is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createCard"/,
-      message: "Card contract must not name a DOM internalFactory; React Card owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{\s*createCard\s*\}|createCard\(/,
-      message: "Card smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: commerceFile,
-      pattern: /export function createTable\b/,
-      message: "Table must not reintroduce a DOM factory; React Table is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createTable"/,
-      message: "Table contract must not name a DOM internalFactory; React Table owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createTable[^}]*\}|createTable\(/,
-      message: "Table smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: displayFile,
-      pattern: /export function createList\b/,
-      message: "List must not reintroduce a DOM factory; React List is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createList"/,
-      message: "List contract must not name a DOM internalFactory; React List owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createList[^}]*\}|createList\(/,
-      message: "List smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: displayFile,
-      pattern: /export function createKpiTile\b/,
-      message: "KPI Tile must not reintroduce a DOM factory; React KpiTile is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createKpiTile"/,
-      message: "KPI Tile contract must not name a DOM internalFactory; React KpiTile owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createKpiTile[^}]*\}|createKpiTile\(/,
-      message: "KPI Tile smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: displayFile,
-      pattern: /export function createAuditEvent\b/,
-      message: "Audit Event must not reintroduce a DOM factory; React AuditEvent is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createAuditEvent"/,
-      message: "Audit Event contract must not name a DOM internalFactory; React AuditEvent owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createAuditEvent[^}]*\}|createAuditEvent\(/,
-      message: "Audit Event smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: commerceFile,
-      pattern: /export function createChartPanel\b/,
-      message: "Chart Panel must not reintroduce a DOM factory; React ChartPanel is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createChartPanel"/,
-      message: "Chart Panel contract must not name a DOM internalFactory; React ChartPanel owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createChartPanel[^}]*\}|createChartPanel\(/,
-      message: "Chart Panel smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: commerceFile,
-      pattern: /export function createStationPin\b/,
-      message: "Station Pin must not reintroduce a DOM factory; React StationPin is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createStationPin"/,
-      message: "Station Pin contract must not name a DOM internalFactory; React StationPin owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createStationPin[^}]*\}|createStationPin\(/,
-      message: "Station Pin smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: commerceFile,
-      pattern: /export function createRouteSummary\b/,
-      message: "Route Summary must not reintroduce a DOM factory; React RouteSummary is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createRouteSummary"/,
-      message: "Route Summary contract must not name a DOM internalFactory; React RouteSummary owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createRouteSummary[^}]*\}|createRouteSummary\(/,
-      message: "Route Summary smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: commerceFile,
-      pattern: /export function createCardSummary\b/,
-      message: "Card Summary must not reintroduce a DOM factory; React CardSummary is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createCardSummary"/,
-      message: "Card Summary contract must not name a DOM internalFactory; React CardSummary owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createCardSummary[^}]*\}|createCardSummary\(/,
-      message: "Card Summary smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: commerceFile,
-      pattern: /export function createMovementRow\b/,
-      message: "Movement Row must not reintroduce a DOM factory; React MovementRow is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createMovementRow"/,
-      message: "Movement Row contract must not name a DOM internalFactory; React MovementRow owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createMovementRow[^}]*\}|createMovementRow\(/,
-      message: "Movement Row smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: commerceFile,
-      pattern: /export function createQuickAction\b/,
-      message: "Quick Action must not reintroduce a DOM factory; React QuickAction is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createQuickAction"/,
-      message: "Quick Action contract must not name a DOM internalFactory; React QuickAction owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createQuickAction[^}]*\}|createQuickAction\(/,
-      message: "Quick Action smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: surfacesFile,
-      pattern: /export function createFloatingActionButton\b/,
-      message: "Floating Action Button must not reintroduce a DOM factory; React FloatingActionButton is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createFloatingActionButton"/,
-      message: "Floating Action Button contract must not name a DOM internalFactory; React FloatingActionButton owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createFloatingActionButton[^}]*\}|createFloatingActionButton\(/,
-      message: "Floating Action Button smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: surfacesFile,
-      pattern: /export function createInlineValidation\b/,
-      message: "Inline Validation must not reintroduce a DOM factory; React InlineValidation is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createInlineValidation"/,
-      message: "Inline Validation contract must not name a DOM internalFactory; React InlineValidation owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createInlineValidation[^}]*\}|createInlineValidation\(/,
-      message: "Inline Validation smoke coverage must use React render tests, not the removed DOM factory.",
-    },
-    {
-      file: path.join(root, "packages/components/src/components/feedback.js"),
-      pattern: /export function createEmptyState\b/,
-      message: "Empty State must not reintroduce a DOM factory; React EmptyState is the single product component implementation.",
-    },
-    {
-      file: contractsFile,
-      pattern: /internalFactory:\s*"createEmptyState"/,
-      message: "Empty State contract must not name a DOM internalFactory; React EmptyState owns the component implementation.",
-    },
-    {
-      file: smokeFile,
-      pattern: /import\s*\{[^}]*createEmptyState[^}]*\}|createEmptyState\(/,
-      message: "Empty State smoke coverage must use React render tests, not the removed DOM factory.",
-    },
+  const sourceFiles = {
+    commerce: path.join(root, "packages/components/src/components/commerce.js"),
+    display: path.join(root, "packages/components/src/components/display.js"),
+    feedback: path.join(root, "packages/components/src/components/feedback.js"),
+    surfaces: path.join(root, "packages/components/src/components/surfaces.js"),
+  };
+  const reactOnlyComponents = [
+    ["Card", "createCard", "surfaces"],
+    ["Table", "createTable", "commerce"],
+    ["List", "createList", "display"],
+    ["KPI Tile", "createKpiTile", "display"],
+    ["Audit Event", "createAuditEvent", "display"],
+    ["Chart Panel", "createChartPanel", "commerce"],
+    ["Station Pin", "createStationPin", "commerce"],
+    ["Route Summary", "createRouteSummary", "commerce"],
+    ["Card Summary", "createCardSummary", "commerce"],
+    ["Movement Row", "createMovementRow", "commerce"],
+    ["Quick Action", "createQuickAction", "commerce"],
+    ["Floating Action Button", "createFloatingActionButton", "surfaces"],
+    ["Inline Validation", "createInlineValidation", "surfaces"],
+    ["Empty State", "createEmptyState", "feedback"],
+    ["Error Panel", "createErrorPanel", "feedback"],
   ];
+  const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
+    {
+      file: sourceFiles[sourceKey],
+      pattern: new RegExp(`export function ${factory}\\b`),
+      message: `${label} must not reintroduce a DOM factory; React ${label.replace(/\s+/g, "")} is the single product component implementation.`,
+    },
+    {
+      file: contractsFile,
+      pattern: new RegExp(`internalFactory:\\s*"${factory}"`),
+      message: `${label} contract must not name a DOM internalFactory; React ${label.replace(/\s+/g, "")} owns the component implementation.`,
+    },
+    {
+      file: smokeFile,
+      pattern: new RegExp(`import\\s*\\{[^}]*${factory}\\b[^}]*\\}|${factory}\\(`),
+      message: `${label} smoke coverage must use React render tests, not the removed DOM factory.`,
+    },
+  ]);
   for (const check of checks) {
     if (!fs.existsSync(check.file)) continue;
     const source = read(check.file);
