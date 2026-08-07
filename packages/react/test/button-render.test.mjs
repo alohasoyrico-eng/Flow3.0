@@ -1250,6 +1250,7 @@ assert.match(loadingErrorPanelMarkup, /data-state="loading"/);
 assert.match(loadingErrorPanelMarkup, /role="status"/);
 assert.match(loadingErrorPanelMarkup, /class="spinner"/);
 assert.match(loadingErrorPanelMarkup, /aria-busy="true"/);
+assert.doesNotMatch(loadingErrorPanelMarkup, /Loading error panel/);
 
 const inheritedErrorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
   label: "Inherited error density",

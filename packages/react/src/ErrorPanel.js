@@ -62,7 +62,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
       "span",
       { className: "error-panel__icon", "aria-hidden": "true" },
       resolvedState === "loading"
-        ? React.createElement(Spinner, { label: "Loading error panel", density: resolvedDensity || undefined, decorative: true })
+        ? React.createElement(Spinner, { density: resolvedDensity || undefined, decorative: true })
         : icon || (resolvedTone === "warning" ? "warning" : "error"),
     ),
     React.createElement(
