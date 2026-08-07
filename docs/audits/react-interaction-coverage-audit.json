@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 26,
-    "review": 30,
+    "pass": 27,
+    "review": 29,
     "fail": 0,
-    "missingTestCallbacks": 41
+    "missingTestCallbacks": 39
   },
   "components": [
     {
@@ -230,13 +230,13 @@
         "onRemove",
         "onSelectedChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onRemove",
         "onSelectedChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "CodeInput",

@@ -16,7 +16,7 @@ Object.defineProperty(globalThis, "navigator", {
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -189,6 +189,45 @@ try {
   assert.equal(checkboxInput.getAttribute("aria-checked"), "true");
   assert.equal(checkboxChanges.at(-1).checked, true);
   assert.deepEqual(checkboxChanges.at(-1).meta, { indeterminate: false, value: "fuel-card" });
+
+  cleanup();
+
+  const removedChips = [];
+  const { getByRole: getChipRole } = render(React.createElement(Chip, {
+    label: "Active",
+    removable: true,
+    onRemoveLabel: "Remove Active",
+    onRemove: (label) => removedChips.push(label),
+  }));
+
+  fireEvent.click(getChipRole("button", { name: /remove active/i }));
+  assert.deepEqual(removedChips, ["Active"]);
+
+  cleanup();
+
+  const selectedChips = [];
+  const { getByRole: getSelectableChipRole } = render(React.createElement(Chip, {
+    label: "EV",
+    selected: false,
+    onSelectedChange: (selected) => selectedChips.push(selected),
+  }));
+
+  const selectableChip = getSelectableChipRole("button", { name: /ev/i });
+  assert.equal(selectableChip.getAttribute("aria-pressed"), "false");
+  fireEvent.click(selectableChip);
+  assert.deepEqual(selectedChips, [true]);
+
+  cleanup();
+
+  const preventedChipChanges = [];
+  const { getByRole: getPreventedChipRole } = render(React.createElement(Chip, {
+    label: "Prevented",
+    onClick: (event) => event.preventDefault(),
+    onSelectedChange: (selected) => preventedChipChanges.push(selected),
+  }));
+
+  fireEvent.click(getPreventedChipRole("button", { name: /prevented/i }));
+  assert.deepEqual(preventedChipChanges, []);
 } finally {
   cleanup();
   dom.window.close();
