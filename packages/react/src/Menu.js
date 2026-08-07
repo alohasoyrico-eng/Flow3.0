@@ -19,6 +19,9 @@ function enabledItems(panel) {
 
 export const Menu = forwardRef(function Menu({
   triggerLabel = "",
+  triggerAriaLabel,
+  menuAriaLabel,
+  avatarTriggerAriaLabel,
   items = [],
   open: openProp,
   label = "",
@@ -86,7 +89,7 @@ export const Menu = forwardRef(function Menu({
     className: "menu__trigger",
     "data-menu-trigger": "",
     "aria-haspopup": "menu",
-    "aria-label": triggerLabel ? undefined : "Open menu",
+    "aria-label": triggerLabel ? undefined : triggerAriaLabel,
     "aria-expanded": String(Boolean(isOpen)),
     "aria-controls": menuId,
     onClick: () => setOpen(!isOpen, { focusFirst: !isOpen }),
@@ -95,6 +98,8 @@ export const Menu = forwardRef(function Menu({
       if (event.key === "Escape") { event.preventDefault(); setOpen(false, { restoreFocus: true }); }
     },
   };
+  const iconTriggerLabel = triggerAriaLabel || triggerLabel || label || undefined;
+  const avatarAccessibleLabel = avatarTriggerAriaLabel || triggerAriaLabel || triggerLabel || label || undefined;
 
   return React.createElement(
     "span",
@@ -109,9 +114,9 @@ export const Menu = forwardRef(function Menu({
       "data-open": String(Boolean(isOpen)),
     },
     resolvedVariant === "icon-trigger"
-      ? React.createElement(IconButton, { ...triggerProps, ariaLabel: label || triggerLabel || "Open menu", icon: "more_horiz", variant: "ghost", density: resolvedDensity })
+      ? React.createElement(IconButton, { ...triggerProps, ariaLabel: iconTriggerLabel, icon: "more_horiz", variant: "ghost", density: resolvedDensity })
       : resolvedVariant === "avatar-trigger"
-        ? React.createElement("button", { ...triggerProps, type: "button", className: "menu__trigger menu__trigger--avatar", "aria-label": label || "Account menu" }, React.createElement(Avatar, { name: avatarName, status: avatarStatus, size: avatarSize, density: resolvedDensity }))
+        ? React.createElement("button", { ...triggerProps, type: "button", className: "menu__trigger menu__trigger--avatar", "aria-label": avatarAccessibleLabel }, React.createElement(Avatar, { name: avatarName, status: avatarStatus, size: avatarSize, density: resolvedDensity }))
         : React.createElement(Button, { ...triggerProps, label: triggerLabel, variant: "secondary", density: resolvedDensity, trailingIcon: isOpen ? "expand_less" : "expand_more" }),
     React.createElement(
       "div",
@@ -122,7 +127,7 @@ export const Menu = forwardRef(function Menu({
         hidden: !isOpen,
         id: menuId,
         role: "menu",
-        "aria-label": label || "Menu",
+        "aria-label": menuAriaLabel || label || undefined,
         onKeyDown: onPanelKeyDown,
       },
       resolvedItems.map((item, index) => {

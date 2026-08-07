@@ -1465,6 +1465,11 @@ const inheritedMenuMarkup = renderToStaticMarkup(React.createElement(Menu, {
 }));
 assert.doesNotMatch(inheritedMenuMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const unnamedMenuMarkup = renderToStaticMarkup(React.createElement(Menu));
+assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Open menu"/);
+assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Account menu"/);
+assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Menu"/);
+
 const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
   label: "Enable fuel card",
   description: "Applies to active drivers.",

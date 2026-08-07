@@ -25,7 +25,7 @@ const visibleTriggerDefaultsByFile = new Map([
   ["Dialog.js", ["Dialog", "Open dialog", "Close dialog"]],
   ["Drawer.js", ["Drawer", "Open drawer", "Close drawer", "Progress"]],
   ["ErrorPanel.js", ["Something needs attention"]],
-  ["Menu.js", ["Actions", "Menu", "Edit", "Duplicate", "Delete", "Archive"]],
+  ["Menu.js", ["Actions", "Menu", "Open menu", "Account menu", "Edit", "Duplicate", "Delete", "Archive"]],
   ["Popover.js", ["Open popover", "Popover", "Open"]],
   ["Pagination.js", ["Pagination", "Previous page", "Next page", "Page"]],
   ["SegmentedControl.js", ["First", "Second", "Third", "Option"]],

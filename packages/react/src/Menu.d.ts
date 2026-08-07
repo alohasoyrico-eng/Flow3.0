@@ -19,8 +19,11 @@ export interface MenuItem {
 }
 
 export interface MenuProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  triggerLabel: string;
-  items: Array<MenuItem | "divider">;
+  triggerLabel?: string;
+  triggerAriaLabel?: string;
+  menuAriaLabel?: string;
+  avatarTriggerAriaLabel?: string;
+  items?: Array<MenuItem | "divider">;
   open?: boolean;
   label?: string;
   variant?: MenuVariant;
