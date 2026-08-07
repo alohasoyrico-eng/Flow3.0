@@ -71,6 +71,8 @@ function checkReactPrimaryContract() {
   checkControlledValueCoverage(componentFiles);
   checkControlledCheckedCoverage(componentFiles);
   checkControlledSelectedKeyCoverage(componentFiles);
+  checkControlledSortCoverage(componentFiles);
+  checkControlledExpandedKeyCoverage(componentFiles);
 }
 
 function checkReactComponent(file, shared) {
@@ -234,6 +236,36 @@ function checkControlledSelectedKeyCoverage(componentFiles) {
     const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bselectedKey:\\s*`);
     if (!controlledRerender.test(interactionSource)) {
       add("errors", reactInteractionTestFile, 1, `${componentName} declares isSelectedKeyControlled and must test external selectedKey rerender coverage.`);
+    }
+  }
+}
+
+function checkControlledSortCoverage(componentFiles) {
+  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
+  for (const file of componentFiles) {
+    const componentName = path.basename(file, ".js");
+    const sourceFile = path.join(reactSrcDir, file);
+    const source = read(sourceFile);
+    if (!source.includes("isSortControlled")) continue;
+
+    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bsortKey:\\s*`);
+    if (!controlledRerender.test(interactionSource)) {
+      add("errors", reactInteractionTestFile, 1, `${componentName} declares isSortControlled and must test external sortKey rerender coverage.`);
+    }
+  }
+}
+
+function checkControlledExpandedKeyCoverage(componentFiles) {
+  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
+  for (const file of componentFiles) {
+    const componentName = path.basename(file, ".js");
+    const sourceFile = path.join(reactSrcDir, file);
+    const source = read(sourceFile);
+    if (!source.includes("isExpandedKeyControlled")) continue;
+
+    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bexpandedKey:\\s*`);
+    if (!controlledRerender.test(interactionSource)) {
+      add("errors", reactInteractionTestFile, 1, `${componentName} declares isExpandedKeyControlled and must test external expandedKey rerender coverage.`);
     }
   }
 }

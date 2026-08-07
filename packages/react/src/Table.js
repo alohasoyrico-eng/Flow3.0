@@ -37,10 +37,10 @@ export const Table = forwardRef(function Table({
   state = "default",
   density,
   dense = false,
-  sortKey = "",
+  sortKey,
   sortDir = "ascending",
   selectedKey,
-  expandedKey = "",
+  expandedKey,
   renderDetail,
   onSortChange,
   onRowSelect,
@@ -55,13 +55,23 @@ export const Table = forwardRef(function Table({
   const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
   const expandable = resolvedVariant === "expandable" || Boolean(renderDetail || expandedKey);
   const isSelectedKeyControlled = selectedKey !== undefined;
-  const [currentSort, setCurrentSort] = useState({ key: sortKey, direction: sortDir });
+  const isSortControlled = sortKey !== undefined;
+  const isExpandedKeyControlled = expandedKey !== undefined;
+  const [currentSort, setCurrentSort] = useState({ key: sortKey ?? "", direction: sortDir });
   const [currentSelected, setCurrentSelected] = useState(String(selectedKey || ""));
   const [currentExpanded, setCurrentExpanded] = useState(String(expandedKey || (initialState === "expanded" ? rows[0]?.[rowKey] ?? "" : "")));
 
   useEffect(() => {
     if (isSelectedKeyControlled) setCurrentSelected(String(selectedKey || ""));
   }, [isSelectedKeyControlled, selectedKey]);
+
+  useEffect(() => {
+    if (isSortControlled) setCurrentSort({ key: sortKey ?? "", direction: sortDir });
+  }, [isSortControlled, sortDir, sortKey]);
+
+  useEffect(() => {
+    if (isExpandedKeyControlled) setCurrentExpanded(String(expandedKey || ""));
+  }, [expandedKey, isExpandedKeyControlled]);
 
   const sortedRows = useMemo(() => {
     if (!currentSort.key) return [...rows];
@@ -81,7 +91,7 @@ export const Table = forwardRef(function Table({
   const interactionState = currentExpanded ? "expanded" : currentSort.key ? "sorted" : currentSelected ? "selected" : initialState;
   const changeSort = (key) => {
     const direction = currentSort.key === key && currentSort.direction !== "descending" ? "descending" : "ascending";
-    setCurrentSort({ key, direction });
+    if (!isSortControlled) setCurrentSort({ key, direction });
     onSortChange?.({ key, direction });
   };
   const selectRow = (key) => {
@@ -90,7 +100,7 @@ export const Table = forwardRef(function Table({
   };
   const toggleExpanded = (key) => {
     const next = currentExpanded === String(key) ? "" : String(key);
-    setCurrentExpanded(next);
+    if (!isExpandedKeyControlled) setCurrentExpanded(next);
     onExpandedChange?.(next);
   };
 

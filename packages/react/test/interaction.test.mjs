@@ -1094,8 +1094,39 @@ try {
 
   cleanup();
 
+  const sortChanges = [];
+  const { getByRole: getSortableTableRole, rerender: rerenderSortableTable } = render(React.createElement(Table, {
+    label: "Sortable vehicles",
+    variant: "sortable",
+    columns: [
+      { key: "plate", label: "Plate", sortable: true },
+      { key: "driver", label: "Driver", sortable: true },
+    ],
+    rows: tableRows,
+    onSortChange: (sort) => sortChanges.push(sort),
+  }));
+
+  fireEvent.click(getSortableTableRole("button", { name: /plate/i }));
+  assert.deepEqual(sortChanges, [{ key: "plate", direction: "ascending" }]);
+
+  rerenderSortableTable(React.createElement(Table, {
+    label: "Sortable vehicles",
+    variant: "sortable",
+    sortKey: "driver",
+    sortDir: "descending",
+    columns: [
+      { key: "plate", label: "Plate", sortable: true },
+      { key: "driver", label: "Driver", sortable: true },
+    ],
+    rows: tableRows,
+    onSortChange: (sort) => sortChanges.push(sort),
+  }));
+  await waitFor(() => assert.equal(getSortableTableRole("columnheader", { name: /driver/i }).getAttribute("aria-sort"), "descending"));
+
+  cleanup();
+
   const expandedRows = [];
-  const { getByRole: getTableRole } = render(React.createElement(Table, {
+  const { getByRole: getTableRole, rerender: rerenderExpandedTable } = render(React.createElement(Table, {
     label: "Vehicle details",
     variant: "expandable",
     columns: tableColumns,
@@ -1113,6 +1144,17 @@ try {
   fireEvent.click(expandUnit24);
   await waitFor(() => assert.equal(expandUnit24.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(expandedRows, ["unit-24", ""]);
+
+  rerenderExpandedTable(React.createElement(Table, {
+    label: "Vehicle details",
+    variant: "expandable",
+    expandedKey: "unit-31",
+    columns: tableColumns,
+    rows: tableRows,
+    renderDetail: (row) => `${row.plate} detail`,
+    onExpandedChange: (key) => expandedRows.push(key),
+  }));
+  await waitFor(() => assert.equal(getTableRole("button", { name: /collapse xyz-789/i }).getAttribute("aria-expanded"), "true"));
 
   cleanup();
 
