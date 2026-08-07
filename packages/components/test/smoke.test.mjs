@@ -183,7 +183,7 @@ import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createAuditEvent } from "../src/components/display.js?v=3";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
-import { createCardSummary, createChartPanel, createMovementRow, createQuickAction, createRouteSummary, createStationPin, createTable } from "../src/components/commerce.js?v=15";
+import { createCardSummary, createChartPanel, createMovementRow, createQuickAction, createRouteSummary, createStationPin } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createKpiTile, createList, createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -642,7 +642,6 @@ assert.deepEqual(Object.keys(drawerPlatformAdapters), ["react"]);
 assert.equal(drawerPlatformAdapters.react.componentName, "Drawer");
 assert.equal(drawerPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.table.factory, "@design-system/react/table");
-assert.equal(componentContracts.table.internalFactory, "createTable");
 assert.equal(tablePlatformContract.id, "table");
 assert.equal(tablePlatformContract.source.factory, componentContracts.table.factory);
 assert.deepEqual(tablePlatformProps(), componentContracts.table.props.map((prop) => prop.name));
@@ -1720,84 +1719,6 @@ interactiveMenu.querySelectorAll(".menu__item")[1].click();
 assert.equal(menuSelection.key, "suspend");
 assert.equal(interactiveMenu.querySelector(".menu__panel").hidden, true);
 assert.equal(globalThis.document.activeElement, interactiveMenu.querySelector(".menu__trigger"));
-
-const table = createTable({
-  label: "Fleet spend",
-  rowKey: "id",
-  variant: "sortable",
-  density: "sm",
-  sortKey: "spend",
-  selectedKey: "mx-1",
-  columns: [{ key: "plate", label: "Plate", sortable: true }, { key: "spend", label: "Spend", align: "right" }],
-  rows: [{ id: "mx-1", plate: "JMX-214-B", spend: "$842" }],
-});
-assert.equal(table.tagName, "DIV");
-assert.equal(table.className, "table");
-assert.equal(table.dataset.variant, "sortable");
-assert.equal(table.dataset.density, "sm");
-assert.equal(table.querySelector("table").attributes["aria-label"], "Fleet spend");
-assert.equal(table.querySelector("th").attributes["aria-sort"], "none");
-assert.equal(table.querySelector(".table__sort").attributes["data-table-sort"], "");
-assert.equal(table.querySelector("tbody").querySelector("tr").dataset.selected, "true");
-const badgeTable = createTable({
-  label: "Status table",
-  rowKey: "id",
-  columns: [{ key: "status", label: "Status" }],
-  rows: [{ id: "mx-1", status: { label: "Active", tone: "success" } }],
-});
-assert.equal(badgeTable.querySelector(".badge").textContent, "Active");
-let tableSort = null;
-let tableRow = "";
-const interactiveTable = createTable({
-  label: "Fleet spend",
-  rowKey: "id",
-  columns: [{ key: "plate", label: "Plate", sortable: true }, { key: "spend", label: "Spend" }],
-  rows: [{ id: "mx-1", plate: "JMX-214-B", spend: "$842" }, { id: "mx-2", plate: "KMX-219-C", spend: "$100" }],
-  onSortChange(sort) {
-    tableSort = sort;
-  },
-  onRowSelect(key) {
-    tableRow = key;
-  },
-});
-interactiveTable.querySelector(".table__sort").click();
-assert.deepEqual(tableSort, { key: "plate", direction: "ascending" });
-assert.equal(interactiveTable.querySelector("th").attributes["aria-sort"], "ascending");
-interactiveTable.querySelector(".table__sort").click();
-assert.deepEqual(tableSort, { key: "plate", direction: "descending" });
-assert.equal(interactiveTable.querySelector(".table__sort").dataset.dir, "desc");
-const selectableTable = createTable({
-  label: "Fleet spend",
-  rowKey: "id",
-  variant: "selectable",
-  columns: [{ key: "plate", label: "Plate" }, { key: "spend", label: "Spend" }],
-  rows: [{ id: "mx-1", plate: "JMX-214-B", spend: "$842" }, { id: "mx-2", plate: "KMX-219-C", spend: "$100" }],
-  onRowSelect(key) {
-    tableRow = key;
-  },
-});
-const mx2TableRow = [...selectableTable.querySelectorAll("tr")].find((row) => row.dataset.key === "mx-2");
-mx2TableRow.click();
-assert.equal(tableRow, "mx-2");
-assert.equal(mx2TableRow.dataset.selected, "true");
-let expandedTableKey = "";
-const expandableTable = createTable({
-  label: "Expandable table",
-  rowKey: "id",
-  variant: "expandable",
-  columns: [{ key: "plate", label: "Plate" }],
-  rows: [{ id: "mx-1", plate: "JMX-214-B", detail: "Policy active" }],
-  onExpandedChange(key) {
-    expandedTableKey = key;
-  },
-});
-assert.equal(expandableTable.querySelector("tbody").querySelector("tr").attributes["aria-expanded"], "false");
-assert.equal(expandableTable.querySelector(".table__detail-row").hidden, true);
-expandableTable.querySelector(".table__expander").click();
-assert.equal(expandedTableKey, "mx-1");
-assert.equal(expandableTable.querySelector("tbody").querySelector("tr").attributes["aria-expanded"], "true");
-assert.equal(expandableTable.querySelector(".table__detail-row").hidden, false);
-assert.equal(expandableTable.querySelector(".table__detail").textContent, "Policy active");
 
 const biometricPrompt = createBiometricPrompt({ label: "Confirm it is you", variant: "face", state: "authenticating" });
 assert.equal(biometricPrompt.tagName, "SECTION");

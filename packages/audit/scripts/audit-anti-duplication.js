@@ -135,6 +135,7 @@ function checkKnownDuplicateConcepts() {
 
 function checkReactOnlyComponentBoundaries() {
   const surfacesFile = path.join(root, "packages/components/src/components/surfaces.js");
+  const commerceFile = path.join(root, "packages/components/src/components/commerce.js");
   const contractsFile = path.join(root, "packages/components/src/contracts.js");
   const smokeFile = path.join(root, "packages/components/test/smoke.test.mjs");
   const checks = [
@@ -152,6 +153,21 @@ function checkReactOnlyComponentBoundaries() {
       file: smokeFile,
       pattern: /import\s*\{\s*createCard\s*\}|createCard\(/,
       message: "Card smoke coverage must use React render tests, not the removed DOM factory.",
+    },
+    {
+      file: commerceFile,
+      pattern: /export function createTable\b/,
+      message: "Table must not reintroduce a DOM factory; React Table is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createTable"/,
+      message: "Table contract must not name a DOM internalFactory; React Table owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createTable[^}]*\}|createTable\(/,
+      message: "Table smoke coverage must use React render tests, not the removed DOM factory.",
     },
   ];
   for (const check of checks) {

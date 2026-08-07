@@ -35,7 +35,7 @@ export const Table = forwardRef(function Table({
   label = "Table",
   variant = "standard",
   state = "default",
-  density = "md",
+  density,
   dense = false,
   sortKey = "",
   sortDir = "ascending",
@@ -50,7 +50,7 @@ export const Table = forwardRef(function Table({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "standard");
   const initialState = normalize(state, validStates, "default");
-  const resolvedDensity = dense || resolvedVariant === "dense" ? "sm" : normalize(density, validDensities, "md");
+  const resolvedDensity = dense || resolvedVariant === "dense" ? "sm" : validDensities.has(density) ? density : "";
   const sortable = resolvedVariant === "sortable" || columns.some((column) => column.sortable);
   const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
   const expandable = resolvedVariant === "expandable" || Boolean(renderDetail || expandedKey);
@@ -97,7 +97,7 @@ export const Table = forwardRef(function Table({
       className: ["table", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": interactionState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
     },
     React.createElement(
       "table",

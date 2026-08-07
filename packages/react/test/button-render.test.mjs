@@ -760,6 +760,14 @@ assert.match(tableMarkup, /class="badge"/);
 assert.match(tableMarkup, /data-align="right"/);
 assert.match(tableMarkup, /data-mono="true"/);
 
+const inheritedTableMarkup = renderToStaticMarkup(React.createElement(Table, {
+  label: "Inherited fleet density",
+  rowKey: "id",
+  columns: tableColumns,
+  rows: tableRows,
+}));
+assert.doesNotMatch(inheritedTableMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const expandableTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   label: "Expandable fleet",
   rowKey: "id",

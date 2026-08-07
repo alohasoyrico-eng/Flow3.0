@@ -7,7 +7,6 @@ export const tablePlatformContract = {
   layer: "component",
   source: {
     factory: tableContract.factory,
-    internalFactory: tableContract.internalFactory,
     cssClass: "table",
     contract: "@design-system/components/contracts#table",
   },

@@ -45,7 +45,6 @@ const unprefixedFactoryNames = new Map([
   ["list", "createList"],
   ["kpi-tile", "createKpiTile"],
   ["audit-event", "createAuditEvent"],
-  ["table", "createTable"],
   ["chart-panel", "createChartPanel"],
   ["station-pin", "createStationPin"],
   ["route-summary", "createRouteSummary"],
