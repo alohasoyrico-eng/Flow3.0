@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 51,
-    "review": 5,
+    "pass": 52,
+    "review": 4,
     "fail": 0,
-    "missingTestCallbacks": 6
+    "missingTestCallbacks": 5
   },
   "components": [
     {
@@ -805,12 +805,12 @@
       "sourceCovered": [
         "onValueChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onValueChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Tag",

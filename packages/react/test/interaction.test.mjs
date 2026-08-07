@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -886,6 +886,30 @@ try {
   fireEvent.click(expandUnit24);
   await waitFor(() => assert.equal(expandUnit24.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(expandedRows, ["unit-24", ""]);
+
+  cleanup();
+
+  const tabChanges = [];
+  const { getByRole: getTabsRole } = render(React.createElement(Tabs, {
+    label: "Component sections",
+    items: [
+      { key: "overview", label: "Overview" },
+      { key: "design", label: "Design", disabled: true },
+      { key: "build", label: "Build" },
+    ],
+    selectedKey: "overview",
+    onValueChange: (key) => tabChanges.push(key),
+  }));
+
+  const overviewTab = getTabsRole("tab", { name: /overview/i });
+  const buildTab = getTabsRole("tab", { name: /build/i });
+  assert.equal(overviewTab.getAttribute("aria-selected"), "true");
+  fireEvent.click(buildTab);
+  assert.deepEqual(tabChanges, ["build"]);
+
+  fireEvent.keyDown(overviewTab, { key: "ArrowRight" });
+  assert.deepEqual(tabChanges, ["build", "build"]);
+  assert.equal(getTabsRole("tablist", { name: /component sections/i }).dataset.indicatorSynced, "true");
 } finally {
   cleanup();
   dom.window.close();
