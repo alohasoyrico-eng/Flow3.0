@@ -5,17 +5,6 @@ import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDens
 const validVariants = new Set(["success", "empty", "loading", "celebration"]);
 const validStates = new Set(["idle", "playing", "paused", "complete", "reduced-motion", "disabled"]);
 
-function stateLabel(state) {
-  return {
-    idle: "Idle",
-    playing: "Playing",
-    paused: "Paused",
-    complete: "Complete",
-    "reduced-motion": "Reduced motion",
-    disabled: "Disabled",
-  }[state] ?? "Idle";
-}
-
 function variantIcon(variant, icon) {
   if (icon) return icon;
   return {
@@ -37,6 +26,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   animationSource = "",
   animationData,
   reducedMotionFallback = "",
+  stateLabel = "",
   className = "",
   ...rest
 }, ref) {
@@ -45,8 +35,10 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedLabel = label ?? "";
   const resolvedIcon = variantIcon(resolvedVariant, icon);
+  const resolvedStateLabel = stateLabel || "";
   const hasAsset = Boolean(animationSource || animationData);
   const canAnimate = hasAsset && resolvedState !== "reduced-motion" && resolvedState !== "disabled";
+  const accessibleLabel = resolvedLabel && resolvedStateLabel ? `${resolvedLabel}: ${resolvedStateLabel}` : resolvedLabel || resolvedStateLabel || undefined;
 
   return React.createElement(
     "div",
@@ -59,7 +51,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       role: "img",
-      "aria-label": `${resolvedLabel}: ${stateLabel(resolvedState)}`,
+      "aria-label": accessibleLabel,
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
     },
     React.createElement("span", { className: "animated-moment__icon material-symbol", "aria-hidden": "true" }, resolvedIcon),
@@ -88,7 +80,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
       ),
     ),
     label ? React.createElement("strong", null, label) : null,
-    React.createElement("span", { className: "animated-moment__state", hidden: true }, stateLabel(resolvedState)),
+    resolvedStateLabel ? React.createElement("span", { className: "animated-moment__state", hidden: true }, resolvedStateLabel) : null,
     React.createElement("small", null, description || reducedMotionFallback),
     React.createElement("span", { className: "animated-moment__cue", "data-animated-moment-cue": "", "aria-hidden": "true" }),
   );

@@ -28,6 +28,7 @@ export interface AnimatedMomentProps extends Omit<HTMLAttributes<HTMLDivElement>
   animationSource?: string;
   animationData?: AnimatedMomentAnimationData;
   reducedMotionFallback?: string;
+  stateLabel?: string;
 }
 
 export interface AnimatedMomentComponent extends ForwardRefExoticComponent<AnimatedMomentProps & RefAttributes<HTMLDivElement>> {

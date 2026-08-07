@@ -433,6 +433,7 @@ const animatedMomentMarkup = renderToStaticMarkup(React.createElement(AnimatedMo
   density: "sm",
   fullWidth: true,
   reducedMotionFallback: "Reduced motion fallback",
+  stateLabel: "Complete",
 }));
 assert.match(animatedMomentMarkup, /^<div/);
 assert.match(animatedMomentMarkup, /class="animated-moment"/);
@@ -451,6 +452,11 @@ assert.match(animatedMomentMarkup, /data-animation-runtime="fallback"/);
 assert.match(animatedMomentMarkup, /class="animation-asset__fallback-icon material-symbol"/);
 assert.match(animatedMomentMarkup, /class="animated-moment__state" hidden="">Complete<\/span>/);
 assert.match(animatedMomentMarkup, /data-animated-moment-cue=""/);
+const unnamedAnimatedMomentMarkup = renderToStaticMarkup(React.createElement(AnimatedMoment, {
+  label: "Consumer moment",
+  state: "complete",
+}));
+assert.doesNotMatch(unnamedAnimatedMomentMarkup, /Idle|Playing|Paused|Complete|Reduced motion|Disabled/);
 
 const biometricPromptMarkup = renderToStaticMarkup(React.createElement(BiometricPrompt, {
   label: "Confirm it is you",

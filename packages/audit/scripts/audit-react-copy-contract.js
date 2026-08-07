@@ -61,7 +61,7 @@ const displayFallbackTermsByFile = new Map([
   ["Popover.js", ["Action"]],
   ["RouteSummary.js", ["Action", "Route", "Route action"]],
   ["AuditEvent.js", ["Audit event", "Verified", "Review", "Critical"]],
-  ["AnimatedMoment.js", ["Animated moment", "Action complete"]],
+  ["AnimatedMoment.js", ["Animated moment", "Action complete", "Idle", "Playing", "Paused", "Complete", "Reduced motion", "Disabled"]],
   ["Badge.js", ["Badge"]],
   ["Button.js", ["Button", "Loading", " loading"]],
   ["Checkbox.js", ["Checkbox"]],
