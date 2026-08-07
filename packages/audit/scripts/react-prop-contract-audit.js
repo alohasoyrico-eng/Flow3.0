@@ -115,6 +115,15 @@ function checkActionPropContractTypes({ add, componentName, typesFile, types, co
   }
 }
 
+function checkNoCrossComponentPropInheritance({ add, componentName, typesFile, types }) {
+  if (/\b(?:Action|Field)\s+extends\s+(?:ButtonProps|InputProps|IconButtonProps)\b/.test(types)) {
+    add("errors", typesFile, 1, `${componentName} local Action/Field types must declare their own public contract instead of extending another component Props type.`);
+  }
+  if (/\b[A-Za-z][A-Za-z0-9]*(?:Action|Field)\s*=\s*[^;]*(?:ButtonProps|InputProps|IconButtonProps)\b/.test(types)) {
+    add("errors", typesFile, 1, `${componentName} local Action/Field type aliases must not reuse another component Props type as their public surface.`);
+  }
+}
+
 function checkNoOpenVisualSemanticTypes({ add, componentName, typesFile, types }) {
   for (const match of types.matchAll(/^\s*(variant|tone|intent|state|density)\??:\s*string;/gm)) {
     add("errors", typesFile, 1, `${componentName} React type ${match[1]} must use an explicit union or shared semantic type, not string.`);
@@ -141,6 +150,7 @@ function checkReactPropContracts(args) {
   checkNoOpaqueCallbackTypes(args);
   checkActionCallbackPayloads(args);
   checkActionPropContractTypes(args);
+  checkNoCrossComponentPropInheritance(args);
   checkNoOpenVisualSemanticTypes(args);
   checkPublicNamedPropContractTypes(args);
 }

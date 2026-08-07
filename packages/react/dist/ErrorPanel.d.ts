@@ -1,6 +1,5 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
 import { errorPanelPlatformContract } from "#flow/platforms";
-import type { ButtonProps } from "./Button.js";
 
 export type ErrorPanelVariant = "inline" | "panel" | "blocking" | "empty-recovery";
 export type ErrorPanelState = "default" | "warning" | "error" | "critical" | "loading" | "disabled";
@@ -8,8 +7,18 @@ export type ErrorPanelTone = "warning" | "error" | "critical";
 export type ErrorPanelDensity = "sm" | "md" | "lg";
 export type ErrorPanelRole = "status" | "alert";
 
-export interface ErrorPanelAction extends ButtonProps {
+export interface ErrorPanelAction {
   key?: string;
+  label: string;
+  variant?: "primary" | "secondary" | "tertiary" | "ghost" | "danger";
+  intent?: "default" | "danger";
+  density?: ErrorPanelDensity;
+  disabled?: boolean;
+  loading?: boolean;
+  icon?: string;
+  trailingIcon?: string;
+  type?: "button" | "submit" | "reset";
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface ErrorPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {

@@ -1,7 +1,5 @@
-import type { ButtonProps } from "./Button.js";
-import type { InputProps } from "./Input.js";
 import type { drawerPlatformContract } from "@design-system/components/platforms";
-import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
 
 export type DrawerVariant = "side-sheet" | "filter" | "detail" | "edit" | "review";
 export type DrawerState = "closed" | "default" | "open" | "focus" | "closing";
@@ -9,11 +7,33 @@ export type DrawerTone = "neutral" | "info" | "danger";
 export type DrawerDensity = "sm" | "md" | "lg";
 export type DrawerSide = "left" | "right";
 
-export interface DrawerAction extends ButtonProps {
+export interface DrawerAction {
   key?: string;
+  label: string;
+  variant?: "primary" | "secondary" | "tertiary" | "ghost" | "danger";
+  intent?: "default" | "danger";
+  density?: DrawerDensity;
+  disabled?: boolean;
+  loading?: boolean;
+  icon?: string;
+  trailingIcon?: string;
+  type?: "button" | "submit" | "reset";
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface DrawerField extends InputProps {}
+export interface DrawerField {
+  label: string;
+  value?: string;
+  name?: string;
+  placeholder?: string;
+  helper?: string;
+  error?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+  density?: DrawerDensity;
+  state?: "default" | "hover" | "focus" | "filled" | "success" | "warning" | "error" | "disabled" | "loading";
+  variant?: "default" | "password" | "search" | "with-prefix" | "with-suffix" | "readonly";
+}
 
 export type DrawerContent =
   | { type: "badge"; key?: string; label?: string; tone?: "neutral" | "info" | "success" | "warning" | "danger" | "accent"; variant?: "count" | "dot" | "status" | "icon"; live?: boolean }
