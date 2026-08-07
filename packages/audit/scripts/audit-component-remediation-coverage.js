@@ -190,7 +190,6 @@ function kebabToFactoryName(id) {
     avatar: "createTransitionalAvatar",
     tabs: "createTabs",
     "tree-view": "createTreeView",
-    "segmented-control": "createSegmentedControl",
     tooltip: "createTransitionalTooltip",
     dialog: "createDialog",
     menu: "createMenu",

@@ -831,7 +831,6 @@ assert.deepEqual(Object.keys(dateRangePickerPlatformAdapters), ["react"]);
 assert.equal(dateRangePickerPlatformAdapters.react.componentName, "DateRangePicker");
 assert.equal(dateRangePickerPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.segmentedControl.factory, "@design-system/react/segmented-control");
-assert.equal(componentContracts.segmentedControl.internalFactory, "createSegmentedControl");
 assert.equal(segmentedControlPlatformContract.id, "segmented-control");
 assert.equal(segmentedControlPlatformContract.source.factory, componentContracts.segmentedControl.factory);
 assert.deepEqual(segmentedControlPlatformProps(), componentContracts.segmentedControl.props.map((prop) => prop.name));

@@ -35,7 +35,6 @@ const directDensityComponents = [
   { id: "breadcrumbs", factory: "createBreadcrumbs", source: "navigation", selector: '.breadcrumbs[data-density="sm"]', token: "--comp-breadcrumbs-target-block" },
   { id: "pagination", factory: "createPagination", source: "navigation", selector: '.pagination[data-density="sm"]', token: "--comp-pagination-size" },
   { id: "stepper", factory: "createStepper", source: "navigation", selector: '.stepper[data-density="sm"]', token: "--comp-stepper-marker-size" },
-  { id: "segmentedControl", factory: "createSegmentedControl", source: "interactions", selector: '.segmented-control[data-density="sm"]', token: "--comp-segmented-control-item-min-block" },
 ];
 
 const delegatedDensityComponents = [

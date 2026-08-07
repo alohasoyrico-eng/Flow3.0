@@ -1367,6 +1367,11 @@ assert.match(segmentedControlMarkup, /data-icon-only="true"/);
 assert.match(segmentedControlMarkup, /aria-selected="true"/);
 assert.match(segmentedControlMarkup, /aria-label="Map"/);
 assert.match(segmentedControlMarkup, /class="segmented-control__icon"/);
+const inheritedSegmentedControlMarkup = renderToStaticMarkup(React.createElement(SegmentedControl, {
+  label: "Inherited view",
+  items: [{ key: "map", label: "Map" }],
+}));
+assert.doesNotMatch(inheritedSegmentedControlMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const switchMarkup = renderToStaticMarkup(React.createElement(Switch, {
   label: "Route alerts",
