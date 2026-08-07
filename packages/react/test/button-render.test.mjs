@@ -759,6 +759,7 @@ assert.match(hiddenBadgeMarkup, /data-state="hidden"/);
 
 const breadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
   label: "Fleet path",
+  collapsedLabel: "Hidden breadcrumb items",
   variant: "overflow",
   state: "collapsed",
   density: "sm",
@@ -781,9 +782,21 @@ assert.match(breadcrumbsMarkup, /<ol>/);
 assert.match(breadcrumbsMarkup, /class="breadcrumbs__item"/);
 assert.match(breadcrumbsMarkup, /href="#\/fleet"/);
 assert.match(breadcrumbsMarkup, /class="breadcrumbs__target breadcrumbs__target--collapsed"/);
+assert.match(breadcrumbsMarkup, /aria-label="Hidden breadcrumb items"/);
 assert.match(breadcrumbsMarkup, /class="breadcrumbs__separator"/);
 assert.match(breadcrumbsMarkup, /aria-current="page"/);
 assert.match(breadcrumbsMarkup, />JMX-214-B<\/span>/);
+const unnamedBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
+  variant: "overflow",
+  maxItems: 3,
+  items: [
+    { label: "Fleet", href: "#/fleet" },
+    { label: "Regions", href: "#/regions" },
+    { label: "Cards", current: true },
+  ],
+}));
+assert.doesNotMatch(unnamedBreadcrumbsMarkup, /Breadcrumbs|Collapsed breadcrumb items/);
+assert.doesNotMatch(unnamedBreadcrumbsMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const tabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
   label: "Fleet views",

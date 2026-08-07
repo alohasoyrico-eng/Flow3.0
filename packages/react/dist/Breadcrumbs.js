@@ -5,7 +5,7 @@ import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } fro
 const allowedVariants = new Set(["standard", "compact", "overflow", "mobile"]);
 const allowedStates = new Set(["default", "hover", "focus", "collapsed", "current", "disabled"]);
 
-function resolveBreadcrumbItems(items, { variant, maxItems } = {}) {
+function resolveBreadcrumbItems(items, { variant, maxItems, collapsedLabel } = {}) {
   if (variant === "mobile" && items.length > 2) {
     return [
       { ...items[items.length - 2], current: false },
@@ -19,7 +19,7 @@ function resolveBreadcrumbItems(items, { variant, maxItems } = {}) {
   const tail = items.slice(-tailCount);
   return [
     { ...head, current: false },
-    { label: "Collapsed breadcrumb items", collapsed: true, current: false },
+    { label: collapsedLabel ?? "", collapsed: true, current: false },
     ...tail.map((item, index) => ({ ...item, current: index === tail.length - 1 })),
   ];
 }
@@ -35,7 +35,8 @@ function normalizeItems(items) {
 
 export const Breadcrumbs = forwardRef(function Breadcrumbs({
   items = [],
-  label = "Breadcrumbs",
+  label = "",
+  collapsedLabel = "",
   variant = "standard",
   state = "default",
   density,
@@ -49,8 +50,8 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
   const resolvedVariant = allowedVariants.has(variant) ? variant : "standard";
   const resolvedState = disabled ? "disabled" : allowedStates.has(state) ? state : "default";
   const visibleItems = useMemo(
-    () => resolveBreadcrumbItems(normalizeItems(items), { variant: resolvedVariant, maxItems }),
-    [items, maxItems, resolvedVariant],
+    () => resolveBreadcrumbItems(normalizeItems(items), { variant: resolvedVariant, maxItems, collapsedLabel }),
+    [items, maxItems, resolvedVariant, collapsedLabel],
   );
 
   return React.createElement(
@@ -59,7 +60,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
       ...flowRestProps(rest),
       ref,
       className: ["breadcrumbs", className].filter(Boolean).join(" "),
-      "aria-label": label,
+      "aria-label": label || undefined,
       "aria-disabled": disabled ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
@@ -77,7 +78,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
               "span",
               {
                 className: "breadcrumbs__target breadcrumbs__target--collapsed",
-                "aria-label": item.label ?? "Collapsed breadcrumb items",
+                "aria-label": item.label || undefined,
               },
               "...",
             )

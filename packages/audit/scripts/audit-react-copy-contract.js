@@ -21,7 +21,7 @@ const visibleTriggerDefaultsByFile = new Map([
   ["Tooltip.js", ["Info", "Tooltip"]],
   ["Toast.js", ["Toast"]],
   ["TreeView.js", ["Fleet", "Cards", "Tree item", "Tree view"]],
-  ["Breadcrumbs.js", ["Home"]],
+  ["Breadcrumbs.js", ["Home", "Breadcrumbs", "Collapsed breadcrumb items"]],
 ]);
 const displayFallbackTermsByFile = new Map([
   ["Accordion.js", ["Section"]],
