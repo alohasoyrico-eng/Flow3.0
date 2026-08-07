@@ -8,16 +8,15 @@ React components that declare callback props must use them in source and must ha
 
 - Components audited: 56
 - Components with callbacks: 39
-- Pass: 48
-- Review: 8
+- Pass: 49
+- Review: 7
 - Fail: 0
-- Missing callback test assertions: 10
+- Missing callback test assertions: 9
 
 ## Missing Interaction Tests
 
 | Component | Missing callback coverage |
 | --- | --- |
-| StationPin | onSelect |
 | Switch | onCheckedChange |
 | Table | onExpandedChange, onRowSelect |
 | Tabs | onValueChange |
