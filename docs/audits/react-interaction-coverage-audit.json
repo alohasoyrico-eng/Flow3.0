@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 38,
-    "review": 18,
+    "pass": 39,
+    "review": 17,
     "fail": 0,
-    "missingTestCallbacks": 22
+    "missingTestCallbacks": 21
   },
   "components": [
     {
@@ -531,12 +531,12 @@
       "sourceCovered": [
         "onSelect"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onSelect"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Pagination",

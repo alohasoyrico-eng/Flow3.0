@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -497,6 +497,40 @@ try {
   fireEvent.keyDown(getMenuRole("menu", { name: /row actions/i }), { key: "Escape" });
   await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(menuOpenChanges, [true, false, true, false]);
+
+  cleanup();
+
+  const selectedMovements = [];
+  const movementClicks = [];
+  const { getByRole: getMovementRole, rerender: rerenderMovement } = render(React.createElement(MovementRow, {
+    label: "Fuel charge",
+    meta: "Station 24",
+    amount: "-$42.00",
+    status: "Pending",
+    category: "fuel",
+    variant: "standard",
+    onClick: (event) => movementClicks.push(event.type),
+    onSelect: (meta) => selectedMovements.push(meta),
+  }));
+
+  fireEvent.click(getMovementRole("button", { name: /fuel charge/i }));
+  assert.equal(movementClicks.length, 1);
+  assert.equal(selectedMovements.length, 1);
+  assert.equal(selectedMovements[0].label, "Fuel charge");
+  assert.equal(selectedMovements[0].status, "Pending");
+  assert.equal(selectedMovements[0].category, "fuel");
+  assert.equal(selectedMovements[0].state, "default");
+
+  rerenderMovement(React.createElement(MovementRow, {
+    label: "Fuel charge",
+    disabled: true,
+    onClick: (event) => movementClicks.push(event.type),
+    onSelect: (meta) => selectedMovements.push(meta),
+  }));
+
+  fireEvent.click(getMovementRole("button", { name: /fuel charge/i }));
+  assert.equal(movementClicks.length, 1);
+  assert.equal(selectedMovements.length, 1);
 } finally {
   cleanup();
   dom.window.close();
