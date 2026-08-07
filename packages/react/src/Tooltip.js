@@ -68,7 +68,8 @@ export const Tooltip = forwardRef(function Tooltip({
         "data-tooltip-trigger": "",
         disabled: isDisabled,
         "aria-disabled": isDisabled ? "true" : undefined,
-        "aria-describedby": isOpen ? tooltipId : undefined,
+        "aria-describedby": isOpen && content ? tooltipId : undefined,
+        "aria-label": triggerLabel ? undefined : "Tooltip trigger",
         onMouseEnter: () => setOpen(true, "hover"),
         onMouseLeave: () => setOpen(false, "default"),
         onFocus: () => setOpen(true, "focus"),
@@ -83,9 +84,9 @@ export const Tooltip = forwardRef(function Tooltip({
           onOpenChange?.(false);
         },
       },
-      triggerLabel ?? "Info",
+      triggerLabel ?? "?",
     ),
-    React.createElement(
+    content ? React.createElement(
       "span",
       {
         id: tooltipId,
@@ -95,8 +96,8 @@ export const Tooltip = forwardRef(function Tooltip({
         hidden: !isOpen,
         "aria-hidden": String(!isOpen),
       },
-      content ?? "Tooltip",
-    ),
+      content,
+    ) : null,
   );
 });
 

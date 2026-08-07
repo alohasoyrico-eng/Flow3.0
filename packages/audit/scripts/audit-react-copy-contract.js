@@ -4,6 +4,10 @@ const reactSrcDir = path.join(root, "packages/react/src");
 const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días"];
 const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save"];
 const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
+const visibleTriggerDefaultsByFile = new Map([
+  ["Popover.js", ["Open"]],
+  ["Tooltip.js", ["Info", "Tooltip"]],
+]);
 const displayFallbackTermsByFile = new Map([
   ["Card.js", ["Card", "Loading"]],
   ["CardSummary.js", ["Card", "Active", "Frozen", "Review"]],
@@ -56,6 +60,7 @@ function checkReactCopyContract() {
 
     lines.forEach((line, index) => {
       if (!/["'`]/.test(line)) return;
+      const isReactMetadata = line.includes(".displayName") || line.includes(".platformContract");
       const matchedTerm = localeSpecificTerms.find((term) => line.includes(term));
       if (matchedTerm) {
         add(
@@ -94,6 +99,17 @@ function checkReactCopyContract() {
           file,
           index + 1,
           `React Copy Contract: display component fallback "${matchedDisplayFallback}" belongs in content/docs/consumer props.`
+        );
+      }
+
+      const visibleTriggerDefaults = visibleTriggerDefaultsByFile.get(fileName) ?? [];
+      const matchedTriggerDefault = isReactMetadata ? undefined : visibleTriggerDefaults.find((term) => line.includes(`= "${term}"`) || line.includes(`= '${term}'`) || line.includes(`?? "${term}"`) || line.includes(`?? '${term}'`));
+      if (matchedTriggerDefault) {
+        add(
+          "errors",
+          file,
+          index + 1,
+          `React Copy Contract: visible trigger/content fallback "${matchedTriggerDefault}" belongs in content/docs/consumer props.`
         );
       }
 

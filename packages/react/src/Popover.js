@@ -13,7 +13,7 @@ function slug(value) {
 }
 
 export const Popover = forwardRef(function Popover({
-  triggerLabel = "Open",
+  triggerLabel = "",
   title = "",
   description = "",
   id = "",
@@ -90,6 +90,7 @@ export const Popover = forwardRef(function Popover({
       fullWidth,
       className: "popover__trigger",
       "data-popover-trigger": "",
+      "aria-label": triggerLabel ? undefined : "Open popover",
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": panelId,
