@@ -187,9 +187,11 @@ function checkReactComponentClassOwnership() {
     const sourceFile = path.join(reactDir, file);
     const source = read(sourceFile);
     const allowedRoots = allowedClassRootsForReactComponent(componentName);
+    const ownerRoot = ownerClassRootForReactComponent(componentName);
     for (const match of source.matchAll(/\bclassName\s*:\s*(?:\[([^\]]+)\]|["'`]([^"'`]+)["'`])/g)) {
       const roots = classRootsFromClassExpression(match[1] ?? match[2] ?? "");
-      const illegalRoots = [...roots].filter((rootToken) => !allowedRoots.has(rootToken));
+      const protectedCrossRoots = [...roots].filter((rootToken) => protectedComponentRoots.has(rootToken) && rootToken !== ownerRoot);
+      const illegalRoots = [...new Set([...roots].filter((rootToken) => !allowedRoots.has(rootToken)).concat(protectedCrossRoots))];
       const protectedLeaks = illegalRoots.filter((rootToken) => protectedComponentRoots.has(rootToken));
       if (!illegalRoots.length) continue;
       add(
@@ -228,6 +230,14 @@ function allowedClassRootsForReactComponent(componentName) {
     TreeView: ["tree-view"],
   }[componentName];
   return new Set(explicit ?? [kebab(componentName)]);
+}
+
+function ownerClassRootForReactComponent(componentName) {
+  return {
+    FloatingActionButton: "fab",
+    ProgressIndicator: "progress",
+    RadioButton: "radio",
+  }[componentName] ?? kebab(componentName);
 }
 
 function classRootsFromClassExpression(value) {
