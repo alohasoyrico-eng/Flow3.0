@@ -16,7 +16,7 @@ Object.defineProperty(globalThis, "navigator", {
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -126,6 +126,24 @@ try {
   assert.equal(expiryChanges.at(-1).meta.month, "12");
   assert.equal(expiryChanges.at(-1).meta.year, "28");
   assert.equal(expiryChanges.at(-1).meta.validity, "valid");
+
+  cleanup();
+
+  const cardNumberChanges = [];
+  const { getByLabelText: getCardNumberLabel } = render(React.createElement(CardNumberInput, {
+    label: "Card number",
+    onValueChange: (digits, meta) => cardNumberChanges.push({ digits, meta }),
+  }));
+
+  const cardNumberInput = getCardNumberLabel(/card number/i);
+  fireEvent.input(cardNumberInput, { target: { value: "4111111111111111" } });
+
+  await waitFor(() => assert.equal(cardNumberInput.value, "4111 1111 1111 1111"));
+  assert.equal(cardNumberChanges.at(-1).digits, "4111111111111111");
+  assert.equal(cardNumberChanges.at(-1).meta.formatted, "4111 1111 1111 1111");
+  assert.equal(cardNumberChanges.at(-1).meta.brand, "Visa");
+  assert.equal(cardNumberChanges.at(-1).meta.validity, "valid");
+  assert.equal(cardNumberChanges.at(-1).meta.luhnValid, true);
 } finally {
   cleanup();
   dom.window.close();
