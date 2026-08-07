@@ -329,6 +329,7 @@ const cardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, 
   meta: "ANA SOSA",
   number: "**** 4821",
   expires: "12/28",
+  status: "Frozen",
   metrics: [{ label: "Available", value: "$2,480" }],
   variant: "limit",
   state: "frozen",
@@ -352,6 +353,7 @@ const inheritedCardSummaryMarkup = renderToStaticMarkup(React.createElement(Card
   label: "Inherited card density",
 }));
 assert.doesNotMatch(inheritedCardSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(inheritedCardSummaryMarkup, /class="badge/);
 
 const chartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
   label: "Spend",

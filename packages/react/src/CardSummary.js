@@ -52,13 +52,13 @@ export const CardSummary = forwardRef(function CardSummary({
       "header",
       null,
       label ? React.createElement("strong", { className: "card-summary__brand" }, label) : null,
-      React.createElement(Badge, {
-        label: statusLabel,
-        tone: statusToneFor(resolvedState),
-        variant: "status",
-        state: resolvedState === "disabled" ? "disabled" : "default",
-        density: resolvedDensity || undefined,
-      }),
+      statusLabel ? React.createElement(Badge, {
+          label: statusLabel,
+          tone: statusToneFor(resolvedState),
+          variant: "status",
+          state: resolvedState === "disabled" ? "disabled" : "default",
+          density: resolvedDensity || undefined,
+        }) : null,
     ),
     React.createElement(
       "div",
@@ -87,7 +87,7 @@ export const CardSummary = forwardRef(function CardSummary({
           )),
         )
       : null,
-    resolvedState === "frozen"
+    resolvedState === "frozen" && statusLabel
       ? React.createElement(
           "span",
           { className: "card-summary__frost", "aria-hidden": "true" },
