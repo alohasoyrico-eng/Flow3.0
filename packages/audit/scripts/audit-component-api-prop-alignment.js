@@ -12,7 +12,6 @@ const componentSourceRoot = path.join(root, "packages/components/src/components"
 const ignoredParserTokens = new Set(["false", "true"]);
 const publicPropAliases = {};
 const unprefixedFactoryNames = new Map([
-  ["phone-input", "createTransitionalPhoneInput"],
   ["spinner", "createSpinner"],
   ["date-picker", "createTransitionalDatePicker"],
   ["date-range-picker", "createTransitionalDateRangePicker"],

@@ -1230,7 +1230,6 @@ export const componentContracts = {
   },
   phoneInput: {
     factory: "@design-system/react/phone-input",
-    internalFactory: "createTransitionalPhoneInput",
     element: "label",
     purpose: "Capture a phone number with visible label, compact country selector, calling code, helper, and native tel input.",
     variants: ["country-code", "compact", "otp-handoff", "readonly"],

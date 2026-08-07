@@ -180,7 +180,6 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import {
   createTransitionalDatePicker,
   createTransitionalDateRangePicker,
-  createTransitionalPhoneInput,
 } from "../src/components/specialized-inputs.js?v=28";
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
@@ -759,7 +758,6 @@ assert.deepEqual(Object.keys(codeInputPlatformAdapters), ["react"]);
 assert.equal(codeInputPlatformAdapters.react.componentName, "CodeInput");
 assert.equal(codeInputPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.phoneInput.factory, "@design-system/react/phone-input");
-assert.equal(componentContracts.phoneInput.internalFactory, "createTransitionalPhoneInput");
 assert.equal(phoneInputPlatformContract.id, "phone-input");
 assert.equal(phoneInputPlatformContract.source.factory, componentContracts.phoneInput.factory);
 assert.deepEqual(phoneInputPlatformProps(), componentContracts.phoneInput.props.map((prop) => prop.name));
@@ -879,49 +877,10 @@ assert.equal(selectedCountryMeta.countryCode, "CU");
 assert.equal(selectedCountryMeta.meta.callingCode, "+53");
 hydrateCountrySelector(countrySelector);
 assert.equal(countrySelector.__countrySelectorHydrated, true);
-
-let localizedPhoneMeta = null;
-const localizedPhoneInput = createTransitionalPhoneInput({
-  label: "Mobile phone",
-  country: "MX",
-  value: "5518429011",
-  helper: "Used for OTP and support recovery.",
-  onValueChange: (digits, meta) => { localizedPhoneMeta = { digits, meta }; },
-});
-const localizedPhoneField = localizedPhoneInput.querySelector(".phone-input__input");
-const localizedPhoneTrigger = localizedPhoneInput.querySelector(".phone-input__country-trigger");
-const localizedPhoneListbox = localizedPhoneInput.querySelector(".phone-input__country-listbox");
-const localizedPhoneOptions = localizedPhoneInput.querySelectorAll(".phone-input__country-option");
-assert.equal(localizedPhoneInput.className, "field phone-input");
-assert.equal(localizedPhoneInput.dataset.state, "default");
-assert.equal(localizedPhoneField.type, "tel");
-assert.equal(localizedPhoneField.attributes.inputmode, "tel");
-assert.equal(localizedPhoneField.attributes.autocomplete, "tel-national");
-assert.equal(localizedPhoneField.attributes["aria-labelledby"], `${localizedPhoneField.id}-label`);
-assert.equal(localizedPhoneField.attributes["aria-describedby"], localizedPhoneInput.querySelector(".field__helper").id);
-assert.equal(localizedPhoneField.value, "55 1842 9011");
-assert.equal(localizedPhoneTrigger.attributes.role, "combobox");
-assert.equal(localizedPhoneTrigger.attributes["aria-expanded"], "false");
-assert.equal(localizedPhoneTrigger.attributes["aria-controls"], localizedPhoneListbox.id);
-assert.equal(localizedPhoneTrigger.attributes["aria-label"], "Mobile phone country code, Mexico +52");
-assert.equal(localizedPhoneOptions.length, 10);
-assert.equal(localizedPhoneOptions[4].dataset.countryCode, "MX");
-assert.equal(localizedPhoneOptions[4].dataset.selected, "true");
-localizedPhoneTrigger.click();
-assert.equal(localizedPhoneInput.querySelector(".phone-input__country").dataset.open, "true");
-assert.equal(localizedPhoneTrigger.attributes["aria-expanded"], "true");
-assert.equal(localizedPhoneTrigger.attributes["aria-activedescendant"], localizedPhoneOptions[4].id);
-localizedPhoneOptions[9].dispatchEvent({ type: "keydown", key: "Enter", preventDefault() { this.defaultPrevented = true; } });
-assert.equal(localizedPhoneInput.querySelector(".phone-input__country").dataset.country, "CU");
-assert.equal(localizedPhoneInput.querySelector(".phone-input__prefix").textContent, "+53");
-assert.equal(localizedPhoneField.value, "55 1842 90");
-assert.equal(localizedPhoneMeta.digits, "55184290");
-assert.equal(localizedPhoneMeta.meta.e164, "+5355184290");
-localizedPhoneField.value = "+52 55 5123 4567";
-localizedPhoneField.dispatchEvent({ type: "input" });
-assert.equal(localizedPhoneInput.querySelector(".phone-input__country").dataset.country, "MX");
-assert.equal(localizedPhoneInput.querySelector(".phone-input__prefix").textContent, "+52");
-assert.equal(localizedPhoneField.value, "55 5123 4567");
+assert.ok(listCountryFlags().length > 200);
+assert.equal(hasCountryFlag("MX"), true);
+assert.equal(hasCountryFlag("ZZ"), false);
+assert.equal(countryFlagAssetPath("MX"), "./vendor/country-flag-icons/3x2/MX.svg");
 
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");
@@ -938,63 +897,6 @@ assert.equal(primitiveAnimation.dataset.animationRuntime, "fallback");
 assert.equal(primitiveAnimation.dataset.state, "playing");
 assert.equal(primitiveAnimation.querySelector(".animation-asset__fallback-icon").textContent, "shield");
 assert.equal(typeof resolveAnimationRuntime({ loadAnimation() {} })?.loadAnimation, "function");
-
-const phoneInput = createTransitionalPhoneInput({ label: "Phone", value: "5551234", country: "MX", helper: "SMS only" });
-assert.equal(phoneInput.tagName, "LABEL");
-const phoneInputClasses = phoneInput.className.split(" ");
-assert.ok(phoneInputClasses.includes("phone-input"));
-assert.ok(phoneInputClasses.includes("field"));
-assert.ok(phoneInputClasses.includes("phone-input"));
-assert.equal(phoneInput.dataset.state, "default");
-assert.equal(phoneInput.querySelector(".field__label").textContent, "Phone");
-assert.equal(phoneInput.querySelector(".phone-input__prefix").textContent, "+52");
-assert.equal(phoneInput.querySelector(".country-flag").dataset.country, "MX");
-assert.equal(phoneInput.querySelector(".country-flag").dataset.flagLibrary, "country-flag-icons");
-assert.ok(phoneInput.querySelector(".country-flag__asset").src.includes("country-flag-icons/3x2/MX.svg"));
-assert.equal(phoneInput.querySelector(".phone-input__country").dataset.country, "MX");
-assert.equal(phoneInput.querySelector(".phone-input__country-trigger").attributes.role, "combobox");
-assert.equal(phoneInput.querySelector(".phone-input__country-trigger").attributes["aria-expanded"], "false");
-assert.ok(listCountryFlags().length > 200);
-assert.equal(hasCountryFlag("MX"), true);
-assert.equal(hasCountryFlag("ZZ"), false);
-assert.equal(countryFlagAssetPath("MX"), "./vendor/country-flag-icons/3x2/MX.svg");
-assert.equal(phoneInput.querySelectorAll(".phone-input__country-option").length, 10);
-assert.equal(phoneInput.querySelector(".phone-input__country-option").attributes.role, "option");
-assert.equal(phoneInput.querySelector(".field__helper").textContent, "SMS only");
-const phoneField = phoneInput.querySelector(".phone-input__input");
-assert.equal(phoneField.type, "tel");
-assert.equal(phoneField.className, "input phone-input__input");
-assert.equal(phoneField.attributes["data-phone-input"], "");
-assert.equal(phoneField.attributes["aria-describedby"], phoneInput.querySelector(".field__helper").id);
-assert.equal(phoneField.value, "55 5123 4");
-const phoneError = createTransitionalPhoneInput({ label: "Phone", value: "55", error: "Enter a reachable number." });
-assert.equal(phoneError.dataset.state, "error");
-assert.equal(phoneError.querySelector(".phone-input__input").attributes["aria-invalid"], "true");
-assert.equal(phoneError.querySelector(".field__helper").textContent, "Enter a reachable number.");
-let phoneValue = "";
-let phoneMeta = {};
-const interactivePhone = createTransitionalPhoneInput({
-  label: "Phone",
-  country: "MX",
-  onValueChange(value, meta) {
-    phoneValue = value;
-    phoneMeta = meta;
-  },
-});
-const interactivePhoneField = interactivePhone.querySelector(".phone-input__input");
-interactivePhoneField.value = "(55) 5123-4567";
-interactivePhoneField.dispatchEvent({ type: "input" });
-assert.equal(interactivePhoneField.value, "55 5123 4567");
-assert.equal(phoneValue, "5551234567");
-assert.equal(phoneMeta.country, "MX");
-assert.equal(phoneMeta.callingCode, "+52");
-assert.equal(phoneMeta.e164, "+525551234567");
-interactivePhoneField.value = "+53 7 123 4567";
-interactivePhoneField.dispatchEvent({ type: "input" });
-assert.equal(interactivePhone.querySelector(".phone-input__prefix").textContent, "+53");
-assert.equal(interactivePhone.querySelector(".phone-input__country").dataset.country, "CU");
-assert.equal(phoneMeta.country, "CU");
-assert.equal(phoneMeta.e164, "+5371234567");
 
 const datePicker = createTransitionalDatePicker({ label: "Service date", value: "2026-07-13", helper: "One operational date.", min: "2026-01-01", max: "2026-12-31", density: "lg", state: "focus" });
 assert.equal(datePicker.tagName, "DIV");

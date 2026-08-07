@@ -210,6 +210,8 @@ function checkReactOnlyComponentBoundaries() {
     ["Card Security Code Input Hydrator", "hydrateTransitionalPaymentCardSecurityCodeInput", "specializedInputs"],
     ["Code Input", "createTransitionalSecurityCodeInput", "specializedInputs"],
     ["Code Input Hydrator", "hydrateTransitionalSecurityCodeInput", "specializedInputs"],
+    ["Phone Input", "createTransitionalPhoneInput", "specializedInputs"],
+    ["Phone Input Hydrator", "hydrateTransitionalPhoneInput", "specializedInputs"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

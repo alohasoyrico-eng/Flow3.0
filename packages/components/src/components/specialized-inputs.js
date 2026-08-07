@@ -13,7 +13,6 @@ import {
 } from "./fields.js?v=18";
 import { createSpinner } from "./feedback.js?v=8";
 
-let phoneInputId = 0;
 let countrySelectorId = 0;
 let datePickerId = 0;
 let dateRangePickerId = 0;
@@ -38,18 +37,6 @@ function resolvePhoneCountry({ country, prefix } = {}) {
   return resolveCountryCallingCodeOption({ country, prefix }, phoneCountries);
 }
 
-function parsePhoneValue(value, initialCountry, countryList = phoneCountries) {
-  const raw = String(value ?? "").trim();
-  const international = raw.match(/^\+(\d{1,3})/);
-  if (!international) return { country: initialCountry, digits: raw.replace(/\D/g, "").slice(0, initialCountry.nationalLength) };
-  const withPlus = `+${international[1]}`;
-  const matched = countryList.find((item) => withPlus.startsWith(item.callingCode)) ?? initialCountry;
-  return {
-    country: matched,
-    digits: raw.slice(matched.callingCode.length).replace(/\D/g, "").slice(0, matched.nationalLength),
-  };
-}
-
 function removeNodeAttribute(node, name) {
   node?.removeAttribute?.(name);
   if (node?.attributes && Object.prototype.hasOwnProperty.call(node.attributes, name)) delete node.attributes[name];
@@ -60,44 +47,6 @@ function nodeAttribute(node, name) {
   if (value != null) return value;
   const attribute = node?.attributes?.[name];
   return typeof attribute === "object" && attribute !== null && "value" in attribute ? attribute.value : attribute;
-}
-
-function getPhoneInput(root) {
-  return root.querySelector?.("[data-phone-input]")
-    ?? Array.from(root.querySelectorAll?.("input") ?? []).find((node) => node.attributes?.["data-phone-input"] !== undefined);
-}
-
-function getPhoneCountryControl(root) {
-  return root.querySelector?.("[data-phone-country]")
-    ?? Array.from(root.querySelectorAll?.("span") ?? []).find((node) => node.attributes?.["data-phone-country"] !== undefined);
-}
-
-function getPhonePrefix(root) {
-  return root.querySelector?.("[data-phone-prefix]")
-    ?? Array.from(root.querySelectorAll?.("span") ?? []).find((node) => node.attributes?.["data-phone-prefix"] !== undefined);
-}
-
-function getPhoneCountryFromControl(control, fallback = phoneCountries[0]) {
-  const selectedOption = Array.from(control?.querySelectorAll?.("[data-phone-country-option]") ?? [])
-    .find((option) => option.dataset?.selected === "true" || option.dataset?.countryCode === control?.dataset?.country);
-  return phoneCountries.find((item) => item.country === control?.dataset?.country)
-    ?? {
-      country: control?.dataset?.country ?? fallback.country,
-      label: selectedOption?.textContent?.replace(/\s\+\d+$/, "") ?? fallback.label,
-      callingCode: selectedOption?.dataset?.callingCode ?? fallback.callingCode,
-      nationalLength: Number(selectedOption?.dataset?.nationalLength ?? fallback.nationalLength),
-    };
-}
-
-function syncPhoneCountry(root, country) {
-  const countryControl = getPhoneCountryControl(root);
-  if (countryControl) syncCountrySelectorValue(countryControl, country);
-  const trigger = root.querySelector?.("[data-phone-country-trigger]") ?? root.querySelector?.(".phone-input__country-trigger");
-  const listbox = root.querySelector?.("[data-phone-country-list]") ?? root.querySelector?.(".phone-input__country-listbox");
-  if (trigger) {
-    trigger.setAttribute?.("aria-label", `${root.querySelector?.(".field__label")?.textContent ?? "Phone number"} country code, ${country.label} ${country.callingCode}`);
-    if (listbox?.id) trigger.setAttribute?.("aria-controls", listbox.id);
-  }
 }
 
 export function createCountrySelector({
@@ -395,140 +344,6 @@ export function hydrateCountrySelector(root, { onValueChange } = {}) {
   globalThis.document?.addEventListener?.("mousedown", (event) => {
     if (control.dataset.open === "true" && !control.contains?.(event.target)) setOpen(false);
   });
-  return root;
-}
-
-export function hydrateTransitionalPhoneInput(root, { onValueChange } = {}) {
-  if (!root || root.__phoneHydrated === true) return root;
-  const input = getPhoneInput(root);
-  const countryControl = getPhoneCountryControl(root);
-  let options = Array.from(root.querySelectorAll?.("[data-phone-country-option]") ?? []);
-  if (!options.length) options = Array.from(root.querySelectorAll?.(".phone-input__country-option") ?? []);
-  if (!input) return root;
-  root.__phoneHydrated = true;
-  root.dataset.phoneHydrated = "true";
-  const countryOptions = options.map((option) => ({
-    country: option.dataset.countryCode,
-    label: option.querySelector?.(".country-selector__option-label")?.textContent ?? option.textContent?.replace(/\s\+\d+$/, "") ?? option.dataset.countryCode,
-    callingCode: option.dataset.callingCode,
-    nationalLength: Number(option.dataset.nationalLength || 10),
-  }));
-  let selectedCountry = getPhoneCountryFromControl(countryControl, resolvePhoneCountry({ prefix: getPhonePrefix(root)?.textContent }));
-  const emitPhoneValue = (digits) => {
-    if (typeof onValueChange !== "function") return;
-    onValueChange(digits, {
-      country: selectedCountry.country,
-      callingCode: selectedCountry.callingCode,
-      e164: `${selectedCountry.callingCode}${digits}`,
-      nationalNumber: digits,
-    });
-  };
-  const normalize = () => {
-    const parsed = parsePhoneValue(input.value, selectedCountry, countryOptions.length ? countryOptions : phoneCountries);
-    if (parsed.country.country !== selectedCountry.country) {
-      selectedCountry = parsed.country;
-      syncPhoneCountry(root, selectedCountry);
-    }
-    const digits = parsed.digits.slice(0, selectedCountry.nationalLength);
-    input.value = formatPhoneValue(digits, selectedCountry.nationalLength);
-    emitPhoneValue(digits);
-  };
-  input.addEventListener?.("input", normalize);
-  hydrateCountrySelector(countryControl, {
-    onValueChange: (countryCode, countryMeta) => {
-      selectedCountry = (countryOptions.length ? countryOptions : phoneCountries).find((item) => item.country === countryCode) ?? countryMeta ?? selectedCountry;
-    syncPhoneCountry(root, selectedCountry);
-    const digits = String(input.value ?? "").replace(/\D/g, "").slice(0, selectedCountry.nationalLength);
-    input.value = formatPhoneValue(digits, selectedCountry.nationalLength);
-    emitPhoneValue(digits);
-    },
-  });
-  return root;
-}
-
-export function createTransitionalPhoneInput({
-  label,
-  value = "",
-  prefix = "+1",
-  country,
-  countries,
-  variant = "country-code",
-  helper = "",
-  disabled = false,
-  state,
-  density,
-  error = "",
-  onValueChange,
-} = {}) {
-  const id = `phone-input-${++phoneInputId}`;
-  const resolvedState = disabled ? "disabled" : error ? "error" : state ?? "default";
-  const isReadonly = variant === "readonly";
-  const resolvedHelper = error || helper;
-  const { root } = createFieldShell({
-    id,
-    label,
-    fallbackLabel: "Phone number",
-    state: resolvedState,
-    density,
-    variant,
-    className: "phone-input",
-  });
-  const control = createFieldSurface({ className: "phone-input__control" });
-  const countryOptions = normalizeCountryCallingCodeOptions(countries);
-  let selectedCountry = resolvePhoneCountry({ country, prefix });
-  const parsed = parsePhoneValue(value, selectedCountry);
-  selectedCountry = parsed.country;
-  const countryControl = createCountrySelector({
-    id: `${id}-country`,
-    label: label ?? "Phone number",
-    value: selectedCountry.country,
-    countries: countryOptions,
-    disabled: disabled || isReadonly,
-    invalid: Boolean(error),
-    density,
-    inline: true,
-    ariaLabel: `${label ?? "Phone number"} country code, ${selectedCountry.label} ${selectedCountry.callingCode}`,
-    listboxLabel: `${label ?? "Phone number"} country options`,
-    className: "phone-input__country",
-    hydrate: false,
-  });
-  countryControl.setAttribute("data-phone-country-control", "");
-  countryControl.setAttribute("data-phone-country", "");
-  const countryValue = countryControl.querySelector(".country-selector__trigger");
-  addClassName(countryValue, "phone-input__country-trigger");
-  countryValue.setAttribute("data-phone-country-trigger", "");
-  const flagNode = countryControl.querySelector(".country-flag");
-  addClassName(flagNode, "phone-input__flag");
-  flagNode.setAttribute("data-phone-country-flag", "");
-  const prefixNode = countryControl.querySelector(".country-selector__code");
-  addClassName(prefixNode, "phone-input__prefix");
-  prefixNode.setAttribute("data-phone-prefix", "");
-  const listboxNode = countryControl.querySelector(".country-selector__listbox");
-  addClassName(listboxNode, "phone-input__country-listbox");
-  listboxNode.setAttribute("data-phone-country-list", "");
-  countryControl.querySelectorAll(".country-selector__option").forEach((option) => {
-    addClassName(option, "phone-input__country-option");
-    option.setAttribute("data-phone-country-option", "");
-  });
-  const input = document.createElement("input");
-  input.className = "input phone-input__input";
-  input.id = id;
-  input.type = "tel";
-  input.inputMode = "tel";
-  input.autocomplete = "tel-national";
-  input.value = formatPhoneValue(parsed.digits, selectedCountry.nationalLength);
-  input.disabled = disabled;
-  input.readOnly = isReadonly;
-  input.setAttribute("data-phone-input", "");
-  input.setAttribute("inputmode", input.inputMode);
-  input.setAttribute("autocomplete", input.autocomplete);
-  input.setAttribute("aria-labelledby", `${id}-label`);
-  if (isReadonly) input.setAttribute("readonly", "");
-  if (error) input.setAttribute("aria-invalid", "true");
-  control.append(countryControl, input);
-  root.append(control);
-  appendFieldHelper(root, { id, text: resolvedHelper, target: input });
-  hydrateTransitionalPhoneInput(root, { onValueChange });
   return root;
 }
 
@@ -1289,14 +1104,6 @@ function clearNode(node) {
   }
   node.children = [];
   node.textContent = "";
-}
-
-function formatPhoneValue(value, maxLength = 10) {
-  const digits = String(value ?? "").replace(/\D/g, "").slice(0, Number(maxLength) || 10);
-  if (!digits) return "";
-  if (digits.length <= 2) return digits;
-  if (digits.length <= 6) return `${digits.slice(0, 2)} ${digits.slice(2)}`;
-  return `${digits.slice(0, 2)} ${digits.slice(2, 6)} ${digits.slice(6)}`;
 }
 
 function parseDate(value) {
