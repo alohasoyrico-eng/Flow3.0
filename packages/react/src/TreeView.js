@@ -10,15 +10,12 @@ function nodeKey(node, index) {
 }
 
 function normalizeNodes(nodes) {
-  const source = Array.isArray(nodes) && nodes.length ? nodes : [
-    { key: "root", label: "Fleet", level: 1, expanded: true, icon: "account_tree" },
-    { key: "cards", label: "Cards", level: 2, selected: true },
-    { key: "ending-4821", label: "Cards ending 4821", level: 3 },
-  ];
+  const source = Array.isArray(nodes) ? nodes : [];
   return source.map((node, index) => ({
     ...node,
     key: nodeKey(node, index),
-    label: node?.label ?? `Tree item ${index + 1}`,
+    label: node?.label ?? "",
+    ariaLabel: node?.ariaLabel ?? node?.["aria-label"] ?? node?.label ?? `Tree item ${index + 1}`,
     level: Math.max(1, Math.min(5, Number(node?.level ?? 1))),
     expandable: node?.expanded != null,
     expanded: Boolean(node?.expanded),
@@ -133,6 +130,7 @@ export const TreeView = forwardRef(function TreeView({
           className: "tree-view__control",
           "data-tree-control": "",
           role: "treeitem",
+          "aria-label": node.label ? undefined : node.ariaLabel,
           "aria-level": String(node.level),
           "aria-expanded": node.expandable ? String(isExpanded) : undefined,
           "aria-selected": String(isSelected),

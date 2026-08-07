@@ -15,6 +15,8 @@ const visibleTriggerDefaultsByFile = new Map([
   ["Tabs.js", ["Overview", "Details", "Settings", "Tab"]],
   ["Tooltip.js", ["Info", "Tooltip"]],
   ["Toast.js", ["Toast"]],
+  ["TreeView.js", ["Fleet", "Cards", "Tree item"]],
+  ["Breadcrumbs.js", ["Home"]],
 ]);
 const displayFallbackTermsByFile = new Map([
   ["Card.js", ["Card", "Loading"]],

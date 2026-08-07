@@ -25,7 +25,7 @@ function resolveBreadcrumbItems(items, { variant, maxItems } = {}) {
 }
 
 function normalizeItems(items) {
-  const sourceItems = Array.isArray(items) && items.length ? items : [{ label: "Home", href: "#" }];
+  const sourceItems = Array.isArray(items) ? items : [];
   return sourceItems.map((item, index) => ({
     ...item,
     label: item.label ?? "",
