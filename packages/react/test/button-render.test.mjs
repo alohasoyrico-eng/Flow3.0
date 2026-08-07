@@ -1435,6 +1435,11 @@ const inheritedSegmentedControlMarkup = renderToStaticMarkup(React.createElement
   items: [{ key: "map", label: "Map" }],
 }));
 assert.doesNotMatch(inheritedSegmentedControlMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+const unnamedSegmentedControlMarkup = renderToStaticMarkup(React.createElement(SegmentedControl, {
+  items: [{ key: "map", icon: "map" }],
+  variant: "icon-only",
+}));
+assert.doesNotMatch(unnamedSegmentedControlMarkup, /Options|Option 1/);
 
 const switchMarkup = renderToStaticMarkup(React.createElement(Switch, {
   label: "Route alerts",

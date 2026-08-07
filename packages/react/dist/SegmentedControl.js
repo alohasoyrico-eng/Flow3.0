@@ -13,7 +13,7 @@ function normalizeItems(items) {
     ...item,
     key: itemKey(item) || `option-${index + 1}`,
     label: item?.label ?? "",
-    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item?.label ?? `Option ${index + 1}`,
+    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item?.label ?? "",
   }));
 }
 
@@ -46,7 +46,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
   const [currentKey, setCurrentKey] = useState(() => selectedFromItems(normalizedItems, selectedKey));
   const itemRefs = useRef(new Map());
   const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
-  const resolvedLabel = label ?? "Options";
+  const resolvedLabel = label ?? "";
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "outlined");
 
   const commitKey = (nextKey, restoreFocus = false) => {
