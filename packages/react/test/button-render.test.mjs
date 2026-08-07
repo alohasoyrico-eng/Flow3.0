@@ -1031,10 +1031,11 @@ assert.doesNotMatch(progressIndicatorMarkup, /style="/);
 
 const indeterminateProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator, {
   label: "Syncing policies",
+  ariaValueText: "Syncing policies",
   indeterminate: true,
 }));
 assert.match(indeterminateProgressMarkup, /data-indeterminate="true"/);
-assert.match(indeterminateProgressMarkup, /aria-valuetext="In progress"/);
+assert.match(indeterminateProgressMarkup, /aria-valuetext="Syncing policies"/);
 assert.doesNotMatch(indeterminateProgressMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /aria-valuenow=/);
 assert.doesNotMatch(indeterminateProgressMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /aria-valuemax=/);
 assert.doesNotMatch(indeterminateProgressMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
@@ -1045,11 +1046,14 @@ const completeProgressMarkup = renderToStaticMarkup(React.createElement(Progress
   max: 24,
   state: "complete",
   showValue: true,
+  ariaValueText: "Upload complete",
 }));
 assert.match(completeProgressMarkup, /data-state="complete"/);
 assert.match(completeProgressMarkup, /aria-valuenow="24"/);
-assert.match(completeProgressMarkup, /aria-valuetext="Complete"/);
+assert.match(completeProgressMarkup, /aria-valuetext="Upload complete"/);
 assert.match(completeProgressMarkup, /class="progress__value">100%<\/span>/);
+const unnamedProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator));
+assert.doesNotMatch(unnamedProgressMarkup, /aria-label="Progress"|In progress|Complete|Unavailable/);
 
 const spinnerMarkup = renderToStaticMarkup(React.createElement(Spinner, {
   label: "Loading route",

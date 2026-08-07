@@ -4,6 +4,9 @@ const reactSrcDir = path.join(root, "packages/react/src");
 const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días", "es-MX", "\"L\", \"M\", \"X\", \"J\", \"V\", \"S\", \"D\""];
 const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save", "7 days", "30 days", "90 days"];
 const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
+const semanticAriaDefaultsByFile = new Map([
+  ["ProgressIndicator.js", ["Progress", "In progress", "Complete", "Unavailable", "Paused at", "Error at"]],
+]);
 const visibleTriggerDefaultsByFile = new Map([
   ["Avatar.js", ["Unknown avatar"]],
   ["Dialog.js", ["Dialog", "Open dialog"]],
@@ -84,6 +87,17 @@ function checkReactCopyContract() {
       if (!/["'`]/.test(line)) return;
       const isReactMetadata = line.includes(".displayName") || line.includes(".platformContract");
       const isAriaName = line.includes('"aria-label"') || line.includes("'aria-label'") || line.includes("ariaLabel");
+      const semanticAriaDefaults = semanticAriaDefaultsByFile.get(fileName) ?? [];
+      const matchedSemanticAriaDefault = isReactMetadata ? undefined : semanticAriaDefaults.find((term) => line.includes(`"${term}`) || line.includes(`'${term}`) || line.includes(`\`${term}`));
+      if (matchedSemanticAriaDefault) {
+        add(
+          "errors",
+          file,
+          index + 1,
+          `React Copy Contract: semantic aria copy "${matchedSemanticAriaDefault}" belongs in consumer props, not the React component package.`
+        );
+      }
+
       const matchedTerm = localeSpecificTerms.find((term) => line.includes(term));
       if (matchedTerm) {
         add(

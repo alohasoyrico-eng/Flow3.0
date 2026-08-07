@@ -24,17 +24,9 @@ function progressMeta({ value = 0, max = 100, state = "active", indeterminate = 
   return { numericMax, numericValue, percent, resolvedState, isIndeterminate };
 }
 
-function valueText({ resolvedState, percent, isIndeterminate }) {
-  if (isIndeterminate) return "In progress";
-  if (resolvedState === "paused") return `Paused at ${Math.round(percent)}%`;
-  if (resolvedState === "complete") return "Complete";
-  if (resolvedState === "error") return `Error at ${Math.round(percent)}%`;
-  if (resolvedState === "disabled") return "Unavailable";
-  return undefined;
-}
-
 export const ProgressIndicator = forwardRef(function ProgressIndicator({
   label,
+  ariaValueText,
   value = 0,
   max = 100,
   indeterminate = false,
@@ -60,11 +52,11 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
       className: ["progress", className].filter(Boolean).join(" "),
       role: "progressbar",
       "aria-labelledby": label ? labelId : undefined,
-      "aria-label": label ? undefined : "Progress",
+      "aria-label": label ? undefined : rest["aria-label"],
       "aria-valuemin": "0",
       "aria-valuemax": isIndeterminate ? undefined : String(numericMax),
       "aria-valuenow": isIndeterminate ? undefined : String(numericValue),
-      "aria-valuetext": valueText({ resolvedState, percent, isIndeterminate }),
+      "aria-valuetext": ariaValueText,
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
       ...flowToneProps(normalizeTone(tone)),
       ...flowStateProps(resolvedState),

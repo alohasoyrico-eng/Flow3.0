@@ -6,7 +6,8 @@ export type ProgressIndicatorTone = "accent" | "success" | "warning" | "danger" 
 export type ProgressIndicatorState = "default" | "active" | "indeterminate" | "paused" | "complete" | "error" | "disabled";
 
 export interface ProgressIndicatorProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label: string;
+  label?: string;
+  ariaValueText?: string;
   value?: number;
   max?: number;
   indeterminate?: boolean;
