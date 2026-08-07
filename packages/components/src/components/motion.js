@@ -1,34 +1,8 @@
 import { createAnimationAsset } from "../primitives/animation-assets.js?v=1";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
 
-const motionBoundaryVariants = new Set(["fade", "slide", "collapse", "route"]);
-const motionBoundaryStates = new Set(["idle", "entering", "active", "exiting", "reduced-motion", "disabled"]);
 const animatedMomentVariants = new Set(["success", "empty", "loading", "celebration"]);
 const animatedMomentStates = new Set(["idle", "playing", "paused", "complete", "reduced-motion", "disabled"]);
-
-let motionBoundaryId = 0;
-
-function normalizeMotionBoundaryVariant(variant) {
-  return motionBoundaryVariants.has(variant) ? variant : "fade";
-}
-
-function normalizeMotionBoundaryState(state, reducedMotion) {
-  if (state === "disabled") return "disabled";
-  if (reducedMotion || state === "reduced-motion") return "reduced-motion";
-  return motionBoundaryStates.has(state) ? state : "active";
-}
-
-function motionBoundaryStateLabel(state) {
-  const labels = {
-    idle: "Idle",
-    entering: "Entering",
-    active: "Active",
-    exiting: "Exiting",
-    "reduced-motion": "Reduced motion",
-    disabled: "Disabled",
-  };
-  return labels[state] ?? labels.active;
-}
 
 function normalizeAnimatedMomentVariant(variant) {
   return animatedMomentVariants.has(variant) ? variant : "success";
@@ -59,51 +33,6 @@ function animatedMomentIcon(variant, icon) {
     celebration: "auto_awesome",
   };
   return icons[variant] ?? "auto_awesome";
-}
-
-export function createMotionBoundary({
-  label,
-  description = "",
-  variant = "fade",
-  state = "active",
-  icon = "transition_slide",
-  reducedMotion = false,
-} = {}) {
-  const id = `motion-boundary-${++motionBoundaryId}`;
-  const resolvedVariant = normalizeMotionBoundaryVariant(variant);
-  const resolvedState = normalizeMotionBoundaryState(state, reducedMotion);
-  const boundary = document.createElement("div");
-  boundary.className = "motion-boundary";
-  boundary.dataset.variant = resolvedVariant;
-  boundary.dataset.state = resolvedState;
-  boundary.dataset.reducedMotion = String(Boolean(reducedMotion || resolvedState === "reduced-motion"));
-  boundary.setAttribute("role", "group");
-  boundary.setAttribute("aria-labelledby", `${id}-label`);
-  boundary.setAttribute("aria-describedby", `${id}-description ${id}-state`);
-  if (resolvedState === "disabled") boundary.setAttribute("aria-disabled", "true");
-  const iconNode = document.createElement("span");
-  iconNode.className = "motion-boundary__icon";
-  iconNode.setAttribute("aria-hidden", "true");
-  setIconGlyph(iconNode, icon);
-  const content = document.createElement("div");
-  content.className = "motion-boundary__content";
-  const title = document.createElement("strong");
-  title.id = `${id}-label`;
-  title.textContent = label ?? "Panel transition";
-  const copy = document.createElement("p");
-  copy.id = `${id}-description`;
-  copy.textContent = description || "Controls the entrance, exit, and reduced-motion behavior of one bounded region.";
-  const stateNode = document.createElement("span");
-  stateNode.className = "motion-boundary__state";
-  stateNode.id = `${id}-state`;
-  stateNode.textContent = motionBoundaryStateLabel(resolvedState);
-  content.append(title, copy, stateNode);
-  const cue = document.createElement("span");
-  cue.className = "motion-boundary__cue";
-  cue.setAttribute("data-motion-cue", "");
-  cue.setAttribute("aria-hidden", "true");
-  boundary.append(iconNode, content, cue);
-  return boundary;
 }
 
 export function createAnimatedMoment({

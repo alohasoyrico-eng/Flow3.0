@@ -48,7 +48,6 @@ const unprefixedFactoryNames = new Map([
   ["menu", "createMenu"],
   ["drawer", "createDrawer"],
   ["popover", "createPopover"],
-  ["motion-boundary", "createMotionBoundary"],
   ["animated-moment", "createAnimatedMoment"],
 ]);
 

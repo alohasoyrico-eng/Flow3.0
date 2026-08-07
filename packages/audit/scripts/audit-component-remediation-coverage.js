@@ -201,7 +201,6 @@ function kebabToFactoryName(id) {
     menu: "createMenu",
     drawer: "createDrawer",
     popover: "createPopover",
-    "motion-boundary": "createMotionBoundary",
     "animated-moment": "createAnimatedMoment",
   };
   if (unprefixedFactoryNames[id]) return unprefixedFactoryNames[id];

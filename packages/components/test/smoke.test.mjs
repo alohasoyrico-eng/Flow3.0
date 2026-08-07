@@ -178,7 +178,7 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
-import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
+import { createAnimatedMoment } from "../src/components/motion.js?v=5";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -660,7 +660,6 @@ assert.deepEqual(Object.keys(treeViewPlatformAdapters), ["react"]);
 assert.equal(treeViewPlatformAdapters.react.componentName, "TreeView");
 assert.equal(treeViewPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.motionBoundary.factory, "@design-system/react/motion-boundary");
-assert.equal(componentContracts.motionBoundary.internalFactory, "createMotionBoundary");
 assert.equal(motionBoundaryPlatformContract.id, "motion-boundary");
 assert.equal(motionBoundaryPlatformContract.source.factory, componentContracts.motionBoundary.factory);
 assert.deepEqual(motionBoundaryPlatformProps(), componentContracts.motionBoundary.props.map((prop) => prop.name));
@@ -1741,32 +1740,6 @@ assert.equal(interactiveTree.querySelectorAll(".tree-view__item")[0].getAttribut
 assert.equal(interactiveTree.querySelectorAll(".tree-view__control")[0].getAttribute("aria-expanded"), "true");
 assert.equal(interactiveTree.querySelector(".button__icon--trailing").textContent, "expand_more");
 assert.equal(interactiveTree.querySelectorAll(".tree-view__item")[1].hidden, false);
-
-const motionBoundary = createMotionBoundary({ label: "Panel transition", state: "entering", reducedMotion: true });
-assert.equal(motionBoundary.tagName, "DIV");
-assert.equal(motionBoundary.className, "motion-boundary");
-assert.equal(motionBoundary.attributes.role, "group");
-assert.equal(motionBoundary.dataset.variant, "fade");
-assert.equal(motionBoundary.dataset.state, "reduced-motion");
-assert.equal(motionBoundary.dataset.reducedMotion, "true");
-const motionBoundaryContent = motionBoundary.querySelector(".motion-boundary__content");
-assert.equal(motionBoundary.attributes["aria-labelledby"], motionBoundaryContent.children[0].id);
-assert.equal(motionBoundary.attributes["aria-describedby"].includes(motionBoundaryContent.children[1].id), true);
-assert.equal(motionBoundary.attributes["aria-describedby"].includes(motionBoundary.querySelector(".motion-boundary__state").id), true);
-assert.equal(motionBoundary.querySelector(".motion-boundary__state").textContent, "Reduced motion");
-assert.equal(motionBoundary.querySelector(".motion-boundary__cue").attributes["data-motion-cue"], "");
-assert.equal(motionBoundary.querySelector(".motion-boundary__cue").attributes["aria-hidden"], "true");
-
-const exitingMotionBoundary = createMotionBoundary({ label: "Exit", variant: "route", state: "exiting" });
-assert.equal(exitingMotionBoundary.dataset.variant, "route");
-assert.equal(exitingMotionBoundary.dataset.state, "exiting");
-assert.equal(exitingMotionBoundary.querySelector(".motion-boundary__state").textContent, "Exiting");
-
-const disabledMotionBoundary = createMotionBoundary({ label: "Disabled", variant: "nonsense", state: "disabled", reducedMotion: true });
-assert.equal(disabledMotionBoundary.dataset.variant, "fade");
-assert.equal(disabledMotionBoundary.dataset.state, "disabled");
-assert.equal(disabledMotionBoundary.attributes["aria-disabled"], "true");
-assert.equal(disabledMotionBoundary.querySelector(".motion-boundary__state").textContent, "Disabled");
 
 const animatedMoment = createAnimatedMoment({ label: "Action complete", state: "complete", reducedMotionFallback: "Static success" });
 assert.equal(animatedMoment.tagName, "DIV");
