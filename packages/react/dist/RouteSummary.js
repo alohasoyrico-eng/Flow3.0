@@ -20,7 +20,7 @@ function renderAction(action, index, { compact, density, disabled }) {
     return React.createElement(IconButton, {
       key: actionKey,
       icon: action?.icon ?? "close",
-      ariaLabel: action?.ariaLabel ?? action?.label ?? "Route action",
+      ariaLabel: action?.ariaLabel ?? action?.label ?? "",
       variant: action?.variant ?? "ghost",
       density: action?.density ?? density,
       disabled: actionDisabled,

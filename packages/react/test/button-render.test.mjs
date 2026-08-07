@@ -282,6 +282,13 @@ const inheritedCompactRouteSummaryMarkup = renderToStaticMarkup(React.createElem
 }));
 assert.doesNotMatch(inheritedCompactRouteSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedCompactRouteSummaryMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
+const unnamedCompactRouteActionMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  label: "Route",
+  variant: "compact",
+  actions: [{ icon: "close" }],
+}));
+assert.doesNotMatch(unnamedCompactRouteActionMarkup, /Route action/);
+assert.doesNotMatch(unnamedCompactRouteActionMarkup.match(/<button[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const stationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
   label: "Station 24",
