@@ -2170,4 +2170,8 @@ assert.doesNotMatch(inheritedSelectMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /da
 assert.doesNotMatch(inheritedSelectMarkup.match(/^<span[^>]+class="field"[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedSelectMarkup.match(/<span class="select-control"[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const unnamedSelectMarkup = renderToStaticMarkup(React.createElement(Select));
+assert.doesNotMatch(unnamedSelectMarkup, /aria-label="Select"/);
+assert.doesNotMatch(unnamedSelectMarkup, /aria-label="Options"/);
+
 console.log("react action and field component render tests passed");

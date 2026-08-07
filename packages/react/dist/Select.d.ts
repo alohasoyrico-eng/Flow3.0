@@ -16,10 +16,11 @@ export type SelectValueMeta = {
 };
 
 export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label: string;
+  label?: string;
   helper?: string;
   icon?: string;
   options: SelectOption[];
+  optionsLabel?: string;
   value?: string;
   name?: string;
   disabled?: boolean;

@@ -14,6 +14,7 @@ export const Select = forwardRef(function Select({
   helper = "",
   icon = "",
   options = [],
+  optionsLabel,
   value,
   name = "",
   disabled = false,
@@ -80,7 +81,7 @@ export const Select = forwardRef(function Select({
           "aria-expanded": String(isOpen),
           "aria-haspopup": "listbox",
           "aria-controls": `${selectId}-listbox`,
-          "aria-label": label ? undefined : "Select",
+          "aria-label": label ? undefined : rest["aria-label"],
           "aria-labelledby": label ? `${selectId}-label` : undefined,
           "aria-invalid": state === "error" ? "true" : undefined,
           "aria-activedescendant": `${selectId}-option-${activeIndex}`,
@@ -108,7 +109,8 @@ export const Select = forwardRef(function Select({
           className: "select-control__listbox",
           role: "listbox",
           "data-select-listbox": "",
-          "aria-label": label ? `${label} options` : "Options",
+          "aria-label": optionsLabel,
+          "aria-labelledby": optionsLabel ? undefined : label ? `${selectId}-label` : undefined,
         },
         options.map((option, index) => {
           const optionValue = option.value ?? option.label ?? "";
