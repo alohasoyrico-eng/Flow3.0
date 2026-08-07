@@ -16,7 +16,8 @@ function normalizeValues(values = []) {
 }
 
 function pointsFor(values = []) {
-  const safeValues = normalizeValues(values.length ? values : [32, 54, 48, 70, 62, 84]);
+  const safeValues = normalizeValues(values);
+  if (!safeValues.length) return "";
   const max = Math.max(...safeValues, 1);
   const width = 160;
   const height = 72;
@@ -28,7 +29,7 @@ function pointsFor(values = []) {
 }
 
 function renderLinePlot(values, variant, series = []) {
-  const resolvedSeries = Array.isArray(series) && series.length ? series.slice(0, 3) : [{ label: "Series 1", values }];
+  const resolvedSeries = Array.isArray(series) && series.length ? series.slice(0, 3) : values.length ? [{ values }] : [];
   return React.createElement(
     "svg",
     { className: "chart-panel__svg", viewBox: "0 0 160 72", role: "img", "aria-hidden": "true" },
@@ -53,7 +54,7 @@ function renderBars(values, labels) {
   const safeValues = normalizeValues(values);
   const max = Math.max(...safeValues, 1);
   return safeValues.map((value, index) => {
-    const text = `${labels[index] ?? `Value ${index + 1}`}: ${value}`;
+    const text = labels[index] ? `${labels[index]}: ${value}` : String(value);
     const percent = Math.max(8, Math.round((value / max) * 100));
     return React.createElement(
       "span",
@@ -69,7 +70,7 @@ function renderBars(values, labels) {
         { className: "chart-panel__bar-svg", viewBox: "0 0 12 100", preserveAspectRatio: "none", "aria-hidden": "true" },
         React.createElement("rect", { className: "chart-panel__bar", x: "0", y: String(100 - percent), width: "12", height: String(percent), "data-max": value === max ? "true" : undefined }),
       ),
-      React.createElement("small", null, labels[index] ?? `Value ${index + 1}`),
+      labels[index] ? React.createElement("small", null, labels[index]) : null,
     );
   });
 }
@@ -88,15 +89,15 @@ function renderBullet(values, labels) {
   const max = Math.max(...safeValues, 1);
   return safeValues.map((value, index) => React.createElement(
     "span",
-    { key: index, className: "chart-panel__bullet", role: "listitem", tabIndex: 0, "data-tooltip": `${labels[index] ?? `Value ${index + 1}`}: ${value}` },
-    React.createElement("b", null, labels[index] ?? `Value ${index + 1}`),
+    { key: index, className: "chart-panel__bullet", role: "listitem", tabIndex: 0, "data-tooltip": labels[index] ? `${labels[index]}: ${value}` : String(value) },
+    labels[index] ? React.createElement("b", null, labels[index]) : null,
     React.createElement("progress", { className: "chart-panel__bullet-meter", max, value, tabIndex: -1, "aria-hidden": "true" }),
     React.createElement("em", null, String(value)),
   ));
 }
 
 function renderComparison(comparisons, values, labels) {
-  const source = Array.isArray(comparisons) && comparisons.length ? comparisons.slice(0, 3) : [{ label: "Current", values }, { label: "Previous", values: normalizeValues(values).map((item) => Math.max(0, item - 8)) }];
+  const source = Array.isArray(comparisons) && comparisons.length ? comparisons.slice(0, 3) : values.length ? [{ values }] : [];
   const max = Math.max(...source.flatMap((item) => normalizeValues(item.values)), 1);
   return labels.map((label, index) => React.createElement(
     "span",
@@ -122,7 +123,7 @@ function renderComparison(comparisons, values, labels) {
 }
 
 function renderPareto(values, labels) {
-  const sorted = normalizeValues(values).map((value, index) => ({ value, label: labels[index] ?? `Value ${index + 1}` })).sort((a, b) => b.value - a.value);
+  const sorted = normalizeValues(values).map((value, index) => ({ value, label: labels[index] ?? String(index) })).sort((a, b) => b.value - a.value);
   const max = Math.max(...sorted.map((item) => item.value), 1);
   return React.createElement(
     "svg",
@@ -171,7 +172,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
   const resolvedTone = normalizeFlowValue(tone, validTones, "neutral");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedValues = normalizeValues(values);
-  const resolvedLabels = labels.length ? labels : valueLabels.length ? valueLabels : resolvedValues.map((_, index) => `Value ${index + 1}`);
+  const resolvedLabels = labels.length ? labels : valueLabels.length ? valueLabels : [];
   const chartPrimitive = createChartsPrimitive({
     type: resolvedVariant,
     label: label ?? "",

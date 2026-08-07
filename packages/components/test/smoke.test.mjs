@@ -847,6 +847,13 @@ assert.equal(countryFlagAssetPath("MX"), "./vendor/country-flag-icons/3x2/MX.svg
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");
 assert.equal(primitiveChart.legendModel.length, 2);
+const unlabeledPrimitiveChart = createChartsPrimitive({ values: [1, 2, 3] });
+assert.equal(unlabeledPrimitiveChart.textSummary.includes("Value 1"), false);
+assert.equal(unlabeledPrimitiveChart.textSummary.includes("Series 1"), false);
+assert.deepEqual(unlabeledPrimitiveChart.tableFallback.map((row) => row.label), ["", "", ""]);
+const emptyPrimitiveChart = createChartsPrimitive();
+assert.equal(emptyPrimitiveChart.textSummary.includes("32"), false);
+assert.equal(emptyPrimitiveChart.tableFallback.length, 0);
 const primitiveAnimation = createAnimationAsset({
   label: "Success motion",
   state: "playing",

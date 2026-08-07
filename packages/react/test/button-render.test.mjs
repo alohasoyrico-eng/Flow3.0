@@ -368,6 +368,12 @@ const inheritedChartPanelMarkup = renderToStaticMarkup(React.createElement(Chart
   values: [1, 2, 3],
 }));
 assert.doesNotMatch(inheritedChartPanelMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(inheritedChartPanelMarkup, /Value 1|Series 1|Current|Previous/);
+const emptyChartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
+  label: "Empty chart",
+}));
+assert.doesNotMatch(emptyChartPanelMarkup, /Value 1|Series 1|Current|Previous/);
+assert.doesNotMatch(emptyChartPanelMarkup, /32|54|48|70|62|84/);
 
 const auditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
   label: "Document rejected",

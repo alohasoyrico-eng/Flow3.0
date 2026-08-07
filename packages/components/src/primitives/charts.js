@@ -14,26 +14,26 @@ function normalizeSeries(series = [], fallbackValues = []) {
   const normalized = series
     .map((item, index) => ({
       id: item.id ?? `series-${index + 1}`,
-      label: item.label ?? `Series ${index + 1}`,
+      label: item.label ?? "",
       values: normalizeValues(Array.isArray(item.values) ? item.values : []),
     }))
     .filter((item) => item.values.length);
-  return normalized.length ? normalized : [{ id: "series-1", label: "Series 1", values: fallbackValues }];
+  return normalized.length ? normalized : fallbackValues.length ? [{ id: "series-1", label: "", values: fallbackValues }] : [];
 }
 
 function normalizeSegments(segments = [], values = [], labels = []) {
   const source = segments.length
     ? segments
-    : values.map((item, index) => ({ label: labels[index] ?? `Segment ${index + 1}`, value: item }));
+    : values.map((item, index) => ({ label: labels[index] ?? "", value: item }));
   return source.map((item, index) => ({
     id: item.id ?? `segment-${index + 1}`,
-    label: item.label ?? `Segment ${index + 1}`,
+    label: item.label ?? "",
     value: Number.isFinite(Number(item.value)) ? Math.max(0, Number(item.value)) : 0,
   }));
 }
 
 function createTextSummary({ label, value, caption, type, rows }) {
-  const points = rows.map((row) => `${row.label}: ${row.value}`).join(", ");
+  const points = rows.map((row) => row.label ? `${row.label}: ${row.value}` : String(row.value)).join(", ");
   return [label, value, caption, `${type} chart`, points].filter(Boolean).join(". ");
 }
 
@@ -47,7 +47,7 @@ function createTableFallback(rows = []) {
 
 export function createChartsPrimitive({
   type = "sparkline",
-  label = "Chart",
+  label = "",
   value = "",
   caption = "",
   values = [],
@@ -58,17 +58,17 @@ export function createChartsPrimitive({
   thresholds = [],
 } = {}) {
   const resolvedType = type === "bar" ? "bars" : supportedChartTypes.has(type) ? type : "sparkline";
-  const resolvedValues = normalizeValues(values.length ? values : [32, 54, 48, 70, 62, 84]);
-  const resolvedLabels = labels.length ? labels : resolvedValues.map((_, index) => `Value ${index + 1}`);
+  const resolvedValues = normalizeValues(values);
+  const resolvedLabels = labels.length ? labels : [];
   const lineSeries = normalizeSeries(series, resolvedValues);
   const comparisonSeries = normalizeSeries(comparisons.length ? comparisons : series, resolvedValues);
   const segmentRows = normalizeSegments(segments, resolvedValues, resolvedLabels);
-  const baseRows = resolvedValues.map((item, index) => ({ label: resolvedLabels[index] ?? `Value ${index + 1}`, value: item }));
+  const baseRows = resolvedValues.map((item, index) => ({ label: resolvedLabels[index] ?? "", value: item }));
   const rows = resolvedType === "donut"
     ? segmentRows
     : resolvedType === "comparison"
       ? comparisonSeries.flatMap((item) => item.values.map((seriesValue, index) => ({
-          label: resolvedLabels[index] ?? `Value ${index + 1}`,
+          label: resolvedLabels[index] ?? "",
           value: seriesValue,
           series: item.label,
         })))

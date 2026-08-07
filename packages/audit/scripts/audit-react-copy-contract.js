@@ -27,7 +27,7 @@ const displayFallbackTermsByFile = new Map([
   ["Accordion.js", ["Section"]],
   ["Card.js", ["Card", "Loading"]],
   ["CardSummary.js", ["Card", "Active", "Frozen", "Review"]],
-  ["ChartPanel.js", ["Chart"]],
+  ["ChartPanel.js", ["Chart", "Value", "Series", "Current", "Previous"]],
   ["EmptyState.js", ["No results"]],
   ["KpiTile.js", ["KPI"]],
   ["List.js", ["List item", "Loading item"]],
