@@ -174,7 +174,6 @@ function kebabToFactoryName(id) {
     "icon-button": "createTransitionalActionIconButton",
     input: "createTransitionalFieldInput",
     select: "createTransitionalFieldSelect",
-    "text-area": "createTransitionalFieldTextArea",
     "code-input": "createTransitionalSecurityCodeInput",
     "phone-input": "createTransitionalPhoneInput",
     "card-number-input": "createTransitionalPaymentCardNumberInput",

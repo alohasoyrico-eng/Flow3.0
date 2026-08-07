@@ -31,12 +31,12 @@ const directDensityComponents = [
 
 const reactDensityComponents = [
   { id: "switch", file: path.join(root, "packages/react/src/Switch.js"), selector: '.switch[data-density="sm"]', token: "--switch-track-width", snippets: ['"data-density": density || undefined'] },
+  { id: "textArea", file: path.join(root, "packages/react/src/TextArea.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
 ];
 
 const delegatedDensityComponents = [
   { id: "input", factory: "createTransitionalFieldInput", source: "fields", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "combobox", factory: "createCombobox", source: "fields", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
-  { id: "textArea", factory: "createTransitionalFieldTextArea", source: "fields", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "cardNumberInput", factory: "createTransitionalPaymentCardNumberInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "cardExpiryInput", factory: "createTransitionalPaymentCardExpiryInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "cardSecurityCodeInput", factory: "createTransitionalPaymentCardSecurityCodeInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
@@ -48,7 +48,7 @@ const delegatedDensityComponents = [
   { id: "dateRangePicker", factory: "createTransitionalDateRangePicker", source: "specializedInputs", delegate: "date-picker shell", selector: '.date-picker[data-density="sm"]' },
 ];
 
-const contextInheritedDensityComponents = new Set(["button", "cardExpiryInput", "cardNumberInput", "cardSecurityCodeInput", "codeInput", "datePicker", "dateRangePicker", "iconButton", "input", "phoneInput", "select", "textArea"]);
+const contextInheritedDensityComponents = new Set(["button", "cardExpiryInput", "cardNumberInput", "cardSecurityCodeInput", "codeInput", "datePicker", "dateRangePicker", "iconButton", "input", "phoneInput", "select"]);
 
 function checkDensityContracts() {
   const contracts = read(contractsFile);

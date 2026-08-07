@@ -192,7 +192,7 @@ import {
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
-import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
+import { createTransitionalFieldInput, createTransitionalFieldSelect } from "../src/components/fields.js";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
@@ -415,7 +415,6 @@ assert.deepEqual(Object.keys(switchPlatformAdapters), ["react"]);
 assert.equal(switchPlatformAdapters.react.componentName, "Switch");
 assert.equal(switchPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.textArea.factory, "@design-system/react/text-area");
-assert.equal(componentContracts.textArea.internalFactory, "createTransitionalFieldTextArea");
 assert.equal(textAreaPlatformContract.id, "text-area");
 assert.equal(textAreaPlatformContract.source.factory, componentContracts.textArea.factory);
 assert.deepEqual(textAreaPlatformProps(), componentContracts.textArea.props.map((prop) => prop.name));
@@ -1356,46 +1355,6 @@ localizedPhoneField.dispatchEvent({ type: "input" });
 assert.equal(localizedPhoneInput.querySelector(".phone-input__country").dataset.country, "MX");
 assert.equal(localizedPhoneInput.querySelector(".phone-input__prefix").textContent, "+52");
 assert.equal(localizedPhoneField.value, "55 5123 4567");
-
-const textArea = createTransitionalFieldTextArea({
-  label: "Driver notes",
-  helper: "Visible to support",
-  value: "Needs receipt",
-  rows: 4,
-  maxLength: 120,
-  density: "lg",
-  state: "filled",
-});
-assert.equal(textArea.tagName, "LABEL");
-assert.equal(textArea.dataset.density, "lg");
-assert.equal(textArea.dataset.state, "filled");
-assert.equal(textArea.querySelector("textarea").className, "text-area");
-assert.equal(textArea.querySelector("textarea").rows, 4);
-assert.equal(textArea.querySelector("textarea").maxLength, 120);
-assert.equal(textArea.querySelector("textarea").value, "Needs receipt");
-assert.equal(textArea.querySelector(".text-area__surface").dataset.hasCounter, "true");
-assert.ok(textArea.querySelector(".text-area__surface").contains(textArea.querySelector(".text-area__counter")));
-assert.equal(textArea.querySelector("textarea").attributes["aria-describedby"], `${textArea.querySelector(".field__helper").id} ${textArea.querySelector(".text-area__counter").id}`);
-assert.equal(textArea.querySelector(".text-area__counter").textContent, "13/120");
-
-let textAreaChangeValue = "";
-const interactiveTextArea = createTransitionalFieldTextArea({
-  label: "Support note",
-  value: "",
-  maxLength: 40,
-  onChange: (nextValue) => {
-    textAreaChangeValue = nextValue;
-  },
-});
-interactiveTextArea.querySelector("textarea").value = "Receipt pending.";
-interactiveTextArea.querySelector("textarea").dispatchEvent({ type: "input" });
-assert.equal(textAreaChangeValue, "Receipt pending.");
-assert.equal(interactiveTextArea.querySelector(".text-area__counter").textContent, "16/40");
-
-const textAreaError = createTransitionalFieldTextArea({ label: "Policy exception", value: "Ok", error: "Use at least 20 characters." });
-assert.equal(textAreaError.dataset.state, "error");
-assert.equal(textAreaError.querySelector("textarea").attributes["aria-invalid"], "true");
-assert.equal(textAreaError.querySelector(".field__helper").textContent, "Use at least 20 characters.");
 
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");

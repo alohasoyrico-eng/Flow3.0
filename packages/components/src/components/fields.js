@@ -5,7 +5,6 @@ import { createSpinner } from "./feedback.js?v=8";
 let transitionalInputId = 0;
 let selectId = 0;
 let comboboxId = 0;
-let textAreaId = 0;
 
 export function resolveFieldState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
   if (disabled) return "disabled";
@@ -193,14 +192,6 @@ export function hydrateInput(root = document) {
   for (const controlRoot of controls) {
     if (controlRoot.dataset?.inputReady === "true") continue;
     if (attachInputReveal(controlRoot)) controlRoot.dataset.inputReady = "true";
-  }
-}
-
-export function hydrateTransitionalTextArea(root = document) {
-  const controls = root?.matches?.(".field") ? [root] : Array.from(root?.querySelectorAll?.(".field") ?? []);
-  for (const controlRoot of controls) {
-    if (controlRoot.dataset?.textAreaReady === "true") continue;
-    if (attachTextAreaCounter(controlRoot)) controlRoot.dataset.textAreaReady = "true";
   }
 }
 
@@ -765,88 +756,4 @@ export function hydrateCombobox(root, { onValueChange } = {}) {
     });
   });
   return root;
-}
-
-export function createTransitionalFieldTextArea({
-  label,
-  helper = "",
-  helperText,
-  error = "",
-  value = "",
-  name = "",
-  placeholder = "",
-  disabled = false,
-  loading = false,
-  required = false,
-  rows = 3,
-  maxLength,
-  density,
-  state,
-  onChange,
-} = {}) {
-  const id = `text-area-${++textAreaId}`;
-  const resolvedHelper = error || helperText || helper;
-  const resolvedState = resolveFieldState({ disabled, loading, error, state, value });
-  const isDisabled = Boolean(disabled) || Boolean(loading);
-  const { root: formControl } = createFieldShell({
-    id,
-    label,
-    fallbackLabel: "Text area",
-    state: resolvedState,
-    density,
-  });
-
-  const textarea = document.createElement("textarea");
-  textarea.className = "text-area";
-  textarea.id = id;
-  textarea.name = name;
-  textarea.value = value;
-  if (value) textarea.textContent = value;
-  textarea.placeholder = placeholder;
-  if (placeholder) textarea.setAttribute("placeholder", placeholder);
-  textarea.disabled = isDisabled;
-  textarea.required = Boolean(required);
-  textarea.rows = rows;
-  if (maxLength != null) textarea.maxLength = Number(maxLength);
-  if (error) textarea.setAttribute("aria-invalid", "true");
-
-  const surface = document.createElement("span");
-  surface.className = "text-area__surface";
-  surface.append(textarea);
-  formControl.append(surface);
-  const describedBy = [];
-  if (resolvedHelper) {
-    const helperNode = appendFieldHelper(formControl, { id, text: resolvedHelper });
-    describedBy.push(helperNode.id);
-  }
-  let counterNode = null;
-  if (maxLength != null) {
-    counterNode = document.createElement("span");
-    counterNode.className = "text-area__counter";
-    counterNode.id = `${id}-counter`;
-    counterNode.setAttribute("data-text-area-counter", "");
-    counterNode.textContent = `${String(value ?? "").length}/${Number(maxLength)}`;
-    surface.dataset.hasCounter = "true";
-    describedBy.push(counterNode.id);
-    surface.append(counterNode);
-  }
-  if (describedBy.length) textarea.setAttribute("aria-describedby", describedBy.join(" "));
-  attachTextAreaCounter(formControl, onChange);
-  return formControl;
-}
-
-function attachTextAreaCounter(controlRoot, onChange) {
-  const textarea = controlRoot.querySelector?.(".text-area");
-  if (!textarea || textarea.__textAreaHydrated === true) return false;
-  textarea.__textAreaHydrated = true;
-  const counterNode = controlRoot.querySelector?.(".text-area__counter");
-  const maxLength = Number(textarea.maxLength);
-  const update = () => {
-    if (counterNode && Number.isFinite(maxLength) && maxLength >= 0) {
-      counterNode.textContent = `${String(textarea.value ?? "").length}/${maxLength}`;
-    }
-    onChange?.(textarea.value);
-  };
-  textarea.addEventListener?.("input", update);
-  return true;
 }
