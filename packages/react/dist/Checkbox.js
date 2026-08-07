@@ -17,7 +17,7 @@ export const Checkbox = forwardRef(function Checkbox({
   variant = "default",
   state = "unchecked",
   density,
-  checked = false,
+  checked,
   indeterminate = false,
   disabled = false,
   name = "",
@@ -27,6 +27,7 @@ export const Checkbox = forwardRef(function Checkbox({
   className = "",
   ...rest
 }, ref) {
+  const isCheckedControlled = checked !== undefined;
   const [currentChecked, setCurrentChecked] = useState(Boolean(checked));
   const [currentIndeterminate, setCurrentIndeterminate] = useState(Boolean(indeterminate));
   const inputRef = useRef(null);
@@ -43,6 +44,10 @@ export const Checkbox = forwardRef(function Checkbox({
     if (inputRef.current) inputRef.current.indeterminate = currentIndeterminate;
   }, [currentIndeterminate]);
 
+  useEffect(() => {
+    if (isCheckedControlled) setCurrentChecked(Boolean(checked));
+  }, [checked, isCheckedControlled]);
+
   const assignRef = (node) => {
     inputRef.current = node;
     if (typeof ref === "function") ref(node);
@@ -53,7 +58,7 @@ export const Checkbox = forwardRef(function Checkbox({
     if (disabled) return;
     const nextChecked = event.currentTarget.checked;
     setCurrentIndeterminate(false);
-    setCurrentChecked(nextChecked);
+    if (!isCheckedControlled) setCurrentChecked(nextChecked);
     onCheckedChange?.(nextChecked, { indeterminate: false, value });
   };
 

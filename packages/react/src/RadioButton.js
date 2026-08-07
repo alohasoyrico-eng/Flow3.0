@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { radioButtonPlatformContract } from "@design-system/components/platforms";
 
 function normalizeState({ checked, disabled, state, error }) {
@@ -16,7 +16,7 @@ export const RadioButton = forwardRef(function RadioButton({
   variant = "default",
   state = "unselected",
   density,
-  checked = false,
+  checked,
   disabled = false,
   name = "",
   value = "",
@@ -25,6 +25,7 @@ export const RadioButton = forwardRef(function RadioButton({
   className = "",
   ...rest
 }, ref) {
+  const isCheckedControlled = checked !== undefined;
   const [currentChecked, setCurrentChecked] = useState(Boolean(checked));
   const normalizedState = normalizeState({
     checked: currentChecked,
@@ -34,10 +35,14 @@ export const RadioButton = forwardRef(function RadioButton({
   });
   const isInvalid = normalizedState === "error" || Boolean(error);
 
+  useEffect(() => {
+    if (isCheckedControlled) setCurrentChecked(Boolean(checked));
+  }, [checked, isCheckedControlled]);
+
   const handleChange = (event) => {
     if (disabled) return;
     const nextChecked = event.currentTarget.checked;
-    setCurrentChecked(nextChecked);
+    if (!isCheckedControlled) setCurrentChecked(nextChecked);
     onCheckedChange?.(nextChecked, { value });
   };
 

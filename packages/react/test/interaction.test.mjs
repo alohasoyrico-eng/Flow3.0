@@ -198,7 +198,7 @@ try {
   cleanup();
 
   const checkboxChanges = [];
-  const { getByLabelText: getCheckboxLabel } = render(React.createElement(Checkbox, {
+  const { getByLabelText: getCheckboxLabel, rerender: rerenderCheckbox } = render(React.createElement(Checkbox, {
     label: "Enable fuel card",
     value: "fuel-card",
     indeterminate: true,
@@ -215,6 +215,15 @@ try {
   assert.equal(checkboxInput.getAttribute("aria-checked"), "true");
   assert.equal(checkboxChanges.at(-1).checked, true);
   assert.deepEqual(checkboxChanges.at(-1).meta, { indeterminate: false, value: "fuel-card" });
+
+  rerenderCheckbox(React.createElement(Checkbox, {
+    label: "Enable fuel card",
+    value: "fuel-card",
+    checked: false,
+    onCheckedChange: (checked, meta) => checkboxChanges.push({ checked, meta }),
+  }));
+  await waitFor(() => assert.equal(checkboxInput.checked, false));
+  await waitFor(() => assert.equal(checkboxInput.getAttribute("aria-checked"), "false"));
 
   cleanup();
 
@@ -854,10 +863,12 @@ try {
     label: "Card payment",
     name: "payment",
     value: "card",
+    checked: false,
     disabled: true,
     onCheckedChange: (checked, meta) => radioChanges.push({ checked, meta }),
   }));
 
+  await waitFor(() => assert.equal(radioInput.checked, false));
   fireEvent.click(getRadioLabel(/card payment/i));
   assert.deepEqual(radioChanges, [{ checked: true, meta: { value: "card" } }]);
 
@@ -1020,10 +1031,12 @@ try {
   rerenderSwitch(React.createElement(Switch, {
     label: "Enable notifications",
     name: "notifications",
+    checked: false,
     disabled: true,
     onCheckedChange: (checked, meta) => switchChanges.push({ checked, meta }),
   }));
 
+  await waitFor(() => assert.equal(switchInput.getAttribute("aria-checked"), "false"));
   fireEvent.click(getSwitchRole("switch", { name: /enable notifications/i }));
   assert.equal(switchChanges.length, 1);
 

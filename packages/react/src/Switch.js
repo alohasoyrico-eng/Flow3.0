@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { switchPlatformContract } from "@design-system/components/platforms";
 
 function normalizeState({ checked, disabled, state, error }) {
@@ -15,7 +15,7 @@ export const Switch = forwardRef(function Switch({
   error = "",
   state = "off",
   density,
-  checked = false,
+  checked,
   disabled = false,
   name = "",
   required = false,
@@ -23,14 +23,19 @@ export const Switch = forwardRef(function Switch({
   className = "",
   ...rest
 }, ref) {
+  const isCheckedControlled = checked !== undefined;
   const [currentChecked, setCurrentChecked] = useState(Boolean(checked));
   const normalizedState = normalizeState({ checked: currentChecked, disabled, state, error });
   const isInvalid = normalizedState === "error" || Boolean(error);
 
+  useEffect(() => {
+    if (isCheckedControlled) setCurrentChecked(Boolean(checked));
+  }, [checked, isCheckedControlled]);
+
   const handleChange = (event) => {
     if (disabled) return;
     const nextChecked = event.currentTarget.checked;
-    setCurrentChecked(nextChecked);
+    if (!isCheckedControlled) setCurrentChecked(nextChecked);
     onCheckedChange?.(nextChecked, { name });
   };
 
