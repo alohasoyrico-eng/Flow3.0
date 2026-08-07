@@ -561,7 +561,6 @@ assert.deepEqual(Object.keys(spinnerPlatformAdapters), ["react"]);
 assert.equal(spinnerPlatformAdapters.react.componentName, "Spinner");
 assert.equal(spinnerPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.accordion.factory, "@design-system/react/accordion");
-assert.equal(componentContracts.accordion.internalFactory, "createAccordion");
 assert.equal(accordionPlatformContract.id, "accordion");
 assert.equal(accordionPlatformContract.source.factory, componentContracts.accordion.factory);
 assert.deepEqual(accordionPlatformProps(), componentContracts.accordion.props.map((prop) => prop.name));

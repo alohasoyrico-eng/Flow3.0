@@ -4,7 +4,7 @@ import { accordionPlatformContract } from "@design-system/components/platforms";
 const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalizeDensity(density) {
-  return validDensities.has(density) ? density : "md";
+  return validDensities.has(density) ? density : undefined;
 }
 
 function normalizeItems(items) {
@@ -27,7 +27,7 @@ function renderContent(content) {
 export const Accordion = forwardRef(function Accordion({
   items = [],
   multiple = false,
-  density = "md",
+  density,
   onExpandedChange,
   className = "",
   ...rest

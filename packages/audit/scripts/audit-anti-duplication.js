@@ -140,6 +140,7 @@ function checkReactOnlyComponentBoundaries() {
     commerce: path.join(root, "packages/components/src/components/commerce.js"),
     display: path.join(root, "packages/components/src/components/display.js"),
     feedback: path.join(root, "packages/components/src/components/feedback.js"),
+    interactions: path.join(root, "packages/components/src/components/interactions.js"),
     overlays: path.join(root, "packages/components/src/components/overlays.js"),
     motion: path.join(root, "packages/components/src/components/motion.js"),
     navigation: path.join(root, "packages/components/src/components/navigation.js"),
@@ -173,6 +174,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Chip", "createTransitionalChip", "status"],
     ["Tag", "createTransitionalTag", "status"],
     ["Toast", "createToast", "overlays"],
+    ["Accordion", "createAccordion", "interactions"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

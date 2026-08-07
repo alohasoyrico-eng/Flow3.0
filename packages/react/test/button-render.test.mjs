@@ -466,6 +466,10 @@ assert.match(accordionMarkup, /class="accordion__panel"/);
 assert.match(accordionMarkup, /role="region"/);
 assert.match(accordionMarkup, /class="accordion__panel-body">Insurance<\/div>/);
 assert.match(accordionMarkup, /hidden="">/);
+const inheritedAccordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
+  items: [{ id: "billing", title: "Billing", content: "Cards" }],
+}));
+assert.doesNotMatch(inheritedAccordionMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);
