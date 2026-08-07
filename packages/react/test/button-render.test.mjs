@@ -323,6 +323,12 @@ assert.match(chartPanelMarkup, /&quot;engine&quot;:&quot;apache-echarts&quot;/);
 assert.match(chartPanelMarkup, /&quot;type&quot;:&quot;bars&quot;/);
 assert.match(chartPanelMarkup, /&quot;tableFallback&quot;:\[/);
 
+const inheritedChartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
+  label: "Inherited chart density",
+  values: [1, 2, 3],
+}));
+assert.doesNotMatch(inheritedChartPanelMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const auditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
   label: "Document rejected",
   description: "Ana updated card evidence.",

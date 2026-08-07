@@ -7,7 +7,6 @@ export const chartPanelPlatformContract = {
   layer: "component",
   source: {
     factory: chartPanelContract.factory,
-    internalFactory: chartPanelContract.internalFactory,
     cssClass: "chart-panel",
     contract: "@design-system/components/contracts#chartPanel",
   },

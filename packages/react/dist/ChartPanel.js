@@ -157,7 +157,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
   variant = "sparkline",
   state = "default",
   tone = "neutral",
-  density = "md",
+  density,
   fullWidth = false,
   className = "",
   ...rest
@@ -165,7 +165,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalize(state, validStates, "default");
   const resolvedTone = normalize(tone, validTones, "neutral");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const resolvedValues = normalizeValues(values);
   const resolvedLabels = labels.length ? labels : valueLabels.length ? valueLabels : resolvedValues.map((_, index) => `Value ${index + 1}`);
   const chartPrimitive = createChartsPrimitive({
@@ -197,7 +197,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
       "data-variant": chartPrimitive.type,
       "data-state": resolvedState,
       "data-tone": resolvedTone,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "data-full-width": String(Boolean(fullWidth)),
     },
     React.createElement(

@@ -1,7 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
-  hydrateChartPanel,
   createAnimationAsset,
   createChartsPrimitive,
   countryFlagAssetPath,
@@ -182,7 +181,7 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
-import { createCardSummary, createChartPanel, createMovementRow, createQuickAction, createRouteSummary, createStationPin } from "../src/components/commerce.js?v=15";
+import { createCardSummary, createMovementRow, createQuickAction, createRouteSummary, createStationPin } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -776,7 +775,6 @@ assert.deepEqual(Object.keys(stepperPlatformAdapters), ["react"]);
 assert.equal(stepperPlatformAdapters.react.componentName, "Stepper");
 assert.equal(stepperPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.chartPanel.factory, "@design-system/react/chart-panel");
-assert.equal(componentContracts.chartPanel.internalFactory, "createChartPanel");
 assert.equal(chartPanelPlatformContract.id, "chart-panel");
 assert.equal(chartPanelPlatformContract.source.factory, componentContracts.chartPanel.factory);
 assert.deepEqual(chartPanelPlatformProps(), componentContracts.chartPanel.props.map((prop) => prop.name));
@@ -1869,21 +1867,6 @@ assert.equal(disabledBreadcrumbs.dataset.state, "disabled");
 assert.equal(disabledBreadcrumbs.attributes["aria-disabled"], "true");
 assert.equal(disabledBreadcrumbs.querySelector("a"), null);
 
-const chartPanel = createChartPanel({ label: "Spend", value: "$12k", caption: "Last 7 days", values: [3, 6, 9] });
-assert.equal(chartPanel.tagName, "ARTICLE");
-assert.equal(chartPanel.className, "chart-panel");
-assert.equal(chartPanel.dataset.chartPrimitive, "charts");
-assert.equal(chartPanel.dataset.chartEngine, "echarts-option");
-assert.equal(chartPanel.dataset.variant, "sparkline");
-assert.equal(chartPanel.querySelector("output").textContent, "$12k");
-assert.equal(chartPanel.querySelector("figure").attributes.role, "group");
-assert.equal(chartPanel.querySelector(".chart-panel__plot").attributes.role, "list");
-assert.equal(chartPanel.querySelector(".chart-panel__svg").tagName, "SVG");
-assert.equal(chartPanel.querySelectorAll(".chart-panel__hit-dot").length, 3);
-const chartPanelModel = JSON.parse(chartPanel.querySelector(".chart-panel__option").textContent);
-assert.equal(chartPanelModel.engine, "apache-echarts");
-assert.equal(chartPanelModel.echartsOption.series[0].type, "line");
-assert.equal(chartPanelModel.tableFallback.length, 3);
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");
 assert.equal(primitiveChart.legendModel.length, 2);
@@ -1899,84 +1882,6 @@ assert.equal(primitiveAnimation.dataset.animationRuntime, "fallback");
 assert.equal(primitiveAnimation.dataset.state, "playing");
 assert.equal(primitiveAnimation.querySelector(".animation-asset__fallback-icon").textContent, "shield");
 assert.equal(typeof resolveAnimationRuntime({ loadAnimation() {} })?.loadAnimation, "function");
-let hydratedOption;
-const hydratedChart = hydrateChartPanel(chartPanel, {
-  echarts: {
-    init(node, theme, options) {
-      assert.equal(node.className, "chart-panel__echarts");
-      assert.equal(options.renderer, "svg");
-      return {
-        setOption(option) {
-          hydratedOption = option;
-        },
-      };
-    },
-  },
-});
-assert.ok(hydratedChart);
-assert.equal(hydratedOption.series[0].type, "line");
-assert.equal(chartPanel.querySelector(".chart-panel__plot").attributes.hidden, "true");
-const failedHydrationChart = createChartPanel({ label: "Bad option", values: [1, 2, 3] });
-const failedHydration = hydrateChartPanel(failedHydrationChart, {
-  echarts: {
-    init() {
-      return {
-        setOption() {
-          throw new Error("vendor option failed");
-        },
-        dispose() {},
-      };
-    },
-  },
-});
-assert.equal(failedHydration, null);
-assert.equal(failedHydrationChart.dataset.hydrated, undefined);
-assert.equal(failedHydrationChart.querySelector(".chart-panel__plot").attributes.hidden, undefined);
-const chartPanelLine = createChartPanel({ label: "Spend trend", variant: "line", state: "warning", density: "sm", fullWidth: true, values: [2, 5, 4] });
-assert.equal(chartPanelLine.dataset.variant, "line");
-assert.equal(chartPanelLine.dataset.state, "warning");
-assert.equal(chartPanelLine.dataset.density, "sm");
-assert.equal(chartPanelLine.dataset.fullWidth, "true");
-const chartPanelBars = createChartPanel({ label: "Spend bars", variant: "bar", values: [3, 6, 9] });
-assert.equal(chartPanelBars.dataset.variant, "bars");
-assert.equal(chartPanelBars.querySelectorAll(".chart-panel__bar-group").length, 3);
-assert.equal(chartPanelBars.querySelectorAll(".chart-panel__bar").length, 3);
-assert.equal(chartPanelBars.querySelectorAll(".chart-panel__bar")[2].dataset.max, "true");
-const chartPanelBarMark = chartPanelBars.querySelector(".chart-panel__bar-group");
-assert.equal(chartPanelBarMark.tabIndex, 0);
-assert.match(chartPanelBarMark.dataset.tooltip, /Value 1/);
-chartPanelBarMark.dispatchEvent({ type: "mouseenter" });
-assert.equal(chartPanelBars.querySelector(".chart-panel__tooltip").dataset.visible, "true");
-assert.match(chartPanelBars.querySelector(".chart-panel__tooltip").textContent, /Value 1/);
-const chartPanelDonut = createChartPanel({ label: "Spend mix", variant: "donut", values: [3, 6, 9] });
-assert.equal(chartPanelDonut.querySelector(".chart-panel__donut-center").textContent, "18");
-const chartPanelBullet = createChartPanel({ label: "Targets", variant: "bullet", labels: ["Fuel", "EV"], values: [84, 62] });
-assert.equal(chartPanelBullet.querySelectorAll(".chart-panel__bullet").length, 2);
-const chartPanelComparison = createChartPanel({
-  label: "Spend comparison",
-  variant: "comparison",
-  labels: ["Mon", "Tue"],
-  comparisons: [
-    { label: "Previous", values: [42, 58] },
-    { label: "Current", values: [54, 72] },
-  ],
-});
-const chartPanelComparisonPlot = chartPanelComparison.querySelector(".chart-panel__plot");
-assert.equal(Array.from(chartPanelComparisonPlot.children).filter((child) => String(child.className).split(/\s+/).includes("chart-panel__comparison-group")).length, 2);
-assert.equal(chartPanelComparisonPlot.querySelectorAll(".chart-panel__comparison-bar").length, 4);
-const chartPanelPareto = createChartPanel({ label: "Cost drivers", variant: "pareto", labels: ["Fuel", "Toll", "Service"], values: [42, 18, 8] });
-assert.equal(chartPanelPareto.querySelectorAll(".chart-panel__pareto-bar").length, 3);
-assert.equal(chartPanelPareto.querySelectorAll(".chart-panel__pareto-line").length, 1);
-const chartPanelMultiLine = createChartPanel({
-  label: "Multi trend",
-  variant: "line",
-  series: [
-    { label: "Fuel", values: [32, 54, 48] },
-    { label: "EV", values: [18, 24, 36] },
-  ],
-});
-assert.equal(chartPanelMultiLine.querySelectorAll(".chart-panel__line").length, 2);
-
 const stationPin = createStationPin({ label: "Station Norte", value: "$23.4", meta: "Open", variant: "fuel", state: "selected", density: "lg" });
 assert.equal(stationPin.tagName, "BUTTON");
 assert.equal(stationPin.className, "station-pin");

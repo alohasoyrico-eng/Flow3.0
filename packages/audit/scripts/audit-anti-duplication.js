@@ -215,6 +215,21 @@ function checkReactOnlyComponentBoundaries() {
       pattern: /import\s*\{[^}]*createAuditEvent[^}]*\}|createAuditEvent\(/,
       message: "Audit Event smoke coverage must use React render tests, not the removed DOM factory.",
     },
+    {
+      file: commerceFile,
+      pattern: /export function createChartPanel\b/,
+      message: "Chart Panel must not reintroduce a DOM factory; React ChartPanel is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createChartPanel"/,
+      message: "Chart Panel contract must not name a DOM internalFactory; React ChartPanel owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createChartPanel[^}]*\}|createChartPanel\(/,
+      message: "Chart Panel smoke coverage must use React render tests, not the removed DOM factory.",
+    },
   ];
   for (const check of checks) {
     if (!fs.existsSync(check.file)) continue;

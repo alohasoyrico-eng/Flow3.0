@@ -1,6 +1,3 @@
-export {
-  hydrateChartPanel,
-} from "./components/commerce.js?v=19";
 export { hydrateCombobox } from "./components/fields.js?v=21";
 export { createChartsPrimitive } from "./primitives/charts.js?v=1";
 export { createCountryFlag, countryFlagAssetPath, hasCountryFlag, listCountryFlags } from "./primitives/country-flags.js?v=5";
