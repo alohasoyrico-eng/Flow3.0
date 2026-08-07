@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -432,6 +432,38 @@ try {
   fireEvent.click(getErrorPanelRole("button", { name: /retry/i }));
   assert.deepEqual(errorPanelClicks, ["click"]);
   assert.deepEqual(errorPanelActions, ["retry"]);
+
+  cleanup();
+
+  const inputChanges = [];
+  const { getByLabelText: getInputLabel } = render(React.createElement(Input, {
+    label: "Amount",
+    variant: "currency",
+    value: "0",
+    onValueChange: (value, meta) => inputChanges.push({ value, meta }),
+  }));
+
+  const amountInput = getInputLabel(/amount/i);
+  fireEvent.input(amountInput, { target: { value: "$1,234.50" } });
+  assert.equal(inputChanges.at(-1).value, "1234.50");
+  assert.equal(inputChanges.at(-1).meta.numericValue, 1234.5);
+  assert.equal(inputChanges.at(-1).meta.displayValue, "$1,234.50");
+  assert.equal(inputChanges.at(-1).meta.rawValue, "$1,234.50");
+
+  cleanup();
+
+  const { getByLabelText: getPasswordLabel, getByRole: getPasswordRole } = render(React.createElement(Input, {
+    label: "Password",
+    variant: "password",
+    value: "secret",
+  }));
+
+  const passwordInput = getPasswordLabel(/password/i);
+  assert.equal(passwordInput.type, "password");
+  const revealPasswordButton = getPasswordRole("button", { name: /show value/i });
+  fireEvent.click(revealPasswordButton);
+  await waitFor(() => assert.equal(passwordInput.type, "text"));
+  assert.equal(revealPasswordButton.getAttribute("aria-pressed"), "true");
 } finally {
   cleanup();
   dom.window.close();
