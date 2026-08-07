@@ -1,11 +1,10 @@
 import React, { forwardRef } from "react";
 import { floatingActionButtonPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["primary", "accent", "extended", "mini"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 const validTypes = new Set(["button", "submit", "reset"]);
 
 function normalize(value, valid, fallback) {
@@ -27,7 +26,7 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "primary");
   const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : normalize(state, validStates, "default");
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedLabel = label ?? "Create";
   const isExtended = Boolean(extended) || resolvedVariant === "extended";
 

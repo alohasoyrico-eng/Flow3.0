@@ -2,12 +2,11 @@ import React, { forwardRef, useState } from "react";
 import { toastPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validVariants = new Set(["status", "progress", "warning", "recovery", "undo"]);
 const validStates = new Set(["default", "visible", "action", "stacked", "exiting"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 const toneIcons = {
   neutral: "info",
@@ -39,7 +38,7 @@ export const Toast = forwardRef(function Toast({
   const resolvedTone = normalize(tone, validTones, "neutral");
   const resolvedVariant = normalize(variant, validVariants, "status");
   const resolvedState = normalize(state, validStates, "visible");
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const [dismissed, setDismissed] = useState(false);
   const hidden = dismissed || resolvedState === "default";
   const role = resolvedTone === "danger" || resolvedTone === "warning" ? "alert" : "status";

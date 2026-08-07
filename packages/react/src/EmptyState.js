@@ -2,11 +2,10 @@ import React, { forwardRef, useId } from "react";
 import { emptyStatePlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { Spinner } from "./Spinner.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["first-use", "search-empty", "permission", "error", "maintenance"]);
 const validStates = new Set(["default", "action", "search-empty", "permission", "loading", "error"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalizeVariant(variant) {
   return validVariants.has(variant) ? variant : "first-use";
@@ -35,7 +34,7 @@ export const EmptyState = forwardRef(function EmptyState({
   const titleId = id ? `${id}-title` : `empty-state-title-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalizeState(state);
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedTitle = title ?? label ?? "No results";
   const showIcon = Boolean(icon) || resolvedState === "loading";
   const actionLabel = action?.label;

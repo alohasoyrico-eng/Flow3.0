@@ -1,11 +1,10 @@
 import React, { forwardRef } from "react";
 import { biometricPromptPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fingerprint", "face", "passcode", "fallback"]);
 const validStates = new Set(["default", "focus", "authenticating", "success", "warning", "error", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalize(value, allowed, fallback) {
   return allowed.has(value) ? value : fallback;
@@ -57,7 +56,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "fingerprint");
   const resolvedState = normalizeState(state);
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const disabled = resolvedState === "disabled";
 
   return React.createElement(

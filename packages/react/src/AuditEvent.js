@@ -1,10 +1,9 @@
 import React, { forwardRef } from "react";
 import { auditEventPlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger", "action"]);
 const validStates = new Set(["default", "hover", "focus", "verified", "warning", "critical", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalize(value, allowed, fallback) {
   return allowed.has(value) ? value : fallback;
@@ -36,7 +35,7 @@ export const AuditEvent = forwardRef(function AuditEvent({
   ...rest
 }, ref) {
   const resolvedState = normalize(state, validStates, "default");
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const { statusText, statusTone } = statusFor(resolvedState, tone, status);
 
   return React.createElement(

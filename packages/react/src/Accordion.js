@@ -1,13 +1,9 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { accordionPlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
-const validDensities = new Set(["sm", "md", "lg"]);
 const validVariants = new Set(["single", "multiple"]);
 
-function normalizeDensity(density) {
-  return validDensities.has(density) ? density : undefined;
-}
 
 function normalizeItems(items) {
   const sourceItems = Array.isArray(items) && items.length ? items : [{ title: "Section 1", content: "" }];
@@ -37,7 +33,7 @@ export const Accordion = forwardRef(function Accordion({
   ...rest
 }, ref) {
   const reactId = useId();
-  const resolvedDensity = normalizeDensity(density);
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedVariant = validVariants.has(variant) ? variant : multiple ? "multiple" : "single";
   const allowsMultiple = resolvedVariant === "multiple";
   const normalizedItems = useMemo(() => normalizeItems(items), [items]);

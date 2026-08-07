@@ -1,11 +1,10 @@
 import React, { forwardRef } from "react";
 import { cardSummaryPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["physical", "virtual", "compact", "limit"]);
 const validStates = new Set(["default", "hover", "focus", "active", "warning", "frozen", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalize(value, allowed, fallback) {
   return allowed.has(value) ? value : fallback;
@@ -36,7 +35,7 @@ export const CardSummary = forwardRef(function CardSummary({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "physical");
   const resolvedState = disabled ? "disabled" : normalize(state, validStates, "default");
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const statusLabel = status || (resolvedState === "frozen" ? "Frozen" : resolvedState === "warning" ? "Review" : "Active");
   const resolvedIcon = icon || (resolvedVariant === "virtual" ? "smartphone" : resolvedState === "frozen" ? "ac_unit" : "contactless");
 

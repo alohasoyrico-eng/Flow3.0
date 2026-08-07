@@ -2,11 +2,10 @@ import React, { forwardRef } from "react";
 import { routeSummaryPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "compact", "compare", "policy"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "warning", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 const validTones = new Set(["neutral", "info", "warning"]);
 
 function normalize(value, allowed, fallback) {
@@ -63,7 +62,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "standard");
   const resolvedState = disabled ? "disabled" : selected ? "selected" : normalize(state, validStates, "default");
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedTone = normalize(tone, validTones, resolvedState === "warning" || resolvedVariant === "policy" ? "warning" : "neutral");
   const resolvedLabel = label ?? "Route";
   const isDisabled = resolvedState === "disabled";

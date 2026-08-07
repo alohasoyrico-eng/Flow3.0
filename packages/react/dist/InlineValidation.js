@@ -1,10 +1,9 @@
 import React, { forwardRef, useId } from "react";
 import { inlineValidationPlatformContract } from "#flow/platforms";
 import { Input } from "./Input.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validStates = new Set(["default", "info", "success", "warning", "error", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalizeState(state) {
   return validStates.has(state) ? state : "default";
@@ -29,7 +28,7 @@ export const InlineValidation = forwardRef(function InlineValidation({
 }, ref) {
   const generatedId = useId();
   const resolvedState = normalizeState(state);
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const showField = field ?? value !== "";
   const fieldId = id || `inline-validation-${slug(label)}-${generatedId}`;
   const messageId = `${fieldId}-message`;

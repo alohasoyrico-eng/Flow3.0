@@ -1,12 +1,11 @@
 import React, { forwardRef } from "react";
 import { chartPanelPlatformContract } from "@design-system/components/platforms";
 import { createChartsPrimitive } from "@design-system/components";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["sparkline", "bars", "line", "area", "donut", "pareto", "bullet", "comparison", "compact"]);
 const validStates = new Set(["default", "focus", "hover", "warning", "error", "disabled"]);
 const validTones = new Set(["neutral", "info", "warning", "danger"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalize(value, allowed, fallback) {
   return allowed.has(value) ? value : fallback;
@@ -174,7 +173,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalize(state, validStates, "default");
   const resolvedTone = normalize(tone, validTones, "neutral");
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedValues = normalizeValues(values);
   const resolvedLabels = labels.length ? labels : valueLabels.length ? valueLabels : resolvedValues.map((_, index) => `Value ${index + 1}`);
   const chartPrimitive = createChartsPrimitive({

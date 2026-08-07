@@ -1,14 +1,10 @@
 import React, { forwardRef } from "react";
 import { spinnerPlatformContract } from "#flow/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
-const validDensities = new Set(["sm", "md", "lg"]);
 const validTones = new Set(["accent", "ink", "success", "warning", "danger"]);
 const validStates = new Set(["default", "loading", "decorative", "subtle", "disabled"]);
 
-function normalizeDensity(density) {
-  return validDensities.has(density) ? density : undefined;
-}
 
 function normalizeTone(tone) {
   return validTones.has(tone) ? tone : "accent";
@@ -39,7 +35,7 @@ export const Spinner = forwardRef(function Spinner({
       role: isDecorative ? undefined : "status",
       "aria-hidden": isDecorative ? "true" : undefined,
       "aria-label": isDecorative ? undefined : label,
-      ...flowDensityProps(normalizeDensity(density)),
+      ...flowDensityProps(normalizeFlowDensity(density)),
       "data-tone": normalizeTone(tone),
       "data-state": resolvedState,
     },

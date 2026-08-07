@@ -1,9 +1,8 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { treeViewPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
-const validDensities = new Set(["sm", "md", "lg"]);
 const validStates = new Set(["default", "hover", "focus", "expanded", "selected", "disabled"]);
 
 function normalize(value, valid, fallback) {
@@ -57,7 +56,7 @@ export const TreeView = forwardRef(function TreeView({
   const [selected, setSelected] = useState(() => selectedKey || normalizedNodes.find((node) => node.selected)?.key || "");
   const [expanded, setExpanded] = useState(() => normalizedNodes.filter((node) => node.expanded).map((node) => node.key));
   const controlRefs = useRef(new Map());
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedState = normalize(state, validStates, "expanded");
   const visible = visibleKeys(normalizedNodes, expanded);
 

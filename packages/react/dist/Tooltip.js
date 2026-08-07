@@ -1,10 +1,9 @@
 import React, { forwardRef, useId, useState } from "react";
 import { tooltipPlatformContract } from "#flow/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validPlacements = new Set(["top", "right", "bottom", "left"]);
 const validVariants = new Set(["default", "icon-help", "metric", "disabled-help"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 const validStates = new Set(["default", "hover", "focus", "open", "disabled", "dismissed"]);
 
 function normalizeState({ disabled, state }) {
@@ -30,7 +29,7 @@ export const Tooltip = forwardRef(function Tooltip({
   const tooltipId = id || `tooltip-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const resolvedPlacement = validPlacements.has(placement) ? placement : "top";
   const resolvedVariant = validVariants.has(variant) ? variant : "default";
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedState = normalizeState({ disabled, state });
   const initiallyOpen = ["hover", "focus", "open", "disabled"].includes(resolvedState);
   const isOpenControlled = openProp !== undefined;

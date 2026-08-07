@@ -1,10 +1,9 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { listPlatformContract } from "#flow/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "compact", "action", "status", "media"]);
 const validStates = new Set(["default", "hover", "selected", "loading", "error", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalize(value, allowed, fallback) {
   return allowed.has(value) ? value : fallback;
@@ -24,7 +23,7 @@ export const List = forwardRef(function List({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "standard");
   const resolvedState = normalize(state, validStates, "default");
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const isInteractive = Boolean(interactive || resolvedVariant === "action" || typeof onSelect === "function");
   const initialSelectedKey = selectedKey ?? items.find((item) => item.state === "selected")?.key ?? "";
   const isSelectedKeyControlled = selectedKey !== undefined;

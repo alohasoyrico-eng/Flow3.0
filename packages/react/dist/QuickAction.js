@@ -2,11 +2,10 @@ import React, { forwardRef } from "react";
 import { quickActionPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 import { Spinner } from "./Spinner.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "destructive", "compact", "wide"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "warning", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 const validTypes = new Set(["button", "submit", "reset"]);
 
 function normalize(value, allowed, fallback) {
@@ -31,7 +30,7 @@ export const QuickAction = forwardRef(function QuickAction({
   const resolvedLabel = label ?? "Action";
   const resolvedVariant = validVariants.has(variant) ? variant : tone === "danger" ? "destructive" : "standard";
   const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalize(state, validStates, "default");
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const blocked = resolvedState === "disabled" || resolvedState === "loading";
 
   return React.createElement(

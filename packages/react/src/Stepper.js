@@ -1,9 +1,8 @@
 import React, { forwardRef, useMemo } from "react";
 import { stepperPlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const allowedOrientations = new Set(["horizontal", "vertical"]);
-const allowedDensities = new Set(["sm", "md", "lg"]);
 
 function normalizeSteps(steps) {
   const sourceSteps = Array.isArray(steps) && steps.length ? steps : [{ label: "Step 1" }];
@@ -24,7 +23,7 @@ export const Stepper = forwardRef(function Stepper({
   ...rest
 }, ref) {
   const resolvedOrientation = allowedOrientations.has(orientation) ? orientation : "horizontal";
-  const resolvedDensity = allowedDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedSteps = useMemo(() => normalizeSteps(steps), [steps]);
   const currentIndex = Math.max(0, Math.min(Number(current) || 0, resolvedSteps.length - 1));
 

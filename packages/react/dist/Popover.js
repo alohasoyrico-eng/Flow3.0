@@ -2,12 +2,11 @@ import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { popoverPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { Input } from "./Input.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["information", "action", "form", "metric"]);
 const validStates = new Set(["default", "closed", "open", "hover", "focus", "warning", "disabled"]);
 const validPlacements = new Set(["top", "right", "bottom", "left"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalize(value, valid, fallback) {
   return valid.has(value) ? value : fallback;
@@ -40,7 +39,7 @@ export const Popover = forwardRef(function Popover({
   const triggerRef = useRef(null);
   const resolvedVariant = normalize(variant, validVariants, "information");
   const resolvedPlacement = normalize(placement, validPlacements, "bottom");
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const initialState = disabled ? "disabled" : normalize(state, validStates, "default");
   const isOpenControlled = openProp !== undefined;
   const initiallyOpen = Boolean(openProp) || ["open", "focus", "warning"].includes(initialState);

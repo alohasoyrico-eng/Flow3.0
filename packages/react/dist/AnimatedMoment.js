@@ -1,10 +1,9 @@
 import React, { forwardRef } from "react";
 import { animatedMomentPlatformContract } from "#flow/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["success", "empty", "loading", "celebration"]);
 const validStates = new Set(["idle", "playing", "paused", "complete", "reduced-motion", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalize(value, allowed, fallback) {
   return allowed.has(value) ? value : fallback;
@@ -47,7 +46,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "success");
   const resolvedState = normalize(state, validStates, "idle");
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedLabel = label ?? "Animated moment";
   const resolvedIcon = variantIcon(resolvedVariant, icon);
   const hasAsset = Boolean(animationSource || animationData);

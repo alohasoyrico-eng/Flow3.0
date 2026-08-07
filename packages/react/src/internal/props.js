@@ -12,6 +12,11 @@ export function flowRestProps(props = {}) {
   return rest;
 }
 
+export function normalizeFlowDensity(density) {
+  return validFlowDensities.has(density) ? density : undefined;
+}
+
 export function flowDensityProps(density) {
-  return validFlowDensities.has(density) ? { "data-density": density } : {};
+  const normalizedDensity = normalizeFlowDensity(density);
+  return normalizedDensity ? { "data-density": normalizedDensity } : {};
 }

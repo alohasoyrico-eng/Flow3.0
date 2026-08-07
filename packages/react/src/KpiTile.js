@@ -1,12 +1,11 @@
 import React, { forwardRef } from "react";
 import { kpiTilePlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "delta", "threshold", "sparkline", "drill-in"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "loading", "risk", "disabled"]);
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validTrends = new Set(["up", "down", "flat"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalize(value, allowed, fallback) {
   return allowed.has(value) ? value : fallback;
@@ -48,7 +47,7 @@ export const KpiTile = forwardRef(function KpiTile({
   const resolvedTone = normalize(tone, validTones, "neutral");
   const resolvedTrend = normalize(trend, validTrends, "flat");
   const resolvedState = loading ? "loading" : disabled ? "disabled" : normalize(state, validStates, "default");
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const interactive = Boolean(href || onSelect || resolvedVariant === "drill-in");
   const Element = href ? "a" : "article";
   const selectMeta = { label, value, delta, tone: resolvedTone, variant: resolvedVariant };

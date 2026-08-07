@@ -5,12 +5,11 @@ import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
 import { ProgressIndicator } from "./ProgressIndicator.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["side-sheet", "filter", "detail", "edit", "review"]);
 const validStates = new Set(["closed", "default", "open", "focus", "closing"]);
 const validTones = new Set(["neutral", "info", "danger"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 const validSides = new Set(["left", "right"]);
 
 function normalize(value, valid, fallback) {
@@ -89,7 +88,7 @@ export const Drawer = forwardRef(function Drawer({
   const resolvedVariant = normalize(variant, validVariants, "side-sheet");
   const initialState = normalize(state, validStates, "closed");
   const resolvedTone = normalize(tone, validTones, "neutral");
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedSide = normalize(side, validSides, "right");
   const isOpenControlled = openProp !== undefined;
   const initiallyOpen = Boolean(openProp) || initialState === "open" || initialState === "focus";

@@ -1,10 +1,9 @@
 import React, { forwardRef } from "react";
 import { movementRowPlatformContract } from "#flow/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["standard", "refund", "declined", "compact"]);
 const validStates = new Set(["default", "hover", "focus", "pending", "error", "disabled"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 const validCategories = new Set(["fuel", "charge", "toll", "food", "transfer", "income"]);
 const categoryIcons = {
   fuel: "local_gas_station",
@@ -39,7 +38,7 @@ export const MovementRow = forwardRef(function MovementRow({
   const resolvedCategory = normalize(category, validCategories, "transfer");
   const inferredState = status === "Pending" ? "pending" : status === "Declined" ? "error" : "default";
   const resolvedState = disabled ? "disabled" : validStates.has(state) ? state : inferredState;
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedLabel = label ?? "Movement";
   const blocked = disabled || resolvedState === "disabled";
   const selectMeta = {

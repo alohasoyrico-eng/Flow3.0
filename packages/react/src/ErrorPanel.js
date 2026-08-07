@@ -2,12 +2,11 @@ import React, { forwardRef } from "react";
 import { errorPanelPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { Spinner } from "./Spinner.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["inline", "panel", "blocking", "empty-recovery"]);
 const validStates = new Set(["default", "warning", "error", "critical", "loading", "disabled"]);
 const validTones = new Set(["warning", "error", "critical"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalizeVariant(variant) {
   return validVariants.has(variant) ? variant : "panel";
@@ -41,7 +40,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
 }, ref) {
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalizeState(state);
-  const resolvedDensity = validDensities.has(density) ? density : "";
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedTone = resolveTone(resolvedState, tone);
   const resolvedRole = role ?? (resolvedTone === "warning" || resolvedState === "loading" ? "status" : "alert");
   const actionLabel = action?.label;

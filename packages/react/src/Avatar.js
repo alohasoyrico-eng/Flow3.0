@@ -1,9 +1,8 @@
 import React, { forwardRef } from "react";
 import { avatarPlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validSizes = new Set(["sm", "md", "lg", "xl"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 const validStatuses = new Set(["none", "online", "busy", "offline"]);
 const validStates = new Set(["default", "disabled", "unknown"]);
 
@@ -36,7 +35,7 @@ export const Avatar = forwardRef(function Avatar({
   ...rest
 }, ref) {
   const resolvedSize = validSizes.has(size) ? size : "";
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedStatus = validStatuses.has(status) ? status : "none";
   const resolvedState = state === "disabled" ? "disabled" : resolvedStatus !== "none" ? resolvedStatus : validStates.has(state) ? state : "default";
   const sourceName = String(name ?? "");

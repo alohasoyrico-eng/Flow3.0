@@ -3,12 +3,11 @@ import { dialogPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["confirmation", "destructive", "form", "review", "success"]);
 const validStates = new Set(["open", "focus", "closing", "default", "closed"]);
 const validTones = new Set(["neutral", "info", "success", "danger"]);
-const validDensities = new Set(["sm", "md", "lg"]);
 
 function normalize(value, valid, fallback) {
   return valid.has(value) ? value : fallback;
@@ -48,7 +47,7 @@ export const Dialog = forwardRef(function Dialog({
   const closeRef = useRef(null);
   const resolvedVariant = normalize(variant, validVariants, "confirmation");
   const resolvedTone = resolveTone(tone, resolvedVariant);
-  const resolvedDensity = validDensities.has(density) ? density : undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
   const initialState = normalize(state, validStates, "closed");
   const isOpenControlled = openProp !== undefined;
   const initiallyOpen = Boolean(openProp) || initialState === "open" || initialState === "focus";
