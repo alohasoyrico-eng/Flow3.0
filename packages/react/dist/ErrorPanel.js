@@ -52,7 +52,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
       ref,
       className: ["error-panel", `error-panel--${resolvedTone}`, className].filter(Boolean).join(" "),
       role: resolvedRole,
-      "aria-label": label ? undefined : "Error panel",
+      "aria-label": label ? undefined : rest["aria-label"],
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),

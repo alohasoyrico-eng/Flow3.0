@@ -1254,6 +1254,9 @@ const inheritedErrorPanelMarkup = renderToStaticMarkup(React.createElement(Error
 assert.doesNotMatch(inheritedErrorPanelMarkup.match(/^<section[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedErrorPanelMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const unnamedErrorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel));
+assert.doesNotMatch(unnamedErrorPanelMarkup, /aria-label="Error panel"/);
+
 assert.doesNotMatch(staticTagMarkup, /data-interactive/);
 
 const disabledTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
