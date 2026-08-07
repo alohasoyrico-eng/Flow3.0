@@ -23,7 +23,7 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "primary");
   const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedLabel = label ?? "Create";
+  const resolvedLabel = label ?? "";
   const isExtended = Boolean(extended) || resolvedVariant === "extended";
 
   return React.createElement(
@@ -42,9 +42,9 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
       "data-extended": String(isExtended),
     },
     resolvedState === "loading"
-      ? React.createElement(Spinner, { label: `${resolvedLabel} loading`, density: resolvedDensity || undefined, decorative: true })
+      ? React.createElement(Spinner, { label: resolvedLabel ? `${resolvedLabel} loading` : "Loading", density: resolvedDensity || undefined, decorative: true })
       : React.createElement("span", { className: "fab__icon", "aria-hidden": "true" }, icon),
-    isExtended ? React.createElement("span", { className: "fab__label" }, resolvedLabel) : null,
+    isExtended && resolvedLabel ? React.createElement("span", { className: "fab__label" }, resolvedLabel) : null,
   );
 });
 

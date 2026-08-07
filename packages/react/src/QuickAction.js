@@ -23,7 +23,7 @@ export const QuickAction = forwardRef(function QuickAction({
   className = "",
   ...rest
 }, ref) {
-  const resolvedLabel = label ?? "Action";
+  const resolvedLabel = label ?? "";
   const resolvedVariant = validVariants.has(variant) ? variant : tone === "danger" ? "destructive" : "standard";
   const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
@@ -57,11 +57,11 @@ export const QuickAction = forwardRef(function QuickAction({
         "span",
         { className: "quick-action__icon", "aria-hidden": "true" },
         resolvedState === "loading"
-          ? React.createElement(Spinner, { label: `${resolvedLabel} loading`, density: resolvedDensity || undefined, decorative: true })
+          ? React.createElement(Spinner, { label: resolvedLabel ? `${resolvedLabel} loading` : "Loading", density: resolvedDensity || undefined, decorative: true })
           : icon,
       ),
     ),
-    React.createElement("span", { className: "quick-action__label" }, resolvedLabel),
+    resolvedLabel ? React.createElement("span", { className: "quick-action__label" }, resolvedLabel) : null,
     badge ? React.createElement(Badge, { label: badge, variant: "count", density: resolvedDensity || undefined }) : null,
   );
 });

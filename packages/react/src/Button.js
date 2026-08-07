@@ -31,7 +31,7 @@ export const Button = forwardRef(function Button({
   ...rest
 }, ref) {
   const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : state;
-  const buttonLabel = children ?? label ?? "Button";
+  const buttonLabel = children ?? label ?? "";
 
   return React.createElement(
     "button",
@@ -50,9 +50,9 @@ export const Button = forwardRef(function Button({
       ? React.createElement("span", { className: "button__icon", "aria-hidden": "true" }, icon)
       : null,
     resolvedState === "loading"
-      ? React.createElement(Spinner, { label: `${label ?? "Button"} loading`, density, decorative: true })
+      ? React.createElement(Spinner, { label: label ? `${label} loading` : "Loading", density, decorative: true })
       : null,
-    React.createElement("span", { className: "button__label" }, buttonLabel),
+    buttonLabel ? React.createElement("span", { className: "button__label" }, buttonLabel) : null,
     resolvedState !== "loading" && trailingIcon
       ? React.createElement("span", { className: "button__icon button__icon--trailing", "aria-hidden": "true" }, trailingIcon)
       : null,
