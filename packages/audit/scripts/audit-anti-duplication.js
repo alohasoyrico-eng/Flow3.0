@@ -161,6 +161,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Error Panel", "createErrorPanel", "feedback"],
     ["Skeleton", "createSkeleton", "feedback"],
     ["Breadcrumbs", "createBreadcrumbs", "navigation"],
+    ["Pagination", "createPagination", "navigation"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

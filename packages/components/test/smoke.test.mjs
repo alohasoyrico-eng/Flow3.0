@@ -718,7 +718,6 @@ assert.deepEqual(Object.keys(floatingActionButtonPlatformAdapters), ["react"]);
 assert.equal(floatingActionButtonPlatformAdapters.react.componentName, "FloatingActionButton");
 assert.equal(floatingActionButtonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.pagination.factory, "@design-system/react/pagination");
-assert.equal(componentContracts.pagination.internalFactory, "createPagination");
 assert.equal(componentContracts.pagination.props.some((prop) => prop.name === "onPageChange"), true);
 assert.equal(paginationPlatformContract.id, "pagination");
 assert.equal(paginationPlatformContract.source.factory, componentContracts.pagination.factory);
