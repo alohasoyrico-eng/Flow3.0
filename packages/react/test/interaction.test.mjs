@@ -1375,6 +1375,7 @@ try {
     description: "Changes are available.",
     actionLabel: "Undo",
     dismissible: true,
+    dismissLabel: "Dismiss route saved",
     onAction: () => toastActions.push("undo"),
     onDismiss: () => toastDismissals.push("dismiss"),
   }));
@@ -1384,7 +1385,7 @@ try {
   fireEvent.click(getToastRole("button", { name: /undo/i }));
   assert.deepEqual(toastActions, ["undo"]);
 
-  fireEvent.click(getToastRole("button", { name: /dismiss notification/i }));
+  fireEvent.click(getToastRole("button", { name: /dismiss route saved/i }));
   assert.deepEqual(toastDismissals, ["dismiss"]);
   assert.equal(toastRegion.hidden, true);
 

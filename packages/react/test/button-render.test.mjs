@@ -1276,6 +1276,7 @@ const toastMarkup = renderToStaticMarkup(React.createElement(Toast, {
   density: "sm",
   actionLabel: "Undo",
   dismissible: true,
+  dismissLabel: "Dismiss route update",
 }));
 assert.match(toastMarkup, /^<article/);
 assert.match(toastMarkup, /class="toast"/);
@@ -1308,6 +1309,12 @@ const hiddenToastMarkup = renderToStaticMarkup(React.createElement(Toast, {
 }));
 assert.match(hiddenToastMarkup, /hidden=""/);
 assert.doesNotMatch(hiddenToastMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const unnamedToastMarkup = renderToStaticMarkup(React.createElement(Toast, {
+  dismissible: true,
+}));
+assert.doesNotMatch(unnamedToastMarkup, /aria-label="Notification"/);
+assert.doesNotMatch(unnamedToastMarkup, /aria-label="Dismiss notification"/);
 
 const tooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
   triggerLabel: "Info",

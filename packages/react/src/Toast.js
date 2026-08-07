@@ -26,6 +26,7 @@ export const Toast = forwardRef(function Toast({
   icon = "",
   actionLabel = "",
   dismissible = false,
+  dismissLabel,
   onAction,
   onDismiss,
   className = "",
@@ -48,7 +49,7 @@ export const Toast = forwardRef(function Toast({
       hidden,
       role,
       "aria-live": role === "alert" ? "assertive" : "polite",
-      "aria-label": label ? undefined : "Notification",
+      "aria-label": label ? undefined : rest["aria-label"],
       ...flowToneProps(resolvedTone),
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
@@ -73,7 +74,7 @@ export const Toast = forwardRef(function Toast({
       : null,
     dismissible
       ? React.createElement(IconButton, {
-        ariaLabel: "Dismiss notification",
+        ariaLabel: dismissLabel,
         icon: "close",
         density: resolvedDensity,
         className: "toast__dismiss",

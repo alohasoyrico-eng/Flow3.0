@@ -16,6 +16,7 @@ export interface ToastProps extends Omit<HTMLAttributes<HTMLElement>, "style" | 
   icon?: string;
   actionLabel?: string;
   dismissible?: boolean;
+  dismissLabel?: string;
   onAction?: () => void;
   onDismiss?: () => void;
 }
