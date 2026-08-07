@@ -52,7 +52,7 @@ export const Menu = forwardRef(function Menu({
   const menuId = `menu-${slug(label || triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const isDisabled = disabled || interactionState === "disabled";
   const resolvedAlign = align === "end" || align === "right" ? "end" : "start";
-  const resolvedItems = items;
+  const resolvedItems = items.filter((item) => item === "divider" || item?.separator || item?.label);
 
   useEffect(() => {
     if (!isOpenControlled) return;
@@ -152,7 +152,7 @@ export const Menu = forwardRef(function Menu({
             },
           },
           item.icon ? React.createElement("span", { className: "menu__item-icon", "aria-hidden": "true" }, item.icon) : null,
-          React.createElement("span", { className: "menu__item-label" }, item.label ?? ""),
+          React.createElement("span", { className: "menu__item-label" }, item.label),
           item.shortcut ? React.createElement("kbd", { className: "menu__item-shortcut" }, item.shortcut) : null,
         );
       }),

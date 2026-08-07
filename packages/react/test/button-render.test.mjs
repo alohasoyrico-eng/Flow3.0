@@ -1521,6 +1521,14 @@ assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Open menu"/);
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Account menu"/);
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Menu"/);
 
+const unlabeledMenuItemMarkup = renderToStaticMarkup(React.createElement(Menu, {
+  triggerLabel: "Actions",
+  open: true,
+  items: [{ key: "ghost", icon: "more_horiz" }],
+}));
+assert.doesNotMatch(unlabeledMenuItemMarkup, /role="menuitem"/);
+assert.doesNotMatch(unlabeledMenuItemMarkup, /class="menu__item-label"><\/span>/);
+
 const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
   label: "Enable fuel card",
   description: "Applies to active drivers.",

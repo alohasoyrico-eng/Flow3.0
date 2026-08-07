@@ -198,6 +198,7 @@ function checkReactComponent(file, shared) {
   if (source.includes("onOpenChange") && /\bopen\s*=\s*false\b/.test(source)) add("errors", sourceFile, 1, `${name} React source must preserve controlled vs uncontrolled open semantics; destructure open as openProp instead of defaulting to false.`);
   if (name === "Select" && /options\.find\(\(option\) => !option\.disabled\)/.test(source)) add("errors", sourceFile, 1, "Select must not auto-select the first enabled option; selected value belongs to product code or user interaction.");
   if (["CardSummary", "RouteSummary"].includes(name) && /metric\?\.(?:label|value)\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, `${name} metrics must not render empty text nodes; filter incomplete metrics before rendering.`);
+  if (name === "Menu" && /item\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Menu items must not render empty labels; filter unlabeled menu items before rendering.");
   const componentImports = importsFromComponents(source);
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {
