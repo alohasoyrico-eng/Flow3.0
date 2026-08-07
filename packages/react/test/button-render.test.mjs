@@ -1988,6 +1988,7 @@ assert.match(closedDialogMarkup, /hidden=""/);
 const openDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   label: "Freeze card?",
   description: "Driver cannot spend until review ends.",
+  closeLabel: "Close freeze card dialog",
   variant: "destructive",
   tone: "danger",
   state: "open",
@@ -2010,6 +2011,7 @@ assert.match(openDialogMarkup, /data-key="confirm"/);
 
 const formDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   label: "Edit driver",
+  closeLabel: "Close edit driver dialog",
   variant: "form",
   open: true,
   fields: [{ label: "Driver", value: "Ana Sosa" }],
@@ -2018,6 +2020,11 @@ assert.match(formDialogMarkup, /data-variant="form"/);
 assert.match(formDialogMarkup, /class="dialog__body dialog__fields"/);
 assert.match(formDialogMarkup, /class="field"/);
 assert.doesNotMatch(formDialogMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const unnamedDialogMarkup = renderToStaticMarkup(React.createElement(Dialog));
+assert.doesNotMatch(unnamedDialogMarkup, /aria-label="Open dialog"/);
+assert.doesNotMatch(unnamedDialogMarkup, /aria-label="Dialog"/);
+assert.doesNotMatch(unnamedDialogMarkup, /aria-label="Close dialog"/);
 
 const closedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Card controls",
