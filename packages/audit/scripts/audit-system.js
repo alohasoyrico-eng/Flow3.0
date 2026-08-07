@@ -59,6 +59,7 @@ const { checkFoundationCascadeContracts } = require("./audit-foundation-cascade-
 const { checkDensityContracts } = require("./audit-density-contracts.js");
 const { checkPackageCssContracts } = require("./audit-package-css-contracts.js");
 const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js");
+const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
 const { checkTemplateComposition } = require("./audit-template-composition.js");
 const {
   checkDocsComponentCssOwnership,
@@ -110,6 +111,7 @@ checkFoundationCascadeContracts();
 checkDensityContracts();
 checkPackageCssContracts();
 checkReactPrimaryContract();
+checkAntiDuplicationGovernance();
 checkTemplateComposition();
 checkTemplateBlueprints();
 checkI18nReadiness();

@@ -11,6 +11,7 @@ const { checkPackageApiBoundary } = require("./audit-package-api.js");
 const { checkPackageCssContracts } = require("./audit-package-css-contracts.js");
 const { checkPlatformAdapters } = require("./audit-platform-adapters.js");
 const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js");
+const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
 const { finishAudit } = require("./audit-result.js");
 
 checkSystemArchitectureGate();
@@ -24,5 +25,6 @@ checkPackageApiBoundary();
 checkPackageCssContracts();
 checkPlatformAdapters();
 checkReactPrimaryContract();
+checkAntiDuplicationGovernance();
 
 finishAudit();
