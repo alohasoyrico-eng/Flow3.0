@@ -7,7 +7,6 @@ import {
   hasCountryFlag,
   listCountryFlags,
   resolveAnimationRuntime,
-  hydrateCombobox,
   animatedMomentPlatformAdapters,
   animatedMomentPlatformContract,
   animatedMomentPlatformProps,
@@ -178,7 +177,6 @@ import {
   textAreaPlatformProps,
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
-import { createCombobox } from "../src/components/fields.js?v=21";
 import {
   createTransitionalPaymentCardExpiryInput,
   hydrateTransitionalPaymentCardExpiryInput,
@@ -421,7 +419,6 @@ assert.deepEqual(Object.keys(textAreaPlatformAdapters), ["react"]);
 assert.equal(textAreaPlatformAdapters.react.componentName, "TextArea");
 assert.equal(textAreaPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.combobox.factory, "@design-system/react/combobox");
-assert.equal(componentContracts.combobox.internalFactory, "createCombobox");
 assert.equal(comboboxPlatformContract.id, "combobox");
 assert.equal(comboboxPlatformContract.source.factory, componentContracts.combobox.factory);
 assert.deepEqual(comboboxPlatformProps(), componentContracts.combobox.props.map((prop) => prop.name));
@@ -1081,48 +1078,6 @@ assert.equal(securityCodeField.attributes["aria-invalid"], undefined);
 
 hydrateTransitionalPaymentCardSecurityCodeInput(cardSecurityCodeInput);
 assert.equal(cardSecurityCodeInput.dataset.cardSecurityCodeHydrated, "true");
-
-let comboboxChange = null;
-const combobox = createCombobox({
-  label: "Vehicle",
-  helper: "Search by plate or driver",
-  value: "mx-4821",
-  name: "vehicle",
-  onValueChange(value, meta) {
-    comboboxChange = { value, meta };
-  },
-  options: [
-    { label: "MX-4821 - Ana Gomez", value: "mx-4821", meta: "Driver" },
-    { label: "MX-8840 - Luis Perez", value: "mx-8840", meta: "Vehicle" },
-    { label: "North Region Fleet", value: "north-region", meta: "Fleet" },
-  ],
-});
-assert.equal(combobox.tagName, "LABEL");
-assert.equal(combobox.className, "field");
-assert.equal(combobox.querySelector(".field__label").textContent, "Vehicle");
-assert.equal(combobox.querySelector(".field__helper").textContent, "Search by plate or driver");
-assert.equal(combobox.querySelector(".combobox").dataset.value, "mx-4821");
-assert.equal(combobox.querySelector(".combobox__input").attributes.role, "combobox");
-assert.equal(combobox.querySelector(".combobox__input").attributes["aria-autocomplete"], "list");
-assert.equal(combobox.querySelector(".combobox__input").attributes["aria-expanded"], "false");
-assert.equal(combobox.querySelector(".combobox__input").attributes["aria-controls"], combobox.querySelector(".combobox__listbox").id);
-assert.equal(combobox.querySelectorAll(".combobox__option").length, 3);
-assert.equal(combobox.querySelector(".combobox__option").dataset.selected, "true");
-const comboboxInput = combobox.querySelector(".combobox__input");
-const comboboxControl = combobox.querySelector(".combobox");
-comboboxInput.value = "Luis";
-comboboxInput.dispatchEvent({ type: "input" });
-assert.equal(comboboxControl.dataset.open, "true");
-assert.equal(combobox.querySelectorAll(".combobox__option")[0].hidden, true);
-assert.equal(combobox.querySelectorAll(".combobox__option")[1].hidden, false);
-comboboxInput.dispatchEvent({ type: "keydown", key: "Enter", preventDefault() {} });
-assert.equal(comboboxInput.value, "MX-8840 - Luis Perez");
-assert.equal(comboboxChange.value, "mx-8840");
-combobox.querySelector(".combobox__clear").dispatchEvent({ type: "click" });
-assert.equal(comboboxInput.value, "");
-assert.equal(comboboxControl.dataset.value, "");
-hydrateCombobox(combobox);
-assert.equal(combobox.querySelector(".combobox").__comboboxHydrated, true);
 
 let selectedCountryMeta = null;
 const countrySelector = createCountrySelector({

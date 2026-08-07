@@ -34,10 +34,10 @@ const reactDensityComponents = [
   { id: "select", file: path.join(root, "packages/react/src/Select.js"), selector: '.select-control[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
   { id: "switch", file: path.join(root, "packages/react/src/Switch.js"), selector: '.switch[data-density="sm"]', token: "--switch-track-width", snippets: ['"data-density": density || undefined'] },
   { id: "textArea", file: path.join(root, "packages/react/src/TextArea.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
+  { id: "combobox", file: path.join(root, "packages/react/src/Combobox.js"), selector: '.field[data-density="sm"]', token: null, snippets: ['"data-density": density || undefined'] },
 ];
 
 const delegatedDensityComponents = [
-  { id: "combobox", factory: "createCombobox", source: "fields", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "cardNumberInput", factory: "createTransitionalPaymentCardNumberInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "cardExpiryInput", factory: "createTransitionalPaymentCardExpiryInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
   { id: "cardSecurityCodeInput", factory: "createTransitionalPaymentCardSecurityCodeInput", source: "specializedInputs", delegate: "createFieldShell", selector: '.field[data-density="sm"]' },
