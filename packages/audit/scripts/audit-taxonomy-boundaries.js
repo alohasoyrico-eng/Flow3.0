@@ -88,6 +88,8 @@ function checkForbiddenComponentArtifacts(id) {
     [path.join(root, "packages/content/content/component-copy.json"), [`"${id}"`]],
     [path.join(root, "packages/content/content/component-implementation-status.json"), [`"${id}"`]],
     [path.join(root, "packages/components/src/contracts.js"), [`${camel(id)}: {`, `create${pascal(id)}`]],
+    [path.join(root, "packages/components/src/components/overlays.js"), [`create${pascal(id)}`, `"${id}"`, `'${id}'`, `.${id}`]],
+    [path.join(root, "packages/components/styles/components.css"), [`.${id}`, `@keyframes ${id}`]],
     [path.join(root, "packages/components/src/registry.js"), [`"${id}"`, `'${id}'`]],
     [path.join(root, "packages/components/src/platforms/index.js"), [`${camel(id)}PlatformContract`, `${camel(id)}PlatformProps`]],
   ]) {
