@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import { accordionPlatformContract } from "@design-system/components/platforms";
 
 const validDensities = new Set(["sm", "md", "lg"]);
+const validVariants = new Set(["single", "multiple"]);
 
 function normalizeDensity(density) {
   return validDensities.has(density) ? density : undefined;
@@ -26,6 +27,7 @@ function renderContent(content) {
 
 export const Accordion = forwardRef(function Accordion({
   items = [],
+  variant,
   multiple = false,
   expandedIds,
   density,
@@ -35,24 +37,26 @@ export const Accordion = forwardRef(function Accordion({
 }, ref) {
   const reactId = useId();
   const resolvedDensity = normalizeDensity(density);
+  const resolvedVariant = validVariants.has(variant) ? variant : multiple ? "multiple" : "single";
+  const allowsMultiple = resolvedVariant === "multiple";
   const normalizedItems = useMemo(() => normalizeItems(items), [items]);
   const isExpandedIdsControlled = expandedIds !== undefined;
   const initialOpenIds = normalizedItems.filter((item) => item.open).map((item) => item.id);
   const [openIds, setOpenIds] = useState(() => {
     const initialIds = expandedIds ?? initialOpenIds;
-    return multiple ? initialIds : initialIds.slice(0, 1);
+    return allowsMultiple ? initialIds : initialIds.slice(0, 1);
   });
 
   useEffect(() => {
     if (!isExpandedIdsControlled) return;
     const nextIds = expandedIds ?? [];
-    setOpenIds(multiple ? nextIds : nextIds.slice(0, 1));
-  }, [expandedIds, isExpandedIdsControlled, multiple]);
+    setOpenIds(allowsMultiple ? nextIds : nextIds.slice(0, 1));
+  }, [allowsMultiple, expandedIds, isExpandedIdsControlled]);
 
   const setItemOpen = (item, open) => {
     if (item.disabled) return;
     const next = open
-      ? multiple
+      ? allowsMultiple
         ? [...new Set([...openIds, item.id])]
         : [item.id]
       : openIds.filter((id) => id !== item.id);
@@ -66,7 +70,8 @@ export const Accordion = forwardRef(function Accordion({
       ...rest,
       ref,
       className: ["accordion", className].filter(Boolean).join(" "),
-      "data-multiple": String(Boolean(multiple)),
+      "data-variant": resolvedVariant,
+      "data-multiple": String(allowsMultiple),
       "data-density": resolvedDensity,
     },
     normalizedItems.map((item, index) => {

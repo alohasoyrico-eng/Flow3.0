@@ -454,6 +454,7 @@ const accordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
 }));
 assert.match(accordionMarkup, /class="accordion"/);
 assert.match(accordionMarkup, /data-density="sm"/);
+assert.match(accordionMarkup, /data-variant="single"/);
 assert.match(accordionMarkup, /data-multiple="false"/);
 assert.match(accordionMarkup, /data-accordion-trigger=""/);
 assert.match(accordionMarkup, /aria-expanded="true"/);

@@ -58,6 +58,26 @@ try {
 
   cleanup();
 
+  const multipleExpandedChanges = [];
+  const { getByRole: getMultipleAccordionRole } = render(React.createElement(Accordion, {
+    variant: "multiple",
+    items: [
+      { id: "overview", title: "Overview", content: "Route overview" },
+      { id: "pricing", title: "Pricing", content: "Route pricing" },
+    ],
+    onExpandedChange: (expandedIds) => multipleExpandedChanges.push(expandedIds),
+  }));
+
+  const multipleOverviewTrigger = getMultipleAccordionRole("button", { name: /overview/i });
+  const multiplePricingTrigger = getMultipleAccordionRole("button", { name: /pricing/i });
+  fireEvent.click(multipleOverviewTrigger);
+  fireEvent.click(multiplePricingTrigger);
+  await waitFor(() => assert.equal(multipleOverviewTrigger.getAttribute("aria-expanded"), "true"));
+  assert.equal(multiplePricingTrigger.getAttribute("aria-expanded"), "true");
+  assert.deepEqual(multipleExpandedChanges.at(-1), ["overview", "pricing"]);
+
+  cleanup();
+
   const clickedBreadcrumbs = [];
   const { getByRole: getBreadcrumbRole } = render(React.createElement(Breadcrumbs, {
     items: [

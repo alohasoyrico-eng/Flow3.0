@@ -2,6 +2,7 @@ import type { ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttribute
 import { accordionPlatformContract } from "#flow/platforms";
 
 export type AccordionDensity = "sm" | "md" | "lg";
+export type AccordionVariant = "single" | "multiple";
 
 export interface AccordionItem {
   id?: string;
@@ -17,6 +18,7 @@ export interface AccordionItem {
 
 export interface AccordionProps extends HTMLAttributes<HTMLDivElement> {
   items: AccordionItem[];
+  variant?: AccordionVariant;
   multiple?: boolean;
   expandedIds?: string[];
   density?: AccordionDensity;
