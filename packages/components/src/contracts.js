@@ -1491,7 +1491,6 @@ export const componentContracts = {
   },
   quickAction: {
     factory: "@design-system/react/quick-action",
-    internalFactory: "createQuickAction",
     element: "div",
     purpose: "Expose one compact local action with optional icon, badge, variant, state, and density without becoming a grouped actions pattern.",
     variants: ["standard", "destructive", "compact", "wide"],

@@ -18,7 +18,7 @@ export const QuickAction = forwardRef(function QuickAction({
   badge = "",
   variant = "standard",
   state = "default",
-  density = "md",
+  density,
   loading = false,
   tone = "neutral",
   disabled = false,
@@ -30,7 +30,7 @@ export const QuickAction = forwardRef(function QuickAction({
   const resolvedLabel = label ?? "Action";
   const resolvedVariant = validVariants.has(variant) ? variant : tone === "danger" ? "destructive" : "standard";
   const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalize(state, validStates, "default");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const blocked = resolvedState === "disabled" || resolvedState === "loading";
 
   return React.createElement(
@@ -39,7 +39,7 @@ export const QuickAction = forwardRef(function QuickAction({
       className: ["quick-action", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
     },
     React.createElement(
       "button",

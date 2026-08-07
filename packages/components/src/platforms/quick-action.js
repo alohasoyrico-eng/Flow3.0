@@ -7,7 +7,6 @@ export const quickActionPlatformContract = {
   layer: "component",
   source: {
     factory: quickActionContract.factory,
-    internalFactory: quickActionContract.internalFactory,
     cssClass: "quick-action",
     contract: "@design-system/components/contracts#quickAction",
   },

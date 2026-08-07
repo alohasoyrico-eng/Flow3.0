@@ -290,6 +290,21 @@ function checkReactOnlyComponentBoundaries() {
       pattern: /import\s*\{[^}]*createMovementRow[^}]*\}|createMovementRow\(/,
       message: "Movement Row smoke coverage must use React render tests, not the removed DOM factory.",
     },
+    {
+      file: commerceFile,
+      pattern: /export function createQuickAction\b/,
+      message: "Quick Action must not reintroduce a DOM factory; React QuickAction is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createQuickAction"/,
+      message: "Quick Action contract must not name a DOM internalFactory; React QuickAction owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createQuickAction[^}]*\}|createQuickAction\(/,
+      message: "Quick Action smoke coverage must use React render tests, not the removed DOM factory.",
+    },
   ];
   for (const check of checks) {
     if (!fs.existsSync(check.file)) continue;

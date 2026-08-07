@@ -190,6 +190,11 @@ const loadingQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickA
 assert.match(loadingQuickActionMarkup, /aria-busy="true"/);
 assert.match(loadingQuickActionMarkup, /class="spinner/);
 
+const inheritedQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction, {
+  label: "Inherited action density",
+}));
+assert.doesNotMatch(inheritedQuickActionMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const movementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
   label: "Fuel purchase",
   meta: "Today",

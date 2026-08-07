@@ -181,7 +181,6 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
-import { createQuickAction } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -891,7 +890,6 @@ assert.deepEqual(Object.keys(movementRowPlatformAdapters), ["react"]);
 assert.equal(movementRowPlatformAdapters.react.componentName, "MovementRow");
 assert.equal(movementRowPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.quickAction.factory, "@design-system/react/quick-action");
-assert.equal(componentContracts.quickAction.internalFactory, "createQuickAction");
 assert.equal(quickActionPlatformContract.id, "quick-action");
 assert.equal(quickActionPlatformContract.source.factory, componentContracts.quickAction.factory);
 assert.deepEqual(quickActionPlatformProps(), componentContracts.quickAction.props.map((prop) => prop.name));
@@ -2099,19 +2097,5 @@ interactiveRange.querySelectorAll(".date-range-picker__preset")[0].click();
 assert.equal(Boolean(rangeValue.from), true);
 assert.equal(Boolean(rangeValue.to), true);
 assert.equal(interactiveRange.querySelector(".date-range-picker__panel").hidden, true);
-
-const quickAction = createQuickAction({ label: "Freeze", icon: "lock", badge: "2", variant: "destructive", state: "warning", density: "sm" });
-assert.equal(quickAction.tagName, "DIV");
-assert.equal(quickAction.className, "quick-action");
-assert.equal(quickAction.dataset.variant, "destructive");
-assert.equal(quickAction.dataset.state, "warning");
-assert.equal(quickAction.dataset.density, "sm");
-assert.equal(quickAction.querySelector(".quick-action__control").tagName, "BUTTON");
-assert.equal(quickAction.querySelector(".quick-action__control").attributes["aria-label"], "Freeze");
-assert.equal(quickAction.querySelector(".quick-action__icon").attributes["aria-hidden"], "true");
-assert.equal(quickAction.querySelector(".badge").textContent, "2");
-const loadingQuickAction = createQuickAction({ label: "Sync", state: "loading" });
-assert.equal(loadingQuickAction.querySelector(".quick-action__control").attributes["aria-busy"], "true");
-assert.equal(loadingQuickAction.querySelector(".spinner").dataset.density, "sm");
 
 console.log("components smoke tests passed");
