@@ -1262,7 +1262,7 @@ try {
   cleanup();
 
   const tooltipOpenChanges = [];
-  const { getByRole: getTooltipRole } = render(React.createElement(Tooltip, {
+  const { getByRole: getTooltipRole, rerender: rerenderTooltip } = render(React.createElement(Tooltip, {
     triggerLabel: "Help",
     content: "Helpful context",
     onOpenChange: (open) => tooltipOpenChanges.push(open),
@@ -1284,6 +1284,22 @@ try {
   fireEvent.keyDown(tooltipTrigger, { key: "Escape" });
   await waitFor(() => assert.equal(tooltipBubble.hidden, true));
   assert.deepEqual(tooltipOpenChanges, [true, false, true, false]);
+
+  rerenderTooltip(React.createElement(Tooltip, {
+    triggerLabel: "Help",
+    content: "Helpful context",
+    open: true,
+    onOpenChange: (open) => tooltipOpenChanges.push(open),
+  }));
+  await waitFor(() => assert.equal(tooltipBubble.hidden, false));
+
+  rerenderTooltip(React.createElement(Tooltip, {
+    triggerLabel: "Help",
+    content: "Helpful context",
+    open: false,
+    onOpenChange: (open) => tooltipOpenChanges.push(open),
+  }));
+  await waitFor(() => assert.equal(tooltipBubble.hidden, true));
 
   cleanup();
 

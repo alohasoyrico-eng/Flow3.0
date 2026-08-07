@@ -20,6 +20,7 @@ export const Tooltip = forwardRef(function Tooltip({
   density,
   state = "default",
   disabled = false,
+  open: openProp,
   onOpenChange,
   className = "",
   ...rest
@@ -31,16 +32,18 @@ export const Tooltip = forwardRef(function Tooltip({
   const resolvedDensity = validDensities.has(density) ? density : undefined;
   const resolvedState = normalizeState({ disabled, state });
   const initiallyOpen = ["hover", "focus", "open", "disabled"].includes(resolvedState);
-  const [open, setOpenState] = useState(initiallyOpen);
+  const isOpenControlled = openProp !== undefined;
+  const [internalOpen, setInternalOpen] = useState(initiallyOpen);
   const [interactionState, setInteractionState] = useState(resolvedState);
   const isDisabled = resolvedState === "disabled" || interactionState === "disabled";
-  const isDismissed = interactionState === "dismissed";
-  const isOpen = Boolean(open) && !isDismissed;
+  const isDismissed = !isOpenControlled && interactionState === "dismissed";
+  const openValue = isOpenControlled ? Boolean(openProp) : internalOpen;
+  const isOpen = Boolean(openValue) && !isDismissed;
 
   const setOpen = (nextOpen, nextState) => {
     if (isDisabled) return;
     const normalizedNextOpen = Boolean(nextOpen);
-    setOpenState(normalizedNextOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedNextOpen);
     if (nextState) setInteractionState(nextState);
     onOpenChange?.(normalizedNextOpen);
   };
@@ -73,8 +76,10 @@ export const Tooltip = forwardRef(function Tooltip({
         onKeyDown: (event) => {
           if (event.key !== "Escape") return;
           event.preventDefault();
-          setInteractionState("dismissed");
-          setOpenState(false);
+          if (!isOpenControlled) {
+            setInteractionState("dismissed");
+            setInternalOpen(false);
+          }
           onOpenChange?.(false);
         },
       },

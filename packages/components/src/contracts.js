@@ -492,6 +492,7 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"open\" | \"disabled\" | \"dismissed\"", required: false },
       { name: "disabled", type: "boolean", required: false },
+      { name: "open", type: "boolean", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false }
     ],
     accessibility: [

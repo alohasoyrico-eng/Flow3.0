@@ -15,6 +15,7 @@ export interface TooltipProps extends HTMLAttributes<HTMLSpanElement> {
   density?: TooltipDensity;
   state?: TooltipState;
   disabled?: boolean;
+  open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
 
