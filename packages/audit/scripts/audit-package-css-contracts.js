@@ -218,6 +218,13 @@ function checkPackageCssContracts() {
     add("errors", packageCssFile, cardNumberBrandBlock ? lineNumber(text, cardNumberBrandBlock.index) : 1, "Card Number Input brand suffix must use Flow voice aliases.");
   }
 
+  const avatarBlocks = blocks.filter((block) => /^\.avatar(?:$|--|\[|__)/.test(normalizedSelector(block) ?? ""));
+  for (const block of avatarBlocks) {
+    if (/(?:--comp-avatar-size|--comp-avatar-status-size|inline-size|block-size|min-block-size):[^;]*(?:\d+px|\d+rem|\d+em)/.test(block.body)) {
+      add("errors", packageCssFile, lineNumber(text, block.index), "Avatar geometry must use Flow frame/density/space aliases instead of raw unit values.");
+    }
+  }
+
   const cardExpiryControlBlock = blocks.find((block) => selectorKey(block) === ".card-expiry-input__control");
   const cardExpiryIconBlock = blocks.find((block) => selectorKey(block) === ".card-expiry-input__icon");
   const cardExpiryInputBlock = blocks.find((block) => selectorKey(block) === ".card-expiry-input__input");
