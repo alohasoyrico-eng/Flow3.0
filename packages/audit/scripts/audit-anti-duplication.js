@@ -180,6 +180,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Tree View", "createTreeView", "interactions"],
     ["Tabs", "createTabs", "interactions"],
     ["Tooltip", "createTransitionalTooltip", "overlays"],
+    ["Popover", "createPopover", "overlays"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

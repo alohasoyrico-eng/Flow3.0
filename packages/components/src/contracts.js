@@ -1389,7 +1389,6 @@ export const componentContracts = {
   },
   popover: {
     factory: "@design-system/react/popover",
-    internalFactory: "createPopover",
     element: "span",
     purpose: "Attach a small contextual dialog to one trigger without owning broader process state.",
     variants: ["information", "action", "form", "metric"],

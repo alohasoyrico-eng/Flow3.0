@@ -25,7 +25,7 @@ export const Popover = forwardRef(function Popover({
   variant = "information",
   state = "default",
   placement = "bottom",
-  density = "md",
+  density,
   fullWidth = false,
   disabled = false,
   actions = [],
@@ -39,7 +39,7 @@ export const Popover = forwardRef(function Popover({
   const triggerRef = useRef(null);
   const resolvedVariant = normalize(variant, validVariants, "information");
   const resolvedPlacement = normalize(placement, validPlacements, "bottom");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const initialState = disabled ? "disabled" : normalize(state, validStates, "default");
   const initiallyOpen = Boolean(open) || ["open", "focus", "warning"].includes(initialState);
   const [isOpen, setIsOpen] = useState(initiallyOpen);

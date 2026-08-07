@@ -1247,6 +1247,12 @@ assert.match(popoverMarkup, /class="popover__panel"/);
 assert.match(popoverMarkup, /hidden=""/);
 assert.match(popoverMarkup, /role="dialog"/);
 
+const inheritedPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
+  triggerLabel: "Details",
+  title: "Inherited density",
+}));
+assert.doesNotMatch(inheritedPopoverMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const actionPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
   triggerLabel: "Filters",
   title: "Local filters",

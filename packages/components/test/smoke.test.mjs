@@ -835,7 +835,6 @@ assert.deepEqual(Object.keys(segmentedControlPlatformAdapters), ["react"]);
 assert.equal(segmentedControlPlatformAdapters.react.componentName, "SegmentedControl");
 assert.equal(segmentedControlPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.popover.factory, "@design-system/react/popover");
-assert.equal(componentContracts.popover.internalFactory, "createPopover");
 assert.equal(popoverPlatformContract.id, "popover");
 assert.equal(popoverPlatformContract.source.factory, componentContracts.popover.factory);
 assert.deepEqual(popoverPlatformProps(), componentContracts.popover.props.map((prop) => prop.name));

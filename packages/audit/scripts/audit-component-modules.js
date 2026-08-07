@@ -77,10 +77,9 @@ const moduleRules = [
       "createDialog",
       "createDrawer",
       "createMenu",
-      "createPopover",
     ],
     publicExports: [],
-    internalExports: ["createDialog", "createDrawer", "createMenu", "createPopover"],
+    internalExports: ["createDialog", "createDrawer", "createMenu"],
   },
   {
     id: "specialized-inputs",
