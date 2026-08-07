@@ -711,6 +711,9 @@ assert.match(imageAvatarMarkup, /class="avatar avatar--lg"/);
 assert.match(imageAvatarMarkup, /data-state="disabled"/);
 assert.match(imageAvatarMarkup, /src="\/avatars\/luis.png"/);
 assert.match(imageAvatarMarkup, /alt="Luis Vera"/);
+const unnamedAvatarMarkup = renderToStaticMarkup(React.createElement(Avatar));
+assert.doesNotMatch(unnamedAvatarMarkup, /Unknown avatar/);
+assert.doesNotMatch(unnamedAvatarMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /aria-label=/);
 
 const badgeMarkup = renderToStaticMarkup(React.createElement(Badge, {
   label: "3",

@@ -46,7 +46,7 @@ export const Avatar = forwardRef(function Avatar({
       ...flowRestProps(rest),
       ref,
       className: ["avatar", resolvedSize ? `avatar--${resolvedSize}` : "", className].filter(Boolean).join(" "),
-      "aria-label": ariaLabel || sourceName || "Unknown avatar",
+      "aria-label": ariaLabel || sourceName || undefined,
       ...flowDensityProps(resolvedDensity),
       "data-status": resolvedStatus,
       ...flowStateProps(resolvedState),

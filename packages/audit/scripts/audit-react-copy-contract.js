@@ -5,6 +5,7 @@ const localeSpecificTerms = ["Selecciona", "Rango de fechas", " dias", "días", 
 const componentContentDefaults = ["Short value", "Keep this field local", "Recent activity", "Apply", "Cancel", "Confirm", "Continue", "Save", "7 days", "30 days", "90 days"];
 const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const visibleTriggerDefaultsByFile = new Map([
+  ["Avatar.js", ["Unknown avatar"]],
   ["Dialog.js", ["Dialog", "Open dialog"]],
   ["Drawer.js", ["Drawer", "Open drawer", "Progress"]],
   ["ErrorPanel.js", ["Something needs attention"]],
