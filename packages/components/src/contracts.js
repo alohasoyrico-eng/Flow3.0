@@ -1186,7 +1186,6 @@ export const componentContracts = {
   },
   stationPin: {
     factory: "@design-system/react/station-pin",
-    internalFactory: "createStationPin",
     element: "button",
     purpose: "Represent one map station marker or cluster entry with accessible station label.",
     variants: ["fuel", "ev", "service", "cluster"],

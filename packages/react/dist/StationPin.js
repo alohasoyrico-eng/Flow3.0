@@ -18,7 +18,7 @@ export const StationPin = forwardRef(function StationPin({
   count,
   variant = "fuel",
   state = "default",
-  density = "md",
+  density,
   selected = false,
   unavailable = false,
   disabled = false,
@@ -29,7 +29,7 @@ export const StationPin = forwardRef(function StationPin({
 }, ref) {
   const resolvedVariant = normalize(variant, validVariants, "fuel");
   const resolvedState = disabled ? "disabled" : unavailable ? "unavailable" : selected ? "selected" : normalize(state, validStates, "default");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const markerCount = count != null || resolvedVariant === "cluster" ? count ?? 6 : null;
   const visibleValue = markerCount != null ? String(markerCount) : value || label || "Station";
   const blocked = resolvedState === "disabled" || resolvedState === "unavailable";
@@ -62,7 +62,7 @@ export const StationPin = forwardRef(function StationPin({
       className: ["station-pin", className].filter(Boolean).join(" "),
       "data-variant": resolvedVariant,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "data-map-primitive": "maps",
       disabled: blocked,
       "aria-pressed": resolvedState === "selected" ? "true" : undefined,

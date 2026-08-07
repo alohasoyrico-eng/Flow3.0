@@ -181,7 +181,7 @@ import { createCountrySelector, hydrateCountrySelector } from "../src/components
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
-import { createCardSummary, createMovementRow, createQuickAction, createRouteSummary, createStationPin } from "../src/components/commerce.js?v=15";
+import { createCardSummary, createMovementRow, createQuickAction, createRouteSummary } from "../src/components/commerce.js?v=15";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import { createTransitionalBadge, createTransitionalChip, createTransitionalTag } from "../src/components/status.js?v=2";
@@ -784,7 +784,6 @@ assert.deepEqual(Object.keys(chartPanelPlatformAdapters), ["react"]);
 assert.equal(chartPanelPlatformAdapters.react.componentName, "ChartPanel");
 assert.equal(chartPanelPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.stationPin.factory, "@design-system/react/station-pin");
-assert.equal(componentContracts.stationPin.internalFactory, "createStationPin");
 assert.equal(stationPinPlatformContract.id, "station-pin");
 assert.equal(stationPinPlatformContract.source.factory, componentContracts.stationPin.factory);
 assert.deepEqual(stationPinPlatformProps(), componentContracts.stationPin.props.map((prop) => prop.name));
@@ -1882,24 +1881,6 @@ assert.equal(primitiveAnimation.dataset.animationRuntime, "fallback");
 assert.equal(primitiveAnimation.dataset.state, "playing");
 assert.equal(primitiveAnimation.querySelector(".animation-asset__fallback-icon").textContent, "shield");
 assert.equal(typeof resolveAnimationRuntime({ loadAnimation() {} })?.loadAnimation, "function");
-const stationPin = createStationPin({ label: "Station Norte", value: "$23.4", meta: "Open", variant: "fuel", state: "selected", density: "lg" });
-assert.equal(stationPin.tagName, "BUTTON");
-assert.equal(stationPin.className, "station-pin");
-assert.equal(stationPin.dataset.variant, "fuel");
-assert.equal(stationPin.dataset.state, "selected");
-assert.equal(stationPin.dataset.density, "lg");
-assert.equal(stationPin.attributes["aria-label"], "Station Norte $23.4 Open");
-assert.equal(stationPin.attributes["aria-pressed"], "true");
-assert.equal(stationPin.querySelector(".station-pin__value").textContent, "$23.4");
-assert.equal(stationPin.querySelector(".station-pin__marker").dataset.kind, "icon");
-const clusterStationPin = createStationPin({ label: "Station cluster", count: 4, variant: "cluster" });
-assert.equal(clusterStationPin.querySelector(".station-pin__marker").textContent, "4");
-assert.equal(clusterStationPin.querySelector(".station-pin__marker").dataset.kind, "count");
-assert.equal(clusterStationPin.querySelector(".station-pin__value"), null);
-const unavailableStationPin = createStationPin({ label: "Closed station", state: "unavailable" });
-assert.equal(unavailableStationPin.disabled, true);
-assert.equal(unavailableStationPin.dataset.state, "unavailable");
-
 const routeSummary = createRouteSummary({
   label: "Route A",
   description: "Fastest",

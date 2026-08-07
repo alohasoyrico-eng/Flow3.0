@@ -267,6 +267,11 @@ assert.match(stationPinMarkup, /class="station-pin__marker material-symbol"/);
 assert.match(stationPinMarkup, /local_gas_station/);
 assert.match(stationPinMarkup, /class="station-pin__value">Open<\/span>/);
 
+const inheritedStationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
+  label: "Inherited station density",
+}));
+assert.doesNotMatch(inheritedStationPinMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const cardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
   label: "Fleet",
   meta: "ANA SOSA",

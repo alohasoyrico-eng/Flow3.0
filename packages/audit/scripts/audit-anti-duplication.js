@@ -230,6 +230,21 @@ function checkReactOnlyComponentBoundaries() {
       pattern: /import\s*\{[^}]*createChartPanel[^}]*\}|createChartPanel\(/,
       message: "Chart Panel smoke coverage must use React render tests, not the removed DOM factory.",
     },
+    {
+      file: commerceFile,
+      pattern: /export function createStationPin\b/,
+      message: "Station Pin must not reintroduce a DOM factory; React StationPin is the single product component implementation.",
+    },
+    {
+      file: contractsFile,
+      pattern: /internalFactory:\s*"createStationPin"/,
+      message: "Station Pin contract must not name a DOM internalFactory; React StationPin owns the component implementation.",
+    },
+    {
+      file: smokeFile,
+      pattern: /import\s*\{[^}]*createStationPin[^}]*\}|createStationPin\(/,
+      message: "Station Pin smoke coverage must use React render tests, not the removed DOM factory.",
+    },
   ];
   for (const check of checks) {
     if (!fs.existsSync(check.file)) continue;

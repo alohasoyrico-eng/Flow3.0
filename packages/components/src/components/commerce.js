@@ -1,67 +1,7 @@
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "./actions.js?v=2";
 import { createSpinner } from "./feedback.js?v=8";
 import { createTransitionalBadge } from "./status.js?v=2";
-import { createMapsPrimitive } from "../primitives/maps.js?v=1";
 import { setIconGlyph } from "../primitives/iconography.js?v=1";
-
-export function createStationPin({
-  label,
-  value = "",
-  meta = "",
-  icon = "local_gas_station",
-  count,
-  variant = "fuel",
-  state = "default",
-  density = "md",
-  selected = false,
-  unavailable = false,
-  disabled = false,
-} = {}) {
-  const validVariants = new Set(["fuel", "ev", "service", "cluster"]);
-  const validStates = new Set(["default", "hover", "focus", "selected", "unavailable", "disabled"]);
-  const resolvedVariant = validVariants.has(variant) ? variant : "fuel";
-  const resolvedState = disabled ? "disabled" : unavailable ? "unavailable" : selected ? "selected" : validStates.has(state) ? state : "default";
-  const resolvedDensity = ["sm", "md", "lg"].includes(density) ? density : "md";
-  const markerCount = count != null || resolvedVariant === "cluster" ? count ?? 6 : null;
-  const pin = document.createElement("button");
-  pin.type = "button";
-  pin.className = "station-pin";
-  pin.dataset.variant = resolvedVariant;
-  pin.dataset.state = resolvedState;
-  pin.dataset.density = resolvedDensity;
-  pin.disabled = resolvedState === "disabled" || resolvedState === "unavailable";
-  if (resolvedState === "selected") pin.setAttribute("aria-pressed", "true");
-  const visibleValue = markerCount != null ? String(markerCount) : value || label || "Station";
-  const mapPrimitive = createMapsPrimitive({
-    permission: "granted",
-    pins: [
-      {
-        label: label ?? visibleValue,
-        value: value && value !== label ? value : "",
-        meta,
-        variant: resolvedVariant,
-        state: resolvedState,
-        selected: resolvedState === "selected",
-        unavailable: resolvedState === "unavailable",
-      },
-    ],
-  });
-  pin.dataset.mapPrimitive = "maps";
-  pin.setAttribute("aria-label", mapPrimitive.mapLayerModel.pins[0]?.accessibleLabel ?? String(label ?? visibleValue));
-  const marker = document.createElement("span");
-  marker.className = "station-pin__marker";
-  marker.setAttribute("aria-hidden", "true");
-  marker.dataset.kind = markerCount != null ? "count" : "icon";
-  marker.textContent = markerCount != null ? String(markerCount) : icon;
-  pin.append(marker);
-  if (markerCount == null) {
-    const valueNode = document.createElement("span");
-    valueNode.className = "station-pin__value";
-    valueNode.textContent = visibleValue;
-    pin.append(valueNode);
-  }
-  return pin;
-}
 
 export function createRouteSummary({
   label,

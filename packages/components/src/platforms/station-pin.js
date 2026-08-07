@@ -7,7 +7,6 @@ export const stationPinPlatformContract = {
   layer: "component",
   source: {
     factory: stationPinContract.factory,
-    internalFactory: stationPinContract.internalFactory,
     cssClass: "station-pin",
     contract: "@design-system/components/contracts#stationPin",
   },
