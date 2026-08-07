@@ -50,9 +50,9 @@ export const Table = forwardRef(function Table({
   className = "",
   ...rest
 }, ref) {
-  const resolvedVariant = normalize(variant, validVariants, "standard");
+  const resolvedVariant = dense ? "dense" : normalize(variant, validVariants, "standard");
   const initialState = normalize(state, validStates, "default");
-  const resolvedDensity = dense || resolvedVariant === "dense" ? "sm" : validDensities.has(density) ? density : "";
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const sortable = resolvedVariant === "sortable" || columns.some((column) => column.sortable);
   const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
   const expandable = resolvedVariant === "expandable" || Boolean(renderDetail || expandedKey);

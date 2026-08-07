@@ -31,6 +31,9 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (/\bdensity:\s*[^,\n?]+\?\s*["'](?:sm|md|lg)["']/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must not remap nested component density with a fixed ternary value; pass inherited density or an explicit child override prop.`);
   }
+  if (/\b(?:resolvedDensity|currentDensity|childDensity|densityValue)\s*=\s*[^;\n?]+\?\s*["'](?:sm|md|lg)["']/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must not derive component density from variant/state with a fixed ternary value; density is owned by the Flow cascade or explicit density prop.`);
+  }
   if (/\bdensity\s*\?\?\s*size\b|\bsize\s*\?\?\s*density\b/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must not treat density as a size alias; density controls cascade while size is an explicit component prop.`);
   }

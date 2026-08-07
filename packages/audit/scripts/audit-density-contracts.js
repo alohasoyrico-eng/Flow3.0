@@ -53,6 +53,9 @@ function checkDensityContracts() {
     if (/\bdensity\s*(?:\?\?|\|\|)\s*["'](?:sm|md|lg)["']/.test(source) || /\bdensity:\s*[^,\n]*(?:\?\?|\|\|)\s*["'](?:sm|md|lg)["']/.test(source)) {
       add("errors", component.file, 1, `${component.name} must not fallback child density to a fixed value; pass inherited density or omit it.`);
     }
+    if (/\b(?:resolvedDensity|currentDensity|childDensity|densityValue)\s*=\s*[^;\n?]+\?\s*["'](?:sm|md|lg)["']/.test(source)) {
+      add("errors", component.file, 1, `${component.name} must not derive density from variant/state with a fixed ternary value; density is owned by Flow cascade or explicit density prop.`);
+    }
 
     const cssContract = cssDensityContracts[id];
     if (cssContract) checkCssDensity(css, cssContract.selector, cssContract.token, id);
