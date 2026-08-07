@@ -6,11 +6,11 @@ const validVariants = new Set(["single", "multiple"]);
 
 
 function normalizeItems(items) {
-  const sourceItems = Array.isArray(items) && items.length ? items : [{ title: "Section 1", content: "" }];
+  const sourceItems = Array.isArray(items) ? items : [];
   return sourceItems.map((item, index) => ({
     ...item,
     id: item.id || `accordion-panel-${index}`,
-    title: item.title ?? item.label ?? `Section ${index + 1}`,
+    title: item.title ?? item.label ?? "",
     content: item.content ?? item.description ?? "",
     open: Boolean(item.open),
   }));

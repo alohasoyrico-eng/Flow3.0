@@ -24,6 +24,7 @@ const visibleTriggerDefaultsByFile = new Map([
   ["Breadcrumbs.js", ["Home"]],
 ]);
 const displayFallbackTermsByFile = new Map([
+  ["Accordion.js", ["Section"]],
   ["Card.js", ["Card", "Loading"]],
   ["CardSummary.js", ["Card", "Active", "Frozen", "Review"]],
   ["ChartPanel.js", ["Chart"]],

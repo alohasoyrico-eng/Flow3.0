@@ -480,6 +480,11 @@ const inheritedAccordionMarkup = renderToStaticMarkup(React.createElement(Accord
   items: [{ id: "billing", title: "Billing", content: "Cards" }],
 }));
 assert.doesNotMatch(inheritedAccordionMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+const emptyAccordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
+  items: [],
+}));
+assert.doesNotMatch(emptyAccordionMarkup, /Section/);
+assert.doesNotMatch(emptyAccordionMarkup, /accordion__item/);
 assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);
