@@ -8,23 +8,22 @@ React components that declare callback props must use them in source and must ha
 
 - Components audited: 56
 - Components with callbacks: 39
-- Pass: 21
-- Review: 35
+- Pass: 20
+- Review: 36
 - Fail: 0
-- Missing callback test assertions: 44
+- Missing callback test assertions: 47
 
 ## Missing Interaction Tests
 
 | Component | Missing callback coverage |
 | --- | --- |
-| Accordion | onExpandedChange |
 | Breadcrumbs | onClick |
 | Card | onAction |
 | CardExpiryInput | onValueChange |
 | CardNumberInput | onValueChange |
 | CardSecurityCodeInput | onValueChange |
 | Checkbox | onCheckedChange |
-| Chip | onSelectedChange |
+| Chip | onRemove, onSelectedChange |
 | CodeInput | onComplete, onValueChange |
 | Combobox | onValueChange |
 | CountrySelector | onValueChange |
@@ -35,7 +34,8 @@ React components that declare callback props must use them in source and must ha
 | EmptyState | onAction |
 | ErrorPanel | onAction |
 | Input | onValueChange |
-| Menu | onOpenChange |
+| Menu | onOpenChange, onSelect |
+| MovementRow | onSelect |
 | Pagination | onPageChange |
 | PhoneInput | onValueChange |
 | Popover | onAction, onOpenChange |
@@ -45,6 +45,7 @@ React components that declare callback props must use them in source and must ha
 | SegmentedControl | onValueChange |
 | Select | onValueChange |
 | Slider | onValueChange |
+| StationPin | onSelect |
 | Switch | onCheckedChange |
 | Table | onExpandedChange, onRowSelect |
 | Tabs | onValueChange |

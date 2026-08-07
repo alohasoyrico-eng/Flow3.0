@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 21,
-    "review": 35,
+    "pass": 20,
+    "review": 36,
     "fail": 0,
-    "missingTestCallbacks": 44
+    "missingTestCallbacks": 47
   },
   "components": [
     {
@@ -21,12 +21,12 @@
       "sourceCovered": [
         "onExpandedChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onExpandedChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "AnimatedMoment",
@@ -230,11 +230,10 @@
         "onRemove",
         "onSelectedChange"
       ],
-      "testCovered": [
-        "onRemove"
-      ],
+      "testCovered": [],
       "missingInSource": [],
       "missingInTests": [
+        "onRemove",
         "onSelectedChange"
       ],
       "status": "review"
@@ -503,12 +502,11 @@
         "onOpenChange",
         "onSelect"
       ],
-      "testCovered": [
-        "onSelect"
-      ],
+      "testCovered": [],
       "missingInSource": [],
       "missingInTests": [
-        "onOpenChange"
+        "onOpenChange",
+        "onSelect"
       ],
       "status": "review"
     },
@@ -533,12 +531,12 @@
       "sourceCovered": [
         "onSelect"
       ],
-      "testCovered": [
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
         "onSelect"
       ],
-      "missingInSource": [],
-      "missingInTests": [],
-      "status": "pass"
+      "status": "review"
     },
     {
       "component": "Pagination",
@@ -742,12 +740,12 @@
       "sourceCovered": [
         "onSelect"
       ],
-      "testCovered": [
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
         "onSelect"
       ],
-      "missingInSource": [],
-      "missingInTests": [],
-      "status": "pass"
+      "status": "review"
     },
     {
       "component": "Stepper",

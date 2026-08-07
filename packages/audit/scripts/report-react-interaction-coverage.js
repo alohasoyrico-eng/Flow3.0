@@ -48,6 +48,12 @@ function sourceUsesCallback(source, callback) {
   return new RegExp(`\\b${callback}\\b`).test(source);
 }
 
+function testCoversCallback(tests, component, callback) {
+  const nearComponentThenCallback = new RegExp(`\\b${component}\\b[\\s\\S]{0,1600}\\b${callback}\\b`);
+  const nearCallbackThenComponent = new RegExp(`\\b${callback}\\b[\\s\\S]{0,1600}\\b${component}\\b`);
+  return nearComponentThenCallback.test(tests) || nearCallbackThenComponent.test(tests);
+}
+
 function createReport() {
   const tests = testSource();
   const components = reactComponentNames().map((component) => {
@@ -57,7 +63,7 @@ function createReport() {
     const types = readIfExists(typesFile);
     const callbacks = declaredCallbacks(types);
     const missingInSource = callbacks.filter((callback) => !sourceUsesCallback(source, callback));
-    const missingInTests = callbacks.filter((callback) => !tests.includes(callback));
+    const missingInTests = callbacks.filter((callback) => !testCoversCallback(tests, component, callback));
     return {
       component,
       source: rel(sourceFile),
