@@ -345,6 +345,11 @@ assert.match(auditEventMarkup, /class="audit-event__meta"/);
 assert.match(auditEventMarkup, /class="audit-event__time">10:21<\/time>/);
 assert.match(auditEventMarkup, /<em>Critical<\/em>/);
 
+const inheritedAuditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
+  label: "Inherited audit density",
+}));
+assert.doesNotMatch(inheritedAuditEventMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+
 const animatedMomentMarkup = renderToStaticMarkup(React.createElement(AnimatedMoment, {
   label: "Action complete",
   description: "Static success",

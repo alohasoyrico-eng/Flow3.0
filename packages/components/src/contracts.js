@@ -1058,7 +1058,6 @@ export const componentContracts = {
   },
   auditEvent: {
     factory: "@design-system/react/audit-event",
-    internalFactory: "createAuditEvent",
     element: "article",
     purpose: "Represent one audit trail event with actor/action label, description, metadata, and status.",
     variants: ["standard"],

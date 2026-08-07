@@ -7,7 +7,6 @@ export const auditEventPlatformContract = {
   layer: "component",
   source: {
     factory: auditEventContract.factory,
-    internalFactory: auditEventContract.internalFactory,
     cssClass: "audit-event",
     contract: "@design-system/components/contracts#auditEvent",
   },

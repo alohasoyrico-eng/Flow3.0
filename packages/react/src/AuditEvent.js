@@ -29,13 +29,13 @@ export const AuditEvent = forwardRef(function AuditEvent({
   icon = "",
   tone = "neutral",
   state = "default",
-  density = "md",
+  density,
   timestamp = "",
   className = "",
   ...rest
 }, ref) {
   const resolvedState = normalize(state, validStates, "default");
-  const resolvedDensity = normalize(density, validDensities, "md");
+  const resolvedDensity = validDensities.has(density) ? density : "";
   const { statusText, statusTone } = statusFor(resolvedState, tone, status);
 
   return React.createElement(
@@ -46,7 +46,7 @@ export const AuditEvent = forwardRef(function AuditEvent({
       className: ["audit-event", className].filter(Boolean).join(" "),
       "data-tone": statusTone,
       "data-state": resolvedState,
-      "data-density": resolvedDensity,
+      "data-density": resolvedDensity || undefined,
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
     },
     icon ? React.createElement("span", { className: "audit-event__icon material-symbol", "aria-hidden": "true" }, icon) : null,

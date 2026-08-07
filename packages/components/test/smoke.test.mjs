@@ -180,7 +180,6 @@ import {
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createFloatingActionButton } from "../src/components/surfaces.js?v=10";
-import { createAuditEvent } from "../src/components/display.js?v=3";
 import { createAnimatedMoment, createMotionBoundary } from "../src/components/motion.js?v=5";
 import { createBiometricPrompt } from "../src/components/security.js?v=3";
 import { createCardSummary, createChartPanel, createMovementRow, createQuickAction, createRouteSummary, createStationPin } from "../src/components/commerce.js?v=15";
@@ -738,7 +737,6 @@ assert.deepEqual(Object.keys(paginationPlatformAdapters), ["react"]);
 assert.equal(paginationPlatformAdapters.react.componentName, "Pagination");
 assert.equal(paginationPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.auditEvent.factory, "@design-system/react/audit-event");
-assert.equal(componentContracts.auditEvent.internalFactory, "createAuditEvent");
 assert.equal(auditEventPlatformContract.id, "audit-event");
 assert.equal(auditEventPlatformContract.source.factory, componentContracts.auditEvent.factory);
 assert.deepEqual(auditEventPlatformProps(), componentContracts.auditEvent.props.map((prop) => prop.name));
@@ -1870,23 +1868,6 @@ const disabledBreadcrumbs = createBreadcrumbs({ disabled: true, items: [{ label:
 assert.equal(disabledBreadcrumbs.dataset.state, "disabled");
 assert.equal(disabledBreadcrumbs.attributes["aria-disabled"], "true");
 assert.equal(disabledBreadcrumbs.querySelector("a"), null);
-
-const auditEvent = createAuditEvent({ label: "Limit changed", description: "Ana updated card limit", meta: "Today", status: "Logged", icon: "history" });
-assert.equal(auditEvent.tagName, "ARTICLE");
-assert.equal(auditEvent.className, "audit-event");
-assert.equal(auditEvent.querySelector(".audit-event__content").textContent, "Limit changedAna updated card limitTodayLogged");
-assert.equal(auditEvent.querySelector(".audit-event__meta").querySelector("small").textContent, "Today");
-assert.equal(auditEvent.querySelector("em").textContent, "Logged");
-assert.equal(auditEvent.querySelector(".audit-event__meta").querySelector("em").textContent, "Logged");
-assert.equal(auditEvent.dataset.tone, "neutral");
-assert.equal(auditEvent.dataset.state, "default");
-assert.equal(auditEvent.dataset.density, "md");
-const criticalAuditEvent = createAuditEvent({ label: "Document rejected", state: "critical", density: "sm", timestamp: "10:21", icon: "warning" });
-assert.equal(criticalAuditEvent.dataset.tone, "danger");
-assert.equal(criticalAuditEvent.dataset.state, "critical");
-assert.equal(criticalAuditEvent.dataset.density, "sm");
-assert.equal(criticalAuditEvent.querySelector(".audit-event__time").textContent, "10:21");
-assert.equal(criticalAuditEvent.querySelector("em").textContent, "Critical");
 
 const chartPanel = createChartPanel({ label: "Spend", value: "$12k", caption: "Last 7 days", values: [3, 6, 9] });
 assert.equal(chartPanel.tagName, "ARTICLE");
