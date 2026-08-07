@@ -9284,8 +9284,6 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control {
-  --comp-segmented-control-count: 1;
-  --comp-segmented-control-index: 0;
   --comp-segmented-control-item-min-block: var(--component-control-min-size);
   --comp-segmented-control-item-padding-inline: var(--sys-space-md);
   --comp-segmented-control-icon-size: var(--component-icon-size-sm);
@@ -9299,6 +9297,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-indicator-bg: color-mix(in srgb, var(--sys-color-action) 14%, var(--sys-color-surface));
   --comp-segmented-control-indicator-border: var(--sys-color-action);
   --comp-segmented-control-indicator-shadow: var(--component-depth-action-halo-strong);
+  --comp-segmented-control-indicator-inset: 0;
   --comp-segmented-control-item-gap: var(--sys-space-xs);
   --comp-segmented-control-item-fg: var(--sys-color-text-muted);
   --comp-segmented-control-item-selected-fg: var(--sys-color-action);
@@ -9355,17 +9354,14 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: var(--comp-segmented-control-indicator-bg);
   border: var(--comp-segmented-control-border-width) solid var(--comp-segmented-control-indicator-border);
   border-radius: var(--comp-segmented-control-inner-radius);
-  block-size: calc(100% - var(--sys-space-xs));
   box-shadow: var(--comp-segmented-control-indicator-shadow);
-  inline-size: calc((100% - var(--sys-space-xs)) / var(--comp-segmented-control-count));
-  inset-block-start: calc(var(--sys-space-xs) / 2);
-  inset-inline-start: calc(var(--sys-space-xs) / 2);
+  inset: var(--comp-segmented-control-indicator-inset);
   pointer-events: none;
   position: absolute;
-  transform: translateX(calc(var(--comp-segmented-control-index, 0) * 100%));
+  transform: var(--component-transform-scale-quiet);
   transition:
+    opacity var(--comp-segmented-control-motion-duration) var(--comp-segmented-control-motion-ease),
     transform var(--comp-segmented-control-motion-move-duration) var(--comp-segmented-control-motion-move),
-    inline-size var(--comp-segmented-control-motion-move-duration) var(--comp-segmented-control-motion-move),
     box-shadow var(--comp-segmented-control-motion-duration) var(--comp-segmented-control-motion-ease);
 }
 
@@ -9391,6 +9387,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
     transform var(--comp-segmented-control-motion-duration) var(--comp-segmented-control-motion-press);
 }
 
+.segmented-control__item[aria-selected="true"] .segmented-control__indicator {
+  transform: var(--component-transform-scale-rest);
+}
+
 .segmented-control__item:active:not(:disabled) {
   transform: var(--comp-segmented-control-press-transform);
 }
@@ -9402,6 +9402,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .segmented-control__item[aria-selected="true"] .segmented-control__icon {
   font-variation-settings: var(--sys-icon-variation-filled-strong);
+}
+
+.segmented-control__icon,
+.segmented-control__label {
+  position: relative;
+  z-index: var(--sys-depth-z-raised);
 }
 
 .segmented-control__item:focus-visible {

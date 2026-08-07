@@ -1403,6 +1403,7 @@ assert.match(segmentedControlMarkup, /data-icon-only="true"/);
 assert.match(segmentedControlMarkup, /aria-selected="true"/);
 assert.match(segmentedControlMarkup, /aria-label="Map"/);
 assert.match(segmentedControlMarkup, /class="segmented-control__icon"/);
+assert.doesNotMatch(segmentedControlMarkup, /style="/);
 const inheritedSegmentedControlMarkup = renderToStaticMarkup(React.createElement(SegmentedControl, {
   label: "Inherited view",
   items: [{ key: "map", label: "Map" }],

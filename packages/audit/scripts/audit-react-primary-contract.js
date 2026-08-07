@@ -25,8 +25,6 @@ const allowedInlineStyleKeys = [
   "--chart-index",
   "--chart-target",
   "--chart-value",
-  "--comp-segmented-control-count",
-  "--comp-segmented-control-index",
   "--comp-tree-view-depth-offset",
 ];
 

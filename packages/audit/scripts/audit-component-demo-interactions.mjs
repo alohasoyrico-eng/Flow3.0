@@ -211,9 +211,9 @@ fixtures.sliderInput.dispatch("input");
 assert.equal(fixtures.slider.dataset.value, "75", "Slider input should update the demo value.");
 assert.equal(fixtures.sliderOutput.textContent, "75 km", "Slider output should preserve the value suffix.");
 
-fixtures.segmented.children[2].click();
-assert.equal(fixtures.segmented.children[2].getAttribute("aria-selected"), "true", "Segmented Control click should select the clicked item.");
-assert.equal(fixtures.segmentedIndicator.style.values["--comp-segmented-control-index"], "1", "Segmented Control click should sync the sliding indicator.");
+fixtures.segmented.children[1].click();
+assert.equal(fixtures.segmented.children[1].getAttribute("aria-selected"), "true", "Segmented Control click should select the clicked item.");
+assert.ok(fixtures.segmented.children[1].querySelector(".segmented-control__indicator"), "Segmented Control selected item should own the visual indicator without inline positioning.");
 
 fixtures.paginationNext.click();
 assert.equal(fixtures.paginationPage3.getAttribute("aria-current"), "page", "Pagination next should advance to page 3.");
@@ -313,10 +313,11 @@ function buildFixtures() {
   const sliderInput = el("input", { attrs: { "data-slider-input": "" }, type: "range", min: "0", max: "100", value: "25" });
   const slider = el("label", { className: "slider-demo" }, [sliderOutput, sliderInput]);
 
-  const segmentedIndicator = el("span", { className: "segmented-control__indicator", attrs: { "aria-hidden": "true" } });
   const segmented = el("div", { className: "segmented-control", dataset: { docComponent: "segmented-control" } }, [
-    segmentedIndicator,
-    el("button", { attrs: { role: "tab", "aria-selected": "true", "data-segmented-control-item": "" }, textContent: "Today" }),
+    el("button", { attrs: { role: "tab", "aria-selected": "true", "data-segmented-control-item": "" } }, [
+      el("span", { className: "segmented-control__indicator", attrs: { "aria-hidden": "true" } }),
+      el("span", { className: "segmented-control__label", textContent: "Today" }),
+    ]),
     el("button", { attrs: { role: "tab", "aria-selected": "false", "data-segmented-control-item": "" }, textContent: "Week" }),
   ]);
 
@@ -524,7 +525,6 @@ function buildFixtures() {
     sliderInput,
     sliderOutput,
     segmented,
-    segmentedIndicator,
     pagination,
     paginationPage3,
     paginationNext,

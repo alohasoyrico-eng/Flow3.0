@@ -47,7 +47,6 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
   const [currentKey, setCurrentKey] = useState(() => selectedFromItems(normalizedItems, selectedKey));
   const itemRefs = useRef(new Map());
   const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
-  const activeIndex = Math.max(0, normalizedItems.findIndex((item) => item.key === activeKey));
   const resolvedLabel = label ?? "Options";
 
   const commitKey = (nextKey, restoreFocus = false) => {
@@ -79,18 +78,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
       "aria-label": resolvedLabel,
       "data-variant": variant,
       ...flowDensityProps(density),
-      style: {
-        "--comp-segmented-control-count": String(Math.max(normalizedItems.length, 1)),
-      },
     },
-    React.createElement("span", {
-      className: "segmented-control__indicator",
-      "aria-hidden": "true",
-      style: {
-        "--comp-segmented-control-index": String(activeIndex),
-        "--comp-segmented-control-count": String(Math.max(normalizedItems.length, 1)),
-      },
-    }),
     normalizedItems.map((item) => {
       const selected = item.key === activeKey;
       const iconOnly = variant === "icon-only" && Boolean(item.icon);
@@ -129,6 +117,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
             }
           },
         },
+        selected ? React.createElement("span", { className: "segmented-control__indicator", "aria-hidden": "true" }) : null,
         item.icon
           ? React.createElement("span", { className: "segmented-control__icon", "aria-hidden": "true" }, item.icon)
           : null,
