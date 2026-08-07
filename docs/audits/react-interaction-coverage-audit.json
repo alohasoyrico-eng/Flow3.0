@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 27,
-    "review": 29,
+    "pass": 28,
+    "review": 28,
     "fail": 0,
-    "missingTestCallbacks": 39
+    "missingTestCallbacks": 37
   },
   "components": [
     {
@@ -250,13 +250,13 @@
         "onComplete",
         "onValueChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onComplete",
         "onValueChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "Combobox",

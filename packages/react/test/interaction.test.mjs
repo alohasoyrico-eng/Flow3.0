@@ -16,7 +16,7 @@ Object.defineProperty(globalThis, "navigator", {
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -228,6 +228,25 @@ try {
 
   fireEvent.click(getPreventedChipRole("button", { name: /prevented/i }));
   assert.deepEqual(preventedChipChanges, []);
+
+  cleanup();
+
+  const codeValues = [];
+  const completedCodes = [];
+  const { getByLabelText: getCodeLabel } = render(React.createElement(CodeInput, {
+    label: "SMS code",
+    length: 4,
+    onValueChange: (value) => codeValues.push(value),
+    onComplete: (value) => completedCodes.push(value),
+  }));
+
+  const codeInput = getCodeLabel(/sms code/i);
+  fireEvent.focus(codeInput);
+  fireEvent.input(codeInput, { target: { value: "12a34" } });
+
+  await waitFor(() => assert.equal(codeInput.value, "1234"));
+  assert.deepEqual(codeValues, ["1234"]);
+  assert.deepEqual(completedCodes, ["1234"]);
 } finally {
   cleanup();
   dom.window.close();
