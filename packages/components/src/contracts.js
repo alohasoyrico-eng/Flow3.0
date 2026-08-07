@@ -850,7 +850,8 @@ export const componentContracts = {
       { name: "variant", type: "MotionBoundaryVariant", required: false },
       { name: "state", type: "MotionBoundaryState", required: false },
       { name: "icon", type: "string", required: false },
-      { name: "reducedMotion", type: "boolean", required: false }
+      { name: "reducedMotion", type: "boolean", required: false },
+      { name: "stateLabel", type: "string", required: false }
     ],
     accessibility: [
       "Keep a visible label for the bounded region.",

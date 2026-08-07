@@ -15,6 +15,7 @@ export interface MotionBoundaryProps extends Omit<HTMLAttributes<HTMLDivElement>
   state?: MotionBoundaryState;
   icon?: string;
   reducedMotion?: boolean;
+  stateLabel?: string;
 }
 
 export interface MotionBoundaryComponent extends ForwardRefExoticComponent<MotionBoundaryProps & RefAttributes<HTMLDivElement>> {

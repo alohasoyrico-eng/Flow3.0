@@ -11,17 +11,6 @@ function normalizeState(state, reducedMotion) {
   return normalizeFlowValue(state, validStates, "active");
 }
 
-function stateLabel(state) {
-  return {
-    idle: "Idle",
-    entering: "Entering",
-    active: "Active",
-    exiting: "Exiting",
-    "reduced-motion": "Reduced motion",
-    disabled: "Disabled",
-  }[state] ?? "Active";
-}
-
 export const MotionBoundary = forwardRef(function MotionBoundary({
   label,
   description = "",
@@ -29,6 +18,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   state = "active",
   icon = "transition_slide",
   reducedMotion = false,
+  stateLabel = "",
   className = "",
   ...rest
 }, ref) {
@@ -39,6 +29,8 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   const isReducedMotion = Boolean(reducedMotion || resolvedState === "reduced-motion");
   const resolvedLabel = label ?? "";
   const resolvedDescription = description || "";
+  const resolvedStateLabel = stateLabel || "";
+  const describedBy = [resolvedDescription ? `${id}-description` : "", resolvedStateLabel ? `${id}-state` : ""].filter(Boolean).join(" ") || undefined;
 
   return React.createElement(
     "div",
@@ -50,17 +42,17 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
       ...flowStateProps(resolvedState),
       "data-reduced-motion": String(isReducedMotion),
       role: "group",
-      "aria-labelledby": `${id}-label`,
-      "aria-describedby": resolvedDescription ? `${id}-description ${id}-state` : `${id}-state`,
+      "aria-labelledby": resolvedLabel ? `${id}-label` : undefined,
+      "aria-describedby": describedBy,
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
     },
     React.createElement("span", { className: "motion-boundary__icon material-symbol", "aria-hidden": "true" }, icon),
     React.createElement(
       "div",
       { className: "motion-boundary__content" },
-      React.createElement("strong", { id: `${id}-label`, hidden: !resolvedLabel }, resolvedLabel || stateLabel(resolvedState)),
+      resolvedLabel ? React.createElement("strong", { id: `${id}-label` }, resolvedLabel) : null,
       resolvedDescription ? React.createElement("p", { id: `${id}-description` }, resolvedDescription) : null,
-      React.createElement("span", { className: "motion-boundary__state", id: `${id}-state`, hidden: true }, stateLabel(resolvedState)),
+      resolvedStateLabel ? React.createElement("span", { className: "motion-boundary__state", id: `${id}-state`, hidden: true }, resolvedStateLabel) : null,
     ),
     React.createElement("span", { className: "motion-boundary__cue", "data-motion-cue": "", "aria-hidden": "true" }),
   );

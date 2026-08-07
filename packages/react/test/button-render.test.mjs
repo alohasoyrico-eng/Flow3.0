@@ -2224,6 +2224,7 @@ const motionBoundaryMarkup = renderToStaticMarkup(React.createElement(MotionBoun
   variant: "route",
   state: "entering",
   reducedMotion: true,
+  stateLabel: "Reduced motion",
 }));
 assert.match(motionBoundaryMarkup, /^<div/);
 assert.match(motionBoundaryMarkup, /class="motion-boundary"/);
@@ -2239,6 +2240,11 @@ assert.match(motionBoundaryMarkup, /Panel transition/);
 assert.match(motionBoundaryMarkup, /Route content enters as a bounded region/);
 assert.match(motionBoundaryMarkup, /class="motion-boundary__state"[^>]*>Reduced motion<\/span>/);
 assert.match(motionBoundaryMarkup, /class="motion-boundary__cue" data-motion-cue=""/);
+const unnamedMotionBoundaryMarkup = renderToStaticMarkup(React.createElement(MotionBoundary, {
+  label: "Consumer boundary",
+  state: "active",
+}));
+assert.doesNotMatch(unnamedMotionBoundaryMarkup, /Idle|Entering|Active|Exiting|Reduced motion|Disabled/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",
