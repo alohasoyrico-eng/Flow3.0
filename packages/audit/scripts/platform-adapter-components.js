@@ -681,7 +681,7 @@ const components = [
     requiredTokens: ["comp.tabs.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.depth.*", "sys.momentum.*", "sys.state.*", "sys.tone.*", "sys.growth.*", "sys.symbol.*", "sys.iconography.*", "sys.accessibility.*"],
     primitives: ["color", "typography", "spacing", "radius", "elevation", "focus", "disabled", "duration", "motion-curves", "iconography", "measurement"],
     props: ["label", "items", "selectedKey", "onValueChange", "variant", "density"],
-    jsSnippets: ["tabsPlatformContract", "className: [\"tabs\"", '"aria-label": label', 'flowVariantProps(resolvedVariant)', "flowDensityProps(resolvedDensity)", '"data-tabs-item": ""', '"aria-selected": String(selected)', '"data-key": item.key', "tabs__icon", "tabs__label", "React.createElement(Badge", "onValueChange", "ArrowRight", "ArrowLeft", "Home", "End", "indicatorSynced"],
+    jsSnippets: ["tabsPlatformContract", "className: [\"tabs\"", '"aria-label": label', 'flowVariantProps(resolvedVariant)', "flowDensityProps(resolvedDensity)", '"data-tabs-item": ""', '"aria-selected": String(selected)', '"data-key": item.key', "tabs__icon", "tabs__label", "React.createElement(Badge", "onValueChange", "ArrowRight", "ArrowLeft", "Home", "End", "--comp-tabs-indicator-left", "--comp-tabs-indicator-width"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "TabsProps", "TabsItem", "TabsVariant", "TabsDensity", "tabsPlatformContract"],
     packagePath: "./tabs",
     exportName: "Tabs",

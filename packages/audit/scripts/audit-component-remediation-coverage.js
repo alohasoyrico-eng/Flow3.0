@@ -119,7 +119,7 @@ function checkComponentRemediationCoverage() {
 
   const packagedBehaviorEvidence = {
     chip: ["onSelectedChange", "onRemove"],
-    tabs: ["onValueChange", "ArrowRight", "indicatorSynced"],
+    tabs: ["onValueChange", "ArrowRight", "--comp-tabs-indicator-left"],
     tooltip: ["onOpenChange", "Escape"],
     toast: ["onDismiss", "onAction"],
     dialog: ["onOpenChange", "onAction", "Escape"],

@@ -1292,7 +1292,9 @@ try {
 
   fireEvent.keyDown(overviewTab, { key: "ArrowRight" });
   assert.deepEqual(tabChanges, ["build", "overview"]);
-  assert.equal(getTabsRole("tablist", { name: /component sections/i }).dataset.indicatorSynced, "true");
+  const tabsRoot = getTabsRole("tablist", { name: /component sections/i });
+  assert.match(tabsRoot.style.getPropertyValue("--comp-tabs-indicator-left"), /px$/);
+  assert.match(tabsRoot.style.getPropertyValue("--comp-tabs-indicator-width"), /px$/);
 
   rerenderTabs(React.createElement(Tabs, {
     label: "Component sections",

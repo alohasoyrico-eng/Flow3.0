@@ -51,7 +51,6 @@ export const Tabs = forwardRef(function Tabs({
     if (!root || !tab) return;
     root.style.setProperty("--comp-tabs-indicator-left", `${tab.offsetLeft ?? 0}px`);
     root.style.setProperty("--comp-tabs-indicator-width", `${tab.offsetWidth ?? 0}px`);
-    root.dataset.indicatorSynced = "true";
   };
 
   useEffect(() => {
