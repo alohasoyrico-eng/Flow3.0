@@ -195,10 +195,9 @@ function checkReactComponent(file, shared) {
   if (source.includes("createTransitional") || source.includes("createCard(") || source.includes("createTable(")) {
     add("errors", sourceFile, 1, `${name} React source must not call component DOM factories; React is the primary implementation.`);
   }
-  if (source.includes("onOpenChange") && /\bopen\s*=\s*false\b/.test(source)) {
-    add("errors", sourceFile, 1, `${name} React source must preserve controlled vs uncontrolled open semantics; destructure open as openProp instead of defaulting to false.`);
-  }
+  if (source.includes("onOpenChange") && /\bopen\s*=\s*false\b/.test(source)) add("errors", sourceFile, 1, `${name} React source must preserve controlled vs uncontrolled open semantics; destructure open as openProp instead of defaulting to false.`);
   if (name === "Select" && /options\.find\(\(option\) => !option\.disabled\)/.test(source)) add("errors", sourceFile, 1, "Select must not auto-select the first enabled option; selected value belongs to product code or user interaction.");
+  if (name === "CardSummary" && /metric\?\.(?:label|value)\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "CardSummary metrics must not render empty text nodes; filter incomplete metrics before rendering.");
   const componentImports = importsFromComponents(source);
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {

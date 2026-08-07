@@ -355,6 +355,14 @@ const inheritedCardSummaryMarkup = renderToStaticMarkup(React.createElement(Card
 assert.doesNotMatch(inheritedCardSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedCardSummaryMarkup, /class="badge/);
 
+const incompleteMetricCardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
+  label: "Fleet",
+  metrics: [{ label: "Available" }, { value: "$2,480" }],
+  variant: "limit",
+}));
+assert.doesNotMatch(incompleteMetricCardSummaryMarkup, /class="card-summary__metrics"/);
+assert.doesNotMatch(incompleteMetricCardSummaryMarkup, /<small><\/small>|<strong><\/strong>/);
+
 const chartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
   label: "Spend",
   value: "$12k",
