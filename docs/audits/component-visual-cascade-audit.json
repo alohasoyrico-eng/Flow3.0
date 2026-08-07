@@ -232,8 +232,10 @@
           "--component-font-size-label",
           "--component-font-size-title-md",
           "--component-radius-control",
+          "--component-scale-quiet",
           "--component-transform-rest",
-          "--component-transform-rotate-expanded"
+          "--component-transform-rotate-expanded",
+          "--component-translate-overlay-enter"
         ],
         "compTokenUses": [
           "--comp-country-selector-code-font-size",
@@ -311,6 +313,7 @@
           "--sys-depth-z-floating",
           "--sys-depth-z-overlay",
           "--sys-font-icon",
+          "--sys-frame-space-micro",
           "--sys-icon-size-md",
           "--sys-icon-size-sm-plus",
           "--sys-space-2xs",
@@ -465,6 +468,7 @@
           "--comp-country-selector-control-size",
           "--comp-country-selector-empty-color",
           "--comp-country-selector-inline-listbox-inline-size",
+          "--comp-country-selector-inline-listbox-max-inline-size",
           "--comp-country-selector-inline-trigger-bg",
           "--comp-country-selector-inline-trigger-border",
           "--comp-country-selector-inline-trigger-color",
@@ -525,6 +529,7 @@
           "--comp-select-padding-end",
           "--comp-select-padding-start",
           "--component-border-width",
+          "--component-control-min-size",
           "--component-depth-border-ring",
           "--component-duration-instant",
           "--component-duration-state",
@@ -538,8 +543,10 @@
           "--component-inline-size-sm",
           "--component-radius-control",
           "--component-radius-pill",
+          "--component-scale-quiet",
           "--component-transform-rest",
-          "--component-transform-rotate-expanded"
+          "--component-transform-rotate-expanded",
+          "--component-translate-overlay-enter"
         ],
         "compTokenUses": [
           "--comp-country-selector-chevron-color",
@@ -552,6 +559,7 @@
           "--comp-country-selector-control-size",
           "--comp-country-selector-empty-color",
           "--comp-country-selector-inline-listbox-inline-size",
+          "--comp-country-selector-inline-listbox-max-inline-size",
           "--comp-country-selector-inline-trigger-bg",
           "--comp-country-selector-inline-trigger-border",
           "--comp-country-selector-inline-trigger-color",
@@ -623,6 +631,7 @@
           "--comp-country-selector-control-size",
           "--comp-country-selector-empty-color",
           "--comp-country-selector-inline-listbox-inline-size",
+          "--comp-country-selector-inline-listbox-max-inline-size",
           "--comp-country-selector-inline-trigger-bg",
           "--comp-country-selector-inline-trigger-border",
           "--comp-country-selector-inline-trigger-color",
@@ -676,6 +685,7 @@
           "--sys-depth-z-floating",
           "--sys-depth-z-overlay",
           "--sys-font-icon",
+          "--sys-frame-space-micro",
           "--sys-space-md",
           "--sys-space-sm",
           "--sys-space-xs",
@@ -2252,7 +2262,9 @@
           "--component-font-size-small",
           "--component-offset-xs",
           "--component-radius-pill",
-          "--component-transform-rotate-tilt"
+          "--component-scale-quiet",
+          "--component-transform-rotate-tilt",
+          "--component-translate-overlay-exit"
         ],
         "compTokenUses": [
           "--comp-tooltip-arrow-size",
@@ -2542,7 +2554,7 @@
         "aliases": [
           "progress"
         ],
-        "matchedRules": 20,
+        "matchedRules": 23,
         "tokenAliases": [
           "progress-indicator"
         ],
@@ -3641,7 +3653,7 @@
         "aliases": [
           "avatar"
         ],
-        "matchedRules": 18,
+        "matchedRules": 20,
         "tokenAliases": [
           "avatar"
         ],
@@ -3652,6 +3664,7 @@
           "--comp-avatar-size",
           "--comp-avatar-status-bg",
           "--comp-avatar-status-size",
+          "--component-badge-min-size",
           "--component-depth-low-medium",
           "--component-disabled-border",
           "--component-disabled-text",
@@ -3660,6 +3673,8 @@
           "--component-duration-state",
           "--component-ease-press",
           "--component-ease-state",
+          "--component-inline-size-lg",
+          "--component-inline-size-md",
           "--component-opacity-disabled",
           "--component-radius-pill"
         ],
@@ -3687,9 +3702,14 @@
           "--sys-color-surface",
           "--sys-color-text-muted",
           "--sys-color-warning",
+          "--sys-density-control-height",
           "--sys-energy-status-warning-foreground",
           "--sys-font-body",
           "--sys-frame-border-medium",
+          "--sys-space-16",
+          "--sys-space-4",
+          "--sys-space-5",
+          "--sys-space-sm",
           "--sys-voice-letter-spacing-wide",
           "--sys-voice-weight-bold"
         ],
@@ -3836,8 +3856,10 @@
           "--comp-stepper-connector-min-inline",
           "--comp-stepper-connector-size",
           "--comp-stepper-description-size",
+          "--comp-stepper-item-gap",
           "--comp-stepper-label-size",
           "--comp-stepper-marker-size",
+          "--component-border-width",
           "--component-control-min-size",
           "--component-depth-raised-strong",
           "--component-duration-medium",
@@ -3855,6 +3877,7 @@
           "--component-inline-size-sm",
           "--component-offset-xs",
           "--component-radius-pill",
+          "--component-scale-raised",
           "--component-visually-hidden-size"
         ],
         "compTokenUses": [
@@ -3863,6 +3886,7 @@
           "--comp-stepper-connector-min-inline",
           "--comp-stepper-connector-size",
           "--comp-stepper-description-size",
+          "--comp-stepper-item-gap",
           "--comp-stepper-label-size",
           "--comp-stepper-marker-size"
         ],
@@ -3872,6 +3896,7 @@
           "--comp-stepper-connector-min-inline",
           "--comp-stepper-connector-size",
           "--comp-stepper-description-size",
+          "--comp-stepper-item-gap",
           "--comp-stepper-label-size",
           "--comp-stepper-marker-size"
         ],
@@ -4184,7 +4209,7 @@
         "aliases": [
           "chart-panel"
         ],
-        "matchedRules": 75,
+        "matchedRules": 89,
         "tokenAliases": [
           "chart-panel"
         ],
@@ -4335,10 +4360,12 @@
           "--component-font-size-helper",
           "--component-font-size-label",
           "--component-inline-size-md",
+          "--component-lift-sm",
           "--component-line-height-snug",
           "--component-offset-xs",
           "--component-opacity-disabled",
           "--component-radius-pill",
+          "--component-scale-hover",
           "--component-station-pin-pointer-size",
           "--component-station-pin-pointer-size-lg",
           "--component-station-pin-pointer-size-sm",
@@ -4810,7 +4837,9 @@
           "--component-ease-linear",
           "--component-ease-state",
           "--component-font-size-caption",
-          "--component-radius-control"
+          "--component-radius-control",
+          "--component-scale-quiet",
+          "--component-translate-overlay-enter"
         ],
         "compTokenUses": [
           "--comp-country-selector-code-color",
@@ -4909,6 +4938,7 @@
           "--sys-depth-z-floating",
           "--sys-depth-z-overlay",
           "--sys-font-body",
+          "--sys-frame-space-micro",
           "--sys-space-md",
           "--sys-space-sm",
           "--sys-space-xs",
@@ -5387,7 +5417,7 @@
         "aliases": [
           "segmented-control"
         ],
-        "matchedRules": 19,
+        "matchedRules": 21,
         "tokenAliases": [
           "segmented-control"
         ],
@@ -5396,14 +5426,13 @@
           "--comp-segmented-control-bg",
           "--comp-segmented-control-border",
           "--comp-segmented-control-border-width",
-          "--comp-segmented-control-count",
           "--comp-segmented-control-focus-color",
           "--comp-segmented-control-focus-offset",
           "--comp-segmented-control-focus-width",
           "--comp-segmented-control-icon-size",
-          "--comp-segmented-control-index",
           "--comp-segmented-control-indicator-bg",
           "--comp-segmented-control-indicator-border",
+          "--comp-segmented-control-indicator-inset",
           "--comp-segmented-control-indicator-shadow",
           "--comp-segmented-control-inline-size",
           "--comp-segmented-control-inner-radius",
@@ -5437,6 +5466,7 @@
           "--component-font-size-title-sm",
           "--component-icon-size-sm",
           "--component-transform-scale-quiet",
+          "--component-transform-scale-rest",
           "--component-visually-hidden-size"
         ],
         "compTokenUses": [
@@ -5444,14 +5474,13 @@
           "--comp-segmented-control-bg",
           "--comp-segmented-control-border",
           "--comp-segmented-control-border-width",
-          "--comp-segmented-control-count",
           "--comp-segmented-control-focus-color",
           "--comp-segmented-control-focus-offset",
           "--comp-segmented-control-focus-width",
           "--comp-segmented-control-icon-size",
-          "--comp-segmented-control-index",
           "--comp-segmented-control-indicator-bg",
           "--comp-segmented-control-indicator-border",
+          "--comp-segmented-control-indicator-inset",
           "--comp-segmented-control-indicator-shadow",
           "--comp-segmented-control-inline-size",
           "--comp-segmented-control-inner-radius",
@@ -5475,14 +5504,13 @@
           "--comp-segmented-control-bg",
           "--comp-segmented-control-border",
           "--comp-segmented-control-border-width",
-          "--comp-segmented-control-count",
           "--comp-segmented-control-focus-color",
           "--comp-segmented-control-focus-offset",
           "--comp-segmented-control-focus-width",
           "--comp-segmented-control-icon-size",
-          "--comp-segmented-control-index",
           "--comp-segmented-control-indicator-bg",
           "--comp-segmented-control-indicator-border",
+          "--comp-segmented-control-indicator-inset",
           "--comp-segmented-control-indicator-shadow",
           "--comp-segmented-control-inline-size",
           "--comp-segmented-control-inner-radius",
@@ -7044,14 +7072,13 @@
         "aliases": [
           "tree-view"
         ],
-        "matchedRules": 17,
+        "matchedRules": 21,
         "tokenAliases": [
           "tree-view"
         ],
         "componentTokenUses": [
           "--comp-tree-view-chevron-ease",
           "--comp-tree-view-control-min-block",
-          "--comp-tree-view-depth-offset",
           "--comp-tree-view-expanded-text",
           "--comp-tree-view-hover-bg",
           "--comp-tree-view-hover-border",
@@ -7080,7 +7107,6 @@
         "compTokenUses": [
           "--comp-tree-view-chevron-ease",
           "--comp-tree-view-control-min-block",
-          "--comp-tree-view-depth-offset",
           "--comp-tree-view-expanded-text",
           "--comp-tree-view-hover-bg",
           "--comp-tree-view-hover-border",
@@ -7096,7 +7122,6 @@
         "componentTokenFamilyUses": [
           "--comp-tree-view-chevron-ease",
           "--comp-tree-view-control-min-block",
-          "--comp-tree-view-depth-offset",
           "--comp-tree-view-expanded-text",
           "--comp-tree-view-hover-bg",
           "--comp-tree-view-hover-border",

@@ -67,7 +67,7 @@ export const QuickAction = forwardRef(function QuickAction({
       ),
     ),
     React.createElement("span", { className: "quick-action__label" }, resolvedLabel),
-    badge ? React.createElement(Badge, { label: badge, variant: "count" }) : null,
+    badge ? React.createElement(Badge, { label: badge, variant: "count", density: resolvedDensity || undefined }) : null,
   );
 });
 

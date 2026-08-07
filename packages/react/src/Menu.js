@@ -119,7 +119,7 @@ export const Menu = forwardRef(function Menu({
     resolvedVariant === "icon-trigger"
       ? React.createElement(IconButton, { ...triggerProps, ariaLabel: label || triggerLabel, icon: "more_horiz", variant: "ghost", density: resolvedDensity })
       : resolvedVariant === "avatar-trigger"
-        ? React.createElement("button", { ...triggerProps, type: "button", className: "menu__trigger menu__trigger--avatar", "aria-label": label || "Account menu" }, React.createElement(Avatar, { name: avatarName || triggerLabel, status: avatarStatus, size: avatarSize }))
+        ? React.createElement("button", { ...triggerProps, type: "button", className: "menu__trigger menu__trigger--avatar", "aria-label": label || "Account menu" }, React.createElement(Avatar, { name: avatarName || triggerLabel, status: avatarStatus, size: avatarSize, density: resolvedDensity }))
         : React.createElement(Button, { ...triggerProps, label: triggerLabel, variant: "secondary", density: resolvedDensity, trailingIcon: isOpen ? "expand_less" : "expand_more" }),
     React.createElement(
       "div",

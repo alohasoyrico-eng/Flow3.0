@@ -1,9 +1,10 @@
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { tabsPlatformContract } from "@design-system/components/platforms";
 import { Badge } from "./Badge.js";
-import { flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const allowedVariants = new Set(["default", "underline"]);
+const validDensities = new Set(["sm", "md", "lg"]);
 
 function itemKey(item) {
   return item?.key ?? item?.value ?? item?.label ?? "";
@@ -31,6 +32,7 @@ export const Tabs = forwardRef(function Tabs({
   items = [],
   selectedKey,
   variant = "default",
+  density,
   onValueChange,
   className = "",
   ...rest
@@ -41,6 +43,7 @@ export const Tabs = forwardRef(function Tabs({
   const rootRef = useRef(null);
   const tabRefs = useRef(new Map());
   const resolvedVariant = allowedVariants.has(variant) ? variant : "default";
+  const resolvedDensity = validDensities.has(density) ? density : undefined;
   const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
 
   const syncIndicator = (key = activeKey) => {
@@ -99,6 +102,7 @@ export const Tabs = forwardRef(function Tabs({
       role: "tablist",
       "aria-label": label,
       "data-variant": resolvedVariant,
+      ...flowDensityProps(resolvedDensity),
     },
     normalizedItems.map((item) => {
       const selected = item.key === activeKey;
@@ -142,6 +146,7 @@ export const Tabs = forwardRef(function Tabs({
           label: badge.label ?? String(badge.count ?? ""),
           tone: badge.tone ?? "neutral",
           variant: badge.variant ?? "count",
+          density: resolvedDensity || undefined,
           ariaLabel: badge.ariaLabel ?? "",
         }) : null,
       );

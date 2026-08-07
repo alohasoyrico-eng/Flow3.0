@@ -35,6 +35,7 @@ function renderContentItem(item, density, index) {
         tone: item.tone ?? "success",
         variant: item.variant ?? "status",
         live: Boolean(item.live),
+        density: item.density ?? density,
       }),
     );
   }
@@ -48,7 +49,7 @@ function renderContentItem(item, density, index) {
         max: item.max ?? 100,
         showValue: item.showValue ?? true,
         tone: item.tone ?? "accent",
-        density: density === "lg" ? "md" : density,
+        density: item.density ?? density,
         fullWidth: true,
       }),
     );

@@ -79,6 +79,7 @@ export const Toast = forwardRef(function Toast({
       ? React.createElement(IconButton, {
         ariaLabel: "Dismiss notification",
         icon: "close",
+        density: resolvedDensity,
         className: "toast__dismiss",
         "data-toast-dismiss": "",
         onClick: () => {

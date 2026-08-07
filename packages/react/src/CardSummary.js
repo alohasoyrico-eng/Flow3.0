@@ -62,6 +62,7 @@ export const CardSummary = forwardRef(function CardSummary({
         tone: statusToneFor(resolvedState),
         variant: "status",
         state: resolvedState === "disabled" ? "disabled" : "default",
+        density: resolvedDensity || undefined,
       }),
     ),
     React.createElement(

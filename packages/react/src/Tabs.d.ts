@@ -3,6 +3,7 @@ import { tabsPlatformContract } from "@design-system/components/platforms";
 import type { BadgeProps } from "./Badge.js";
 
 export type TabsVariant = "default" | "underline";
+export type TabsDensity = "sm" | "md" | "lg";
 
 export interface TabsItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   key?: string;
@@ -20,6 +21,7 @@ export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" 
   items: TabsItem[];
   selectedKey?: string;
   variant?: TabsVariant;
+  density?: TabsDensity;
   onValueChange?: (key: string) => void;
 }
 

@@ -16,7 +16,7 @@ function sortValue(row, column) {
   return row[column.key];
 }
 
-function renderCell(value) {
+function renderCell(value, density) {
   if (React.isValidElement(value)) return value;
   if (value && typeof value === "object" && "label" in value) {
     return React.createElement(Badge, {
@@ -24,6 +24,7 @@ function renderCell(value) {
       tone: value.tone ?? "neutral",
       variant: value.variant ?? "status",
       icon: value.icon ?? "",
+      density,
     });
   }
   return value ?? "";
@@ -208,7 +209,7 @@ export const Table = forwardRef(function Table({
                 "data-mono": column.mono ? "true" : undefined,
                 "data-priority": column.priority || undefined,
               },
-              renderCell(typeof column.render === "function" ? column.render(row) : row[column.key]),
+              renderCell(typeof column.render === "function" ? column.render(row) : row[column.key], resolvedDensity || undefined),
             )),
           );
           if (!expandable) return [rowNode];
