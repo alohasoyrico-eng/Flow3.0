@@ -94,9 +94,9 @@ const moduleRules = [
   {
     id: "status",
     file: "packages/components/src/components/status.js",
-    exports: ["createTransitionalBadge"],
+    exports: [],
     publicExports: [],
-    internalExports: ["createTransitionalBadge"],
+    internalExports: [],
   },
   {
     id: "surfaces",

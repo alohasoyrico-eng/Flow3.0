@@ -400,7 +400,6 @@ export const componentContracts = {
   },
   badge: {
     factory: "@design-system/react/badge",
-    internalFactory: "createTransitionalBadge",
     element: "span",
     purpose: "Show compact status, count, or metadata that remains readable without relying on color alone.",
     variants: ["count", "dot", "status", "icon"],

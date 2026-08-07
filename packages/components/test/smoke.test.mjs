@@ -180,7 +180,6 @@ import {
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
-import { createTransitionalBadge } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
   hydrateTransitionalPaymentCardExpiryInput,
@@ -472,7 +471,6 @@ assert.equal(radioButtonPlatformAdapters.react.componentName, "RadioButton");
 assert.equal(radioButtonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.textArea.factory, "@design-system/react/text-area");
 assert.equal(componentContracts.badge.factory, "@design-system/react/badge");
-assert.equal(componentContracts.badge.internalFactory, "createTransitionalBadge");
 assert.equal(badgePlatformContract.id, "badge");
 assert.equal(badgePlatformContract.source.factory, componentContracts.badge.factory);
 assert.deepEqual(badgePlatformProps(), componentContracts.badge.props.map((prop) => prop.name));
@@ -1437,35 +1435,6 @@ const textAreaError = createTransitionalFieldTextArea({ label: "Policy exception
 assert.equal(textAreaError.dataset.state, "error");
 assert.equal(textAreaError.querySelector("textarea").attributes["aria-invalid"], "true");
 assert.equal(textAreaError.querySelector(".field__helper").textContent, "Use at least 20 characters.");
-
-const badge = createTransitionalBadge({ label: "3", variant: "count", tone: "danger", live: true, ariaLabel: "3 alerts" });
-assert.equal(badge.tagName, "SPAN");
-assert.equal(badge.className, "badge");
-assert.equal(badge.dataset.variant, "count");
-assert.equal(badge.dataset.tone, "danger");
-assert.equal(badge.dataset.state, "default");
-assert.equal(badge.attributes.role, "status");
-assert.equal(badge.attributes["aria-live"], "polite");
-assert.equal(badge.attributes["aria-label"], "3 alerts");
-assert.equal(badge.dataset.live, "true");
-assert.equal(badge.querySelector(".badge__live").attributes["aria-hidden"], "true");
-assert.equal(badge.querySelector(".badge__label").textContent, "3");
-assert.equal(badge.textContent, "3");
-const iconBadge = createTransitionalBadge({ label: "!", variant: "icon", tone: "warning", icon: "priority_high", state: "focus" });
-assert.equal(iconBadge.dataset.variant, "icon");
-assert.equal(iconBadge.dataset.tone, "warning");
-assert.equal(iconBadge.dataset.state, "focus");
-assert.equal(iconBadge.querySelector(".badge__icon").textContent, "priority_high");
-assert.equal(iconBadge.querySelector(".badge__icon").attributes["aria-hidden"], "true");
-const dotBadge = createTransitionalBadge({ label: "Unread", variant: "dot", ariaLabel: "Unread updates" });
-assert.equal(dotBadge.dataset.variant, "dot");
-assert.equal(dotBadge.attributes["aria-label"], "Unread updates");
-assert.equal(dotBadge.querySelector(".badge__label").textContent, "");
-const hiddenBadge = createTransitionalBadge({ label: "0", hidden: true });
-assert.equal(hiddenBadge.hidden, true);
-assert.equal(hiddenBadge.dataset.state, "hidden");
-const disabledBadge = createTransitionalBadge({ label: "4", state: "disabled" });
-assert.equal(disabledBadge.attributes["aria-disabled"], "true");
 
 const avatar = createTransitionalAvatar({ name: "Ana Sosa", status: "online" });
 assert.equal(avatar.tagName, "SPAN");
