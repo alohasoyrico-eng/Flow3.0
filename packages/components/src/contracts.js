@@ -1128,7 +1128,6 @@ export const componentContracts = {
   },
   stepper: {
     factory: "@design-system/react/stepper",
-    internalFactory: "createStepper",
     element: "ol",
     purpose: "Show local progress across a short ordered sequence without owning wizard routing, validation, recovery, or submission.",
     variants: ["horizontal", "vertical"],

@@ -755,7 +755,6 @@ assert.deepEqual(Object.keys(inlineValidationPlatformAdapters), ["react"]);
 assert.equal(inlineValidationPlatformAdapters.react.componentName, "InlineValidation");
 assert.equal(inlineValidationPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.stepper.factory, "@design-system/react/stepper");
-assert.equal(componentContracts.stepper.internalFactory, "createStepper");
 assert.equal(stepperPlatformContract.id, "stepper");
 assert.equal(stepperPlatformContract.source.factory, componentContracts.stepper.factory);
 assert.deepEqual(stepperPlatformProps(), componentContracts.stepper.props.map((prop) => prop.name));

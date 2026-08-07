@@ -195,7 +195,6 @@ function kebabToFactoryName(id) {
     slider: "createSlider",
     "tree-view": "createTreeView",
     "segmented-control": "createSegmentedControl",
-    stepper: "createStepper",
     tooltip: "createTransitionalTooltip",
     toast: "createToast",
     dialog: "createDialog",

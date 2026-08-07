@@ -505,7 +505,7 @@ const components = [
     requiredTokens: ["comp.stepper.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.depth.*", "sys.momentum.*", "sys.state.*", "sys.tone.*", "sys.growth.*", "sys.symbol.*", "sys.iconography.*", "sys.accessibility.*"],
     primitives: ["color", "typography", "spacing", "radius", "elevation", "focus", "disabled", "duration", "motion-curves", "iconography", "measurement"],
     props: ["steps", "current", "label", "orientation", "density"],
-    jsSnippets: ["stepperPlatformContract", "className: [\"stepper\"", '"aria-label": label', '"data-orientation": resolvedOrientation', '"data-density": resolvedDensity', '"data-current": String(currentIndex)', "stepper__item", "stepper__marker", "stepper__text", "stepper__connector", "aria-current"],
+    jsSnippets: ["stepperPlatformContract", "className: [\"stepper\"", '"aria-label": label', '"data-orientation": resolvedOrientation', '"data-density": resolvedDensity', '"data-current": String(currentIndex)', "allowedDensities.has(density) ? density : undefined", "stepper__item", "stepper__marker", "stepper__text", "stepper__connector", "aria-current"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLOListElement>", "StepperProps", "StepperStep", "StepperOrientation", "StepperDensity", "stepperPlatformContract"],
     packagePath: "./stepper",
     exportName: "Stepper",

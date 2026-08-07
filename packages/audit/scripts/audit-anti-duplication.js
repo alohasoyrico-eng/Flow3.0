@@ -162,6 +162,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Skeleton", "createSkeleton", "feedback"],
     ["Breadcrumbs", "createBreadcrumbs", "navigation"],
     ["Pagination", "createPagination", "navigation"],
+    ["Stepper", "createStepper", "navigation"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {
