@@ -1,8 +1,9 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { inputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowVariantProps, flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
 
+const validVariants = new Set(["text", "email", "password", "number", "currency", "unit", "search"]);
 const numericVariants = new Set(["number", "currency", "unit"]);
 
 function resolveInputState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
@@ -89,15 +90,16 @@ export const Input = forwardRef(function Input({
 }, ref) {
   const generatedId = useId();
   const inputId = id ?? `input-${generatedId}`;
-  const resolvedType = typeForVariant(variant, type);
-  const isRevealable = Boolean(revealable) || variant === "password" || resolvedType === "password";
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "text");
+  const resolvedType = typeForVariant(resolvedVariant, type);
+  const isRevealable = Boolean(revealable) || resolvedVariant === "password" || resolvedType === "password";
   const isValueControlled = value !== undefined;
   const [currentValue, setCurrentValue] = useState(value ?? "");
   const [revealed, setRevealed] = useState(false);
   const resolvedState = resolveInputState({ disabled, loading, error, state, value: currentValue });
   const resolvedHelper = error || helperText || helper;
   const isDisabled = Boolean(disabled) || Boolean(loading);
-  const resolvedAlign = align === "end" || (align === "start" && numericVariants.has(variant)) ? "end" : "start";
+  const resolvedAlign = align === "end" || (align === "start" && numericVariants.has(resolvedVariant)) ? "end" : "start";
   const describedBy = [resolvedHelper ? `${inputId}-helper` : "", rest["aria-describedby"]].filter(Boolean).join(" ") || undefined;
   const inputType = isRevealable && revealed ? "text" : resolvedType;
 
@@ -106,7 +108,7 @@ export const Input = forwardRef(function Input({
   }, [isValueControlled, value]);
 
   const handleChange = (event) => {
-    const meta = normalizeValue(event.target.value, variant);
+    const meta = normalizeValue(event.target.value, resolvedVariant);
     if (!isValueControlled) setCurrentValue(meta.value);
     onValueChange?.(meta.value, meta);
   };
@@ -117,7 +119,7 @@ export const Input = forwardRef(function Input({
       className: ["field", className].filter(Boolean).join(" "),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
-      ...flowVariantProps(variant),
+      ...flowVariantProps(resolvedVariant),
       "data-mono": mono ? "true" : undefined,
       "data-align": resolvedAlign === "end" ? "end" : undefined,
     },
@@ -138,12 +140,12 @@ export const Input = forwardRef(function Input({
         className: "input",
         name,
         type: inputType,
-        value: formatValue(currentValue, variant),
+        value: formatValue(currentValue, resolvedVariant),
         placeholder,
         disabled: isDisabled,
         required,
-        inputMode: inputMode || inputModeForVariant(variant),
-        autoComplete: autocomplete || autocompleteForVariant(variant),
+        inputMode: inputMode || inputModeForVariant(resolvedVariant),
+        autoComplete: autocomplete || autocompleteForVariant(resolvedVariant),
         "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : rest["aria-invalid"],

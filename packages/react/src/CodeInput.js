@@ -1,6 +1,8 @@
 import React, { forwardRef, useEffect, useId, useState } from "react";
 import { codeInputPlatformContract } from "@design-system/components/platforms";
-import { flowVariantProps, flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
+
+const validVariants = new Set(["sms", "otp", "approval", "masked", "compact"]);
 
 function normalizeCodeValue(value, length = 6) {
   return String(value ?? "").replace(/\D/g, "").slice(0, Number(length));
@@ -40,6 +42,7 @@ export const CodeInput = forwardRef(function CodeInput({
 }, ref) {
   const generatedId = useId();
   const inputId = id ?? `code-input-${generatedId}`;
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "sms");
   const resolvedLength = Math.max(1, Number(length) || 6);
   const isValueControlled = value !== undefined;
   const [focused, setFocused] = useState(state === "focus");
@@ -48,7 +51,7 @@ export const CodeInput = forwardRef(function CodeInput({
   const resolvedState = resolveCodeInputState({ disabled, error, state, value: digits, length: resolvedLength });
   const resolvedHelper = error || helper;
   const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
-  const isMasked = Boolean(masked) || variant === "masked";
+  const isMasked = Boolean(masked) || resolvedVariant === "masked";
   const activeIndex = Math.min(digits.length, Math.max(resolvedLength - 1, 0));
 
   useEffect(() => {
@@ -61,7 +64,7 @@ export const CodeInput = forwardRef(function CodeInput({
       className: ["field code-input", className].filter(Boolean).join(" "),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
-      ...flowVariantProps(variant),
+      ...flowVariantProps(resolvedVariant),
       "data-masked": isMasked ? "true" : undefined,
       "data-focused": focused ? "true" : "false",
       "data-length": String(resolvedLength),

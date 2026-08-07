@@ -1,6 +1,8 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { radioButtonPlatformContract } from "#flow/platforms";
-import { flowVariantProps, flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
+
+const validVariants = new Set(["default", "descriptive", "compact", "critical"]);
 
 function normalizeState({ checked, disabled, state, error }) {
   if (disabled) return "disabled";
@@ -35,6 +37,7 @@ export const RadioButton = forwardRef(function RadioButton({
     error,
   });
   const isInvalid = normalizedState === "error" || Boolean(error);
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "default");
 
   useEffect(() => {
     if (isCheckedControlled) setCurrentChecked(Boolean(checked));
@@ -52,7 +55,7 @@ export const RadioButton = forwardRef(function RadioButton({
     {
       className: ["choice radio", className].filter(Boolean).join(" "),
       "data-checked": String(currentChecked),
-      ...flowVariantProps(variant),
+      ...flowVariantProps(resolvedVariant),
       ...flowStateProps(normalizedState),
       ...flowDensityProps(density),
       "data-invalid": isInvalid ? "true" : undefined,

@@ -1,6 +1,8 @@
 import React, { forwardRef, useId, useMemo, useRef, useState } from "react";
 import { segmentedControlPlatformContract } from "#flow/platforms";
-import { flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
+
+const validVariants = new Set(["outlined", "toolbar", "compact", "icon-only"]);
 
 function itemKey(item) {
   return item?.key ?? item?.value ?? item?.label ?? "";
@@ -48,6 +50,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
   const itemRefs = useRef(new Map());
   const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
   const resolvedLabel = label ?? "Options";
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "outlined");
 
   const commitKey = (nextKey, restoreFocus = false) => {
     const option = normalizedItems.find((item) => item.key === nextKey);
@@ -76,12 +79,12 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
       className: ["segmented-control", className].filter(Boolean).join(" "),
       role: "tablist",
       "aria-label": resolvedLabel,
-      ...flowVariantProps(variant),
+      ...flowVariantProps(resolvedVariant),
       ...flowDensityProps(density),
     },
     normalizedItems.map((item) => {
       const selected = item.key === activeKey;
-      const iconOnly = variant === "icon-only" && Boolean(item.icon);
+      const iconOnly = resolvedVariant === "icon-only" && Boolean(item.icon);
       return React.createElement(
         "button",
         {

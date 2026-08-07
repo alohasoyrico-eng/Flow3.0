@@ -6,7 +6,9 @@ import {
   resolveCountryCallingCodeOption,
 } from "@design-system/components";
 import { phoneInputPlatformContract } from "@design-system/components/platforms";
-import { flowVariantProps, flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
+
+const validVariants = new Set(["country-code", "compact", "otp-handoff", "readonly"]);
 
 function resolveCountry({ country, prefix } = {}, countries = countryCallingCodeOptions) {
   return resolveCountryCallingCodeOption({ country, prefix }, countries);
@@ -95,7 +97,8 @@ export const PhoneInput = forwardRef(function PhoneInput({
   const [selectedCountry, setSelectedCountry] = useState(parsed.country);
   const [digits, setDigits] = useState(parsed.digits);
   const [open, setOpen] = useState(state === "open");
-  const isReadonly = variant === "readonly";
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "country-code");
+  const isReadonly = resolvedVariant === "readonly";
   const resolvedState = disabled ? "disabled" : error ? "error" : state ?? "default";
   const resolvedHelper = error || helper;
   const formattedValue = formatPhoneValue(digits, selectedCountry.nationalLength);
@@ -133,7 +136,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
       className: ["field", "phone-input", className].filter(Boolean).join(" "),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
-      ...flowVariantProps(variant),
+      ...flowVariantProps(resolvedVariant),
     },
     React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label ?? "Phone number"),
     React.createElement(

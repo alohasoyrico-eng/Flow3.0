@@ -28,6 +28,9 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (source.includes('"data-variant"') || source.includes('"data-state"') || source.includes('"data-tone"')) {
     add("errors", sourceFile, 1, `${componentName} React source must emit semantic data attributes through flowVariantProps(), flowStateProps(), or flowToneProps().`);
   }
+  if (/\bflowVariantProps\(\s*variant\s*\)/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must pass a resolved variant into flowVariantProps(); normalize raw variant props through the component contract first.`);
+  }
   if (source.includes('"data-density"')) {
     add("errors", sourceFile, 1, `${componentName} React source must use flowDensityProps() instead of writing data-density directly.`);
   }
