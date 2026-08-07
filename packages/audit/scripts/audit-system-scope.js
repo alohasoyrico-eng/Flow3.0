@@ -14,6 +14,7 @@ const { checkPlatformAdapters } = require("./audit-platform-adapters.js");
 const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js");
 const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
 const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
+const { checkComponentVisualCascade } = require("./report-component-visual-cascade.js");
 const { finishAudit } = require("./audit-result.js");
 
 checkSystemArchitectureGate();
@@ -30,5 +31,6 @@ checkPlatformAdapters();
 checkReactPrimaryContract();
 checkAntiDuplicationGovernance();
 checkManualAccessibility();
+checkComponentVisualCascade();
 
 finishAudit();

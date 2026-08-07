@@ -4,6 +4,7 @@ const {
   docsStyleModuleFiles,
   fs,
   goldComponents,
+  add,
   path,
   read,
   rel,
@@ -85,6 +86,74 @@ const componentTokenAliases = {
   "progress-indicator": ["progress-indicator"],
   "radio-button": ["radio-button"],
   "select": ["select"],
+};
+
+const componentQualityRequirements = {
+  "card": {
+    cssSelectors: [
+      '.card[data-density="sm"]',
+      '.card[data-density="lg"]',
+      '.card[data-composition="compact"]',
+      '.card[data-composition="media"]',
+      '.card[data-composition="stats"]',
+      ".card__header",
+      ".card__title",
+      ".card__actions",
+    ],
+    reactSnippets: [
+      '"data-composition": resolvedComposition',
+      'className: "card__header"',
+      'className: "card__actions"',
+    ],
+  },
+  "table": {
+    cssSelectors: [
+      '.table[data-density="sm"]',
+      '.table[data-density="lg"]',
+      ".table th",
+      ".table td",
+      ".table__sort",
+      ".table__expander",
+      ".table__detail",
+    ],
+    reactSnippets: [
+      '"data-density": resolvedDensity',
+      'className: "table__sort"',
+      'className: "table__detail"',
+    ],
+  },
+  "code-input": {
+    cssSelectors: [
+      ".code-input .code-input__control",
+      ".code-input .code-input__slots",
+      ".code-input .code-input__slot",
+      '.code-input[data-density="sm"] .code-input__slot',
+      '.code-input[data-density="lg"] .code-input__slot',
+    ],
+    reactSnippets: [
+      'className: "code-input__control"',
+      'className: "code-input__slots"',
+      'className: "code-input__slot"',
+    ],
+  },
+  "chart-panel": {
+    cssSelectors: [
+      '.chart-panel[data-density="sm"]',
+      '.chart-panel[data-density="lg"]',
+      '.chart-panel[data-variant="donut"] .chart-panel__plot',
+      '.chart-panel[data-variant="bullet"] .chart-panel__plot',
+      '.chart-panel[data-variant="comparison"] .chart-panel__plot',
+      '.chart-panel[data-variant="pareto"] .chart-panel__plot',
+      ".chart-panel__tooltip",
+      ".chart-panel__echarts",
+    ],
+    reactSnippets: [
+      'data-chart-engine": "echarts-option"',
+      'className: "chart-panel__tooltip"',
+      'className: "chart-panel__echarts"',
+      'className: "chart-panel__option"',
+    ],
+  },
 };
 
 const allowedRawGeometry = [
@@ -246,6 +315,10 @@ function collectDocsFindings(component) {
   return { legacyDemoSelectors: findings, narrowDemoGrids: suspiciousGrids, audited: true };
 }
 
+function hasSelector(css, selector) {
+  return css.includes(selector);
+}
+
 function createReport() {
   const css = readIfExists(componentCssFile);
   const docsRenderer = readIfExists(docsRendererFile);
@@ -272,6 +345,7 @@ function createReport() {
     const compTokenUses = [...new Set(flatten("compTokenUses"))].sort();
     const foundationTokenUses = [...new Set(flatten("foundationTokenUses"))].sort();
     const tokenAliases = componentTokenAliases[component] ?? [component];
+    const qualityRequirements = componentQualityRequirements[component];
     const componentTokenFamilyUses = compTokenUses.filter((token) => (
       tokenAliases.some((alias) => token === `--comp-${alias}` || token.startsWith(`--comp-${alias}-`))
     ));
@@ -297,6 +371,12 @@ function createReport() {
     if (localRadiusComposition.length) reviews.push("Local radius composition found instead of a Frame/Radius role.");
     if (docsFindings.legacyDemoSelectors.length) reviews.push("Docs contains legacy-looking demo selectors for this component.");
     if (docsFindings.narrowDemoGrids.length) reviews.push("Docs demo grid may be too narrow for reliable density/layout QA.");
+    if (qualityRequirements) {
+      const missingSelectors = qualityRequirements.cssSelectors.filter((selector) => !hasSelector(css, selector));
+      const missingReactSnippets = qualityRequirements.reactSnippets.filter((snippet) => !reactSource.includes(snippet));
+      if (missingSelectors.length) reviews.push(`High-risk visual cascade requirement missing CSS selectors: ${missingSelectors.join(", ")}.`);
+      if (missingReactSnippets.length) reviews.push(`High-risk visual cascade requirement missing React slots/contracts: ${missingReactSnippets.join(", ")}.`);
+    }
 
     return {
       id: component,
@@ -348,6 +428,18 @@ function createReport() {
     components,
   };
   return report;
+}
+
+function checkComponentVisualCascade() {
+  const report = createReport();
+  if (report.status === "pass") return;
+  const reviewSummary = report.components
+    .filter((component) => component.status === "review")
+    .map((component) => `${component.id}: ${component.reviews[0]}`)
+    .slice(0, 12)
+    .join("; ");
+  for (const blocker of report.blockers) add("errors", componentCssFile, 1, blocker);
+  if (!report.blockers.length) add("errors", componentCssFile, 1, `Component visual cascade audit ${report.status}: ${reviewSummary}`);
 }
 
 function toMarkdown(report) {
@@ -444,4 +536,6 @@ function main() {
   if (report.status !== "pass") process.exit(1);
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { checkComponentVisualCascade, createReport };
