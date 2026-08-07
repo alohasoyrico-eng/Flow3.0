@@ -1,0 +1,904 @@
+{
+  "status": "review",
+  "audit": "react interaction coverage",
+  "principle": "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots.",
+  "inventory": {
+    "components": 56,
+    "withCallbacks": 39,
+    "pass": 21,
+    "review": 35,
+    "fail": 0,
+    "missingTestCallbacks": 44
+  },
+  "components": [
+    {
+      "component": "Accordion",
+      "source": "packages/react/src/Accordion.js",
+      "types": "packages/react/src/Accordion.d.ts",
+      "callbacks": [
+        "onExpandedChange"
+      ],
+      "sourceCovered": [
+        "onExpandedChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onExpandedChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "AnimatedMoment",
+      "source": "packages/react/src/AnimatedMoment.js",
+      "types": "packages/react/src/AnimatedMoment.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "AuditEvent",
+      "source": "packages/react/src/AuditEvent.js",
+      "types": "packages/react/src/AuditEvent.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Avatar",
+      "source": "packages/react/src/Avatar.js",
+      "types": "packages/react/src/Avatar.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "source": "packages/react/src/Badge.js",
+      "types": "packages/react/src/Badge.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "BiometricPrompt",
+      "source": "packages/react/src/BiometricPrompt.js",
+      "types": "packages/react/src/BiometricPrompt.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Breadcrumbs",
+      "source": "packages/react/src/Breadcrumbs.js",
+      "types": "packages/react/src/Breadcrumbs.d.ts",
+      "callbacks": [
+        "onClick"
+      ],
+      "sourceCovered": [
+        "onClick"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onClick"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Button",
+      "source": "packages/react/src/Button.js",
+      "types": "packages/react/src/Button.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "source": "packages/react/src/Card.js",
+      "types": "packages/react/src/Card.d.ts",
+      "callbacks": [
+        "onAction"
+      ],
+      "sourceCovered": [
+        "onAction"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onAction"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "CardExpiryInput",
+      "source": "packages/react/src/CardExpiryInput.js",
+      "types": "packages/react/src/CardExpiryInput.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "CardNumberInput",
+      "source": "packages/react/src/CardNumberInput.js",
+      "types": "packages/react/src/CardNumberInput.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "CardSecurityCodeInput",
+      "source": "packages/react/src/CardSecurityCodeInput.js",
+      "types": "packages/react/src/CardSecurityCodeInput.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "CardSummary",
+      "source": "packages/react/src/CardSummary.js",
+      "types": "packages/react/src/CardSummary.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "source": "packages/react/src/ChartPanel.js",
+      "types": "packages/react/src/ChartPanel.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Checkbox",
+      "source": "packages/react/src/Checkbox.js",
+      "types": "packages/react/src/Checkbox.d.ts",
+      "callbacks": [
+        "onCheckedChange"
+      ],
+      "sourceCovered": [
+        "onCheckedChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onCheckedChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Chip",
+      "source": "packages/react/src/Chip.js",
+      "types": "packages/react/src/Chip.d.ts",
+      "callbacks": [
+        "onRemove",
+        "onSelectedChange"
+      ],
+      "sourceCovered": [
+        "onRemove",
+        "onSelectedChange"
+      ],
+      "testCovered": [
+        "onRemove"
+      ],
+      "missingInSource": [],
+      "missingInTests": [
+        "onSelectedChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "CodeInput",
+      "source": "packages/react/src/CodeInput.js",
+      "types": "packages/react/src/CodeInput.d.ts",
+      "callbacks": [
+        "onComplete",
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onComplete",
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onComplete",
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Combobox",
+      "source": "packages/react/src/Combobox.js",
+      "types": "packages/react/src/Combobox.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "CountrySelector",
+      "source": "packages/react/src/CountrySelector.js",
+      "types": "packages/react/src/CountrySelector.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "DatePicker",
+      "source": "packages/react/src/DatePicker.js",
+      "types": "packages/react/src/DatePicker.d.ts",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "DateRangePicker",
+      "source": "packages/react/src/DateRangePicker.js",
+      "types": "packages/react/src/DateRangePicker.d.ts",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Dialog",
+      "source": "packages/react/src/Dialog.js",
+      "types": "packages/react/src/Dialog.d.ts",
+      "callbacks": [
+        "onAction",
+        "onOpenChange"
+      ],
+      "sourceCovered": [
+        "onAction",
+        "onOpenChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onAction",
+        "onOpenChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Drawer",
+      "source": "packages/react/src/Drawer.js",
+      "types": "packages/react/src/Drawer.d.ts",
+      "callbacks": [
+        "onAction",
+        "onOpenChange"
+      ],
+      "sourceCovered": [
+        "onAction",
+        "onOpenChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onAction",
+        "onOpenChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "EmptyState",
+      "source": "packages/react/src/EmptyState.js",
+      "types": "packages/react/src/EmptyState.d.ts",
+      "callbacks": [
+        "onAction"
+      ],
+      "sourceCovered": [
+        "onAction"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onAction"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "ErrorPanel",
+      "source": "packages/react/src/ErrorPanel.js",
+      "types": "packages/react/src/ErrorPanel.d.ts",
+      "callbacks": [
+        "onAction"
+      ],
+      "sourceCovered": [
+        "onAction"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onAction"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "FloatingActionButton",
+      "source": "packages/react/src/FloatingActionButton.js",
+      "types": "packages/react/src/FloatingActionButton.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "source": "packages/react/src/IconButton.js",
+      "types": "packages/react/src/IconButton.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "InlineValidation",
+      "source": "packages/react/src/InlineValidation.js",
+      "types": "packages/react/src/InlineValidation.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Input",
+      "source": "packages/react/src/Input.js",
+      "types": "packages/react/src/Input.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "KpiTile",
+      "source": "packages/react/src/KpiTile.js",
+      "types": "packages/react/src/KpiTile.d.ts",
+      "callbacks": [
+        "onSelect"
+      ],
+      "sourceCovered": [
+        "onSelect"
+      ],
+      "testCovered": [
+        "onSelect"
+      ],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "List",
+      "source": "packages/react/src/List.js",
+      "types": "packages/react/src/List.d.ts",
+      "callbacks": [
+        "onSelect"
+      ],
+      "sourceCovered": [
+        "onSelect"
+      ],
+      "testCovered": [
+        "onSelect"
+      ],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "source": "packages/react/src/Menu.js",
+      "types": "packages/react/src/Menu.d.ts",
+      "callbacks": [
+        "onOpenChange",
+        "onSelect"
+      ],
+      "sourceCovered": [
+        "onOpenChange",
+        "onSelect"
+      ],
+      "testCovered": [
+        "onSelect"
+      ],
+      "missingInSource": [],
+      "missingInTests": [
+        "onOpenChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "MotionBoundary",
+      "source": "packages/react/src/MotionBoundary.js",
+      "types": "packages/react/src/MotionBoundary.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "source": "packages/react/src/MovementRow.js",
+      "types": "packages/react/src/MovementRow.d.ts",
+      "callbacks": [
+        "onSelect"
+      ],
+      "sourceCovered": [
+        "onSelect"
+      ],
+      "testCovered": [
+        "onSelect"
+      ],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Pagination",
+      "source": "packages/react/src/Pagination.js",
+      "types": "packages/react/src/Pagination.d.ts",
+      "callbacks": [
+        "onPageChange"
+      ],
+      "sourceCovered": [
+        "onPageChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onPageChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "PhoneInput",
+      "source": "packages/react/src/PhoneInput.js",
+      "types": "packages/react/src/PhoneInput.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Popover",
+      "source": "packages/react/src/Popover.js",
+      "types": "packages/react/src/Popover.d.ts",
+      "callbacks": [
+        "onAction",
+        "onOpenChange"
+      ],
+      "sourceCovered": [
+        "onAction",
+        "onOpenChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onAction",
+        "onOpenChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "ProgressIndicator",
+      "source": "packages/react/src/ProgressIndicator.js",
+      "types": "packages/react/src/ProgressIndicator.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "QuickAction",
+      "source": "packages/react/src/QuickAction.js",
+      "types": "packages/react/src/QuickAction.d.ts",
+      "callbacks": [
+        "onAction"
+      ],
+      "sourceCovered": [
+        "onAction"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onAction"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "RadioButton",
+      "source": "packages/react/src/RadioButton.js",
+      "types": "packages/react/src/RadioButton.d.ts",
+      "callbacks": [
+        "onCheckedChange"
+      ],
+      "sourceCovered": [
+        "onCheckedChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onCheckedChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "RouteSummary",
+      "source": "packages/react/src/RouteSummary.js",
+      "types": "packages/react/src/RouteSummary.d.ts",
+      "callbacks": [
+        "onAction",
+        "onClick"
+      ],
+      "sourceCovered": [
+        "onAction",
+        "onClick"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onAction",
+        "onClick"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "SegmentedControl",
+      "source": "packages/react/src/SegmentedControl.js",
+      "types": "packages/react/src/SegmentedControl.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Select",
+      "source": "packages/react/src/Select.js",
+      "types": "packages/react/src/Select.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Skeleton",
+      "source": "packages/react/src/Skeleton.js",
+      "types": "packages/react/src/Skeleton.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Slider",
+      "source": "packages/react/src/Slider.js",
+      "types": "packages/react/src/Slider.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Spinner",
+      "source": "packages/react/src/Spinner.js",
+      "types": "packages/react/src/Spinner.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "StationPin",
+      "source": "packages/react/src/StationPin.js",
+      "types": "packages/react/src/StationPin.d.ts",
+      "callbacks": [
+        "onSelect"
+      ],
+      "sourceCovered": [
+        "onSelect"
+      ],
+      "testCovered": [
+        "onSelect"
+      ],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Stepper",
+      "source": "packages/react/src/Stepper.js",
+      "types": "packages/react/src/Stepper.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "Switch",
+      "source": "packages/react/src/Switch.js",
+      "types": "packages/react/src/Switch.d.ts",
+      "callbacks": [
+        "onCheckedChange"
+      ],
+      "sourceCovered": [
+        "onCheckedChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onCheckedChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Table",
+      "source": "packages/react/src/Table.js",
+      "types": "packages/react/src/Table.d.ts",
+      "callbacks": [
+        "onExpandedChange",
+        "onRowSelect"
+      ],
+      "sourceCovered": [
+        "onExpandedChange",
+        "onRowSelect"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onExpandedChange",
+        "onRowSelect"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Tabs",
+      "source": "packages/react/src/Tabs.js",
+      "types": "packages/react/src/Tabs.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onValueChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Tag",
+      "source": "packages/react/src/Tag.js",
+      "types": "packages/react/src/Tag.d.ts",
+      "callbacks": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
+    },
+    {
+      "component": "TextArea",
+      "source": "packages/react/src/TextArea.js",
+      "types": "packages/react/src/TextArea.d.ts",
+      "callbacks": [
+        "onChange"
+      ],
+      "sourceCovered": [
+        "onChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Toast",
+      "source": "packages/react/src/Toast.js",
+      "types": "packages/react/src/Toast.d.ts",
+      "callbacks": [
+        "onAction",
+        "onDismiss"
+      ],
+      "sourceCovered": [
+        "onAction",
+        "onDismiss"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onAction",
+        "onDismiss"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "Tooltip",
+      "source": "packages/react/src/Tooltip.js",
+      "types": "packages/react/src/Tooltip.d.ts",
+      "callbacks": [
+        "onOpenChange"
+      ],
+      "sourceCovered": [
+        "onOpenChange"
+      ],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [
+        "onOpenChange"
+      ],
+      "status": "review"
+    },
+    {
+      "component": "TreeView",
+      "source": "packages/react/src/TreeView.js",
+      "types": "packages/react/src/TreeView.d.ts",
+      "callbacks": [
+        "onExpandedChange",
+        "onSelect"
+      ],
+      "sourceCovered": [
+        "onExpandedChange",
+        "onSelect"
+      ],
+      "testCovered": [
+        "onSelect"
+      ],
+      "missingInSource": [],
+      "missingInTests": [
+        "onExpandedChange"
+      ],
+      "status": "review"
+    }
+  ]
+}

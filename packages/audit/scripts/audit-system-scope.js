@@ -15,6 +15,7 @@ const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js
 const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
 const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
 const { checkComponentVisualCascade } = require("./report-component-visual-cascade.js");
+const { checkReactInteractionCoverage } = require("./report-react-interaction-coverage.js");
 const { finishAudit } = require("./audit-result.js");
 
 checkSystemArchitectureGate();
@@ -32,5 +33,6 @@ checkReactPrimaryContract();
 checkAntiDuplicationGovernance();
 checkManualAccessibility();
 checkComponentVisualCascade();
+checkReactInteractionCoverage();
 
 finishAudit();
