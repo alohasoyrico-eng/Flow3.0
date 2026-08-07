@@ -192,7 +192,6 @@ import {
   createTransitionalSecurityCodeInput,
 } from "../src/components/specialized-inputs.js?v=28";
 import { createTransitionalActionButton, createTransitionalActionIconButton } from "../src/components/actions.js";
-import { createTransitionalChoiceRadioButton } from "../src/components/choices.js";
 import { createTransitionalFieldInput, createTransitionalFieldSelect, createTransitionalFieldTextArea } from "../src/components/fields.js";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
@@ -456,8 +455,15 @@ assert.deepEqual(Object.keys(checkboxPlatformAdapters), ["react"]);
 assert.equal(checkboxPlatformAdapters.react.componentName, "Checkbox");
 assert.equal(checkboxPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.switch.factory, "@design-system/react/switch");
+assert.equal(switchPlatformContract.id, "switch");
+assert.equal(switchPlatformContract.source.factory, componentContracts.switch.factory);
+assert.deepEqual(switchPlatformProps(), componentContracts.switch.props.map((prop) => prop.name));
+assert.deepEqual(switchPlatformContract.variants, componentContracts.switch.variants);
+assert.deepEqual(switchPlatformContract.states, componentContracts.switch.states);
+assert.deepEqual(Object.keys(switchPlatformAdapters), ["react"]);
+assert.equal(switchPlatformAdapters.react.componentName, "Switch");
+assert.equal(switchPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.radioButton.factory, "@design-system/react/radio-button");
-assert.equal(componentContracts.radioButton.internalFactory, "createTransitionalChoiceRadioButton");
 assert.equal(radioButtonPlatformContract.id, "radio-button");
 assert.equal(radioButtonPlatformContract.source.factory, componentContracts.radioButton.factory);
 assert.deepEqual(radioButtonPlatformProps(), componentContracts.radioButton.props.map((prop) => prop.name));
@@ -1350,20 +1356,6 @@ localizedPhoneField.dispatchEvent({ type: "input" });
 assert.equal(localizedPhoneInput.querySelector(".phone-input__country").dataset.country, "MX");
 assert.equal(localizedPhoneInput.querySelector(".phone-input__prefix").textContent, "+52");
 assert.equal(localizedPhoneField.value, "55 5123 4567");
-
-const radioButton = createTransitionalChoiceRadioButton({
-  label: "Weekly",
-  description: "Best for operations review",
-  checked: true,
-  name: "cadence",
-  value: "weekly",
-});
-assert.equal(radioButton.tagName, "LABEL");
-assert.equal(radioButton.className, "choice radio");
-assert.equal(radioButton.querySelector("input").type, "radio");
-assert.equal(radioButton.querySelector("input").name, "cadence");
-assert.equal(radioButton.querySelector("input").value, "weekly");
-assert.equal(radioButton.querySelector("input").checked, true);
 
 const textArea = createTransitionalFieldTextArea({
   label: "Driver notes",
