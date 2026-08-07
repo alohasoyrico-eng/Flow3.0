@@ -194,6 +194,10 @@ function checkReactComponent(file, shared) {
 }
 
 function checkInlineStyleContract({ name, sourceFile, source }) {
+  const restStyleIndex = source.search(/\brest\.style\b/);
+  if (restStyleIndex >= 0) {
+    add("errors", sourceFile, lineForIndex(source, restStyleIndex), `${name} React source must not merge rest.style into component-owned inline variables; expose Flow props/tokens instead.`);
+  }
   for (const match of source.matchAll(/style:\s*\{([\s\S]*?)\}/g)) {
     const body = match[1];
     const chunk = source.slice(match.index, match.index + 360);
@@ -204,9 +208,8 @@ function checkInlineStyleContract({ name, sourceFile, source }) {
     if (illegalKeys.length) {
       add("errors", sourceFile, 1, `${name} React source must not own inline visual styles (${illegalKeys.join(", ")}); use Flow tokens/classes and reserve style for approved dynamic CSS custom properties.`);
     }
-    const spreadCount = (body.match(/\.\.\./g) ?? []).length;
-    if (spreadCount > 1 || (spreadCount === 1 && !chunk.includes("...(rest.style ?? {})"))) {
-      add("errors", sourceFile, 1, `${name} React source must not merge arbitrary inline style objects except top-level rest.style passthrough when dynamic CSS variables are required.`);
+    if (body.includes("...")) {
+      add("errors", sourceFile, 1, `${name} React source must not merge arbitrary inline style objects; inline style is reserved for approved dynamic CSS custom properties.`);
     }
   }
 }

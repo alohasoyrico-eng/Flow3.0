@@ -391,7 +391,6 @@ export type {
   SkeletonComponent,
   SkeletonProps,
   SkeletonState,
-  SkeletonStyle,
   SkeletonVariant,
 } from "./Skeleton.js";
 export { Slider } from "./Slider.js";

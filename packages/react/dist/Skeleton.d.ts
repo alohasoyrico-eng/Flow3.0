@@ -1,14 +1,8 @@
-import type { CSSProperties, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import { skeletonPlatformContract } from "#flow/platforms";
 
 export type SkeletonVariant = "text" | "title" | "circle" | "card" | "pill" | "row" | "media" | "chart" | "table";
 export type SkeletonState = "default" | "loading" | "stale" | "paused" | "loaded" | "disabled";
-
-export interface SkeletonStyle extends CSSProperties {
-  "--skeleton-width"?: string;
-  "--skeleton-height"?: string;
-  "--skeleton-columns"?: number;
-}
 
 export interface SkeletonProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"> {
   label?: string;
@@ -21,7 +15,6 @@ export interface SkeletonProps extends Omit<HTMLAttributes<HTMLDivElement>, "sty
   fullWidth?: boolean;
   width?: string | number;
   height?: string | number;
-  style?: SkeletonStyle;
 }
 
 export interface SkeletonComponent extends ForwardRefExoticComponent<SkeletonProps & RefAttributes<HTMLDivElement>> {

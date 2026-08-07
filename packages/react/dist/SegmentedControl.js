@@ -79,7 +79,6 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
       "data-variant": variant,
       "data-density": density || undefined,
       style: {
-        ...(rest.style ?? {}),
         "--comp-segmented-control-count": String(Math.max(normalizedItems.length, 1)),
       },
     },

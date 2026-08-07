@@ -714,7 +714,7 @@ const components = [
     primitives: ["color", "spacing", "radius", "disabled", "duration", "motion-curves", "loading", "measurement"],
     props: ["label", "variant", "lines", "rows", "columns", "busy", "state", "fullWidth", "width", "height"],
     jsSnippets: ["skeletonPlatformContract", "className: [\"skeleton\"", '"data-variant": resolvedVariant', '"data-state": resolvedState', '"data-full-width": String(Boolean(fullWidth))', "role: \"status\"", '"aria-busy": String(isBusy)', "skeleton__row", "skeleton__bone", "skeleton__cell", "\"--skeleton-width\""],
-    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "SkeletonProps", "SkeletonVariant", "SkeletonState", "SkeletonStyle", "skeletonPlatformContract"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "SkeletonProps", "SkeletonVariant", "SkeletonState", "skeletonPlatformContract"],
     packagePath: "./skeleton",
     exportName: "Skeleton",
     propsName: "SkeletonProps",

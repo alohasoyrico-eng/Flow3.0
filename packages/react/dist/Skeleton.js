@@ -44,7 +44,6 @@ export const Skeleton = forwardRef(function Skeleton({
   const columnCount = clampNumber(columns, 2, 6, 4);
   const isBusy = Boolean(busy) && !["loaded", "disabled"].includes(resolvedState);
   const style = {
-    ...rest.style,
     "--skeleton-width": toCssLength(width),
     "--skeleton-height": toCssLength(height),
     "--skeleton-columns": resolvedVariant === "table" ? columnCount : undefined,
