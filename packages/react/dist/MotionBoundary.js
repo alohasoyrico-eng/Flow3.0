@@ -37,8 +37,8 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "fade");
   const resolvedState = normalizeState(state, reducedMotion);
   const isReducedMotion = Boolean(reducedMotion || resolvedState === "reduced-motion");
-  const resolvedLabel = label ?? "Panel transition";
-  const resolvedDescription = description || "Controls the entrance, exit, and reduced-motion behavior of one bounded region.";
+  const resolvedLabel = label ?? "";
+  const resolvedDescription = description || "";
 
   return React.createElement(
     "div",
@@ -51,16 +51,16 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
       "data-reduced-motion": String(isReducedMotion),
       role: "group",
       "aria-labelledby": `${id}-label`,
-      "aria-describedby": `${id}-description ${id}-state`,
+      "aria-describedby": resolvedDescription ? `${id}-description ${id}-state` : `${id}-state`,
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
     },
     React.createElement("span", { className: "motion-boundary__icon material-symbol", "aria-hidden": "true" }, icon),
     React.createElement(
       "div",
       { className: "motion-boundary__content" },
-      React.createElement("strong", { id: `${id}-label` }, resolvedLabel),
-      React.createElement("p", { id: `${id}-description` }, resolvedDescription),
-      React.createElement("span", { className: "motion-boundary__state", id: `${id}-state` }, stateLabel(resolvedState)),
+      React.createElement("strong", { id: `${id}-label`, hidden: !resolvedLabel }, resolvedLabel || stateLabel(resolvedState)),
+      resolvedDescription ? React.createElement("p", { id: `${id}-description` }, resolvedDescription) : null,
+      React.createElement("span", { className: "motion-boundary__state", id: `${id}-state`, hidden: true }, stateLabel(resolvedState)),
     ),
     React.createElement("span", { className: "motion-boundary__cue", "data-motion-cue": "", "aria-hidden": "true" }),
   );

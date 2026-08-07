@@ -36,14 +36,14 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   icon = "",
   animationSource = "",
   animationData,
-  reducedMotionFallback = "Short controlled animation with reduced-motion fallback.",
+  reducedMotionFallback = "",
   className = "",
   ...rest
 }, ref) {
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "success");
   const resolvedState = normalizeFlowValue(state, validStates, "idle");
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedLabel = label ?? "Animated moment";
+  const resolvedLabel = label ?? "";
   const resolvedIcon = variantIcon(resolvedVariant, icon);
   const hasAsset = Boolean(animationSource || animationData);
   const canAnimate = hasAsset && resolvedState !== "reduced-motion" && resolvedState !== "disabled";
@@ -87,8 +87,8 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
         ),
       ),
     ),
-    React.createElement("strong", null, label ?? "Action complete"),
-    React.createElement("span", { className: "animated-moment__state" }, stateLabel(resolvedState)),
+    label ? React.createElement("strong", null, label) : null,
+    React.createElement("span", { className: "animated-moment__state", hidden: true }, stateLabel(resolvedState)),
     React.createElement("small", null, description || reducedMotionFallback),
     React.createElement("span", { className: "animated-moment__cue", "data-animated-moment-cue": "", "aria-hidden": "true" }),
   );

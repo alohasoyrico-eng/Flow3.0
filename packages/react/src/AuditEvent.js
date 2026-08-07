@@ -6,7 +6,7 @@ const validTones = new Set(["neutral", "info", "success", "warning", "danger", "
 const validStates = new Set(["default", "hover", "focus", "verified", "warning", "critical", "disabled"]);
 
 function statusFor(state, tone, status) {
-  const statusText = status || (state === "verified" ? "Verified" : state === "warning" ? "Review" : state === "critical" ? "Critical" : "");
+  const statusText = status || "";
   const statusTone = state === "verified"
     ? "success"
     : state === "warning"
@@ -49,7 +49,7 @@ export const AuditEvent = forwardRef(function AuditEvent({
     React.createElement(
       "div",
       { className: "audit-event__content" },
-      React.createElement("strong", null, label ?? "Audit event"),
+      label ? React.createElement("strong", null, label) : null,
       description ? React.createElement("p", null, description) : null,
       meta || timestamp || statusText
         ? React.createElement(

@@ -375,6 +375,7 @@ const auditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
   meta: "Ana Sosa - Operations",
   timestamp: "10:21",
   icon: "warning",
+  status: "Critical",
   state: "critical",
   density: "sm",
 }));
@@ -420,7 +421,7 @@ assert.match(animatedMomentMarkup, /class="animation-asset animated-moment__asse
 assert.match(animatedMomentMarkup, /data-animation-library="lottie-web"/);
 assert.match(animatedMomentMarkup, /data-animation-runtime="fallback"/);
 assert.match(animatedMomentMarkup, /class="animation-asset__fallback-icon material-symbol"/);
-assert.match(animatedMomentMarkup, /class="animated-moment__state">Complete<\/span>/);
+assert.match(animatedMomentMarkup, /class="animated-moment__state" hidden="">Complete<\/span>/);
 assert.match(animatedMomentMarkup, /data-animated-moment-cue=""/);
 
 const biometricPromptMarkup = renderToStaticMarkup(React.createElement(BiometricPrompt, {

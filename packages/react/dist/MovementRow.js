@@ -35,7 +35,7 @@ export const MovementRow = forwardRef(function MovementRow({
   const inferredState = status === "Pending" ? "pending" : status === "Declined" ? "error" : "default";
   const resolvedState = disabled ? "disabled" : validStates.has(state) ? state : inferredState;
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedLabel = label ?? "Movement";
+  const resolvedLabel = label ?? "";
   const blocked = disabled || resolvedState === "disabled";
   const selectMeta = {
     label: resolvedLabel,
@@ -70,7 +70,7 @@ export const MovementRow = forwardRef(function MovementRow({
     React.createElement(
       "span",
       { className: "movement-row__content" },
-      React.createElement("strong", null, resolvedLabel),
+      resolvedLabel ? React.createElement("strong", null, resolvedLabel) : null,
       meta ? React.createElement("small", null, meta) : null,
     ),
     React.createElement(

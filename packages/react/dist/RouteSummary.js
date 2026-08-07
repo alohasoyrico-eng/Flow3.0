@@ -62,7 +62,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
   const resolvedState = disabled ? "disabled" : selected ? "selected" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedTone = normalizeFlowValue(tone, validTones, resolvedState === "warning" || resolvedVariant === "policy" ? "warning" : "neutral");
-  const resolvedLabel = label ?? "Route";
+  const resolvedLabel = label ?? "";
   const isDisabled = resolvedState === "disabled";
   const isCompact = resolvedVariant === "compact";
 
@@ -90,7 +90,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
       React.createElement(
         "div",
         { className: "route-summary__label" },
-        React.createElement("strong", null, resolvedLabel),
+        resolvedLabel ? React.createElement("strong", null, resolvedLabel) : null,
         description ? React.createElement("small", null, description) : null,
       ),
     ),

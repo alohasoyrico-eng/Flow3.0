@@ -6,7 +6,7 @@ const componentContentDefaults = ["Short value", "Keep this field local", "Recen
 const validationContentDefaults = ["Check the", "Enter the", "Use a card"];
 const displayFallbackTermsByFile = new Map([
   ["Card.js", ["Card"]],
-  ["CardSummary.js", ["Card"]],
+  ["CardSummary.js", ["Card", "Active", "Frozen", "Review"]],
   ["ChartPanel.js", ["Chart"]],
   ["EmptyState.js", ["No results"]],
   ["KpiTile.js", ["KPI"]],
@@ -14,7 +14,11 @@ const displayFallbackTermsByFile = new Map([
   ["Dialog.js", ["Action"]],
   ["Drawer.js", ["Action"]],
   ["Popover.js", ["Action"]],
-  ["RouteSummary.js", ["Action"]],
+  ["RouteSummary.js", ["Action", "Route"]],
+  ["AuditEvent.js", ["Audit event", "Verified", "Review", "Critical"]],
+  ["AnimatedMoment.js", ["Animated moment", "Action complete"]],
+  ["MovementRow.js", ["Movement"]],
+  ["MotionBoundary.js", ["Panel transition", "Controls the entrance"]],
 ]);
 
 function isFormatMask(value) {
