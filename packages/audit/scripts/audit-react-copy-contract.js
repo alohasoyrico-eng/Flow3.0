@@ -12,7 +12,7 @@ const semanticAriaDefaultsByFile = new Map([
   ["CardSecurityCodeInput.js", ["Security code", "Show security code", "Hide security code"]],
   ["CodeInput.js", ["digit code", "digits"]],
   ["DatePicker.js", ["Date picker", "Date picker native input", "Date picker calendar", "native picker", "Previous month", "Next month"]],
-  ["DateRangePicker.js", ["Date range picker", "Date range calendar", "Start date", "End date", "start date", "end date"]],
+  ["DateRangePicker.js", ["Date range picker", "Date range calendar", "Start date", "End date", "start date", "end date", "Previous month", "Next month"]],
   ["EmptyState.js", ["Loading empty state"]],
   ["ErrorPanel.js", ["Error panel", "Loading error panel"]],
   ["Input.js", ["Show value", "Hide value", "Loading", " loading"]],
