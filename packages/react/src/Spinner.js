@@ -6,7 +6,7 @@ const validTones = new Set(["accent", "ink", "success", "warning", "danger"]);
 const validStates = new Set(["default", "loading", "decorative", "subtle", "disabled"]);
 
 function normalizeDensity(density) {
-  return validDensities.has(density) ? density : "md";
+  return validDensities.has(density) ? density : undefined;
 }
 
 function normalizeTone(tone) {
@@ -19,7 +19,7 @@ function normalizeState(state) {
 
 export const Spinner = forwardRef(function Spinner({
   label = "Loading",
-  density = "md",
+  density,
   tone = "accent",
   state = "loading",
   decorative = false,

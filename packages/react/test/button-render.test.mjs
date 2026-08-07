@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, ChartPanel, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MotionBoundary, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
+import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, ChartPanel, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MotionBoundary, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, Spinner, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../src/index.js";
 import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, biometricPromptPlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, chartPanelPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, motionBoundaryPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
@@ -847,6 +847,36 @@ assert.match(skeletonMarkup, /data-columns="3"/);
 assert.match(skeletonMarkup, /--skeleton-columns:3/);
 assert.equal((skeletonMarkup.match(/class="skeleton__row"/g) ?? []).length, 2);
 assert.equal((skeletonMarkup.match(/class="skeleton__bone skeleton__cell"/g) ?? []).length, 6);
+
+const spinnerMarkup = renderToStaticMarkup(React.createElement(Spinner, {
+  label: "Loading route",
+  tone: "success",
+  state: "loading",
+  density: "sm",
+}));
+assert.match(spinnerMarkup, /^<span/);
+assert.match(spinnerMarkup, /class="spinner"/);
+assert.match(spinnerMarkup, /role="status"/);
+assert.match(spinnerMarkup, /aria-label="Loading route"/);
+assert.match(spinnerMarkup, /data-density="sm"/);
+assert.match(spinnerMarkup, /data-tone="success"/);
+assert.match(spinnerMarkup, /data-state="loading"/);
+assert.match(spinnerMarkup, /class="spinner__svg"/);
+assert.match(spinnerMarkup, /class="spinner__track"/);
+assert.match(spinnerMarkup, /class="spinner__arc"/);
+
+const inheritedSpinnerMarkup = renderToStaticMarkup(React.createElement(Spinner, {
+  label: "Loading inherited density",
+}));
+assert.doesNotMatch(inheritedSpinnerMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const decorativeSpinnerMarkup = renderToStaticMarkup(React.createElement(Spinner, {
+  decorative: true,
+}));
+assert.doesNotMatch(decorativeSpinnerMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /role=/);
+assert.match(decorativeSpinnerMarkup, /aria-hidden="true"/);
+assert.doesNotMatch(decorativeSpinnerMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /aria-label=/);
+assert.match(decorativeSpinnerMarkup, /data-state="decorative"/);
 
 const sliderMarkup = renderToStaticMarkup(React.createElement(Slider, {
   label: "Search radius",
