@@ -1405,6 +1405,10 @@ assert.match(formPopoverMarkup, /data-variant="form"/);
 assert.match(formPopoverMarkup, /class="field"/);
 assert.match(formPopoverMarkup, /data-density="lg"/);
 
+const unnamedPopoverMarkup = renderToStaticMarkup(React.createElement(Popover));
+assert.doesNotMatch(unnamedPopoverMarkup, /aria-label="Open popover"/);
+assert.doesNotMatch(unnamedPopoverMarkup, /aria-label="Popover"/);
+
 const menuMarkup = renderToStaticMarkup(React.createElement(Menu, {
   triggerLabel: "Actions",
   label: "Driver actions",

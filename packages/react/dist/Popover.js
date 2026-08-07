@@ -14,6 +14,8 @@ function slug(value) {
 
 export const Popover = forwardRef(function Popover({
   triggerLabel = "",
+  triggerAriaLabel,
+  popoverAriaLabel,
   title = "",
   description = "",
   id = "",
@@ -90,7 +92,7 @@ export const Popover = forwardRef(function Popover({
       fullWidth,
       className: "popover__trigger",
       "data-popover-trigger": "",
-      "aria-label": triggerLabel ? undefined : "Open popover",
+      "aria-label": triggerLabel ? undefined : triggerAriaLabel,
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": panelId,
@@ -104,7 +106,7 @@ export const Popover = forwardRef(function Popover({
         hidden: !isOpen,
         id: panelId,
         role: "dialog",
-        "aria-label": title || triggerLabel || "Popover",
+        "aria-label": popoverAriaLabel || title || triggerLabel || undefined,
         onKeyDown: closeFromKeyboard,
       },
       title ? React.createElement("strong", null, title) : null,
