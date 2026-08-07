@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 37,
-    "review": 19,
+    "pass": 38,
+    "review": 18,
     "fail": 0,
-    "missingTestCallbacks": 24
+    "missingTestCallbacks": 22
   },
   "components": [
     {
@@ -502,13 +502,13 @@
         "onOpenChange",
         "onSelect"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onOpenChange",
         "onSelect"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "MotionBoundary",

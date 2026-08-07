@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -464,6 +464,39 @@ try {
   fireEvent.click(revealPasswordButton);
   await waitFor(() => assert.equal(passwordInput.type, "text"));
   assert.equal(revealPasswordButton.getAttribute("aria-pressed"), "true");
+
+  cleanup();
+
+  const menuOpenChanges = [];
+  const menuSelections = [];
+  const { getByRole: getMenuRole } = render(React.createElement(Menu, {
+    label: "Row actions",
+    triggerLabel: "Actions",
+    items: [
+      { key: "edit", label: "Edit", icon: "edit" },
+      { key: "archive", label: "Archive", icon: "archive" },
+    ],
+    onOpenChange: (open) => menuOpenChanges.push(open),
+    onSelect: (item) => menuSelections.push(item.key),
+  }));
+
+  const menuTrigger = getMenuRole("button", { name: /actions/i });
+  assert.equal(menuTrigger.getAttribute("aria-expanded"), "false");
+  fireEvent.click(menuTrigger);
+  await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "true"));
+  assert.deepEqual(menuOpenChanges, [true]);
+
+  const archiveItem = getMenuRole("menuitem", { name: /archive/i });
+  fireEvent.click(archiveItem);
+  await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(menuSelections, ["archive"]);
+  assert.deepEqual(menuOpenChanges, [true, false]);
+
+  fireEvent.keyDown(menuTrigger, { key: "ArrowDown" });
+  await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "true"));
+  fireEvent.keyDown(getMenuRole("menu", { name: /row actions/i }), { key: "Escape" });
+  await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(menuOpenChanges, [true, false, true, false]);
 } finally {
   cleanup();
   dom.window.close();
