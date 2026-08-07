@@ -7,6 +7,7 @@ import { flowToneProps, flowStateProps, flowVariantProps, normalizeFlowValue, no
 
 const validVariants = new Set(["actions", "grouped", "selection", "danger", "icon-trigger", "avatar-trigger"]);
 const validStates = new Set(["default", "closed", "open", "focus", "disabled"]);
+const validItemTones = new Set(["danger"]);
 
 function slug(value) {
   return String(value ?? "menu").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -141,7 +142,7 @@ export const Menu = forwardRef(function Menu({
             role: "menuitem",
             tabIndex: -1,
             "data-key": key,
-            ...flowToneProps(item.tone || undefined),
+            ...flowToneProps(normalizeFlowValue(item.tone, validItemTones, undefined)),
             "aria-disabled": item.disabled ? "true" : undefined,
             onClick: () => {
               if (item.disabled) return;

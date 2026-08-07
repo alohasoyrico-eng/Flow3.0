@@ -31,6 +31,9 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (/\bflowVariantProps\(\s*variant\s*\)/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must pass a resolved variant into flowVariantProps(); normalize raw variant props through the component contract first.`);
   }
+  if (/\bflowToneProps\(\s*item\.tone\b/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must normalize item tone props before passing them into flowToneProps().`);
+  }
   if (source.includes('"data-density"')) {
     add("errors", sourceFile, 1, `${componentName} React source must use flowDensityProps() instead of writing data-density directly.`);
   }

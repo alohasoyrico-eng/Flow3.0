@@ -6,6 +6,7 @@ export type MenuVariant = "actions" | "grouped" | "selection" | "danger" | "icon
 export type MenuDensity = "sm" | "md" | "lg";
 export type MenuState = "default" | "closed" | "open" | "focus" | "disabled";
 export type MenuAlign = "start" | "end" | "right";
+export type MenuItemTone = "danger";
 
 export interface MenuItem {
   label?: string;
@@ -13,7 +14,7 @@ export interface MenuItem {
   key?: string;
   disabled?: boolean;
   separator?: boolean;
-  tone?: string;
+  tone?: MenuItemTone;
   shortcut?: string;
 }
 

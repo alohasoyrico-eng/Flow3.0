@@ -708,7 +708,7 @@ export const componentContracts = {
     states: ["default", "closed", "open", "focus", "disabled"],
     props: [
       { name: "triggerLabel", type: "string", required: true },
-      { name: "items", type: "Array<{ label?: string, icon?: string, key?: string, disabled?: boolean, separator?: boolean, tone?: string, shortcut?: string }>", required: true },
+      { name: "items", type: "Array<{ label?: string, icon?: string, key?: string, disabled?: boolean, separator?: boolean, tone?: \"danger\", shortcut?: string }>", required: true },
       { name: "open", type: "boolean", required: false },
       { name: "variant", type: "\"actions\" | \"grouped\" | \"selection\" | \"danger\" | \"icon-trigger\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
