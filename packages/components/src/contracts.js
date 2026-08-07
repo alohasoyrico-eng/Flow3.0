@@ -766,8 +766,8 @@ export const componentContracts = {
     states: ["default", "hover", "focus", "selected", "sorted", "expanded"],
     props: [
       { name: "label", type: "string", required: false },
-      { name: "columns", type: "Array<{ key: string, label: string, sortable?: boolean, align?: \"left\" | \"right\", mono?: boolean, priority?: \"primary\" | \"secondary\" | \"tertiary\", sortValue?: Function, render?: Function }>", required: true },
-      { name: "rows", type: "Array<Record<string, string | number | object>>", required: true },
+      { name: "columns", type: "Array<{ key: string, label: string, sortable?: boolean, align?: \"left\" | \"right\", mono?: boolean, priority?: \"primary\" | \"secondary\" | \"tertiary\", sortValue?: (row: TableRow) => string | number | null | undefined, render?: (row: TableRow) => ReactNode }>", required: true },
+      { name: "rows", type: "TableRow[]", required: true },
       { name: "rowKey", type: "string", required: false },
       { name: "variant", type: "\"standard\" | \"dense\" | \"sortable\" | \"selectable\" | \"expandable\"", required: false },
       { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"sorted\" | \"expanded\"", required: false },
@@ -777,7 +777,7 @@ export const componentContracts = {
       { name: "sortDir", type: "\"ascending\" | \"descending\"", required: false },
       { name: "selectedKey", type: "string", required: false },
       { name: "expandedKey", type: "string", required: false },
-      { name: "renderDetail", type: "(row: TableRow) => Node | string", required: false },
+      { name: "renderDetail", type: "(row: TableRow) => ReactNode", required: false },
       { name: "onSortChange", type: "(sort: { key: string, direction: string }) => void", required: false },
       { name: "onRowSelect", type: "(key: string) => void", required: false },
       { name: "onExpandedChange", type: "(key: string) => void", required: false }
@@ -987,7 +987,7 @@ export const componentContracts = {
     intents: ["navigation"],
     states: ["default", "hover", "focus", "collapsed", "current", "disabled"],
     props: [
-      { name: "items", type: "Array<{ label: string, href?: string, current?: boolean, onClick?: Function }>", required: true },
+      { name: "items", type: "Array<{ id?: string, label: string, href?: string, current?: boolean, collapsed?: boolean, onClick?: (item: BreadcrumbItem, event?: MouseEvent<HTMLAnchorElement>) => void }>", required: true },
       { name: "label", type: "string", required: false },
       { name: "maxItems", type: "number", required: false },
       { name: "separator", type: "string", required: false },

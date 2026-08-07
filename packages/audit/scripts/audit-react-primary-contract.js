@@ -65,6 +65,7 @@ function checkReactPrimaryContract() {
 
   checkOpenChangeContractConsistency(componentContractsSource);
   checkValueChangeContractConsistency(componentContractsSource);
+  checkNoOpaqueFunctionContracts(componentContractsSource);
   checkStateContractConsistency({ add, contractsSource: componentContractsSource, componentContractsFile });
   checkControlledOpenCoverage(componentFiles, componentContractsSource);
   checkControlledValueCoverage(componentFiles);
@@ -95,6 +96,12 @@ function checkValueChangeContractConsistency(contractsSource) {
     if (!hasControlledValue) {
       add("errors", componentContractsFile, 1, `${contractKey} exposes onValueChange and must declare the controlled value prop that product code owns.`);
     }
+  }
+}
+
+function checkNoOpaqueFunctionContracts(contractsSource) {
+  for (const match of contractsSource.matchAll(/\bFunction\b/g)) {
+    add("errors", componentContractsFile, lineForIndex(contractsSource, match.index), "Component contracts must use explicit callback signatures instead of opaque Function props.");
   }
 }
 
