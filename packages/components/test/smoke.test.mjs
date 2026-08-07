@@ -202,7 +202,6 @@ import { createTransitionalTooltip } from "../src/components/overlays.js?v=5";
 
 const componentsCss = readFileSync(new URL("../styles/components.css", import.meta.url), "utf8");
 import { createMenu } from "../src/components/overlays.js?v=5";
-import { createBreadcrumbs } from "../src/components/navigation.js?v=3";
 import { createSlider, createTreeView } from "../src/components/interactions.js?v=9";
 import { componentContractVersion, componentContracts } from "../src/contracts.js";
 
@@ -518,7 +517,6 @@ assert.deepEqual(Object.keys(tabsPlatformAdapters), ["react"]);
 assert.equal(tabsPlatformAdapters.react.componentName, "Tabs");
 assert.equal(tabsPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.breadcrumbs.factory, "@design-system/react/breadcrumbs");
-assert.equal(componentContracts.breadcrumbs.internalFactory, "createBreadcrumbs");
 assert.equal(breadcrumbsPlatformContract.id, "breadcrumbs");
 assert.equal(breadcrumbsPlatformContract.source.factory, componentContracts.breadcrumbs.factory);
 assert.deepEqual(breadcrumbsPlatformProps(), componentContracts.breadcrumbs.props.map((prop) => prop.name));
@@ -1811,42 +1809,6 @@ assert.equal(disabledAnimatedMoment.querySelector(".animated-moment__state").tex
 const fullAnimatedMoment = createAnimatedMoment({ label: "Desktop cue", density: "sm", fullWidth: true });
 assert.equal(fullAnimatedMoment.dataset.density, "sm");
 assert.equal(fullAnimatedMoment.dataset.fullWidth, "true");
-
-const breadcrumbs = createBreadcrumbs({ items: [{ label: "Fleet", href: "#fleet" }, { label: "Cards", current: true }] });
-assert.equal(breadcrumbs.tagName, "NAV");
-assert.equal(breadcrumbs.attributes["aria-label"], "Breadcrumbs");
-assert.equal(breadcrumbs.querySelector("a").href, "#fleet");
-assert.equal(breadcrumbs.querySelector("[aria-current=\"page\"]")?.textContent, undefined);
-assert.equal(breadcrumbs.querySelectorAll("li").length, 2);
-
-const overflowBreadcrumbs = createBreadcrumbs({
-  variant: "overflow",
-  maxItems: 4,
-  items: [
-    { label: "Fleet", href: "#fleet" },
-    { label: "Regions", href: "#regions" },
-    { label: "North", href: "#north" },
-    { label: "Units", href: "#units" },
-    { label: "JMX-214-B", current: true },
-  ],
-});
-assert.equal(overflowBreadcrumbs.dataset.variant, "overflow");
-assert.equal(overflowBreadcrumbs.querySelectorAll("li").length, 4);
-assert.equal(overflowBreadcrumbs.querySelectorAll("li").some((item) => item.dataset.collapsed === "true"), true);
-
-const mobileBreadcrumbs = createBreadcrumbs({
-  variant: "mobile",
-  density: "lg",
-  items: [{ label: "Fleet" }, { label: "Units" }, { label: "JMX-214-B" }],
-});
-assert.equal(mobileBreadcrumbs.dataset.variant, "mobile");
-assert.equal(mobileBreadcrumbs.dataset.density, "lg");
-assert.equal(mobileBreadcrumbs.querySelectorAll("li").length, 2);
-
-const disabledBreadcrumbs = createBreadcrumbs({ disabled: true, items: [{ label: "Fleet" }, { label: "Cards" }] });
-assert.equal(disabledBreadcrumbs.dataset.state, "disabled");
-assert.equal(disabledBreadcrumbs.attributes["aria-disabled"], "true");
-assert.equal(disabledBreadcrumbs.querySelector("a"), null);
 
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");

@@ -1003,7 +1003,6 @@ export const componentContracts = {
   },
   breadcrumbs: {
     factory: "@design-system/react/breadcrumbs",
-    internalFactory: "createBreadcrumbs",
     element: "nav",
     purpose: "Show the current location path inside one hierarchy without owning route architecture, side navigation, or page history.",
     variants: ["standard", "compact", "overflow", "mobile"],
