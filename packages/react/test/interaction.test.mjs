@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import React from "react";
 import { JSDOM } from "jsdom";
 import { cleanup, fireEvent, render } from "@testing-library/react";
-import { Accordion, Breadcrumbs } from "../src/index.js";
+import { Accordion, Breadcrumbs, Card } from "../src/index.js";
 
 const dom = new JSDOM("<!doctype html><html><body></body></html>", {
   url: "http://localhost/",
@@ -64,6 +64,49 @@ try {
   assert.equal(clickedBreadcrumbs.length, 1);
   assert.equal(clickedBreadcrumbs[0].item.id, "fleet");
   assert.equal(clickedBreadcrumbs[0].defaultPrevented, true);
+
+  cleanup();
+
+  const cardActions = [];
+  const { getByRole: getCardRole } = render(React.createElement(Card, {
+    title: "Wallet balance",
+    value: "$8,412.50",
+    interactive: true,
+    actions: [],
+    onAction: (...args) => cardActions.push(args),
+  }));
+
+  const interactiveCard = getCardRole("button", { name: /wallet balance/i });
+  fireEvent.click(interactiveCard);
+  assert.equal(cardActions.length, 1);
+  assert.equal(cardActions[0][0].type, "click");
+
+  fireEvent.keyDown(interactiveCard, { key: "Enter" });
+  assert.equal(cardActions.length, 2);
+  assert.equal(cardActions[1][0].key, "Enter");
+
+  cleanup();
+
+  const nestedCardActions = [];
+  const nestedActionClicks = [];
+  const { getByRole: getNestedCardRole } = render(React.createElement(Card, {
+    title: "Driver card",
+    actions: [
+      {
+        key: "freeze",
+        label: "Freeze",
+        onClick: (event) => nestedActionClicks.push(event.type),
+      },
+    ],
+    onAction: (...args) => nestedCardActions.push(args),
+  }));
+
+  fireEvent.click(getNestedCardRole("button", { name: /freeze/i }));
+  assert.deepEqual(nestedActionClicks, ["click"]);
+  assert.equal(nestedCardActions.length, 1);
+  assert.equal(nestedCardActions[0][0], "freeze");
+  assert.equal(nestedCardActions[0][1].label, "Freeze");
+  assert.equal(nestedCardActions[0][2].type, "click");
 } finally {
   cleanup();
   dom.window.close();

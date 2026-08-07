@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 21,
-    "review": 35,
+    "pass": 22,
+    "review": 34,
     "fail": 0,
-    "missingTestCallbacks": 46
+    "missingTestCallbacks": 45
   },
   "components": [
     {
@@ -121,12 +121,12 @@
       "sourceCovered": [
         "onAction"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onAction"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "CardExpiryInput",
