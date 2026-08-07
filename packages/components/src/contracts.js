@@ -632,7 +632,6 @@ export const componentContracts = {
   },
   avatar: {
     factory: "@design-system/react/avatar",
-    internalFactory: "createTransitionalAvatar",
     element: "span",
     purpose: "Represent a person, actor, or system identity with initials, optional image, and optional presence status.",
     variants: ["initials", "image", "status"],

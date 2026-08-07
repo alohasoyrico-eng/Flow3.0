@@ -10,11 +10,7 @@ const componentCopyRoot = path.join(root, "packages/content/content/component-co
 const componentSourceRoot = path.join(root, "packages/components/src/components");
 
 const ignoredParserTokens = new Set(["false", "true"]);
-const publicPropAliases = {
-  avatar: {
-    density: "size",
-  },
-};
+const publicPropAliases = {};
 const unprefixedFactoryNames = new Map([
   ["button", "createTransitionalActionButton"],
   ["icon-button", "createTransitionalActionIconButton"],
@@ -33,7 +29,6 @@ const unprefixedFactoryNames = new Map([
   ["card-security-code-input", "createTransitionalPaymentCardSecurityCodeInput"],
   ["date-picker", "createTransitionalDatePicker"],
   ["date-range-picker", "createTransitionalDateRangePicker"],
-  ["avatar", "createTransitionalAvatar"],
 ]);
 
 function factoryName(id) {

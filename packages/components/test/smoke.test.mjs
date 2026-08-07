@@ -179,7 +179,6 @@ import {
 } from "../src/index.js";
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createCombobox } from "../src/components/fields.js?v=21";
-import { createTransitionalAvatar } from "../src/components/display.js?v=3";
 import {
   createTransitionalPaymentCardExpiryInput,
   hydrateTransitionalPaymentCardExpiryInput,
@@ -572,7 +571,6 @@ assert.deepEqual(Object.keys(sliderPlatformAdapters), ["react"]);
 assert.equal(sliderPlatformAdapters.react.componentName, "Slider");
 assert.equal(sliderPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.avatar.factory, "@design-system/react/avatar");
-assert.equal(componentContracts.avatar.internalFactory, "createTransitionalAvatar");
 assert.equal(avatarPlatformContract.id, "avatar");
 assert.equal(avatarPlatformContract.source.factory, componentContracts.avatar.factory);
 assert.deepEqual(avatarPlatformProps(), componentContracts.avatar.props.map((prop) => prop.name));
@@ -1435,21 +1433,6 @@ const textAreaError = createTransitionalFieldTextArea({ label: "Policy exception
 assert.equal(textAreaError.dataset.state, "error");
 assert.equal(textAreaError.querySelector("textarea").attributes["aria-invalid"], "true");
 assert.equal(textAreaError.querySelector(".field__helper").textContent, "Use at least 20 characters.");
-
-const avatar = createTransitionalAvatar({ name: "Ana Sosa", status: "online" });
-assert.equal(avatar.tagName, "SPAN");
-assert.equal(avatar.className, "avatar avatar--md");
-assert.equal(avatar.dataset.status, "online");
-assert.equal(avatar.dataset.state, "online");
-assert.equal(avatar.attributes["aria-label"], "Ana Sosa");
-assert.equal(avatar.querySelector(".avatar__initials").textContent, "AS");
-assert.equal(avatar.querySelector(".avatar__status").attributes["aria-hidden"], "true");
-const largeAvatar = createTransitionalAvatar({ name: "Luis Vera", density: "xl", status: "busy" });
-assert.equal(largeAvatar.className, "avatar avatar--xl");
-assert.equal(largeAvatar.dataset.state, "busy");
-const unknownAvatar = createTransitionalAvatar({ name: "", state: "unknown" });
-assert.equal(unknownAvatar.attributes["aria-label"], "Unknown avatar");
-assert.equal(unknownAvatar.querySelector(".avatar__initials").textContent, "?");
 
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");
