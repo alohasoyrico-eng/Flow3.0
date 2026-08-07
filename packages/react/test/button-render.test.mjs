@@ -1641,6 +1641,12 @@ const inheritedInputMarkup = renderToStaticMarkup(React.createElement(Input, {
 }));
 assert.doesNotMatch(inheritedInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const unnamedRevealInputMarkup = renderToStaticMarkup(React.createElement(Input, {
+  revealable: true,
+}));
+assert.doesNotMatch(unnamedRevealInputMarkup, /aria-label="Show value"/);
+assert.doesNotMatch(unnamedRevealInputMarkup, /aria-label="Hide value"/);
+
 const inlineValidationMarkup = renderToStaticMarkup(React.createElement(InlineValidation, {
   label: "Driver email",
   value: "ana@",

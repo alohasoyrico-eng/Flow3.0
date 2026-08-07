@@ -684,11 +684,13 @@ try {
     label: "Password",
     variant: "password",
     value: "secret",
+    revealLabel: "Reveal secret",
+    hideLabel: "Conceal secret",
   }));
 
   const passwordInput = getPasswordLabel(/password/i);
   assert.equal(passwordInput.type, "password");
-  const revealPasswordButton = getPasswordRole("button", { name: /show value/i });
+  const revealPasswordButton = getPasswordRole("button", { name: /reveal secret/i });
   fireEvent.click(revealPasswordButton);
   await waitFor(() => assert.equal(passwordInput.type, "text"));
   assert.equal(revealPasswordButton.getAttribute("aria-pressed"), "true");
