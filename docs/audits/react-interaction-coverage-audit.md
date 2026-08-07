@@ -8,16 +8,15 @@ React components that declare callback props must use them in source and must ha
 
 - Components audited: 56
 - Components with callbacks: 39
-- Pass: 40
-- Review: 16
+- Pass: 41
+- Review: 15
 - Fail: 0
-- Missing callback test assertions: 20
+- Missing callback test assertions: 19
 
 ## Missing Interaction Tests
 
 | Component | Missing callback coverage |
 | --- | --- |
-| PhoneInput | onValueChange |
 | Popover | onAction, onOpenChange |
 | QuickAction | onAction |
 | RadioButton | onCheckedChange |

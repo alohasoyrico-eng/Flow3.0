@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, Menu, MovementRow, Pagination, PhoneInput } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -562,6 +562,43 @@ try {
 
   fireEvent.click(getPaginationRole("button", { name: /page 6/i }));
   assert.deepEqual(pageChanges, [4, 5]);
+
+  cleanup();
+
+  const phoneChanges = [];
+  const phoneCountries = [
+    { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
+    { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
+  ];
+  const { getByLabelText: getPhoneLabel, getByRole: getPhoneRole } = render(React.createElement(PhoneInput, {
+    label: "Phone number",
+    country: "MX",
+    countries: phoneCountries,
+    onValueChange: (value, meta) => phoneChanges.push({ value, meta }),
+  }));
+
+  const phoneInput = getPhoneLabel(/phone number/i, { selector: "input" });
+  fireEvent.input(phoneInput, { target: { value: "5512345678" } });
+  await waitFor(() => assert.equal(phoneInput.value, "55 1234 5678"));
+  assert.equal(phoneChanges.at(-1).value, "5512345678");
+  assert.deepEqual(phoneChanges.at(-1).meta, {
+    country: "MX",
+    callingCode: "+52",
+    e164: "+525512345678",
+    nationalNumber: "5512345678",
+  });
+
+  const phoneCountryTrigger = getPhoneRole("combobox", { name: /phone number country code/i });
+  fireEvent.click(phoneCountryTrigger);
+  assert.equal(phoneCountryTrigger.getAttribute("aria-expanded"), "true");
+  fireEvent.click(getPhoneRole("option", { name: /united states/i }));
+  await waitFor(() => assert.equal(phoneCountryTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(phoneChanges.at(-1).meta, {
+    country: "US",
+    callingCode: "+1",
+    e164: "+15512345678",
+    nationalNumber: "5512345678",
+  });
 } finally {
   cleanup();
   dom.window.close();
