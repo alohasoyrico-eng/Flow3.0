@@ -5,10 +5,10 @@
   "inventory": {
     "components": 56,
     "withCallbacks": 39,
-    "pass": 33,
-    "review": 23,
+    "pass": 34,
+    "review": 22,
     "fail": 0,
-    "missingTestCallbacks": 29
+    "missingTestCallbacks": 27
   },
   "components": [
     {
@@ -364,13 +364,13 @@
         "onAction",
         "onOpenChange"
       ],
-      "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [
+      "testCovered": [
         "onAction",
         "onOpenChange"
       ],
-      "status": "review"
+      "missingInSource": [],
+      "missingInTests": [],
+      "status": "pass"
     },
     {
       "component": "EmptyState",

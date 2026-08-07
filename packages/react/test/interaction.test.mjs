@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -372,6 +372,30 @@ try {
   await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(dialogActions, ["confirm"]);
   assert.deepEqual(dialogOpenChanges, [true, false]);
+
+  cleanup();
+
+  const drawerOpenChanges = [];
+  const drawerActions = [];
+  const { getByRole: getDrawerRole } = render(React.createElement(Drawer, {
+    label: "Vehicle details",
+    description: "Review route documents.",
+    triggerLabel: "Open details",
+    actions: [{ key: "save", label: "Save" }],
+    onOpenChange: (open) => drawerOpenChanges.push(open),
+    onAction: (key) => drawerActions.push(key),
+  }));
+
+  const drawerTrigger = getDrawerRole("button", { name: /open details/i });
+  fireEvent.click(drawerTrigger);
+  await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "true"));
+  assert.equal(getDrawerRole("dialog", { name: /vehicle details/i }).hidden, false);
+  assert.deepEqual(drawerOpenChanges, [true]);
+
+  fireEvent.click(getDrawerRole("button", { name: /save/i }));
+  await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false"));
+  assert.deepEqual(drawerActions, ["save"]);
+  assert.deepEqual(drawerOpenChanges, [true, false]);
 } finally {
   cleanup();
   dom.window.close();
