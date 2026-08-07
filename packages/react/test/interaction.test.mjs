@@ -338,9 +338,8 @@ try {
     { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
     { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
   ];
-  const { getByRole: getCountryRole } = render(React.createElement(CountrySelector, {
+  const { getByRole: getCountryRole, rerender: rerenderCountrySelector } = render(React.createElement(CountrySelector, {
     label: "Country",
-    country: "MX",
     countries,
     onValueChange: (countryCode, option) => countryChanges.push({ countryCode, option }),
   }));
@@ -355,6 +354,14 @@ try {
   assert.equal(countryChanges.at(-1).countryCode, "US");
   assert.equal(countryChanges.at(-1).option.label, "United States");
   assert.equal(countryChanges.at(-1).option.callingCode, "+1");
+
+  rerenderCountrySelector(React.createElement(CountrySelector, {
+    label: "Country",
+    value: "MX",
+    countries,
+    onValueChange: (countryCode, option) => countryChanges.push({ countryCode, option }),
+  }));
+  await waitFor(() => assert.equal(countryTrigger.textContent.includes("+52"), true));
 
   cleanup();
 

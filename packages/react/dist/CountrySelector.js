@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useMemo, useState } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import {
   countryFlagAssetPath,
   normalizeCountryCallingCodeOptions,
@@ -57,6 +57,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
   const generatedId = useId();
   const selectorId = id ?? `country-selector-${generatedId}`;
   const options = useMemo(() => normalizeCountryCallingCodeOptions(countries), [countries]);
+  const isValueControlled = country !== undefined || value !== undefined;
   const initialCountry = resolveCountryCallingCodeOption({ country: country ?? value }, options);
   const [selectedCountry, setSelectedCountry] = useState(initialCountry);
   const [activeCountryCode, setActiveCountryCode] = useState(initialCountry.country);
@@ -66,9 +67,16 @@ export const CountrySelector = forwardRef(function CountrySelector({
   const activeOption = filteredOptions.find((option) => option.country === activeCountryCode) ?? filteredOptions.find((option) => option.country === selectedCountry.country) ?? filteredOptions[0];
   const activeIndex = Math.max(options.findIndex((option) => option.country === activeOption?.country), 0);
   const resolvedState = disabled ? "disabled" : invalid ? "error" : "default";
+  useEffect(() => {
+    if (!isValueControlled) return;
+    const nextCountry = resolveCountryCallingCodeOption({ country: country ?? value }, options);
+    setSelectedCountry(nextCountry);
+    setActiveCountryCode(nextCountry.country);
+  }, [country, isValueControlled, options, value]);
+
   const commitOption = (option) => {
     if (!option || disabled) return;
-    setSelectedCountry(option);
+    if (!isValueControlled) setSelectedCountry(option);
     setActiveCountryCode(option.country);
     setOpen(false);
     setQuery("");
