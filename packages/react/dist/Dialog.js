@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { dialogPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
@@ -77,6 +77,12 @@ export const Dialog = forwardRef(function Dialog({
     { label: resolvedTone === "danger" ? "Confirm" : "Continue", key: "confirm", variant: "primary" },
     { label: "Cancel", key: "cancel", variant: "secondary" },
   ];
+
+  useEffect(() => {
+    const normalizedOpen = Boolean(open);
+    setIsOpen(normalizedOpen);
+    setInteractionState(normalizedOpen ? "open" : initialState === "default" ? "default" : "closed");
+  }, [open, initialState]);
 
   return React.createElement(
     "div",

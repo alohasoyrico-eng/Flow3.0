@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { menuPlatformContract } from "@design-system/components/platforms";
 import { Avatar } from "./Avatar.js";
 import { Button } from "./Button.js";
@@ -56,6 +56,12 @@ export const Menu = forwardRef(function Menu({
     { separator: true },
     { label: resolvedVariant === "danger" ? "Delete" : "Archive", icon: resolvedVariant === "danger" ? "delete" : "archive", tone: resolvedVariant === "danger" ? "danger" : undefined, key: resolvedVariant === "danger" ? "delete" : "archive" },
   ];
+
+  useEffect(() => {
+    const normalizedOpen = Boolean(open) || initialState === "open" || initialState === "focus";
+    setIsOpen(normalizedOpen);
+    setInteractionState(normalizedOpen ? "open" : initialState);
+  }, [open, initialState]);
 
   const setOpen = (nextOpen, { restoreFocus = false, focusFirst = false } = {}) => {
     if (isDisabled) return;

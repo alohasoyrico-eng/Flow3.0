@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { popoverPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { Input } from "./Input.js";
@@ -49,6 +49,12 @@ export const Popover = forwardRef(function Popover({
     ? [{ label: "Apply", variant: "primary" }, { label: "Cancel", variant: "secondary" }]
     : [];
   const isDisabled = disabled || interactionState === "disabled";
+
+  useEffect(() => {
+    const normalizedOpen = Boolean(open) || ["open", "focus", "warning"].includes(initialState);
+    setIsOpen(normalizedOpen);
+    setInteractionState(normalizedOpen ? "open" : initialState);
+  }, [open, initialState]);
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     if (isDisabled) return;

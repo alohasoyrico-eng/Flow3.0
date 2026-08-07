@@ -6,7 +6,9 @@ const reactIndexFile = path.join(reactSrcDir, "index.js");
 const reactTypesIndexFile = path.join(reactSrcDir, "index.d.ts");
 const reactPackageFile = path.join(root, "packages/react/package.json");
 const reactRefTestFile = path.join(root, "packages/react/test/ref.test.mjs");
+const reactInteractionTestFile = path.join(root, "packages/react/test/interaction.test.mjs");
 const rootPackageFile = path.join(root, "package.json");
+const componentContractsFile = path.join(root, "packages/components/src/contracts.js");
 
 const allowedPrimitiveImports = new Set([
   "createChartsPrimitive",
@@ -32,6 +34,7 @@ function checkReactPrimaryContract() {
   const reactTypesIndex = read(reactTypesIndexFile);
   const reactPackage = readJson(reactPackageFile);
   const rootPackage = readJson(rootPackageFile);
+  const componentContractsSource = fs.existsSync(componentContractsFile) ? read(componentContractsFile) : "";
   const componentFiles = fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
     .sort();
@@ -63,6 +66,8 @@ function checkReactPrimaryContract() {
       rootPackage,
     });
   }
+
+  checkControlledOpenCoverage(componentFiles, componentContractsSource);
 }
 
 function checkReactComponent(file, shared) {
@@ -169,6 +174,22 @@ function checkInlineStyleContract({ name, sourceFile, source }) {
   }
 }
 
+function checkControlledOpenCoverage(componentFiles, contractsSource) {
+  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
+  const componentNames = new Set(componentFiles.map((file) => path.basename(file, ".js")));
+  for (const match of contractsSource.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {
+    const [, contractKey, body] = match;
+    if (!body.includes('{ name: "open"') || !body.includes('{ name: "onOpenChange"')) continue;
+    const componentName = pascal(contractKey);
+    if (!componentNames.has(componentName)) continue;
+    const componentRender = new RegExp(`render\\(React\\.createElement\\(${componentName}\\b`);
+    const controlledRerender = new RegExp(`rerender${componentName}[\\s\\S]{0,900}\\bopen:\\s*true[\\s\\S]{0,900}rerender${componentName}[\\s\\S]{0,900}\\bopen:\\s*false`);
+    if (!componentRender.test(interactionSource) || !controlledRerender.test(interactionSource)) {
+      add("errors", reactInteractionTestFile, 1, `${componentName} exposes open/onOpenChange and must test controlled open rerender from true back to false.`);
+    }
+  }
+}
+
 function importsFromComponents(source) {
   const imports = [];
   for (const match of source.matchAll(/import\s*\{([^}]+)\}\s*from\s*"@design-system\/components"/g)) {
@@ -182,6 +203,11 @@ function kebab(value) {
     .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
     .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
     .toLowerCase();
+}
+
+function pascal(value) {
+  const words = String(value).match(/[A-Z]?[a-z0-9]+|[A-Z]+(?![a-z])/g) ?? [String(value)];
+  return words.map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`).join("");
 }
 
 function lowerFirst(value) {

@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { drawerPlatformContract } from "@design-system/components/platforms";
 import { Badge } from "./Badge.js";
 import { Button } from "./Button.js";
@@ -98,6 +98,12 @@ export const Drawer = forwardRef(function Drawer({
     { label: "Save", key: "save", variant: "primary" },
     { label: "Cancel", key: "cancel", variant: "ghost" },
   ];
+
+  useEffect(() => {
+    const normalizedOpen = Boolean(open);
+    setIsOpenState(normalizedOpen);
+    setInteractionState(normalizedOpen ? "open" : initialState === "default" ? "default" : "closed");
+  }, [open, initialState]);
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     const normalizedOpen = Boolean(nextOpen);

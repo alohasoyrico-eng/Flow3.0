@@ -353,7 +353,7 @@ try {
 
   const dialogOpenChanges = [];
   const dialogActions = [];
-  const { getByRole: getDialogRole } = render(React.createElement(Dialog, {
+  const { getByRole: getDialogRole, rerender: rerenderDialog } = render(React.createElement(Dialog, {
     label: "Confirm route",
     description: "Review before assigning.",
     triggerLabel: "Open review",
@@ -373,11 +373,33 @@ try {
   assert.deepEqual(dialogActions, ["confirm"]);
   assert.deepEqual(dialogOpenChanges, [true, false]);
 
+  rerenderDialog(React.createElement(Dialog, {
+    label: "Confirm route",
+    description: "Review before assigning.",
+    triggerLabel: "Open review",
+    actions: [{ key: "confirm", label: "Confirm" }],
+    open: true,
+    onOpenChange: (open) => dialogOpenChanges.push(open),
+    onAction: (key) => dialogActions.push(key),
+  }));
+  await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "true"));
+
+  rerenderDialog(React.createElement(Dialog, {
+    label: "Confirm route",
+    description: "Review before assigning.",
+    triggerLabel: "Open review",
+    actions: [{ key: "confirm", label: "Confirm" }],
+    open: false,
+    onOpenChange: (open) => dialogOpenChanges.push(open),
+    onAction: (key) => dialogActions.push(key),
+  }));
+  await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "false"));
+
   cleanup();
 
   const drawerOpenChanges = [];
   const drawerActions = [];
-  const { getByRole: getDrawerRole } = render(React.createElement(Drawer, {
+  const { getByRole: getDrawerRole, rerender: rerenderDrawer } = render(React.createElement(Drawer, {
     label: "Vehicle details",
     description: "Review route documents.",
     triggerLabel: "Open details",
@@ -396,6 +418,28 @@ try {
   await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(drawerActions, ["save"]);
   assert.deepEqual(drawerOpenChanges, [true, false]);
+
+  rerenderDrawer(React.createElement(Drawer, {
+    label: "Vehicle details",
+    description: "Review route documents.",
+    triggerLabel: "Open details",
+    actions: [{ key: "save", label: "Save" }],
+    open: true,
+    onOpenChange: (open) => drawerOpenChanges.push(open),
+    onAction: (key) => drawerActions.push(key),
+  }));
+  await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "true"));
+
+  rerenderDrawer(React.createElement(Drawer, {
+    label: "Vehicle details",
+    description: "Review route documents.",
+    triggerLabel: "Open details",
+    actions: [{ key: "save", label: "Save" }],
+    open: false,
+    onOpenChange: (open) => drawerOpenChanges.push(open),
+    onAction: (key) => drawerActions.push(key),
+  }));
+  await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false"));
 
   cleanup();
 
@@ -469,7 +513,7 @@ try {
 
   const menuOpenChanges = [];
   const menuSelections = [];
-  const { getByRole: getMenuRole } = render(React.createElement(Menu, {
+  const { getByRole: getMenuRole, rerender: rerenderMenu } = render(React.createElement(Menu, {
     label: "Row actions",
     triggerLabel: "Actions",
     items: [
@@ -497,6 +541,32 @@ try {
   fireEvent.keyDown(getMenuRole("menu", { name: /row actions/i }), { key: "Escape" });
   await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(menuOpenChanges, [true, false, true, false]);
+
+  rerenderMenu(React.createElement(Menu, {
+    label: "Row actions",
+    triggerLabel: "Actions",
+    items: [
+      { key: "edit", label: "Edit", icon: "edit" },
+      { key: "archive", label: "Archive", icon: "archive" },
+    ],
+    open: true,
+    onOpenChange: (open) => menuOpenChanges.push(open),
+    onSelect: (item) => menuSelections.push(item.key),
+  }));
+  await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "true"));
+
+  rerenderMenu(React.createElement(Menu, {
+    label: "Row actions",
+    triggerLabel: "Actions",
+    items: [
+      { key: "edit", label: "Edit", icon: "edit" },
+      { key: "archive", label: "Archive", icon: "archive" },
+    ],
+    open: false,
+    onOpenChange: (open) => menuOpenChanges.push(open),
+    onSelect: (item) => menuSelections.push(item.key),
+  }));
+  await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "false"));
 
   cleanup();
 
@@ -604,7 +674,7 @@ try {
 
   const popoverOpenChanges = [];
   const popoverActions = [];
-  const { getByRole: getPopoverRole } = render(React.createElement(Popover, {
+  const { getByRole: getPopoverRole, rerender: rerenderPopover } = render(React.createElement(Popover, {
     triggerLabel: "Open filters",
     title: "Filter routes",
     description: "Adjust visible routes.",
@@ -625,6 +695,30 @@ try {
   await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(popoverActions, ["apply"]);
   assert.deepEqual(popoverOpenChanges, [true, false]);
+
+  rerenderPopover(React.createElement(Popover, {
+    triggerLabel: "Open filters",
+    title: "Filter routes",
+    description: "Adjust visible routes.",
+    variant: "action",
+    actions: [{ key: "apply", label: "Apply", variant: "primary" }],
+    open: true,
+    onOpenChange: (open) => popoverOpenChanges.push(open),
+    onAction: (key) => popoverActions.push(key),
+  }));
+  await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "true"));
+
+  rerenderPopover(React.createElement(Popover, {
+    triggerLabel: "Open filters",
+    title: "Filter routes",
+    description: "Adjust visible routes.",
+    variant: "action",
+    actions: [{ key: "apply", label: "Apply", variant: "primary" }],
+    open: false,
+    onOpenChange: (open) => popoverOpenChanges.push(open),
+    onAction: (key) => popoverActions.push(key),
+  }));
+  await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false"));
 
   fireEvent.click(popoverTrigger);
   await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "true"));
