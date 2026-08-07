@@ -29,6 +29,8 @@ try {
   });
   writeConsumerScreen(consumerDir);
   run("node", ["screen.mjs"], consumerDir);
+  writeConsumerTypes(consumerDir);
+  run(path.join(root, "node_modules/.bin/tsc"), ["--project", "tsconfig.json"], consumerDir);
   auditInstalledPackage(consumerDir);
   console.log(JSON.stringify({
     status: "pass",
@@ -59,6 +61,8 @@ function writeConsumerPackage(consumerDir, tarball) {
     private: true,
     dependencies: {
       "@alohasoyrico-eng/flow": `file:${tarball}`,
+      "@types/react": `file:${path.join(root, "node_modules/@types/react")}`,
+      "@types/react-dom": `file:${path.join(root, "node_modules/@types/react-dom")}`,
       react: `file:${path.join(root, "node_modules/react")}`,
       "react-dom": `file:${path.join(root, "node_modules/react-dom")}`,
     },
@@ -135,6 +139,50 @@ assert.doesNotMatch(markup, /apps\\/docs|docs-demo|gold-/);
 console.log(markup.length);
 `;
   fs.writeFileSync(path.join(consumerDir, "screen.mjs"), source.trimStart());
+}
+
+function writeConsumerTypes(consumerDir) {
+  const tsconfig = {
+    compilerOptions: {
+      module: "NodeNext",
+      moduleResolution: "NodeNext",
+      noEmit: true,
+      skipLibCheck: true,
+      strict: true,
+      target: "ES2022",
+    },
+    include: ["screen-types.ts"],
+  };
+  fs.writeFileSync(path.join(consumerDir, "tsconfig.json"), `${JSON.stringify(tsconfig, null, 2)}\n`);
+  const source = `
+import React from "react";
+import type { ButtonProps, CardProps, DialogProps, InputProps, TableProps } from "@alohasoyrico-eng/flow/react";
+import { Button, Card, Input, Table } from "@alohasoyrico-eng/flow/react";
+import { Dialog } from "@alohasoyrico-eng/flow/react/dialog";
+
+const buttonRef = React.createRef<HTMLButtonElement>();
+const button = React.createElement(Button, { ref: buttonRef, label: "Continue", variant: "primary", onClick: (event) => event.currentTarget.focus() });
+
+const cardProps: CardProps = { title: "Fleet health", value: "96", actions: [{ label: "Review", variant: "secondary" }] };
+const inputProps: InputProps = { label: "Search", value: "MX-4821", onValueChange: (value) => value.toUpperCase() };
+const tableProps: TableProps = { label: "Vehicles", columns: [{ key: "unit", label: "Unit" }], rows: [{ id: "1", unit: "MX-4821" }] };
+const dialogProps: DialogProps = { label: "Confirm route", open: true, onOpenChange: (open) => Boolean(open) };
+
+React.createElement(Card, cardProps);
+React.createElement(Input, inputProps);
+React.createElement(Table, tableProps);
+React.createElement(Dialog, dialogProps);
+
+// @ts-expect-error Flow owns visual styling; consumers cannot bypass tokens with inline style.
+const badButtonStyle: ButtonProps = { label: "Bad", style: { color: "red" } };
+// @ts-expect-error Flow owns rendered structure; consumers cannot inject HTML.
+const badButtonHtml: ButtonProps = { label: "Bad", dangerouslySetInnerHTML: { __html: "<strong>Bad</strong>" } };
+
+void button;
+void badButtonStyle;
+void badButtonHtml;
+`;
+  fs.writeFileSync(path.join(consumerDir, "screen-types.ts"), source.trimStart());
 }
 
 function auditInstalledPackage(consumerDir) {
