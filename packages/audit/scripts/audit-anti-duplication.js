@@ -170,6 +170,7 @@ function checkReactOnlyComponentBoundaries() {
     ["Motion Boundary", "createMotionBoundary", "motion"],
     ["Animated Moment", "createAnimatedMoment", "motion"],
     ["Chip", "createTransitionalChip", "status"],
+    ["Tag", "createTransitionalTag", "status"],
   ];
   const checks = reactOnlyComponents.flatMap(([label, factory, sourceKey]) => [
     {

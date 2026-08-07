@@ -180,7 +180,7 @@ import {
 import { createCountrySelector, hydrateCountrySelector } from "../src/components/specialized-inputs.js?v=28";
 import { createCombobox } from "../src/components/fields.js?v=21";
 import { createTransitionalAvatar } from "../src/components/display.js?v=3";
-import { createTransitionalBadge, createTransitionalTag } from "../src/components/status.js?v=2";
+import { createTransitionalBadge } from "../src/components/status.js?v=2";
 import {
   createTransitionalPaymentCardExpiryInput,
   hydrateTransitionalPaymentCardExpiryInput,
@@ -494,7 +494,6 @@ assert.deepEqual(Object.keys(chipPlatformAdapters), ["react"]);
 assert.equal(chipPlatformAdapters.react.componentName, "Chip");
 assert.equal(chipPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.tag.factory, "@design-system/react/tag");
-assert.equal(componentContracts.tag.internalFactory, "createTransitionalTag");
 assert.equal(tagPlatformContract.id, "tag");
 assert.equal(tagPlatformContract.source.factory, componentContracts.tag.factory);
 assert.deepEqual(tagPlatformProps(), componentContracts.tag.props.map((prop) => prop.name));
@@ -1481,24 +1480,6 @@ assert.equal(hiddenBadge.hidden, true);
 assert.equal(hiddenBadge.dataset.state, "hidden");
 const disabledBadge = createTransitionalBadge({ label: "4", state: "disabled" });
 assert.equal(disabledBadge.attributes["aria-disabled"], "true");
-
-const tag = createTransitionalTag({ label: "Policy", variant: "link", tone: "info", state: "focus", icon: "verified" });
-assert.equal(tag.tagName, "BUTTON");
-assert.equal(tag.className, "tag");
-assert.equal(tag.dataset.variant, "link");
-assert.equal(tag.dataset.tone, "info");
-assert.equal(tag.dataset.state, "focus");
-assert.equal(tag.dataset.interactive, "true");
-assert.equal(tag.disabled, false);
-assert.equal(tag.querySelector(".tag__icon").textContent, "verified");
-const staticTag = createTransitionalTag({ label: "Mobile", variant: "platform", tone: "neutral" });
-assert.equal(staticTag.tagName, "SPAN");
-assert.equal(staticTag.dataset.variant, "platform");
-assert.equal(staticTag.dataset.tone, "neutral");
-const disabledTag = createTransitionalTag({ label: "Disabled", variant: "link", state: "disabled" });
-assert.equal(disabledTag.tagName, "BUTTON");
-assert.equal(disabledTag.disabled, true);
-assert.equal(disabledTag.dataset.state, "disabled");
 
 const tooltip = createTransitionalTooltip({ triggerLabel: "Info", content: "Short help", id: "tip-1" });
 assert.equal(tooltip.tagName, "SPAN");
