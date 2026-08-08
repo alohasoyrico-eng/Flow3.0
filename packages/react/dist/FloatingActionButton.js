@@ -23,7 +23,7 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "primary");
   const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedLabel = label ?? "";
+  const resolvedLabel = label;
   const isExtended = Boolean(extended) || resolvedVariant === "extended";
   if (!resolvedLabel) return null;
 
