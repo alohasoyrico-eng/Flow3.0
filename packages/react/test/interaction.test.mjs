@@ -395,6 +395,30 @@ try {
 
   cleanup();
 
+  const codeInputFocusEvents = [];
+  const { container: preventedCodeInputContainer, getByLabelText: getPreventedCodeLabel } = render(React.createElement(CodeInput, {
+    label: "Prevented SMS code",
+    length: 4,
+    onFocus: (event) => {
+      codeInputFocusEvents.push(event.type);
+      event.preventDefault();
+    },
+    onBlur: (event) => {
+      codeInputFocusEvents.push(event.type);
+      event.preventDefault();
+    },
+  }));
+
+  const preventedCodeInput = getPreventedCodeLabel(/prevented sms code/i);
+  fireEvent.focus(preventedCodeInput);
+  assert.deepEqual(codeInputFocusEvents, ["focus"]);
+  assert.equal(preventedCodeInputContainer.querySelector(".code-input")?.getAttribute("data-focused"), "false");
+  fireEvent.blur(preventedCodeInput);
+  assert.deepEqual(codeInputFocusEvents, ["focus", "blur"]);
+  assert.equal(preventedCodeInputContainer.querySelector(".code-input")?.getAttribute("data-focused"), "false");
+
+  cleanup();
+
   const comboboxChanges = [];
   const { getByRole: getComboboxRole, rerender: rerenderCombobox } = render(React.createElement(Combobox, {
     label: "Driver",

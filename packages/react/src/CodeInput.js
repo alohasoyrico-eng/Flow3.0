@@ -93,12 +93,14 @@ export const CodeInput = forwardRef(function CodeInput({
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
         onFocus: (event) => {
-          setFocused(true);
           rest.onFocus?.(event);
+          if (event.defaultPrevented) return;
+          setFocused(true);
         },
         onBlur: (event) => {
-          setFocused(false);
           rest.onBlur?.(event);
+          if (event.defaultPrevented) return;
+          setFocused(false);
         },
         onChange: (event) => {
           const nextValue = normalizeCodeValue(event.target.value, resolvedLength);
