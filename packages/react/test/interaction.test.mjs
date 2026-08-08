@@ -126,6 +126,24 @@ try {
 
   cleanup();
 
+  const preventedCardActions = [];
+  const { getByRole: getPreventedCardRole } = render(React.createElement(Card, {
+    title: "Prevented wallet",
+    value: "$8,412.50",
+    interactive: true,
+    actionKey: "prevented-wallet",
+    onClick: (event) => event.preventDefault(),
+    onKeyDown: (event) => event.preventDefault(),
+    onAction: (...args) => preventedCardActions.push(args),
+  }));
+
+  const preventedCard = getPreventedCardRole("button", { name: /prevented wallet/i });
+  fireEvent.click(preventedCard);
+  fireEvent.keyDown(preventedCard, { key: "Enter" });
+  assert.deepEqual(preventedCardActions, []);
+
+  cleanup();
+
   const nestedCardActions = [];
   const nestedActionClicks = [];
   const { getByRole: getNestedCardRole } = render(React.createElement(Card, {
@@ -146,6 +164,24 @@ try {
   assert.equal(nestedCardActions[0][0], "freeze");
   assert.equal(nestedCardActions[0][1].label, "Freeze");
   assert.equal(nestedCardActions[0][2].type, "click");
+
+  cleanup();
+
+  const preventedNestedCardActions = [];
+  const { getByRole: getPreventedNestedCardRole } = render(React.createElement(Card, {
+    title: "Driver card",
+    actions: [
+      {
+        key: "freeze",
+        label: "Freeze",
+        onClick: (event) => event.preventDefault(),
+      },
+    ],
+    onAction: (...args) => preventedNestedCardActions.push(args),
+  }));
+
+  fireEvent.click(getPreventedNestedCardRole("button", { name: /freeze/i }));
+  assert.deepEqual(preventedNestedCardActions, []);
 
   cleanup();
 

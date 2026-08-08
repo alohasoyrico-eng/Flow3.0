@@ -30,6 +30,7 @@ function cardAction(action, density, index, onAction) {
   const { iconOnly, ...actionProps } = action;
   const handleClick = (event) => {
     action.onClick?.(event);
+    if (event.defaultPrevented) return;
     onAction?.(key, action, event);
   };
   return isIconOnly
@@ -140,14 +141,16 @@ export const Card = forwardRef(function Card({
       onClick: isInteractive && !isDisabled
         ? (event) => {
           rest.onClick?.(event);
+          if (event.defaultPrevented) return;
           onAction?.(resolvedActionKey, undefined, event);
         }
         : rest.onClick,
       onKeyDown: isInteractive && !isDisabled
         ? (event) => {
           if (event.key !== "Enter" && event.key !== " ") return;
-          event.preventDefault();
           rest.onKeyDown?.(event);
+          if (event.defaultPrevented) return;
+          event.preventDefault();
           onAction?.(resolvedActionKey, undefined, event);
         }
         : rest.onKeyDown,
