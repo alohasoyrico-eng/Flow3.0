@@ -187,7 +187,7 @@ export const Drawer = forwardRef(function Drawer({
           closeLabel ? React.createElement(IconButton, {
             ref: closeRef,
             icon: "close",
-            ariaLabel: closeLabel,
+            label: closeLabel,
             density: resolvedDensity,
             variant: "ghost",
             className: "drawer__close",
