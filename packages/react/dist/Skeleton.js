@@ -45,9 +45,9 @@ export const Skeleton = forwardRef(function Skeleton({
   const columnCount = clampNumber(columns, 2, 6, 4);
   const isBusy = Boolean(busy) && !["loaded", "disabled"].includes(resolvedState);
   const style = {
-    "--skeleton-width": toCssLength(width),
-    "--skeleton-height": toCssLength(height),
-    "--skeleton-columns": resolvedVariant === "table" ? columnCount : undefined,
+    "--comp-skeleton-current-width": toCssLength(width),
+    "--comp-skeleton-current-height": toCssLength(height),
+    "--comp-skeleton-current-columns": resolvedVariant === "table" ? columnCount : undefined,
   };
   const hasStyle = Object.values(style).some((value) => value !== undefined);
   const boneCount = singleBoneVariants.has(resolvedVariant) ? 1 : clampNumber(lines, 1, 6, 3);

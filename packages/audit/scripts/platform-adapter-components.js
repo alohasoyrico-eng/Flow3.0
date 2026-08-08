@@ -713,7 +713,7 @@ const components = [
     requiredTokens: ["comp.skeleton.*", "component-loading-*", "component-skeleton-*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.tone.*", "sys.growth.*"],
     primitives: ["color", "spacing", "radius", "disabled", "duration", "motion-curves", "loading", "measurement"],
     props: ["label", "variant", "lines", "rows", "columns", "busy", "state", "fullWidth", "width", "height"],
-    jsSnippets: ["skeletonPlatformContract", "className: [\"skeleton\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', '"data-full-width": String(Boolean(fullWidth))', "role: \"status\"", '"aria-busy": String(isBusy)', "skeleton__row", "skeleton__bone", "skeleton__cell", "\"--skeleton-width\""],
+    jsSnippets: ["skeletonPlatformContract", "className: [\"skeleton\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', '"data-full-width": String(Boolean(fullWidth))', "role: \"status\"", '"aria-busy": String(isBusy)', "skeleton__row", "skeleton__bone", "skeleton__cell", "\"--comp-skeleton-current-width\""],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "SkeletonProps", "SkeletonVariant", "SkeletonState", "skeletonPlatformContract"],
     packagePath: "./skeleton",
     exportName: "Skeleton",

@@ -1417,7 +1417,7 @@ assert.match(skeletonMarkup, /aria-label="Table loading"/);
 assert.match(skeletonMarkup, /data-variant="table"/);
 assert.match(skeletonMarkup, /data-rows="2"/);
 assert.match(skeletonMarkup, /data-columns="3"/);
-assert.match(skeletonMarkup, /--skeleton-columns:3/);
+assert.match(skeletonMarkup, /--comp-skeleton-current-columns:3/);
 assert.equal((skeletonMarkup.match(/class="skeleton__row"/g) ?? []).length, 2);
 assert.equal((skeletonMarkup.match(/class="skeleton__bone skeleton__cell"/g) ?? []).length, 6);
 const unnamedSkeletonMarkup = renderToStaticMarkup(React.createElement(Skeleton));

@@ -3974,7 +3974,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .skeleton {
   --comp-skeleton-width: min(100%, var(--component-content-size-md));
-  --skeleton-width: var(--comp-skeleton-width);
+  --comp-skeleton-current-width: var(--comp-skeleton-width);
+  --comp-skeleton-current-columns: 4;
   --comp-skeleton-gap: var(--sys-space-sm);
   --comp-skeleton-fg: var(--sys-color-text-muted);
   --comp-skeleton-bg: var(--component-loading-skeleton-surface);
@@ -4016,7 +4017,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-skeleton-state-ease: var(--component-ease-state);
   display: grid;
   gap: var(--comp-skeleton-gap);
-  inline-size: var(--skeleton-width);
+  inline-size: var(--comp-skeleton-current-width);
   max-inline-size: 100%;
   overflow: hidden;
   color: var(--comp-skeleton-fg);
@@ -4038,41 +4039,41 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .skeleton--text .skeleton__bone {
-  block-size: var(--skeleton-height, var(--comp-skeleton-text-block-size));
+  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-text-block-size));
 }
 
 .skeleton--title {
-  --skeleton-width: var(--comp-skeleton-title-width);
-  inline-size: var(--skeleton-width);
+  --comp-skeleton-current-width: var(--comp-skeleton-title-width);
+  inline-size: var(--comp-skeleton-current-width);
 }
 
 .skeleton--title .skeleton__bone {
-  block-size: var(--skeleton-height, var(--comp-skeleton-title-block-size));
+  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-title-block-size));
   border-radius: var(--comp-skeleton-title-radius);
 }
 
 .skeleton--circle {
-  --skeleton-width: var(--comp-skeleton-circle-width);
-  inline-size: var(--skeleton-width);
+  --comp-skeleton-current-width: var(--comp-skeleton-circle-width);
+  inline-size: var(--comp-skeleton-current-width);
 }
 
 .skeleton--circle .skeleton__bone {
-  block-size: var(--skeleton-height, var(--skeleton-width, var(--comp-skeleton-circle-width)));
+  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-current-width));
   border-radius: var(--comp-skeleton-radius);
 }
 
 .skeleton--pill {
-  --skeleton-width: var(--comp-skeleton-pill-width);
-  inline-size: var(--skeleton-width);
+  --comp-skeleton-current-width: var(--comp-skeleton-pill-width);
+  inline-size: var(--comp-skeleton-current-width);
 }
 
 .skeleton--pill .skeleton__bone {
-  block-size: var(--skeleton-height, var(--comp-skeleton-pill-block-size));
+  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-pill-block-size));
   border-radius: var(--comp-skeleton-radius);
 }
 
 .skeleton--card .skeleton__bone:first-child {
-  block-size: var(--skeleton-height, var(--comp-skeleton-card-block-size));
+  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-card-block-size));
   border-radius: var(--comp-skeleton-card-radius);
 }
 
@@ -4098,21 +4099,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .skeleton--table {
-  --skeleton-width: var(--comp-skeleton-table-width);
-  inline-size: var(--skeleton-width);
+  --comp-skeleton-current-width: var(--comp-skeleton-table-width);
+  inline-size: var(--comp-skeleton-current-width);
   gap: var(--comp-skeleton-table-gap);
 }
 
 .skeleton--table .skeleton__row {
   display: grid;
-  grid-template-columns: repeat(var(--skeleton-columns, 4), minmax(0, 1fr));
+  grid-template-columns: repeat(var(--comp-skeleton-current-columns), minmax(0, 1fr));
   gap: var(--comp-skeleton-table-row-gap);
   align-items: center;
   min-block-size: var(--comp-skeleton-table-row-min-block);
 }
 
 .skeleton--table .skeleton__bone {
-  block-size: var(--skeleton-height, var(--comp-skeleton-table-cell-block-size));
+  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-table-cell-block-size));
   inline-size: 100%;
 }
 

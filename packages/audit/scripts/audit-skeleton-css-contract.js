@@ -28,12 +28,17 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
   const shortCellBlock = blockFor(blocks, selectorKey, ".skeleton--table .skeleton__row:nth-child(even) .skeleton__cell:last-child");
   const mediumCellBlock = blockFor(blocks, selectorKey, ".skeleton--table .skeleton__row:nth-child(odd) .skeleton__cell:nth-child(2)");
 
+  if (text.includes("--skeleton-")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--skeleton-")), "Skeleton must not use short --skeleton-* aliases; use component-scoped --comp-skeleton-current-* aliases.");
+  }
+
   requireIncludes({
     block: rootBlock,
     text,
     packageCssFile,
     snippets: [
-      "--skeleton-width: var(--comp-skeleton-width)",
+      "--comp-skeleton-current-width: var(--comp-skeleton-width)",
+      "--comp-skeleton-current-columns: 4",
       "--comp-skeleton-bg: var(--component-loading-skeleton-surface)",
       "--comp-skeleton-highlight: var(--component-loading-skeleton-highlight)",
       "--comp-skeleton-shimmer-duration: var(--component-duration-shimmer)",
@@ -42,7 +47,7 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
       "color: var(--comp-skeleton-fg)",
       "transition: opacity var(--comp-skeleton-state-duration) var(--comp-skeleton-state-ease)",
     ],
-    message: "Skeleton root must bridge public sizing API through component loading, state, and rhythm aliases.",
+    message: "Skeleton root must bridge public sizing API through component-scoped loading, state, and rhythm aliases.",
   });
   requireIncludes({
     block: boneBlock,
@@ -61,28 +66,28 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
     block: titleBlock,
     text,
     packageCssFile,
-    snippets: ["--skeleton-width: var(--comp-skeleton-title-width)"],
+    snippets: ["--comp-skeleton-current-width: var(--comp-skeleton-title-width)"],
     message: "Skeleton title width must resolve through a Skeleton alias.",
   });
   requireIncludes({
     block: titleBoneBlock,
     text,
     packageCssFile,
-    snippets: ["block-size: var(--skeleton-height, var(--comp-skeleton-title-block-size))", "border-radius: var(--comp-skeleton-title-radius)"],
+    snippets: ["block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-title-block-size))", "border-radius: var(--comp-skeleton-title-radius)"],
     message: "Skeleton title bone must consume Skeleton title aliases.",
   });
   requireIncludes({
     block: circleBlock,
     text,
     packageCssFile,
-    snippets: ["--skeleton-width: var(--comp-skeleton-circle-width)"],
+    snippets: ["--comp-skeleton-current-width: var(--comp-skeleton-circle-width)"],
     message: "Skeleton circle width must resolve through a Skeleton alias.",
   });
   requireIncludes({
     block: pillBlock,
     text,
     packageCssFile,
-    snippets: ["--skeleton-width: var(--comp-skeleton-pill-width)"],
+    snippets: ["--comp-skeleton-current-width: var(--comp-skeleton-pill-width)"],
     message: "Skeleton pill width must resolve through a Skeleton alias.",
   });
   requireIncludes({
@@ -96,21 +101,21 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
     block: tableBlock,
     text,
     packageCssFile,
-    snippets: ["--skeleton-width: var(--comp-skeleton-table-width)", "gap: var(--comp-skeleton-table-gap)"],
+    snippets: ["--comp-skeleton-current-width: var(--comp-skeleton-table-width)", "gap: var(--comp-skeleton-table-gap)"],
     message: "Skeleton table layout must consume Skeleton table aliases.",
   });
   requireIncludes({
     block: tableRowBlock,
     text,
     packageCssFile,
-    snippets: ["gap: var(--comp-skeleton-table-row-gap)", "min-block-size: var(--comp-skeleton-table-row-min-block)"],
+    snippets: ["grid-template-columns: repeat(var(--comp-skeleton-current-columns), minmax(0, 1fr))", "gap: var(--comp-skeleton-table-row-gap)", "min-block-size: var(--comp-skeleton-table-row-min-block)"],
     message: "Skeleton table row must consume Skeleton table row aliases.",
   });
   requireIncludes({
     block: tableBoneBlock,
     text,
     packageCssFile,
-    snippets: ["block-size: var(--skeleton-height, var(--comp-skeleton-table-cell-block-size))"],
+    snippets: ["block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-table-cell-block-size))"],
     message: "Skeleton table cell must consume Skeleton table cell alias.",
   });
   requireIncludes({

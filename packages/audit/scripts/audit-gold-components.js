@@ -281,7 +281,7 @@ function checkGoldComponentTokens() {
   ];
   const componentCss = `${css}\n${packageCss}`;
   for (const [required, message] of badgeChipTabsVisualContract) if (!componentCss.includes(required)) add("errors", cssFile, 1, message);
-  if (!packageCss.includes(".skeleton") || !packageCss.includes("--skeleton-width: var(--comp-skeleton-width);")) {
+  if (!packageCss.includes(".skeleton") || !packageCss.includes("--comp-skeleton-current-width: var(--comp-skeleton-width);")) {
     add("errors", packageCssFile, 1, "Skeleton package-backed demos must style the Package component root, not only the legacy skeleton-demo fallback.");
   }
   const packageSemanticChecks = [
