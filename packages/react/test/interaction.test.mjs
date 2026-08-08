@@ -2286,7 +2286,7 @@ try {
   const { getByLabelText: getTextAreaLabel, getByText: getTextAreaText, rerender: rerenderTextArea } = render(React.createElement(TextArea, {
     label: "Notes",
     maxLength: 20,
-    onChange: (value, meta, event) => textAreaChanges.push({ value, meta, eventType: event.type }),
+    onValueChange: (value, meta, event) => textAreaChanges.push({ value, meta, eventType: event.type }),
   }));
 
   const notesTextArea = getTextAreaLabel(/notes/i);
@@ -2299,7 +2299,7 @@ try {
     label: "Notes",
     value: "Route ready",
     loading: true,
-    onChange: (value, meta, event) => textAreaChanges.push({ value, meta, eventType: event.type }),
+    onValueChange: (value, meta, event) => textAreaChanges.push({ value, meta, eventType: event.type }),
   }));
 
   fireEvent.change(getTextAreaLabel(/notes/i), { target: { value: "Blocked" } });
@@ -2309,7 +2309,7 @@ try {
     label: "Notes",
     value: "Externally updated",
     maxLength: 30,
-    onChange: (value, meta, event) => textAreaChanges.push({ value, meta, eventType: event.type }),
+    onValueChange: (value, meta, event) => textAreaChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(notesTextArea.value, "Externally updated"));
   getTextAreaText("18/30");
@@ -2321,25 +2321,10 @@ try {
     label: "Notes",
     value: "Local draft",
     maxLength: 30,
-    onChange: (value, meta, event) => textAreaChanges.push({ value, meta, eventType: event.type }),
+    onValueChange: (value, meta, event) => textAreaChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(notesTextArea.value, "Local draft"));
   getTextAreaText("11/30");
-
-  cleanup();
-
-  const textAreaValueChanges = [];
-  const textAreaLegacyChanges = [];
-  const { getByLabelText: getValueTextAreaLabel } = render(React.createElement(TextArea, {
-    label: "Value notes",
-    maxLength: 20,
-    onValueChange: (value, meta, event) => textAreaValueChanges.push({ value, meta, eventType: event.type }),
-    onChange: (value, meta, event) => textAreaLegacyChanges.push({ value, meta, eventType: event.type }),
-  }));
-
-  fireEvent.change(getValueTextAreaLabel(/value notes/i), { target: { value: "Ready" } });
-  assert.deepEqual(textAreaValueChanges, [{ value: "Ready", meta: { maxLength: 20, length: 5 }, eventType: "change" }]);
-  assert.deepEqual(textAreaLegacyChanges, textAreaValueChanges);
 
   cleanup();
 

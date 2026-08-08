@@ -96,6 +96,12 @@ function checkNoOpaqueCallbackTypes({ add, componentName, typesFile, types }) {
   }
 }
 
+function checkNoPublicNativeChangeAlias({ add, componentName, typesFile, types }) {
+  if (/^\s*onChange\??:/m.test(propsBodyFor(types, componentName))) {
+    add("errors", typesFile, 1, `${componentName} React props must not expose onChange as a Flow semantic callback; use onValueChange or a component-specific event name.`);
+  }
+}
+
 function checkActionCallbackPayloads({ add, componentName, typesFile, types }) {
   for (const match of types.matchAll(/export interface ([A-Za-z][A-Za-z0-9]*Action)\b[\s\S]*?^\}/gm)) {
     if (/^\s*onAction\??:\s*\(\)\s*=>\s*void;/m.test(match[0])) {
@@ -151,6 +157,7 @@ function checkReactPropContracts(args) {
   checkRequiredPropContract(args);
   checkNoOpaqueRecordTypes(args);
   checkNoOpaqueCallbackTypes(args);
+  checkNoPublicNativeChangeAlias(args);
   checkActionCallbackPayloads(args);
   checkActionPropContractTypes(args);
   checkNoCrossComponentPropInheritance(args);

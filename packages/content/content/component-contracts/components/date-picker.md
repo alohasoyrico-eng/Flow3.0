@@ -83,9 +83,9 @@ State precedence: disabled, error, warning, selected, focus, hover, default
 
 - Associate the label and selected date with the input.
 - Support keyboard navigation when the calendar is open.
-- Escape closes the calendar and restores focus to the trigger.
 - Expose disabled dates and unavailable reasons.
 - Keep selected date visible as text.
+- Escape closes the calendar and restores focus to the trigger.
 - Do not use for date ranges or reporting windows.
 
 ## Foundations

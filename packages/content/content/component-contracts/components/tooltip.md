@@ -83,9 +83,9 @@ State precedence: disabled, dismissed, open, focus, hover, default
 
 - Connect the trigger and tooltip with aria-describedby when the tooltip is visible.
 - Show on focus and hover; dismiss on blur, pointer leave, Escape, or scroll context changes.
-- Keyboard users must be able to reveal the tooltip through focus and dismiss it with Escape.
 - Keep tooltip content non-interactive; use Popover when the layer contains controls.
 - Do not hide required instructions exclusively inside a tooltip.
+- Keyboard users must be able to reveal the tooltip through focus and dismiss it with Escape.
 - Keep the trigger accessible name independent from the tooltip copy.
 
 ## Foundations

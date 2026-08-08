@@ -979,15 +979,12 @@
       "source": "packages/react/src/TextArea.js",
       "types": "packages/react/src/TextArea.d.ts",
       "callbacks": [
-        "onChange",
         "onValueChange"
       ],
       "sourceCovered": [
-        "onChange",
         "onValueChange"
       ],
       "testCovered": [
-        "onChange",
         "onValueChange"
       ],
       "missingInSource": [],

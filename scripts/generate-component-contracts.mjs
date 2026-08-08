@@ -412,6 +412,7 @@ fs.mkdirSync(targetDir, { recursive: true });
 const componentIds = fs.readdirSync(sourceDir, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name)
+  .filter((id) => collectSources(path.join(sourceDir, id)).length > 0)
   .sort();
 
 for (const id of componentIds) {

@@ -203,13 +203,12 @@ Text Area API is for multiline free-form text. Rich text, mentions, templates, a
 | maxLength | number | no | Shows character counter. |
 | error | string | no | Validation message. |
 | disabled | boolean | no | Blocks editing. |
-| onChange | (value: string) => void | yes | Reports the next value. |
+| onValueChange | (value: string, meta: TextAreaChangeMeta) => void | no | Reports the next value and counter metadata. |
 
 ## Implementation Checklist
 
 - Provide `label`: Visible label.
 - Provide `value`: Controlled multiline value.
-- Provide `onChange`: Reports the next value.
 - Visible label and multiline semantics
 - Typing and resize behavior
 - Counter updates with maxLength

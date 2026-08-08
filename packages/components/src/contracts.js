@@ -239,6 +239,7 @@ export const componentContracts = {
       "Use aria-autocomplete=list with a listbox of filtered options.",
       "Require option label and value before composing choices.",
       "Expose active option with aria-activedescendant while the listbox is open.",
+      "Escape closes the option layer without changing the current input value.",
       "Provide visible empty-state copy when filtering produces no results.",
       "Do not use Combobox for global search, async command palettes, multi-select, or form submission flows."
     ]
@@ -383,7 +384,7 @@ export const componentContracts = {
       { name: "maxLength", type: "number", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "state", type: "\"default\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"", required: false },
-      { name: "onChange", type: "(value: string) => void", required: false }
+      { name: "onValueChange", type: "(value: string, meta: TextAreaChangeMeta) => void", required: false }
     ],
     accessibility: [
       "Keep the visible label associated with the textarea.",
@@ -511,6 +512,7 @@ export const componentContracts = {
     accessibility: [
       "Connect trigger and bubble with aria-describedby.",
       "Use role tooltip on the bubble.",
+      "Keyboard users must be able to reveal the tooltip through focus and dismiss it with Escape.",
       "Keep tooltip copy short and non-interactive."
     ]
   },
@@ -1331,6 +1333,7 @@ export const componentContracts = {
       "Expose combobox/listbox semantics with aria-expanded, aria-controls, and aria-activedescendant.",
       "Keep country label and calling code available as text in every option.",
       "Treat the flag as decorative support, not the only country signal.",
+      "Escape closes the country list without changing the selected country.",
       "Use inline variant only when composed inside another field such as Phone Input."
     ]
   },
@@ -1366,6 +1369,7 @@ export const componentContracts = {
       "Expose label, selected date, dialog state, and disabled dates.",
       "Keep the selected date visible as text.",
       "Support keyboard entry, keyboard day selection, month navigation, and native date input fallback.",
+      "Escape closes the calendar and restores focus to the trigger.",
       "Use date range and scheduling patterns for composed calendar processes."
     ]
   },
