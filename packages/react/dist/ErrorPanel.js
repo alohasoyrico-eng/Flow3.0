@@ -84,6 +84,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
         loading: resolvedState === "loading" || action.loading,
         onClick: (event) => {
           action.onClick?.(event);
+          if (event.defaultPrevented) return;
           onAction?.(actionKey);
         },
       })

@@ -74,6 +74,7 @@ export const EmptyState = forwardRef(function EmptyState({
         variant: action.variant ?? "primary",
         onClick: (event) => {
           action.onClick?.(event);
+          if (event.defaultPrevented) return;
           onAction?.(actionKey);
         },
       })

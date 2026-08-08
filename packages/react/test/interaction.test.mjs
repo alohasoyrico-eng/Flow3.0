@@ -678,6 +678,22 @@ try {
 
   cleanup();
 
+  const preventedEmptyStateActions = [];
+  const { getByRole: getPreventedEmptyStateRole } = render(React.createElement(EmptyState, {
+    title: "No vehicles match",
+    action: {
+      key: "clear-filters",
+      label: "Clear filters",
+      onClick: (event) => event.preventDefault(),
+    },
+    onAction: (key) => preventedEmptyStateActions.push(key),
+  }));
+
+  fireEvent.click(getPreventedEmptyStateRole("button", { name: /clear filters/i }));
+  assert.deepEqual(preventedEmptyStateActions, []);
+
+  cleanup();
+
   const errorPanelActions = [];
   const errorPanelClicks = [];
   const { getByRole: getErrorPanelRole } = render(React.createElement(ErrorPanel, {
@@ -693,6 +709,22 @@ try {
   fireEvent.click(getErrorPanelRole("button", { name: /retry/i }));
   assert.deepEqual(errorPanelClicks, ["click"]);
   assert.deepEqual(errorPanelActions, ["retry"]);
+
+  cleanup();
+
+  const preventedErrorPanelActions = [];
+  const { getByRole: getPreventedErrorPanelRole } = render(React.createElement(ErrorPanel, {
+    label: "Sync failed",
+    action: {
+      key: "retry",
+      label: "Retry",
+      onClick: (event) => event.preventDefault(),
+    },
+    onAction: (key) => preventedErrorPanelActions.push(key),
+  }));
+
+  fireEvent.click(getPreventedErrorPanelRole("button", { name: /retry/i }));
+  assert.deepEqual(preventedErrorPanelActions, []);
 
   cleanup();
 
