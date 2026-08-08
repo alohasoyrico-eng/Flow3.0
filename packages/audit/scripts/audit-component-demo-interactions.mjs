@@ -193,6 +193,7 @@ for (const fileName of [
   "stateful-component-interactions.js",
   "overlay-demo-interactions.js",
   "display-demo-interactions.js",
+  "choice-demo-interactions.js",
   "tooltip-demo-interactions.js",
   "toast-demo-interactions.js",
   "progress-indicator-demo-interactions.js",
@@ -208,6 +209,7 @@ for (const fileName of [
 const stateful = await import(pathToFileURL(docsModulePath("stateful-component-interactions.js")).href);
 const overlay = await import(pathToFileURL(docsModulePath("overlay-demo-interactions.js")).href);
 const display = await import(pathToFileURL(docsModulePath("display-demo-interactions.js")).href);
+const choice = await import(pathToFileURL(docsModulePath("choice-demo-interactions.js")).href);
 const tooltip = await import(pathToFileURL(docsModulePath("tooltip-demo-interactions.js")).href);
 const toast = await import(pathToFileURL(docsModulePath("toast-demo-interactions.js")).href);
 const progress = await import(pathToFileURL(docsModulePath("progress-indicator-demo-interactions.js")).href);
@@ -221,6 +223,9 @@ overlay.setupOverlayDemos(root);
 overlay.setupMenuDemos(root);
 display.setupAccordionDemos(root);
 display.setupTableDemos(root);
+choice.setupChoiceDemos(root);
+choice.setupRadioButtonDemos(root);
+choice.setupSwitchDemos(root);
 tooltip.setupTooltipDemos(root);
 toast.setupToastDemos(root);
 progress.setupProgressIndicatorDemos(root);
@@ -231,6 +236,27 @@ assert.equal(fixtures.chipToggle.getAttribute("aria-pressed"), "false", "Chip do
 assert.equal(fixtures.chipToggle.dataset.selected, "false", "Chip docs runtime should not duplicate React selected state.");
 fixtures.chipRemove.click();
 assert.equal(fixtures.chipRemove.removed, false, "Chip docs runtime should not remove React-owned chips.");
+
+fixtures.checkboxInput.checked = true;
+fixtures.checkboxInput.dispatch("change");
+assert.equal(fixtures.checkbox.dataset.demoReady, "true", "Checkbox docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.checkbox.dataset.checked, "false", "Checkbox docs runtime should not duplicate React checked state.");
+assert.equal(fixtures.checkbox.dataset.state, "unchecked", "Checkbox docs runtime should not duplicate React visual state.");
+assert.equal(fixtures.checkboxInput.getAttribute("aria-checked"), "false", "Checkbox docs runtime should not duplicate React aria state.");
+assert.equal(fixtures.checkboxInput.indeterminate, undefined, "Checkbox docs runtime should not mutate React indeterminate state.");
+
+fixtures.radioInput.checked = true;
+fixtures.radioInput.dispatch("change");
+assert.equal(fixtures.radio.dataset.demoReady, "true", "RadioButton docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.radio.dataset.checked, "false", "RadioButton docs runtime should not duplicate React checked state.");
+assert.equal(fixtures.radio.dataset.state, "unselected", "RadioButton docs runtime should not duplicate React visual state.");
+
+fixtures.switchInput.checked = true;
+fixtures.switchInput.dispatch("click");
+assert.equal(fixtures.switchDemo.dataset.demoReady, "true", "Switch docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.switchDemo.dataset.checked, "false", "Switch docs runtime should not duplicate React checked state.");
+assert.equal(fixtures.switchDemo.dataset.state, "off", "Switch docs runtime should not duplicate React visual state.");
+assert.equal(fixtures.switchInput.getAttribute("aria-checked"), "false", "Switch docs runtime should not duplicate React aria state.");
 
 fixtures.tabs.children[0].dispatch("keydown", { key: "ArrowRight" });
 assert.equal(fixtures.tabs.dataset.statefulReady, "true", "Tabs docs should register the React island without legacy DOM state ownership.");
@@ -316,6 +342,9 @@ console.log(JSON.stringify({
   status: "pass",
   checked: [
     "chip",
+    "checkbox",
+    "radio-button",
+    "switch",
     "tabs",
     "slider",
     "segmented-control",
@@ -340,6 +369,24 @@ function buildFixtures() {
   const chipRemove = el("button", { className: "chip", attrs: { "aria-pressed": "true" }, dataset: { docComponent: "chip", chipRemove: "true", selected: "true", state: "selected" } }, [
     el("span", { className: "chip__label", textContent: "Route" }),
     el("span", { attrs: { "aria-hidden": "true" }, dataset: { chipRemoveIcon: "true" }, textContent: "close" }),
+  ]);
+
+  const checkboxInput = el("input", { attrs: { type: "checkbox", "aria-checked": "false" } });
+  const checkbox = el("label", { className: "choice checkbox docs-package-demo", dataset: { checked: "false", state: "unchecked", indeterminate: "false" } }, [
+    checkboxInput,
+    el("span", { className: "choice__mark" }, [
+      el("span", { className: "choice__indicator", textContent: "check" }),
+    ]),
+  ]);
+  const radioInput = el("input", { attrs: { type: "radio", name: "audit-radio" } });
+  const radio = el("label", { className: "choice radio docs-package-demo", dataset: { checked: "false", state: "unselected" } }, [
+    radioInput,
+    el("span", { className: "choice__mark" }),
+  ]);
+  const switchInput = el("input", { attrs: { type: "checkbox", role: "switch", "aria-checked": "false" } });
+  const switchDemo = el("label", { className: "switch docs-package-demo", dataset: { checked: "false", state: "off" } }, [
+    switchInput,
+    el("span", { className: "switch__track" }),
   ]);
 
   const tabs = el("div", { className: "detail-tablist" }, [
@@ -540,6 +587,9 @@ function buildFixtures() {
     roots: [
       chipToggle,
       chipRemove,
+      checkbox,
+      radio,
+      switchDemo,
       tabs,
       slider,
       segmented,
@@ -558,6 +608,12 @@ function buildFixtures() {
     ],
     chipToggle,
     chipRemove,
+    checkbox,
+    checkboxInput,
+    radio,
+    radioInput,
+    switchDemo,
+    switchInput,
     tabs,
     slider,
     sliderInput,
