@@ -60,6 +60,9 @@ function checkDensityContracts() {
     if (/\bdensity\s*(?:\?\?|\|\|)\s*["'](?:sm|md|lg)["']/.test(source) || /\bdensity:\s*[^,\n]*(?:\?\?|\|\|)\s*["'](?:sm|md|lg)["']/.test(source)) {
       add("errors", component.file, 1, `${component.name} must not fallback child density to a fixed value; pass inherited density or omit it.`);
     }
+    if (source.includes("resolvedDensity || undefined") || source.includes("(resolvedDensity || undefined)")) {
+      add("errors", component.file, 1, `${component.name} must pass normalized density directly; normalizeFlowDensity() already returns undefined for inherited density.`);
+    }
     if (/\b(?:resolvedDensity|currentDensity|childDensity|densityValue)\s*=\s*[^;\n?]+\?\s*["'](?:sm|md|lg)["']/.test(source)) {
       add("errors", component.file, 1, `${component.name} must not derive density from variant/state with a fixed ternary value; density is owned by Flow cascade or explicit density prop.`);
     }
