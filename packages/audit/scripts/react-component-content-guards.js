@@ -238,7 +238,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Slider" && /label \? React\.createElement\("span", \{ className: "slider__label"/.test(source)) add("errors", sourceFile, 1, "Slider must not render the required visible label conditionally after the runtime guard.");
   if (name === "Slider" && /"aria-label":\s*label\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Slider must use its required visible label directly as the range accessible name.");
   if (name === "InlineValidation" && !source.includes("const showField = Boolean(label && requestedField);")) add("errors", sourceFile, 1, "InlineValidation must require a visible label before composing Input.");
-  if (name === "InlineValidation" && /label:\s*label\s*\?\?\s*""|"aria-label":\s*label\s*\?\s*undefined\s*:\s*fieldAriaLabel/.test(source)) add("errors", sourceFile, 1, "InlineValidation must not synthesize field labels or replace visible labels with aria-only fields.");
+  if (name === "InlineValidation" && /fieldAriaLabel|label:\s*label\s*\?\?\s*""|"aria-label":\s*label\s*\?\s*undefined/.test(source)) add("errors", sourceFile, 1, "InlineValidation must not synthesize field labels or replace visible labels with aria-only fields.");
   if (name === "Stepper" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Stepper must not render without an accessible progress label.");
 }
 

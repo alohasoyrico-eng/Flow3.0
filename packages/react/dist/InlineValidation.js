@@ -22,7 +22,6 @@ export const InlineValidation = forwardRef(function InlineValidation({
   density,
   fullWidth = false,
   field,
-  fieldAriaLabel = "",
   live = false,
   className = "",
   ...rest

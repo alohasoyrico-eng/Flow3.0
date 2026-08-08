@@ -1125,7 +1125,6 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "fullWidth", type: "boolean", required: false },
       { name: "field", type: "boolean", required: false },
-      { name: "fieldAriaLabel", type: "string", required: false },
       { name: "live", type: "boolean", required: false }
     ],
     accessibility: [

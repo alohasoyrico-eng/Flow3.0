@@ -2112,9 +2112,9 @@ const unnamedInlineValidationMarkup = renderToStaticMarkup(React.createElement(I
 assert.doesNotMatch(unnamedInlineValidationMarkup, /aria-label="Input"/);
 const explicitInlineValidationFieldMarkup = renderToStaticMarkup(React.createElement(InlineValidation, {
   value: "Alex",
-  fieldAriaLabel: "Driver field",
+  field: true,
 }));
-assert.doesNotMatch(explicitInlineValidationFieldMarkup, /class="field"|aria-label="Driver field"/);
+assert.doesNotMatch(explicitInlineValidationFieldMarkup, /class="field"/);
 assert.match(explicitInlineValidationFieldMarkup, /data-field="false"/);
 
 const cardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput, {
