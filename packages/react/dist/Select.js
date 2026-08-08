@@ -46,6 +46,8 @@ export const Select = forwardRef(function Select({
     if (isValueControlled) setCurrentValue(value ?? "");
   }, [isValueControlled, value]);
 
+  if (!label) return null;
+
   const commitOption = (option) => {
     if (option.disabled) return;
     const optionValue = option.value;
@@ -61,9 +63,9 @@ export const Select = forwardRef(function Select({
       ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
       role: "group",
-      "aria-labelledby": label ? `${selectId}-label` : undefined,
+      "aria-labelledby": `${selectId}-label`,
     },
-    label ? React.createElement("span", { className: "field__label", id: `${selectId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label", id: `${selectId}-label` }, label),
     React.createElement(
       "span",
       {
@@ -87,8 +89,7 @@ export const Select = forwardRef(function Select({
           "aria-expanded": String(isOpen),
           "aria-haspopup": "listbox",
           "aria-controls": `${selectId}-listbox`,
-          "aria-label": label ? undefined : rest["aria-label"],
-          "aria-labelledby": label ? `${selectId}-label` : undefined,
+          "aria-labelledby": `${selectId}-label`,
           "aria-invalid": state === "error" ? "true" : undefined,
           "aria-activedescendant": selectedOption ? `${selectId}-option-${activeIndex}` : undefined,
           onClick: () => setOpen((current) => !current),
@@ -116,7 +117,7 @@ export const Select = forwardRef(function Select({
           role: "listbox",
           "data-select-listbox": "",
           "aria-label": optionsLabel,
-          "aria-labelledby": optionsLabel ? undefined : label ? `${selectId}-label` : undefined,
+          "aria-labelledby": optionsLabel ? undefined : `${selectId}-label`,
         },
         normalizedOptions.map((option, index) => {
           const optionValue = option.value;

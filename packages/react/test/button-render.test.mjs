@@ -2773,6 +2773,7 @@ assert.doesNotMatch(inheritedSelectMarkup.match(/<span class="select-control"[^>
 const unnamedSelectMarkup = renderToStaticMarkup(React.createElement(Select));
 assert.doesNotMatch(unnamedSelectMarkup, /aria-label="Select"/);
 assert.doesNotMatch(unnamedSelectMarkup, /aria-label="Options"/);
+assert.doesNotMatch(unnamedSelectMarkup, /select-control|role="combobox"|role="listbox"/);
 
 const unselectedSelectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",
