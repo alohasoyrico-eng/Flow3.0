@@ -41,6 +41,7 @@ const { checkTabsCssContract } = require("./audit-tabs-css-contract.js");
 const { checkTagCssContract } = require("./audit-tag-css-contract.js");
 const { checkTooltipCssContract } = require("./audit-tooltip-css-contract.js");
 const { checkToastCssContract } = require("./audit-toast-css-contract.js");
+const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js");
 
 function checkComponentCssContracts(context) {
   checkAccordionCssContract(context);
@@ -86,6 +87,7 @@ function checkComponentCssContracts(context) {
   checkTagCssContract(context);
   checkTooltipCssContract(context);
   checkToastCssContract(context);
+  checkTreeViewCssContract(context);
 }
 
 module.exports = { checkComponentCssContracts };

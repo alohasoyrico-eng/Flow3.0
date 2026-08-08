@@ -6710,13 +6710,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .tree-view {
   --comp-tree-view-padding: var(--sys-space-sm);
   --comp-tree-view-indent: var(--sys-space-lg);
-  --comp-tree-view-control-min-block: var(--comp-button-size-sm);
-  --comp-tree-view-icon-size: var(--comp-button-icon-size-sm);
+  --comp-tree-view-control-min-block: var(--sys-density-control-height);
+  --comp-tree-view-icon-size: var(--comp-button-icon-size);
   --comp-tree-view-selected-bg: transparent;
   --comp-tree-view-selected-text: var(--sys-color-action);
   --comp-tree-view-selected-border: transparent;
   --comp-tree-view-hover-bg: var(--sys-energy-surface-primary);
   --comp-tree-view-hover-border: var(--sys-energy-border-default);
+  --comp-tree-view-hover-shadow: 0 0 0 var(--sys-frame-border-thin) color-mix(in srgb, var(--sys-energy-border-default) 72%, transparent), var(--component-depth-raised-soft);
+  --comp-tree-view-hover-transform: translateX(calc(var(--sys-space-xs) / 2));
   --comp-tree-view-expanded-text: var(--sys-color-text);
   --comp-tree-view-motion-duration: var(--component-duration-medium);
   --comp-tree-view-motion-ease: var(--component-ease-move);
@@ -6737,12 +6739,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-padding: var(--sys-space-xs);
   --comp-tree-view-indent: var(--sys-space-md);
   --comp-tree-view-control-min-block: var(--comp-button-size-sm);
+  --comp-tree-view-icon-size: var(--comp-button-icon-size-sm);
 }
 
 .tree-view[data-density="lg"] {
   --comp-tree-view-padding: var(--sys-space-md);
   --comp-tree-view-indent: var(--sys-space-xl);
-  --comp-tree-view-control-min-block: var(--component-control-min-size);
+  --comp-tree-view-control-min-block: var(--comp-button-size-lg);
+  --comp-tree-view-icon-size: var(--comp-button-icon-size-lg);
 }
 
 body[data-contrast="quiet"] .tree-view {
@@ -6848,11 +6852,9 @@ body[data-contrast="quiet"] .tree-view {
 .tree-view .tree-view__item:not([data-selected="true"]) .button.tree-view__control:hover:not(:disabled) {
   background: var(--comp-tree-view-hover-bg);
   border-color: var(--comp-tree-view-hover-border);
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--sys-energy-border-default) 72%, transparent),
-    var(--component-depth-raised-soft);
+  box-shadow: var(--comp-tree-view-hover-shadow);
   color: var(--sys-color-text);
-  transform: translateX(calc(var(--sys-space-xs) / 2));
+  transform: var(--comp-tree-view-hover-transform);
 }
 
 .tree-view__control:focus-visible,
