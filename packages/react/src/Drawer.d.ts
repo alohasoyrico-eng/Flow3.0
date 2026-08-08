@@ -56,7 +56,7 @@ export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style
   open?: boolean;
   id?: string;
   onOpenChange?: (open: boolean) => void;
-  onAction?: (key: string) => void;
+  onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface DrawerComponent extends ForwardRefExoticComponent<DrawerProps & RefAttributes<HTMLDivElement>> {

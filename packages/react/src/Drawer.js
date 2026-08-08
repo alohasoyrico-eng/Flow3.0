@@ -231,7 +231,7 @@ export const Drawer = forwardRef(function Drawer({
                 onClick: (event) => {
                   action.onClick?.(event);
                   if (event.defaultPrevented) return;
-                  onAction?.(action.key);
+                  onAction?.(action.key, event);
                   closeDrawer();
                 },
               });

@@ -830,7 +830,7 @@ try {
     closeLabel: "Close vehicle details",
     actions: [{ key: "save", label: "Save" }],
     onOpenChange: (open) => drawerOpenChanges.push(open),
-    onAction: (key) => drawerActions.push(key),
+    onAction: (key, event) => drawerActions.push({ key, eventType: event.type }),
   }));
 
   const drawerTrigger = getDrawerRole("button", { name: /open details/i });
@@ -841,7 +841,7 @@ try {
 
   fireEvent.click(getDrawerRole("button", { name: /save/i }));
   await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false"));
-  assert.deepEqual(drawerActions, ["save"]);
+  assert.deepEqual(drawerActions, [{ key: "save", eventType: "click" }]);
   assert.deepEqual(drawerOpenChanges, [true, false]);
 
   const preventedDrawerActions = [];
