@@ -29,6 +29,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "StationPin" && !source.includes("if (!accessibleLabel) return null;")) add("errors", sourceFile, 1, "StationPin must not render without an accessible label.");
   if (name === "KpiTile" && !source.includes("const interactive = requestedInteraction && Boolean(accessibleLabel);")) add("errors", sourceFile, 1, "KpiTile must gate interactive behavior on an accessible label.");
   if (name === "List" && !source.includes("const itemCanInteract = isInteractive && Boolean(item.label || item.meta || item.value);")) add("errors", sourceFile, 1, "List must gate interactive rows on visible item content.");
+  if (name === "Card" && !source.includes("const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction;")) add("errors", sourceFile, 1, "Card must gate interactive behavior on visible card content.");
 }
 
 module.exports = { checkReactComponentContentGuards };

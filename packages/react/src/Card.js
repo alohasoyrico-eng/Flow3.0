@@ -79,7 +79,9 @@ export const Card = forwardRef(function Card({
   const resolvedActionKey = actionKey ?? (typeof title === "string" ? title : "card");
   const validActions = Array.isArray(actions) ? actions.filter(isValidCardAction) : [];
   const hasActions = validActions.length > 0;
-  const isInteractive = !hasActions && Boolean(interactive || resolvedState === "interactive" || resolvedState === "hover" || resolvedState === "focus" || selected || onAction);
+  const hasInteractiveContent = Boolean(title || value || detail || status || mediaAlt);
+  const requestedInteraction = Boolean(interactive || resolvedState === "interactive" || resolvedState === "hover" || resolvedState === "focus" || selected || onAction);
+  const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction;
   const isDisabled = resolvedState === "disabled" || resolvedState === "loading";
   const header = React.createElement(
     "div",

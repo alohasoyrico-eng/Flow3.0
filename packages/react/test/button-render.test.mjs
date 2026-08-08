@@ -756,6 +756,13 @@ assert.match(selectedCardMarkup, /data-state="selected"/);
 assert.match(selectedCardMarkup, /data-composition="stats"/);
 assert.match(selectedCardMarkup, /data-trend="up"/);
 assert.match(selectedCardMarkup, />\$1200</);
+const unnamedInteractiveCardMarkup = renderToStaticMarkup(React.createElement(Card, {
+  interactive: true,
+  onAction: () => {},
+}));
+assert.match(unnamedInteractiveCardMarkup, /^<article/);
+assert.match(unnamedInteractiveCardMarkup, /data-interactive="false"/);
+assert.doesNotMatch(unnamedInteractiveCardMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /role="button"|tabIndex=|aria-pressed=/);
 
 const loadingCardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Loading card",
