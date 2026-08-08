@@ -181,6 +181,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "StationPin" && !source.includes("if (!accessibleLabel) return null;")) add("errors", sourceFile, 1, "StationPin must not render without an accessible label.");
   if (name === "StationPin" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "StationPin must require a station label before deriving marker value or map primitive labels.");
   if (name === "StationPin" && /label:\s*label\s*\?\?\s*visibleValue|String\(label\s*\?\?\s*visibleValue/.test(source)) add("errors", sourceFile, 1, "StationPin must not synthesize station labels from marker values.");
+  if (name === "StationPin" && /meta\s*=\s*""|value:\s*value && value !== label \? value : ""/.test(source)) add("errors", sourceFile, 1, "StationPin must not pass fabricated empty map metadata or values to the maps primitive.");
   if (name === "KpiTile" && !source.includes("const canActivateTile = Boolean(href || onSelect);")) add("errors", sourceFile, 1, "KpiTile must require a destination or handler before composing drill-in affordances.");
   if (name === "KpiTile" && !source.includes("if (!hasValue) return null;")) add("errors", sourceFile, 1, "KpiTile must not render without its required metric value.");
   if (name === "KpiTile" && /value \? React\.createElement\("strong", \{ className: "kpi-tile__value"/.test(source)) add("errors", sourceFile, 1, "KpiTile must render the required value unconditionally after the runtime guard.");

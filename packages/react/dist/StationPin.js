@@ -9,7 +9,7 @@ const validStates = new Set(["default", "hover", "focus", "selected", "unavailab
 export const StationPin = forwardRef(function StationPin({
   label,
   value = "",
-  meta = "",
+  meta,
   icon = "local_gas_station",
   count,
   variant = "fuel",
@@ -34,7 +34,7 @@ export const StationPin = forwardRef(function StationPin({
     permission: "granted",
     pins: [{
       label,
-      value: value && value !== label ? value : "",
+      value: value && value !== label ? value : undefined,
       meta,
       variant: resolvedVariant,
       state: resolvedState,
