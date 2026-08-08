@@ -46,11 +46,13 @@ export const Chip = forwardRef(function Chip({
   const isInteractive = Boolean(interactive) || isSelected || canRemove || typeof onSelectedChange === "function";
   const element = isInteractive ? "button" : "span";
 
+  if (!label) return null;
+
   function handleClick(event) {
     rest.onClick?.(event);
     if (event.defaultPrevented || resolvedState === "disabled") return;
     if (canRemove) {
-      onRemove?.(label ?? "");
+      onRemove?.(label);
       return;
     }
     if (typeof onSelectedChange === "function") {
@@ -77,7 +79,7 @@ export const Chip = forwardRef(function Chip({
       "data-chip-remove": canRemove ? "true" : undefined,
     },
     icon ? React.createElement("span", { className: "chip__icon", "aria-hidden": "true" }, icon) : null,
-    label ? React.createElement("span", { className: "chip__label" }, label) : null,
+    React.createElement("span", { className: "chip__label" }, label),
     canRemove ? React.createElement("span", { className: "chip__remove", "data-chip-remove-icon": "true", "aria-hidden": "true" }, "close") : null,
   );
 });
