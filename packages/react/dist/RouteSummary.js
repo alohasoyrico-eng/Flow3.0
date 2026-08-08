@@ -14,6 +14,10 @@ function isValidRouteAction(action, compact) {
   return hasStableKey && (compact ? Boolean(action.label || action.ariaLabel) : Boolean(action.label));
 }
 
+function routeActionLabel(action) {
+  return action?.ariaLabel || action?.label;
+}
+
 function renderAction(action, index, { compact, density, disabled }) {
   const actionDisabled = Boolean(disabled || action?.disabled);
   const actionKey = action?.key;
@@ -23,10 +27,12 @@ function renderAction(action, index, { compact, density, disabled }) {
     action?.onAction?.(String(actionKey), action, event);
   };
   if (compact) {
+    const accessibleActionLabel = routeActionLabel(action);
+    if (!accessibleActionLabel) return null;
     return React.createElement(IconButton, {
       key: actionKey,
       icon: action?.icon ?? "close",
-      ariaLabel: action?.ariaLabel ?? action?.label ?? "",
+      ariaLabel: accessibleActionLabel,
       variant: action?.variant ?? "ghost",
       density: action?.density ?? density,
       disabled: actionDisabled,

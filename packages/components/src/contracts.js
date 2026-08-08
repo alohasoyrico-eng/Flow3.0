@@ -1242,6 +1242,7 @@ export const componentContracts = {
       "Keep route metrics visible as text.",
       "Require stable metric keys before composing metric rows.",
       "Require stable action keys before composing local actions.",
+      "Require compact icon actions to resolve a non-empty accessible label.",
       "Use actions only for local route decisions.",
       "Use route patterns for comparison, map state, and navigation."
     ]
