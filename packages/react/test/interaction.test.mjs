@@ -666,6 +666,18 @@ try {
     onOpenChange: (open, event) => countryOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(countryTrigger.textContent.includes("+52"), true));
+  fireEvent.click(countryTrigger);
+  fireEvent.click(getCountryRole("option", { name: /united states/i }));
+  assert.equal(countryChanges.at(-1).countryCode, "US");
+  await waitFor(() => assert.equal(countryTrigger.textContent.includes("+52"), true));
+  rerenderCountrySelector(React.createElement(CountrySelector, {
+    label: "Country",
+    value: "US",
+    countries,
+    onValueChange: (countryCode, option, event) => countryChanges.push({ countryCode, option, eventType: event.type }),
+    onOpenChange: (open, event) => countryOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
+  }));
+  await waitFor(() => assert.equal(countryTrigger.textContent.includes("+1"), true));
 
   cleanup();
 

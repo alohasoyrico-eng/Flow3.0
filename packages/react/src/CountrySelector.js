@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
+import React, { forwardRef, useId, useMemo, useState } from "react";
 import {
   countryFlagAssetPath,
   normalizeCountryCallingCodeOptions,
@@ -61,7 +61,8 @@ export const CountrySelector = forwardRef(function CountrySelector({
   const options = useMemo(() => normalizeCountryCallingCodeOptions(countries), [countries]);
   const isValueControlled = country !== undefined || value !== undefined;
   const initialCountry = resolveCountryCallingCodeOption({ country: country ?? value }, options);
-  const [selectedCountry, setSelectedCountry] = useState(initialCountry);
+  const [internalCountry, setInternalCountry] = useState(initialCountry);
+  const selectedCountry = isValueControlled ? resolveCountryCallingCodeOption({ country: country ?? value }, options) : internalCountry;
   const [activeCountryCode, setActiveCountryCode] = useState(initialCountry.country);
   const isOpenControlled = openProp !== undefined;
   const [internalOpen, setInternalOpen] = useState(false);
@@ -71,12 +72,6 @@ export const CountrySelector = forwardRef(function CountrySelector({
   const activeOption = filteredOptions.find((option) => option.country === activeCountryCode) ?? filteredOptions.find((option) => option.country === selectedCountry.country) ?? filteredOptions[0];
   const activeIndex = Math.max(options.findIndex((option) => option.country === activeOption?.country), 0);
   const resolvedState = disabled ? "disabled" : invalid ? "error" : "default";
-  useEffect(() => {
-    if (!isValueControlled) return;
-    const nextCountry = resolveCountryCallingCodeOption({ country: country ?? value }, options);
-    setSelectedCountry(nextCountry);
-    setActiveCountryCode(nextCountry.country);
-  }, [country, isValueControlled, options, value]);
 
   if (!label) return null;
 
@@ -89,7 +84,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
 
   const commitOption = (option, event) => {
     if (!option || disabled) return;
-    if (!isValueControlled) setSelectedCountry(option);
+    if (!isValueControlled) setInternalCountry(option);
     setActiveCountryCode(option.country);
     setOpen(false, event);
     setQuery("");
