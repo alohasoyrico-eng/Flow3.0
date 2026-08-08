@@ -1611,6 +1611,7 @@ const unnamedSegmentedControlMarkup = renderToStaticMarkup(React.createElement(S
   variant: "icon-only",
 }));
 assert.doesNotMatch(unnamedSegmentedControlMarkup, /Options|Option 1/);
+assert.doesNotMatch(unnamedSegmentedControlMarkup, /role="tab"/);
 
 const switchMarkup = renderToStaticMarkup(React.createElement(Switch, {
   label: "Route alerts",

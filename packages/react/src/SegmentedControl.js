@@ -9,11 +9,11 @@ function itemKey(item) {
 }
 
 function normalizeItems(items) {
-  return (Array.isArray(items) ? items : []).map((item, index) => ({
+  return (Array.isArray(items) ? items : []).filter((item) => item?.label).map((item, index) => ({
     ...item,
     key: itemKey(item) || `option-${index + 1}`,
-    label: item?.label ?? "",
-    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item?.label ?? "",
+    label: item.label,
+    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item.label,
   }));
 }
 
