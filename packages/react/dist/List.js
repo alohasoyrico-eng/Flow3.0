@@ -7,9 +7,9 @@ const validStates = new Set(["default", "hover", "selected", "loading", "error",
 const validItemTones = new Set(["danger"]);
 
 export const List = forwardRef(function List({
-  items = [],
+  items,
   interactive = false,
-  label = "",
+  label,
   variant = "standard",
   state = "default",
   selectedKey,
@@ -22,14 +22,17 @@ export const List = forwardRef(function List({
   const resolvedState = normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const isInteractive = Boolean(interactive || resolvedVariant === "action" || typeof onSelect === "function");
-  const initialSelectedKey = selectedKey ?? items.find((item) => item.state === "selected")?.key ?? "";
+  const sourceItems = Array.isArray(items) ? items : [];
+  const resolvedItems = sourceItems.filter((item) => item?.key !== undefined && item?.key !== null && item?.key !== "" && item?.label);
+  const initialSelectedKey = selectedKey ?? resolvedItems.find((item) => item.state === "selected")?.key ?? "";
   const isSelectedKeyControlled = selectedKey !== undefined;
   const [currentSelectedKey, setCurrentSelectedKey] = useState(String(initialSelectedKey));
-  const resolvedItems = items.filter((item) => item?.key !== undefined && item?.key !== null && item?.key !== "");
 
   useEffect(() => {
     if (isSelectedKeyControlled) setCurrentSelectedKey(String(selectedKey ?? ""));
   }, [isSelectedKeyControlled, selectedKey]);
+
+  if (!resolvedItems.length) return null;
 
   return React.createElement(
     "ul",
@@ -42,7 +45,7 @@ export const List = forwardRef(function List({
       ...flowDensityProps(resolvedDensity),
       "data-interactive": String(isInteractive),
       role: "list",
-      "aria-label": label || undefined,
+      "aria-label": label,
       "aria-busy": resolvedState === "loading" ? "true" : undefined,
     },
     resolvedItems.map((item) => {
@@ -51,7 +54,7 @@ export const List = forwardRef(function List({
       const rowState = normalizeFlowValue(isSelected ? "selected" : item.state ?? resolvedState, validStates, resolvedState);
       const rowTone = normalizeFlowValue(item.tone ?? (rowState === "error" ? "danger" : ""), validItemTones, "");
       const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
-      const itemCanInteract = isInteractive && Boolean(item.label || item.meta || item.value);
+      const itemCanInteract = isInteractive;
       const Control = itemCanInteract ? "button" : "span";
       return React.createElement(
         "li",
@@ -79,7 +82,7 @@ export const List = forwardRef(function List({
           React.createElement(
             "span",
             { className: "list__content" },
-            item.label ? React.createElement("strong", null, item.label) : null,
+            React.createElement("strong", null, item.label),
             item.meta ? React.createElement("small", null, item.meta) : null,
           ),
           item.value ? React.createElement("span", { className: "list__value" }, item.value) : null,

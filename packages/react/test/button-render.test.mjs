@@ -693,7 +693,7 @@ assert.doesNotMatch(passiveListMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /data-dens
 assert.doesNotMatch(passiveListMarkup, /<button/);
 
 const loadingListItemMarkup = renderToStaticMarkup(React.createElement(List, {
-  items: [{ key: "loading-row", state: "loading" }],
+  items: [{ key: "loading-row", label: "Refreshing assignments", state: "loading" }],
 }));
 assert.match(loadingListItemMarkup, /aria-busy="true"/);
 assert.doesNotMatch(loadingListItemMarkup, /Loading item/);

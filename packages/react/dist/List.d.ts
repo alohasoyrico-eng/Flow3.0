@@ -7,8 +7,8 @@ export type ListDensity = "sm" | "md" | "lg";
 export type ListItemTone = "danger";
 
 export interface ListItem {
-  key?: string;
-  label?: ReactNode;
+  key: string;
+  label: ReactNode;
   meta?: ReactNode;
   value?: ReactNode;
   icon?: string;

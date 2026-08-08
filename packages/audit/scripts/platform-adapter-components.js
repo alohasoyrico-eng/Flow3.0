@@ -538,7 +538,7 @@ const components = [
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "message", "measurement"],
     props: ["items", "variant", "state", "interactive", "label", "density", "onSelect"],
     jsSnippets: ["listPlatformContract", "className: [\"list\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', 'flowDensityProps(resolvedDensity)', '"data-interactive": String(isInteractive)', "role: \"list\"", "list__row", "list__item", "list__icon", "list__content", "list__value", "onSelect"],
-    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLUListElement>", "ListProps", "ListItem", "ListVariant", "ListState", "ListDensity", "listPlatformContract"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLUListElement>", "ListProps", "ListItem", "ListVariant", "ListState", "ListDensity", "key: string", "label: ReactNode", "listPlatformContract"],
     packagePath: "./list",
     exportName: "List",
     propsName: "ListProps",
