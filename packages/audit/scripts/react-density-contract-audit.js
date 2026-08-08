@@ -100,7 +100,10 @@ function readObjectLiteral(source, startIndex) {
 function checkDensityContractConsistency({ add, contractsSource, componentContractsFile }) {
   for (const match of contractsSource.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {
     const [, contractKey, body] = match;
-    if (!body.includes('{ name: "density"')) continue;
+    if (!body.includes('{ name: "density"')) {
+      add("errors", componentContractsFile, 1, `${contractKey} must expose density so every accepted component can participate in the Flow cascade.`);
+      continue;
+    }
     if (!body.includes('{ name: "density", type: "\\"sm\\" | \\"md\\" | \\"lg\\"", required: false }')) {
       add("errors", componentContractsFile, 1, `${contractKey} density must use the shared Flow density contract: "sm" | "md" | "lg".`);
     }
