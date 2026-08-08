@@ -202,9 +202,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*radius[\w-]*:\s*calc\(var\(--sys-radius-md\)\s*\+\s*var\(--sys-radius-sm\)\);/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component radius aliases must consume --component-radius-control instead of duplicating the radius formula.");
   }
-  for (const match of text.matchAll(/--comp-[\w-]*(?:depth|shadow)[\w-]*:\s*none;/g)) {
-    add("errors", packageCssFile, lineNumber(text, match.index), "Component depth and shadow aliases must consume --component-depth-none instead of hardcoding none.");
-  }
+  for (const match of text.matchAll(/--comp-[\w-]*(?:depth|shadow)[\w-]*:\s*none;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component depth and shadow aliases must consume --component-depth-none instead of hardcoding none.");
   for (const match of text.matchAll(/--comp-[\w-]*(?:bg|background|surface)[\w-]*:\s*transparent;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component surface aliases must consume --component-surface-transparent instead of hardcoding transparent.");
   for (const match of text.matchAll(/--comp-[\w-]*border[\w-]*:\s*transparent;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component border aliases must consume --component-border-transparent instead of hardcoding transparent.");
   for (const match of text.matchAll(/--comp-[\w-]*(?:full-width|width|inline-size|field-width|max-inline-size)[\w-]*:\s*100%;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component full-width aliases must consume --component-inline-size-full instead of hardcoding 100%.");
@@ -215,6 +213,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*(?:flex|pointer-events|list-style|decoration|grid)[\w-]*:\s*none;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component none aliases must consume semantic component none aliases instead of hardcoding none.");
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:0|100%|auto);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component geometry aliases must consume semantic component geometry aliases instead of hardcoding 0, 100%, or auto.");
   for (const match of text.matchAll(/--comp-[\w-]*cursor[\w-]*:\s*(?:pointer|default|not-allowed|grab|grabbing|progress);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component cursor aliases must consume --component-cursor-* instead of hardcoding cursor keywords.");
+  for (const match of text.matchAll(/--comp-[\w-]*(?:position|overflow|white-space|isolation)[\w-]*:\s*(?:relative|absolute|hidden|nowrap|isolate);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component layout-state aliases must consume semantic component layout-state aliases instead of hardcoding position, overflow, whitespace, or isolation keywords.");
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
