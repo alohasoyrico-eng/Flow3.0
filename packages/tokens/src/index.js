@@ -282,6 +282,9 @@ export const systemTokens = {
       contentMax: "var(--sys-frame-content-max)",
       contentDialog: "var(--sys-frame-content-dialog)",
     },
+    position: {
+      center: "var(--sys-frame-position-center)",
+    },
     density: {
       controlHeight: "var(--sys-density-control-height)",
       controlPaddingX: "var(--sys-density-control-padding-x)",
@@ -636,6 +639,11 @@ export const systemTokens = {
       hover: "var(--sys-momentum-scale-hover)",
       press: "var(--sys-momentum-scale-press)",
     },
+    progressTranslate: {
+      start: "var(--sys-momentum-progress-translate-start)",
+      mid: "var(--sys-momentum-progress-translate-mid)",
+      end: "var(--sys-momentum-progress-translate-end)",
+    },
     rotate: {
       rest: "var(--sys-momentum-rotate-rest)",
       quarter: "var(--sys-momentum-rotate-quarter)",
@@ -660,6 +668,7 @@ export const systemTokens = {
   },
   state: {
     opacity: {
+      hidden: "var(--sys-state-hidden-opacity)",
       disabled: "var(--sys-disabled-opacity)",
       muted: "var(--sys-state-muted-opacity)",
       faint: "var(--ref-state-opacity-faint)",

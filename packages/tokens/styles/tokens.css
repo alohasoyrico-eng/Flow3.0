@@ -511,6 +511,7 @@
   --sys-frame-width-control: 100%;
   --sys-frame-max-width-control: none;
   --sys-frame-min-width-control: 0;
+  --sys-frame-position-center: -50%;
   --sys-frame-content-max: var(--ref-frame-content-max);
   --sys-frame-content-callout: var(--ref-frame-content-callout);
   --sys-frame-content-menu-min: var(--ref-frame-doc-col-preview);
@@ -921,6 +922,9 @@
   --sys-momentum-scale-settle: 0.985;
   --sys-momentum-scale-raised: 1.08;
   --sys-momentum-translate-rest: 0;
+  --sys-momentum-progress-translate-start: -120%;
+  --sys-momentum-progress-translate-mid: 40%;
+  --sys-momentum-progress-translate-end: 230%;
   --sys-momentum-rotate-rest: 0deg;
   --sys-momentum-rotate-quarter: 90deg;
   --sys-momentum-rotate-tilt: 45deg;
@@ -953,6 +957,7 @@
   --ref-state-precedence-focus: 70;
   --ref-state-precedence-hover: 30;
   --sys-state-disabled-opacity: var(--ref-state-opacity-disabled);
+  --sys-state-hidden-opacity: 0;
   --sys-state-disabled-readable-opacity: 0.58;
   --sys-state-muted-opacity: var(--ref-state-opacity-muted);
   --sys-state-closed-opacity: var(--ref-state-opacity-closed);
