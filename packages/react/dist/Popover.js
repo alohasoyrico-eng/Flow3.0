@@ -140,6 +140,7 @@ export const Popover = forwardRef(function Popover({
               "data-key": action.key,
               onClick: (event) => {
                 action.onClick?.(event);
+                if (event.defaultPrevented) return;
                 onAction?.(action.key);
                 setOpen(false, { restoreFocus: true });
               },

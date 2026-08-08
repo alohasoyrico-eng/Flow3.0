@@ -585,6 +585,22 @@ try {
   assert.deepEqual(dialogActions, ["confirm"]);
   assert.deepEqual(dialogOpenChanges, [true, false]);
 
+  const preventedDialogActions = [];
+  rerenderDialog(React.createElement(Dialog, {
+    label: "Confirm route",
+    description: "Review before assigning.",
+    triggerLabel: "Open review",
+    closeLabel: "Close route modal",
+    actions: [{ key: "confirm", label: "Confirm", onClick: (event) => event.preventDefault() }],
+    onOpenChange: (open) => dialogOpenChanges.push(open),
+    onAction: (key) => preventedDialogActions.push(key),
+  }));
+  fireEvent.click(dialogTrigger);
+  await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "true"));
+  fireEvent.click(getDialogRole("button", { name: /confirm/i }));
+  assert.deepEqual(preventedDialogActions, []);
+  assert.equal(dialogTrigger.getAttribute("aria-expanded"), "true");
+
   rerenderDialog(React.createElement(Dialog, {
     label: "Confirm route",
     description: "Review before assigning.",
@@ -633,6 +649,22 @@ try {
   await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(drawerActions, ["save"]);
   assert.deepEqual(drawerOpenChanges, [true, false]);
+
+  const preventedDrawerActions = [];
+  rerenderDrawer(React.createElement(Drawer, {
+    label: "Vehicle details",
+    description: "Review route documents.",
+    triggerLabel: "Open details",
+    closeLabel: "Close vehicle details",
+    actions: [{ key: "save", label: "Save", onClick: (event) => event.preventDefault() }],
+    onOpenChange: (open) => drawerOpenChanges.push(open),
+    onAction: (key) => preventedDrawerActions.push(key),
+  }));
+  fireEvent.click(drawerTrigger);
+  await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "true"));
+  fireEvent.click(getDrawerRole("button", { name: /save/i }));
+  assert.deepEqual(preventedDrawerActions, []);
+  assert.equal(drawerTrigger.getAttribute("aria-expanded"), "true");
 
   rerenderDrawer(React.createElement(Drawer, {
     label: "Vehicle details",
@@ -970,6 +1002,22 @@ try {
   assert.deepEqual(popoverActions, ["apply"]);
   assert.deepEqual(popoverOpenChanges, [true, false]);
 
+  const preventedPopoverActions = [];
+  rerenderPopover(React.createElement(Popover, {
+    triggerLabel: "Open filters",
+    title: "Filter routes",
+    description: "Adjust visible routes.",
+    variant: "action",
+    actions: [{ key: "apply", label: "Apply", variant: "primary", onClick: (event) => event.preventDefault() }],
+    onOpenChange: (open) => popoverOpenChanges.push(open),
+    onAction: (key) => preventedPopoverActions.push(key),
+  }));
+  fireEvent.click(popoverTrigger);
+  await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "true"));
+  fireEvent.click(getPopoverRole("button", { name: /apply/i }));
+  assert.deepEqual(preventedPopoverActions, []);
+  assert.equal(popoverTrigger.getAttribute("aria-expanded"), "true");
+
   rerenderPopover(React.createElement(Popover, {
     triggerLabel: "Open filters",
     title: "Filter routes",
@@ -995,7 +1043,7 @@ try {
   await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false"));
 
   fireEvent.click(popoverTrigger);
-  await waitFor(() => assert.deepEqual(popoverOpenChanges, [true, false, true]));
+  await waitFor(() => assert.deepEqual(popoverOpenChanges, [true, false, true, true]));
   assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false");
 
   cleanup();
