@@ -6,8 +6,8 @@ Family CSS contracts are allowed when a component shares a visual cascade; large
 
 ## Inventory
 
-- Family components: 11
-- Review candidates: 6
+- Family components: 10
+- Review candidates: 5
 - Shared extension roots excluded from maturity counts: country-flag, field
 - Selector threshold: 20
 - Alias threshold: 40
@@ -16,7 +16,6 @@ Family CSS contracts are allowed when a component shares a visual cascade; large
 
 | Component | Family contract | Own extension roots | Selectors | Aliases | Reason |
 | --- | --- | --- | ---: | ---: | --- |
-| country-selector | select | country-selector | 63 | 163 | selector surface 63 >= 20; component aliases 163 >= 40 |
 | checkbox | choice | checkbox | 17 | 79 | component aliases 79 >= 40 |
 | radio-button | choice | radio | 14 | 78 | component aliases 78 >= 40 |
 | text-area | field | text-area | 15 | 60 | component aliases 60 >= 40 |
@@ -28,7 +27,6 @@ Family CSS contracts are allowed when a component shares a visual cascade; large
 | Component | Family contract | Required root | Own extension roots | Shared extension roots | Selectors | Aliases | Recommendation |
 | --- | --- | --- | --- | --- | ---: | ---: | --- |
 | combobox | select | select-control | combobox | field | 11 | 35 | keep-family |
-| country-selector | select | select-control | country-selector | country-flag | 63 | 163 | review-for-direct-contract |
 | input | field | field | None | None | 0 | 0 | keep-family |
 | checkbox | choice | choice | checkbox | None | 17 | 79 | review-for-direct-contract |
 | radio-button | choice | choice | radio | None | 14 | 78 | review-for-direct-contract |

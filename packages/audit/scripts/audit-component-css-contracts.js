@@ -16,6 +16,7 @@ const { checkChartPanelCssContract } = require("./audit-chart-panel-css-contract
 const { checkChoiceCssContract } = require("./audit-choice-css-contract.js");
 const { checkCodeInputCssContract } = require("./audit-code-input-css-contract.js");
 const { checkChipCssContract } = require("./audit-chip-css-contract.js");
+const { checkCountrySelectorCssContract } = require("./audit-country-selector-css-contract.js");
 const { checkDialogCssContract } = require("./audit-dialog-css-contract.js");
 const { checkDrawerCssContract } = require("./audit-drawer-css-contract.js");
 const { checkDatePickerCssContract } = require("./audit-date-picker-css-contract.js");
@@ -60,7 +61,6 @@ const familyCssContracts = {
   "card-expiry-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-expiry-input"] },
   "card-security-code-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-security-code-input"] },
   combobox: { contract: "select", requiredRoot: "select-control", allowedExtensionRoots: ["combobox", "field"] },
-  "country-selector": { contract: "select", requiredRoot: "select-control", allowedExtensionRoots: ["country-flag", "country-selector"] },
   "date-range-picker": { contract: "date-picker", requiredRoot: "date-picker", allowedExtensionRoots: ["date-range-picker", "field"] },
 };
 
@@ -209,6 +209,7 @@ function checkComponentCssContracts(context) {
   checkChoiceCssContract(context);
   checkChipCssContract(context);
   checkCodeInputCssContract(context);
+  checkCountrySelectorCssContract(context);
   checkDatePickerCssContract(context);
   checkDialogCssContract(context);
   checkDrawerCssContract(context);

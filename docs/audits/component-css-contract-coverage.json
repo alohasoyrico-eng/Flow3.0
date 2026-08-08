@@ -1,8 +1,8 @@
 {
   "status": "pass",
   "total": 56,
-  "direct": 45,
-  "family": 11,
+  "direct": 46,
+  "family": 10,
   "missing": [],
   "directRootGaps": [],
   "familyRootGaps": [],
@@ -61,16 +61,13 @@
       {
         "contract": "select",
         "components": [
-          "combobox",
-          "country-selector"
+          "combobox"
         ],
         "requiredRoots": [
           "select-control"
         ],
         "allowedExtensionRoots": [
           "combobox",
-          "country-flag",
-          "country-selector",
           "field"
         ]
       }
@@ -117,20 +114,15 @@
     },
     {
       "component": "country-selector",
-      "coverage": "family",
-      "contract": "select",
-      "requiredRoot": "select-control",
-      "allowedExtensionRoots": [
-        "country-flag",
-        "country-selector"
-      ],
+      "coverage": "direct",
+      "contract": "country-selector",
+      "requiredRoot": "country-selector",
       "observedRoots": [
         "country-flag",
         "country-selector",
         "select-control"
       ],
-      "requiredRootObserved": true,
-      "unexpectedRoots": []
+      "requiredRootObserved": true
     },
     {
       "component": "card",

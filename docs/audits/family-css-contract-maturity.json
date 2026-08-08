@@ -7,32 +7,10 @@
     "aliasCount": 40
   },
   "inventory": {
-    "familyComponents": 11,
-    "reviewCandidates": 6
+    "familyComponents": 10,
+    "reviewCandidates": 5
   },
   "reviewCandidates": [
-    {
-      "component": "country-selector",
-      "familyContract": "select",
-      "requiredRoot": "select-control",
-      "extensionRoots": [
-        "country-flag",
-        "country-selector"
-      ],
-      "ownExtensionRoots": [
-        "country-selector"
-      ],
-      "sharedExtensionRoots": [
-        "country-flag"
-      ],
-      "selectorCount": 63,
-      "aliasCount": 163,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "selector surface 63 >= 20",
-        "component aliases 163 >= 40"
-      ]
-    },
     {
       "component": "checkbox",
       "familyContract": "choice",
@@ -147,28 +125,6 @@
       "aliasCount": 35,
       "recommendation": "keep-family",
       "reasons": []
-    },
-    {
-      "component": "country-selector",
-      "familyContract": "select",
-      "requiredRoot": "select-control",
-      "extensionRoots": [
-        "country-flag",
-        "country-selector"
-      ],
-      "ownExtensionRoots": [
-        "country-selector"
-      ],
-      "sharedExtensionRoots": [
-        "country-flag"
-      ],
-      "selectorCount": 63,
-      "aliasCount": 163,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "selector surface 63 >= 20",
-        "component aliases 163 >= 40"
-      ]
     },
     {
       "component": "input",
