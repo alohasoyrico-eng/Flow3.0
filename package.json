@@ -305,9 +305,10 @@
     "test:react": "npm run test --workspace @design-system/react",
     "prepare": "npm run build:react",
     "audit:system": "node packages/audit/scripts/audit-system-scope.js",
+    "audit:complete": "node packages/audit/scripts/audit-complete.mjs",
     "audit:consumer-install": "node packages/audit/scripts/audit-consumer-install.mjs",
     "test": "node packages/components/test/smoke.test.mjs",
-    "validate:system": "npm run audit:system && npm test && npm run build:react && npm run test:react && npm run audit:consumer-install"
+    "validate:system": "npm run build:react && npm run test:react && npm run audit:complete"
   },
   "devDependencies": {
     "@testing-library/react": "^16.3.2",

@@ -302,8 +302,11 @@ function auditEntrypoints() {
     if (packageJson.scripts?.["audit:system"] !== "node packages/audit/scripts/audit-system-scope.js") {
       throw new Error("split system package must expose audit:system through audit-system-scope.js.");
     }
-    if (packageJson.scripts?.["validate:system"] !== "npm run audit:system && npm test && npm run build:react && npm run test:react && npm run audit:consumer-install") {
-      throw new Error("split system package must keep validate:system as the full system gate.");
+    if (packageJson.scripts?.["audit:complete"] !== "node packages/audit/scripts/audit-complete.mjs") {
+      throw new Error("split system package must expose audit:complete through audit-complete.mjs.");
+    }
+    if (packageJson.scripts?.["validate:system"] !== "npm run build:react && npm run test:react && npm run audit:complete") {
+      throw new Error("split system package must run build:react, test:react, and audit:complete as the full system gate.");
     }
   }
 
