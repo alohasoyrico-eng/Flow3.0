@@ -12,7 +12,7 @@ export type CardExpiryMeta = {
 };
 
 export interface CardExpiryInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label?: string;
+  label: string;
   helper?: string;
   error?: string;
   value?: string;

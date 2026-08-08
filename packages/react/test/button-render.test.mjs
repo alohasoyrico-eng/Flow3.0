@@ -2167,6 +2167,7 @@ assert.doesNotMatch(inheritedCardExpiryInputMarkup.match(/^<label[^>]+>/)?.[0] ?
 const unnamedCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(CardExpiryInput));
 assert.doesNotMatch(unnamedCardExpiryInputMarkup, /aria-label="Expiry date"/);
 assert.doesNotMatch(unnamedCardExpiryInputMarkup, /placeholder="MM\/YY"/);
+assert.doesNotMatch(unnamedCardExpiryInputMarkup, /field card-expiry-input|card-expiry-input__input|calendar_month/);
 
 const loadingCardExpiryInputMarkup = renderToStaticMarkup(React.createElement(CardExpiryInput, {
   label: "Expiry date",

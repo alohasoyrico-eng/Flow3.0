@@ -85,6 +85,8 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
     if (isValueControlled) setCurrentValue(value ?? "");
   }, [isValueControlled, value]);
 
+  if (!label) return null;
+
   return React.createElement(
     "label",
     {
@@ -98,7 +100,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
       "data-validation-message": validationMessage,
       "data-expired-message": expiredMessage,
     },
-    label ? React.createElement("span", { className: "field__label card-expiry-input__label", id: `${inputId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label card-expiry-input__label", id: `${inputId}-label` }, label),
     React.createElement(
       "span",
       { className: "field__control card-expiry-input__control" },
@@ -121,8 +123,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
         maxLength: 5,
         spellCheck: false,
         "data-card-expiry-input": "",
-        "aria-labelledby": label ? `${inputId}-label` : undefined,
-        "aria-label": label ? undefined : rest["aria-label"],
+        "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {
