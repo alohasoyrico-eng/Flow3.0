@@ -838,8 +838,6 @@ try {
   ];
   const { getByLabelText: getPhoneLabel, getByRole: getPhoneRole, rerender: rerenderPhoneInput } = render(React.createElement(PhoneInput, {
     label: "Phone number",
-    countryTriggerLabel: "Phone number country code",
-    countryOptionsLabel: "Phone number country options",
     country: "MX",
     countries: phoneCountries,
     onValueChange: (value, meta) => phoneChanges.push({ value, meta }),
@@ -856,7 +854,7 @@ try {
     nationalNumber: "5512345678",
   });
 
-  const phoneCountryTrigger = getPhoneRole("combobox", { name: /phone number country code/i });
+  const phoneCountryTrigger = getPhoneRole("combobox", { name: /phone number/i });
   fireEvent.click(phoneCountryTrigger);
   assert.equal(phoneCountryTrigger.getAttribute("aria-expanded"), "true");
   fireEvent.click(getPhoneRole("option", { name: /united states/i }));
@@ -870,8 +868,6 @@ try {
 
   rerenderPhoneInput(React.createElement(PhoneInput, {
     label: "Phone number",
-    countryTriggerLabel: "Phone number country code",
-    countryOptionsLabel: "Phone number country options",
     value: "+525598765432",
     country: "MX",
     countries: phoneCountries,

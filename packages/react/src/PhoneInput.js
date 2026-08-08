@@ -1,11 +1,11 @@
 import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
 import {
-  countryFlagAssetPath,
   countryCallingCodeOptions,
   normalizeCountryCallingCodeOptions,
   resolveCountryCallingCodeOption,
 } from "@design-system/components";
 import { phoneInputPlatformContract } from "@design-system/components/platforms";
+import { CountrySelector } from "./CountrySelector.js";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["country-code", "compact", "otp-handoff", "readonly"]);
@@ -47,30 +47,6 @@ function countryMeta(country, digits) {
   };
 }
 
-function flagNode(country) {
-  const code = String(country.country ?? "").toUpperCase();
-  return React.createElement(
-    "span",
-    {
-      className: "country-flag phone-input__flag",
-      "data-country": code,
-      "data-flag-library": "country-flag-icons",
-      "data-flag-source": "country-flag-icons",
-      "data-phone-country-flag": "",
-      "aria-hidden": "true",
-    },
-    React.createElement("img", {
-      className: "country-flag__asset",
-      src: countryFlagAssetPath(code),
-      alt: "",
-      decoding: "async",
-      loading: "lazy",
-      "aria-hidden": "true",
-    }),
-    React.createElement("span", { className: "country-flag__fallback", hidden: true, "aria-hidden": "true" }, code),
-  );
-}
-
 export const PhoneInput = forwardRef(function PhoneInput({
   label,
   value,
@@ -85,8 +61,6 @@ export const PhoneInput = forwardRef(function PhoneInput({
   error = "",
   name = "",
   emptyText = "",
-  countryTriggerLabel,
-  countryOptionsLabel,
   onValueChange,
   className = "",
   id,
@@ -100,7 +74,6 @@ export const PhoneInput = forwardRef(function PhoneInput({
   const parsed = parsePhoneValue(value ?? "", initialCountry, countryOptions);
   const [selectedCountry, setSelectedCountry] = useState(parsed.country);
   const [digits, setDigits] = useState(parsed.digits);
-  const [open, setOpen] = useState(state === "open");
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "country-code");
   const isReadonly = resolvedVariant === "readonly";
   const resolvedState = disabled ? "disabled" : error ? "error" : normalizeFlowValue(state, validStates, "default");
@@ -132,7 +105,6 @@ export const PhoneInput = forwardRef(function PhoneInput({
     setSelectedCountry(nextCountry);
     const nextDigits = digits.slice(0, nextCountry.nationalLength);
     setDigits(nextDigits);
-    setOpen(false);
     onValueChange?.(nextDigits, countryMeta(nextCountry, nextDigits));
   };
 
@@ -148,102 +120,19 @@ export const PhoneInput = forwardRef(function PhoneInput({
     React.createElement(
       "span",
       { className: "field__control phone-input__control" },
-      React.createElement(
-        "span",
-        {
-          className: "select-control select-control--inline country-selector phone-input__country",
-          "data-country-selector": "",
-          "data-phone-country-control": "",
-          "data-phone-country": "",
-          "data-country": selectedCountry.country,
-          "data-value": selectedCountry.country,
-          "data-open": String(open),
-          ...flowDensityProps(density),
-          ...flowStateProps(disabled || isReadonly ? "disabled" : error ? "error" : undefined),
-        },
-        React.createElement(
-          "span",
-          {
-            className: "select-control__trigger country-selector__trigger phone-input__country-trigger",
-            "data-country-selector-trigger": "",
-            "data-phone-country-trigger": "",
-            role: "combobox",
-            tabIndex: disabled || isReadonly ? -1 : 0,
-            "aria-expanded": String(open),
-            "aria-haspopup": "listbox",
-            "aria-controls": `${inputId}-country-list`,
-            "aria-label": countryTriggerLabel,
-            "aria-labelledby": countryTriggerLabel ? undefined : label ? `${inputId}-label` : undefined,
-            "aria-disabled": disabled || isReadonly ? "true" : undefined,
-            onClick: () => {
-              if (!disabled && !isReadonly) setOpen((current) => !current);
-            },
-            onKeyDown: (event) => {
-              if (disabled || isReadonly) return;
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                setOpen((current) => !current);
-              }
-              if (event.key === "Escape") setOpen(false);
-              if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-                event.preventDefault();
-                setOpen(true);
-              }
-            },
-          },
-          flagNode(selectedCountry),
-          React.createElement(
-            "span",
-            { className: "country-selector__value" },
-            React.createElement("span", { className: "country-selector__label" }, selectedCountry.label),
-            React.createElement("span", { className: "select-control__code country-selector__code phone-input__prefix", "data-phone-prefix": "" }, selectedCountry.callingCode),
-          ),
-          React.createElement("span", { className: "select-control__chevron country-selector__chevron", "aria-hidden": "true" }, open ? "expand_less" : "expand_more"),
-        ),
-        React.createElement(
-          "span",
-          {
-            className: "select-control__listbox country-selector__listbox phone-input__country-listbox",
-            id: `${inputId}-country-list`,
-            "data-country-selector-list": "",
-            "data-phone-country-list": "",
-            role: "listbox",
-            "aria-label": countryOptionsLabel,
-            "aria-labelledby": countryOptionsLabel ? undefined : label ? `${inputId}-label` : undefined,
-          },
-          countryOptions.map((option) => {
-            const selected = option.country === selectedCountry.country;
-            return React.createElement(
-              "span",
-              {
-                key: option.country,
-                className: "select-control__option country-selector__option phone-input__country-option",
-                id: `${inputId}-${option.country.toLowerCase()}`,
-                "data-country-selector-option": "",
-                "data-phone-country-option": "",
-                "data-country-code": option.country,
-                "data-calling-code": option.callingCode,
-                "data-national-length": String(option.nationalLength),
-                "data-selected": String(selected),
-                "data-active": String(selected),
-                role: "option",
-                tabIndex: -1,
-                "aria-selected": String(selected),
-                onClick: () => commitCountry(option),
-              },
-              flagNode(option),
-              React.createElement(
-                "span",
-                { className: "country-selector__option-body" },
-                React.createElement("span", { className: "select-control__option-label country-selector__option-label" }, option.label),
-                React.createElement("span", { className: "select-control__option-code country-selector__option-code" }, option.callingCode),
-              ),
-              React.createElement("span", { className: "country-selector__option-check", "aria-hidden": "true" }, "check"),
-            );
-          }),
-          emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: true }, emptyText) : null,
-        ),
-      ),
+      React.createElement(CountrySelector, {
+        label,
+        country: selectedCountry.country,
+        countries: countryOptions,
+        disabled: disabled || isReadonly,
+        invalid: Boolean(error),
+        density,
+        inline: true,
+        searchable: false,
+        emptyText,
+        className: "phone-input__country",
+        onValueChange: (_countryCode, option) => commitCountry(option),
+      }),
       React.createElement("input", {
         ...flowRestProps(rest),
         ref,

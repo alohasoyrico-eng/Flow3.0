@@ -265,7 +265,7 @@ const components = [
     requiredTokens: ["comp.phone-input.*", "comp.input.*", "component-field-*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.growth.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "country-flags", "message", "measurement"],
     props: ["label", "value", "prefix", "country", "countries", "variant", "helper", "disabled", "state", "density", "error", "onValueChange"],
-    jsSnippets: ["phoneInputPlatformContract", "className: [\"field\", \"phone-input\"", 'flowDensityProps(density)', 'flowVariantProps(resolvedVariant)', "countryFlagAssetPath", "data-flag-library", "select-control select-control--inline country-selector", "phone-input__country-trigger", "phone-input__country-listbox", "type: \"tel\"", "inputMode: \"tel\"", "autoComplete: \"tel-national\"", "onValueChange"],
+    jsSnippets: ["phoneInputPlatformContract", "className: [\"field\", \"phone-input\"", 'flowDensityProps(density)', 'flowVariantProps(resolvedVariant)', "React.createElement(CountrySelector", "className: \"phone-input__country\"", "type: \"tel\"", "inputMode: \"tel\"", "autoComplete: \"tel-national\"", "onValueChange"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLInputElement>", "PhoneInputProps", "PhoneInputDensity", "PhoneInputVariant", "PhoneInputState", "PhoneInputMeta", "PhoneCountry", "phoneInputPlatformContract"],
     packagePath: "./phone-input",
     exportName: "PhoneInput",
