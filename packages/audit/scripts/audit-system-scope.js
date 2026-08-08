@@ -13,6 +13,7 @@ const { checkPackageCssNamespace } = require("./audit-package-css-namespace.js")
 const { checkPackageCssContracts } = require("./audit-package-css-contracts.js");
 const { checkPlatformAdapters } = require("./audit-platform-adapters.js");
 const { checkDensityContracts } = require("./audit-density-contracts.js");
+const { checkBreakpointContracts } = require("./audit-breakpoint-contracts.js");
 const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js");
 const { checkReactContractTriangle } = require("./audit-react-contract-triangle.js");
 const { checkReactCopyContract } = require("./audit-react-copy-contract.js");
@@ -35,6 +36,7 @@ checkPackageCssNamespace();
 checkPackageCssContracts();
 checkPlatformAdapters();
 checkDensityContracts();
+checkBreakpointContracts();
 checkReactPrimaryContract();
 checkReactContractTriangle();
 checkReactCopyContract();

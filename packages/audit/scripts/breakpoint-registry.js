@@ -1,0 +1,27 @@
+const approvedBreakpointValues = new Map([
+  ["420px", "compact handheld breakpoint"],
+  ["480px", "phone content breakpoint"],
+  ["520px", "component narrow viewport breakpoint"],
+  ["575px", "mobile max before tablet"],
+  ["576px", "tablet min from Frame sm"],
+  ["620px", "compact content breakpoint"],
+  ["640px", "pattern compact breakpoint"],
+  ["720px", "navigation compact breakpoint"],
+  ["760px", "split review breakpoint"],
+  ["767px", "tablet max before larger layouts"],
+  ["840px", "desktop demo narrow breakpoint"],
+  ["861px", "shell sidebar min breakpoint"],
+  ["900px", "docs two-column breakpoint"],
+  ["980px", "pattern overview breakpoint"],
+  ["992px", "laptop min from Frame md"],
+  ["1024px", "desktop demo min breakpoint"],
+  ["1180px", "shell compact breakpoint"],
+  ["1280px", "spacious viewport breakpoint"],
+  ["1439px", "wide max before desktop density"],
+  ["24rem", "table secondary column collapse breakpoint"],
+  ["32rem", "table tertiary column collapse breakpoint"],
+  ["32.5rem", "table narrow breakpoint"],
+  ["52rem", "choice control stacked breakpoint"],
+]);
+
+module.exports = { approvedBreakpointValues };
