@@ -41,7 +41,7 @@ function checkAuditEventCssContract({ text, blocks, packageCssFile, selectorKey,
     snippets: [
       "--comp-audit-event-bg: var(--sys-color-surface)",
       "--comp-audit-event-border-width: var(--component-border-width)",
-      "--comp-audit-event-display: grid",
+      "--comp-audit-event-display: var(--component-display-grid)",
       "--comp-audit-event-grid: auto minmax(0, 1fr)",
       "--comp-audit-event-radius: var(--sys-radius-md)",
       "--comp-audit-event-width:",

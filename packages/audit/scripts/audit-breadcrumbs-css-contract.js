@@ -53,10 +53,10 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
     packageCssFile,
     snippets: [
       "--comp-breadcrumbs-list-align: center",
-      "--comp-breadcrumbs-list-display: flex",
+      "--comp-breadcrumbs-list-display: var(--component-display-flex)",
       "--comp-breadcrumbs-list-wrap: wrap",
-      "--comp-breadcrumbs-item-display: inline-flex",
-      "--comp-breadcrumbs-target-display: inline-flex",
+      "--comp-breadcrumbs-item-display: var(--component-display-inline-flex)",
+      "--comp-breadcrumbs-target-display: var(--component-display-inline-flex)",
       "--comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg)",
       "--comp-breadcrumbs-width: var(--component-inline-size-fit-content)",
       "--comp-breadcrumbs-full-width: var(--component-inline-size-full)",
