@@ -6567,7 +6567,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-biometric-prompt-gap: var(--sys-space-md);
   --comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-sm));
   --comp-biometric-prompt-padding: calc(var(--sys-space-xl) + var(--sys-space-xs)) var(--sys-space-lg) var(--sys-space-lg);
-  --comp-biometric-prompt-icon-size: calc(var(--component-block-size-md) - var(--sys-space-xs));
+  --comp-biometric-prompt-icon-size: calc(var(--sys-density-control-height) * 2 - var(--sys-frame-space-micro));
   --comp-biometric-prompt-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
   --comp-biometric-prompt-icon-fg: var(--sys-color-action);
   --comp-biometric-prompt-icon-font-size: var(--component-font-size-display-sm);
@@ -6612,13 +6612,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .biometric-prompt[data-density="sm"] {
   --comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-xs));
   --comp-biometric-prompt-padding: var(--sys-space-lg);
-  --comp-biometric-prompt-icon-size: calc(var(--component-block-size-md) - var(--sys-space-lg));
+  --comp-biometric-prompt-icon-size: calc(var(--sys-density-control-height) + var(--sys-space-md));
 }
 
 .biometric-prompt[data-density="lg"] {
   --comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-md));
   --comp-biometric-prompt-padding: var(--sys-space-xl) var(--sys-space-lg);
-  --comp-biometric-prompt-icon-size: var(--component-textarea-min-block);
+  --comp-biometric-prompt-icon-size: calc(var(--sys-density-control-height) * 2 + var(--sys-space-md));
 }
 
 .biometric-prompt__icon,
