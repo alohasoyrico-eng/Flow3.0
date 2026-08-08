@@ -16,9 +16,9 @@ const categoryIcons = {
 
 export const MovementRow = forwardRef(function MovementRow({
   label,
-  meta = "",
-  amount = "",
-  status = "",
+  meta,
+  amount,
+  status,
   category = "transfer",
   variant = "standard",
   state = "default",
@@ -75,7 +75,7 @@ export const MovementRow = forwardRef(function MovementRow({
     React.createElement(
       "span",
       { className: "movement-row__value" },
-      React.createElement("strong", { className: "movement-row__amount" }, amount),
+      amount ? React.createElement("strong", { className: "movement-row__amount" }, amount) : null,
       status ? React.createElement("small", { className: "movement-row__status" }, status) : null,
     ),
   );

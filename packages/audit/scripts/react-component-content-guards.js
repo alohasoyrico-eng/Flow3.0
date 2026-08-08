@@ -24,6 +24,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "RouteSummary" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "RouteSummary must require a visible label before rendering.");
   if (name === "MovementRow" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "MovementRow must require a visible label before rendering a row button.");
   if (name === "MovementRow" && /const resolvedLabel = label \?\? ""/.test(source)) add("errors", sourceFile, 1, "MovementRow must not synthesize an empty row label.");
+  if (name === "MovementRow" && /meta\s*=\s*""|amount\s*=\s*""|status\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "MovementRow must not synthesize empty metadata.");
+  if (name === "MovementRow" && source.includes('React.createElement("strong", { className: "movement-row__amount" }, amount)') && !source.includes('amount ? React.createElement("strong", { className: "movement-row__amount" }, amount) : null')) add("errors", sourceFile, 1, "MovementRow must not render an empty amount node.");
   if (name === "AuditEvent" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "AuditEvent must require a visible event label before rendering.");
   if (name === "AuditEvent" && /label \? React\.createElement\("strong"/.test(source)) add("errors", sourceFile, 1, "AuditEvent must not render the required event label conditionally after the runtime guard.");
   if (name === "AuditEvent" && /description\s*=\s*""|status\s*=\s*""|timestamp\s*=\s*""|const statusText = status \|\| ""/.test(source)) add("errors", sourceFile, 1, "AuditEvent must not hide optional content or status contracts behind empty defaults.");

@@ -12,9 +12,9 @@ export type MovementRowCategory = "fuel" | "charge" | "toll" | "food" | "transfe
 
 export interface MovementRowMeta {
   label: string;
-  meta: string;
-  amount: string;
-  status: string;
+  meta?: string;
+  amount?: string;
+  status?: string;
   category: MovementRowCategory;
   variant: MovementRowVariant;
   state: MovementRowState;
