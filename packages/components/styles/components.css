@@ -434,7 +434,7 @@
   --comp-radio-button-mark-size-md: var(--component-inline-size-sm);
   --comp-radio-button-mark-size-lg: var(--component-min-text-line);
   --comp-radio-button-mark-size-compact: var(--comp-radio-button-mark-size-sm);
-  --comp-radio-button-indicator-scale: 0.5;
+  --comp-radio-button-indicator-scale: var(--sys-frame-ratio-half);
   --comp-radio-button-indicator-size: calc(var(--comp-choice-current-mark-size) * var(--comp-radio-button-indicator-scale));
   --comp-radio-button-gap-sm: var(--sys-space-xs);
   --comp-radio-button-gap-md: var(--sys-space-sm);
@@ -689,7 +689,7 @@
   --comp-table-header-bg: color-mix(in srgb, var(--sys-color-surface-raised) 80%, var(--sys-color-surface));
   --comp-table-header-fg: var(--sys-color-text-muted);
   --comp-table-header-weight: var(--sys-voice-weight-extrabold);
-  --comp-table-header-transform: uppercase;
+  --comp-table-header-transform: var(--sys-voice-transform-uppercase);
   --comp-table-row-hover-bg: color-mix(in srgb, var(--sys-color-action) 5%, var(--sys-color-surface));
   --comp-table-row-selected-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
   --comp-table-row-selected-accent: var(--sys-color-action);
@@ -706,7 +706,7 @@
   --comp-table-sort-active-icon-opacity: var(--sys-state-visible-opacity);
   --comp-table-expander-size: var(--component-control-min-size);
   --comp-table-expander-cell-gap: var(--sys-space-sm);
-  --comp-table-expander-cell-padding-inline-end: 0;
+  --comp-table-expander-cell-padding-inline-end: var(--sys-frame-space-none);
   --comp-table-expander-icon-size: var(--component-font-size-body);
   --comp-table-expander-fg: var(--sys-color-text-muted);
   --comp-table-expander-active-fg: var(--sys-color-action);
@@ -714,7 +714,7 @@
   --comp-table-motion-duration: var(--component-duration-snappy);
   --comp-table-motion-ease: var(--component-ease-state);
   --comp-table-motion-press-ease: var(--component-ease-press);
-  --comp-movement-row-width: 100%;
+  --comp-movement-row-width: var(--sys-frame-width-control);
   --comp-movement-row-min-block-size-sm: calc(var(--component-control-min-size) + var(--sys-space-sm));
   --comp-movement-row-min-block-size-md: var(--component-block-size-sm);
   --comp-movement-row-min-block-size-lg: var(--component-block-size-md);
@@ -1012,7 +1012,7 @@
   font-variation-settings: var(--sys-icon-variation-filled);
   letter-spacing: 0;
   line-height: 1;
-  text-transform: none;
+  text-transform: var(--sys-voice-transform-none);
   white-space: nowrap;
   word-wrap: normal;
   -webkit-font-feature-settings: "liga";
@@ -2453,7 +2453,7 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
   font-variation-settings: var(--sys-icon-variation-outline-strong);
   letter-spacing: 0;
   line-height: 1;
-  text-transform: none;
+  text-transform: var(--sys-voice-transform-none);
   white-space: nowrap;
   word-wrap: normal;
   -webkit-font-feature-settings: "liga";
@@ -4494,7 +4494,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-header-letter-spacing: var(--sys-voice-letter-spacing-widest);
   --comp-kpi-tile-header-line-height: var(--sys-voice-line-height-dense);
   --comp-kpi-tile-header-size: var(--component-font-size-caption);
-  --comp-kpi-tile-header-transform: uppercase;
+  --comp-kpi-tile-header-transform: var(--sys-voice-transform-uppercase);
   --comp-kpi-tile-header-weight: var(--sys-voice-weight-semibold);
   --comp-kpi-tile-icon-family: var(--sys-font-icon);
   --comp-kpi-tile-icon-line-height: 1;
@@ -5561,7 +5561,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   font-weight: var(--sys-voice-weight-semibold);
   letter-spacing: var(--sys-voice-letter-spacing-widest);
   line-height: var(--sys-voice-line-height-tight);
-  text-transform: uppercase;
+  text-transform: var(--sys-voice-transform-uppercase);
 }
 
 .card[data-composition="stats"] .card__value {
@@ -8349,7 +8349,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   font-weight: var(--sys-voice-weight-semibold);
   letter-spacing: var(--sys-voice-letter-spacing-widest);
   line-height: var(--component-line-height-snug);
-  text-transform: uppercase;
+  text-transform: var(--sys-voice-transform-uppercase);
 }
 
 .chart-panel output {
@@ -10686,7 +10686,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-card-summary-brand-family: var(--sys-font-title);
   --comp-card-summary-brand-letter-spacing: var(--sys-voice-letter-spacing-widest);
   --comp-card-summary-brand-size: var(--component-font-size-label);
-  --comp-card-summary-brand-transform: uppercase;
+  --comp-card-summary-brand-transform: var(--sys-voice-transform-uppercase);
   --comp-card-summary-brand-weight: var(--sys-voice-weight-black);
   --comp-card-summary-chip-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 24%, transparent);
   --comp-card-summary-chip-display: inline-block;
@@ -10905,7 +10905,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   color: var(--sys-color-text);
   font-size: var(--component-font-size-body);
   letter-spacing: 0;
-  text-transform: none;
+  text-transform: var(--sys-voice-transform-none);
 }
 
 .card-summary[data-variant="compact"] .card-summary__number-row {
@@ -10946,7 +10946,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   font-size: var(--component-font-size-caption);
   font-weight: var(--sys-voice-weight-bold);
   letter-spacing: var(--sys-voice-letter-spacing-wider);
-  text-transform: uppercase;
+  text-transform: var(--sys-voice-transform-uppercase);
 }
 
 .card-summary__frost {

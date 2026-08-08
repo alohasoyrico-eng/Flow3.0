@@ -124,6 +124,10 @@ function checkPackageCssContracts() {
     const sourceIndex = text.indexOf("font-size:", text.indexOf("}") + 1);
     add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package typography must use internal font-size aliases instead of raw rem or px values.");
   }
+  for (const match of cssWithoutDefinitions.matchAll(/^\s*text-transform:\s*(?:uppercase|none)\s*;/gm)) {
+    const sourceIndex = text.indexOf(match[0], text.indexOf("}") + 1);
+    add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package text-transform declarations must consume sys Voice transform aliases.");
+  }
   checkTokenizedVisualProperties(cssWithoutDefinitions, text);
   checkComponentAliasLiterals(rootAliasBlock, text);
   checkComponentVarFallbacks(cssWithoutDefinitions, text);

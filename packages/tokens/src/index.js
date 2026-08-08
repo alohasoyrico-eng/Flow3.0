@@ -125,6 +125,10 @@ export const systemTokens = {
       mono: "var(--ref-voice-family-mono)",
       control: "var(--sys-voice-family-control)",
     },
+    transform: {
+      none: "var(--sys-voice-transform-none)",
+      uppercase: "var(--sys-voice-transform-uppercase)",
+    },
     weight: {
       regular: "var(--ref-voice-weight-regular)",
       medium: "var(--ref-voice-weight-medium)",
@@ -281,6 +285,9 @@ export const systemTokens = {
       sidebarCollapsed: "var(--sys-frame-sidebar-collapsed)",
       contentMax: "var(--sys-frame-content-max)",
       contentDialog: "var(--sys-frame-content-dialog)",
+    },
+    ratio: {
+      half: "var(--sys-frame-ratio-half)",
     },
     position: {
       center: "var(--sys-frame-position-center)",

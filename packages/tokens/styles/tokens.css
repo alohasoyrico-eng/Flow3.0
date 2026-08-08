@@ -325,6 +325,8 @@
   --sys-voice-letter-spacing-wider: var(--ref-voice-letter-spacing-wider);
   --sys-voice-letter-spacing-widest: var(--ref-voice-letter-spacing-widest);
   --sys-voice-letter-spacing-caps: var(--ref-voice-letter-spacing-caps);
+  --sys-voice-transform-none: none;
+  --sys-voice-transform-uppercase: uppercase;
   --sys-voice-size-body: var(--sys-voice-paragraph-sm-size);
   --sys-voice-size-body-sm: var(--sys-voice-caption-size);
   --sys-voice-size-label: var(--sys-voice-label-md-size);
@@ -511,6 +513,8 @@
   --sys-frame-width-control: 100%;
   --sys-frame-max-width-control: none;
   --sys-frame-min-width-control: 0;
+  --sys-frame-space-none: var(--ref-frame-space-0);
+  --sys-frame-ratio-half: 0.5;
   --sys-frame-position-center: -50%;
   --sys-frame-content-max: var(--ref-frame-content-max);
   --sys-frame-content-callout: var(--ref-frame-content-callout);
