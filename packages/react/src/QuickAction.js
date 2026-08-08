@@ -52,8 +52,9 @@ export const QuickAction = forwardRef(function QuickAction({
         "aria-busy": resolvedState === "loading" ? "true" : undefined,
         onClick: (event) => {
           if (blocked) return;
-          onAction?.({ label: resolvedLabel, variant: resolvedVariant, state: resolvedState });
           rest.onClick?.(event);
+          if (event.defaultPrevented) return;
+          onAction?.({ label: resolvedLabel, variant: resolvedVariant, state: resolvedState });
         },
       },
       React.createElement(

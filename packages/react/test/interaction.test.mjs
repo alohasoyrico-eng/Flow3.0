@@ -894,6 +894,18 @@ try {
 
   cleanup();
 
+  const preventedMovements = [];
+  const { getByRole: getPreventedMovementRole } = render(React.createElement(MovementRow, {
+    label: "Refund",
+    onClick: (event) => event.preventDefault(),
+    onSelect: (meta) => preventedMovements.push(meta),
+  }));
+
+  fireEvent.click(getPreventedMovementRole("button", { name: /refund/i }));
+  assert.deepEqual(preventedMovements, []);
+
+  cleanup();
+
   const pageChanges = [];
   const { getByRole: getPaginationRole, rerender: rerenderPagination } = render(React.createElement(Pagination, {
     pageCount: 12,
@@ -1076,6 +1088,19 @@ try {
 
   cleanup();
 
+  const preventedQuickActions = [];
+  const { getByRole: getPreventedQuickActionRole } = render(React.createElement(QuickAction, {
+    label: "Prevent scan",
+    icon: "qr_code_scanner",
+    onClick: (event) => event.preventDefault(),
+    onAction: (meta) => preventedQuickActions.push(meta),
+  }));
+
+  fireEvent.click(getPreventedQuickActionRole("button", { name: /prevent scan/i }));
+  assert.deepEqual(preventedQuickActions, []);
+
+  cleanup();
+
   const radioChanges = [];
   const { getByLabelText: getRadioLabel, rerender: rerenderRadio } = render(React.createElement(RadioButton, {
     label: "Card payment",
@@ -1125,6 +1150,23 @@ try {
   assert.equal(routeActions[0][1].label, "Assign");
   assert.equal(routeActions[0][2].type, "click");
   assert.deepEqual(routeClicks, ["click"]);
+
+  cleanup();
+
+  const preventedRouteActions = [];
+  const { getByRole: getPreventedRouteRole } = render(React.createElement(RouteSummary, {
+    label: "Route 25",
+    metrics: [{ key: "eta", label: "ETA", value: "22 min" }],
+    actions: [{
+      key: "assign",
+      label: "Assign",
+      onClick: (event) => event.preventDefault(),
+      onAction: (...args) => preventedRouteActions.push(args),
+    }],
+  }));
+
+  fireEvent.click(getPreventedRouteRole("button", { name: /assign/i }));
+  assert.deepEqual(preventedRouteActions, []);
 
   cleanup();
 

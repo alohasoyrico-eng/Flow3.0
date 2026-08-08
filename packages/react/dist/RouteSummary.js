@@ -20,6 +20,7 @@ function renderAction(action, index, { compact, density, disabled }) {
   const handleActionClick = (event) => {
     event.stopPropagation();
     action?.onClick?.(event);
+    if (event.defaultPrevented) return;
     action?.onAction?.(String(actionKey), action, event);
   };
   if (compact) {

@@ -65,8 +65,9 @@ export const MovementRow = forwardRef(function MovementRow({
       onClick: canInteract
         ? (event) => {
           if (blocked) return;
-          onSelect?.(selectMeta);
           rest.onClick?.(event);
+          if (event.defaultPrevented) return;
+          onSelect?.(selectMeta);
         }
         : undefined,
     },
