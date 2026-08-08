@@ -10392,26 +10392,41 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .movement-row {
-  --movement-row-icon-bg: var(--comp-movement-row-icon-bg);
-  --movement-row-icon-fg: var(--comp-movement-row-icon-fg);
-  --movement-row-min-block-size: var(--comp-movement-row-min-block-size-md);
-  --movement-row-padding-block: var(--comp-movement-row-padding-block-md);
-  --movement-row-padding-inline: var(--comp-movement-row-padding-inline);
-  --movement-row-gap: var(--comp-movement-row-gap-md);
+  --comp-movement-row-border-width: 0;
+  --comp-movement-row-content-gap: var(--component-visually-hidden-size);
+  --comp-movement-row-content-min-inline-size: 0;
+  --comp-movement-row-current-gap: var(--comp-movement-row-gap-md);
+  --comp-movement-row-current-icon-bg: var(--comp-movement-row-icon-bg);
+  --comp-movement-row-current-icon-fg: var(--comp-movement-row-icon-fg);
+  --comp-movement-row-current-min-block-size: var(--comp-movement-row-min-block-size-md);
+  --comp-movement-row-current-padding-block: var(--comp-movement-row-padding-block-md);
+  --comp-movement-row-current-padding-inline: var(--comp-movement-row-padding-inline);
+  --comp-movement-row-disabled-cursor: not-allowed;
+  --comp-movement-row-display: grid;
+  --comp-movement-row-grid-template: auto minmax(0, 1fr) auto;
+  --comp-movement-row-icon-display: inline-flex;
+  --comp-movement-row-icon-justify: center;
+  --comp-movement-row-interactive-cursor: pointer;
+  --comp-movement-row-justify: space-between;
+  --comp-movement-row-status-padding: 0;
+  --comp-movement-row-text-align: start;
+  --comp-movement-row-value-gap: var(--component-visually-hidden-size);
+  --comp-movement-row-value-justify: end;
+  --comp-movement-row-value-min-inline-size: max-content;
   align-items: center;
   background: var(--comp-movement-row-bg);
-  border: 0;
+  border: var(--comp-movement-row-border-width);
   border-radius: var(--comp-movement-row-radius);
   color: var(--comp-movement-row-text);
-  cursor: pointer;
-  display: grid;
-  gap: var(--movement-row-gap);
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  cursor: var(--comp-movement-row-interactive-cursor);
+  display: var(--comp-movement-row-display);
+  gap: var(--comp-movement-row-current-gap);
+  grid-template-columns: var(--comp-movement-row-grid-template);
   inline-size: var(--comp-movement-row-width);
-  min-block-size: var(--movement-row-min-block-size);
-  justify-content: space-between;
-  padding: var(--movement-row-padding-block) var(--movement-row-padding-inline);
-  text-align: start;
+  min-block-size: var(--comp-movement-row-current-min-block-size);
+  justify-content: var(--comp-movement-row-justify);
+  padding: var(--comp-movement-row-current-padding-block) var(--comp-movement-row-current-padding-inline);
+  text-align: var(--comp-movement-row-text-align);
   transition:
     background-color var(--comp-movement-row-motion-duration) var(--comp-movement-row-motion-ease),
     box-shadow var(--comp-movement-row-motion-duration) var(--comp-movement-row-motion-ease),
@@ -10420,38 +10435,38 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .movement-row[data-density="sm"],
 .movement-row[data-variant="compact"] {
-  --movement-row-min-block-size: var(--comp-movement-row-min-block-size-sm);
-  --movement-row-gap: var(--comp-movement-row-gap-sm);
-  --movement-row-padding-block: var(--comp-movement-row-padding-block-sm);
+  --comp-movement-row-current-gap: var(--comp-movement-row-gap-sm);
+  --comp-movement-row-current-min-block-size: var(--comp-movement-row-min-block-size-sm);
+  --comp-movement-row-current-padding-block: var(--comp-movement-row-padding-block-sm);
 }
 
 .movement-row[data-density="lg"] {
-  --movement-row-min-block-size: var(--comp-movement-row-min-block-size-lg);
-  --movement-row-gap: var(--comp-movement-row-gap-lg);
-  --movement-row-padding-block: var(--comp-movement-row-padding-block-lg);
+  --comp-movement-row-current-gap: var(--comp-movement-row-gap-lg);
+  --comp-movement-row-current-min-block-size: var(--comp-movement-row-min-block-size-lg);
+  --comp-movement-row-current-padding-block: var(--comp-movement-row-padding-block-lg);
 }
 
 .movement-row[data-category="fuel"] {
-  --movement-row-icon-bg: var(--comp-movement-row-icon-bg-fuel);
-  --movement-row-icon-fg: var(--comp-movement-row-icon-fg-fuel);
+  --comp-movement-row-current-icon-bg: var(--comp-movement-row-icon-bg-fuel);
+  --comp-movement-row-current-icon-fg: var(--comp-movement-row-icon-fg-fuel);
 }
 
 .movement-row[data-category="charge"],
 .movement-row[data-category="income"],
 .movement-row[data-variant="refund"] {
-  --movement-row-icon-bg: var(--comp-movement-row-icon-bg-success);
-  --movement-row-icon-fg: var(--comp-movement-row-icon-fg-success);
+  --comp-movement-row-current-icon-bg: var(--comp-movement-row-icon-bg-success);
+  --comp-movement-row-current-icon-fg: var(--comp-movement-row-icon-fg-success);
 }
 
 .movement-row[data-category="toll"] {
-  --movement-row-icon-bg: var(--comp-movement-row-icon-bg-action);
-  --movement-row-icon-fg: var(--comp-movement-row-icon-fg-action);
+  --comp-movement-row-current-icon-bg: var(--comp-movement-row-icon-bg-action);
+  --comp-movement-row-current-icon-fg: var(--comp-movement-row-icon-fg-action);
 }
 
 .movement-row[data-variant="declined"],
 .movement-row[data-state="error"] {
-  --movement-row-icon-bg: var(--comp-movement-row-icon-bg-danger);
-  --movement-row-icon-fg: var(--comp-movement-row-icon-fg-danger);
+  --comp-movement-row-current-icon-bg: var(--comp-movement-row-icon-bg-danger);
+  --comp-movement-row-current-icon-fg: var(--comp-movement-row-icon-fg-danger);
 }
 
 .movement-row:hover,
@@ -10471,31 +10486,31 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .movement-row:disabled,
 .movement-row[data-state="disabled"] {
-  cursor: not-allowed;
+  cursor: var(--comp-movement-row-disabled-cursor);
   opacity: var(--comp-movement-row-disabled-opacity);
 }
 
 .movement-row__icon {
   align-items: center;
-  background: var(--movement-row-icon-bg);
+  background: var(--comp-movement-row-current-icon-bg);
   block-size: var(--comp-movement-row-icon-size);
   border-radius: var(--comp-movement-row-icon-radius);
-  color: var(--movement-row-icon-fg);
-  display: inline-flex;
+  color: var(--comp-movement-row-current-icon-fg);
+  display: var(--comp-movement-row-icon-display);
   font-size: var(--comp-movement-row-icon-font-size);
   inline-size: var(--comp-movement-row-icon-size);
-  justify-content: center;
+  justify-content: var(--comp-movement-row-icon-justify);
 }
 
 .movement-row__value {
-  gap: var(--component-visually-hidden-size);
-  justify-items: end;
-  min-inline-size: max-content;
+  gap: var(--comp-movement-row-value-gap);
+  justify-items: var(--comp-movement-row-value-justify);
+  min-inline-size: var(--comp-movement-row-value-min-inline-size);
 }
 
 .movement-row__content {
-  gap: var(--component-visually-hidden-size);
-  min-inline-size: 0;
+  gap: var(--comp-movement-row-content-gap);
+  min-inline-size: var(--comp-movement-row-content-min-inline-size);
 }
 
 .movement-row__content strong {
@@ -10525,7 +10540,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   color: var(--comp-movement-row-muted);
   font-size: var(--comp-movement-row-status-size);
   font-weight: var(--comp-movement-row-caption-weight);
-  padding: 0;
+  padding: var(--comp-movement-row-status-padding);
 }
 
 .movement-row[data-state="pending"] .movement-row__status {

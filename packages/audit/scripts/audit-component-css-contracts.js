@@ -10,6 +10,7 @@ const { checkErrorPanelCssContract } = require("./audit-error-panel-css-contract
 const { checkKpiTileCssContract } = require("./audit-kpi-tile-css-contract.js");
 const { checkListCssContract } = require("./audit-list-css-contract.js");
 const { checkMenuCssContract } = require("./audit-menu-css-contract.js");
+const { checkMovementRowCssContract } = require("./audit-movement-row-css-contract.js");
 const { checkPopoverCssContract } = require("./audit-popover-css-contract.js");
 const { checkProgressIndicatorCssContract } = require("./audit-progress-indicator-css-contract.js");
 const { checkSkeletonCssContract } = require("./audit-skeleton-css-contract.js");
@@ -34,6 +35,7 @@ function checkComponentCssContracts(context) {
   checkKpiTileCssContract(context);
   checkListCssContract(context);
   checkMenuCssContract(context);
+  checkMovementRowCssContract(context);
   checkPopoverCssContract(context);
   checkProgressIndicatorCssContract(context);
   checkSkeletonCssContract(context);
