@@ -884,6 +884,7 @@ const unnamedTabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
   items: [{ key: "overview", icon: "dashboard" }],
 }));
 assert.doesNotMatch(unnamedTabsMarkup, /aria-label="Tabs"|Tab 1/);
+assert.doesNotMatch(unnamedTabsMarkup, /role="tab"/);
 
 const paginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
   label: "Fleet pages",

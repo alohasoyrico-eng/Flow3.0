@@ -11,11 +11,11 @@ function itemKey(item) {
 
 function normalizeItems(items) {
   const sourceItems = Array.isArray(items) ? items : [];
-  return sourceItems.map((item, index) => ({
+  return sourceItems.filter((item) => item?.label).map((item, index) => ({
     ...item,
     key: itemKey(item) || `tab-${index + 1}`,
-    label: item?.label ?? "",
-    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item?.label ?? "",
+    label: item.label,
+    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item.label,
   }));
 }
 

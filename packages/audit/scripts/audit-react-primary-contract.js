@@ -184,7 +184,6 @@ function checkReactComponent(file, shared) {
     }
     checkPublishedLocalImports({ name, artifact, artifactSource });
   }
-
   if (source.includes("innerHTML") || source.includes("insertAdjacentHTML")) add("errors", sourceFile, 1, `${name} React source must not inject HTML strings as a parallel DOM implementation.`);
   checkInlineStyleContract({ name, sourceFile, source });
   checkRuntimeDomMutationContract({ name, sourceFile, source });
@@ -199,6 +198,7 @@ function checkReactComponent(file, shared) {
   if (name === "Drawer" && /item\.(?:copy|label)\s*\?\?\s*""|label:\s*item\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Drawer content must not render empty rows; filter incomplete content before composing child components.");
   if (name === "TreeView" && /label:\s*node\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "TreeView must not render unlabeled treeitems; filter nodes without visible labels before normalizing.");
   if (name === "Accordion" && /ariaLabel:\s*item\.ariaLabel\s*\?\?\s*item\["aria-label"\]\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Accordion must not render unlabeled triggers; filter items without title, label, or ariaLabel before normalizing.");
+  if (name === "Tabs" && /label:\s*item\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Tabs must not render unlabeled tabs; filter items without visible labels before normalizing.");
   const componentImports = importsFromComponents(source);
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {
