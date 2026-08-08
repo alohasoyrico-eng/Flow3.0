@@ -119,8 +119,10 @@
   --component-translate-sheet-enter: var(--sys-space-10);
   --component-translate-sheet-exit: var(--sys-space-5);
   --component-rotation-expanded: var(--sys-momentum-rotate-expanded);
+  --component-rotation-rest: 0deg;
   --component-rotation-quarter: 90deg;
   --component-rotation-tilt: 45deg;
+  --component-rotation-cycle: 360deg;
   --component-transform-none: none;
   --component-transform-scale-rest: scale(var(--component-scale-rest));
   --component-transform-scale-none: scale(var(--component-scale-none));
@@ -128,6 +130,7 @@
   --component-transform-scale-quiet: scale(var(--component-scale-quiet));
   --component-transform-scale-settle: scale(var(--component-scale-settle));
   --component-transform-scale-raised: scale(var(--component-scale-raised));
+  --component-transform-scale-hover: scale(var(--component-scale-hover));
   --component-transform-press: scale(var(--component-scale-press));
   --component-transform-lift-hover: translateY(var(--component-lift-hover));
   --component-transform-lift-sm: translateY(var(--component-lift-sm));
@@ -136,8 +139,29 @@
   --component-transform-rest: translateY(var(--component-translate-rest)) scale(var(--component-scale-rest));
   --component-transform-rest-quiet: translateY(var(--component-translate-rest)) scale(var(--component-scale-quiet));
   --component-transform-rotate-expanded: rotate(var(--component-rotation-expanded));
+  --component-transform-rotate-rest: rotate(var(--component-rotation-rest));
   --component-transform-rotate-quarter: rotate(var(--component-rotation-quarter));
   --component-transform-rotate-tilt: rotate(var(--component-rotation-tilt));
+  --component-transform-rotate-cycle: rotate(var(--component-rotation-cycle));
+  --component-transform-center: translate(-50%, -50%);
+  --component-transform-center-raised: translate(-50%, -50%) scale(var(--component-scale-raised));
+  --component-transform-y-center: translateY(-50%);
+  --component-transform-x-center: translateX(-50%);
+  --component-transform-progress-start: translateX(-120%);
+  --component-transform-progress-mid: translateX(40%);
+  --component-transform-progress-end: translateX(230%);
+  --component-transform-dialog-enter: translateY(var(--sys-space-md)) scale(var(--component-scale-press));
+  --component-transform-check-enter: scale(var(--component-scale-enter)) rotate(calc(var(--component-rotation-tilt) / -4.5));
+  --component-transform-check-overshoot: scale(var(--component-scale-raised)) rotate(var(--component-rotation-rest));
+  --component-transform-x-scale-enter: scaleX(var(--component-scale-enter));
+  --component-transform-x-scale-rest: scaleX(var(--component-scale-rest));
+  --component-transform-y-scale-enter: scaleY(var(--component-scale-enter));
+  --component-transform-y-scale-rest: scaleY(var(--component-scale-rest));
+  --component-transform-y-scale-hover: scaleY(var(--component-scale-hover));
+  --component-transform-chart-tooltip-hidden: translate(-50%, calc(-100% - var(--sys-space-xs))) scale(var(--component-scale-press));
+  --component-transform-chart-tooltip-visible: translate(-50%, calc(-100% - var(--sys-space-xs))) scale(var(--component-scale-rest));
+  --component-transform-tooltip-mobile-closed: translate(-50%, var(--component-translate-overlay-exit)) scale(var(--component-scale-quiet));
+  --component-transform-tooltip-mobile-open: translate(-50%, var(--component-translate-rest)) scale(var(--component-scale-rest));
   --component-disabled-opacity: var(--sys-disabled-opacity);
   --component-disabled-readable-opacity: var(--sys-disabled-readable-opacity);
   --component-disabled-surface-opacity: var(--sys-disabled-surface-opacity);
@@ -1885,7 +1909,7 @@
 @keyframes choice-indicator-enter {
   0% {
     opacity: 0;
-    transform: scale(0.64);
+    transform: var(--component-transform-scale-enter);
   }
 
   68% {
@@ -1900,11 +1924,11 @@
 
 @keyframes choice-dot-enter {
   0% {
-    transform: scale(0.28);
+    transform: var(--component-transform-scale-none);
   }
 
   68% {
-    transform: scale(1.12);
+    transform: var(--component-transform-scale-raised);
   }
 
   100% {
@@ -3174,8 +3198,8 @@ button.tag:disabled,
 }
 
 @keyframes spinner-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { transform: var(--component-transform-rotate-rest); }
+  to { transform: var(--component-transform-rotate-cycle); }
 }
 
 @keyframes spinner-arc-breathe {
@@ -3527,8 +3551,8 @@ button.tag:disabled,
   --comp-slider-thumb-depth: var(--component-depth-low);
   --comp-slider-thumb-raised-depth: var(--component-depth-raised);
   --comp-slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 4) color-mix(in srgb, var(--comp-slider-state-color) 18%, transparent);
-  --comp-slider-thumb-transform: translate(-50%, -50%);
-  --comp-slider-thumb-active-transform: translate(-50%, -50%) scale(1.08);
+  --comp-slider-thumb-transform: var(--component-transform-center);
+  --comp-slider-thumb-active-transform: var(--component-transform-center-raised);
   --comp-slider-input-bg: transparent;
   --comp-slider-input-cursor: grab;
   --comp-slider-input-active-cursor: grabbing;
@@ -3610,7 +3634,7 @@ button.tag:disabled,
   inset-inline: 0;
   pointer-events: none;
   position: absolute;
-  transform: translateY(-50%);
+  transform: var(--component-transform-y-center);
 }
 
 .slider__track {
@@ -5041,10 +5065,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 @keyframes pagination-current-enter {
   0% {
-    transform: scale(0.92);
+    transform: var(--component-transform-scale-quiet);
   }
   64% {
-    transform: scale(1.06);
+    transform: var(--component-transform-scale-raised);
   }
   100% {
     transform: var(--component-transform-scale-rest);
@@ -7419,15 +7443,15 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 @keyframes progress-indeterminate {
   0% {
-    transform: translateX(-120%);
+    transform: var(--component-transform-progress-start);
   }
 
   55% {
-    transform: translateX(40%);
+    transform: var(--component-transform-progress-mid);
   }
 
   100% {
-    transform: translateX(230%);
+    transform: var(--component-transform-progress-end);
   }
 }
 
@@ -7444,7 +7468,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 @keyframes dialog-enter {
   from {
     opacity: 0;
-    transform: translateY(var(--sys-space-md)) scale(0.96);
+    transform: var(--component-transform-dialog-enter);
   }
 
   to {
@@ -7461,7 +7485,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
   to {
     opacity: 0;
-    transform: translateY(var(--sys-space-md)) scale(0.96);
+    transform: var(--component-transform-dialog-enter);
   }
 }
 
@@ -7528,12 +7552,12 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 @keyframes chart-bar-enter {
   from {
     opacity: 0;
-    transform: scaleY(0.62);
+    transform: var(--component-transform-y-scale-enter);
   }
 
   to {
     opacity: 1;
-    transform: scaleY(1);
+    transform: var(--component-transform-y-scale-rest);
   }
 }
 
@@ -7964,21 +7988,21 @@ body[data-contrast="quiet"] .inline-validation {
 
 @keyframes stepper-connector-fill {
   0% {
-    transform: scaleX(0.35);
+    transform: var(--component-transform-x-scale-enter);
   }
   100% {
-    transform: scaleX(1);
+    transform: var(--component-transform-x-scale-rest);
   }
 }
 
 @keyframes stepper-check-enter {
   0% {
     opacity: 0;
-    transform: scale(0.72) rotate(-10deg);
+    transform: var(--component-transform-check-enter);
   }
   72% {
     opacity: 1;
-    transform: scale(1.12) rotate(0deg);
+    transform: var(--component-transform-check-overshoot);
   }
   100% {
     opacity: 1;
@@ -8427,7 +8451,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__bar-group:hover .chart-panel__bar-svg,
 .chart-panel__bar-group:focus-visible .chart-panel__bar-svg {
-  transform: scaleY(1.04);
+  transform: var(--component-transform-y-scale-hover);
 }
 
 .chart-panel[data-variant="line"] .chart-panel__plot,
@@ -8539,13 +8563,13 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__donut:hover {
   box-shadow: var(--component-depth-chart-halo);
-  transform: scale(1.03);
+  transform: var(--component-transform-scale-hover);
 }
 
 .chart-panel__donut:focus-visible {
   outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
   outline-offset: var(--component-focus-ring-offset);
-  transform: scale(1.03);
+  transform: var(--component-transform-scale-hover);
 }
 
 .chart-panel__donut::after {
@@ -8676,7 +8700,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   padding: var(--sys-space-xs) var(--sys-space-sm);
   pointer-events: none;
   position: absolute;
-  transform: translate(-50%, calc(-100% - var(--sys-space-xs))) scale(0.96);
+  transform: var(--component-transform-chart-tooltip-hidden);
   transition:
     opacity var(--component-duration-state) var(--component-ease-state),
     transform var(--component-duration-state) var(--component-ease-enter);
@@ -8693,7 +8717,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__comparison-group[data-tooltip]:hover::after,
 .chart-panel__comparison-group[data-tooltip]:focus-visible::after {
   opacity: var(--sys-state-visible-opacity);
-  transform: translate(-50%, calc(-100% - var(--sys-space-xs))) scale(1);
+  transform: var(--component-transform-chart-tooltip-visible);
 }
 
 .chart-panel__comparison-group:focus-visible {
@@ -8727,7 +8751,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__comparison-group:hover .chart-panel__comparison-bars,
 .chart-panel__comparison-group:focus-visible .chart-panel__comparison-bars {
-  transform: scaleY(1.04);
+  transform: var(--component-transform-y-scale-hover);
 }
 
 .chart-panel[data-variant="pareto"] .chart-panel__plot {
@@ -8799,7 +8823,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   padding: var(--sys-space-xs) var(--sys-space-sm);
   pointer-events: none;
   position: absolute;
-  transform: translate(-50%, calc(-100% - var(--sys-space-xs))) scale(0.96);
+  transform: var(--component-transform-chart-tooltip-hidden);
   transition:
     opacity var(--component-duration-state) var(--component-ease-state),
     transform var(--component-duration-state) var(--component-ease-enter);
@@ -8808,7 +8832,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__tooltip[data-visible="true"] {
   opacity: 1;
-  transform: translate(-50%, calc(-100% - var(--sys-space-xs))) scale(1);
+  transform: var(--component-transform-chart-tooltip-visible);
 }
 
 .chart-panel__threshold-line {
@@ -9056,7 +9080,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
     inset-block-end: calc(100% + var(--sys-space-xs));
     inset-inline-end: auto;
     inset-inline-start: 50%;
-    transform: translate(-50%, var(--component-translate-overlay-exit)) scale(var(--component-scale-quiet));
+    transform: var(--component-transform-tooltip-mobile-closed);
   }
 
   .tooltip[data-placement="left"]:hover .tooltip__bubble,
@@ -9065,7 +9089,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   .tooltip[data-placement="right"]:hover .tooltip__bubble,
   .tooltip[data-placement="right"]:focus-within .tooltip__bubble,
   .tooltip[data-placement="right"][data-open="true"] .tooltip__bubble {
-    transform: translate(-50%, 0) scale(1);
+    transform: var(--component-transform-tooltip-mobile-open);
   }
 
   .error-panel {

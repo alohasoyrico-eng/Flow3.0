@@ -133,6 +133,15 @@ function checkPackageCssContracts() {
     const sourceIndex = text.indexOf(cssWithoutDefinitions.match(/transform:\s*[^;]*(?:translate[XY]?\([^)]*\d+px|scale\((?:0\.98|0\.985|1\.04)\))/)?.[0] ?? "", text.indexOf("}") + 1);
     add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package transform motion must use component transform aliases instead of raw px translation or literal scale values.");
   }
+  for (const match of cssWithoutDefinitions.matchAll(/^\s*transform:\s*([^;]*(?:scale|translate|rotate)(?:X|Y)?\([^;]*);/gm)) {
+    if (/var\(--(?:component|comp|sys)-/.test(match[0])) continue;
+    const sourceIndex = text.indexOf(match[0], text.indexOf("}") + 1);
+    add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package transform declarations must consume Flow component aliases instead of raw scale, translate, or rotate values.");
+  }
+  for (const match of cssWithoutDefinitions.matchAll(/^\s*transform:\s*([^;]*(?:scale(?:X|Y)?|rotate)\(\s*-?(?:\d|\.)[^;]*);/gm)) {
+    const sourceIndex = text.indexOf(match[0], text.indexOf("}") + 1);
+    add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package transform scale and rotation values must be aliased; raw numeric motion belongs in Flow component aliases.");
+  }
   const rawControlSizePattern = /\b(?:min-block-size|min-height|min-inline-size|inline-size|block-size|width):\s*44px\s*;/;
   if (rawControlSizePattern.test(cssWithoutDefinitions)) {
     add("errors", packageCssFile, 1, "Package 44px control sizing must use --component-control-min-size outside the alias block.");
