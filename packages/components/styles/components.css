@@ -5756,7 +5756,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-panel-radius: var(--sys-frame-radius-surface);
   --comp-dialog-panel-color: var(--sys-color-text);
   --comp-dialog-panel-depth: var(--component-depth-panel-strong);
-  --comp-dialog-panel-inline: min(100%, var(--sys-frame-content-dialog, 27.5rem));
+  --comp-dialog-panel-inline: min(100%, var(--sys-frame-content-dialog));
   --comp-dialog-panel-padding: var(--sys-space-lg);
   --comp-dialog-panel-gap: var(--sys-space-md);
   --comp-dialog-panel-viewport-gap: var(--sys-space-lg);
