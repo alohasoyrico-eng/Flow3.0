@@ -12,13 +12,17 @@ const backlog = JSON.parse(fs.readFileSync(backlogPath, "utf8"));
 const forbiddenDocsSystemImports = /\bimport\s*\{[^}]*\bhydrate[A-Z][A-Za-z0-9_]*\b[^}]*\}\s*from\s*["']#design-system\/components["']/;
 
 function docsModulePath(fileName) {
+  const found = docsModulePathOptional(fileName);
+  if (!found) throw new Error(`Docs module not found for split audit: ${fileName}`);
+  return found;
+}
+
+function docsModulePathOptional(fileName) {
   const candidates = [
     path.join(repoRoot, "apps/docs", fileName),
     path.join(repoRoot, "../FlowDocs/apps/docs", fileName),
   ];
-  const found = candidates.find((file) => fs.existsSync(file));
-  if (!found) throw new Error(`Docs module not found for split audit: ${fileName}`);
-  return found;
+  return candidates.find((file) => fs.existsSync(file));
 }
 
 class AuditText {
@@ -164,8 +168,8 @@ const forbiddenManualDemoPatterns = [
 ];
 
 for (const componentId of strictPackageBackedDocs) {
-  const docsFile = path.join(repoRoot, "apps/docs", `gold-${componentId}-docs.js`);
-  if (!fs.existsSync(docsFile)) continue;
+  const docsFile = docsModulePathOptional(`gold-${componentId}-docs.js`);
+  if (!docsFile) continue;
   const source = fs.readFileSync(docsFile, "utf8");
   const violation = forbiddenManualDemoPatterns.find((pattern) => pattern.test(source));
   assert.equal(

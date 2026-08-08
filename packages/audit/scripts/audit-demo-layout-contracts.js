@@ -1,7 +1,7 @@
 const { add, path, root, docsAppDir, read } = require("./audit-context.js");
 
 const simpleDocsFile = path.join(docsAppDir, "gold-simple-component-docs.js");
-const demoCellCssFile = path.join(root, "apps/docs/styles/04a-demo-cell-docs.css");
+const demoCellCssFile = path.join(docsAppDir, "styles/04a-demo-cell-docs.css");
 
 const wideDemoComponents = [
   "breadcrumbs",
