@@ -19,6 +19,10 @@ function fixtureForContract(id, contract) {
     props[prop.name] = valueForRequiredProp(prop.name);
   }
   if (id === "button") props.label = "Reference";
+  if (id === "chartPanel") {
+    props.values = [1, 2, 3];
+    props.labels = ["One", "Two", "Three"];
+  }
   if (id === "iconButton") props.ariaLabel = "Reference action";
   if (["dialog", "drawer", "popover", "tooltip"].includes(id)) props.open = true;
   return props;

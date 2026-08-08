@@ -32,10 +32,20 @@ function hasStableSeriesId(item) {
   return item?.id !== undefined && item?.id !== null && item?.id !== "";
 }
 
+function hasStableSegmentId(item) {
+  return item?.id !== undefined && item?.id !== null && item?.id !== "";
+}
+
 function normalizeSeries(series = []) {
   return (Array.isArray(series) ? series : [])
     .filter((item) => hasStableSeriesId(item) && Array.isArray(item.values))
     .map((item) => ({ ...item, id: String(item.id), values: normalizeValues(item.values) }));
+}
+
+function normalizeSegments(segments = []) {
+  return (Array.isArray(segments) ? segments : [])
+    .filter((item) => hasStableSegmentId(item) && item?.label && Number.isFinite(Number(item.value)))
+    .map((item) => ({ ...item, id: String(item.id), value: Math.max(0, Number(item.value)) }));
 }
 
 function pointsFor(values = []) {
@@ -171,9 +181,9 @@ function renderPareto(values, labels) {
   );
 }
 
-function renderPlot(type, values, labels, series, comparisons) {
+function renderPlot(type, values, labels, series, comparisons, segments) {
   if (type === "bars") return renderBars(values, labels);
-  if (type === "donut") return renderDonut(values);
+  if (type === "donut") return renderDonut(segments.length ? segments.map((segment) => segment.value) : values);
   if (type === "bullet") return renderBullet(values, labels);
   if (type === "comparison") return renderComparison(comparisons, values, labels);
   if (type === "pareto") return renderPareto(values, labels);
@@ -184,12 +194,12 @@ export const ChartPanel = forwardRef(function ChartPanel({
   label,
   value = "",
   caption = "",
-  values = [],
-  valueLabels = [],
-  labels = [],
-  segments = [],
-  series = [],
-  comparisons = [],
+  values,
+  valueLabels,
+  labels,
+  segments,
+  series,
+  comparisons,
   variant = "sparkline",
   state = "default",
   tone = "neutral",
@@ -203,17 +213,23 @@ export const ChartPanel = forwardRef(function ChartPanel({
   const resolvedTone = normalizeFlowValue(tone, validTones, "neutral");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedValues = normalizeValues(values);
-  const resolvedLabels = labels.length ? labels : valueLabels.length ? valueLabels : [];
+  const safeLabels = Array.isArray(labels) ? labels : [];
+  const safeValueLabels = Array.isArray(valueLabels) ? valueLabels : [];
+  const resolvedLabels = safeLabels.length ? safeLabels : safeValueLabels.length ? safeValueLabels : [];
   const resolvedSeries = normalizeSeries(series);
   const resolvedComparisons = normalizeSeries(comparisons);
+  const resolvedSegments = normalizeSegments(segments);
+  const hasChartData = Boolean(resolvedValues.length || resolvedSeries.length || resolvedComparisons.length || resolvedSegments.length);
+  if (!label || !hasChartData) return null;
+
   const chartPrimitive = createChartsPrimitive({
     type: resolvedVariant,
-    label: label ?? "",
+    label,
     value,
     caption,
     values: resolvedValues,
     labels: resolvedLabels,
-    segments,
+    segments: resolvedSegments,
     series: resolvedSeries,
     comparisons: resolvedComparisons,
   });
@@ -252,7 +268,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
     React.createElement(
       "figure",
       { role: "group", "aria-label": chartPrimitive.textSummary },
-      React.createElement("div", { className: "chart-panel__plot", role: "list" }, renderPlot(chartPrimitive.type, resolvedValues, resolvedLabels, resolvedSeries, resolvedComparisons)),
+      React.createElement("div", { className: "chart-panel__plot", role: "list" }, renderPlot(chartPrimitive.type, resolvedValues, resolvedLabels, resolvedSeries, resolvedComparisons, resolvedSegments)),
       React.createElement("span", { className: "chart-panel__tooltip", role: "status", "aria-live": "polite", "data-visible": "false" }),
       React.createElement("div", { className: "chart-panel__echarts", "aria-hidden": "true" }),
       React.createElement("script", { type: "application/json", className: "chart-panel__option" }, JSON.stringify(optionModel)),

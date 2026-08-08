@@ -479,6 +479,7 @@ assert.doesNotMatch(unlabeledBarsChartMarkup, /role="listitem"|tabindex="0"|data
 const emptyChartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
   label: "Empty chart",
 }));
+assert.equal(emptyChartPanelMarkup, "");
 assert.doesNotMatch(emptyChartPanelMarkup, /Value 1|Series 1|Current|Previous/);
 assert.doesNotMatch(emptyChartPanelMarkup, /32|54|48|70|62|84/);
 const unstableSeriesChartMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
