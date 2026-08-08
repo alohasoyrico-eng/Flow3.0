@@ -31,7 +31,7 @@ export const Chip = forwardRef(function Chip({
   removable = false,
   icon = "",
   interactive = false,
-  onRemoveLabel = "",
+  onRemoveLabel,
   onRemove,
   onSelectedChange,
   className = "",
