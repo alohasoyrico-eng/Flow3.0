@@ -78,6 +78,7 @@ function checkPackageCssContracts() {
     "--component-ease-press",
     "--component-ease-loading-rhythm",
     "--component-loading-easing-linear",
+    "--component-depth-none",
     "--component-depth-low",
     "--component-depth-low-soft",
     "--component-depth-low-medium",
@@ -194,6 +195,9 @@ function checkPackageCssContracts() {
   }
   for (const match of text.matchAll(/--comp-[\w-]*radius[\w-]*:\s*calc\(var\(--sys-radius-md\)\s*\+\s*var\(--sys-radius-sm\)\);/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component radius aliases must consume --component-radius-control instead of duplicating the radius formula.");
+  }
+  for (const match of text.matchAll(/--comp-[\w-]*(?:depth|shadow)[\w-]*:\s*none;/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component depth and shadow aliases must consume --component-depth-none instead of hardcoding none.");
   }
 
   const blocks = cssBlocks(text);

@@ -59,7 +59,7 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
     snippets: [
       "--comp-quick-action-bg: transparent",
       "--comp-quick-action-border-width: 0",
-      "--comp-quick-action-shadow: none",
+      "--comp-quick-action-shadow: var(--component-depth-none)",
       "--comp-quick-action-cursor: default",
       "--comp-quick-action-display: inline-grid",
       "--comp-quick-action-inline-size: max-content",

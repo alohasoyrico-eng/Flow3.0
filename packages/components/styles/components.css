@@ -287,6 +287,7 @@
   --component-ease-press: var(--sys-motion-curve-touch);
   --component-ease-loading-rhythm: var(--component-loading-easing-rhythm);
   --component-ease-linear: var(--sys-motion-curve-linear);
+  --component-depth-none: none;
   --component-depth-low: var(--sys-elevation-control);
   --component-depth-low-soft: var(--sys-elevation-card);
   --component-depth-low-medium: var(--sys-elevation-card);
@@ -2736,7 +2737,7 @@ button.tag:disabled,
   --comp-tabs-underline-indicator-bg: var(--sys-color-action);
   --comp-tabs-underline-indicator-border: 0;
   --comp-tabs-underline-indicator-block-size: calc(var(--comp-tabs-border-width) * 3);
-  --comp-tabs-underline-indicator-shadow: none;
+  --comp-tabs-underline-indicator-shadow: var(--component-depth-none);
   --comp-tabs-underline-indicator-inset-block: auto;
   --comp-tabs-underline-indicator-inset-block-end: calc(var(--comp-tabs-border-width) * -1);
   --comp-tabs-underline-tab-radius: 0;
@@ -4962,7 +4963,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-border-width: var(--component-border-width);
   --comp-audit-event-content-display: grid;
   --comp-audit-event-content-gap: var(--sys-space-xs);
-  --comp-audit-event-depth: none;
+  --comp-audit-event-depth: var(--component-depth-none);
   --comp-audit-event-disabled-border: var(--component-disabled-border);
   --comp-audit-event-disabled-fg: var(--component-disabled-text);
   --comp-audit-event-disabled-opacity: var(--sys-disabled-opacity);
@@ -5165,7 +5166,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-error-panel-border-width: var(--component-border-width);
   --comp-error-panel-border: color-mix(in srgb, var(--comp-error-panel-tone) 34%, var(--sys-color-border));
   --comp-error-panel-radius: var(--component-radius-control);
-  --comp-error-panel-depth: none;
+  --comp-error-panel-depth: var(--component-depth-none);
   --comp-error-panel-blocking-depth: var(--component-depth-danger);
   --comp-error-panel-inline-radius: var(--sys-radius-md);
   --comp-error-panel-fg: var(--sys-color-text);
@@ -10961,7 +10962,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
   --comp-quick-action-min-inline-size: var(--component-action-min-inline-size-md);
   --comp-quick-action-padding: 0;
-  --comp-quick-action-shadow: none;
+  --comp-quick-action-shadow: var(--component-depth-none);
   --comp-quick-action-text-align: center;
   --comp-quick-action-control-bg: var(--sys-color-surface);
   --comp-quick-action-control-border: var(--sys-color-border);

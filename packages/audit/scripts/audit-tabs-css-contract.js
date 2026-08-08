@@ -67,6 +67,7 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "--comp-tabs-tab-min-block: var(--component-navigation-target-size-lg)",
       "--comp-tabs-tab-min-inline: var(--component-navigation-target-size-lg)",
       "--comp-tabs-focus-width: var(--component-focus-ring-width)",
+      "--comp-tabs-underline-indicator-shadow: var(--component-depth-none)",
       "align-items: var(--comp-tabs-align)",
       "background: var(--comp-tabs-bg)",
       "border: var(--comp-tabs-border)",
