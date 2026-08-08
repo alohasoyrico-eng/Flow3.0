@@ -1006,6 +1006,12 @@ const unnamedTabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
 }));
 assert.doesNotMatch(unnamedTabsMarkup, /aria-label="Tabs"|Tab 1/);
 assert.doesNotMatch(unnamedTabsMarkup, /role="tab"/);
+const unstableTabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
+  label: "Fleet views",
+  items: [{ label: "Cards" }],
+}));
+assert.doesNotMatch(unstableTabsMarkup, /role="tab"/);
+assert.doesNotMatch(unstableTabsMarkup, /data-key="Cards"|tab-1/);
 
 const paginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
   label: "Fleet pages",

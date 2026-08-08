@@ -480,6 +480,7 @@ export const componentContracts = {
     accessibility: [
       "Use role tablist and role tab.",
       "Expose selected state with aria-selected.",
+      "Require stable item key or value before composing tabs.",
       "Keep roving tab index aligned with selection."
     ]
   },

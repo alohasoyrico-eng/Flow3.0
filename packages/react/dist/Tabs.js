@@ -6,14 +6,14 @@ import { flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps
 const allowedVariants = new Set(["default", "underline"]);
 
 function itemKey(item) {
-  return item?.key ?? item?.value ?? item?.label ?? "";
+  return item?.key ?? item?.value ?? "";
 }
 
 function normalizeItems(items) {
   const sourceItems = Array.isArray(items) ? items : [];
-  return sourceItems.filter((item) => item?.label).map((item, index) => ({
+  return sourceItems.filter((item) => item?.label && itemKey(item)).map((item) => ({
     ...item,
-    key: itemKey(item) || `tab-${index + 1}`,
+    key: itemKey(item),
     label: item.label,
     ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item.label,
   }));
