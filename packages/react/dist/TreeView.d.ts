@@ -22,6 +22,7 @@ export interface TreeViewProps extends Omit<HTMLAttributes<HTMLUListElement>, "s
   state?: TreeViewState;
   density?: TreeViewDensity;
   selectedKey?: string;
+  expandedKeys?: string[];
   onSelect?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
   onExpandedChange?: (expandedKeys: string[], event: TreeViewExpandedChangeEvent) => void;
 }

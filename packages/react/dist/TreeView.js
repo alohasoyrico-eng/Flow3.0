@@ -41,6 +41,7 @@ export const TreeView = forwardRef(function TreeView({
   state = "expanded",
   density,
   selectedKey,
+  expandedKeys,
   onSelect,
   onExpandedChange,
   className = "",
@@ -48,8 +49,10 @@ export const TreeView = forwardRef(function TreeView({
 }, ref) {
   const normalizedNodes = useMemo(() => normalizeNodes(nodes), [nodes]);
   const isSelectedKeyControlled = selectedKey !== undefined;
+  const isExpandedKeysControlled = expandedKeys !== undefined;
   const [selected, setSelected] = useState(() => selectedKey ?? normalizedNodes.find((node) => node.selected)?.key ?? "");
-  const [expanded, setExpanded] = useState(() => normalizedNodes.filter((node) => node.expanded).map((node) => node.key));
+  const [internalExpanded, setInternalExpanded] = useState(() => normalizedNodes.filter((node) => node.expanded).map((node) => node.key));
+  const expanded = isExpandedKeysControlled ? (Array.isArray(expandedKeys) ? expandedKeys.map(String) : []) : internalExpanded;
   const controlRefs = useRef(new Map());
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedState = normalizeFlowValue(state, validStates, "expanded");
@@ -70,13 +73,11 @@ export const TreeView = forwardRef(function TreeView({
   };
   const commitExpanded = (node, nextExpanded, event) => {
     if (!node?.expandable || node.disabled) return;
-    setExpanded((current) => {
-      const next = nextExpanded
-        ? [...new Set([...current, node.key])]
-        : current.filter((key) => key !== node.key);
-      onExpandedChange?.(next, event);
-      return next;
-    });
+    const next = nextExpanded
+      ? [...new Set([...expanded, node.key])]
+      : expanded.filter((key) => key !== node.key);
+    if (!isExpandedKeysControlled) setInternalExpanded(next);
+    onExpandedChange?.(next, event);
   };
   const move = (node, direction) => {
     const enabled = visible

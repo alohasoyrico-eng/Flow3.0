@@ -2149,6 +2149,34 @@ try {
 
   cleanup();
 
+  const controlledTreeExpandedChanges = [];
+  const { getByRole: getControlledTreeRole, rerender: rerenderControlledTreeView } = render(React.createElement(TreeView, {
+    label: "Controlled docs navigation",
+    expandedKeys: [],
+    nodes: [
+      { key: "components", label: "Components", level: 1, expanded: false, icon: "category" },
+      { key: "button", label: "Button", level: 2 },
+    ],
+    onExpandedChange: (keys, event) => controlledTreeExpandedChanges.push({ keys, eventType: event.type }),
+  }));
+
+  const controlledComponentsTreeItem = getControlledTreeRole("treeitem", { name: /components/i });
+  fireEvent.click(controlledComponentsTreeItem);
+  assert.deepEqual(controlledTreeExpandedChanges, [{ keys: ["components"], eventType: "click" }]);
+  assert.equal(controlledComponentsTreeItem.getAttribute("aria-expanded"), "false");
+  rerenderControlledTreeView(React.createElement(TreeView, {
+    label: "Controlled docs navigation",
+    expandedKeys: ["components"],
+    nodes: [
+      { key: "components", label: "Components", level: 1, expanded: false, icon: "category" },
+      { key: "button", label: "Button", level: 2 },
+    ],
+    onExpandedChange: (keys, event) => controlledTreeExpandedChanges.push({ keys, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(controlledComponentsTreeItem.getAttribute("aria-expanded"), "true"));
+
+  cleanup();
+
   const preventedTreeSelections = [];
   const preventedTreeExpandedChanges = [];
   const preventedTreeEvents = [];
