@@ -1350,7 +1350,7 @@ const emptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
   state: "action",
   density: "sm",
   fullWidth: true,
-  action: { label: "Clear filters", variant: "secondary", icon: "filter_alt_off" },
+  action: { key: "clear-filters", label: "Clear filters", variant: "secondary", icon: "filter_alt_off" },
 }));
 assert.match(emptyStateMarkup, /^<section/);
 assert.match(emptyStateMarkup, /class="empty-state"/);
@@ -1376,10 +1376,16 @@ assert.doesNotMatch(loadingEmptyStateMarkup, /Loading empty state/);
 
 const inheritedEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
   title: "Inherited empty density",
-  action: { label: "Retry" },
+  action: { key: "retry", label: "Retry" },
 }));
 assert.doesNotMatch(inheritedEmptyStateMarkup.match(/^<section[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedEmptyStateMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const unstableEmptyStateActionMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
+  title: "No vehicles match",
+  action: { label: "Clear filters" },
+}));
+assert.doesNotMatch(unstableEmptyStateActionMarkup, /class="button/);
 
 const errorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
   label: "Sync failed",

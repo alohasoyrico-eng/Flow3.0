@@ -910,6 +910,7 @@ export const componentContracts = {
     accessibility: [
       "Keep the empty-state title visible.",
       "Use one local action at most.",
+      "Require a stable action key before composing the local action.",
       "Do not turn empty state into a multi-step onboarding pattern."
     ]
   },

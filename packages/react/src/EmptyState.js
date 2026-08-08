@@ -38,6 +38,8 @@ export const EmptyState = forwardRef(function EmptyState({
   const resolvedTitle = title ?? label ?? "";
   const showIcon = Boolean(icon) || resolvedState === "loading";
   const actionLabel = action?.label;
+  const actionKey = action?.key;
+  const canRenderAction = Boolean(actionLabel && actionKey !== undefined && actionKey !== null && actionKey !== "");
 
   return React.createElement(
     "section",
@@ -65,7 +67,7 @@ export const EmptyState = forwardRef(function EmptyState({
     description
       ? React.createElement("p", { className: "empty-state__description" }, description)
       : null,
-    actionLabel
+    canRenderAction
       ? React.createElement(Button, {
         ...action,
         label: actionLabel,
@@ -73,7 +75,7 @@ export const EmptyState = forwardRef(function EmptyState({
         variant: action.variant ?? "primary",
         onClick: (event) => {
           action.onClick?.(event);
-          onAction?.(action.key ?? actionLabel);
+          onAction?.(actionKey);
         },
       })
       : null,
