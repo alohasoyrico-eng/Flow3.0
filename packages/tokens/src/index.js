@@ -319,6 +319,7 @@ export const systemTokens = {
       contentNavigationTargetMd: "var(--sys-frame-content-navigation-target-md)",
       contentNavigationTargetLg: "var(--sys-frame-content-navigation-target-lg)",
       contentNavigationEllipsisInline: "var(--sys-frame-content-navigation-ellipsis-inline)",
+      contentOptionMinBlock: "var(--sys-frame-content-option-min-block)",
       contentMenuMinSm: "var(--sys-frame-content-menu-min-sm)",
       contentMenuMinMd: "var(--sys-frame-content-menu-min-md)",
       contentMenuMinLg: "var(--sys-frame-content-menu-min-lg)",

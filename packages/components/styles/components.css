@@ -65,6 +65,7 @@
   --component-navigation-target-size-md: var(--sys-frame-content-navigation-target-md);
   --component-navigation-target-size-lg: var(--sys-frame-content-navigation-target-lg);
   --component-navigation-ellipsis-inline-size: var(--sys-frame-content-navigation-ellipsis-inline);
+  --component-option-min-block-size: var(--sys-frame-content-option-min-block);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -5841,7 +5842,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-danger-hover-bg: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
   --comp-menu-item-disabled-fg: var(--sys-color-text-muted);
   --comp-menu-item-disabled-opacity: var(--component-opacity-disabled);
-  --comp-menu-item-height: calc(var(--component-control-min-size) - var(--sys-space-xs));
+  --comp-menu-item-height: var(--component-option-min-block-size);
   --comp-menu-item-padding-x: var(--sys-space-sm);
   --comp-menu-item-radius: var(--sys-radius-sm);
   --comp-menu-item-gap: var(--sys-space-xs);
@@ -9070,7 +9071,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-listbox-depth: var(--component-depth-popover);
   --comp-select-listbox-max-block-size: var(--component-content-size-lg);
   --comp-select-option-gap: var(--sys-space-sm);
-  --comp-select-option-min-size: calc(var(--component-control-min-size) - var(--sys-space-xs));
+  --comp-select-option-min-size: var(--component-option-min-block-size);
   --comp-select-option-padding-x: var(--sys-space-sm);
   --comp-select-option-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro));
   --comp-select-current-control-size: var(--comp-select-control-size);

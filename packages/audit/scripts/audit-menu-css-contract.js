@@ -33,6 +33,10 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (rawHoverNudge) {
     add("errors", packageCssFile, lineNumber(text, rawHoverNudge.index), "Menu hover nudge must flow through component Momentum transform roles instead of local translate values.");
   }
+  const rawItemHeight = text.match(/--comp-menu-item-height:\s*calc\(var\(--component-control-min-size\)[^;]+/);
+  if (rawItemHeight) {
+    add("errors", packageCssFile, lineNumber(text, rawItemHeight.index), "Menu item height must flow through shared Frame option roles instead of local control-size calculations.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -43,6 +47,7 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-menu-panel-border-width: var(--component-border-width)",
       "--comp-menu-panel-depth: var(--component-depth-popover)",
       "--comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-md)",
+      "--comp-menu-item-height: var(--component-option-min-block-size)",
       "--comp-menu-item-font-size: var(--component-font-size-label)",
       "--comp-menu-item-hover-transform: var(--component-transform-inline-nudge)",
       "--comp-menu-enter-ease: var(--component-ease-enter)",

@@ -28,6 +28,7 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
     snippets: [
       "--comp-select-padding-end: calc(var(--sys-space-lg) - var(--sys-frame-space-micro))",
       "--comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--sys-frame-space-micro))",
+      "--comp-select-option-min-size: var(--component-option-min-block-size)",
       "--comp-select-option-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro))",
     ],
     message: "Select frame offsets must consume Frame micro aliases instead of raw px/rem values.",
@@ -45,6 +46,10 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
   });
   if (/--comp-(?:combobox|select|country-selector)[^:]*:\s*calc\([^;]*(?:2px|0\.125rem)/.test(text)) {
     add("errors", packageCssFile, 1, "Select and Combobox component aliases must not hardcode 2px or 0.125rem frame offsets.");
+  }
+  const rawOptionHeight = text.match(/--comp-select-option-min-size:\s*calc\(var\(--component-control-min-size\)[^;]+/);
+  if (rawOptionHeight) {
+    add("errors", packageCssFile, lineNumber(text, rawOptionHeight.index), "Select option height must flow through shared Frame option roles instead of local control-size calculations.");
   }
   const rawCountryInline = text.match(/--comp-country-selector-inline-listbox-(?:max-inline-size|inline-size):\s*(?:calc\(var\(--component-control-min-size\) \* [0-9.]+\)|min\([^;]*100vw)/);
   if (rawCountryInline) {
