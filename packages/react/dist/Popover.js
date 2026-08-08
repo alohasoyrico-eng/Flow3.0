@@ -58,19 +58,19 @@ export const Popover = forwardRef(function Popover({
 
   if (!triggerLabel || !title) return null;
 
-  const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
+  const setOpen = (nextOpen, { restoreFocus = false, event } = {}) => {
     if (isDisabled) return;
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
     setInteractionState(normalizedOpen ? "open" : "closed");
-    onOpenChange?.(normalizedOpen);
+    onOpenChange?.(normalizedOpen, event);
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
   const closeFromKeyboard = (event) => {
     if (event.key !== "Escape") return;
     event.preventDefault();
-    setOpen(false, { restoreFocus: true });
+    setOpen(false, { restoreFocus: true, event });
   };
 
   return React.createElement(
@@ -99,7 +99,7 @@ export const Popover = forwardRef(function Popover({
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": panelId,
-      onClick: () => setOpen(!isOpen),
+      onClick: (event) => setOpen(!isOpen, { event }),
       onKeyDown: closeFromKeyboard,
     }) : null,
     React.createElement(
@@ -142,7 +142,7 @@ export const Popover = forwardRef(function Popover({
                 action.onClick?.(event);
                 if (event.defaultPrevented) return;
                 onAction?.(action.key, event);
-                setOpen(false, { restoreFocus: true });
+                setOpen(false, { restoreFocus: true, event });
               },
             });
           }),

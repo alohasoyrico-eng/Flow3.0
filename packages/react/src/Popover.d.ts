@@ -1,10 +1,11 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { popoverPlatformContract } from "@design-system/components/platforms";
 
 export type PopoverVariant = "information" | "action" | "form" | "metric";
 export type PopoverState = "default" | "closed" | "open" | "hover" | "focus" | "warning" | "disabled";
 export type PopoverPlacement = "top" | "right" | "bottom" | "left";
 export type PopoverDensity = "sm" | "md" | "lg";
+export type PopoverOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
 
 export interface PopoverAction {
   key?: string;
@@ -41,7 +42,7 @@ export interface PopoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, "sty
   disabled?: boolean;
   actions?: PopoverAction[];
   field?: PopoverField;
-  onOpenChange?: (open: boolean) => void;
+  onOpenChange?: (open: boolean, event?: PopoverOpenChangeEvent) => void;
   onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
 }
 

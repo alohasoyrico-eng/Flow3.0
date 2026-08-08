@@ -109,6 +109,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Popover" && !source.includes("onAction?.(action.key, event);")) add("errors", sourceFile, 1, "Popover must pass the original click event through the semantic onAction contract.");
   if (name === "Popover" && /actions\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "Popover must not hide missing action collections behind an empty prop default.");
   if (name === "Popover" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "Popover must not synthesize action keys from visible labels.");
+  if (name === "Popover" && !source.includes("onOpenChange?.(normalizedOpen, event);")) add("errors", sourceFile, 1, "Popover must pass the original user event through onOpenChange when user interaction changes overlay state.");
   if (name === "Drawer" && /item\.(?:copy|label)\s*\?\?\s*""|label:\s*item\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Drawer content must not render empty rows; filter incomplete content before composing child components.");
   if (name === "TreeView" && /label:\s*node\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "TreeView must not render unlabeled treeitems; filter nodes without visible labels before normalizing.");
   if (name === "TreeView" && /node\?\.label\s*\?\?\s*`tree-item-\$\{index\}`|node\?\.label\s*\?\?\s*node/.test(source)) add("errors", sourceFile, 1, "TreeView must not synthesize stable node keys from visible labels or indexes.");
