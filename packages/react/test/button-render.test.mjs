@@ -2541,6 +2541,17 @@ assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Combobox"/);
 assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Options"/);
 assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Clear selection"/);
 
+const unstableOptionComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
+  label: "Vehicle",
+  state: "open",
+  options: [
+    { label: "MX-4821 - Ana Gomez" },
+    { value: "mx-8840" },
+  ],
+}));
+assert.doesNotMatch(unstableOptionComboboxMarkup, /role="option"/);
+assert.doesNotMatch(unstableOptionComboboxMarkup, /data-value="MX-4821|data-label="mx-8840"/);
+
 const motionBoundaryMarkup = renderToStaticMarkup(React.createElement(MotionBoundary, {
   label: "Panel transition",
   description: "Route content enters as a bounded region.",

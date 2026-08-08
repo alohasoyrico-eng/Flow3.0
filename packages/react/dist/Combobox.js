@@ -3,15 +3,21 @@ import { comboboxPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 function optionValue(option) {
-  return option.value ?? option.label ?? "";
+  return option.value ?? "";
 }
 
 function optionLabel(option) {
-  return option.label ?? option.value ?? "";
+  return option.label ?? "";
 }
 
 function selectedOptionFor(options, value) {
   return options.find((option) => optionValue(option) === value) ?? null;
+}
+
+function normalizeOptions(options) {
+  return (Array.isArray(options) ? options : []).filter((option) => (
+    option?.label && option.value !== undefined && option.value !== null && option.value !== ""
+  ));
 }
 
 function normalizedState({ disabled, state, currentValue, visibleCount }) {
@@ -43,35 +49,36 @@ export const Combobox = forwardRef(function Combobox({
 }, ref) {
   const generatedId = useId();
   const comboboxId = id ?? `combobox-${generatedId}`;
+  const normalizedOptions = useMemo(() => normalizeOptions(options), [options]);
   const isValueControlled = value !== undefined;
   const initialValue = value ?? "";
-  const initialOption = selectedOptionFor(options, initialValue);
+  const initialOption = selectedOptionFor(normalizedOptions, initialValue);
   const [currentValue, setCurrentValue] = useState(initialValue);
   const [inputValue, setInputValue] = useState(initialOption ? optionLabel(initialOption) : initialValue);
   const [open, setOpen] = useState(state === "open");
   const [activeIndex, setActiveIndex] = useState(0);
   const query = inputValue.trim().toLowerCase();
   const filteredOptions = useMemo(
-    () => options.filter((option) => {
+    () => normalizedOptions.filter((option) => {
       const haystack = `${optionLabel(option)} ${option.meta ?? ""}`.toLowerCase();
       return !query || haystack.includes(query);
     }),
-    [options, query],
+    [normalizedOptions, query],
   );
   const enabledOptions = filteredOptions.filter((option) => !option.disabled);
   const activeOption = enabledOptions[activeIndex] ?? enabledOptions[0] ?? null;
   const resolvedState = normalizedState({ disabled, state, currentValue: inputValue, visibleCount: filteredOptions.length });
   const isOpen = Boolean(open) && !disabled;
-  const selectedOption = selectedOptionFor(options, currentValue);
+  const selectedOption = selectedOptionFor(normalizedOptions, currentValue);
   const selectedValue = selectedOption ? optionValue(selectedOption) : currentValue;
 
   useEffect(() => {
     if (!isValueControlled) return;
-    const nextOption = selectedOptionFor(options, value);
+    const nextOption = selectedOptionFor(normalizedOptions, value);
     setCurrentValue(value ?? "");
     setInputValue(nextOption ? optionLabel(nextOption) : value ?? "");
     setActiveIndex(0);
-  }, [isValueControlled, options, value]);
+  }, [isValueControlled, normalizedOptions, value]);
 
   const commitOption = (option) => {
     if (!option || option.disabled) return;
@@ -131,7 +138,7 @@ export const Combobox = forwardRef(function Combobox({
         "aria-label": label ? undefined : rest["aria-label"],
         "aria-labelledby": label ? `${comboboxId}-label` : undefined,
         "aria-invalid": resolvedState === "error" ? "true" : undefined,
-        "aria-activedescendant": isOpen && activeOption ? `${comboboxId}-option-${options.indexOf(activeOption)}` : undefined,
+        "aria-activedescendant": isOpen && activeOption ? `${comboboxId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
         onFocus: () => setOpen(true),
         onChange: (event) => {
           const nextValue = event.target.value;
@@ -189,11 +196,11 @@ export const Combobox = forwardRef(function Combobox({
         filteredOptions.map((option) => {
           const valueKey = optionValue(option);
           const isSelected = valueKey === selectedValue;
-          const index = options.indexOf(option);
+          const index = normalizedOptions.indexOf(option);
           return React.createElement(
             "span",
             {
-              key: valueKey || index,
+              key: valueKey,
               id: `${comboboxId}-option-${index}`,
               className: "select-control__option combobox__option",
               role: "option",

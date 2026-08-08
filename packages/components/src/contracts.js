@@ -238,6 +238,7 @@ export const componentContracts = {
     accessibility: [
       "Keep the visible label associated with the editable combobox input.",
       "Use aria-autocomplete=list with a listbox of filtered options.",
+      "Require option label and value before composing choices.",
       "Expose active option with aria-activedescendant while the listbox is open.",
       "Provide visible empty-state copy when filtering produces no results.",
       "Do not use Combobox for global search, async command palettes, multi-select, or form submission flows."
