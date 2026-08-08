@@ -3981,14 +3981,29 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .empty-state {
+  --comp-empty-state-fg: var(--sys-color-text);
   --comp-empty-state-icon-size: var(--component-empty-state-icon-size-md);
   --comp-empty-state-icon-glyph-size: var(--sys-icon-size-display-sm);
+  --comp-empty-state-icon-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
+  --comp-empty-state-icon-fg: var(--sys-color-action);
+  --comp-empty-state-icon-radius: var(--component-radius-pill);
+  --comp-empty-state-icon-margin-block-end: var(--sys-space-2xs);
+  --comp-empty-state-permission-icon-bg: color-mix(in srgb, var(--sys-color-warning) 12%, var(--sys-color-surface));
+  --comp-empty-state-permission-icon-fg: var(--sys-color-warning);
+  --comp-empty-state-error-icon-bg: color-mix(in srgb, var(--sys-color-danger) 12%, var(--sys-color-surface));
+  --comp-empty-state-error-icon-fg: var(--sys-color-danger);
   --comp-empty-state-padding-block: var(--sys-space-xl);
   --comp-empty-state-padding-inline: var(--sys-space-lg);
   --comp-empty-state-gap: var(--sys-space-sm);
   --comp-empty-state-description-width: var(--component-content-size-md);
+  --comp-empty-state-title-family: var(--sys-font-title);
+  --comp-empty-state-title-size: var(--component-font-size-body);
+  --comp-empty-state-title-weight: var(--sys-voice-weight-black);
+  --comp-empty-state-description-fg: var(--sys-color-text-muted);
+  --comp-empty-state-description-size: var(--component-font-size-small);
+  --comp-empty-state-description-line-height: var(--sys-voice-line-height-normal);
   align-items: center;
-  color: var(--sys-color-text);
+  color: var(--comp-empty-state-fg);
   display: grid;
   gap: var(--comp-empty-state-gap);
   justify-items: center;
@@ -4018,28 +4033,28 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .empty-state__icon {
   align-items: center;
-  background: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  border-radius: var(--component-radius-pill);
-  color: var(--sys-color-action);
+  background: var(--comp-empty-state-icon-bg);
+  border-radius: var(--comp-empty-state-icon-radius);
+  color: var(--comp-empty-state-icon-fg);
   display: inline-flex;
   font-size: var(--comp-empty-state-icon-glyph-size);
   block-size: var(--comp-empty-state-icon-size);
   inline-size: var(--comp-empty-state-icon-size);
   justify-content: center;
   line-height: 1;
-  margin-block-end: var(--sys-space-2xs);
+  margin-block-end: var(--comp-empty-state-icon-margin-block-end);
 }
 
 .empty-state[data-variant="permission"] .empty-state__icon,
 .empty-state[data-state="permission"] .empty-state__icon {
-  background: color-mix(in srgb, var(--sys-color-warning) 12%, var(--sys-color-surface));
-  color: var(--sys-color-warning);
+  background: var(--comp-empty-state-permission-icon-bg);
+  color: var(--comp-empty-state-permission-icon-fg);
 }
 
 .empty-state[data-variant="error"] .empty-state__icon,
 .empty-state[data-state="error"] .empty-state__icon {
-  background: color-mix(in srgb, var(--sys-color-danger) 12%, var(--sys-color-surface));
-  color: var(--sys-color-danger);
+  background: var(--comp-empty-state-error-icon-bg);
+  color: var(--comp-empty-state-error-icon-fg);
 }
 
 .empty-state__title,
@@ -4048,15 +4063,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .empty-state__title {
-  font-family: var(--sys-font-title);
-  font-size: var(--component-font-size-body);
-  font-weight: var(--sys-voice-weight-black);
+  font-family: var(--comp-empty-state-title-family);
+  font-size: var(--comp-empty-state-title-size);
+  font-weight: var(--comp-empty-state-title-weight);
 }
 
 .empty-state__description {
-  color: var(--sys-color-text-muted);
-  font-size: var(--component-font-size-small);
-  line-height: var(--sys-voice-line-height-normal);
+  color: var(--comp-empty-state-description-fg);
+  font-size: var(--comp-empty-state-description-size);
+  line-height: var(--comp-empty-state-description-line-height);
   max-inline-size: var(--comp-empty-state-description-width);
 }
 
