@@ -56,7 +56,7 @@ export const Dialog = forwardRef(function Dialog({
   const dialogId = id || `dialog-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = label ? `${dialogId}-title` : undefined;
   const resolvedIcon = icon || { danger: "warning", info: "info", success: "check_circle", neutral: "" }[resolvedTone];
-  const hasTrigger = Boolean(triggerLabel || triggerAriaLabel);
+  const hasTrigger = Boolean(triggerLabel);
   const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label) : [];
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
@@ -103,7 +103,6 @@ export const Dialog = forwardRef(function Dialog({
       density: resolvedDensity,
       className: "dialog__trigger",
       "data-overlay-open": "",
-      "aria-label": triggerLabel ? undefined : triggerAriaLabel,
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": dialogId,

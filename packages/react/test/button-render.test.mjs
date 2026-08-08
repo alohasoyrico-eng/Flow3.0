@@ -2231,6 +2231,14 @@ assert.doesNotMatch(unnamedDialogMarkup, /aria-label="Close dialog"/);
 assert.doesNotMatch(unnamedDialogMarkup, /class="button button--secondary dialog__trigger"/);
 assert.doesNotMatch(unnamedDialogMarkup, /class="icon-button icon-button--ghost dialog__close"/);
 
+const ariaOnlyDialogTriggerMarkup = renderToStaticMarkup(React.createElement(Dialog, {
+  triggerAriaLabel: "Open review",
+  label: "Review route",
+}));
+assert.doesNotMatch(ariaOnlyDialogTriggerMarkup, /data-overlay-open=""/);
+assert.doesNotMatch(ariaOnlyDialogTriggerMarkup, /aria-label="Open review"/);
+assert.doesNotMatch(ariaOnlyDialogTriggerMarkup, /class="button button--secondary dialog__trigger"/);
+
 const closedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Card controls",
   description: "Review limits.",
