@@ -18,7 +18,6 @@ function normalizeNodes(nodes) {
     ...node,
     key: nodeKey(node),
     label: node.label,
-    ariaLabel: node?.ariaLabel ?? node?.["aria-label"] ?? node.label,
     level: Math.max(1, Math.min(5, Number(node?.level ?? 1))),
     expandable: node?.expanded != null,
     expanded: Boolean(node?.expanded),
@@ -37,8 +36,8 @@ function visibleKeys(nodes, expandedKeys) {
 }
 
 export const TreeView = forwardRef(function TreeView({
-  label = "",
-  nodes = [],
+  label,
+  nodes,
   state = "expanded",
   density,
   selectedKey,
@@ -59,6 +58,8 @@ export const TreeView = forwardRef(function TreeView({
   useEffect(() => {
     if (isSelectedKeyControlled) setSelected(selectedKey || "");
   }, [isSelectedKeyControlled, selectedKey]);
+
+  if (!normalizedNodes.length) return null;
 
   const focusKey = (key) => requestAnimationFrame(() => controlRefs.current.get(key)?.focus());
   const commitSelected = (node) => {
@@ -98,7 +99,7 @@ export const TreeView = forwardRef(function TreeView({
       ref,
       className: ["tree-view", className].filter(Boolean).join(" "),
       role: "tree",
-      "aria-label": label || undefined,
+      "aria-label": label,
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
     },
@@ -133,7 +134,6 @@ export const TreeView = forwardRef(function TreeView({
           className: "tree-view__control",
           "data-tree-control": "",
           role: "treeitem",
-          "aria-label": node.label ? undefined : node.ariaLabel,
           "aria-level": String(node.level),
           "aria-expanded": node.expandable ? String(isExpanded) : undefined,
           "aria-selected": String(isSelected),
