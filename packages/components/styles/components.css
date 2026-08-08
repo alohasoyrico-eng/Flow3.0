@@ -3012,6 +3012,7 @@ button.tag:disabled,
   --comp-progress-indicator-value-font-size: var(--component-font-size-caption);
   --comp-progress-indicator-value-font-weight: var(--sys-voice-weight-semibold);
   --comp-progress-indicator-track-bg: color-mix(in srgb, var(--component-loading-progress-track) 42%, var(--sys-color-surface-raised));
+  --comp-progress-indicator-track-border-width: var(--component-border-width);
   --comp-progress-indicator-track-border: var(--component-loading-progress-track);
   --comp-progress-indicator-track-radius: var(--component-radius-pill);
   --comp-progress-indicator-track-depth: var(--component-depth-inset-track);
@@ -3087,7 +3088,7 @@ button.tag:disabled,
 
 .progress__track {
   background: var(--comp-progress-indicator-track-bg);
-  border: var(--component-border-width) solid var(--comp-progress-indicator-track-border);
+  border: var(--comp-progress-indicator-track-border-width) solid var(--comp-progress-indicator-track-border);
   border-radius: var(--comp-progress-indicator-track-radius);
   block-size: var(--comp-progress-indicator-track-size);
   box-shadow: var(--comp-progress-indicator-track-depth);
