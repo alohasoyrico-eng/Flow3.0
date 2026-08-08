@@ -4,7 +4,7 @@
   "principle": "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots.",
   "inventory": {
     "components": 56,
-    "withCallbacks": 39,
+    "withCallbacks": 40,
     "pass": 56,
     "review": 0,
     "fail": 0,
@@ -76,9 +76,18 @@
       "component": "BiometricPrompt",
       "source": "packages/react/src/BiometricPrompt.js",
       "types": "packages/react/src/BiometricPrompt.d.ts",
-      "callbacks": [],
-      "sourceCovered": [],
-      "testCovered": [],
+      "callbacks": [
+        "onAction",
+        "onFallback"
+      ],
+      "sourceCovered": [
+        "onAction",
+        "onFallback"
+      ],
+      "testCovered": [
+        "onAction",
+        "onFallback"
+      ],
       "missingInSource": [],
       "missingInTests": [],
       "status": "pass"
@@ -170,12 +179,15 @@
       "source": "packages/react/src/CardSecurityCodeInput.js",
       "types": "packages/react/src/CardSecurityCodeInput.d.ts",
       "callbacks": [
+        "onRevealChange",
         "onValueChange"
       ],
       "sourceCovered": [
+        "onRevealChange",
         "onValueChange"
       ],
       "testCovered": [
+        "onRevealChange",
         "onValueChange"
       ],
       "missingInSource": [],
@@ -266,12 +278,15 @@
       "source": "packages/react/src/Combobox.js",
       "types": "packages/react/src/Combobox.d.ts",
       "callbacks": [
+        "onOpenChange",
         "onValueChange"
       ],
       "sourceCovered": [
+        "onOpenChange",
         "onValueChange"
       ],
       "testCovered": [
+        "onOpenChange",
         "onValueChange"
       ],
       "missingInSource": [],
@@ -283,12 +298,15 @@
       "source": "packages/react/src/CountrySelector.js",
       "types": "packages/react/src/CountrySelector.d.ts",
       "callbacks": [
+        "onOpenChange",
         "onValueChange"
       ],
       "sourceCovered": [
+        "onOpenChange",
         "onValueChange"
       ],
       "testCovered": [
+        "onOpenChange",
         "onValueChange"
       ],
       "missingInSource": [],
@@ -459,12 +477,15 @@
       "source": "packages/react/src/Input.js",
       "types": "packages/react/src/Input.d.ts",
       "callbacks": [
+        "onRevealChange",
         "onValueChange"
       ],
       "sourceCovered": [
+        "onRevealChange",
         "onValueChange"
       ],
       "testCovered": [
+        "onRevealChange",
         "onValueChange"
       ],
       "missingInSource": [],
@@ -697,12 +718,15 @@
       "source": "packages/react/src/Select.js",
       "types": "packages/react/src/Select.d.ts",
       "callbacks": [
+        "onOpenChange",
         "onValueChange"
       ],
       "sourceCovered": [
+        "onOpenChange",
         "onValueChange"
       ],
       "testCovered": [
+        "onOpenChange",
         "onValueChange"
       ],
       "missingInSource": [],
@@ -849,13 +873,16 @@
       "source": "packages/react/src/TextArea.js",
       "types": "packages/react/src/TextArea.d.ts",
       "callbacks": [
-        "onChange"
+        "onChange",
+        "onValueChange"
       ],
       "sourceCovered": [
-        "onChange"
+        "onChange",
+        "onValueChange"
       ],
       "testCovered": [
-        "onChange"
+        "onChange",
+        "onValueChange"
       ],
       "missingInSource": [],
       "missingInTests": [],
@@ -867,15 +894,18 @@
       "types": "packages/react/src/Toast.d.ts",
       "callbacks": [
         "onAction",
-        "onDismiss"
+        "onDismiss",
+        "onDismissChange"
       ],
       "sourceCovered": [
         "onAction",
-        "onDismiss"
+        "onDismiss",
+        "onDismissChange"
       ],
       "testCovered": [
         "onAction",
-        "onDismiss"
+        "onDismiss",
+        "onDismissChange"
       ],
       "missingInSource": [],
       "missingInTests": [],

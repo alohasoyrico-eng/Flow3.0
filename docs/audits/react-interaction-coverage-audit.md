@@ -7,7 +7,7 @@ React components that declare callback props must use them in source and must ha
 ## Inventory
 
 - Components audited: 56
-- Components with callbacks: 39
+- Components with callbacks: 40
 - Pass: 56
 - Review: 0
 - Fail: 0

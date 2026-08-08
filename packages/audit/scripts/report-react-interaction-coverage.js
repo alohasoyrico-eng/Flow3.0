@@ -14,6 +14,7 @@ const reactTestDir = path.join(root, "packages/react/test");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-interaction-coverage-audit.json");
 const markdownOutput = path.join(outputDir, "react-interaction-coverage-audit.md");
+const checkMode = process.argv.includes("--check");
 
 function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
@@ -163,7 +164,18 @@ function checkReactInteractionCoverage() {
 
 function main() {
   const report = createReport();
-  writeReport(report);
+  if (checkMode) {
+    const nextJson = `${JSON.stringify(report, null, 2)}\n`;
+    const nextMarkdown = toMarkdown(report);
+    const currentJson = fs.existsSync(jsonOutput) ? fs.readFileSync(jsonOutput, "utf8") : "";
+    const currentMarkdown = fs.existsSync(markdownOutput) ? fs.readFileSync(markdownOutput, "utf8") : "";
+    if (currentJson !== nextJson || currentMarkdown !== nextMarkdown) {
+      console.error("React interaction coverage report is stale. Run: node packages/audit/scripts/report-react-interaction-coverage.js");
+      process.exit(1);
+    }
+  } else {
+    writeReport(report);
+  }
   console.log(JSON.stringify({
     status: report.status,
     components: report.inventory.components,
