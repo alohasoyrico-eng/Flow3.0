@@ -449,7 +449,6 @@
   --component-a11y-touch-target-min: var(--sys-a11y-touch-target-min);
   --component-depth-live-rest: var(--sys-elevation-0);
   --component-depth-live-active: 0 0 0 var(--sys-space-xs) color-mix(in srgb, currentColor 14%, transparent);
-  --component-depth-chart-halo: 0 0 0 var(--sys-space-xs) color-mix(in srgb, var(--comp-chart-panel-tone) 14%, transparent);
   --component-chart-stroke-thin: var(--sys-frame-border-thin);
   --component-chart-stroke-control: var(--sys-frame-border-control);
   --component-chart-stroke-medium: var(--sys-frame-border-medium);
@@ -481,7 +480,6 @@
   --component-depth-focus-ring-soft: 0 0 0 var(--component-focus-ring-width) color-mix(in srgb, var(--sys-color-focus) 28%, transparent);
   --component-depth-border-ring: 0 0 0 var(--component-border-width) color-mix(in srgb, var(--sys-color-border) 76%, transparent);
   --component-depth-today-ring: inset 0 0 0 var(--sys-frame-border-control) color-mix(in srgb, var(--sys-color-text) 56%, transparent);
-  --component-depth-accent-halo: 0 0 0 calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--comp-animated-moment-accent-surface);
   --component-depth-frost-text: 0 var(--sys-frame-border-thin) var(--sys-space-xl) color-mix(in srgb, var(--sys-color-text) 30%, transparent);
   --component-transition-tabs-indicator: left var(--component-duration-base) var(--component-ease-state), width var(--component-duration-base) var(--component-ease-state);
   --component-gradient-stepper-marker-active: linear-gradient(145deg, color-mix(in srgb, var(--component-color-action) 78%, var(--component-color-surface)) 0%, var(--component-color-action) 62%, color-mix(in srgb, var(--component-color-action) 84%, var(--component-color-text)) 100%);
@@ -7263,6 +7261,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-animated-moment-accent: var(--component-color-action);
   --comp-animated-moment-accent-surface: color-mix(in srgb, var(--comp-animated-moment-accent) 12%, var(--component-color-surface));
   --comp-animated-moment-accent-border: color-mix(in srgb, var(--comp-animated-moment-accent) 34%, var(--component-color-border));
+  --comp-animated-moment-accent-halo: 0 0 0 calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--comp-animated-moment-accent-surface);
   --comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 4.5);
   --comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9);
   --comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38);
@@ -7370,7 +7369,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 .animated-moment .animated-moment__icon {
   block-size: var(--comp-animated-moment-icon-size);
-  box-shadow: var(--component-depth-accent-halo);
+  box-shadow: var(--comp-animated-moment-accent-halo);
   color: var(--sys-color-action-text);
   font-size: var(--comp-animated-moment-icon-font-size);
   inline-size: var(--comp-animated-moment-icon-size);
@@ -8063,6 +8062,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-hover-border: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--component-color-border));
   --comp-chart-panel-hover-depth: var(--component-depth-action-hover);
   --comp-chart-panel-hover-transform: var(--component-transform-lift-sm);
+  --comp-chart-panel-halo: 0 0 0 var(--component-space-xs) color-mix(in srgb, var(--comp-chart-panel-tone) 14%, transparent);
   --comp-chart-panel-padding: var(--component-space-lg);
   --comp-chart-panel-radius: var(--component-radius-control);
   --comp-chart-panel-state-border: color-mix(in srgb, var(--comp-chart-panel-tone) 48%, var(--component-color-border));
@@ -8565,7 +8565,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__donut:hover {
-  box-shadow: var(--component-depth-chart-halo);
+  box-shadow: var(--comp-chart-panel-halo);
   transform: var(--component-transform-scale-hover);
 }
 

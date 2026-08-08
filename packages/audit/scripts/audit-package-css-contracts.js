@@ -193,6 +193,7 @@ function checkPackageCssContracts() {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component radius aliases must consume --component-radius-control instead of duplicating the radius formula.");
   }
   for (const match of text.matchAll(/--comp-[\w-]+:[^;]*--sys-[\w-]+[^;]*;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must not reach into sys tokens directly; route shared values through --component-* aliases.");
+  for (const match of text.matchAll(/--component-[\w-]+:[^;]*--comp-[\w-]+[^;]*;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Shared component aliases must not depend on concrete component contracts.");
   for (const match of text.matchAll(/--comp-[\w-]*(?:depth|shadow)[\w-]*:\s*none;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component depth and shadow aliases must consume --component-depth-none instead of hardcoding none.");
   for (const match of text.matchAll(/--comp-[\w-]*(?:bg|background|surface)[\w-]*:\s*transparent;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component surface aliases must consume --component-surface-transparent instead of hardcoding transparent.");
   for (const match of text.matchAll(/--comp-[\w-]*border[\w-]*:\s*transparent;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component border aliases must consume --component-border-transparent instead of hardcoding transparent.");

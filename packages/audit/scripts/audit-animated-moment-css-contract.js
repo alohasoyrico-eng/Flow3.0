@@ -71,7 +71,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     packageCssFile,
     snippets: [
       "block-size: var(--comp-animated-moment-icon-size)",
-      "box-shadow: var(--component-depth-accent-halo)",
+      "box-shadow: var(--comp-animated-moment-accent-halo)",
       "font-size: var(--comp-animated-moment-icon-font-size)",
       "margin-block: var(--comp-animated-moment-icon-margin-block)",
     ],
