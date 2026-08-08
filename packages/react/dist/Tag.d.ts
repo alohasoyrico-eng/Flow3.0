@@ -4,12 +4,14 @@ import { tagPlatformContract } from "#flow/platforms";
 export type TagVariant = "metadata" | "status" | "platform" | "link";
 export type TagTone = "neutral" | "info" | "success" | "warning" | "danger";
 export type TagState = "default" | "hover" | "pressed" | "focus" | "disabled";
+export type TagDensity = "sm" | "md" | "lg";
 
 export interface TagProps extends Omit<HTMLAttributes<HTMLSpanElement> & ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   variant?: TagVariant;
   tone?: TagTone;
   state?: TagState;
+  density?: TagDensity;
   icon?: string;
   interactive?: boolean;
   disabled?: boolean;

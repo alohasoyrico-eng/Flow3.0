@@ -1,6 +1,6 @@
 import React, { forwardRef, useId } from "react";
 import { motionBoundaryPlatformContract } from "@design-system/components/platforms";
-import { flowStateProps, flowVariantProps, normalizeFlowValue, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowDensityProps, normalizeFlowValue, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["fade", "slide", "collapse", "route"]);
 const validStates = new Set(["idle", "entering", "active", "exiting", "reduced-motion", "disabled"]);
@@ -16,6 +16,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   description,
   variant = "fade",
   state = "active",
+  density,
   icon = "transition_slide",
   reducedMotion = false,
   stateLabel,
@@ -38,6 +39,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
       ref,
       className: ["motion-boundary", className].filter(Boolean).join(" "),
       ...flowVariantProps(resolvedVariant),
+      ...flowDensityProps(density),
       ...flowStateProps(resolvedState),
       "data-reduced-motion": String(isReducedMotion),
       role: "group",

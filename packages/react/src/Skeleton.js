@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { skeletonPlatformContract } from "@design-system/components/platforms";
-import { flowStateProps, flowVariantProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
 const validVariants = new Set(["text", "title", "circle", "card", "pill", "row", "media", "chart", "table"]);
 const validStates = new Set(["default", "loading", "stale", "paused", "loaded", "disabled"]);
@@ -77,6 +77,7 @@ function skeletonCellStyle({ rowIndex, columnIndex, columnCount }) {
 export const Skeleton = forwardRef(function Skeleton({
   label,
   variant = "text",
+  density,
   lines = 3,
   rows,
   columns = 4,
@@ -112,6 +113,7 @@ export const Skeleton = forwardRef(function Skeleton({
       "aria-busy": String(isBusy),
       "aria-label": label,
       ...flowVariantProps(resolvedVariant),
+      ...flowDensityProps(density),
       ...flowStateProps(resolvedState),
       "data-full-width": String(Boolean(fullWidth)),
       "data-rows": resolvedVariant === "table" ? String(rowCount) : undefined,

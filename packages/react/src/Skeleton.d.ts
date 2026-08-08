@@ -3,10 +3,12 @@ import { skeletonPlatformContract } from "@design-system/components/platforms";
 
 export type SkeletonVariant = "text" | "title" | "circle" | "card" | "pill" | "row" | "media" | "chart" | "table";
 export type SkeletonState = "default" | "loading" | "stale" | "paused" | "loaded" | "disabled";
+export type SkeletonDensity = "sm" | "md" | "lg";
 
 export interface SkeletonProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   variant?: SkeletonVariant;
+  density?: SkeletonDensity;
   lines?: number;
   rows?: number;
   columns?: number;

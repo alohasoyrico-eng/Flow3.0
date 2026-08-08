@@ -92,6 +92,7 @@ for (const [id, contract] of Object.entries(componentContracts)) {
     const markup = renderToStaticMarkup(React.createElement(Component, {
       ...fixtureForContract(id, contract),
       className: "flow-external-hook",
+      density: "lg",
       "data-contract-render": id,
       contentEditable: true,
       dangerouslySetInnerHTML: { __html: "<strong>Injected markup</strong>" },
@@ -101,6 +102,8 @@ for (const [id, contract] of Object.entries(componentContracts)) {
     }));
     assert.ok(markup.length > 0, `${componentName} rendered empty markup`);
     assert.equal(markup.match(/flow-external-hook/g)?.length ?? 0, 1, `${componentName} must expose className once on the root integration surface`);
+    const rootTag = markup.match(/^<[^>]+>/)?.[0] ?? "";
+    assert.match(rootTag, /data-density="lg"/, `${componentName} must expose density on the root integration surface`);
     assert.doesNotMatch(markup, /rgb\(255,\s*0,\s*0\)|margin-top:\s*77px/i, `${componentName} leaked external style prop`);
     assert.doesNotMatch(markup, /Injected markup|contenteditable=/i, `${componentName} leaked external DOM escape props`);
     assert.doesNotMatch(markup, /apps\/docs|docs-demo|gold-/i, `${componentName} leaked docs-only markup`);
