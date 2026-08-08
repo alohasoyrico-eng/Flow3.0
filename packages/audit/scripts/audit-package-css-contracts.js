@@ -162,6 +162,9 @@ function checkPackageCssContracts() {
   if (rawControlSizePattern.test(cssWithoutDefinitions)) {
     add("errors", packageCssFile, 1, "Package 44px control sizing must use --component-control-min-size outside the alias block.");
   }
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*calc\(var\(--component-control-min-size\)\s*[+-][^;]+;/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must not derive local geometry from --component-control-min-size math; route reusable sizes through sys-frame/component roles.");
+  }
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
