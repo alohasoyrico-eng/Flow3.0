@@ -15,7 +15,7 @@ function normalizeState(state) {
 }
 
 export const Spinner = forwardRef(function Spinner({
-  label = "",
+  label,
   density,
   tone = "accent",
   state = "loading",
