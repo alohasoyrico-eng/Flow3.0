@@ -24,7 +24,7 @@ export const Popover = forwardRef(function Popover({
   density,
   fullWidth = false,
   disabled = false,
-  actions = [],
+  actions,
   field,
   onOpenChange,
   onAction,
@@ -44,9 +44,8 @@ export const Popover = forwardRef(function Popover({
   const [interactionState, setInteractionState] = useState(initiallyOpen ? "open" : initialState);
   const panelId = id || `popover-${slug(triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = `${panelId}-title`;
-  const resolvedActions = Array.isArray(actions)
-    ? actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "")
-    : [];
+  const sourceActions = Array.isArray(actions) ? actions : [];
+  const resolvedActions = sourceActions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "");
   const isDisabled = disabled || interactionState === "disabled";
   const hasTrigger = Boolean(triggerLabel);
   const hasField = Boolean(field?.label);
