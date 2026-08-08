@@ -20,6 +20,10 @@ function resolveTone(tone, variant) {
   return "neutral";
 }
 
+function hasStableFieldName(field) {
+  return field?.name !== undefined && field?.name !== null && field?.name !== "";
+}
+
 export const Dialog = forwardRef(function Dialog({
   label = "",
   description = "",
@@ -57,7 +61,7 @@ export const Dialog = forwardRef(function Dialog({
   const titleId = label ? `${dialogId}-title` : undefined;
   const resolvedIcon = icon || { danger: "warning", info: "info", success: "check_circle", neutral: "" }[resolvedTone];
   const hasTrigger = Boolean(triggerLabel);
-  const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label) : [];
+  const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label && hasStableFieldName(field)) : [];
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     const normalizedOpen = Boolean(nextOpen);
@@ -157,9 +161,9 @@ export const Dialog = forwardRef(function Dialog({
           ? React.createElement(
             "div",
             { className: "dialog__body dialog__fields" },
-            visibleFields.map((field, index) => React.createElement(Input, {
+            visibleFields.map((field) => React.createElement(Input, {
               ...field,
-              key: field.name ?? field.label ?? index,
+              key: field.name,
               density: field.density ?? resolvedDensity,
               readOnly: field.readOnly ?? true,
             })),

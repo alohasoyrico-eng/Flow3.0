@@ -22,8 +22,8 @@ export interface DialogAction {
 
 export interface DialogField {
   label: string;
+  name: string;
   value?: string;
-  name?: string;
   placeholder?: string;
   helper?: string;
   error?: string;

@@ -706,6 +706,7 @@ export const componentContracts = {
       "Connect title through aria-labelledby.",
       "Move focus into the dialog on open and restore it to the trigger on close.",
       "Require stable action keys before composing local actions.",
+      "Require stable field names before composing form inputs.",
       "Use patterns for confirmation policy, irreversible actions, and process recovery."
     ]
   },

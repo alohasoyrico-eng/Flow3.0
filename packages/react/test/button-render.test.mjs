@@ -2415,13 +2415,19 @@ const formDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   closeLabel: "Close edit driver dialog",
   variant: "form",
   open: true,
-  fields: [{ label: "Driver", value: "Ana Sosa" }, { value: "Empty field" }],
+  fields: [{ name: "driver", label: "Driver", value: "Ana Sosa" }, { value: "Empty field" }],
 }));
 assert.match(formDialogMarkup, /data-variant="form"/);
 assert.match(formDialogMarkup, /class="dialog__body dialog__fields"/);
 assert.match(formDialogMarkup, /class="field"/);
 assert.doesNotMatch(formDialogMarkup, /Empty field/);
 assert.doesNotMatch(formDialogMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+const unstableDialogFieldMarkup = renderToStaticMarkup(React.createElement(Dialog, {
+  label: "Edit driver",
+  open: true,
+  fields: [{ label: "Driver", value: "Ana Sosa" }],
+}));
+assert.doesNotMatch(unstableDialogFieldMarkup, /class="dialog__body dialog__fields"|Driver|Ana Sosa/);
 
 const unnamedDialogMarkup = renderToStaticMarkup(React.createElement(Dialog));
 assert.doesNotMatch(unnamedDialogMarkup, /aria-label="Open dialog"/);
