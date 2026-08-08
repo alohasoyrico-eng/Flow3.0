@@ -60,7 +60,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
   density,
   error = "",
   name = "",
-  emptyText = "",
+  emptyText,
   onValueChange,
   className = "",
   id,
