@@ -8,7 +8,7 @@ export type ErrorPanelDensity = "sm" | "md" | "lg";
 export type ErrorPanelRole = "status" | "alert";
 
 export interface ErrorPanelAction {
-  key?: string;
+  key: string;
   label: string;
   variant?: "primary" | "secondary" | "tertiary" | "ghost" | "danger";
   intent?: "default" | "danger";
@@ -22,7 +22,7 @@ export interface ErrorPanelAction {
 }
 
 export interface ErrorPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label?: string;
+  label: string;
   description?: string;
   action?: ErrorPanelAction;
   tone?: ErrorPanelTone;

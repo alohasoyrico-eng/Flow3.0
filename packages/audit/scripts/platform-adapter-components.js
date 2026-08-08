@@ -346,7 +346,7 @@ const components = [
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "loading", "message", "measurement"],
     props: ["label", "description", "action", "tone", "variant", "state", "density", "fullWidth", "icon", "role", "onAction"],
     jsSnippets: ["errorPanelPlatformContract", "React.createElement(Button", "React.createElement(Spinner", "className: [\"error-panel\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', 'flowDensityProps(resolvedDensity)', '"data-full-width": String(Boolean(fullWidth))', "role: resolvedRole", "error-panel__icon", "error-panel__content"],
-    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "ErrorPanelProps", "ErrorPanelAction", "ErrorPanelVariant", "ErrorPanelState", "ErrorPanelTone", "ErrorPanelDensity", "errorPanelPlatformContract"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "ErrorPanelProps", "label: string", "ErrorPanelAction", "key: string", "ErrorPanelVariant", "ErrorPanelState", "ErrorPanelTone", "ErrorPanelDensity", "errorPanelPlatformContract"],
     packagePath: "./error-panel",
     exportName: "ErrorPanel",
     propsName: "ErrorPanelProps",

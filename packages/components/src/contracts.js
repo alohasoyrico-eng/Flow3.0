@@ -1093,7 +1093,7 @@ export const componentContracts = {
     intents: ["warning", "error", "critical"],
     states: ["default", "warning", "error", "critical", "loading", "disabled"],
     props: [
-      { name: "label", type: "string", required: false },
+      { name: "label", type: "string", required: true },
       { name: "description", type: "string", required: false },
       { name: "action", type: "ErrorPanelAction", required: false },
       { name: "tone", type: "\"warning\" | \"error\" | \"critical\"", required: false },
