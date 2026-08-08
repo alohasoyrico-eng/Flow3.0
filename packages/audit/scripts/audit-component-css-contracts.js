@@ -6,6 +6,7 @@ const { checkChipCssContract } = require("./audit-chip-css-contract.js");
 const { checkDialogCssContract } = require("./audit-dialog-css-contract.js");
 const { checkDrawerCssContract } = require("./audit-drawer-css-contract.js");
 const { checkEmptyStateCssContract } = require("./audit-empty-state-css-contract.js");
+const { checkErrorPanelCssContract } = require("./audit-error-panel-css-contract.js");
 const { checkMenuCssContract } = require("./audit-menu-css-contract.js");
 const { checkPopoverCssContract } = require("./audit-popover-css-contract.js");
 const { checkProgressIndicatorCssContract } = require("./audit-progress-indicator-css-contract.js");
@@ -27,6 +28,7 @@ function checkComponentCssContracts(context) {
   checkDialogCssContract(context);
   checkDrawerCssContract(context);
   checkEmptyStateCssContract(context);
+  checkErrorPanelCssContract(context);
   checkMenuCssContract(context);
   checkPopoverCssContract(context);
   checkProgressIndicatorCssContract(context);

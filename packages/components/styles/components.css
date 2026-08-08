@@ -4203,8 +4203,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   font-weight: var(--sys-voice-weight-extrabold);
 }
 
-.kpi-tile,
-.error-panel {
+.kpi-tile {
   background: var(--sys-color-surface);
   border: var(--component-border-width) solid var(--sys-color-border);
   border-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
@@ -4919,17 +4918,41 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .error-panel {
   --comp-error-panel-tone: var(--sys-color-danger);
+  --comp-error-panel-bg: var(--sys-color-surface);
+  --comp-error-panel-border-width: var(--component-border-width);
+  --comp-error-panel-border: color-mix(in srgb, var(--comp-error-panel-tone) 34%, var(--sys-color-border));
+  --comp-error-panel-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
+  --comp-error-panel-depth: none;
+  --comp-error-panel-blocking-depth: var(--component-depth-danger);
+  --comp-error-panel-inline-radius: var(--sys-radius-md);
+  --comp-error-panel-fg: var(--sys-color-text);
+  --comp-error-panel-disabled-border: var(--component-disabled-border);
+  --comp-error-panel-disabled-fg: var(--component-disabled-text);
+  --comp-error-panel-disabled-opacity: var(--sys-disabled-opacity);
   --comp-error-panel-icon-size: var(--component-error-panel-icon-size);
   --comp-error-panel-icon-font-size: var(--component-font-size-title-sm);
+  --comp-error-panel-icon-bg: color-mix(in srgb, var(--comp-error-panel-tone) 12%, var(--sys-color-surface));
+  --comp-error-panel-icon-radius: var(--component-radius-pill);
+  --comp-error-panel-icon-fg: var(--comp-error-panel-tone);
+  --comp-error-panel-icon-family: var(--sys-font-icon);
   --comp-error-panel-empty-icon-size: var(--comp-empty-state-icon-size, var(--component-error-panel-empty-icon-size));
   --comp-error-panel-empty-icon-font-size: var(--comp-empty-state-icon-glyph-size, var(--sys-icon-size-display-sm));
   --comp-error-panel-padding: var(--sys-space-md);
   --comp-error-panel-gap: var(--sys-space-sm);
+  --comp-error-panel-content-gap: var(--sys-space-2xs);
+  --comp-error-panel-title-family: var(--sys-font-title);
   --comp-error-panel-title-size: var(--component-font-size-body);
+  --comp-error-panel-title-weight: var(--sys-voice-weight-black);
+  --comp-error-panel-description-fg: var(--sys-color-text-muted);
   --comp-error-panel-description-size: var(--component-font-size-small);
+  --comp-error-panel-description-line-height: var(--sys-voice-line-height-normal);
   align-items: center;
-  border-color: color-mix(in srgb, var(--comp-error-panel-tone) 34%, var(--sys-color-border));
-  box-shadow: none;
+  background: var(--comp-error-panel-bg);
+  border: var(--comp-error-panel-border-width) solid var(--comp-error-panel-border);
+  border-radius: var(--comp-error-panel-radius);
+  box-shadow: var(--comp-error-panel-depth);
+  color: var(--comp-error-panel-fg);
+  display: grid;
   gap: var(--comp-error-panel-gap);
   grid-template-columns: auto minmax(0, 1fr) auto;
   padding: var(--comp-error-panel-padding);
@@ -4963,13 +4986,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .error-panel[data-variant="inline"] {
-  border-radius: var(--sys-radius-md);
-  box-shadow: none;
+  border-radius: var(--comp-error-panel-inline-radius);
+  box-shadow: var(--comp-error-panel-depth);
 }
 
 .error-panel[data-variant="blocking"] {
   align-items: start;
-  box-shadow: var(--component-depth-danger);
+  box-shadow: var(--comp-error-panel-blocking-depth);
 }
 
 .error-panel[data-variant="empty-recovery"] {
@@ -4985,18 +5008,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .error-panel[data-state="disabled"] {
-  border-color: var(--component-disabled-border);
-  color: var(--component-disabled-text);
-  opacity: var(--sys-disabled-opacity);
+  border-color: var(--comp-error-panel-disabled-border);
+  color: var(--comp-error-panel-disabled-fg);
+  opacity: var(--comp-error-panel-disabled-opacity);
 }
 
 .error-panel__icon {
   align-items: center;
-  background: color-mix(in srgb, var(--comp-error-panel-tone) 12%, var(--sys-color-surface));
-  border-radius: var(--component-radius-pill);
-  color: var(--comp-error-panel-tone);
+  background: var(--comp-error-panel-icon-bg);
+  border-radius: var(--comp-error-panel-icon-radius);
+  color: var(--comp-error-panel-icon-fg);
   display: inline-flex;
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-error-panel-icon-family);
   font-size: var(--comp-error-panel-icon-font-size);
   block-size: var(--comp-error-panel-icon-size);
   inline-size: var(--comp-error-panel-icon-size);
@@ -5006,19 +5029,20 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .error-panel__content {
   display: grid;
-  gap: var(--sys-space-2xs);
+  gap: var(--comp-error-panel-content-gap);
   min-inline-size: 0;
 }
 
 .error-panel__content strong {
-  font-family: var(--sys-font-title);
+  font-family: var(--comp-error-panel-title-family);
   font-size: var(--comp-error-panel-title-size);
-  font-weight: var(--sys-voice-weight-black);
+  font-weight: var(--comp-error-panel-title-weight);
 }
 
 .error-panel__content p {
+  color: var(--comp-error-panel-description-fg);
   font-size: var(--comp-error-panel-description-size);
-  line-height: var(--sys-voice-line-height-normal);
+  line-height: var(--comp-error-panel-description-line-height);
 }
 
 .card {
