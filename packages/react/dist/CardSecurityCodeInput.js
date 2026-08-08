@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
+import React, { forwardRef, useId, useMemo, useState } from "react";
 import { cardSecurityCodeInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
@@ -54,7 +54,8 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   const inputId = id ?? `card-security-code-input-${generatedId}`;
   const resolvedLength = Number(expectedLength) === 4 ? 4 : 3;
   const isValueControlled = value !== undefined;
-  const [currentValue, setCurrentValue] = useState(value ?? "");
+  const [internalValue, setInternalValue] = useState(value ?? "");
+  const currentValue = isValueControlled ? value ?? "" : internalValue;
   const [internalRevealed, setInternalRevealed] = useState(Boolean(revealed));
   const isRevealedControlled = revealed !== undefined;
   const isRevealed = isRevealedControlled ? Boolean(revealed) : internalRevealed;
@@ -71,10 +72,6 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
     expectedLength: resolvedLength,
     complete: validity === "valid",
   }), [resolvedLength, validity]);
-
-  useEffect(() => {
-    if (isValueControlled) setCurrentValue(value ?? "");
-  }, [isValueControlled, value]);
 
   if (!label) return null;
 
@@ -124,7 +121,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
         onChange: (event) => {
           const nextDigits = normalizeCardSecurityCode(event.target.value, resolvedLength);
           const nextValidity = cardSecurityCodeValidity(nextDigits, resolvedLength);
-          if (!isValueControlled) setCurrentValue(nextDigits);
+          if (!isValueControlled) setInternalValue(nextDigits);
           onValueChange?.(nextDigits, {
             validity: nextValidity,
             expectedLength: resolvedLength,

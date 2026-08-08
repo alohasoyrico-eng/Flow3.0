@@ -334,17 +334,31 @@ try {
   cleanup();
 
   const revealChanges = [];
-  const { getByLabelText: getControlledSecurityLabel, getByRole: getControlledSecurityRole } = render(React.createElement(CardSecurityCodeInput, {
+  const { getByLabelText: getControlledSecurityLabel, getByRole: getControlledSecurityRole, rerender: rerenderControlledSecurity } = render(React.createElement(CardSecurityCodeInput, {
     label: "Controlled security code",
     value: "123",
     revealed: false,
     revealLabel: "Reveal controlled CVC",
     hideLabel: "Conceal controlled CVC",
+    onValueChange: (digits, meta, event) => securityCodeChanges.push({ digits, meta, eventType: event.type }),
     onRevealChange: (revealed, event) => revealChanges.push({ revealed, eventType: event.type }),
   }));
 
   const controlledSecurityInput = getControlledSecurityLabel(/controlled security code/i, { selector: "input" });
   const controlledRevealButton = getControlledSecurityRole("button", { name: /reveal controlled cvc/i });
+  fireEvent.input(controlledSecurityInput, { target: { value: "999" } });
+  assert.equal(securityCodeChanges.at(-1).digits, "999");
+  await waitFor(() => assert.equal(controlledSecurityInput.value, "123"));
+  rerenderControlledSecurity(React.createElement(CardSecurityCodeInput, {
+    label: "Controlled security code",
+    value: "999",
+    revealed: false,
+    revealLabel: "Reveal controlled CVC",
+    hideLabel: "Conceal controlled CVC",
+    onValueChange: (digits, meta, event) => securityCodeChanges.push({ digits, meta, eventType: event.type }),
+    onRevealChange: (revealed, event) => revealChanges.push({ revealed, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(controlledSecurityInput.value, "999"));
   fireEvent.click(controlledRevealButton);
   assert.deepEqual(revealChanges, [{ revealed: true, eventType: "click" }]);
   assert.equal(controlledSecurityInput.type, "password");
