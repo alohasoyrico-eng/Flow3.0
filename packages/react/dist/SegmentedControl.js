@@ -8,8 +8,13 @@ function itemKey(item) {
   return item?.key ?? item?.value ?? "";
 }
 
+function hasStableItemKey(item) {
+  const key = item?.key ?? item?.value;
+  return key !== undefined && key !== null && key !== "";
+}
+
 function normalizeItems(items) {
-  return (Array.isArray(items) ? items : []).filter((item) => item?.label && itemKey(item)).map((item) => ({
+  return (Array.isArray(items) ? items : []).filter((item) => item?.label && hasStableItemKey(item)).map((item) => ({
     ...item,
     key: itemKey(item),
     label: item.label,
@@ -17,7 +22,9 @@ function normalizeItems(items) {
 }
 
 function selectedFromItems(items, selectedKey) {
-  return selectedKey || itemKey(items.find((item) => item.selected)) || itemKey(items[0]) || "";
+  if (selectedKey !== undefined) return selectedKey;
+  const selectedItemKey = itemKey(items.find((item) => item.selected));
+  return selectedItemKey !== "" ? selectedItemKey : itemKey(items[0]);
 }
 
 function nextEnabledKey(items, currentKey, direction) {
