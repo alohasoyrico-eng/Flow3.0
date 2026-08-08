@@ -1,11 +1,23 @@
 #!/usr/bin/env node
 
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../../..");
+const forbiddenDocsSystemImports = /\bimport\s*\{[^}]*\bhydrate[A-Z][A-Za-z0-9_]*\b[^}]*\}\s*from\s*["']#design-system\/components["']/;
+
+function docsModulePath(fileName) {
+  const candidates = [
+    path.join(repoRoot, "apps/docs", fileName),
+    path.join(repoRoot, "../FlowDocs/apps/docs", fileName),
+  ];
+  const found = candidates.find((file) => fs.existsSync(file));
+  if (!found) throw new Error(`Docs module not found for split audit: ${fileName}`);
+  return found;
+}
 
 class InteractionEvent {
   constructor(type, options = {}) {
@@ -177,12 +189,28 @@ globalThis.window = {
 globalThis.document = new DemoElement("document");
 globalThis.document.createElement = (tagName) => new DemoElement(tagName);
 
-const stateful = await import(pathToFileURL(path.join(repoRoot, "apps/docs/stateful-component-interactions.js")).href);
-const overlay = await import(pathToFileURL(path.join(repoRoot, "apps/docs/overlay-demo-interactions.js")).href);
-const display = await import(pathToFileURL(path.join(repoRoot, "apps/docs/display-demo-interactions.js")).href);
-const tooltip = await import(pathToFileURL(path.join(repoRoot, "apps/docs/tooltip-demo-interactions.js")).href);
-const toast = await import(pathToFileURL(path.join(repoRoot, "apps/docs/toast-demo-interactions.js")).href);
-const progress = await import(pathToFileURL(path.join(repoRoot, "apps/docs/progress-indicator-demo-interactions.js")).href);
+for (const fileName of [
+  "stateful-component-interactions.js",
+  "overlay-demo-interactions.js",
+  "display-demo-interactions.js",
+  "tooltip-demo-interactions.js",
+  "toast-demo-interactions.js",
+  "progress-indicator-demo-interactions.js",
+]) {
+  const source = fs.readFileSync(docsModulePath(fileName), "utf8");
+  assert.equal(
+    forbiddenDocsSystemImports.test(source),
+    false,
+    `${fileName} must not import DOM hydrators from #design-system/components; React owns component behavior.`
+  );
+}
+
+const stateful = await import(pathToFileURL(docsModulePath("stateful-component-interactions.js")).href);
+const overlay = await import(pathToFileURL(docsModulePath("overlay-demo-interactions.js")).href);
+const display = await import(pathToFileURL(docsModulePath("display-demo-interactions.js")).href);
+const tooltip = await import(pathToFileURL(docsModulePath("tooltip-demo-interactions.js")).href);
+const toast = await import(pathToFileURL(docsModulePath("toast-demo-interactions.js")).href);
+const progress = await import(pathToFileURL(docsModulePath("progress-indicator-demo-interactions.js")).href);
 
 const root = new DemoElement("main");
 const fixtures = buildFixtures();
@@ -212,8 +240,9 @@ assert.equal(fixtures.slider.dataset.value, "75", "Slider input should update th
 assert.equal(fixtures.sliderOutput.textContent, "75 km", "Slider output should preserve the value suffix.");
 
 fixtures.segmented.children[1].click();
-assert.equal(fixtures.segmented.children[1].getAttribute("aria-selected"), "true", "Segmented Control click should select the clicked item.");
-assert.ok(fixtures.segmented.children[1].querySelector(".segmented-control__indicator"), "Segmented Control selected item should own the visual indicator without inline positioning.");
+assert.equal(fixtures.segmented.dataset.statefulReady, "true", "Segmented Control docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.segmented.children[1].getAttribute("aria-selected"), "false", "Segmented Control docs runtime should not duplicate React selection state.");
+assert.equal(fixtures.segmented.children[1].querySelector(".segmented-control__indicator"), null, "Segmented Control docs runtime should not inject React-owned visual indicators.");
 
 fixtures.paginationNext.click();
 assert.equal(fixtures.paginationPage3.getAttribute("aria-current"), "page", "Pagination next should advance to page 3.");
@@ -224,22 +253,22 @@ assert.equal(fixtures.popover.dataset.statefulReady, "true", "Popover docs shoul
 assert.equal(fixtures.popoverTrigger.getAttribute("aria-expanded"), "false", "Popover docs runtime should not duplicate React open state.");
 assert.equal(fixtures.popoverPanel.hidden, true, "Popover docs runtime should leave closed React panels hidden.");
 
+assert.equal(fixtures.combobox.dataset.statefulReady, "true", "Combobox docs should register the React island without legacy DOM state ownership.");
 fixtures.comboboxInput.value = "Luis";
 fixtures.comboboxInput.dispatch("input");
-assert.equal(fixtures.comboboxControl.dataset.open, "true", "Combobox input should open the option layer after typing.");
-assert.equal(fixtures.comboboxInput.getAttribute("aria-expanded"), "true", "Combobox input should expose expanded state after typing.");
-assert.equal(fixtures.comboboxOptions[0].hidden, true, "Combobox input should hide non-matching options.");
-assert.equal(fixtures.comboboxOptions[1].hidden, false, "Combobox input should keep matching options visible.");
+assert.equal(fixtures.comboboxControl.dataset.open, "false", "Combobox docs runtime should not duplicate React open state.");
+assert.equal(fixtures.comboboxInput.getAttribute("aria-expanded"), "false", "Combobox docs runtime should leave aria-expanded to React.");
+assert.equal(fixtures.comboboxOptions[0].hidden, false, "Combobox docs runtime should not filter React-owned options.");
 fixtures.comboboxInput.dispatch("keydown", { key: "Enter" });
-assert.equal(fixtures.comboboxInput.value, "MX-8840 - Luis Perez", "Combobox Enter should select the active visible option.");
-assert.equal(fixtures.comboboxControl.dataset.value, "mx-8840", "Combobox selection should sync semantic value.");
+assert.equal(fixtures.comboboxInput.value, "Luis", "Combobox docs runtime should not select values outside React.");
 fixtures.comboboxClear.click();
-assert.equal(fixtures.comboboxInput.value, "", "Combobox clear action should clear visible value.");
+assert.equal(fixtures.comboboxInput.value, "Luis", "Combobox docs runtime should not clear React-owned values.");
 
 fixtures.treeControls[0].dispatch("keydown", { key: "ArrowDown" });
-assert.equal(fixtures.treeItems[1].dataset.selected, "true", "Tree View ArrowDown should select the next item.");
+assert.equal(fixtures.tree.dataset.statefulReady, "true", "Tree View docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.treeItems[1].dataset.selected, "false", "Tree View docs runtime should not duplicate React selection state.");
 fixtures.treeControls[0].dispatch("keydown", { key: "ArrowRight" });
-assert.equal(fixtures.treeItems[0].dataset.expanded, "true", "Tree View ArrowRight should expand expandable items.");
+assert.equal(fixtures.treeItems[0].dataset.expanded, "false", "Tree View docs runtime should not duplicate React expanded state.");
 
 fixtures.overlayClose.click();
 assert.equal(fixtures.overlayPanel.hidden, true, "Overlay close should hide the overlay surface.");

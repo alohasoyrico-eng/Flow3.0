@@ -9,6 +9,17 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../../..");
 const backlogPath = path.join(repoRoot, "packages/content/content/component-quality-backlog.json");
 const backlog = JSON.parse(fs.readFileSync(backlogPath, "utf8"));
+const forbiddenDocsSystemImports = /\bimport\s*\{[^}]*\bhydrate[A-Z][A-Za-z0-9_]*\b[^}]*\}\s*from\s*["']#design-system\/components["']/;
+
+function docsModulePath(fileName) {
+  const candidates = [
+    path.join(repoRoot, "apps/docs", fileName),
+    path.join(repoRoot, "../FlowDocs/apps/docs", fileName),
+  ];
+  const found = candidates.find((file) => fs.existsSync(file));
+  if (!found) throw new Error(`Docs module not found for split audit: ${fileName}`);
+  return found;
+}
 
 class AuditText {
   constructor(text) {
@@ -104,8 +115,17 @@ globalThis.document = {
 };
 
 const { componentDemo } = await import(
-  pathToFileURL(path.join(repoRoot, "apps/docs/component-demo.js")).href
+  pathToFileURL(docsModulePath("component-demo.js")).href
 );
+
+for (const fileName of ["component-demo.js"]) {
+  const source = fs.readFileSync(docsModulePath(fileName), "utf8");
+  assert.equal(
+    forbiddenDocsSystemImports.test(source),
+    false,
+    `${fileName} must consume React/package contracts only; docs must not import DOM hydrators from #design-system/components.`
+  );
+}
 
 const componentIds = [
   ...backlog.accepted,
