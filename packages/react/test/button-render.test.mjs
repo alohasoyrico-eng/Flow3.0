@@ -1571,6 +1571,14 @@ assert.doesNotMatch(actionPopoverMarkup, /hidden=""/);
 assert.match(actionPopoverMarkup, /class="popover__actions"/);
 assert.match(actionPopoverMarkup, /data-popover-action=""/);
 assert.match(actionPopoverMarkup, /data-key="apply"/);
+const unstablePopoverActionMarkup = renderToStaticMarkup(React.createElement(Popover, {
+  triggerLabel: "Filters",
+  title: "Local filters",
+  variant: "action",
+  open: true,
+  actions: [{ label: "Apply" }],
+}));
+assert.doesNotMatch(unstablePopoverActionMarkup, /data-key="Apply"|class="popover__actions"|data-popover-action=""/);
 
 const formPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
   triggerLabel: "Edit",

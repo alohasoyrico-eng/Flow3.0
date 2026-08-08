@@ -45,7 +45,9 @@ export const Popover = forwardRef(function Popover({
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? "open" : initialState);
   const panelId = id || `popover-${slug(triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const resolvedActions = actions;
+  const resolvedActions = Array.isArray(actions)
+    ? actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "")
+    : [];
   const isDisabled = disabled || interactionState === "disabled";
   const hasTrigger = Boolean(triggerLabel);
   const hasField = Boolean(field?.label);
@@ -126,19 +128,19 @@ export const Popover = forwardRef(function Popover({
         ? React.createElement(
           "footer",
           { className: "popover__actions" },
-          resolvedActions.filter((action) => action?.label).map((action) => {
+          resolvedActions.map((action) => {
             const actionLabel = action.label;
             return React.createElement(Button, {
               ...action,
-              key: action.key ?? actionLabel,
+              key: action.key,
               label: actionLabel,
               density: action.density ?? resolvedDensity,
               variant: action.variant ?? "secondary",
               "data-popover-action": "",
-              "data-key": action.key ?? actionLabel,
+              "data-key": action.key,
               onClick: (event) => {
                 action.onClick?.(event);
-                onAction?.(action.key ?? actionLabel);
+                onAction?.(action.key);
                 setOpen(false, { restoreFocus: true });
               },
             });
