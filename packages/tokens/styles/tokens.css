@@ -917,8 +917,15 @@
   --sys-momentum-scale-rest: 1;
   --sys-momentum-scale-none: 0;
   --sys-momentum-scale-enter: 0.72;
+  --sys-momentum-scale-quiet: 0.98;
+  --sys-momentum-scale-settle: 0.985;
+  --sys-momentum-scale-raised: 1.08;
   --sys-momentum-translate-rest: 0;
+  --sys-momentum-rotate-rest: 0deg;
+  --sys-momentum-rotate-quarter: 90deg;
+  --sys-momentum-rotate-tilt: 45deg;
   --sys-momentum-rotate-expanded: 180deg;
+  --sys-momentum-rotate-cycle: 360deg;
   --sys-momentum-scale-hover: var(--ref-momentum-scale-hover);
   --sys-momentum-scale-press: var(--ref-momentum-scale-press);
   --sys-momentum-lift-hover: var(--ref-momentum-lift-hover);

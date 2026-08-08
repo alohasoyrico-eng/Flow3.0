@@ -106,9 +106,9 @@
   --component-scale-rest: var(--sys-momentum-scale-rest);
   --component-scale-none: var(--sys-momentum-scale-none);
   --component-scale-enter: var(--sys-momentum-scale-enter);
-  --component-scale-quiet: 0.98;
-  --component-scale-settle: 0.985;
-  --component-scale-raised: 1.08;
+  --component-scale-quiet: var(--sys-momentum-scale-quiet);
+  --component-scale-settle: var(--sys-momentum-scale-settle);
+  --component-scale-raised: var(--sys-momentum-scale-raised);
   --component-scale-hover: var(--sys-momentum-scale-hover);
   --component-scale-press: var(--sys-momentum-scale-press);
   --component-lift-sm: calc(var(--component-lift-hover) / 3);
@@ -119,10 +119,10 @@
   --component-translate-sheet-enter: var(--sys-space-10);
   --component-translate-sheet-exit: var(--sys-space-5);
   --component-rotation-expanded: var(--sys-momentum-rotate-expanded);
-  --component-rotation-rest: 0deg;
-  --component-rotation-quarter: 90deg;
-  --component-rotation-tilt: 45deg;
-  --component-rotation-cycle: 360deg;
+  --component-rotation-rest: var(--sys-momentum-rotate-rest);
+  --component-rotation-quarter: var(--sys-momentum-rotate-quarter);
+  --component-rotation-tilt: var(--sys-momentum-rotate-tilt);
+  --component-rotation-cycle: var(--sys-momentum-rotate-cycle);
   --component-transform-none: none;
   --component-transform-scale-rest: scale(var(--component-scale-rest));
   --component-transform-scale-none: scale(var(--component-scale-none));

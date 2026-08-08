@@ -2,6 +2,7 @@ const { path, add, lineNumber } = require("./audit-context.js");
 
 const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css");
 const rawAliasValuePattern = /(--comp-[a-z0-9-]+):\s*([^;]*(?:\b\d+(?:\.\d+)?(?:px|rem|em|%)\b|#[0-9a-fA-F]{3,8}|scale\(|translate[XY]?\(|rotate\()[^;]*);/g;
+const rawComponentMomentumAliasPattern = /(--component-(?:scale|rotation)-[a-z0-9-]+):\s*([^;]*(?:\b\d+(?:\.\d+)?(?:deg|%)\b|0?\.\d+|1\.\d+)[^;]*);/g;
 
 function checkComponentAliasLiterals(rootAliasBlock, fullText) {
   for (const match of rootAliasBlock.matchAll(rawAliasValuePattern)) {
@@ -12,6 +13,16 @@ function checkComponentAliasLiterals(rootAliasBlock, fullText) {
       packageCssFile,
       lineNumber(fullText, fullText.indexOf(match[0])),
       `${match[1]} must derive from Flow aliases instead of declaring literal "${value}".`
+    );
+  }
+  for (const match of rootAliasBlock.matchAll(rawComponentMomentumAliasPattern)) {
+    const value = match[2].trim();
+    if (value.includes("var(--sys-momentum-")) continue;
+    add(
+      "errors",
+      packageCssFile,
+      lineNumber(fullText, fullText.indexOf(match[0])),
+      `${match[1]} must derive from sys Momentum aliases instead of declaring literal "${value}".`
     );
   }
 }

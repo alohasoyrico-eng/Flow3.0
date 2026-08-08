@@ -627,8 +627,21 @@ export const systemTokens = {
       linear: "var(--sys-motion-curve-linear)",
     },
     scale: {
+      rest: "var(--sys-momentum-scale-rest)",
+      none: "var(--sys-momentum-scale-none)",
+      enter: "var(--sys-momentum-scale-enter)",
+      quiet: "var(--sys-momentum-scale-quiet)",
+      settle: "var(--sys-momentum-scale-settle)",
+      raised: "var(--sys-momentum-scale-raised)",
       hover: "var(--sys-momentum-scale-hover)",
       press: "var(--sys-momentum-scale-press)",
+    },
+    rotate: {
+      rest: "var(--sys-momentum-rotate-rest)",
+      quarter: "var(--sys-momentum-rotate-quarter)",
+      tilt: "var(--sys-momentum-rotate-tilt)",
+      expanded: "var(--sys-momentum-rotate-expanded)",
+      cycle: "var(--sys-momentum-rotate-cycle)",
     },
     lift: {
       hover: "var(--sys-momentum-lift-hover)",
