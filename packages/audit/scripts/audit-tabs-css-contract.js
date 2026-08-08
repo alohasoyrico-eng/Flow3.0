@@ -48,6 +48,9 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
   if (blocks.filter((block) => selectorKey(block) === ".tabs__tab").length > 1) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".tabs__tab")), "Tabs must not define duplicate .tabs__tab blocks; all tab sizing belongs in the primary block.");
   }
+  if (/var\(--comp-tabs-indicator-(?:left|width),/.test(text)) {
+    add("errors", packageCssFile, 1, "Tabs indicator runtime aliases must be declared on the root and consumed without inline fallbacks.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -77,9 +80,9 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "background: var(--comp-tabs-indicator-bg)",
       "border: var(--comp-tabs-indicator-border)",
       "box-shadow: var(--comp-tabs-indicator-shadow)",
-      "left: var(--comp-tabs-indicator-left",
+      "left: var(--comp-tabs-indicator-left)",
       "transition: var(--comp-tabs-indicator-transition)",
-      "width: var(--comp-tabs-indicator-width",
+      "width: var(--comp-tabs-indicator-width)",
     ],
     message: "Tabs indicator must consume Tabs aliases for selected surface, position, width, and motion.",
   });
@@ -161,7 +164,7 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "border: var(--comp-tabs-underline-indicator-border)",
       "block-size: var(--comp-tabs-underline-indicator-block-size)",
       "box-shadow: var(--comp-tabs-underline-indicator-shadow)",
-      "left: var(--comp-tabs-indicator-left",
+      "left: var(--comp-tabs-indicator-left)",
     ],
     message: "Tabs underline indicator must consume underline indicator aliases.",
   });

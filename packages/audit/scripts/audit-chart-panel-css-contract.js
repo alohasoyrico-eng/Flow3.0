@@ -61,6 +61,8 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
       "--comp-chart-panel-header-display: grid",
       "--comp-chart-panel-padding: var(--sys-space-lg)",
       "--comp-chart-panel-radius:",
+      "--comp-chart-panel-tooltip-x: 50%",
+      "--comp-chart-panel-tooltip-y: 0",
       "--comp-chart-panel-width:",
       "--comp-chart-panel-plot-size:",
       "--comp-chart-panel-donut-bg:",
@@ -163,9 +165,12 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
     [seriesTwoFillBlock, ["fill: var(--comp-chart-panel-series-2)"], "ChartPanel second series fill must consume component-scoped series alias."],
     [seriesThreeFillBlock, ["fill: var(--comp-chart-panel-series-5)"], "ChartPanel third series fill must consume component-scoped series alias."],
     [donutBlock, ["background: var(--comp-chart-panel-donut-bg)"], "ChartPanel donut must consume component-scoped donut background alias."],
-    [tooltipBlock, ["inset-block-start: var(--comp-chart-panel-tooltip-y, 0)", "inset-inline-start: var(--comp-chart-panel-tooltip-x, 50%)"], "ChartPanel tooltip coordinates must use component-scoped runtime aliases."],
+    [tooltipBlock, ["inset-block-start: var(--comp-chart-panel-tooltip-y)", "inset-inline-start: var(--comp-chart-panel-tooltip-x)"], "ChartPanel tooltip coordinates must use component-scoped runtime aliases without inline fallbacks."],
   ]) {
     requireIncludes({ block, text, packageCssFile, snippets, message });
+  }
+  if (/var\(--comp-chart-panel-tooltip-[xy],/.test(text)) {
+    add("errors", packageCssFile, 1, "ChartPanel tooltip runtime aliases must be declared on the root and consumed without inline fallbacks.");
   }
 }
 

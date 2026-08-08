@@ -2566,11 +2566,11 @@ button.tag:disabled,
   box-shadow: var(--comp-tabs-indicator-shadow);
   content: var(--comp-tabs-indicator-content);
   inset-block: var(--comp-tabs-indicator-inset-block);
-  left: var(--comp-tabs-indicator-left, var(--sys-space-xs));
+  left: var(--comp-tabs-indicator-left);
   pointer-events: var(--comp-tabs-indicator-pointer-events);
   position: var(--comp-tabs-indicator-position);
   transition: var(--comp-tabs-indicator-transition);
-  width: var(--comp-tabs-indicator-width, 0);
+  width: var(--comp-tabs-indicator-width);
   z-index: var(--comp-tabs-indicator-z);
 }
 
@@ -2629,7 +2629,7 @@ button.tag:disabled,
   box-shadow: var(--comp-tabs-underline-indicator-shadow);
   inset-block: var(--comp-tabs-underline-indicator-inset-block);
   inset-block-end: var(--comp-tabs-underline-indicator-inset-block-end);
-  left: var(--comp-tabs-indicator-left, 0);
+  left: var(--comp-tabs-indicator-left);
 }
 
 .tabs[data-variant="underline"] .tabs__tab {
@@ -7901,6 +7901,8 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-header-gap: 0;
   --comp-chart-panel-header-title-family: var(--sys-font-title);
   --comp-chart-panel-header-title-color: var(--sys-color-text-muted);
+  --comp-chart-panel-tooltip-x: 50%;
+  --comp-chart-panel-tooltip-y: 0;
   --comp-chart-panel-hover-border: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--sys-color-border));
   --comp-chart-panel-hover-depth: var(--component-depth-action-hover);
   --comp-chart-panel-hover-transform: var(--component-transform-lift-sm);
@@ -8685,8 +8687,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   font-size: var(--component-font-size-caption);
   font-weight: var(--sys-voice-weight-bold);
   inline-size: max-content;
-  inset-block-start: var(--comp-chart-panel-tooltip-y, 0);
-  inset-inline-start: var(--comp-chart-panel-tooltip-x, 50%);
+  inset-block-start: var(--comp-chart-panel-tooltip-y);
+  inset-inline-start: var(--comp-chart-panel-tooltip-x);
   line-height: var(--component-line-height-snug);
   max-inline-size: min(var(--component-content-size-sm), 92%);
   opacity: 0;
