@@ -993,6 +993,17 @@ assert.match(expandableTableMarkup, /aria-label="Close JMX-214-B"/);
 assert.match(expandableTableMarkup, /class="table__expander"/);
 assert.match(expandableTableMarkup, /class="table__detail-row"/);
 assert.match(expandableTableMarkup, /class="table__detail"[^>]*>Last fuel stop 08:30/);
+const unlabeledExpandableTableMarkup = renderToStaticMarkup(React.createElement(Table, {
+  label: "Unlabeled expandable fleet",
+  rowKey: "id",
+  variant: "expandable",
+  columns: tableColumns.slice(0, 2),
+  rows: tableRows,
+  expandedKey: "mx-1",
+}));
+assert.doesNotMatch(unlabeledExpandableTableMarkup, /class="table__expander"/);
+assert.doesNotMatch(unlabeledExpandableTableMarkup, /class="table__detail-row"/);
+assert.doesNotMatch(unlabeledExpandableTableMarkup, /aria-expanded=/);
 
 const chipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Active",

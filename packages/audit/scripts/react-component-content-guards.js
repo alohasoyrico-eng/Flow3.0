@@ -24,6 +24,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "FloatingActionButton" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "FloatingActionButton must not render without an accessible label.");
   if (name === "QuickAction" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "QuickAction must not render without an accessible label.");
   if (name === "Chip" && !source.includes("const canRemove = Boolean(removable && onRemoveLabel);")) add("errors", sourceFile, 1, "Chip must gate removable behavior on onRemoveLabel instead of removable alone.");
+  if (name === "Table" && !source.includes("const canRenderExpanders = expandable && typeof getExpandLabel === \"function\";")) add("errors", sourceFile, 1, "Table must gate expandable controls on getExpandLabel instead of expandable alone.");
+  if (name === "Table" && /"aria-label":\s*expandLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Table expander labels must be required before composing expandable controls.");
 }
 
 module.exports = { checkReactComponentContentGuards };

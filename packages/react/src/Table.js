@@ -54,6 +54,7 @@ export const Table = forwardRef(function Table({
   const sortable = resolvedVariant === "sortable" || columns.some((column) => column.sortable);
   const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
   const expandable = resolvedVariant === "expandable" || Boolean(renderDetail || expandedKey);
+  const canRenderExpanders = expandable && typeof getExpandLabel === "function";
   const isSelectedKeyControlled = selectedKey !== undefined;
   const isSortControlled = sortKey !== undefined;
   const isExpandedKeyControlled = expandedKey !== undefined;
@@ -123,7 +124,7 @@ export const Table = forwardRef(function Table({
         React.createElement(
           "tr",
           null,
-          expandable ? React.createElement("th", { className: "table__expander-head", scope: "col" }) : null,
+          canRenderExpanders ? React.createElement("th", { className: "table__expander-head", scope: "col" }) : null,
           columns.map((column) => {
             const active = currentSort.key === column.key;
             const canSort = column.sortable || sortable;
@@ -161,8 +162,9 @@ export const Table = forwardRef(function Table({
           const key = String(row[rowKey]);
           const selected = currentSelected ? currentSelected === key : initialState === "selected" && index === 1;
           const expanded = currentExpanded === key;
-          const interactive = selectable || expandable;
           const expandLabel = typeof getExpandLabel === "function" ? getExpandLabel(row, { expanded, key }) : undefined;
+          const rowCanExpand = canRenderExpanders && Boolean(expandLabel);
+          const interactive = selectable || rowCanExpand;
           const rowNode = React.createElement(
             "tr",
             {
@@ -172,16 +174,16 @@ export const Table = forwardRef(function Table({
               "data-selected": String(selected),
               ...flowStateProps(initialState === "hover" && index === 0 ? "hover" : initialState === "focus" && index === 0 ? "focus" : undefined),
               tabIndex: interactive ? 0 : undefined,
-              "aria-expanded": expandable ? String(expanded) : undefined,
+              "aria-expanded": rowCanExpand ? String(expanded) : undefined,
               onClick: selectable ? () => selectRow(key) : undefined,
               onKeyDown: interactive ? (event) => {
                 if (event.key !== "Enter" && event.key !== " ") return;
                 event.preventDefault();
-                if (expandable) toggleExpanded(key);
+                if (rowCanExpand) toggleExpanded(key);
                 else selectRow(key);
               } : undefined,
             },
-            expandable ? React.createElement(
+            rowCanExpand ? React.createElement(
               "td",
               { className: "table__expander-cell" },
               React.createElement(
@@ -190,7 +192,7 @@ export const Table = forwardRef(function Table({
                   type: "button",
                   className: "table__expander",
                   "data-table-expand": "",
-                  "aria-label": expandLabel || undefined,
+                  "aria-label": expandLabel,
                   "aria-expanded": String(expanded),
                   onClick: (event) => {
                     event.stopPropagation();
@@ -211,7 +213,7 @@ export const Table = forwardRef(function Table({
               renderCell(typeof column.render === "function" ? column.render(row) : row[column.key], resolvedDensity || undefined),
             )),
           );
-          if (!expandable) return [rowNode];
+          if (!rowCanExpand) return [rowNode];
           const detail = typeof renderDetail === "function" ? renderDetail(row) : row.detail ?? "";
           return [
             rowNode,
