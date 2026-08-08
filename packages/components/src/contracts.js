@@ -838,6 +838,7 @@ export const componentContracts = {
     accessibility: [
       "Use role tree and treeitem.",
       "Expose aria-level, aria-expanded, and aria-selected where applicable.",
+      "Require a stable node key or id before composing treeitems.",
       "Use patterns for permission editors, drag and drop, and multi-pane tree processs."
     ]
   },

@@ -5,15 +5,18 @@ import { flowStateProps, normalizeFlowValue, normalizeFlowDensity, flowDensityPr
 
 const validStates = new Set(["default", "hover", "focus", "expanded", "selected", "disabled"]);
 
-function nodeKey(node, index) {
-  return String(node?.key ?? node?.id ?? node?.label ?? `tree-item-${index}`);
+function nodeKey(node) {
+  return String(node?.key ?? node?.id);
 }
 
 function normalizeNodes(nodes) {
   const source = Array.isArray(nodes) ? nodes : [];
-  return source.filter((node) => node?.label).map((node, index) => ({
+  return source.filter((node) => {
+    const stableKey = node?.key ?? node?.id;
+    return node?.label && stableKey !== undefined && stableKey !== null && stableKey !== "";
+  }).map((node) => ({
     ...node,
-    key: nodeKey(node, index),
+    key: nodeKey(node),
     label: node.label,
     ariaLabel: node?.ariaLabel ?? node?.["aria-label"] ?? node.label,
     level: Math.max(1, Math.min(5, Number(node?.level ?? 1))),

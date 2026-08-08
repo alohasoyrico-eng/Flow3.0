@@ -730,6 +730,12 @@ const unnamedTreeViewMarkup = renderToStaticMarkup(React.createElement(TreeView,
 assert.doesNotMatch(unnamedTreeViewMarkup, /Tree view|Tree item 1/);
 assert.doesNotMatch(unnamedTreeViewMarkup, /role="treeitem"/);
 assert.doesNotMatch(unnamedTreeViewMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /aria-label=/);
+const unstableTreeViewMarkup = renderToStaticMarkup(React.createElement(TreeView, {
+  label: "Unstable tree",
+  nodes: [{ label: "Root", level: 1 }],
+}));
+assert.doesNotMatch(unstableTreeViewMarkup, /role="treeitem"/);
+assert.doesNotMatch(unstableTreeViewMarkup, /tree-item-0|data-key="Root"/);
 
 const cardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Wallet balance",
