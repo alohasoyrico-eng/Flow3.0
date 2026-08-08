@@ -507,7 +507,42 @@
   --comp-input-action-size: calc(var(--component-density-control-height) - var(--component-space-lg));
   --comp-input-gap: var(--component-field-gap);
   --comp-input-padding-x: var(--component-space-lg);
+  --comp-input-label-fg: var(--component-color-text);
+  --comp-input-label-weight: var(--component-font-weight-semibold);
+  --comp-input-surface-bg: var(--component-color-surface);
+  --comp-input-surface-border: var(--component-color-border);
+  --comp-input-surface-fg: var(--component-color-text);
   --comp-input-helper-fg: var(--component-color-text-muted);
+  --comp-input-helper-weight: var(--component-font-weight-medium);
+  --comp-input-helper-line-height: var(--component-line-height-snug-state);
+  --comp-input-affix-fg: var(--component-color-text-muted);
+  --comp-input-affix-family: var(--component-font-family-mono);
+  --comp-input-affix-weight: var(--component-font-weight-semibold);
+  --comp-input-action-bg: var(--component-surface-transparent);
+  --comp-input-action-border: var(--component-border-width-none);
+  --comp-input-action-fg: var(--component-color-text-muted);
+  --comp-input-action-cursor: var(--component-cursor-pointer);
+  --comp-input-action-hover-fg: var(--component-color-action);
+  --comp-input-action-focus-color: var(--component-color-focus);
+  --comp-input-action-disabled-cursor: var(--component-cursor-not-allowed);
+  --comp-input-field-bg: var(--component-surface-transparent);
+  --comp-input-field-border: var(--component-border-width-none);
+  --comp-input-field-fg: var(--component-color-text);
+  --comp-input-field-weight: var(--component-font-weight-medium);
+  --comp-input-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
+  --comp-input-focus-border: var(--component-color-action);
+  --comp-input-focus-ring: color-mix(in srgb, var(--component-color-action) 35%, transparent);
+  --comp-input-icon-fg: var(--component-color-text-muted);
+  --comp-input-icon-loading-fg: var(--component-color-action);
+  --comp-input-error-border: var(--component-color-danger);
+  --comp-input-error-bg: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
+  --comp-input-valid-border: color-mix(in srgb, var(--component-color-success) 42%, var(--component-color-border));
+  --comp-input-warning-bg: color-mix(in srgb, var(--component-color-warning) 9%, var(--component-color-surface));
+  --comp-input-warning-border: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-border));
+  --comp-input-warning-helper-fg: color-mix(in srgb, var(--component-color-warning) 72%, var(--component-color-text));
+  --comp-input-disabled-opacity: var(--component-disabled-readable-opacity);
+  --comp-input-disabled-bg: var(--component-color-surface-raised);
+  --comp-input-open-opacity: var(--component-opacity-visible);
   --comp-text-area-min-block: var(--component-textarea-min-block);
   --comp-text-area-padding-block: var(--component-space-md);
   --comp-text-area-padding-inline: var(--component-space-lg);
@@ -1535,18 +1570,18 @@
 
 .field-control__label,
 .field__label {
-  color: var(--sys-color-text);
+  color: var(--comp-input-label-fg);
   font-size: var(--component-font-size-small);
-  font-weight: var(--sys-voice-weight-semibold);
+  font-weight: var(--comp-input-label-weight);
 }
 
 .field-control__surface,
 .field__control {
   align-items: center;
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid var(--sys-color-border);
+  background: var(--comp-input-surface-bg);
+  border: var(--component-border-width) solid var(--comp-input-surface-border);
   border-radius: var(--component-radius-control);
-  color: var(--sys-color-text);
+  color: var(--comp-input-surface-fg);
   display: flex;
   gap: var(--comp-input-gap);
   min-block-size: var(--comp-field-control-size);
@@ -1569,6 +1604,7 @@
   --comp-combobox-overlay-motion-ease: var(--component-ease-enter);
   --comp-combobox-overlay-visibility-duration: var(--component-duration-instant);
   --comp-combobox-overlay-visibility-ease: var(--component-ease-linear);
+  --comp-combobox-open-opacity: var(--component-opacity-visible);
   --comp-combobox-empty-color: var(--component-color-text-muted);
   --comp-combobox-empty-font-size: var(--component-font-size-caption);
   --comp-combobox-empty-font-weight: var(--component-font-weight-semibold);
@@ -1599,7 +1635,7 @@
 }
 
 .combobox[data-open="true"] .combobox__listbox {
-  opacity: var(--sys-state-visible-opacity);
+  opacity: var(--comp-combobox-open-opacity);
   pointer-events: auto;
   transform: var(--component-transform-rest);
   transition:
@@ -1632,31 +1668,31 @@
 }
 
 .field__icon {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-input-icon-fg);
   flex: none;
   font-size: var(--comp-field-icon-size);
 }
 
 .field__icon--loading {
-  color: var(--sys-color-action);
+  color: var(--comp-input-icon-loading-fg);
   font-size: 0;
 }
 
 .field-control__helper,
 .field__helper {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-input-helper-fg);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-medium);
-  line-height: var(--sys-voice-line-height-snug);
+  font-weight: var(--comp-input-helper-weight);
+  line-height: var(--comp-input-helper-line-height);
 }
 
 .field__prefix,
 .field__suffix {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-input-affix-fg);
   flex: none;
-  font-family: var(--sys-voice-family-mono);
+  font-family: var(--comp-input-affix-family);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-semibold);
+  font-weight: var(--comp-input-affix-weight);
 }
 
 .field[data-align="end"] .input {
@@ -1665,11 +1701,11 @@
 
 .field-action {
   align-items: center;
-  background: transparent;
-  border: 0;
+  background: var(--comp-input-action-bg);
+  border: var(--comp-input-action-border);
   border-radius: var(--component-radius-pill);
-  color: var(--sys-color-text-muted);
-  cursor: pointer;
+  color: var(--comp-input-action-fg);
+  cursor: var(--comp-input-action-cursor);
   display: inline-flex;
   flex: none;
   inline-size: var(--comp-field-icon-action-size);
@@ -1682,7 +1718,7 @@
 }
 
 .field-action:hover:not(:disabled) {
-  color: var(--sys-color-action);
+  color: var(--comp-input-action-hover-fg);
 }
 
 .field-action:active:not(:disabled) {
@@ -1690,24 +1726,24 @@
 }
 
 .field-action:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
+  outline: var(--component-focus-ring-width) solid var(--comp-input-action-focus-color);
   outline-offset: var(--component-focus-ring-offset);
 }
 
 .field-action:disabled {
-  cursor: not-allowed;
+  cursor: var(--comp-input-action-disabled-cursor);
   opacity: var(--component-opacity-disabled);
 }
 
 .field-input,
 .input {
-  background: transparent;
-  border: 0;
-  color: var(--sys-color-text);
+  background: var(--comp-input-field-bg);
+  border: var(--comp-input-field-border);
+  color: var(--comp-input-field-fg);
   flex: 1 1 auto;
   font: inherit;
   font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-medium);
+  font-weight: var(--comp-input-field-weight);
   inline-size: 100%;
   min-block-size: var(--component-min-text-line);
   min-inline-size: 0;
@@ -1722,65 +1758,65 @@
 .field-control:hover .field-control__surface,
 .field:hover .field__control,
 .field[data-state="hover"] .field__control {
-  border-color: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
+  border-color: var(--comp-input-hover-border);
 }
 
 .field-control:focus-within .field-control__surface,
 .field-control[data-state="focus"] .field-control__surface,
 .field:focus-within .field__control,
 .field[data-state="focus"] .field__control {
-  border-color: var(--sys-color-action);
-  outline: var(--component-focus-ring-width) solid color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  border-color: var(--comp-input-focus-border);
+  outline: var(--component-focus-ring-width) solid var(--comp-input-focus-ring);
   outline-offset: var(--component-focus-ring-offset);
 }
 
 .field:focus-within .field__icon,
 .field[data-state="focus"] .field__icon {
-  color: var(--sys-color-action);
+  color: var(--comp-input-focus-border);
 }
 
 .field-control[data-state="error"] .field-control__surface,
 .field[data-state="error"] .field__control {
-  border-color: var(--sys-color-danger);
-  background: color-mix(in srgb, var(--sys-color-danger) 9%, var(--sys-color-surface));
+  border-color: var(--comp-input-error-border);
+  background: var(--comp-input-error-bg);
 }
 
 .field[data-state="valid"] .field__control {
-  border-color: color-mix(in srgb, var(--sys-color-success) 42%, var(--sys-color-border));
+  border-color: var(--comp-input-valid-border);
 }
 
 .field[data-state="warning"] .field__control {
-  background: color-mix(in srgb, var(--sys-color-warning) 9%, var(--sys-color-surface));
-  border-color: color-mix(in srgb, var(--sys-color-warning) 42%, var(--sys-color-border));
+  background: var(--comp-input-warning-bg);
+  border-color: var(--comp-input-warning-border);
 }
 
 .field[data-state="warning"] .field__helper {
-  color: color-mix(in srgb, var(--sys-color-warning) 72%, var(--sys-color-text));
+  color: var(--comp-input-warning-helper-fg);
 }
 
 .field-control[data-state="error"] .field-control__helper,
 .field[data-state="error"] .field__helper,
 .field[data-state="error"] .field__icon {
-  color: var(--sys-color-danger);
+  color: var(--comp-input-error-border);
 }
 
 .field-control[data-state="disabled"],
 .field[data-state="disabled"] {
   color: var(--component-disabled-text);
   cursor: var(--component-disabled-cursor);
-  opacity: var(--sys-disabled-readable-opacity);
+  opacity: var(--comp-input-disabled-opacity);
 }
 
 .field-control[data-state="disabled"] .field-control__surface,
 .field-control[data-state="loading"] .field-control__surface,
 .field[data-state="disabled"] .field__control,
 .field[data-state="loading"] .field__control {
-  background: var(--sys-color-surface-raised);
+  background: var(--comp-input-disabled-bg);
 }
 
 .field-control[data-mono="true"] .field-input,
 .field[data-mono="true"] .input {
-  font-family: var(--sys-voice-family-mono);
+  font-family: var(--comp-input-affix-family);
 }
 
 .text-area__surface {
