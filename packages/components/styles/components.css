@@ -44,6 +44,7 @@
   --component-content-size-xl: var(--sys-frame-content-dialog);
   --component-progress-indicator-min-inline-size: var(--sys-frame-content-narrow);
   --component-progress-indicator-max-inline-size: var(--sys-frame-content-dialog);
+  --component-dialog-panel-inline: min(100%, var(--sys-frame-content-dialog));
   --component-drawer-panel-inline-sm: var(--sys-frame-content-drawer-sm);
   --component-drawer-panel-inline-md: var(--sys-frame-content-drawer-md);
   --component-drawer-panel-inline-lg: var(--sys-frame-content-drawer-lg);
@@ -5694,7 +5695,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-panel-radius: var(--component-radius-surface);
   --comp-dialog-panel-color: var(--sys-color-text);
   --comp-dialog-panel-depth: var(--component-depth-panel-strong);
-  --comp-dialog-panel-inline: min(100%, var(--sys-frame-content-dialog));
+  --comp-dialog-panel-inline: var(--component-dialog-panel-inline);
   --comp-dialog-panel-padding: var(--sys-space-lg);
   --comp-dialog-panel-gap: var(--sys-space-md);
   --comp-dialog-panel-viewport-gap: var(--sys-space-lg);

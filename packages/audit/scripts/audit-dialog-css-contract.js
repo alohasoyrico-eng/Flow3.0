@@ -23,7 +23,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "--comp-dialog-panel-border-width: var(--component-border-width)",
-      "--comp-dialog-panel-inline: min(100%, var(--sys-frame-content-dialog))",
+      "--comp-dialog-panel-inline: var(--component-dialog-panel-inline)",
       "--comp-dialog-panel-padding: var(--sys-space-lg)",
       "--comp-dialog-panel-gap: var(--sys-space-md)",
       "--comp-dialog-z-index: var(--sys-depth-z-dialog)",
@@ -88,8 +88,8 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (/--comp-dialog-z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text) || /z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text)) {
     add("errors", packageCssFile, 1, "Dialog z-index must come directly from Depth tokens without literal fallbacks.");
   }
-  if (/--comp-dialog-panel-inline:\s*min\(100%,\s*var\(--sys-frame-content-dialog,/.test(text)) {
-    add("errors", packageCssFile, 1, "Dialog panel inline size must come directly from Frame tokens without local size fallbacks.");
+  if (/--comp-dialog-panel-inline:\s*min\(100%,\s*var\(--sys-frame-content-dialog/.test(text)) {
+    add("errors", packageCssFile, 1, "Dialog panel inline size must route through the component dialog panel alias.");
   }
 }
 
