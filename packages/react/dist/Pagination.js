@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo, useState } from "react";
+import React, { forwardRef, useMemo, useState } from "react";
 import { paginationPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
@@ -61,14 +61,11 @@ export const Pagination = forwardRef(function Pagination({
 }, ref) {
   const isPageControlled = page !== undefined;
   const normalized = useMemo(() => normalizePage(page ?? 1, pageCount), [page, pageCount]);
-  const [currentPage, setCurrentPage] = useState(normalized.currentPage);
+  const [internalPage, setInternalPage] = useState(normalized.currentPage);
+  const currentPage = isPageControlled ? normalized.currentPage : internalPage;
   const resolvedState = disabled ? "disabled" : allowedStates.has(state) ? state : "default";
   const resolvedVariant = "numbered";
   const totalPages = normalized.totalPages;
-
-  useEffect(() => {
-    if (isPageControlled) setCurrentPage(normalized.currentPage);
-  }, [isPageControlled, normalized.currentPage]);
 
   const visibleItems = useMemo(
     () => resolvePaginationItems(currentPage, totalPages),
@@ -83,7 +80,7 @@ export const Pagination = forwardRef(function Pagination({
     if (disabled) return;
     const next = normalizePage(nextPage, totalPages).currentPage;
     if (next === currentPage) return;
-    if (!isPageControlled) setCurrentPage(next);
+    if (!isPageControlled) setInternalPage(next);
     if (typeof onPageChange === "function") onPageChange(next, event);
   };
 
