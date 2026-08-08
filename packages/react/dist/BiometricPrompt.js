@@ -24,14 +24,9 @@ function promptIcon(variant, state, icon) {
   }[variant] ?? "fingerprint";
 }
 
-function stateCopy(state, description) {
-  if (description) return description;
-  return "";
-}
-
 export const BiometricPrompt = forwardRef(function BiometricPrompt({
   label,
-  description = "",
+  description,
   variant = "fingerprint",
   state = "default",
   actionLabel,
@@ -70,7 +65,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
       "div",
       { className: "biometric-prompt__content" },
       React.createElement("strong", null, label),
-      stateCopy(resolvedState, description) ? React.createElement("p", { role: "status" }, stateCopy(resolvedState, description)) : null,
+      description ? React.createElement("p", { role: "status" }, description) : null,
     ),
     actionLabel ? React.createElement(Button, {
         className: "biometric-prompt__action",
