@@ -17,7 +17,6 @@ function normalizeState(state) {
 
 export const EmptyState = forwardRef(function EmptyState({
   title,
-  label,
   description = "",
   icon = "",
   action,
@@ -35,7 +34,7 @@ export const EmptyState = forwardRef(function EmptyState({
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalizeState(state);
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedTitle = title ?? label ?? "";
+  if (!title) return null;
   const showIcon = Boolean(icon) || resolvedState === "loading";
   const actionLabel = action?.label;
   const actionKey = action?.key;
@@ -63,7 +62,7 @@ export const EmptyState = forwardRef(function EmptyState({
           : icon,
       )
       : null,
-    React.createElement("h3", { className: "empty-state__title", id: titleId }, resolvedTitle),
+    React.createElement("h3", { className: "empty-state__title", id: titleId }, title),
     description
       ? React.createElement("p", { className: "empty-state__description" }, description)
       : null,

@@ -908,8 +908,7 @@ export const componentContracts = {
     intents: ["neutral"],
     states: ["default", "action", "search-empty", "permission", "loading", "error"],
     props: [
-      { name: "title", type: "string", required: false },
-      { name: "label", type: "string", required: false },
+      { name: "title", type: "string", required: true },
       { name: "description", type: "string", required: false },
       { name: "icon", type: "string", required: false },
       { name: "action", type: "EmptyStateAction", required: false },
@@ -921,6 +920,7 @@ export const componentContracts = {
     ],
     accessibility: [
       "Keep the empty-state title visible.",
+      "Use title as the only visible heading source; do not alias label into the heading.",
       "Use one local action at most.",
       "Require a stable action key before composing the local action.",
       "Do not turn empty state into a multi-step onboarding pattern."

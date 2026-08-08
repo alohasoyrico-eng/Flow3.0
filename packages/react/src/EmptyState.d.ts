@@ -20,8 +20,7 @@ export interface EmptyStateAction {
 }
 
 export interface EmptyStateProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  title?: string;
-  label?: string;
+  title: string;
   description?: string;
   icon?: string;
   action?: EmptyStateAction;

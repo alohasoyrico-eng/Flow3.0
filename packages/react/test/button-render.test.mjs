@@ -1511,6 +1511,11 @@ const unstableEmptyStateActionMarkup = renderToStaticMarkup(React.createElement(
   action: { label: "Clear filters" },
 }));
 assert.doesNotMatch(unstableEmptyStateActionMarkup, /class="button/);
+const labelOnlyEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
+  label: "No vehicles match",
+  description: "Alias copy",
+}));
+assert.doesNotMatch(labelOnlyEmptyStateMarkup, /empty-state|No vehicles match|Alias copy/);
 
 const errorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
   label: "Sync failed",

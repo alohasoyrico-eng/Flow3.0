@@ -328,7 +328,7 @@ const components = [
     exports: ["emptyStatePlatformAdapters", "emptyStatePlatformContract", "emptyStatePlatformProps"],
     requiredTokens: ["comp.empty-state.*", "component-empty-state-*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.tone.*", "sys.growth.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "loading", "message", "measurement"],
-    props: ["title", "label", "description", "icon", "action", "variant", "state", "density", "fullWidth", "onAction"],
+    props: ["title", "description", "icon", "action", "variant", "state", "density", "fullWidth", "onAction"],
     jsSnippets: ["emptyStatePlatformContract", "React.createElement(Button", "React.createElement(Spinner", "className: [\"empty-state\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', 'flowDensityProps(resolvedDensity)', '"aria-labelledby": titleId', "empty-state__icon", "empty-state__title", "empty-state__description"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "EmptyStateProps", "EmptyStateAction", "EmptyStateVariant", "EmptyStateState", "EmptyStateDensity", "emptyStatePlatformContract"],
     packagePath: "./empty-state",
