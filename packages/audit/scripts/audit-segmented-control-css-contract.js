@@ -64,6 +64,16 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
   if (localItemSize) {
     add("errors", packageCssFile, lineNumber(text, localItemSize.index), "SegmentedControl item target must consume inline trigger roles instead of the generic control min size.");
   }
+  const localDensityItemSize = /--comp-segmented-control-item-min-block-(?:sm|lg):\s*(?:var\(--sys-space-9\)|calc\(var\(--sys-frame-height-control-sm\)\s*\+\s*var\(--sys-space-xs\)\));/.exec(text);
+  if (localDensityItemSize) {
+    add("errors", packageCssFile, lineNumber(text, localDensityItemSize.index), "SegmentedControl density item targets must route through --component-segmented-control-item-min-block-* aliases.");
+  }
+  for (const density of ["sm", "lg"]) {
+    const componentAlias = `--comp-segmented-control-item-min-block-${density}: var(--component-segmented-control-item-min-block-${density});`;
+    if (!text.includes(componentAlias)) {
+      add("errors", packageCssFile, 1, `SegmentedControl ${density} item target must consume --component-segmented-control-item-min-block-${density}.`);
+    }
+  }
 
   requireIncludes({
     block: rootBlock,

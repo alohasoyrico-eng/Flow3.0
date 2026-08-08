@@ -875,6 +875,8 @@
   --component-button-size-sm: var(--sys-space-9);
   --component-button-size-md: var(--component-control-min-size);
   --component-button-size-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
+  --component-segmented-control-item-min-block-sm: var(--component-button-size-sm);
+  --component-segmented-control-item-min-block-lg: var(--component-button-size-lg);
   --comp-icon-button-size-sm: var(--component-icon-button-size-sm);
   --comp-icon-button-size-md: var(--component-icon-button-size-md);
   --comp-icon-button-size-lg: var(--component-icon-button-size-lg);
@@ -10147,8 +10149,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-display: inline-flex;
   --comp-segmented-control-gap: 0;
   --comp-segmented-control-position: relative;
-  --comp-segmented-control-item-min-block-sm: var(--sys-space-9);
-  --comp-segmented-control-item-min-block-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
+  --comp-segmented-control-item-min-block-sm: var(--component-segmented-control-item-min-block-sm);
+  --comp-segmented-control-item-min-block-lg: var(--component-segmented-control-item-min-block-lg);
   --comp-segmented-control-item-min-block: var(--component-inline-trigger-min-block-size-md);
   --comp-segmented-control-item-padding-inline: var(--sys-space-md);
   --comp-segmented-control-icon-size: var(--component-icon-size-sm);
