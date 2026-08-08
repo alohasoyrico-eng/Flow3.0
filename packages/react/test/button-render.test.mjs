@@ -1384,7 +1384,7 @@ assert.match(completeProgressMarkup, /aria-valuenow="24"/);
 assert.match(completeProgressMarkup, /aria-valuetext="Upload complete"/);
 assert.match(completeProgressMarkup, /class="progress__value">100%<\/span>/);
 const unnamedProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator));
-assert.doesNotMatch(unnamedProgressMarkup, /aria-label="Progress"|In progress|Complete|Unavailable/);
+assert.doesNotMatch(unnamedProgressMarkup, /class="progress"|role="progressbar"|aria-label="Progress"|In progress|Complete|Unavailable/);
 
 const spinnerMarkup = renderToStaticMarkup(React.createElement(Spinner, {
   label: "Loading route",
