@@ -144,6 +144,7 @@ const expectedAuditFiles = new Set([
   "audit-voice-contracts.js",
   "report-foundation-accessibility-cascade.js",
   "report-legacy-dom-source-governance.js",
+  "report-package-css-root-governance.js",
   "report-react-accessibility-governance.js",
   "report-anti-duplication-coverage.js",
   "report-component-css-contract-coverage.js",
@@ -275,6 +276,7 @@ const checks = [
   ["react style governance report", () => run("node", ["packages/audit/scripts/report-react-style-governance.js", "--check"])],
   ["react interaction coverage report", () => run("node", ["packages/audit/scripts/report-react-interaction-coverage.js", "--check"])],
   ["component css contract coverage report", () => run("node", ["packages/audit/scripts/report-component-css-contract-coverage.js", "--check"])],
+  ["package css root governance report", () => run("node", ["packages/audit/scripts/report-package-css-root-governance.js", "--check"])],
   ["component visual cascade report", () => run("node", ["packages/audit/scripts/report-component-visual-cascade.js", "--check"])],
 ];
 

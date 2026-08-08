@@ -1,0 +1,124 @@
+{
+  "status": "pass",
+  "audit": "package CSS root governance",
+  "principle": "Every root class in the package stylesheet must be a known component root or an explicitly classified shared primitive/bridge; unclassified roots indicate accidental visual implementations.",
+  "inventory": {
+    "packageCssFile": "packages/components/styles/components.css",
+    "selectors": 1169,
+    "cssRoots": 66,
+    "componentRoots": 58,
+    "classifiedNonComponentRoots": 8,
+    "unclassifiedRoots": 0
+  },
+  "componentRoots": [
+    "accordion",
+    "animated-moment",
+    "audit-event",
+    "avatar",
+    "badge",
+    "biometric-prompt",
+    "breadcrumbs",
+    "button",
+    "card",
+    "card-expiry-input",
+    "card-number-input",
+    "card-security-code-input",
+    "card-summary",
+    "chart-panel",
+    "checkbox",
+    "chip",
+    "choice",
+    "code-input",
+    "combobox",
+    "country-flag",
+    "country-selector",
+    "date-picker",
+    "date-range-picker",
+    "dialog",
+    "drawer",
+    "empty-state",
+    "error-panel",
+    "fab",
+    "field",
+    "icon-button",
+    "inline-validation",
+    "kpi-tile",
+    "list",
+    "menu",
+    "motion-boundary",
+    "movement-row",
+    "pagination",
+    "phone-input",
+    "popover",
+    "progress",
+    "quick-action",
+    "radio",
+    "route-summary",
+    "segmented-control",
+    "select-control",
+    "skeleton",
+    "slider",
+    "spinner",
+    "station-pin",
+    "stepper",
+    "switch",
+    "table",
+    "tabs",
+    "tag",
+    "text-area",
+    "toast",
+    "tooltip",
+    "tree-view"
+  ],
+  "classifiedNonComponentRoots": [
+    {
+      "root": "animation-asset",
+      "type": "primitive-asset",
+      "owner": "packages/components/src/primitives/animation-assets.js",
+      "note": "Reusable animation asset primitive consumed by AnimatedMoment."
+    },
+    {
+      "root": "docs-package-demo",
+      "type": "docs-layout-bridge",
+      "owner": "../FlowDocs/apps/docs",
+      "note": "Temporary docs layout hook for package-backed demos; tracked so it cannot multiply silently."
+    },
+    {
+      "root": "field-action",
+      "type": "shared-control-primitive",
+      "owner": "field",
+      "note": "Shared field action affordance consumed by Input, Combobox, and card field inputs."
+    },
+    {
+      "root": "field-control",
+      "type": "legacy-field-shell",
+      "owner": "field",
+      "note": "Legacy-compatible field shell selector covered by the Field CSS contract."
+    },
+    {
+      "root": "field-input",
+      "type": "legacy-field-input",
+      "owner": "field",
+      "note": "Legacy-compatible field input selector covered by the Field CSS contract."
+    },
+    {
+      "root": "illustration-asset",
+      "type": "primitive-asset",
+      "owner": "packages/components/src/primitives/illustration-assets.js",
+      "note": "Reusable illustration asset primitive."
+    },
+    {
+      "root": "input",
+      "type": "shared-control-primitive",
+      "owner": "field",
+      "note": "Shared native input surface consumed by field-family React components."
+    },
+    {
+      "root": "material-symbol",
+      "type": "iconography-hook",
+      "owner": "packages/components/src/primitives/iconography.js",
+      "note": "Material Symbols font hook used by icon-bearing components."
+    }
+  ],
+  "unclassifiedRoots": []
+}
