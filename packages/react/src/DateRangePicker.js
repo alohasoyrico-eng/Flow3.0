@@ -168,6 +168,23 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const moveMonth = (delta) => {
     setViewDate((current) => new Date(current.getFullYear(), current.getMonth() + delta, 1));
   };
+  const handleTriggerClick = (event) => {
+    rest.onClick?.(event);
+    if (event.defaultPrevented || disabled) return;
+    setOpen(!open);
+  };
+  const handleTriggerKeyDown = (event) => {
+    rest.onKeyDown?.(event);
+    if (event.defaultPrevented) return;
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setOpen(false, true);
+    }
+    if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setOpen(true);
+    }
+  };
 
   const dayButtons = cells.map((cell, index) => {
     if (!cell) {
@@ -244,19 +261,8 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         "aria-labelledby": `${controlId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
-        onClick: () => {
-          if (!disabled) setOpen(!open);
-        },
-        onKeyDown: (event) => {
-          if (event.key === "Escape") {
-            event.preventDefault();
-            setOpen(false, true);
-          }
-          if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            setOpen(true);
-          }
-        },
+        onClick: handleTriggerClick,
+        onKeyDown: handleTriggerKeyDown,
       },
       React.createElement("span", { className: "field__icon date-picker__icon date-range-picker__icon", "aria-hidden": "true" }, "date_range"),
       visibleValue ? React.createElement("span", { className: "date-picker__value date-range-picker__value", "data-date-range-picker-value": "" }, visibleValue) : null,

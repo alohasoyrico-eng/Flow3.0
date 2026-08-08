@@ -530,6 +530,46 @@ try {
 
   cleanup();
 
+  const dateTriggerEvents = [];
+  const { getByRole: getNativeDateRole } = render(React.createElement(DatePicker, {
+    label: "Native service date",
+    value: "2026-07-13",
+    locale: "es-MX",
+    onClick: (event) => dateTriggerEvents.push(event.type),
+    onKeyDown: (event) => dateTriggerEvents.push(event.key),
+  }));
+
+  const nativeDateTrigger = getNativeDateRole("button", { name: /native service date/i });
+  fireEvent.click(nativeDateTrigger);
+  fireEvent.keyDown(nativeDateTrigger, { key: "Escape" });
+  assert.deepEqual(dateTriggerEvents, ["click", "Escape"]);
+  assert.equal(nativeDateTrigger.getAttribute("aria-expanded"), "false");
+
+  cleanup();
+
+  const preventedDateTriggerEvents = [];
+  const { getByRole: getPreventedDateRole } = render(React.createElement(DatePicker, {
+    label: "Prevented service date",
+    value: "2026-07-13",
+    locale: "es-MX",
+    onClick: (event) => {
+      preventedDateTriggerEvents.push(event.type);
+      event.preventDefault();
+    },
+    onKeyDown: (event) => {
+      preventedDateTriggerEvents.push(event.key);
+      event.preventDefault();
+    },
+  }));
+
+  const preventedDateTrigger = getPreventedDateRole("button", { name: /prevented service date/i });
+  fireEvent.click(preventedDateTrigger);
+  fireEvent.keyDown(preventedDateTrigger, { key: "ArrowDown" });
+  assert.deepEqual(preventedDateTriggerEvents, ["click", "ArrowDown"]);
+  assert.equal(preventedDateTrigger.getAttribute("aria-expanded"), "false");
+
+  cleanup();
+
   const dateRangeValues = [];
   const dateRangeOpenChanges = [];
   const { getByRole: getDateRangeRole, rerender: rerenderDateRangePicker } = render(React.createElement(DateRangePicker, {
@@ -582,6 +622,48 @@ try {
     onOpenChange: (open) => dateRangeOpenChanges.push(open),
   }));
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));
+
+  cleanup();
+
+  const dateRangeTriggerEvents = [];
+  const { getByRole: getNativeDateRangeRole } = render(React.createElement(DateRangePicker, {
+    label: "Native service range",
+    from: "2026-07-01",
+    locale: "es-MX",
+    presets: false,
+    onClick: (event) => dateRangeTriggerEvents.push(event.type),
+    onKeyDown: (event) => dateRangeTriggerEvents.push(event.key),
+  }));
+
+  const nativeDateRangeTrigger = getNativeDateRangeRole("button", { name: /native service range/i });
+  fireEvent.click(nativeDateRangeTrigger);
+  fireEvent.keyDown(nativeDateRangeTrigger, { key: "Escape" });
+  assert.deepEqual(dateRangeTriggerEvents, ["click", "Escape"]);
+  assert.equal(nativeDateRangeTrigger.getAttribute("aria-expanded"), "false");
+
+  cleanup();
+
+  const preventedDateRangeTriggerEvents = [];
+  const { getByRole: getPreventedDateRangeRole } = render(React.createElement(DateRangePicker, {
+    label: "Prevented service range",
+    from: "2026-07-01",
+    locale: "es-MX",
+    presets: false,
+    onClick: (event) => {
+      preventedDateRangeTriggerEvents.push(event.type);
+      event.preventDefault();
+    },
+    onKeyDown: (event) => {
+      preventedDateRangeTriggerEvents.push(event.key);
+      event.preventDefault();
+    },
+  }));
+
+  const preventedDateRangeTrigger = getPreventedDateRangeRole("button", { name: /prevented service range/i });
+  fireEvent.click(preventedDateRangeTrigger);
+  fireEvent.keyDown(preventedDateRangeTrigger, { key: "ArrowDown" });
+  assert.deepEqual(preventedDateRangeTriggerEvents, ["click", "ArrowDown"]);
+  assert.equal(preventedDateRangeTrigger.getAttribute("aria-expanded"), "false");
 
   cleanup();
 
