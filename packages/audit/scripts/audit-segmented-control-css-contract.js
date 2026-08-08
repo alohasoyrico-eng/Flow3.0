@@ -56,6 +56,10 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
   if (/\.code-input \.code-input__slots,\s*\.segmented-control\s*{/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".code-input .code-input__slots")), "SegmentedControl must not share root layout with CodeInput slots.");
   }
+  const localInlineSize = /--comp-segmented-control-inline-size:\s*min\(100%,\s*calc\([^;]*--component-control-min-size[^;]*\)\)/.exec(text);
+  if (localInlineSize) {
+    add("errors", packageCssFile, lineNumber(text, localInlineSize.index), "SegmentedControl inline size must flow through shared frame/content roles instead of local control-size math.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -69,6 +73,7 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
       "--comp-segmented-control-item-align: center",
       "--comp-segmented-control-item-display: inline-flex",
       "--comp-segmented-control-icon-selected-variation: var(--sys-icon-variation-filled-strong)",
+      "--comp-segmented-control-inline-size: min(100%, var(--component-segmented-control-inline-size))",
       "--comp-segmented-control-visually-hidden-size: var(--component-visually-hidden-size)",
       "align-items: var(--comp-segmented-control-align)",
       "display: var(--comp-segmented-control-display)",

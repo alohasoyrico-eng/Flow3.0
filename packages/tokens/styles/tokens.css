@@ -561,6 +561,7 @@
   --sys-frame-content-navigation-target-lg: var(--sys-space-11);
   --sys-frame-content-navigation-ellipsis-inline: calc(var(--sys-space-11) * 0.75);
   --sys-frame-content-option-min-block: calc(var(--sys-space-11) - var(--sys-space-xs));
+  --sys-frame-content-segmented-control-inline: calc(var(--sys-space-11) * 9);
   --sys-frame-content-code-slot-block-sm: var(--sys-space-11);
   --sys-frame-content-code-slot-block-md: calc(var(--sys-space-11) + var(--sys-frame-border-control));
   --sys-frame-content-code-slot-block-lg: calc(var(--sys-space-11) + var(--sys-space-md));

@@ -336,6 +336,7 @@ export const systemTokens = {
       contentNavigationTargetLg: "var(--sys-frame-content-navigation-target-lg)",
       contentNavigationEllipsisInline: "var(--sys-frame-content-navigation-ellipsis-inline)",
       contentOptionMinBlock: "var(--sys-frame-content-option-min-block)",
+      contentSegmentedControlInline: "var(--sys-frame-content-segmented-control-inline)",
       contentCodeSlotBlockSm: "var(--sys-frame-content-code-slot-block-sm)",
       contentCodeSlotBlockMd: "var(--sys-frame-content-code-slot-block-md)",
       contentCodeSlotBlockLg: "var(--sys-frame-content-code-slot-block-lg)",

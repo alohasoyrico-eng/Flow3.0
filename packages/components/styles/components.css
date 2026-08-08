@@ -82,6 +82,7 @@
   --component-navigation-target-size-lg: var(--sys-frame-content-navigation-target-lg);
   --component-navigation-ellipsis-inline-size: var(--sys-frame-content-navigation-ellipsis-inline);
   --component-option-min-block-size: var(--sys-frame-content-option-min-block);
+  --component-segmented-control-inline-size: var(--sys-frame-content-segmented-control-inline);
   --component-code-slot-block-size-sm: var(--sys-frame-content-code-slot-block-sm);
   --component-code-slot-block-size-md: var(--sys-frame-content-code-slot-block-md);
   --component-code-slot-block-size-lg: var(--sys-frame-content-code-slot-block-lg);
@@ -10135,7 +10136,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-border-width: calc(var(--component-border-width) * 2);
   --comp-segmented-control-radius: var(--sys-radius-sm);
   --comp-segmented-control-inner-radius: calc(var(--comp-segmented-control-radius) - var(--sys-frame-space-micro));
-  --comp-segmented-control-inline-size: min(100%, calc(var(--component-control-min-size) * 9));
+  --comp-segmented-control-inline-size: min(100%, var(--component-segmented-control-inline-size));
   --comp-segmented-control-padding: calc(var(--sys-space-xs) / 2);
   --comp-segmented-control-indicator-bg: color-mix(in srgb, var(--sys-color-action) 14%, var(--sys-color-surface));
   --comp-segmented-control-indicator-border: var(--sys-color-action);
