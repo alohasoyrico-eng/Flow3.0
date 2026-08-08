@@ -24,7 +24,7 @@ const allowedPrimitiveImports = new Set([
   "resolveCountryCallingCodeOption",
 ]);
 
-const allowedInlineStyleKeysByComponent = { Slider: ["--comp-slider-percent"] };
+const allowedInlineStyleKeysByComponent = { Slider: ["--comp-slider-percent"], TreeView: ["--comp-tree-view-level"] };
 
 function checkReactPrimaryContract() {
   const reactIndex = read(reactIndexFile);

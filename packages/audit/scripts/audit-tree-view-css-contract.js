@@ -18,6 +18,9 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
   const itemBlock = blockFor(blocks, selectorKey, ".tree-view__item");
   const hoverBlock = blockFor(blocks, selectorKey, ".tree-view__item:not([data-selected=\"true\"]) .tree-view__control:hover:not(:disabled),.tree-view__item:not([data-selected=\"true\"]) .button.tree-view__control:hover:not(:disabled),.tree-view .tree-view__item:not([data-selected=\"true\"]) .button.tree-view__control:hover:not(:disabled)");
 
+  if (/\.tree-view__item\[data-level="[2-9]\d*"\]/.test(text)) {
+    add("errors", packageCssFile, lineNumber(text, text.search(/\.tree-view__item\[data-level="[2-9]\d*"\]/)), "TreeView indentation must flow through --comp-tree-view-level instead of enumerated data-level CSS rules.");
+  }
   requireIncludes({
     block: treeBlock,
     text,
@@ -80,8 +83,11 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
     block: itemBlock,
     text,
     packageCssFile,
-    snippets: ["transition: margin-inline-start var(--comp-tree-view-motion-duration) var(--comp-tree-view-motion-ease)"],
-    message: "TreeView indentation motion must stay tokenized through the TreeView contract.",
+    snippets: [
+      "margin-inline-start: calc((var(--comp-tree-view-level) - 1) * var(--comp-tree-view-indent))",
+      "transition: margin-inline-start var(--comp-tree-view-motion-duration) var(--comp-tree-view-motion-ease)",
+    ],
+    message: "TreeView indentation must consume the dynamic level contract and tokenized motion.",
   });
   requireIncludes({
     block: hoverBlock,

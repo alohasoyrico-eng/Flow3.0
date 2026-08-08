@@ -6633,6 +6633,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .tree-view {
+  --comp-tree-view-level: 1;
   --comp-tree-view-padding: var(--sys-space-sm);
   --comp-tree-view-indent: var(--sys-space-lg);
   --comp-tree-view-control-min-block: var(--sys-density-control-height);
@@ -6728,24 +6729,8 @@ body[data-contrast="quiet"] .tree-view {
 }
 
 .tree-view__item {
-  margin-inline-start: 0;
+  margin-inline-start: calc((var(--comp-tree-view-level) - 1) * var(--comp-tree-view-indent));
   transition: margin-inline-start var(--comp-tree-view-motion-duration) var(--comp-tree-view-motion-ease);
-}
-
-.tree-view__item[data-level="2"] {
-  margin-inline-start: var(--comp-tree-view-indent);
-}
-
-.tree-view__item[data-level="3"] {
-  margin-inline-start: calc(var(--comp-tree-view-indent) * 2);
-}
-
-.tree-view__item[data-level="4"] {
-  margin-inline-start: calc(var(--comp-tree-view-indent) * 3);
-}
-
-.tree-view__item[data-level="5"] {
-  margin-inline-start: calc(var(--comp-tree-view-indent) * 4);
 }
 
 .tree-view__item:not([hidden]) > .tree-view__control,

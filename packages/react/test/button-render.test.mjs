@@ -842,7 +842,7 @@ const treeViewMarkup = renderToStaticMarkup(React.createElement(TreeView, {
   nodes: [
     { key: "fleet", label: "Fleet", level: 1, expanded: true, icon: "account_tree" },
     { key: "cards", label: "Cards", level: 2, selected: true },
-    { key: "card-4821", label: "Card 4821", level: 5 },
+    { key: "card-4821", label: "Card 4821", level: 7 },
   ],
 }));
 assert.match(treeViewMarkup, /^<ul/);
@@ -851,17 +851,18 @@ assert.match(treeViewMarkup, /role="tree"/);
 assert.match(treeViewMarkup, /aria-label="Fleet hierarchy"/);
 assert.match(treeViewMarkup, /data-density="sm"/);
 assert.match(treeViewMarkup, /data-tree-item=""/);
-assert.match(treeViewMarkup, /data-level="5"/);
+assert.match(treeViewMarkup, /data-level="7"/);
+assert.match(treeViewMarkup, /style="--comp-tree-view-level:7"/);
 assert.match(treeViewMarkup, /data-expanded="true"/);
 assert.match(treeViewMarkup, /data-selected="true"/);
-assert.match(treeViewMarkup, /aria-level="5"/);
+assert.match(treeViewMarkup, /aria-level="7"/);
 assert.match(treeViewMarkup, /aria-expanded="true"/);
 assert.match(treeViewMarkup, /aria-selected="true"/);
 assert.match(treeViewMarkup, /data-tree-control=""/);
 assert.match(treeViewMarkup, /role="treeitem"/);
 assert.equal((treeViewMarkup.match(/aria-expanded=/g) ?? []).length, 1);
 assert.equal((treeViewMarkup.match(/aria-selected=/g) ?? []).length, 3);
-assert.doesNotMatch(treeViewMarkup, /style="/);
+assert.doesNotMatch(treeViewMarkup, /data-level="5"/);
 const inheritedTreeViewMarkup = renderToStaticMarkup(React.createElement(TreeView, {
   label: "Inherited tree",
   nodes: [{ key: "root", label: "Root", level: 1 }],
