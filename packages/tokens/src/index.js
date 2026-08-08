@@ -285,6 +285,9 @@ export const systemTokens = {
       sidebarCollapsed: "var(--sys-frame-sidebar-collapsed)",
       contentMax: "var(--sys-frame-content-max)",
       contentDialog: "var(--sys-frame-content-dialog)",
+      contentMenuMinSm: "var(--sys-frame-content-menu-min-sm)",
+      contentMenuMinMd: "var(--sys-frame-content-menu-min-md)",
+      contentMenuMinLg: "var(--sys-frame-content-menu-min-lg)",
     },
     ratio: {
       half: "var(--sys-frame-ratio-half)",

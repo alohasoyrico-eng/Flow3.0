@@ -31,6 +31,9 @@
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
   --component-content-size-lg: calc(var(--component-control-min-size) * 12);
   --component-content-size-xl: var(--sys-frame-content-dialog);
+  --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
+  --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
+  --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
   --component-block-size-xs: var(--component-control-min-size);
   --component-block-size-sm: calc(var(--component-control-min-size) * 1.5);
   --component-block-size-md: calc(var(--component-control-min-size) * 2);
@@ -5785,7 +5788,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-border-width: var(--component-border-width);
   --comp-menu-panel-border: var(--sys-color-border);
   --comp-menu-panel-fg: var(--sys-color-text);
-  --comp-menu-panel-min-inline: 12.5rem;
+  --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-md);
   --comp-menu-panel-padding: var(--sys-space-xs);
   --comp-menu-panel-radius: var(--sys-frame-radius-surface);
   --comp-menu-panel-depth: var(--component-depth-popover);
@@ -5839,7 +5842,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .menu[data-density="sm"] {
-  --comp-menu-panel-min-inline: 11.5rem;
+  --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-sm);
   --comp-menu-panel-padding: calc(var(--sys-space-xs) / 2);
   --comp-menu-panel-radius: var(--sys-radius-md);
   --comp-menu-item-height: var(--component-inline-size-md);
@@ -5851,7 +5854,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .menu[data-density="lg"] {
-  --comp-menu-panel-min-inline: 14rem;
+  --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-lg);
   --comp-menu-panel-padding: var(--sys-space-sm);
   --comp-menu-panel-radius: var(--sys-frame-radius-surface);
   --comp-menu-item-height: var(--component-inline-size-lg);

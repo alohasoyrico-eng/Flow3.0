@@ -25,6 +25,10 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (/\.dialog__panel,\s*\.drawer__panel,\s*\.menu__panel,/m.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".menu__panel,")), "Menu panel must not live in the shared Dialog/Drawer/Table frame block.");
   }
+  const rawPanelMinInline = text.match(/--comp-menu-panel-min-inline:\s*[0-9.]+rem/);
+  if (rawPanelMinInline) {
+    add("errors", packageCssFile, lineNumber(text, rawPanelMinInline.index), "Menu panel min inline size must flow through Frame menu content roles instead of local rem values.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -34,6 +38,7 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-menu-panel-bg: var(--sys-color-surface)",
       "--comp-menu-panel-border-width: var(--component-border-width)",
       "--comp-menu-panel-depth: var(--component-depth-popover)",
+      "--comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-md)",
       "--comp-menu-item-font-size: var(--component-font-size-label)",
       "--comp-menu-enter-ease: var(--component-ease-enter)",
       "--comp-menu-item-transition:",

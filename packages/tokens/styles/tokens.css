@@ -519,6 +519,9 @@
   --sys-frame-content-max: var(--ref-frame-content-max);
   --sys-frame-content-callout: var(--ref-frame-content-callout);
   --sys-frame-content-menu-min: var(--ref-frame-doc-col-preview);
+  --sys-frame-content-menu-min-sm: calc(var(--ref-frame-space-40) + var(--ref-frame-space-6));
+  --sys-frame-content-menu-min-md: calc(var(--ref-frame-space-40) + var(--ref-frame-space-10));
+  --sys-frame-content-menu-min-lg: calc(var(--ref-frame-space-40) + var(--ref-frame-space-16));
   --sys-frame-content-menu-wide: calc(var(--ref-frame-content-prose) + var(--sys-frame-gap-component-lg));
   --sys-frame-content-menu-max-block: calc(var(--sys-frame-content-dialog) + (var(--sys-frame-gap-section) * 3));
   --sys-frame-content-search-min: calc(var(--sys-frame-sidebar-expanded) + var(--sys-space-sm));
