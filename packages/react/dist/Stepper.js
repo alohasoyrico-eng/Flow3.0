@@ -4,10 +4,15 @@ import { flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps }
 
 const allowedOrientations = new Set(["horizontal", "vertical"]);
 
+function hasStableStepId(step) {
+  return step?.id !== undefined && step?.id !== null && step?.id !== "";
+}
+
 function normalizeSteps(steps) {
   const sourceSteps = Array.isArray(steps) ? steps : [];
-  return sourceSteps.filter((step) => step?.label).map((step) => ({
+  return sourceSteps.filter((step) => step?.label && hasStableStepId(step)).map((step) => ({
     ...step,
+    id: String(step.id),
     label: step.label,
     ariaLabel: step?.ariaLabel ?? step?.["aria-label"] ?? step.label,
     description: step?.description ?? "",
@@ -45,7 +50,7 @@ export const Stepper = forwardRef(function Stepper({
       const item = React.createElement(
         "li",
         {
-          key: `step-${step.id ?? step.label ?? index}`,
+          key: `step-${step.id}`,
           className: "stepper__item",
           ...flowStateProps(stepState),
           "aria-current": index === currentIndex ? "step" : undefined,
@@ -67,7 +72,7 @@ export const Stepper = forwardRef(function Stepper({
       return [
         item,
         React.createElement("span", {
-          key: `connector-${step.id ?? step.label ?? index}`,
+          key: `connector-${step.id}`,
           className: "stepper__connector",
           ...flowStateProps(index < currentIndex ? "complete" : "pending"),
           "aria-hidden": "true",

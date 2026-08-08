@@ -1151,6 +1151,7 @@ export const componentContracts = {
     accessibility: [
       "Use ordered list semantics.",
       "Mark the current step with aria-current.",
+      "Require stable step ids before composing progress items and connectors.",
       "Use patterns for branching or route-owned wizards."
     ]
   },

@@ -1387,9 +1387,9 @@ const stepperMarkup = renderToStaticMarkup(React.createElement(Stepper, {
   orientation: "vertical",
   density: "lg",
   steps: [
-    { label: "Vehicle", description: "Basic data" },
-    { label: "Driver", description: "Assignment" },
-    { label: "Confirm", description: "Review" },
+    { id: "vehicle", label: "Vehicle", description: "Basic data" },
+    { id: "driver", label: "Driver", description: "Assignment" },
+    { id: "confirm", label: "Confirm", description: "Review" },
   ],
 }));
 assert.match(stepperMarkup, /^<ol/);
@@ -1410,6 +1410,11 @@ const unnamedStepperMarkup = renderToStaticMarkup(React.createElement(Stepper, {
   steps: [{ id: "vehicle" }],
 }));
 assert.equal(unnamedStepperMarkup, "");
+const unstableStepperMarkup = renderToStaticMarkup(React.createElement(Stepper, {
+  label: "Setup progress",
+  steps: [{ label: "Vehicle" }],
+}));
+assert.doesNotMatch(unstableStepperMarkup, /class="stepper__item"|step-Vehicle|step-0|Vehicle/);
 
 const emptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
   title: "No vehicles match",
