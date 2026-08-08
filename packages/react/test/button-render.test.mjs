@@ -615,7 +615,7 @@ assert.match(listMarkup, /class="list__content"/);
 assert.match(listMarkup, /class="list__value">75%<\/span>/);
 
 const passiveListMarkup = renderToStaticMarkup(React.createElement(List, {
-  items: [{ label: "Ana Sosa", meta: "Driver", value: "Active" }],
+  items: [{ key: "ana-sosa", label: "Ana Sosa", meta: "Driver", value: "Active" }],
 }));
 assert.match(passiveListMarkup, /<span class="list__item"/);
 assert.doesNotMatch(passiveListMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /data-density=/);
@@ -640,6 +640,7 @@ const unstableActionListMarkup = renderToStaticMarkup(React.createElement(List, 
 }));
 assert.doesNotMatch(unstableActionListMarkup, /<button/);
 assert.doesNotMatch(unstableActionListMarkup, /data-key="Documents"/);
+assert.doesNotMatch(unstableActionListMarkup, /Documents/);
 
 const kpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
   label: "Fuel spend",

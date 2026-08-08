@@ -936,7 +936,7 @@ export const componentContracts = {
     accessibility: [
       "Use list semantics for bounded collections.",
       "Keep row labels visible.",
-      "Require stable item keys before enabling row selection.",
+      "Require stable item keys before composing rows or enabling row selection.",
       "Use interactive rows only when a parent pattern owns the action."
     ]
   },

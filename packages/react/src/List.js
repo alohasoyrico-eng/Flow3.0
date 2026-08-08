@@ -25,6 +25,7 @@ export const List = forwardRef(function List({
   const initialSelectedKey = selectedKey ?? items.find((item) => item.state === "selected")?.key ?? "";
   const isSelectedKeyControlled = selectedKey !== undefined;
   const [currentSelectedKey, setCurrentSelectedKey] = useState(String(initialSelectedKey));
+  const resolvedItems = items.filter((item) => item?.key !== undefined && item?.key !== null && item?.key !== "");
 
   useEffect(() => {
     if (isSelectedKeyControlled) setCurrentSelectedKey(String(selectedKey ?? ""));
@@ -44,14 +45,13 @@ export const List = forwardRef(function List({
       "aria-label": label || undefined,
       "aria-busy": resolvedState === "loading" ? "true" : undefined,
     },
-    items.map((item, index) => {
-      const key = String(item.key ?? item.label ?? index);
-      const hasStableKey = item.key !== undefined && item.key !== null && item.key !== "";
+    resolvedItems.map((item) => {
+      const key = String(item.key);
       const isSelected = currentSelectedKey === key;
       const rowState = normalizeFlowValue(isSelected ? "selected" : item.state ?? resolvedState, validStates, resolvedState);
       const rowTone = normalizeFlowValue(item.tone ?? (rowState === "error" ? "danger" : ""), validItemTones, "");
       const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
-      const itemCanInteract = isInteractive && hasStableKey && Boolean(item.label || item.meta || item.value);
+      const itemCanInteract = isInteractive && Boolean(item.label || item.meta || item.value);
       const Control = itemCanInteract ? "button" : "span";
       return React.createElement(
         "li",
