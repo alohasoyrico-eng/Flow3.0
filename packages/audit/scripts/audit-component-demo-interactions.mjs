@@ -226,18 +226,21 @@ toast.setupToastDemos(root);
 progress.setupProgressIndicatorDemos(root);
 
 fixtures.chipToggle.click();
-assert.equal(fixtures.chipToggle.getAttribute("aria-pressed"), "true", "Chip click should toggle pressed state.");
-assert.equal(fixtures.chipToggle.dataset.selected, "true", "Chip click should set selected dataset state.");
+assert.equal(fixtures.chipToggle.dataset.statefulReady, "true", "Chip docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.chipToggle.getAttribute("aria-pressed"), "false", "Chip docs runtime should not duplicate React pressed state.");
+assert.equal(fixtures.chipToggle.dataset.selected, "false", "Chip docs runtime should not duplicate React selected state.");
 fixtures.chipRemove.click();
-assert.equal(fixtures.chipRemove.removed, true, "Removable Chip click should remove the chip.");
+assert.equal(fixtures.chipRemove.removed, false, "Chip docs runtime should not remove React-owned chips.");
 
 fixtures.tabs.children[0].dispatch("keydown", { key: "ArrowRight" });
-assert.equal(fixtures.tabs.children[1].getAttribute("aria-selected"), "true", "Tabs ArrowRight should activate the next tab.");
+assert.equal(fixtures.tabs.dataset.statefulReady, "true", "Tabs docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.tabs.children[1].getAttribute("aria-selected"), "false", "Tabs docs runtime should not duplicate React selected state.");
 
 fixtures.sliderInput.value = "75";
 fixtures.sliderInput.dispatch("input");
-assert.equal(fixtures.slider.dataset.value, "75", "Slider input should update the demo value.");
-assert.equal(fixtures.sliderOutput.textContent, "75 km", "Slider output should preserve the value suffix.");
+assert.equal(fixtures.slider.dataset.statefulReady, "true", "Slider docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.slider.dataset.value, undefined, "Slider docs runtime should not duplicate React value state.");
+assert.equal(fixtures.sliderOutput.textContent, "25 km", "Slider docs runtime should not mutate React-owned output.");
 
 fixtures.segmented.children[1].click();
 assert.equal(fixtures.segmented.dataset.statefulReady, "true", "Segmented Control docs should register the React island without legacy DOM state ownership.");
@@ -245,8 +248,9 @@ assert.equal(fixtures.segmented.children[1].getAttribute("aria-selected"), "fals
 assert.equal(fixtures.segmented.children[1].querySelector(".segmented-control__indicator"), null, "Segmented Control docs runtime should not inject React-owned visual indicators.");
 
 fixtures.paginationNext.click();
-assert.equal(fixtures.paginationPage3.getAttribute("aria-current"), "page", "Pagination next should advance to page 3.");
-assert.equal(fixtures.paginationNext.disabled, true, "Pagination next should disable on the last page.");
+assert.equal(fixtures.pagination.dataset.statefulReady, "true", "Pagination docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.paginationPage3.getAttribute("aria-current"), null, "Pagination docs runtime should not duplicate React current page state.");
+assert.equal(fixtures.paginationNext.disabled, false, "Pagination docs runtime should not duplicate React disabled state.");
 
 fixtures.popoverTrigger.click();
 assert.equal(fixtures.popover.dataset.statefulReady, "true", "Popover docs should mark the React demo ready.");
@@ -271,35 +275,40 @@ fixtures.treeControls[0].dispatch("keydown", { key: "ArrowRight" });
 assert.equal(fixtures.treeItems[0].dataset.expanded, "false", "Tree View docs runtime should not duplicate React expanded state.");
 
 fixtures.overlayClose.click();
-assert.equal(fixtures.overlayPanel.hidden, true, "Overlay close should hide the overlay surface.");
-assert.equal(fixtures.overlayDemo.dataset.state, "closed", "Overlay close should set closed state.");
+assert.equal(fixtures.overlayDemo.dataset.demoReady, "true", "Dialog/Drawer docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.overlayPanel.hidden, false, "Dialog/Drawer docs runtime should not hide React-owned overlay surfaces.");
+assert.equal(fixtures.overlayDemo.dataset.state, "open", "Dialog/Drawer docs runtime should not duplicate React open state.");
 
 fixtures.menuTrigger.click();
-assert.equal(fixtures.menuPanel.hidden, false, "Menu trigger should open the menu.");
+assert.equal(fixtures.menu.dataset.demoReady, "true", "Menu docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.menuPanel.hidden, true, "Menu docs runtime should not open React-owned panels.");
 fixtures.menuItem.click();
-assert.equal(fixtures.menuPanel.hidden, true, "Menu item click should close the menu.");
+assert.equal(fixtures.menu.dataset.open, "false", "Menu docs runtime should not duplicate React open state.");
 
 assert.equal(fixtures.accordion.dataset.demoReady, "true", "Accordion React island should be registered without legacy DOM state ownership.");
 
 assert.equal(fixtures.table.dataset.demoReady, "true", "Table setup should only mark React demos ready; interaction belongs to the React component.");
 
 fixtures.tooltipTrigger.dispatch("mouseenter");
-assert.equal(fixtures.tooltip.dataset.open, "true", "Tooltip mouseenter should open tooltip.");
+assert.equal(fixtures.tooltip.dataset.demoReady, "true", "Tooltip docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.tooltip.dataset.open, undefined, "Tooltip docs runtime should not duplicate React open state.");
 fixtures.tooltipTrigger.dispatch("keydown", { key: "Escape" });
-assert.equal(fixtures.tooltip.dataset.open, "false", "Tooltip Escape should close tooltip.");
+assert.equal(fixtures.tooltip.dataset.state, "default", "Tooltip docs runtime should not duplicate React dismissed state.");
 
 fixtures.toastAction.dispatch("click", { currentTarget: fixtures.toastAction });
-assert.equal(fixtures.toastAction.textContent, "Synced", "Toast action should update action label with the completed outcome.");
-assert.equal(fixtures.toast.dataset.tone, "success", "Toast action should set success tone.");
+assert.equal(fixtures.toast.dataset.demoReady, "true", "Toast docs should register the React island without legacy DOM state ownership.");
+assert.equal(fixtures.toastAction.textContent, "Retry", "Toast docs runtime should not mutate React-owned action labels.");
+assert.equal(fixtures.toast.dataset.tone, "danger", "Toast docs runtime should not duplicate React tone state.");
 fixtures.toastDismiss.click();
-assert.equal(fixtures.toast.removed, true, "Toast dismiss should remove the toast.");
+assert.equal(fixtures.toast.removed, false, "Toast docs runtime should not remove React-owned toasts.");
 
+assert.equal(fixtures.progressRoot.dataset.progressReady, "true", "Progress Indicator docs should register the React island without legacy DOM state ownership.");
 assert.equal(fixtures.progress.querySelector(".progress__label").textContent, "Upload", "Progress Indicator should keep a visible label.");
 assert.equal(fixtures.progress.attributes["aria-labelledby"], fixtures.progress.querySelector(".progress__label").id, "Progress Indicator should use visible label as accessible name.");
-assert.equal(fixtures.progressMeter.attributes.value, "60", "Progress Indicator should set determinate progress through the native progress value.");
-assert.equal(fixtures.progressMeter.attributes.max, "100", "Progress Indicator should set determinate progress through the native progress max.");
-assert.equal(fixtures.progress.attributes["aria-valuenow"], "60", "Progress Indicator should keep determinate aria-valuenow in sync.");
-assert.equal(fixtures.progress.attributes["aria-valuemax"], "100", "Progress Indicator should keep determinate aria-valuemax in sync.");
+assert.equal(fixtures.progressMeter.attributes.value, "60", "Progress Indicator docs runtime should not mutate native progress value.");
+assert.equal(fixtures.progressMeter.attributes.max, "100", "Progress Indicator docs runtime should not mutate native progress max.");
+assert.equal(fixtures.progress.attributes["aria-valuenow"], "60", "Progress Indicator docs runtime should not mutate React aria-valuenow.");
+assert.equal(fixtures.progress.attributes["aria-valuemax"], "100", "Progress Indicator docs runtime should not mutate React aria-valuemax.");
 assert.equal(fixtures.indeterminateProgress.attributes["aria-valuenow"], undefined, "Indeterminate progress must not expose fake aria-valuenow.");
 assert.equal(fixtures.indeterminateProgress.querySelector(".progress__value"), null, "Indeterminate progress must not show a fake value.");
 
@@ -582,6 +591,7 @@ function buildFixtures() {
     toast: toastRoot,
     toastAction,
     toastDismiss,
+    progressRoot,
     progress: progressNode,
     progressMeter,
     indeterminateProgress,
