@@ -1524,6 +1524,14 @@ assert.doesNotMatch(unnamedPopoverMarkup, /aria-label="Open popover"/);
 assert.doesNotMatch(unnamedPopoverMarkup, /aria-label="Popover"/);
 assert.doesNotMatch(unnamedPopoverMarkup, /class="button button--secondary popover__trigger"/);
 
+const ariaOnlyPopoverTriggerMarkup = renderToStaticMarkup(React.createElement(Popover, {
+  triggerAriaLabel: "Open filters",
+  title: "Filters",
+}));
+assert.doesNotMatch(ariaOnlyPopoverTriggerMarkup, /data-popover-trigger=""/);
+assert.doesNotMatch(ariaOnlyPopoverTriggerMarkup, /aria-label="Open filters"/);
+assert.doesNotMatch(ariaOnlyPopoverTriggerMarkup, /class="button button--secondary popover__trigger"/);
+
 const emptyFormPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
   triggerLabel: "Edit",
   variant: "form",

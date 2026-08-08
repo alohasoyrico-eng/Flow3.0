@@ -47,7 +47,7 @@ export const Popover = forwardRef(function Popover({
   const panelId = id || `popover-${slug(triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const resolvedActions = actions;
   const isDisabled = disabled || interactionState === "disabled";
-  const hasTrigger = Boolean(triggerLabel || triggerAriaLabel);
+  const hasTrigger = Boolean(triggerLabel);
   const hasField = Boolean(field?.label);
 
   useEffect(() => {
@@ -94,7 +94,6 @@ export const Popover = forwardRef(function Popover({
       fullWidth,
       className: "popover__trigger",
       "data-popover-trigger": "",
-      "aria-label": triggerLabel ? undefined : triggerAriaLabel,
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": panelId,
