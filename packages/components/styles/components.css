@@ -65,6 +65,7 @@
   --component-movement-row-min-block-size-md: var(--sys-frame-content-movement-row-min-block-md);
   --component-movement-row-min-block-size-lg: var(--sys-frame-content-movement-row-min-block-lg);
   --component-movement-icon-size: var(--sys-frame-content-movement-icon-size);
+  --component-feedback-action-size: var(--sys-frame-content-feedback-action-size);
   --component-disclosure-trigger-min-block-size-sm: var(--sys-frame-content-disclosure-trigger-min-block-sm);
   --component-disclosure-trigger-min-block-size-md: var(--sys-frame-content-disclosure-trigger-min-block-md);
   --component-disclosure-trigger-min-block-size-lg: var(--sys-frame-content-disclosure-trigger-min-block-lg);
@@ -3044,7 +3045,7 @@ button.tag:disabled,
   --comp-toast-enter-scale: var(--component-scale-quiet);
   --comp-toast-enter-transform: translateY(var(--comp-toast-enter-y)) scale(var(--comp-toast-enter-scale));
   --comp-toast-rest-transform: var(--component-transform-rest);
-  --comp-toast-action-size: calc(var(--component-control-min-size) - var(--sys-space-md));
+  --comp-toast-action-size: var(--component-feedback-action-size);
   --comp-toast-action-padding-inline: var(--sys-space-sm);
   --comp-toast-dismiss-size: var(--component-field-icon-action-size-md);
   --comp-toast-dismiss-icon-size: var(--sys-icon-size-sm-plus);

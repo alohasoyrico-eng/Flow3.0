@@ -18,6 +18,10 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const focusBlock = blockFor(blocks, selectorKey, ".toast__action:focus-visible");
   const reducedBlock = blockFor(blocks, selectorKey, "@media (prefers-reduced-motion: reduce)\n  .toast");
   const keyframes = text.match(/@keyframes\s+toast-enter\s*{[\s\S]*?\n}/)?.[0] ?? "";
+  const localActionSize = /--comp-toast-action-size:\s*calc\(var\(--component-control-min-size\)\s*[+-][^;]+;/.exec(text);
+  if (localActionSize) {
+    add("errors", packageCssFile, lineNumber(text, localActionSize.index), "Toast action sizing must flow through shared Frame feedback action roles instead of local control-size math.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -30,7 +34,7 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-toast-motion-duration: var(--component-duration-state)",
       "--comp-toast-enter-transform:",
       "--comp-toast-rest-transform:",
-      "--comp-toast-action-size:",
+      "--comp-toast-action-size: var(--component-feedback-action-size)",
       "--comp-toast-dismiss-size:",
       "animation: toast-enter var(--comp-toast-motion-enter-duration) var(--comp-toast-motion-enter-ease) both",
       "transition: var(--comp-toast-transition)",

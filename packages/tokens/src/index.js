@@ -319,6 +319,7 @@ export const systemTokens = {
       contentMovementRowMinBlockMd: "var(--sys-frame-content-movement-row-min-block-md)",
       contentMovementRowMinBlockLg: "var(--sys-frame-content-movement-row-min-block-lg)",
       contentMovementIconSize: "var(--sys-frame-content-movement-icon-size)",
+      contentFeedbackActionSize: "var(--sys-frame-content-feedback-action-size)",
       contentDisclosureTriggerMinBlockSm: "var(--sys-frame-content-disclosure-trigger-min-block-sm)",
       contentDisclosureTriggerMinBlockMd: "var(--sys-frame-content-disclosure-trigger-min-block-md)",
       contentDisclosureTriggerMinBlockLg: "var(--sys-frame-content-disclosure-trigger-min-block-lg)",
