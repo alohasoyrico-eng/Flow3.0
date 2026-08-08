@@ -5363,7 +5363,6 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .dialog__panel,
 .drawer__panel,
-.menu__panel,
 .table {
   background: var(--sys-color-surface);
   border: var(--component-border-width) solid var(--sys-color-border);
@@ -5501,19 +5500,61 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .menu {
+  --comp-menu-gap: var(--sys-space-xs);
+  --comp-menu-panel-bg: var(--sys-color-surface);
+  --comp-menu-panel-border-width: var(--component-border-width);
+  --comp-menu-panel-border: var(--sys-color-border);
+  --comp-menu-panel-fg: var(--sys-color-text);
   --comp-menu-panel-min-inline: 12.5rem;
   --comp-menu-panel-padding: var(--sys-space-xs);
   --comp-menu-panel-radius: var(--sys-frame-radius-surface);
-  --comp-menu-panel-shadow: var(--sys-depth-elevation-3);
+  --comp-menu-panel-depth: var(--component-depth-popover);
+  --comp-menu-panel-offset: var(--sys-space-xs);
+  --comp-menu-panel-z-index: var(--sys-depth-z-overlay);
+  --comp-menu-panel-gap: var(--sys-space-xs);
+  --comp-menu-item-bg: transparent;
+  --comp-menu-item-fg: var(--sys-color-text);
+  --comp-menu-item-hover-bg: var(--sys-color-surface-muted);
+  --comp-menu-item-danger-fg: var(--sys-color-danger);
+  --comp-menu-item-danger-hover-bg: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
+  --comp-menu-item-disabled-fg: var(--sys-color-text-muted);
+  --comp-menu-item-disabled-opacity: var(--component-opacity-disabled);
   --comp-menu-item-height: calc(var(--component-control-min-size) - var(--sys-space-xs));
   --comp-menu-item-padding-x: var(--sys-space-sm);
   --comp-menu-item-radius: var(--sys-radius-sm);
   --comp-menu-item-gap: var(--sys-space-xs);
+  --comp-menu-item-font-family: inherit;
   --comp-menu-item-font-size: var(--component-font-size-label);
+  --comp-menu-item-font-weight: var(--sys-font-weight-semibold);
   --comp-menu-item-icon-size: var(--component-icon-size-sm);
+  --comp-menu-item-icon-family: var(--sys-font-icon);
+  --comp-menu-item-icon-weight: var(--sys-font-weight-regular);
+  --comp-menu-item-shortcut-fg: var(--sys-color-text-muted);
+  --comp-menu-item-shortcut-font-size: var(--component-font-size-helper);
+  --comp-menu-item-hover-transform: translateX(calc(var(--sys-space-xs) / 2));
+  --comp-menu-item-disabled-transform: var(--component-transform-none);
+  --comp-menu-separator-border: var(--sys-color-border);
+  --comp-menu-separator-margin-block: var(--sys-space-xs);
+  --comp-menu-trigger-avatar-bg: transparent;
+  --comp-menu-trigger-avatar-border-width: var(--sys-border-width-thin);
+  --comp-menu-trigger-avatar-border: transparent;
+  --comp-menu-trigger-avatar-radius: var(--sys-radius-full);
+  --comp-menu-trigger-avatar-fg: var(--sys-color-text);
+  --comp-menu-trigger-avatar-size: var(--sys-touch-target-min);
+  --comp-menu-trigger-avatar-padding: var(--sys-space-2xs);
+  --comp-menu-trigger-avatar-hover-bg: var(--sys-color-surface-muted);
+  --comp-menu-trigger-avatar-hover-border: var(--sys-color-border-strong);
+  --comp-menu-focus-ring: var(--component-focus-ring);
+  --comp-menu-focus-ring-offset: var(--component-focus-ring-offset);
+  --comp-menu-active-scale: var(--sys-momentum-scale-press);
+  --comp-menu-enter-duration: var(--component-duration-enter);
+  --comp-menu-enter-ease: var(--component-ease-enter);
+  --comp-menu-state-duration: var(--component-duration-snappy);
+  --comp-menu-state-ease: var(--component-ease-state);
   --comp-menu-transition: opacity var(--component-duration-state) var(--component-ease-press), transform var(--component-duration-state) var(--component-ease-press);
+  --comp-menu-item-transition: background-color var(--comp-menu-state-duration) var(--comp-menu-state-ease), color var(--comp-menu-state-duration) var(--comp-menu-state-ease), transform var(--comp-menu-state-duration) var(--comp-menu-state-ease);
   display: inline-grid;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-menu-gap);
   position: relative;
 }
 
@@ -5542,19 +5583,23 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .menu__panel {
-  animation: menu-enter var(--component-duration-enter) var(--component-ease-enter) both;
-  box-shadow: var(--comp-menu-panel-shadow);
+  animation: menu-enter var(--comp-menu-enter-duration) var(--comp-menu-enter-ease) both;
+  background: var(--comp-menu-panel-bg);
+  border: var(--comp-menu-panel-border-width) solid var(--comp-menu-panel-border);
+  border-radius: var(--comp-menu-panel-radius);
+  box-shadow: var(--comp-menu-panel-depth);
+  color: var(--comp-menu-panel-fg);
   display: grid;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-menu-panel-gap);
   inline-size: max-content;
   min-inline-size: var(--comp-menu-panel-min-inline);
   padding: var(--comp-menu-panel-padding);
   position: absolute;
-  inset-block-start: calc(100% + var(--sys-space-xs));
+  inset-block-start: calc(100% + var(--comp-menu-panel-offset));
   inset-inline-start: 0;
   transform-origin: top start;
   transition: var(--comp-menu-transition);
-  z-index: var(--sys-depth-z-overlay);
+  z-index: var(--comp-menu-panel-z-index);
 }
 
 .menu[data-align="end"] .menu__panel {
@@ -5565,92 +5610,89 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .menu__trigger--avatar {
   align-items: center;
   appearance: none;
-  background: transparent;
-  border: var(--sys-border-width-thin) solid transparent;
-  border-radius: var(--sys-radius-full);
-  color: var(--sys-color-text);
+  background: var(--comp-menu-trigger-avatar-bg);
+  border: var(--comp-menu-trigger-avatar-border-width) solid var(--comp-menu-trigger-avatar-border);
+  border-radius: var(--comp-menu-trigger-avatar-radius);
+  color: var(--comp-menu-trigger-avatar-fg);
   cursor: pointer;
   display: grid;
   justify-content: center;
-  min-block-size: var(--sys-touch-target-min);
-  min-inline-size: var(--sys-touch-target-min);
-  padding: var(--sys-space-2xs);
+  min-block-size: var(--comp-menu-trigger-avatar-size);
+  min-inline-size: var(--comp-menu-trigger-avatar-size);
+  padding: var(--comp-menu-trigger-avatar-padding);
   transition:
-    background-color var(--component-duration-snappy) var(--component-ease-state),
-    border-color var(--component-duration-snappy) var(--component-ease-state),
-    transform var(--component-duration-snappy) var(--component-ease-state);
+    background-color var(--comp-menu-state-duration) var(--comp-menu-state-ease),
+    border-color var(--comp-menu-state-duration) var(--comp-menu-state-ease),
+    transform var(--comp-menu-state-duration) var(--comp-menu-state-ease);
 }
 
 .menu__trigger--avatar:hover,
 .menu__trigger--avatar:focus-visible {
-  background: var(--sys-color-surface-muted);
-  border-color: var(--sys-color-border-strong);
+  background: var(--comp-menu-trigger-avatar-hover-bg);
+  border-color: var(--comp-menu-trigger-avatar-hover-border);
 }
 
 .menu__trigger--avatar:focus-visible {
-  outline: var(--component-focus-ring);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-menu-focus-ring);
+  outline-offset: var(--comp-menu-focus-ring-offset);
 }
 
 .menu__trigger--avatar:active {
-  transform: scale(var(--sys-momentum-scale-press));
+  transform: scale(var(--comp-menu-active-scale));
 }
 
 .menu__item {
   align-items: center;
   appearance: none;
-  background: transparent;
+  background: var(--comp-menu-item-bg);
   border: 0;
   border-radius: var(--comp-menu-item-radius);
-  color: var(--sys-color-text);
+  color: var(--comp-menu-item-fg);
   cursor: pointer;
   display: grid;
-  font: inherit;
+  font-family: var(--comp-menu-item-font-family);
   font-size: var(--comp-menu-item-font-size);
-  font-weight: var(--sys-font-weight-semibold);
+  font-weight: var(--comp-menu-item-font-weight);
   gap: var(--comp-menu-item-gap);
   grid-template-columns: auto minmax(0, 1fr) auto;
   justify-content: start;
   min-block-size: var(--comp-menu-item-height);
   padding: 0 var(--comp-menu-item-padding-x);
   text-align: start;
-  transition:
-    background-color var(--component-duration-snappy) var(--component-ease-state),
-    color var(--component-duration-snappy) var(--component-ease-state),
-    transform var(--component-duration-snappy) var(--component-ease-state);
+  transition: var(--comp-menu-item-transition);
   inline-size: 100%;
 }
 
 .menu__item:hover,
 .menu__item:focus-visible {
-  background: var(--sys-color-surface-muted);
+  background: var(--comp-menu-item-hover-bg);
 }
 
 .menu__item:hover {
-  transform: translateX(calc(var(--sys-space-xs) / 2));
+  transform: var(--comp-menu-item-hover-transform);
 }
 
 .menu__item[data-tone="danger"] {
-  color: var(--sys-color-danger);
+  color: var(--comp-menu-item-danger-fg);
 }
 
 .menu__item[data-tone="danger"]:hover,
 .menu__item[data-tone="danger"]:focus-visible {
-  background: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
+  background: var(--comp-menu-item-danger-hover-bg);
 }
 
 .menu__item:disabled {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-menu-item-disabled-fg);
   cursor: not-allowed;
-  opacity: var(--component-opacity-disabled);
-  transform: var(--component-transform-none);
+  opacity: var(--comp-menu-item-disabled-opacity);
+  transform: var(--comp-menu-item-disabled-transform);
 }
 
 .menu__item-icon {
   color: currentColor;
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-menu-item-icon-family);
   font-size: var(--comp-menu-item-icon-size);
-  font-weight: var(--sys-font-weight-regular);
+  font-weight: var(--comp-menu-item-icon-weight);
   line-height: 1;
 }
 
@@ -5661,15 +5703,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .menu__item-shortcut {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-menu-item-shortcut-fg);
   font: inherit;
-  font-size: var(--component-font-size-helper);
+  font-size: var(--comp-menu-item-shortcut-font-size);
 }
 
 .menu__separator {
-  border-block-start: 1px solid var(--sys-color-border);
+  border-block-start: var(--comp-menu-panel-border-width) solid var(--comp-menu-separator-border);
   display: block;
-  margin: var(--sys-space-xs) 0;
+  margin: var(--comp-menu-separator-margin-block) 0;
 }
 
 .drawer__overlay {
