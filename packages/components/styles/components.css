@@ -42,6 +42,8 @@
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
   --component-content-size-lg: calc(var(--component-control-min-size) * 12);
   --component-content-size-xl: var(--sys-frame-content-dialog);
+  --component-progress-indicator-min-inline-size: var(--sys-frame-content-narrow);
+  --component-progress-indicator-max-inline-size: var(--sys-frame-content-dialog);
   --component-drawer-panel-inline-sm: var(--sys-frame-content-drawer-sm);
   --component-drawer-panel-inline-md: var(--sys-frame-content-drawer-md);
   --component-drawer-panel-inline-lg: var(--sys-frame-content-drawer-lg);
@@ -3344,8 +3346,8 @@ button.tag:disabled,
   --comp-progress-indicator-state-ease: var(--component-ease-state);
   --comp-progress-indicator-gap: var(--sys-space-xs);
   --comp-progress-indicator-meta-gap: var(--sys-space-sm);
-  --comp-progress-indicator-min-inline-size: var(--sys-frame-content-narrow);
-  --comp-progress-indicator-max-inline-size: var(--sys-frame-content-dialog);
+  --comp-progress-indicator-min-inline-size: var(--component-progress-indicator-min-inline-size);
+  --comp-progress-indicator-max-inline-size: var(--component-progress-indicator-max-inline-size);
   --comp-progress-indicator-text-color: var(--sys-color-text);
   --comp-progress-indicator-label-font-size: var(--component-font-size-small);
   --comp-progress-indicator-label-font-weight: var(--sys-voice-weight-semibold);

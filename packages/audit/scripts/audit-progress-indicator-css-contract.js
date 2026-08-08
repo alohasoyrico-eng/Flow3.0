@@ -32,6 +32,8 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
       "--comp-progress-indicator-tone: var(--component-loading-progress-fill)",
       "--comp-progress-indicator-motion-ease: var(--component-ease-move)",
       "--comp-progress-indicator-track-border-width: var(--component-border-width)",
+      "--comp-progress-indicator-min-inline-size: var(--component-progress-indicator-min-inline-size)",
+      "--comp-progress-indicator-max-inline-size: var(--component-progress-indicator-max-inline-size)",
       "--comp-progress-indicator-value-font-family: var(--component-font-family-mono)",
       "color: var(--comp-progress-indicator-text-color)",
       "gap: var(--comp-progress-indicator-gap)",
@@ -133,6 +135,10 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
     snippets: ["color: var(--comp-progress-indicator-value-color)", "font-family: var(--comp-progress-indicator-value-font-family)"],
     message: "Progress Indicator value must consume Progress value voice aliases.",
   });
+
+  if (/--comp-progress-indicator-(?:min|max)-inline-size:\s*var\(--sys-frame-content-/.test(text)) {
+    add("errors", packageCssFile, lineNumber(text, text.search(/--comp-progress-indicator-(?:min|max)-inline-size:\s*var\(--sys-frame-content-/)), "Progress Indicator content width must route through component-owned aliases, not sys frame content directly.");
+  }
 }
 
 module.exports = { checkProgressIndicatorCssContract };
