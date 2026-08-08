@@ -520,7 +520,7 @@ export const componentContracts = {
     intents: ["neutral", "info", "success", "warning", "danger"],
     states: ["default", "visible", "action", "stacked", "exiting"],
     props: [
-      { name: "label", type: "string", required: false },
+      { name: "label", type: "string", required: true },
       { name: "description", type: "string", required: false },
       { name: "tone", type: "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"", required: false },
       { name: "variant", type: "\"status\" | \"progress\" | \"warning\" | \"recovery\" | \"undo\"", required: false },

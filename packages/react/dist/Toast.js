@@ -17,8 +17,8 @@ const toneIcons = {
 };
 
 export const Toast = forwardRef(function Toast({
-  label = "",
-  description = "",
+  label,
+  description,
   tone = "neutral",
   variant = "status",
   state = "visible",
@@ -40,6 +40,8 @@ export const Toast = forwardRef(function Toast({
   const hidden = dismissed || resolvedState === "default";
   const role = resolvedTone === "danger" || resolvedTone === "warning" ? "alert" : "status";
 
+  if (!label) return null;
+
   return React.createElement(
     "article",
     {
@@ -49,7 +51,6 @@ export const Toast = forwardRef(function Toast({
       hidden,
       role,
       "aria-live": role === "alert" ? "assertive" : "polite",
-      "aria-label": label ? undefined : rest["aria-label"],
       ...flowToneProps(resolvedTone),
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
@@ -59,7 +60,7 @@ export const Toast = forwardRef(function Toast({
     React.createElement(
       "div",
       { className: "toast__content" },
-      label ? React.createElement("strong", null, label) : null,
+      React.createElement("strong", null, label),
       description ? React.createElement("p", null, description) : null,
     ),
     actionLabel

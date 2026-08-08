@@ -106,7 +106,7 @@ const components = [
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "message", "measurement"],
     props: ["label", "description", "tone", "variant", "state", "density", "icon", "actionLabel", "dismissible"],
     jsSnippets: ["toastPlatformContract", "React.createElement(Button", "React.createElement(IconButton", "className: [\"toast\"", 'flowToneProps(resolvedTone)', 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', 'flowDensityProps(resolvedDensity)', "role", "\"aria-live\"", "toast__icon", "toast__content", "toast__action", "toast__dismiss"],
-    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "ToastProps", "ToastTone", "ToastVariant", "ToastState", "ToastDensity", "toastPlatformContract"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "ToastProps", "label: string", "ToastTone", "ToastVariant", "ToastState", "ToastDensity", "toastPlatformContract"],
     packagePath: "./toast",
     exportName: "Toast",
     propsName: "ToastProps",
