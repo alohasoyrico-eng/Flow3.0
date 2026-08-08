@@ -276,6 +276,7 @@
   --component-letter-spacing-wide: var(--sys-voice-letter-spacing-wide);
   --component-letter-spacing-widest: var(--sys-voice-letter-spacing-widest);
   --component-line-height-balanced: var(--sys-voice-line-height-balanced);
+  --component-line-height-compact: var(--sys-voice-line-height-compact);
   --component-line-height-crisp: var(--sys-voice-line-height-crisp);
   --component-line-height-dense: var(--sys-voice-line-height-dense);
   --component-line-height-loose: var(--sys-voice-line-height-loose);
@@ -434,6 +435,7 @@
   --component-depth-action-hover: var(--sys-elevation-floating);
   --component-depth-danger: var(--sys-elevation-modal);
   --component-depth-popover: var(--sys-elevation-popover);
+  --component-depth-blur-md: var(--sys-depth-blur-md);
   --component-depth-success-ring: 0 0 0 3px color-mix(in srgb, var(--sys-color-success) 12%, transparent);
   --component-depth-card-rest: var(--sys-elevation-card, var(--component-depth-low-medium));
   --component-depth-toast: var(--sys-elevation-toast);
@@ -919,6 +921,16 @@
   --comp-card-icon-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
   --comp-card-icon-fg: var(--component-color-action);
   --comp-card-icon-radius: var(--component-radius-pill);
+  --comp-card-icon-family: var(--component-font-family-icon);
+  --comp-card-icon-variation: var(--component-icon-variation-filled-strong);
+  --comp-card-icon-line-height: var(--component-line-height-none);
+  --comp-card-title-family: var(--component-font-family-title);
+  --comp-card-title-weight: var(--component-font-weight-black);
+  --comp-card-title-letter-spacing: var(--component-letter-spacing-normal);
+  --comp-card-title-line-height: var(--component-line-height-tight);
+  --comp-card-value-family: var(--component-font-family-title);
+  --comp-card-value-weight: var(--component-font-weight-black);
+  --comp-card-value-line-height: var(--component-line-height-compact);
   --comp-card-header-gap: var(--component-space-md);
   --comp-card-heading-gap: var(--component-space-sm);
   --comp-card-detail-fg: var(--comp-card-muted-fg);
@@ -926,10 +938,46 @@
   --comp-card-actions-gap: var(--component-space-sm);
   --comp-card-actions-justify: var(--component-justify-flex-end);
   --comp-card-minimal-icon-size: var(--component-font-size-title-md);
+  --comp-card-minimal-icon-fg: var(--component-color-text-muted);
+  --comp-card-minimal-title-weight: var(--component-font-weight-bold);
   --comp-card-minimal-detail-size: var(--component-font-size-small);
+  --comp-card-minimal-detail-line-height: var(--component-line-height-normal);
+  --comp-card-elevated-title-weight: var(--component-font-weight-bold);
   --comp-card-elevated-detail-size: var(--component-font-size-small);
+  --comp-card-elevated-detail-line-height: var(--component-line-height-normal);
+  --comp-card-compact-status-bg: var(--component-color-surface-raised);
+  --comp-card-compact-status-border: var(--component-color-border);
+  --comp-card-compact-status-fg: var(--component-color-text-muted);
+  --comp-card-media-bg: var(--component-color-surface-raised);
+  --comp-card-media-title-weight: var(--component-font-weight-bold);
+  --comp-card-media-title-line-height: var(--component-line-height-tight);
+  --comp-card-media-detail-line-height: var(--component-line-height-normal);
+  --comp-card-stats-title-fg: var(--component-color-text-muted);
+  --comp-card-stats-title-family: var(--component-font-family-body);
+  --comp-card-stats-title-weight: var(--component-font-weight-semibold);
+  --comp-card-stats-title-letter-spacing: var(--component-letter-spacing-widest);
+  --comp-card-stats-title-line-height: var(--component-line-height-tight);
+  --comp-card-stats-title-transform: var(--component-text-transform-uppercase);
+  --comp-card-stats-value-weight: var(--component-font-weight-semibold);
+  --comp-card-stats-value-line-height: var(--component-line-height-compact);
+  --comp-card-stats-value-margin-block: var(--component-space-xs) calc(var(--component-space-sm) - var(--component-space-xs) / 2);
+  --comp-card-stats-status-up-bg: color-mix(in srgb, var(--component-color-success) 12%, var(--component-color-surface));
+  --comp-card-stats-status-up-border: color-mix(in srgb, var(--component-color-success) 28%, var(--component-color-border));
+  --comp-card-stats-status-up-fg: var(--component-color-success);
+  --comp-card-stats-status-down-bg: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
+  --comp-card-stats-status-down-border: color-mix(in srgb, var(--component-color-danger) 28%, var(--component-color-border));
+  --comp-card-stats-status-down-fg: var(--component-color-danger);
+  --comp-card-stats-status-neutral-bg: var(--component-color-surface-raised);
+  --comp-card-stats-status-neutral-border: var(--component-color-border);
+  --comp-card-stats-status-neutral-fg: var(--component-color-text-muted);
   --comp-card-ghost-fg: var(--component-color-surface);
   --comp-card-ghost-text-size: var(--component-font-size-small);
+  --comp-card-ghost-blur: var(--component-depth-blur-md);
+  --comp-card-ghost-bg: color-mix(in srgb, var(--component-color-surface) 40%, transparent);
+  --comp-card-ghost-border: color-mix(in srgb, var(--component-color-border) 50%, transparent);
+  --comp-card-ghost-text-family: var(--component-font-family-body);
+  --comp-card-ghost-text-weight: var(--component-font-weight-regular);
+  --comp-card-ghost-text-line-height: var(--component-line-height-normal);
   --comp-card-focus-color: var(--component-color-focus);
   --comp-card-focus-width: var(--component-focus-ring-width);
   --comp-card-focus-offset: var(--component-focus-ring-offset);
@@ -5564,9 +5612,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-composition="compact"] .card__status {
-  background: var(--sys-color-surface-raised);
-  border-color: var(--sys-color-border);
-  color: var(--sys-color-text-muted);
+  background: var(--comp-card-compact-status-bg);
+  border-color: var(--comp-card-compact-status-border);
+  color: var(--comp-card-compact-status-fg);
   justify-self: end;
 }
 
@@ -5582,7 +5630,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card__media {
-  background: var(--sys-color-surface-raised);
+  background: var(--comp-card-media-bg);
   block-size: var(--comp-card-current-media-block-size);
   display: block;
   inline-size: 100%;
@@ -5603,13 +5651,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-composition="media"] .card__title {
   font-size: var(--comp-card-media-title-size);
-  font-weight: var(--sys-voice-weight-bold);
-  line-height: var(--sys-voice-line-height-tight);
+  font-weight: var(--comp-card-media-title-weight);
+  line-height: var(--comp-card-media-title-line-height);
 }
 
 .card[data-composition="media"] .card__detail {
   font-size: var(--comp-card-media-detail-size);
-  line-height: var(--sys-voice-line-height-normal);
+  line-height: var(--comp-card-media-detail-line-height);
 }
 
 .card[data-composition="stats"] {
@@ -5624,21 +5672,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-composition="stats"] .card__title {
-  color: var(--sys-color-text-muted);
-  font-family: var(--sys-font-body);
+  color: var(--comp-card-stats-title-fg);
+  font-family: var(--comp-card-stats-title-family);
   font-size: var(--comp-card-stats-title-size);
-  font-weight: var(--sys-voice-weight-semibold);
-  letter-spacing: var(--sys-voice-letter-spacing-widest);
-  line-height: var(--sys-voice-line-height-tight);
-  text-transform: var(--sys-voice-transform-uppercase);
+  font-weight: var(--comp-card-stats-title-weight);
+  letter-spacing: var(--comp-card-stats-title-letter-spacing);
+  line-height: var(--comp-card-stats-title-line-height);
+  text-transform: var(--comp-card-stats-title-transform);
 }
 
 .card[data-composition="stats"] .card__value {
   font-family: var(--component-font-family-mono);
   font-size: var(--comp-card-current-value-size);
-  font-weight: var(--sys-voice-weight-semibold);
-  line-height: var(--sys-voice-line-height-compact);
-  margin-block: var(--sys-space-xs) calc(var(--sys-space-sm) - var(--sys-space-xs) / 2);
+  font-weight: var(--comp-card-stats-value-weight);
+  line-height: var(--comp-card-stats-value-line-height);
+  margin-block: var(--comp-card-stats-value-margin-block);
 }
 
 .card[data-composition="stats"] .card__status {
@@ -5646,21 +5694,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-composition="stats"] .card__status[data-trend="up"] {
-  background: color-mix(in srgb, var(--sys-color-success) 12%, var(--sys-color-surface));
-  border-color: color-mix(in srgb, var(--sys-color-success) 28%, var(--sys-color-border));
-  color: var(--sys-color-success);
+  background: var(--comp-card-stats-status-up-bg);
+  border-color: var(--comp-card-stats-status-up-border);
+  color: var(--comp-card-stats-status-up-fg);
 }
 
 .card[data-composition="stats"] .card__status[data-trend="down"] {
-  background: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
-  border-color: color-mix(in srgb, var(--sys-color-danger) 28%, var(--sys-color-border));
-  color: var(--sys-color-danger);
+  background: var(--comp-card-stats-status-down-bg);
+  border-color: var(--comp-card-stats-status-down-border);
+  color: var(--comp-card-stats-status-down-fg);
 }
 
 .card[data-composition="stats"] .card__status[data-trend="neutral"] {
-  background: var(--sys-color-surface-raised);
-  border-color: var(--sys-color-border);
-  color: var(--sys-color-text-muted);
+  background: var(--comp-card-stats-status-neutral-bg);
+  border-color: var(--comp-card-stats-status-neutral-border);
+  color: var(--comp-card-stats-status-neutral-fg);
 }
 
 .card[data-variant="minimal"] {
@@ -5678,20 +5726,20 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card[data-variant="minimal"] .card__icon {
   align-self: start;
   background: transparent;
-  color: var(--sys-color-text-muted);
+  color: var(--comp-card-minimal-icon-fg);
   font-size: var(--comp-card-minimal-icon-size);
   inline-size: var(--comp-card-minimal-icon-size);
   min-block-size: var(--comp-card-minimal-icon-size);
 }
 
 .card[data-variant="minimal"] .card__title {
-  font-weight: var(--sys-voice-weight-bold);
+  font-weight: var(--comp-card-minimal-title-weight);
 }
 
 .card[data-variant="minimal"] .card__detail {
   font-size: var(--comp-card-minimal-detail-size);
   grid-column: 2;
-  line-height: var(--sys-voice-line-height-normal);
+  line-height: var(--comp-card-minimal-detail-line-height);
 }
 
 .card[data-variant="elevated"] {
@@ -5702,18 +5750,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-variant="elevated"] .card__title {
-  font-weight: var(--sys-voice-weight-bold);
+  font-weight: var(--comp-card-elevated-title-weight);
 }
 
 .card[data-variant="elevated"] .card__detail {
   font-size: var(--comp-card-elevated-detail-size);
-  line-height: var(--sys-voice-line-height-normal);
+  line-height: var(--comp-card-elevated-detail-line-height);
 }
 
 .card[data-variant="ghost"] {
-  backdrop-filter: blur(var(--sys-depth-blur-md));
-  background: color-mix(in srgb, var(--sys-color-surface) 40%, transparent);
-  border-color: color-mix(in srgb, var(--sys-color-border) 50%, transparent);
+  backdrop-filter: blur(var(--comp-card-ghost-blur));
+  background: var(--comp-card-ghost-bg);
+  border-color: var(--comp-card-ghost-border);
   box-shadow: none;
   color: var(--comp-card-ghost-fg);
 }
@@ -5721,10 +5769,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card[data-variant="ghost"] .card__title,
 .card[data-variant="ghost"] .card__detail {
   color: inherit;
-  font-family: var(--sys-font-body);
+  font-family: var(--comp-card-ghost-text-family);
   font-size: var(--comp-card-ghost-text-size);
-  font-weight: var(--sys-voice-weight-regular);
-  line-height: var(--sys-voice-line-height-normal);
+  font-weight: var(--comp-card-ghost-text-weight);
+  line-height: var(--comp-card-ghost-text-line-height);
 }
 
 .card[data-state="muted"] {
@@ -5790,21 +5838,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   color: var(--comp-card-icon-fg);
   display: inline-flex;
   flex: 0 0 auto;
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-card-icon-family);
   font-size: var(--comp-card-current-icon-font-size);
-  font-variation-settings: var(--sys-icon-variation-filled-strong);
+  font-variation-settings: var(--comp-card-icon-variation);
   inline-size: var(--comp-card-current-icon-size);
   justify-content: center;
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--comp-card-icon-line-height);
   min-block-size: var(--comp-card-current-icon-size);
 }
 
 .card__title {
-  font-family: var(--sys-font-title);
+  font-family: var(--comp-card-title-family);
   font-size: var(--comp-card-current-title-size);
-  font-weight: var(--sys-voice-weight-black);
-  letter-spacing: var(--sys-voice-letter-spacing-normal);
-  line-height: var(--sys-voice-line-height-tight);
+  font-weight: var(--comp-card-title-weight);
+  letter-spacing: var(--comp-card-title-letter-spacing);
+  line-height: var(--comp-card-title-line-height);
   margin: 0;
   min-inline-size: 0;
 }
@@ -5820,10 +5868,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card__value {
-  font-family: var(--sys-font-title);
+  font-family: var(--comp-card-value-family);
   font-size: var(--comp-card-current-value-size);
-  font-weight: var(--sys-voice-weight-black);
-  line-height: var(--sys-voice-line-height-compact);
+  font-weight: var(--comp-card-value-weight);
+  line-height: var(--comp-card-value-line-height);
   margin: 0;
   min-inline-size: 0;
 }
