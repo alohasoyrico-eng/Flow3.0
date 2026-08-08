@@ -26,6 +26,11 @@
   --component-display-inline-flex: inline-flex;
   --component-display-inline-grid: inline-grid;
   --component-display-none: none;
+  --component-flex-none: none;
+  --component-grid-template-none: none;
+  --component-list-style-none: none;
+  --component-pointer-events-none: none;
+  --component-text-decoration-none: none;
   --component-focus-ring: var(--sys-focus-ring);
   --component-focus-ring-width: var(--sys-frame-border-indicator);
   --component-focus-ring-offset: var(--sys-focus-ring-offset);
@@ -1251,7 +1256,7 @@
   --comp-icon-button-fg: var(--sys-color-text);
   --comp-icon-button-cursor: pointer;
   --comp-icon-button-display: var(--component-display-inline-flex);
-  --comp-icon-button-flex: none;
+  --comp-icon-button-flex: var(--component-flex-none);
   --comp-icon-button-justify: center;
   --comp-icon-button-padding: var(--component-frame-space-none);
   --comp-icon-button-position: relative;
@@ -1283,7 +1288,7 @@
   --comp-icon-button-badge-position: absolute;
   --comp-icon-button-badge-inset-block-start: var(--component-offset-xs);
   --comp-icon-button-badge-inset-inline-end: var(--component-offset-xs);
-  --comp-icon-button-badge-pointer-events: none;
+  --comp-icon-button-badge-pointer-events: var(--component-pointer-events-none);
   align-items: var(--comp-icon-button-align);
   background: var(--comp-icon-button-bg);
   border: var(--comp-icon-button-border);
@@ -2714,7 +2719,7 @@ button.tag:disabled,
   --comp-tabs-indicator-inset-block: var(--sys-space-xs);
   --comp-tabs-indicator-left: var(--sys-space-xs);
   --comp-tabs-indicator-width: 0;
-  --comp-tabs-indicator-pointer-events: none;
+  --comp-tabs-indicator-pointer-events: var(--component-pointer-events-none);
   --comp-tabs-indicator-position: absolute;
   --comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch);
   --comp-tabs-indicator-z: var(--sys-depth-z-base);
@@ -4683,7 +4688,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-list-gap: var(--sys-space-xs);
   --comp-breadcrumbs-list-margin: var(--component-frame-space-none);
   --comp-breadcrumbs-list-padding: var(--component-frame-space-none);
-  --comp-breadcrumbs-list-style: none;
+  --comp-breadcrumbs-list-style: var(--component-list-style-none);
   --comp-breadcrumbs-list-wrap: wrap;
   --comp-breadcrumbs-item-align: center;
   --comp-breadcrumbs-item-display: var(--component-display-inline-flex);
@@ -4691,7 +4696,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-target-align: center;
   --comp-breadcrumbs-target-display: var(--component-display-inline-flex);
   --comp-breadcrumbs-target-justify: center;
-  --comp-breadcrumbs-target-decoration: none;
+  --comp-breadcrumbs-target-decoration: var(--component-text-decoration-none);
   --comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg);
   --comp-breadcrumbs-target-padding-inline: var(--sys-space-xs);
   --comp-breadcrumbs-target-radius: var(--sys-radius-sm);
@@ -8069,7 +8074,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-compact-align: center;
   --comp-route-summary-compact-border: var(--component-border-transparent);
   --comp-route-summary-compact-display: var(--component-display-flex);
-  --comp-route-summary-compact-grid: none;
+  --comp-route-summary-compact-grid: var(--component-grid-template-none);
   --comp-route-summary-gap: var(--sys-space-sm);
   --comp-route-summary-compact-gap: var(--sys-space-md);
   --comp-route-summary-compact-header-display: var(--component-display-flex);
@@ -10205,7 +10210,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-indicator-border: var(--sys-color-action);
   --comp-segmented-control-indicator-shadow: var(--component-depth-action-halo-strong);
   --comp-segmented-control-indicator-inset: 0;
-  --comp-segmented-control-indicator-pointer-events: none;
+  --comp-segmented-control-indicator-pointer-events: var(--component-pointer-events-none);
   --comp-segmented-control-indicator-position: absolute;
   --comp-segmented-control-indicator-transform: var(--component-transform-scale-quiet);
   --comp-segmented-control-indicator-selected-transform: var(--component-transform-scale-rest);

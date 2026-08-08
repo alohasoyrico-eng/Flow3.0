@@ -156,7 +156,7 @@ function checkRouteSummaryCssContract({ text, blocks, packageCssFile, selectorKe
     packageCssFile,
     snippets: [
       "--comp-route-summary-compact-display: var(--component-display-flex)",
-      "--comp-route-summary-compact-grid: none",
+      "--comp-route-summary-compact-grid: var(--component-grid-template-none)",
       "display: var(--comp-route-summary-compact-display)",
       "grid-template-columns: var(--comp-route-summary-compact-grid)",
     ],
