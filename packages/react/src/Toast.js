@@ -72,7 +72,7 @@ export const Toast = forwardRef(function Toast({
         onClick: () => onAction?.(),
       })
       : null,
-    dismissible
+    dismissible && dismissLabel
       ? React.createElement(IconButton, {
         ariaLabel: dismissLabel,
         icon: "close",

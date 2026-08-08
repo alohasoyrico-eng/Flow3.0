@@ -1374,6 +1374,7 @@ const unnamedToastMarkup = renderToStaticMarkup(React.createElement(Toast, {
 }));
 assert.doesNotMatch(unnamedToastMarkup, /aria-label="Notification"/);
 assert.doesNotMatch(unnamedToastMarkup, /aria-label="Dismiss notification"/);
+assert.doesNotMatch(unnamedToastMarkup, /toast__dismiss/);
 
 const tooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
   triggerLabel: "Info",

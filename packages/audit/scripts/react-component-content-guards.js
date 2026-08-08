@@ -20,6 +20,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Drawer" && /^\s*React\.createElement\(Button,\s*\{\n\s*ref:\s*triggerRef/m.test(source)) add("errors", sourceFile, 1, "Drawer must not render an unnamed trigger; gate trigger composition on triggerLabel or triggerAriaLabel.");
   if (name === "Drawer" && /^\s*React\.createElement\(IconButton,\s*\{\n\s*ref:\s*closeRef/m.test(source)) add("errors", sourceFile, 1, "Drawer must not render an unnamed close button; gate close composition on closeLabel.");
   if (name === "Drawer" && /fields\.map\(\(field,\s*index\)\s*=>/.test(source)) add("errors", sourceFile, 1, "Drawer must filter fields without visible labels before composing Input.");
+  if (name === "Toast" && /dismissible\s*\?\s*React\.createElement\(IconButton/.test(source)) add("errors", sourceFile, 1, "Toast must gate dismiss IconButton on dismissLabel, not dismissible alone.");
 }
 
 module.exports = { checkReactComponentContentGuards };
