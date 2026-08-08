@@ -41,7 +41,7 @@ function normalizeItems(items) {
 export const Breadcrumbs = forwardRef(function Breadcrumbs({
   items,
   label,
-  collapsedLabel = "",
+  collapsedLabel,
   variant = "standard",
   state = "default",
   density,
@@ -86,7 +86,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
               "span",
               {
                 className: "breadcrumbs__target breadcrumbs__target--collapsed",
-                "aria-label": item.label || undefined,
+                "aria-label": item.label,
               },
               "...",
               )
