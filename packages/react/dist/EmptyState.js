@@ -58,7 +58,7 @@ export const EmptyState = forwardRef(function EmptyState({
         "span",
         { className: "empty-state__icon", "aria-hidden": "true" },
         resolvedState === "loading"
-          ? React.createElement(Spinner, { density: resolvedDensity || undefined, decorative: true })
+          ? React.createElement(Spinner, { density: resolvedDensity, decorative: true })
           : icon,
       )
       : null,
@@ -70,7 +70,7 @@ export const EmptyState = forwardRef(function EmptyState({
       ? React.createElement(Button, {
         ...action,
         label: actionLabel,
-        density: action.density ?? (resolvedDensity || undefined),
+        density: action.density ?? resolvedDensity,
         variant: action.variant ?? "primary",
         onClick: (event) => {
           action.onClick?.(event);

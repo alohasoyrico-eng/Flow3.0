@@ -65,7 +65,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
       "span",
       { className: "error-panel__icon", "aria-hidden": "true" },
       resolvedState === "loading"
-        ? React.createElement(Spinner, { density: resolvedDensity || undefined, decorative: true })
+        ? React.createElement(Spinner, { density: resolvedDensity, decorative: true })
         : icon || (resolvedTone === "warning" ? "warning" : "error"),
     ),
     React.createElement(
@@ -78,7 +78,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
       ? React.createElement(Button, {
         ...action,
         label: actionLabel,
-        density: action.density ?? (resolvedDensity || undefined),
+        density: action.density ?? resolvedDensity,
         variant: action.variant ?? "secondary",
         disabled: resolvedState === "disabled" || action.disabled,
         loading: resolvedState === "loading" || action.loading,

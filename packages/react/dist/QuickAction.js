@@ -61,12 +61,12 @@ export const QuickAction = forwardRef(function QuickAction({
         "span",
         { className: "quick-action__icon", "aria-hidden": "true" },
         resolvedState === "loading"
-          ? React.createElement(Spinner, { density: resolvedDensity || undefined, decorative: true })
+          ? React.createElement(Spinner, { density: resolvedDensity, decorative: true })
           : icon,
       ),
     ),
     resolvedLabel ? React.createElement("span", { className: "quick-action__label" }, resolvedLabel) : null,
-    badge ? React.createElement(Badge, { label: badge, variant: "count", density: resolvedDensity || undefined }) : null,
+    badge ? React.createElement(Badge, { label: badge, variant: "count", density: resolvedDensity }) : null,
   );
 });
 

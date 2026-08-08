@@ -209,7 +209,7 @@ export const Table = forwardRef(function Table({
                 "data-mono": column.mono ? "true" : undefined,
                 "data-priority": normalizeFlowValue(column.priority, validColumnPriorities, undefined),
               },
-              renderCell(typeof column.render === "function" ? column.render(row) : row[column.key], resolvedDensity || undefined),
+              renderCell(typeof column.render === "function" ? column.render(row) : row[column.key], resolvedDensity),
             )),
           );
           if (!rowCanExpand) return [rowNode];

@@ -121,7 +121,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
       ? React.createElement(
           "footer",
           null,
-          visibleActions.map((action, index) => renderAction(action, index, { compact: isCompact, density: resolvedDensity || undefined, disabled: isDisabled })),
+          visibleActions.map((action, index) => renderAction(action, index, { compact: isCompact, density: resolvedDensity, disabled: isDisabled })),
         )
       : null,
   );

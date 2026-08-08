@@ -153,7 +153,7 @@ export const Tabs = forwardRef(function Tabs({
           label: badge.label,
           tone: badge.tone ?? "neutral",
           variant: badge.variant ?? "count",
-          density: resolvedDensity || undefined,
+          density: resolvedDensity,
         }) : null,
       );
     }),
