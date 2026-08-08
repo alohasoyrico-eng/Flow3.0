@@ -29,14 +29,14 @@ export const Dialog = forwardRef(function Dialog({
   description = "",
   triggerLabel = "",
   closeLabel,
-  actions = [],
+  actions,
   open: openProp,
   tone = "neutral",
   variant = "confirmation",
   state = "closed",
   density,
   icon = "",
-  fields = [],
+  fields,
   id = "",
   onOpenChange,
   onAction,
@@ -59,7 +59,8 @@ export const Dialog = forwardRef(function Dialog({
   const titleId = `${dialogId}-title`;
   const resolvedIcon = icon || { danger: "warning", info: "info", success: "check_circle", neutral: "" }[resolvedTone];
   const hasTrigger = Boolean(triggerLabel);
-  const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label && hasStableFieldName(field)) : [];
+  const sourceFields = Array.isArray(fields) ? fields : [];
+  const visibleFields = sourceFields.filter((field) => field?.label && hasStableFieldName(field));
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     const normalizedOpen = Boolean(nextOpen);
@@ -78,9 +79,8 @@ export const Dialog = forwardRef(function Dialog({
     closeDialog();
   };
 
-  const resolvedActions = Array.isArray(actions)
-    ? actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "")
-    : [];
+  const sourceActions = Array.isArray(actions) ? actions : [];
+  const resolvedActions = sourceActions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "");
 
   useEffect(() => {
     if (!isOpenControlled) return;
