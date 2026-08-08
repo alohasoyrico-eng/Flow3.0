@@ -162,6 +162,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "EmptyState" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "EmptyState must not synthesize action keys from visible labels.");
   if (name === "EmptyState" && /title\s*\?\?\s*label|label\s*\?\?\s*title/.test(source)) add("errors", sourceFile, 1, "EmptyState must not alias label into title.");
   if (name === "EmptyState" && !source.includes("if (!title) return null;")) add("errors", sourceFile, 1, "EmptyState must require a visible title before rendering.");
+  if (name === "EmptyState" && /description\s*=\s*""|icon\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "EmptyState must not hide optional description or icon behind empty defaults.");
   if (name === "ErrorPanel" && !source.includes("const canRenderAction = Boolean(actionLabel && actionKey !== undefined && actionKey !== null && actionKey !== \"\");")) add("errors", sourceFile, 1, "ErrorPanel actions must require visible labels and stable keys before rendering controls.");
   if (name === "ErrorPanel" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "ErrorPanel must not synthesize action keys from visible labels.");
   if (name === "ErrorPanel" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "ErrorPanel must require a visible panel label before rendering alert or status semantics.");

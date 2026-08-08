@@ -17,8 +17,8 @@ function normalizeState(state) {
 
 export const EmptyState = forwardRef(function EmptyState({
   title,
-  description = "",
-  icon = "",
+  description,
+  icon,
   action,
   variant = "first-use",
   state = "default",
