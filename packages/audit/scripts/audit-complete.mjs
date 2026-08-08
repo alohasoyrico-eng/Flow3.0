@@ -143,6 +143,7 @@ const expectedAuditFiles = new Set([
   "audit-tree-view-css-contract.js",
   "audit-voice-contracts.js",
   "report-foundation-accessibility-cascade.js",
+  "report-component-css-contract-coverage.js",
   "report-component-visual-cascade.js",
   "report-foundation-depth-cascade.js",
   "report-foundation-energy-cascade.js",
@@ -253,6 +254,7 @@ const checks = [
   ...(hasDocsConsumerApp ? [["component catalog classification", () => run("node", ["packages/audit/scripts/audit-component-catalog-classification.mjs"])]] : []),
   ["component demo interactions", () => run("node", ["packages/audit/scripts/audit-component-demo-interactions.mjs"])],
   ["react interaction coverage report", () => run("node", ["packages/audit/scripts/report-react-interaction-coverage.js", "--check"])],
+  ["component css contract coverage report", () => run("node", ["packages/audit/scripts/report-component-css-contract-coverage.js", "--check"])],
   ["component visual cascade report", () => run("node", ["packages/audit/scripts/report-component-visual-cascade.js", "--check"])],
 ];
 

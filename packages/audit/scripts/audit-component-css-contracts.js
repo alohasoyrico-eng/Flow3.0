@@ -70,12 +70,31 @@ function currentCssContractIds() {
     .map((file) => file.replace(/^audit-/, "").replace(/-css-contract\.js$/, "")));
 }
 
-function checkComponentCssContractCoverage({ packageCssFile }) {
+function componentCssContractCoverage() {
   const direct = currentCssContractIds();
-  const missing = goldComponents.filter((component) => !direct.has(component) && !familyCssContracts[component]);
+  const components = goldComponents.map((component) => {
+    if (direct.has(component)) return { component, coverage: "direct", contract: component };
+    if (familyCssContracts[component]) return { component, coverage: "family", contract: familyCssContracts[component] };
+    return { component, coverage: "missing", contract: null };
+  });
+  const family = components.filter((item) => item.coverage === "family");
+  const missing = components.filter((item) => item.coverage === "missing").map((item) => item.component);
+  return {
+    total: components.length,
+    direct: components.filter((item) => item.coverage === "direct").length,
+    family: family.length,
+    missing,
+    components,
+  };
+}
+
+function checkComponentCssContractCoverage({ packageCssFile }) {
+  const coverage = componentCssContractCoverage();
+  const missing = coverage.missing;
   if (missing.length) {
     add("errors", packageCssFile, 1, `Accepted components missing CSS cascade contract coverage: ${missing.join(", ")}.`);
   }
+  const direct = currentCssContractIds();
   const orphanFamilies = Object.entries(familyCssContracts)
     .filter(([component, contract]) => !goldComponents.includes(component) || !direct.has(contract))
     .map(([component, contract]) => `${component}->${contract}`);
@@ -135,4 +154,4 @@ function checkComponentCssContracts(context) {
   checkTreeViewCssContract(context);
 }
 
-module.exports = { checkComponentCssContracts };
+module.exports = { checkComponentCssContracts, componentCssContractCoverage };

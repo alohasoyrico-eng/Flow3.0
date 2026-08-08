@@ -1,0 +1,289 @@
+{
+  "status": "pass",
+  "total": 56,
+  "direct": 45,
+  "family": 11,
+  "missing": [],
+  "components": [
+    {
+      "component": "button",
+      "coverage": "direct",
+      "contract": "button"
+    },
+    {
+      "component": "select",
+      "coverage": "direct",
+      "contract": "select"
+    },
+    {
+      "component": "combobox",
+      "coverage": "family",
+      "contract": "select"
+    },
+    {
+      "component": "country-selector",
+      "coverage": "family",
+      "contract": "select"
+    },
+    {
+      "component": "card",
+      "coverage": "direct",
+      "contract": "card"
+    },
+    {
+      "component": "input",
+      "coverage": "family",
+      "contract": "field"
+    },
+    {
+      "component": "checkbox",
+      "coverage": "family",
+      "contract": "choice"
+    },
+    {
+      "component": "switch",
+      "coverage": "direct",
+      "contract": "switch"
+    },
+    {
+      "component": "radio-button",
+      "coverage": "family",
+      "contract": "choice"
+    },
+    {
+      "component": "text-area",
+      "coverage": "family",
+      "contract": "field"
+    },
+    {
+      "component": "icon-button",
+      "coverage": "direct",
+      "contract": "icon-button"
+    },
+    {
+      "component": "badge",
+      "coverage": "direct",
+      "contract": "badge"
+    },
+    {
+      "component": "chip",
+      "coverage": "direct",
+      "contract": "chip"
+    },
+    {
+      "component": "tag",
+      "coverage": "direct",
+      "contract": "tag"
+    },
+    {
+      "component": "tabs",
+      "coverage": "direct",
+      "contract": "tabs"
+    },
+    {
+      "component": "tooltip",
+      "coverage": "direct",
+      "contract": "tooltip"
+    },
+    {
+      "component": "toast",
+      "coverage": "direct",
+      "contract": "toast"
+    },
+    {
+      "component": "inline-validation",
+      "coverage": "direct",
+      "contract": "inline-validation"
+    },
+    {
+      "component": "progress-indicator",
+      "coverage": "direct",
+      "contract": "progress-indicator"
+    },
+    {
+      "component": "spinner",
+      "coverage": "direct",
+      "contract": "spinner"
+    },
+    {
+      "component": "skeleton",
+      "coverage": "direct",
+      "contract": "skeleton"
+    },
+    {
+      "component": "dialog",
+      "coverage": "direct",
+      "contract": "dialog"
+    },
+    {
+      "component": "menu",
+      "coverage": "direct",
+      "contract": "menu"
+    },
+    {
+      "component": "drawer",
+      "coverage": "direct",
+      "contract": "drawer"
+    },
+    {
+      "component": "accordion",
+      "coverage": "direct",
+      "contract": "accordion"
+    },
+    {
+      "component": "empty-state",
+      "coverage": "direct",
+      "contract": "empty-state"
+    },
+    {
+      "component": "table",
+      "coverage": "direct",
+      "contract": "table"
+    },
+    {
+      "component": "avatar",
+      "coverage": "direct",
+      "contract": "avatar"
+    },
+    {
+      "component": "slider",
+      "coverage": "direct",
+      "contract": "slider"
+    },
+    {
+      "component": "stepper",
+      "coverage": "direct",
+      "contract": "stepper"
+    },
+    {
+      "component": "list",
+      "coverage": "direct",
+      "contract": "list"
+    },
+    {
+      "component": "kpi-tile",
+      "coverage": "direct",
+      "contract": "kpi-tile"
+    },
+    {
+      "component": "chart-panel",
+      "coverage": "direct",
+      "contract": "chart-panel"
+    },
+    {
+      "component": "station-pin",
+      "coverage": "direct",
+      "contract": "station-pin"
+    },
+    {
+      "component": "route-summary",
+      "coverage": "direct",
+      "contract": "route-summary"
+    },
+    {
+      "component": "code-input",
+      "coverage": "direct",
+      "contract": "code-input"
+    },
+    {
+      "component": "phone-input",
+      "coverage": "family",
+      "contract": "field"
+    },
+    {
+      "component": "card-number-input",
+      "coverage": "family",
+      "contract": "field"
+    },
+    {
+      "component": "card-expiry-input",
+      "coverage": "family",
+      "contract": "field"
+    },
+    {
+      "component": "card-security-code-input",
+      "coverage": "family",
+      "contract": "field"
+    },
+    {
+      "component": "date-picker",
+      "coverage": "direct",
+      "contract": "date-picker"
+    },
+    {
+      "component": "date-range-picker",
+      "coverage": "family",
+      "contract": "date-picker"
+    },
+    {
+      "component": "segmented-control",
+      "coverage": "direct",
+      "contract": "segmented-control"
+    },
+    {
+      "component": "popover",
+      "coverage": "direct",
+      "contract": "popover"
+    },
+    {
+      "component": "floating-action-button",
+      "coverage": "direct",
+      "contract": "floating-action-button"
+    },
+    {
+      "component": "card-summary",
+      "coverage": "direct",
+      "contract": "card-summary"
+    },
+    {
+      "component": "movement-row",
+      "coverage": "direct",
+      "contract": "movement-row"
+    },
+    {
+      "component": "quick-action",
+      "coverage": "direct",
+      "contract": "quick-action"
+    },
+    {
+      "component": "biometric-prompt",
+      "coverage": "direct",
+      "contract": "biometric-prompt"
+    },
+    {
+      "component": "breadcrumbs",
+      "coverage": "direct",
+      "contract": "breadcrumbs"
+    },
+    {
+      "component": "pagination",
+      "coverage": "direct",
+      "contract": "pagination"
+    },
+    {
+      "component": "audit-event",
+      "coverage": "direct",
+      "contract": "audit-event"
+    },
+    {
+      "component": "error-panel",
+      "coverage": "direct",
+      "contract": "error-panel"
+    },
+    {
+      "component": "tree-view",
+      "coverage": "direct",
+      "contract": "tree-view"
+    },
+    {
+      "component": "motion-boundary",
+      "coverage": "direct",
+      "contract": "motion-boundary"
+    },
+    {
+      "component": "animated-moment",
+      "coverage": "direct",
+      "contract": "animated-moment"
+    }
+  ]
+}
