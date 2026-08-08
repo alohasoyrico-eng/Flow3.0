@@ -3,6 +3,7 @@ const { path, add, lineNumber } = require("./audit-context.js");
 const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css");
 const rawAliasValuePattern = /(--comp-[a-z0-9-]+):\s*([^;]*(?:\b\d+(?:\.\d+)?(?:px|rem|em|%)\b|#[0-9a-fA-F]{3,8}|scale\(|translate[XY]?\(|rotate\()[^;]*);/g;
 const rawVoiceTransformAliasPattern = /(--comp-[a-z0-9-]*transform[a-z0-9-]*):\s*(uppercase|none);/g;
+const rawVoiceMetricAliasPattern = /(--comp-[a-z0-9-]+-(?:line-height|letter-spacing)):\s*(1|0);/g;
 const rawComponentMomentumAliasPattern = /(--component-(?:scale|rotation)-[a-z0-9-]+):\s*([^;]*(?:\b\d+(?:\.\d+)?(?:deg|%)\b|0?\.\d+|1\.\d+)[^;]*);/g;
 const rawComponentTransformAliasPattern = /(--component-transform-[a-z0-9-]+):\s*([^;]*(?:translate(?:X|Y)?|scale(?:X|Y)?|rotate)\([^;]*(?:-?\d+(?:\.\d+)?(?:px|rem|em|%|deg)?|0?\.\d+)[^;]*);/g;
 
@@ -23,6 +24,14 @@ function checkComponentAliasLiterals(rootAliasBlock, fullText) {
       packageCssFile,
       lineNumber(fullText, fullText.indexOf(match[0])),
       `${match[1]} must derive from sys Voice transform aliases instead of declaring literal "${match[2]}".`
+    );
+  }
+  for (const match of rootAliasBlock.matchAll(rawVoiceMetricAliasPattern)) {
+    add(
+      "errors",
+      packageCssFile,
+      lineNumber(fullText, fullText.indexOf(match[0])),
+      `${match[1]} must derive from sys Voice metric aliases instead of declaring literal "${match[2]}".`
     );
   }
   for (const match of rootAliasBlock.matchAll(rawComponentMomentumAliasPattern)) {

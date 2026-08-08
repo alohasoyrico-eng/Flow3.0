@@ -128,6 +128,10 @@ function checkPackageCssContracts() {
     const sourceIndex = text.indexOf(match[0], text.indexOf("}") + 1);
     add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package text-transform declarations must consume sys Voice transform aliases.");
   }
+  for (const match of cssWithoutDefinitions.matchAll(/^\s*(?:line-height|letter-spacing):\s*(?:1|0)\s*;/gm)) {
+    const sourceIndex = text.indexOf(match[0], text.indexOf("}") + 1);
+    add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package Voice reset metrics must consume sys Voice aliases instead of raw line-height or letter-spacing values.");
+  }
   checkTokenizedVisualProperties(cssWithoutDefinitions, text);
   checkComponentAliasLiterals(rootAliasBlock, text);
   checkComponentVarFallbacks(cssWithoutDefinitions, text);
