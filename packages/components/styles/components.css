@@ -228,8 +228,15 @@
   --component-icon-variation-filled-strong: var(--sys-icon-variation-filled-strong);
   --component-icon-variation-outline-strong: var(--sys-icon-variation-outline-strong);
   --component-icon-size-sm: var(--sys-icon-size-sm);
+  --component-icon-size-sm-plus: var(--sys-icon-size-sm-plus);
   --component-icon-size-md: var(--sys-icon-size-md);
+  --component-icon-size-md-plus: var(--sys-icon-size-md-plus);
   --component-icon-size-lg: var(--sys-icon-size-lg);
+  --component-icon-size-lg-plus: var(--sys-icon-size-lg-plus);
+  --component-icon-size-display-sm: var(--sys-icon-size-display-sm);
+  --component-icon-size-display-md: var(--sys-icon-size-display-md);
+  --component-icon-size-marker: var(--sys-icon-size-marker);
+  --component-icon-size-station: var(--sys-icon-size-station);
   --component-icon-color-action: var(--sys-icon-color-action);
   --component-icon-color-navigation: var(--sys-icon-color-navigation);
   --component-icon-color-status: var(--sys-icon-color-status);
@@ -237,6 +244,12 @@
   --component-icon-color-danger: var(--sys-icon-color-danger);
   --component-icon-color-muted: var(--sys-icon-color-muted);
   --component-icon-color-disabled: var(--sys-icon-color-disabled);
+  --component-symbol-size-marker: var(--sys-symbol-size-marker);
+  --component-symbol-size-md: var(--sys-symbol-size-md);
+  --component-symbol-size-md-plus: var(--sys-symbol-size-md-plus);
+  --component-symbol-size-lg: var(--sys-symbol-size-lg);
+  --component-symbol-size-lg-plus: var(--sys-symbol-size-lg-plus);
+  --component-symbol-size-xl: var(--sys-symbol-size-xl);
   --component-font-size-helper: var(--sys-voice-caption-size);
   --component-font-size-icon-sm: var(--sys-icon-size-md);
   --component-font-size-icon-md: var(--sys-icon-size-lg);
@@ -447,10 +460,10 @@
   --comp-input-control-size-md: var(--component-field-control-size-md);
   --comp-input-control-size-lg: var(--component-field-control-size-lg);
   --comp-input-control-size: var(--component-density-control-height);
-  --comp-input-icon-size-sm: var(--sys-icon-size-sm-plus);
-  --comp-input-icon-size-md: var(--sys-icon-size-md);
+  --comp-input-icon-size-sm: var(--component-icon-size-sm-plus);
+  --comp-input-icon-size-md: var(--component-icon-size-md);
   --comp-input-icon-size-lg: var(--component-font-size-icon-md);
-  --comp-input-icon-size: var(--sys-icon-size-md);
+  --comp-input-icon-size: var(--component-icon-size-md);
   --comp-input-action-size-sm: var(--component-field-icon-action-size-sm);
   --comp-input-action-size-md: var(--component-field-icon-action-size-md);
   --comp-input-action-size-lg: var(--component-field-icon-action-size-lg);
@@ -581,9 +594,9 @@
   --comp-checkbox-mark-size-md: var(--component-inline-size-sm);
   --comp-checkbox-mark-size-lg: var(--component-min-text-line);
   --comp-checkbox-mark-size-compact: var(--comp-checkbox-mark-size-sm);
-  --comp-checkbox-indicator-size-sm: var(--sys-icon-size-sm);
-  --comp-checkbox-indicator-size-md: var(--sys-icon-size-sm-plus);
-  --comp-checkbox-indicator-size-lg: var(--sys-icon-size-sm-plus);
+  --comp-checkbox-indicator-size-sm: var(--component-icon-size-sm);
+  --comp-checkbox-indicator-size-md: var(--component-icon-size-sm-plus);
+  --comp-checkbox-indicator-size-lg: var(--component-icon-size-sm-plus);
   --comp-checkbox-gap-sm: var(--component-space-xs);
   --comp-checkbox-gap-md: var(--component-space-sm);
   --comp-checkbox-gap-lg: var(--component-space-md);
@@ -746,7 +759,7 @@
   --comp-floating-action-button-icon-size-sm: var(--component-font-size-icon-sm);
   --comp-floating-action-button-icon-size-md: var(--component-font-size-icon-md);
   --comp-floating-action-button-icon-size-lg: var(--component-font-size-icon-lg);
-  --comp-floating-action-button-icon-size: var(--sys-icon-size-md);
+  --comp-floating-action-button-icon-size: var(--component-icon-size-md);
   --comp-floating-action-button-padding-x-sm: var(--component-space-md);
   --comp-floating-action-button-padding-x-md: var(--component-space-lg);
   --comp-floating-action-button-padding-x-lg: var(--component-space-xl);
@@ -1017,10 +1030,10 @@
   --comp-icon-button-size-md: var(--component-icon-button-size-md);
   --comp-icon-button-size-lg: var(--component-icon-button-size-lg);
   --comp-icon-button-size: var(--component-density-control-height);
-  --comp-icon-button-icon-size-sm: var(--sys-icon-size-sm-plus);
-  --comp-icon-button-icon-size-md: var(--sys-icon-size-md-plus);
+  --comp-icon-button-icon-size-sm: var(--component-icon-size-sm-plus);
+  --comp-icon-button-icon-size-md: var(--component-icon-size-md-plus);
   --comp-icon-button-icon-size-lg: var(--component-font-size-icon-md);
-  --comp-icon-button-icon-size: var(--sys-icon-size-md-plus);
+  --comp-icon-button-icon-size: var(--component-icon-size-md-plus);
   --comp-icon-button-badge-size: var(--component-space-2);
   --comp-icon-button-hover-scale: var(--sys-momentum-scale-hover);
   --comp-icon-button-press-scale: var(--sys-momentum-scale-press);
@@ -1032,10 +1045,10 @@
   --comp-button-padding-md: var(--component-space-lg);
   --comp-button-padding-lg: calc(var(--component-space-xl) + var(--component-frame-space-micro));
   --comp-button-padding: var(--component-density-control-padding-x);
-  --comp-button-icon-size-sm: var(--sys-icon-size-sm-plus);
-  --comp-button-icon-size-md: var(--sys-icon-size-md);
-  --comp-button-icon-size-lg: var(--sys-icon-size-md-plus);
-  --comp-button-icon-size: var(--sys-icon-size-md);
+  --comp-button-icon-size-sm: var(--component-icon-size-sm-plus);
+  --comp-button-icon-size-md: var(--component-icon-size-md);
+  --comp-button-icon-size-lg: var(--component-icon-size-md-plus);
+  --comp-button-icon-size: var(--component-icon-size-md);
   --comp-button-font-size: var(--component-font-size-label);
 }
 
@@ -1810,7 +1823,7 @@
 .choice {
   --comp-choice-current-mark-size: var(--component-inline-size-sm);
   --comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2);
-  --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm-plus);
+  --comp-choice-current-indicator-font-size: var(--component-icon-size-sm-plus);
   --comp-choice-current-gap: var(--component-space-sm);
   --comp-choice-current-padding-block: var(--component-space-xs);
   --comp-choice-current-mark-bg: var(--component-color-surface);
@@ -1910,7 +1923,7 @@
 
 .choice[data-density="sm"] {
   --comp-choice-current-mark-size: var(--component-inline-size-xs);
-  --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm);
+  --comp-choice-current-indicator-font-size: var(--component-icon-size-sm);
   --comp-choice-current-gap: var(--component-space-xs);
 }
 
@@ -1929,7 +1942,7 @@
 
 .choice[data-density="lg"] {
   --comp-choice-current-mark-size: var(--component-min-text-line);
-  --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm-plus);
+  --comp-choice-current-indicator-font-size: var(--component-icon-size-sm-plus);
   --comp-choice-current-gap: var(--component-space-md);
 }
 
@@ -1948,7 +1961,7 @@
 
 .choice[data-variant="compact"] {
   --comp-choice-current-mark-size: var(--component-inline-size-xs);
-  --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm);
+  --comp-choice-current-indicator-font-size: var(--component-icon-size-sm);
   --comp-choice-current-gap: var(--component-space-xs);
   min-block-size: auto;
   padding-block: 0;
@@ -2839,7 +2852,7 @@ button.tag:disabled,
   --comp-tabs-focus-width: var(--component-focus-ring-width);
   --comp-tabs-focus-color: var(--component-color-focus);
   --comp-tabs-focus-offset: var(--component-focus-ring-offset);
-  --comp-tabs-icon-selected-variation: var(--sys-icon-variation-filled-strong);
+  --comp-tabs-icon-selected-variation: var(--component-icon-variation-filled-strong);
   --comp-tabs-underline-bg: var(--component-surface-transparent);
   --comp-tabs-underline-border: var(--component-border-none);
   --comp-tabs-underline-border-block-end: var(--comp-tabs-border-width) solid var(--component-color-border);
@@ -3213,7 +3226,7 @@ button.tag:disabled,
   --comp-toast-action-size: var(--component-feedback-action-size);
   --comp-toast-action-padding-inline: var(--component-space-sm);
   --comp-toast-dismiss-size: var(--component-field-icon-action-size-md);
-  --comp-toast-dismiss-icon-size: var(--sys-icon-size-sm-plus);
+  --comp-toast-dismiss-icon-size: var(--component-icon-size-sm-plus);
   --comp-toast-dismiss-opacity: var(--sys-state-muted-opacity);
   --comp-toast-focus-width: var(--component-focus-ring-width);
   --comp-toast-focus-color: color-mix(in srgb, var(--component-color-focus) 35%, transparent);
@@ -4085,9 +4098,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-skeleton-background-size: 200% 100%;
   --comp-skeleton-radius: var(--component-radius-pill);
   --comp-skeleton-bone-block-size: var(--component-field-gap);
-  --comp-skeleton-text-block-size: var(--sys-symbol-size-marker);
+  --comp-skeleton-text-block-size: var(--component-symbol-size-marker);
   --comp-skeleton-title-width: 60%;
-  --comp-skeleton-title-block-size: var(--sys-symbol-size-md-plus);
+  --comp-skeleton-title-block-size: var(--component-symbol-size-md-plus);
   --comp-skeleton-title-radius: var(--sys-radius-sm);
   --comp-skeleton-circle-width: var(--component-skeleton-circle-size);
   --comp-skeleton-pill-width: var(--component-content-size-xs);
@@ -4102,7 +4115,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-skeleton-table-gap: var(--component-space-xs);
   --comp-skeleton-table-row-gap: var(--component-space-sm);
   --comp-skeleton-table-row-min-block: var(--component-inline-size-md);
-  --comp-skeleton-table-cell-block-size: var(--sys-symbol-size-marker);
+  --comp-skeleton-table-cell-block-size: var(--component-symbol-size-marker);
   --comp-skeleton-table-header-block-size: var(--component-field-gap);
   --comp-skeleton-line-compact-inline: 90%;
   --comp-skeleton-line-short-inline: 60%;
@@ -4220,7 +4233,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .empty-state {
   --comp-empty-state-fg: var(--component-color-text);
   --comp-empty-state-icon-size: var(--component-empty-state-icon-size-md);
-  --comp-empty-state-icon-glyph-size: var(--sys-icon-size-display-sm);
+  --comp-empty-state-icon-glyph-size: var(--component-icon-size-display-sm);
   --comp-empty-state-icon-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
   --comp-empty-state-icon-fg: var(--component-color-action);
   --comp-empty-state-icon-radius: var(--component-radius-pill);
@@ -4254,7 +4267,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .empty-state[data-density="sm"] {
   --comp-empty-state-icon-size: var(--component-empty-state-icon-size-sm);
-  --comp-empty-state-icon-glyph-size: var(--sys-icon-size-lg-plus);
+  --comp-empty-state-icon-glyph-size: var(--component-icon-size-lg-plus);
   --comp-empty-state-padding-block: var(--component-space-lg);
   --comp-empty-state-padding-inline: var(--component-space-md);
   --comp-empty-state-gap: var(--component-space-xs);
@@ -4262,7 +4275,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .empty-state[data-density="lg"] {
   --comp-empty-state-icon-size: var(--component-empty-state-icon-size-lg);
-  --comp-empty-state-icon-glyph-size: var(--sys-icon-size-display-md);
+  --comp-empty-state-icon-glyph-size: var(--component-icon-size-display-md);
   --comp-empty-state-padding-block: calc(var(--component-space-xl) + var(--component-space-md));
   --comp-empty-state-padding-inline: var(--component-space-xl);
   --comp-empty-state-gap: var(--component-space-md);
@@ -5094,11 +5107,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-hover-bg: color-mix(in srgb, var(--comp-audit-event-tone) 4%, var(--component-color-surface));
   --comp-audit-event-hover-border: color-mix(in srgb, var(--comp-audit-event-tone) 22%, var(--component-color-border));
   --comp-audit-event-hover-transform: var(--component-transform-lift-sm);
-  --comp-audit-event-marker-size: var(--sys-symbol-size-lg-plus);
+  --comp-audit-event-marker-size: var(--component-symbol-size-lg-plus);
   --comp-audit-event-marker-align: var(--component-align-center);
   --comp-audit-event-marker-border: color-mix(in srgb, var(--comp-audit-event-tone) 18%, var(--component-color-border));
   --comp-audit-event-marker-display: var(--component-display-inline-flex);
-  --comp-audit-event-icon-size: var(--sys-icon-size-marker);
+  --comp-audit-event-icon-size: var(--component-icon-size-marker);
   --comp-audit-event-meta-align: var(--component-align-center);
   --comp-audit-event-meta-display: var(--component-display-flex);
   --comp-audit-event-meta-gap-block: var(--component-space-xs);
@@ -5148,8 +5161,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-padding-block: var(--component-space-sm);
   --comp-audit-event-padding-inline: var(--component-space-md);
   --comp-audit-event-gap: var(--component-space-sm);
-  --comp-audit-event-marker-size: var(--sys-symbol-size-lg);
-  --comp-audit-event-icon-size: var(--sys-icon-size-marker);
+  --comp-audit-event-marker-size: var(--component-symbol-size-lg);
+  --comp-audit-event-icon-size: var(--component-icon-size-marker);
   --comp-audit-event-title-size: var(--component-font-size-caption);
 }
 
@@ -5157,8 +5170,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-padding-block: var(--component-space-lg);
   --comp-audit-event-padding-inline: var(--component-space-xl);
   --comp-audit-event-gap: var(--component-space-lg);
-  --comp-audit-event-marker-size: var(--sys-symbol-size-xl);
-  --comp-audit-event-icon-size: var(--sys-icon-size-sm-plus);
+  --comp-audit-event-marker-size: var(--component-symbol-size-xl);
+  --comp-audit-event-icon-size: var(--component-icon-size-sm-plus);
   --comp-audit-event-title-size: var(--component-font-size-body-lg);
 }
 
@@ -5292,7 +5305,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-error-panel-icon-fg: var(--comp-error-panel-tone);
   --comp-error-panel-icon-family: var(--component-font-family-icon);
   --comp-error-panel-empty-icon-size: var(--component-error-panel-empty-icon-size);
-  --comp-error-panel-empty-icon-font-size: var(--sys-icon-size-display-sm);
+  --comp-error-panel-empty-icon-font-size: var(--component-icon-size-display-sm);
   --comp-error-panel-padding: var(--component-space-md);
   --comp-error-panel-gap: var(--component-space-sm);
   --comp-error-panel-content-gap: var(--component-space-2xs);
@@ -6827,8 +6840,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-control-min-block: var(--component-density-control-height);
   --comp-tree-view-control-min-block-sm: var(--component-field-control-size-sm);
   --comp-tree-view-control-min-block-lg: var(--component-tree-control-min-block-size-lg);
-  --comp-tree-view-icon-size-sm: var(--sys-icon-size-sm-plus);
-  --comp-tree-view-icon-size: var(--sys-icon-size-md);
+  --comp-tree-view-icon-size-sm: var(--component-icon-size-sm-plus);
+  --comp-tree-view-icon-size: var(--component-icon-size-md);
   --comp-tree-view-icon-size-lg: var(--component-font-size-icon-md);
   --comp-tree-view-selected-bg: var(--component-surface-transparent);
   --comp-tree-view-selected-text: var(--component-color-action);
@@ -8807,8 +8820,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-station-pin-font-family: var(--component-font-family-mono);
   --comp-station-pin-font-size: var(--component-font-size-label);
   --comp-station-pin-font-weight: var(--component-font-weight-bold);
-  --comp-station-pin-marker-size: var(--sys-symbol-size-md-plus);
-  --comp-station-pin-marker-glyph-size: var(--sys-icon-size-station);
+  --comp-station-pin-marker-size: var(--component-symbol-size-md-plus);
+  --comp-station-pin-marker-glyph-size: var(--component-icon-size-station);
   --comp-station-pin-pointer-size: var(--component-station-pin-pointer-size);
   --comp-station-pin-frame-gap: var(--component-space-xs);
   --comp-station-pin-frame-padding-block: var(--component-space-sm);
@@ -8875,8 +8888,8 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .station-pin[data-density="sm"] {
-  --comp-station-pin-marker-size: var(--sys-symbol-size-md);
-  --comp-station-pin-marker-glyph-size: var(--sys-icon-size-sm);
+  --comp-station-pin-marker-size: var(--component-symbol-size-md);
+  --comp-station-pin-marker-glyph-size: var(--component-icon-size-sm);
   --comp-station-pin-pointer-size: var(--component-station-pin-pointer-size-sm);
   --comp-station-pin-frame-gap: var(--component-space-sm);
   --comp-station-pin-frame-padding-block: var(--component-space-xs);
@@ -8886,8 +8899,8 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .station-pin[data-density="lg"] {
-  --comp-station-pin-marker-size: var(--sys-symbol-size-lg);
-  --comp-station-pin-marker-glyph-size: var(--sys-icon-size-md);
+  --comp-station-pin-marker-size: var(--component-symbol-size-lg);
+  --comp-station-pin-marker-glyph-size: var(--component-icon-size-md);
   --comp-station-pin-pointer-size: var(--component-station-pin-pointer-size-lg);
   --comp-station-pin-frame-gap: var(--component-space-sm);
   --comp-station-pin-frame-padding-block: var(--component-space-md);
@@ -9239,10 +9252,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-control-size-sm: var(--component-field-control-size-sm);
   --comp-select-control-size-lg: var(--component-field-control-size-lg);
   --comp-select-control-size: var(--component-density-control-height);
-  --comp-select-icon-size-md: var(--sys-icon-size-md);
-  --comp-select-icon-size-sm: var(--sys-icon-size-sm-plus);
+  --comp-select-icon-size-md: var(--component-icon-size-md);
+  --comp-select-icon-size-sm: var(--component-icon-size-sm-plus);
   --comp-select-icon-size-lg: var(--component-font-size-icon-md);
-  --comp-select-icon-size: var(--sys-icon-size-md);
+  --comp-select-icon-size: var(--component-icon-size-md);
   --comp-select-gap: var(--component-field-gap);
   --comp-select-padding-start: var(--component-space-lg);
   --comp-select-padding-end: calc(var(--component-space-lg) - var(--component-frame-space-micro));
@@ -10320,7 +10333,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-selected-fg: var(--component-color-action);
   --comp-segmented-control-item-weight: var(--component-font-weight-semibold);
   --comp-segmented-control-item-selected-weight: var(--component-font-weight-extrabold);
-  --comp-segmented-control-icon-selected-variation: var(--sys-icon-variation-filled-strong);
+  --comp-segmented-control-icon-selected-variation: var(--component-icon-variation-filled-strong);
   --comp-segmented-control-content-position: var(--component-position-relative);
   --comp-segmented-control-content-z: var(--sys-depth-z-raised);
   --comp-segmented-control-icon-line-height: var(--component-line-height-none);
