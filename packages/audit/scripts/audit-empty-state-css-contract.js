@@ -53,7 +53,7 @@ function checkEmptyStateCssContract({ text, blocks, packageCssFile, selectorKey,
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-empty-state-icon-size: var(--sys-frame-height-control-lg)", "--comp-empty-state-gap: var(--sys-space-md)"],
+    snippets: ["--comp-empty-state-icon-size: var(--component-empty-state-icon-size-lg)", "--comp-empty-state-gap: var(--sys-space-md)"],
     message: "EmptyState lg density must scale through EmptyState aliases.",
   });
   requireIncludes({
@@ -106,6 +106,10 @@ function checkEmptyStateCssContract({ text, blocks, packageCssFile, selectorKey,
     ],
     message: "EmptyState description must consume EmptyState description aliases.",
   });
+
+  if (/--comp-empty-state-icon-size:\s*var\(--sys-frame-height-control-lg/.test(text)) {
+    add("errors", packageCssFile, 1, "EmptyState density icon size must route through component-owned icon size aliases.");
+  }
 }
 
 module.exports = { checkEmptyStateCssContract };

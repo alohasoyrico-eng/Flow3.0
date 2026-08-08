@@ -456,6 +456,7 @@
   --component-skeleton-card-block-size: var(--component-block-size-lg);
   --component-empty-state-icon-size-sm: calc(var(--component-control-min-size) + var(--sys-space-lg));
   --component-empty-state-icon-size-md: calc(var(--component-control-min-size) + var(--sys-space-xl));
+  --component-empty-state-icon-size-lg: var(--sys-frame-height-control-lg);
   --comp-checkbox-mark-size-sm: var(--component-inline-size-xs);
   --comp-checkbox-mark-size-md: var(--component-inline-size-sm);
   --comp-checkbox-mark-size-lg: var(--component-min-text-line);
@@ -4139,7 +4140,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .empty-state[data-density="lg"] {
-  --comp-empty-state-icon-size: var(--sys-frame-height-control-lg);
+  --comp-empty-state-icon-size: var(--component-empty-state-icon-size-lg);
   --comp-empty-state-icon-glyph-size: var(--sys-icon-size-display-md);
   --comp-empty-state-padding-block: calc(var(--sys-space-xl) + var(--sys-space-md));
   --comp-empty-state-padding-inline: var(--sys-space-xl);
