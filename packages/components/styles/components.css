@@ -15,6 +15,8 @@
   --component-density-card-padding: var(--sys-density-card-padding);
   --component-density-component-gap: var(--sys-density-component-gap);
   --component-frame-gap-subsection: var(--sys-frame-gap-subsection);
+  --component-frame-gap-element: var(--sys-frame-gap-element);
+  --component-frame-gap-component-lg: var(--sys-frame-gap-component-lg);
   --component-frame-padding-control: var(--sys-frame-padding-control);
   --component-frame-space-none: var(--sys-frame-space-none);
   --component-frame-space-micro: var(--sys-frame-space-micro);
@@ -3107,16 +3109,20 @@ button.tag:disabled,
 }
 
 .tooltip__trigger:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
+  outline: var(--component-focus-ring-width) solid var(--comp-tooltip-focus-color);
   outline-offset: var(--component-focus-ring-offset);
 }
 
 .tooltip {
   --comp-tooltip-bubble-bg: var(--component-energy-text-primary);
   --comp-tooltip-bubble-fg: var(--component-energy-surface-primary);
+  --comp-tooltip-focus-color: var(--component-color-focus);
   --comp-tooltip-trigger-bg: var(--component-color-surface);
   --comp-tooltip-trigger-border: var(--component-color-border);
   --comp-tooltip-trigger-fg: var(--component-color-text);
+  --comp-tooltip-trigger-weight: var(--component-font-weight-bold);
+  --comp-tooltip-trigger-hover-bg: var(--component-color-surface-raised);
+  --comp-tooltip-trigger-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
   --comp-tooltip-trigger-min-block-sm: var(--component-inline-trigger-min-block-size-sm);
   --comp-tooltip-trigger-min-block-md: var(--component-inline-trigger-min-block-size-md);
   --comp-tooltip-trigger-min-block-lg: var(--component-inline-trigger-min-block-size-lg);
@@ -3145,6 +3151,13 @@ button.tag:disabled,
   --comp-tooltip-bubble-padding-inline: var(--comp-tooltip-bubble-padding-inline-md);
   --comp-tooltip-bubble-font-size: var(--comp-tooltip-bubble-font-size-md);
   --comp-tooltip-bubble-min-inline: var(--comp-tooltip-bubble-min-inline-md);
+  --comp-tooltip-bubble-radius: var(--component-radius-surface);
+  --comp-tooltip-bubble-weight: var(--component-font-weight-medium);
+  --comp-tooltip-bubble-placement-gap: var(--component-frame-gap-element);
+  --comp-tooltip-bubble-viewport-gap: var(--component-frame-gap-component-lg);
+  --comp-tooltip-bubble-max-inline: min(var(--component-content-size-xl), calc(100vw - var(--comp-tooltip-bubble-viewport-gap)));
+  --comp-tooltip-bubble-visible-opacity: var(--component-opacity-visible);
+  --comp-tooltip-bubble-mobile-placement-gap: var(--component-space-xs);
   --comp-tooltip-scale-closed: var(--component-scale-enter);
   --comp-tooltip-scale-open: var(--component-scale-none);
   --comp-tooltip-arrow-size: var(--component-inline-size-xs);
@@ -3164,7 +3177,7 @@ button.tag:disabled,
   cursor: help;
   font: inherit;
   font-size: var(--comp-tooltip-trigger-font-size);
-  font-weight: var(--sys-voice-weight-bold);
+  font-weight: var(--comp-tooltip-trigger-weight);
   min-block-size: var(--comp-tooltip-trigger-min-block);
   padding: 0 var(--comp-tooltip-trigger-padding-x);
   transition:
@@ -3194,8 +3207,8 @@ button.tag:disabled,
 }
 
 .tooltip__trigger:hover {
-  background: var(--sys-color-surface-raised);
-  border-color: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
+  background: var(--comp-tooltip-trigger-hover-bg);
+  border-color: var(--comp-tooltip-trigger-hover-border);
 }
 
 .tooltip[data-state="disabled"] .tooltip__trigger,
@@ -3206,16 +3219,16 @@ button.tag:disabled,
 
 .tooltip__bubble {
   background: var(--comp-tooltip-bubble-bg);
-  border-radius: var(--sys-frame-radius-surface);
+  border-radius: var(--comp-tooltip-bubble-radius);
   box-shadow: var(--component-depth-tooltip);
   color: var(--comp-tooltip-bubble-fg);
   display: block;
   font-size: var(--comp-tooltip-bubble-font-size);
-  font-weight: var(--sys-voice-weight-medium);
-  inset-block-end: calc(100% + var(--sys-frame-gap-element));
+  font-weight: var(--comp-tooltip-bubble-weight);
+  inset-block-end: calc(100% + var(--comp-tooltip-bubble-placement-gap));
   inset-inline-start: 50%;
   inline-size: 0;
-  max-inline-size: min(var(--sys-frame-content-dialog), calc(100vw - var(--sys-frame-gap-component-lg)));
+  max-inline-size: var(--comp-tooltip-bubble-max-inline);
   min-inline-size: 0;
   opacity: 0;
   overflow: hidden;
@@ -3247,15 +3260,15 @@ button.tag:disabled,
 .tooltip:focus-within .tooltip__bubble,
 .tooltip[data-open="true"] .tooltip__bubble {
   inline-size: max-content;
-  min-inline-size: min(var(--comp-tooltip-bubble-min-inline), calc(100vw - var(--sys-frame-gap-component-lg)));
-  opacity: var(--sys-state-visible-opacity);
+  min-inline-size: min(var(--comp-tooltip-bubble-min-inline), calc(100vw - var(--comp-tooltip-bubble-viewport-gap)));
+  opacity: var(--comp-tooltip-bubble-visible-opacity);
   padding: var(--comp-tooltip-bubble-padding-block) var(--comp-tooltip-bubble-padding-inline);
   transform: var(--comp-tooltip-open-transform-y);
   visibility: visible;
 }
 
 .tooltip[data-placement="bottom"] .tooltip__bubble {
-  inset-block-start: calc(100% + var(--sys-frame-gap-element));
+  inset-block-start: calc(100% + var(--comp-tooltip-bubble-placement-gap));
   inset-block-end: auto;
   transform-origin: top center;
 }
@@ -3268,7 +3281,7 @@ button.tag:disabled,
 .tooltip[data-placement="left"] .tooltip__bubble {
   inset-block-start: 50%;
   inset-block-end: auto;
-  inset-inline-end: calc(100% + var(--sys-frame-gap-element));
+  inset-inline-end: calc(100% + var(--comp-tooltip-bubble-placement-gap));
   inset-inline-start: auto;
   transform: translate(calc(var(--component-offset-xs) * -1), -50%) scale(var(--comp-tooltip-scale-closed));
   transform-origin: center right;
@@ -3284,7 +3297,7 @@ button.tag:disabled,
 .tooltip[data-placement="right"] .tooltip__bubble {
   inset-block-start: 50%;
   inset-block-end: auto;
-  inset-inline-start: calc(100% + var(--sys-frame-gap-element));
+  inset-inline-start: calc(100% + var(--comp-tooltip-bubble-placement-gap));
   transform: translate(var(--component-offset-xs), -50%) scale(var(--comp-tooltip-scale-closed));
   transform-origin: center left;
 }
@@ -9158,7 +9171,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   .tooltip[data-placement="left"] .tooltip__bubble,
   .tooltip[data-placement="right"] .tooltip__bubble {
     inset-block-start: auto;
-    inset-block-end: calc(100% + var(--sys-space-xs));
+    inset-block-end: calc(100% + var(--comp-tooltip-bubble-mobile-placement-gap));
     inset-inline-end: auto;
     inset-inline-start: 50%;
     transform: var(--component-transform-tooltip-mobile-closed);
