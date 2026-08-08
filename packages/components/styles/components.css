@@ -56,6 +56,14 @@
   --component-inline-size-fit-content: fit-content;
   --component-inline-size-max-content: max-content;
   --component-inline-size-auto: auto;
+  --component-inline-size-zero: 0;
+  --component-size-full: 100%;
+  --component-inset-zero: 0;
+  --component-inset-auto: auto;
+  --component-offset-zero: 0;
+  --component-min-block-size-auto: auto;
+  --component-margin-auto: auto;
+  --component-aspect-ratio-auto: auto;
   --component-content-size-xs: calc(var(--component-control-min-size) * 4);
   --component-content-size-sm: calc(var(--component-control-min-size) * 6);
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
@@ -2718,7 +2726,7 @@ button.tag:disabled,
   --comp-tabs-indicator-content: "";
   --comp-tabs-indicator-inset-block: var(--sys-space-xs);
   --comp-tabs-indicator-left: var(--sys-space-xs);
-  --comp-tabs-indicator-width: 0;
+  --comp-tabs-indicator-width: var(--component-inline-size-zero);
   --comp-tabs-indicator-pointer-events: var(--component-pointer-events-none);
   --comp-tabs-indicator-position: absolute;
   --comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch);
@@ -2759,7 +2767,7 @@ button.tag:disabled,
   --comp-tabs-underline-indicator-border: var(--component-border-none);
   --comp-tabs-underline-indicator-block-size: calc(var(--comp-tabs-border-width) * 3);
   --comp-tabs-underline-indicator-shadow: var(--component-depth-none);
-  --comp-tabs-underline-indicator-inset-block: auto;
+  --comp-tabs-underline-indicator-inset-block: var(--component-inset-auto);
   --comp-tabs-underline-indicator-inset-block-end: calc(var(--comp-tabs-border-width) * -1);
   --comp-tabs-underline-tab-radius: var(--component-radius-none);
   --comp-tabs-underline-tab-padding-inline: var(--sys-space-xs);
@@ -3904,7 +3912,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-motion-ease: var(--component-ease-state);
   --comp-avatar-motion-press-ease: var(--component-ease-press);
   --comp-avatar-img-radius: inherit;
-  --comp-avatar-img-size: 100%;
+  --comp-avatar-img-size: var(--component-size-full);
   --comp-avatar-img-fit: cover;
   --comp-avatar-status-bg: var(--sys-color-success);
   --comp-avatar-status-size: max(var(--sys-space-sm), calc(var(--comp-avatar-size) * 0.26));
@@ -3912,8 +3920,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-status-border-color: var(--sys-color-surface);
   --comp-avatar-status-border: var(--comp-avatar-status-border-width) solid var(--comp-avatar-status-border-color);
   --comp-avatar-status-radius: var(--component-radius-pill);
-  --comp-avatar-status-inset-block-end: 0;
-  --comp-avatar-status-inset-inline-end: 0;
+  --comp-avatar-status-inset-block-end: var(--component-inset-zero);
+  --comp-avatar-status-inset-inline-end: var(--component-inset-zero);
   --comp-avatar-status-position: absolute;
   --comp-avatar-status-animation-name: component-pulse;
   --comp-avatar-status-animation-duration: var(--component-duration-loop);
@@ -7543,7 +7551,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-inline-validation-message-gap: var(--sys-space-xs);
   --comp-inline-validation-message-margin: var(--component-frame-space-none);
   --comp-inline-validation-message-min-block: var(--sys-space-md);
-  --comp-inline-validation-message-auto-min-block: auto;
+  --comp-inline-validation-message-auto-min-block: var(--component-min-block-size-auto);
   --comp-inline-validation-message-size: var(--component-font-size-caption);
   --comp-inline-validation-message-weight: var(--sys-voice-weight-medium);
   --comp-inline-validation-message-line-height: var(--sys-voice-line-height-snug);
@@ -7917,7 +7925,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-header-title-family: var(--sys-font-title);
   --comp-chart-panel-header-title-color: var(--sys-color-text-muted);
   --comp-chart-panel-tooltip-x: 50%;
-  --comp-chart-panel-tooltip-y: 0;
+  --comp-chart-panel-tooltip-y: var(--component-offset-zero);
   --comp-chart-panel-hover-border: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--sys-color-border));
   --comp-chart-panel-hover-depth: var(--component-depth-action-hover);
   --comp-chart-panel-hover-transform: var(--component-transform-lift-sm);
@@ -8079,7 +8087,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-compact-gap: var(--sys-space-md);
   --comp-route-summary-compact-header-display: var(--component-display-flex);
   --comp-route-summary-compact-header-flex: 1 1 auto;
-  --comp-route-summary-compact-header-min-inline: 0;
+  --comp-route-summary-compact-header-min-inline: var(--component-inline-size-zero);
   --comp-route-summary-padding: calc(var(--sys-space-md) + var(--component-frame-space-micro));
   --comp-route-summary-metric-min: var(--component-metric-min-inline-size-xs);
   align-items: var(--comp-route-summary-compact-align);
@@ -10209,7 +10217,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-indicator-bg: color-mix(in srgb, var(--sys-color-action) 14%, var(--sys-color-surface));
   --comp-segmented-control-indicator-border: var(--sys-color-action);
   --comp-segmented-control-indicator-shadow: var(--component-depth-action-halo-strong);
-  --comp-segmented-control-indicator-inset: 0;
+  --comp-segmented-control-indicator-inset: var(--component-inset-zero);
   --comp-segmented-control-indicator-pointer-events: var(--component-pointer-events-none);
   --comp-segmented-control-indicator-position: absolute;
   --comp-segmented-control-indicator-transform: var(--component-transform-scale-quiet);
@@ -10223,7 +10231,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-display: var(--component-display-inline-flex);
   --comp-segmented-control-item-flex: 1 1 0;
   --comp-segmented-control-item-justify: center;
-  --comp-segmented-control-item-min-inline: 0;
+  --comp-segmented-control-item-min-inline: var(--component-inline-size-zero);
   --comp-segmented-control-item-position: relative;
   --comp-segmented-control-item-z: var(--sys-depth-z-raised);
   --comp-segmented-control-item-selected-fg: var(--sys-color-action);
@@ -10549,7 +10557,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-card-summary-position: relative;
   --comp-card-summary-tech-display: var(--component-display-flex);
   --comp-card-summary-tech-gap: var(--sys-space-sm);
-  --comp-card-summary-tech-margin-block-start: auto;
+  --comp-card-summary-tech-margin-block-start: var(--component-margin-auto);
   aspect-ratio: var(--comp-card-summary-aspect-ratio);
   background:
     var(--comp-card-summary-gradient),
@@ -10701,7 +10709,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-variant="compact"] {
-  --comp-card-summary-aspect-ratio: auto;
+  --comp-card-summary-aspect-ratio: var(--component-aspect-ratio-auto);
   --comp-card-summary-current-bg: var(--comp-card-summary-bg-compact);
   --comp-card-summary-current-fg: var(--comp-card-summary-fg-compact);
   --comp-card-summary-current-muted: var(--comp-card-summary-muted-compact);
@@ -10804,7 +10812,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .movement-row {
   --comp-movement-row-border-width: var(--component-border-width-none);
   --comp-movement-row-content-gap: var(--component-visually-hidden-size);
-  --comp-movement-row-content-min-inline-size: 0;
+  --comp-movement-row-content-min-inline-size: var(--component-inline-size-zero);
   --comp-movement-row-current-gap: var(--comp-movement-row-gap-md);
   --comp-movement-row-current-icon-bg: var(--comp-movement-row-icon-bg);
   --comp-movement-row-current-icon-fg: var(--comp-movement-row-icon-fg);

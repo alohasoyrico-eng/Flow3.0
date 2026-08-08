@@ -123,7 +123,7 @@ function checkCardSummaryCssContract({ text, blocks, packageCssFile, selectorKey
     text,
     packageCssFile,
     snippets: [
-      "--comp-card-summary-aspect-ratio: auto",
+      "--comp-card-summary-aspect-ratio: var(--component-aspect-ratio-auto)",
       "--comp-card-summary-current-bg: var(--comp-card-summary-bg-compact)",
       "--comp-card-summary-current-fg: var(--comp-card-summary-fg-compact)",
       "--comp-card-summary-current-muted: var(--comp-card-summary-muted-compact)",
