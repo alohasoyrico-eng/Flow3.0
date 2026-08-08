@@ -53,8 +53,8 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
   state,
   name = "",
   placeholder = "",
-  validationMessage = "",
-  expiredMessage = "",
+  validationMessage,
+  expiredMessage,
   onValueChange,
   className = "",
   id,
@@ -68,7 +68,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
   const formattedValue = formatCardExpiry(digits);
   const validity = cardExpiryValidity(digits);
   const { month, year } = parseCardExpiry(digits);
-  const localError = validity === "invalid" ? validationMessage : validity === "expired" ? expiredMessage : "";
+  const localError = validity === "invalid" ? validationMessage : validity === "expired" ? expiredMessage : undefined;
   const resolvedError = error || localError;
   const resolvedHelper = resolvedError || helper;
   const resolvedState = resolveCardExpiryState({ disabled, loading, error: resolvedError, state, value: digits, validity });
