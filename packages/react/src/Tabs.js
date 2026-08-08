@@ -110,9 +110,11 @@ export const Tabs = forwardRef(function Tabs({
     normalizedItems.map((item) => {
       const selected = item.key === activeKey;
       const badge = item.badge?.label ? item.badge : null;
+      const { key, value, label: itemLabel, icon, badge: itemBadge, selected: itemSelected, disabled, onClick, onKeyDown, ...itemRest } = item;
       return React.createElement(
         "button",
         {
+          ...itemRest,
           key: item.key,
           ref: (node) => {
             if (node) tabRefs.current.set(item.key, node);
@@ -121,13 +123,19 @@ export const Tabs = forwardRef(function Tabs({
           type: "button",
           className: "tabs__tab",
           role: "tab",
-          disabled: Boolean(item.disabled),
+          disabled: Boolean(disabled),
           tabIndex: selected ? 0 : -1,
           "aria-selected": String(selected),
           "data-tabs-item": "",
           "data-key": item.key,
-          onClick: () => commitKey(item.key),
+          onClick: (event) => {
+            onClick?.(event);
+            if (event.defaultPrevented) return;
+            commitKey(item.key);
+          },
           onKeyDown: (event) => {
+            onKeyDown?.(event);
+            if (event.defaultPrevented) return;
             if (event.key === "ArrowRight") {
               event.preventDefault();
               move(1);
@@ -143,8 +151,8 @@ export const Tabs = forwardRef(function Tabs({
             }
           },
         },
-        item.icon ? React.createElement("span", { className: "tabs__icon", "aria-hidden": "true" }, item.icon) : null,
-        React.createElement("span", { className: "tabs__label" }, item.label),
+        icon ? React.createElement("span", { className: "tabs__icon", "aria-hidden": "true" }, icon) : null,
+        React.createElement("span", { className: "tabs__label" }, itemLabel),
         badge ? React.createElement(Badge, {
           label: badge.label,
           tone: badge.tone ?? "neutral",

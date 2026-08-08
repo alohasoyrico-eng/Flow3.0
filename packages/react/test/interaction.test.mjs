@@ -1461,6 +1461,20 @@ try {
   assert.match(tabsRoot.style.getPropertyValue("--comp-tabs-indicator-left"), /px$/);
   assert.match(tabsRoot.style.getPropertyValue("--comp-tabs-indicator-width"), /px$/);
 
+  const preventedTabChanges = [];
+  rerenderTabs(React.createElement(Tabs, {
+    label: "Component sections",
+    items: [
+      { key: "overview", label: "Overview" },
+      { key: "build", label: "Build", onClick: (event) => event.preventDefault(), onKeyDown: (event) => event.preventDefault() },
+    ],
+    onValueChange: (key) => preventedTabChanges.push(key),
+  }));
+  const preventedBuildTab = getTabsRole("tab", { name: /build/i });
+  fireEvent.click(preventedBuildTab);
+  fireEvent.keyDown(preventedBuildTab, { key: "ArrowLeft" });
+  assert.deepEqual(preventedTabChanges, []);
+
   rerenderTabs(React.createElement(Tabs, {
     label: "Component sections",
     selectedKey: "overview",
