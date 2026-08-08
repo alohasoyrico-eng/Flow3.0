@@ -5,6 +5,7 @@ const { checkDensityContractConsistency, checkReactDensityCascade, checkReactPub
 const { checkRuntimeDomMutationContract } = require("./react-runtime-dom-mutation-audit.js");
 const { checkReactComponentContentGuards } = require("./react-component-content-guards.js");
 const { checkReactComponentComposition } = require("./react-composition-contract-audit.js");
+const { checkControlledReactCoverage } = require("./react-controlled-contract-audit.js");
 const { checkReactEffectContract } = require("./react-effect-contract-audit.js");
 const { checkReactPrimaryInventory } = require("./audit-react-primary-inventory.js");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -13,7 +14,6 @@ const reactIndexFile = path.join(reactSrcDir, "index.js");
 const reactTypesIndexFile = path.join(reactSrcDir, "index.d.ts");
 const reactPackageFile = path.join(root, "packages/react/package.json");
 const reactRefTestFile = path.join(root, "packages/react/test/ref.test.mjs");
-const reactInteractionTestFile = path.join(root, "packages/react/test/interaction.test.mjs");
 const rootPackageFile = path.join(root, "package.json");
 const componentContractsFile = path.join(root, "packages/components/src/contracts.js");
 const allowedPrimitiveImports = new Set([
@@ -70,14 +70,7 @@ function checkReactPrimaryContract() {
   checkValueChangeContractConsistency(componentContractsSource);
   checkNoOpaqueFunctionContracts(componentContractsSource);
   checkStateContractConsistency({ add, contractsSource: componentContractsSource, componentContractsFile });
-  checkControlledOpenCoverage(componentFiles, componentContractsSource);
-  checkControlledValueCoverage(componentFiles);
-  checkControlledCheckedCoverage(componentFiles);
-  checkControlledSelectedKeyCoverage(componentFiles);
-  checkControlledSortCoverage(componentFiles);
-  checkControlledExpandedKeyCoverage(componentFiles);
-  checkControlledExpandedIdsCoverage(componentFiles);
-  checkControlledPageCoverage(componentFiles);
+  checkControlledReactCoverage({ add, componentFiles, contractsSource: componentContractsSource });
   checkDensityContractConsistency({ add, contractsSource: componentContractsSource, componentContractsFile });
 }
 
@@ -247,127 +240,6 @@ function checkInlineStyleContract({ name, sourceFile, source }) {
   }
 }
 
-function checkControlledOpenCoverage(componentFiles, contractsSource) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
-  const componentNames = new Set(componentFiles.map((file) => path.basename(file, ".js")));
-  for (const match of contractsSource.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {
-    const [, contractKey, body] = match;
-    if (!body.includes('{ name: "open"') || !body.includes('{ name: "onOpenChange"')) continue;
-    const componentName = pascal(contractKey);
-    if (!componentNames.has(componentName)) continue;
-    const componentRender = new RegExp(`render\\(React\\.createElement\\(${componentName}\\b`);
-    const controlledRerender = new RegExp(`rerender${componentName}[\\s\\S]{0,900}\\bopen:\\s*true[\\s\\S]{0,900}rerender${componentName}[\\s\\S]{0,900}\\bopen:\\s*false`);
-    if (!componentRender.test(interactionSource) || !controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} exposes open/onOpenChange and must test controlled open rerender from true back to false.`);
-    }
-  }
-}
-
-function checkControlledValueCoverage(componentFiles) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
-  for (const file of componentFiles) {
-    const componentName = path.basename(file, ".js");
-    const sourceFile = path.join(reactSrcDir, file);
-    const source = read(sourceFile);
-    if (!source.includes("isValueControlled")) continue;
-
-    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bvalue:\\s*`);
-    if (!controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} declares isValueControlled and must test external value rerender coverage.`);
-    }
-  }
-}
-
-function checkControlledCheckedCoverage(componentFiles) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
-  for (const file of componentFiles) {
-    const componentName = path.basename(file, ".js");
-    const sourceFile = path.join(reactSrcDir, file);
-    const source = read(sourceFile);
-    if (!source.includes("isCheckedControlled")) continue;
-
-    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bchecked:\\s*`);
-    if (!controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} declares isCheckedControlled and must test external checked rerender coverage.`);
-    }
-  }
-}
-
-function checkControlledSelectedKeyCoverage(componentFiles) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
-  for (const file of componentFiles) {
-    const componentName = path.basename(file, ".js");
-    const sourceFile = path.join(reactSrcDir, file);
-    const source = read(sourceFile);
-    if (!source.includes("isSelectedKeyControlled")) continue;
-
-    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bselectedKey:\\s*`);
-    if (!controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} declares isSelectedKeyControlled and must test external selectedKey rerender coverage.`);
-    }
-  }
-}
-
-function checkControlledSortCoverage(componentFiles) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
-  for (const file of componentFiles) {
-    const componentName = path.basename(file, ".js");
-    const sourceFile = path.join(reactSrcDir, file);
-    const source = read(sourceFile);
-    if (!source.includes("isSortControlled")) continue;
-
-    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bsortKey:\\s*`);
-    if (!controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} declares isSortControlled and must test external sortKey rerender coverage.`);
-    }
-  }
-}
-
-function checkControlledExpandedKeyCoverage(componentFiles) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
-  for (const file of componentFiles) {
-    const componentName = path.basename(file, ".js");
-    const sourceFile = path.join(reactSrcDir, file);
-    const source = read(sourceFile);
-    if (!source.includes("isExpandedKeyControlled")) continue;
-
-    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bexpandedKey:\\s*`);
-    if (!controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} declares isExpandedKeyControlled and must test external expandedKey rerender coverage.`);
-    }
-  }
-}
-
-function checkControlledExpandedIdsCoverage(componentFiles) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
-  for (const file of componentFiles) {
-    const componentName = path.basename(file, ".js");
-    const sourceFile = path.join(reactSrcDir, file);
-    const source = read(sourceFile);
-    if (!source.includes("isExpandedIdsControlled")) continue;
-
-    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bexpandedIds:\\s*`);
-    if (!controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} declares isExpandedIdsControlled and must test external expandedIds rerender coverage.`);
-    }
-  }
-}
-
-function checkControlledPageCoverage(componentFiles) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
-  for (const file of componentFiles) {
-    const componentName = path.basename(file, ".js");
-    const sourceFile = path.join(reactSrcDir, file);
-    const source = read(sourceFile);
-    if (!source.includes("isPageControlled")) continue;
-
-    const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\bpage:\\s*`);
-    if (!controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} declares isPageControlled and must test external page rerender coverage.`);
-    }
-  }
-}
-
 function importsFromComponents(source) {
   const imports = [];
   for (const match of source.matchAll(/import\s*\{([^}]+)\}\s*from\s*"@design-system\/components"/g)) {
@@ -381,11 +253,6 @@ function kebab(value) {
     .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
     .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
     .toLowerCase();
-}
-
-function pascal(value) {
-  const words = String(value).match(/[A-Z]?[a-z0-9]+|[A-Z]+(?![a-z])/g) ?? [String(value)];
-  return words.map((word) => `${word.charAt(0).toUpperCase()}${word.slice(1)}`).join("");
 }
 
 function lowerFirst(value) {
