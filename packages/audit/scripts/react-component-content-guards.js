@@ -47,6 +47,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Menu" && !source.includes("item?.label && hasStableItemKey(item)")) add("errors", sourceFile, 1, "Menu must require visible labels and stable keys before composing menuitems.");
   if (name === "Menu" && /item\.key\s*\?\?\s*item\.label|item\.key\s*\?\?\s*String\(index\)|item\.label\s*\?\?\s*String\(index\)/.test(source)) add("errors", sourceFile, 1, "Menu must not synthesize menuitem keys from labels or indexes.");
   if (name === "Popover" && !source.includes("const hasTrigger = Boolean(triggerLabel);")) add("errors", sourceFile, 1, "Popover must gate Button trigger composition on visible triggerLabel.");
+  if (name === "Popover" && !source.includes("if (!triggerLabel || !title) return null;")) add("errors", sourceFile, 1, "Popover must not render without its required visible triggerLabel and title.");
+  if (name === "Popover" && /triggerAriaLabel|popoverAriaLabel|"aria-label":\s*popoverAriaLabel/.test(source)) add("errors", sourceFile, 1, "Popover must not replace required visible names with aria-only trigger or panel labels.");
   if (name === "Popover" && /const hasTrigger = Boolean\(triggerLabel \|\| triggerAriaLabel\)/.test(source)) add("errors", sourceFile, 1, "Popover triggerAriaLabel must not create a Button without visible text.");
   if (name === "Popover" && /const hasField = Boolean\(field\?\.(?:value|placeholder|helper)/.test(source)) add("errors", sourceFile, 1, "Popover form field must require a visible label before composing Input.");
   if (name === "Popover" && /label:\s*field\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Popover must not synthesize empty field labels before composing Input.");

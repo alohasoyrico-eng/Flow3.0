@@ -28,10 +28,8 @@ export interface PopoverField {
 }
 
 export interface PopoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  triggerLabel?: string;
-  triggerAriaLabel?: string;
-  popoverAriaLabel?: string;
-  title?: string;
+  triggerLabel: string;
+  title: string;
   description?: string;
   id?: string;
   open?: boolean;

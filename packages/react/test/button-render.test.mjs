@@ -1769,20 +1769,21 @@ assert.match(formPopoverMarkup, /data-density="lg"/);
 assert.doesNotMatch(formPopoverMarkup, /data-helper=""/);
 
 const unnamedPopoverMarkup = renderToStaticMarkup(React.createElement(Popover));
+assert.equal(unnamedPopoverMarkup, "");
 assert.doesNotMatch(unnamedPopoverMarkup, /aria-label="Open popover"/);
 assert.doesNotMatch(unnamedPopoverMarkup, /aria-label="Popover"/);
 assert.doesNotMatch(unnamedPopoverMarkup, /class="button button--secondary popover__trigger"/);
 
-const ariaOnlyPopoverTriggerMarkup = renderToStaticMarkup(React.createElement(Popover, {
-  triggerAriaLabel: "Open filters",
+const popoverWithoutTriggerMarkup = renderToStaticMarkup(React.createElement(Popover, {
   title: "Filters",
 }));
-assert.doesNotMatch(ariaOnlyPopoverTriggerMarkup, /data-popover-trigger=""/);
-assert.doesNotMatch(ariaOnlyPopoverTriggerMarkup, /aria-label="Open filters"/);
-assert.doesNotMatch(ariaOnlyPopoverTriggerMarkup, /class="button button--secondary popover__trigger"/);
+assert.equal(popoverWithoutTriggerMarkup, "");
+assert.doesNotMatch(popoverWithoutTriggerMarkup, /data-popover-trigger=""/);
+assert.doesNotMatch(popoverWithoutTriggerMarkup, /class="button button--secondary popover__trigger"/);
 
 const emptyFormPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
   triggerLabel: "Edit",
+  title: "Local edit",
   variant: "form",
   open: true,
   field: { value: "$500", placeholder: "Limit" },

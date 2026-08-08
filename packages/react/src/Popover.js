@@ -13,10 +13,8 @@ function slug(value) {
 }
 
 export const Popover = forwardRef(function Popover({
-  triggerLabel = "",
-  triggerAriaLabel,
-  popoverAriaLabel,
-  title = "",
+  triggerLabel,
+  title,
   description = "",
   id = "",
   open: openProp,
@@ -45,6 +43,7 @@ export const Popover = forwardRef(function Popover({
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? "open" : initialState);
   const panelId = id || `popover-${slug(triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
+  const titleId = `${panelId}-title`;
   const resolvedActions = Array.isArray(actions)
     ? actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "")
     : [];
@@ -57,6 +56,8 @@ export const Popover = forwardRef(function Popover({
     const normalizedOpen = Boolean(openProp);
     setInteractionState(normalizedOpen ? "open" : initialState);
   }, [openProp, initialState, isOpenControlled]);
+
+  if (!triggerLabel || !title) return null;
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     if (isDisabled) return;
@@ -109,10 +110,10 @@ export const Popover = forwardRef(function Popover({
         hidden: !isOpen,
         id: panelId,
         role: "dialog",
-        "aria-label": popoverAriaLabel || title || triggerLabel || undefined,
+        "aria-labelledby": titleId,
         onKeyDown: closeFromKeyboard,
       },
-      title ? React.createElement("strong", null, title) : null,
+      React.createElement("strong", { id: titleId }, title),
       description ? React.createElement("p", null, description) : null,
       resolvedVariant === "form" && hasField
         ? React.createElement(Input, {
