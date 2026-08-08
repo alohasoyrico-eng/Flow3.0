@@ -77,6 +77,8 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
     if (isValueControlled) setCurrentValue(value ?? "");
   }, [isValueControlled, value]);
 
+  if (!label) return null;
+
   return React.createElement(
     "label",
     {
@@ -89,7 +91,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
       "data-expected-length": String(resolvedLength),
       "data-validation-message": validationMessage,
     },
-    label ? React.createElement("span", { className: "field__label card-security-code-input__label", id: `${inputId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label card-security-code-input__label", id: `${inputId}-label` }, label),
     React.createElement(
       "span",
       { className: "field__control card-security-code-input__control" },
@@ -112,8 +114,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
         enterKeyHint: "next",
         spellCheck: false,
         "data-card-security-code-input": "",
-        "aria-labelledby": label ? `${inputId}-label` : undefined,
-        "aria-label": label ? undefined : rest["aria-label"],
+        "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {

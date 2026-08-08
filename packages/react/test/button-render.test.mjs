@@ -2222,6 +2222,7 @@ assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /aria-label="Security co
 assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /placeholder="CVC"/);
 assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /Show security code|Hide security code/);
 assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /data-card-security-code-reveal/);
+assert.doesNotMatch(unnamedCardSecurityCodeInputMarkup, /field card-security-code-input|card-security-code-input__input|pin/);
 
 const codeInputMarkup = renderToStaticMarkup(React.createElement(CodeInput, {
   label: "Security code",

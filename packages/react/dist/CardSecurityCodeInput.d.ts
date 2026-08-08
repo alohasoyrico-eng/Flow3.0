@@ -10,7 +10,7 @@ export type CardSecurityCodeMeta = {
 };
 
 export interface CardSecurityCodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label?: string;
+  label: string;
   helper?: string;
   error?: string;
   value?: string;
