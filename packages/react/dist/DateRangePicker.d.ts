@@ -1,10 +1,14 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ChangeEvent, ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { dateRangePickerPlatformContract } from "#flow/platforms";
 
 export type DateRangePickerDensity = "sm" | "md" | "lg";
 export type DateRangePickerState = "default" | "hover" | "focus" | "selected" | "warning" | "error" | "disabled";
 export type DateRangePickerValue = { from?: string; to?: string };
 export type DateRangePickerPreset = { key: string; label: string; days: number };
+export type DateRangePickerValueChangeEvent =
+  | MouseEvent<HTMLButtonElement>
+  | KeyboardEvent<HTMLButtonElement>
+  | ChangeEvent<HTMLInputElement>;
 
 export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -26,7 +30,7 @@ export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButt
   presets?: boolean;
   presetItems?: DateRangePickerPreset[];
   open?: boolean;
-  onValueChange?: (value: DateRangePickerValue) => void;
+  onValueChange?: (value: DateRangePickerValue, event: DateRangePickerValueChangeEvent) => void;
   onOpenChange?: (open: boolean) => void;
 }
 

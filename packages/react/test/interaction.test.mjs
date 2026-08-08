@@ -668,7 +668,7 @@ try {
     from: "2026-07-01",
     locale: "es-MX",
     presets: false,
-    onValueChange: (value) => dateRangeValues.push(value),
+    onValueChange: (value, event) => dateRangeValues.push({ value, eventType: event.type }),
     onOpenChange: (open) => dateRangeOpenChanges.push(open),
   }));
 
@@ -679,7 +679,7 @@ try {
 
   fireEvent.click(getDateRangeRole("gridcell", { name: /miércoles, 15 de julio de 2026/i }));
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));
-  assert.deepEqual(dateRangeValues, [{ from: "2026-07-01", to: "2026-07-15" }]);
+  assert.deepEqual(dateRangeValues, [{ value: { from: "2026-07-01", to: "2026-07-15" }, eventType: "click" }]);
   assert.deepEqual(dateRangeOpenChanges, [true, false]);
 
   rerenderDateRangePicker(React.createElement(DateRangePicker, {
@@ -687,7 +687,7 @@ try {
     value: { from: "2026-07-10", to: "2026-07-20" },
     locale: "es-MX",
     presets: false,
-    onValueChange: (value) => dateRangeValues.push(value),
+    onValueChange: (value, event) => dateRangeValues.push({ value, eventType: event.type }),
     onOpenChange: (open) => dateRangeOpenChanges.push(open),
   }));
   await waitFor(() => assert.equal(dateRangeTrigger.textContent.includes("10 jul 2026 - 20 jul 2026"), true));
@@ -698,7 +698,7 @@ try {
     locale: "es-MX",
     presets: false,
     open: true,
-    onValueChange: (value) => dateRangeValues.push(value),
+    onValueChange: (value, event) => dateRangeValues.push({ value, eventType: event.type }),
     onOpenChange: (open) => dateRangeOpenChanges.push(open),
   }));
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "true"));
@@ -709,7 +709,7 @@ try {
     locale: "es-MX",
     presets: false,
     open: false,
-    onValueChange: (value) => dateRangeValues.push(value),
+    onValueChange: (value, event) => dateRangeValues.push({ value, eventType: event.type }),
     onOpenChange: (open) => dateRangeOpenChanges.push(open),
   }));
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));

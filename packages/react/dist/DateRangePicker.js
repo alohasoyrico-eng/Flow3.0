@@ -139,30 +139,30 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
     if (restoreFocus) requestAnimationFrame(() => controlRef.current?.focus());
   };
 
-  const commitRange = (nextRange, close = false) => {
+  const commitRange = (nextRange, close = false, event) => {
     if (!isValueControlled) setRange(nextRange);
     if (nextRange.from || nextRange.to) setViewDate(clampViewDate(nextRange.from || nextRange.to));
-    onValueChange?.(nextRange);
+    onValueChange?.(nextRange, event);
     if (close) setOpen(false, true);
   };
 
-  const selectDate = (nextValue) => {
+  const selectDate = (nextValue, event) => {
     if (!range.from || range.to) {
-      commitRange({ from: nextValue, to: "" });
+      commitRange({ from: nextValue, to: "" }, false, event);
       return;
     }
     if (nextValue < range.from) {
-      commitRange({ from: nextValue, to: range.from }, true);
+      commitRange({ from: nextValue, to: range.from }, true, event);
       return;
     }
-    commitRange({ from: range.from, to: nextValue }, true);
+    commitRange({ from: range.from, to: nextValue }, true, event);
   };
 
-  const applyPreset = (preset) => {
+  const applyPreset = (preset, event) => {
     const end = new Date();
     const start = new Date(end);
     start.setDate(end.getDate() - Number(preset.days ?? 1) + 1);
-    commitRange({ from: dateIso(start), to: dateIso(end) }, true);
+    commitRange({ from: dateIso(start), to: dateIso(end) }, true, event);
   };
 
   const moveMonth = (delta) => {
@@ -211,11 +211,11 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       "aria-current": isoValue === todayValue ? "date" : undefined,
       "aria-label": formatDateLongLabel(isoValue, locale),
       "aria-pressed": String(isFrom || isTo),
-      onClick: () => selectDate(isoValue),
+      onClick: (event) => selectDate(isoValue, event),
       onKeyDown: (event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          selectDate(isoValue);
+          selectDate(isoValue, event);
         } else if (event.key === "PageUp" || event.key === "PageDown") {
           event.preventDefault();
           moveMonth(event.key === "PageUp" ? -1 : 1);
@@ -275,7 +275,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       tabIndex: -1,
       "data-date-range-picker-from": "",
       "aria-hidden": "true",
-      onChange: (event) => commitRange({ from: event.target.value, to: range.to }),
+      onChange: (event) => commitRange({ from: event.target.value, to: range.to }, false, event),
     }),
     React.createElement("input", {
       type: "date",
@@ -285,7 +285,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       tabIndex: -1,
       "data-date-range-picker-to": "",
       "aria-hidden": "true",
-      onChange: (event) => commitRange({ from: range.from, to: event.target.value }),
+      onChange: (event) => commitRange({ from: range.from, to: event.target.value }, false, event),
     }),
     React.createElement(
       "div",
@@ -310,7 +310,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
           type: "button",
           className: "date-range-picker__preset",
           "data-key": preset.key,
-          onClick: () => applyPreset(preset),
+          onClick: (event) => applyPreset(preset, event),
         }, preset.label)))
         : null,
       React.createElement(
