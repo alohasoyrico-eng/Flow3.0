@@ -51,14 +51,14 @@ function cardAction(action, density, index, onAction) {
 
 export const Card = forwardRef(function Card({
   title,
-  value = "",
-  unit = "",
-  detail = "",
-  status = "",
+  value,
+  unit,
+  detail,
+  status,
   trend = "neutral",
-  icon = "",
-  media = "",
-  mediaAlt = "",
+  icon,
+  media,
+  mediaAlt,
   variant = "default",
   composition = "standard",
   state = "default",
@@ -78,7 +78,7 @@ export const Card = forwardRef(function Card({
   const resolvedComposition = compositions.has(composition) ? composition : "standard";
   const resolvedState = resolveState({ disabled, loading, selected, state });
   const hasStableActionKey = actionKey !== undefined && actionKey !== null && actionKey !== "";
-  const resolvedActionKey = hasStableActionKey ? actionKey : "";
+  const resolvedActionKey = actionKey;
   const sourceActions = Array.isArray(actions) ? actions : [];
   const validActions = sourceActions.filter(isValidCardAction);
   const hasActions = validActions.length > 0;
@@ -114,7 +114,7 @@ export const Card = forwardRef(function Card({
         value ? React.createElement("span", null, value) : null,
       )
       : [
-        value ? React.createElement("p", { className: "card__value", key: "value" }, resolvedComposition === "stats" ? `${unit}${value}` : value) : null,
+        value ? React.createElement("p", { className: "card__value", key: "value" }, resolvedComposition === "stats" && unit ? `${unit}${value}` : value) : null,
         detail ? React.createElement("p", { className: "card__detail", key: "detail" }, detail) : null,
       ],
     hasActions ? React.createElement("div", { className: "card__actions", key: "actions" }, validActions.map((action, index) => cardAction(action, density, index, onAction))) : null,
