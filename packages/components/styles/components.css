@@ -7784,9 +7784,9 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .card-expiry-input,
 .card-security-code-input,
 .date-picker {
-  color: var(--sys-color-text);
+  color: var(--component-color-text);
   display: grid;
-  gap: var(--sys-space-xs);
+  gap: var(--component-space-xs);
 }
 
 .inline-validation {
@@ -10204,20 +10204,47 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .date-picker {
   display: grid;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-date-picker-gap);
   inline-size: 100%;
   min-inline-size: 0;
   position: relative;
+  --comp-date-picker-gap: var(--component-space-xs);
+  --comp-date-picker-bg: var(--component-color-surface);
+  --comp-date-picker-border: var(--component-color-border);
+  --comp-date-picker-fg: var(--component-color-text);
+  --comp-date-picker-muted-fg: var(--component-color-text-muted);
+  --comp-date-picker-action: var(--component-color-action);
+  --comp-date-picker-action-text: var(--component-color-action-text);
+  --comp-date-picker-focus-color: var(--component-color-focus);
+  --comp-date-picker-danger: var(--component-color-danger);
+  --comp-date-picker-warning: var(--component-color-warning);
   --comp-date-picker-control-size: var(--component-density-control-height);
   --comp-date-picker-control-gap: calc(var(--component-space-sm) + var(--component-frame-space-micro));
+  --comp-date-picker-control-padding-inline: var(--component-space-lg);
+  --comp-date-picker-control-hover-border: color-mix(in srgb, var(--comp-date-picker-action) 24%, var(--comp-date-picker-border));
+  --comp-date-picker-focus-ring: color-mix(in srgb, var(--comp-date-picker-action) 35%, transparent);
+  --comp-date-picker-error-bg: color-mix(in srgb, var(--comp-date-picker-danger) 8%, var(--comp-date-picker-bg));
+  --comp-date-picker-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--component-space-lg) + var(--component-frame-space-micro));
   --comp-date-picker-day-font-size: var(--component-font-size-small);
+  --comp-date-picker-day-hover-bg: var(--component-color-surface-raised);
+  --comp-date-picker-day-disabled-fg: color-mix(in srgb, var(--comp-date-picker-muted-fg) 46%, transparent);
   --comp-date-picker-icon-size: var(--component-font-size-title-md);
   --comp-date-picker-panel-gap: var(--component-space-xs);
   --comp-date-picker-panel-padding: calc(var(--component-space-md) + var(--component-frame-space-micro));
   --comp-date-picker-panel-inline-size: var(--component-date-picker-panel-inline-size);
+  --comp-date-picker-panel-offset: var(--component-space-sm);
+  --comp-date-picker-panel-border: color-mix(in srgb, var(--comp-date-picker-border) 80%, transparent);
+  --comp-date-picker-nav-hover-bg: var(--component-color-surface-raised);
   --comp-date-picker-radius: var(--component-radius-control);
   --comp-date-picker-panel-radius: var(--component-radius-surface);
+  --comp-date-picker-value-weight: var(--component-font-weight-medium);
+  --comp-date-picker-helper-weight: var(--component-font-weight-medium);
+  --comp-date-picker-helper-line-height: var(--component-line-height-snug-state);
+  --comp-date-picker-header-weight: var(--component-font-weight-bold);
+  --comp-date-picker-weekday-weight: var(--component-font-weight-extrabold);
+  --comp-date-picker-weekday-padding-block: var(--component-space-xs);
+  --comp-date-picker-day-selected-weight: var(--component-font-weight-bold);
 }
 
 .date-picker[data-density="sm"] {
@@ -10232,10 +10259,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .date-picker__control {
   align-items: center;
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid var(--sys-color-border);
+  background: var(--comp-date-picker-bg);
+  border: var(--component-border-width) solid var(--comp-date-picker-border);
   border-radius: var(--comp-date-picker-radius);
-  color: var(--sys-color-text);
+  color: var(--comp-date-picker-fg);
   cursor: pointer;
   display: flex;
   font: inherit;
@@ -10244,7 +10271,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   justify-content: start;
   min-block-size: var(--comp-date-picker-control-size);
   min-inline-size: 0;
-  padding: 0 var(--sys-space-lg);
+  padding: 0 var(--comp-date-picker-control-padding-inline);
   text-align: start;
   transition:
     border-color var(--component-duration-state) var(--component-ease-state),
@@ -10253,7 +10280,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker__control:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
+  border-color: var(--comp-date-picker-control-hover-border);
 }
 
 .date-picker__control:active:not(:disabled) {
@@ -10261,35 +10288,35 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker__control:focus-visible {
-  border-color: var(--sys-color-action);
-  outline: var(--component-focus-ring-width) solid color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  border-color: var(--comp-date-picker-action);
+  outline: var(--component-focus-ring-width) solid var(--comp-date-picker-focus-ring);
   outline-offset: var(--component-focus-ring-offset);
 }
 
 .date-picker[data-state="focus"] .date-picker__control,
 .date-picker[data-open="true"] .date-picker__control {
-  border-color: var(--sys-color-action);
-  outline: var(--component-focus-ring-width) solid color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  border-color: var(--comp-date-picker-action);
+  outline: var(--component-focus-ring-width) solid var(--comp-date-picker-focus-ring);
   outline-offset: var(--component-focus-ring-offset);
 }
 
 .date-picker[data-state="error"] .date-picker__control {
-  border-color: var(--sys-color-danger);
-  background: color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface));
+  border-color: var(--comp-date-picker-danger);
+  background: var(--comp-date-picker-error-bg);
 }
 
 .date-picker[data-state="warning"] .date-picker__control {
-  border-color: var(--sys-color-warning);
+  border-color: var(--comp-date-picker-warning);
 }
 
 .date-picker[data-state="disabled"] {
   color: var(--component-disabled-text);
   cursor: var(--component-disabled-cursor);
-  opacity: var(--sys-disabled-readable-opacity);
+  opacity: var(--comp-date-picker-disabled-opacity);
 }
 
 .date-picker__icon {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-date-picker-muted-fg);
   flex: none;
   font-size: var(--comp-date-picker-icon-size);
 }
@@ -10297,7 +10324,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .date-picker__value {
   flex: 1;
   font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-medium);
+  font-weight: var(--comp-date-picker-value-weight);
   min-inline-size: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -10305,10 +10332,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker.field .date-picker__helper {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-date-picker-muted-fg);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-medium);
-  line-height: var(--sys-voice-line-height-snug);
+  font-weight: var(--comp-date-picker-helper-weight);
+  line-height: var(--comp-date-picker-helper-line-height);
 }
 
 .date-picker__input {
@@ -10325,14 +10352,14 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker__panel {
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid color-mix(in srgb, var(--sys-color-border) 80%, transparent);
+  background: var(--comp-date-picker-bg);
+  border: var(--component-border-width) solid var(--comp-date-picker-panel-border);
   border-radius: var(--comp-date-picker-panel-radius);
   box-shadow: var(--component-depth-date-panel);
   display: grid;
   gap: var(--comp-date-picker-panel-gap);
   inline-size: var(--comp-date-picker-panel-inline-size);
-  inset-block-start: calc(100% + var(--sys-space-sm));
+  inset-block-start: calc(100% + var(--comp-date-picker-panel-offset));
   inset-inline-start: 0;
   padding: var(--comp-date-picker-panel-padding);
   position: absolute;
@@ -10360,7 +10387,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .date-picker__header strong {
   font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-bold);
+  font-weight: var(--comp-date-picker-header-weight);
 }
 
 .date-picker__nav {
@@ -10368,7 +10395,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: transparent;
   border: 0;
   border-radius: var(--component-radius-pill);
-  color: var(--sys-color-text-muted);
+  color: var(--comp-date-picker-muted-fg);
   cursor: pointer;
   display: inline-flex;
   inline-size: var(--component-inline-size-md);
@@ -10382,8 +10409,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker__nav:hover {
-  background: var(--sys-color-surface-raised);
-  color: var(--sys-color-action);
+  background: var(--comp-date-picker-nav-hover-bg);
+  color: var(--comp-date-picker-action);
 }
 
 .date-picker__nav:active {
@@ -10391,7 +10418,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker__nav:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
+  outline: var(--component-focus-ring-width) solid var(--comp-date-picker-focus-color);
   outline-offset: var(--component-focus-ring-offset);
 }
 
@@ -10402,10 +10429,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker__weekday {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-date-picker-muted-fg);
   font-size: var(--comp-date-picker-day-font-size);
-  font-weight: var(--sys-voice-weight-extrabold);
-  padding-block: var(--sys-space-xs);
+  font-weight: var(--comp-date-picker-weekday-weight);
+  padding-block: var(--comp-date-picker-weekday-padding-block);
   text-align: center;
 }
 
@@ -10413,7 +10440,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: transparent;
   border: 0;
   border-radius: var(--component-radius-pill);
-  color: var(--sys-color-text);
+  color: var(--comp-date-picker-fg);
   cursor: pointer;
   font: inherit;
   font-size: var(--comp-date-picker-day-font-size);
@@ -10429,29 +10456,29 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker__day:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
+  outline: var(--component-focus-ring-width) solid var(--comp-date-picker-focus-color);
   outline-offset: var(--component-focus-ring-offset);
 }
 
 .date-picker__day:hover:not(:disabled) {
-  background: var(--sys-color-surface-raised);
+  background: var(--comp-date-picker-day-hover-bg);
   transform: var(--component-transform-scale-raised);
 }
 
 .date-picker__day[aria-pressed="true"] {
-  background: var(--sys-color-action);
-  color: var(--sys-color-action-text);
-  font-weight: var(--sys-voice-weight-bold);
+  background: var(--comp-date-picker-action);
+  color: var(--comp-date-picker-action-text);
+  font-weight: var(--comp-date-picker-day-selected-weight);
 }
 
 .date-picker:focus-within .date-picker__icon,
 .date-picker[data-state="focus"] .date-picker__icon,
 .date-picker[data-open="true"] .date-picker__icon {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-date-picker-muted-fg);
 }
 
 .date-picker__day:disabled {
-  color: color-mix(in srgb, var(--sys-color-text-muted) 46%, transparent);
+  color: var(--comp-date-picker-day-disabled-fg);
   cursor: not-allowed;
 }
 
