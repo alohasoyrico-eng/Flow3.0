@@ -39,8 +39,8 @@ function normalizeItems(items) {
 }
 
 export const Breadcrumbs = forwardRef(function Breadcrumbs({
-  items = [],
-  label = "",
+  items,
+  label,
   collapsedLabel = "",
   variant = "standard",
   state = "default",
@@ -59,13 +59,15 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
     [items, maxItems, resolvedVariant, collapsedLabel],
   );
 
+  if (!visibleItems.length) return null;
+
   return React.createElement(
     "nav",
     {
       ...flowRestProps(rest),
       ref,
       className: ["breadcrumbs", className].filter(Boolean).join(" "),
-      "aria-label": label || undefined,
+      "aria-label": label,
       "aria-disabled": disabled ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
@@ -95,7 +97,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
                   className: "breadcrumbs__target",
                   "aria-current": item.current ? "page" : undefined,
                 },
-                item.label ?? "",
+                item.label,
               )
             : !item.href && hasAction
             ? React.createElement(
@@ -105,7 +107,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
                   className: "breadcrumbs__target",
                   onClick: (event) => item.onClick(item, event),
                 },
-                item.label ?? "",
+                item.label,
               )
             : React.createElement(
                 "a",
@@ -119,7 +121,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
                       }
                     : undefined,
                 },
-                item.label ?? "",
+                item.label,
               );
         return React.createElement(
           "li",
