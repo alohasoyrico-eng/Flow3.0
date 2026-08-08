@@ -1407,6 +1407,7 @@ export const componentContracts = {
     accessibility: [
       "Use tablist semantics for mode selection.",
       "Expose selected state with aria-selected.",
+      "Require stable item key or value before composing segment controls.",
       "Keep the option count small and local."
     ]
   },

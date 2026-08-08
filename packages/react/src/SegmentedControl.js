@@ -5,13 +5,13 @@ import { flowVariantProps, normalizeFlowValue, flowDensityProps, flowRestProps }
 const validVariants = new Set(["outlined", "toolbar", "compact", "icon-only"]);
 
 function itemKey(item) {
-  return item?.key ?? item?.value ?? item?.label ?? "";
+  return item?.key ?? item?.value ?? "";
 }
 
 function normalizeItems(items) {
-  return (Array.isArray(items) ? items : []).filter((item) => item?.label).map((item, index) => ({
+  return (Array.isArray(items) ? items : []).filter((item) => item?.label && itemKey(item)).map((item) => ({
     ...item,
-    key: itemKey(item) || `option-${index + 1}`,
+    key: itemKey(item),
     label: item.label,
     ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item.label,
   }));

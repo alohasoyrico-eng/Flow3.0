@@ -1811,6 +1811,12 @@ const unnamedSegmentedControlMarkup = renderToStaticMarkup(React.createElement(S
 }));
 assert.doesNotMatch(unnamedSegmentedControlMarkup, /Options|Option 1/);
 assert.doesNotMatch(unnamedSegmentedControlMarkup, /role="tab"/);
+const unstableSegmentedControlMarkup = renderToStaticMarkup(React.createElement(SegmentedControl, {
+  label: "View mode",
+  items: [{ label: "Map" }],
+}));
+assert.doesNotMatch(unstableSegmentedControlMarkup, /role="tab"/);
+assert.doesNotMatch(unstableSegmentedControlMarkup, /data-key="Map"|option-1/);
 
 const switchMarkup = renderToStaticMarkup(React.createElement(Switch, {
   label: "Route alerts",
