@@ -142,6 +142,14 @@ function checkPackageCssContracts() {
     const sourceIndex = text.indexOf(match[0], text.indexOf("}") + 1);
     add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package transform scale and rotation values must be aliased; raw numeric motion belongs in Flow component aliases.");
   }
+  for (const match of cssWithoutDefinitions.matchAll(/^\s*opacity:\s*(?!var\()(?!0\s*;|1\s*;)[0-9.]+\s*;/gm)) {
+    const sourceIndex = text.indexOf(match[0], text.indexOf("}") + 1);
+    add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package partial opacity values must consume Flow state aliases instead of raw local numbers.");
+  }
+  for (const match of cssWithoutDefinitions.matchAll(/^\s*stroke-width:\s*(?!var\()[0-9.]+\s*;/gm)) {
+    const sourceIndex = text.indexOf(match[0], text.indexOf("}") + 1);
+    add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package SVG stroke widths must consume Flow frame/chart aliases instead of raw local numbers.");
+  }
   const rawControlSizePattern = /\b(?:min-block-size|min-height|min-inline-size|inline-size|block-size|width):\s*44px\s*;/;
   if (rawControlSizePattern.test(cssWithoutDefinitions)) {
     add("errors", packageCssFile, 1, "Package 44px control sizing must use --component-control-min-size outside the alias block.");

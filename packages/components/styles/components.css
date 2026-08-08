@@ -171,6 +171,12 @@
   --component-disabled-cursor: var(--sys-disabled-cursor);
   --component-disabled-pointer-events: var(--sys-disabled-pointer-events);
   --component-opacity-disabled: var(--component-disabled-opacity);
+  --component-opacity-hidden: 0;
+  --component-opacity-faint: var(--ref-state-opacity-faint);
+  --component-opacity-muted: var(--sys-state-muted-opacity);
+  --component-opacity-closed: var(--sys-state-closed-opacity);
+  --component-opacity-visible: var(--sys-state-visible-opacity);
+  --component-input-ghost-opacity: calc(var(--component-border-width) / 100);
   --component-ease-standard: var(--sys-motion-curve-standard);
   --component-ease-emphasis: var(--sys-motion-curve-touch);
   --component-ease-progress: var(--sys-motion-curve-move);
@@ -203,6 +209,10 @@
   --component-depth-live-rest: var(--sys-elevation-0);
   --component-depth-live-active: 0 0 0 var(--sys-space-xs) color-mix(in srgb, currentColor 14%, transparent);
   --component-depth-chart-halo: 0 0 0 var(--sys-space-xs) color-mix(in srgb, var(--comp-chart-panel-tone) 14%, transparent);
+  --component-chart-stroke-thin: var(--sys-frame-border-thin);
+  --component-chart-stroke-control: var(--sys-frame-border-control);
+  --component-chart-stroke-medium: var(--sys-frame-border-medium);
+  --component-chart-stroke-strong: var(--sys-frame-border-indicator);
   --component-depth-action-halo: 0 0 0 var(--sys-frame-border-indicator) color-mix(in srgb, var(--sys-color-action) 8%, transparent);
   --component-depth-action-halo-strong: 0 0 0 var(--sys-frame-border-indicator) color-mix(in srgb, var(--sys-color-action) 10%, transparent);
   --component-depth-error-ring: 0 0 0 var(--component-border-width) var(--sys-color-danger) inset;
@@ -4628,7 +4638,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 3;
+  stroke-width: var(--component-chart-stroke-strong);
 }
 
 .kpi-tile__affordance {
@@ -7436,7 +7446,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 @keyframes component-pulse {
   50% {
-    opacity: 0.72;
+    opacity: var(--component-opacity-muted);
     transform: var(--component-transform-scale-raised);
   }
 }
@@ -7563,7 +7573,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 @keyframes chart-line-draw {
   from {
-    opacity: 0.64;
+    opacity: var(--component-opacity-muted);
     stroke-dashoffset: 320;
   }
 
@@ -8485,7 +8495,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__grid-line {
   stroke: color-mix(in srgb, var(--sys-chart-grid-color) 32%, transparent);
-  stroke-width: 1;
+  stroke-width: var(--component-chart-stroke-thin);
 }
 
 .chart-panel__area {
@@ -8500,7 +8510,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   stroke-linejoin: round;
   stroke-dasharray: 320;
   stroke-dashoffset: 320;
-  stroke-width: 3;
+  stroke-width: var(--component-chart-stroke-strong);
 }
 
 .chart-panel__line[data-series="2"],
@@ -8517,13 +8527,13 @@ body[data-contrast="quiet"] .route-summary__icon {
   animation: chart-dot-enter var(--component-duration-reveal) var(--component-ease-enter) both;
   fill: var(--comp-chart-panel-tone);
   stroke: var(--sys-color-surface);
-  stroke-width: 3;
+  stroke-width: var(--component-chart-stroke-strong);
 }
 
 .chart-panel__hit-dot:hover,
 .chart-panel__hit-dot:focus-visible {
   stroke: var(--sys-color-focus);
-  stroke-width: 2;
+  stroke-width: var(--component-chart-stroke-medium);
 }
 
 .chart-panel__dot[data-series="2"] {
@@ -8791,20 +8801,20 @@ body[data-contrast="quiet"] .route-summary__icon {
   stroke-linejoin: round;
   stroke-dasharray: 320;
   stroke-dashoffset: 320;
-  stroke-width: 2.5;
+  stroke-width: var(--component-chart-stroke-control);
 }
 
 .chart-panel__pareto-dot {
   fill: var(--sys-color-text);
   outline: var(--sys-a11y-outline-reset);
   stroke: var(--sys-color-surface);
-  stroke-width: 2;
+  stroke-width: var(--component-chart-stroke-medium);
 }
 
 .chart-panel__pareto-dot:hover,
 .chart-panel__pareto-dot:focus-visible {
   stroke: var(--sys-color-focus);
-  stroke-width: 3;
+  stroke-width: var(--component-chart-stroke-strong);
 }
 
 .chart-panel__tooltip {
@@ -8838,7 +8848,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__threshold-line {
   stroke: color-mix(in srgb, var(--sys-chart-threshold-warning) 72%, var(--sys-chart-grid-color));
   stroke-dasharray: 4 4;
-  stroke-width: 1.5;
+  stroke-width: var(--component-chart-stroke-control);
 }
 
 .chart-panel__axis-label {
@@ -9145,7 +9155,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   caret-color: transparent;
   font-size: var(--comp-code-input-input-font-size);
   inset: 0;
-  opacity: 0.01;
+  opacity: var(--component-input-ghost-opacity);
   outline: var(--sys-a11y-outline-reset);
   padding: 0;
   position: absolute;
@@ -9389,7 +9399,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-option-min-size: var(--comp-select-option-min-size);
   --comp-country-selector-option-padding-x: var(--comp-select-option-padding-x);
   --comp-country-selector-option-radius: var(--comp-select-option-radius);
-  --comp-country-selector-option-code-opacity: 0.78;
+  --comp-country-selector-option-code-opacity: var(--component-opacity-muted);
   --comp-country-selector-empty-color: var(--sys-color-text-muted);
 }
 
