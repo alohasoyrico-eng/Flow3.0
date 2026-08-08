@@ -41,6 +41,10 @@ function checkCardSummaryCssContract({ text, blocks, packageCssFile, selectorKey
   if (localMetricSize) {
     add("errors", packageCssFile, lineNumber(text, localMetricSize.index), "CardSummary metric minimums must flow through shared Frame metric roles instead of local control-size multipliers.");
   }
+  const localChipSize = /--comp-card-summary-chip-(?:block|inline)-(?:sm|md|lg):\s*calc\(var\(--component-control-min-size\)\s*[+-][^;]+;/.exec(text);
+  if (localChipSize) {
+    add("errors", packageCssFile, lineNumber(text, localChipSize.index), "CardSummary chip geometry must flow through shared Frame card chip roles instead of local control-size math.");
+  }
   for (const snippet of [
     "--comp-card-summary-metric-min-sm: var(--component-metric-min-inline-size-xs)",
     "--comp-card-summary-metric-min-md: var(--component-metric-min-inline-size-md)",
@@ -48,6 +52,19 @@ function checkCardSummaryCssContract({ text, blocks, packageCssFile, selectorKey
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, "CardSummary metric minimum aliases must be defined from shared Frame metric roles.");
+      break;
+    }
+  }
+  for (const snippet of [
+    "--comp-card-summary-chip-block-sm: var(--component-card-chip-block-size-sm)",
+    "--comp-card-summary-chip-block-md: var(--component-card-chip-block-size-md)",
+    "--comp-card-summary-chip-block-lg: var(--component-card-chip-block-size-lg)",
+    "--comp-card-summary-chip-inline-sm: var(--component-card-chip-inline-size-sm)",
+    "--comp-card-summary-chip-inline-md: var(--component-card-chip-inline-size-md)",
+    "--comp-card-summary-chip-inline-lg: var(--component-card-chip-inline-size-lg)",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "CardSummary chip aliases must be defined from shared Frame card chip roles.");
       break;
     }
   }

@@ -534,6 +534,12 @@
   --sys-frame-content-action-min-inline-lg: calc(var(--sys-space-11) * 1.75);
   --sys-frame-content-action-min-block-md: calc(var(--sys-space-11) + var(--sys-space-9));
   --sys-frame-content-action-min-block-lg: calc(var(--sys-space-11) + (var(--sys-space-11) * 1.5));
+  --sys-frame-content-card-chip-block-sm: var(--sys-space-6);
+  --sys-frame-content-card-chip-block-md: var(--sys-space-7);
+  --sys-frame-content-card-chip-block-lg: var(--sys-space-9);
+  --sys-frame-content-card-chip-inline-sm: var(--sys-space-9);
+  --sys-frame-content-card-chip-inline-md: var(--sys-space-9);
+  --sys-frame-content-card-chip-inline-lg: var(--sys-space-10);
   --sys-frame-content-disclosure-trigger-min-block-sm: var(--sys-space-11);
   --sys-frame-content-disclosure-trigger-min-block-md: calc(var(--sys-space-11) + var(--sys-space-md));
   --sys-frame-content-disclosure-trigger-min-block-lg: calc(var(--sys-space-11) + var(--sys-space-xl));
