@@ -93,10 +93,11 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const monthId = `${controlId}-month`;
   const rootRef = useRef(null);
   const controlRef = useRef(null);
-  const isValueControlled = value !== undefined;
+  const isValueControlled = value !== undefined || from !== undefined || to !== undefined;
   const initialFrom = from ?? value?.from ?? "";
   const initialTo = to ?? value?.to ?? "";
-  const [range, setRange] = useState({ from: initialFrom, to: initialTo });
+  const [internalRange, setInternalRange] = useState({ from: initialFrom, to: initialTo });
+  const range = isValueControlled ? { from: from ?? value?.from ?? "", to: to ?? value?.to ?? "" } : internalRange;
   const isOpenControlled = openProp !== undefined;
   const [internalOpen, setInternalOpen] = useState(false);
   const open = isOpenControlled ? Boolean(openProp) : internalOpen;
@@ -113,11 +114,9 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const visibleValue = rangeLabel({ ...range, placeholder, locale });
 
   useEffect(() => {
-    if (!isValueControlled) return;
     const nextFrom = from ?? value?.from ?? "";
     const nextTo = to ?? value?.to ?? "";
-    setRange({ from: nextFrom, to: nextTo });
-    if (nextFrom || nextTo) setViewDate(clampViewDate(nextFrom || nextTo));
+    if (isValueControlled && (nextFrom || nextTo)) setViewDate(clampViewDate(nextFrom || nextTo));
   }, [from, isValueControlled, to, value?.from, value?.to]);
 
   useEffect(() => {
@@ -140,7 +139,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   };
 
   const commitRange = (nextRange, close = false, event) => {
-    if (!isValueControlled) setRange(nextRange);
+    if (!isValueControlled) setInternalRange(nextRange);
     if (nextRange.from || nextRange.to) setViewDate(clampViewDate(nextRange.from || nextRange.to));
     onValueChange?.(nextRange, event);
     if (close) setOpen(false, true, event);

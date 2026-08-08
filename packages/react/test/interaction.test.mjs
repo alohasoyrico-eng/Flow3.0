@@ -749,6 +749,7 @@ try {
   fireEvent.click(getDateRangeRole("gridcell", { name: /miércoles, 15 de julio de 2026/i }));
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(dateRangeValues, [{ value: { from: "2026-07-01", to: "2026-07-15" }, eventType: "click" }]);
+  assert.equal(dateRangeTrigger.textContent.includes("01 jul 2026 - ..."), true);
   assert.deepEqual(dateRangeOpenChanges, [
     { open: true, eventType: "click", key: undefined },
     { open: false, eventType: "click", key: undefined },
