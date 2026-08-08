@@ -1,0 +1,617 @@
+{
+  "status": "pass",
+  "audit": "react style governance",
+  "principle": "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked.",
+  "inventory": {
+    "components": 56,
+    "componentsWithApprovedInlineVars": 5,
+    "componentsWithRuntimeVars": 1,
+    "approvedInlineVars": 10,
+    "styleProps": 10,
+    "setPropertyCalls": 2,
+    "violations": 0
+  },
+  "components": [
+    {
+      "component": "Accordion",
+      "file": "packages/react/src/Accordion.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "AnimatedMoment",
+      "file": "packages/react/src/AnimatedMoment.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "AuditEvent",
+      "file": "packages/react/src/AuditEvent.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Avatar",
+      "file": "packages/react/src/Avatar.js",
+      "allowedInlineStyleKeys": [
+        "--comp-avatar-identity-bg",
+        "--comp-avatar-identity-fg"
+      ],
+      "approvedVars": [
+        "--comp-avatar-identity-bg",
+        "--comp-avatar-identity-fg"
+      ],
+      "styleProps": 1,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "BiometricPrompt",
+      "file": "packages/react/src/BiometricPrompt.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Breadcrumbs",
+      "file": "packages/react/src/Breadcrumbs.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardExpiryInput",
+      "file": "packages/react/src/CardExpiryInput.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardNumberInput",
+      "file": "packages/react/src/CardNumberInput.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSecurityCodeInput",
+      "file": "packages/react/src/CardSecurityCodeInput.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSummary",
+      "file": "packages/react/src/CardSummary.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "allowedInlineStyleKeys": [
+        "--comp-chart-panel-current-series",
+        "--comp-chart-panel-stagger-delay"
+      ],
+      "approvedVars": [
+        "--comp-chart-panel-current-series",
+        "--comp-chart-panel-stagger-delay"
+      ],
+      "styleProps": 4,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Checkbox",
+      "file": "packages/react/src/Checkbox.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CodeInput",
+      "file": "packages/react/src/CodeInput.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Combobox",
+      "file": "packages/react/src/Combobox.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CountrySelector",
+      "file": "packages/react/src/CountrySelector.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "DatePicker",
+      "file": "packages/react/src/DatePicker.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "DateRangePicker",
+      "file": "packages/react/src/DateRangePicker.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "EmptyState",
+      "file": "packages/react/src/EmptyState.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "InlineValidation",
+      "file": "packages/react/src/InlineValidation.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Input",
+      "file": "packages/react/src/Input.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "List",
+      "file": "packages/react/src/List.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "MotionBoundary",
+      "file": "packages/react/src/MotionBoundary.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Pagination",
+      "file": "packages/react/src/Pagination.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "PhoneInput",
+      "file": "packages/react/src/PhoneInput.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ProgressIndicator",
+      "file": "packages/react/src/ProgressIndicator.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "QuickAction",
+      "file": "packages/react/src/QuickAction.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "RadioButton",
+      "file": "packages/react/src/RadioButton.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "SegmentedControl",
+      "file": "packages/react/src/SegmentedControl.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Select",
+      "file": "packages/react/src/Select.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Skeleton",
+      "file": "packages/react/src/Skeleton.js",
+      "allowedInlineStyleKeys": [
+        "--comp-skeleton-current-width",
+        "--comp-skeleton-current-height",
+        "--comp-skeleton-current-columns",
+        "--comp-skeleton-bone-current-inline-size",
+        "--comp-skeleton-bone-current-block-size",
+        "--comp-skeleton-bone-current-radius"
+      ],
+      "approvedVars": [
+        "--comp-skeleton-bone-current-block-size",
+        "--comp-skeleton-current-columns",
+        "--comp-skeleton-current-height",
+        "--comp-skeleton-current-width"
+      ],
+      "styleProps": 3,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Slider",
+      "file": "packages/react/src/Slider.js",
+      "allowedInlineStyleKeys": [
+        "--comp-slider-percent"
+      ],
+      "approvedVars": [
+        "--comp-slider-percent"
+      ],
+      "styleProps": 1,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Spinner",
+      "file": "packages/react/src/Spinner.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "StationPin",
+      "file": "packages/react/src/StationPin.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Stepper",
+      "file": "packages/react/src/Stepper.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Switch",
+      "file": "packages/react/src/Switch.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tabs",
+      "file": "packages/react/src/Tabs.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [
+        {
+          "property": "--comp-tabs-indicator-left",
+          "line": 55
+        },
+        {
+          "property": "--comp-tabs-indicator-width",
+          "line": 56
+        }
+      ],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "TextArea",
+      "file": "packages/react/src/TextArea.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "TreeView",
+      "file": "packages/react/src/TreeView.js",
+      "allowedInlineStyleKeys": [
+        "--comp-tree-view-level"
+      ],
+      "approvedVars": [
+        "--comp-tree-view-level"
+      ],
+      "styleProps": 1,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    }
+  ]
+}

@@ -263,4 +263,4 @@ function contractBodyFor(source, contractKey) {
   const match = source.match(new RegExp(`^\\\\s+${contractKey}:\\\\s*\\\\{([\\\\s\\\\S]*?)(?=^\\\\s+[a-z][A-Za-z0-9]*:\\\\s*\\\\{|\\\\n\\\\};)`, "m"));
   return match?.[1] ?? "";
 }
-module.exports = { checkReactPrimaryContract };
+module.exports = { allowedInlineStyleKeysByComponent, checkReactPrimaryContract };

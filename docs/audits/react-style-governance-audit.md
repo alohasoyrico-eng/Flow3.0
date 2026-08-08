@@ -1,0 +1,33 @@
+# React Style Governance Audit
+
+Status: **pass**
+
+React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked.
+
+## Inventory
+
+- React components scanned: 56
+- Components with approved inline vars: 5
+- Components with runtime CSS vars: 1
+- Approved inline vars observed: 10
+- Style props observed: 10
+- style.setProperty calls: 2
+- Violations: 0
+
+## Components
+
+| Component | Status | Allowed inline vars | Observed approved vars | Runtime CSS vars | Style props | Violations |
+| --- | --- | --- | --- | --- | ---: | ---: |
+| Avatar | pass | --comp-avatar-identity-bg, --comp-avatar-identity-fg | --comp-avatar-identity-bg, --comp-avatar-identity-fg | None | 1 | 0 |
+| ChartPanel | pass | --comp-chart-panel-current-series, --comp-chart-panel-stagger-delay | --comp-chart-panel-current-series, --comp-chart-panel-stagger-delay | None | 4 | 0 |
+| Skeleton | pass | --comp-skeleton-current-width, --comp-skeleton-current-height, --comp-skeleton-current-columns, --comp-skeleton-bone-current-inline-size, --comp-skeleton-bone-current-block-size, --comp-skeleton-bone-current-radius | --comp-skeleton-bone-current-block-size, --comp-skeleton-current-columns, --comp-skeleton-current-height, --comp-skeleton-current-width | None | 3 | 0 |
+| Slider | pass | --comp-slider-percent | --comp-slider-percent | None | 1 | 0 |
+| Tabs | pass | None | None | --comp-tabs-indicator-left, --comp-tabs-indicator-width | 0 | 0 |
+| TreeView | pass | --comp-tree-view-level | --comp-tree-view-level | None | 1 | 0 |
+
+## Violations
+
+| Component | Rule | Location | Source |
+| --- | --- | --- | --- |
+| None | None | None | None |
+
