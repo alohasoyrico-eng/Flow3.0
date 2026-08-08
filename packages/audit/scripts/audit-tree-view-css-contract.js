@@ -68,10 +68,12 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
     packageCssFile,
     snippets: [
       "min-block-size: var(--comp-tree-view-control-min-block)",
-      "border-radius: var(--sys-frame-radius-container)",
-      "font-weight: var(--sys-voice-weight-bold)",
+      "border: var(--comp-tree-view-control-border-width) solid transparent",
+      "border-radius: var(--comp-tree-view-control-radius)",
+      "font-weight: var(--comp-tree-view-control-weight)",
+      "padding-inline: var(--comp-tree-view-control-padding-inline)",
     ],
-    message: "TreeView controls must consume component aliases and foundation tokens instead of local button geometry.",
+    message: "TreeView controls must consume component aliases instead of local button geometry or direct foundation tokens.",
   });
   requireIncludes({
     block: iconBlock,

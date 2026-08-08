@@ -6958,9 +6958,16 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .tree-view {
   --comp-tree-view-level: 1;
+  --comp-tree-view-text: var(--component-color-text);
+  --comp-tree-view-gap: calc(var(--component-space-xs) / 2);
   --comp-tree-view-padding: var(--component-space-sm);
   --comp-tree-view-indent: var(--component-space-lg);
   --comp-tree-view-control-min-block: var(--component-density-control-height);
+  --comp-tree-view-control-border-width: var(--component-border-width);
+  --comp-tree-view-control-radius: var(--component-radius-md);
+  --comp-tree-view-control-text: var(--component-color-text-muted);
+  --comp-tree-view-control-weight: var(--component-font-weight-bold);
+  --comp-tree-view-control-padding-inline: var(--component-space-sm) var(--component-space-md);
   --comp-tree-view-control-min-block-sm: var(--component-field-control-size-sm);
   --comp-tree-view-control-min-block-lg: var(--component-tree-control-min-block-size-lg);
   --comp-tree-view-icon-size-sm: var(--component-icon-size-sm-plus);
@@ -6971,8 +6978,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-selected-border: var(--component-border-transparent);
   --comp-tree-view-hover-bg: var(--component-energy-surface-primary);
   --comp-tree-view-hover-border: var(--component-energy-border-default);
+  --comp-tree-view-hover-text: var(--component-color-text);
   --comp-tree-view-hover-shadow: var(--component-tree-view-hover-shadow);
   --comp-tree-view-hover-transform: var(--component-transform-inline-nudge);
+  --comp-tree-view-focus-color: var(--component-color-focus);
   --comp-tree-view-expanded-text: var(--component-color-text);
   --comp-tree-view-motion-duration: var(--component-duration-medium);
   --comp-tree-view-motion-ease: var(--component-ease-move);
@@ -6981,9 +6990,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  color: var(--sys-color-text);
+  color: var(--comp-tree-view-text);
   display: grid;
-  gap: calc(var(--sys-space-xs) / 2);
+  gap: var(--comp-tree-view-gap);
   list-style: none;
   margin: 0;
   padding: var(--comp-tree-view-padding);
@@ -7011,15 +7020,15 @@ body[data-contrast="quiet"] .tree-view {
 .button.tree-view__control,
 .tree-view .button.tree-view__control {
   background: transparent;
-  border: var(--sys-frame-border-thin) solid transparent;
-  border-radius: var(--sys-frame-radius-container);
+  border: var(--comp-tree-view-control-border-width) solid transparent;
+  border-radius: var(--comp-tree-view-control-radius);
   box-shadow: none;
-  color: var(--sys-color-text-muted);
-  font-weight: var(--sys-voice-weight-bold);
+  color: var(--comp-tree-view-control-text);
+  font-weight: var(--comp-tree-view-control-weight);
   inline-size: 100%;
   justify-content: start;
   min-block-size: var(--comp-tree-view-control-min-block);
-  padding-inline: var(--sys-space-sm) var(--sys-space-md);
+  padding-inline: var(--comp-tree-view-control-padding-inline);
   transition:
     background-color var(--component-duration-state) var(--component-ease-state),
     border-color var(--component-duration-state) var(--component-ease-state),
@@ -7067,7 +7076,7 @@ body[data-contrast="quiet"] .tree-view {
 .tree-view__item[data-level="1"] > .tree-view__control,
 .tree-view__item[data-level="1"] > .button.tree-view__control,
 .tree-view .tree-view__item[data-level="1"] > .button.tree-view__control {
-  color: var(--sys-color-text);
+  color: var(--comp-tree-view-text);
 }
 
 .tree-view__item[data-selected="true"] .tree-view__control,
@@ -7091,14 +7100,14 @@ body[data-contrast="quiet"] .tree-view {
   background: var(--comp-tree-view-hover-bg);
   border-color: var(--comp-tree-view-hover-border);
   box-shadow: var(--comp-tree-view-hover-shadow);
-  color: var(--sys-color-text);
+  color: var(--comp-tree-view-hover-text);
   transform: var(--comp-tree-view-hover-transform);
 }
 
 .tree-view__control:focus-visible,
 .button.tree-view__control:focus-visible,
 .tree-view .button.tree-view__control:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
+  outline: var(--component-focus-ring-width) solid var(--comp-tree-view-focus-color);
   outline-offset: var(--component-focus-ring-offset);
 }
 
