@@ -9,6 +9,9 @@ export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "styl
   page?: number;
   pageCount: number;
   label?: string;
+  previousLabel?: string;
+  nextLabel?: string;
+  getPageLabel?: (page: number) => string;
   variant?: PaginationVariant;
   state?: PaginationState;
   density?: PaginationDensity;

@@ -23,6 +23,7 @@ function resolvePaginationItems(page, pages) {
 }
 
 function PaginationButton({ label, ariaLabel, icon, kind, page, current = false, disabled = false, onClick }) {
+  if (!label && !ariaLabel) return null;
   return React.createElement(
     "button",
     {

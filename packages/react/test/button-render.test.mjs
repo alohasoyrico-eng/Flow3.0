@@ -962,6 +962,8 @@ const unnamedPaginationMarkup = renderToStaticMarkup(React.createElement(Paginat
 }));
 assert.doesNotMatch(unnamedPaginationMarkup, /Pagination|Previous page|Next page|Page 1/);
 assert.doesNotMatch(unnamedPaginationMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label=/);
+assert.doesNotMatch(unnamedPaginationMarkup, /data-kind="prev"|data-kind="next"/);
+assert.doesNotMatch(unnamedPaginationMarkup, /class="pagination__icon"/);
 
 const tableColumns = [
   { key: "plate", label: "Plate", mono: true, sortable: true },
