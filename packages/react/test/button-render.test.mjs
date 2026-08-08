@@ -413,6 +413,13 @@ const inheritedChartPanelMarkup = renderToStaticMarkup(React.createElement(Chart
 }));
 assert.doesNotMatch(inheritedChartPanelMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedChartPanelMarkup, /Value 1|Series 1|Current|Previous/);
+const unlabeledBarsChartMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
+  label: "Unlabeled bars",
+  values: [1, 2, 3],
+  variant: "bars",
+}));
+assert.match(unlabeledBarsChartMarkup, /class="chart-panel__bar-group"/);
+assert.doesNotMatch(unlabeledBarsChartMarkup, /role="listitem"|tabindex="0"|data-tooltip="1"|data-tooltip="2"|data-tooltip="3"/);
 const emptyChartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
   label: "Empty chart",
 }));

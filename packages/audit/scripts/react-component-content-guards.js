@@ -30,6 +30,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "KpiTile" && !source.includes("const interactive = requestedInteraction && Boolean(accessibleLabel);")) add("errors", sourceFile, 1, "KpiTile must gate interactive behavior on an accessible label.");
   if (name === "List" && !source.includes("const itemCanInteract = isInteractive && Boolean(item.label || item.meta || item.value);")) add("errors", sourceFile, 1, "List must gate interactive rows on visible item content.");
   if (name === "Card" && !source.includes("const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction;")) add("errors", sourceFile, 1, "Card must gate interactive behavior on visible card content.");
+  if (name === "ChartPanel" && /labels\[index\]\s*\?\?\s*String\(index\)/.test(source)) add("errors", sourceFile, 1, "ChartPanel must not synthesize point labels from indexes.");
+  if (name === "ChartPanel" && !source.includes("role: pointLabel ? \"listitem\" : undefined")) add("errors", sourceFile, 1, "ChartPanel must gate focusable chart points on real point labels.");
 }
 
 module.exports = { checkReactComponentContentGuards };

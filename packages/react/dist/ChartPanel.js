@@ -54,15 +54,16 @@ function renderBars(values, labels) {
   const safeValues = normalizeValues(values);
   const max = Math.max(...safeValues, 1);
   return safeValues.map((value, index) => {
-    const text = labels[index] ? `${labels[index]}: ${value}` : String(value);
+    const pointLabel = labels[index];
+    const text = pointLabel ? `${pointLabel}: ${value}` : undefined;
     const percent = Math.max(8, Math.round((value / max) * 100));
     return React.createElement(
       "span",
       {
         key: index,
         className: "chart-panel__bar-group",
-        role: "listitem",
-        tabIndex: 0,
+        role: pointLabel ? "listitem" : undefined,
+        tabIndex: pointLabel ? 0 : undefined,
         "data-tooltip": text,
       },
       React.createElement(
@@ -70,7 +71,7 @@ function renderBars(values, labels) {
         { className: "chart-panel__bar-svg", viewBox: "0 0 12 100", preserveAspectRatio: "none", "aria-hidden": "true" },
         React.createElement("rect", { className: "chart-panel__bar", x: "0", y: String(100 - percent), width: "12", height: String(percent), "data-max": value === max ? "true" : undefined }),
       ),
-      labels[index] ? React.createElement("small", null, labels[index]) : null,
+      pointLabel ? React.createElement("small", null, pointLabel) : null,
     );
   });
 }
@@ -87,13 +88,16 @@ function renderDonut(values) {
 function renderBullet(values, labels) {
   const safeValues = normalizeValues(values);
   const max = Math.max(...safeValues, 1);
-  return safeValues.map((value, index) => React.createElement(
-    "span",
-    { key: index, className: "chart-panel__bullet", role: "listitem", tabIndex: 0, "data-tooltip": labels[index] ? `${labels[index]}: ${value}` : String(value) },
-    labels[index] ? React.createElement("b", null, labels[index]) : null,
-    React.createElement("progress", { className: "chart-panel__bullet-meter", max, value, tabIndex: -1, "aria-hidden": "true" }),
-    React.createElement("em", null, String(value)),
-  ));
+  return safeValues.map((value, index) => {
+    const pointLabel = labels[index];
+    return React.createElement(
+      "span",
+      { key: index, className: "chart-panel__bullet", role: pointLabel ? "listitem" : undefined, tabIndex: pointLabel ? 0 : undefined, "data-tooltip": pointLabel ? `${pointLabel}: ${value}` : undefined },
+      pointLabel ? React.createElement("b", null, pointLabel) : null,
+      React.createElement("progress", { className: "chart-panel__bullet-meter", max, value, tabIndex: -1, "aria-hidden": "true" }),
+      React.createElement("em", null, String(value)),
+    );
+  });
 }
 
 function renderComparison(comparisons, values, labels) {
@@ -123,7 +127,7 @@ function renderComparison(comparisons, values, labels) {
 }
 
 function renderPareto(values, labels) {
-  const sorted = normalizeValues(values).map((value, index) => ({ value, label: labels[index] ?? String(index) })).sort((a, b) => b.value - a.value);
+  const sorted = normalizeValues(values).map((value, index) => ({ value, label: labels[index] })).filter((item) => item.label).sort((a, b) => b.value - a.value);
   const max = Math.max(...sorted.map((item) => item.value), 1);
   return React.createElement(
     "svg",
