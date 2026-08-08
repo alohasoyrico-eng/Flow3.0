@@ -268,7 +268,7 @@ try {
     expectedLength: 4,
     revealLabel: "Reveal CVC",
     hideLabel: "Conceal CVC",
-    onValueChange: (digits, meta) => securityCodeChanges.push({ digits, meta }),
+    onValueChange: (digits, meta, event) => securityCodeChanges.push({ digits, meta, eventType: event.type }),
   }));
 
   const securityCodeInput = getSecurityCodeLabel(/security code/i, { selector: "input" });
@@ -279,6 +279,7 @@ try {
   assert.equal(securityCodeChanges.at(-1).meta.expectedLength, 4);
   assert.equal(securityCodeChanges.at(-1).meta.validity, "valid");
   assert.equal(securityCodeChanges.at(-1).meta.complete, true);
+  assert.equal(securityCodeChanges.at(-1).eventType, "change");
 
   const revealButton = getSecurityCodeRole("button", { name: /reveal cvc/i });
   assert.equal(securityCodeInput.type, "password");
@@ -293,7 +294,7 @@ try {
     revealed: false,
     revealLabel: "Reveal CVC",
     hideLabel: "Conceal CVC",
-    onValueChange: (digits, meta) => securityCodeChanges.push({ digits, meta }),
+    onValueChange: (digits, meta, event) => securityCodeChanges.push({ digits, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(securityCodeInput.value, "9876"));
   await waitFor(() => assert.equal(securityCodeInput.type, "password"));

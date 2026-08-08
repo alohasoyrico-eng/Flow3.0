@@ -129,7 +129,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
             validity: nextValidity,
             expectedLength: resolvedLength,
             complete: nextValidity === "valid",
-          });
+          }, event);
         },
       }),
       canReveal
