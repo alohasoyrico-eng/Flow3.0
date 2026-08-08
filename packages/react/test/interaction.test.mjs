@@ -950,6 +950,11 @@ try {
     onAction: (key) => dialogActions.push(key),
   }));
   await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "false"));
+  await waitFor(() => assert.equal(dialogTrigger.closest(".dialog").dataset.state, "closed"));
+  fireEvent.click(dialogTrigger);
+  assert.equal(dialogOpenChanges.at(-1).open, true);
+  assert.equal(dialogTrigger.getAttribute("aria-expanded"), "false");
+  assert.equal(dialogTrigger.closest(".dialog").dataset.state, "closed");
 
   cleanup();
 
