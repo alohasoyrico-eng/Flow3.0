@@ -50,7 +50,8 @@ export const List = forwardRef(function List({
       const rowState = normalizeFlowValue(isSelected ? "selected" : item.state ?? resolvedState, validStates, resolvedState);
       const rowTone = normalizeFlowValue(item.tone ?? (rowState === "error" ? "danger" : ""), validItemTones, "");
       const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
-      const Control = isInteractive ? "button" : "span";
+      const itemCanInteract = isInteractive && Boolean(item.label || item.meta || item.value);
+      const Control = itemCanInteract ? "button" : "span";
       return React.createElement(
         "li",
         { className: "list__row", key },
@@ -58,14 +59,14 @@ export const List = forwardRef(function List({
           Control,
           {
             className: "list__item",
-            type: isInteractive ? "button" : undefined,
-            disabled: isInteractive ? disabled : undefined,
+            type: itemCanInteract ? "button" : undefined,
+            disabled: itemCanInteract ? disabled : undefined,
             ...flowStateProps(rowState),
             ...flowToneProps(rowTone || undefined),
-            "data-key": isInteractive ? key : undefined,
+            "data-key": itemCanInteract ? key : undefined,
             "aria-current": rowState === "selected" ? "true" : undefined,
             "aria-busy": rowState === "loading" ? "true" : undefined,
-            onClick: isInteractive ? () => {
+            onClick: itemCanInteract ? () => {
               if (disabled) return;
               if (!isSelectedKeyControlled) setCurrentSelectedKey(key);
               onSelect?.(key);

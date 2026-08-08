@@ -596,6 +596,13 @@ const loadingListItemMarkup = renderToStaticMarkup(React.createElement(List, {
 }));
 assert.match(loadingListItemMarkup, /aria-busy="true"/);
 assert.doesNotMatch(loadingListItemMarkup, /Loading item/);
+const unnamedActionListMarkup = renderToStaticMarkup(React.createElement(List, {
+  variant: "action",
+  items: [{ key: "empty-action", icon: "more_horiz" }],
+  onSelect: () => {},
+}));
+assert.doesNotMatch(unnamedActionListMarkup, /<button/);
+assert.doesNotMatch(unnamedActionListMarkup, /data-key="empty-action"/);
 
 const kpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
   label: "Fuel spend",

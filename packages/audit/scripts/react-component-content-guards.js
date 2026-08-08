@@ -28,6 +28,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Table" && /"aria-label":\s*expandLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Table expander labels must be required before composing expandable controls.");
   if (name === "StationPin" && !source.includes("if (!accessibleLabel) return null;")) add("errors", sourceFile, 1, "StationPin must not render without an accessible label.");
   if (name === "KpiTile" && !source.includes("const interactive = requestedInteraction && Boolean(accessibleLabel);")) add("errors", sourceFile, 1, "KpiTile must gate interactive behavior on an accessible label.");
+  if (name === "List" && !source.includes("const itemCanInteract = isInteractive && Boolean(item.label || item.meta || item.value);")) add("errors", sourceFile, 1, "List must gate interactive rows on visible item content.");
 }
 
 module.exports = { checkReactComponentContentGuards };
