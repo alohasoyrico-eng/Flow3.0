@@ -14,7 +14,7 @@ export interface SliderValueMeta {
   min: number;
   max: number;
   step: number;
-  unit: string;
+  unit?: string;
 }
 
 export interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "type" | "value" | "defaultValue" | "onChange" | "onInput" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {

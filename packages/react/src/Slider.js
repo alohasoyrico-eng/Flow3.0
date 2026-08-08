@@ -26,7 +26,7 @@ function normalizeState({ disabled, state, dragging }) {
 function formatSliderValue({ value, initialValue, valueLabel, unit, formatValue }) {
   if (typeof formatValue === "function") return formatValue(Number(value));
   if (valueLabel && String(value) === String(initialValue)) return valueLabel;
-  return `${value}${unit}`;
+  return unit ? `${value}${unit}` : String(value);
 }
 
 export const Slider = forwardRef(function Slider({
@@ -38,10 +38,10 @@ export const Slider = forwardRef(function Slider({
   variant = "continuous",
   state = "default",
   density,
-  unit = "",
+  unit,
   disabled = false,
   name = "",
-  valueLabel = "",
+  valueLabel,
   formatValue,
   onValueChange,
   className = "",
