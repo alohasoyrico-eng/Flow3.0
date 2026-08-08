@@ -2152,6 +2152,9 @@ const dateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRange
     { label: "Last 7 days", days: 7 },
     { label: "Last 30 days", days: 30 },
   ],
+  calendarLabel: "Reporting range calendar",
+  previousMonthLabel: "Previous reporting month",
+  nextMonthLabel: "Next reporting month",
   density: "sm",
   state: "selected",
 }));
@@ -2174,6 +2177,9 @@ assert.match(dateRangePickerMarkup, /data-date-range-picker-from=""/);
 assert.match(dateRangePickerMarkup, /data-date-range-picker-to=""/);
 assert.match(dateRangePickerMarkup, /class="date-picker__panel date-range-picker__panel"/);
 assert.match(dateRangePickerMarkup, /role="dialog"/);
+assert.match(dateRangePickerMarkup, /aria-label="Reporting range calendar"/);
+assert.match(dateRangePickerMarkup, /aria-label="Previous reporting month"/);
+assert.match(dateRangePickerMarkup, /aria-label="Next reporting month"/);
 assert.match(dateRangePickerMarkup, /class="date-range-picker__presets"/);
 assert.match(dateRangePickerMarkup, /class="date-range-picker__preset"/);
 assert.match(dateRangePickerMarkup, /class="date-picker__grid date-range-picker__grid"/);
@@ -2191,12 +2197,12 @@ const inheritedDateRangePickerMarkup = renderToStaticMarkup(React.createElement(
 assert.doesNotMatch(inheritedDateRangePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const unnamedDateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker));
-assert.doesNotMatch(unnamedDateRangePickerMarkup, /Date range picker/);
-assert.doesNotMatch(unnamedDateRangePickerMarkup, /Date range calendar/);
-assert.doesNotMatch(unnamedDateRangePickerMarkup, /Start date/);
-assert.doesNotMatch(unnamedDateRangePickerMarkup, /End date/);
-assert.doesNotMatch(unnamedDateRangePickerMarkup, /Previous month|Next month/);
-assert.doesNotMatch(unnamedDateRangePickerMarkup, /date-range-picker__value/);
+assert.equal(unnamedDateRangePickerMarkup, "");
+const dateRangePickerWithoutNavLabelsMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
+  label: "Reporting range",
+  value: { from: "2026-07-01", to: "2026-07-15" },
+}));
+assert.doesNotMatch(dateRangePickerWithoutNavLabelsMarkup, /class="date-picker__nav"/);
 
 const closedDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   label: "Freeze card?",
