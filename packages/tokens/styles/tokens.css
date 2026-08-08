@@ -521,6 +521,10 @@
   --sys-frame-content-phone-input-flex-basis-compact: calc(var(--sys-space-11) * 3);
   --sys-frame-content-phone-input-min-inline: calc(var(--sys-space-11) * 2.5);
   --sys-frame-content-phone-input-min-inline-compact: calc(var(--sys-space-11) * 2);
+  --sys-frame-content-metric-min-xs: calc(var(--sys-space-11) * 2);
+  --sys-frame-content-metric-min-sm: calc(var(--sys-space-11) * 2.25);
+  --sys-frame-content-metric-min-md: calc(var(--sys-space-11) * 2.5);
+  --sys-frame-content-metric-min-lg: calc(var(--sys-space-11) * 3);
   --sys-frame-content-narrow: 100%;
   --sys-frame-content-prose: 100%;
   --sys-frame-content-prose-wide: 100%;

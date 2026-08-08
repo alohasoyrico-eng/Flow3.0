@@ -37,6 +37,20 @@ function checkCardSummaryCssContract({ text, blocks, packageCssFile, selectorKey
   if (/--card-summary-/.test(rootBlock?.body ?? "") || /var\(--card-summary-/.test(text)) {
     add("errors", packageCssFile, rootBlock ? lineNumber(text, rootBlock.index) : 1, "CardSummary must not create parallel --card-summary-* aliases; use --comp-card-summary-* aliases.");
   }
+  const localMetricSize = /--comp-card-summary-metric-min-(?:sm|md|lg):\s*calc\(var\(--component-control-min-size\)\s*\*\s*[\d.]+\)/.exec(text);
+  if (localMetricSize) {
+    add("errors", packageCssFile, lineNumber(text, localMetricSize.index), "CardSummary metric minimums must flow through shared Frame metric roles instead of local control-size multipliers.");
+  }
+  for (const snippet of [
+    "--comp-card-summary-metric-min-sm: var(--component-metric-min-inline-size-xs)",
+    "--comp-card-summary-metric-min-md: var(--component-metric-min-inline-size-md)",
+    "--comp-card-summary-metric-min-lg: var(--component-metric-min-inline-size-lg)",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "CardSummary metric minimum aliases must be defined from shared Frame metric roles.");
+      break;
+    }
+  }
 
   requireIncludes({
     block: rootBlock,

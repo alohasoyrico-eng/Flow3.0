@@ -42,6 +42,10 @@
   --component-phone-input-flex-basis-compact: var(--sys-frame-content-phone-input-flex-basis-compact);
   --component-phone-input-min-inline-size: var(--sys-frame-content-phone-input-min-inline);
   --component-phone-input-min-inline-size-compact: var(--sys-frame-content-phone-input-min-inline-compact);
+  --component-metric-min-inline-size-xs: var(--sys-frame-content-metric-min-xs);
+  --component-metric-min-inline-size-sm: var(--sys-frame-content-metric-min-sm);
+  --component-metric-min-inline-size-md: var(--sys-frame-content-metric-min-md);
+  --component-metric-min-inline-size-lg: var(--sys-frame-content-metric-min-lg);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -680,9 +684,9 @@
   --comp-card-summary-number-size-sm: var(--component-font-size-body);
   --comp-card-summary-number-size-md: var(--component-font-size-body-lg);
   --comp-card-summary-number-size-lg: var(--component-font-size-title-md);
-  --comp-card-summary-metric-min-sm: calc(var(--component-control-min-size) * 2);
-  --comp-card-summary-metric-min-md: calc(var(--component-control-min-size) * 2.5);
-  --comp-card-summary-metric-min-lg: calc(var(--component-control-min-size) * 3);
+  --comp-card-summary-metric-min-sm: var(--component-metric-min-inline-size-xs);
+  --comp-card-summary-metric-min-md: var(--component-metric-min-inline-size-md);
+  --comp-card-summary-metric-min-lg: var(--component-metric-min-inline-size-lg);
   --comp-card-summary-shadow-hover: var(--component-depth-card-hover);
   --comp-card-summary-shadow-active: var(--component-depth-raised-soft);
   --comp-card-summary-motion-duration: var(--component-duration-state);
@@ -7867,7 +7871,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-metric-display: grid;
   --comp-route-summary-metric-gap: var(--sys-space-sm);
   --comp-route-summary-metric-padding: var(--sys-space-md);
-  --comp-route-summary-metric-min: calc(var(--component-control-min-size) * 2.5);
+  --comp-route-summary-metric-min: var(--component-metric-min-inline-size-md);
   --comp-route-summary-description-color: var(--sys-color-text-muted);
   --comp-route-summary-metric-surface: color-mix(in srgb, var(--sys-color-surface-raised) 72%, var(--sys-color-surface));
   --comp-route-summary-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
@@ -7895,7 +7899,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-icon-size: var(--component-route-summary-icon-size-sm);
   --comp-route-summary-metric-gap: var(--sys-space-xs);
   --comp-route-summary-metric-padding: var(--sys-space-sm);
-  --comp-route-summary-metric-min: calc(var(--component-control-min-size) * 2.25);
+  --comp-route-summary-metric-min: var(--component-metric-min-inline-size-sm);
 }
 
 .route-summary[data-density="lg"] {
@@ -7904,7 +7908,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-icon-size: var(--component-route-summary-icon-size-lg);
   --comp-route-summary-metric-gap: var(--sys-space-md);
   --comp-route-summary-metric-padding: var(--sys-space-lg);
-  --comp-route-summary-metric-min: calc(var(--component-control-min-size) * 3);
+  --comp-route-summary-metric-min: var(--component-metric-min-inline-size-lg);
 }
 
 .route-summary[data-full-width="true"] {
@@ -7961,7 +7965,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-compact-header-flex: 1 1 auto;
   --comp-route-summary-compact-header-min-inline: 0;
   --comp-route-summary-padding: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
-  --comp-route-summary-metric-min: calc(var(--component-control-min-size) * 2);
+  --comp-route-summary-metric-min: var(--component-metric-min-inline-size-xs);
   align-items: var(--comp-route-summary-compact-align);
   border-color: var(--comp-route-summary-compact-border);
   box-shadow: var(--comp-route-summary-depth);
@@ -8014,7 +8018,7 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .route-summary[data-variant="compare"] {
-  --comp-route-summary-metric-min: calc(var(--component-control-min-size) * 3);
+  --comp-route-summary-metric-min: var(--component-metric-min-inline-size-lg);
 }
 
 .chart-panel[data-density="sm"] {

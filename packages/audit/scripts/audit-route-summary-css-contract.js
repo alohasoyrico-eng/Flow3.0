@@ -43,6 +43,10 @@ function checkRouteSummaryCssContract({ text, blocks, packageCssFile, selectorKe
   if (/\.route-summary__metrics,\s*\.card-summary__metrics\s*{/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".route-summary__metrics")), "RouteSummary metrics must not share a generic metrics block with CardSummary.");
   }
+  const localMetricSize = /--comp-route-summary-metric-min:\s*calc\(var\(--component-control-min-size\)\s*\*\s*[\d.]+\)/.exec(text);
+  if (localMetricSize) {
+    add("errors", packageCssFile, lineNumber(text, localMetricSize.index), "RouteSummary metric minimums must flow through shared Frame metric roles instead of local control-size multipliers.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -56,6 +60,7 @@ function checkRouteSummaryCssContract({ text, blocks, packageCssFile, selectorKe
       "--comp-route-summary-radius:",
       "--comp-route-summary-header-display: grid",
       "--comp-route-summary-metric-display: grid",
+      "--comp-route-summary-metric-min: var(--component-metric-min-inline-size-md)",
       "background: var(--comp-route-summary-bg)",
       "border: var(--comp-route-summary-border-width) solid var(--comp-route-summary-border)",
       "border-radius: var(--comp-route-summary-radius)",
@@ -86,6 +91,20 @@ function checkRouteSummaryCssContract({ text, blocks, packageCssFile, selectorKe
       message,
     });
   }
+  requireIncludes({
+    block: densitySmBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-route-summary-metric-min: var(--component-metric-min-inline-size-sm)"],
+    message: "RouteSummary small density must use the shared small metric Frame role.",
+  });
+  requireIncludes({
+    block: densityLgBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-route-summary-metric-min: var(--component-metric-min-inline-size-lg)"],
+    message: "RouteSummary large density must use the shared large metric Frame role.",
+  });
   requireIncludes({
     block: fullWidthBlock,
     text,
