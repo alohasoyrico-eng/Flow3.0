@@ -26,7 +26,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-dialog-panel-inline: var(--component-dialog-panel-inline)",
       "--comp-dialog-panel-padding: var(--component-space-lg)",
       "--comp-dialog-panel-gap: var(--component-space-md)",
-      "--comp-dialog-z-index: var(--sys-depth-z-dialog)",
+      "--comp-dialog-z-index: var(--component-z-dialog)",
       "--comp-dialog-enter-ease: var(--component-ease-enter)",
       "--comp-dialog-exit-ease: var(--component-ease-exit)",
     ],
@@ -85,7 +85,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
       add("errors", packageCssFile, 1, "Dialog density aliases must live on the root, not on the panel selector.");
     }
   }
-  if (/--comp-dialog-z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text) || /z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text)) {
+  if (/--comp-dialog-z-index:\s*var\(--component-z-dialog,\s*\d+\)/.test(text) || /z-index:\s*var\(--component-z-dialog,\s*\d+\)/.test(text) || /--comp-dialog-z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text) || /z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text)) {
     add("errors", packageCssFile, 1, "Dialog z-index must come directly from Depth tokens without literal fallbacks.");
   }
   if (/--comp-dialog-panel-inline:\s*min\(100%,\s*var\(--sys-frame-content-dialog/.test(text)) {

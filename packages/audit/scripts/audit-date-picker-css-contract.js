@@ -76,7 +76,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
       "border-radius: var(--comp-date-picker-panel-radius)",
       "box-shadow: var(--component-depth-date-panel)",
       "inline-size: var(--comp-date-picker-panel-inline-size)",
-      "z-index: var(--sys-depth-z-dropdown)",
+      "z-index: var(--component-z-dropdown)",
     ],
     message: "DatePicker panel must route shape and elevation through system/component tokens.",
   });

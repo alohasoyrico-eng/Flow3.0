@@ -37,7 +37,11 @@
   --component-radius-pill: var(--sys-frame-radius-full);
   --component-radius-control: calc(var(--sys-radius-md) + var(--sys-radius-sm));
   --component-radius-surface: var(--sys-frame-radius-surface);
+  --component-radius-md: var(--sys-radius-md);
   --component-radius-sm: var(--sys-frame-radius-sm);
+  --component-radius-full: var(--sys-radius-full);
+  --component-radius-md-plus-half-sm: calc(var(--component-radius-md) + var(--component-radius-sm) / 2);
+  --component-radius-md-emphasis: calc(var(--component-radius-md) * 1.5);
   --component-radius-none: 0;
   --component-ratio-half: var(--sys-frame-ratio-half);
   --component-field-gap: var(--sys-frame-gap-element);
@@ -429,9 +433,18 @@
   --component-depth-danger: var(--sys-elevation-modal);
   --component-depth-popover: var(--sys-elevation-popover);
   --component-depth-success-ring: 0 0 0 3px color-mix(in srgb, var(--sys-color-success) 12%, transparent);
+  --component-depth-card-rest: var(--sys-elevation-card, var(--component-depth-low-medium));
   --component-depth-toast: var(--sys-elevation-toast);
   --component-depth-card-hover: var(--sys-elevation-card-hover);
   --component-depth-date-panel: var(--sys-elevation-popover);
+  --component-depth-elevation-3: var(--sys-depth-elevation-3);
+  --component-backdrop-blur: var(--sys-depth-backdrop-blur);
+  --component-z-base: var(--sys-depth-z-base);
+  --component-z-raised: var(--sys-depth-z-raised);
+  --component-z-dialog: var(--sys-depth-z-dialog);
+  --component-z-overlay: var(--sys-depth-z-overlay);
+  --component-z-dropdown: var(--sys-depth-z-dropdown);
+  --component-touch-target-min: var(--sys-touch-target-min);
   --component-depth-live-rest: var(--sys-elevation-0);
   --component-depth-live-active: 0 0 0 var(--sys-space-xs) color-mix(in srgb, currentColor 14%, transparent);
   --component-depth-chart-halo: 0 0 0 var(--sys-space-xs) color-mix(in srgb, var(--comp-chart-panel-tone) 14%, transparent);
@@ -818,8 +831,8 @@
   --comp-card-border-error: color-mix(in srgb, var(--component-color-danger) 58%, var(--component-color-border));
   --comp-card-fg: var(--component-color-text);
   --comp-card-muted-fg: var(--component-color-text-muted);
-  --comp-card-shadow-rest: var(--sys-elevation-card, var(--component-depth-low-medium));
-  --comp-card-shadow-hover: var(--sys-elevation-card-hover, var(--component-depth-card-hover));
+  --comp-card-shadow-rest: var(--component-depth-card-rest);
+  --comp-card-shadow-hover: var(--component-depth-card-hover);
   --comp-card-shadow-selected: var(--component-depth-action-hover);
   --comp-card-shadow-error: var(--component-depth-danger);
   --comp-card-hover-transform: var(--component-transform-lift-hover);
@@ -872,7 +885,7 @@
   --comp-card-summary-padding-md: var(--component-space-lg);
   --comp-card-summary-padding-lg: var(--component-space-xl);
   --comp-card-summary-radius: var(--component-radius-surface);
-  --comp-card-summary-metric-radius: var(--sys-radius-md);
+  --comp-card-summary-metric-radius: var(--component-radius-md);
   --comp-card-summary-bg: var(--component-color-surface-sunken, var(--component-color-text));
   --comp-card-summary-bg-virtual: var(--component-color-action);
   --comp-card-summary-bg-compact: var(--component-color-surface);
@@ -965,7 +978,7 @@
   --comp-movement-row-gap-sm: var(--component-space-sm);
   --comp-movement-row-gap-md: var(--component-space-md);
   --comp-movement-row-gap-lg: var(--component-space-lg);
-  --comp-movement-row-radius: var(--sys-radius-md);
+  --comp-movement-row-radius: var(--component-radius-md);
   --comp-movement-row-bg: var(--component-surface-transparent);
   --comp-movement-row-bg-hover: var(--component-color-surface-raised);
   --comp-movement-row-text: var(--component-color-text);
@@ -981,7 +994,7 @@
   --comp-movement-row-icon-bg-danger: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
   --comp-movement-row-icon-fg-danger: var(--component-color-danger);
   --comp-movement-row-icon-size: var(--component-movement-icon-size);
-  --comp-movement-row-icon-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm) / 2);
+  --comp-movement-row-icon-radius: var(--component-radius-md-plus-half-sm);
   --comp-movement-row-icon-font-size: var(--component-icon-size-lg);
   --comp-movement-row-title-size: var(--component-font-size-label);
   --comp-movement-row-title-weight: var(--component-font-weight-semibold);
@@ -1035,8 +1048,8 @@
   --comp-icon-button-icon-size-lg: var(--component-font-size-icon-md);
   --comp-icon-button-icon-size: var(--component-icon-size-md-plus);
   --comp-icon-button-badge-size: var(--component-space-2);
-  --comp-icon-button-hover-scale: var(--sys-momentum-scale-hover);
-  --comp-icon-button-press-scale: var(--sys-momentum-scale-press);
+  --comp-icon-button-hover-scale: var(--component-scale-hover);
+  --comp-icon-button-press-scale: var(--component-scale-press);
   --comp-button-size-sm: var(--component-button-size-sm);
   --comp-button-size-md: var(--component-button-size-md);
   --comp-button-size-lg: var(--component-button-size-lg);
@@ -2826,7 +2839,7 @@ button.tag:disabled,
   --comp-tabs-indicator-pointer-events: var(--component-pointer-events-none);
   --comp-tabs-indicator-position: var(--component-position-absolute);
   --comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch);
-  --comp-tabs-indicator-z: var(--sys-depth-z-base);
+  --comp-tabs-indicator-z: var(--component-z-base);
   --comp-tabs-tab-align: var(--component-align-center);
   --comp-tabs-tab-bg: var(--component-surface-transparent);
   --comp-tabs-tab-border: var(--component-border-none);
@@ -2844,7 +2857,7 @@ button.tag:disabled,
   --comp-tabs-tab-padding-inline: var(--component-space-lg);
   --comp-tabs-tab-position: var(--component-position-relative);
   --comp-tabs-tab-transition: color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
-  --comp-tabs-tab-z: var(--sys-depth-z-raised);
+  --comp-tabs-tab-z: var(--component-z-raised);
   --comp-tabs-selected-fg: var(--component-color-action);
   --comp-tabs-selected-weight: var(--component-font-weight-extrabold);
   --comp-tabs-hover-fg: var(--component-color-text);
@@ -3100,7 +3113,7 @@ button.tag:disabled,
   visibility: hidden;
   white-space: normal;
   overflow-wrap: break-word;
-  z-index: var(--sys-depth-z-dropdown);
+  z-index: var(--component-z-dropdown);
 }
 
 .tooltip__bubble::before {
@@ -3211,7 +3224,7 @@ button.tag:disabled,
   --comp-toast-muted: color-mix(in srgb, var(--component-color-surface) 78%, transparent);
   --comp-toast-icon-fg: var(--component-color-surface);
   --comp-toast-action-fg: var(--component-color-action);
-  --comp-toast-shadow: var(--sys-depth-elevation-3);
+  --comp-toast-shadow: var(--component-depth-elevation-3);
   --comp-toast-motion-duration: var(--component-duration-state);
   --comp-toast-motion-enter-duration: var(--component-duration-enter);
   --comp-toast-motion-exit-duration: var(--component-duration-exit);
@@ -4101,12 +4114,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-skeleton-text-block-size: var(--component-symbol-size-marker);
   --comp-skeleton-title-width: 60%;
   --comp-skeleton-title-block-size: var(--component-symbol-size-md-plus);
-  --comp-skeleton-title-radius: var(--sys-radius-sm);
+  --comp-skeleton-title-radius: var(--component-radius-sm);
   --comp-skeleton-circle-width: var(--component-skeleton-circle-size);
   --comp-skeleton-pill-width: var(--component-content-size-xs);
   --comp-skeleton-pill-block-size: var(--component-skeleton-pill-block-size);
   --comp-skeleton-card-block-size: var(--component-skeleton-card-block-size);
-  --comp-skeleton-card-radius: var(--sys-radius-md);
+  --comp-skeleton-card-radius: var(--component-radius-md);
   --comp-skeleton-row-template: var(--component-skeleton-row-leading-size) minmax(0, 1fr) var(--component-block-size-sm);
   --comp-skeleton-row-min-block: var(--component-block-size-sm);
   --comp-skeleton-media-block-size: var(--component-block-size-md);
@@ -4803,7 +4816,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-target-decoration: var(--component-text-decoration-none);
   --comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg);
   --comp-breadcrumbs-target-padding-inline: var(--component-space-xs);
-  --comp-breadcrumbs-target-radius: var(--sys-radius-sm);
+  --comp-breadcrumbs-target-radius: var(--component-radius-sm);
   --comp-breadcrumbs-font-size: var(--component-font-size-small);
   --comp-breadcrumbs-target-fg: var(--component-color-text-muted);
   --comp-breadcrumbs-target-weight: var(--component-font-weight-extrabold);
@@ -5117,7 +5130,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-meta-gap-block: var(--component-space-xs);
   --comp-audit-event-meta-gap-inline: var(--component-space-sm);
   --comp-audit-event-meta-wrap: var(--component-flex-wrap-wrap);
-  --comp-audit-event-radius: var(--sys-radius-md);
+  --comp-audit-event-radius: var(--component-radius-md);
   --comp-audit-event-status-align: var(--component-align-center);
   --comp-audit-event-status-border: color-mix(in srgb, var(--comp-audit-event-tone) 28%, var(--component-color-border));
   --comp-audit-event-title-size: var(--component-font-size-body);
@@ -5293,7 +5306,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-error-panel-radius: var(--component-radius-control);
   --comp-error-panel-depth: var(--component-depth-none);
   --comp-error-panel-blocking-depth: var(--component-depth-danger);
-  --comp-error-panel-inline-radius: var(--sys-radius-md);
+  --comp-error-panel-inline-radius: var(--component-radius-md);
   --comp-error-panel-fg: var(--component-color-text);
   --comp-error-panel-disabled-border: var(--component-disabled-border);
   --comp-error-panel-disabled-fg: var(--component-disabled-text);
@@ -5784,8 +5797,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .drawer {
   --comp-drawer-gap: var(--component-space-sm);
   --comp-drawer-overlay-bg: color-mix(in srgb, var(--component-color-text) 40%, transparent);
-  --comp-drawer-overlay-blur: var(--sys-depth-backdrop-blur);
-  --comp-drawer-z-index: var(--sys-depth-z-dialog);
+  --comp-drawer-overlay-blur: var(--component-backdrop-blur);
+  --comp-drawer-z-index: var(--component-z-dialog);
   --comp-drawer-panel-bg: var(--component-color-surface);
   --comp-drawer-panel-border-width: var(--component-border-width);
   --comp-drawer-panel-border: var(--component-color-border);
@@ -5822,8 +5835,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .dialog {
   --comp-dialog-gap: var(--component-space-sm);
   --comp-dialog-overlay-bg: color-mix(in srgb, var(--component-color-text) 40%, transparent);
-  --comp-dialog-overlay-blur: var(--sys-depth-backdrop-blur);
-  --comp-dialog-z-index: var(--sys-depth-z-dialog);
+  --comp-dialog-overlay-blur: var(--component-backdrop-blur);
+  --comp-dialog-z-index: var(--component-z-dialog);
   --comp-dialog-panel-bg: var(--component-color-surface);
   --comp-dialog-panel-border-width: var(--component-border-width);
   --comp-dialog-panel-border: var(--component-color-border);
@@ -5858,12 +5871,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .dialog__overlay,
 .drawer__overlay {
   background: color-mix(in srgb, var(--sys-color-text) 40%, transparent);
-  backdrop-filter: blur(var(--sys-depth-backdrop-blur));
+  backdrop-filter: blur(var(--component-backdrop-blur));
   display: grid;
   inset: 0;
   place-items: center;
   position: fixed;
-  z-index: var(--sys-depth-z-dialog);
+  z-index: var(--component-z-dialog);
 }
 
 .drawer__overlay {
@@ -6033,7 +6046,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-radius: var(--component-radius-surface);
   --comp-menu-panel-depth: var(--component-depth-popover);
   --comp-menu-panel-offset: var(--component-space-xs);
-  --comp-menu-panel-z-index: var(--sys-depth-z-overlay);
+  --comp-menu-panel-z-index: var(--component-z-overlay);
   --comp-menu-panel-gap: var(--component-space-xs);
   --comp-menu-item-bg: var(--component-surface-transparent);
   --comp-menu-item-fg: var(--component-color-text);
@@ -6044,7 +6057,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-disabled-opacity: var(--component-opacity-disabled);
   --comp-menu-item-height: var(--component-option-min-block-size);
   --comp-menu-item-padding-x: var(--component-space-sm);
-  --comp-menu-item-radius: var(--sys-radius-sm);
+  --comp-menu-item-radius: var(--component-radius-sm);
   --comp-menu-item-gap: var(--component-space-xs);
   --comp-menu-item-font-family: var(--component-font-family-inherit);
   --comp-menu-item-font-size: var(--component-font-size-label);
@@ -6061,15 +6074,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-trigger-avatar-bg: var(--component-surface-transparent);
   --comp-menu-trigger-avatar-border-width: var(--component-border-width);
   --comp-menu-trigger-avatar-border: var(--component-border-transparent);
-  --comp-menu-trigger-avatar-radius: var(--sys-radius-full);
+  --comp-menu-trigger-avatar-radius: var(--component-radius-full);
   --comp-menu-trigger-avatar-fg: var(--component-color-text);
-  --comp-menu-trigger-avatar-size: var(--sys-touch-target-min);
+  --comp-menu-trigger-avatar-size: var(--component-touch-target-min);
   --comp-menu-trigger-avatar-padding: var(--component-space-2xs);
   --comp-menu-trigger-avatar-hover-bg: var(--component-color-surface-muted);
   --comp-menu-trigger-avatar-hover-border: var(--component-color-border-strong);
   --comp-menu-focus-ring: var(--component-focus-ring);
   --comp-menu-focus-ring-offset: var(--component-focus-ring-offset);
-  --comp-menu-active-scale: var(--sys-momentum-scale-press);
+  --comp-menu-active-scale: var(--component-scale-press);
   --comp-menu-enter-duration: var(--component-duration-enter);
   --comp-menu-enter-ease: var(--component-ease-enter);
   --comp-menu-state-duration: var(--component-duration-snappy);
@@ -6084,7 +6097,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .menu[data-density="sm"] {
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-sm);
   --comp-menu-panel-padding: calc(var(--component-space-xs) / 2);
-  --comp-menu-panel-radius: var(--sys-radius-md);
+  --comp-menu-panel-radius: var(--component-radius-md);
   --comp-menu-item-height: var(--component-inline-size-md);
   --comp-menu-item-padding-x: var(--component-space-xs);
   --comp-menu-item-radius: var(--component-radius-sm);
@@ -6099,7 +6112,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-radius: var(--component-radius-surface);
   --comp-menu-item-height: var(--component-inline-size-lg);
   --comp-menu-item-padding-x: var(--component-space-md);
-  --comp-menu-item-radius: var(--sys-radius-md);
+  --comp-menu-item-radius: var(--component-radius-md);
   --comp-menu-item-gap: var(--component-space-sm);
   --comp-menu-item-font-size: var(--component-font-size-body);
   --comp-menu-item-icon-size: var(--component-icon-size-md);
@@ -6569,7 +6582,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-motion-boundary-gap: var(--component-space-md);
   --comp-motion-boundary-surface-bg: var(--component-color-surface);
   --comp-motion-boundary-surface-border: color-mix(in srgb, var(--component-color-border) 82%, transparent);
-  --comp-motion-boundary-surface-radius: calc(var(--sys-radius-md) * 1.5);
+  --comp-motion-boundary-surface-radius: var(--component-radius-md-emphasis);
   --comp-motion-boundary-surface-shadow: var(--component-depth-panel);
   --comp-motion-boundary-surface-padding: var(--component-space-lg);
   --comp-motion-boundary-text: var(--component-color-text);
@@ -6627,7 +6640,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .animated-moment {
   --comp-motion-boundary-surface-bg: var(--component-color-surface);
   --comp-motion-boundary-surface-border: color-mix(in srgb, var(--component-color-border) 82%, transparent);
-  --comp-motion-boundary-surface-radius: calc(var(--sys-radius-md) * 1.5);
+  --comp-motion-boundary-surface-radius: var(--component-radius-md-emphasis);
   --comp-motion-boundary-surface-shadow: var(--component-depth-panel);
   --comp-motion-boundary-surface-padding: var(--component-space-lg);
   --comp-motion-boundary-text: var(--component-color-text);
@@ -8374,7 +8387,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__bar-group {
   align-items: stretch;
   block-size: 100%;
-  border-radius: var(--sys-radius-sm);
+  border-radius: var(--component-radius-sm);
   display: grid;
   flex: 1;
   gap: var(--sys-space-xs);
@@ -8551,7 +8564,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   font-size: var(--component-font-size-title-md);
   font-weight: var(--sys-voice-weight-extrabold);
   position: relative;
-  z-index: var(--sys-depth-z-raised);
+  z-index: var(--component-z-raised);
 }
 
 .chart-panel[data-variant="bullet"] .chart-panel__plot {
@@ -8565,7 +8578,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__bullet {
   align-items: center;
-  border-radius: var(--sys-radius-sm);
+  border-radius: var(--component-radius-sm);
   display: grid;
   gap: var(--sys-space-sm);
   grid-template-columns: minmax(4.5rem, 0.8fr) minmax(6rem, 1fr) auto;
@@ -8590,7 +8603,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   appearance: none;
   background: color-mix(in srgb, var(--sys-color-border) 28%, transparent);
   border: 0;
-  border-radius: var(--sys-radius-sm);
+  border-radius: var(--component-radius-sm);
   block-size: var(--component-inline-size-sm);
   inline-size: 100%;
   overflow: hidden;
@@ -8598,17 +8611,17 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__bullet-meter::-webkit-progress-bar {
   background: color-mix(in srgb, var(--sys-color-border) 28%, transparent);
-  border-radius: var(--sys-radius-sm);
+  border-radius: var(--component-radius-sm);
 }
 
 .chart-panel__bullet-meter::-webkit-progress-value {
   background: var(--comp-chart-panel-tone);
-  border-radius: var(--sys-radius-sm);
+  border-radius: var(--component-radius-sm);
 }
 
 .chart-panel__bullet-meter::-moz-progress-bar {
   background: var(--comp-chart-panel-tone);
-  border-radius: var(--sys-radius-sm);
+  border-radius: var(--component-radius-sm);
 }
 
 .chart-panel__bullet em {
@@ -8628,7 +8641,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   align-items: end;
   background: transparent;
   block-size: 100%;
-  border-radius: var(--sys-radius-sm);
+  border-radius: var(--component-radius-sm);
   display: inline-flex;
   flex: 1;
   gap: var(--component-focus-ring-width);
@@ -8650,7 +8663,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__bullet[data-tooltip]::after,
 .chart-panel__comparison-group[data-tooltip]::after {
   background: var(--sys-color-text);
-  border-radius: var(--sys-radius-sm);
+  border-radius: var(--component-radius-sm);
   box-shadow: var(--component-depth-action-hover);
   color: var(--sys-color-surface);
   content: attr(data-tooltip);
@@ -8756,7 +8769,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__tooltip {
   background: var(--sys-chart-tooltip-background);
-  border-radius: var(--sys-radius-sm);
+  border-radius: var(--component-radius-sm);
   box-shadow: var(--component-depth-action-hover);
   color: var(--sys-chart-tooltip-foreground);
   font-size: var(--component-font-size-caption);
@@ -9003,7 +9016,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .route-summary__metrics span {
   background: var(--comp-route-summary-metric-surface);
   border: var(--comp-route-summary-border-width) solid var(--comp-route-summary-metric-border);
-  border-radius: var(--sys-radius-md);
+  border-radius: var(--component-radius-md);
   display: grid;
   gap: var(--sys-space-xs);
   padding: var(--comp-route-summary-metric-padding);
@@ -9629,7 +9642,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
     transform var(--comp-select-overlay-motion-duration) var(--comp-select-overlay-motion-ease),
     visibility var(--component-duration-instant) var(--component-ease-linear) var(--comp-select-overlay-motion-duration);
   visibility: hidden;
-  z-index: var(--sys-depth-z-overlay);
+  z-index: var(--component-z-overlay);
 }
 
 .country-selector__listbox,
@@ -10086,7 +10099,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   transition:
     opacity var(--component-duration-state) var(--component-ease-state),
     transform var(--component-duration-state) var(--component-ease-state);
-  z-index: var(--sys-depth-z-dropdown);
+  z-index: var(--component-z-dropdown);
 }
 
 .date-picker[data-open="true"] .date-picker__panel {
@@ -10306,7 +10319,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-bg: var(--component-color-surface);
   --comp-segmented-control-border: var(--component-color-border);
   --comp-segmented-control-border-width: calc(var(--component-border-width) * 2);
-  --comp-segmented-control-radius: var(--sys-radius-sm);
+  --comp-segmented-control-radius: var(--component-radius-sm);
   --comp-segmented-control-inner-radius: calc(var(--comp-segmented-control-radius) - var(--component-frame-space-micro));
   --comp-segmented-control-inline-size: min(100%, var(--component-segmented-control-inline-size));
   --comp-segmented-control-padding: calc(var(--component-space-xs) / 2);
@@ -10329,13 +10342,13 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-justify: var(--component-justify-center);
   --comp-segmented-control-item-min-inline: var(--component-inline-size-zero);
   --comp-segmented-control-item-position: var(--component-position-relative);
-  --comp-segmented-control-item-z: var(--sys-depth-z-raised);
+  --comp-segmented-control-item-z: var(--component-z-raised);
   --comp-segmented-control-item-selected-fg: var(--component-color-action);
   --comp-segmented-control-item-weight: var(--component-font-weight-semibold);
   --comp-segmented-control-item-selected-weight: var(--component-font-weight-extrabold);
   --comp-segmented-control-icon-selected-variation: var(--component-icon-variation-filled-strong);
   --comp-segmented-control-content-position: var(--component-position-relative);
-  --comp-segmented-control-content-z: var(--sys-depth-z-raised);
+  --comp-segmented-control-content-z: var(--component-z-raised);
   --comp-segmented-control-icon-line-height: var(--component-line-height-none);
   --comp-segmented-control-label-overflow: var(--component-overflow-hidden);
   --comp-segmented-control-label-text-overflow: var(--component-text-overflow-ellipsis);
@@ -10506,7 +10519,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-popover-panel-radius: var(--component-radius-control);
   --comp-popover-panel-depth: var(--component-depth-popover);
   --comp-popover-panel-fg: var(--component-color-text);
-  --comp-popover-panel-z-index: var(--sys-depth-z-dropdown);
+  --comp-popover-panel-z-index: var(--component-z-dropdown);
   --comp-popover-enter-duration: var(--component-duration-enter);
   --comp-popover-enter-ease: var(--component-ease-enter);
   --comp-popover-title-family: var(--component-font-family-title);
@@ -10628,7 +10641,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-card-summary-brand-weight: var(--component-font-weight-black);
   --comp-card-summary-chip-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 24%, transparent);
   --comp-card-summary-chip-display: var(--component-display-inline-block);
-  --comp-card-summary-chip-radius: var(--sys-radius-sm);
+  --comp-card-summary-chip-radius: var(--component-radius-sm);
   --comp-card-summary-current-bg: var(--comp-card-summary-bg);
   --comp-card-summary-current-chip-block: var(--comp-card-summary-chip-block-md);
   --comp-card-summary-current-chip-inline: var(--comp-card-summary-chip-inline-md);
@@ -10889,7 +10902,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .card-summary__frost {
   align-items: center;
-  backdrop-filter: blur(var(--sys-depth-backdrop-blur));
+  backdrop-filter: blur(var(--component-backdrop-blur));
   background: color-mix(in srgb, var(--sys-color-surface) 18%, transparent);
   color: var(--sys-color-action-text);
   display: inline-flex;
