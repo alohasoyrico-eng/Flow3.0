@@ -41,7 +41,7 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
     text,
     packageCssFile,
     snippets: [
-      "--comp-kpi-tile-bg: var(--sys-color-surface)",
+      "--comp-kpi-tile-bg: var(--component-color-surface)",
       "--comp-kpi-tile-border-width: var(--component-border-width)",
       "--comp-kpi-tile-depth: var(--component-depth-panel)",
       "--comp-kpi-tile-padding:",

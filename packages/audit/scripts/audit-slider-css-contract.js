@@ -42,7 +42,7 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-slider-fg: var(--sys-color-text)",
+      "--comp-slider-fg: var(--component-color-text)",
       "--comp-slider-track-size: var(--component-slider-track-size-md)",
       "--comp-slider-touch-size: var(--component-slider-touch-size-md)",
       "--comp-slider-thumb-border-width: calc(var(--component-border-width) * 3)",

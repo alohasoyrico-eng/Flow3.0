@@ -60,7 +60,7 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
     text,
     packageCssFile,
     snippets: [
-      "--comp-chart-panel-bg: var(--sys-color-surface)",
+      "--comp-chart-panel-bg: var(--component-color-surface)",
       "--comp-chart-panel-border-width: var(--component-border-width)",
       "--comp-chart-panel-depth: var(--component-depth-panel)",
       "--comp-chart-panel-display: var(--component-display-grid)",

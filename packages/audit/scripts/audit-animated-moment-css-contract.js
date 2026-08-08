@@ -26,7 +26,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "--comp-animated-moment-accent: var(--sys-color-action)",
+      "--comp-animated-moment-accent: var(--component-color-action)",
       "--comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 4.5)",
       "--comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9)",
       "--comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38)",

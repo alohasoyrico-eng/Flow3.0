@@ -57,7 +57,7 @@ function checkInlineValidationCssContract({ text, blocks, packageCssFile, select
     text,
     packageCssFile,
     snippets: [
-      "--comp-inline-validation-color: var(--sys-color-text)",
+      "--comp-inline-validation-color: var(--component-color-text)",
       "--comp-inline-validation-display: var(--component-display-grid)",
       "--comp-inline-validation-gap: var(--component-space-xs)",
       "--comp-inline-validation-full-width: var(--component-inline-size-full)",

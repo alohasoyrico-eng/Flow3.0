@@ -58,7 +58,7 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
     block: successBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-progress-indicator-tone: var(--sys-color-success)"],
+    snippets: ["--comp-progress-indicator-tone: var(--component-color-success)"],
     message: "Progress Indicator success tone must resolve through its tone alias.",
   });
   requireIncludes({

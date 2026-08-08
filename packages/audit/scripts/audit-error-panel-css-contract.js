@@ -36,7 +36,7 @@ function checkErrorPanelCssContract({ text, blocks, packageCssFile, selectorKey,
     text,
     packageCssFile,
     snippets: [
-      "--comp-error-panel-bg: var(--sys-color-surface)",
+      "--comp-error-panel-bg: var(--component-color-surface)",
       "--comp-error-panel-border-width: var(--component-border-width)",
       "--comp-error-panel-depth: var(--component-depth-none)",
       "--comp-error-panel-icon-bg:",

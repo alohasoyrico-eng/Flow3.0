@@ -53,7 +53,7 @@ function checkRouteSummaryCssContract({ text, blocks, packageCssFile, selectorKe
     text,
     packageCssFile,
     snippets: [
-      "--comp-route-summary-bg: var(--sys-color-surface)",
+      "--comp-route-summary-bg: var(--component-color-surface)",
       "--comp-route-summary-border-width: var(--component-border-width)",
       "--comp-route-summary-depth: var(--component-depth-panel)",
       "--comp-route-summary-display: var(--component-display-grid)",

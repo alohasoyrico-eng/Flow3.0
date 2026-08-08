@@ -43,7 +43,7 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-menu-panel-bg: var(--sys-color-surface)",
+      "--comp-menu-panel-bg: var(--component-color-surface)",
       "--comp-menu-panel-border-width: var(--component-border-width)",
       "--comp-menu-panel-depth: var(--component-depth-popover)",
       "--comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-md)",

@@ -32,7 +32,7 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
     packageCssFile,
     snippets: [
       "--comp-motion-boundary-gap: var(--component-space-md)",
-      "--comp-motion-boundary-surface-bg: var(--sys-color-surface)",
+      "--comp-motion-boundary-surface-bg: var(--component-color-surface)",
       "--comp-motion-boundary-icon-size: var(--component-inline-size-lg)",
       "--comp-motion-boundary-cue-inline-size: var(--component-motion-cue-inline-size)",
       "--comp-motion-boundary-cue-duration: var(--component-duration-medium)",
@@ -50,7 +50,7 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "--comp-motion-boundary-surface-bg: var(--sys-color-surface)",
+      "--comp-motion-boundary-surface-bg: var(--component-color-surface)",
       "background: var(--comp-motion-boundary-surface-bg)",
       "border-radius: var(--comp-motion-boundary-surface-radius)",
       "box-shadow: var(--comp-motion-boundary-surface-shadow)",
@@ -63,7 +63,7 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "--comp-motion-boundary-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface))",
+      "--comp-motion-boundary-icon-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface))",
       "background: var(--comp-motion-boundary-icon-bg)",
       "font-size: var(--comp-motion-boundary-icon-font-size)",
       "min-block-size: var(--comp-motion-boundary-icon-size)",
@@ -87,7 +87,7 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "--comp-motion-boundary-cue-bg: var(--sys-color-action)",
+      "--comp-motion-boundary-cue-bg: var(--component-color-action)",
       "background: var(--comp-motion-boundary-cue-bg)",
       "border-radius: var(--comp-motion-boundary-cue-radius)",
     ],

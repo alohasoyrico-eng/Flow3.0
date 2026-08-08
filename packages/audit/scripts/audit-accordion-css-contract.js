@@ -38,7 +38,7 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
     text,
     packageCssFile,
     snippets: [
-      "--comp-accordion-bg: var(--sys-color-surface)",
+      "--comp-accordion-bg: var(--component-color-surface)",
       "--comp-accordion-border-width: var(--component-border-width)",
       "--comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-md)",
       "--comp-accordion-trigger-font-weight: var(--sys-voice-weight-bold)",

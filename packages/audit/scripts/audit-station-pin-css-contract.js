@@ -162,9 +162,9 @@ function checkStationPinCssContract({ text, blocks, packageCssFile, selectorKey,
     text,
     packageCssFile,
     snippets: [
-      "--comp-station-pin-bg: var(--sys-color-surface-raised)",
-      "--comp-station-pin-fg: var(--sys-color-text-muted)",
-      "--comp-station-pin-marker-fg: var(--sys-color-text-muted)",
+      "--comp-station-pin-bg: var(--component-color-surface-raised)",
+      "--comp-station-pin-fg: var(--component-color-text-muted)",
+      "--comp-station-pin-marker-fg: var(--component-color-text-muted)",
     ],
     message: "StationPin unavailable state must set unavailable aliases.",
   });

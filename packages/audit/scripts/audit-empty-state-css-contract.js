@@ -32,7 +32,7 @@ function checkEmptyStateCssContract({ text, blocks, packageCssFile, selectorKey,
     text,
     packageCssFile,
     snippets: [
-      "--comp-empty-state-fg: var(--sys-color-text)",
+      "--comp-empty-state-fg: var(--component-color-text)",
       "--comp-empty-state-icon-bg:",
       "--comp-empty-state-title-family: var(--sys-font-title)",
       "--comp-empty-state-description-line-height: var(--sys-voice-line-height-normal)",

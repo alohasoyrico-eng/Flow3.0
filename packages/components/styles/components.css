@@ -105,6 +105,24 @@
   --component-overflow-wrap-anywhere: anywhere;
   --component-font-style-normal: normal;
   --component-animation-name-pulse: component-pulse;
+  --component-color-action: var(--sys-color-action);
+  --component-color-action-hover: var(--sys-color-action-hover);
+  --component-color-action-text: var(--sys-color-action-text);
+  --component-color-bg: var(--sys-color-bg);
+  --component-color-border: var(--sys-color-border);
+  --component-color-border-strong: var(--sys-color-border-strong);
+  --component-color-danger: var(--sys-color-danger);
+  --component-color-focus: var(--sys-color-focus);
+  --component-color-info: var(--sys-color-info);
+  --component-color-success: var(--sys-color-success);
+  --component-color-surface: var(--sys-color-surface);
+  --component-color-surface-muted: var(--sys-color-surface-muted);
+  --component-color-surface-raised: var(--sys-color-surface-raised);
+  --component-color-surface-sunken: var(--sys-color-surface-sunken);
+  --component-color-text: var(--sys-color-text);
+  --component-color-text-muted: var(--sys-color-text-muted);
+  --component-color-text-subtle: var(--sys-color-text-subtle);
+  --component-color-warning: var(--sys-color-warning);
   --component-content-size-xs: calc(var(--component-control-min-size) * 4);
   --component-content-size-sm: calc(var(--component-control-min-size) * 6);
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
@@ -415,32 +433,32 @@
   --comp-input-action-size: calc(var(--component-density-control-height) - var(--component-space-lg));
   --comp-input-gap: var(--component-field-gap);
   --comp-input-padding-x: var(--component-space-lg);
-  --comp-input-helper-fg: var(--sys-color-text-muted);
+  --comp-input-helper-fg: var(--component-color-text-muted);
   --comp-text-area-min-block: var(--component-textarea-min-block);
   --comp-text-area-padding-block: var(--component-space-md);
   --comp-text-area-padding-inline: var(--component-space-lg);
   --comp-text-area-counter-padding-block-end: var(--component-frame-gap-subsection);
   --comp-text-area-counter-inset-block: var(--component-space-sm);
   --comp-text-area-counter-inset-inline: var(--component-density-control-padding-x);
-  --comp-text-area-bg: var(--sys-color-surface);
-  --comp-text-area-bg-muted: var(--sys-color-surface-raised);
-  --comp-text-area-bg-error: color-mix(in srgb, var(--sys-color-danger) 9%, var(--sys-color-surface));
-  --comp-text-area-border: var(--sys-color-border);
-  --comp-text-area-border-hover: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
-  --comp-text-area-border-focus: var(--sys-color-action);
-  --comp-text-area-border-error: var(--sys-color-danger);
-  --comp-text-area-fg: var(--sys-color-text);
+  --comp-text-area-bg: var(--component-color-surface);
+  --comp-text-area-bg-muted: var(--component-color-surface-raised);
+  --comp-text-area-bg-error: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
+  --comp-text-area-border: var(--component-color-border);
+  --comp-text-area-border-hover: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
+  --comp-text-area-border-focus: var(--component-color-action);
+  --comp-text-area-border-error: var(--component-color-danger);
+  --comp-text-area-fg: var(--component-color-text);
   --comp-text-area-radius: var(--component-radius-control);
   --comp-text-area-font-size: var(--component-font-size-label);
   --comp-text-area-font-weight: var(--sys-voice-weight-medium);
   --comp-text-area-line-height: var(--sys-voice-line-height-relaxed);
-  --comp-text-area-counter-fg: var(--sys-color-text-muted);
-  --comp-text-area-counter-error-fg: var(--sys-color-danger);
+  --comp-text-area-counter-fg: var(--component-color-text-muted);
+  --comp-text-area-counter-error-fg: var(--component-color-danger);
   --comp-text-area-counter-family: var(--sys-voice-family-mono);
   --comp-text-area-counter-size: var(--component-font-size-micro);
   --comp-text-area-counter-weight: var(--sys-voice-weight-medium);
   --comp-text-area-focus-width: var(--component-focus-ring-width);
-  --comp-text-area-focus-color: color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  --comp-text-area-focus-color: color-mix(in srgb, var(--component-color-action) 35%, transparent);
   --comp-text-area-focus-offset: var(--component-focus-ring-offset);
   --comp-text-area-motion-duration: var(--component-duration-state);
   --comp-text-area-motion-ease: var(--component-ease-state);
@@ -453,35 +471,35 @@
   --comp-code-input-slot-font-size-sm: var(--component-font-size-title-md);
   --comp-code-input-slot-font-size-md: var(--component-font-size-title-md);
   --comp-code-input-slot-font-size-lg: var(--component-font-size-icon-md);
-  --comp-code-input-helper-fg: var(--sys-color-text-muted);
+  --comp-code-input-helper-fg: var(--component-color-text-muted);
   --comp-code-input-input-font-size: var(--component-font-size-body);
   --comp-code-input-slot-gap-sm: var(--component-space-xs);
   --comp-code-input-slot-gap-md: var(--component-space-sm);
-  --comp-code-input-bg: var(--sys-color-surface);
-  --comp-code-input-fg: var(--sys-color-text);
-  --comp-code-input-border: var(--sys-color-border);
-  --comp-code-input-border-hover: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
-  --comp-code-input-border-filled: color-mix(in srgb, var(--sys-color-text) 18%, var(--sys-color-border));
-  --comp-code-input-border-active: var(--sys-color-focus);
+  --comp-code-input-bg: var(--component-color-surface);
+  --comp-code-input-fg: var(--component-color-text);
+  --comp-code-input-border: var(--component-color-border);
+  --comp-code-input-border-hover: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
+  --comp-code-input-border-filled: color-mix(in srgb, var(--component-color-text) 18%, var(--component-color-border));
+  --comp-code-input-border-active: var(--component-color-focus);
   --comp-code-input-radius: var(--component-radius-control);
   --comp-code-input-font-family: var(--sys-voice-family-mono);
   --comp-code-input-font-weight: var(--sys-voice-weight-semibold);
   --comp-code-input-focus-width: var(--component-focus-ring-width);
-  --comp-code-input-focus-color: var(--sys-color-focus);
+  --comp-code-input-focus-color: var(--component-color-focus);
   --comp-code-input-focus-offset: var(--component-focus-ring-offset);
   --comp-code-input-hover-shadow: var(--component-depth-low-soft);
   --comp-code-input-hover-transform: var(--component-transform-lift-sm);
-  --comp-code-input-complete-bg: color-mix(in srgb, var(--sys-color-success) 9%, var(--sys-color-surface));
-  --comp-code-input-complete-border: color-mix(in srgb, var(--sys-color-success) 42%, var(--sys-color-border));
+  --comp-code-input-complete-bg: color-mix(in srgb, var(--component-color-success) 9%, var(--component-color-surface));
+  --comp-code-input-complete-border: color-mix(in srgb, var(--component-color-success) 42%, var(--component-color-border));
   --comp-code-input-complete-shadow: var(--component-depth-success-ring);
-  --comp-code-input-warning-bg: color-mix(in srgb, var(--sys-color-warning) 10%, var(--sys-color-surface));
-  --comp-code-input-warning-border: color-mix(in srgb, var(--sys-color-warning) 38%, var(--sys-color-border));
-  --comp-code-input-error-bg: color-mix(in srgb, var(--sys-color-danger) 9%, var(--sys-color-surface));
-  --comp-code-input-error-border: var(--sys-color-danger);
-  --comp-code-input-disabled-bg: var(--sys-color-surface-raised);
+  --comp-code-input-warning-bg: color-mix(in srgb, var(--component-color-warning) 10%, var(--component-color-surface));
+  --comp-code-input-warning-border: color-mix(in srgb, var(--component-color-warning) 38%, var(--component-color-border));
+  --comp-code-input-error-bg: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
+  --comp-code-input-error-border: var(--component-color-danger);
+  --comp-code-input-disabled-bg: var(--component-color-surface-raised);
   --comp-code-input-dot-size: var(--component-field-gap);
   --comp-code-input-dot-radius: var(--component-radius-pill);
-  --comp-code-input-caret-bg: var(--sys-color-action);
+  --comp-code-input-caret-bg: var(--component-color-action);
   --comp-code-input-caret-radius: var(--component-radius-pill);
   --comp-code-input-caret-block-size: var(--component-inline-size-sm);
   --comp-code-input-caret-inline-size: var(--component-focus-ring-offset);
@@ -500,19 +518,19 @@
   --comp-phone-input-font-size-compact: var(--component-font-size-small);
   --comp-phone-input-font-weight: var(--sys-voice-weight-semibold);
   --comp-phone-input-letter-spacing: var(--sys-voice-letter-spacing-wide);
-  --comp-phone-input-focus-border: var(--sys-color-action);
+  --comp-phone-input-focus-border: var(--component-color-action);
   --comp-phone-input-focus-width: var(--component-focus-ring-width);
-  --comp-phone-input-focus-color: color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  --comp-phone-input-focus-color: color-mix(in srgb, var(--component-color-action) 35%, transparent);
   --comp-phone-input-focus-offset: var(--component-focus-ring-offset);
-  --comp-phone-input-otp-border: color-mix(in srgb, var(--sys-color-action) 30%, var(--sys-color-border));
+  --comp-phone-input-otp-border: color-mix(in srgb, var(--component-color-action) 30%, var(--component-color-border));
   --comp-phone-input-otp-shadow: var(--component-depth-action-halo);
-  --comp-phone-input-otp-helper-fg: var(--sys-color-action);
-  --comp-phone-input-helper-fg: var(--sys-color-text-muted);
-  --comp-phone-input-readonly-bg: var(--sys-color-surface-raised);
-  --comp-phone-input-warning-bg: color-mix(in srgb, var(--sys-color-warning) 9%, var(--sys-color-surface));
-  --comp-phone-input-warning-border: color-mix(in srgb, var(--sys-color-warning) 42%, var(--sys-color-border));
-  --comp-phone-input-error-bg: color-mix(in srgb, var(--sys-color-danger) 9%, var(--sys-color-surface));
-  --comp-phone-input-error-border: var(--sys-color-danger);
+  --comp-phone-input-otp-helper-fg: var(--component-color-action);
+  --comp-phone-input-helper-fg: var(--component-color-text-muted);
+  --comp-phone-input-readonly-bg: var(--component-color-surface-raised);
+  --comp-phone-input-warning-bg: color-mix(in srgb, var(--component-color-warning) 9%, var(--component-color-surface));
+  --comp-phone-input-warning-border: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-border));
+  --comp-phone-input-error-bg: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
+  --comp-phone-input-error-border: var(--component-color-danger);
   --component-slider-track-size-sm: calc(var(--sys-space-sm) - var(--component-frame-space-micro));
   --component-slider-track-size-md: var(--sys-space-sm);
   --component-slider-track-size-lg: calc(var(--sys-space-sm) + var(--component-frame-space-micro));
@@ -547,21 +565,21 @@
   --comp-checkbox-gap-lg: var(--component-space-md);
   --comp-checkbox-padding-block: var(--component-space-xs);
   --comp-checkbox-radius: var(--component-radius-sm);
-  --comp-checkbox-bg: var(--sys-color-surface);
-  --comp-checkbox-border: var(--sys-color-border);
-  --comp-checkbox-checked-bg: var(--sys-color-action);
-  --comp-checkbox-checked-border: var(--sys-color-action);
-  --comp-checkbox-error-bg: var(--sys-color-danger);
-  --comp-checkbox-error-border: var(--sys-color-danger);
-  --comp-checkbox-hover-border: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
-  --comp-checkbox-indicator-fg: var(--sys-color-action-text);
+  --comp-checkbox-bg: var(--component-color-surface);
+  --comp-checkbox-border: var(--component-color-border);
+  --comp-checkbox-checked-bg: var(--component-color-action);
+  --comp-checkbox-checked-border: var(--component-color-action);
+  --comp-checkbox-error-bg: var(--component-color-danger);
+  --comp-checkbox-error-border: var(--component-color-danger);
+  --comp-checkbox-hover-border: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
+  --comp-checkbox-indicator-fg: var(--component-color-action-text);
   --comp-checkbox-focus-width: var(--component-focus-ring-width);
-  --comp-checkbox-focus-color: var(--sys-color-focus);
+  --comp-checkbox-focus-color: var(--component-color-focus);
   --comp-checkbox-focus-offset: var(--component-focus-ring-offset);
   --comp-checkbox-label-weight: var(--sys-voice-weight-bold);
   --comp-checkbox-description-size: var(--component-font-size-label);
-  --comp-checkbox-description-fg: var(--sys-color-text-muted);
-  --comp-checkbox-error-fg: var(--sys-color-danger);
+  --comp-checkbox-description-fg: var(--component-color-text-muted);
+  --comp-checkbox-error-fg: var(--component-color-danger);
   --comp-checkbox-error-weight: var(--sys-voice-weight-bold);
   --comp-checkbox-motion-duration: var(--component-duration-state);
   --comp-checkbox-motion-press-duration: var(--component-duration-press);
@@ -589,21 +607,21 @@
   --comp-switch-gap-lg: var(--component-space-md);
   --comp-switch-padding-block: var(--component-space-xs);
   --comp-switch-radius: var(--component-radius-pill);
-  --comp-switch-track-bg: var(--sys-color-border);
-  --comp-switch-track-on-bg: var(--sys-color-action);
-  --comp-switch-thumb-bg: var(--sys-color-action-text);
+  --comp-switch-track-bg: var(--component-color-border);
+  --comp-switch-track-on-bg: var(--component-color-action);
+  --comp-switch-thumb-bg: var(--component-color-action-text);
   --comp-switch-thumb-shadow: var(--component-depth-low);
   --comp-switch-hover-shadow: var(--component-depth-raised);
-  --comp-switch-error-bg: color-mix(in srgb, var(--sys-color-danger) 14%, var(--sys-color-border));
-  --comp-switch-error-on-bg: var(--sys-color-danger);
+  --comp-switch-error-bg: color-mix(in srgb, var(--component-color-danger) 14%, var(--component-color-border));
+  --comp-switch-error-on-bg: var(--component-color-danger);
   --comp-switch-error-shadow: var(--component-depth-error-ring);
   --comp-switch-focus-width: var(--component-focus-ring-width);
-  --comp-switch-focus-color: var(--sys-color-focus);
+  --comp-switch-focus-color: var(--component-color-focus);
   --comp-switch-focus-offset: var(--component-focus-ring-offset);
   --comp-switch-label-weight: var(--sys-voice-weight-bold);
   --comp-switch-description-size: var(--component-font-size-label);
-  --comp-switch-description-fg: var(--sys-color-text-muted);
-  --comp-switch-error-fg: var(--sys-color-danger);
+  --comp-switch-description-fg: var(--component-color-text-muted);
+  --comp-switch-error-fg: var(--component-color-danger);
   --comp-switch-error-weight: var(--sys-voice-weight-bold);
   --comp-switch-motion-duration: var(--component-duration-state);
   --comp-switch-motion-press-duration: var(--component-duration-press);
@@ -623,22 +641,22 @@
   --comp-radio-button-gap-lg: var(--component-space-md);
   --comp-radio-button-padding-block: var(--component-space-xs);
   --comp-radio-button-radius: var(--component-radius-pill);
-  --comp-radio-button-bg: var(--sys-color-surface);
-  --comp-radio-button-border: var(--sys-color-border);
-  --comp-radio-button-selected-bg: var(--sys-color-surface);
-  --comp-radio-button-selected-border: var(--sys-color-action);
-  --comp-radio-button-dot-bg: var(--sys-color-action);
-  --comp-radio-button-error-bg: color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface));
-  --comp-radio-button-error-border: var(--sys-color-danger);
-  --comp-radio-button-error-dot-bg: var(--sys-color-danger);
-  --comp-radio-button-hover-border: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
+  --comp-radio-button-bg: var(--component-color-surface);
+  --comp-radio-button-border: var(--component-color-border);
+  --comp-radio-button-selected-bg: var(--component-color-surface);
+  --comp-radio-button-selected-border: var(--component-color-action);
+  --comp-radio-button-dot-bg: var(--component-color-action);
+  --comp-radio-button-error-bg: color-mix(in srgb, var(--component-color-danger) 8%, var(--component-color-surface));
+  --comp-radio-button-error-border: var(--component-color-danger);
+  --comp-radio-button-error-dot-bg: var(--component-color-danger);
+  --comp-radio-button-hover-border: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
   --comp-radio-button-focus-width: var(--component-focus-ring-width);
-  --comp-radio-button-focus-color: var(--sys-color-focus);
+  --comp-radio-button-focus-color: var(--component-color-focus);
   --comp-radio-button-focus-offset: var(--component-focus-ring-offset);
   --comp-radio-button-label-weight: var(--sys-voice-weight-bold);
   --comp-radio-button-description-size: var(--component-font-size-label);
-  --comp-radio-button-description-fg: var(--sys-color-text-muted);
-  --comp-radio-button-error-fg: var(--sys-color-danger);
+  --comp-radio-button-description-fg: var(--component-color-text-muted);
+  --comp-radio-button-error-fg: var(--component-color-danger);
   --comp-radio-button-error-weight: var(--sys-voice-weight-bold);
   --comp-radio-button-motion-duration: var(--component-duration-state);
   --comp-radio-button-motion-press-duration: var(--component-duration-press);
@@ -674,21 +692,21 @@
   --comp-list-meta-size-md: var(--component-font-size-small);
   --comp-list-meta-size-lg: var(--component-font-size-label);
   --comp-list-bg: var(--component-surface-transparent);
-  --comp-list-fg: var(--sys-color-text);
-  --comp-list-muted-fg: var(--sys-color-text-muted);
-  --comp-list-border: var(--sys-color-border);
+  --comp-list-fg: var(--component-color-text);
+  --comp-list-muted-fg: var(--component-color-text-muted);
+  --comp-list-border: var(--component-color-border);
   --comp-list-radius: var(--component-radius-control);
   --comp-list-shadow: var(--component-depth-panel);
-  --comp-list-hover-bg: color-mix(in srgb, var(--sys-color-action) 6%, var(--sys-color-surface));
-  --comp-list-selected-bg: color-mix(in srgb, var(--sys-color-action) 8%, var(--sys-color-surface));
-  --comp-list-selected-accent: var(--sys-color-action);
-  --comp-list-danger-bg: color-mix(in srgb, var(--sys-color-danger) 7%, var(--sys-color-surface));
-  --comp-list-icon-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  --comp-list-icon-fg: var(--sys-color-action);
-  --comp-list-icon-danger-bg: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
-  --comp-list-icon-danger-fg: var(--sys-color-danger);
+  --comp-list-hover-bg: color-mix(in srgb, var(--component-color-action) 6%, var(--component-color-surface));
+  --comp-list-selected-bg: color-mix(in srgb, var(--component-color-action) 8%, var(--component-color-surface));
+  --comp-list-selected-accent: var(--component-color-action);
+  --comp-list-danger-bg: color-mix(in srgb, var(--component-color-danger) 7%, var(--component-color-surface));
+  --comp-list-icon-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
+  --comp-list-icon-fg: var(--component-color-action);
+  --comp-list-icon-danger-bg: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
+  --comp-list-icon-danger-fg: var(--component-color-danger);
   --comp-list-focus-width: var(--component-focus-ring-width);
-  --comp-list-focus-color: var(--sys-color-focus);
+  --comp-list-focus-color: var(--component-color-focus);
   --comp-list-focus-offset: var(--component-focus-ring-offset);
   --comp-list-disabled-opacity: var(--component-opacity-disabled);
   --comp-list-motion-duration: var(--component-duration-snappy);
@@ -711,10 +729,10 @@
   --comp-floating-action-button-padding-x: var(--component-density-control-padding-x);
   --comp-floating-action-button-gap: var(--component-space-sm);
   --comp-floating-action-button-radius: var(--component-radius-pill);
-  --comp-floating-action-button-bg: var(--sys-color-action);
-  --comp-floating-action-button-bg-hover: var(--sys-color-action-hover);
-  --comp-floating-action-button-accent-bg: var(--sys-color-success);
-  --comp-floating-action-button-text: var(--sys-color-action-text);
+  --comp-floating-action-button-bg: var(--component-color-action);
+  --comp-floating-action-button-bg-hover: var(--component-color-action-hover);
+  --comp-floating-action-button-accent-bg: var(--component-color-success);
+  --comp-floating-action-button-text: var(--component-color-action-text);
   --comp-floating-action-button-shadow: var(--component-depth-raised);
   --comp-floating-action-button-shadow-hover: var(--component-depth-raised-strong);
   --comp-floating-action-button-font-weight: var(--sys-voice-weight-extrabold);
@@ -724,7 +742,7 @@
   --comp-floating-action-button-hover-transform: var(--component-transform-lift-hover);
   --comp-floating-action-button-press-transform: var(--component-transform-rest-quiet);
   --comp-floating-action-button-focus-width: var(--component-focus-ring-width);
-  --comp-floating-action-button-focus-color: var(--sys-color-focus);
+  --comp-floating-action-button-focus-color: var(--component-color-focus);
   --comp-floating-action-button-focus-offset: var(--component-focus-ring-offset);
   --comp-floating-action-button-disabled-opacity: var(--sys-disabled-readable-opacity);
   --component-error-panel-icon-size: var(--component-list-icon-box-size);
@@ -754,15 +772,15 @@
   --comp-card-minimal-gap: calc(var(--component-space-xs) / 2) calc(var(--component-space-sm) + var(--component-border-width) * 2);
   --comp-card-elevated-gap: var(--component-space-xs);
   --comp-card-radius: var(--component-radius-surface);
-  --comp-card-bg: var(--sys-color-surface);
-  --comp-card-bg-muted: color-mix(in srgb, var(--sys-color-surface) 72%, var(--sys-color-bg));
-  --comp-card-bg-selected: color-mix(in srgb, var(--sys-color-action) 7%, var(--sys-color-surface));
-  --comp-card-border: color-mix(in srgb, var(--sys-color-border) 82%, transparent);
-  --comp-card-border-hover: color-mix(in srgb, var(--sys-color-action) 18%, var(--sys-color-border));
-  --comp-card-border-selected: color-mix(in srgb, var(--sys-color-action) 42%, var(--sys-color-border));
-  --comp-card-border-error: color-mix(in srgb, var(--sys-color-danger) 58%, var(--sys-color-border));
-  --comp-card-fg: var(--sys-color-text);
-  --comp-card-muted-fg: var(--sys-color-text-muted);
+  --comp-card-bg: var(--component-color-surface);
+  --comp-card-bg-muted: color-mix(in srgb, var(--component-color-surface) 72%, var(--component-color-bg));
+  --comp-card-bg-selected: color-mix(in srgb, var(--component-color-action) 7%, var(--component-color-surface));
+  --comp-card-border: color-mix(in srgb, var(--component-color-border) 82%, transparent);
+  --comp-card-border-hover: color-mix(in srgb, var(--component-color-action) 18%, var(--component-color-border));
+  --comp-card-border-selected: color-mix(in srgb, var(--component-color-action) 42%, var(--component-color-border));
+  --comp-card-border-error: color-mix(in srgb, var(--component-color-danger) 58%, var(--component-color-border));
+  --comp-card-fg: var(--component-color-text);
+  --comp-card-muted-fg: var(--component-color-text-muted);
   --comp-card-shadow-rest: var(--sys-elevation-card, var(--component-depth-low-medium));
   --comp-card-shadow-hover: var(--sys-elevation-card-hover, var(--component-depth-card-hover));
   --comp-card-shadow-selected: var(--component-depth-action-hover);
@@ -781,16 +799,16 @@
   --comp-card-value-size-sm: var(--component-font-size-title-sm);
   --comp-card-value-size-md: var(--component-font-size-title-md);
   --comp-card-value-size-lg: var(--component-font-size-title-lg);
-  --comp-card-status-bg: color-mix(in srgb, var(--sys-color-action) 9%, var(--sys-color-surface));
-  --comp-card-status-border: color-mix(in srgb, var(--sys-color-action) 20%, var(--sys-color-border));
-  --comp-card-status-fg: var(--sys-color-text);
+  --comp-card-status-bg: color-mix(in srgb, var(--component-color-action) 9%, var(--component-color-surface));
+  --comp-card-status-border: color-mix(in srgb, var(--component-color-action) 20%, var(--component-color-border));
+  --comp-card-status-fg: var(--component-color-text);
   --comp-card-status-radius: var(--component-radius-pill);
   --comp-card-status-size: var(--component-font-size-caption);
   --comp-card-status-weight: var(--sys-voice-weight-extrabold);
   --comp-card-status-padding-block: var(--component-space-xs);
   --comp-card-status-padding-inline: var(--component-space-sm);
-  --comp-card-icon-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  --comp-card-icon-fg: var(--sys-color-action);
+  --comp-card-icon-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
+  --comp-card-icon-fg: var(--component-color-action);
   --comp-card-icon-radius: var(--component-radius-pill);
   --comp-card-header-gap: var(--component-space-md);
   --comp-card-heading-gap: var(--component-space-sm);
@@ -801,9 +819,9 @@
   --comp-card-minimal-icon-size: var(--component-font-size-title-md);
   --comp-card-minimal-detail-size: var(--component-font-size-small);
   --comp-card-elevated-detail-size: var(--component-font-size-small);
-  --comp-card-ghost-fg: var(--sys-color-surface);
+  --comp-card-ghost-fg: var(--component-color-surface);
   --comp-card-ghost-text-size: var(--component-font-size-small);
-  --comp-card-focus-color: var(--sys-color-focus);
+  --comp-card-focus-color: var(--component-color-focus);
   --comp-card-focus-width: var(--component-focus-ring-width);
   --comp-card-focus-offset: var(--component-focus-ring-offset);
   --comp-card-motion-duration: var(--component-duration-state);
@@ -818,16 +836,16 @@
   --comp-card-summary-padding-lg: var(--component-space-xl);
   --comp-card-summary-radius: var(--component-radius-surface);
   --comp-card-summary-metric-radius: var(--sys-radius-md);
-  --comp-card-summary-bg: var(--sys-color-surface-sunken, var(--sys-color-text));
-  --comp-card-summary-bg-virtual: var(--sys-color-action);
-  --comp-card-summary-bg-compact: var(--sys-color-surface);
-  --comp-card-summary-fg: var(--sys-color-action-text);
-  --comp-card-summary-fg-compact: var(--sys-color-text);
+  --comp-card-summary-bg: var(--component-color-surface-sunken, var(--component-color-text));
+  --comp-card-summary-bg-virtual: var(--component-color-action);
+  --comp-card-summary-bg-compact: var(--component-color-surface);
+  --comp-card-summary-fg: var(--component-color-action-text);
+  --comp-card-summary-fg-compact: var(--component-color-text);
   --comp-card-summary-muted: color-mix(in srgb, var(--comp-card-summary-fg) 62%, transparent);
-  --comp-card-summary-muted-compact: var(--sys-color-text-muted);
-  --comp-card-summary-tone: var(--sys-color-action);
-  --comp-card-summary-tone-virtual: var(--sys-color-info, var(--sys-color-action));
-  --comp-card-summary-tone-warning: var(--sys-color-warning);
+  --comp-card-summary-muted-compact: var(--component-color-text-muted);
+  --comp-card-summary-tone: var(--component-color-action);
+  --comp-card-summary-tone-virtual: var(--component-color-info, var(--component-color-action));
+  --comp-card-summary-tone-warning: var(--component-color-warning);
   --comp-card-summary-icon-size-sm: var(--component-icon-size-lg);
   --comp-card-summary-icon-size-md: var(--component-inline-size-sm);
   --comp-card-summary-icon-size-lg: calc(var(--component-inline-size-sm) + var(--component-offset-xs));
@@ -851,7 +869,7 @@
   --comp-card-summary-motion-press-ease: var(--component-ease-press);
   --comp-card-summary-hover-transform: var(--component-transform-lift-hover);
   --comp-card-summary-focus-width: var(--component-focus-ring-width);
-  --comp-card-summary-focus-color: var(--sys-color-focus);
+  --comp-card-summary-focus-color: var(--component-color-focus);
   --comp-card-summary-focus-offset: var(--component-focus-ring-offset);
   --comp-card-summary-disabled-border: var(--component-disabled-border);
   --comp-card-summary-disabled-text: var(--component-disabled-text);
@@ -870,20 +888,20 @@
   --comp-table-body-size-lg: var(--component-font-size-body);
   --comp-table-min-inline-size: min(var(--component-content-size-lg), 100%);
   --comp-table-border-width: var(--component-border-width);
-  --comp-table-border: var(--sys-color-border);
-  --comp-table-header-bg: color-mix(in srgb, var(--sys-color-surface-raised) 80%, var(--sys-color-surface));
-  --comp-table-header-fg: var(--sys-color-text-muted);
+  --comp-table-border: var(--component-color-border);
+  --comp-table-header-bg: color-mix(in srgb, var(--component-color-surface-raised) 80%, var(--component-color-surface));
+  --comp-table-header-fg: var(--component-color-text-muted);
   --comp-table-header-weight: var(--sys-voice-weight-extrabold);
   --comp-table-header-transform: var(--sys-voice-transform-uppercase);
-  --comp-table-row-hover-bg: color-mix(in srgb, var(--sys-color-action) 5%, var(--sys-color-surface));
-  --comp-table-row-selected-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  --comp-table-row-selected-accent: var(--sys-color-action);
+  --comp-table-row-hover-bg: color-mix(in srgb, var(--component-color-action) 5%, var(--component-color-surface));
+  --comp-table-row-selected-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
+  --comp-table-row-selected-accent: var(--component-color-action);
   --comp-table-row-selected-rail-width: var(--component-focus-ring-width);
-  --comp-table-focus-color: var(--sys-color-focus);
+  --comp-table-focus-color: var(--component-color-focus);
   --comp-table-focus-width: var(--component-focus-ring-width);
   --comp-table-focus-offset: var(--component-focus-ring-offset);
   --comp-table-detail-bg: var(--comp-table-header-bg);
-  --comp-table-detail-fg: var(--sys-color-text-muted);
+  --comp-table-detail-fg: var(--component-color-text-muted);
   --comp-table-detail-padding-block: var(--component-space-md);
   --comp-table-sort-gap: var(--component-space-2xs);
   --comp-table-sort-icon-size: var(--component-font-size-body);
@@ -893,8 +911,8 @@
   --comp-table-expander-cell-gap: var(--component-space-sm);
   --comp-table-expander-cell-padding-inline-end: var(--component-frame-space-none);
   --comp-table-expander-icon-size: var(--component-font-size-body);
-  --comp-table-expander-fg: var(--sys-color-text-muted);
-  --comp-table-expander-active-fg: var(--sys-color-action);
+  --comp-table-expander-fg: var(--component-color-text-muted);
+  --comp-table-expander-active-fg: var(--component-color-action);
   --comp-table-expander-expanded-transform: var(--component-transform-rotate-quarter);
   --comp-table-motion-duration: var(--component-duration-snappy);
   --comp-table-motion-ease: var(--component-ease-state);
@@ -912,19 +930,19 @@
   --comp-movement-row-gap-lg: var(--component-space-lg);
   --comp-movement-row-radius: var(--sys-radius-md);
   --comp-movement-row-bg: var(--component-surface-transparent);
-  --comp-movement-row-bg-hover: var(--sys-color-surface-raised);
-  --comp-movement-row-text: var(--sys-color-text);
-  --comp-movement-row-muted: var(--sys-color-text-muted);
-  --comp-movement-row-icon-bg: var(--sys-color-surface-raised);
-  --comp-movement-row-icon-fg: var(--sys-color-text-muted);
-  --comp-movement-row-icon-bg-fuel: color-mix(in srgb, var(--sys-color-warning) 14%, var(--sys-color-surface));
-  --comp-movement-row-icon-fg-fuel: color-mix(in srgb, var(--sys-color-warning) 58%, var(--sys-color-text));
-  --comp-movement-row-icon-bg-success: color-mix(in srgb, var(--sys-color-success) 12%, var(--sys-color-surface));
-  --comp-movement-row-icon-fg-success: var(--sys-color-success);
-  --comp-movement-row-icon-bg-action: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  --comp-movement-row-icon-fg-action: var(--sys-color-action);
-  --comp-movement-row-icon-bg-danger: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
-  --comp-movement-row-icon-fg-danger: var(--sys-color-danger);
+  --comp-movement-row-bg-hover: var(--component-color-surface-raised);
+  --comp-movement-row-text: var(--component-color-text);
+  --comp-movement-row-muted: var(--component-color-text-muted);
+  --comp-movement-row-icon-bg: var(--component-color-surface-raised);
+  --comp-movement-row-icon-fg: var(--component-color-text-muted);
+  --comp-movement-row-icon-bg-fuel: color-mix(in srgb, var(--component-color-warning) 14%, var(--component-color-surface));
+  --comp-movement-row-icon-fg-fuel: color-mix(in srgb, var(--component-color-warning) 58%, var(--component-color-text));
+  --comp-movement-row-icon-bg-success: color-mix(in srgb, var(--component-color-success) 12%, var(--component-color-surface));
+  --comp-movement-row-icon-fg-success: var(--component-color-success);
+  --comp-movement-row-icon-bg-action: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
+  --comp-movement-row-icon-fg-action: var(--component-color-action);
+  --comp-movement-row-icon-bg-danger: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
+  --comp-movement-row-icon-fg-danger: var(--component-color-danger);
   --comp-movement-row-icon-size: var(--component-movement-icon-size);
   --comp-movement-row-icon-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm) / 2);
   --comp-movement-row-icon-font-size: var(--component-icon-size-lg);
@@ -935,15 +953,15 @@
   --comp-movement-row-amount-size: var(--component-font-size-label);
   --comp-movement-row-amount-weight: var(--sys-voice-weight-semibold);
   --comp-movement-row-status-size: var(--component-font-size-micro);
-  --comp-movement-row-status-warning: color-mix(in srgb, var(--sys-color-warning) 58%, var(--sys-color-text));
-  --comp-movement-row-status-danger: var(--sys-color-danger);
+  --comp-movement-row-status-warning: color-mix(in srgb, var(--component-color-warning) 58%, var(--component-color-text));
+  --comp-movement-row-status-danger: var(--component-color-danger);
   --comp-movement-row-motion-duration: var(--component-duration-state);
   --comp-movement-row-motion-press-duration: var(--component-duration-press);
   --comp-movement-row-motion-ease: var(--component-ease-state);
   --comp-movement-row-motion-press-ease: var(--component-ease-press);
   --comp-movement-row-press-transform: var(--component-transform-rest-quiet);
   --comp-movement-row-focus-width: var(--component-focus-ring-width);
-  --comp-movement-row-focus-color: var(--sys-color-focus);
+  --comp-movement-row-focus-color: var(--component-color-focus);
   --comp-movement-row-focus-offset: var(--component-focus-ring-offset);
   --comp-movement-row-disabled-opacity: var(--component-opacity-disabled);
   --component-dialog-icon-size: var(--component-control-min-size);
@@ -1076,34 +1094,34 @@
   --comp-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
   --comp-button-spinner-tone: currentColor;
   --comp-button-icon-color: currentColor;
-  --comp-button-bg-primary: var(--sys-color-action);
-  --comp-button-fg-primary: var(--sys-color-action-text);
-  --comp-button-bg-primary-hover: var(--sys-color-action-hover);
-  --comp-button-bg-secondary: var(--sys-color-surface);
-  --comp-button-border-secondary: var(--sys-color-text);
-  --comp-button-fg-secondary: var(--sys-color-text);
-  --comp-button-bg-secondary-hover: var(--sys-color-surface-raised);
-  --comp-button-border-secondary-hover: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
-  --comp-button-bg-danger: var(--sys-color-danger);
-  --comp-button-fg-danger: var(--sys-color-action-text);
-  --comp-button-bg-tertiary: var(--sys-color-surface-raised);
+  --comp-button-bg-primary: var(--component-color-action);
+  --comp-button-fg-primary: var(--component-color-action-text);
+  --comp-button-bg-primary-hover: var(--component-color-action-hover);
+  --comp-button-bg-secondary: var(--component-color-surface);
+  --comp-button-border-secondary: var(--component-color-text);
+  --comp-button-fg-secondary: var(--component-color-text);
+  --comp-button-bg-secondary-hover: var(--component-color-surface-raised);
+  --comp-button-border-secondary-hover: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
+  --comp-button-bg-danger: var(--component-color-danger);
+  --comp-button-fg-danger: var(--component-color-action-text);
+  --comp-button-bg-tertiary: var(--component-color-surface-raised);
   --comp-button-border-tertiary: var(--component-border-transparent);
-  --comp-button-fg-tertiary: var(--sys-color-text);
-  --comp-button-bg-tertiary-hover: var(--sys-color-surface);
-  --comp-button-border-tertiary-hover: color-mix(in srgb, var(--sys-color-action) 18%, transparent);
-  --comp-button-bg-outlined: var(--sys-color-surface);
-  --comp-button-border-outlined: var(--sys-color-border);
-  --comp-button-fg-outlined: var(--sys-color-text);
-  --comp-button-border-outlined-hover: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
+  --comp-button-fg-tertiary: var(--component-color-text);
+  --comp-button-bg-tertiary-hover: var(--component-color-surface);
+  --comp-button-border-tertiary-hover: color-mix(in srgb, var(--component-color-action) 18%, transparent);
+  --comp-button-bg-outlined: var(--component-color-surface);
+  --comp-button-border-outlined: var(--component-color-border);
+  --comp-button-fg-outlined: var(--component-color-text);
+  --comp-button-border-outlined-hover: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
   --comp-button-bg-ghost: var(--component-surface-transparent);
   --comp-button-border-ghost: var(--component-border-transparent);
-  --comp-button-fg-ghost: var(--sys-color-text);
-  --comp-button-bg-ghost-hover: var(--sys-color-surface-raised);
-  --comp-button-bg-warning: var(--sys-color-warning);
-  --comp-button-fg-warning: var(--sys-color-action-text);
-  --comp-button-bg-danger-secondary: var(--sys-color-surface);
-  --comp-button-border-danger-secondary: var(--sys-color-danger);
-  --comp-button-fg-danger-secondary: var(--sys-color-danger);
+  --comp-button-fg-ghost: var(--component-color-text);
+  --comp-button-bg-ghost-hover: var(--component-color-surface-raised);
+  --comp-button-bg-warning: var(--component-color-warning);
+  --comp-button-fg-warning: var(--component-color-action-text);
+  --comp-button-bg-danger-secondary: var(--component-color-surface);
+  --comp-button-border-danger-secondary: var(--component-color-danger);
+  --comp-button-fg-danger-secondary: var(--component-color-danger);
   align-items: var(--comp-button-align);
   border: var(--comp-button-border);
   border-radius: var(--comp-button-radius);
@@ -1299,10 +1317,10 @@
   --comp-icon-button-current-size: var(--comp-icon-button-size);
   --comp-icon-button-current-icon-size: var(--comp-icon-button-icon-size);
   --comp-icon-button-bg: var(--component-surface-transparent);
-  --comp-icon-button-border-color: var(--sys-color-border);
+  --comp-icon-button-border-color: var(--component-color-border);
   --comp-icon-button-border: var(--component-border-width) solid var(--comp-icon-button-border-color);
   --comp-icon-button-radius: var(--component-radius-pill);
-  --comp-icon-button-fg: var(--sys-color-text);
+  --comp-icon-button-fg: var(--component-color-text);
   --comp-icon-button-cursor: var(--component-cursor-pointer);
   --comp-icon-button-display: var(--component-display-inline-flex);
   --comp-icon-button-flex: var(--component-flex-none);
@@ -1310,18 +1328,18 @@
   --comp-icon-button-padding: var(--component-frame-space-none);
   --comp-icon-button-position: var(--component-position-relative);
   --comp-icon-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
-  --comp-icon-button-hover-bg: var(--sys-color-surface-raised);
-  --comp-icon-button-hover-border: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
+  --comp-icon-button-hover-bg: var(--component-color-surface-raised);
+  --comp-icon-button-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
   --comp-icon-button-hover-transform: scale(var(--comp-icon-button-hover-scale));
   --comp-icon-button-press-transform: scale(var(--comp-icon-button-press-scale));
-  --comp-icon-button-tonal-bg: var(--sys-color-surface);
+  --comp-icon-button-tonal-bg: var(--component-color-surface);
   --comp-icon-button-primary-border: var(--component-border-transparent);
-  --comp-icon-button-primary-bg: var(--sys-color-action);
-  --comp-icon-button-primary-fg: var(--sys-color-action-text);
-  --comp-icon-button-primary-hover-bg: var(--sys-color-action-hover);
-  --comp-icon-button-selected-border: var(--sys-color-action);
-  --comp-icon-button-selected-fg: var(--sys-color-action);
-  --comp-icon-button-selected-primary-fg: var(--sys-color-action-text);
+  --comp-icon-button-primary-bg: var(--component-color-action);
+  --comp-icon-button-primary-fg: var(--component-color-action-text);
+  --comp-icon-button-primary-hover-bg: var(--component-color-action-hover);
+  --comp-icon-button-selected-border: var(--component-color-action);
+  --comp-icon-button-selected-fg: var(--component-color-action);
+  --comp-icon-button-selected-primary-fg: var(--component-color-action-text);
   --comp-icon-button-selected-icon-variation: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 24;
   --comp-icon-button-icon-fg: currentColor;
   --comp-icon-button-focus-ring: var(--component-focus-ring);
@@ -1329,9 +1347,9 @@
   --comp-icon-button-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-icon-button-disabled-opacity: var(--sys-disabled-readable-opacity);
   --comp-icon-button-badge-animation: component-pulse var(--component-duration-loop) var(--component-ease-state) infinite;
-  --comp-icon-button-badge-bg: var(--sys-color-success);
+  --comp-icon-button-badge-bg: var(--component-color-success);
   --comp-icon-button-badge-border-width: var(--component-border-width-medium);
-  --comp-icon-button-badge-border-color: var(--sys-color-surface);
+  --comp-icon-button-badge-border-color: var(--component-color-surface);
   --comp-icon-button-badge-border: var(--comp-icon-button-badge-border-width) solid var(--comp-icon-button-badge-border-color);
   --comp-icon-button-badge-radius: var(--component-radius-pill);
   --comp-icon-button-badge-position: var(--component-position-absolute);
@@ -1468,8 +1486,8 @@
 }
 
 .combobox {
-  --comp-combobox-chevron-color: var(--sys-color-text-muted);
-  --comp-combobox-chevron-focus-color: var(--sys-color-action);
+  --comp-combobox-chevron-color: var(--component-color-text-muted);
+  --comp-combobox-chevron-focus-color: var(--component-color-action);
   --comp-combobox-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro));
   --comp-combobox-chevron-motion-duration: var(--component-duration-state);
   --comp-combobox-chevron-motion-ease: var(--component-ease-press);
@@ -1477,7 +1495,7 @@
   --comp-combobox-overlay-motion-ease: var(--component-ease-enter);
   --comp-combobox-overlay-visibility-duration: var(--component-duration-instant);
   --comp-combobox-overlay-visibility-ease: var(--component-ease-linear);
-  --comp-combobox-empty-color: var(--sys-color-text-muted);
+  --comp-combobox-empty-color: var(--component-color-text-muted);
   --comp-combobox-empty-font-size: var(--component-font-size-caption);
   --comp-combobox-empty-font-weight: var(--sys-voice-weight-semibold);
   --comp-combobox-empty-padding-block: var(--component-space-md);
@@ -1771,18 +1789,18 @@
   --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm-plus);
   --comp-choice-current-gap: var(--component-space-sm);
   --comp-choice-current-padding-block: var(--component-space-xs);
-  --comp-choice-current-mark-bg: var(--sys-color-surface);
-  --comp-choice-current-mark-border: var(--sys-color-border);
+  --comp-choice-current-mark-bg: var(--component-color-surface);
+  --comp-choice-current-mark-border: var(--component-color-border);
   --comp-choice-current-mark-radius: var(--component-radius-sm);
-  --comp-choice-current-mark-hover-border: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
-  --comp-choice-current-indicator-fg: var(--sys-color-action-text);
+  --comp-choice-current-mark-hover-border: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
+  --comp-choice-current-indicator-fg: var(--component-color-action-text);
   --comp-choice-current-focus-width: var(--component-focus-ring-width);
-  --comp-choice-current-focus-color: var(--sys-color-focus);
+  --comp-choice-current-focus-color: var(--component-color-focus);
   --comp-choice-current-focus-offset: var(--component-focus-ring-offset);
   --comp-choice-current-label-weight: var(--sys-voice-weight-bold);
   --comp-choice-current-description-size: var(--component-font-size-label);
-  --comp-choice-current-description-fg: var(--sys-color-text-muted);
-  --comp-choice-current-error-fg: var(--sys-color-danger);
+  --comp-choice-current-description-fg: var(--component-color-text-muted);
+  --comp-choice-current-error-fg: var(--component-color-danger);
   --comp-choice-current-error-weight: var(--sys-voice-weight-bold);
   --comp-choice-current-motion-duration: var(--component-duration-state);
   --comp-choice-current-motion-press-duration: var(--component-duration-press);
@@ -2293,24 +2311,24 @@
   --comp-badge-gap: var(--component-space-xs);
   --comp-badge-min-block-size: var(--component-badge-min-size);
   --comp-badge-padding-inline: var(--component-space-sm);
-  --comp-badge-bg-neutral: var(--sys-color-surface-raised);
-  --comp-badge-border-neutral: var(--sys-color-border);
-  --comp-badge-fg-neutral: var(--sys-color-text-muted);
-  --comp-badge-bg-info: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  --comp-badge-border-info: color-mix(in srgb, var(--sys-color-action) 30%, var(--sys-color-border));
-  --comp-badge-fg-info: var(--sys-color-action);
-  --comp-badge-bg-accent: color-mix(in srgb, var(--sys-color-action) 14%, var(--sys-color-surface));
-  --comp-badge-border-accent: color-mix(in srgb, var(--sys-color-action) 38%, var(--sys-color-border));
-  --comp-badge-fg-accent: var(--sys-color-action);
-  --comp-badge-bg-danger: color-mix(in srgb, var(--sys-color-danger) 12%, var(--sys-color-surface));
-  --comp-badge-border-danger: color-mix(in srgb, var(--sys-color-danger) 34%, var(--sys-color-border));
-  --comp-badge-fg-danger: var(--sys-color-danger);
-  --comp-badge-bg-success: color-mix(in srgb, var(--sys-color-success) 12%, var(--sys-color-surface));
-  --comp-badge-border-success: color-mix(in srgb, var(--sys-color-success) 34%, var(--sys-color-border));
-  --comp-badge-fg-success: var(--sys-color-success);
-  --comp-badge-bg-warning: color-mix(in srgb, var(--sys-color-warning) 12%, var(--sys-color-surface));
-  --comp-badge-border-warning: color-mix(in srgb, var(--sys-color-warning) 34%, var(--sys-color-border));
-  --comp-badge-fg-warning: var(--sys-color-warning);
+  --comp-badge-bg-neutral: var(--component-color-surface-raised);
+  --comp-badge-border-neutral: var(--component-color-border);
+  --comp-badge-fg-neutral: var(--component-color-text-muted);
+  --comp-badge-bg-info: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
+  --comp-badge-border-info: color-mix(in srgb, var(--component-color-action) 30%, var(--component-color-border));
+  --comp-badge-fg-info: var(--component-color-action);
+  --comp-badge-bg-accent: color-mix(in srgb, var(--component-color-action) 14%, var(--component-color-surface));
+  --comp-badge-border-accent: color-mix(in srgb, var(--component-color-action) 38%, var(--component-color-border));
+  --comp-badge-fg-accent: var(--component-color-action);
+  --comp-badge-bg-danger: color-mix(in srgb, var(--component-color-danger) 12%, var(--component-color-surface));
+  --comp-badge-border-danger: color-mix(in srgb, var(--component-color-danger) 34%, var(--component-color-border));
+  --comp-badge-fg-danger: var(--component-color-danger);
+  --comp-badge-bg-success: color-mix(in srgb, var(--component-color-success) 12%, var(--component-color-surface));
+  --comp-badge-border-success: color-mix(in srgb, var(--component-color-success) 34%, var(--component-color-border));
+  --comp-badge-fg-success: var(--component-color-success);
+  --comp-badge-bg-warning: color-mix(in srgb, var(--component-color-warning) 12%, var(--component-color-surface));
+  --comp-badge-border-warning: color-mix(in srgb, var(--component-color-warning) 34%, var(--component-color-border));
+  --comp-badge-fg-warning: var(--component-color-warning);
   --comp-badge-bg: var(--comp-badge-bg-neutral);
   --comp-badge-border: var(--comp-badge-border-neutral);
   --comp-badge-fg: var(--comp-badge-fg-neutral);
@@ -2319,7 +2337,7 @@
   --comp-badge-hover-shadow: var(--component-depth-action-hover);
   --comp-badge-hover-transform: var(--component-transform-lift-sm);
   --comp-badge-focus-width: var(--component-focus-ring-width);
-  --comp-badge-focus-color: var(--sys-color-focus);
+  --comp-badge-focus-color: var(--component-color-focus);
   --comp-badge-focus-offset: var(--component-focus-ring-offset);
   --comp-badge-disabled-text: var(--component-disabled-text);
   --comp-badge-disabled-opacity: var(--component-opacity-disabled);
@@ -2383,15 +2401,15 @@
 
 body[data-contrast="quiet"] .badge[data-tone="info"],
 body[data-contrast="quiet"] .badge[data-tone="accent"] {
-  --comp-badge-fg: color-mix(in srgb, var(--sys-color-action) 46%, var(--sys-color-text));
+  --comp-badge-fg: color-mix(in srgb, var(--component-color-action) 46%, var(--component-color-text));
 }
 
 body[data-contrast="quiet"] .badge[data-tone="danger"] {
-  --comp-badge-fg: color-mix(in srgb, var(--sys-color-danger) 46%, var(--sys-color-text));
+  --comp-badge-fg: color-mix(in srgb, var(--component-color-danger) 46%, var(--component-color-text));
 }
 
 body[data-contrast="quiet"] .badge[data-tone="success"] {
-  --comp-badge-fg: color-mix(in srgb, var(--sys-color-success) 46%, var(--sys-color-text));
+  --comp-badge-fg: color-mix(in srgb, var(--component-color-success) 46%, var(--component-color-text));
 }
 
 .badge[data-variant="dot"] {
@@ -2488,28 +2506,28 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
   --comp-tag-padding-inline: var(--component-space-sm);
   --comp-tag-bg-neutral: var(--sys-energy-surface-sunken);
   --comp-tag-border-neutral: var(--sys-energy-border-default);
-  --comp-tag-fg-neutral: var(--sys-color-text-muted);
-  --comp-tag-bg-info: color-mix(in srgb, var(--sys-color-action) 8%, var(--sys-color-surface));
-  --comp-tag-border-info: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
-  --comp-tag-fg-info: var(--sys-color-action);
-  --comp-tag-bg-success: color-mix(in srgb, var(--sys-color-success) 10%, var(--sys-color-surface));
-  --comp-tag-border-success: color-mix(in srgb, var(--sys-color-success) 26%, var(--sys-color-border));
-  --comp-tag-fg-success: var(--sys-color-success);
-  --comp-tag-bg-warning: color-mix(in srgb, var(--sys-color-warning) 12%, var(--sys-color-surface));
-  --comp-tag-border-warning: color-mix(in srgb, var(--sys-color-warning) 30%, var(--sys-color-border));
+  --comp-tag-fg-neutral: var(--component-color-text-muted);
+  --comp-tag-bg-info: color-mix(in srgb, var(--component-color-action) 8%, var(--component-color-surface));
+  --comp-tag-border-info: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
+  --comp-tag-fg-info: var(--component-color-action);
+  --comp-tag-bg-success: color-mix(in srgb, var(--component-color-success) 10%, var(--component-color-surface));
+  --comp-tag-border-success: color-mix(in srgb, var(--component-color-success) 26%, var(--component-color-border));
+  --comp-tag-fg-success: var(--component-color-success);
+  --comp-tag-bg-warning: color-mix(in srgb, var(--component-color-warning) 12%, var(--component-color-surface));
+  --comp-tag-border-warning: color-mix(in srgb, var(--component-color-warning) 30%, var(--component-color-border));
   --comp-tag-fg-warning: var(--sys-energy-status-warning-foreground);
-  --comp-tag-bg-danger: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
-  --comp-tag-border-danger: color-mix(in srgb, var(--sys-color-danger) 28%, var(--sys-color-border));
-  --comp-tag-fg-danger: var(--sys-color-danger);
+  --comp-tag-bg-danger: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
+  --comp-tag-border-danger: color-mix(in srgb, var(--component-color-danger) 28%, var(--component-color-border));
+  --comp-tag-fg-danger: var(--component-color-danger);
   --comp-tag-bg: var(--comp-tag-bg-neutral);
   --comp-tag-border: var(--comp-tag-border-neutral);
   --comp-tag-fg: var(--comp-tag-fg-neutral);
-  --comp-tag-hover-border: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
+  --comp-tag-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
   --comp-tag-hover-shadow: var(--component-depth-raised);
   --comp-tag-hover-transform: scale(var(--component-scale-hover));
   --comp-tag-press-transform: scale(var(--component-scale-press));
   --comp-tag-focus-width: var(--component-focus-ring-width);
-  --comp-tag-focus-color: var(--sys-color-focus);
+  --comp-tag-focus-color: var(--component-color-focus);
   --comp-tag-focus-offset: var(--component-focus-ring-offset);
   --comp-tag-disabled-opacity: var(--sys-disabled-readable-opacity);
   background: var(--comp-tag-bg);
@@ -2556,19 +2574,19 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
 }
 
 body[data-contrast="quiet"] .tag[data-tone="info"] {
-  --comp-tag-fg: color-mix(in srgb, var(--sys-color-action) 46%, var(--sys-color-text));
+  --comp-tag-fg: color-mix(in srgb, var(--component-color-action) 46%, var(--component-color-text));
 }
 
 body[data-contrast="quiet"] .tag[data-tone="success"] {
-  --comp-tag-fg: color-mix(in srgb, var(--sys-color-success) 46%, var(--sys-color-text));
+  --comp-tag-fg: color-mix(in srgb, var(--component-color-success) 46%, var(--component-color-text));
 }
 
 body[data-contrast="quiet"] .tag[data-tone="warning"] {
-  --comp-tag-fg: color-mix(in srgb, var(--sys-color-warning) 52%, var(--sys-color-text));
+  --comp-tag-fg: color-mix(in srgb, var(--component-color-warning) 52%, var(--component-color-text));
 }
 
 body[data-contrast="quiet"] .tag[data-tone="danger"] {
-  --comp-tag-fg: color-mix(in srgb, var(--sys-color-danger) 46%, var(--sys-color-text));
+  --comp-tag-fg: color-mix(in srgb, var(--component-color-danger) 46%, var(--component-color-text));
 }
 
 .chip {
@@ -2578,21 +2596,21 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
   --comp-chip-font-weight: var(--sys-voice-weight-bold);
   --comp-chip-min-block-size: var(--component-badge-min-size);
   --comp-chip-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md);
-  --comp-chip-bg: var(--sys-color-surface);
-  --comp-chip-border: var(--sys-color-border);
-  --comp-chip-fg: var(--sys-color-text);
+  --comp-chip-bg: var(--component-color-surface);
+  --comp-chip-border: var(--component-color-border);
+  --comp-chip-fg: var(--component-color-text);
   --comp-chip-gap: var(--component-space-xs);
   --comp-chip-padding-inline: var(--component-frame-padding-control);
   --comp-chip-removable-padding-inline-end: calc(var(--component-frame-padding-control) + var(--component-space-xs));
-  --comp-chip-selected-bg: var(--sys-color-action);
-  --comp-chip-selected-border: var(--sys-color-action);
-  --comp-chip-selected-fg: var(--sys-color-action-text);
+  --comp-chip-selected-bg: var(--component-color-action);
+  --comp-chip-selected-border: var(--component-color-action);
+  --comp-chip-selected-fg: var(--component-color-action-text);
   --comp-chip-hover-bg: var(--sys-energy-surface-sunken);
   --comp-chip-hover-shadow: var(--component-depth-raised);
   --comp-chip-hover-transform: scale(var(--component-scale-hover));
   --comp-chip-press-transform: scale(var(--component-scale-press));
   --comp-chip-focus-width: var(--component-focus-ring-width);
-  --comp-chip-focus-color: var(--sys-color-focus);
+  --comp-chip-focus-color: var(--component-color-focus);
   --comp-chip-focus-offset: var(--component-focus-ring-offset);
   --comp-chip-disabled-opacity: var(--sys-disabled-readable-opacity);
   background: var(--comp-chip-bg);
@@ -2615,7 +2633,7 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
 }
 
 .chip[data-variant="suggestion"] {
-  --comp-chip-border: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
+  --comp-chip-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
 }
 
 .chip[data-variant="assist"] {
@@ -2623,11 +2641,11 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
 }
 
 .chip[data-tone="warning"] {
-  --comp-chip-border: color-mix(in srgb, var(--sys-color-warning) 34%, var(--sys-color-border));
+  --comp-chip-border: color-mix(in srgb, var(--component-color-warning) 34%, var(--component-color-border));
 }
 
 .chip[data-tone="danger"] {
-  --comp-chip-border: color-mix(in srgb, var(--sys-color-danger) 34%, var(--sys-color-border));
+  --comp-chip-border: color-mix(in srgb, var(--component-color-danger) 34%, var(--component-color-border));
 }
 
 .chip[data-selected="true"],
@@ -2750,7 +2768,7 @@ button.tag:disabled,
   --comp-tabs-align: var(--component-align-center);
   --comp-tabs-bg: var(--sys-energy-surface-sunken);
   --comp-tabs-border-width: var(--component-border-width);
-  --comp-tabs-border-color: color-mix(in srgb, var(--sys-color-border) 76%, transparent);
+  --comp-tabs-border-color: color-mix(in srgb, var(--component-color-border) 76%, transparent);
   --comp-tabs-border: var(--comp-tabs-border-width) solid var(--comp-tabs-border-color);
   --comp-tabs-radius: var(--component-radius-pill);
   --comp-tabs-display: var(--component-display-inline-flex);
@@ -2760,10 +2778,10 @@ button.tag:disabled,
   --comp-tabs-position: var(--component-position-relative);
   --comp-tabs-tab-bg-selected: var(--sys-energy-surface-primary);
   --comp-tabs-indicator-bg: var(--comp-tabs-tab-bg-selected);
-  --comp-tabs-indicator-border-color: color-mix(in srgb, var(--sys-color-action) 22%, var(--sys-color-border));
+  --comp-tabs-indicator-border-color: color-mix(in srgb, var(--component-color-action) 22%, var(--component-color-border));
   --comp-tabs-indicator-border: var(--comp-tabs-border-width) solid var(--comp-tabs-indicator-border-color);
   --comp-tabs-indicator-radius: var(--component-radius-pill);
-  --comp-tabs-indicator-shadow: 0 0 0 3px color-mix(in srgb, var(--sys-color-action) 7%, transparent), var(--component-depth-raised-soft);
+  --comp-tabs-indicator-shadow: 0 0 0 3px color-mix(in srgb, var(--component-color-action) 7%, transparent), var(--component-depth-raised-soft);
   --comp-tabs-indicator-content: "";
   --comp-tabs-indicator-inset-block: var(--component-space-xs);
   --comp-tabs-indicator-left: var(--component-space-xs);
@@ -2776,7 +2794,7 @@ button.tag:disabled,
   --comp-tabs-tab-bg: var(--component-surface-transparent);
   --comp-tabs-tab-border: var(--component-border-none);
   --comp-tabs-tab-radius: var(--component-radius-pill);
-  --comp-tabs-tab-fg: var(--sys-color-text-muted);
+  --comp-tabs-tab-fg: var(--component-color-text-muted);
   --comp-tabs-tab-cursor: var(--component-cursor-pointer);
   --comp-tabs-tab-display: var(--component-display-inline-flex);
   --comp-tabs-tab-font: var(--component-font-family-inherit);
@@ -2790,21 +2808,21 @@ button.tag:disabled,
   --comp-tabs-tab-position: var(--component-position-relative);
   --comp-tabs-tab-transition: color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
   --comp-tabs-tab-z: var(--sys-depth-z-raised);
-  --comp-tabs-selected-fg: var(--sys-color-action);
+  --comp-tabs-selected-fg: var(--component-color-action);
   --comp-tabs-selected-weight: var(--sys-voice-weight-extrabold);
-  --comp-tabs-hover-fg: var(--sys-color-text);
+  --comp-tabs-hover-fg: var(--component-color-text);
   --comp-tabs-pressed-transform: var(--component-transform-press);
   --comp-tabs-focus-width: var(--component-focus-ring-width);
-  --comp-tabs-focus-color: var(--sys-color-focus);
+  --comp-tabs-focus-color: var(--component-color-focus);
   --comp-tabs-focus-offset: var(--component-focus-ring-offset);
   --comp-tabs-icon-selected-variation: var(--sys-icon-variation-filled-strong);
   --comp-tabs-underline-bg: var(--component-surface-transparent);
   --comp-tabs-underline-border: var(--component-border-none);
-  --comp-tabs-underline-border-block-end: var(--comp-tabs-border-width) solid var(--sys-color-border);
+  --comp-tabs-underline-border-block-end: var(--comp-tabs-border-width) solid var(--component-color-border);
   --comp-tabs-underline-radius: var(--component-radius-none);
   --comp-tabs-underline-gap: var(--component-space-xl);
   --comp-tabs-underline-padding: var(--component-frame-space-none);
-  --comp-tabs-underline-indicator-bg: var(--sys-color-action);
+  --comp-tabs-underline-indicator-bg: var(--component-color-action);
   --comp-tabs-underline-indicator-border: var(--component-border-none);
   --comp-tabs-underline-indicator-block-size: calc(var(--comp-tabs-border-width) * 3);
   --comp-tabs-underline-indicator-shadow: var(--component-depth-none);
@@ -2930,9 +2948,9 @@ button.tag:disabled,
 .tooltip {
   --comp-tooltip-bubble-bg: var(--sys-energy-text-primary);
   --comp-tooltip-bubble-fg: var(--sys-energy-surface-primary);
-  --comp-tooltip-trigger-bg: var(--sys-color-surface);
-  --comp-tooltip-trigger-border: var(--sys-color-border);
-  --comp-tooltip-trigger-fg: var(--sys-color-text);
+  --comp-tooltip-trigger-bg: var(--component-color-surface);
+  --comp-tooltip-trigger-border: var(--component-color-border);
+  --comp-tooltip-trigger-fg: var(--component-color-text);
   --comp-tooltip-trigger-min-block-sm: var(--component-inline-trigger-min-block-size-sm);
   --comp-tooltip-trigger-min-block-md: var(--component-inline-trigger-min-block-size-md);
   --comp-tooltip-trigger-min-block-lg: var(--component-inline-trigger-min-block-size-lg);
@@ -3016,7 +3034,7 @@ button.tag:disabled,
 
 .tooltip[data-state="disabled"] .tooltip__trigger,
 .tooltip[data-variant="disabled-help"] .tooltip__trigger {
-  --comp-tooltip-trigger-fg: var(--sys-color-text-muted);
+  --comp-tooltip-trigger-fg: var(--component-color-text-muted);
   cursor: not-allowed;
 }
 
@@ -3124,13 +3142,13 @@ button.tag:disabled,
 }
 
 .tooltip[data-variant="metric"] {
-  --comp-tooltip-bubble-bg: var(--sys-color-action);
-  --comp-tooltip-bubble-fg: var(--sys-color-action-text);
+  --comp-tooltip-bubble-bg: var(--component-color-action);
+  --comp-tooltip-bubble-fg: var(--component-color-action-text);
 }
 
 .tooltip[data-variant="disabled-help"] {
-  --comp-tooltip-bubble-bg: var(--sys-color-text-muted);
-  --comp-tooltip-bubble-fg: var(--sys-color-surface);
+  --comp-tooltip-bubble-bg: var(--component-color-text-muted);
+  --comp-tooltip-bubble-fg: var(--component-color-surface);
 }
 
 .toast {
@@ -3151,11 +3169,11 @@ button.tag:disabled,
   --comp-toast-padding-inline: var(--comp-toast-padding-inline-md);
   --comp-toast-gap: var(--comp-toast-gap-md);
   --comp-toast-radius: var(--component-radius-surface);
-  --comp-toast-bg: var(--sys-color-text);
-  --comp-toast-fg: var(--sys-color-surface);
-  --comp-toast-muted: color-mix(in srgb, var(--sys-color-surface) 78%, transparent);
-  --comp-toast-icon-fg: var(--sys-color-surface);
-  --comp-toast-action-fg: var(--sys-color-action);
+  --comp-toast-bg: var(--component-color-text);
+  --comp-toast-fg: var(--component-color-surface);
+  --comp-toast-muted: color-mix(in srgb, var(--component-color-surface) 78%, transparent);
+  --comp-toast-icon-fg: var(--component-color-surface);
+  --comp-toast-action-fg: var(--component-color-action);
   --comp-toast-shadow: var(--sys-depth-elevation-3);
   --comp-toast-motion-duration: var(--component-duration-state);
   --comp-toast-motion-enter-duration: var(--component-duration-enter);
@@ -3174,7 +3192,7 @@ button.tag:disabled,
   --comp-toast-dismiss-icon-size: var(--sys-icon-size-sm-plus);
   --comp-toast-dismiss-opacity: var(--sys-state-muted-opacity);
   --comp-toast-focus-width: var(--component-focus-ring-width);
-  --comp-toast-focus-color: color-mix(in srgb, var(--sys-color-focus) 35%, transparent);
+  --comp-toast-focus-color: color-mix(in srgb, var(--component-color-focus) 35%, transparent);
   --comp-toast-focus-offset: var(--component-focus-ring-offset);
   align-items: center;
   animation: toast-enter var(--comp-toast-motion-enter-duration) var(--comp-toast-motion-enter-ease) both;
@@ -3212,19 +3230,19 @@ button.tag:disabled,
 }
 
 .toast[data-tone="info"] {
-  --comp-toast-icon-fg: var(--sys-color-action);
+  --comp-toast-icon-fg: var(--component-color-action);
 }
 
 .toast[data-tone="success"] {
-  --comp-toast-icon-fg: var(--sys-color-success);
+  --comp-toast-icon-fg: var(--component-color-success);
 }
 
 .toast[data-tone="warning"] {
-  --comp-toast-icon-fg: var(--sys-color-warning);
+  --comp-toast-icon-fg: var(--component-color-warning);
 }
 
 .toast[data-tone="danger"] {
-  --comp-toast-icon-fg: var(--sys-color-danger);
+  --comp-toast-icon-fg: var(--component-color-danger);
 }
 
 .toast[data-state="stacked"] {
@@ -3377,19 +3395,19 @@ button.tag:disabled,
 }
 
 .spinner[data-tone="ink"] {
-  --comp-spinner-tone: var(--sys-color-text-muted);
+  --comp-spinner-tone: var(--component-color-text-muted);
 }
 
 .spinner[data-tone="success"] {
-  --comp-spinner-tone: var(--sys-color-success);
+  --comp-spinner-tone: var(--component-color-success);
 }
 
 .spinner[data-tone="warning"] {
-  --comp-spinner-tone: var(--sys-color-warning);
+  --comp-spinner-tone: var(--component-color-warning);
 }
 
 .spinner[data-tone="danger"] {
-  --comp-spinner-tone: var(--sys-color-danger);
+  --comp-spinner-tone: var(--component-color-danger);
 }
 
 .spinner[data-state="subtle"] {
@@ -3429,14 +3447,14 @@ button.tag:disabled,
   --comp-progress-indicator-meta-gap: var(--component-space-sm);
   --comp-progress-indicator-min-inline-size: var(--component-progress-indicator-min-inline-size);
   --comp-progress-indicator-max-inline-size: var(--component-progress-indicator-max-inline-size);
-  --comp-progress-indicator-text-color: var(--sys-color-text);
+  --comp-progress-indicator-text-color: var(--component-color-text);
   --comp-progress-indicator-label-font-size: var(--component-font-size-small);
   --comp-progress-indicator-label-font-weight: var(--sys-voice-weight-semibold);
-  --comp-progress-indicator-value-color: var(--sys-color-text-muted);
+  --comp-progress-indicator-value-color: var(--component-color-text-muted);
   --comp-progress-indicator-value-font-family: var(--component-font-family-mono);
   --comp-progress-indicator-value-font-size: var(--component-font-size-caption);
   --comp-progress-indicator-value-font-weight: var(--sys-voice-weight-semibold);
-  --comp-progress-indicator-track-bg: color-mix(in srgb, var(--component-loading-progress-track) 42%, var(--sys-color-surface-raised));
+  --comp-progress-indicator-track-bg: color-mix(in srgb, var(--component-loading-progress-track) 42%, var(--component-color-surface-raised));
   --comp-progress-indicator-track-border-width: var(--component-border-width);
   --comp-progress-indicator-track-border: var(--component-loading-progress-track);
   --comp-progress-indicator-track-radius: var(--component-radius-pill);
@@ -3464,31 +3482,31 @@ button.tag:disabled,
 }
 
 .progress[data-tone="success"] {
-  --comp-progress-indicator-tone: var(--sys-color-success);
+  --comp-progress-indicator-tone: var(--component-color-success);
 }
 
 .progress[data-tone="warning"] {
-  --comp-progress-indicator-tone: var(--sys-color-warning);
+  --comp-progress-indicator-tone: var(--component-color-warning);
 }
 
 .progress[data-tone="danger"] {
-  --comp-progress-indicator-tone: var(--sys-color-danger);
+  --comp-progress-indicator-tone: var(--component-color-danger);
 }
 
 .progress[data-tone="ink"] {
-  --comp-progress-indicator-tone: var(--sys-color-text);
+  --comp-progress-indicator-tone: var(--component-color-text);
 }
 
 .progress[data-state="complete"] {
-  --comp-progress-indicator-tone: var(--sys-color-success);
+  --comp-progress-indicator-tone: var(--component-color-success);
 }
 
 .progress[data-state="paused"] {
-  --comp-progress-indicator-tone: var(--sys-color-warning);
+  --comp-progress-indicator-tone: var(--component-color-warning);
 }
 
 .progress[data-state="error"] {
-  --comp-progress-indicator-tone: var(--sys-color-danger);
+  --comp-progress-indicator-tone: var(--component-color-danger);
 }
 
 .progress[data-state="disabled"] {
@@ -3566,17 +3584,17 @@ button.tag:disabled,
 }
 
 .accordion {
-  --comp-accordion-bg: var(--sys-color-surface);
+  --comp-accordion-bg: var(--component-color-surface);
   --comp-accordion-border-width: var(--component-border-width);
-  --comp-accordion-border: var(--sys-color-border);
+  --comp-accordion-border: var(--component-color-border);
   --comp-accordion-radius: var(--component-radius-control);
   --comp-accordion-depth: var(--component-depth-panel);
   --comp-accordion-item-divider-width: var(--component-border-width);
-  --comp-accordion-item-divider: var(--sys-color-border);
-  --comp-accordion-trigger-bg: var(--sys-color-surface);
-  --comp-accordion-trigger-fg: var(--sys-color-text);
-  --comp-accordion-trigger-hover-bg: color-mix(in srgb, var(--sys-color-action) 6%, var(--sys-color-surface));
-  --comp-accordion-trigger-disabled-fg: var(--sys-color-text-muted);
+  --comp-accordion-item-divider: var(--component-color-border);
+  --comp-accordion-trigger-bg: var(--component-color-surface);
+  --comp-accordion-trigger-fg: var(--component-color-text);
+  --comp-accordion-trigger-hover-bg: color-mix(in srgb, var(--component-color-action) 6%, var(--component-color-surface));
+  --comp-accordion-trigger-disabled-fg: var(--component-color-text-muted);
   --comp-accordion-trigger-disabled-opacity: var(--sys-state-muted-opacity);
   --comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-md);
   --comp-accordion-trigger-padding-inline: var(--component-space-md);
@@ -3585,17 +3603,17 @@ button.tag:disabled,
   --comp-accordion-trigger-font-weight: var(--sys-voice-weight-bold);
   --comp-accordion-panel-padding-block-start: calc(var(--component-space-xs) / 2);
   --comp-accordion-panel-padding-block-end: var(--component-space-md);
-  --comp-accordion-panel-fg: var(--sys-color-text-muted);
+  --comp-accordion-panel-fg: var(--component-color-text-muted);
   --comp-accordion-panel-line-height: var(--sys-voice-line-height-loose);
   --comp-accordion-trigger-font-size: var(--component-font-size-label);
   --comp-accordion-panel-font-size: var(--component-font-size-small);
   --comp-accordion-icon-family: var(--sys-font-icon);
-  --comp-accordion-icon-fg: var(--sys-color-text-muted);
+  --comp-accordion-icon-fg: var(--component-color-text-muted);
   --comp-accordion-icon-size: var(--component-font-size-title-sm);
-  --comp-accordion-meta-fg: var(--sys-color-text-muted);
+  --comp-accordion-meta-fg: var(--component-color-text-muted);
   --comp-accordion-meta-font-size: var(--component-font-size-small);
   --comp-accordion-meta-font-weight: var(--sys-voice-weight-semibold);
-  --comp-accordion-chevron-fg: var(--sys-color-text-muted);
+  --comp-accordion-chevron-fg: var(--component-color-text-muted);
   --comp-accordion-chevron-size: var(--component-font-size-title-md);
   --comp-accordion-chevron-expanded-transform: var(--component-transform-rotate-expanded);
   --comp-accordion-focus-ring: var(--component-focus-ring);
@@ -3730,26 +3748,26 @@ button.tag:disabled,
 }
 
 .slider {
-  --comp-slider-fg: var(--sys-color-text);
+  --comp-slider-fg: var(--component-color-text);
   --comp-slider-gap: var(--component-space-sm);
   --comp-slider-min-inline: var(--component-content-size-xs);
   --comp-slider-track-size: var(--component-slider-track-size-md);
   --comp-slider-thumb-size: var(--component-slider-thumb-size-md);
   --comp-slider-touch-size: var(--component-slider-touch-size-md);
-  --comp-slider-state-color: var(--sys-color-action);
-  --comp-slider-track-color: color-mix(in srgb, var(--sys-color-border) 72%, var(--sys-color-surface-raised));
+  --comp-slider-state-color: var(--component-color-action);
+  --comp-slider-track-color: color-mix(in srgb, var(--component-color-border) 72%, var(--component-color-surface-raised));
   --comp-slider-track-depth: var(--component-depth-inset-track);
   --comp-slider-track-radius: var(--component-radius-pill);
   --comp-slider-fill-color: var(--comp-slider-state-color);
   --comp-slider-label-font-size: var(--component-font-size-label);
   --comp-slider-label-font-weight: var(--sys-voice-weight-bold);
-  --comp-slider-value-fg: var(--sys-color-text-muted);
+  --comp-slider-value-fg: var(--component-color-text-muted);
   --comp-slider-value-active-fg: var(--comp-slider-state-color);
-  --comp-slider-value-quiet-fg: var(--sys-color-text);
+  --comp-slider-value-quiet-fg: var(--component-color-text);
   --comp-slider-value-font-family: var(--sys-voice-family-mono);
   --comp-slider-value-font-size: var(--component-font-size-label);
   --comp-slider-value-font-weight: var(--sys-voice-weight-bold);
-  --comp-slider-thumb-bg: var(--sys-color-action-text);
+  --comp-slider-thumb-bg: var(--component-color-action-text);
   --comp-slider-thumb-radius: var(--component-radius-pill);
   --comp-slider-thumb-border-width: calc(var(--component-border-width) * 3);
   --comp-slider-thumb-depth: var(--component-depth-low);
@@ -3764,7 +3782,7 @@ button.tag:disabled,
   --comp-slider-disabled-cursor: var(--component-disabled-cursor);
   --comp-slider-disabled-opacity: var(--sys-disabled-opacity);
   --comp-slider-focus-ring-width: var(--component-focus-ring-width);
-  --comp-slider-focus-ring-color: var(--sys-color-focus);
+  --comp-slider-focus-ring-color: var(--component-color-focus);
   --comp-slider-focus-ring-offset: var(--component-focus-ring-offset);
   --comp-slider-state-duration: var(--component-duration-state);
   --comp-slider-state-ease: var(--component-ease-state);
@@ -3797,11 +3815,11 @@ button.tag:disabled,
 
 .slider[data-variant="threshold"],
 .slider[data-state="error"] {
-  --comp-slider-state-color: var(--sys-color-danger);
+  --comp-slider-state-color: var(--component-color-danger);
 }
 
 .slider[data-state="complete"] {
-  --comp-slider-state-color: var(--sys-color-success);
+  --comp-slider-state-color: var(--component-color-success);
 }
 
 .slider__meta {
@@ -3930,13 +3948,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-font-size: calc(var(--comp-avatar-size) * 0.36);
   --comp-avatar-font-weight: var(--sys-voice-weight-bold);
   --comp-avatar-letter-spacing: var(--sys-voice-letter-spacing-wide);
-  --comp-avatar-identity-danger-bg: var(--sys-color-danger);
-  --comp-avatar-identity-success-bg: var(--sys-color-success);
-  --comp-avatar-identity-action-bg: var(--sys-color-action);
-  --comp-avatar-identity-warning-bg: var(--sys-color-warning);
-  --comp-avatar-identity-purple-bg: var(--ref-energy-purple-500, color-mix(in srgb, var(--sys-color-action) 60%, var(--sys-color-danger)));
-  --comp-avatar-identity-teal-bg: var(--ref-energy-teal-500, color-mix(in srgb, var(--sys-color-success) 72%, var(--sys-color-action)));
-  --comp-avatar-identity-default-fg: var(--sys-color-action-text);
+  --comp-avatar-identity-danger-bg: var(--component-color-danger);
+  --comp-avatar-identity-success-bg: var(--component-color-success);
+  --comp-avatar-identity-action-bg: var(--component-color-action);
+  --comp-avatar-identity-warning-bg: var(--component-color-warning);
+  --comp-avatar-identity-purple-bg: var(--ref-energy-purple-500, color-mix(in srgb, var(--component-color-action) 60%, var(--component-color-danger)));
+  --comp-avatar-identity-teal-bg: var(--ref-energy-teal-500, color-mix(in srgb, var(--component-color-success) 72%, var(--component-color-action)));
+  --comp-avatar-identity-default-fg: var(--component-color-action-text);
   --comp-avatar-identity-warning-fg: var(--sys-energy-status-warning-foreground);
   --comp-avatar-identity-bg: var(--comp-avatar-identity-action-bg);
   --comp-avatar-identity-fg: var(--comp-avatar-identity-default-fg);
@@ -3955,10 +3973,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-img-radius: var(--component-radius-inherit);
   --comp-avatar-img-size: var(--component-size-full);
   --comp-avatar-img-fit: var(--component-object-fit-cover);
-  --comp-avatar-status-bg: var(--sys-color-success);
+  --comp-avatar-status-bg: var(--component-color-success);
   --comp-avatar-status-size: max(var(--component-space-sm), calc(var(--comp-avatar-size) * 0.26));
   --comp-avatar-status-border-width: var(--component-border-width-medium);
-  --comp-avatar-status-border-color: var(--sys-color-surface);
+  --comp-avatar-status-border-color: var(--component-color-surface);
   --comp-avatar-status-border: var(--comp-avatar-status-border-width) solid var(--comp-avatar-status-border-color);
   --comp-avatar-status-radius: var(--component-radius-pill);
   --comp-avatar-status-inset-block-end: var(--component-inset-zero);
@@ -4013,9 +4031,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   position: var(--comp-avatar-status-position);
 }
 
-.avatar[data-status="online"] { --comp-avatar-status-bg: var(--sys-color-success); }
-.avatar[data-status="busy"] { --comp-avatar-status-bg: var(--sys-color-warning); }
-.avatar[data-status="offline"] { --comp-avatar-status-bg: var(--sys-color-text-muted); }
+.avatar[data-status="online"] { --comp-avatar-status-bg: var(--component-color-success); }
+.avatar[data-status="busy"] { --comp-avatar-status-bg: var(--component-color-warning); }
+.avatar[data-status="offline"] { --comp-avatar-status-bg: var(--component-color-text-muted); }
 
 .avatar[data-state="busy"] .avatar__status {
   animation: var(--comp-avatar-status-animation-name) var(--comp-avatar-status-animation-duration) var(--comp-avatar-status-animation-ease) infinite;
@@ -4036,7 +4054,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-skeleton-bone-current-block-size: var(--comp-skeleton-bone-block-size);
   --comp-skeleton-bone-current-radius: var(--comp-skeleton-radius);
   --comp-skeleton-gap: var(--component-space-sm);
-  --comp-skeleton-fg: var(--sys-color-text-muted);
+  --comp-skeleton-fg: var(--component-color-text-muted);
   --comp-skeleton-bg: var(--component-loading-skeleton-surface);
   --comp-skeleton-highlight: var(--component-loading-skeleton-highlight);
   --comp-skeleton-gradient: linear-gradient(90deg, var(--comp-skeleton-bg) 25%, var(--comp-skeleton-highlight) 50%, var(--comp-skeleton-bg) 75%);
@@ -4066,7 +4084,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-skeleton-line-short-inline: 60%;
   --comp-skeleton-cell-short-inline: 68%;
   --comp-skeleton-cell-medium-inline: 82%;
-  --comp-skeleton-paused-bg: color-mix(in srgb, var(--sys-color-warning) 14%, var(--sys-color-surface-sunken));
+  --comp-skeleton-paused-bg: color-mix(in srgb, var(--component-color-warning) 14%, var(--component-color-surface-sunken));
   --comp-skeleton-loaded-opacity: var(--component-loading-stale-opacity);
   --comp-skeleton-disabled-fg: var(--component-disabled-text);
   --comp-skeleton-disabled-opacity: var(--sys-disabled-opacity);
@@ -4176,17 +4194,17 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .empty-state {
-  --comp-empty-state-fg: var(--sys-color-text);
+  --comp-empty-state-fg: var(--component-color-text);
   --comp-empty-state-icon-size: var(--component-empty-state-icon-size-md);
   --comp-empty-state-icon-glyph-size: var(--sys-icon-size-display-sm);
-  --comp-empty-state-icon-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  --comp-empty-state-icon-fg: var(--sys-color-action);
+  --comp-empty-state-icon-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
+  --comp-empty-state-icon-fg: var(--component-color-action);
   --comp-empty-state-icon-radius: var(--component-radius-pill);
   --comp-empty-state-icon-margin-block-end: var(--component-space-2xs);
-  --comp-empty-state-permission-icon-bg: color-mix(in srgb, var(--sys-color-warning) 12%, var(--sys-color-surface));
-  --comp-empty-state-permission-icon-fg: var(--sys-color-warning);
-  --comp-empty-state-error-icon-bg: color-mix(in srgb, var(--sys-color-danger) 12%, var(--sys-color-surface));
-  --comp-empty-state-error-icon-fg: var(--sys-color-danger);
+  --comp-empty-state-permission-icon-bg: color-mix(in srgb, var(--component-color-warning) 12%, var(--component-color-surface));
+  --comp-empty-state-permission-icon-fg: var(--component-color-warning);
+  --comp-empty-state-error-icon-bg: color-mix(in srgb, var(--component-color-danger) 12%, var(--component-color-surface));
+  --comp-empty-state-error-icon-fg: var(--component-color-danger);
   --comp-empty-state-padding-block: var(--component-space-xl);
   --comp-empty-state-padding-inline: var(--component-space-lg);
   --comp-empty-state-gap: var(--component-space-sm);
@@ -4194,7 +4212,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-empty-state-title-family: var(--sys-font-title);
   --comp-empty-state-title-size: var(--component-font-size-body);
   --comp-empty-state-title-weight: var(--sys-voice-weight-black);
-  --comp-empty-state-description-fg: var(--sys-color-text-muted);
+  --comp-empty-state-description-fg: var(--component-color-text-muted);
   --comp-empty-state-description-size: var(--component-font-size-small);
   --comp-empty-state-description-line-height: var(--sys-voice-line-height-normal);
   align-items: center;
@@ -4414,23 +4432,23 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .kpi-tile {
-  --comp-kpi-tile-bg: var(--sys-color-surface);
-  --comp-kpi-tile-border: color-mix(in srgb, var(--sys-color-border) 84%, transparent);
-  --comp-kpi-tile-border-interactive: color-mix(in srgb, var(--comp-kpi-tile-tone) 36%, var(--sys-color-border));
+  --comp-kpi-tile-bg: var(--component-color-surface);
+  --comp-kpi-tile-border: color-mix(in srgb, var(--component-color-border) 84%, transparent);
+  --comp-kpi-tile-border-interactive: color-mix(in srgb, var(--comp-kpi-tile-tone) 36%, var(--component-color-border));
   --comp-kpi-tile-border-width: var(--component-border-width);
   --comp-kpi-tile-depth: var(--component-depth-panel);
   --comp-kpi-tile-depth-interactive: var(--component-depth-raised-soft);
   --comp-kpi-tile-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-kpi-tile-disabled-opacity: var(--sys-disabled-opacity);
   --comp-kpi-tile-disabled-transform: var(--component-transform-none);
-  --comp-kpi-tile-fg: var(--sys-color-text);
-  --comp-kpi-tile-focus-ring-color: var(--sys-color-focus);
+  --comp-kpi-tile-fg: var(--component-color-text);
+  --comp-kpi-tile-focus-ring-color: var(--component-color-focus);
   --comp-kpi-tile-focus-ring-offset: var(--component-focus-ring-offset);
   --comp-kpi-tile-focus-ring-width: var(--component-focus-ring-width);
   --comp-kpi-tile-gap: var(--component-space-sm);
   --comp-kpi-tile-header-align: var(--component-align-start);
   --comp-kpi-tile-header-display: var(--component-display-flex);
-  --comp-kpi-tile-header-fg: var(--sys-color-text-muted);
+  --comp-kpi-tile-header-fg: var(--component-color-text-muted);
   --comp-kpi-tile-header-justify: var(--component-justify-space-between);
   --comp-kpi-tile-header-letter-spacing: var(--sys-voice-letter-spacing-widest);
   --comp-kpi-tile-header-line-height: var(--sys-voice-line-height-dense);
@@ -4441,12 +4459,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-icon-line-height: var(--sys-voice-line-height-none);
   --comp-kpi-tile-icon-size: var(--component-icon-size-md);
   --comp-kpi-tile-interactive-cursor: var(--component-cursor-pointer);
-  --comp-kpi-tile-loading-fg: var(--sys-color-text-muted);
+  --comp-kpi-tile-loading-fg: var(--component-color-text-muted);
   --comp-kpi-tile-min-block-size: calc(var(--component-block-size-lg) - var(--component-space-xs));
-  --comp-kpi-tile-tone: var(--sys-color-text-muted);
+  --comp-kpi-tile-tone: var(--component-color-text-muted);
   --comp-kpi-tile-padding: calc(var(--component-space-lg) + var(--component-space-xs));
   --comp-kpi-tile-radius: var(--component-radius-control);
-  --comp-kpi-tile-risk-bg: color-mix(in srgb, var(--comp-kpi-tile-tone) 6%, var(--sys-color-surface));
+  --comp-kpi-tile-risk-bg: color-mix(in srgb, var(--comp-kpi-tile-tone) 6%, var(--component-color-surface));
   --comp-kpi-tile-risk-rail-width: var(--component-space-xs);
   --comp-kpi-tile-transform-interactive: var(--component-transform-lift-sm);
   --comp-kpi-tile-transition: border-color var(--component-duration-state) var(--component-ease-state),
@@ -4457,7 +4475,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-value-weight: var(--sys-voice-weight-semibold);
   --comp-kpi-tile-value-letter-spacing: var(--sys-voice-letter-spacing-normal);
   --comp-kpi-tile-value-line-height: var(--sys-voice-line-height-crisp);
-  --comp-kpi-tile-delta-color: var(--sys-color-text-muted);
+  --comp-kpi-tile-delta-color: var(--component-color-text-muted);
   background: var(--comp-kpi-tile-bg);
   border: var(--comp-kpi-tile-border-width) solid var(--comp-kpi-tile-border);
   border-radius: var(--comp-kpi-tile-radius);
@@ -4546,11 +4564,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .kpi-tile__delta[data-trend="up"] {
-  --comp-kpi-tile-delta-color: var(--sys-color-success);
+  --comp-kpi-tile-delta-color: var(--component-color-success);
 }
 
 .kpi-tile__delta[data-trend="down"] {
-  --comp-kpi-tile-delta-color: var(--sys-color-danger);
+  --comp-kpi-tile-delta-color: var(--component-color-danger);
 }
 
 .kpi-tile__trend-icon,
@@ -4608,19 +4626,19 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .kpi-tile--success {
-  --comp-kpi-tile-tone: var(--sys-color-success);
+  --comp-kpi-tile-tone: var(--component-color-success);
 }
 
 .kpi-tile--warning {
-  --comp-kpi-tile-tone: var(--sys-color-warning);
+  --comp-kpi-tile-tone: var(--component-color-warning);
 }
 
 .kpi-tile--danger {
-  --comp-kpi-tile-tone: var(--sys-color-danger);
+  --comp-kpi-tile-tone: var(--component-color-danger);
 }
 
 .kpi-tile--info {
-  --comp-kpi-tile-tone: var(--sys-color-action);
+  --comp-kpi-tile-tone: var(--component-color-action);
 }
 
 .kpi-tile[data-variant="threshold"],
@@ -4641,7 +4659,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-inline-size: var(--component-inline-size-fit-content);
   --comp-floating-action-button-justify: var(--component-justify-center);
   --comp-floating-action-button-transition: background-color var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), box-shadow var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), transform var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-enter);
-  --comp-floating-action-button-accent-bg-hover: color-mix(in srgb, var(--sys-color-success) 86%, var(--sys-color-text));
+  --comp-floating-action-button-accent-bg-hover: color-mix(in srgb, var(--component-color-success) 86%, var(--component-color-text));
   --comp-floating-action-button-active-transform: var(--component-transform-rest-quiet);
   --comp-floating-action-button-collapsed-padding-x: var(--component-frame-space-none);
   --comp-floating-action-button-disabled-cursor: var(--component-cursor-not-allowed);
@@ -4750,23 +4768,23 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-target-padding-inline: var(--component-space-xs);
   --comp-breadcrumbs-target-radius: var(--sys-radius-sm);
   --comp-breadcrumbs-font-size: var(--component-font-size-small);
-  --comp-breadcrumbs-target-fg: var(--sys-color-text-muted);
+  --comp-breadcrumbs-target-fg: var(--component-color-text-muted);
   --comp-breadcrumbs-target-weight: var(--sys-voice-weight-extrabold);
   --comp-breadcrumbs-target-line-height: var(--sys-voice-line-height-tight);
-  --comp-breadcrumbs-hover-bg: color-mix(in srgb, var(--sys-color-text-muted) 10%, transparent);
-  --comp-breadcrumbs-hover-fg: var(--sys-color-action);
-  --comp-breadcrumbs-current-fg: var(--sys-color-text);
+  --comp-breadcrumbs-hover-bg: color-mix(in srgb, var(--component-color-text-muted) 10%, transparent);
+  --comp-breadcrumbs-hover-fg: var(--component-color-action);
+  --comp-breadcrumbs-current-fg: var(--component-color-text);
   --comp-breadcrumbs-current-weight: var(--sys-voice-weight-black);
-  --comp-breadcrumbs-separator-fg: color-mix(in srgb, var(--sys-color-text-muted) 72%, transparent);
+  --comp-breadcrumbs-separator-fg: color-mix(in srgb, var(--component-color-text-muted) 72%, transparent);
   --comp-breadcrumbs-separator-family: var(--sys-font-icon);
   --comp-breadcrumbs-separator-size: var(--component-font-size-label);
   --comp-breadcrumbs-separator-weight: var(--sys-voice-weight-regular);
   --comp-breadcrumbs-separator-line-height: var(--sys-voice-line-height-none);
-  --comp-breadcrumbs-collapsed-fg: var(--sys-color-text-muted);
+  --comp-breadcrumbs-collapsed-fg: var(--component-color-text-muted);
   --comp-breadcrumbs-collapsed-letter-spacing: var(--sys-voice-letter-spacing-expanded);
-  --comp-breadcrumbs-collapsed-bg: color-mix(in srgb, var(--sys-color-text-muted) 10%, transparent);
+  --comp-breadcrumbs-collapsed-bg: color-mix(in srgb, var(--component-color-text-muted) 10%, transparent);
   --comp-breadcrumbs-focus-width: var(--component-focus-ring-width);
-  --comp-breadcrumbs-focus-color: var(--sys-color-focus);
+  --comp-breadcrumbs-focus-color: var(--component-color-focus);
   --comp-breadcrumbs-focus-offset: var(--component-focus-ring-offset);
   --comp-breadcrumbs-motion-duration: var(--component-duration-state);
   --comp-breadcrumbs-motion-ease: var(--component-ease-state);
@@ -4891,25 +4909,25 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-radius: var(--component-radius-pill);
   --comp-pagination-cursor: var(--component-cursor-pointer);
   --comp-pagination-disabled-cursor: var(--component-cursor-default);
-  --comp-pagination-fg: var(--sys-color-text-subtle);
+  --comp-pagination-fg: var(--component-color-text-subtle);
   --comp-pagination-font-family: var(--component-font-family-mono);
   --comp-pagination-font-size: var(--component-font-size-small);
   --comp-pagination-font-weight: var(--sys-voice-weight-semibold);
   --comp-pagination-padding-inline: var(--component-space-sm);
-  --comp-pagination-hover-bg: var(--sys-color-surface-muted);
-  --comp-pagination-hover-fg: var(--sys-color-text);
+  --comp-pagination-hover-bg: var(--component-color-surface-muted);
+  --comp-pagination-hover-fg: var(--component-color-text);
   --comp-pagination-focus-width: var(--component-focus-ring-width);
-  --comp-pagination-focus-color: var(--sys-color-focus);
+  --comp-pagination-focus-color: var(--component-color-focus);
   --comp-pagination-focus-offset: var(--component-focus-ring-offset);
-  --comp-pagination-current-bg: var(--sys-color-action);
-  --comp-pagination-current-fg: var(--sys-color-action-text);
+  --comp-pagination-current-bg: var(--component-color-action);
+  --comp-pagination-current-fg: var(--component-color-action-text);
   --comp-pagination-current-weight: var(--sys-voice-weight-extrabold);
-  --comp-pagination-current-shadow: 0 0 0 var(--component-space-sm) color-mix(in srgb, var(--sys-color-action) 16%, transparent), var(--component-depth-pill);
+  --comp-pagination-current-shadow: 0 0 0 var(--component-space-sm) color-mix(in srgb, var(--component-color-action) 16%, transparent), var(--component-depth-pill);
   --comp-pagination-disabled-opacity: var(--sys-disabled-opacity);
   --comp-pagination-icon-family: var(--sys-font-icon);
   --comp-pagination-icon-size: var(--component-font-size-title-sm);
   --comp-pagination-icon-line-height: var(--sys-voice-line-height-none);
-  --comp-pagination-ellipsis-fg: var(--sys-color-text-muted);
+  --comp-pagination-ellipsis-fg: var(--component-color-text-muted);
   --comp-pagination-ellipsis-inline-size: var(--component-navigation-ellipsis-inline-size);
   --comp-pagination-motion-duration: var(--component-duration-state);
   --comp-pagination-motion-ease: var(--component-ease-state);
@@ -5028,8 +5046,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .audit-event {
   --comp-audit-event-align: var(--component-align-start);
-  --comp-audit-event-bg: var(--sys-color-surface);
-  --comp-audit-event-border: color-mix(in srgb, var(--sys-color-border) 84%, transparent);
+  --comp-audit-event-bg: var(--component-color-surface);
+  --comp-audit-event-border: color-mix(in srgb, var(--component-color-border) 84%, transparent);
   --comp-audit-event-border-width: var(--component-border-width);
   --comp-audit-event-content-display: var(--component-display-grid);
   --comp-audit-event-content-gap: var(--component-space-xs);
@@ -5038,23 +5056,23 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-disabled-fg: var(--component-disabled-text);
   --comp-audit-event-disabled-opacity: var(--sys-disabled-opacity);
   --comp-audit-event-display: var(--component-display-grid);
-  --comp-audit-event-fg: var(--sys-color-text);
-  --comp-audit-event-focus-color: var(--sys-color-focus);
+  --comp-audit-event-fg: var(--component-color-text);
+  --comp-audit-event-focus-color: var(--component-color-focus);
   --comp-audit-event-focus-offset: var(--component-focus-ring-offset);
   --comp-audit-event-focus-width: var(--component-focus-ring-width);
-  --comp-audit-event-tone: var(--sys-color-text-muted);
+  --comp-audit-event-tone: var(--component-color-text-muted);
   --comp-audit-event-foreground: var(--comp-audit-event-tone);
-  --comp-audit-event-tone-soft: color-mix(in srgb, var(--comp-audit-event-tone) 10%, var(--sys-color-surface));
+  --comp-audit-event-tone-soft: color-mix(in srgb, var(--comp-audit-event-tone) 10%, var(--component-color-surface));
   --comp-audit-event-padding-block: var(--component-space-md);
   --comp-audit-event-padding-inline: var(--component-space-lg);
   --comp-audit-event-gap: var(--component-space-md);
   --comp-audit-event-grid: auto minmax(0, 1fr);
-  --comp-audit-event-hover-bg: color-mix(in srgb, var(--comp-audit-event-tone) 4%, var(--sys-color-surface));
-  --comp-audit-event-hover-border: color-mix(in srgb, var(--comp-audit-event-tone) 22%, var(--sys-color-border));
+  --comp-audit-event-hover-bg: color-mix(in srgb, var(--comp-audit-event-tone) 4%, var(--component-color-surface));
+  --comp-audit-event-hover-border: color-mix(in srgb, var(--comp-audit-event-tone) 22%, var(--component-color-border));
   --comp-audit-event-hover-transform: var(--component-transform-lift-sm);
   --comp-audit-event-marker-size: var(--sys-symbol-size-lg-plus);
   --comp-audit-event-marker-align: var(--component-align-center);
-  --comp-audit-event-marker-border: color-mix(in srgb, var(--comp-audit-event-tone) 18%, var(--sys-color-border));
+  --comp-audit-event-marker-border: color-mix(in srgb, var(--comp-audit-event-tone) 18%, var(--component-color-border));
   --comp-audit-event-marker-display: var(--component-display-inline-flex);
   --comp-audit-event-icon-size: var(--sys-icon-size-marker);
   --comp-audit-event-meta-align: var(--component-align-center);
@@ -5064,7 +5082,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-meta-wrap: var(--component-flex-wrap-wrap);
   --comp-audit-event-radius: var(--sys-radius-md);
   --comp-audit-event-status-align: var(--component-align-center);
-  --comp-audit-event-status-border: color-mix(in srgb, var(--comp-audit-event-tone) 28%, var(--sys-color-border));
+  --comp-audit-event-status-border: color-mix(in srgb, var(--comp-audit-event-tone) 28%, var(--component-color-border));
   --comp-audit-event-title-size: var(--component-font-size-body);
   --comp-audit-event-title-family: var(--sys-font-title);
   --comp-audit-event-title-weight: var(--sys-voice-weight-extrabold);
@@ -5072,7 +5090,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-description-size: var(--component-font-size-caption);
   --comp-audit-event-description-weight: var(--sys-voice-weight-semibold);
   --comp-audit-event-description-line-height: var(--sys-voice-line-height-reading);
-  --comp-audit-event-muted: var(--sys-color-text-muted);
+  --comp-audit-event-muted: var(--component-color-text-muted);
   --comp-audit-event-meta-family: var(--component-font-family-mono);
   --comp-audit-event-meta-size: var(--component-font-size-caption);
   --comp-audit-event-meta-weight: var(--sys-voice-weight-bold);
@@ -5122,20 +5140,20 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .audit-event[data-tone="info"],
 .audit-event[data-tone="action"] {
-  --comp-audit-event-tone: var(--sys-color-action);
+  --comp-audit-event-tone: var(--component-color-action);
 }
 
 .audit-event[data-tone="success"] {
-  --comp-audit-event-tone: var(--sys-color-success);
+  --comp-audit-event-tone: var(--component-color-success);
 }
 
 .audit-event[data-tone="warning"] {
-  --comp-audit-event-tone: var(--sys-color-warning);
-  --comp-audit-event-foreground: color-mix(in srgb, var(--sys-color-warning) 38%, var(--sys-color-text));
+  --comp-audit-event-tone: var(--component-color-warning);
+  --comp-audit-event-foreground: color-mix(in srgb, var(--component-color-warning) 38%, var(--component-color-text));
 }
 
 .audit-event[data-tone="danger"] {
-  --comp-audit-event-tone: var(--sys-color-danger);
+  --comp-audit-event-tone: var(--component-color-danger);
 }
 
 .audit-event[data-state="hover"],
@@ -5231,21 +5249,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .error-panel {
-  --comp-error-panel-tone: var(--sys-color-danger);
-  --comp-error-panel-bg: var(--sys-color-surface);
+  --comp-error-panel-tone: var(--component-color-danger);
+  --comp-error-panel-bg: var(--component-color-surface);
   --comp-error-panel-border-width: var(--component-border-width);
-  --comp-error-panel-border: color-mix(in srgb, var(--comp-error-panel-tone) 34%, var(--sys-color-border));
+  --comp-error-panel-border: color-mix(in srgb, var(--comp-error-panel-tone) 34%, var(--component-color-border));
   --comp-error-panel-radius: var(--component-radius-control);
   --comp-error-panel-depth: var(--component-depth-none);
   --comp-error-panel-blocking-depth: var(--component-depth-danger);
   --comp-error-panel-inline-radius: var(--sys-radius-md);
-  --comp-error-panel-fg: var(--sys-color-text);
+  --comp-error-panel-fg: var(--component-color-text);
   --comp-error-panel-disabled-border: var(--component-disabled-border);
   --comp-error-panel-disabled-fg: var(--component-disabled-text);
   --comp-error-panel-disabled-opacity: var(--sys-disabled-opacity);
   --comp-error-panel-icon-size: var(--component-error-panel-icon-size);
   --comp-error-panel-icon-font-size: var(--component-font-size-title-sm);
-  --comp-error-panel-icon-bg: color-mix(in srgb, var(--comp-error-panel-tone) 12%, var(--sys-color-surface));
+  --comp-error-panel-icon-bg: color-mix(in srgb, var(--comp-error-panel-tone) 12%, var(--component-color-surface));
   --comp-error-panel-icon-radius: var(--component-radius-pill);
   --comp-error-panel-icon-fg: var(--comp-error-panel-tone);
   --comp-error-panel-icon-family: var(--sys-font-icon);
@@ -5257,7 +5275,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-error-panel-title-family: var(--sys-font-title);
   --comp-error-panel-title-size: var(--component-font-size-body);
   --comp-error-panel-title-weight: var(--sys-voice-weight-black);
-  --comp-error-panel-description-fg: var(--sys-color-text-muted);
+  --comp-error-panel-description-fg: var(--component-color-text-muted);
   --comp-error-panel-description-size: var(--component-font-size-small);
   --comp-error-panel-description-line-height: var(--sys-voice-line-height-normal);
   align-items: center;
@@ -5291,12 +5309,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .error-panel--warning {
-  --comp-error-panel-tone: var(--sys-color-warning);
+  --comp-error-panel-tone: var(--component-color-warning);
 }
 
 .error-panel--critical,
 .error-panel--error {
-  --comp-error-panel-tone: var(--sys-color-danger);
+  --comp-error-panel-tone: var(--component-color-danger);
 }
 
 .error-panel[data-variant="inline"] {
@@ -5728,14 +5746,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .drawer {
   --comp-drawer-gap: var(--component-space-sm);
-  --comp-drawer-overlay-bg: color-mix(in srgb, var(--sys-color-text) 40%, transparent);
+  --comp-drawer-overlay-bg: color-mix(in srgb, var(--component-color-text) 40%, transparent);
   --comp-drawer-overlay-blur: var(--sys-depth-backdrop-blur);
   --comp-drawer-z-index: var(--sys-depth-z-dialog);
-  --comp-drawer-panel-bg: var(--sys-color-surface);
+  --comp-drawer-panel-bg: var(--component-color-surface);
   --comp-drawer-panel-border-width: var(--component-border-width);
-  --comp-drawer-panel-border: var(--sys-color-border);
+  --comp-drawer-panel-border: var(--component-color-border);
   --comp-drawer-panel-radius: var(--component-radius-surface);
-  --comp-drawer-panel-color: var(--sys-color-text);
+  --comp-drawer-panel-color: var(--component-color-text);
   --comp-drawer-panel-depth: var(--component-depth-panel-strong);
   --comp-drawer-panel-inline: var(--component-drawer-panel-inline-md);
   --comp-drawer-panel-padding: calc(var(--component-space-xl) + var(--component-space-md));
@@ -5745,17 +5763,17 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-drawer-title-font-weight: var(--sys-voice-weight-black);
   --comp-drawer-title-line-height: var(--sys-voice-line-height-tightest);
   --comp-drawer-header-gap: var(--component-space-sm);
-  --comp-drawer-description-color: var(--sys-color-text-muted);
+  --comp-drawer-description-color: var(--component-color-text-muted);
   --comp-drawer-description-font-size: var(--component-font-size-body);
   --comp-drawer-description-line-height: var(--sys-voice-line-height-reading);
   --comp-drawer-body-gap: var(--component-space-xl);
   --comp-drawer-body-padding-start: var(--component-space-xl);
-  --comp-drawer-supporting-copy-color: var(--sys-color-text-muted);
+  --comp-drawer-supporting-copy-color: var(--component-color-text-muted);
   --comp-drawer-supporting-copy-font-size: var(--component-font-size-body);
   --comp-drawer-supporting-copy-line-height: var(--sys-voice-line-height-reading);
   --comp-drawer-footer-gap: var(--component-space-sm);
   --comp-drawer-footer-border-width: var(--component-border-width);
-  --comp-drawer-footer-border: var(--sys-color-border);
+  --comp-drawer-footer-border: var(--component-color-border);
   --comp-drawer-footer-padding-block-start: var(--component-space-xl);
   --comp-drawer-enter-duration: var(--component-duration-overlay);
   --comp-drawer-enter-ease: var(--component-ease-enter);
@@ -5766,14 +5784,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .dialog {
   --comp-dialog-gap: var(--component-space-sm);
-  --comp-dialog-overlay-bg: color-mix(in srgb, var(--sys-color-text) 40%, transparent);
+  --comp-dialog-overlay-bg: color-mix(in srgb, var(--component-color-text) 40%, transparent);
   --comp-dialog-overlay-blur: var(--sys-depth-backdrop-blur);
   --comp-dialog-z-index: var(--sys-depth-z-dialog);
-  --comp-dialog-panel-bg: var(--sys-color-surface);
+  --comp-dialog-panel-bg: var(--component-color-surface);
   --comp-dialog-panel-border-width: var(--component-border-width);
-  --comp-dialog-panel-border: var(--sys-color-border);
+  --comp-dialog-panel-border: var(--component-color-border);
   --comp-dialog-panel-radius: var(--component-radius-surface);
-  --comp-dialog-panel-color: var(--sys-color-text);
+  --comp-dialog-panel-color: var(--component-color-text);
   --comp-dialog-panel-depth: var(--component-depth-panel-strong);
   --comp-dialog-panel-inline: var(--component-dialog-panel-inline);
   --comp-dialog-panel-padding: var(--component-space-lg);
@@ -5782,12 +5800,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-icon-size: var(--component-dialog-icon-size);
   --comp-dialog-icon-font-size: var(--component-font-size-icon-md);
   --comp-dialog-icon-radius: var(--component-radius-pill);
-  --comp-dialog-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
-  --comp-dialog-icon-color: var(--sys-color-action);
+  --comp-dialog-icon-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
+  --comp-dialog-icon-color: var(--component-color-action);
   --comp-dialog-title-font-family: var(--sys-font-title);
   --comp-dialog-title-font-size: var(--component-font-size-title-md);
   --comp-dialog-title-font-weight: var(--sys-voice-weight-black);
-  --comp-dialog-description-color: var(--sys-color-text-muted);
+  --comp-dialog-description-color: var(--component-color-text-muted);
   --comp-dialog-description-font-size: var(--component-font-size-body);
   --comp-dialog-description-line-height: var(--sys-voice-line-height-reading);
   --comp-dialog-header-gap: var(--component-space-sm);
@@ -5895,13 +5913,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .dialog--danger .dialog__icon {
-  --comp-dialog-icon-bg: color-mix(in srgb, var(--sys-color-danger) 12%, var(--sys-color-surface));
-  --comp-dialog-icon-color: var(--sys-color-danger);
+  --comp-dialog-icon-bg: color-mix(in srgb, var(--component-color-danger) 12%, var(--component-color-surface));
+  --comp-dialog-icon-color: var(--component-color-danger);
 }
 
 .dialog--success .dialog__icon {
-  --comp-dialog-icon-bg: color-mix(in srgb, var(--sys-color-success) 14%, var(--sys-color-surface));
-  --comp-dialog-icon-color: var(--sys-color-success);
+  --comp-dialog-icon-bg: color-mix(in srgb, var(--component-color-success) 14%, var(--component-color-surface));
+  --comp-dialog-icon-color: var(--component-color-success);
 }
 
 .dialog--neutral .dialog__header {
@@ -5969,10 +5987,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .menu {
   --comp-menu-gap: var(--component-space-xs);
-  --comp-menu-panel-bg: var(--sys-color-surface);
+  --comp-menu-panel-bg: var(--component-color-surface);
   --comp-menu-panel-border-width: var(--component-border-width);
-  --comp-menu-panel-border: var(--sys-color-border);
-  --comp-menu-panel-fg: var(--sys-color-text);
+  --comp-menu-panel-border: var(--component-color-border);
+  --comp-menu-panel-fg: var(--component-color-text);
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-md);
   --comp-menu-panel-padding: var(--component-space-xs);
   --comp-menu-panel-radius: var(--component-radius-surface);
@@ -5981,11 +5999,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-z-index: var(--sys-depth-z-overlay);
   --comp-menu-panel-gap: var(--component-space-xs);
   --comp-menu-item-bg: var(--component-surface-transparent);
-  --comp-menu-item-fg: var(--sys-color-text);
-  --comp-menu-item-hover-bg: var(--sys-color-surface-muted);
-  --comp-menu-item-danger-fg: var(--sys-color-danger);
-  --comp-menu-item-danger-hover-bg: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
-  --comp-menu-item-disabled-fg: var(--sys-color-text-muted);
+  --comp-menu-item-fg: var(--component-color-text);
+  --comp-menu-item-hover-bg: var(--component-color-surface-muted);
+  --comp-menu-item-danger-fg: var(--component-color-danger);
+  --comp-menu-item-danger-hover-bg: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
+  --comp-menu-item-disabled-fg: var(--component-color-text-muted);
   --comp-menu-item-disabled-opacity: var(--component-opacity-disabled);
   --comp-menu-item-height: var(--component-option-min-block-size);
   --comp-menu-item-padding-x: var(--component-space-sm);
@@ -5997,21 +6015,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-icon-size: var(--component-icon-size-sm);
   --comp-menu-item-icon-family: var(--sys-font-icon);
   --comp-menu-item-icon-weight: var(--sys-font-weight-regular);
-  --comp-menu-item-shortcut-fg: var(--sys-color-text-muted);
+  --comp-menu-item-shortcut-fg: var(--component-color-text-muted);
   --comp-menu-item-shortcut-font-size: var(--component-font-size-helper);
   --comp-menu-item-hover-transform: var(--component-transform-inline-nudge);
   --comp-menu-item-disabled-transform: var(--component-transform-none);
-  --comp-menu-separator-border: var(--sys-color-border);
+  --comp-menu-separator-border: var(--component-color-border);
   --comp-menu-separator-margin-block: var(--component-space-xs);
   --comp-menu-trigger-avatar-bg: var(--component-surface-transparent);
   --comp-menu-trigger-avatar-border-width: var(--component-border-width);
   --comp-menu-trigger-avatar-border: var(--component-border-transparent);
   --comp-menu-trigger-avatar-radius: var(--sys-radius-full);
-  --comp-menu-trigger-avatar-fg: var(--sys-color-text);
+  --comp-menu-trigger-avatar-fg: var(--component-color-text);
   --comp-menu-trigger-avatar-size: var(--sys-touch-target-min);
   --comp-menu-trigger-avatar-padding: var(--component-space-2xs);
-  --comp-menu-trigger-avatar-hover-bg: var(--sys-color-surface-muted);
-  --comp-menu-trigger-avatar-hover-border: var(--sys-color-border-strong);
+  --comp-menu-trigger-avatar-hover-bg: var(--component-color-surface-muted);
+  --comp-menu-trigger-avatar-hover-border: var(--component-color-border-strong);
   --comp-menu-focus-ring: var(--component-focus-ring);
   --comp-menu-focus-ring-offset: var(--component-focus-ring-offset);
   --comp-menu-active-scale: var(--sys-momentum-scale-press);
@@ -6297,11 +6315,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .drawer--danger .drawer__panel {
-  --comp-drawer-panel-border: color-mix(in srgb, var(--sys-color-danger) 34%, var(--sys-color-border));
+  --comp-drawer-panel-border: color-mix(in srgb, var(--component-color-danger) 34%, var(--component-color-border));
 }
 
 .drawer--info .drawer__panel {
-  --comp-drawer-panel-border: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
+  --comp-drawer-panel-border: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
 }
 
 @media (max-width: 575px) {
@@ -6512,23 +6530,23 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .motion-boundary {
   --comp-motion-boundary-gap: var(--component-space-md);
-  --comp-motion-boundary-surface-bg: var(--sys-color-surface);
-  --comp-motion-boundary-surface-border: color-mix(in srgb, var(--sys-color-border) 82%, transparent);
+  --comp-motion-boundary-surface-bg: var(--component-color-surface);
+  --comp-motion-boundary-surface-border: color-mix(in srgb, var(--component-color-border) 82%, transparent);
   --comp-motion-boundary-surface-radius: calc(var(--sys-radius-md) * 1.5);
   --comp-motion-boundary-surface-shadow: var(--component-depth-panel);
   --comp-motion-boundary-surface-padding: var(--component-space-lg);
-  --comp-motion-boundary-text: var(--sys-color-text);
-  --comp-motion-boundary-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
-  --comp-motion-boundary-icon-fg: var(--sys-color-action);
+  --comp-motion-boundary-text: var(--component-color-text);
+  --comp-motion-boundary-icon-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
+  --comp-motion-boundary-icon-fg: var(--component-color-action);
   --comp-motion-boundary-icon-size: var(--component-inline-size-lg);
   --comp-motion-boundary-icon-font-size: var(--component-font-size-icon-md);
-  --comp-motion-boundary-state-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  --comp-motion-boundary-state-border: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
-  --comp-motion-boundary-state-fg: var(--sys-color-action);
+  --comp-motion-boundary-state-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
+  --comp-motion-boundary-state-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
+  --comp-motion-boundary-state-fg: var(--component-color-action);
   --comp-motion-boundary-state-font-size: var(--component-font-size-caption);
   --comp-motion-boundary-state-font-weight: var(--sys-voice-weight-extrabold);
   --comp-motion-boundary-state-padding: calc(var(--component-space-xs) / 2) var(--component-space-xs);
-  --comp-motion-boundary-cue-bg: var(--sys-color-action);
+  --comp-motion-boundary-cue-bg: var(--component-color-action);
   --comp-motion-boundary-cue-radius: var(--component-radius-pill);
   --comp-motion-boundary-cue-block-size: var(--component-space-xs);
   --comp-motion-boundary-cue-inline-size: var(--component-motion-cue-inline-size);
@@ -6543,13 +6561,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-motion-boundary-cue-route-inline-size: var(--component-motion-cue-route-inline-size);
   --comp-motion-boundary-cue-route-bg: repeating-linear-gradient(
     90deg,
-    var(--sys-color-action) 0 10px,
+    var(--component-color-action) 0 10px,
     transparent 10px 16px
   );
-  --comp-motion-boundary-disabled-state-bg: var(--sys-color-surface-raised);
-  --comp-motion-boundary-disabled-state-border: var(--sys-color-border);
-  --comp-motion-boundary-disabled-state-fg: var(--sys-color-text-muted);
-  --comp-motion-boundary-disabled-cue-bg: var(--sys-color-border);
+  --comp-motion-boundary-disabled-state-bg: var(--component-color-surface-raised);
+  --comp-motion-boundary-disabled-state-border: var(--component-color-border);
+  --comp-motion-boundary-disabled-state-fg: var(--component-color-text-muted);
+  --comp-motion-boundary-disabled-cue-bg: var(--component-color-border);
   align-items: center;
   display: flex;
   gap: var(--comp-motion-boundary-gap);
@@ -6570,12 +6588,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .biometric-prompt,
 .motion-boundary,
 .animated-moment {
-  --comp-motion-boundary-surface-bg: var(--sys-color-surface);
-  --comp-motion-boundary-surface-border: color-mix(in srgb, var(--sys-color-border) 82%, transparent);
+  --comp-motion-boundary-surface-bg: var(--component-color-surface);
+  --comp-motion-boundary-surface-border: color-mix(in srgb, var(--component-color-border) 82%, transparent);
   --comp-motion-boundary-surface-radius: calc(var(--sys-radius-md) * 1.5);
   --comp-motion-boundary-surface-shadow: var(--component-depth-panel);
   --comp-motion-boundary-surface-padding: var(--component-space-lg);
-  --comp-motion-boundary-text: var(--sys-color-text);
+  --comp-motion-boundary-text: var(--component-color-text);
   background: var(--comp-motion-boundary-surface-bg);
   border: var(--component-border-width) solid var(--comp-motion-boundary-surface-border);
   border-radius: var(--comp-motion-boundary-surface-radius);
@@ -6595,8 +6613,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-sm));
   --comp-biometric-prompt-padding: calc(var(--component-space-xl) + var(--component-space-xs)) var(--component-space-lg) var(--component-space-lg);
   --comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 - var(--component-frame-space-micro));
-  --comp-biometric-prompt-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
-  --comp-biometric-prompt-icon-fg: var(--sys-color-action);
+  --comp-biometric-prompt-icon-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
+  --comp-biometric-prompt-icon-fg: var(--component-color-action);
   --comp-biometric-prompt-icon-font-size: var(--component-font-size-display-sm);
   --comp-biometric-prompt-icon-radius: var(--component-radius-pill);
   --comp-biometric-prompt-content-max-inline-size: var(--component-content-size-sm);
@@ -6606,15 +6624,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-biometric-prompt-title-line-height: var(--sys-voice-line-height-crisp);
   --comp-biometric-prompt-action-inline-size: min(100%, var(--component-content-size-sm));
   --comp-biometric-prompt-ring-border-width: var(--component-border-width-indicator);
-  --comp-biometric-prompt-ring-border-color: var(--sys-color-action);
+  --comp-biometric-prompt-ring-border-color: var(--component-color-action);
   --comp-biometric-prompt-ring-inset: calc(var(--component-space-xs) * -1);
   --comp-biometric-prompt-ring-opacity: var(--sys-state-muted-opacity);
-  --comp-biometric-prompt-success-bg: color-mix(in srgb, var(--sys-color-success) 14%, var(--sys-color-surface));
-  --comp-biometric-prompt-success-fg: var(--sys-color-success);
-  --comp-biometric-prompt-warning-bg: color-mix(in srgb, var(--sys-color-warning) 14%, var(--sys-color-surface));
-  --comp-biometric-prompt-warning-fg: var(--sys-color-warning);
-  --comp-biometric-prompt-error-bg: color-mix(in srgb, var(--sys-color-danger) 12%, var(--sys-color-surface));
-  --comp-biometric-prompt-error-fg: var(--sys-color-danger);
+  --comp-biometric-prompt-success-bg: color-mix(in srgb, var(--component-color-success) 14%, var(--component-color-surface));
+  --comp-biometric-prompt-success-fg: var(--component-color-success);
+  --comp-biometric-prompt-warning-bg: color-mix(in srgb, var(--component-color-warning) 14%, var(--component-color-surface));
+  --comp-biometric-prompt-warning-fg: var(--component-color-warning);
+  --comp-biometric-prompt-error-bg: color-mix(in srgb, var(--component-color-danger) 12%, var(--component-color-surface));
+  --comp-biometric-prompt-error-fg: var(--component-color-danger);
   --comp-biometric-prompt-motion-pulse-duration: var(--component-duration-pulse);
   --comp-biometric-prompt-motion-loop-duration: var(--component-duration-loop);
   --comp-biometric-prompt-motion-state-duration: var(--component-duration-state);
@@ -6651,9 +6669,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .biometric-prompt__icon,
 .motion-boundary__icon,
 .animated-moment__icon {
-  --comp-motion-boundary-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
+  --comp-motion-boundary-icon-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
   --comp-motion-boundary-cue-radius: var(--component-radius-pill);
-  --comp-motion-boundary-icon-fg: var(--sys-color-action);
+  --comp-motion-boundary-icon-fg: var(--component-color-action);
   --comp-motion-boundary-icon-font-size: var(--component-font-size-icon-md);
   --comp-motion-boundary-icon-size: var(--component-inline-size-lg);
   align-items: center;
@@ -6789,13 +6807,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-icon-size: var(--sys-icon-size-md);
   --comp-tree-view-icon-size-lg: var(--component-font-size-icon-md);
   --comp-tree-view-selected-bg: var(--component-surface-transparent);
-  --comp-tree-view-selected-text: var(--sys-color-action);
+  --comp-tree-view-selected-text: var(--component-color-action);
   --comp-tree-view-selected-border: var(--component-border-transparent);
   --comp-tree-view-hover-bg: var(--sys-energy-surface-primary);
   --comp-tree-view-hover-border: var(--sys-energy-border-default);
   --comp-tree-view-hover-shadow: var(--component-tree-view-hover-shadow);
   --comp-tree-view-hover-transform: var(--component-transform-inline-nudge);
-  --comp-tree-view-expanded-text: var(--sys-color-text);
+  --comp-tree-view-expanded-text: var(--component-color-text);
   --comp-tree-view-motion-duration: var(--component-duration-medium);
   --comp-tree-view-motion-ease: var(--component-ease-move);
   --comp-tree-view-chevron-ease: var(--component-ease-press);
@@ -6826,7 +6844,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 body[data-contrast="quiet"] .tree-view {
-  --comp-tree-view-selected-text: color-mix(in srgb, var(--sys-color-action) 55%, var(--sys-color-text));
+  --comp-tree-view-selected-text: color-mix(in srgb, var(--component-color-action) 55%, var(--component-color-text));
 }
 
 .tree-view__control,
@@ -6944,7 +6962,7 @@ body[data-contrast="quiet"] .tree-view {
 
 .motion-boundary__cue,
 .animated-moment__cue {
-  --comp-motion-boundary-cue-bg: var(--sys-color-action);
+  --comp-motion-boundary-cue-bg: var(--component-color-action);
   --comp-motion-boundary-cue-radius: var(--component-radius-pill);
   background: var(--comp-motion-boundary-cue-bg);
   border-radius: var(--comp-motion-boundary-cue-radius);
@@ -7167,9 +7185,9 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment {
-  --comp-animated-moment-accent: var(--sys-color-action);
-  --comp-animated-moment-accent-surface: color-mix(in srgb, var(--comp-animated-moment-accent) 12%, var(--sys-color-surface));
-  --comp-animated-moment-accent-border: color-mix(in srgb, var(--comp-animated-moment-accent) 34%, var(--sys-color-border));
+  --comp-animated-moment-accent: var(--component-color-action);
+  --comp-animated-moment-accent-surface: color-mix(in srgb, var(--comp-animated-moment-accent) 12%, var(--component-color-surface));
+  --comp-animated-moment-accent-border: color-mix(in srgb, var(--comp-animated-moment-accent) 34%, var(--component-color-border));
   --comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 4.5);
   --comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9);
   --comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38);
@@ -7229,19 +7247,19 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment[data-variant="success"] {
-  --comp-animated-moment-accent: var(--sys-color-action);
+  --comp-animated-moment-accent: var(--component-color-action);
 }
 
 .animated-moment[data-variant="empty"] {
-  --comp-animated-moment-accent: var(--sys-color-success);
+  --comp-animated-moment-accent: var(--component-color-success);
 }
 
 .animated-moment[data-variant="loading"] {
-  --comp-animated-moment-accent: var(--sys-color-action);
+  --comp-animated-moment-accent: var(--component-color-action);
 }
 
 .animated-moment[data-variant="celebration"] {
-  --comp-animated-moment-accent: var(--sys-color-warning);
+  --comp-animated-moment-accent: var(--component-color-warning);
 }
 
 .animated-moment[data-variant] {
@@ -7573,18 +7591,18 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .inline-validation {
-  --comp-inline-validation-color: var(--sys-color-text);
+  --comp-inline-validation-color: var(--component-color-text);
   --comp-inline-validation-display: var(--component-display-grid);
   --comp-inline-validation-gap: var(--component-space-xs);
   --comp-inline-validation-width: min(100%, var(--component-content-size-md));
   --comp-inline-validation-full-width: var(--component-inline-size-full);
   --comp-inline-validation-auto-width: var(--component-inline-size-auto);
-  --comp-inline-validation-message: var(--sys-color-text-muted);
-  --comp-inline-validation-info: var(--sys-color-action);
-  --comp-inline-validation-success: var(--sys-color-success);
-  --comp-inline-validation-warning: var(--sys-color-warning);
+  --comp-inline-validation-message: var(--component-color-text-muted);
+  --comp-inline-validation-info: var(--component-color-action);
+  --comp-inline-validation-success: var(--component-color-success);
+  --comp-inline-validation-warning: var(--component-color-warning);
   --comp-inline-validation-danger: var(--sys-energy-status-error);
-  --comp-inline-validation-disabled: var(--sys-color-text-muted);
+  --comp-inline-validation-disabled: var(--component-color-text-muted);
   --comp-inline-validation-tone: var(--comp-inline-validation-message);
   --comp-inline-validation-field-width: var(--component-inline-size-full);
   --comp-inline-validation-message-align: var(--component-align-center);
@@ -7622,10 +7640,10 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .inline-validation[data-state="disabled"] { --comp-inline-validation-tone: var(--comp-inline-validation-disabled); }
 
 body[data-contrast="quiet"] .inline-validation {
-  --comp-inline-validation-info: color-mix(in srgb, var(--sys-color-action) 55%, var(--sys-color-text));
-  --comp-inline-validation-success: color-mix(in srgb, var(--sys-color-success) 55%, var(--sys-color-text));
-  --comp-inline-validation-warning: color-mix(in srgb, var(--sys-color-warning) 55%, var(--sys-color-text));
-  --comp-inline-validation-danger: color-mix(in srgb, var(--sys-energy-status-error) 55%, var(--sys-color-text));
+  --comp-inline-validation-info: color-mix(in srgb, var(--component-color-action) 55%, var(--component-color-text));
+  --comp-inline-validation-success: color-mix(in srgb, var(--component-color-success) 55%, var(--component-color-text));
+  --comp-inline-validation-warning: color-mix(in srgb, var(--component-color-warning) 55%, var(--component-color-text));
+  --comp-inline-validation-danger: color-mix(in srgb, var(--sys-energy-status-error) 55%, var(--component-color-text));
 }
 
 .inline-validation .field {
@@ -7717,37 +7735,37 @@ body[data-contrast="quiet"] .inline-validation {
 
 .stepper {
   --comp-stepper-orientation-gap: var(--component-space-xs);
-  --comp-stepper-item-fg: var(--sys-color-text-muted);
-  --comp-stepper-item-active-fg: var(--sys-color-text);
-  --comp-stepper-item-complete-fg: var(--sys-color-text);
+  --comp-stepper-item-fg: var(--component-color-text-muted);
+  --comp-stepper-item-active-fg: var(--component-color-text);
+  --comp-stepper-item-complete-fg: var(--component-color-text);
   --comp-stepper-marker-size: var(--component-step-marker-size-md);
-  --comp-stepper-marker-bg: var(--sys-color-surface);
+  --comp-stepper-marker-bg: var(--component-color-surface);
   --comp-stepper-marker-border-width: var(--component-border-width-control);
-  --comp-stepper-marker-border: var(--sys-color-border);
+  --comp-stepper-marker-border: var(--component-color-border);
   --comp-stepper-marker-radius: var(--component-radius-pill);
-  --comp-stepper-marker-fg: var(--sys-color-text-muted);
+  --comp-stepper-marker-fg: var(--component-color-text-muted);
   --comp-stepper-marker-font-family: var(--component-font-family-mono);
   --comp-stepper-marker-font-size: var(--component-font-size-small);
   --comp-stepper-marker-font-weight: var(--sys-voice-weight-extrabold);
-  --comp-stepper-marker-active-bg: linear-gradient(145deg, color-mix(in srgb, var(--sys-color-action) 78%, var(--sys-color-surface)) 0%, var(--sys-color-action) 62%, color-mix(in srgb, var(--sys-color-action) 84%, var(--sys-color-text)) 100%);
-  --comp-stepper-marker-active-border: var(--sys-color-action);
-  --comp-stepper-marker-active-fg: var(--sys-color-action-text);
-  --comp-stepper-marker-active-depth: 0 0 0 var(--component-focus-ring-width) color-mix(in srgb, var(--sys-color-action) 20%, transparent), var(--component-depth-raised-strong);
-  --comp-stepper-marker-complete-bg: var(--sys-color-success);
-  --comp-stepper-marker-complete-border: var(--sys-color-success);
-  --comp-stepper-marker-complete-fg: var(--sys-color-action-text);
+  --comp-stepper-marker-active-bg: linear-gradient(145deg, color-mix(in srgb, var(--sys-color-action) 78%, var(--component-color-surface)) 0%, var(--sys-color-action) 62%, color-mix(in srgb, var(--component-color-action) 84%, var(--component-color-text)) 100%);
+  --comp-stepper-marker-active-border: var(--component-color-action);
+  --comp-stepper-marker-active-fg: var(--component-color-action-text);
+  --comp-stepper-marker-active-depth: 0 0 0 var(--component-focus-ring-width) color-mix(in srgb, var(--component-color-action) 20%, transparent), var(--component-depth-raised-strong);
+  --comp-stepper-marker-complete-bg: var(--component-color-success);
+  --comp-stepper-marker-complete-border: var(--component-color-success);
+  --comp-stepper-marker-complete-fg: var(--component-color-action-text);
   --comp-stepper-marker-complete-font-family: var(--sys-font-icon);
   --comp-stepper-marker-complete-font-size: var(--component-font-size-body);
   --comp-stepper-label-size: var(--component-font-size-small);
   --comp-stepper-label-font-weight: var(--sys-voice-weight-semibold);
   --comp-stepper-label-active-font-weight: var(--sys-voice-weight-extrabold);
   --comp-stepper-description-size: var(--component-font-size-caption);
-  --comp-stepper-description-fg: var(--sys-color-text-muted);
+  --comp-stepper-description-fg: var(--component-color-text-muted);
   --comp-stepper-text-gap: var(--component-visually-hidden-size);
   --comp-stepper-text-max-inline: var(--component-step-text-max-inline-size);
   --comp-stepper-text-min-inline: var(--component-step-text-min-inline-size);
-  --comp-stepper-connector-bg: var(--sys-color-border);
-  --comp-stepper-connector-complete-bg: var(--sys-color-success);
+  --comp-stepper-connector-bg: var(--component-color-border);
+  --comp-stepper-connector-complete-bg: var(--component-color-success);
   --comp-stepper-connector-radius: var(--component-radius-pill);
   --comp-stepper-connector-size: var(--component-focus-ring-offset);
   --comp-stepper-connector-min-inline: var(--component-inline-size-sm);
@@ -7947,16 +7965,16 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .chart-panel {
-  --comp-chart-panel-bg: var(--sys-color-surface);
-  --comp-chart-panel-border: var(--sys-color-border);
+  --comp-chart-panel-bg: var(--component-color-surface);
+  --comp-chart-panel-border: var(--component-color-border);
   --comp-chart-panel-border-width: var(--component-border-width);
   --comp-chart-panel-depth: var(--component-depth-panel);
   --comp-chart-panel-disabled-border: var(--component-disabled-border);
   --comp-chart-panel-disabled-fg: var(--component-disabled-text);
   --comp-chart-panel-disabled-opacity: var(--sys-disabled-opacity);
   --comp-chart-panel-display: var(--component-display-grid);
-  --comp-chart-panel-fg: var(--sys-color-text);
-  --comp-chart-panel-focus-color: color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  --comp-chart-panel-fg: var(--component-color-text);
+  --comp-chart-panel-focus-color: color-mix(in srgb, var(--component-color-action) 35%, transparent);
   --comp-chart-panel-focus-offset: var(--component-focus-ring-offset);
   --comp-chart-panel-focus-width: var(--component-focus-ring-width);
   --comp-chart-panel-full-width: var(--component-inline-size-full);
@@ -7964,28 +7982,28 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-header-display: var(--component-display-grid);
   --comp-chart-panel-header-gap: var(--component-frame-space-none);
   --comp-chart-panel-header-title-family: var(--sys-font-title);
-  --comp-chart-panel-header-title-color: var(--sys-color-text-muted);
+  --comp-chart-panel-header-title-color: var(--component-color-text-muted);
   --comp-chart-panel-tooltip-x: 50%;
   --comp-chart-panel-tooltip-y: var(--component-offset-zero);
-  --comp-chart-panel-hover-border: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--sys-color-border));
+  --comp-chart-panel-hover-border: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--component-color-border));
   --comp-chart-panel-hover-depth: var(--component-depth-action-hover);
   --comp-chart-panel-hover-transform: var(--component-transform-lift-sm);
   --comp-chart-panel-padding: var(--component-space-lg);
   --comp-chart-panel-radius: var(--component-radius-control);
-  --comp-chart-panel-state-border: color-mix(in srgb, var(--comp-chart-panel-tone) 48%, var(--sys-color-border));
-  --comp-chart-panel-tone: var(--sys-color-action);
+  --comp-chart-panel-state-border: color-mix(in srgb, var(--comp-chart-panel-tone) 48%, var(--component-color-border));
+  --comp-chart-panel-tone: var(--component-color-action);
   --comp-chart-panel-width: min(100%, var(--component-content-size-md));
   --comp-chart-panel-plot-size-base: var(--component-block-size-md);
   --comp-chart-panel-plot-density-offset: 0px;
   --comp-chart-panel-plot-size: calc(var(--comp-chart-panel-plot-size-base) + var(--comp-chart-panel-plot-density-offset));
-  --comp-chart-panel-donut-bg: color-mix(in srgb, var(--sys-color-action) 10%, transparent);
+  --comp-chart-panel-donut-bg: color-mix(in srgb, var(--component-color-action) 10%, transparent);
   --comp-chart-panel-series-1: var(--sys-chart-series-primary);
   --comp-chart-panel-series-2: var(--sys-chart-series-secondary);
   --comp-chart-panel-series-3: var(--sys-chart-series-quaternary);
   --comp-chart-panel-series-4: color-mix(in srgb, var(--sys-chart-series-primary) 54%, var(--sys-chart-series-secondary));
   --comp-chart-panel-series-5: var(--sys-chart-series-tertiary);
   --comp-chart-panel-current-series: var(--comp-chart-panel-tone);
-  --comp-chart-panel-comparison-reference-fill: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--sys-color-border));
+  --comp-chart-panel-comparison-reference-fill: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--component-color-border));
   --comp-chart-panel-stagger-delay: 0ms;
   background: var(--comp-chart-panel-bg);
   border: var(--comp-chart-panel-border-width) solid var(--comp-chart-panel-border);
@@ -8010,40 +8028,40 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .route-summary {
-  --comp-route-summary-bg: var(--sys-color-surface);
-  --comp-route-summary-border: var(--sys-color-border);
+  --comp-route-summary-bg: var(--component-color-surface);
+  --comp-route-summary-border: var(--component-color-border);
   --comp-route-summary-border-width: var(--component-border-width);
   --comp-route-summary-depth: var(--component-depth-panel);
   --comp-route-summary-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-route-summary-disabled-opacity: var(--component-opacity-disabled);
   --comp-route-summary-display: var(--component-display-grid);
-  --comp-route-summary-fg: var(--sys-color-text);
-  --comp-route-summary-focus-color: var(--sys-color-focus);
+  --comp-route-summary-fg: var(--component-color-text);
+  --comp-route-summary-focus-color: var(--component-color-focus);
   --comp-route-summary-focus-offset: var(--component-focus-ring-offset);
   --comp-route-summary-focus-width: var(--component-focus-ring-width);
   --comp-route-summary-full-width: var(--component-inline-size-full);
-  --comp-route-summary-tone: var(--sys-color-action);
+  --comp-route-summary-tone: var(--component-color-action);
   --comp-route-summary-gap: var(--component-space-md);
   --comp-route-summary-header-display: var(--component-display-grid);
   --comp-route-summary-header-gap: var(--component-space-sm);
   --comp-route-summary-header-grid: auto minmax(0, 1fr);
   --comp-route-summary-header-title-family: var(--sys-font-title);
-  --comp-route-summary-hover-border: color-mix(in srgb, var(--comp-route-summary-tone) 32%, var(--sys-color-border));
-  --comp-route-summary-hover-border-state: color-mix(in srgb, var(--comp-route-summary-tone) 38%, var(--sys-color-border));
+  --comp-route-summary-hover-border: color-mix(in srgb, var(--comp-route-summary-tone) 32%, var(--component-color-border));
+  --comp-route-summary-hover-border-state: color-mix(in srgb, var(--comp-route-summary-tone) 38%, var(--component-color-border));
   --comp-route-summary-padding: var(--component-space-lg);
   --comp-route-summary-icon-size: var(--component-route-summary-icon-size-md);
-  --comp-route-summary-metric-border: var(--sys-color-border);
+  --comp-route-summary-metric-border: var(--component-color-border);
   --comp-route-summary-metric-display: var(--component-display-grid);
   --comp-route-summary-metric-gap: var(--component-space-sm);
   --comp-route-summary-metric-padding: var(--component-space-md);
   --comp-route-summary-metric-min: var(--component-metric-min-inline-size-md);
-  --comp-route-summary-description-color: var(--sys-color-text-muted);
-  --comp-route-summary-metric-surface: color-mix(in srgb, var(--sys-color-surface-raised) 72%, var(--sys-color-surface));
+  --comp-route-summary-description-color: var(--component-color-text-muted);
+  --comp-route-summary-metric-surface: color-mix(in srgb, var(--component-color-surface-raised) 72%, var(--component-color-surface));
   --comp-route-summary-radius: var(--component-radius-control);
-  --comp-route-summary-selected-border: var(--sys-color-action);
-  --comp-route-summary-selected-shadow: 0 0 0 3px color-mix(in srgb, var(--sys-color-action) 14%, transparent),
+  --comp-route-summary-selected-border: var(--component-color-action);
+  --comp-route-summary-selected-shadow: 0 0 0 3px color-mix(in srgb, var(--component-color-action) 14%, transparent),
     var(--component-depth-panel);
-  --comp-route-summary-warning-border: color-mix(in srgb, var(--sys-color-warning) 52%, var(--sys-color-border));
+  --comp-route-summary-warning-border: color-mix(in srgb, var(--component-color-warning) 52%, var(--component-color-border));
   background: var(--comp-route-summary-bg);
   border: var(--comp-route-summary-border-width) solid var(--comp-route-summary-border);
   border-radius: var(--comp-route-summary-radius);
@@ -8083,11 +8101,11 @@ body[data-contrast="quiet"] .inline-validation {
 .route-summary[data-tone="warning"],
 .route-summary[data-state="warning"],
 .route-summary[data-variant="policy"] {
-  --comp-route-summary-tone: var(--sys-color-warning);
+  --comp-route-summary-tone: var(--component-color-warning);
 }
 
 .route-summary[data-tone="info"] {
-  --comp-route-summary-tone: var(--sys-color-action);
+  --comp-route-summary-tone: var(--component-color-action);
 }
 
 .route-summary[data-state="hover"] {
@@ -8204,12 +8222,12 @@ body[data-contrast="quiet"] .inline-validation {
 
 .chart-panel[data-tone="warning"],
 .chart-panel[data-state="warning"] {
-  --comp-chart-panel-tone: var(--sys-color-warning);
+  --comp-chart-panel-tone: var(--component-color-warning);
 }
 
 .chart-panel[data-tone="danger"],
 .chart-panel[data-state="error"] {
-  --comp-chart-panel-tone: var(--sys-color-danger);
+  --comp-chart-panel-tone: var(--component-color-danger);
 }
 
 .chart-panel[data-state="error"],
@@ -8861,8 +8879,8 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
-  --comp-station-pin-fg: var(--sys-color-surface);
-  --comp-station-pin-marker-fg: var(--sys-color-surface);
+  --comp-station-pin-fg: var(--component-color-surface);
+  --comp-station-pin-marker-fg: var(--component-color-surface);
 }
 
 .station-pin:hover,
@@ -8888,9 +8906,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .station-pin[data-state="unavailable"] {
-  --comp-station-pin-bg: var(--sys-color-surface-raised);
-  --comp-station-pin-fg: var(--sys-color-text-muted);
-  --comp-station-pin-marker-fg: var(--sys-color-text-muted);
+  --comp-station-pin-bg: var(--component-color-surface-raised);
+  --comp-station-pin-fg: var(--component-color-text-muted);
+  --comp-station-pin-marker-fg: var(--component-color-text-muted);
 }
 
 .station-pin:disabled {
@@ -9229,12 +9247,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .country-selector {
   --comp-country-selector-control-size: var(--comp-select-current-control-size);
-  --comp-country-selector-trigger-bg: var(--sys-color-surface);
-  --comp-country-selector-trigger-border: var(--sys-color-border);
-  --comp-country-selector-trigger-color: var(--sys-color-text);
-  --comp-country-selector-trigger-hover-bg: color-mix(in srgb, var(--sys-color-surface-raised) 72%, var(--sys-color-surface));
-  --comp-country-selector-trigger-hover-border: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
-  --comp-country-selector-trigger-focus-ring: color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  --comp-country-selector-trigger-bg: var(--component-color-surface);
+  --comp-country-selector-trigger-border: var(--component-color-border);
+  --comp-country-selector-trigger-color: var(--component-color-text);
+  --comp-country-selector-trigger-hover-bg: color-mix(in srgb, var(--component-color-surface-raised) 72%, var(--component-color-surface));
+  --comp-country-selector-trigger-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
+  --comp-country-selector-trigger-focus-ring: color-mix(in srgb, var(--component-color-action) 35%, transparent);
   --comp-country-selector-trigger-radius: var(--component-radius-control);
   --comp-country-selector-trigger-gap: var(--comp-select-gap);
   --comp-country-selector-trigger-padding-start: var(--comp-select-padding-start);
@@ -9242,7 +9260,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-trigger-font-size: var(--component-font-size-label);
   --comp-country-selector-inline-trigger-bg: var(--component-surface-transparent);
   --comp-country-selector-inline-trigger-border: var(--component-border-transparent);
-  --comp-country-selector-inline-trigger-color: var(--sys-color-text-muted);
+  --comp-country-selector-inline-trigger-color: var(--component-color-text-muted);
   --comp-country-selector-inline-trigger-gap: var(--component-space-xs);
   --comp-country-selector-inline-trigger-padding-end: var(--comp-select-inline-padding-end);
   --comp-country-selector-inline-listbox-max-inline-size: var(--component-country-selector-inline-listbox-max-inline-size);
@@ -9252,15 +9270,15 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-flag-ring: var(--component-depth-border-ring);
   --comp-country-selector-label-font-size: var(--component-font-size-label);
   --comp-country-selector-label-font-weight: var(--sys-voice-weight-medium);
-  --comp-country-selector-code-color: var(--sys-color-text-muted);
+  --comp-country-selector-code-color: var(--component-color-text-muted);
   --comp-country-selector-code-font-size: var(--component-font-size-caption);
   --comp-country-selector-code-font-weight: var(--sys-voice-weight-bold);
-  --comp-country-selector-chevron-color: var(--sys-color-text-muted);
+  --comp-country-selector-chevron-color: var(--component-color-text-muted);
   --comp-country-selector-chevron-size: var(--comp-select-chevron-size);
   --comp-country-selector-chevron-duration: var(--comp-select-chevron-motion-duration);
   --comp-country-selector-chevron-ease: var(--comp-select-chevron-motion-ease);
-  --comp-country-selector-listbox-bg: var(--sys-color-surface);
-  --comp-country-selector-listbox-border: var(--sys-color-border);
+  --comp-country-selector-listbox-bg: var(--component-color-surface);
+  --comp-country-selector-listbox-border: var(--component-color-border);
   --comp-country-selector-listbox-radius: var(--comp-select-listbox-radius);
   --comp-country-selector-listbox-depth: var(--comp-select-listbox-depth);
   --comp-country-selector-listbox-gap: var(--comp-select-listbox-gap);
@@ -9269,20 +9287,20 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-overlay-duration: var(--comp-select-overlay-motion-duration);
   --comp-country-selector-overlay-ease: var(--comp-select-overlay-motion-ease);
   --comp-country-selector-search-gap: var(--component-space-xs);
-  --comp-country-selector-search-bg: color-mix(in srgb, var(--sys-color-surface-raised) 72%, var(--sys-color-surface));
-  --comp-country-selector-search-border: var(--sys-color-border);
+  --comp-country-selector-search-bg: color-mix(in srgb, var(--component-color-surface-raised) 72%, var(--component-color-surface));
+  --comp-country-selector-search-border: var(--component-color-border);
   --comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
   --comp-country-selector-search-font-size: var(--component-font-size-small);
   --comp-country-selector-search-font-weight: var(--sys-voice-weight-semibold);
-  --comp-country-selector-option-color: var(--sys-color-text);
-  --comp-country-selector-option-hover-bg: color-mix(in srgb, var(--sys-color-action) 9%, transparent);
-  --comp-country-selector-option-selected-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
+  --comp-country-selector-option-color: var(--component-color-text);
+  --comp-country-selector-option-hover-bg: color-mix(in srgb, var(--component-color-action) 9%, transparent);
+  --comp-country-selector-option-selected-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
   --comp-country-selector-option-gap: var(--comp-select-option-gap);
   --comp-country-selector-option-min-size: var(--comp-select-option-min-size);
   --comp-country-selector-option-padding-x: var(--comp-select-option-padding-x);
   --comp-country-selector-option-radius: var(--comp-select-option-radius);
   --comp-country-selector-option-code-opacity: var(--component-opacity-muted);
-  --comp-country-selector-empty-color: var(--sys-color-text-muted);
+  --comp-country-selector-empty-color: var(--component-color-text-muted);
 }
 
 .select-control[data-density="sm"] {
@@ -10149,25 +10167,25 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .date-range-picker__panel {
   --comp-date-range-picker-panel-inline-size: var(--component-date-range-picker-panel-inline-size);
   --comp-date-range-picker-presets-gap: var(--component-space-xs);
-  --comp-date-range-picker-preset-bg: var(--sys-color-surface);
-  --comp-date-range-picker-preset-border: var(--sys-color-border);
-  --comp-date-range-picker-preset-hover-bg: var(--sys-color-surface-raised);
-  --comp-date-range-picker-preset-hover-border: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
-  --comp-date-range-picker-preset-fg: var(--sys-color-text-muted);
-  --comp-date-range-picker-preset-hover-fg: var(--sys-color-text);
+  --comp-date-range-picker-preset-bg: var(--component-color-surface);
+  --comp-date-range-picker-preset-border: var(--component-color-border);
+  --comp-date-range-picker-preset-hover-bg: var(--component-color-surface-raised);
+  --comp-date-range-picker-preset-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
+  --comp-date-range-picker-preset-fg: var(--component-color-text-muted);
+  --comp-date-range-picker-preset-hover-fg: var(--component-color-text);
   --comp-date-range-picker-preset-radius: var(--component-radius-pill);
   --comp-date-range-picker-preset-font-size: var(--component-font-size-caption);
   --comp-date-range-picker-preset-font-weight: var(--sys-voice-weight-extrabold);
   --comp-date-range-picker-preset-min-block-size: var(--component-date-range-picker-preset-min-block-size);
   --comp-date-range-picker-preset-padding-inline: var(--component-space-sm);
-  --comp-date-range-picker-range-bg: color-mix(in srgb, var(--sys-color-action) 14%, var(--sys-color-surface));
-  --comp-date-range-picker-range-fg: var(--sys-color-text);
+  --comp-date-range-picker-range-bg: color-mix(in srgb, var(--component-color-action) 14%, var(--component-color-surface));
+  --comp-date-range-picker-range-fg: var(--component-color-text);
   --comp-date-range-picker-range-radius: calc(var(--component-radius-pill) / 2);
-  --comp-date-range-picker-edge-bg: var(--sys-color-action);
-  --comp-date-range-picker-edge-fg: var(--sys-color-action-text);
+  --comp-date-range-picker-edge-bg: var(--component-color-action);
+  --comp-date-range-picker-edge-fg: var(--component-color-action-text);
   --comp-date-range-picker-edge-font-weight: var(--sys-voice-weight-extrabold);
   --comp-date-range-picker-focus-width: var(--component-focus-ring-width);
-  --comp-date-range-picker-focus-color: var(--sys-color-focus);
+  --comp-date-range-picker-focus-color: var(--component-color-focus);
   --comp-date-range-picker-focus-offset: var(--component-focus-ring-offset);
   --comp-date-range-picker-motion-duration: var(--component-duration-state);
   --comp-date-range-picker-motion-press-duration: var(--component-duration-press);
@@ -10248,15 +10266,15 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-min-block: var(--component-inline-trigger-min-block-size-md);
   --comp-segmented-control-item-padding-inline: var(--component-space-md);
   --comp-segmented-control-icon-size: var(--component-icon-size-sm);
-  --comp-segmented-control-bg: var(--sys-color-surface);
-  --comp-segmented-control-border: var(--sys-color-border);
+  --comp-segmented-control-bg: var(--component-color-surface);
+  --comp-segmented-control-border: var(--component-color-border);
   --comp-segmented-control-border-width: calc(var(--component-border-width) * 2);
   --comp-segmented-control-radius: var(--sys-radius-sm);
   --comp-segmented-control-inner-radius: calc(var(--comp-segmented-control-radius) - var(--component-frame-space-micro));
   --comp-segmented-control-inline-size: min(100%, var(--component-segmented-control-inline-size));
   --comp-segmented-control-padding: calc(var(--component-space-xs) / 2);
-  --comp-segmented-control-indicator-bg: color-mix(in srgb, var(--sys-color-action) 14%, var(--sys-color-surface));
-  --comp-segmented-control-indicator-border: var(--sys-color-action);
+  --comp-segmented-control-indicator-bg: color-mix(in srgb, var(--component-color-action) 14%, var(--component-color-surface));
+  --comp-segmented-control-indicator-border: var(--component-color-action);
   --comp-segmented-control-indicator-shadow: var(--component-depth-action-halo-strong);
   --comp-segmented-control-indicator-inset: var(--component-inset-zero);
   --comp-segmented-control-indicator-pointer-events: var(--component-pointer-events-none);
@@ -10267,7 +10285,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-align: var(--component-align-center);
   --comp-segmented-control-item-bg: var(--component-surface-transparent);
   --comp-segmented-control-item-border: var(--component-border-none);
-  --comp-segmented-control-item-fg: var(--sys-color-text-muted);
+  --comp-segmented-control-item-fg: var(--component-color-text-muted);
   --comp-segmented-control-item-cursor: var(--component-cursor-pointer);
   --comp-segmented-control-item-display: var(--component-display-inline-flex);
   --comp-segmented-control-item-flex: 1 1 0;
@@ -10275,7 +10293,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-min-inline: var(--component-inline-size-zero);
   --comp-segmented-control-item-position: var(--component-position-relative);
   --comp-segmented-control-item-z: var(--sys-depth-z-raised);
-  --comp-segmented-control-item-selected-fg: var(--sys-color-action);
+  --comp-segmented-control-item-selected-fg: var(--component-color-action);
   --comp-segmented-control-item-weight: var(--sys-voice-weight-semibold);
   --comp-segmented-control-item-selected-weight: var(--sys-voice-weight-extrabold);
   --comp-segmented-control-icon-selected-variation: var(--sys-icon-variation-filled-strong);
@@ -10286,7 +10304,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-label-text-overflow: var(--component-text-overflow-ellipsis);
   --comp-segmented-control-label-white-space: var(--component-white-space-nowrap);
   --comp-segmented-control-focus-width: var(--component-focus-ring-width);
-  --comp-segmented-control-focus-color: var(--sys-color-focus);
+  --comp-segmented-control-focus-color: var(--component-color-focus);
   --comp-segmented-control-focus-offset: var(--component-focus-ring-offset);
   --comp-segmented-control-motion-duration: var(--component-duration-snappy);
   --comp-segmented-control-motion-move-duration: var(--component-duration-medium);
@@ -10319,7 +10337,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm);
   --comp-segmented-control-item-padding-inline: var(--component-space-sm);
   --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
-  --comp-segmented-control-bg: color-mix(in srgb, var(--sys-color-surface) 76%, var(--sys-color-border));
+  --comp-segmented-control-bg: color-mix(in srgb, var(--component-color-surface) 76%, var(--component-color-border));
   --comp-segmented-control-inline-size: var(--component-inline-size-auto);
 }
 
@@ -10444,20 +10462,20 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-popover-panel-padding: var(--component-space-md);
   --comp-popover-panel-width: var(--component-content-size-sm);
   --comp-popover-panel-offset: var(--component-space-xs);
-  --comp-popover-panel-bg: var(--sys-color-surface);
+  --comp-popover-panel-bg: var(--component-color-surface);
   --comp-popover-panel-border-width: var(--component-border-width);
-  --comp-popover-panel-border: var(--sys-color-border);
-  --comp-popover-panel-border-warning: var(--sys-color-warning);
+  --comp-popover-panel-border: var(--component-color-border);
+  --comp-popover-panel-border-warning: var(--component-color-warning);
   --comp-popover-panel-radius: var(--component-radius-control);
   --comp-popover-panel-depth: var(--component-depth-popover);
-  --comp-popover-panel-fg: var(--sys-color-text);
+  --comp-popover-panel-fg: var(--component-color-text);
   --comp-popover-panel-z-index: var(--sys-depth-z-dropdown);
   --comp-popover-enter-duration: var(--component-duration-enter);
   --comp-popover-enter-ease: var(--component-ease-enter);
   --comp-popover-title-family: var(--sys-font-title);
   --comp-popover-title-size: var(--component-font-size-title-sm);
   --comp-popover-title-weight: var(--sys-voice-weight-black);
-  --comp-popover-body-fg: var(--sys-color-text-muted);
+  --comp-popover-body-fg: var(--component-color-text-muted);
   --comp-popover-body-size: var(--component-font-size-body-sm);
   --comp-popover-body-line-height: var(--sys-voice-line-height-normal);
   --comp-popover-actions-gap: var(--comp-popover-gap);
@@ -10564,7 +10582,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-card-summary-aspect-ratio: 1.586;
   --comp-card-summary-badge-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 16%, transparent);
   --comp-card-summary-badge-border: color-mix(in srgb, var(--comp-card-summary-current-fg) 18%, transparent);
-  --comp-card-summary-border: var(--sys-color-border);
+  --comp-card-summary-border: var(--component-color-border);
   --comp-card-summary-border-width: var(--component-border-width);
   --comp-card-summary-brand-family: var(--sys-font-title);
   --comp-card-summary-brand-letter-spacing: var(--sys-voice-letter-spacing-widest);
@@ -10656,7 +10674,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-state="frozen"] {
-  --comp-card-summary-current-tone: var(--sys-color-action);
+  --comp-card-summary-current-tone: var(--component-color-action);
 }
 
 .card-summary[data-state="hover"],
@@ -11034,32 +11052,32 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-padding: var(--component-frame-space-none);
   --comp-quick-action-shadow: var(--component-depth-none);
   --comp-quick-action-text-align: var(--component-align-center);
-  --comp-quick-action-control-bg: var(--sys-color-surface);
-  --comp-quick-action-control-border: var(--sys-color-border);
+  --comp-quick-action-control-bg: var(--component-color-surface);
+  --comp-quick-action-control-border: var(--component-color-border);
   --comp-quick-action-control-border-width: var(--component-border-width);
   --comp-quick-action-control-cursor: var(--component-cursor-pointer);
   --comp-quick-action-control-display: var(--component-display-inline-flex);
   --comp-quick-action-control-justify: var(--component-justify-center);
   --comp-quick-action-control-radius: var(--component-radius-pill);
   --comp-quick-action-control-shadow: var(--component-depth-low-soft);
-  --comp-quick-action-control-fg: var(--sys-color-action);
+  --comp-quick-action-control-fg: var(--component-color-action);
   --comp-quick-action-control-padding: var(--component-frame-space-none);
   --comp-quick-action-full-width: var(--component-inline-size-full);
   --comp-quick-action-icon-display: var(--component-display-inline-flex);
   --comp-quick-action-icon-font-size: var(--component-font-size-icon-md);
   --comp-quick-action-icon-justify: var(--component-justify-center);
-  --comp-quick-action-hover-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  --comp-quick-action-hover-border: color-mix(in srgb, var(--sys-color-action) 36%, var(--sys-color-border));
+  --comp-quick-action-hover-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
+  --comp-quick-action-hover-border: color-mix(in srgb, var(--component-color-action) 36%, var(--component-color-border));
   --comp-quick-action-hover-transform: var(--component-transform-scale-raised);
   --comp-quick-action-press-transform: var(--component-transform-press);
   --comp-quick-action-focus-width: var(--component-focus-ring-width);
-  --comp-quick-action-focus-color: var(--sys-color-focus);
+  --comp-quick-action-focus-color: var(--component-color-focus);
   --comp-quick-action-focus-offset: var(--component-focus-ring-offset);
-  --comp-quick-action-warning-bg: color-mix(in srgb, var(--sys-color-warning) 14%, var(--sys-color-surface));
-  --comp-quick-action-warning-fg: var(--sys-color-warning);
-  --comp-quick-action-danger-bg: color-mix(in srgb, var(--sys-color-danger) 12%, var(--sys-color-surface));
-  --comp-quick-action-danger-fg: var(--sys-color-danger);
-  --comp-quick-action-label-fg: var(--sys-color-text-muted);
+  --comp-quick-action-warning-bg: color-mix(in srgb, var(--component-color-warning) 14%, var(--component-color-surface));
+  --comp-quick-action-warning-fg: var(--component-color-warning);
+  --comp-quick-action-danger-bg: color-mix(in srgb, var(--component-color-danger) 12%, var(--component-color-surface));
+  --comp-quick-action-danger-fg: var(--component-color-danger);
+  --comp-quick-action-label-fg: var(--component-color-text-muted);
   --comp-quick-action-label-display: var(--component-display-block);
   --comp-quick-action-label-weight: var(--sys-voice-weight-extrabold);
   --comp-quick-action-label-line-height: var(--sys-voice-line-height-tight);

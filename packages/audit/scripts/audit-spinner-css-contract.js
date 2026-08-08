@@ -99,7 +99,7 @@ function checkSpinnerCssContract({ text, blocks, packageCssFile, selectorKey }) 
     block: successBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-spinner-tone: var(--sys-color-success)"],
+    snippets: ["--comp-spinner-tone: var(--component-color-success)"],
     message: "Spinner success tone must resolve through its tone alias.",
   });
   requireIncludes({
