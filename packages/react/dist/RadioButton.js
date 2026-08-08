@@ -14,8 +14,8 @@ function normalizeState({ checked, disabled, state, error }) {
 
 export const RadioButton = forwardRef(function RadioButton({
   label,
-  description = "",
-  error = "",
+  description,
+  error,
   variant = "default",
   state = "unselected",
   density,
@@ -38,6 +38,7 @@ export const RadioButton = forwardRef(function RadioButton({
   });
   const isInvalid = normalizedState === "error" || Boolean(error);
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "default");
+  if (!label) return null;
 
   useEffect(() => {
     if (isCheckedControlled) setCurrentChecked(Boolean(checked));
@@ -77,7 +78,7 @@ export const RadioButton = forwardRef(function RadioButton({
     React.createElement(
       "span",
       { className: "choice__text" },
-      label ? React.createElement("span", { className: "choice__label" }, label) : null,
+      React.createElement("span", { className: "choice__label" }, label),
       description ? React.createElement("span", { className: "choice__description" }, description) : null,
       error ? React.createElement("span", { className: "choice__error" }, error) : null,
     ),
