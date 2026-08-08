@@ -208,6 +208,9 @@ const checks = [
   ...(hasRepoFile("scripts/generate-token-contract.mjs")
     ? [["token contract freshness", () => run("node", ["scripts/generate-token-contract.mjs", "--check"])]]
     : []),
+  ...(hasRepoFile("packages/react/scripts/build.mjs")
+    ? [["react dist freshness", () => run("node", ["packages/react/scripts/build.mjs", "--check"])]]
+    : []),
   ...(hasRepoFile("scripts/generate-foundation-contracts.mjs")
     ? [["foundation contracts", () => run("node", ["scripts/generate-foundation-contracts.mjs", "--check"])]]
     : []),
