@@ -676,18 +676,21 @@ try {
     locale: "es-MX",
     presets: false,
     onValueChange: (value, event) => dateRangeValues.push({ value, eventType: event.type }),
-    onOpenChange: (open) => dateRangeOpenChanges.push(open),
+    onOpenChange: (open, event) => dateRangeOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
 
   const dateRangeTrigger = getDateRangeRole("button", { name: /service range/i });
   fireEvent.click(dateRangeTrigger);
   assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "true");
-  assert.deepEqual(dateRangeOpenChanges, [true]);
+  assert.deepEqual(dateRangeOpenChanges, [{ open: true, eventType: "click", key: undefined }]);
 
   fireEvent.click(getDateRangeRole("gridcell", { name: /miércoles, 15 de julio de 2026/i }));
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(dateRangeValues, [{ value: { from: "2026-07-01", to: "2026-07-15" }, eventType: "click" }]);
-  assert.deepEqual(dateRangeOpenChanges, [true, false]);
+  assert.deepEqual(dateRangeOpenChanges, [
+    { open: true, eventType: "click", key: undefined },
+    { open: false, eventType: "click", key: undefined },
+  ]);
 
   rerenderDateRangePicker(React.createElement(DateRangePicker, {
     label: "Service range",
@@ -695,7 +698,7 @@ try {
     locale: "es-MX",
     presets: false,
     onValueChange: (value, event) => dateRangeValues.push({ value, eventType: event.type }),
-    onOpenChange: (open) => dateRangeOpenChanges.push(open),
+    onOpenChange: (open, event) => dateRangeOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(dateRangeTrigger.textContent.includes("10 jul 2026 - 20 jul 2026"), true));
 
@@ -706,7 +709,7 @@ try {
     presets: false,
     open: true,
     onValueChange: (value, event) => dateRangeValues.push({ value, eventType: event.type }),
-    onOpenChange: (open) => dateRangeOpenChanges.push(open),
+    onOpenChange: (open, event) => dateRangeOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "true"));
 
@@ -717,7 +720,7 @@ try {
     presets: false,
     open: false,
     onValueChange: (value, event) => dateRangeValues.push({ value, eventType: event.type }),
-    onOpenChange: (open) => dateRangeOpenChanges.push(open),
+    onOpenChange: (open, event) => dateRangeOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(dateRangeTrigger.getAttribute("aria-expanded"), "false"));
 

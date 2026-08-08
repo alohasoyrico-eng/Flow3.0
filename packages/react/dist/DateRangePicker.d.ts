@@ -9,6 +9,7 @@ export type DateRangePickerValueChangeEvent =
   | MouseEvent<HTMLButtonElement>
   | KeyboardEvent<HTMLButtonElement>
   | ChangeEvent<HTMLInputElement>;
+export type DateRangePickerOpenChangeEvent = DateRangePickerValueChangeEvent | globalThis.MouseEvent;
 
 export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -31,7 +32,7 @@ export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButt
   presetItems?: DateRangePickerPreset[];
   open?: boolean;
   onValueChange?: (value: DateRangePickerValue, event: DateRangePickerValueChangeEvent) => void;
-  onOpenChange?: (open: boolean) => void;
+  onOpenChange?: (open: boolean, event?: DateRangePickerOpenChangeEvent) => void;
 }
 
 export interface DateRangePickerComponent extends ForwardRefExoticComponent<DateRangePickerProps & RefAttributes<HTMLButtonElement>> {

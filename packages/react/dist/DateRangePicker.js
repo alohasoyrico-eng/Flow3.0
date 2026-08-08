@@ -124,7 +124,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
     if (!open) return undefined;
     const onPointerDown = (event) => {
       if (rootRef.current?.contains(event.target)) return;
-      setOpen(false);
+      setOpen(false, false, event);
     };
     document.addEventListener("mousedown", onPointerDown);
     return () => document.removeEventListener("mousedown", onPointerDown);
@@ -132,10 +132,10 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
 
   if (!label) return null;
 
-  const setOpen = (nextOpen, restoreFocus = false) => {
+  const setOpen = (nextOpen, restoreFocus = false, event) => {
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
-    onOpenChange?.(normalizedOpen);
+    onOpenChange?.(normalizedOpen, event);
     if (restoreFocus) requestAnimationFrame(() => controlRef.current?.focus());
   };
 
@@ -143,7 +143,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
     if (!isValueControlled) setRange(nextRange);
     if (nextRange.from || nextRange.to) setViewDate(clampViewDate(nextRange.from || nextRange.to));
     onValueChange?.(nextRange, event);
-    if (close) setOpen(false, true);
+    if (close) setOpen(false, true, event);
   };
 
   const selectDate = (nextValue, event) => {
@@ -171,18 +171,18 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const handleTriggerClick = (event) => {
     rest.onClick?.(event);
     if (event.defaultPrevented || disabled) return;
-    setOpen(!open);
+    setOpen(!open, false, event);
   };
   const handleTriggerKeyDown = (event) => {
     rest.onKeyDown?.(event);
     if (event.defaultPrevented) return;
     if (event.key === "Escape") {
       event.preventDefault();
-      setOpen(false, true);
+      setOpen(false, true, event);
     }
     if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      setOpen(true);
+      setOpen(true, false, event);
     }
   };
 
@@ -221,7 +221,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
           moveMonth(event.key === "PageUp" ? -1 : 1);
         } else if (event.key === "Escape") {
           event.preventDefault();
-          setOpen(false, true);
+          setOpen(false, true, event);
         }
       },
     }, String(cell.getDate()));
@@ -301,7 +301,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         onKeyDown: (event) => {
           if (event.key !== "Escape") return;
           event.preventDefault();
-          setOpen(false, true);
+          setOpen(false, true, event);
         },
       },
       showPresets
