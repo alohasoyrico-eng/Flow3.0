@@ -545,6 +545,11 @@
   --sys-frame-content-navigation-target-lg: var(--sys-space-11);
   --sys-frame-content-navigation-ellipsis-inline: calc(var(--sys-space-11) * 0.75);
   --sys-frame-content-option-min-block: calc(var(--sys-space-11) - var(--sys-space-xs));
+  --sys-frame-content-step-marker-sm: calc(var(--sys-space-11) - var(--sys-space-lg));
+  --sys-frame-content-step-marker-md: calc(var(--sys-space-11) - var(--sys-space-lg) - var(--sys-space-xs));
+  --sys-frame-content-step-marker-lg: var(--sys-space-11);
+  --sys-frame-content-step-text-min-inline: calc(var(--sys-space-11) * 2);
+  --sys-frame-content-step-text-max-inline: calc(var(--sys-space-11) * 3);
   --sys-frame-content-narrow: 100%;
   --sys-frame-content-prose: 100%;
   --sys-frame-content-prose-wide: 100%;

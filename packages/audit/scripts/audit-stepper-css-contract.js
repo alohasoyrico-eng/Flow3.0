@@ -12,6 +12,7 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 function checkStepperCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const rootBlock = blockFor(blocks, selectorKey, ".stepper");
   const verticalBlock = blockFor(blocks, selectorKey, ".stepper[data-orientation=\"vertical\"]");
+  const smBlock = blockFor(blocks, selectorKey, ".stepper[data-density=\"sm\"]");
   const itemBlock = blockFor(blocks, selectorKey, ".stepper__item");
   const activeItemBlock = blockFor(blocks, selectorKey, ".stepper__item[data-state=\"active\"]");
   const markerBlock = blockFor(blocks, selectorKey, ".stepper__marker");
@@ -30,6 +31,10 @@ function checkStepperCssContract({ text, blocks, packageCssFile, selectorKey }) 
   if (rawCurrentScale) {
     add("errors", packageCssFile, lineNumber(text, rawCurrentScale.index), "Stepper current animation scale must flow through component Momentum scale roles instead of raw numbers.");
   }
+  const rawStepperSizing = /--comp-stepper-(?:marker-size|text-(?:max|min)-inline):\s*(?:calc\(var\(--component-control-min-size\)[^;]+|var\(--component-control-min-size\));/.exec(text);
+  if (rawStepperSizing) {
+    add("errors", packageCssFile, lineNumber(text, rawStepperSizing.index), "Stepper marker and text sizing must flow through shared Frame step roles instead of local control-size calculations.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -37,10 +42,13 @@ function checkStepperCssContract({ text, blocks, packageCssFile, selectorKey }) 
     packageCssFile,
     snippets: [
       "--comp-stepper-marker-bg: var(--sys-color-surface)",
+      "--comp-stepper-marker-size: var(--component-step-marker-size-md)",
       "--comp-stepper-marker-border-width: var(--sys-frame-border-control)",
       "--comp-stepper-marker-active-bg:",
       "--comp-stepper-connector-bg: var(--sys-color-border)",
       "--comp-stepper-label-font-weight: var(--sys-voice-weight-semibold)",
+      "--comp-stepper-text-max-inline: var(--component-step-text-max-inline-size)",
+      "--comp-stepper-text-min-inline: var(--component-step-text-min-inline-size)",
       "--comp-stepper-current-start-scale: var(--component-scale-current-start)",
       "--comp-stepper-current-overshoot-scale: var(--component-scale-current-overshoot)",
       "--comp-stepper-marker-transition:",
@@ -160,11 +168,18 @@ function checkStepperCssContract({ text, blocks, packageCssFile, selectorKey }) 
     message: "Stepper active/complete label must consume Stepper active label alias.",
   });
   requireIncludes({
+    block: smBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-stepper-marker-size: var(--component-step-marker-size-sm)"],
+    message: "Stepper sm density must use the shared small step marker Frame role.",
+  });
+  requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-stepper-current-scale: var(--component-scale-hover)"],
-    message: "Stepper lg density must scale current marker through a component/foundation alias.",
+    snippets: ["--comp-stepper-marker-size: var(--component-step-marker-size-lg)", "--comp-stepper-current-scale: var(--component-scale-hover)"],
+    message: "Stepper lg density must scale marker through shared Frame and component/foundation aliases.",
   });
 }
 

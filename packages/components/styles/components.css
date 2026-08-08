@@ -66,6 +66,11 @@
   --component-navigation-target-size-lg: var(--sys-frame-content-navigation-target-lg);
   --component-navigation-ellipsis-inline-size: var(--sys-frame-content-navigation-ellipsis-inline);
   --component-option-min-block-size: var(--sys-frame-content-option-min-block);
+  --component-step-marker-size-sm: var(--sys-frame-content-step-marker-sm);
+  --component-step-marker-size-md: var(--sys-frame-content-step-marker-md);
+  --component-step-marker-size-lg: var(--sys-frame-content-step-marker-lg);
+  --component-step-text-min-inline-size: var(--sys-frame-content-step-text-min-inline);
+  --component-step-text-max-inline-size: var(--sys-frame-content-step-text-max-inline);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -7575,7 +7580,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-stepper-item-fg: var(--sys-color-text-muted);
   --comp-stepper-item-active-fg: var(--sys-color-text);
   --comp-stepper-item-complete-fg: var(--sys-color-text);
-  --comp-stepper-marker-size: calc(var(--component-control-min-size) - var(--sys-space-lg) - var(--component-offset-xs));
+  --comp-stepper-marker-size: var(--component-step-marker-size-md);
   --comp-stepper-marker-bg: var(--sys-color-surface);
   --comp-stepper-marker-border-width: var(--sys-frame-border-control);
   --comp-stepper-marker-border: var(--sys-color-border);
@@ -7599,8 +7604,8 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-stepper-description-size: var(--component-font-size-caption);
   --comp-stepper-description-fg: var(--sys-color-text-muted);
   --comp-stepper-text-gap: var(--component-visually-hidden-size);
-  --comp-stepper-text-max-inline: calc(var(--component-control-min-size) * 3);
-  --comp-stepper-text-min-inline: calc(var(--component-control-min-size) * 2);
+  --comp-stepper-text-max-inline: var(--component-step-text-max-inline-size);
+  --comp-stepper-text-min-inline: var(--component-step-text-min-inline-size);
   --comp-stepper-connector-bg: var(--sys-color-border);
   --comp-stepper-connector-complete-bg: var(--sys-color-success);
   --comp-stepper-connector-radius: var(--component-radius-pill);
@@ -7608,7 +7613,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-stepper-connector-min-inline: var(--component-inline-size-sm);
   --comp-stepper-connector-flex-basis: var(--component-inline-size-md);
   --comp-stepper-connector-vertical-block: var(--component-inline-size-sm);
-  --comp-stepper-connector-margin-block: calc((var(--component-control-min-size) - var(--sys-space-lg) - var(--component-offset-xs) - var(--component-focus-ring-offset)) / 2);
+  --comp-stepper-connector-margin-block: calc((var(--comp-stepper-marker-size) - var(--component-focus-ring-offset)) / 2);
   --comp-stepper-connector-margin-inline: var(--sys-space-sm);
   --comp-stepper-connector-vertical-margin-block: var(--component-focus-ring-offset);
   --comp-stepper-item-gap: calc(var(--sys-space-sm) + (var(--component-border-width) * 2));
@@ -7753,13 +7758,13 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .stepper[data-density="sm"] {
-  --comp-stepper-marker-size: calc(var(--component-control-min-size) - var(--sys-space-lg));
+  --comp-stepper-marker-size: var(--component-step-marker-size-sm);
   --comp-stepper-label-size: var(--component-font-size-caption);
   --comp-stepper-description-size: var(--component-font-size-micro);
 }
 
 .stepper[data-density="lg"] {
-  --comp-stepper-marker-size: var(--component-control-min-size);
+  --comp-stepper-marker-size: var(--component-step-marker-size-lg);
   --comp-stepper-label-size: var(--component-font-size-body);
   --comp-stepper-description-size: var(--component-font-size-small);
   --comp-stepper-current-scale: var(--component-scale-hover);
