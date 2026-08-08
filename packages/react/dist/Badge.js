@@ -27,7 +27,7 @@ export const Badge = forwardRef(function Badge({
   hidden = false,
   live = false,
   icon = "",
-  ariaLabel = "",
+  ariaLabel,
   className = "",
   ...rest
 }, ref) {
