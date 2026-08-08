@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 const inheritedReactPropNames = new Set([
   "children",
   "className",
@@ -70,12 +73,27 @@ function aliasUnionValues(types, aliasName) {
   return aliasMatch ? unionValues(aliasMatch[1]) : [];
 }
 
+function importedAliasUnionValues(types, aliasName) {
+  const reactSrcDir = path.resolve(__dirname, "../../react/src");
+  for (const match of types.matchAll(/import type \{([^}]+)\} from "([^"]+)";/g)) {
+    const importedNames = match[1].split(",").map((name) => name.trim().split(/\s+as\s+/).pop()).filter(Boolean);
+    if (!importedNames.includes(aliasName) || !match[2].startsWith(".")) continue;
+    const importedTypesFile = path.resolve(reactSrcDir, match[2].replace(/\.js$/, ".d.ts"));
+    if (!importedTypesFile.startsWith(reactSrcDir) || !fs.existsSync(importedTypesFile)) continue;
+    const importedTypes = fs.readFileSync(importedTypesFile, "utf8");
+    const importedValues = aliasUnionValues(importedTypes, aliasName);
+    if (importedValues.length) return importedValues;
+  }
+  return [];
+}
+
 function reactAllowedValues(types, componentName, propName) {
   const typeExpression = propTypeExpression(types, componentName, propName);
   const inlineValues = unionValues(typeExpression);
   if (inlineValues.length) return inlineValues;
   const aliasName = typeExpression.match(/\b[A-Z][A-Za-z0-9]*\b/)?.[0];
-  return aliasName ? aliasUnionValues(types, aliasName) : [];
+  if (!aliasName) return [];
+  return aliasUnionValues(types, aliasName).concat(importedAliasUnionValues(types, aliasName));
 }
 
 module.exports = {
@@ -86,6 +104,7 @@ module.exports = {
   ownReactPropsFor,
   propTypeExpression,
   propsBodyFor,
+  importedAliasUnionValues,
   reactAllowedValues,
   semanticInheritedPropsFor,
   unionValues,

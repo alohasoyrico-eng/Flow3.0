@@ -5,7 +5,7 @@
   "inventory": {
     "components": 56,
     "prohibitedDefaults": 0,
-    "semanticDefaults": 106,
+    "semanticDefaults": 112,
     "semanticDefaultContractGaps": 0,
     "semanticByRule": [
       {
@@ -51,6 +51,31 @@
       {
         "rule": "orientation-default",
         "description": "Layout orientation fallback; allowed when constrained by the component contract.",
+        "count": 1
+      },
+      {
+        "rule": "trend-default",
+        "description": "Trend fallback; allowed when constrained by the component contract.",
+        "count": 2
+      },
+      {
+        "rule": "composition-default",
+        "description": "Composition fallback; allowed when constrained by the component contract.",
+        "count": 1
+      },
+      {
+        "rule": "avatar-status-default",
+        "description": "Avatar status fallback; allowed when constrained by the component contract.",
+        "count": 1
+      },
+      {
+        "rule": "category-default",
+        "description": "Category fallback; allowed when constrained by the component contract.",
+        "count": 1
+      },
+      {
+        "rule": "sort-direction-default",
+        "description": "Sort direction fallback; allowed when constrained by the component contract.",
         "count": 1
       }
     ]
@@ -250,12 +275,32 @@
     {
       "component": "Card",
       "file": "packages/react/src/Card.js",
+      "line": 59,
+      "rule": "trend-default",
+      "prop": "trend",
+      "value": "neutral",
+      "description": "Trend fallback; allowed when constrained by the component contract.",
+      "text": "trend = \"neutral\","
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
       "line": 63,
       "rule": "variant-default",
       "prop": "variant",
       "value": "default",
       "description": "Component composition default; allowed when constrained by the component contract.",
       "text": "variant = \"default\","
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "line": 64,
+      "rule": "composition-default",
+      "prop": "composition",
+      "value": "standard",
+      "description": "Composition fallback; allowed when constrained by the component contract.",
+      "text": "composition = \"standard\","
     },
     {
       "component": "Card",
@@ -580,6 +625,16 @@
     {
       "component": "KpiTile",
       "file": "packages/react/src/KpiTile.js",
+      "line": 26,
+      "rule": "trend-default",
+      "prop": "trend",
+      "value": "flat",
+      "description": "Trend fallback; allowed when constrained by the component contract.",
+      "text": "trend = \"flat\","
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
       "line": 27,
       "rule": "tone-default",
       "prop": "tone",
@@ -640,6 +695,16 @@
     {
       "component": "Menu",
       "file": "packages/react/src/Menu.js",
+      "line": 31,
+      "rule": "avatar-status-default",
+      "prop": "avatarStatus",
+      "value": "none",
+      "description": "Avatar status fallback; allowed when constrained by the component contract.",
+      "text": "avatarStatus = \"none\","
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
       "line": 33,
       "rule": "state-default",
       "prop": "state",
@@ -676,6 +741,16 @@
       "value": "active",
       "description": "Component behavior default; allowed when normalized through component state.",
       "text": "state = \"active\","
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "line": 22,
+      "rule": "category-default",
+      "prop": "category",
+      "value": "transfer",
+      "description": "Category fallback; allowed when constrained by the component contract.",
+      "text": "category = \"transfer\","
     },
     {
       "component": "MovementRow",
@@ -996,6 +1071,16 @@
       "value": "default",
       "description": "Component behavior default; allowed when normalized through component state.",
       "text": "state = \"default\","
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "line": 41,
+      "rule": "sort-direction-default",
+      "prop": "sortDir",
+      "value": "ascending",
+      "description": "Sort direction fallback; allowed when constrained by the component contract.",
+      "text": "sortDir = \"ascending\","
     },
     {
       "component": "Tabs",

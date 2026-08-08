@@ -109,6 +109,36 @@ const semanticRules = [
     description: "Layout orientation fallback; allowed when constrained by the component contract.",
     pattern: /\borientation\s*=\s*["']([^"']+)["']/,
   },
+  {
+    id: "trend-default",
+    prop: "trend",
+    description: "Trend fallback; allowed when constrained by the component contract.",
+    pattern: /\btrend\s*=\s*["']([^"']+)["']/,
+  },
+  {
+    id: "composition-default",
+    prop: "composition",
+    description: "Composition fallback; allowed when constrained by the component contract.",
+    pattern: /\bcomposition\s*=\s*["']([^"']+)["']/,
+  },
+  {
+    id: "avatar-status-default",
+    prop: "avatarStatus",
+    description: "Avatar status fallback; allowed when constrained by the component contract.",
+    pattern: /\bavatarStatus\s*=\s*["']([^"']+)["']/,
+  },
+  {
+    id: "category-default",
+    prop: "category",
+    description: "Category fallback; allowed when constrained by the component contract.",
+    pattern: /\bcategory\s*=\s*["']([^"']+)["']/,
+  },
+  {
+    id: "sort-direction-default",
+    prop: "sortDir",
+    description: "Sort direction fallback; allowed when constrained by the component contract.",
+    pattern: /\bsortDir\s*=\s*["']([^"']+)["']/,
+  },
 ];
 
 function sourceFiles() {

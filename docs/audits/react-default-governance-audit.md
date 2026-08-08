@@ -8,7 +8,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 
 - React components scanned: 56
 - Prohibited platform defaults: 0
-- Visible semantic defaults: 106
+- Visible semantic defaults: 112
 - Semantic default contract gaps: 0
 
 ## Semantic Default Summary
@@ -24,6 +24,11 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | side-default | 1 | Surface side fallback; allowed when constrained by the component contract. |
 | align-default | 2 | Alignment fallback; allowed when constrained by the component contract. |
 | orientation-default | 1 | Layout orientation fallback; allowed when constrained by the component contract. |
+| trend-default | 2 | Trend fallback; allowed when constrained by the component contract. |
+| composition-default | 1 | Composition fallback; allowed when constrained by the component contract. |
+| avatar-status-default | 1 | Avatar status fallback; allowed when constrained by the component contract. |
+| category-default | 1 | Category fallback; allowed when constrained by the component contract. |
+| sort-direction-default | 1 | Sort direction fallback; allowed when constrained by the component contract. |
 
 ## Prohibited Defaults
 
@@ -60,7 +65,9 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | Button | variant-default | variant | primary | packages/react/src/Button.js:20 | `variant = "primary",` |
 | Button | intent-default | intent | default | packages/react/src/Button.js:21 | `intent = "default",` |
 | Button | state-default | state | default | packages/react/src/Button.js:23 | `state = "default",` |
+| Card | trend-default | trend | neutral | packages/react/src/Card.js:59 | `trend = "neutral",` |
 | Card | variant-default | variant | default | packages/react/src/Card.js:63 | `variant = "default",` |
+| Card | composition-default | composition | standard | packages/react/src/Card.js:64 | `composition = "standard",` |
 | Card | state-default | state | default | packages/react/src/Card.js:65 | `state = "default",` |
 | CardSummary | variant-default | variant | physical | packages/react/src/CardSummary.js:23 | `variant = "physical",` |
 | CardSummary | state-default | state | default | packages/react/src/CardSummary.js:24 | `state = "default",` |
@@ -93,16 +100,19 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | InlineValidation | state-default | state | default | packages/react/src/InlineValidation.js:20 | `state = "default",` |
 | Input | variant-default | variant | text | packages/react/src/Input.js:76 | `variant = "text",` |
 | Input | align-default | align | start | packages/react/src/Input.js:84 | `align = "start",` |
+| KpiTile | trend-default | trend | flat | packages/react/src/KpiTile.js:26 | `trend = "flat",` |
 | KpiTile | tone-default | tone | neutral | packages/react/src/KpiTile.js:27 | `tone = "neutral",` |
 | KpiTile | variant-default | variant | standard | packages/react/src/KpiTile.js:29 | `variant = "standard",` |
 | KpiTile | state-default | state | default | packages/react/src/KpiTile.js:30 | `state = "default",` |
 | List | variant-default | variant | standard | packages/react/src/List.js:13 | `variant = "standard",` |
 | List | state-default | state | default | packages/react/src/List.js:14 | `state = "default",` |
 | Menu | variant-default | variant | actions | packages/react/src/Menu.js:29 | `variant = "actions",` |
+| Menu | avatar-status-default | avatarStatus | none | packages/react/src/Menu.js:31 | `avatarStatus = "none",` |
 | Menu | state-default | state | default | packages/react/src/Menu.js:33 | `state = "default",` |
 | Menu | align-default | align | start | packages/react/src/Menu.js:34 | `align = "start",` |
 | MotionBoundary | variant-default | variant | fade | packages/react/src/MotionBoundary.js:17 | `variant = "fade",` |
 | MotionBoundary | state-default | state | active | packages/react/src/MotionBoundary.js:18 | `state = "active",` |
+| MovementRow | category-default | category | transfer | packages/react/src/MovementRow.js:22 | `category = "transfer",` |
 | MovementRow | variant-default | variant | standard | packages/react/src/MovementRow.js:23 | `variant = "standard",` |
 | MovementRow | state-default | state | default | packages/react/src/MovementRow.js:24 | `state = "default",` |
 | Pagination | variant-default | variant | numbered | packages/react/src/Pagination.js:53 | `variant = "numbered",` |
@@ -135,6 +145,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | Switch | state-default | state | off | packages/react/src/Switch.js:17 | `state = "off",` |
 | Table | variant-default | variant | standard | packages/react/src/Table.js:36 | `variant = "standard",` |
 | Table | state-default | state | default | packages/react/src/Table.js:37 | `state = "default",` |
+| Table | sort-direction-default | sortDir | ascending | packages/react/src/Table.js:41 | `sortDir = "ascending",` |
 | Tabs | variant-default | variant | default | packages/react/src/Tabs.js:36 | `variant = "default",` |
 | Tag | state-default | state | default | packages/react/src/Tag.js:18 | `function normalizeState({ disabled = false, state = "default" } = {}) {` |
 | Tag | variant-default | variant | metadata | packages/react/src/Tag.js:25 | `variant = "metadata",` |
