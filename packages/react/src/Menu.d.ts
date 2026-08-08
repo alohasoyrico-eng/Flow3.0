@@ -1,5 +1,5 @@
 import type { AvatarSize, AvatarStatus } from "./Avatar.js";
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
 import { menuPlatformContract } from "@design-system/components/platforms";
 
 export type MenuVariant = "actions" | "grouped" | "selection" | "danger" | "icon-trigger" | "avatar-trigger";
@@ -35,7 +35,7 @@ export interface MenuProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style"
   align?: MenuAlign;
   disabled?: boolean;
   onOpenChange?: (open: boolean) => void;
-  onSelect?: (item: MenuItem) => void;
+  onSelect?: (item: MenuItem, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface MenuComponent extends ForwardRefExoticComponent<MenuProps & RefAttributes<HTMLSpanElement>> {

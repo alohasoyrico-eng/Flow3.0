@@ -158,7 +158,7 @@ export const Menu = forwardRef(function Menu({
               if (itemDisabled) return;
               onClick?.(event);
               if (event.defaultPrevented) return;
-              onSelect?.(item);
+              onSelect?.(item, event);
               setOpen(false, { restoreFocus: true });
             },
           },
