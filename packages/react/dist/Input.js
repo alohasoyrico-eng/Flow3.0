@@ -111,6 +111,8 @@ export const Input = forwardRef(function Input({
     if (isValueControlled) setCurrentValue(value ?? "");
   }, [isValueControlled, value]);
 
+  if (!label) return null;
+
   const handleChange = (event) => {
     const meta = normalizeValue(event.target.value, resolvedVariant);
     if (!isValueControlled) setCurrentValue(meta.value);
@@ -127,7 +129,7 @@ export const Input = forwardRef(function Input({
       "data-mono": mono ? "true" : undefined,
       "data-align": resolvedAlign === "end" ? "end" : undefined,
     },
-    label ? React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label),
     React.createElement(
       "span",
       { className: "field__control" },
@@ -150,7 +152,7 @@ export const Input = forwardRef(function Input({
         required,
         inputMode: inputMode || inputModeForVariant(resolvedVariant),
         autoComplete: autocomplete || autocompleteForVariant(resolvedVariant),
-        "aria-labelledby": label ? `${inputId}-label` : undefined,
+        "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : rest["aria-invalid"],
         onChange: handleChange,

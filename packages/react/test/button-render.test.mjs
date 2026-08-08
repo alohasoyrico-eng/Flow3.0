@@ -2051,6 +2051,7 @@ const unnamedRevealInputMarkup = renderToStaticMarkup(React.createElement(Input,
 assert.doesNotMatch(unnamedRevealInputMarkup, /aria-label="Show value"/);
 assert.doesNotMatch(unnamedRevealInputMarkup, /aria-label="Hide value"/);
 assert.doesNotMatch(unnamedRevealInputMarkup, /data-field-action="reveal"/);
+assert.doesNotMatch(unnamedRevealInputMarkup, /class="field"|class="input"/);
 
 const loadingInputMarkup = renderToStaticMarkup(React.createElement(Input, {
   label: "Amount",
