@@ -30,7 +30,8 @@ export const InlineValidation = forwardRef(function InlineValidation({
   const generatedId = useId();
   const resolvedState = normalizeState(state);
   const resolvedDensity = normalizeFlowDensity(density);
-  const showField = field ?? value !== "";
+  const requestedField = field ?? value !== "";
+  const showField = Boolean(label && requestedField);
   const fieldId = id || `inline-validation-${slug(label)}-${generatedId}`;
   const messageId = `${fieldId}-message`;
   const messageRole = live && resolvedState === "error"
@@ -53,8 +54,7 @@ export const InlineValidation = forwardRef(function InlineValidation({
     },
     showField
       ? React.createElement(Input, {
-          label: label ?? "",
-          "aria-label": label ? undefined : fieldAriaLabel || undefined,
+          label,
           value,
           state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : value ? "filled" : "default",
           disabled: resolvedState === "disabled",

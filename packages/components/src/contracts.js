@@ -1132,6 +1132,7 @@ export const componentContracts = {
     accessibility: [
       "Connect message with aria-describedby.",
       "Use aria-invalid for error state.",
+      "Require a visible label before composing the field.",
       "Use live=true only when validation appears after user action; error maps to alert and non-error states map to status.",
       "Keep validation copy near the field."
     ]

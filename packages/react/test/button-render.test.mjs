@@ -2024,7 +2024,8 @@ const explicitInlineValidationFieldMarkup = renderToStaticMarkup(React.createEle
   value: "Alex",
   fieldAriaLabel: "Driver field",
 }));
-assert.match(explicitInlineValidationFieldMarkup, /aria-label="Driver field"/);
+assert.doesNotMatch(explicitInlineValidationFieldMarkup, /class="field"|aria-label="Driver field"/);
+assert.match(explicitInlineValidationFieldMarkup, /data-field="false"/);
 
 const cardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput, {
   label: "Card number",
