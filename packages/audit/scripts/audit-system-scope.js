@@ -18,6 +18,7 @@ const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js
 const { checkReactContractTriangle } = require("./audit-react-contract-triangle.js");
 const { checkReactCopyContract } = require("./audit-react-copy-contract.js");
 const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
+const { checkDocsComponentDemoOwnership } = require("./audit-docs-component-demo-ownership.js");
 const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
 const { checkComponentVisualCascade } = require("./report-component-visual-cascade.js");
 const { checkReactInteractionCoverage } = require("./report-react-interaction-coverage.js");
@@ -41,6 +42,7 @@ checkReactPrimaryContract();
 checkReactContractTriangle();
 checkReactCopyContract();
 checkAntiDuplicationGovernance();
+checkDocsComponentDemoOwnership();
 checkManualAccessibility();
 checkComponentVisualCascade();
 checkReactInteractionCoverage();

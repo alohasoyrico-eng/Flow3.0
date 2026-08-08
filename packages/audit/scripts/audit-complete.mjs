@@ -35,6 +35,7 @@ const expectedAuditFiles = new Set([
   "audit-css.js",
   "audit-demo-layout-contracts.js",
   "audit-density-contracts.js",
+  "audit-docs-component-demo-ownership.js",
   "audit-docs-content.js",
   "audit-docs-runtime.mjs",
   "audit-docs.js",

@@ -163,6 +163,7 @@ const files = [
   "packages/audit/scripts/audit-component-api-prop-alignment.js",
   "packages/audit/scripts/audit-demo-layout-contracts.js",
   "packages/audit/scripts/audit-density-contracts.js",
+  "packages/audit/scripts/audit-docs-component-demo-ownership.js",
   "packages/audit/scripts/audit-docs.js",
   "packages/audit/scripts/audit-docs-content.js",
   "packages/audit/scripts/audit-docs-runtime.mjs",
