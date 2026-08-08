@@ -1353,6 +1353,19 @@ try {
 
   cleanup();
 
+  const preventedStationSelections = [];
+  const { getByRole: getPreventedStationRole } = render(React.createElement(StationPin, {
+    label: "Station 25",
+    value: "Closed",
+    onClick: (event) => event.preventDefault(),
+    onSelect: (meta) => preventedStationSelections.push(meta),
+  }));
+
+  fireEvent.click(getPreventedStationRole("button", { name: /station 25/i }));
+  assert.deepEqual(preventedStationSelections, []);
+
+  cleanup();
+
   const switchChanges = [];
   const { getByRole: getSwitchRole, rerender: rerenderSwitch } = render(React.createElement(Switch, {
     label: "Enable notifications",
