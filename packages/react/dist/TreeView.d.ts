@@ -1,8 +1,9 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import type { treeViewPlatformContract } from "#flow/platforms";
 
 export type TreeViewDensity = "sm" | "md" | "lg";
 export type TreeViewState = "default" | "hover" | "focus" | "expanded" | "selected" | "disabled";
+export type TreeViewExpandedChangeEvent = MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>;
 
 export interface TreeViewNode extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "role" | "aria-expanded" | "aria-selected" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   key?: string;
@@ -22,7 +23,7 @@ export interface TreeViewProps extends Omit<HTMLAttributes<HTMLUListElement>, "s
   density?: TreeViewDensity;
   selectedKey?: string;
   onSelect?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
-  onExpandedChange?: (expandedKeys: string[]) => void;
+  onExpandedChange?: (expandedKeys: string[], event: TreeViewExpandedChangeEvent) => void;
 }
 
 export interface TreeViewComponent extends ForwardRefExoticComponent<TreeViewProps & RefAttributes<HTMLUListElement>> {

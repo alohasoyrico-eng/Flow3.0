@@ -68,13 +68,13 @@ export const TreeView = forwardRef(function TreeView({
     onSelect?.(node.key, event);
     focusKey(node.key);
   };
-  const commitExpanded = (node, nextExpanded) => {
+  const commitExpanded = (node, nextExpanded, event) => {
     if (!node?.expandable || node.disabled) return;
     setExpanded((current) => {
       const next = nextExpanded
         ? [...new Set([...current, node.key])]
         : current.filter((key) => key !== node.key);
-      onExpandedChange?.(next);
+      onExpandedChange?.(next, event);
       return next;
     });
   };
@@ -144,7 +144,7 @@ export const TreeView = forwardRef(function TreeView({
             onClick?.(event);
             if (event.defaultPrevented) return;
             commitSelected(node, event);
-            if (node.expandable) commitExpanded(node, !isExpanded);
+            if (node.expandable) commitExpanded(node, !isExpanded, event);
           },
           onKeyDown: (event) => {
             onKeyDown?.(event);
@@ -163,10 +163,10 @@ export const TreeView = forwardRef(function TreeView({
               edge("last");
             } else if (event.key === "ArrowRight") {
               event.preventDefault();
-              commitExpanded(node, true);
+              commitExpanded(node, true, event);
             } else if (event.key === "ArrowLeft") {
               event.preventDefault();
-              commitExpanded(node, false);
+              commitExpanded(node, false, event);
             }
           },
         }),
