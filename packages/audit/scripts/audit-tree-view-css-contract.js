@@ -21,6 +21,10 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
   if (/\.tree-view__item\[data-level="[2-9]\d*"\]/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.search(/\.tree-view__item\[data-level="[2-9]\d*"\]/)), "TreeView indentation must flow through --comp-tree-view-level instead of enumerated data-level CSS rules.");
   }
+  const localTreeControlSize = /--comp-tree-view-control-min-block-lg:\s*var\(--component-control-min-size\)/.exec(text);
+  if (localTreeControlSize) {
+    add("errors", packageCssFile, lineNumber(text, localTreeControlSize.index), "TreeView large control target must consume TreeView frame roles instead of the generic control min size.");
+  }
   requireIncludes({
     block: treeBlock,
     text,
@@ -28,7 +32,7 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
     snippets: [
       "--comp-tree-view-control-min-block: var(--sys-density-control-height)",
       "--comp-tree-view-control-min-block-sm: var(--component-field-control-size-sm)",
-      "--comp-tree-view-control-min-block-lg: var(--component-control-min-size)",
+      "--comp-tree-view-control-min-block-lg: var(--component-tree-control-min-block-size-lg)",
       "--comp-tree-view-icon-size: var(--sys-icon-size-md)",
       "--comp-tree-view-hover-bg: var(--sys-energy-surface-primary)",
       "--comp-tree-view-hover-border: var(--sys-energy-border-default)",

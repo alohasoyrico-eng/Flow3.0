@@ -343,6 +343,7 @@ export const systemTokens = {
       contentSkeletonCircle: "var(--sys-frame-content-skeleton-circle)",
       contentSkeletonRowLeading: "var(--sys-frame-content-skeleton-row-leading)",
       contentTableExpander: "var(--sys-frame-content-table-expander)",
+      contentTreeControlLg: "var(--sys-frame-content-tree-control-lg)",
       contentCodeSlotBlockSm: "var(--sys-frame-content-code-slot-block-sm)",
       contentCodeSlotBlockMd: "var(--sys-frame-content-code-slot-block-md)",
       contentCodeSlotBlockLg: "var(--sys-frame-content-code-slot-block-lg)",

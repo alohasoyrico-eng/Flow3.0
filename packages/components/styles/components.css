@@ -432,6 +432,7 @@
   --component-skeleton-circle-size: var(--sys-frame-content-skeleton-circle);
   --component-skeleton-row-leading-size: var(--sys-frame-content-skeleton-row-leading);
   --component-table-expander-size: var(--sys-frame-content-table-expander);
+  --component-tree-control-min-block-size-lg: var(--sys-frame-content-tree-control-lg);
   --component-skeleton-pill-block-size: var(--component-field-control-size-sm);
   --component-skeleton-card-block-size: var(--component-block-size-lg);
   --component-empty-state-icon-size-sm: calc(var(--component-control-min-size) + var(--sys-space-lg));
@@ -6673,7 +6674,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-indent: var(--sys-space-lg);
   --comp-tree-view-control-min-block: var(--sys-density-control-height);
   --comp-tree-view-control-min-block-sm: var(--component-field-control-size-sm);
-  --comp-tree-view-control-min-block-lg: var(--component-control-min-size);
+  --comp-tree-view-control-min-block-lg: var(--component-tree-control-min-block-size-lg);
   --comp-tree-view-icon-size-sm: var(--sys-icon-size-sm-plus);
   --comp-tree-view-icon-size: var(--sys-icon-size-md);
   --comp-tree-view-icon-size-lg: var(--component-font-size-icon-md);
