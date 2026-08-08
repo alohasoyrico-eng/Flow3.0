@@ -612,7 +612,7 @@
   --comp-floating-action-button-padding-x-sm: var(--sys-space-md);
   --comp-floating-action-button-padding-x-md: var(--sys-space-lg);
   --comp-floating-action-button-padding-x-lg: var(--sys-space-xl);
-  --comp-floating-action-button-padding-x: var(--sys-density-control-padding-x);
+  --comp-floating-action-button-padding-x: var(--component-density-control-padding-x);
   --comp-floating-action-button-gap: var(--sys-space-sm);
   --comp-floating-action-button-radius: var(--component-radius-pill);
   --comp-floating-action-button-bg: var(--sys-color-action);
@@ -890,7 +890,7 @@
   --comp-button-padding-sm: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
   --comp-button-padding-md: var(--sys-space-lg);
   --comp-button-padding-lg: calc(var(--sys-space-xl) + var(--sys-frame-space-micro));
-  --comp-button-padding: var(--sys-density-control-padding-x);
+  --comp-button-padding: var(--component-density-control-padding-x);
   --comp-button-icon-size-sm: var(--sys-icon-size-sm-plus);
   --comp-button-icon-size-md: var(--sys-icon-size-md);
   --comp-button-icon-size-lg: var(--sys-icon-size-md-plus);

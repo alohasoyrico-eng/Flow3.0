@@ -168,6 +168,9 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc)\([^;]*--sys-density-control-height[^;]*;/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-density-control-height instead of reaching into sys density directly.");
   }
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc)\([^;]*--sys-density-control-padding-[xy][^;]*;/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-density-control-padding-* instead of reaching into sys density directly.");
+  }
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
@@ -184,7 +187,7 @@ function checkPackageCssContracts() {
   if (!buttonSmBlock?.body.includes("--comp-button-current-size: var(--comp-button-size-sm)") || !buttonLgBlock?.body.includes("--comp-button-current-size: var(--comp-button-size-lg)")) {
     add("errors", packageCssFile, 1, "Button sm and lg densities must set --comp-button-current-size from comp Button size tokens.");
   }
-  if (!text.includes("--comp-button-size: var(--component-density-control-height)") || !text.includes("--comp-button-padding: var(--sys-density-control-padding-x)")) {
+  if (!text.includes("--comp-button-size: var(--component-density-control-height)") || !text.includes("--comp-button-padding: var(--component-density-control-padding-x)")) {
     add("errors", packageCssFile, 1, "Button base geometry must inherit from component density aliases instead of a fixed md size.");
   }
   if (/--button-(?:size|padding|icon-size)(?:-|:|\))/.test(text)) {
