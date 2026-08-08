@@ -53,7 +53,7 @@ function checkListCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-list-current-meta-size: var(--comp-list-meta-size-md)",
       "--comp-list-interactive-cursor: pointer",
       "--comp-list-item-border-width: 0",
-      "--comp-list-item-inline-size: 100%",
+      "--comp-list-item-inline-size: var(--component-inline-size-full)",
       "border: var(--comp-list-border-width) solid var(--comp-list-border)",
     ],
     message: "List root must own density, frame, interaction, and voice aliases as --comp-list-*.",

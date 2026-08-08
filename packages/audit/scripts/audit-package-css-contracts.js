@@ -38,6 +38,7 @@ function checkPackageCssContracts() {
     "--component-focus-ring-offset",
     "--component-radius-pill",
     "--component-radius-control",
+    "--component-inline-size-full",
     "--component-font-size-caption",
     "--component-font-size-small",
     "--component-font-size-label",
@@ -206,6 +207,9 @@ function checkPackageCssContracts() {
   }
   for (const match of text.matchAll(/--comp-[\w-]*border[\w-]*:\s*transparent;/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component border aliases must consume --component-border-transparent instead of hardcoding transparent.");
+  }
+  for (const match of text.matchAll(/--comp-[\w-]*(?:full-width|width|inline-size|field-width|max-inline-size)[\w-]*:\s*100%;/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component full-width aliases must consume --component-inline-size-full instead of hardcoding 100%.");
   }
 
   const blocks = cssBlocks(text);

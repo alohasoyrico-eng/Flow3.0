@@ -43,7 +43,7 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
     snippets: [
       "--comp-skeleton-current-width: var(--comp-skeleton-width)",
       "--comp-skeleton-current-columns: 4",
-      "--comp-skeleton-bone-current-inline-size: 100%",
+      "--comp-skeleton-bone-current-inline-size: var(--component-inline-size-full)",
       "--comp-skeleton-bone-current-block-size: var(--comp-skeleton-bone-block-size)",
       "--comp-skeleton-bone-current-radius: var(--comp-skeleton-radius)",
       "--comp-skeleton-bg: var(--component-loading-skeleton-surface)",
