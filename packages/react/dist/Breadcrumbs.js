@@ -74,6 +74,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
       visibleItems.map((item, index) => {
         const key = item.id ?? item.href ?? `${item.label}-${index}`;
         const isLast = index === visibleItems.length - 1;
+        const hasAction = typeof item.onClick === "function";
         const target = item.collapsed
           ? React.createElement(
               "span",
@@ -82,8 +83,8 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
                 "aria-label": item.label || undefined,
               },
               "...",
-            )
-          : item.current || disabled
+              )
+            : item.current || disabled || (!item.href && !hasAction)
             ? React.createElement(
                 "span",
                 {
@@ -92,12 +93,22 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
                 },
                 item.label ?? "",
               )
+            : !item.href && hasAction
+            ? React.createElement(
+                "button",
+                {
+                  type: "button",
+                  className: "breadcrumbs__target",
+                  onClick: (event) => item.onClick(item, event),
+                },
+                item.label ?? "",
+              )
             : React.createElement(
                 "a",
                 {
                   className: "breadcrumbs__target",
-                  href: item.href ?? "#",
-                  onClick: typeof item.onClick === "function"
+                  href: item.href,
+                  onClick: hasAction
                     ? (event) => {
                         event.preventDefault();
                         item.onClick(item, event);

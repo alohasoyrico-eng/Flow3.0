@@ -902,6 +902,22 @@ const unnamedBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadc
 assert.doesNotMatch(unnamedBreadcrumbsMarkup, /Breadcrumbs|Collapsed breadcrumb items/);
 assert.doesNotMatch(unnamedBreadcrumbsMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label=/);
 assert.doesNotMatch(unnamedBreadcrumbsMarkup, /#\/empty/);
+const nonNavigableBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
+  items: [
+    { label: "Fleet" },
+    { label: "Vehicle", current: true },
+  ],
+}));
+assert.doesNotMatch(nonNavigableBreadcrumbsMarkup, /href="#"/);
+assert.match(nonNavigableBreadcrumbsMarkup, />Fleet<\/span>/);
+const actionBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
+  items: [
+    { label: "Fleet", onClick: () => {} },
+    { label: "Vehicle", current: true },
+  ],
+}));
+assert.match(actionBreadcrumbsMarkup, /<button type="button" class="breadcrumbs__target">Fleet<\/button>/);
+assert.doesNotMatch(actionBreadcrumbsMarkup, /href="#"/);
 
 const tabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
   label: "Fleet views",
