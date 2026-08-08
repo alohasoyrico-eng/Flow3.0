@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useId, useState } from "react";
+import React, { forwardRef, useId, useState } from "react";
 import { selectPlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
@@ -36,7 +36,8 @@ export const Select = forwardRef(function Select({
   const selectId = id ?? `select-${generatedId}`;
   const normalizedOptions = normalizeOptions(options);
   const isValueControlled = value !== undefined;
-  const [currentValue, setCurrentValue] = useState(value ?? "");
+  const [internalValue, setInternalValue] = useState(value ?? "");
+  const currentValue = isValueControlled ? value ?? "" : internalValue;
   const isOpenControlled = openProp !== undefined;
   const [internalOpen, setInternalOpen] = useState(state === "open");
   const open = isOpenControlled ? Boolean(openProp) : internalOpen;
@@ -46,10 +47,6 @@ export const Select = forwardRef(function Select({
   const isOpen = open;
   const resolvedState = disabled ? "disabled" : state || "default";
   const activeIndex = Math.max(normalizedOptions.indexOf(selectedOption), 0);
-  useEffect(() => {
-    if (isValueControlled) setCurrentValue(value ?? "");
-  }, [isValueControlled, value]);
-
   if (!label || !normalizedOptions.length) return null;
 
   const setOpen = (nextOpen, event) => {
@@ -62,7 +59,7 @@ export const Select = forwardRef(function Select({
   const commitOption = (option, event) => {
     if (option.disabled) return;
     const optionValue = option.value;
-    if (!isValueControlled) setCurrentValue(optionValue);
+    if (!isValueControlled) setInternalValue(optionValue);
     setOpen(false, event);
     onValueChange?.(optionValue, { label: option.label, meta: option.meta ?? "" }, event);
   };

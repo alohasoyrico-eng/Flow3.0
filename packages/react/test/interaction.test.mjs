@@ -1743,6 +1743,7 @@ try {
   fireEvent.click(getSelectRole("option", { name: /united states/i }));
   await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(selectChanges, [{ value: "us", meta: { label: "United States", meta: "+1" }, eventType: "click" }]);
+  assert.equal(selectTrigger.textContent.includes("Mexico"), true);
   assert.deepEqual(selectOpenChanges, [
     { open: true, eventType: "click", key: undefined },
     { open: false, eventType: "click", key: undefined },
@@ -1760,6 +1761,18 @@ try {
     onOpenChange: (open, event) => selectOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(selectTrigger.textContent.includes("Mexico"), true));
+  rerenderSelect(React.createElement(Select, {
+    label: "Country",
+    value: "us",
+    options: [
+      { label: "Mexico", value: "mx", meta: "+52" },
+      { label: "Canada", value: "ca", meta: "+1", disabled: true },
+      { label: "United States", value: "us", meta: "+1" },
+    ],
+    onValueChange: (value, meta, event) => selectChanges.push({ value, meta, eventType: event.type }),
+    onOpenChange: (open, event) => selectOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
+  }));
+  await waitFor(() => assert.equal(selectTrigger.textContent.includes("United States"), true));
 
   cleanup();
 
