@@ -1546,7 +1546,7 @@ try {
       { label: "Canada", value: "ca", meta: "+1", disabled: true },
       { label: "United States", value: "us", meta: "+1" },
     ],
-    onValueChange: (value, meta) => selectChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => selectChanges.push({ value, meta, eventType: event.type }),
   }));
 
   const selectTrigger = getSelectRole("combobox", { name: /country/i });
@@ -1559,7 +1559,7 @@ try {
 
   fireEvent.click(getSelectRole("option", { name: /united states/i }));
   await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-expanded"), "false"));
-  assert.deepEqual(selectChanges, [{ value: "us", meta: { label: "United States", meta: "+1" } }]);
+  assert.deepEqual(selectChanges, [{ value: "us", meta: { label: "United States", meta: "+1" }, eventType: "click" }]);
 
   rerenderSelect(React.createElement(Select, {
     label: "Country",
@@ -1569,7 +1569,7 @@ try {
       { label: "Canada", value: "ca", meta: "+1", disabled: true },
       { label: "United States", value: "us", meta: "+1" },
     ],
-    onValueChange: (value, meta) => selectChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => selectChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(selectTrigger.textContent.includes("Mexico"), true));
 

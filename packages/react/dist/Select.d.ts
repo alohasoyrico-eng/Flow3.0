@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { selectPlatformContract } from "#flow/platforms";
 
 export type SelectDensity = "sm" | "md" | "lg";
@@ -14,6 +14,7 @@ export type SelectValueMeta = {
   label: string;
   meta: string;
 };
+export type SelectValueChangeEvent = MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>;
 
 export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -27,7 +28,7 @@ export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   density?: SelectDensity;
   variant?: SelectVariant;
   state?: SelectState;
-  onValueChange?: (value: string, meta: SelectValueMeta) => void;
+  onValueChange?: (value: string, meta: SelectValueMeta, event: SelectValueChangeEvent) => void;
 }
 
 export interface SelectComponent extends ForwardRefExoticComponent<SelectProps & RefAttributes<HTMLButtonElement>> {

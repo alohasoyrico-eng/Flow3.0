@@ -48,12 +48,12 @@ export const Select = forwardRef(function Select({
 
   if (!label || !normalizedOptions.length) return null;
 
-  const commitOption = (option) => {
+  const commitOption = (option, event) => {
     if (option.disabled) return;
     const optionValue = option.value;
     if (!isValueControlled) setCurrentValue(optionValue);
     setOpen(false);
-    onValueChange?.(optionValue, { label: option.label, meta: option.meta ?? "" });
+    onValueChange?.(optionValue, { label: option.label, meta: option.meta ?? "" }, event);
   };
   const handleTriggerClick = (event) => {
     rest.onClick?.(event);
@@ -146,12 +146,12 @@ export const Select = forwardRef(function Select({
               "data-label": option.label,
               "data-meta": option.meta || undefined,
               "data-disabled": option.disabled ? "true" : undefined,
-              onClick: option.disabled ? undefined : () => commitOption(option),
+              onClick: option.disabled ? undefined : (event) => commitOption(option, event),
               onKeyDown: (event) => {
                 if (option.disabled) return;
                 if (["Enter", " "].includes(event.key)) {
                   event.preventDefault();
-                  commitOption(option);
+                  commitOption(option, event);
                 }
                 if (event.key === "Escape") {
                   event.preventDefault();
