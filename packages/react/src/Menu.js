@@ -140,27 +140,31 @@ export const Menu = forwardRef(function Menu({
       resolvedItems.map((item, index) => {
         if (item === "divider" || item?.separator) return React.createElement("span", { key: `separator-${index}`, className: "menu__separator", role: "separator" });
         const key = item.key;
+        const { key: itemKey, label: itemLabel, icon, disabled: itemDisabled, tone, shortcut, separator, onClick, ...itemRest } = item;
         return React.createElement(
           "button",
           {
+            ...flowRestProps(itemRest),
             key,
             type: "button",
             className: "menu__item",
-            disabled: Boolean(item.disabled),
+            disabled: Boolean(itemDisabled),
             role: "menuitem",
             tabIndex: -1,
             "data-key": key,
-            ...flowToneProps(normalizeFlowValue(item.tone, validItemTones, undefined)),
-            "aria-disabled": item.disabled ? "true" : undefined,
-            onClick: () => {
-              if (item.disabled) return;
+            ...flowToneProps(normalizeFlowValue(tone, validItemTones, undefined)),
+            "aria-disabled": itemDisabled ? "true" : undefined,
+            onClick: (event) => {
+              if (itemDisabled) return;
+              onClick?.(event);
+              if (event.defaultPrevented) return;
               onSelect?.(item);
               setOpen(false, { restoreFocus: true });
             },
           },
-          item.icon ? React.createElement("span", { className: "menu__item-icon", "aria-hidden": "true" }, item.icon) : null,
-          React.createElement("span", { className: "menu__item-label" }, item.label),
-          item.shortcut ? React.createElement("kbd", { className: "menu__item-shortcut" }, item.shortcut) : null,
+          icon ? React.createElement("span", { className: "menu__item-icon", "aria-hidden": "true" }, icon) : null,
+          React.createElement("span", { className: "menu__item-label" }, itemLabel),
+          shortcut ? React.createElement("kbd", { className: "menu__item-shortcut" }, shortcut) : null,
         );
       }),
     ),

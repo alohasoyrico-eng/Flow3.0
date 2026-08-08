@@ -1,5 +1,5 @@
 import type { AvatarSize, AvatarStatus } from "./Avatar.js";
-import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import { menuPlatformContract } from "#flow/platforms";
 
 export type MenuVariant = "actions" | "grouped" | "selection" | "danger" | "icon-trigger" | "avatar-trigger";
@@ -8,7 +8,7 @@ export type MenuState = "default" | "closed" | "open" | "focus" | "disabled";
 export type MenuAlign = "start" | "end" | "right";
 export type MenuItemTone = "danger";
 
-export interface MenuItem {
+export interface MenuItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   icon?: string;
   key: string;

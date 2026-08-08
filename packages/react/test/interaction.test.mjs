@@ -885,6 +885,37 @@ try {
 
   cleanup();
 
+  const preventedMenuOpenChanges = [];
+  const preventedMenuSelections = [];
+  const preventedMenuClicks = [];
+  const { getByRole: getPreventedMenuRole } = render(React.createElement(Menu, {
+    label: "Prevented actions",
+    triggerLabel: "More actions",
+    items: [
+      {
+        key: "archive",
+        label: "Archive",
+        onClick: (event) => {
+          preventedMenuClicks.push(event.type);
+          event.preventDefault();
+        },
+      },
+    ],
+    onOpenChange: (open) => preventedMenuOpenChanges.push(open),
+    onSelect: (item) => preventedMenuSelections.push(item.key),
+  }));
+
+  const preventedMenuTrigger = getPreventedMenuRole("button", { name: /more actions/i });
+  fireEvent.click(preventedMenuTrigger);
+  await waitFor(() => assert.equal(preventedMenuTrigger.getAttribute("aria-expanded"), "true"));
+  fireEvent.click(getPreventedMenuRole("menuitem", { name: /archive/i }));
+  assert.deepEqual(preventedMenuClicks, ["click"]);
+  assert.deepEqual(preventedMenuSelections, []);
+  assert.equal(preventedMenuTrigger.getAttribute("aria-expanded"), "true");
+  assert.deepEqual(preventedMenuOpenChanges, [true]);
+
+  cleanup();
+
   const selectedMovements = [];
   const movementClicks = [];
   const { getByRole: getMovementRole, rerender: rerenderMovement } = render(React.createElement(MovementRow, {
