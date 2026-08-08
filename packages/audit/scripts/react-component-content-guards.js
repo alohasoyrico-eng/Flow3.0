@@ -165,6 +165,9 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "ChartPanel" && /key:\s*index|dot-\$\{index\}|comparison-point-\$\{index\}|pareto-point-\$\{index\}/.test(source)) add("errors", sourceFile, 1, "ChartPanel must not synthesize fallback point keys from indexes.");
   if (name === "ChartPanel" && !source.includes("function normalizePoints(values = [], labels = [])")) add("errors", sourceFile, 1, "ChartPanel must centralize labeled point validation before composing fallback points.");
   if (name === "Button" && !source.includes("if (!buttonLabel) return null;")) add("errors", sourceFile, 1, "Button must not render without visible text.");
+  if (name === "Badge" && !source.includes("if (resolvedVariant === \"dot\" && !accessibleLabel) return null;")) add("errors", sourceFile, 1, "Badge dot variant must require an explicit accessible label before rendering.");
+  if (name === "Badge" && !source.includes("if (resolvedVariant !== \"dot\" && !label) return null;")) add("errors", sourceFile, 1, "Badge text variants must require readable label text before rendering.");
+  if (name === "Badge" && /rest\["aria-label"\]|label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Badge must not inherit aria-only names or synthesize empty readable text.");
   if (name === "IconButton" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "IconButton must not render without an accessible label.");
   if (name === "IconButton" && /"aria-label":\s*resolvedLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "IconButton must use the resolved accessible label directly after the runtime guard.");
   if (name === "Tooltip" && !source.includes("if (!triggerLabel || !content) return null;")) add("errors", sourceFile, 1, "Tooltip must not render a trigger without visible triggerLabel and content.");

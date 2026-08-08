@@ -34,7 +34,11 @@ export const Badge = forwardRef(function Badge({
   const resolvedTone = normalizeTone(tone);
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalizeState({ hidden, state });
-  const text = resolvedVariant === "dot" ? "" : label ?? "";
+  const text = resolvedVariant === "dot" ? "" : label;
+  const accessibleLabel = resolvedVariant === "dot" ? ariaLabel : ariaLabel || undefined;
+
+  if (resolvedVariant === "dot" && !accessibleLabel) return null;
+  if (resolvedVariant !== "dot" && !label) return null;
 
   return React.createElement(
     "span",
@@ -45,7 +49,7 @@ export const Badge = forwardRef(function Badge({
       hidden: resolvedState === "hidden",
       role: live ? "status" : rest.role,
       "aria-live": live ? "polite" : rest["aria-live"],
-      "aria-label": ariaLabel || rest["aria-label"],
+      "aria-label": accessibleLabel,
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
       ...flowToneProps(resolvedTone),
       ...flowVariantProps(resolvedVariant),
