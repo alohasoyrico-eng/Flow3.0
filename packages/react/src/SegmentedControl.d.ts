@@ -1,17 +1,17 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import { segmentedControlPlatformContract } from "@design-system/components/platforms";
 
 export type SegmentedControlDensity = "sm" | "md" | "lg";
 export type SegmentedControlVariant = "outlined" | "toolbar" | "compact" | "icon-only";
 
-export type SegmentedControlItem = {
+export interface SegmentedControlItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   key?: string;
   value?: string;
   label: string;
   icon?: string;
   selected?: boolean;
   disabled?: boolean;
-};
+}
 
 export interface SegmentedControlProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;

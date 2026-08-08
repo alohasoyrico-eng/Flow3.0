@@ -1255,6 +1255,36 @@ try {
 
   cleanup();
 
+  const preventedSegmentChanges = [];
+  const preventedSegmentEvents = [];
+  const { getByRole: getPreventedSegmentRole } = render(React.createElement(SegmentedControl, {
+    label: "Prevented view mode",
+    items: [
+      { key: "list", label: "List" },
+      {
+        key: "timeline",
+        label: "Timeline",
+        onClick: (event) => {
+          preventedSegmentEvents.push(event.type);
+          event.preventDefault();
+        },
+        onKeyDown: (event) => {
+          preventedSegmentEvents.push(event.key);
+          event.preventDefault();
+        },
+      },
+    ],
+    onValueChange: (key) => preventedSegmentChanges.push(key),
+  }));
+
+  const preventedTimelineSegment = getPreventedSegmentRole("tab", { name: /timeline/i });
+  fireEvent.click(preventedTimelineSegment);
+  fireEvent.keyDown(preventedTimelineSegment, { key: "ArrowLeft" });
+  assert.deepEqual(preventedSegmentEvents, ["click", "ArrowLeft"]);
+  assert.deepEqual(preventedSegmentChanges, []);
+
+  cleanup();
+
   const selectChanges = [];
   const { getByRole: getSelectRole, rerender: rerenderSelect } = render(React.createElement(Select, {
     label: "Country",

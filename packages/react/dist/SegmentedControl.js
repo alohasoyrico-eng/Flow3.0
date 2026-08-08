@@ -89,9 +89,11 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
     normalizedItems.map((item) => {
       const selected = item.key === activeKey;
       const iconOnly = resolvedVariant === "icon-only" && Boolean(item.icon);
+      const { key, value, label: itemLabel, icon, selected: itemSelected, disabled, onClick, onKeyDown, ...itemRest } = item;
       return React.createElement(
         "button",
         {
+          ...itemRest,
           key: item.key,
           ref: (node) => {
             if (node) itemRefs.current.set(item.key, node);
@@ -100,15 +102,21 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
           type: "button",
           className: "segmented-control__item",
           role: "tab",
-          disabled: Boolean(item.disabled),
+          disabled: Boolean(disabled),
           tabIndex: selected ? 0 : -1,
           "aria-selected": String(selected),
-          "aria-label": iconOnly ? item.label : undefined,
+          "aria-label": iconOnly ? itemLabel : undefined,
           "data-segmented-control-item": "",
           "data-key": item.key,
           "data-icon-only": iconOnly ? "true" : undefined,
-          onClick: () => commitKey(item.key),
+          onClick: (event) => {
+            onClick?.(event);
+            if (event.defaultPrevented) return;
+            commitKey(item.key);
+          },
           onKeyDown: (event) => {
+            onKeyDown?.(event);
+            if (event.defaultPrevented) return;
             if (event.key === "ArrowRight") {
               event.preventDefault();
               move(1);
@@ -125,10 +133,10 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
           },
         },
         selected ? React.createElement("span", { className: "segmented-control__indicator", "aria-hidden": "true" }) : null,
-        item.icon
-          ? React.createElement("span", { className: "segmented-control__icon", "aria-hidden": "true" }, item.icon)
+        icon
+          ? React.createElement("span", { className: "segmented-control__icon", "aria-hidden": "true" }, icon)
           : null,
-        React.createElement("span", { className: "segmented-control__label", "aria-hidden": iconOnly ? "true" : undefined }, item.label),
+        React.createElement("span", { className: "segmented-control__label", "aria-hidden": iconOnly ? "true" : undefined }, itemLabel),
       );
     }),
   );
