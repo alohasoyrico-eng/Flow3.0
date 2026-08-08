@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+const { add, goldComponents, root } = require("./audit-context.js");
 const { checkAccordionCssContract } = require("./audit-accordion-css-contract.js");
 const { checkAnimatedMomentCssContract } = require("./audit-animated-moment-css-contract.js");
 const { checkAuditEventCssContract } = require("./audit-audit-event-css-contract.js");
@@ -46,7 +49,43 @@ const { checkTooltipCssContract } = require("./audit-tooltip-css-contract.js");
 const { checkToastCssContract } = require("./audit-toast-css-contract.js");
 const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js");
 
+const familyCssContracts = {
+  checkbox: "choice",
+  "radio-button": "choice",
+  input: "field",
+  "text-area": "field",
+  "phone-input": "field",
+  "card-number-input": "field",
+  "card-expiry-input": "field",
+  "card-security-code-input": "field",
+  combobox: "select",
+  "country-selector": "select",
+  "date-range-picker": "date-picker",
+};
+
+function currentCssContractIds() {
+  const dir = path.join(root, "packages/audit/scripts");
+  return new Set(fs.readdirSync(dir)
+    .filter((file) => /^audit-.*-css-contract\.js$/.test(file))
+    .map((file) => file.replace(/^audit-/, "").replace(/-css-contract\.js$/, "")));
+}
+
+function checkComponentCssContractCoverage({ packageCssFile }) {
+  const direct = currentCssContractIds();
+  const missing = goldComponents.filter((component) => !direct.has(component) && !familyCssContracts[component]);
+  if (missing.length) {
+    add("errors", packageCssFile, 1, `Accepted components missing CSS cascade contract coverage: ${missing.join(", ")}.`);
+  }
+  const orphanFamilies = Object.entries(familyCssContracts)
+    .filter(([component, contract]) => !goldComponents.includes(component) || !direct.has(contract))
+    .map(([component, contract]) => `${component}->${contract}`);
+  if (orphanFamilies.length) {
+    add("errors", packageCssFile, 1, `Component CSS family coverage points at missing components or contracts: ${orphanFamilies.join(", ")}.`);
+  }
+}
+
 function checkComponentCssContracts(context) {
+  checkComponentCssContractCoverage(context);
   checkAccordionCssContract(context);
   checkAnimatedMomentCssContract(context);
   checkAuditEventCssContract(context);
