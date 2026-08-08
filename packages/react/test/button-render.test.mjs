@@ -554,6 +554,11 @@ const unnamedAnimatedMomentMarkup = renderToStaticMarkup(React.createElement(Ani
   state: "complete",
 }));
 assert.doesNotMatch(unnamedAnimatedMomentMarkup, /Idle|Playing|Paused|Complete|Reduced motion|Disabled/);
+const unlabeledAnimatedMomentMarkup = renderToStaticMarkup(React.createElement(AnimatedMoment, {
+  description: "No accessible label",
+  reducedMotionFallback: "Fallback",
+}));
+assert.doesNotMatch(unlabeledAnimatedMomentMarkup, /animated-moment|role="img"|aria-label=""|No accessible label|Fallback/);
 
 const biometricPromptMarkup = renderToStaticMarkup(React.createElement(BiometricPrompt, {
   label: "Confirm it is you",

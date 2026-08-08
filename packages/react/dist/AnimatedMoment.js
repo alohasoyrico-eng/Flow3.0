@@ -33,12 +33,12 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "success");
   const resolvedState = normalizeFlowValue(state, validStates, "idle");
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedLabel = label ?? "";
+  if (!label) return null;
   const resolvedIcon = variantIcon(resolvedVariant, icon);
   const resolvedStateLabel = stateLabel || "";
   const hasAsset = Boolean(animationSource || animationData);
   const canAnimate = hasAsset && resolvedState !== "reduced-motion" && resolvedState !== "disabled";
-  const accessibleLabel = resolvedLabel && resolvedStateLabel ? `${resolvedLabel}: ${resolvedStateLabel}` : resolvedLabel || resolvedStateLabel || undefined;
+  const accessibleLabel = resolvedStateLabel ? `${label}: ${resolvedStateLabel}` : label;
 
   return React.createElement(
     "div",
@@ -68,7 +68,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
           "data-renderer": "svg",
           "data-animated-moment-asset": "",
           role: "img",
-          "aria-label": resolvedLabel,
+          "aria-label": label,
         },
         React.createElement("span", { className: "animation-asset__viewport", "aria-hidden": "true" }),
         React.createElement(
@@ -79,7 +79,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
         ),
       ),
     ),
-    label ? React.createElement("strong", null, label) : null,
+    React.createElement("strong", null, label),
     resolvedStateLabel ? React.createElement("span", { className: "animated-moment__state", hidden: true }, resolvedStateLabel) : null,
     React.createElement("small", null, description || reducedMotionFallback),
     React.createElement("span", { className: "animated-moment__cue", "data-animated-moment-cue": "", "aria-hidden": "true" }),
