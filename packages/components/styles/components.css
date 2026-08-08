@@ -477,6 +477,8 @@
   --component-energy-text-secondary: var(--sys-energy-text-secondary);
   --component-energy-status-warning-foreground: var(--sys-energy-status-warning-foreground);
   --component-energy-status-error: var(--sys-energy-status-error);
+  --component-avatar-identity-purple-bg: color-mix(in srgb, var(--component-color-action) 60%, var(--component-color-danger));
+  --component-avatar-identity-teal-bg: color-mix(in srgb, var(--component-color-success) 72%, var(--component-color-action));
   --component-chart-series-primary: var(--sys-chart-series-primary);
   --component-chart-series-secondary: var(--sys-chart-series-secondary);
   --component-chart-series-tertiary: var(--sys-chart-series-tertiary);
@@ -4165,8 +4167,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-identity-success-bg: var(--component-color-success);
   --comp-avatar-identity-action-bg: var(--component-color-action);
   --comp-avatar-identity-warning-bg: var(--component-color-warning);
-  --comp-avatar-identity-purple-bg: var(--ref-energy-purple-500, color-mix(in srgb, var(--component-color-action) 60%, var(--component-color-danger)));
-  --comp-avatar-identity-teal-bg: var(--ref-energy-teal-500, color-mix(in srgb, var(--component-color-success) 72%, var(--component-color-action)));
+  --comp-avatar-identity-purple-bg: var(--component-avatar-identity-purple-bg);
+  --comp-avatar-identity-teal-bg: var(--component-avatar-identity-teal-bg);
   --comp-avatar-identity-default-fg: var(--component-color-action-text);
   --comp-avatar-identity-warning-fg: var(--component-energy-status-warning-foreground);
   --comp-avatar-identity-bg: var(--comp-avatar-identity-action-bg);
