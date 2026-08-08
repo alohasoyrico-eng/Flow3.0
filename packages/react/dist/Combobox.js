@@ -80,6 +80,8 @@ export const Combobox = forwardRef(function Combobox({
     setActiveIndex(0);
   }, [isValueControlled, normalizedOptions, value]);
 
+  if (!label) return null;
+
   const commitOption = (option) => {
     if (!option || option.disabled) return;
     const nextValue = optionValue(option);
@@ -106,7 +108,7 @@ export const Combobox = forwardRef(function Combobox({
       ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
     },
-    label ? React.createElement("span", { className: "field__label", id: `${comboboxId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label", id: `${comboboxId}-label` }, label),
     React.createElement(
       "span",
       {
@@ -135,8 +137,7 @@ export const Combobox = forwardRef(function Combobox({
         "aria-expanded": String(isOpen),
         "aria-haspopup": "listbox",
         "aria-controls": `${comboboxId}-listbox`,
-        "aria-label": label ? undefined : rest["aria-label"],
-        "aria-labelledby": label ? `${comboboxId}-label` : undefined,
+        "aria-labelledby": `${comboboxId}-label`,
         "aria-invalid": resolvedState === "error" ? "true" : undefined,
         "aria-activedescendant": isOpen && activeOption ? `${comboboxId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
         onFocus: () => setOpen(true),
@@ -169,7 +170,7 @@ export const Combobox = forwardRef(function Combobox({
           }
         },
       }),
-      React.createElement(
+      clearSelectionLabel ? React.createElement(
         "button",
         {
           className: "field-action field__action combobox__clear",
@@ -181,7 +182,7 @@ export const Combobox = forwardRef(function Combobox({
           onClick: clearValue,
         },
         React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, "close"),
-      ),
+      ) : null,
       React.createElement("span", { className: "select-control__chevron combobox__chevron", "aria-hidden": "true" }, "expand_more"),
       React.createElement(
         "span",
@@ -191,7 +192,7 @@ export const Combobox = forwardRef(function Combobox({
           role: "listbox",
           "data-combobox-listbox": "",
           "aria-label": optionsLabel,
-          "aria-labelledby": optionsLabel ? undefined : label ? `${comboboxId}-label` : undefined,
+          "aria-labelledby": optionsLabel ? undefined : `${comboboxId}-label`,
         },
         filteredOptions.map((option) => {
           const valueKey = optionValue(option);

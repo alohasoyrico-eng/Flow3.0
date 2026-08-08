@@ -2686,6 +2686,14 @@ assert.match(emptyComboboxMarkup, />No matching options<\/span>/);
 
 const unnamedComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox));
 assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Combobox"/);
+assert.doesNotMatch(unnamedComboboxMarkup, /class="combobox"|role="combobox"|role="listbox"|data-combobox-clear/);
+
+const unnamedClearComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
+  label: "Vehicle",
+  value: "mx-4821",
+  options: [{ label: "MX-4821", value: "mx-4821" }],
+}));
+assert.doesNotMatch(unnamedClearComboboxMarkup, /data-combobox-clear|class="field-action field__action combobox__clear"/);
 assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Options"/);
 assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Clear selection"/);
 
