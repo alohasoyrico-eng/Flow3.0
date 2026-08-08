@@ -302,7 +302,7 @@ assert.doesNotMatch(inheritedCompactRouteSummaryMarkup.match(/<button[^>]+>/)?.[
 const ariaCompactRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Compact route",
   variant: "compact",
-  actions: [{ key: "cancel", ariaLabel: "Cancel route", icon: "close" }],
+  actions: [{ key: "cancel", label: "Cancel route", icon: "close" }],
 }));
 assert.match(ariaCompactRouteSummaryMarkup, /aria-label="Cancel route"/);
 assert.doesNotMatch(ariaCompactRouteSummaryMarkup, /aria-label=""/);

@@ -11,11 +11,7 @@ const validTones = new Set(["neutral", "info", "warning"]);
 function isValidRouteAction(action, compact) {
   if (!action) return false;
   const hasStableKey = action.key !== undefined && action.key !== null && action.key !== "";
-  return hasStableKey && (compact ? Boolean(action.label || action.ariaLabel) : Boolean(action.label));
-}
-
-function routeActionLabel(action) {
-  return action?.ariaLabel || action?.label;
+  return hasStableKey && Boolean(action.label);
 }
 
 function renderAction(action, index, { compact, density, disabled }) {
@@ -27,12 +23,10 @@ function renderAction(action, index, { compact, density, disabled }) {
     action?.onAction?.(String(actionKey), action, event);
   };
   if (compact) {
-    const accessibleActionLabel = routeActionLabel(action);
-    if (!accessibleActionLabel) return null;
     return React.createElement(IconButton, {
       key: actionKey,
       icon: action?.icon ?? "close",
-      ariaLabel: accessibleActionLabel,
+      label: action.label,
       variant: action?.variant ?? "ghost",
       density: action?.density ?? density,
       disabled: actionDisabled,

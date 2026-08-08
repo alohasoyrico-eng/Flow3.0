@@ -22,7 +22,6 @@ export interface RouteMetric {
 export interface RouteSummaryAction {
   key?: string;
   label?: string;
-  ariaLabel?: string;
   icon?: string;
   trailingIcon?: string;
   variant?: ButtonVariant | IconButtonVariant;
