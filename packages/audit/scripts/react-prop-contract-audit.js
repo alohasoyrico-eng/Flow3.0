@@ -1,4 +1,9 @@
-const { inheritedReactPropNames, semanticInheritedPropsFor } = require("./react-contract-shared.js");
+const {
+  inheritedReactPropNames,
+  ownReactPropsFor,
+  propsBodyFor,
+  semanticInheritedPropsFor,
+} = require("./react-contract-shared.js");
 
 const publicContractPropTypes = {
   Accordion: { items: "AccordionItem[]" },
@@ -26,15 +31,6 @@ const publicContractPropTypes = {
   Tabs: { items: "TabsItem[]" },
 };
 
-function propsBodyFor(types, componentName) {
-  return types.match(new RegExp(`export interface ${componentName}Props[^\\\\{]*\\\\{([\\\\s\\\\S]*?)\\\\n\\\\}`))?.[1] ?? "";
-}
-
-function ownPropsFor(types, componentName) {
-  return [...propsBodyFor(types, componentName).matchAll(/^\\s*([A-Za-z][A-Za-z0-9]*)(\\?)?:/gm)]
-    .map((match) => ({ name: match[1], required: !match[2] }));
-}
-
 function contractPropsFor(contractBody) {
   return [...contractBody.matchAll(/\{ name: "([^"]+)", type: [^\n]+ required: (true|false) \}/g)]
     .map((match) => ({ name: match[1], required: match[2] === "true" }));
@@ -53,7 +49,7 @@ function checkPublicCallbackContract({ add, componentName, typesFile, types, con
 
 function checkPublicPropContract({ add, componentName, typesFile, types, contractBody }) {
   if (!contractBody) return;
-  const publicProps = ownPropsFor(types, componentName)
+  const publicProps = ownReactPropsFor(types, componentName)
     .map((prop) => prop.name)
     .filter((propName) => !inheritedReactPropNames.has(propName));
   const missing = publicProps.filter((propName) => !contractBody.includes(`{ name: "${propName}"`));
@@ -75,7 +71,7 @@ function checkSemanticInheritedPropContract({ add, componentName, typesFile, typ
 
 function checkRequiredPropContract({ add, componentName, typesFile, types, contractBody }) {
   if (!contractBody) return;
-  const typeProps = new Map(ownPropsFor(types, componentName).map((prop) => [prop.name, prop.required]));
+  const typeProps = new Map(ownReactPropsFor(types, componentName).map((prop) => [prop.name, prop.required]));
   for (const prop of contractPropsFor(contractBody)) {
     if (!typeProps.has(prop.name)) continue;
     if (typeProps.get(prop.name) !== prop.required) {

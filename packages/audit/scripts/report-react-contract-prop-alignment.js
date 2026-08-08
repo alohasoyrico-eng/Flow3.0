@@ -11,6 +11,8 @@ const {
   contractBodyFor,
   inheritedReactPropNames,
   lowerFirst,
+  ownReactPropsFor,
+  reactAllowedValues,
   semanticInheritedPropsFor,
   unionValues,
 } = require("./react-contract-shared.js");
@@ -21,28 +23,6 @@ const contractsFile = path.join(root, "packages/components/src/contracts.js");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-contract-prop-alignment-audit.json");
 const markdownOutput = path.join(outputDir, "react-contract-prop-alignment-audit.md");
-
-function propsBodyFor(types, componentName) {
-  return types.match(new RegExp(`export interface ${componentName}Props[^\\{]*\\{([\\s\\S]*?)\\n\\}`))?.[1]
-    ?? types.match(new RegExp(`export type ${componentName}Props\\s*=\\s*[\\s\\S]*?&\\s*\\{([\\s\\S]*?)\\n\\};`))?.[1]
-    ?? "";
-}
-
-function propTypeExpression(types, componentName, propName) {
-  const escapedProp = propName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  return propsBodyFor(types, componentName).match(new RegExp(`^\\s*${escapedProp}\\??:\\s*([^;]+);`, "m"))?.[1]?.trim() ?? "";
-}
-
-function aliasUnionValues(types, aliasName) {
-  const escapedAlias = aliasName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const aliasMatch = types.match(new RegExp(`export type ${escapedAlias}\\s*=\\s*([^;]+);`));
-  return aliasMatch ? unionValues(aliasMatch[1]) : [];
-}
-
-function ownPropsFor(types, componentName) {
-  return [...propsBodyFor(types, componentName).matchAll(/^\s*([A-Za-z][A-Za-z0-9]*)(\?)?:/gm)]
-    .map((match) => ({ name: match[1], required: !match[2] }));
-}
 
 function contractPropsFor(contractBody) {
   return [...contractBody.matchAll(/\{ name: "([^"]+)", type: "((?:\\.|[^"])*)", required: (true|false) \}/g)]
@@ -60,14 +40,6 @@ function contractNamedValues(contractBody, propName) {
   if (!field) return [];
   const valuesExpression = contractBody.match(new RegExp(`\\b${field}:\\s*\\[([^\\]]*)\\]`))?.[1] ?? "";
   return unionValues(valuesExpression);
-}
-
-function reactAllowedValues(types, componentName, propName) {
-  const typeExpression = propTypeExpression(types, componentName, propName);
-  const inlineValues = unionValues(typeExpression);
-  if (inlineValues.length) return inlineValues;
-  const aliasName = typeExpression.match(/\b[A-Z][A-Za-z0-9]*\b/)?.[0];
-  return aliasName ? aliasUnionValues(types, aliasName) : [];
 }
 
 function contractAllowedValues(contractBody, contractProp) {
@@ -102,7 +74,7 @@ function createReport() {
     const contractKey = lowerFirst(component);
     const contractBody = contractBodyFor(contractsSource, contractKey);
     const contractProps = contractPropsFor(contractBody);
-    const ownReactProps = ownPropsFor(types, component);
+    const ownReactProps = ownReactPropsFor(types, component);
     const publicReactProps = ownReactProps.filter((prop) => !inheritedReactPropNames.has(prop.name));
     const semanticInheritedProps = semanticInheritedPropsFor(component)
       .filter((propName) => new RegExp(`\\b${propName}\\??:`).test(types));

@@ -10,6 +10,7 @@ const {
 const {
   contractBodyFor,
   lowerFirst,
+  reactAllowedValues,
   unionValues,
 } = require("./react-contract-shared.js");
 
@@ -105,20 +106,6 @@ function lineMatches(file, rules) {
     })));
 }
 
-function aliasUnionValues(types, aliasName) {
-  const escapedAlias = aliasName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const aliasMatch = types.match(new RegExp(`export type ${escapedAlias}\\s*=\\s*([^;]+);`));
-  return aliasMatch ? unionValues(aliasMatch[1]) : [];
-}
-
-function propTypeExpression(types, componentName, propName) {
-  const propsBody = types.match(new RegExp(`export interface ${componentName}Props[^\\{]*\\{([\\s\\S]*?)\\n\\}`))?.[1]
-    ?? types.match(new RegExp(`export type ${componentName}Props\\s*=\\s*[\\s\\S]*?&\\s*\\{([\\s\\S]*?)\\n\\};`))?.[1]
-    ?? "";
-  const escapedProp = propName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  return propsBody.match(new RegExp(`^\\s*${escapedProp}\\??:\\s*([^;]+);`, "m"))?.[1]?.trim() ?? "";
-}
-
 function contractPropTypeExpression(contractsSource, component, propName) {
   const contractBody = contractBodyFor(contractsSource, lowerFirst(component));
   const escapedProp = propName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -142,12 +129,7 @@ function contractNamedValues(contractsSource, component, propName) {
 function publicPropAllowedValues(component, propName) {
   const typesFile = path.join(reactSrcDir, `${component}.d.ts`);
   if (!fs.existsSync(typesFile)) return [];
-  const types = read(typesFile);
-  const typeExpression = propTypeExpression(types, component, propName);
-  const inlineValues = unionValues(typeExpression);
-  if (inlineValues.length) return inlineValues;
-  const aliasName = typeExpression.match(/\b[A-Z][A-Za-z0-9]*\b/)?.[0];
-  return aliasName ? aliasUnionValues(types, aliasName) : [];
+  return reactAllowedValues(read(typesFile), component, propName);
 }
 
 function contractAllowedValues(contractsSource, component, propName) {
