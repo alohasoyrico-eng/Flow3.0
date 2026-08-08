@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { buttonPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const allowedTypes = new Set(["button", "submit", "reset"]);
 
@@ -31,6 +31,7 @@ export const Button = forwardRef(function Button({
   ...rest
 }, ref) {
   const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : state;
+  const resolvedDensity = normalizeFlowDensity(density);
   const buttonLabel = children ?? label;
   if (!buttonLabel) return null;
 
@@ -43,7 +44,7 @@ export const Button = forwardRef(function Button({
       className: buttonClassName({ variant, intent, className }),
       disabled: resolvedState === "disabled" || resolvedState === "loading",
       "aria-busy": resolvedState === "loading" ? "true" : undefined,
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       ...flowStateProps(resolvedState),
       "data-full-width": String(Boolean(fullWidth)),
     },
@@ -51,7 +52,7 @@ export const Button = forwardRef(function Button({
       ? React.createElement("span", { className: "button__icon", "aria-hidden": "true" }, icon)
       : null,
     resolvedState === "loading"
-      ? React.createElement(Spinner, { density, decorative: true })
+      ? React.createElement(Spinner, { density: resolvedDensity, decorative: true })
       : null,
     buttonLabel ? React.createElement("span", { className: "button__label" }, buttonLabel) : null,
     resolvedState !== "loading" && trailingIcon

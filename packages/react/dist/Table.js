@@ -13,7 +13,7 @@ function sortValue(row, column) {
   return row[column.key];
 }
 
-function renderCell(value, density) {
+function renderCell(value, inheritedDensity) {
   if (React.isValidElement(value)) return value;
   if (value && typeof value === "object" && "label" in value) {
     return React.createElement(Badge, {
@@ -21,7 +21,7 @@ function renderCell(value, density) {
       tone: value.tone ?? "neutral",
       variant: value.variant ?? "status",
       icon: value.icon ?? "",
-      density,
+      density: inheritedDensity,
     });
   }
   return value ?? "";

@@ -1,7 +1,7 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
 import { cardSecurityCodeInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validStates = new Set(["default", "filled", "valid", "loading", "error", "disabled"]);
 
@@ -66,6 +66,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   const isDisabled = Boolean(disabled || loading);
   const canReveal = Boolean(revealable && revealLabel && hideLabel);
   const resolvedState = resolveCardSecurityCodeState({ disabled, loading, error: resolvedError, state, value: digits, validity });
+  const resolvedDensity = normalizeFlowDensity(density);
   const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
   const meta = useMemo(() => ({
     validity,
@@ -86,7 +87,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
     {
       className: ["field card-security-code-input", className].filter(Boolean).join(" "),
       ...flowStateProps(resolvedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       "data-mono": "true",
       "data-validity": validity,
       "data-length": String(digits.length),
@@ -145,7 +146,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
           React.createElement("span", { className: "field-action__icon field__icon card-security-code-input__action-icon", "aria-hidden": "true" }, isRevealed ? "visibility_off" : "visibility"),
         )
         : null,
-      loading ? React.createElement(Spinner, { density, decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { density: resolvedDensity, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement(

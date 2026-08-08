@@ -14,7 +14,7 @@ function isValidRouteAction(action, compact) {
   return hasStableKey && Boolean(action.label);
 }
 
-function renderAction(action, index, { compact, density, disabled }) {
+function renderAction(action, index, { compact, inheritedDensity, disabled }) {
   const actionDisabled = Boolean(disabled || action?.disabled);
   const actionKey = action?.key;
   const handleActionClick = (event) => {
@@ -29,7 +29,7 @@ function renderAction(action, index, { compact, density, disabled }) {
       icon: action?.icon ?? "close",
       label: action.label,
       variant: action?.variant ?? "ghost",
-      density: action?.density ?? density,
+      density: action?.density ?? inheritedDensity,
       disabled: actionDisabled,
       onClick: handleActionClick,
     });
@@ -42,7 +42,7 @@ function renderAction(action, index, { compact, density, disabled }) {
     trailingIcon: action?.trailingIcon,
     variant: action?.variant ?? (index === 0 ? "primary" : "secondary"),
     intent: action?.intent ?? "default",
-    density: action?.density ?? density,
+    density: action?.density ?? inheritedDensity,
     disabled: actionDisabled,
     loading: Boolean(action?.loading),
     onClick: handleActionClick,
@@ -121,7 +121,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
       ? React.createElement(
           "footer",
           null,
-          visibleActions.map((action, index) => renderAction(action, index, { compact: isCompact, density: resolvedDensity, disabled: isDisabled })),
+          visibleActions.map((action, index) => renderAction(action, index, { compact: isCompact, inheritedDensity: resolvedDensity, disabled: isDisabled })),
         )
       : null,
   );

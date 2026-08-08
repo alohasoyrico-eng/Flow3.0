@@ -1,7 +1,7 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
 import { cardExpiryInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 function normalizeCardExpiry(value) {
   return String(value ?? "").replace(/\D/g, "").slice(0, 4);
@@ -73,6 +73,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
   const resolvedError = error || localError;
   const resolvedHelper = resolvedError || helper;
   const resolvedState = resolveCardExpiryState({ disabled, loading, error: resolvedError, state, value: digits, validity });
+  const resolvedDensity = normalizeFlowDensity(density);
   const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
   const meta = useMemo(() => ({
     digits,
@@ -89,7 +90,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
     {
       className: ["field card-expiry-input", className].filter(Boolean).join(" "),
       ...flowStateProps(resolvedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       "data-mono": "true",
       "data-validity": validity,
       "data-month": month,
@@ -138,7 +139,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
           }, event);
         },
       }),
-      loading ? React.createElement(Spinner, { density, decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { density: resolvedDensity, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement(

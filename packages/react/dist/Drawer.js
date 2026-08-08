@@ -24,7 +24,7 @@ function hasStableFieldName(field) {
   return field?.name !== undefined && field?.name !== null && field?.name !== "";
 }
 
-function renderContentItem(item, density) {
+function renderContentItem(item, inheritedDensity) {
   if (!hasStableKey(item)) return null;
   if (item?.type === "badge") {
     if (!item.label) return null;
@@ -36,7 +36,7 @@ function renderContentItem(item, density) {
         tone: item.tone ?? "success",
         variant: item.variant ?? "status",
         live: Boolean(item.live),
-        density: item.density ?? density,
+        density: item.density ?? inheritedDensity,
       }),
     );
   }
@@ -51,7 +51,7 @@ function renderContentItem(item, density) {
         max: item.max ?? 100,
         showValue: item.showValue ?? true,
         tone: item.tone ?? "accent",
-        density: item.density ?? density,
+        density: item.density ?? inheritedDensity,
         fullWidth: true,
       }),
     );

@@ -1,7 +1,7 @@
 import React, { forwardRef, useId, useState } from "react";
 import { inputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["text", "email", "password", "number", "currency", "unit", "search"]);
 const numericVariants = new Set(["number", "currency", "unit"]);
@@ -106,6 +106,7 @@ export const Input = forwardRef(function Input({
   const currentValue = isValueControlled ? value ?? "" : internalValue;
   const revealed = isRevealControlled ? Boolean(revealedProp) : internalRevealed;
   const resolvedState = resolveInputState({ disabled, loading, error, state, value: currentValue });
+  const resolvedDensity = normalizeFlowDensity(density);
   const resolvedHelper = error || helperText || helper;
   const isDisabled = Boolean(disabled) || Boolean(loading);
   const resolvedAlign = align === "end" || (align === "start" && numericVariants.has(resolvedVariant)) ? "end" : "start";
@@ -131,7 +132,7 @@ export const Input = forwardRef(function Input({
     {
       className: ["field", className].filter(Boolean).join(" "),
       ...flowStateProps(resolvedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       ...flowVariantProps(resolvedVariant),
       "data-mono": mono ? "true" : undefined,
       "data-align": resolvedAlign === "end" ? "end" : undefined,
@@ -182,7 +183,7 @@ export const Input = forwardRef(function Input({
           React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, revealed ? "visibility_off" : "visibility"),
         )
         : null,
-      loading ? React.createElement(Spinner, { density, decorative: true, className: "field__icon field__icon--loading" }) : null,
+      loading ? React.createElement(Spinner, { density: resolvedDensity, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
       ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)

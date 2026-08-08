@@ -3,7 +3,7 @@ import { cardPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Spinner } from "./Spinner.js";
-import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const variants = new Set(["default", "minimal", "elevated", "ghost"]);
 const compositions = new Set(["standard", "compact", "media", "stats"]);
@@ -24,7 +24,7 @@ function isValidCardAction(action) {
   return hasStableKey && Boolean(action.label) && (!isIconOnly || Boolean(action.icon));
 }
 
-function cardAction(action, density, index, onAction) {
+function cardAction(action, inheritedDensity, index, onAction) {
   const key = action.key;
   const isIconOnly = Boolean(action.iconOnly) || (!action.label && Boolean(action.icon));
   const { iconOnly, ...actionProps } = action;
@@ -38,14 +38,14 @@ function cardAction(action, density, index, onAction) {
       key,
       ...actionProps,
       label: action.label,
-      density,
+      density: inheritedDensity,
       variant: action.variant ?? "ghost",
       onClick: handleClick,
     })
     : React.createElement(Button, {
       key,
       ...actionProps,
-      density,
+      density: inheritedDensity,
       onClick: handleClick,
     });
 }
@@ -78,6 +78,7 @@ export const Card = forwardRef(function Card({
   const resolvedVariant = variants.has(variant) ? variant : "default";
   const resolvedComposition = compositions.has(composition) ? composition : "standard";
   const resolvedState = resolveState({ disabled, loading, selected, state });
+  const resolvedDensity = normalizeFlowDensity(density);
   const hasStableActionKey = actionKey !== undefined && actionKey !== null && actionKey !== "";
   const resolvedActionKey = actionKey;
   const sourceActions = Array.isArray(actions) ? actions : [];
@@ -111,14 +112,14 @@ export const Card = forwardRef(function Card({
       ? React.createElement(
         "div",
         { className: "card__loading", key: "loading" },
-        React.createElement(Spinner, { density, decorative: true }),
+        React.createElement(Spinner, { density: resolvedDensity, decorative: true }),
         value ? React.createElement("span", null, value) : null,
       )
       : [
         value ? React.createElement("p", { className: "card__value", key: "value" }, resolvedComposition === "stats" && unit ? `${unit}${value}` : value) : null,
         detail ? React.createElement("p", { className: "card__detail", key: "detail" }, detail) : null,
       ],
-    hasActions ? React.createElement("div", { className: "card__actions", key: "actions" }, validActions.map((action, index) => cardAction(action, density, index, onAction))) : null,
+    hasActions ? React.createElement("div", { className: "card__actions", key: "actions" }, validActions.map((action, index) => cardAction(action, resolvedDensity, index, onAction))) : null,
   ];
 
   return React.createElement(
@@ -130,7 +131,7 @@ export const Card = forwardRef(function Card({
       ...flowVariantProps(resolvedVariant),
       "data-composition": resolvedComposition,
       ...flowStateProps(resolvedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       "data-interactive": String(isInteractive),
       tabIndex: isInteractive ? (isDisabled ? -1 : 0) : rest.tabIndex,

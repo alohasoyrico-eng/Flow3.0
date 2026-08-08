@@ -29,7 +29,7 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (
     !source.includes("forwardRef") ||
     !source.includes("buttonPlatformContract") ||
-    !source.includes("flowDensityProps(density)") ||
+    !source.includes("flowDensityProps(") ||
     !source.includes("flowStateProps(resolvedState)")
   ) {
     add("errors", sourceFile, 1, "Button must expose a real React ref contract, platform contract, density, and state props.");

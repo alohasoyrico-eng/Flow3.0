@@ -43,6 +43,9 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (source.includes('"data-density"')) {
     add("errors", sourceFile, 1, `${componentName} React source must use flowDensityProps() instead of writing data-density directly.`);
   }
+  if (source.includes("const resolvedDensity = normalizeFlowDensity(density)") && /\bflowDensityProps\(\s*density\s*\)/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must pass resolvedDensity into flowDensityProps() once density has been normalized.`);
+  }
   if (/\bdensity\s*=\s*["'](?:sm|md|lg)["']|\bdensity:\s*["'](?:sm|md|lg)["']/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must not assign a local default density; density must inherit through the Flow cascade unless product code opts in.`);
   }
@@ -71,6 +74,9 @@ function checkComposedChildDensity({ add, componentName, sourceFile, source }) {
       if (!propsObject) continue;
       if (!/\bdensity\s*(?:,|:|})/.test(propsObject)) {
         add("errors", sourceFile, 1, `${componentName} composes density-aware ${child} without forwarding density; pass inherited density or an explicit child override prop.`);
+      }
+      if (/\bdensity\s*,/.test(propsObject)) {
+        add("errors", sourceFile, 1, `${componentName} composes density-aware ${child} with shorthand density; pass resolvedDensity/inheritedDensity explicitly so raw density props do not fork the cascade.`);
       }
     }
   }
