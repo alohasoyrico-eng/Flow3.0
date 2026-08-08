@@ -647,6 +647,14 @@ const kpiSparklineMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
 }));
 assert.match(kpiSparklineMarkup, /class="kpi-tile__sparkline"/);
 assert.match(kpiSparklineMarkup, /<polyline points="/);
+const unnamedInteractiveKpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
+  variant: "drill-in",
+  onSelect: () => {},
+  href: "#missing-copy",
+}));
+assert.match(unnamedInteractiveKpiMarkup, /^<article/);
+assert.doesNotMatch(unnamedInteractiveKpiMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /role="button"|tabIndex=|href=|aria-label=/);
+assert.doesNotMatch(unnamedInteractiveKpiMarkup, /class="kpi-tile__affordance"/);
 
 const treeViewMarkup = renderToStaticMarkup(React.createElement(TreeView, {
   label: "Fleet hierarchy",

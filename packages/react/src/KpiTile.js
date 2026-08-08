@@ -44,10 +44,11 @@ export const KpiTile = forwardRef(function KpiTile({
   const resolvedTrend = normalizeFlowValue(trend, validTrends, "flat");
   const resolvedState = loading ? "loading" : disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
-  const interactive = Boolean(href || onSelect || resolvedVariant === "drill-in");
-  const Element = href ? "a" : "article";
+  const requestedInteraction = Boolean(href || onSelect || resolvedVariant === "drill-in");
   const selectMeta = { label, value, delta, tone: resolvedTone, variant: resolvedVariant };
-  const accessibleLabel = ariaLabel || (interactive && (label || value || delta) ? `${label ?? ""} ${value ?? ""}${delta ? `, ${delta}` : ""}`.trim() : undefined);
+  const accessibleLabel = ariaLabel || (requestedInteraction && (label || value || delta) ? `${label ?? ""} ${value ?? ""}${delta ? `, ${delta}` : ""}`.trim() : undefined);
+  const interactive = requestedInteraction && Boolean(accessibleLabel);
+  const Element = href && interactive ? "a" : "article";
 
   return React.createElement(
     Element,
@@ -55,7 +56,7 @@ export const KpiTile = forwardRef(function KpiTile({
       ...flowRestProps(rest),
       ref,
       className: ["kpi-tile", `kpi-tile--${resolvedTone}`, className].filter(Boolean).join(" "),
-      href: href || undefined,
+      href: href && interactive ? href : undefined,
       tabIndex: interactive && !href ? (disabled ? -1 : 0) : undefined,
       role: interactive && !href ? "button" : undefined,
       "aria-label": accessibleLabel,
@@ -70,7 +71,7 @@ export const KpiTile = forwardRef(function KpiTile({
           event.preventDefault();
           return;
         }
-        onSelect?.(selectMeta);
+        if (interactive) onSelect?.(selectMeta);
       },
       onKeyDown: (event) => {
         if (!interactive || href || disabled || loading) return;
@@ -104,7 +105,7 @@ export const KpiTile = forwardRef(function KpiTile({
         React.createElement("polyline", { points: sparklinePoints(values) }),
       )
       : null,
-    resolvedVariant === "drill-in"
+    resolvedVariant === "drill-in" && interactive
       ? React.createElement("span", { className: "kpi-tile__affordance", "aria-hidden": "true" }, "arrow_forward")
       : null,
   );

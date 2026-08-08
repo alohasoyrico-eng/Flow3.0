@@ -27,6 +27,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Table" && !source.includes("const canRenderExpanders = expandable && typeof getExpandLabel === \"function\";")) add("errors", sourceFile, 1, "Table must gate expandable controls on getExpandLabel instead of expandable alone.");
   if (name === "Table" && /"aria-label":\s*expandLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Table expander labels must be required before composing expandable controls.");
   if (name === "StationPin" && !source.includes("if (!accessibleLabel) return null;")) add("errors", sourceFile, 1, "StationPin must not render without an accessible label.");
+  if (name === "KpiTile" && !source.includes("const interactive = requestedInteraction && Boolean(accessibleLabel);")) add("errors", sourceFile, 1, "KpiTile must gate interactive behavior on an accessible label.");
 }
 
 module.exports = { checkReactComponentContentGuards };
