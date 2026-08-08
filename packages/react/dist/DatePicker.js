@@ -185,7 +185,7 @@ export const DatePicker = forwardRef(function DatePicker({
       ...flowDensityProps(density),
       "data-open": String(open),
     },
-    label ? React.createElement("span", { className: "field__label date-picker__label", id: `${controlId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label date-picker__label", id: `${controlId}-label` }, label),
     React.createElement(
       "button",
       {
@@ -203,8 +203,7 @@ export const DatePicker = forwardRef(function DatePicker({
         "aria-haspopup": "dialog",
         "aria-expanded": String(open),
         "aria-controls": panelId,
-        "aria-labelledby": label ? `${controlId}-label` : undefined,
-        "aria-label": label ? undefined : rest["aria-label"],
+        "aria-labelledby": `${controlId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
         onClick: () => {
