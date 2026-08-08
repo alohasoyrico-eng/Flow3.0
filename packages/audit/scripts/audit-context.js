@@ -19,7 +19,10 @@ function resolveFirstExisting(paths) {
   return paths.find((file) => fs.existsSync(file)) ?? paths[0];
 }
 
-const docsAppDir = path.join(root, "apps/docs");
+const docsAppDir = resolveFirstExisting([
+  path.join(root, "../FlowDocs/apps/docs"),
+  path.join(root, "apps/docs"),
+]);
 const docsAppFile = path.join(docsAppDir, "app.js");
 const docsCatalogRenderersFile = path.join(docsAppDir, "catalog-renderers.js");
 const docsContentSourcesFile = path.join(docsAppDir, "content-sources.js");
@@ -61,7 +64,7 @@ const docsStyleModulePaths = fs.existsSync(docsStylesDir)
   ? fs.readdirSync(docsStylesDir)
       .filter((file) => file.endsWith(".css"))
       .sort()
-      .map((file) => `apps/docs/styles/${file}`)
+      .map((file) => path.relative(root, path.join(docsStylesDir, file)))
   : [];
 const docsStyleModuleFiles = docsStyleModulePaths.map((file) => path.join(root, file));
 const docsIndexFile = path.join(docsAppDir, "index.html");

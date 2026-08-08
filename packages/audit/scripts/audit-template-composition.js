@@ -1,5 +1,6 @@
 const {
   add,
+  docsAppDir,
   read,
   readJson,
   root,
@@ -8,9 +9,9 @@ const {
 
 const templatesFile = path.join(root, "packages/content/content/catalog/templates.json");
 const templateBlueprintsFile = path.join(root, "packages/content/content/template-blueprints.json");
-const desktopDemoFile = path.join(root, "apps/docs/template-desktop-demos.js");
-const shellRenderersFile = path.join(root, "apps/docs/pattern-shell-renderers.js");
-const businessRenderersFile = path.join(root, "apps/docs/pattern-business-renderers.js");
+const desktopDemoFile = path.join(docsAppDir, "template-desktop-demos.js");
+const shellRenderersFile = path.join(docsAppDir, "pattern-shell-renderers.js");
+const businessRenderersFile = path.join(docsAppDir, "pattern-business-renderers.js");
 const requiredFoundations = ["energy", "frame", "voice", "depth", "momentum", "state", "tone", "growth", "symbol", "iconography", "accessibility"];
 
 function checkTemplateComposition() {
