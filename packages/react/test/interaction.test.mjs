@@ -1522,6 +1522,21 @@ try {
   }));
   await waitFor(() => assert.equal(fuelRow.getAttribute("aria-current"), "true"));
   assert.equal(documentsRow.getAttribute("aria-current"), null);
+  fireEvent.click(documentsRow);
+  assert.deepEqual(listSelections.at(-1), { key: "docs", eventType: "click" });
+  assert.equal(documentsRow.getAttribute("aria-current"), null);
+  rerenderList(React.createElement(List, {
+    label: "Fleet tasks",
+    variant: "action",
+    selectedKey: "docs",
+    items: [
+      { key: "docs", label: "Documents", meta: "3 pending" },
+      { key: "fuel", label: "Fuel card", meta: "Needs review" },
+    ],
+    onSelect: (key, event) => listSelections.push({ key, eventType: event.type }),
+  }));
+  assert.equal(documentsRow.getAttribute("aria-current"), "true");
+  assert.equal(fuelRow.getAttribute("aria-current"), null);
 
   cleanup();
 

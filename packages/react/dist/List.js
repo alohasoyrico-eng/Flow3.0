@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useState } from "react";
 import { listPlatformContract } from "#flow/platforms";
 import { flowToneProps, flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
@@ -27,11 +27,8 @@ export const List = forwardRef(function List({
   const resolvedItems = sourceItems.filter((item) => item?.key !== undefined && item?.key !== null && item?.key !== "" && item?.label);
   const initialSelectedKey = selectedKey ?? resolvedItems.find((item) => item.state === "selected")?.key ?? "";
   const isSelectedKeyControlled = selectedKey !== undefined;
-  const [currentSelectedKey, setCurrentSelectedKey] = useState(String(initialSelectedKey));
-
-  useEffect(() => {
-    if (isSelectedKeyControlled) setCurrentSelectedKey(String(selectedKey ?? ""));
-  }, [isSelectedKeyControlled, selectedKey]);
+  const [internalSelectedKey, setInternalSelectedKey] = useState(String(initialSelectedKey));
+  const currentSelectedKey = isSelectedKeyControlled ? String(selectedKey ?? "") : internalSelectedKey;
 
   if (!resolvedItems.length) return null;
 
@@ -77,7 +74,7 @@ export const List = forwardRef(function List({
               if (disabled) return;
               onClick?.(event);
               if (event.defaultPrevented) return;
-              if (!isSelectedKeyControlled) setCurrentSelectedKey(key);
+              if (!isSelectedKeyControlled) setInternalSelectedKey(key);
               onSelect?.(key, event);
             } : undefined,
           },
