@@ -1,5 +1,5 @@
 import type { AvatarSize, AvatarStatus } from "./Avatar.js";
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { menuPlatformContract } from "@design-system/components/platforms";
 
 export type MenuVariant = "actions" | "grouped" | "selection" | "danger" | "icon-trigger" | "avatar-trigger";
@@ -7,6 +7,7 @@ export type MenuDensity = "sm" | "md" | "lg";
 export type MenuState = "default" | "closed" | "open" | "focus" | "disabled";
 export type MenuAlign = "start" | "end" | "right";
 export type MenuItemTone = "danger";
+export type MenuOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
 
 export interface MenuItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -34,7 +35,7 @@ export interface MenuProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style"
   state?: MenuState;
   align?: MenuAlign;
   disabled?: boolean;
-  onOpenChange?: (open: boolean) => void;
+  onOpenChange?: (open: boolean, event?: MenuOpenChangeEvent) => void;
   onSelect?: (item: MenuItem, event: MouseEvent<HTMLButtonElement>) => void;
 }
 

@@ -64,12 +64,12 @@ export const Menu = forwardRef(function Menu({
 
   if (!triggerLabel || !hasVisibleItems) return null;
 
-  const setOpen = (nextOpen, { restoreFocus = false, focusFirst = false } = {}) => {
+  const setOpen = (nextOpen, { restoreFocus = false, focusFirst = false, event } = {}) => {
     if (isDisabled) return;
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
     setInteractionState(normalizedOpen ? "open" : "closed");
-    onOpenChange?.(normalizedOpen);
+    onOpenChange?.(normalizedOpen, event);
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
     if (focusFirst) requestAnimationFrame(() => enabledItems(panelRef.current)[0]?.focus());
   };
@@ -85,7 +85,7 @@ export const Menu = forwardRef(function Menu({
     else if (event.key === "ArrowUp") moveItem(event, -1);
     else if (event.key === "Home") { event.preventDefault(); enabledItems(panelRef.current)[0]?.focus(); }
     else if (event.key === "End") { event.preventDefault(); enabledItems(panelRef.current).at(-1)?.focus(); }
-    else if (event.key === "Escape") { event.preventDefault(); setOpen(false, { restoreFocus: true }); }
+    else if (event.key === "Escape") { event.preventDefault(); setOpen(false, { restoreFocus: true, event }); }
   };
   const triggerProps = {
     ref: triggerRef,
@@ -95,10 +95,10 @@ export const Menu = forwardRef(function Menu({
     "aria-haspopup": "menu",
     "aria-expanded": String(Boolean(isOpen)),
     "aria-controls": menuId,
-    onClick: () => setOpen(!isOpen, { focusFirst: !isOpen }),
+    onClick: (event) => setOpen(!isOpen, { focusFirst: !isOpen, event }),
     onKeyDown: (event) => {
-      if (event.key === "ArrowDown") { event.preventDefault(); setOpen(true, { focusFirst: true }); }
-      if (event.key === "Escape") { event.preventDefault(); setOpen(false, { restoreFocus: true }); }
+      if (event.key === "ArrowDown") { event.preventDefault(); setOpen(true, { focusFirst: true, event }); }
+      if (event.key === "Escape") { event.preventDefault(); setOpen(false, { restoreFocus: true, event }); }
     },
   };
   const menuAccessibleLabel = label || triggerLabel;
@@ -159,7 +159,7 @@ export const Menu = forwardRef(function Menu({
               onClick?.(event);
               if (event.defaultPrevented) return;
               onSelect?.(item, event);
-              setOpen(false, { restoreFocus: true });
+              setOpen(false, { restoreFocus: true, event });
             },
           },
           icon ? React.createElement("span", { className: "menu__item-icon", "aria-hidden": "true" }, icon) : null,

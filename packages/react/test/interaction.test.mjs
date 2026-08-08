@@ -1013,7 +1013,7 @@ try {
       { key: "edit", label: "Edit", icon: "edit" },
       { key: "archive", label: "Archive", icon: "archive" },
     ],
-    onOpenChange: (open) => menuOpenChanges.push(open),
+    onOpenChange: (open, event) => menuOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
     onSelect: (item, event) => menuSelections.push({ key: item.key, eventType: event.type }),
   }));
 
@@ -1021,19 +1021,27 @@ try {
   assert.equal(menuTrigger.getAttribute("aria-expanded"), "false");
   fireEvent.click(menuTrigger);
   await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "true"));
-  assert.deepEqual(menuOpenChanges, [true]);
+  assert.deepEqual(menuOpenChanges, [{ open: true, eventType: "click", key: undefined }]);
 
   const archiveItem = getMenuRole("menuitem", { name: /archive/i });
   fireEvent.click(archiveItem);
   await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(menuSelections, [{ key: "archive", eventType: "click" }]);
-  assert.deepEqual(menuOpenChanges, [true, false]);
+  assert.deepEqual(menuOpenChanges, [
+    { open: true, eventType: "click", key: undefined },
+    { open: false, eventType: "click", key: undefined },
+  ]);
 
   fireEvent.keyDown(menuTrigger, { key: "ArrowDown" });
   await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "true"));
   fireEvent.keyDown(getMenuRole("menu", { name: /row actions/i }), { key: "Escape" });
   await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "false"));
-  assert.deepEqual(menuOpenChanges, [true, false, true, false]);
+  assert.deepEqual(menuOpenChanges, [
+    { open: true, eventType: "click", key: undefined },
+    { open: false, eventType: "click", key: undefined },
+    { open: true, eventType: "keydown", key: "ArrowDown" },
+    { open: false, eventType: "keydown", key: "Escape" },
+  ]);
 
   rerenderMenu(React.createElement(Menu, {
     label: "Row actions",
@@ -1043,7 +1051,7 @@ try {
       { key: "archive", label: "Archive", icon: "archive" },
     ],
     open: true,
-    onOpenChange: (open) => menuOpenChanges.push(open),
+    onOpenChange: (open, event) => menuOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
     onSelect: (item, event) => menuSelections.push({ key: item.key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "true"));
@@ -1056,7 +1064,7 @@ try {
       { key: "archive", label: "Archive", icon: "archive" },
     ],
     open: false,
-    onOpenChange: (open) => menuOpenChanges.push(open),
+    onOpenChange: (open, event) => menuOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
     onSelect: (item, event) => menuSelections.push({ key: item.key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "false"));
@@ -1079,7 +1087,7 @@ try {
         },
       },
     ],
-    onOpenChange: (open) => preventedMenuOpenChanges.push(open),
+    onOpenChange: (open, event) => preventedMenuOpenChanges.push({ open, eventType: event?.type }),
     onSelect: (item) => preventedMenuSelections.push(item.key),
   }));
 
@@ -1090,7 +1098,7 @@ try {
   assert.deepEqual(preventedMenuClicks, ["click"]);
   assert.deepEqual(preventedMenuSelections, []);
   assert.equal(preventedMenuTrigger.getAttribute("aria-expanded"), "true");
-  assert.deepEqual(preventedMenuOpenChanges, [true]);
+  assert.deepEqual(preventedMenuOpenChanges, [{ open: true, eventType: "click" }]);
 
   cleanup();
 
