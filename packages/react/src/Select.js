@@ -17,7 +17,7 @@ export const Select = forwardRef(function Select({
   label,
   helper = "",
   icon = "",
-  options = [],
+  options,
   optionsLabel,
   value,
   name = "",
@@ -46,7 +46,7 @@ export const Select = forwardRef(function Select({
     if (isValueControlled) setCurrentValue(value ?? "");
   }, [isValueControlled, value]);
 
-  if (!label) return null;
+  if (!label || !normalizedOptions.length) return null;
 
   const commitOption = (option) => {
     if (option.disabled) return;

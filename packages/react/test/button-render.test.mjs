@@ -2791,6 +2791,7 @@ assert.doesNotMatch(inheritedSelectMarkup.match(/^<span[^>]+class="field"[^>]+>/
 assert.doesNotMatch(inheritedSelectMarkup.match(/<span class="select-control"[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const unnamedSelectMarkup = renderToStaticMarkup(React.createElement(Select));
+assert.equal(unnamedSelectMarkup, "");
 assert.doesNotMatch(unnamedSelectMarkup, /aria-label="Select"/);
 assert.doesNotMatch(unnamedSelectMarkup, /aria-label="Options"/);
 assert.doesNotMatch(unnamedSelectMarkup, /select-control|role="combobox"|role="listbox"/);
@@ -2815,6 +2816,7 @@ const unstableOptionSelectMarkup = renderToStaticMarkup(React.createElement(Sele
     { value: "south" },
   ],
 }));
+assert.equal(unstableOptionSelectMarkup, "");
 assert.doesNotMatch(unstableOptionSelectMarkup, /role="option"/);
 assert.doesNotMatch(unstableOptionSelectMarkup, /data-value="North"|class="select-control__value"|>North<\/span>/);
 
