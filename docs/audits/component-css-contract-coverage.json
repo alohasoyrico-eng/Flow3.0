@@ -4,6 +4,7 @@
   "direct": 45,
   "family": 11,
   "missing": [],
+  "familyRootGaps": [],
   "familyContractPolicy": {
     "principle": "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract instead of duplicating token/class rules.",
     "groups": [
@@ -12,12 +13,18 @@
         "components": [
           "checkbox",
           "radio-button"
+        ],
+        "requiredRoots": [
+          "choice"
         ]
       },
       {
         "contract": "date-picker",
         "components": [
           "date-range-picker"
+        ],
+        "requiredRoots": [
+          "date-picker"
         ]
       },
       {
@@ -29,6 +36,9 @@
           "card-number-input",
           "card-expiry-input",
           "card-security-code-input"
+        ],
+        "requiredRoots": [
+          "field"
         ]
       },
       {
@@ -36,6 +46,9 @@
         "components": [
           "combobox",
           "country-selector"
+        ],
+        "requiredRoots": [
+          "select-control"
         ]
       }
     ]
@@ -54,12 +67,26 @@
     {
       "component": "combobox",
       "coverage": "family",
-      "contract": "select"
+      "contract": "select",
+      "requiredRoot": "select-control",
+      "observedRoots": [
+        "combobox",
+        "field",
+        "select-control"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "country-selector",
       "coverage": "family",
-      "contract": "select"
+      "contract": "select",
+      "requiredRoot": "select-control",
+      "observedRoots": [
+        "country-flag",
+        "country-selector",
+        "select-control"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "card",
@@ -69,12 +96,23 @@
     {
       "component": "input",
       "coverage": "family",
-      "contract": "field"
+      "contract": "field",
+      "requiredRoot": "field",
+      "observedRoots": [
+        "field"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "checkbox",
       "coverage": "family",
-      "contract": "choice"
+      "contract": "choice",
+      "requiredRoot": "choice",
+      "observedRoots": [
+        "checkbox",
+        "choice"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "switch",
@@ -84,12 +122,24 @@
     {
       "component": "radio-button",
       "coverage": "family",
-      "contract": "choice"
+      "contract": "choice",
+      "requiredRoot": "choice",
+      "observedRoots": [
+        "choice",
+        "radio"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "text-area",
       "coverage": "family",
-      "contract": "field"
+      "contract": "field",
+      "requiredRoot": "field",
+      "observedRoots": [
+        "field",
+        "text-area"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "icon-button",
@@ -224,22 +274,46 @@
     {
       "component": "phone-input",
       "coverage": "family",
-      "contract": "field"
+      "contract": "field",
+      "requiredRoot": "field",
+      "observedRoots": [
+        "field",
+        "phone-input"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "card-number-input",
       "coverage": "family",
-      "contract": "field"
+      "contract": "field",
+      "requiredRoot": "field",
+      "observedRoots": [
+        "card-number-input",
+        "field"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "card-expiry-input",
       "coverage": "family",
-      "contract": "field"
+      "contract": "field",
+      "requiredRoot": "field",
+      "observedRoots": [
+        "card-expiry-input",
+        "field"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "card-security-code-input",
       "coverage": "family",
-      "contract": "field"
+      "contract": "field",
+      "requiredRoot": "field",
+      "observedRoots": [
+        "card-security-code-input",
+        "field"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "date-picker",
@@ -249,7 +323,14 @@
     {
       "component": "date-range-picker",
       "coverage": "family",
-      "contract": "date-picker"
+      "contract": "date-picker",
+      "requiredRoot": "date-picker",
+      "observedRoots": [
+        "date-picker",
+        "date-range-picker",
+        "field"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "segmented-control",

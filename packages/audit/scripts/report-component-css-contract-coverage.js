@@ -10,10 +10,13 @@ const markdownOutput = path.join(outputDir, "component-css-contract-coverage.md"
 
 function renderMarkdown(report) {
   const rows = report.components
-    .map((item) => `| ${item.component} | ${item.coverage} | ${item.contract ?? "missing"} |`)
+    .map((item) => `| ${item.component} | ${item.coverage} | ${item.contract ?? "missing"} | ${item.requiredRoot ?? "n/a"} | ${item.requiredRootObserved == null ? "n/a" : String(item.requiredRootObserved)} |`)
     .join("\n");
   const familyRows = report.familyContractPolicy.groups
-    .map((item) => `| ${item.contract} | ${item.components.join(", ")} |`)
+    .map((item) => `| ${item.contract} | ${item.requiredRoots.join(", ")} | ${item.components.join(", ")} |`)
+    .join("\n");
+  const familyGapRows = report.familyRootGaps
+    .map((item) => `| ${item.component} | ${item.contract} | ${item.requiredRoot} | ${item.observedRoots.join(", ") || "None"} |`)
     .join("\n");
   return [
     "# Component CSS Contract Coverage",
@@ -24,17 +27,24 @@ function renderMarkdown(report) {
     `- Direct contracts: ${report.direct}`,
     `- Family contracts: ${report.family}`,
     `- Missing contracts: ${report.missing.length}`,
+    `- Family root gaps: ${report.familyRootGaps.length}`,
     "",
     "## Family Contract Policy",
     "",
     report.familyContractPolicy.principle,
     "",
-    "| Shared contract | Components covered |",
-    "| --- | --- |",
-    familyRows || "| None | None |",
-    "",
-    "| Component | Coverage | Contract |",
+    "| Shared contract | Required React root | Components covered |",
     "| --- | --- | --- |",
+    familyRows || "| None | None | None |",
+    "",
+    "## Family Root Gaps",
+    "",
+    "| Component | Contract | Required root | Observed roots |",
+    "| --- | --- | --- | --- |",
+    familyGapRows || "| None | None | None | None |",
+    "",
+    "| Component | Coverage | Contract | Required root | Required root observed |",
+    "| --- | --- | --- | --- | --- |",
     rows,
     "",
   ].join("\n");
@@ -43,7 +53,7 @@ function renderMarkdown(report) {
 function main() {
   const coverage = componentCssContractCoverage();
   const report = {
-    status: coverage.missing.length ? "fail" : "pass",
+    status: coverage.missing.length || coverage.familyRootGaps.length ? "fail" : "pass",
     ...coverage,
   };
 
@@ -59,6 +69,7 @@ function main() {
     direct: report.direct,
     family: report.family,
     missing: report.missing,
+    familyRootGaps: report.familyRootGaps,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

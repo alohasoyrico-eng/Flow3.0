@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { add, goldComponents, root } = require("./audit-context.js");
+const { classRootsFromClassExpression } = require("./audit-anti-duplication.js");
 const { checkAccordionCssContract } = require("./audit-accordion-css-contract.js");
 const { checkAnimatedMomentCssContract } = require("./audit-animated-moment-css-contract.js");
 const { checkAuditEventCssContract } = require("./audit-audit-event-css-contract.js");
@@ -50,17 +51,17 @@ const { checkToastCssContract } = require("./audit-toast-css-contract.js");
 const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js");
 
 const familyCssContracts = {
-  checkbox: "choice",
-  "radio-button": "choice",
-  input: "field",
-  "text-area": "field",
-  "phone-input": "field",
-  "card-number-input": "field",
-  "card-expiry-input": "field",
-  "card-security-code-input": "field",
-  combobox: "select",
-  "country-selector": "select",
-  "date-range-picker": "date-picker",
+  checkbox: { contract: "choice", requiredRoot: "choice" },
+  "radio-button": { contract: "choice", requiredRoot: "choice" },
+  input: { contract: "field", requiredRoot: "field" },
+  "text-area": { contract: "field", requiredRoot: "field" },
+  "phone-input": { contract: "field", requiredRoot: "field" },
+  "card-number-input": { contract: "field", requiredRoot: "field" },
+  "card-expiry-input": { contract: "field", requiredRoot: "field" },
+  "card-security-code-input": { contract: "field", requiredRoot: "field" },
+  combobox: { contract: "select", requiredRoot: "select-control" },
+  "country-selector": { contract: "select", requiredRoot: "select-control" },
+  "date-range-picker": { contract: "date-picker", requiredRoot: "date-picker" },
 };
 
 function currentCssContractIds() {
@@ -74,20 +75,40 @@ function componentCssContractCoverage() {
   const direct = currentCssContractIds();
   const components = goldComponents.map((component) => {
     if (direct.has(component)) return { component, coverage: "direct", contract: component };
-    if (familyCssContracts[component]) return { component, coverage: "family", contract: familyCssContracts[component] };
+    if (familyCssContracts[component]) {
+      const familyContract = familyCssContracts[component];
+      const observedRoots = observedReactRootsForComponent(component);
+      const requiredRootObserved = observedRoots.includes(familyContract.requiredRoot);
+      return {
+        component,
+        coverage: "family",
+        contract: familyContract.contract,
+        requiredRoot: familyContract.requiredRoot,
+        observedRoots,
+        requiredRootObserved,
+      };
+    }
     return { component, coverage: "missing", contract: null };
   });
   const family = components.filter((item) => item.coverage === "family");
   const missing = components.filter((item) => item.coverage === "missing").map((item) => item.component);
+  const familyRootGaps = family.filter((item) => !item.requiredRootObserved).map((item) => ({
+    component: item.component,
+    contract: item.contract,
+    requiredRoot: item.requiredRoot,
+    observedRoots: item.observedRoots,
+  }));
   const familyGroups = [...new Set(family.map((item) => item.contract))].sort().map((contract) => ({
     contract,
     components: family.filter((item) => item.contract === contract).map((item) => item.component),
+    requiredRoots: [...new Set(family.filter((item) => item.contract === contract).map((item) => item.requiredRoot))].sort(),
   }));
   return {
     total: components.length,
     direct: components.filter((item) => item.coverage === "direct").length,
     family: family.length,
     missing,
+    familyRootGaps,
     familyContractPolicy: {
       principle: "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract instead of duplicating token/class rules.",
       groups: familyGroups,
@@ -96,16 +117,32 @@ function componentCssContractCoverage() {
   };
 }
 
+function observedReactRootsForComponent(component) {
+  const sourceFile = path.join(root, "packages/react/src", `${pascalCase(component)}.js`);
+  if (!fs.existsSync(sourceFile)) return [];
+  const source = fs.readFileSync(sourceFile, "utf8");
+  const roots = [...source.matchAll(/\bclassName\s*:\s*(?:\[([^\]]+)\]|["'`]([^"'`]+)["'`])/g)]
+    .flatMap((match) => [...classRootsFromClassExpression(match[1] ?? match[2] ?? "")]);
+  return [...new Set(roots)].sort();
+}
+
+function pascalCase(value) {
+  return value.split("-").map((part) => `${part.slice(0, 1).toUpperCase()}${part.slice(1)}`).join("");
+}
+
 function checkComponentCssContractCoverage({ packageCssFile }) {
   const coverage = componentCssContractCoverage();
   const missing = coverage.missing;
   if (missing.length) {
     add("errors", packageCssFile, 1, `Accepted components missing CSS cascade contract coverage: ${missing.join(", ")}.`);
   }
+  if (coverage.familyRootGaps.length) {
+    add("errors", packageCssFile, 1, `Family CSS contract coverage is not backed by observed React roots: ${coverage.familyRootGaps.map((item) => `${item.component}->${item.requiredRoot}`).join(", ")}.`);
+  }
   const direct = currentCssContractIds();
   const orphanFamilies = Object.entries(familyCssContracts)
-    .filter(([component, contract]) => !goldComponents.includes(component) || !direct.has(contract))
-    .map(([component, contract]) => `${component}->${contract}`);
+    .filter(([component, familyContract]) => !goldComponents.includes(component) || !direct.has(familyContract.contract))
+    .map(([component, familyContract]) => `${component}->${familyContract.contract}`);
   if (orphanFamilies.length) {
     add("errors", packageCssFile, 1, `Component CSS family coverage points at missing components or contracts: ${orphanFamilies.join(", ")}.`);
   }
