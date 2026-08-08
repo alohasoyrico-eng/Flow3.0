@@ -4,6 +4,7 @@
   "direct": 45,
   "family": 11,
   "missing": [],
+  "directRootGaps": [],
   "familyRootGaps": [],
   "familyContractPolicy": {
     "principle": "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract instead of duplicating token/class rules.",
@@ -57,12 +58,23 @@
     {
       "component": "button",
       "coverage": "direct",
-      "contract": "button"
+      "contract": "button",
+      "requiredRoot": "button",
+      "observedRoots": [
+        "button"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "select",
       "coverage": "direct",
-      "contract": "select"
+      "contract": "select",
+      "requiredRoot": "select-control",
+      "observedRoots": [
+        "field",
+        "select-control"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "combobox",
@@ -91,7 +103,12 @@
     {
       "component": "card",
       "coverage": "direct",
-      "contract": "card"
+      "contract": "card",
+      "requiredRoot": "card",
+      "observedRoots": [
+        "card"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "input",
@@ -117,7 +134,12 @@
     {
       "component": "switch",
       "coverage": "direct",
-      "contract": "switch"
+      "contract": "switch",
+      "requiredRoot": "switch",
+      "observedRoots": [
+        "switch"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "radio-button",
@@ -144,132 +166,263 @@
     {
       "component": "icon-button",
       "coverage": "direct",
-      "contract": "icon-button"
+      "contract": "icon-button",
+      "requiredRoot": "icon-button",
+      "observedRoots": [
+        "icon-button"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "badge",
       "coverage": "direct",
-      "contract": "badge"
+      "contract": "badge",
+      "requiredRoot": "badge",
+      "observedRoots": [
+        "badge"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "chip",
       "coverage": "direct",
-      "contract": "chip"
+      "contract": "chip",
+      "requiredRoot": "chip",
+      "observedRoots": [
+        "chip"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "tag",
       "coverage": "direct",
-      "contract": "tag"
+      "contract": "tag",
+      "requiredRoot": "tag",
+      "observedRoots": [
+        "tag"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "tabs",
       "coverage": "direct",
-      "contract": "tabs"
+      "contract": "tabs",
+      "requiredRoot": "tabs",
+      "observedRoots": [
+        "tabs"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "tooltip",
       "coverage": "direct",
-      "contract": "tooltip"
+      "contract": "tooltip",
+      "requiredRoot": "tooltip",
+      "observedRoots": [
+        "tooltip"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "toast",
       "coverage": "direct",
-      "contract": "toast"
+      "contract": "toast",
+      "requiredRoot": "toast",
+      "observedRoots": [
+        "toast"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "inline-validation",
       "coverage": "direct",
-      "contract": "inline-validation"
+      "contract": "inline-validation",
+      "requiredRoot": "inline-validation",
+      "observedRoots": [
+        "inline-validation"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "progress-indicator",
       "coverage": "direct",
-      "contract": "progress-indicator"
+      "contract": "progress-indicator",
+      "requiredRoot": "progress",
+      "observedRoots": [
+        "progress"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "spinner",
       "coverage": "direct",
-      "contract": "spinner"
+      "contract": "spinner",
+      "requiredRoot": "spinner",
+      "observedRoots": [
+        "spinner"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "skeleton",
       "coverage": "direct",
-      "contract": "skeleton"
+      "contract": "skeleton",
+      "requiredRoot": "skeleton",
+      "observedRoots": [
+        "skeleton"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "dialog",
       "coverage": "direct",
-      "contract": "dialog"
+      "contract": "dialog",
+      "requiredRoot": "dialog",
+      "observedRoots": [
+        "dialog"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "menu",
       "coverage": "direct",
-      "contract": "menu"
+      "contract": "menu",
+      "requiredRoot": "menu",
+      "observedRoots": [
+        "menu"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "drawer",
       "coverage": "direct",
-      "contract": "drawer"
+      "contract": "drawer",
+      "requiredRoot": "drawer",
+      "observedRoots": [
+        "drawer"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "accordion",
       "coverage": "direct",
-      "contract": "accordion"
+      "contract": "accordion",
+      "requiredRoot": "accordion",
+      "observedRoots": [
+        "accordion"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "empty-state",
       "coverage": "direct",
-      "contract": "empty-state"
+      "contract": "empty-state",
+      "requiredRoot": "empty-state",
+      "observedRoots": [
+        "empty-state"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "table",
       "coverage": "direct",
-      "contract": "table"
+      "contract": "table",
+      "requiredRoot": "table",
+      "observedRoots": [
+        "table"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "avatar",
       "coverage": "direct",
-      "contract": "avatar"
+      "contract": "avatar",
+      "requiredRoot": "avatar",
+      "observedRoots": [
+        "avatar"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "slider",
       "coverage": "direct",
-      "contract": "slider"
+      "contract": "slider",
+      "requiredRoot": "slider",
+      "observedRoots": [
+        "slider"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "stepper",
       "coverage": "direct",
-      "contract": "stepper"
+      "contract": "stepper",
+      "requiredRoot": "stepper",
+      "observedRoots": [
+        "stepper"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "list",
       "coverage": "direct",
-      "contract": "list"
+      "contract": "list",
+      "requiredRoot": "list",
+      "observedRoots": [
+        "list"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "kpi-tile",
       "coverage": "direct",
-      "contract": "kpi-tile"
+      "contract": "kpi-tile",
+      "requiredRoot": "kpi-tile",
+      "observedRoots": [
+        "kpi-tile"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "chart-panel",
       "coverage": "direct",
-      "contract": "chart-panel"
+      "contract": "chart-panel",
+      "requiredRoot": "chart-panel",
+      "observedRoots": [
+        "chart-panel"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "station-pin",
       "coverage": "direct",
-      "contract": "station-pin"
+      "contract": "station-pin",
+      "requiredRoot": "station-pin",
+      "observedRoots": [
+        "station-pin"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "route-summary",
       "coverage": "direct",
-      "contract": "route-summary"
+      "contract": "route-summary",
+      "requiredRoot": "route-summary",
+      "observedRoots": [
+        "route-summary"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "code-input",
       "coverage": "direct",
-      "contract": "code-input"
+      "contract": "code-input",
+      "requiredRoot": "code-input",
+      "observedRoots": [
+        "code-input",
+        "field"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "phone-input",
@@ -318,7 +471,13 @@
     {
       "component": "date-picker",
       "coverage": "direct",
-      "contract": "date-picker"
+      "contract": "date-picker",
+      "requiredRoot": "date-picker",
+      "observedRoots": [
+        "date-picker",
+        "field"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "date-range-picker",
@@ -335,72 +494,142 @@
     {
       "component": "segmented-control",
       "coverage": "direct",
-      "contract": "segmented-control"
+      "contract": "segmented-control",
+      "requiredRoot": "segmented-control",
+      "observedRoots": [
+        "segmented-control"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "popover",
       "coverage": "direct",
-      "contract": "popover"
+      "contract": "popover",
+      "requiredRoot": "popover",
+      "observedRoots": [
+        "popover"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "floating-action-button",
       "coverage": "direct",
-      "contract": "floating-action-button"
+      "contract": "floating-action-button",
+      "requiredRoot": "fab",
+      "observedRoots": [
+        "fab"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "card-summary",
       "coverage": "direct",
-      "contract": "card-summary"
+      "contract": "card-summary",
+      "requiredRoot": "card-summary",
+      "observedRoots": [
+        "card-summary"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "movement-row",
       "coverage": "direct",
-      "contract": "movement-row"
+      "contract": "movement-row",
+      "requiredRoot": "movement-row",
+      "observedRoots": [
+        "movement-row"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "quick-action",
       "coverage": "direct",
-      "contract": "quick-action"
+      "contract": "quick-action",
+      "requiredRoot": "quick-action",
+      "observedRoots": [
+        "quick-action"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "biometric-prompt",
       "coverage": "direct",
-      "contract": "biometric-prompt"
+      "contract": "biometric-prompt",
+      "requiredRoot": "biometric-prompt",
+      "observedRoots": [
+        "biometric-prompt"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "breadcrumbs",
       "coverage": "direct",
-      "contract": "breadcrumbs"
+      "contract": "breadcrumbs",
+      "requiredRoot": "breadcrumbs",
+      "observedRoots": [
+        "breadcrumbs"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "pagination",
       "coverage": "direct",
-      "contract": "pagination"
+      "contract": "pagination",
+      "requiredRoot": "pagination",
+      "observedRoots": [
+        "pagination"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "audit-event",
       "coverage": "direct",
-      "contract": "audit-event"
+      "contract": "audit-event",
+      "requiredRoot": "audit-event",
+      "observedRoots": [
+        "audit-event"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "error-panel",
       "coverage": "direct",
-      "contract": "error-panel"
+      "contract": "error-panel",
+      "requiredRoot": "error-panel",
+      "observedRoots": [
+        "error-panel"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "tree-view",
       "coverage": "direct",
-      "contract": "tree-view"
+      "contract": "tree-view",
+      "requiredRoot": "tree-view",
+      "observedRoots": [
+        "tree-view"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "motion-boundary",
       "coverage": "direct",
-      "contract": "motion-boundary"
+      "contract": "motion-boundary",
+      "requiredRoot": "motion-boundary",
+      "observedRoots": [
+        "motion-boundary"
+      ],
+      "requiredRootObserved": true
     },
     {
       "component": "animated-moment",
       "coverage": "direct",
-      "contract": "animated-moment"
+      "contract": "animated-moment",
+      "requiredRoot": "animated-moment",
+      "observedRoots": [
+        "animated-moment"
+      ],
+      "requiredRootObserved": true
     }
   ]
 }

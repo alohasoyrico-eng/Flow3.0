@@ -6,6 +6,7 @@ Status: pass
 - Direct contracts: 45
 - Family contracts: 11
 - Missing contracts: 0
+- Direct root gaps: 0
 - Family root gaps: 0
 
 ## Family Contract Policy
@@ -19,6 +20,12 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | field | field | input, text-area, phone-input, card-number-input, card-expiry-input, card-security-code-input |
 | select | select-control | combobox, country-selector |
 
+## Direct Root Gaps
+
+| Component | Contract | Required root | Observed roots |
+| --- | --- | --- | --- |
+| None | None | None | None |
+
 ## Family Root Gaps
 
 | Component | Contract | Required root | Observed roots |
@@ -27,59 +34,59 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 
 | Component | Coverage | Contract | Required root | Required root observed |
 | --- | --- | --- | --- | --- |
-| button | direct | button | n/a | n/a |
-| select | direct | select | n/a | n/a |
+| button | direct | button | button | true |
+| select | direct | select | select-control | true |
 | combobox | family | select | select-control | true |
 | country-selector | family | select | select-control | true |
-| card | direct | card | n/a | n/a |
+| card | direct | card | card | true |
 | input | family | field | field | true |
 | checkbox | family | choice | choice | true |
-| switch | direct | switch | n/a | n/a |
+| switch | direct | switch | switch | true |
 | radio-button | family | choice | choice | true |
 | text-area | family | field | field | true |
-| icon-button | direct | icon-button | n/a | n/a |
-| badge | direct | badge | n/a | n/a |
-| chip | direct | chip | n/a | n/a |
-| tag | direct | tag | n/a | n/a |
-| tabs | direct | tabs | n/a | n/a |
-| tooltip | direct | tooltip | n/a | n/a |
-| toast | direct | toast | n/a | n/a |
-| inline-validation | direct | inline-validation | n/a | n/a |
-| progress-indicator | direct | progress-indicator | n/a | n/a |
-| spinner | direct | spinner | n/a | n/a |
-| skeleton | direct | skeleton | n/a | n/a |
-| dialog | direct | dialog | n/a | n/a |
-| menu | direct | menu | n/a | n/a |
-| drawer | direct | drawer | n/a | n/a |
-| accordion | direct | accordion | n/a | n/a |
-| empty-state | direct | empty-state | n/a | n/a |
-| table | direct | table | n/a | n/a |
-| avatar | direct | avatar | n/a | n/a |
-| slider | direct | slider | n/a | n/a |
-| stepper | direct | stepper | n/a | n/a |
-| list | direct | list | n/a | n/a |
-| kpi-tile | direct | kpi-tile | n/a | n/a |
-| chart-panel | direct | chart-panel | n/a | n/a |
-| station-pin | direct | station-pin | n/a | n/a |
-| route-summary | direct | route-summary | n/a | n/a |
-| code-input | direct | code-input | n/a | n/a |
+| icon-button | direct | icon-button | icon-button | true |
+| badge | direct | badge | badge | true |
+| chip | direct | chip | chip | true |
+| tag | direct | tag | tag | true |
+| tabs | direct | tabs | tabs | true |
+| tooltip | direct | tooltip | tooltip | true |
+| toast | direct | toast | toast | true |
+| inline-validation | direct | inline-validation | inline-validation | true |
+| progress-indicator | direct | progress-indicator | progress | true |
+| spinner | direct | spinner | spinner | true |
+| skeleton | direct | skeleton | skeleton | true |
+| dialog | direct | dialog | dialog | true |
+| menu | direct | menu | menu | true |
+| drawer | direct | drawer | drawer | true |
+| accordion | direct | accordion | accordion | true |
+| empty-state | direct | empty-state | empty-state | true |
+| table | direct | table | table | true |
+| avatar | direct | avatar | avatar | true |
+| slider | direct | slider | slider | true |
+| stepper | direct | stepper | stepper | true |
+| list | direct | list | list | true |
+| kpi-tile | direct | kpi-tile | kpi-tile | true |
+| chart-panel | direct | chart-panel | chart-panel | true |
+| station-pin | direct | station-pin | station-pin | true |
+| route-summary | direct | route-summary | route-summary | true |
+| code-input | direct | code-input | code-input | true |
 | phone-input | family | field | field | true |
 | card-number-input | family | field | field | true |
 | card-expiry-input | family | field | field | true |
 | card-security-code-input | family | field | field | true |
-| date-picker | direct | date-picker | n/a | n/a |
+| date-picker | direct | date-picker | date-picker | true |
 | date-range-picker | family | date-picker | date-picker | true |
-| segmented-control | direct | segmented-control | n/a | n/a |
-| popover | direct | popover | n/a | n/a |
-| floating-action-button | direct | floating-action-button | n/a | n/a |
-| card-summary | direct | card-summary | n/a | n/a |
-| movement-row | direct | movement-row | n/a | n/a |
-| quick-action | direct | quick-action | n/a | n/a |
-| biometric-prompt | direct | biometric-prompt | n/a | n/a |
-| breadcrumbs | direct | breadcrumbs | n/a | n/a |
-| pagination | direct | pagination | n/a | n/a |
-| audit-event | direct | audit-event | n/a | n/a |
-| error-panel | direct | error-panel | n/a | n/a |
-| tree-view | direct | tree-view | n/a | n/a |
-| motion-boundary | direct | motion-boundary | n/a | n/a |
-| animated-moment | direct | animated-moment | n/a | n/a |
+| segmented-control | direct | segmented-control | segmented-control | true |
+| popover | direct | popover | popover | true |
+| floating-action-button | direct | floating-action-button | fab | true |
+| card-summary | direct | card-summary | card-summary | true |
+| movement-row | direct | movement-row | movement-row | true |
+| quick-action | direct | quick-action | quick-action | true |
+| biometric-prompt | direct | biometric-prompt | biometric-prompt | true |
+| breadcrumbs | direct | breadcrumbs | breadcrumbs | true |
+| pagination | direct | pagination | pagination | true |
+| audit-event | direct | audit-event | audit-event | true |
+| error-panel | direct | error-panel | error-panel | true |
+| tree-view | direct | tree-view | tree-view | true |
+| motion-boundary | direct | motion-boundary | motion-boundary | true |
+| animated-moment | direct | animated-moment | animated-moment | true |

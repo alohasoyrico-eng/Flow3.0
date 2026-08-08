@@ -18,6 +18,9 @@ function renderMarkdown(report) {
   const familyGapRows = report.familyRootGaps
     .map((item) => `| ${item.component} | ${item.contract} | ${item.requiredRoot} | ${item.observedRoots.join(", ") || "None"} |`)
     .join("\n");
+  const directGapRows = report.directRootGaps
+    .map((item) => `| ${item.component} | ${item.contract} | ${item.requiredRoot} | ${item.observedRoots.join(", ") || "None"} |`)
+    .join("\n");
   return [
     "# Component CSS Contract Coverage",
     "",
@@ -27,6 +30,7 @@ function renderMarkdown(report) {
     `- Direct contracts: ${report.direct}`,
     `- Family contracts: ${report.family}`,
     `- Missing contracts: ${report.missing.length}`,
+    `- Direct root gaps: ${report.directRootGaps.length}`,
     `- Family root gaps: ${report.familyRootGaps.length}`,
     "",
     "## Family Contract Policy",
@@ -36,6 +40,12 @@ function renderMarkdown(report) {
     "| Shared contract | Required React root | Components covered |",
     "| --- | --- | --- |",
     familyRows || "| None | None | None |",
+    "",
+    "## Direct Root Gaps",
+    "",
+    "| Component | Contract | Required root | Observed roots |",
+    "| --- | --- | --- | --- |",
+    directGapRows || "| None | None | None | None |",
     "",
     "## Family Root Gaps",
     "",
@@ -53,7 +63,7 @@ function renderMarkdown(report) {
 function main() {
   const coverage = componentCssContractCoverage();
   const report = {
-    status: coverage.missing.length || coverage.familyRootGaps.length ? "fail" : "pass",
+    status: coverage.missing.length || coverage.directRootGaps.length || coverage.familyRootGaps.length ? "fail" : "pass",
     ...coverage,
   };
 
@@ -69,6 +79,7 @@ function main() {
     direct: report.direct,
     family: report.family,
     missing: report.missing,
+    directRootGaps: report.directRootGaps,
     familyRootGaps: report.familyRootGaps,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),

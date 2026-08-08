@@ -64,6 +64,12 @@ const familyCssContracts = {
   "date-range-picker": { contract: "date-picker", requiredRoot: "date-picker" },
 };
 
+const directCssContractRoots = {
+  "floating-action-button": "fab",
+  "progress-indicator": "progress",
+  select: "select-control",
+};
+
 function currentCssContractIds() {
   const dir = path.join(root, "packages/audit/scripts");
   return new Set(fs.readdirSync(dir)
@@ -74,7 +80,19 @@ function currentCssContractIds() {
 function componentCssContractCoverage() {
   const direct = currentCssContractIds();
   const components = goldComponents.map((component) => {
-    if (direct.has(component)) return { component, coverage: "direct", contract: component };
+    if (direct.has(component)) {
+      const requiredRoot = directCssContractRoots[component] ?? component;
+      const observedRoots = observedReactRootsForComponent(component);
+      const requiredRootObserved = observedRoots.includes(requiredRoot);
+      return {
+        component,
+        coverage: "direct",
+        contract: component,
+        requiredRoot,
+        observedRoots,
+        requiredRootObserved,
+      };
+    }
     if (familyCssContracts[component]) {
       const familyContract = familyCssContracts[component];
       const observedRoots = observedReactRootsForComponent(component);
@@ -92,6 +110,12 @@ function componentCssContractCoverage() {
   });
   const family = components.filter((item) => item.coverage === "family");
   const missing = components.filter((item) => item.coverage === "missing").map((item) => item.component);
+  const directRootGaps = components.filter((item) => item.coverage === "direct" && !item.requiredRootObserved).map((item) => ({
+    component: item.component,
+    contract: item.contract,
+    requiredRoot: item.requiredRoot,
+    observedRoots: item.observedRoots,
+  }));
   const familyRootGaps = family.filter((item) => !item.requiredRootObserved).map((item) => ({
     component: item.component,
     contract: item.contract,
@@ -108,6 +132,7 @@ function componentCssContractCoverage() {
     direct: components.filter((item) => item.coverage === "direct").length,
     family: family.length,
     missing,
+    directRootGaps,
     familyRootGaps,
     familyContractPolicy: {
       principle: "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract instead of duplicating token/class rules.",
@@ -135,6 +160,9 @@ function checkComponentCssContractCoverage({ packageCssFile }) {
   const missing = coverage.missing;
   if (missing.length) {
     add("errors", packageCssFile, 1, `Accepted components missing CSS cascade contract coverage: ${missing.join(", ")}.`);
+  }
+  if (coverage.directRootGaps.length) {
+    add("errors", packageCssFile, 1, `Direct CSS contract coverage is not backed by observed React roots: ${coverage.directRootGaps.map((item) => `${item.component}->${item.requiredRoot}`).join(", ")}.`);
   }
   if (coverage.familyRootGaps.length) {
     add("errors", packageCssFile, 1, `Family CSS contract coverage is not backed by observed React roots: ${coverage.familyRootGaps.map((item) => `${item.component}->${item.requiredRoot}`).join(", ")}.`);
