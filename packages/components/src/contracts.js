@@ -34,7 +34,7 @@ export const componentContracts = {
     intents: ["default"],
     states: ["default", "hover", "pressed", "selected", "badged", "focus", "disabled"],
     props: [
-      { name: "ariaLabel", type: "string", required: false },
+      { name: "ariaLabel", type: "string", required: true },
       { name: "label", type: "string", required: false },
       { name: "icon", type: "string", required: true },
       { name: "variant", type: "\"ghost\" | \"tonal\" | \"primary\" | \"accent\"", required: false },

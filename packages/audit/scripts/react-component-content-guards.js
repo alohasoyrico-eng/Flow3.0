@@ -36,6 +36,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "ChartPanel" && /labels\[index\]\s*\?\?\s*String\(index\)/.test(source)) add("errors", sourceFile, 1, "ChartPanel must not synthesize point labels from indexes.");
   if (name === "ChartPanel" && !source.includes("role: pointLabel ? \"listitem\" : undefined")) add("errors", sourceFile, 1, "ChartPanel must gate focusable chart points on real point labels.");
   if (name === "Button" && !source.includes("if (!buttonLabel) return null;")) add("errors", sourceFile, 1, "Button must not render without visible text.");
+  if (name === "IconButton" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "IconButton must not render without an accessible label.");
 }
 
 module.exports = { checkReactComponentContentGuards };
