@@ -54,7 +54,7 @@ export const QuickAction = forwardRef(function QuickAction({
           if (blocked) return;
           rest.onClick?.(event);
           if (event.defaultPrevented) return;
-          onAction?.({ label: resolvedLabel, variant: resolvedVariant, state: resolvedState });
+          onAction?.({ label: resolvedLabel, variant: resolvedVariant, state: resolvedState }, event);
         },
       },
       React.createElement(

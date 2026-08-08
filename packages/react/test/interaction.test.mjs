@@ -1293,24 +1293,24 @@ try {
     icon: "qr_code_scanner",
     tone: "danger",
     onClick: (event) => quickActionClicks.push(event.type),
-    onAction: (meta) => quickActions.push(meta),
+    onAction: (meta, event) => quickActions.push({ meta, eventType: event.type }),
   }));
 
   fireEvent.click(getQuickActionRole("button", { name: /scan card/i }));
   assert.deepEqual(quickActionClicks, ["click"]);
-  assert.deepEqual(quickActions, [{ label: "Scan card", variant: "destructive", state: "default" }]);
+  assert.deepEqual(quickActions, [{ meta: { label: "Scan card", variant: "destructive", state: "default" }, eventType: "click" }]);
 
   rerenderQuickAction(React.createElement(QuickAction, {
     label: "Scan card",
     icon: "qr_code_scanner",
     loading: true,
     onClick: (event) => quickActionClicks.push(event.type),
-    onAction: (meta) => quickActions.push(meta),
+    onAction: (meta, event) => quickActions.push({ meta, eventType: event.type }),
   }));
 
   fireEvent.click(getQuickActionRole("button", { name: /scan card/i }));
   assert.deepEqual(quickActionClicks, ["click"]);
-  assert.deepEqual(quickActions, [{ label: "Scan card", variant: "destructive", state: "default" }]);
+  assert.deepEqual(quickActions, [{ meta: { label: "Scan card", variant: "destructive", state: "default" }, eventType: "click" }]);
 
   cleanup();
 
