@@ -283,6 +283,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Drawer" && /value:\s*item\.value\s*\?\?\s*0/.test(source)) add("errors", sourceFile, 1, "Drawer progress content must require real progress values instead of synthesizing zero.");
   if (name === "Drawer" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "Drawer must not synthesize action keys from visible labels.");
   if (name === "Drawer" && !source.includes("onOpenChange?.(normalizedOpen, event);")) add("errors", sourceFile, 1, "Drawer must pass the original user event through onOpenChange when user interaction changes overlay state.");
+  if (name === "Drawer" && !source.includes("const resolvedInteractionState = isOpenControlled ? controlledInteractionState : interactionState;")) add("errors", sourceFile, 1, "Drawer controlled open state must derive visual interaction state from open during render.");
+  if (name === "Drawer" && !source.includes("if (!isOpenControlled) setInteractionState(normalizedOpen ? \"open\" : \"closed\");")) add("errors", sourceFile, 1, "Drawer must not mutate local interaction state while open is controlled.");
   if (name === "Toast" && /dismissible\s*\?\s*React\.createElement\(IconButton/.test(source)) add("errors", sourceFile, 1, "Toast must gate dismiss IconButton on dismissLabel, not dismissible alone.");
   if (name === "Toast" && /ariaLabel:\s*dismissLabel/.test(source)) add("errors", sourceFile, 1, "Toast dismiss control must use IconButton label instead of a parallel ariaLabel prop.");
   if (name === "Toast" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Toast must require a visible feedback label before rendering status or alert semantics.");

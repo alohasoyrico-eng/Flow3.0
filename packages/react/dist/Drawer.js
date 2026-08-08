@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
+import React, { forwardRef, useId, useRef, useState } from "react";
 import { drawerPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 import { Button } from "./Button.js";
@@ -101,6 +101,9 @@ export const Drawer = forwardRef(function Drawer({
   const [internalOpen, setInternalOpen] = useState(initiallyOpen);
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
+  const controlledInteractionState = isOpen ? "open" : initialState === "default" ? "default" : "closed";
+  const resolvedInteractionState = isOpenControlled ? controlledInteractionState : interactionState;
+  const resolvedState = isOpen ? resolvedInteractionState : resolvedInteractionState === "default" ? "default" : "closed";
   const drawerId = id || `drawer-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = `${drawerId}-title`;
   const sourceActions = Array.isArray(actions) ? actions : [];
@@ -110,18 +113,12 @@ export const Drawer = forwardRef(function Drawer({
   const sourceContent = Array.isArray(content) ? content : [];
   const visibleFields = sourceFields.filter((field) => field?.label && hasStableFieldName(field));
 
-  useEffect(() => {
-    if (!isOpenControlled) return;
-    const normalizedOpen = Boolean(openProp);
-    setInteractionState(normalizedOpen ? "open" : initialState === "default" ? "default" : "closed");
-  }, [openProp, initialState, isOpenControlled]);
-
   if (!label) return null;
 
   const setOpen = (nextOpen, { restoreFocus = false, event } = {}) => {
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
-    setInteractionState(normalizedOpen ? "open" : "closed");
+    if (!isOpenControlled) setInteractionState(normalizedOpen ? "open" : "closed");
     onOpenChange?.(normalizedOpen, event);
     if (normalizedOpen) requestAnimationFrame(() => closeRef.current?.focus());
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
@@ -142,7 +139,7 @@ export const Drawer = forwardRef(function Drawer({
       ref,
       className: ["drawer", `drawer--${resolvedTone}`, className].filter(Boolean).join(" "),
       ...flowVariantProps(resolvedVariant),
-      ...flowStateProps(isOpen ? interactionState : interactionState === "default" ? "default" : "closed"),
+      ...flowStateProps(resolvedState),
       ...flowToneProps(resolvedTone),
       ...flowDensityProps(resolvedDensity),
       "data-open": String(Boolean(isOpen)),

@@ -1020,6 +1020,11 @@ try {
     onAction: (key) => drawerActions.push(key),
   }));
   await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false"));
+  await waitFor(() => assert.equal(drawerTrigger.closest(".drawer").dataset.state, "closed"));
+  fireEvent.click(drawerTrigger);
+  assert.equal(drawerOpenChanges.at(-1).open, true);
+  assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false");
+  assert.equal(drawerTrigger.closest(".drawer").dataset.state, "closed");
 
   cleanup();
 
