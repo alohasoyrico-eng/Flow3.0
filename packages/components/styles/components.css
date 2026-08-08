@@ -12,6 +12,7 @@
   --component-density-row-height: var(--sys-density-row-height);
   --component-density-card-padding: var(--sys-density-card-padding);
   --component-density-component-gap: var(--sys-density-component-gap);
+  --component-frame-space-micro: var(--sys-frame-space-micro);
   --component-focus-ring: var(--sys-focus-ring);
   --component-focus-ring-width: var(--sys-frame-border-indicator);
   --component-focus-ring-offset: var(--sys-focus-ring-offset);
@@ -306,9 +307,9 @@
   --component-depth-today-ring: inset 0 0 0 var(--sys-frame-border-control) color-mix(in srgb, var(--sys-color-text) 56%, transparent);
   --component-depth-accent-halo: 0 0 0 calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--comp-animated-moment-accent-surface);
   --component-depth-frost-text: 0 var(--sys-frame-border-thin) var(--sys-space-xl) color-mix(in srgb, var(--sys-color-text) 30%, transparent);
-  --component-field-control-size-sm: calc(var(--ref-frame-height-control-sm-compact) - var(--sys-frame-space-micro));
-  --component-field-control-size-md: calc(var(--sys-frame-height-control-sm) - var(--sys-frame-space-micro));
-  --component-field-control-size-lg: calc(var(--ref-frame-height-control-md-compact) + var(--sys-frame-space-micro));
+  --component-field-control-size-sm: calc(var(--ref-frame-height-control-sm-compact) - var(--component-frame-space-micro));
+  --component-field-control-size-md: calc(var(--sys-frame-height-control-sm) - var(--component-frame-space-micro));
+  --component-field-control-size-lg: calc(var(--ref-frame-height-control-md-compact) + var(--component-frame-space-micro));
   --component-field-icon-action-size-sm: calc(var(--component-control-min-size) - var(--sys-space-xl));
   --component-field-icon-action-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg));
   --component-field-icon-action-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md));
@@ -427,12 +428,12 @@
   --comp-phone-input-warning-border: color-mix(in srgb, var(--sys-color-warning) 42%, var(--sys-color-border));
   --comp-phone-input-error-bg: color-mix(in srgb, var(--sys-color-danger) 9%, var(--sys-color-surface));
   --comp-phone-input-error-border: var(--sys-color-danger);
-  --component-slider-track-size-sm: calc(var(--sys-space-sm) - var(--sys-frame-space-micro));
+  --component-slider-track-size-sm: calc(var(--sys-space-sm) - var(--component-frame-space-micro));
   --component-slider-track-size-md: var(--sys-space-sm);
-  --component-slider-track-size-lg: calc(var(--sys-space-sm) + var(--sys-frame-space-micro));
+  --component-slider-track-size-lg: calc(var(--sys-space-sm) + var(--component-frame-space-micro));
   --component-slider-thumb-size-sm: calc(var(--component-control-min-size) - var(--sys-space-xl));
-  --component-slider-thumb-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg) + var(--sys-frame-space-micro));
-  --component-slider-thumb-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md) + var(--sys-frame-space-micro));
+  --component-slider-thumb-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg) + var(--component-frame-space-micro));
+  --component-slider-thumb-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md) + var(--component-frame-space-micro));
   --component-slider-touch-size-sm: calc(var(--component-control-min-size) - var(--sys-space-sm));
   --component-slider-touch-size-md: var(--component-control-min-size);
   --component-slider-touch-size-lg: var(--sys-frame-height-control-sm);
@@ -560,7 +561,7 @@
   --comp-radio-button-hover-scale: var(--component-scale-hover);
   --comp-radio-button-press-scale: var(--component-scale-press);
   --comp-radio-button-disabled-opacity: var(--sys-disabled-readable-opacity);
-  --component-list-icon-box-size: calc(var(--component-control-min-size) - var(--sys-space-md) + var(--sys-frame-space-micro));
+  --component-list-icon-box-size: calc(var(--component-control-min-size) - var(--sys-space-md) + var(--component-frame-space-micro));
   --component-list-icon-box-size-sm: var(--component-field-icon-action-size-lg);
   --component-list-icon-box-size-lg: var(--component-inline-size-lg);
   --component-list-item-min-block-sm: var(--sys-frame-height-control-sm);
@@ -868,7 +869,7 @@
   --component-station-pin-pointer-size-lg: calc(var(--component-station-pin-pointer-size) + var(--sys-frame-border-thin));
   --component-card-icon-size-sm: calc(var(--component-control-min-size) - var(--sys-space-lg));
   --component-card-icon-size-lg: calc(var(--component-control-min-size) - var(--sys-space-sm));
-  --component-station-pin-pointer-size: calc(var(--sys-space-sm) - var(--sys-frame-space-micro));
+  --component-station-pin-pointer-size: calc(var(--sys-space-sm) - var(--component-frame-space-micro));
   --component-phone-compact-control-size: var(--component-field-control-size-sm);
   --component-date-picker-control-size-sm: var(--sys-space-9);
   --component-date-picker-control-size-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
@@ -897,9 +898,9 @@
   --comp-button-size-md: var(--component-button-size-md);
   --comp-button-size-lg: var(--component-button-size-lg);
   --comp-button-size: var(--component-density-control-height);
-  --comp-button-padding-sm: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
+  --comp-button-padding-sm: calc(var(--sys-space-md) + var(--component-frame-space-micro));
   --comp-button-padding-md: var(--sys-space-lg);
-  --comp-button-padding-lg: calc(var(--sys-space-xl) + var(--sys-frame-space-micro));
+  --comp-button-padding-lg: calc(var(--sys-space-xl) + var(--component-frame-space-micro));
   --comp-button-padding: var(--component-density-control-padding-x);
   --comp-button-icon-size-sm: var(--sys-icon-size-sm-plus);
   --comp-button-icon-size-md: var(--sys-icon-size-md);
@@ -1381,7 +1382,7 @@
 .combobox {
   --comp-combobox-chevron-color: var(--sys-color-text-muted);
   --comp-combobox-chevron-focus-color: var(--sys-color-action);
-  --comp-combobox-chevron-size: calc(var(--component-font-size-title-md) + var(--sys-frame-space-micro));
+  --comp-combobox-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro));
   --comp-combobox-chevron-motion-duration: var(--component-duration-state);
   --comp-combobox-chevron-motion-ease: var(--component-ease-press);
   --comp-combobox-overlay-motion-duration: var(--component-duration-state);
@@ -4988,7 +4989,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-meta-size: var(--component-font-size-caption);
   --comp-audit-event-meta-weight: var(--sys-voice-weight-bold);
   --comp-audit-event-meta-line-height: var(--sys-voice-line-height-tight);
-  --comp-audit-event-status-padding-block: var(--sys-frame-space-micro);
+  --comp-audit-event-status-padding-block: var(--component-frame-space-micro);
   --comp-audit-event-status-padding-inline: var(--sys-space-sm);
   --comp-audit-event-status-size: var(--component-font-size-caption);
   --comp-audit-event-status-style: normal;
@@ -6505,7 +6506,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-biometric-prompt-gap: var(--sys-space-md);
   --comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-sm));
   --comp-biometric-prompt-padding: calc(var(--sys-space-xl) + var(--sys-space-xs)) var(--sys-space-lg) var(--sys-space-lg);
-  --comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 - var(--sys-frame-space-micro));
+  --comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 - var(--component-frame-space-micro));
   --comp-biometric-prompt-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
   --comp-biometric-prompt-icon-fg: var(--sys-color-action);
   --comp-biometric-prompt-icon-font-size: var(--component-font-size-display-sm);
@@ -8040,7 +8041,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-compact-header-display: flex;
   --comp-route-summary-compact-header-flex: 1 1 auto;
   --comp-route-summary-compact-header-min-inline: 0;
-  --comp-route-summary-padding: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
+  --comp-route-summary-padding: calc(var(--sys-space-md) + var(--component-frame-space-micro));
   --comp-route-summary-metric-min: var(--component-metric-min-inline-size-xs);
   align-items: var(--comp-route-summary-compact-align);
   border-color: var(--comp-route-summary-compact-border);
@@ -9114,9 +9115,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-icon-size: var(--sys-icon-size-md);
   --comp-select-gap: var(--component-field-gap);
   --comp-select-padding-start: var(--sys-space-lg);
-  --comp-select-padding-end: calc(var(--sys-space-lg) - var(--sys-frame-space-micro));
+  --comp-select-padding-end: calc(var(--sys-space-lg) - var(--component-frame-space-micro));
   --comp-select-inline-padding-end: var(--sys-space-sm);
-  --comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--sys-frame-space-micro));
+  --comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro));
   --comp-select-chevron-motion-duration: var(--component-duration-state);
   --comp-select-chevron-motion-ease: var(--component-ease-press);
   --comp-select-overlay-motion-duration: var(--component-duration-state);
@@ -9129,7 +9130,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-option-gap: var(--sys-space-sm);
   --comp-select-option-min-size: var(--component-option-min-block-size);
   --comp-select-option-padding-x: var(--sys-space-sm);
-  --comp-select-option-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro));
+  --comp-select-option-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
   --comp-select-current-control-size: var(--comp-select-control-size);
   --comp-select-current-icon-size: var(--comp-select-icon-size);
   display: grid;
@@ -9182,7 +9183,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-search-gap: var(--sys-space-xs);
   --comp-country-selector-search-bg: color-mix(in srgb, var(--sys-color-surface-raised) 72%, var(--sys-color-surface));
   --comp-country-selector-search-border: var(--sys-color-border);
-  --comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro));
+  --comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
   --comp-country-selector-search-font-size: var(--component-font-size-small);
   --comp-country-selector-search-font-weight: var(--sys-voice-weight-semibold);
   --comp-country-selector-option-color: var(--sys-color-text);
@@ -9478,7 +9479,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   padding: var(--comp-select-listbox-padding);
   pointer-events: none;
   position: absolute;
-  transform: translateY(calc(var(--component-translate-overlay-enter) - var(--sys-frame-space-micro))) scale(var(--component-scale-quiet));
+  transform: translateY(calc(var(--component-translate-overlay-enter) - var(--component-frame-space-micro))) scale(var(--component-scale-quiet));
   transform-origin: top left;
   transition:
     opacity var(--comp-select-overlay-motion-duration) var(--comp-select-overlay-motion-ease),
@@ -9811,12 +9812,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   min-inline-size: 0;
   position: relative;
   --comp-date-picker-control-size: var(--component-density-control-height);
-  --comp-date-picker-control-gap: calc(var(--sys-space-sm) + var(--sys-frame-space-micro));
-  --comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--sys-space-lg) + var(--sys-frame-space-micro));
+  --comp-date-picker-control-gap: calc(var(--sys-space-sm) + var(--component-frame-space-micro));
+  --comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--sys-space-lg) + var(--component-frame-space-micro));
   --comp-date-picker-day-font-size: var(--component-font-size-small);
   --comp-date-picker-icon-size: var(--component-font-size-title-md);
   --comp-date-picker-panel-gap: var(--sys-space-xs);
-  --comp-date-picker-panel-padding: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
+  --comp-date-picker-panel-padding: calc(var(--sys-space-md) + var(--component-frame-space-micro));
   --comp-date-picker-panel-inline-size: var(--component-date-picker-panel-inline-size);
   --comp-date-picker-radius: var(--component-radius-control);
   --comp-date-picker-panel-radius: var(--component-radius-surface);
@@ -10163,7 +10164,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-border: var(--sys-color-border);
   --comp-segmented-control-border-width: calc(var(--component-border-width) * 2);
   --comp-segmented-control-radius: var(--sys-radius-sm);
-  --comp-segmented-control-inner-radius: calc(var(--comp-segmented-control-radius) - var(--sys-frame-space-micro));
+  --comp-segmented-control-inner-radius: calc(var(--comp-segmented-control-radius) - var(--component-frame-space-micro));
   --comp-segmented-control-inline-size: min(100%, var(--component-segmented-control-inline-size));
   --comp-segmented-control-padding: calc(var(--sys-space-xs) / 2);
   --comp-segmented-control-indicator-bg: color-mix(in srgb, var(--sys-color-action) 14%, var(--sys-color-surface));

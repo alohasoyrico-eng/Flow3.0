@@ -180,6 +180,9 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*border-width[\w-]*:\s*var\(--sys-(?:frame-border|border-width)-[\w-]+\);/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component border-width aliases must consume --component-border-width* aliases instead of reaching into sys frame border directly.");
   }
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc|min|max)\([^;]*--sys-frame-space-micro[^;]*;/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-space-micro instead of reaching into sys frame spacing directly.");
+  }
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });

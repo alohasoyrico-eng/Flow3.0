@@ -18,7 +18,7 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: comboboxBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-combobox-chevron-size: calc(var(--component-font-size-title-md) + var(--sys-frame-space-micro))"],
+    snippets: ["--comp-combobox-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro))"],
     message: "Combobox chevron sizing must consume Frame micro offset instead of raw rem values.",
   });
   requireIncludes({
@@ -26,10 +26,10 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-select-padding-end: calc(var(--sys-space-lg) - var(--sys-frame-space-micro))",
-      "--comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--sys-frame-space-micro))",
+      "--comp-select-padding-end: calc(var(--sys-space-lg) - var(--component-frame-space-micro))",
+      "--comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro))",
       "--comp-select-option-min-size: var(--component-option-min-block-size)",
-      "--comp-select-option-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro))",
+      "--comp-select-option-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro))",
     ],
     message: "Select frame offsets must consume Frame micro aliases instead of raw px/rem values.",
   });
@@ -40,7 +40,7 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
     snippets: [
       "--comp-country-selector-inline-listbox-max-inline-size: var(--component-country-selector-inline-listbox-max-inline-size)",
       "--comp-country-selector-inline-listbox-inline-size: var(--component-country-selector-inline-listbox-inline-size)",
-      "--comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro))",
+      "--comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro))",
     ],
     message: "Country Selector listbox frame and search radius must consume Frame/component aliases instead of local values.",
   });
