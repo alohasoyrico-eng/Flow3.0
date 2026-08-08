@@ -81,6 +81,7 @@ import { Dialog } from "@alohasoyrico-eng/flow/react/dialog";
 
 const require = createRequire(import.meta.url);
 for (const exportedPath of [
+  "@alohasoyrico-eng/flow/tokens.json",
   "@alohasoyrico-eng/flow/tokens/styles.css",
   "@alohasoyrico-eng/flow/components/styles.css",
   "@alohasoyrico-eng/flow/components",
@@ -88,6 +89,10 @@ for (const exportedPath of [
 ]) {
   assert.ok(require.resolve(exportedPath), \`Expected package export to resolve: \${exportedPath}\`);
 }
+const tokenContract = require("@alohasoyrico-eng/flow/tokens.json");
+assert.equal(tokenContract.format, "flow-token-contract@1");
+assert.ok(tokenContract.compatibleWith.includes("style-dictionary"));
+assert.ok(Object.keys(tokenContract.tokens).length >= 1000);
 
 const screen = React.createElement("main", { className: "product-screen", "data-density": "md", "data-theme": "light" },
   React.createElement(Card, {
@@ -189,6 +194,13 @@ function auditInstalledPackage(consumerDir) {
   const packageRoot = path.join(consumerDir, "node_modules/@alohasoyrico-eng/flow");
   const consumerRequire = createRequire(path.join(consumerDir, "package.json"));
   const installedPackage = JSON.parse(fs.readFileSync(path.join(packageRoot, "package.json"), "utf8"));
+  const installedTokenContract = JSON.parse(fs.readFileSync(path.join(packageRoot, "packages/tokens/tokens.json"), "utf8"));
+  if (installedTokenContract.format !== "flow-token-contract@1" || !installedTokenContract.compatibleWith?.includes("style-dictionary")) {
+    throw new Error("Installed package must include the platform-neutral token JSON contract.");
+  }
+  if (Object.keys(installedTokenContract.tokens ?? {}).length < 1000) {
+    throw new Error("Installed token JSON contract must include the full token inventory.");
+  }
   for (const [key, value] of Object.entries(installedPackage.exports ?? {})) {
     if (!key.startsWith("./react")) continue;
     const packagePath = key === "./react" ? "@alohasoyrico-eng/flow/react" : `@alohasoyrico-eng/flow/${key.slice(2)}`;
