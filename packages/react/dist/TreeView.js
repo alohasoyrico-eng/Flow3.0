@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useMemo, useRef, useState } from "react";
 import { treeViewPlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { flowStateProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
@@ -50,24 +50,21 @@ export const TreeView = forwardRef(function TreeView({
   const normalizedNodes = useMemo(() => normalizeNodes(nodes), [nodes]);
   const isSelectedKeyControlled = selectedKey !== undefined;
   const isExpandedKeysControlled = expandedKeys !== undefined;
-  const [selected, setSelected] = useState(() => selectedKey ?? normalizedNodes.find((node) => node.selected)?.key ?? "");
+  const [internalSelected, setInternalSelected] = useState(() => String(selectedKey ?? normalizedNodes.find((node) => node.selected)?.key ?? ""));
   const [internalExpanded, setInternalExpanded] = useState(() => normalizedNodes.filter((node) => node.expanded).map((node) => node.key));
+  const selected = isSelectedKeyControlled ? String(selectedKey ?? "") : internalSelected;
   const expanded = isExpandedKeysControlled ? (Array.isArray(expandedKeys) ? expandedKeys.map(String) : []) : internalExpanded;
   const controlRefs = useRef(new Map());
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedState = normalizeFlowValue(state, validStates, "expanded");
   const visible = visibleKeys(normalizedNodes, expanded);
 
-  useEffect(() => {
-    if (isSelectedKeyControlled) setSelected(selectedKey ?? "");
-  }, [isSelectedKeyControlled, selectedKey]);
-
   if (!normalizedNodes.length) return null;
 
   const focusKey = (key) => requestAnimationFrame(() => controlRefs.current.get(key)?.focus());
   const commitSelected = (node, event) => {
     if (!node || node.disabled) return;
-    if (!isSelectedKeyControlled) setSelected(node.key);
+    if (!isSelectedKeyControlled) setInternalSelected(node.key);
     onSelect?.(node.key, event);
     focusKey(node.key);
   };

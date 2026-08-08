@@ -2260,6 +2260,7 @@ try {
   rerenderTreeView(React.createElement(TreeView, {
     label: "Docs navigation",
     selectedKey: "input",
+    expandedKeys: ["components"],
     nodes: [
       { key: "components", label: "Components", level: 1, expanded: true, icon: "category" },
       { key: "button", label: "Button", level: 2 },
@@ -2269,6 +2270,22 @@ try {
     onExpandedChange: (keys, event) => treeExpandedChanges.push({ keys, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(document.querySelector('[data-key="input"] [role="treeitem"]').getAttribute("aria-selected"), "true"));
+  fireEvent.click(document.querySelector('[data-key="button"] [role="treeitem"]'));
+  assert.deepEqual(treeSelections.at(-1), { key: "button", eventType: "click" });
+  assert.equal(document.querySelector('[data-key="button"] [role="treeitem"]').getAttribute("aria-selected"), "false");
+  rerenderTreeView(React.createElement(TreeView, {
+    label: "Docs navigation",
+    selectedKey: "button",
+    expandedKeys: ["components"],
+    nodes: [
+      { key: "components", label: "Components", level: 1, expanded: true, icon: "category" },
+      { key: "button", label: "Button", level: 2 },
+      { key: "input", label: "Input", level: 2 },
+    ],
+    onSelect: (key, event) => treeSelections.push({ key, eventType: event.type }),
+    onExpandedChange: (keys, event) => treeExpandedChanges.push({ keys, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(document.querySelector('[data-key="button"] [role="treeitem"]').getAttribute("aria-selected"), "true"));
 
   cleanup();
 
