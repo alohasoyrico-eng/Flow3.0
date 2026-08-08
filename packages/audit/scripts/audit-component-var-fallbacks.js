@@ -12,6 +12,15 @@ function checkComponentVarFallbacks(cssWithoutDefinitions, fullText) {
       `${match[1]} must declare its default in the component contract instead of using a var() fallback at consumption.`
     );
   }
+  const localFallbackPattern = /var\((--[^,\)]+),\s*[^)]+\)/g;
+  for (const match of cssWithoutDefinitions.matchAll(localFallbackPattern)) {
+    add(
+      "errors",
+      packageCssFile,
+      lineNumber(fullText, fullText.indexOf(match[0])),
+      `${match[1]} must not use a local var() fallback outside :root; promote the fallback to a named component role.`
+    );
+  }
 }
 
 module.exports = { checkComponentVarFallbacks };
