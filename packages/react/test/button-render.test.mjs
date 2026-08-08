@@ -768,7 +768,7 @@ const unnamedInteractiveKpiMarkup = renderToStaticMarkup(React.createElement(Kpi
   onSelect: () => {},
   href: "#missing-copy",
 }));
-assert.match(unnamedInteractiveKpiMarkup, /^<article/);
+assert.equal(unnamedInteractiveKpiMarkup, "");
 assert.doesNotMatch(unnamedInteractiveKpiMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /role="button"|tabIndex=|href=|aria-label=/);
 assert.doesNotMatch(unnamedInteractiveKpiMarkup, /class="kpi-tile__affordance"/);
 const inertDrillInKpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {

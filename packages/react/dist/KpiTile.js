@@ -44,12 +44,15 @@ export const KpiTile = forwardRef(function KpiTile({
   const resolvedTrend = normalizeFlowValue(trend, validTrends, "flat");
   const resolvedState = loading ? "loading" : disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
+  const hasValue = value !== undefined && value !== null && value !== "";
   const requestedInteraction = Boolean(href || onSelect || resolvedVariant === "drill-in");
   const canActivateTile = Boolean(href || onSelect);
   const selectMeta = { label, value, delta, tone: resolvedTone, variant: resolvedVariant };
   const accessibleLabel = ariaLabel || (requestedInteraction && (label || value || delta) ? `${label ?? ""} ${value ?? ""}${delta ? `, ${delta}` : ""}`.trim() : undefined);
   const interactive = requestedInteraction && canActivateTile && Boolean(accessibleLabel);
   const Element = href && interactive ? "a" : "article";
+
+  if (!hasValue) return null;
 
   return React.createElement(
     Element,
@@ -88,7 +91,7 @@ export const KpiTile = forwardRef(function KpiTile({
       label ? React.createElement("span", { className: "kpi-tile__label" }, label) : null,
       icon ? React.createElement("span", { className: "kpi-tile__icon", "aria-hidden": "true" }, icon) : null,
     ),
-    value ? React.createElement("strong", { className: "kpi-tile__value" }, value) : null,
+    React.createElement("strong", { className: "kpi-tile__value" }, value),
     loading
       ? React.createElement("span", { className: "kpi-tile__loading", "aria-hidden": "true" })
       : delta

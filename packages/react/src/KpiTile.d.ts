@@ -9,7 +9,7 @@ export type KpiTileTrend = "up" | "down" | "flat";
 
 export interface KpiTileMeta {
   label?: string;
-  value?: string;
+  value: string;
   delta?: string;
   tone: KpiTileTone;
   variant: KpiTileVariant;
@@ -17,7 +17,7 @@ export interface KpiTileMeta {
 
 export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label?: string;
-  value?: string;
+  value: string;
   delta?: string;
   trend?: KpiTileTrend;
   tone?: KpiTileTone;
