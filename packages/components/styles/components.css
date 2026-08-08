@@ -9196,7 +9196,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary__metrics {
-  gap: var(--sys-space-sm);
+  gap: var(--component-space-sm);
   grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
 }
 
@@ -10902,6 +10902,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-card-summary-badge-border: color-mix(in srgb, var(--comp-card-summary-current-fg) 18%, transparent);
   --comp-card-summary-border: var(--component-color-border);
   --comp-card-summary-border-width: var(--component-border-width);
+  --comp-card-summary-border-warning: color-mix(in srgb, var(--component-color-warning) 38%, var(--component-color-border));
   --comp-card-summary-brand-family: var(--component-font-family-title);
   --comp-card-summary-brand-letter-spacing: var(--component-letter-spacing-widest);
   --comp-card-summary-brand-size: var(--component-font-size-label);
@@ -10928,13 +10929,34 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-card-summary-header-display: var(--component-display-grid);
   --comp-card-summary-header-gap: var(--component-space-sm);
   --comp-card-summary-header-grid: minmax(0, 1fr) auto;
+  --comp-card-summary-number-row-gap: var(--component-space-sm);
+  --comp-card-summary-number-family: var(--component-font-family-mono);
+  --comp-card-summary-number-weight: var(--component-font-weight-semibold);
+  --comp-card-summary-number-letter-spacing: var(--component-letter-spacing-widest);
+  --comp-card-summary-expires-family: var(--component-font-family-mono);
+  --comp-card-summary-expires-weight: var(--component-font-weight-semibold);
   --comp-card-summary-metrics-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 10%, transparent);
   --comp-card-summary-metrics-border: color-mix(in srgb, var(--comp-card-summary-current-fg) 14%, transparent);
+  --comp-card-summary-metrics-padding: var(--component-space-sm);
+  --comp-card-summary-metrics-gap: var(--component-space-xs);
   --comp-card-summary-overflow: var(--component-overflow-hidden);
   --comp-card-summary-position: var(--component-position-relative);
   --comp-card-summary-tech-display: var(--component-display-flex);
   --comp-card-summary-tech-gap: var(--component-space-sm);
   --comp-card-summary-tech-margin-block-start: var(--component-margin-auto);
+  --comp-card-summary-compact-brand-fg: var(--component-color-text);
+  --comp-card-summary-compact-brand-letter-spacing: var(--component-letter-spacing-normal);
+  --comp-card-summary-compact-brand-transform: var(--component-text-transform-none);
+  --comp-card-summary-compact-number-row-gap: var(--component-space-2xs);
+  --comp-card-summary-compact-number-fg: var(--component-color-text-muted);
+  --comp-card-summary-compact-number-letter-spacing: var(--component-letter-spacing-wide);
+  --comp-card-summary-holder-weight: var(--component-font-weight-bold);
+  --comp-card-summary-holder-letter-spacing: var(--component-letter-spacing-widest);
+  --comp-card-summary-holder-transform: var(--component-text-transform-uppercase);
+  --comp-card-summary-frost-bg: color-mix(in srgb, var(--component-color-surface) 18%, transparent);
+  --comp-card-summary-frost-fg: var(--component-color-action-text);
+  --comp-card-summary-frost-weight: var(--component-font-weight-extrabold);
+  --comp-card-summary-frost-gap: var(--component-space-sm);
   aspect-ratio: var(--comp-card-summary-aspect-ratio);
   background:
     var(--comp-card-summary-gradient),
@@ -10988,7 +11010,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .card-summary[data-state="warning"] {
   --comp-card-summary-current-tone: var(--comp-card-summary-tone-warning);
-  border-color: color-mix(in srgb, var(--sys-color-warning) 38%, var(--sys-color-border));
+  border-color: var(--comp-card-summary-border-warning);
 }
 
 .card-summary[data-state="frozen"] {
@@ -11009,7 +11031,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-state="active"] {
-  border-color: color-mix(in srgb, var(--comp-card-summary-current-tone) 34%, var(--sys-color-border));
+  border-color: color-mix(in srgb, var(--comp-card-summary-current-tone) 34%, var(--component-color-border));
   box-shadow: var(--comp-card-summary-shadow-active);
 }
 
@@ -11064,24 +11086,24 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .card-summary__number-row {
   align-items: baseline;
   display: flex;
-  gap: var(--sys-space-sm);
+  gap: var(--comp-card-summary-number-row-gap);
   margin: 0;
 }
 
 .card-summary__expires {
   color: var(--comp-card-summary-current-muted);
-  font-family: var(--sys-voice-family-mono);
+  font-family: var(--comp-card-summary-expires-family);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-semibold);
+  font-weight: var(--comp-card-summary-expires-weight);
   margin-inline-start: auto;
 }
 
 .card-summary__number {
   color: var(--comp-card-summary-current-fg);
-  font-family: var(--sys-voice-family-mono);
+  font-family: var(--comp-card-summary-number-family);
   font-size: var(--comp-card-summary-current-number-size);
-  font-weight: var(--sys-voice-weight-semibold);
-  letter-spacing: var(--sys-voice-letter-spacing-widest);
+  font-weight: var(--comp-card-summary-number-weight);
+  letter-spacing: var(--comp-card-summary-number-letter-spacing);
   white-space: nowrap;
 }
 
@@ -11111,7 +11133,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .card-summary[data-variant="compact"] .card-summary__icon {
   align-items: center;
-  background: color-mix(in srgb, var(--comp-card-summary-current-tone) 12%, var(--sys-color-surface));
+  background: color-mix(in srgb, var(--comp-card-summary-current-tone) 12%, var(--component-color-surface));
   block-size: var(--component-inline-size-md);
   border-radius: var(--component-radius-pill);
   color: var(--comp-card-summary-current-tone);
@@ -11121,21 +11143,21 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-variant="compact"] .card-summary__brand {
-  color: var(--sys-color-text);
+  color: var(--comp-card-summary-compact-brand-fg);
   font-size: var(--component-font-size-body);
-  letter-spacing: var(--sys-voice-letter-spacing-normal);
-  text-transform: var(--sys-voice-transform-none);
+  letter-spacing: var(--comp-card-summary-compact-brand-letter-spacing);
+  text-transform: var(--comp-card-summary-compact-brand-transform);
 }
 
 .card-summary[data-variant="compact"] .card-summary__number-row {
   display: grid;
-  gap: var(--sys-space-2xs);
+  gap: var(--comp-card-summary-compact-number-row-gap);
 }
 
 .card-summary[data-variant="compact"] .card-summary__number {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-card-summary-compact-number-fg);
   font-size: var(--component-font-size-caption);
-  letter-spacing: var(--sys-voice-letter-spacing-wide);
+  letter-spacing: var(--comp-card-summary-compact-number-letter-spacing);
 }
 
 .card-summary[data-variant="compact"] .card-summary__holder,
@@ -11152,30 +11174,30 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   border: var(--component-border-width) solid var(--comp-card-summary-metrics-border);
   border-radius: var(--comp-card-summary-metric-radius);
   grid-template-columns: repeat(auto-fit, minmax(var(--comp-card-summary-current-metric-min), 1fr));
-  padding: var(--sys-space-sm);
+  padding: var(--comp-card-summary-metrics-padding);
 }
 
 .card-summary .card-summary__metrics span {
   display: grid;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-card-summary-metrics-gap);
 }
 
 .card-summary .card-summary__holder {
   color: var(--comp-card-summary-current-muted);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-bold);
-  letter-spacing: var(--sys-voice-letter-spacing-wider);
-  text-transform: var(--sys-voice-transform-uppercase);
+  font-weight: var(--comp-card-summary-holder-weight);
+  letter-spacing: var(--comp-card-summary-holder-letter-spacing);
+  text-transform: var(--comp-card-summary-holder-transform);
 }
 
 .card-summary__frost {
   align-items: center;
   backdrop-filter: blur(var(--component-backdrop-blur));
-  background: color-mix(in srgb, var(--sys-color-surface) 18%, transparent);
-  color: var(--sys-color-action-text);
+  background: var(--comp-card-summary-frost-bg);
+  color: var(--comp-card-summary-frost-fg);
   display: inline-flex;
-  font-weight: var(--sys-voice-weight-extrabold);
-  gap: var(--sys-space-sm);
+  font-weight: var(--comp-card-summary-frost-weight);
+  gap: var(--comp-card-summary-frost-gap);
   inset: 0;
   justify-content: center;
   position: absolute;
