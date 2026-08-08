@@ -64,7 +64,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
   state,
   name = "",
   placeholder = "",
-  validationMessage = "",
+  validationMessage,
   onValueChange,
   className = "",
   id,
@@ -78,7 +78,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
   const formattedValue = formatCardNumber(digits);
   const validity = cardNumberValidity(digits);
   const brand = cardNumberBrand(digits);
-  const resolvedError = error || (validity === "invalid" ? validationMessage : "");
+  const resolvedError = error || (validity === "invalid" ? validationMessage : undefined);
   const resolvedHelper = resolvedError || helper;
   const resolvedState = resolveCardNumberState({ disabled, loading, error: resolvedError, state, value: digits, validity });
   const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
