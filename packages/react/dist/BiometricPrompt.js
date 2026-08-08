@@ -45,6 +45,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "fingerprint");
   const resolvedState = normalizeState(state);
   const resolvedDensity = normalizeFlowDensity(density);
+  if (!label) return null;
   const disabled = resolvedState === "disabled";
 
   return React.createElement(
@@ -58,7 +59,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       role: "group",
-      "aria-label": label || undefined,
+      "aria-label": label,
     },
     React.createElement(
       "span",
@@ -68,7 +69,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
     React.createElement(
       "div",
       { className: "biometric-prompt__content" },
-      label ? React.createElement("strong", null, label) : null,
+      React.createElement("strong", null, label),
       stateCopy(resolvedState, description) ? React.createElement("p", { role: "status" }, stateCopy(resolvedState, description)) : null,
     ),
     actionLabel ? React.createElement(Button, {
