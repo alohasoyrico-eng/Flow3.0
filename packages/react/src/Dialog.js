@@ -56,6 +56,8 @@ export const Dialog = forwardRef(function Dialog({
   const dialogId = id || `dialog-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = label ? `${dialogId}-title` : undefined;
   const resolvedIcon = icon || { danger: "warning", info: "info", success: "check_circle", neutral: "" }[resolvedTone];
+  const hasTrigger = Boolean(triggerLabel || triggerAriaLabel);
+  const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label) : [];
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     const normalizedOpen = Boolean(nextOpen);
@@ -94,7 +96,7 @@ export const Dialog = forwardRef(function Dialog({
       ...flowToneProps(resolvedTone),
       ...flowDensityProps(resolvedDensity),
     },
-    React.createElement(Button, {
+    hasTrigger ? React.createElement(Button, {
       ref: triggerRef,
       label: triggerLabel,
       variant: "secondary",
@@ -106,7 +108,7 @@ export const Dialog = forwardRef(function Dialog({
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": dialogId,
       onClick: () => setOpen(true),
-    }),
+    }) : null,
     React.createElement(
       "div",
       {
@@ -139,7 +141,7 @@ export const Dialog = forwardRef(function Dialog({
             label ? React.createElement("h3", { id: titleId }, label) : null,
             description ? React.createElement("p", null, description) : null,
           ),
-          React.createElement(IconButton, {
+          closeLabel ? React.createElement(IconButton, {
             ref: closeRef,
             ariaLabel: closeLabel,
             icon: "close",
@@ -148,13 +150,13 @@ export const Dialog = forwardRef(function Dialog({
             className: "dialog__close",
             "data-overlay-close": "",
             onClick: () => closeDialog(),
-          }),
+          }) : null,
         ),
-        fields.length
+        visibleFields.length
           ? React.createElement(
             "div",
             { className: "dialog__body dialog__fields" },
-            fields.map((field, index) => React.createElement(Input, {
+            visibleFields.map((field, index) => React.createElement(Input, {
               ...field,
               key: field.name ?? field.label ?? index,
               density: field.density ?? resolvedDensity,
