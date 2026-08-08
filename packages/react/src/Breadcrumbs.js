@@ -26,10 +26,11 @@ function resolveBreadcrumbItems(items, { variant, maxItems, collapsedLabel } = {
 
 function normalizeItems(items) {
   const sourceItems = Array.isArray(items) ? items : [];
-  return sourceItems.map((item, index) => ({
+  const labeledItems = sourceItems.filter((item) => item?.label);
+  return labeledItems.map((item, index) => ({
     ...item,
-    label: item.label ?? "",
-    current: Boolean(item.current) || index === sourceItems.length - 1,
+    label: item.label,
+    current: Boolean(item.current) || index === labeledItems.length - 1,
   }));
 }
 

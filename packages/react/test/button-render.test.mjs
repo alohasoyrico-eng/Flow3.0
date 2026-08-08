@@ -853,6 +853,7 @@ const unnamedBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadc
   variant: "overflow",
   maxItems: 3,
   items: [
+    { href: "#/empty" },
     { label: "Fleet", href: "#/fleet" },
     { label: "Regions", href: "#/regions" },
     { label: "Cards", current: true },
@@ -860,6 +861,7 @@ const unnamedBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadc
 }));
 assert.doesNotMatch(unnamedBreadcrumbsMarkup, /Breadcrumbs|Collapsed breadcrumb items/);
 assert.doesNotMatch(unnamedBreadcrumbsMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label=/);
+assert.doesNotMatch(unnamedBreadcrumbsMarkup, /#\/empty/);
 
 const tabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
   label: "Fleet views",
