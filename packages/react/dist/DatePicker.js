@@ -87,7 +87,8 @@ export const DatePicker = forwardRef(function DatePicker({
   const rootRef = useRef(null);
   const controlRef = useRef(null);
   const isValueControlled = value !== undefined;
-  const [selectedValue, setSelectedValue] = useState(value ?? "");
+  const [internalValue, setInternalValue] = useState(value ?? "");
+  const selectedValue = isValueControlled ? value ?? "" : internalValue;
   const isOpenControlled = openProp !== undefined;
   const [internalOpen, setInternalOpen] = useState(false);
   const open = isOpenControlled ? Boolean(openProp) : internalOpen;
@@ -100,9 +101,7 @@ export const DatePicker = forwardRef(function DatePicker({
   const visibleValue = formatDateLabel(selectedValue, locale) || placeholder;
 
   useEffect(() => {
-    if (!isValueControlled) return;
-    setSelectedValue(value ?? "");
-    if (value) setViewDate(clampViewDate(value));
+    if (isValueControlled && value) setViewDate(clampViewDate(value));
   }, [isValueControlled, value]);
 
   useEffect(() => {
@@ -125,7 +124,7 @@ export const DatePicker = forwardRef(function DatePicker({
   };
 
   const commitValue = (nextValue, event) => {
-    if (!isValueControlled) setSelectedValue(nextValue);
+    if (!isValueControlled) setInternalValue(nextValue);
     setViewDate(clampViewDate(nextValue));
     onValueChange?.(nextValue, event);
     setOpen(false, true, event);
