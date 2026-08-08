@@ -198,6 +198,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "ChartPanel" && !source.includes("if (!label || !hasChartData) return null;")) add("errors", sourceFile, 1, "ChartPanel must not render unnamed or data-empty chart shells.");
   if (name === "ChartPanel" && /\n\s{2}(values|valueLabels|labels|segments|series|comparisons)\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "ChartPanel must not hide missing chart data props behind empty component defaults.");
   if (name === "Button" && !source.includes("if (!buttonLabel) return null;")) add("errors", sourceFile, 1, "Button must not render without visible text.");
+  if (name === "Button" && /children\s*\?\?\s*label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Button must not synthesize empty visible labels before its runtime guard.");
   if (name === "Badge" && !source.includes("if (resolvedVariant === \"dot\" && !accessibleLabel) return null;")) add("errors", sourceFile, 1, "Badge dot variant must require an explicit accessible label before rendering.");
   if (name === "Badge" && !source.includes("if (resolvedVariant !== \"dot\" && !label) return null;")) add("errors", sourceFile, 1, "Badge text variants must require readable label text before rendering.");
   if (name === "Badge" && /rest\["aria-label"\]|label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Badge must not inherit aria-only names or synthesize empty readable text.");
