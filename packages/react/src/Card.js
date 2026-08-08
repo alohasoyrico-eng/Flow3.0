@@ -17,6 +17,12 @@ function resolveState({ disabled, loading, selected, state }) {
   return states.has(state) ? state : "default";
 }
 
+function isValidCardAction(action) {
+  if (!action) return false;
+  const isIconOnly = Boolean(action.iconOnly) || (!action.label && Boolean(action.icon));
+  return isIconOnly ? Boolean(action.icon && (action.ariaLabel || action.label)) : Boolean(action.label);
+}
+
 function cardAction(action, density, index, onAction) {
   const key = action.key ?? action.label ?? action.icon ?? index;
   const isIconOnly = Boolean(action.iconOnly) || (!action.label && Boolean(action.icon));
@@ -71,7 +77,8 @@ export const Card = forwardRef(function Card({
   const resolvedComposition = compositions.has(composition) ? composition : "standard";
   const resolvedState = resolveState({ disabled, loading, selected, state });
   const resolvedActionKey = actionKey ?? (typeof title === "string" ? title : "card");
-  const hasActions = Array.isArray(actions) && actions.length > 0;
+  const validActions = Array.isArray(actions) ? actions.filter(isValidCardAction) : [];
+  const hasActions = validActions.length > 0;
   const isInteractive = !hasActions && Boolean(interactive || resolvedState === "interactive" || resolvedState === "hover" || resolvedState === "focus" || selected || onAction);
   const isDisabled = resolvedState === "disabled" || resolvedState === "loading";
   const header = React.createElement(
@@ -104,7 +111,7 @@ export const Card = forwardRef(function Card({
         value ? React.createElement("p", { className: "card__value", key: "value" }, resolvedComposition === "stats" ? `${unit}${value}` : value) : null,
         detail ? React.createElement("p", { className: "card__detail", key: "detail" }, detail) : null,
       ],
-    hasActions ? React.createElement("div", { className: "card__actions", key: "actions" }, actions.map((action, index) => cardAction(action, density, index, onAction))) : null,
+    hasActions ? React.createElement("div", { className: "card__actions", key: "actions" }, validActions.map((action, index) => cardAction(action, density, index, onAction))) : null,
   ];
 
   return React.createElement(

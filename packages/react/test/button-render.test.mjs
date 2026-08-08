@@ -717,6 +717,8 @@ const unnamedCardActionMarkup = renderToStaticMarkup(React.createElement(Card, {
   actions: [{ key: "more", icon: "more_horiz", iconOnly: true }],
 }));
 assert.doesNotMatch(unnamedCardActionMarkup, /Card action/);
+assert.doesNotMatch(unnamedCardActionMarkup, /class="card__actions"/);
+assert.doesNotMatch(unnamedCardActionMarkup, /class="icon-button/);
 
 const selectedCardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Driver card",

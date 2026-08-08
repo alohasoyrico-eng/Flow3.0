@@ -10,6 +10,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "SegmentedControl" && /label:\s*item\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "SegmentedControl must not render unlabeled segments; filter items without visible labels before normalizing.");
   if (name === "Stepper" && /label:\s*step\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Stepper must not render unlabeled progress steps; filter steps without visible labels before normalizing.");
   if (name === "Breadcrumbs" && /label:\s*item\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Breadcrumbs must not render unlabeled path items; filter items without visible labels before resolving layout.");
+  if (name === "Card" && /actions\.map\(\(action,\s*index\)\s*=>\s*cardAction/.test(source)) add("errors", sourceFile, 1, "Card must filter actions that cannot render a visible or accessible control before composing Button or IconButton.");
 }
 
 module.exports = { checkReactComponentContentGuards };
