@@ -46,6 +46,15 @@
   --component-metric-min-inline-size-sm: var(--sys-frame-content-metric-min-sm);
   --component-metric-min-inline-size-md: var(--sys-frame-content-metric-min-md);
   --component-metric-min-inline-size-lg: var(--sys-frame-content-metric-min-lg);
+  --component-action-label-inline-size-sm: var(--sys-frame-content-action-label-sm);
+  --component-action-label-inline-size-md: var(--sys-frame-content-action-label-md);
+  --component-action-label-inline-size-lg: var(--sys-frame-content-action-label-lg);
+  --component-action-label-inline-size-xl: var(--sys-frame-content-action-label-xl);
+  --component-action-min-inline-size-sm: var(--sys-frame-content-action-min-inline-sm);
+  --component-action-min-inline-size-md: var(--sys-frame-content-action-min-inline-md);
+  --component-action-min-inline-size-lg: var(--sys-frame-content-action-min-inline-lg);
+  --component-action-min-block-size-md: var(--sys-frame-content-action-min-block-md);
+  --component-action-min-block-size-lg: var(--sys-frame-content-action-min-block-lg);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -10856,7 +10865,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-cursor: default;
   --comp-quick-action-display: inline-grid;
   --comp-quick-action-icon-size: var(--component-inline-size-md);
-  --comp-quick-action-label-width: calc(var(--component-control-min-size) * 2);
+  --comp-quick-action-label-width: var(--component-action-label-inline-size-md);
   --comp-quick-action-label-size: var(--component-font-size-caption);
   --comp-quick-action-gap: var(--sys-space-md);
   --comp-quick-action-inline-size: max-content;
@@ -10864,8 +10873,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-justify-items: center;
   --comp-quick-action-loading-cursor: progress;
   --comp-quick-action-max-inline-size: 100%;
-  --comp-quick-action-min-block-size: calc(var(--component-control-min-size) + var(--component-inline-size-md));
-  --comp-quick-action-min-inline-size: var(--component-block-size-md);
+  --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
+  --comp-quick-action-min-inline-size: var(--component-action-min-inline-size-md);
   --comp-quick-action-padding: 0;
   --comp-quick-action-shadow: none;
   --comp-quick-action-text-align: center;
@@ -10921,30 +10930,30 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .quick-action[data-density="sm"] {
   --comp-quick-action-icon-size: var(--component-control-min-size);
-  --comp-quick-action-label-width: calc(var(--component-control-min-size) * 1.75);
+  --comp-quick-action-label-width: var(--component-action-label-inline-size-sm);
   --comp-quick-action-label-size: var(--component-font-size-caption);
-  --comp-quick-action-min-block-size: calc(var(--component-control-min-size) + var(--component-inline-size-md));
-  --comp-quick-action-min-inline-size: calc(var(--component-control-min-size) + var(--sys-space-md));
+  --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
+  --comp-quick-action-min-inline-size: var(--component-action-min-inline-size-sm);
 }
 
 .quick-action[data-density="lg"] {
   --comp-quick-action-icon-size: var(--component-block-size-sm);
-  --comp-quick-action-label-width: calc(var(--component-control-min-size) * 2.5);
+  --comp-quick-action-label-width: var(--component-action-label-inline-size-lg);
   --comp-quick-action-label-size: var(--component-font-size-label);
-  --comp-quick-action-min-block-size: calc(var(--component-control-min-size) + var(--component-block-size-sm));
-  --comp-quick-action-min-inline-size: calc(var(--component-control-min-size) * 1.75);
+  --comp-quick-action-min-block-size: var(--component-action-min-block-size-lg);
+  --comp-quick-action-min-inline-size: var(--component-action-min-inline-size-lg);
 }
 
 .quick-action[data-variant="compact"] {
   --comp-quick-action-icon-size: var(--component-control-min-size);
-  --comp-quick-action-label-width: calc(var(--component-control-min-size) * 1.75);
+  --comp-quick-action-label-width: var(--component-action-label-inline-size-sm);
   --comp-quick-action-label-size: var(--component-font-size-caption);
-  --comp-quick-action-min-block-size: calc(var(--component-control-min-size) + var(--component-inline-size-md));
-  --comp-quick-action-min-inline-size: calc(var(--component-control-min-size) + var(--sys-space-md));
+  --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
+  --comp-quick-action-min-inline-size: var(--component-action-min-inline-size-sm);
 }
 
 .quick-action[data-variant="wide"] {
-  --comp-quick-action-label-width: calc(var(--component-control-min-size) * 3.25);
+  --comp-quick-action-label-width: var(--component-action-label-inline-size-xl);
   --comp-quick-action-min-inline-size: max-content;
 }
 

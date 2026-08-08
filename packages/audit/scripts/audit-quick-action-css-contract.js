@@ -32,6 +32,20 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
   if (!source.includes("React.createElement(Badge") || !source.includes("React.createElement(Spinner")) {
     add("errors", sourceFile, 1, "QuickAction must compose Badge and Spinner instead of duplicating count/loading visuals.");
   }
+  const localActionSize = /--comp-quick-action-(?:label-width|min-block-size|min-inline-size):\s*calc\(var\(--component-control-min-size\)[^;]+;/.exec(text);
+  if (localActionSize) {
+    add("errors", packageCssFile, lineNumber(text, localActionSize.index), "QuickAction layout sizes must flow through shared Frame action roles instead of local control-size calculations.");
+  }
+  for (const snippet of [
+    "--comp-quick-action-label-width: var(--component-action-label-inline-size-md)",
+    "--comp-quick-action-min-block-size: var(--component-action-min-block-size-md)",
+    "--comp-quick-action-min-inline-size: var(--component-action-min-inline-size-md)",
+  ]) {
+    if (!rootBlock?.body.includes(snippet)) {
+      add("errors", packageCssFile, rootBlock ? lineNumber(text, rootBlock.index) : 1, "QuickAction root sizing aliases must consume shared Frame action roles.");
+      break;
+    }
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -79,10 +93,43 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
     });
   }
   requireIncludes({
+    block: densitySmBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-quick-action-label-width: var(--component-action-label-inline-size-sm)",
+      "--comp-quick-action-min-block-size: var(--component-action-min-block-size-md)",
+      "--comp-quick-action-min-inline-size: var(--component-action-min-inline-size-sm)",
+    ],
+    message: "QuickAction small density must consume shared small action Frame roles.",
+  });
+  requireIncludes({
+    block: densityLgBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-quick-action-label-width: var(--component-action-label-inline-size-lg)",
+      "--comp-quick-action-min-block-size: var(--component-action-min-block-size-lg)",
+      "--comp-quick-action-min-inline-size: var(--component-action-min-inline-size-lg)",
+    ],
+    message: "QuickAction large density must consume shared large action Frame roles.",
+  });
+  requireIncludes({
+    block: compactBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-quick-action-label-width: var(--component-action-label-inline-size-sm)",
+      "--comp-quick-action-min-block-size: var(--component-action-min-block-size-md)",
+      "--comp-quick-action-min-inline-size: var(--component-action-min-inline-size-sm)",
+    ],
+    message: "QuickAction compact variant must consume shared compact action Frame roles.",
+  });
+  requireIncludes({
     block: wideBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-quick-action-label-width:", "--comp-quick-action-min-inline-size:"],
+    snippets: ["--comp-quick-action-label-width: var(--component-action-label-inline-size-xl)", "--comp-quick-action-min-inline-size:"],
     message: "QuickAction wide variant must set width aliases.",
   });
   requireIncludes({
