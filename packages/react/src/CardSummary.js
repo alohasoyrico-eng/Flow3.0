@@ -15,11 +15,11 @@ function statusToneFor(state) {
 
 export const CardSummary = forwardRef(function CardSummary({
   label,
-  meta = "",
-  number = "",
-  status = "",
+  meta,
+  number,
+  status,
   metrics,
-  expires = "",
+  expires,
   variant = "physical",
   state = "default",
   density,
@@ -33,7 +33,7 @@ export const CardSummary = forwardRef(function CardSummary({
   const resolvedState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   if (!label) return null;
-  const statusLabel = status || "";
+  const statusLabel = status;
   const resolvedIcon = icon || (resolvedVariant === "virtual" ? "smartphone" : resolvedState === "frozen" ? "ac_unit" : "contactless");
   const sourceMetrics = Array.isArray(metrics) ? metrics : [];
   const visibleMetrics = sourceMetrics.filter((metric) => metric?.key && metric?.label && metric?.value);
@@ -54,7 +54,7 @@ export const CardSummary = forwardRef(function CardSummary({
     React.createElement(
       "header",
       null,
-      label ? React.createElement("strong", { className: "card-summary__brand" }, label) : null,
+      React.createElement("strong", { className: "card-summary__brand" }, label),
       statusLabel ? React.createElement(Badge, {
           label: statusLabel,
           tone: statusToneFor(resolvedState),
