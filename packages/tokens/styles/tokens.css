@@ -534,6 +534,9 @@
   --sys-frame-content-action-min-inline-lg: calc(var(--sys-space-11) * 1.75);
   --sys-frame-content-action-min-block-md: calc(var(--sys-space-11) + var(--sys-space-9));
   --sys-frame-content-action-min-block-lg: calc(var(--sys-space-11) + (var(--sys-space-11) * 1.5));
+  --sys-frame-content-disclosure-trigger-min-block-sm: var(--sys-space-11);
+  --sys-frame-content-disclosure-trigger-min-block-md: calc(var(--sys-space-11) + var(--sys-space-md));
+  --sys-frame-content-disclosure-trigger-min-block-lg: calc(var(--sys-space-11) + var(--sys-space-xl));
   --sys-frame-content-narrow: 100%;
   --sys-frame-content-prose: 100%;
   --sys-frame-content-prose-wide: 100%;

@@ -11,6 +11,7 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 
 function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const rootBlock = blockFor(blocks, selectorKey, ".accordion");
+  const smBlock = blockFor(blocks, selectorKey, ".accordion[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".accordion[data-density=\"lg\"]");
   const dividerBlock = blockFor(blocks, selectorKey, ".accordion__item + .accordion__item");
   const triggerBlock = blockFor(blocks, selectorKey, ".accordion__trigger");
@@ -27,6 +28,10 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
   if (buttonAliasBlock) {
     add("errors", packageCssFile, lineNumber(text, buttonAliasBlock.index), "Accordion must not consume Button sizing aliases.");
   }
+  const localTriggerSize = /--comp-accordion-trigger-min-block:\s*calc\(var\(--component-control-min-size\)[^;]+;/.exec(text);
+  if (localTriggerSize) {
+    add("errors", packageCssFile, lineNumber(text, localTriggerSize.index), "Accordion trigger height must flow through shared disclosure Frame roles instead of local control-size calculations.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -35,7 +40,7 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
     snippets: [
       "--comp-accordion-bg: var(--sys-color-surface)",
       "--comp-accordion-border-width: var(--component-border-width)",
-      "--comp-accordion-trigger-min-block: calc(var(--component-control-min-size)",
+      "--comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-md)",
       "--comp-accordion-trigger-font-weight: var(--sys-voice-weight-bold)",
       "--comp-accordion-focus-ring: var(--component-focus-ring)",
       "--comp-accordion-motion-ease: var(--component-ease-move)",
@@ -45,11 +50,18 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
     message: "Accordion root must own frame, trigger, voice, focus, density, and motion aliases.",
   });
   requireIncludes({
+    block: smBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-sm)"],
+    message: "Accordion sm density must use the shared small disclosure trigger Frame role.",
+  });
+  requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-accordion-trigger-min-block: calc(var(--component-control-min-size)"],
-    message: "Accordion lg density must scale from component control size, not Button aliases.",
+    snippets: ["--comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-lg)"],
+    message: "Accordion lg density must use the shared large disclosure trigger Frame role.",
   });
   requireIncludes({
     block: dividerBlock,

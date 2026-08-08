@@ -55,6 +55,9 @@
   --component-action-min-inline-size-lg: var(--sys-frame-content-action-min-inline-lg);
   --component-action-min-block-size-md: var(--sys-frame-content-action-min-block-md);
   --component-action-min-block-size-lg: var(--sys-frame-content-action-min-block-lg);
+  --component-disclosure-trigger-min-block-size-sm: var(--sys-frame-content-disclosure-trigger-min-block-sm);
+  --component-disclosure-trigger-min-block-size-md: var(--sys-frame-content-disclosure-trigger-min-block-md);
+  --component-disclosure-trigger-min-block-size-lg: var(--sys-frame-content-disclosure-trigger-min-block-lg);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -3422,7 +3425,7 @@ button.tag:disabled,
   --comp-accordion-trigger-hover-bg: color-mix(in srgb, var(--sys-color-action) 6%, var(--sys-color-surface));
   --comp-accordion-trigger-disabled-fg: var(--sys-color-text-muted);
   --comp-accordion-trigger-disabled-opacity: var(--sys-state-muted-opacity);
-  --comp-accordion-trigger-min-block: calc(var(--component-control-min-size) + var(--sys-space-md));
+  --comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-md);
   --comp-accordion-trigger-padding-inline: var(--sys-space-md);
   --comp-accordion-trigger-gap: var(--sys-space-sm);
   --comp-accordion-trigger-font-family: inherit;
@@ -3458,7 +3461,7 @@ button.tag:disabled,
 }
 
 .accordion[data-density="sm"] {
-  --comp-accordion-trigger-min-block: var(--component-control-min-size);
+  --comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-sm);
   --comp-accordion-trigger-padding-inline: var(--sys-space-sm);
   --comp-accordion-panel-padding-block-start: 0;
   --comp-accordion-panel-padding-block-end: var(--sys-space-sm);
@@ -3467,7 +3470,7 @@ button.tag:disabled,
 }
 
 .accordion[data-density="lg"] {
-  --comp-accordion-trigger-min-block: calc(var(--component-control-min-size) + var(--sys-space-xl));
+  --comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-lg);
   --comp-accordion-trigger-padding-inline: var(--sys-space-lg);
   --comp-accordion-panel-padding-block-start: var(--sys-space-xs);
   --comp-accordion-panel-padding-block-end: var(--sys-space-lg);
