@@ -1,4 +1,4 @@
-import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, MouseEvent, RefAttributes } from "react";
 import { inputPlatformContract } from "@design-system/components/platforms";
 
 export type InputVariant = "text" | "email" | "password" | "number" | "currency" | "unit" | "search";
@@ -28,11 +28,13 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   loading?: boolean;
   align?: InputAlign;
   revealable?: boolean;
+  revealed?: boolean;
   revealLabel?: string;
   hideLabel?: string;
   locale?: string | string[];
   autocomplete?: string;
   onValueChange?: (value: string, meta: InputValueMeta, event: ChangeEvent<HTMLInputElement>) => void;
+  onRevealChange?: (revealed: boolean, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface InputComponent extends ForwardRefExoticComponent<InputProps & RefAttributes<HTMLInputElement>> {

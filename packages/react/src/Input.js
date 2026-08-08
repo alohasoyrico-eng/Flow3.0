@@ -83,10 +83,12 @@ export const Input = forwardRef(function Input({
   autocomplete,
   align = "start",
   revealable = false,
+  revealed: revealedProp,
   revealLabel,
   hideLabel,
   locale,
   onValueChange,
+  onRevealChange,
   className = "",
   id,
   ...rest
@@ -98,8 +100,10 @@ export const Input = forwardRef(function Input({
   const isRevealable = Boolean(revealable) || resolvedVariant === "password" || resolvedType === "password";
   const canReveal = Boolean(isRevealable && revealLabel && hideLabel);
   const isValueControlled = value !== undefined;
+  const isRevealControlled = revealedProp !== undefined;
   const [currentValue, setCurrentValue] = useState(value ?? "");
-  const [revealed, setRevealed] = useState(false);
+  const [internalRevealed, setInternalRevealed] = useState(Boolean(revealedProp));
+  const revealed = isRevealControlled ? Boolean(revealedProp) : internalRevealed;
   const resolvedState = resolveInputState({ disabled, loading, error, state, value: currentValue });
   const resolvedHelper = error || helperText || helper;
   const isDisabled = Boolean(disabled) || Boolean(loading);
@@ -111,12 +115,22 @@ export const Input = forwardRef(function Input({
     if (isValueControlled) setCurrentValue(value ?? "");
   }, [isValueControlled, value]);
 
+  useEffect(() => {
+    if (isRevealControlled) setInternalRevealed(Boolean(revealedProp));
+  }, [isRevealControlled, revealedProp]);
+
   if (!label) return null;
 
   const handleChange = (event) => {
     const meta = normalizeValue(event.target.value, resolvedVariant);
     if (!isValueControlled) setCurrentValue(meta.value);
     onValueChange?.(meta.value, meta, event);
+  };
+
+  const handleRevealClick = (event) => {
+    const nextRevealed = !revealed;
+    if (!isRevealControlled) setInternalRevealed(nextRevealed);
+    onRevealChange?.(nextRevealed, event);
   };
 
   return React.createElement(
@@ -170,7 +184,7 @@ export const Input = forwardRef(function Input({
             "aria-label": revealed ? hideLabel : revealLabel,
             "aria-pressed": String(revealed),
             "data-field-action": "reveal",
-            onClick: () => setRevealed((current) => !current),
+            onClick: handleRevealClick,
           },
           React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, revealed ? "visibility_off" : "visibility"),
         )

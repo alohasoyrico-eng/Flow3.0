@@ -993,12 +993,14 @@ try {
 
   cleanup();
 
-  const { getByLabelText: getPasswordLabel, getByRole: getPasswordRole } = render(React.createElement(Input, {
+  const inputRevealChanges = [];
+  const { getByLabelText: getPasswordLabel, getByRole: getPasswordRole, rerender: rerenderPasswordInput } = render(React.createElement(Input, {
     label: "Password",
     variant: "password",
     value: "secret",
     revealLabel: "Reveal secret",
     hideLabel: "Conceal secret",
+    onRevealChange: (revealed, event) => inputRevealChanges.push({ revealed, eventType: event.type }),
   }));
 
   const passwordInput = getPasswordLabel(/password/i);
@@ -1007,6 +1009,21 @@ try {
   fireEvent.click(revealPasswordButton);
   await waitFor(() => assert.equal(passwordInput.type, "text"));
   assert.equal(revealPasswordButton.getAttribute("aria-pressed"), "true");
+  assert.deepEqual(inputRevealChanges, [{ revealed: true, eventType: "click" }]);
+
+  rerenderPasswordInput(React.createElement(Input, {
+    label: "Password",
+    variant: "password",
+    value: "secret",
+    revealed: false,
+    revealLabel: "Reveal secret",
+    hideLabel: "Conceal secret",
+    onRevealChange: (revealed, event) => inputRevealChanges.push({ revealed, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(passwordInput.type, "password"));
+  fireEvent.click(getPasswordRole("button", { name: /reveal secret/i }));
+  assert.deepEqual(inputRevealChanges.at(-1), { revealed: true, eventType: "click" });
+  assert.equal(passwordInput.type, "password");
 
   cleanup();
 
