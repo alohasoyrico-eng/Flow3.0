@@ -5344,33 +5344,33 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card {
-  --card-padding: var(--comp-card-padding-md);
-  --card-gap: var(--comp-card-gap-md);
-  --card-icon-size: var(--comp-card-icon-size-md);
-  --card-icon-font-size: var(--comp-card-icon-font-size-md);
-  --card-title-size: var(--comp-card-title-size-md);
-  --card-value-size: var(--comp-card-value-size-md);
-  --card-header-gap: var(--comp-card-header-gap);
-  --card-heading-gap: var(--comp-card-heading-gap);
-  --card-status-radius: var(--comp-card-status-radius);
-  --card-status-size: var(--comp-card-status-size);
-  --card-status-weight: var(--comp-card-status-weight);
-  --card-status-padding-block: var(--comp-card-status-padding-block);
-  --card-status-padding-inline: var(--comp-card-status-padding-inline);
-  --card-detail-fg: var(--comp-card-detail-fg);
-  --card-loading-gap: var(--comp-card-loading-gap);
-  --card-loading-min-block-size: calc(var(--card-icon-size) + var(--card-loading-gap));
-  --card-actions-gap: var(--comp-card-actions-gap);
-  --card-actions-justify: var(--comp-card-actions-justify);
+  --comp-card-current-padding: var(--comp-card-padding-md);
+  --comp-card-current-gap: var(--comp-card-gap-md);
+  --comp-card-current-icon-size: var(--comp-card-icon-size-md);
+  --comp-card-current-icon-font-size: var(--comp-card-icon-font-size-md);
+  --comp-card-current-title-size: var(--comp-card-title-size-md);
+  --comp-card-current-value-size: var(--comp-card-value-size-md);
+  --comp-card-current-header-gap: var(--comp-card-header-gap);
+  --comp-card-current-heading-gap: var(--comp-card-heading-gap);
+  --comp-card-current-status-radius: var(--comp-card-status-radius);
+  --comp-card-current-status-size: var(--comp-card-status-size);
+  --comp-card-current-status-weight: var(--comp-card-status-weight);
+  --comp-card-current-status-padding-block: var(--comp-card-status-padding-block);
+  --comp-card-current-status-padding-inline: var(--comp-card-status-padding-inline);
+  --comp-card-current-detail-fg: var(--comp-card-detail-fg);
+  --comp-card-current-loading-gap: var(--comp-card-loading-gap);
+  --comp-card-current-loading-min-block-size: calc(var(--comp-card-current-icon-size) + var(--comp-card-current-loading-gap));
+  --comp-card-current-actions-gap: var(--comp-card-actions-gap);
+  --comp-card-current-actions-justify: var(--comp-card-actions-justify);
   background: var(--comp-card-bg);
   border: var(--component-border-width) solid var(--comp-card-border);
   border-radius: var(--comp-card-radius);
   box-shadow: var(--comp-card-shadow-rest);
   color: var(--comp-card-fg);
   display: grid;
-  gap: var(--card-gap);
+  gap: var(--comp-card-current-gap);
   min-inline-size: 0;
-  padding: var(--card-padding);
+  padding: var(--comp-card-current-padding);
   transition:
     background-color var(--comp-card-motion-duration) var(--comp-card-motion-ease),
     border-color var(--comp-card-motion-duration) var(--comp-card-motion-ease),
@@ -5380,21 +5380,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-density="sm"] {
-  --card-padding: var(--comp-card-padding-sm);
-  --card-gap: var(--comp-card-gap-sm);
-  --card-icon-size: var(--comp-card-icon-size-sm);
-  --card-icon-font-size: var(--comp-card-icon-font-size-sm);
-  --card-title-size: var(--comp-card-title-size-sm);
-  --card-value-size: var(--comp-card-value-size-sm);
+  --comp-card-current-padding: var(--comp-card-padding-sm);
+  --comp-card-current-gap: var(--comp-card-gap-sm);
+  --comp-card-current-icon-size: var(--comp-card-icon-size-sm);
+  --comp-card-current-icon-font-size: var(--comp-card-icon-font-size-sm);
+  --comp-card-current-title-size: var(--comp-card-title-size-sm);
+  --comp-card-current-value-size: var(--comp-card-value-size-sm);
 }
 
 .card[data-density="lg"] {
-  --card-padding: var(--comp-card-padding-lg);
-  --card-gap: var(--comp-card-gap-lg);
-  --card-icon-size: var(--comp-card-icon-size-lg);
-  --card-icon-font-size: var(--comp-card-icon-font-size-lg);
-  --card-title-size: var(--comp-card-title-size-lg);
-  --card-value-size: var(--comp-card-value-size-lg);
+  --comp-card-current-padding: var(--comp-card-padding-lg);
+  --comp-card-current-gap: var(--comp-card-gap-lg);
+  --comp-card-current-icon-size: var(--comp-card-icon-size-lg);
+  --comp-card-current-icon-font-size: var(--comp-card-icon-font-size-lg);
+  --comp-card-current-title-size: var(--comp-card-title-size-lg);
+  --comp-card-current-value-size: var(--comp-card-value-size-lg);
 }
 
 .card[data-full-width="true"] {
@@ -5402,12 +5402,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-composition="compact"] {
-  --card-padding: var(--comp-card-compact-padding);
-  --card-gap: var(--comp-card-compact-gap);
-  --card-icon-size: var(--comp-card-icon-size-compact);
-  --card-icon-font-size: var(--component-font-size-body);
-  --card-title-size: var(--comp-card-compact-title-size);
-  --card-value-size: var(--comp-card-compact-value-size);
+  --comp-card-current-padding: var(--comp-card-compact-padding);
+  --comp-card-current-gap: var(--comp-card-compact-gap);
+  --comp-card-current-icon-size: var(--comp-card-icon-size-compact);
+  --comp-card-current-icon-font-size: var(--component-font-size-body);
+  --comp-card-current-title-size: var(--comp-card-compact-title-size);
+  --comp-card-current-value-size: var(--comp-card-compact-value-size);
   align-items: center;
   box-shadow: none;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -5431,15 +5431,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-composition="media"] {
-  --card-padding: 0;
-  --card-gap: var(--comp-card-media-gap);
-  --card-media-block-size: calc(var(--component-control-min-size) * 4 + var(--sys-space-xl));
+  --comp-card-current-padding: 0;
+  --comp-card-current-gap: var(--comp-card-media-gap);
+  --comp-card-current-media-block-size: calc(var(--component-control-min-size) * 4 + var(--sys-space-xl));
   overflow: clip;
 }
 
 .card__media {
   background: var(--sys-color-surface-raised);
-  block-size: var(--card-media-block-size);
+  block-size: var(--comp-card-current-media-block-size);
   display: block;
   inline-size: 100%;
   object-fit: cover;
@@ -5447,7 +5447,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card__body {
   display: grid;
-  gap: var(--card-gap);
+  gap: var(--comp-card-current-gap);
   min-inline-size: 0;
   padding: var(--comp-card-media-padding);
 }
@@ -5469,9 +5469,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-composition="stats"] {
-  --card-padding: var(--comp-card-stats-padding);
-  --card-gap: var(--comp-card-stats-gap);
-  --card-value-size: var(--comp-card-stats-value-size);
+  --comp-card-current-padding: var(--comp-card-stats-padding);
+  --comp-card-current-gap: var(--comp-card-stats-gap);
+  --comp-card-current-value-size: var(--comp-card-stats-value-size);
 }
 
 .card[data-composition="stats"] .card__header,
@@ -5491,7 +5491,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-composition="stats"] .card__value {
   font-family: var(--component-font-family-mono);
-  font-size: var(--card-value-size);
+  font-size: var(--comp-card-current-value-size);
   font-weight: var(--sys-voice-weight-semibold);
   line-height: var(--sys-voice-line-height-compact);
   margin-block: var(--sys-space-xs) calc(var(--sys-space-sm) - var(--sys-space-xs) / 2);
@@ -5520,7 +5520,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-variant="minimal"] {
-  --card-gap: var(--comp-card-minimal-gap);
+  --comp-card-current-gap: var(--comp-card-minimal-gap);
   background: transparent;
   border-color: transparent;
   box-shadow: none;
@@ -5551,7 +5551,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-variant="elevated"] {
-  --card-gap: var(--comp-card-elevated-gap);
+  --comp-card-current-gap: var(--comp-card-elevated-gap);
   border-color: var(--comp-card-icon-fg);
   border-width: calc(var(--component-border-width) * 2);
   box-shadow: var(--comp-card-shadow-hover);
@@ -5627,7 +5627,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card__header {
   align-items: start;
   display: flex;
-  gap: var(--card-header-gap);
+  gap: var(--comp-card-current-header-gap);
   justify-content: space-between;
   min-inline-size: 0;
 }
@@ -5635,7 +5635,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card__heading {
   align-items: center;
   display: flex;
-  gap: var(--card-heading-gap);
+  gap: var(--comp-card-current-heading-gap);
   min-inline-size: 0;
 }
 
@@ -5647,17 +5647,17 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   display: inline-flex;
   flex: 0 0 auto;
   font-family: var(--sys-font-icon);
-  font-size: var(--card-icon-font-size);
+  font-size: var(--comp-card-current-icon-font-size);
   font-variation-settings: var(--sys-icon-variation-filled-strong);
-  inline-size: var(--card-icon-size);
+  inline-size: var(--comp-card-current-icon-size);
   justify-content: center;
   line-height: 1;
-  min-block-size: var(--card-icon-size);
+  min-block-size: var(--comp-card-current-icon-size);
 }
 
 .card__title {
   font-family: var(--sys-font-title);
-  font-size: var(--card-title-size);
+  font-size: var(--comp-card-current-title-size);
   font-weight: var(--sys-voice-weight-black);
   letter-spacing: 0;
   line-height: var(--sys-voice-line-height-tight);
@@ -5668,16 +5668,16 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card__status {
   background: var(--comp-card-status-bg);
   border: var(--component-border-width) solid var(--comp-card-status-border);
-  border-radius: var(--card-status-radius);
+  border-radius: var(--comp-card-current-status-radius);
   color: var(--comp-card-status-fg);
-  font-size: var(--card-status-size);
-  font-weight: var(--card-status-weight);
-  padding: var(--card-status-padding-block) var(--card-status-padding-inline);
+  font-size: var(--comp-card-current-status-size);
+  font-weight: var(--comp-card-current-status-weight);
+  padding: var(--comp-card-current-status-padding-block) var(--comp-card-current-status-padding-inline);
 }
 
 .card__value {
   font-family: var(--sys-font-title);
-  font-size: var(--card-value-size);
+  font-size: var(--comp-card-current-value-size);
   font-weight: var(--sys-voice-weight-black);
   line-height: var(--sys-voice-line-height-compact);
   margin: 0;
@@ -5685,7 +5685,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card__detail {
-  color: var(--card-detail-fg);
+  color: var(--comp-card-current-detail-fg);
   margin: 0;
   min-inline-size: 0;
 }
@@ -5693,15 +5693,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card__loading {
   align-items: center;
   display: flex;
-  gap: var(--card-loading-gap);
-  min-block-size: var(--card-loading-min-block-size);
+  gap: var(--comp-card-current-loading-gap);
+  min-block-size: var(--comp-card-current-loading-min-block-size);
 }
 
 .card__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--card-actions-gap);
-  justify-content: var(--card-actions-justify);
+  gap: var(--comp-card-current-actions-gap);
+  justify-content: var(--comp-card-current-actions-justify);
 }
 
 .dialog,

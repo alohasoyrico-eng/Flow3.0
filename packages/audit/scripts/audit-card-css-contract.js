@@ -27,50 +27,60 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const ghostBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"ghost\"]");
   const ghostTextBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"ghost\"] .card__title,.card[data-variant=\"ghost\"] .card__detail");
 
+  if (text.includes("--card-")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--card-")), "Card must not introduce short --card-* aliases; use the component namespace and --comp-card-current-* resolved aliases.");
+  }
+
   requireIncludes({
     block: cardBlock,
     text,
     packageCssFile,
     snippets: [
-      "--card-header-gap: var(--comp-card-header-gap)",
-      "--card-heading-gap: var(--comp-card-heading-gap)",
-      "--card-status-radius: var(--comp-card-status-radius)",
-      "--card-detail-fg: var(--comp-card-detail-fg)",
-      "--card-loading-min-block-size: calc(var(--card-icon-size) + var(--card-loading-gap))",
-      "--card-actions-gap: var(--comp-card-actions-gap)",
+      "--comp-card-current-padding: var(--comp-card-padding-md)",
+      "--comp-card-current-gap: var(--comp-card-gap-md)",
+      "--comp-card-current-icon-size: var(--comp-card-icon-size-md)",
+      "--comp-card-current-title-size: var(--comp-card-title-size-md)",
+      "--comp-card-current-header-gap: var(--comp-card-header-gap)",
+      "--comp-card-current-heading-gap: var(--comp-card-heading-gap)",
+      "--comp-card-current-status-radius: var(--comp-card-status-radius)",
+      "--comp-card-current-detail-fg: var(--comp-card-detail-fg)",
+      "--comp-card-current-loading-min-block-size: calc(var(--comp-card-current-icon-size) + var(--comp-card-current-loading-gap))",
+      "--comp-card-current-actions-gap: var(--comp-card-actions-gap)",
+      "gap: var(--comp-card-current-gap)",
+      "padding: var(--comp-card-current-padding)",
     ],
-    message: "Card base must expose local aliases for sublayout, status, detail, loading, and actions.",
+    message: "Card base must expose and consume component-scoped current aliases for density, sublayout, status, detail, loading, and actions.",
   });
   requireIncludes({
     block: compactBlock,
     text,
     packageCssFile,
-    snippets: ["--card-padding: var(--comp-card-compact-padding)", "--card-gap: var(--comp-card-compact-gap)"],
+    snippets: ["--comp-card-current-padding: var(--comp-card-compact-padding)", "--comp-card-current-gap: var(--comp-card-compact-gap)"],
     message: "Card compact composition must resolve through comp Card frame aliases.",
   });
   requireIncludes({
     block: mediaBlock,
     text,
     packageCssFile,
-    snippets: ["--card-gap: var(--comp-card-media-gap)", "--card-media-block-size:"],
+    snippets: ["--comp-card-current-gap: var(--comp-card-media-gap)", "--comp-card-current-media-block-size:"],
     message: "Card media composition must resolve through comp Card media aliases.",
   });
   requireIncludes({
     block: statsBlock,
     text,
     packageCssFile,
-    snippets: ["--card-padding: var(--comp-card-stats-padding)", "--card-value-size: var(--comp-card-stats-value-size)"],
+    snippets: ["--comp-card-current-padding: var(--comp-card-stats-padding)", "--comp-card-current-value-size: var(--comp-card-stats-value-size)"],
     message: "Card stats composition must resolve through comp Card stats aliases.",
   });
 
   const elementContracts = [
-    [headerBlock, ["gap: var(--card-header-gap)"], "Card header gap must consume the local Card alias."],
-    [headingBlock, ["gap: var(--card-heading-gap)"], "Card heading gap must consume the local Card alias."],
-    [iconBlock, ["border-radius: var(--comp-card-icon-radius)"], "Card icon radius must consume the component Card alias."],
-    [statusBlock, ["border-radius: var(--card-status-radius)", "font-size: var(--card-status-size)", "padding: var(--card-status-padding-block) var(--card-status-padding-inline)"], "Card status frame and voice must consume local Card aliases."],
-    [detailBlock, ["color: var(--card-detail-fg)"], "Card detail color must consume the local Card alias."],
-    [loadingBlock, ["gap: var(--card-loading-gap)", "min-block-size: var(--card-loading-min-block-size)"], "Card loading rhythm must consume local Card aliases."],
-    [actionsBlock, ["gap: var(--card-actions-gap)", "justify-content: var(--card-actions-justify)"], "Card actions layout must consume local Card aliases."],
+    [headerBlock, ["gap: var(--comp-card-current-header-gap)"], "Card header gap must consume the component-scoped current alias."],
+    [headingBlock, ["gap: var(--comp-card-current-heading-gap)"], "Card heading gap must consume the component-scoped current alias."],
+    [iconBlock, ["border-radius: var(--comp-card-icon-radius)", "font-size: var(--comp-card-current-icon-font-size)", "inline-size: var(--comp-card-current-icon-size)"], "Card icon frame must consume component Card aliases."],
+    [statusBlock, ["border-radius: var(--comp-card-current-status-radius)", "font-size: var(--comp-card-current-status-size)", "padding: var(--comp-card-current-status-padding-block) var(--comp-card-current-status-padding-inline)"], "Card status frame and voice must consume component-scoped current aliases."],
+    [detailBlock, ["color: var(--comp-card-current-detail-fg)"], "Card detail color must consume the component-scoped current alias."],
+    [loadingBlock, ["gap: var(--comp-card-current-loading-gap)", "min-block-size: var(--comp-card-current-loading-min-block-size)"], "Card loading rhythm must consume component-scoped current aliases."],
+    [actionsBlock, ["gap: var(--comp-card-current-actions-gap)", "justify-content: var(--comp-card-current-actions-justify)"], "Card actions layout must consume component-scoped current aliases."],
     [minimalIconBlock, ["font-size: var(--comp-card-minimal-icon-size)", "inline-size: var(--comp-card-minimal-icon-size)"], "Card minimal icon sizing must consume component Card aliases."],
     [minimalDetailBlock, ["font-size: var(--comp-card-minimal-detail-size)"], "Card minimal detail voice must consume a component Card alias."],
     [elevatedDetailBlock, ["font-size: var(--comp-card-elevated-detail-size)"], "Card elevated detail voice must consume a component Card alias."],
