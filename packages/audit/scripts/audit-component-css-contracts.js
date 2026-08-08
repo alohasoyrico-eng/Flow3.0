@@ -12,6 +12,7 @@ const { checkCodeInputCssContract } = require("./audit-code-input-css-contract.j
 const { checkChipCssContract } = require("./audit-chip-css-contract.js");
 const { checkDialogCssContract } = require("./audit-dialog-css-contract.js");
 const { checkDrawerCssContract } = require("./audit-drawer-css-contract.js");
+const { checkDatePickerCssContract } = require("./audit-date-picker-css-contract.js");
 const { checkEmptyStateCssContract } = require("./audit-empty-state-css-contract.js");
 const { checkErrorPanelCssContract } = require("./audit-error-panel-css-contract.js");
 const { checkFieldCssContract } = require("./audit-field-css-contract.js");
@@ -54,6 +55,7 @@ function checkComponentCssContracts(context) {
   checkChoiceCssContract(context);
   checkChipCssContract(context);
   checkCodeInputCssContract(context);
+  checkDatePickerCssContract(context);
   checkDialogCssContract(context);
   checkDrawerCssContract(context);
   checkEmptyStateCssContract(context);

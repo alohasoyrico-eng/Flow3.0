@@ -733,10 +733,8 @@
   --component-station-pin-pointer-size: calc(var(--sys-space-sm) - var(--sys-frame-space-micro));
   --component-phone-compact-control-size: var(--component-field-control-size-sm);
   --component-date-picker-control-size-sm: var(--comp-button-size-sm);
-  --component-date-picker-control-size-md: calc(var(--component-control-min-size) + var(--sys-frame-border-control));
   --component-date-picker-control-size-lg: var(--comp-button-size-lg);
   --component-date-picker-day-size-sm: var(--component-field-icon-action-size-md);
-  --component-date-picker-day-size-md: calc(var(--component-field-icon-action-size-md) + var(--sys-frame-space-micro));
   --component-date-picker-day-size-lg: var(--component-list-icon-box-size);
   --comp-icon-button-size-sm: var(--sys-space-9);
   --comp-icon-button-size-md: var(--component-control-min-size);
@@ -9879,9 +9877,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   inline-size: 100%;
   min-inline-size: 0;
   position: relative;
-  --comp-date-picker-control-size: var(--component-date-picker-control-size-md);
+  --comp-date-picker-control-size: var(--sys-density-control-height);
   --comp-date-picker-control-gap: calc(var(--sys-space-sm) + var(--sys-frame-space-micro));
-  --comp-date-picker-day-size: var(--component-date-picker-day-size-md);
+  --comp-date-picker-day-size: calc(var(--sys-density-control-height) - var(--sys-space-lg) + var(--sys-frame-space-micro));
   --comp-date-picker-day-font-size: var(--component-font-size-small);
   --comp-date-picker-icon-size: var(--component-font-size-title-md);
   --comp-date-picker-panel-gap: var(--sys-space-xs);
