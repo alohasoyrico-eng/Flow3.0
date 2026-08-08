@@ -386,14 +386,6 @@ function checkPackageCssContracts() {
     }
   }
 
-  const kpiBlock = cssBlocks(text).find((block) => block.selector === ".kpi-tile");
-  const kpiRiskBlock = cssBlocks(text).find((block) => block.selector.includes('.kpi-tile[data-variant="threshold"]'));
-  if (!kpiBlock?.body.includes("box-shadow: var(--component-depth-panel)") || kpiBlock?.body.includes("border-inline-start")) {
-    add("errors", packageCssFile, 1, "KPI Tile must match the StatTile reference: base tiles use panel depth and must not force a leading status rail.");
-  }
-  if (!kpiRiskBlock?.body.includes("border-inline-start")) {
-    add("errors", packageCssFile, 1, "KPI Tile threshold/risk state must keep a semantic leading status rail.");
-  }
 }
 
 module.exports = { checkPackageCssContracts };

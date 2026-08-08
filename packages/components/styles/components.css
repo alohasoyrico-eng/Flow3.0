@@ -4204,106 +4204,125 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .kpi-tile {
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid var(--sys-color-border);
-  border-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
-  box-shadow: var(--component-depth-panel);
-  color: var(--sys-color-text);
-  display: grid;
-  gap: var(--sys-space-sm);
-  padding: var(--sys-space-md);
-}
-
-.kpi-tile {
+  --comp-kpi-tile-bg: var(--sys-color-surface);
+  --comp-kpi-tile-border: color-mix(in srgb, var(--sys-color-border) 84%, transparent);
+  --comp-kpi-tile-border-interactive: color-mix(in srgb, var(--comp-kpi-tile-tone) 36%, var(--sys-color-border));
+  --comp-kpi-tile-border-width: var(--component-border-width);
+  --comp-kpi-tile-depth: var(--component-depth-panel);
+  --comp-kpi-tile-depth-interactive: var(--component-depth-raised-soft);
+  --comp-kpi-tile-disabled-cursor: not-allowed;
+  --comp-kpi-tile-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-kpi-tile-disabled-transform: var(--component-transform-none);
+  --comp-kpi-tile-fg: var(--sys-color-text);
+  --comp-kpi-tile-focus-ring-color: var(--sys-color-focus);
+  --comp-kpi-tile-focus-ring-offset: var(--component-focus-ring-offset);
+  --comp-kpi-tile-focus-ring-width: var(--component-focus-ring-width);
+  --comp-kpi-tile-gap: var(--sys-space-sm);
+  --comp-kpi-tile-header-align: start;
+  --comp-kpi-tile-header-display: flex;
+  --comp-kpi-tile-header-fg: var(--sys-color-text-muted);
+  --comp-kpi-tile-header-justify: space-between;
+  --comp-kpi-tile-header-letter-spacing: var(--sys-voice-letter-spacing-widest);
+  --comp-kpi-tile-header-line-height: var(--sys-voice-line-height-dense);
+  --comp-kpi-tile-header-size: var(--component-font-size-caption);
+  --comp-kpi-tile-header-transform: uppercase;
+  --comp-kpi-tile-header-weight: var(--sys-voice-weight-semibold);
+  --comp-kpi-tile-icon-family: var(--sys-font-icon);
+  --comp-kpi-tile-icon-line-height: 1;
+  --comp-kpi-tile-icon-size: var(--component-icon-size-md);
+  --comp-kpi-tile-interactive-cursor: pointer;
+  --comp-kpi-tile-loading-fg: var(--sys-color-text-muted);
+  --comp-kpi-tile-min-block-size: calc(var(--component-block-size-lg) - var(--sys-space-xs));
   --comp-kpi-tile-tone: var(--sys-color-text-muted);
   --comp-kpi-tile-padding: calc(var(--sys-space-lg) + var(--sys-space-xs));
+  --comp-kpi-tile-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
+  --comp-kpi-tile-risk-bg: color-mix(in srgb, var(--comp-kpi-tile-tone) 6%, var(--sys-color-surface));
+  --comp-kpi-tile-risk-rail-width: var(--sys-space-xs);
+  --comp-kpi-tile-transform-interactive: var(--component-transform-lift-sm);
+  --comp-kpi-tile-transition: border-color var(--component-duration-state) var(--component-ease-state),
+    box-shadow var(--component-duration-state) var(--component-ease-state),
+    transform var(--component-duration-state) var(--component-ease-state);
+  --comp-kpi-tile-value-family: var(--component-font-family-mono);
   --comp-kpi-tile-value-size: var(--component-font-size-data-lg);
+  --comp-kpi-tile-value-weight: var(--sys-voice-weight-semibold);
+  --comp-kpi-tile-value-letter-spacing: 0;
+  --comp-kpi-tile-value-line-height: var(--sys-voice-line-height-crisp);
   --comp-kpi-tile-delta-color: var(--sys-color-text-muted);
-  border-color: color-mix(in srgb, var(--sys-color-border) 84%, transparent);
-  border-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
-  box-shadow: var(--component-depth-panel);
-  gap: var(--sys-space-sm);
-  min-block-size: calc(var(--component-block-size-lg) - var(--sys-space-xs));
+  background: var(--comp-kpi-tile-bg);
+  border: var(--comp-kpi-tile-border-width) solid var(--comp-kpi-tile-border);
+  border-radius: var(--comp-kpi-tile-radius);
+  box-shadow: var(--comp-kpi-tile-depth);
+  color: var(--comp-kpi-tile-fg);
+  display: grid;
+  gap: var(--comp-kpi-tile-gap);
+  min-block-size: var(--comp-kpi-tile-min-block-size);
   padding: var(--comp-kpi-tile-padding);
   position: relative;
   text-decoration: none;
-  transition:
-    border-color var(--component-duration-state) var(--component-ease-state),
-    box-shadow var(--component-duration-state) var(--component-ease-state),
-    transform var(--component-duration-state) var(--component-ease-state);
+  transition: var(--comp-kpi-tile-transition);
 }
 
 .kpi-tile[data-density="sm"] {
   --comp-kpi-tile-padding: var(--sys-space-lg);
   --comp-kpi-tile-value-size: var(--component-font-size-title-lg);
-  min-block-size: calc(var(--component-block-size-md) + var(--sys-space-sm));
+  --comp-kpi-tile-min-block-size: calc(var(--component-block-size-md) + var(--sys-space-sm));
 }
 
 .kpi-tile[data-density="lg"] {
   --comp-kpi-tile-padding: var(--sys-space-xl);
   --comp-kpi-tile-value-size: var(--component-font-size-display-sm);
-  min-block-size: calc(var(--component-block-size-lg) + var(--sys-space-sm));
+  --comp-kpi-tile-min-block-size: calc(var(--component-block-size-lg) + var(--sys-space-sm));
 }
 
 .kpi-tile:is(a, [role="button"]) {
-  cursor: pointer;
+  cursor: var(--comp-kpi-tile-interactive-cursor);
 }
 
 .kpi-tile:is(a, [role="button"]):where(:hover, :focus-visible),
 .kpi-tile[data-state="hover"],
 .kpi-tile[data-state="selected"],
 .kpi-tile[data-selected="true"] {
-  border-color: color-mix(in srgb, var(--comp-kpi-tile-tone) 36%, var(--sys-color-border));
-  box-shadow: var(--component-depth-raised-soft);
-  transform: var(--component-transform-lift-sm);
+  border-color: var(--comp-kpi-tile-border-interactive);
+  box-shadow: var(--comp-kpi-tile-depth-interactive);
+  transform: var(--comp-kpi-tile-transform-interactive);
 }
 
 .kpi-tile[data-state="focus"],
 .kpi-tile:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-kpi-tile-focus-ring-width) solid var(--comp-kpi-tile-focus-ring-color);
+  outline-offset: var(--comp-kpi-tile-focus-ring-offset);
 }
 
 .kpi-tile[data-state="disabled"],
 .kpi-tile[aria-disabled="true"] {
-  cursor: not-allowed;
-  opacity: var(--sys-disabled-opacity);
+  cursor: var(--comp-kpi-tile-disabled-cursor);
+  opacity: var(--comp-kpi-tile-disabled-opacity);
   pointer-events: none;
-  transform: var(--component-transform-none);
+  transform: var(--comp-kpi-tile-disabled-transform);
 }
 
 .kpi-tile[data-state="loading"] {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-kpi-tile-loading-fg);
 }
 
 .kpi-tile header {
-  align-items: start;
-  grid-template-columns: auto 1fr auto;
-}
-
-.kpi-tile header {
-  display: flex;
-  justify-content: space-between;
-  color: var(--sys-color-text-muted);
-  font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-semibold);
-  letter-spacing: var(--sys-voice-letter-spacing-widest);
-  line-height: var(--sys-voice-line-height-dense);
-  text-transform: uppercase;
+  align-items: var(--comp-kpi-tile-header-align);
+  color: var(--comp-kpi-tile-header-fg);
+  display: var(--comp-kpi-tile-header-display);
+  font-size: var(--comp-kpi-tile-header-size);
+  font-weight: var(--comp-kpi-tile-header-weight);
+  justify-content: var(--comp-kpi-tile-header-justify);
+  letter-spacing: var(--comp-kpi-tile-header-letter-spacing);
+  line-height: var(--comp-kpi-tile-header-line-height);
+  text-transform: var(--comp-kpi-tile-header-transform);
 }
 
 .kpi-tile strong {
-  font-family: var(--component-font-family-mono);
+  font-family: var(--comp-kpi-tile-value-family);
   font-size: var(--comp-kpi-tile-value-size);
-  font-weight: var(--sys-voice-weight-semibold);
-  letter-spacing: 0;
-  line-height: var(--sys-voice-line-height-crisp);
-}
-
-.kpi-tile__delta,
-.error-panel p {
-  color: var(--sys-color-text-muted);
-  margin: 0;
+  font-weight: var(--comp-kpi-tile-value-weight);
+  letter-spacing: var(--comp-kpi-tile-value-letter-spacing);
+  line-height: var(--comp-kpi-tile-value-line-height);
 }
 
 .kpi-tile__delta {
@@ -4313,6 +4332,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   font-size: var(--component-font-size-caption);
   font-weight: var(--sys-voice-weight-semibold);
   gap: var(--component-focus-ring-width);
+  margin: 0;
 }
 
 .kpi-tile__delta[data-trend="up"] {
@@ -4326,10 +4346,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .kpi-tile__trend-icon,
 .kpi-tile__icon {
   color: var(--comp-kpi-tile-tone);
-  font-size: var(--component-icon-size-md);
-  font-family: var(--sys-font-icon);
+  font-size: var(--comp-kpi-tile-icon-size);
+  font-family: var(--comp-kpi-tile-icon-family);
   font-weight: var(--sys-voice-weight-regular);
-  line-height: 1;
+  line-height: var(--comp-kpi-tile-icon-line-height);
 }
 
 .kpi-tile__trend-icon {
@@ -4395,9 +4415,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .kpi-tile[data-variant="threshold"],
 .kpi-tile[data-state="risk"] {
-  border-color: color-mix(in srgb, var(--comp-kpi-tile-tone) 36%, var(--sys-color-border));
-  border-inline-start: 0.25rem solid var(--comp-kpi-tile-tone);
-  background: color-mix(in srgb, var(--comp-kpi-tile-tone) 6%, var(--sys-color-surface));
+  background: var(--comp-kpi-tile-risk-bg);
+  border-color: var(--comp-kpi-tile-border-interactive);
+  border-inline-start: var(--comp-kpi-tile-risk-rail-width) solid var(--comp-kpi-tile-tone);
 }
 
 .fab {
