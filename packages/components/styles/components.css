@@ -643,22 +643,33 @@
   --comp-table-body-size-md: var(--component-font-size-small);
   --comp-table-body-size-lg: var(--component-font-size-body);
   --comp-table-min-inline-size: min(var(--component-content-size-lg), 100%);
+  --comp-table-border-width: var(--component-border-width);
   --comp-table-border: var(--sys-color-border);
   --comp-table-header-bg: color-mix(in srgb, var(--sys-color-surface-raised) 80%, var(--sys-color-surface));
   --comp-table-header-fg: var(--sys-color-text-muted);
+  --comp-table-header-weight: var(--sys-voice-weight-extrabold);
+  --comp-table-header-transform: uppercase;
   --comp-table-row-hover-bg: color-mix(in srgb, var(--sys-color-action) 5%, var(--sys-color-surface));
   --comp-table-row-selected-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
   --comp-table-row-selected-accent: var(--sys-color-action);
+  --comp-table-row-selected-rail-width: var(--component-focus-ring-width);
   --comp-table-focus-color: var(--sys-color-focus);
   --comp-table-focus-width: var(--component-focus-ring-width);
   --comp-table-focus-offset: var(--component-focus-ring-offset);
   --comp-table-detail-bg: var(--comp-table-header-bg);
   --comp-table-detail-fg: var(--sys-color-text-muted);
+  --comp-table-detail-padding-block: var(--sys-space-md);
+  --comp-table-sort-gap: var(--sys-space-2xs);
   --comp-table-sort-icon-size: var(--component-font-size-body);
   --comp-table-sort-icon-opacity: var(--sys-state-muted-opacity);
+  --comp-table-sort-active-icon-opacity: var(--sys-state-visible-opacity);
   --comp-table-expander-size: var(--component-control-min-size);
+  --comp-table-expander-cell-gap: var(--sys-space-sm);
+  --comp-table-expander-cell-padding-inline-end: 0;
+  --comp-table-expander-icon-size: var(--component-font-size-body);
   --comp-table-expander-fg: var(--sys-color-text-muted);
   --comp-table-expander-active-fg: var(--sys-color-action);
+  --comp-table-expander-expanded-transform: var(--component-transform-rotate-quarter);
   --comp-table-motion-duration: var(--component-duration-snappy);
   --comp-table-motion-ease: var(--component-ease-state);
   --comp-table-motion-press-ease: var(--component-ease-press);
@@ -5652,6 +5663,29 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --table-cell-inline-padding: var(--comp-table-cell-padding-inline-md);
   --table-header-size: var(--comp-table-header-size-md);
   --table-body-size: var(--comp-table-body-size-md);
+  --table-border-width: var(--comp-table-border-width);
+  --table-border: var(--comp-table-border);
+  --table-header-bg: var(--comp-table-header-bg);
+  --table-header-fg: var(--comp-table-header-fg);
+  --table-header-weight: var(--comp-table-header-weight);
+  --table-header-transform: var(--comp-table-header-transform);
+  --table-row-hover-bg: var(--comp-table-row-hover-bg);
+  --table-row-selected-bg: var(--comp-table-row-selected-bg);
+  --table-row-selected-accent: var(--comp-table-row-selected-accent);
+  --table-row-selected-rail-width: var(--comp-table-row-selected-rail-width);
+  --table-focus-color: var(--comp-table-focus-color);
+  --table-focus-width: var(--comp-table-focus-width);
+  --table-focus-offset: var(--comp-table-focus-offset);
+  --table-sort-gap: var(--comp-table-sort-gap);
+  --table-sort-active-icon-opacity: var(--comp-table-sort-active-icon-opacity);
+  --table-expander-cell-inline-size: calc(var(--comp-table-expander-size) + var(--comp-table-expander-cell-gap));
+  --table-expander-cell-padding-inline-end: var(--comp-table-expander-cell-padding-inline-end);
+  --table-expander-icon-size: var(--comp-table-expander-icon-size);
+  --table-expander-expanded-transform: var(--comp-table-expander-expanded-transform);
+  --table-detail-bg: var(--comp-table-detail-bg);
+  --table-detail-fg: var(--comp-table-detail-fg);
+  --table-detail-padding-block: var(--comp-table-detail-padding-block);
+  --table-detail-padding-inline-start: calc(var(--comp-table-expander-size) + var(--table-cell-inline-padding));
   --table-row-transition: background-color var(--comp-table-motion-duration) var(--comp-table-motion-ease),
     box-shadow var(--comp-table-motion-duration) var(--comp-table-motion-ease);
   -webkit-overflow-scrolling: touch;
@@ -5682,7 +5716,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table th,
 .table td {
-  border-block-end: var(--component-border-width) solid var(--comp-table-border);
+  border-block-end: var(--table-border-width) solid var(--table-border);
   font-size: var(--table-body-size);
   padding: var(--table-cell-block-padding) var(--table-cell-inline-padding);
   text-align: start;
@@ -5690,12 +5724,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table th {
-  background: var(--comp-table-header-bg);
-  color: var(--comp-table-header-fg);
+  background: var(--table-header-bg);
+  color: var(--table-header-fg);
   font-size: var(--table-header-size);
-  font-weight: var(--sys-voice-weight-extrabold);
+  font-weight: var(--table-header-weight);
   letter-spacing: 0;
-  text-transform: uppercase;
+  text-transform: var(--table-header-transform);
 }
 
 .table tbody tr {
@@ -5704,13 +5738,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table tbody tr:hover,
 .table tbody tr[data-state="hover"] {
-  background: var(--comp-table-row-hover-bg);
+  background: var(--table-row-hover-bg);
 }
 
 .table tbody tr:focus-visible,
 .table tbody tr[data-state="focus"] {
-  outline: var(--comp-table-focus-width) solid var(--comp-table-focus-color);
-  outline-offset: calc(var(--comp-table-focus-offset) * -1);
+  outline: var(--table-focus-width) solid var(--table-focus-color);
+  outline-offset: calc(var(--table-focus-offset) * -1);
 }
 
 .table [data-align="right"] {
@@ -5722,8 +5756,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table tr[data-selected="true"] {
-  background: var(--comp-table-row-selected-bg);
-  box-shadow: inset var(--comp-table-focus-width) 0 0 var(--comp-table-row-selected-accent);
+  background: var(--table-row-selected-bg);
+  box-shadow: inset var(--table-row-selected-rail-width) 0 0 var(--table-row-selected-accent);
 }
 
 .table__sort {
@@ -5734,7 +5768,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   cursor: pointer;
   display: inline-flex;
   font: inherit;
-  gap: var(--sys-space-2xs);
+  gap: var(--table-sort-gap);
   inline-size: 100%;
   justify-content: inherit;
   letter-spacing: inherit;
@@ -5760,18 +5794,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table__sort[data-active="true"][data-dir="asc"]::after {
   content: "expand_less";
-  opacity: var(--sys-state-visible-opacity);
+  opacity: var(--table-sort-active-icon-opacity);
 }
 
 .table__sort[data-active="true"][data-dir="desc"]::after {
   content: "expand_more";
-  opacity: var(--sys-state-visible-opacity);
+  opacity: var(--table-sort-active-icon-opacity);
 }
 
 .table__expander-head,
 .table__expander-cell {
-  inline-size: calc(var(--comp-table-expander-size) + var(--sys-space-sm));
-  padding-inline-end: 0;
+  inline-size: var(--table-expander-cell-inline-size);
+  padding-inline-end: var(--table-expander-cell-padding-inline-end);
 }
 
 .table__expander {
@@ -5782,7 +5816,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   cursor: pointer;
   display: inline-flex;
   font-family: var(--sys-font-icon);
-  font-size: var(--component-font-size-body);
+  font-size: var(--table-expander-icon-size);
   justify-content: center;
   min-block-size: var(--comp-table-expander-size);
   min-inline-size: var(--comp-table-expander-size);
@@ -5794,14 +5828,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table tr[aria-expanded="true"] .table__expander {
   color: var(--comp-table-expander-active-fg);
-  transform: var(--component-transform-rotate-quarter);
+  transform: var(--table-expander-expanded-transform);
 }
 
 .table__detail {
-  background: var(--comp-table-detail-bg);
-  color: var(--comp-table-detail-fg);
-  padding-block: var(--sys-space-md);
-  padding-inline-start: calc(var(--comp-table-expander-size) + var(--table-cell-inline-padding));
+  background: var(--table-detail-bg);
+  color: var(--table-detail-fg);
+  padding-block: var(--table-detail-padding-block);
+  padding-inline-start: var(--table-detail-padding-inline-start);
 }
 
 @container (max-width: 32rem) {
