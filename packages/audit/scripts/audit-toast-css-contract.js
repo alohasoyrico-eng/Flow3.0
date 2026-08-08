@@ -28,9 +28,9 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-toast-inline-size-sm:",
-      "--comp-toast-inline-size-md:",
-      "--comp-toast-inline-size-lg:",
+      "--comp-toast-inline-size-sm: var(--component-toast-inline-size-sm)",
+      "--comp-toast-inline-size-md: var(--component-toast-inline-size-md)",
+      "--comp-toast-inline-size-lg: var(--component-toast-inline-size-lg)",
       "--comp-toast-motion-duration: var(--component-duration-state)",
       "--comp-toast-enter-transform:",
       "--comp-toast-rest-transform:",
@@ -94,6 +94,9 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey }) {
     if (actionBlock?.body.includes(stale) || dismissBlock?.body.includes(stale)) {
       add("errors", packageCssFile, 1, `Toast CSS must not override composed component internals "${stale}".`);
     }
+  }
+  if (/--comp-toast-inline-size-(?:sm|md|lg):\s*min\(100%,\s*calc\(var\(--sys-frame-content-dialog/.test(text)) {
+    add("errors", packageCssFile, 1, "Toast density widths must route through component-owned inline-size aliases.");
   }
 }
 

@@ -45,6 +45,9 @@
   --component-progress-indicator-min-inline-size: var(--sys-frame-content-narrow);
   --component-progress-indicator-max-inline-size: var(--sys-frame-content-dialog);
   --component-dialog-panel-inline: min(100%, var(--sys-frame-content-dialog));
+  --component-toast-inline-size-sm: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-page)));
+  --component-toast-inline-size-md: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-section)));
+  --component-toast-inline-size-lg: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-component-lg)));
   --component-drawer-panel-inline-sm: var(--sys-frame-content-drawer-sm);
   --component-drawer-panel-inline-md: var(--sys-frame-content-drawer-md);
   --component-drawer-panel-inline-lg: var(--sys-frame-content-drawer-lg);
@@ -3055,9 +3058,9 @@ button.tag:disabled,
 }
 
 .toast {
-  --comp-toast-inline-size-sm: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-page)));
-  --comp-toast-inline-size-md: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-section)));
-  --comp-toast-inline-size-lg: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-component-lg)));
+  --comp-toast-inline-size-sm: var(--component-toast-inline-size-sm);
+  --comp-toast-inline-size-md: var(--component-toast-inline-size-md);
+  --comp-toast-inline-size-lg: var(--component-toast-inline-size-lg);
   --comp-toast-padding-block-sm: var(--sys-space-sm);
   --comp-toast-padding-block-md: var(--component-density-control-padding-y);
   --comp-toast-padding-block-lg: var(--sys-space-lg);
