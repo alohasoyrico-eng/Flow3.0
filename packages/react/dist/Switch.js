@@ -12,8 +12,8 @@ function normalizeState({ checked, disabled, state, error }) {
 
 export const Switch = forwardRef(function Switch({
   label,
-  description = "",
-  error = "",
+  description,
+  error,
   state = "off",
   density,
   checked,
@@ -28,6 +28,7 @@ export const Switch = forwardRef(function Switch({
   const [currentChecked, setCurrentChecked] = useState(Boolean(checked));
   const normalizedState = normalizeState({ checked: currentChecked, disabled, state, error });
   const isInvalid = normalizedState === "error" || Boolean(error);
+  if (!label) return null;
 
   useEffect(() => {
     if (isCheckedControlled) setCurrentChecked(Boolean(checked));
@@ -71,7 +72,7 @@ export const Switch = forwardRef(function Switch({
     React.createElement(
       "span",
       { className: "switch__text" },
-      label ? React.createElement("span", { className: "switch__label" }, label) : null,
+      React.createElement("span", { className: "switch__label" }, label),
       description ? React.createElement("span", { className: "switch__description" }, description) : null,
       error ? React.createElement("span", { className: "switch__error" }, error) : null,
     ),
