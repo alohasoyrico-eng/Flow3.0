@@ -8,10 +8,10 @@ export type PaginationDensity = "sm" | "md" | "lg";
 export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   page?: number;
   pageCount: number;
-  label?: string;
-  previousLabel?: string;
-  nextLabel?: string;
-  getPageLabel?: (page: number) => string;
+  label: string;
+  previousLabel: string;
+  nextLabel: string;
+  getPageLabel: (page: number) => string;
   variant?: PaginationVariant;
   state?: PaginationState;
   density?: PaginationDensity;

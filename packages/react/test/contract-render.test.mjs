@@ -32,6 +32,8 @@ function valueForRequiredProp(name) {
       return [{ key: "name", label: "Name" }];
     case "fallback":
       return "Use your passcode";
+    case "getPageLabel":
+      return (page) => `Reference page ${page}`;
     case "icon":
       return "check";
     case "items":
@@ -51,6 +53,10 @@ function valueForRequiredProp(name) {
       return 1;
     case "pageCount":
       return 3;
+    case "previousLabel":
+      return "Previous reference page";
+    case "nextLabel":
+      return "Next reference page";
     case "rowKey":
       return "id";
     case "rows":

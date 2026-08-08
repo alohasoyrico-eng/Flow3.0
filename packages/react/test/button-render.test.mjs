@@ -1126,6 +1126,7 @@ assert.match(paginationMarkup, /aria-label="Next fleet page"/);
 const unnamedPaginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
   pageCount: 3,
 }));
+assert.equal(unnamedPaginationMarkup, "");
 assert.doesNotMatch(unnamedPaginationMarkup, /Pagination|Previous page|Next page|Page 1/);
 assert.doesNotMatch(unnamedPaginationMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label=/);
 assert.doesNotMatch(unnamedPaginationMarkup, /data-kind="prev"|data-kind="next"/);
