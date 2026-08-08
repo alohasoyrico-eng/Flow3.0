@@ -2672,8 +2672,8 @@ button.tag:disabled,
   --comp-tabs-tab-font-weight: var(--sys-voice-weight-semibold);
   --comp-tabs-tab-gap: var(--sys-space-xs);
   --comp-tabs-tab-justify: center;
-  --comp-tabs-tab-min-block: var(--component-control-min-size);
-  --comp-tabs-tab-min-inline: var(--component-control-min-size);
+  --comp-tabs-tab-min-block: var(--component-navigation-target-size-lg);
+  --comp-tabs-tab-min-inline: var(--component-navigation-target-size-lg);
   --comp-tabs-tab-padding-inline: var(--sys-space-lg);
   --comp-tabs-tab-position: relative;
   --comp-tabs-tab-transition: color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);

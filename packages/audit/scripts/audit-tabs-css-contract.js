@@ -51,6 +51,10 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
   if (/var\(--comp-tabs-indicator-(?:left|width),/.test(text)) {
     add("errors", packageCssFile, 1, "Tabs indicator runtime aliases must be declared on the root and consumed without inline fallbacks.");
   }
+  const localTabTarget = /--comp-tabs-tab-min-(?:block|inline):\s*var\(--component-control-min-size\)/.exec(text);
+  if (localTabTarget) {
+    add("errors", packageCssFile, lineNumber(text, localTabTarget.index), "Tabs tab targets must consume navigation target roles instead of the generic control min size.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -60,7 +64,8 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "--comp-tabs-bg: var(--sys-energy-surface-sunken)",
       "--comp-tabs-tab-bg-selected: var(--sys-energy-surface-primary)",
       "--comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch)",
-      "--comp-tabs-tab-min-block: var(--component-control-min-size)",
+      "--comp-tabs-tab-min-block: var(--component-navigation-target-size-lg)",
+      "--comp-tabs-tab-min-inline: var(--component-navigation-target-size-lg)",
       "--comp-tabs-focus-width: var(--component-focus-ring-width)",
       "align-items: var(--comp-tabs-align)",
       "background: var(--comp-tabs-bg)",
