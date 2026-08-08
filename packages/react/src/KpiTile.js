@@ -77,7 +77,7 @@ export const KpiTile = forwardRef(function KpiTile({
         }
         rest.onClick?.(event);
         if (event.defaultPrevented) return;
-        if (interactive) onSelect?.(selectMeta);
+        if (interactive) onSelect?.(selectMeta, event);
       },
       onKeyDown: (event) => {
         rest.onKeyDown?.(event);
@@ -85,7 +85,7 @@ export const KpiTile = forwardRef(function KpiTile({
         if (!interactive || href || disabled || loading) return;
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          onSelect?.(selectMeta);
+          onSelect?.(selectMeta, event);
         }
       },
     },

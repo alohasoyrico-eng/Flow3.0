@@ -256,6 +256,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "KpiTile" && !source.includes("const canActivateTile = Boolean(href || onSelect || rest.onClick);")) add("errors", sourceFile, 1, "KpiTile must require a destination or handler before composing drill-in affordances.");
   if (name === "KpiTile" && !source.includes("rest.onClick?.(event);")) add("errors", sourceFile, 1, "KpiTile must execute consumer onClick handlers instead of overwriting them.");
   if (name === "KpiTile" && !source.includes("rest.onKeyDown?.(event);")) add("errors", sourceFile, 1, "KpiTile must preserve consumer keyboard handlers before its own keyboard activation.");
+  if (name === "KpiTile" && !source.includes("onSelect?.(selectMeta, event);")) add("errors", sourceFile, 1, "KpiTile must pass the original activation event through the semantic onSelect contract.");
   if (name === "KpiTile" && !source.includes("if (!hasValue) return null;")) add("errors", sourceFile, 1, "KpiTile must not render without its required metric value.");
   if (name === "KpiTile" && /value \? React\.createElement\("strong", \{ className: "kpi-tile__value"/.test(source)) add("errors", sourceFile, 1, "KpiTile must render the required value unconditionally after the runtime guard.");
   if (name === "KpiTile" && !source.includes("const interactive = requestedInteraction && canActivateTile && Boolean(label);")) add("errors", sourceFile, 1, "KpiTile must gate interactive behavior on real activation and a visible label.");

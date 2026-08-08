@@ -1403,13 +1403,13 @@ try {
     value: "18",
     variant: "drill-in",
     onClick: (event) => kpiClicks.push(event.type),
-    onSelect: (meta) => kpiSelections.push(meta),
+    onSelect: (meta, event) => kpiSelections.push({ meta, eventType: event.type }),
   }));
 
   const kpiTile = getKpiRole("button", { name: /cards at risk 18/i });
   fireEvent.click(kpiTile);
   assert.deepEqual(kpiClicks, ["click"]);
-  assert.deepEqual(kpiSelections, [{ label: "Cards at risk", value: "18", delta: "", tone: "neutral", variant: "drill-in" }]);
+  assert.deepEqual(kpiSelections, [{ meta: { label: "Cards at risk", value: "18", delta: "", tone: "neutral", variant: "drill-in" }, eventType: "click" }]);
 
   cleanup();
 
