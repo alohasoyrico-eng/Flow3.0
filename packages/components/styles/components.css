@@ -4538,40 +4538,48 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab {
-  align-items: center;
-  --fab-size: var(--comp-floating-action-button-size-md);
-  --fab-icon-size: var(--comp-floating-action-button-icon-size-md);
-  --fab-padding: var(--comp-floating-action-button-padding-x-md);
+  --comp-floating-action-button-align: center;
+  --comp-floating-action-button-size: var(--comp-floating-action-button-size-md);
+  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-md);
+  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-md);
+  --comp-floating-action-button-border: 0;
+  --comp-floating-action-button-cursor: pointer;
+  --comp-floating-action-button-display: inline-flex;
+  --comp-floating-action-button-inline-size: fit-content;
+  --comp-floating-action-button-justify: center;
+  --comp-floating-action-button-transition: background-color var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), box-shadow var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), transform var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-enter);
+  --comp-floating-action-button-accent-bg-hover: color-mix(in srgb, var(--sys-color-success) 86%, var(--sys-color-text));
+  --comp-floating-action-button-active-transform: var(--component-transform-rest-quiet);
+  --comp-floating-action-button-collapsed-padding-x: 0;
+  --comp-floating-action-button-disabled-cursor: not-allowed;
+  align-items: var(--comp-floating-action-button-align);
   background: var(--comp-floating-action-button-bg);
-  border: 0;
+  border: var(--comp-floating-action-button-border);
   border-radius: var(--comp-floating-action-button-radius);
   box-shadow: var(--comp-floating-action-button-shadow);
   color: var(--comp-floating-action-button-text);
-  cursor: pointer;
-  display: inline-flex;
+  cursor: var(--comp-floating-action-button-cursor);
+  display: var(--comp-floating-action-button-display);
   font-weight: var(--comp-floating-action-button-font-weight);
   gap: var(--comp-floating-action-button-gap);
-  inline-size: fit-content;
-  justify-content: center;
-  min-block-size: var(--fab-size);
-  min-inline-size: var(--fab-size);
-  padding: 0 var(--fab-padding);
-  transition:
-    background-color var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease),
-    box-shadow var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease),
-    transform var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-enter);
+  inline-size: var(--comp-floating-action-button-inline-size);
+  justify-content: var(--comp-floating-action-button-justify);
+  min-block-size: var(--comp-floating-action-button-size);
+  min-inline-size: var(--comp-floating-action-button-size);
+  padding: 0 var(--comp-floating-action-button-padding-x);
+  transition: var(--comp-floating-action-button-transition);
 }
 
 .fab[data-density="sm"] {
-  --fab-size: var(--comp-floating-action-button-size-sm);
-  --fab-icon-size: var(--comp-floating-action-button-icon-size-sm);
-  --fab-padding: var(--comp-floating-action-button-padding-x-sm);
+  --comp-floating-action-button-size: var(--comp-floating-action-button-size-sm);
+  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-sm);
+  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-sm);
 }
 
 .fab[data-density="lg"] {
-  --fab-size: var(--comp-floating-action-button-size-lg);
-  --fab-icon-size: var(--comp-floating-action-button-icon-size-lg);
-  --fab-padding: var(--comp-floating-action-button-padding-x-lg);
+  --comp-floating-action-button-size: var(--comp-floating-action-button-size-lg);
+  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-lg);
+  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-lg);
 }
 
 .fab[data-variant="accent"] {
@@ -4579,9 +4587,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab[data-variant="mini"] {
-  --fab-size: var(--comp-floating-action-button-mini-size);
-  --fab-icon-size: var(--comp-floating-action-button-icon-size-sm);
-  --fab-padding: 0;
+  --comp-floating-action-button-size: var(--comp-floating-action-button-mini-size);
+  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-sm);
+  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-collapsed-padding-x);
 }
 
 .fab:hover:not(:disabled) {
@@ -4591,11 +4599,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab[data-variant="accent"]:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--sys-color-success) 86%, var(--sys-color-text));
+  background: var(--comp-floating-action-button-accent-bg-hover);
 }
 
 .fab:active:not(:disabled) {
-  transform: var(--component-transform-rest-quiet);
+  transform: var(--comp-floating-action-button-active-transform);
 }
 
 .fab[data-state="hover"]:not(:disabled) {
@@ -4608,11 +4616,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab[data-extended="false"] {
-  padding: 0;
+  padding: 0 var(--comp-floating-action-button-collapsed-padding-x);
 }
 
 .fab__icon {
-  font-size: var(--fab-icon-size);
+  font-size: var(--comp-floating-action-button-icon-size);
 }
 
 .fab:focus-visible {
@@ -4626,7 +4634,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab:disabled {
-  cursor: not-allowed;
+  cursor: var(--comp-floating-action-button-disabled-cursor);
   opacity: var(--comp-floating-action-button-disabled-opacity);
 }
 
