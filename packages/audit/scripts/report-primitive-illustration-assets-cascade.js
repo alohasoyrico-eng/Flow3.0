@@ -98,6 +98,7 @@ const implementation = {
   gatesSourceAndFormat: /unapprovedSource/.test(primitive) && /unsupportedFormat/.test(primitive),
   avoidsHandDrawnSvg: !/createElementNS|polygon|path\.setAttribute|setAttribute\("d"/.test(primitive),
   cssTargetsAsset: /\.illustration-asset\b/.test(css) && /illustration-asset__image/.test(css),
+  cssUsesComponentNamespace: /--comp-illustration-asset-max-size:/.test(css) && !/--illustration-asset-max-size:/.test(css),
   cssUsesFoundations: /var\(--sys-frame-/.test(css) && /var\(--sys-energy-/.test(css) && /var\(--component-font-/.test(css),
   docsHeroUsesIllustrationSlot: /data-illustration-slot="home-hero"/.test(docsHome) && !/hero-visual__image/.test(docsHome),
   docsHydratesHeroThroughPrimitive: /hydrateHomeHeroIllustration/.test(docsApp) && /createIllustrationAsset/.test(docsHomeIllustrations),
