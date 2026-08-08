@@ -11,19 +11,24 @@ const {
 const contractsDir = path.join(root, "packages/content/content/pattern-contracts/patterns");
 const sourceDir = path.join(root, "packages/content/content/pattern-copy/patterns");
 const catalogDir = path.join(root, "packages/content/content/catalog");
-const patternTabsFile = path.join(root, "apps/docs/pattern-contract-tabs.js");
-const candidatePatternDemosFile = path.join(root, "apps/docs/pattern-candidate-demos.js");
-const patternSearchSlotFile = path.join(root, "apps/docs/search-slot.js");
-const notificationPanelSlotFile = path.join(root, "apps/docs/notification-panel-slot.js");
-const docsIndexFile = path.join(root, "apps/docs/index.html");
-const docsChromeFile = path.join(root, "apps/docs/docs-chrome.js");
-const patternFocusedDesignFile = path.join(root, "apps/docs/pattern-focused-design.js");
-const patternShellRenderersFile = path.join(root, "apps/docs/pattern-shell-renderers.js");
-const avatarMenuSlotFile = path.join(root, "apps/docs/avatar-menu-slot.js");
-const mobilePatternDemosFile = path.join(root, "apps/docs/pattern-mobile-demos.js");
-const desktopPatternDemosFile = path.join(root, "apps/docs/pattern-desktop-demos.js");
-const utilityPatternDemosFile = path.join(root, "apps/docs/pattern-utility-demos.js");
-const journeyPatternDemosFile = path.join(root, "apps/docs/pattern-journey-demos.js");
+const docsDirs = [
+  path.join(root, "apps/docs"),
+  path.join(root, "../FlowDocs/apps/docs"),
+];
+const docsFile = (fileName) => docsDirs.map((dir) => path.join(dir, fileName)).find((file) => fs.existsSync(file)) ?? path.join(docsDirs[0], fileName);
+const patternTabsFile = docsFile("pattern-contract-tabs.js");
+const candidatePatternDemosFile = docsFile("pattern-candidate-demos.js");
+const patternSearchSlotFile = docsFile("search-slot.js");
+const notificationPanelSlotFile = docsFile("notification-panel-slot.js");
+const docsIndexFile = docsFile("index.html");
+const docsChromeFile = docsFile("docs-chrome.js");
+const patternFocusedDesignFile = docsFile("pattern-focused-design.js");
+const patternShellRenderersFile = docsFile("pattern-shell-renderers.js");
+const avatarMenuSlotFile = docsFile("avatar-menu-slot.js");
+const mobilePatternDemosFile = docsFile("pattern-mobile-demos.js");
+const desktopPatternDemosFile = docsFile("pattern-desktop-demos.js");
+const utilityPatternDemosFile = docsFile("pattern-utility-demos.js");
+const journeyPatternDemosFile = docsFile("pattern-journey-demos.js");
 
 function checkPatternCatalogIds() {
   const ids = new Map();
