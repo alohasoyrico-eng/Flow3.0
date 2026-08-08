@@ -46,11 +46,12 @@ export const List = forwardRef(function List({
     },
     items.map((item, index) => {
       const key = String(item.key ?? item.label ?? index);
+      const hasStableKey = item.key !== undefined && item.key !== null && item.key !== "";
       const isSelected = currentSelectedKey === key;
       const rowState = normalizeFlowValue(isSelected ? "selected" : item.state ?? resolvedState, validStates, resolvedState);
       const rowTone = normalizeFlowValue(item.tone ?? (rowState === "error" ? "danger" : ""), validItemTones, "");
       const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
-      const itemCanInteract = isInteractive && Boolean(item.label || item.meta || item.value);
+      const itemCanInteract = isInteractive && hasStableKey && Boolean(item.label || item.meta || item.value);
       const Control = itemCanInteract ? "button" : "span";
       return React.createElement(
         "li",

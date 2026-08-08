@@ -613,6 +613,13 @@ const unnamedActionListMarkup = renderToStaticMarkup(React.createElement(List, {
 }));
 assert.doesNotMatch(unnamedActionListMarkup, /<button/);
 assert.doesNotMatch(unnamedActionListMarkup, /data-key="empty-action"/);
+const unstableActionListMarkup = renderToStaticMarkup(React.createElement(List, {
+  variant: "action",
+  items: [{ label: "Documents" }],
+  onSelect: () => {},
+}));
+assert.doesNotMatch(unstableActionListMarkup, /<button/);
+assert.doesNotMatch(unstableActionListMarkup, /data-key="Documents"/);
 
 const kpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
   label: "Fuel spend",
