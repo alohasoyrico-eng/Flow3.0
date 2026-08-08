@@ -38,7 +38,7 @@ export const Combobox = forwardRef(function Combobox({
   value,
   name = "",
   placeholder = "",
-  emptyText = "",
+  emptyText,
   disabled = false,
   density,
   state,
@@ -221,7 +221,7 @@ export const Combobox = forwardRef(function Combobox({
             option.meta ? React.createElement("span", { className: "select-control__option-code combobox__option-meta" }, option.meta) : null,
           );
         }),
-        React.createElement("span", { className: "combobox__empty", "data-combobox-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText),
+        emptyText ? React.createElement("span", { className: "combobox__empty", "data-combobox-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null,
       ),
     ),
     helper ? React.createElement("span", { className: "field__helper", id: `${comboboxId}-helper` }, helper) : null,
