@@ -10134,7 +10134,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-position: relative;
   --comp-segmented-control-item-min-block-sm: var(--sys-space-9);
   --comp-segmented-control-item-min-block-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
-  --comp-segmented-control-item-min-block: var(--component-control-min-size);
+  --comp-segmented-control-item-min-block: var(--component-inline-trigger-min-block-size-md);
   --comp-segmented-control-item-padding-inline: var(--sys-space-md);
   --comp-segmented-control-icon-size: var(--component-icon-size-sm);
   --comp-segmented-control-bg: var(--sys-color-surface);

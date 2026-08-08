@@ -60,6 +60,10 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
   if (localInlineSize) {
     add("errors", packageCssFile, lineNumber(text, localInlineSize.index), "SegmentedControl inline size must flow through shared frame/content roles instead of local control-size math.");
   }
+  const localItemSize = /--comp-segmented-control-item-min-block:\s*var\(--component-control-min-size\)/.exec(text);
+  if (localItemSize) {
+    add("errors", packageCssFile, lineNumber(text, localItemSize.index), "SegmentedControl item target must consume inline trigger roles instead of the generic control min size.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -72,6 +76,7 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
       "--comp-segmented-control-indicator-selected-transform: var(--component-transform-scale-rest)",
       "--comp-segmented-control-item-align: center",
       "--comp-segmented-control-item-display: inline-flex",
+      "--comp-segmented-control-item-min-block: var(--component-inline-trigger-min-block-size-md)",
       "--comp-segmented-control-icon-selected-variation: var(--sys-icon-variation-filled-strong)",
       "--comp-segmented-control-inline-size: min(100%, var(--component-segmented-control-inline-size))",
       "--comp-segmented-control-visually-hidden-size: var(--component-visually-hidden-size)",
