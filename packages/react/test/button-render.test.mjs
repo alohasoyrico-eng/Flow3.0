@@ -1315,6 +1315,7 @@ const chipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   removable: true,
   icon: "filter_alt",
   onRemoveLabel: "Remove Active",
+  onRemove: () => {},
 }));
 assert.match(chipMarkup, /^<button/);
 assert.match(chipMarkup, /class="chip"/);
@@ -1328,6 +1329,13 @@ assert.match(chipMarkup, /aria-label="Remove Active"/);
 assert.match(chipMarkup, /class="chip__icon"/);
 assert.match(chipMarkup, /class="chip__label">Active<\/span>/);
 assert.match(chipMarkup, /class="chip__remove"/);
+const visualSelectedChipMarkup = renderToStaticMarkup(React.createElement(Chip, {
+  label: "Selected only",
+  selected: true,
+}));
+assert.match(visualSelectedChipMarkup, /^<span/);
+assert.match(visualSelectedChipMarkup, /data-state="selected"/);
+assert.doesNotMatch(visualSelectedChipMarkup, /aria-pressed/);
 const unnamedRemoveChipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Active",
   removable: true,
@@ -1336,6 +1344,13 @@ assert.doesNotMatch(unnamedRemoveChipMarkup, /Remove Active|Remove chip/);
 assert.match(unnamedRemoveChipMarkup, /^<span/);
 assert.doesNotMatch(unnamedRemoveChipMarkup, /data-chip-remove="true"/);
 assert.doesNotMatch(unnamedRemoveChipMarkup, /class="chip__remove"/);
+const inertRemoveChipMarkup = renderToStaticMarkup(React.createElement(Chip, {
+  label: "Active",
+  removable: true,
+  onRemoveLabel: "Remove Active",
+}));
+assert.match(inertRemoveChipMarkup, /^<span/);
+assert.doesNotMatch(inertRemoveChipMarkup, /data-chip-remove="true"|class="chip__remove"|aria-label="Remove Active"/);
 
 const staticChipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Suggested",

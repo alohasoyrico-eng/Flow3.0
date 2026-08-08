@@ -5,6 +5,7 @@ import { flowToneProps, flowStateProps, flowVariantProps, flowRestProps } from "
 const validVariants = new Set(["filter", "input", "suggestion", "assist"]);
 const validTones = new Set(["default", "danger", "warning"]);
 const validStates = new Set(["default", "hover", "pressed", "selected", "focus", "disabled"]);
+const validTypes = new Set(["button", "submit", "reset"]);
 
 function normalizeVariant(variant) {
   return validVariants.has(variant) ? variant : "filter";
@@ -42,8 +43,10 @@ export const Chip = forwardRef(function Chip({
   const resolvedTone = normalizeTone(tone);
   const isSelected = Boolean(selected) || state === "selected";
   const resolvedState = normalizeState({ disabled, selected: isSelected, state });
-  const canRemove = Boolean(removable && onRemoveLabel);
-  const isInteractive = Boolean(interactive) || isSelected || canRemove || typeof onSelectedChange === "function";
+  const canRemove = Boolean(removable && onRemoveLabel && onRemove);
+  const resolvedType = validTypes.has(type) ? type : "button";
+  const canInteract = Boolean(rest.onClick || canRemove || typeof onSelectedChange === "function" || resolvedType === "submit" || resolvedType === "reset");
+  const isInteractive = (Boolean(interactive) || isSelected || canRemove || typeof onSelectedChange === "function") && canInteract;
   const element = isInteractive ? "button" : "span";
 
   if (!label) return null;
@@ -66,7 +69,7 @@ export const Chip = forwardRef(function Chip({
       ...flowRestProps(rest),
       ref,
       className: ["chip", className].filter(Boolean).join(" "),
-      type: isInteractive ? type : undefined,
+      type: isInteractive ? resolvedType : undefined,
       disabled: isInteractive ? resolvedState === "disabled" : undefined,
       onClick: isInteractive ? handleClick : rest.onClick,
       "aria-label": canRemove ? onRemoveLabel : rest["aria-label"],
