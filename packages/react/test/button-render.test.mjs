@@ -404,6 +404,7 @@ assert.match(cardSummaryMarkup, /data-variant="limit"/);
 assert.match(cardSummaryMarkup, /data-state="frozen"/);
 assert.match(cardSummaryMarkup, /data-density="sm"/);
 assert.match(cardSummaryMarkup, /data-full-width="true"/);
+assert.doesNotMatch(cardSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /tabIndex=/);
 assert.match(cardSummaryMarkup, /class="badge/);
 assert.match(cardSummaryMarkup, /class="card-summary__number">\*\*\*\* 4821<\/span>/);
 assert.match(cardSummaryMarkup, /class="card-summary__expires">12\/28<\/span>/);
@@ -416,6 +417,12 @@ const inheritedCardSummaryMarkup = renderToStaticMarkup(React.createElement(Card
 }));
 assert.doesNotMatch(inheritedCardSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedCardSummaryMarkup, /class="badge/);
+
+const explicitlyFocusableCardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
+  label: "Focusable by product",
+  tabIndex: 0,
+}));
+assert.match(explicitlyFocusableCardSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /tabindex="0"/);
 
 const incompleteMetricCardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
   label: "Fleet",

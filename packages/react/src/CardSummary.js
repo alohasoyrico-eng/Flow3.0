@@ -49,7 +49,7 @@ export const CardSummary = forwardRef(function CardSummary({
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
-      tabIndex: ["hover", "focus", "active"].includes(resolvedState) ? 0 : rest.tabIndex,
+      tabIndex: rest.tabIndex,
     },
     React.createElement(
       "header",
