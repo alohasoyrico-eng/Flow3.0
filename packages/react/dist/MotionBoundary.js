@@ -18,7 +18,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   state = "active",
   icon = "transition_slide",
   reducedMotion = false,
-  stateLabel = "",
+  stateLabel,
   className = "",
   ...rest
 }, ref) {
@@ -29,7 +29,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   const isReducedMotion = Boolean(reducedMotion || resolvedState === "reduced-motion");
   if (!label) return null;
   const resolvedDescription = description || "";
-  const resolvedStateLabel = stateLabel || "";
+  const resolvedStateLabel = stateLabel;
   const describedBy = [resolvedDescription ? `${id}-description` : "", resolvedStateLabel ? `${id}-state` : ""].filter(Boolean).join(" ") || undefined;
 
   return React.createElement(
