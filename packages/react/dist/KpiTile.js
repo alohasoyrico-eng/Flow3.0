@@ -45,8 +45,8 @@ export const KpiTile = forwardRef(function KpiTile({
   const resolvedDensity = normalizeFlowDensity(density);
   const hasValue = value !== undefined && value !== null && value !== "";
   const sparklineValues = Array.isArray(values) ? values : [];
-  const requestedInteraction = Boolean(href || onSelect || resolvedVariant === "drill-in");
-  const canActivateTile = Boolean(href || onSelect);
+  const requestedInteraction = Boolean(href || onSelect || rest.onClick || resolvedVariant === "drill-in");
+  const canActivateTile = Boolean(href || onSelect || rest.onClick);
   const selectMeta = { label, value, delta, tone: resolvedTone, variant: resolvedVariant };
   const accessibleLabel = requestedInteraction && label ? `${label} ${value}${delta ? `, ${delta}` : ""}`.trim() : undefined;
   const interactive = requestedInteraction && canActivateTile && Boolean(label);
@@ -75,9 +75,13 @@ export const KpiTile = forwardRef(function KpiTile({
           event.preventDefault();
           return;
         }
+        rest.onClick?.(event);
+        if (event.defaultPrevented) return;
         if (interactive) onSelect?.(selectMeta);
       },
       onKeyDown: (event) => {
+        rest.onKeyDown?.(event);
+        if (event.defaultPrevented) return;
         if (!interactive || href || disabled || loading) return;
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();

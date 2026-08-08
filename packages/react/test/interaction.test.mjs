@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -1009,6 +1009,23 @@ try {
   assert.equal(routeActions[0][1].label, "Assign");
   assert.equal(routeActions[0][2].type, "click");
   assert.deepEqual(routeClicks, ["click"]);
+
+  cleanup();
+
+  const kpiClicks = [];
+  const kpiSelections = [];
+  const { getByRole: getKpiRole } = render(React.createElement(KpiTile, {
+    label: "Cards at risk",
+    value: "18",
+    variant: "drill-in",
+    onClick: (event) => kpiClicks.push(event.type),
+    onSelect: (meta) => kpiSelections.push(meta),
+  }));
+
+  const kpiTile = getKpiRole("button", { name: /cards at risk 18/i });
+  fireEvent.click(kpiTile);
+  assert.deepEqual(kpiClicks, ["click"]);
+  assert.deepEqual(kpiSelections, [{ label: "Cards at risk", value: "18", delta: "", tone: "neutral", variant: "drill-in" }]);
 
   cleanup();
 
