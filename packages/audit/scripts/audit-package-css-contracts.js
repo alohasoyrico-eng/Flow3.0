@@ -193,9 +193,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc)\([^;]*--sys-frame-padding-control[^;]*;/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-padding-control instead of reaching into sys frame padding directly.");
   }
-  for (const match of text.matchAll(/--comp-[\w-]+:\s*var\(--sys-frame-space-none\);/g)) {
-    add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-space-none instead of reaching into sys frame spacing directly.");
-  }
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*var\(--sys-frame-space-none\);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-space-none instead of reaching into sys frame spacing directly.");
   for (const match of text.matchAll(/--comp-[\w-]+:\s*var\(--sys-frame-gap-subsection\);/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-gap-subsection instead of reaching into sys frame gap directly.");
   }
@@ -215,6 +213,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*cursor[\w-]*:\s*(?:pointer|default|not-allowed|grab|grabbing|progress);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component cursor aliases must consume --component-cursor-* instead of hardcoding cursor keywords.");
   for (const match of text.matchAll(/--comp-[\w-]*(?:position|overflow|white-space|isolation)[\w-]*:\s*(?:relative|absolute|hidden|nowrap|isolate);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component layout-state aliases must consume semantic component layout-state aliases instead of hardcoding position, overflow, whitespace, or isolation keywords.");
   for (const match of text.matchAll(/--comp-[\w-]*(?:align|justify|text-align|justify-self|justify-items)[\w-]*:\s*(?:center|start|end|stretch|space-between|flex-end);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component alignment aliases must consume semantic component alignment aliases instead of hardcoding alignment keywords.");
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:inherit|cover|wrap|ellipsis|anywhere|normal);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component content behavior aliases must consume semantic component content aliases instead of hardcoding keywords.");
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });

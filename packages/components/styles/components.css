@@ -86,6 +86,13 @@
   --component-justify-items-center: center;
   --component-text-align-center: center;
   --component-text-align-start: start;
+  --component-font-family-inherit: inherit;
+  --component-radius-inherit: inherit;
+  --component-object-fit-cover: cover;
+  --component-flex-wrap-wrap: wrap;
+  --component-text-overflow-ellipsis: ellipsis;
+  --component-overflow-wrap-anywhere: anywhere;
+  --component-font-style-normal: normal;
   --component-content-size-xs: calc(var(--component-control-min-size) * 4);
   --component-content-size-sm: calc(var(--component-control-min-size) * 6);
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
@@ -2760,7 +2767,7 @@ button.tag:disabled,
   --comp-tabs-tab-fg: var(--sys-color-text-muted);
   --comp-tabs-tab-cursor: var(--component-cursor-pointer);
   --comp-tabs-tab-display: var(--component-display-inline-flex);
-  --comp-tabs-tab-font: inherit;
+  --comp-tabs-tab-font: var(--component-font-family-inherit);
   --comp-tabs-tab-font-size: var(--component-font-size-label);
   --comp-tabs-tab-font-weight: var(--sys-voice-weight-semibold);
   --comp-tabs-tab-gap: var(--sys-space-xs);
@@ -3562,7 +3569,7 @@ button.tag:disabled,
   --comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-md);
   --comp-accordion-trigger-padding-inline: var(--sys-space-md);
   --comp-accordion-trigger-gap: var(--sys-space-sm);
-  --comp-accordion-trigger-font-family: inherit;
+  --comp-accordion-trigger-font-family: var(--component-font-family-inherit);
   --comp-accordion-trigger-font-weight: var(--sys-voice-weight-bold);
   --comp-accordion-panel-padding-block-start: calc(var(--sys-space-xs) / 2);
   --comp-accordion-panel-padding-block-end: var(--sys-space-md);
@@ -3933,9 +3940,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-motion-press-duration: var(--component-duration-press);
   --comp-avatar-motion-ease: var(--component-ease-state);
   --comp-avatar-motion-press-ease: var(--component-ease-press);
-  --comp-avatar-img-radius: inherit;
+  --comp-avatar-img-radius: var(--component-radius-inherit);
   --comp-avatar-img-size: var(--component-size-full);
-  --comp-avatar-img-fit: cover;
+  --comp-avatar-img-fit: var(--component-object-fit-cover);
   --comp-avatar-status-bg: var(--sys-color-success);
   --comp-avatar-status-size: max(var(--sys-space-sm), calc(var(--comp-avatar-size) * 0.26));
   --comp-avatar-status-border-width: var(--component-border-width-medium);
@@ -4719,7 +4726,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-list-margin: var(--component-frame-space-none);
   --comp-breadcrumbs-list-padding: var(--component-frame-space-none);
   --comp-breadcrumbs-list-style: var(--component-list-style-none);
-  --comp-breadcrumbs-list-wrap: wrap;
+  --comp-breadcrumbs-list-wrap: var(--component-flex-wrap-wrap);
   --comp-breadcrumbs-item-align: var(--component-align-center);
   --comp-breadcrumbs-item-display: var(--component-display-inline-flex);
   --comp-breadcrumbs-item-gap: var(--sys-space-xs);
@@ -4896,7 +4903,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-motion-ease: var(--component-ease-state);
   --comp-pagination-motion-enter: var(--component-ease-enter);
   --comp-pagination-press-transform: var(--component-transform-press);
-  --comp-pagination-wrap: wrap;
+  --comp-pagination-wrap: var(--component-flex-wrap-wrap);
   --comp-pagination-width: var(--component-inline-size-fit-content);
   --comp-pagination-full-width: var(--component-inline-size-full);
   align-items: var(--comp-pagination-align);
@@ -5042,7 +5049,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-meta-display: var(--component-display-flex);
   --comp-audit-event-meta-gap-block: var(--sys-space-xs);
   --comp-audit-event-meta-gap-inline: var(--sys-space-sm);
-  --comp-audit-event-meta-wrap: wrap;
+  --comp-audit-event-meta-wrap: var(--component-flex-wrap-wrap);
   --comp-audit-event-radius: var(--sys-radius-md);
   --comp-audit-event-status-align: var(--component-align-center);
   --comp-audit-event-status-border: color-mix(in srgb, var(--comp-audit-event-tone) 28%, var(--sys-color-border));
@@ -5061,7 +5068,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-status-padding-block: var(--component-frame-space-micro);
   --comp-audit-event-status-padding-inline: var(--sys-space-sm);
   --comp-audit-event-status-size: var(--component-font-size-caption);
-  --comp-audit-event-status-style: normal;
+  --comp-audit-event-status-style: var(--component-font-style-normal);
   --comp-audit-event-status-weight: var(--sys-voice-weight-extrabold);
   --comp-audit-event-time-white-space: var(--component-white-space-nowrap);
   --comp-audit-event-width: min(100%, var(--component-content-size-lg));
@@ -5972,7 +5979,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-padding-x: var(--sys-space-sm);
   --comp-menu-item-radius: var(--sys-radius-sm);
   --comp-menu-item-gap: var(--sys-space-xs);
-  --comp-menu-item-font-family: inherit;
+  --comp-menu-item-font-family: var(--component-font-family-inherit);
   --comp-menu-item-font-size: var(--component-font-size-label);
   --comp-menu-item-font-weight: var(--sys-font-weight-semibold);
   --comp-menu-item-icon-size: var(--component-icon-size-sm);
@@ -10264,7 +10271,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-content-z: var(--sys-depth-z-raised);
   --comp-segmented-control-icon-line-height: var(--sys-voice-line-height-none);
   --comp-segmented-control-label-overflow: var(--component-overflow-hidden);
-  --comp-segmented-control-label-text-overflow: ellipsis;
+  --comp-segmented-control-label-text-overflow: var(--component-text-overflow-ellipsis);
   --comp-segmented-control-label-white-space: var(--component-white-space-nowrap);
   --comp-segmented-control-focus-width: var(--component-focus-ring-width);
   --comp-segmented-control-focus-color: var(--sys-color-focus);
@@ -11044,7 +11051,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-label-display: var(--component-display-block);
   --comp-quick-action-label-weight: var(--sys-voice-weight-extrabold);
   --comp-quick-action-label-line-height: var(--sys-voice-line-height-tight);
-  --comp-quick-action-label-overflow-wrap: anywhere;
+  --comp-quick-action-label-overflow-wrap: var(--component-overflow-wrap-anywhere);
   --comp-quick-action-motion-duration: var(--component-duration-state);
   --comp-quick-action-motion-ease: var(--component-ease-state);
   --comp-quick-action-motion-press: var(--component-ease-press);
