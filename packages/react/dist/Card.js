@@ -69,7 +69,7 @@ export const Card = forwardRef(function Card({
   disabled = false,
   loading = false,
   actionKey,
-  actions = [],
+  actions,
   onAction,
   className = "",
   ...rest
@@ -79,7 +79,8 @@ export const Card = forwardRef(function Card({
   const resolvedState = resolveState({ disabled, loading, selected, state });
   const hasStableActionKey = actionKey !== undefined && actionKey !== null && actionKey !== "";
   const resolvedActionKey = hasStableActionKey ? actionKey : "";
-  const validActions = Array.isArray(actions) ? actions.filter(isValidCardAction) : [];
+  const sourceActions = Array.isArray(actions) ? actions : [];
+  const validActions = sourceActions.filter(isValidCardAction);
   const hasActions = validActions.length > 0;
   const hasInteractiveContent = Boolean(title || value || detail || status || mediaAlt);
   const requestedInteraction = Boolean(interactive || resolvedState === "interactive" || onAction || rest.onClick);
