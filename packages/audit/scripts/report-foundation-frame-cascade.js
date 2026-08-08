@@ -226,7 +226,7 @@ function findGeometryDeclarations(file, source, customProperties) {
     const isResetList = value.split(/\s+/).every((part) => /^(?:0|auto|-?\d*\.?\d+%)$/.test(part));
     const isKeywordGeometry = /^(?:inherit|initial|unset|revert)$/i.test(value);
     const isRelativeValue = /^-?\d*\.?\d+%$/.test(value);
-    const isDataGeometry = /var\(--(?:progress-value|chart-value|chart-tooltip-[xy])(?:,|\))/.test(value);
+    const isDataGeometry = /var\(--(?:progress-value|chart-value|comp-chart-panel-tooltip-[xy])(?:,|\))/.test(value);
     const isResetFallback = /var\(--[a-z0-9-]+,\s*(?:0|auto|none)\s*\)/.test(value);
     const isReadableMeasure = property === "max-inline-size" && /^(?:\d+(?:\.\d+)?ch|min\(\d+(?:\.\d+)?ch,\s*100%\))$/.test(value);
     const isSemanticFrame = /var\(--sys-frame-|var\(--frame-|var\(--density-|var\(--sys-density-|var\(--sys-space-|var\(--sys-radius-|var\(--(?:comp|component|pattern)-/.test(value);

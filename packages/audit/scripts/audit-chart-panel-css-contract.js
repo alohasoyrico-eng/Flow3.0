@@ -25,6 +25,12 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
   const headerTitleBlock = blockFor(blocks, selectorKey, ".chart-panel header strong");
   const plotBlock = blockFor(blocks, selectorKey, ".chart-panel__plot");
   const echartsBlock = blockFor(blocks, selectorKey, ".chart-panel__echarts");
+  const seriesTwoStrokeBlock = blockFor(blocks, selectorKey, ".chart-panel__line[data-series=\"2\"],.chart-panel__dot[data-series=\"2\"]");
+  const seriesThreeStrokeBlock = blockFor(blocks, selectorKey, ".chart-panel__line[data-series=\"3\"],.chart-panel__dot[data-series=\"3\"]");
+  const seriesTwoFillBlock = blockFor(blocks, selectorKey, ".chart-panel__dot[data-series=\"2\"]");
+  const seriesThreeFillBlock = blockFor(blocks, selectorKey, ".chart-panel__dot[data-series=\"3\"]");
+  const donutBlock = blockFor(blocks, selectorKey, ".chart-panel__donut");
+  const tooltipBlock = blockFor(blocks, selectorKey, ".chart-panel__tooltip");
 
   if (!source.includes("createChartsPrimitive") || !source.includes("data-chart-engine") || !source.includes("echartsOption")) {
     add("errors", sourceFile, 1, "ChartPanel must use the charts primitive and expose its ECharts option contract.");
@@ -37,6 +43,9 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
   }
   if (/\.chart-panel header strong,\s*\.card-summary header strong\s*{/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".chart-panel header strong")), "ChartPanel title voice must not share a generic title block with CardSummary.");
+  }
+  if (text.includes("--chart-")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--chart-")), "ChartPanel must not use short --chart-* runtime aliases; use --comp-chart-panel-* aliases while consuming --sys-chart-* foundation tokens.");
   }
 
   requireIncludes({
@@ -54,6 +63,10 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
       "--comp-chart-panel-radius:",
       "--comp-chart-panel-width:",
       "--comp-chart-panel-plot-size:",
+      "--comp-chart-panel-donut-bg:",
+      "--comp-chart-panel-series-1: var(--sys-chart-series-primary)",
+      "--comp-chart-panel-series-2: var(--sys-chart-series-secondary)",
+      "--comp-chart-panel-series-5: var(--sys-chart-series-tertiary)",
       "background: var(--comp-chart-panel-bg)",
       "border: var(--comp-chart-panel-border-width) solid var(--comp-chart-panel-border)",
       "border-radius: var(--comp-chart-panel-radius)",
@@ -144,6 +157,16 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
     snippets: ["block-size: var(--comp-chart-panel-plot-size)", "inline-size: 100%"],
     message: "ChartPanel ECharts host must consume chart plot aliases.",
   });
+  for (const [block, snippets, message] of [
+    [seriesTwoStrokeBlock, ["stroke: var(--comp-chart-panel-series-2)"], "ChartPanel second series stroke must consume component-scoped series alias."],
+    [seriesThreeStrokeBlock, ["stroke: var(--comp-chart-panel-series-5)"], "ChartPanel third series stroke must consume component-scoped series alias."],
+    [seriesTwoFillBlock, ["fill: var(--comp-chart-panel-series-2)"], "ChartPanel second series fill must consume component-scoped series alias."],
+    [seriesThreeFillBlock, ["fill: var(--comp-chart-panel-series-5)"], "ChartPanel third series fill must consume component-scoped series alias."],
+    [donutBlock, ["background: var(--comp-chart-panel-donut-bg)"], "ChartPanel donut must consume component-scoped donut background alias."],
+    [tooltipBlock, ["inset-block-start: var(--comp-chart-panel-tooltip-y, 0)", "inset-inline-start: var(--comp-chart-panel-tooltip-x, 50%)"], "ChartPanel tooltip coordinates must use component-scoped runtime aliases."],
+  ]) {
+    requireIncludes({ block, text, packageCssFile, snippets, message });
+  }
 }
 
 module.exports = { checkChartPanelCssContract };

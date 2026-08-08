@@ -7916,12 +7916,12 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-plot-size-base: var(--component-block-size-md);
   --comp-chart-panel-plot-density-offset: 0px;
   --comp-chart-panel-plot-size: calc(var(--comp-chart-panel-plot-size-base) + var(--comp-chart-panel-plot-density-offset));
-  --chart-donut: color-mix(in srgb, var(--sys-color-action) 10%, transparent);
-  --chart-segment-1: var(--sys-chart-series-primary);
-  --chart-segment-2: var(--sys-chart-series-secondary);
-  --chart-segment-3: var(--sys-chart-series-quaternary);
-  --chart-segment-4: color-mix(in srgb, var(--sys-chart-series-primary) 54%, var(--sys-chart-series-secondary));
-  --chart-segment-5: var(--sys-chart-series-tertiary);
+  --comp-chart-panel-donut-bg: color-mix(in srgb, var(--sys-color-action) 10%, transparent);
+  --comp-chart-panel-series-1: var(--sys-chart-series-primary);
+  --comp-chart-panel-series-2: var(--sys-chart-series-secondary);
+  --comp-chart-panel-series-3: var(--sys-chart-series-quaternary);
+  --comp-chart-panel-series-4: color-mix(in srgb, var(--sys-chart-series-primary) 54%, var(--sys-chart-series-secondary));
+  --comp-chart-panel-series-5: var(--sys-chart-series-tertiary);
   background: var(--comp-chart-panel-bg);
   border: var(--comp-chart-panel-border-width) solid var(--comp-chart-panel-border);
   border-radius: var(--comp-chart-panel-radius);
@@ -8379,12 +8379,12 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__line[data-series="2"],
 .chart-panel__dot[data-series="2"] {
-  stroke: var(--chart-segment-2);
+  stroke: var(--comp-chart-panel-series-2);
 }
 
 .chart-panel__line[data-series="3"],
 .chart-panel__dot[data-series="3"] {
-  stroke: var(--chart-segment-5);
+  stroke: var(--comp-chart-panel-series-5);
 }
 
 .chart-panel__dot {
@@ -8401,11 +8401,11 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__dot[data-series="2"] {
-  fill: var(--chart-segment-2);
+  fill: var(--comp-chart-panel-series-2);
 }
 
 .chart-panel__dot[data-series="3"] {
-  fill: var(--chart-segment-5);
+  fill: var(--comp-chart-panel-series-5);
 }
 
 .chart-panel[data-variant="compact"] {
@@ -8421,7 +8421,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__donut {
   align-items: center;
-  background: var(--chart-donut);
+  background: var(--comp-chart-panel-donut-bg);
   border-radius: var(--sys-radius-pill);
   block-size: min(calc(var(--sys-space-32) + var(--sys-space-4)), var(--comp-chart-panel-plot-size));
   display: inline-grid;
@@ -8689,8 +8689,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   font-size: var(--component-font-size-caption);
   font-weight: var(--sys-voice-weight-bold);
   inline-size: max-content;
-  inset-block-start: var(--chart-tooltip-y, 0);
-  inset-inline-start: var(--chart-tooltip-x, 50%);
+  inset-block-start: var(--comp-chart-panel-tooltip-y, 0);
+  inset-inline-start: var(--comp-chart-panel-tooltip-x, 50%);
   line-height: var(--component-line-height-snug);
   max-inline-size: min(var(--component-content-size-sm), 92%);
   opacity: 0;
