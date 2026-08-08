@@ -1,5 +1,7 @@
 function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Select" && /options\.find\(\(option\) => !option\.disabled\)/.test(source)) add("errors", sourceFile, 1, "Select must not auto-select the first enabled option; selected value belongs to product code or user interaction.");
+  if (name === "Select" && /option\.value\s*\?\?\s*option\.label|option\.label\s*\?\?\s*option\.value|key:\s*optionValue\s*\|\|\s*index|\{ label:\s*value,\s*value \}/.test(source)) add("errors", sourceFile, 1, "Select must not synthesize option values, labels, or keys from fallbacks.");
+  if (name === "Select" && !source.includes("const normalizedOptions = normalizeOptions(options);")) add("errors", sourceFile, 1, "Select must normalize options before composing choices.");
   if (["CardSummary", "RouteSummary"].includes(name) && /metric\?\.(?:label|value)\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, `${name} metrics must not render empty text nodes; filter incomplete metrics before rendering.`);
   if (name === "CardSummary" && !source.includes("const visibleMetrics = metrics.filter((metric) => metric?.key && metric?.label && metric?.value);")) add("errors", sourceFile, 1, "CardSummary metrics must require stable keys, labels, and values before rendering.");
   if (name === "CardSummary" && /metric\.key\s*\?\?\s*`\$\{metric\.label\}-\$\{index\}`/.test(source)) add("errors", sourceFile, 1, "CardSummary must not synthesize metric keys from labels or indexes.");

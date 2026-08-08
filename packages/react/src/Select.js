@@ -4,8 +4,13 @@ import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/prop
 
 function selectedOptionFor(options, value) {
   if (!value) return null;
-  return options.find((option) => (option.value ?? option.label ?? "") === value)
-    ?? { label: value, value };
+  return options.find((option) => option.value === value) ?? null;
+}
+
+function normalizeOptions(options) {
+  return (Array.isArray(options) ? options : []).filter((option) => (
+    option?.label && option.value !== undefined && option.value !== null && option.value !== ""
+  ));
 }
 
 export const Select = forwardRef(function Select({
@@ -27,25 +32,26 @@ export const Select = forwardRef(function Select({
 }, ref) {
   const generatedId = useId();
   const selectId = id ?? `select-${generatedId}`;
+  const normalizedOptions = normalizeOptions(options);
   const isValueControlled = value !== undefined;
   const [currentValue, setCurrentValue] = useState(value ?? "");
   const [open, setOpen] = useState(state === "open");
-  const selectedOption = selectedOptionFor(options, currentValue);
-  const selectedValue = selectedOption ? selectedOption.value ?? selectedOption.label ?? "" : "";
-  const selectedLabel = selectedOption ? selectedOption.label ?? selectedOption.value ?? "" : "";
+  const selectedOption = selectedOptionFor(normalizedOptions, currentValue);
+  const selectedValue = selectedOption ? selectedOption.value : "";
+  const selectedLabel = selectedOption ? selectedOption.label : "";
   const isOpen = open;
   const resolvedState = disabled ? "disabled" : state || "default";
-  const activeIndex = Math.max(options.indexOf(selectedOption), 0);
+  const activeIndex = Math.max(normalizedOptions.indexOf(selectedOption), 0);
   useEffect(() => {
     if (isValueControlled) setCurrentValue(value ?? "");
   }, [isValueControlled, value]);
 
   const commitOption = (option) => {
     if (option.disabled) return;
-    const optionValue = option.value ?? option.label ?? "";
+    const optionValue = option.value;
     if (!isValueControlled) setCurrentValue(optionValue);
     setOpen(false);
-    onValueChange?.(optionValue, { label: option.label ?? "", meta: option.meta ?? "" });
+    onValueChange?.(optionValue, { label: option.label, meta: option.meta ?? "" });
   };
 
   return React.createElement(
@@ -112,13 +118,13 @@ export const Select = forwardRef(function Select({
           "aria-label": optionsLabel,
           "aria-labelledby": optionsLabel ? undefined : label ? `${selectId}-label` : undefined,
         },
-        options.map((option, index) => {
-          const optionValue = option.value ?? option.label ?? "";
+        normalizedOptions.map((option, index) => {
+          const optionValue = option.value;
           const isSelected = optionValue === selectedValue;
           return React.createElement(
             "span",
             {
-              key: optionValue || index,
+              key: optionValue,
               id: `${selectId}-option-${index}`,
               className: "select-control__option",
               role: "option",
@@ -128,7 +134,7 @@ export const Select = forwardRef(function Select({
               "data-select-option": "",
               "data-selected": String(isSelected),
               "data-value": optionValue,
-              "data-label": option.label ?? option.value ?? "",
+              "data-label": option.label,
               "data-meta": option.meta || undefined,
               "data-disabled": option.disabled ? "true" : undefined,
               onClick: option.disabled ? undefined : () => commitOption(option),
@@ -144,7 +150,7 @@ export const Select = forwardRef(function Select({
                 }
               },
             },
-            React.createElement("span", { className: "select-control__option-label" }, option.label ?? option.value ?? ""),
+            React.createElement("span", { className: "select-control__option-label" }, option.label),
             option.meta ? React.createElement("span", { className: "select-control__option-code" }, option.meta) : null,
           );
         }),

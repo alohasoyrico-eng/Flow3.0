@@ -208,6 +208,7 @@ export const componentContracts = {
     accessibility: [
       "Keep the visible label associated with the select.",
       "Use helper text for context, not as the only label.",
+      "Require option label and value before composing choices.",
       "Represent unavailable choices with disabled options.",
       "Open with Enter, Space, ArrowDown, or ArrowUp and move through enabled options with arrow keys.",
       "Use the inline variant only when Select is embedded inside another field surface."
