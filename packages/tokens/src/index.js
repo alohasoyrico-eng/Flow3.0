@@ -288,6 +288,8 @@ export const systemTokens = {
       contentDrawerSm: "var(--sys-frame-content-drawer-sm)",
       contentDrawerMd: "var(--sys-frame-content-drawer-md)",
       contentDrawerLg: "var(--sys-frame-content-drawer-lg)",
+      contentDatePanel: "var(--sys-frame-content-date-panel)",
+      contentDateRangePanel: "var(--sys-frame-content-date-range-panel)",
       contentMenuMinSm: "var(--sys-frame-content-menu-min-sm)",
       contentMenuMinMd: "var(--sys-frame-content-menu-min-md)",
       contentMenuMinLg: "var(--sys-frame-content-menu-min-lg)",

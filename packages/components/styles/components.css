@@ -34,6 +34,8 @@
   --component-drawer-panel-inline-sm: var(--sys-frame-content-drawer-sm);
   --component-drawer-panel-inline-md: var(--sys-frame-content-drawer-md);
   --component-drawer-panel-inline-lg: var(--sys-frame-content-drawer-lg);
+  --component-date-picker-panel-inline-size: var(--sys-frame-content-date-panel);
+  --component-date-range-picker-panel-inline-size: var(--sys-frame-content-date-range-panel);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -9729,6 +9731,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-date-picker-icon-size: var(--component-font-size-title-md);
   --comp-date-picker-panel-gap: var(--sys-space-xs);
   --comp-date-picker-panel-padding: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
+  --comp-date-picker-panel-inline-size: var(--component-date-picker-panel-inline-size);
   --comp-date-picker-radius: var(--component-radius-control);
   --comp-date-picker-panel-radius: var(--sys-frame-radius-surface);
 }
@@ -9844,7 +9847,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   box-shadow: var(--component-depth-date-panel);
   display: grid;
   gap: var(--comp-date-picker-panel-gap);
-  inline-size: calc(var(--component-control-min-size) * 6.5);
+  inline-size: var(--comp-date-picker-panel-inline-size);
   inset-block-start: calc(100% + var(--sys-space-sm));
   inset-inline-start: 0;
   padding: var(--comp-date-picker-panel-padding);
@@ -9969,7 +9972,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-range-picker__panel {
-  --comp-date-range-picker-panel-inline-size: calc(var(--component-control-min-size) * 7);
+  --comp-date-range-picker-panel-inline-size: var(--component-date-range-picker-panel-inline-size);
   --comp-date-range-picker-presets-gap: var(--sys-space-xs);
   --comp-date-range-picker-preset-bg: var(--sys-color-surface);
   --comp-date-range-picker-preset-border: var(--sys-color-border);

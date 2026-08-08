@@ -27,6 +27,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
     snippets: [
       "--comp-date-picker-control-size: var(--sys-density-control-height)",
       "--comp-date-picker-day-size: calc(var(--sys-density-control-height) - var(--sys-space-lg) + var(--sys-frame-space-micro))",
+      "--comp-date-picker-panel-inline-size: var(--component-date-picker-panel-inline-size)",
       "--comp-date-picker-radius: var(--component-radius-control)",
       "--comp-date-picker-panel-radius: var(--sys-frame-radius-surface)",
     ],
@@ -70,6 +71,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
     snippets: [
       "border-radius: var(--comp-date-picker-panel-radius)",
       "box-shadow: var(--component-depth-date-panel)",
+      "inline-size: var(--comp-date-picker-panel-inline-size)",
       "z-index: var(--sys-depth-z-dropdown)",
     ],
     message: "DatePicker panel must route shape and elevation through system/component tokens.",
@@ -90,7 +92,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
     text,
     packageCssFile,
     snippets: [
-      "--comp-date-range-picker-panel-inline-size: calc(var(--component-control-min-size) * 7)",
+      "--comp-date-range-picker-panel-inline-size: var(--component-date-range-picker-panel-inline-size)",
       "--comp-date-range-picker-preset-radius: var(--component-radius-pill)",
       "--comp-date-range-picker-motion-duration: var(--component-duration-state)",
     ],
@@ -120,6 +122,12 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
   });
   if (/--component-date-picker-(?:control|day)-size-md/.test(text)) {
     add("errors", packageCssFile, 1, "DatePicker must not keep md-only size aliases; base size comes from --sys-density-control-height.");
+  }
+  const rawDatePanelInline =
+    text.match(/--comp-date-range-picker-panel-inline-size:\s*calc\(var\(--component-control-min-size\) \* [0-9.]+\)/) ||
+    text.match(/\.date-picker__panel\s*{[^}]*inline-size:\s*calc\(var\(--component-control-min-size\) \* [0-9.]+\)/s);
+  if (rawDatePanelInline) {
+    add("errors", packageCssFile, lineNumber(text, rawDatePanelInline.index), "DatePicker panel inline sizes must flow through Frame date panel roles instead of local control multipliers.");
   }
 }
 
