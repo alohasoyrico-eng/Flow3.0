@@ -34,7 +34,6 @@ export const KpiTile = forwardRef(function KpiTile({
   selected = false,
   disabled = false,
   loading = false,
-  ariaLabel = "",
   onSelect,
   className = "",
   ...rest
@@ -48,8 +47,8 @@ export const KpiTile = forwardRef(function KpiTile({
   const requestedInteraction = Boolean(href || onSelect || resolvedVariant === "drill-in");
   const canActivateTile = Boolean(href || onSelect);
   const selectMeta = { label, value, delta, tone: resolvedTone, variant: resolvedVariant };
-  const accessibleLabel = ariaLabel || (requestedInteraction && (label || value || delta) ? `${label ?? ""} ${value ?? ""}${delta ? `, ${delta}` : ""}`.trim() : undefined);
-  const interactive = requestedInteraction && canActivateTile && Boolean(accessibleLabel);
+  const accessibleLabel = requestedInteraction && label ? `${label} ${value}${delta ? `, ${delta}` : ""}`.trim() : undefined;
+  const interactive = requestedInteraction && canActivateTile && Boolean(label);
   const Element = href && interactive ? "a" : "article";
 
   if (!hasValue) return null;

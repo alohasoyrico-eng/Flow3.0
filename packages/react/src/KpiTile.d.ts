@@ -30,7 +30,6 @@ export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "style" 
   selected?: boolean;
   disabled?: boolean;
   loading?: boolean;
-  ariaLabel?: string;
   onSelect?: (metric: KpiTileMeta) => void;
 }
 

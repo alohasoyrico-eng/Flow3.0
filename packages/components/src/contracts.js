@@ -972,7 +972,6 @@ export const componentContracts = {
       { name: "selected", type: "boolean", required: false },
       { name: "disabled", type: "boolean", required: false },
       { name: "loading", type: "boolean", required: false },
-      { name: "ariaLabel", type: "string", required: false },
       { name: "onSelect", type: "(metric: KpiTileMeta) => void", required: false }
     ],
     accessibility: [

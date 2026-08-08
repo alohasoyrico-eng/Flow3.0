@@ -552,7 +552,7 @@ const components = [
     exports: ["kpiTilePlatformAdapters", "kpiTilePlatformContract", "kpiTilePlatformProps"],
     requiredTokens: ["comp.kpi-tile.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.growth.*", "sys.depth.*"],
     primitives: ["color", "typography", "spacing", "radius", "elevation", "focus", "disabled", "duration", "motion-curves", "iconography", "measurement"],
-    props: ["label", "value", "delta", "trend", "tone", "icon", "variant", "state", "density", "values", "href", "selected", "disabled", "loading", "ariaLabel", "onSelect"],
+    props: ["label", "value", "delta", "trend", "tone", "icon", "variant", "state", "density", "values", "href", "selected", "disabled", "loading", "onSelect"],
     jsSnippets: ["kpiTilePlatformContract", "className: [\"kpi-tile\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', 'flowDensityProps(resolvedDensity)', "kpi-tile__label", "kpi-tile__icon", "kpi-tile__value", "kpi-tile__delta", "kpi-tile__sparkline", "kpi-tile__affordance", "onSelect"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "KpiTileProps", "KpiTileMeta", "KpiTileVariant", "KpiTileState", "KpiTileDensity", "KpiTileTone", "KpiTileTrend", "kpiTilePlatformContract"],
     packagePath: "./kpi-tile",
