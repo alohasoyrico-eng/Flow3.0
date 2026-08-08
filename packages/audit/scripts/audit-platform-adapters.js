@@ -11,12 +11,7 @@ const reactExampleFile = path.join(root, "examples/prototyping/react-button.mjs"
 const forbiddenPrefix = "fl" + "ow-";
 
 const { components } = require("./platform-adapter-components.js");
-
-function contractBodyFor(source, contractKey) {
-  if (!source) return "";
-  const match = source.match(new RegExp(`^\\s+${contractKey}:\\s*\\{([\\s\\S]*?)(?=^\\s+[a-z][A-Za-z0-9]*:\\s*\\{|\\n\\};)`, "m"));
-  return match?.[1] ?? "";
-}
+const { contractBodyFor } = require("./react-contract-shared.js");
 
 function checkPlatformAdapters() {
   const adapterIndex = read(adapterIndexFile);

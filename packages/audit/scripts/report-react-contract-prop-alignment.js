@@ -7,7 +7,13 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
-const { inheritedReactPropNames, semanticInheritedPropsFor } = require("./react-contract-shared.js");
+const {
+  contractBodyFor,
+  inheritedReactPropNames,
+  lowerFirst,
+  semanticInheritedPropsFor,
+  unionValues,
+} = require("./react-contract-shared.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -16,18 +22,10 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-contract-prop-alignment-audit.json");
 const markdownOutput = path.join(outputDir, "react-contract-prop-alignment-audit.md");
 
-function lowerFirst(value) {
-  return `${value.charAt(0).toLowerCase()}${value.slice(1)}`;
-}
-
 function propsBodyFor(types, componentName) {
   return types.match(new RegExp(`export interface ${componentName}Props[^\\{]*\\{([\\s\\S]*?)\\n\\}`))?.[1]
     ?? types.match(new RegExp(`export type ${componentName}Props\\s*=\\s*[\\s\\S]*?&\\s*\\{([\\s\\S]*?)\\n\\};`))?.[1]
     ?? "";
-}
-
-function unionValues(typeExpression) {
-  return [...String(typeExpression).replaceAll('\\"', '"').matchAll(/"([^"]+)"/g)].map((match) => match[1]);
 }
 
 function propTypeExpression(types, componentName, propName) {
@@ -44,12 +42,6 @@ function aliasUnionValues(types, aliasName) {
 function ownPropsFor(types, componentName) {
   return [...propsBodyFor(types, componentName).matchAll(/^\s*([A-Za-z][A-Za-z0-9]*)(\?)?:/gm)]
     .map((match) => ({ name: match[1], required: !match[2] }));
-}
-
-function contractBodyFor(source, contractKey) {
-  if (!source) return "";
-  const match = source.match(new RegExp(`^\\s+${contractKey}:\\s*\\{([\\s\\S]*?)(?=^\\s+[a-z][A-Za-z0-9]*:\\s*\\{|\\n\\};)`, "m"));
-  return match?.[1] ?? "";
 }
 
 function contractPropsFor(contractBody) {

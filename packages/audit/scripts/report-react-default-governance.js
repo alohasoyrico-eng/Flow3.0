@@ -7,6 +7,11 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const {
+  contractBodyFor,
+  lowerFirst,
+  unionValues,
+} = require("./react-contract-shared.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -112,20 +117,6 @@ function propTypeExpression(types, componentName, propName) {
     ?? "";
   const escapedProp = propName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   return propsBody.match(new RegExp(`^\\s*${escapedProp}\\??:\\s*([^;]+);`, "m"))?.[1]?.trim() ?? "";
-}
-
-function unionValues(typeExpression) {
-  return [...typeExpression.replaceAll('\\"', '"').matchAll(/"([^"]+)"/g)].map((match) => match[1]);
-}
-
-function lowerFirst(value) {
-  return `${value.charAt(0).toLowerCase()}${value.slice(1)}`;
-}
-
-function contractBodyFor(source, contractKey) {
-  if (!source) return "";
-  const match = source.match(new RegExp(`^\\s+${contractKey}:\\s*\\{([\\s\\S]*?)(?=^\\s+[a-z][A-Za-z0-9]*:\\s*\\{|\\n\\};)`, "m"));
-  return match?.[1] ?? "";
 }
 
 function contractPropTypeExpression(contractsSource, component, propName) {

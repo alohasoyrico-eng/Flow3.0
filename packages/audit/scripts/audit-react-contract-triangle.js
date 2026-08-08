@@ -1,5 +1,5 @@
 const { fs, path, root, read, add } = require("./audit-context.js");
-const { inheritedReactPropNames, semanticInheritedPropsFor } = require("./react-contract-shared.js");
+const { contractBodyFor, inheritedReactPropNames, semanticInheritedPropsFor } = require("./react-contract-shared.js");
 const { components } = require("./platform-adapter-components.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -35,10 +35,6 @@ function checkReactContractTriangle() {
 function ownPropsFor(types, componentName) {
   const body = types.match(new RegExp(`export interface ${componentName}Props[^\\{]*\\{([\\s\\S]*?)\\n\\}`))?.[1] ?? "";
   return [...body.matchAll(/^\s*([A-Za-z][A-Za-z0-9]*)(\?)?:/gm)].map((match) => match[1]);
-}
-
-function contractBodyFor(source, contractKey) {
-  return source.match(new RegExp(`^\\s+${contractKey}:\\s*\\{([\\s\\S]*?)(?=^\\s+[a-z][A-Za-z0-9]*:\\s*\\{|\\n\\};)`, "m"))?.[1] ?? "";
 }
 
 module.exports = { checkReactContractTriangle };
