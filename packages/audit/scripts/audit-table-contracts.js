@@ -7,15 +7,15 @@ const {
 } = require("./audit-context.js");
 
 function checkTableContracts() {
-  const tableComponentFile = path.join(root, "packages/components/src/components/commerce.js");
+  const tableComponentFile = path.join(root, "packages/react/src/Table.js");
   const tableCssFile = path.join(root, "packages/components/styles/components.css");
   const tableComponent = read(tableComponentFile);
   const tableCss = read(tableCssFile);
 
-  if (!tableComponent.includes('th.setAttribute("aria-sort", sortKey === column.key ? sortDir : "none")')) {
+  if (!tableComponent.includes('"aria-sort": canSort ? (active ? currentSort.direction : "none") : undefined')) {
     add("errors", tableComponentFile, 1, "Table sortable headers must expose aria-sort for every sortable column.");
   }
-  if (!tableComponent.includes("if (column.align) th.dataset.align = column.align") || !tableComponent.includes("if (column.align) td.dataset.align = column.align")) {
+  if (!tableComponent.includes('"data-align": normalizeFlowValue(column.align, validColumnAlignments, undefined)')) {
     add("errors", tableComponentFile, 1, "Table headers must share the same data-align contract as body cells.");
   }
   if (!/\.table__sort\s*{[^}]*inline-size:\s*100%;[^}]*}/s.test(tableCss)) {

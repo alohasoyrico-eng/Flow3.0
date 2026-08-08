@@ -291,15 +291,15 @@ function checkComponentSpecificDemoQuality(component, copy, contract) {
     }
   }
   if (component === "chip") {
-    const chipComponentFile = path.join(root, "packages/components/src/components/status.js");
+    const chipComponentFile = path.join(root, "packages/react/src/Chip.js");
     const interactionsFile = path.join(docsAppDir, "stateful-component-interactions.js");
     const chipComponent = read(chipComponentFile);
     const interactions = read(interactionsFile);
     if (chipComponent.includes('role="button"') || chipComponent.includes('tabindex="0"')) {
       add("errors", chipComponentFile, 1, "Chip remove affordance must use a native button, not role=button/tabindex shims.");
     }
-    if (!chipComponent.includes('document.createElement(interactive ? "button" : "span")') || !chipComponent.includes("dataset.chipRemove")) {
-      add("errors", chipComponentFile, 1, "Chip removable package implementation must render a native removable button with the data-chip-remove hook.");
+    if (!chipComponent.includes('const element = isInteractive ? "button" : "span";') || !chipComponent.includes('"data-chip-remove": canRemove ? "true" : undefined')) {
+      add("errors", chipComponentFile, 1, "Chip removable React implementation must render a native removable button with the data-chip-remove hook.");
     }
     if (!chipComponent.includes("onRemove") || !chipComponent.includes("onSelectedChange")) add("errors", chipComponentFile, 1, "Chip package behavior must expose remove and selected-change callbacks.");
     if (!interactions.includes("[data-chip-remove]")) {
@@ -343,13 +343,13 @@ function checkComponentSpecificDemoQuality(component, copy, contract) {
   }
   if (component === "progress-indicator") {
     const progressRegistryFile = path.join(root, "packages/components/src/registry.js");
-    const progressComponentFile = path.join(root, "packages/components/src/components/feedback.js");
+    const progressComponentFile = path.join(root, "packages/react/src/ProgressIndicator.js");
     const progressRegistry = read(progressRegistryFile);
     const progressComponent = read(progressComponentFile);
     if (items.some((item) => (item.state === "indeterminate" || item.variant === "indeterminate") && item.showValue === true)) add("errors", componentCopyFile, 1, "progress-indicator indeterminate demos must not show fake values.");
     if (items.some((item) => item.variant !== "indeterminate" && item.state !== "indeterminate" && item.value == null)) add("errors", componentCopyFile, 1, "progress-indicator determinate demos need a real value.");
     if (progressRegistry.includes('variant === "circular" || variant === "indeterminate"')) add("errors", progressRegistryFile, 1, "progress-indicator indeterminate variant must render as linear indeterminate, not circular.");
-    if (!progressComponent.includes("if (showValue && !indeterminate)")) add("errors", progressComponentFile, 1, "progress-indicator package implementation must suppress visible values while indeterminate.");
+    if (!progressComponent.includes("showValue && !isIndeterminate")) add("errors", progressComponentFile, 1, "progress-indicator React implementation must suppress visible values while indeterminate.");
   }
   if (component === "skeleton") {
     const directBoneVariants = new Set(["title", "circle", "pill"]); if (items.some((item) => !["text", "title", "circle", "card", "pill", "row", "media", "chart", "table"].includes(item.variant))) add("errors", componentCopyFile, 1, "skeleton demos must use documented structural variants.");
