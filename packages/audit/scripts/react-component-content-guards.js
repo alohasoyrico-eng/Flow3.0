@@ -113,6 +113,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Dialog" && /dialogAriaLabel|"aria-label":\s*label\s*\?/.test(source)) add("errors", sourceFile, 1, "Dialog must not replace its required visible label with an aria-only dialog name.");
   if (name === "Dialog" && /const hasTrigger = Boolean\(triggerLabel \|\| triggerAriaLabel\)/.test(source)) add("errors", sourceFile, 1, "Dialog triggerAriaLabel must not create a Button without visible text.");
   if (name === "Dialog" && /^\s*React\.createElement\(IconButton,\s*\{\n\s*ref:\s*closeRef/m.test(source)) add("errors", sourceFile, 1, "Dialog must not render an unnamed close button; gate close composition on closeLabel.");
+  if (name === "Dialog" && /ariaLabel:\s*closeLabel/.test(source)) add("errors", sourceFile, 1, "Dialog close control must use IconButton label instead of a parallel ariaLabel prop.");
   if (name === "Dialog" && /fields\.map\(\(field,\s*index\)\s*=>\s*React\.createElement\(Input/.test(source)) add("errors", sourceFile, 1, "Dialog must filter fields without visible labels before composing Input.");
   if (name === "Dialog" && !source.includes("function hasStableFieldName(field)")) add("errors", sourceFile, 1, "Dialog must centralize stable field name validation before composing Inputs.");
   if (name === "Dialog" && !source.includes("fields.filter((field) => field?.label && hasStableFieldName(field))")) add("errors", sourceFile, 1, "Dialog must require visible labels and stable field names before composing Inputs.");

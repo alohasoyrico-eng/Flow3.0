@@ -147,7 +147,7 @@ export const Dialog = forwardRef(function Dialog({
           ),
           closeLabel ? React.createElement(IconButton, {
             ref: closeRef,
-            ariaLabel: closeLabel,
+            label: closeLabel,
             icon: "close",
             density: resolvedDensity,
             variant: "ghost",
