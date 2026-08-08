@@ -97,19 +97,19 @@ export const Table = forwardRef(function Table({
   const interactionState = currentExpanded ? "expanded" : currentSort.key ? "sorted" : currentSelected ? "selected" : initialState;
   if (!label || !resolvedColumns.length || !resolvedRows.length) return null;
 
-  const changeSort = (key) => {
+  const changeSort = (key, event) => {
     const direction = currentSort.key === key && currentSort.direction !== "descending" ? "descending" : "ascending";
     if (!isSortControlled) setCurrentSort({ key, direction });
-    onSortChange?.({ key, direction });
+    onSortChange?.({ key, direction }, event);
   };
-  const selectRow = (key) => {
+  const selectRow = (key, event) => {
     if (!isSelectedKeyControlled) setCurrentSelected(String(key));
-    onRowSelect?.(String(key));
+    onRowSelect?.(String(key), event);
   };
-  const toggleExpanded = (key) => {
+  const toggleExpanded = (key, event) => {
     const next = currentExpanded === String(key) ? "" : String(key);
     if (!isExpandedKeyControlled) setCurrentExpanded(next);
-    onExpandedChange?.(next);
+    onExpandedChange?.(next, event);
   };
 
   return React.createElement(
@@ -153,7 +153,7 @@ export const Table = forwardRef(function Table({
                     "data-table-sort": "",
                     "data-active": String(active),
                     "data-dir": active && currentSort.direction === "descending" ? "desc" : "asc",
-                    onClick: () => changeSort(column.key),
+                    onClick: (event) => changeSort(column.key, event),
                   },
                   React.createElement("span", null, column.label),
                 )
@@ -183,12 +183,12 @@ export const Table = forwardRef(function Table({
               ...flowStateProps(initialState === "hover" && index === 0 ? "hover" : initialState === "focus" && index === 0 ? "focus" : undefined),
               tabIndex: interactive ? 0 : undefined,
               "aria-expanded": rowCanExpand ? String(expanded) : undefined,
-              onClick: selectable ? () => selectRow(key) : undefined,
+              onClick: selectable ? (event) => selectRow(key, event) : undefined,
               onKeyDown: interactive ? (event) => {
                 if (event.key !== "Enter" && event.key !== " ") return;
                 event.preventDefault();
-                if (rowCanExpand) toggleExpanded(key);
-                else selectRow(key);
+                if (rowCanExpand) toggleExpanded(key, event);
+                else selectRow(key, event);
               } : undefined,
             },
             rowCanExpand ? React.createElement(
@@ -204,7 +204,7 @@ export const Table = forwardRef(function Table({
                   "aria-expanded": String(expanded),
                   onClick: (event) => {
                     event.stopPropagation();
-                    toggleExpanded(key);
+                    toggleExpanded(key, event);
                   },
                 },
                 "chevron_right",

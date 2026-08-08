@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, ReactNode, RefAttributes } from "react";
 import type { tablePlatformContract } from "#flow/platforms";
 
 export type TableVariant = "standard" | "dense" | "sortable" | "selectable" | "expandable";
@@ -19,6 +19,9 @@ export type TableSort = {
   key: string;
   direction: TableSortDirection;
 };
+export type TableSortEvent = MouseEvent<HTMLButtonElement>;
+export type TableRowSelectEvent = MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
+export type TableExpandedEvent = MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLTableRowElement>;
 
 export interface TableColumn {
   key: string;
@@ -45,9 +48,9 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"
   selectedKey?: string;
   expandedKey?: string;
   renderDetail?: (row: TableRow) => ReactNode;
-  onSortChange?: (sort: TableSort) => void;
-  onRowSelect?: (key: string) => void;
-  onExpandedChange?: (key: string) => void;
+  onSortChange?: (sort: TableSort, event: TableSortEvent) => void;
+  onRowSelect?: (key: string, event: TableRowSelectEvent) => void;
+  onExpandedChange?: (key: string, event: TableExpandedEvent) => void;
 }
 
 export interface TableComponent extends ForwardRefExoticComponent<TableProps & RefAttributes<HTMLDivElement>> {
