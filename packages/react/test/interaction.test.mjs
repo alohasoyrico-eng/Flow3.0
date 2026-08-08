@@ -308,13 +308,13 @@ try {
     revealed: false,
     revealLabel: "Reveal controlled CVC",
     hideLabel: "Conceal controlled CVC",
-    onRevealChange: (revealed) => revealChanges.push(revealed),
+    onRevealChange: (revealed, event) => revealChanges.push({ revealed, eventType: event.type }),
   }));
 
   const controlledSecurityInput = getControlledSecurityLabel(/controlled security code/i, { selector: "input" });
   const controlledRevealButton = getControlledSecurityRole("button", { name: /reveal controlled cvc/i });
   fireEvent.click(controlledRevealButton);
-  assert.deepEqual(revealChanges, [true]);
+  assert.deepEqual(revealChanges, [{ revealed: true, eventType: "click" }]);
   assert.equal(controlledSecurityInput.type, "password");
   assert.equal(controlledRevealButton.getAttribute("aria-pressed"), "false");
 

@@ -1,4 +1,4 @@
-import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, MouseEvent, RefAttributes } from "react";
 import { cardSecurityCodeInputPlatformContract } from "#flow/platforms";
 
 export type CardSecurityCodeInputDensity = "sm" | "md" | "lg";
@@ -23,7 +23,7 @@ export interface CardSecurityCodeInputProps extends Omit<InputHTMLAttributes<HTM
   hideLabel?: string;
   revealed?: boolean;
   onValueChange?: (digits: string, meta: CardSecurityCodeMeta, event: ChangeEvent<HTMLInputElement>) => void;
-  onRevealChange?: (revealed: boolean) => void;
+  onRevealChange?: (revealed: boolean, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface CardSecurityCodeInputComponent extends ForwardRefExoticComponent<CardSecurityCodeInputProps & RefAttributes<HTMLInputElement>> {

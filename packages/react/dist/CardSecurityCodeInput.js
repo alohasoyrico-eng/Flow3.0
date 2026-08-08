@@ -78,10 +78,10 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
 
   if (!label) return null;
 
-  const toggleReveal = () => {
+  const toggleReveal = (event) => {
     const nextRevealed = !isRevealed;
     if (!isRevealedControlled) setInternalRevealed(nextRevealed);
-    onRevealChange?.(nextRevealed);
+    onRevealChange?.(nextRevealed, event);
   };
 
   return React.createElement(
