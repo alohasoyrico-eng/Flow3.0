@@ -731,6 +731,7 @@ export const componentContracts = {
     accessibility: [
       "Use aria-haspopup menu on the trigger.",
       "Use role menu and menuitem.",
+      "Require stable item keys before composing menuitem controls.",
       "Use patterns for command routing, permissions, and high-risk actions."
     ]
   },

@@ -17,6 +17,10 @@ function enabledItems(panel) {
   return [...(panel?.querySelectorAll?.('[role="menuitem"]:not(:disabled)') ?? [])];
 }
 
+function hasStableItemKey(item) {
+  return item?.key !== undefined && item?.key !== null && item?.key !== "";
+}
+
 export const Menu = forwardRef(function Menu({
   triggerLabel = "",
   triggerAriaLabel,
@@ -52,7 +56,7 @@ export const Menu = forwardRef(function Menu({
   const menuId = `menu-${slug(label || triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const isDisabled = disabled || interactionState === "disabled";
   const resolvedAlign = align === "end" || align === "right" ? "end" : "start";
-  const resolvedItems = items.filter((item) => item === "divider" || item?.separator || item?.label);
+  const resolvedItems = items.filter((item) => item === "divider" || item?.separator || (item?.label && hasStableItemKey(item)));
 
   useEffect(() => {
     if (!isOpenControlled) return;
@@ -138,7 +142,7 @@ export const Menu = forwardRef(function Menu({
       },
       resolvedItems.map((item, index) => {
         if (item === "divider" || item?.separator) return React.createElement("span", { key: `separator-${index}`, className: "menu__separator", role: "separator" });
-        const key = item.key ?? item.label ?? String(index);
+        const key = item.key;
         return React.createElement(
           "button",
           {

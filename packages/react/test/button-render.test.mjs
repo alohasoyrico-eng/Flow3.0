@@ -1711,6 +1711,14 @@ const unlabeledMenuItemMarkup = renderToStaticMarkup(React.createElement(Menu, {
 assert.doesNotMatch(unlabeledMenuItemMarkup, /role="menuitem"/);
 assert.doesNotMatch(unlabeledMenuItemMarkup, /class="menu__item-label"><\/span>/);
 
+const unstableMenuItemMarkup = renderToStaticMarkup(React.createElement(Menu, {
+  triggerLabel: "Actions",
+  open: true,
+  items: [{ label: "Open" }],
+}));
+assert.doesNotMatch(unstableMenuItemMarkup, /role="menuitem"/);
+assert.doesNotMatch(unstableMenuItemMarkup, /data-key="Open"|data-key="0"/);
+
 const checkboxMarkup = renderToStaticMarkup(React.createElement(Checkbox, {
   label: "Enable fuel card",
   description: "Applies to active drivers.",
