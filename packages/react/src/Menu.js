@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
+import React, { forwardRef, useId, useRef, useState } from "react";
 import { menuPlatformContract } from "@design-system/components/platforms";
 import { Avatar } from "./Avatar.js";
 import { Button } from "./Button.js";
@@ -50,17 +50,12 @@ export const Menu = forwardRef(function Menu({
   const [internalOpen, setInternalOpen] = useState(initiallyOpen);
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? "open" : initialState);
+  const resolvedInteractionState = isOpenControlled ? (isOpen ? "open" : initialState) : interactionState;
   const menuId = `menu-${slug(label || triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const isDisabled = disabled || interactionState === "disabled";
+  const isDisabled = disabled || resolvedInteractionState === "disabled";
   const resolvedAlign = align === "end" || align === "right" ? "end" : "start";
   const resolvedItems = Array.isArray(items) ? items.filter((item) => item === "divider" || item?.separator || (item?.label && hasStableItemKey(item))) : [];
   const hasVisibleItems = resolvedItems.some((item) => item !== "divider" && !item?.separator);
-
-  useEffect(() => {
-    if (!isOpenControlled) return;
-    const normalizedOpen = Boolean(openProp);
-    setInteractionState(normalizedOpen ? "open" : initialState);
-  }, [openProp, initialState, isOpenControlled]);
 
   if (!triggerLabel || !hasVisibleItems) return null;
 
@@ -68,7 +63,7 @@ export const Menu = forwardRef(function Menu({
     if (isDisabled) return;
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
-    setInteractionState(normalizedOpen ? "open" : "closed");
+    if (!isOpenControlled) setInteractionState(normalizedOpen ? "open" : "closed");
     onOpenChange?.(normalizedOpen, event);
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
     if (focusFirst) requestAnimationFrame(() => enabledItems(panelRef.current)[0]?.focus());
@@ -116,7 +111,7 @@ export const Menu = forwardRef(function Menu({
       className: ["menu", className].filter(Boolean).join(" "),
       ...flowVariantProps(resolvedVariant),
       ...flowDensityProps(resolvedDensity),
-      ...flowStateProps(isDisabled ? "disabled" : interactionState),
+      ...flowStateProps(isDisabled ? "disabled" : resolvedInteractionState),
       "data-align": resolvedAlign,
       "data-open": String(Boolean(isOpen)),
     },

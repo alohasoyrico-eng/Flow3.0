@@ -1229,6 +1229,11 @@ try {
     onSelect: (item, event) => menuSelections.push({ key: item.key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(menuTrigger.getAttribute("aria-expanded"), "false"));
+  await waitFor(() => assert.equal(menuTrigger.closest(".menu").dataset.state, "default"));
+  fireEvent.click(menuTrigger);
+  assert.equal(menuOpenChanges.at(-1).open, true);
+  assert.equal(menuTrigger.getAttribute("aria-expanded"), "false");
+  assert.equal(menuTrigger.closest(".menu").dataset.state, "default");
 
   cleanup();
 
