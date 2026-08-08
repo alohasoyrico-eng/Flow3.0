@@ -20,6 +20,7 @@ const { checkRouteSummaryCssContract } = require("./audit-route-summary-css-cont
 const { checkSkeletonCssContract } = require("./audit-skeleton-css-contract.js");
 const { checkSliderCssContract } = require("./audit-slider-css-contract.js");
 const { checkSpinnerCssContract } = require("./audit-spinner-css-contract.js");
+const { checkStationPinCssContract } = require("./audit-station-pin-css-contract.js");
 const { checkStepperCssContract } = require("./audit-stepper-css-contract.js");
 const { checkTableCssContract } = require("./audit-table-css-contract.js");
 const { checkTagCssContract } = require("./audit-tag-css-contract.js");
@@ -49,6 +50,7 @@ function checkComponentCssContracts(context) {
   checkSkeletonCssContract(context);
   checkSliderCssContract(context);
   checkSpinnerCssContract(context);
+  checkStationPinCssContract(context);
   checkStepperCssContract(context);
   checkTableCssContract(context);
   checkTagCssContract(context);

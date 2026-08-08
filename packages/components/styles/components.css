@@ -8437,41 +8437,67 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .station-pin {
+  --comp-station-pin-align: center;
+  --comp-station-pin-border-width: var(--component-border-width);
+  --comp-station-pin-cursor: pointer;
+  --comp-station-pin-depth: var(--component-depth-pill);
+  --comp-station-pin-disabled-cursor: not-allowed;
+  --comp-station-pin-disabled-opacity: var(--component-opacity-disabled);
+  --comp-station-pin-display: inline-flex;
+  --comp-station-pin-font-family: var(--component-font-family-mono);
+  --comp-station-pin-font-size: var(--component-font-size-label);
+  --comp-station-pin-font-weight: var(--sys-voice-weight-bold);
   --comp-station-pin-marker-size: var(--sys-symbol-size-md-plus);
   --comp-station-pin-marker-glyph-size: var(--sys-icon-size-station);
   --comp-station-pin-pointer-size: var(--component-station-pin-pointer-size);
   --comp-station-pin-frame-gap: var(--sys-space-xs);
   --comp-station-pin-frame-padding-block: var(--sys-space-sm);
   --comp-station-pin-frame-padding-inline: var(--sys-space-md);
+  --comp-station-pin-min-block-size: var(--component-inline-size-md);
   --comp-station-pin-bg: var(--sys-map-pin-background);
   --comp-station-pin-fg: var(--sys-map-pin-foreground);
   --comp-station-pin-border: var(--sys-map-pin-border);
+  --comp-station-pin-hover-border: color-mix(in srgb, var(--sys-map-pin-action-color) 36%, var(--sys-map-pin-border));
+  --comp-station-pin-hover-depth: var(--component-depth-action-hover);
+  --comp-station-pin-hover-transform: translateY(var(--component-lift-sm)) scale(var(--component-scale-hover));
+  --comp-station-pin-focus-color: var(--sys-map-focus-ring);
+  --comp-station-pin-focus-offset: var(--component-focus-ring-offset);
+  --comp-station-pin-focus-width: var(--component-focus-ring-width);
   --comp-station-pin-marker-fg: var(--sys-map-pin-action-color);
   --comp-station-pin-pointer-shadow: drop-shadow(0 var(--sys-frame-border-thin) var(--sys-frame-border-thin) color-mix(in srgb, var(--sys-map-pin-foreground) 14%, transparent));
-  align-items: center;
+  --comp-station-pin-pointer-inset-block-start: calc(100% - var(--component-visually-hidden-size));
+  --comp-station-pin-pointer-inset-inline-start: 50%;
+  --comp-station-pin-pointer-transform: translateX(-50%);
+  --comp-station-pin-position: relative;
+  --comp-station-pin-radius: var(--component-radius-pill);
+  --comp-station-pin-selected-depth: var(--sys-map-depth-selected);
+  --comp-station-pin-selected-transform: var(--component-transform-scale-raised);
+  --comp-station-pin-transform-origin: center bottom;
+  --comp-station-pin-white-space: nowrap;
+  align-items: var(--comp-station-pin-align);
   background: var(--comp-station-pin-bg);
-  border: var(--component-border-width) solid var(--comp-station-pin-border);
-  border-radius: var(--component-radius-pill);
-  box-shadow: var(--component-depth-pill);
+  border: var(--comp-station-pin-border-width) solid var(--comp-station-pin-border);
+  border-radius: var(--comp-station-pin-radius);
+  box-shadow: var(--comp-station-pin-depth);
   color: var(--comp-station-pin-fg);
-  cursor: pointer;
-  display: inline-flex;
-  font-family: var(--component-font-family-mono);
-  font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-bold);
+  cursor: var(--comp-station-pin-cursor);
+  display: var(--comp-station-pin-display);
+  font-family: var(--comp-station-pin-font-family);
+  font-size: var(--comp-station-pin-font-size);
+  font-weight: var(--comp-station-pin-font-weight);
   gap: var(--comp-station-pin-frame-gap);
   margin-block-end: var(--comp-station-pin-pointer-size);
-  min-block-size: var(--component-inline-size-md);
+  min-block-size: var(--comp-station-pin-min-block-size);
   padding: var(--comp-station-pin-frame-padding-block) var(--comp-station-pin-frame-padding-inline);
-  position: relative;
-  transform-origin: center bottom;
+  position: var(--comp-station-pin-position);
+  transform-origin: var(--comp-station-pin-transform-origin);
   transition:
     background-color var(--component-duration-state) var(--component-ease-state),
     border-color var(--component-duration-state) var(--component-ease-state),
     box-shadow var(--component-duration-state) var(--component-ease-state),
     color var(--component-duration-state) var(--component-ease-state),
     transform var(--component-duration-state) var(--component-ease-press);
-  white-space: nowrap;
+  white-space: var(--comp-station-pin-white-space);
 }
 
 .station-pin::after {
@@ -8481,10 +8507,10 @@ body[data-contrast="quiet"] .route-summary__icon {
   content: "";
   filter: var(--comp-station-pin-pointer-shadow);
   inline-size: 0;
-  inset-block-start: calc(100% - var(--component-visually-hidden-size));
-  inset-inline-start: 50%;
+  inset-block-start: var(--comp-station-pin-pointer-inset-block-start);
+  inset-inline-start: var(--comp-station-pin-pointer-inset-inline-start);
   position: absolute;
-  transform: translateX(-50%);
+  transform: var(--comp-station-pin-pointer-transform);
   transition: border-color var(--component-duration-state) var(--component-ease-state);
 }
 
@@ -8495,8 +8521,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-station-pin-frame-gap: var(--sys-space-sm);
   --comp-station-pin-frame-padding-block: var(--sys-space-xs);
   --comp-station-pin-frame-padding-inline: var(--sys-space-md);
-  font-size: var(--component-font-size-helper);
-  min-block-size: calc(var(--component-control-min-size) - var(--sys-space-lg) - var(--component-offset-xs));
+  --comp-station-pin-font-size: var(--component-font-size-helper);
+  --comp-station-pin-min-block-size: calc(var(--component-control-min-size) - var(--sys-space-lg) - var(--component-offset-xs));
 }
 
 .station-pin[data-density="lg"] {
@@ -8506,7 +8532,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-station-pin-frame-gap: var(--sys-space-sm);
   --comp-station-pin-frame-padding-block: var(--sys-space-md);
   --comp-station-pin-frame-padding-inline: var(--sys-space-lg);
-  min-block-size: var(--component-control-min-size);
+  --comp-station-pin-min-block-size: var(--component-control-min-size);
 }
 
 .station-pin[data-variant="cluster"] {
@@ -8523,15 +8549,15 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .station-pin:hover,
 .station-pin[data-state="hover"] {
-  border-color: color-mix(in srgb, var(--sys-map-pin-action-color) 36%, var(--sys-map-pin-border));
-  box-shadow: var(--component-depth-action-hover);
-  transform: translateY(var(--component-lift-sm)) scale(var(--component-scale-hover));
+  border-color: var(--comp-station-pin-hover-border);
+  box-shadow: var(--comp-station-pin-hover-depth);
+  transform: var(--comp-station-pin-hover-transform);
 }
 
 .station-pin:focus-visible,
 .station-pin[data-state="focus"] {
-  outline: var(--component-focus-ring-width) solid var(--sys-map-focus-ring);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-station-pin-focus-width) solid var(--comp-station-pin-focus-color);
+  outline-offset: var(--comp-station-pin-focus-offset);
 }
 
 .station-pin[data-state="selected"] {
@@ -8539,8 +8565,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-station-pin-fg: var(--sys-map-pin-selected-foreground);
   --comp-station-pin-border: var(--sys-map-pin-selected-background);
   --comp-station-pin-marker-fg: var(--sys-map-pin-selected-foreground);
-  box-shadow: var(--sys-map-depth-selected);
-  transform: var(--component-transform-scale-raised);
+  box-shadow: var(--comp-station-pin-selected-depth);
+  transform: var(--comp-station-pin-selected-transform);
 }
 
 .station-pin[data-state="unavailable"] {
@@ -8550,8 +8576,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .station-pin:disabled {
-  cursor: not-allowed;
-  opacity: var(--component-opacity-disabled);
+  cursor: var(--comp-station-pin-disabled-cursor);
+  opacity: var(--comp-station-pin-disabled-opacity);
 }
 
 .station-pin__marker {
