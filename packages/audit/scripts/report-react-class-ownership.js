@@ -9,10 +9,13 @@ const {
 } = require("./audit-context.js");
 const {
   allowedClassRootsForReactComponent,
+  classRootTokensFromClassExpression,
   classRootsFromClassExpression,
   componentClassRoots,
   ownerClassRootForReactComponent,
+  packageCssClassRoots,
   protectedComponentRoots,
+  reactSupportClassRoots,
 } = require("./audit-anti-duplication.js");
 
 const checkMode = process.argv.includes("--check");
@@ -36,12 +39,14 @@ function lineForIndex(text, index) {
 function sourceClassRoots(source) {
   return [...source.matchAll(/\bclassName\s*:\s*(?:\[([^\]]+)\]|["'`]([^"'`]+)["'`])/g)].map((match) => ({
     index: match.index,
+    allRoots: [...classRootTokensFromClassExpression(match[1] ?? match[2] ?? "")].sort(),
     roots: [...classRootsFromClassExpression(match[1] ?? match[2] ?? "")].sort(),
     text: match[0].trim(),
-  })).filter((match) => match.roots.length);
+  })).filter((match) => match.allRoots.length);
 }
 
 function createReport() {
+  const packageRoots = packageCssClassRoots();
   const components = componentFiles().map((file) => {
     const component = path.basename(file, ".js");
     const source = read(file);
@@ -49,12 +54,16 @@ function createReport() {
     const allowedRoots = [...allowedClassRootsForReactComponent(component)].sort();
     const classMatches = sourceClassRoots(source);
     const observedRoots = [...new Set(classMatches.flatMap((match) => match.roots))].sort();
+    const observedSupportRoots = [...new Set(classMatches.flatMap((match) => match.allRoots.filter((rootToken) => reactSupportClassRoots.has(rootToken))))].sort();
     const violations = classMatches.flatMap((match) => {
       const protectedCrossRoots = match.roots.filter((rootToken) => protectedComponentRoots.has(rootToken) && rootToken !== ownerRoot);
-      const illegalRoots = [...new Set(match.roots.filter((rootToken) => !allowedRoots.includes(rootToken)).concat(protectedCrossRoots))].sort();
+      const unknownRoots = match.allRoots.filter((rootToken) => packageRoots.has(rootToken) && !componentClassRoots.has(rootToken) && !reactSupportClassRoots.has(rootToken));
+      const illegalRoots = [...new Set(match.roots.filter((rootToken) => !allowedRoots.includes(rootToken)).concat(protectedCrossRoots, unknownRoots))].sort();
       return illegalRoots.map((rootToken) => ({
         root: rootToken,
         protected: protectedComponentRoots.has(rootToken),
+        support: reactSupportClassRoots.has(rootToken),
+        unknown: !componentClassRoots.has(rootToken) && !reactSupportClassRoots.has(rootToken),
         line: lineForIndex(source, match.index),
         text: match.text,
       }));
@@ -65,6 +74,7 @@ function createReport() {
       ownerRoot,
       allowedRoots,
       observedRoots,
+      observedSupportRoots,
       protectedRootsObserved: observedRoots.filter((rootToken) => protectedComponentRoots.has(rootToken)),
       violations,
       status: violations.length ? "fail" : "pass",
@@ -78,18 +88,23 @@ function createReport() {
       components: components.length,
       componentClassRoots: componentClassRoots.size,
       protectedComponentRoots: protectedComponentRoots.size,
+      supportClassRoots: reactSupportClassRoots.size,
+      packageCssRoots: packageRoots.size,
       componentsWithFamilyRoots: components.filter((item) => item.allowedRoots.length > 1).length,
       observedRootAssignments: components.reduce((total, item) => total + item.observedRoots.length, 0),
+      observedSupportRootAssignments: components.reduce((total, item) => total + item.observedSupportRoots.length, 0),
       violations: components.reduce((total, item) => total + item.violations.length, 0),
     },
     protectedComponentRoots: [...protectedComponentRoots].sort(),
+    reactSupportClassRoots: [...reactSupportClassRoots].sort(),
+    packageCssRoots: [...packageRoots].sort(),
     components,
   };
 }
 
 function toMarkdown(report) {
-  const componentRows = report.components.map((item) => `| ${item.component} | ${item.status} | ${item.ownerRoot} | ${item.allowedRoots.join(", ") || "None"} | ${item.observedRoots.join(", ") || "None"} | ${item.violations.length} |`);
-  const violationRows = report.components.flatMap((item) => item.violations.map((violation) => `| ${item.component} | ${violation.root} | ${violation.protected ? "yes" : "no"} | ${item.file}:${violation.line} | \`${violation.text.replaceAll("|", "\\|")}\` |`));
+  const componentRows = report.components.map((item) => `| ${item.component} | ${item.status} | ${item.ownerRoot} | ${item.allowedRoots.join(", ") || "None"} | ${item.observedRoots.join(", ") || "None"} | ${item.observedSupportRoots.join(", ") || "None"} | ${item.violations.length} |`);
+  const violationRows = report.components.flatMap((item) => item.violations.map((violation) => `| ${item.component} | ${violation.root} | ${violation.protected ? "yes" : "no"} | ${violation.unknown ? "yes" : "no"} | ${item.file}:${violation.line} | \`${violation.text.replaceAll("|", "\\|")}\` |`));
   return [
     "# React Class Ownership Audit",
     "",
@@ -102,21 +117,24 @@ function toMarkdown(report) {
     `- React components scanned: ${report.inventory.components}`,
     `- Component class roots known: ${report.inventory.componentClassRoots}`,
     `- Protected class roots: ${report.protectedComponentRoots.join(", ")}`,
+    `- Support class roots: ${report.reactSupportClassRoots.join(", ")}`,
+    `- Package CSS roots visible to React governance: ${report.inventory.packageCssRoots}`,
     `- Components with family roots: ${report.inventory.componentsWithFamilyRoots}`,
     `- Observed root assignments: ${report.inventory.observedRootAssignments}`,
+    `- Observed support root assignments: ${report.inventory.observedSupportRootAssignments}`,
     `- Violations: ${report.inventory.violations}`,
     "",
     "## Components",
     "",
-    "| Component | Status | Owner root | Allowed roots | Observed roots | Violations |",
-    "| --- | --- | --- | --- | --- | ---: |",
+    "| Component | Status | Owner root | Allowed roots | Observed component roots | Observed support roots | Violations |",
+    "| --- | --- | --- | --- | --- | --- | ---: |",
     ...componentRows,
     "",
     "## Violations",
     "",
-    "| Component | Root | Protected | Location | Source |",
-    "| --- | --- | --- | --- | --- |",
-    ...(violationRows.length ? violationRows : ["| None | None | None | None | None |"]),
+    "| Component | Root | Protected | Unknown | Location | Source |",
+    "| --- | --- | --- | --- | --- | --- |",
+    ...(violationRows.length ? violationRows : ["| None | None | None | None | None | None |"]),
     "",
   ].join("\n");
 }
@@ -147,6 +165,7 @@ function main() {
     status: report.status,
     components: report.inventory.components,
     observedRootAssignments: report.inventory.observedRootAssignments,
+    observedSupportRootAssignments: report.inventory.observedSupportRootAssignments,
     violations: report.inventory.violations,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),

@@ -90,6 +90,13 @@
     "menu",
     "popover"
   ],
+  "reactSupportClassRoots": [
+    "animation-asset",
+    "field-action",
+    "illustration-asset",
+    "input",
+    "material-symbol"
+  ],
   "docsAllowedComponentAuthors": [
     "apps/docs/component-demo.js",
     "apps/docs/react-component-islands.js"

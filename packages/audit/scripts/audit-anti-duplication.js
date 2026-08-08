@@ -1,4 +1,9 @@
 const { fs, path, root, docsAppDir, read, add } = require("./audit-context.js");
+const {
+  classRootTokensFromClassExpression,
+  classTokensFromClassExpression,
+  packageCssClassRoots: packageCssClassRootsForRoot,
+} = require("./class-root-governance.js");
 
 const docsAllowedComponentAuthors = new Set([
   "apps/docs/component-demo.js",
@@ -88,6 +93,7 @@ const duplicateConceptClassPatterns = [
   },
 ];
 const protectedComponentRoots = new Set(["button", "card", "dialog", "drawer", "menu", "popover"]);
+const reactSupportClassRoots = new Set(["animation-asset", "field-action", "illustration-asset", "input", "material-symbol"]);
 
 function checkAntiDuplicationGovernance() {
   checkDocsDoNotOwnPackageComponentMarkup();
@@ -106,6 +112,7 @@ function antiDuplicationCoverage() {
       classNames: item.classNames,
     })),
     protectedComponentRoots: [...protectedComponentRoots].sort(),
+    reactSupportClassRoots: [...reactSupportClassRoots].sort(),
     docsAllowedComponentAuthors: [...docsAllowedComponentAuthors].sort(),
     docsAllowedPackageClassTokens: [...docsAllowedPackageClassTokens.entries()].map(([file, tokens]) => ({
       file,
@@ -248,6 +255,7 @@ function checkReactOnlyComponentBoundaries() {
 function checkReactComponentClassOwnership() {
   const reactDir = path.join(root, "packages/react/src");
   if (!fs.existsSync(reactDir)) return;
+  const packageRoots = packageCssClassRoots();
   for (const file of fs.readdirSync(reactDir).filter((candidate) => /^[A-Z].*\.js$/.test(candidate)).sort()) {
     const componentName = path.basename(file, ".js");
     const sourceFile = path.join(reactDir, file);
@@ -255,9 +263,11 @@ function checkReactComponentClassOwnership() {
     const allowedRoots = allowedClassRootsForReactComponent(componentName);
     const ownerRoot = ownerClassRootForReactComponent(componentName);
     for (const match of source.matchAll(/\bclassName\s*:\s*(?:\[([^\]]+)\]|["'`]([^"'`]+)["'`])/g)) {
-      const roots = classRootsFromClassExpression(match[1] ?? match[2] ?? "");
-      const protectedCrossRoots = [...roots].filter((rootToken) => protectedComponentRoots.has(rootToken) && rootToken !== ownerRoot);
-      const illegalRoots = [...new Set([...roots].filter((rootToken) => !allowedRoots.has(rootToken)).concat(protectedCrossRoots))];
+      const roots = classRootTokensFromClassExpression(match[1] ?? match[2] ?? "");
+      const componentRoots = [...roots].filter((rootToken) => componentClassRoots.has(rootToken));
+      const unknownRoots = [...roots].filter((rootToken) => packageRoots.has(rootToken) && !componentClassRoots.has(rootToken) && !reactSupportClassRoots.has(rootToken));
+      const protectedCrossRoots = componentRoots.filter((rootToken) => protectedComponentRoots.has(rootToken) && rootToken !== ownerRoot);
+      const illegalRoots = [...new Set(componentRoots.filter((rootToken) => !allowedRoots.has(rootToken)).concat(protectedCrossRoots, unknownRoots))];
       const protectedLeaks = illegalRoots.filter((rootToken) => protectedComponentRoots.has(rootToken));
       if (!illegalRoots.length) continue;
       add(
@@ -309,7 +319,7 @@ function ownerClassRootForReactComponent(componentName) {
 
 function classRootsFromClassExpression(value) {
   const roots = new Set();
-  for (const token of value.match(/[a-z][a-z0-9-]*(?:__[a-z0-9-]+|--[a-z0-9-]+)?/g) ?? []) {
+  for (const token of classTokensFromClassExpression(value)) {
     const rootToken = componentRootForClassToken(token);
     if (rootToken) roots.add(rootToken);
   }
@@ -323,6 +333,10 @@ function componentRootForClassToken(token) {
     }
   }
   return "";
+}
+
+function packageCssClassRoots() {
+  return packageCssClassRootsForRoot(root);
 }
 
 function walkFiles(dir, matcher, output = []) {
@@ -368,8 +382,11 @@ module.exports = {
   allowedClassRootsForReactComponent,
   checkAntiDuplicationGovernance,
   antiDuplicationCoverage,
+  classRootTokensFromClassExpression,
   classRootsFromClassExpression,
   componentClassRoots,
   ownerClassRootForReactComponent,
+  packageCssClassRoots,
   protectedComponentRoots,
+  reactSupportClassRoots,
 };

@@ -6,8 +6,11 @@
     "components": 56,
     "componentClassRoots": 59,
     "protectedComponentRoots": 6,
+    "supportClassRoots": 5,
+    "packageCssRoots": 66,
     "componentsWithFamilyRoots": 13,
     "observedRootAssignments": 72,
+    "observedSupportRootAssignments": 20,
     "violations": 0
   },
   "protectedComponentRoots": [
@@ -17,6 +20,81 @@
     "drawer",
     "menu",
     "popover"
+  ],
+  "reactSupportClassRoots": [
+    "animation-asset",
+    "field-action",
+    "illustration-asset",
+    "input",
+    "material-symbol"
+  ],
+  "packageCssRoots": [
+    "accordion",
+    "animated-moment",
+    "animation-asset",
+    "audit-event",
+    "avatar",
+    "badge",
+    "biometric-prompt",
+    "breadcrumbs",
+    "button",
+    "card",
+    "card-expiry-input",
+    "card-number-input",
+    "card-security-code-input",
+    "card-summary",
+    "chart-panel",
+    "checkbox",
+    "chip",
+    "choice",
+    "code-input",
+    "combobox",
+    "country-flag",
+    "country-selector",
+    "date-picker",
+    "date-range-picker",
+    "dialog",
+    "docs-package-demo",
+    "drawer",
+    "empty-state",
+    "error-panel",
+    "fab",
+    "field",
+    "field-action",
+    "field-control",
+    "field-input",
+    "icon-button",
+    "illustration-asset",
+    "inline-validation",
+    "input",
+    "kpi-tile",
+    "list",
+    "material-symbol",
+    "menu",
+    "motion-boundary",
+    "movement-row",
+    "pagination",
+    "phone-input",
+    "popover",
+    "progress",
+    "quick-action",
+    "radio",
+    "route-summary",
+    "segmented-control",
+    "select-control",
+    "skeleton",
+    "slider",
+    "spinner",
+    "station-pin",
+    "stepper",
+    "switch",
+    "table",
+    "tabs",
+    "tag",
+    "text-area",
+    "toast",
+    "tooltip",
+    "tree-view"
   ],
   "components": [
     {
@@ -29,6 +107,7 @@
       "observedRoots": [
         "accordion"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -42,6 +121,10 @@
       ],
       "observedRoots": [
         "animated-moment"
+      ],
+      "observedSupportRoots": [
+        "animation-asset",
+        "material-symbol"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -57,6 +140,9 @@
       "observedRoots": [
         "audit-event"
       ],
+      "observedSupportRoots": [
+        "material-symbol"
+      ],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -71,6 +157,7 @@
       "observedRoots": [
         "avatar"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -85,6 +172,7 @@
       "observedRoots": [
         "badge"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -98,6 +186,9 @@
       ],
       "observedRoots": [
         "biometric-prompt"
+      ],
+      "observedSupportRoots": [
+        "material-symbol"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -113,6 +204,7 @@
       "observedRoots": [
         "breadcrumbs"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -127,6 +219,7 @@
       "observedRoots": [
         "button"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [
         "button"
       ],
@@ -143,6 +236,7 @@
       "observedRoots": [
         "card"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [
         "card"
       ],
@@ -161,6 +255,9 @@
         "card-expiry-input",
         "field"
       ],
+      "observedSupportRoots": [
+        "input"
+      ],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -176,6 +273,9 @@
       "observedRoots": [
         "card-number-input",
         "field"
+      ],
+      "observedSupportRoots": [
+        "input"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -193,6 +293,10 @@
         "card-security-code-input",
         "field"
       ],
+      "observedSupportRoots": [
+        "field-action",
+        "input"
+      ],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -206,6 +310,9 @@
       ],
       "observedRoots": [
         "card-summary"
+      ],
+      "observedSupportRoots": [
+        "material-symbol"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -221,6 +328,7 @@
       "observedRoots": [
         "chart-panel"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -237,6 +345,9 @@
         "checkbox",
         "choice"
       ],
+      "observedSupportRoots": [
+        "material-symbol"
+      ],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -251,6 +362,7 @@
       "observedRoots": [
         "chip"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -267,6 +379,7 @@
         "code-input",
         "field"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -284,6 +397,10 @@
         "combobox",
         "field",
         "select-control"
+      ],
+      "observedSupportRoots": [
+        "field-action",
+        "input"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -303,6 +420,7 @@
         "country-selector",
         "select-control"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -319,6 +437,7 @@
         "date-picker",
         "field"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -337,6 +456,7 @@
         "date-range-picker",
         "field"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -351,6 +471,7 @@
       "observedRoots": [
         "dialog"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [
         "dialog"
       ],
@@ -367,6 +488,7 @@
       "observedRoots": [
         "drawer"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [
         "drawer"
       ],
@@ -383,6 +505,7 @@
       "observedRoots": [
         "empty-state"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -397,6 +520,7 @@
       "observedRoots": [
         "error-panel"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -411,6 +535,7 @@
       "observedRoots": [
         "fab"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -425,6 +550,7 @@
       "observedRoots": [
         "icon-button"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -439,6 +565,7 @@
       "observedRoots": [
         "inline-validation"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -452,6 +579,10 @@
       ],
       "observedRoots": [
         "field"
+      ],
+      "observedSupportRoots": [
+        "field-action",
+        "input"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -467,6 +598,7 @@
       "observedRoots": [
         "kpi-tile"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -480,6 +612,9 @@
       ],
       "observedRoots": [
         "list"
+      ],
+      "observedSupportRoots": [
+        "material-symbol"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -495,6 +630,7 @@
       "observedRoots": [
         "menu"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [
         "menu"
       ],
@@ -511,6 +647,9 @@
       "observedRoots": [
         "motion-boundary"
       ],
+      "observedSupportRoots": [
+        "material-symbol"
+      ],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -524,6 +663,9 @@
       ],
       "observedRoots": [
         "movement-row"
+      ],
+      "observedSupportRoots": [
+        "material-symbol"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -539,6 +681,7 @@
       "observedRoots": [
         "pagination"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -558,6 +701,9 @@
         "field",
         "phone-input"
       ],
+      "observedSupportRoots": [
+        "input"
+      ],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -572,6 +718,7 @@
       "observedRoots": [
         "popover"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [
         "popover"
       ],
@@ -588,6 +735,7 @@
       "observedRoots": [
         "progress"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -602,6 +750,7 @@
       "observedRoots": [
         "quick-action"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -618,6 +767,7 @@
         "choice",
         "radio"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -631,6 +781,9 @@
       ],
       "observedRoots": [
         "route-summary"
+      ],
+      "observedSupportRoots": [
+        "material-symbol"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -646,6 +799,7 @@
       "observedRoots": [
         "segmented-control"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -662,6 +816,7 @@
         "field",
         "select-control"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -676,6 +831,7 @@
       "observedRoots": [
         "skeleton"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -690,6 +846,7 @@
       "observedRoots": [
         "slider"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -704,6 +861,7 @@
       "observedRoots": [
         "spinner"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -717,6 +875,9 @@
       ],
       "observedRoots": [
         "station-pin"
+      ],
+      "observedSupportRoots": [
+        "material-symbol"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -732,6 +893,7 @@
       "observedRoots": [
         "stepper"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -746,6 +908,7 @@
       "observedRoots": [
         "switch"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -760,6 +923,7 @@
       "observedRoots": [
         "table"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -774,6 +938,7 @@
       "observedRoots": [
         "tabs"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -788,6 +953,7 @@
       "observedRoots": [
         "tag"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -804,6 +970,7 @@
         "field",
         "text-area"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -818,6 +985,7 @@
       "observedRoots": [
         "toast"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -832,6 +1000,7 @@
       "observedRoots": [
         "tooltip"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
@@ -846,6 +1015,7 @@
       "observedRoots": [
         "tree-view"
       ],
+      "observedSupportRoots": [],
       "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
