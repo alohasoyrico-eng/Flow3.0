@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.js",
+    "./tokens.json": "./tokens.json",
     "./styles.css": "./styles/tokens.css"
   }
 }

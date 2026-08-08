@@ -8,6 +8,7 @@
   },
   "files": [
     "packages/tokens/src",
+    "packages/tokens/tokens.json",
     "packages/tokens/styles",
     "packages/components/src",
     "packages/components/styles",
@@ -25,6 +26,7 @@
   },
   "exports": {
     "./tokens": "./packages/tokens/src/index.js",
+    "./tokens.json": "./packages/tokens/tokens.json",
     "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
     "./components": "./packages/components/src/index.js",
     "./components/contracts": "./packages/components/src/contracts.js",
@@ -275,6 +277,7 @@
     "#flow/components": "./packages/components/src/index.js",
     "#flow/platforms": "./packages/components/src/platforms/index.js",
     "#flow/tokens": "./packages/tokens/src/index.js",
+    "#flow/tokens-json": "./packages/tokens/tokens.json",
     "#flow/tokens-css": "./packages/tokens/styles/tokens.css",
     "#design-system/components": "./packages/components/src/index.js",
     "#design-system/react": "./packages/react/src/index.js",
@@ -291,6 +294,7 @@
     "#design-system/content/home": "./packages/content/content/home.json",
     "#design-system/content/i18n-ui": "./packages/content/content/i18n/ui.json",
     "#design-system/specs/system": "./packages/specs/specs/unison.system.json",
+    "#design-system/tokens-json": "./packages/tokens/tokens.json",
     "#design-system/tokens-css": "./packages/tokens/styles/tokens.css"
   },
   "workspaces": [

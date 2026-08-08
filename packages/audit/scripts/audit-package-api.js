@@ -16,6 +16,7 @@ const boundaryImports = [
   "#design-system/content/home",
   "#design-system/content/i18n-ui",
   "#design-system/specs/system",
+  "#design-system/tokens-json",
   "#design-system/tokens-css",
 ];
 
@@ -39,6 +40,7 @@ const contentExports = [
 
 const installExports = [
   "./tokens",
+  "./tokens.json",
   "./tokens/styles.css",
   "./components",
   "./components/contracts",
@@ -66,9 +68,13 @@ const installExports = [
 function checkPackageApiBoundary() {
   const packageJsonFile = path.join(root, "package.json");
   const contentPackageJsonFile = path.join(root, "packages/content/package.json");
+  const tokenPackageJsonFile = path.join(root, "packages/tokens/package.json");
+  const tokenContractFile = path.join(root, "packages/tokens/tokens.json");
   const rootImports = readJson(packageJsonFile)?.imports ?? {};
   const rootExports = readJson(packageJsonFile)?.exports ?? {};
   const exportedContent = readJson(contentPackageJsonFile)?.exports ?? {};
+  const exportedTokens = readJson(tokenPackageJsonFile)?.exports ?? {};
+  const tokenContract = readJson(tokenContractFile);
 
   for (const requiredImport of boundaryImports) {
     if (!rootImports[requiredImport]) add("errors", packageJsonFile, 1, `Root package imports missing public boundary alias: ${requiredImport}.`);
@@ -78,6 +84,18 @@ function checkPackageApiBoundary() {
   }
   for (const requiredExport of installExports) {
     if (!rootExports[requiredExport]) add("errors", packageJsonFile, 1, `Root package exports missing install surface: ${requiredExport}.`);
+  }
+  if (exportedTokens["./tokens.json"] !== "./tokens.json") {
+    add("errors", tokenPackageJsonFile, 1, "@design-system/tokens must export ./tokens.json for platform-neutral token pipelines.");
+  }
+  if (tokenContract?.format !== "flow-token-contract@1") {
+    add("errors", tokenContractFile, 1, "Token JSON contract must declare format flow-token-contract@1.");
+  }
+  if (!tokenContract?.compatibleWith?.includes?.("style-dictionary")) {
+    add("errors", tokenContractFile, 1, "Token JSON contract must declare Style Dictionary compatibility.");
+  }
+  if (Object.keys(tokenContract?.tokens ?? {}).length < 1000) {
+    add("errors", tokenContractFile, 1, "Token JSON contract must expose the full CSS token inventory.");
   }
 }
 
