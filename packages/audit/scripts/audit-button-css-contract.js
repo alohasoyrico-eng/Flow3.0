@@ -44,6 +44,12 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (text.includes("--button-current-")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--button-current-")), "Button must not use short --button-current-* aliases; density belongs in the component namespace.");
   }
+  if (text.includes("--comp-button-size-md: var(--component-control-min-size);")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-button-size-md: var(--component-control-min-size);")), "Button density sizes must route through --component-button-size-* aliases, not the global control size directly.");
+  }
+  if (!text.includes("--comp-button-size-md: var(--component-button-size-md);")) {
+    add("errors", packageCssFile, 1, "Button medium size must consume --component-button-size-md.");
+  }
   if (blockFor(blocks, selectorKey, ".button:focus-visible,.icon-button:focus-visible,.text-area:focus-visible")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".button:focus-visible")), "Button focus must not share a CSS block with IconButton or TextArea.");
   }

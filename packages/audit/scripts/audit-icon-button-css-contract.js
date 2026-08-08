@@ -29,6 +29,12 @@ function checkIconButtonCssContract({ text, blocks, packageCssFile, selectorKey,
   if (text.includes("--icon-button-")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--icon-button-")), "IconButton must not use short --icon-button-* aliases; use the component namespace.");
   }
+  if (text.includes("--comp-icon-button-size-md: var(--component-control-min-size);")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-icon-button-size-md: var(--component-control-min-size);")), "IconButton density sizes must route through --component-icon-button-size-* aliases, not the global control size directly.");
+  }
+  if (!text.includes("--comp-icon-button-size-md: var(--component-icon-button-size-md);")) {
+    add("errors", packageCssFile, 1, "IconButton medium size must consume --component-icon-button-size-md.");
+  }
   if (blockFor(blocks, selectorKey, ".icon-button:focus-visible,.text-area:focus-visible")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".icon-button:focus-visible")), "IconButton focus must not share a CSS block with TextArea.");
   }

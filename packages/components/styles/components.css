@@ -429,6 +429,11 @@
   --component-slider-thumb-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg) + var(--sys-frame-space-micro));
   --component-slider-thumb-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md) + var(--sys-frame-space-micro));
   --component-slider-touch-size-sm: calc(var(--component-control-min-size) - var(--sys-space-sm));
+  --component-slider-touch-size-md: var(--component-control-min-size);
+  --component-slider-touch-size-lg: var(--sys-frame-height-control-sm);
+  --component-switch-track-width-sm: var(--component-control-min-size);
+  --component-switch-track-width-md: var(--component-inline-size-lg);
+  --component-switch-track-width-lg: var(--component-inline-size-lg);
   --component-skeleton-circle-size: var(--sys-frame-content-skeleton-circle);
   --component-skeleton-row-leading-size: var(--sys-frame-content-skeleton-row-leading);
   --component-table-expander-size: var(--sys-frame-content-table-expander);
@@ -473,9 +478,9 @@
   --comp-checkbox-hover-scale: var(--component-scale-hover);
   --comp-checkbox-press-scale: var(--component-scale-press);
   --comp-checkbox-disabled-opacity: var(--sys-disabled-readable-opacity);
-  --comp-switch-track-width-sm: var(--component-control-min-size);
-  --comp-switch-track-width-md: var(--component-inline-size-lg);
-  --comp-switch-track-width-lg: var(--component-inline-size-lg);
+  --comp-switch-track-width-sm: var(--component-switch-track-width-sm);
+  --comp-switch-track-width-md: var(--component-switch-track-width-md);
+  --comp-switch-track-width-lg: var(--component-switch-track-width-lg);
   --comp-switch-track-block-sm: var(--component-min-text-line);
   --comp-switch-track-block-md: var(--component-badge-min-size);
   --comp-switch-track-block-lg: var(--component-inline-size-md);
@@ -861,9 +866,15 @@
   --component-date-picker-control-size-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
   --component-date-picker-day-size-sm: var(--component-field-icon-action-size-md);
   --component-date-picker-day-size-lg: var(--component-list-icon-box-size);
-  --comp-icon-button-size-sm: var(--sys-space-9);
-  --comp-icon-button-size-md: var(--component-control-min-size);
-  --comp-icon-button-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));
+  --component-icon-button-size-sm: var(--sys-space-9);
+  --component-icon-button-size-md: var(--component-control-min-size);
+  --component-icon-button-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));
+  --component-button-size-sm: var(--sys-space-9);
+  --component-button-size-md: var(--component-control-min-size);
+  --component-button-size-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
+  --comp-icon-button-size-sm: var(--component-icon-button-size-sm);
+  --comp-icon-button-size-md: var(--component-icon-button-size-md);
+  --comp-icon-button-size-lg: var(--component-icon-button-size-lg);
   --comp-icon-button-size: var(--sys-density-control-height);
   --comp-icon-button-icon-size-sm: var(--sys-icon-size-sm-plus);
   --comp-icon-button-icon-size-md: var(--sys-icon-size-md-plus);
@@ -872,9 +883,9 @@
   --comp-icon-button-badge-size: var(--sys-space-2);
   --comp-icon-button-hover-scale: var(--sys-momentum-scale-hover);
   --comp-icon-button-press-scale: var(--sys-momentum-scale-press);
-  --comp-button-size-sm: var(--sys-space-9);
-  --comp-button-size-md: var(--component-control-min-size);
-  --comp-button-size-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
+  --comp-button-size-sm: var(--component-button-size-sm);
+  --comp-button-size-md: var(--component-button-size-md);
+  --comp-button-size-lg: var(--component-button-size-lg);
   --comp-button-size: var(--sys-density-control-height);
   --comp-button-padding-sm: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
   --comp-button-padding-md: var(--sys-space-lg);
@@ -3625,7 +3636,7 @@ button.tag:disabled,
   --comp-slider-min-inline: var(--component-content-size-xs);
   --comp-slider-track-size: var(--component-slider-track-size-md);
   --comp-slider-thumb-size: var(--component-slider-thumb-size-md);
-  --comp-slider-touch-size: var(--component-control-min-size);
+  --comp-slider-touch-size: var(--component-slider-touch-size-md);
   --comp-slider-state-color: var(--sys-color-action);
   --comp-slider-track-color: color-mix(in srgb, var(--sys-color-border) 72%, var(--sys-color-surface-raised));
   --comp-slider-track-depth: var(--component-depth-inset-track);
@@ -3681,7 +3692,7 @@ button.tag:disabled,
   --comp-slider-thumb-size: var(--component-slider-thumb-size-lg);
   --comp-slider-thumb-border-width: calc(var(--component-border-width) * 3);
   --comp-slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 5) color-mix(in srgb, var(--comp-slider-state-color) 18%, transparent);
-  --comp-slider-touch-size: var(--sys-frame-height-control-sm);
+  --comp-slider-touch-size: var(--component-slider-touch-size-lg);
   --comp-slider-gap: var(--sys-space-md);
 }
 

@@ -44,6 +44,12 @@ function checkSwitchCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (text.includes("--switch-")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--switch-")), "Switch must not use short --switch-* aliases; use --comp-switch-current-* aliases.");
   }
+  if (text.includes("--comp-switch-track-width-sm: var(--component-control-min-size);")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-switch-track-width-sm: var(--component-control-min-size);")), "Switch track width must route through --component-switch-track-width-* aliases, not the global control size directly.");
+  }
+  if (!text.includes("--comp-switch-track-width-sm: var(--component-switch-track-width-sm);")) {
+    add("errors", packageCssFile, 1, "Switch small track width must consume --component-switch-track-width-sm.");
+  }
 
   requireIncludes({
     block: rootBlock,

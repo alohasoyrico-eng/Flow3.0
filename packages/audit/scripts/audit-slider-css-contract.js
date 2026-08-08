@@ -33,6 +33,9 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (/\.slider\[data-pct=/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".slider[data-pct=")), "Slider percentage must flow through --comp-slider-percent instead of generated data-pct CSS rules.");
   }
+  if (text.includes("--comp-slider-touch-size: var(--component-control-min-size);")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-slider-touch-size: var(--component-control-min-size);")), "Slider touch target must route through --component-slider-touch-size-* aliases, not the global control size directly.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -41,6 +44,7 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     snippets: [
       "--comp-slider-fg: var(--sys-color-text)",
       "--comp-slider-track-size: var(--component-slider-track-size-md)",
+      "--comp-slider-touch-size: var(--component-slider-touch-size-md)",
       "--comp-slider-thumb-border-width: calc(var(--component-border-width) * 3)",
       "--comp-slider-focus-ring-width: var(--component-focus-ring-width)",
       "--comp-slider-value-transition:",
@@ -53,14 +57,14 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: smBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-sm)", "--comp-slider-gap: var(--sys-space-xs)"],
+    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-sm)", "--comp-slider-touch-size: var(--component-slider-touch-size-sm)", "--comp-slider-gap: var(--sys-space-xs)"],
     message: "Slider sm density must scale through Slider aliases.",
   });
   requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-lg)", "--comp-slider-gap: var(--sys-space-md)"],
+    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-lg)", "--comp-slider-touch-size: var(--component-slider-touch-size-lg)", "--comp-slider-gap: var(--sys-space-md)"],
     message: "Slider lg density must scale through Slider aliases.",
   });
   requireIncludes({
