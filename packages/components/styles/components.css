@@ -14,9 +14,13 @@
   --component-density-row-height: var(--sys-density-row-height);
   --component-density-card-padding: var(--sys-density-card-padding);
   --component-density-component-gap: var(--sys-density-component-gap);
+  --component-frame-gap-section: var(--sys-frame-gap-section);
   --component-frame-gap-subsection: var(--sys-frame-gap-subsection);
   --component-frame-gap-element: var(--sys-frame-gap-element);
+  --component-frame-gap-component: var(--sys-frame-gap-component);
   --component-frame-gap-component-lg: var(--sys-frame-gap-component-lg);
+  --component-frame-border-thin: var(--sys-frame-border-thin);
+  --component-frame-radius-panel: var(--sys-frame-radius-panel);
   --component-frame-padding-control: var(--sys-frame-padding-control);
   --component-frame-space-none: var(--sys-frame-space-none);
   --component-frame-space-micro: var(--sys-frame-space-micro);
@@ -467,8 +471,10 @@
   --component-chart-threshold-warning: var(--sys-chart-threshold-warning);
   --component-energy-surface-sunken: var(--sys-energy-surface-sunken);
   --component-energy-surface-primary: var(--sys-energy-surface-primary);
+  --component-energy-surface-secondary: var(--sys-energy-surface-secondary);
   --component-energy-border-default: var(--sys-energy-border-default);
   --component-energy-text-primary: var(--sys-energy-text-primary);
+  --component-energy-text-secondary: var(--sys-energy-text-secondary);
   --component-energy-status-warning-foreground: var(--sys-energy-status-warning-foreground);
   --component-energy-status-error: var(--sys-energy-status-error);
   --component-chart-series-primary: var(--sys-chart-series-primary);
@@ -6745,6 +6751,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-motion-boundary-surface-shadow: var(--component-depth-panel);
   --comp-motion-boundary-surface-padding: var(--component-space-lg);
   --comp-motion-boundary-text: var(--component-color-text);
+  --comp-motion-boundary-copy-fg: var(--component-color-text-muted);
+  --comp-motion-boundary-copy-line-height: var(--component-line-height-reading);
+  --comp-motion-boundary-content-gap: var(--component-space-xs);
+  --comp-motion-boundary-title-family: var(--component-font-family-title);
+  --comp-motion-boundary-icon-family: var(--component-font-family-icon);
   --comp-motion-boundary-icon-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
   --comp-motion-boundary-icon-fg: var(--component-color-action);
   --comp-motion-boundary-icon-size: var(--component-inline-size-lg);
@@ -6754,6 +6765,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-motion-boundary-state-fg: var(--component-color-action);
   --comp-motion-boundary-state-font-size: var(--component-font-size-caption);
   --comp-motion-boundary-state-font-weight: var(--component-font-weight-extrabold);
+  --comp-motion-boundary-state-line-height: var(--component-line-height-none);
   --comp-motion-boundary-state-padding: calc(var(--component-space-xs) / 2) var(--component-space-xs);
   --comp-motion-boundary-cue-bg: var(--component-color-action);
   --comp-motion-boundary-cue-radius: var(--component-radius-pill);
@@ -6773,6 +6785,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
     var(--component-color-action) 0 10px,
     transparent 10px 16px
   );
+  --comp-motion-boundary-quiet-action: var(--component-color-action-hover);
+  --comp-motion-boundary-quiet-route-bg: repeating-linear-gradient(
+    90deg,
+    var(--comp-motion-boundary-quiet-action) 0 10px,
+    transparent 10px 16px
+  );
   --comp-motion-boundary-disabled-state-bg: var(--component-color-surface-raised);
   --comp-motion-boundary-disabled-state-border: var(--component-color-border);
   --comp-motion-boundary-disabled-state-fg: var(--component-color-text-muted);
@@ -6784,9 +6802,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .biometric-prompt p,
 .motion-boundary p {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-motion-boundary-copy-fg);
   font-size: var(--component-font-size-label);
-  line-height: var(--sys-voice-line-height-comfortable);
+  line-height: var(--comp-motion-boundary-copy-line-height);
   margin: 0;
 }
 
@@ -6803,6 +6821,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-motion-boundary-surface-shadow: var(--component-depth-panel);
   --comp-motion-boundary-surface-padding: var(--component-space-lg);
   --comp-motion-boundary-text: var(--component-color-text);
+  --comp-motion-boundary-copy-fg: var(--component-color-text-muted);
+  --comp-motion-boundary-copy-line-height: var(--component-line-height-reading);
+  --comp-motion-boundary-content-gap: var(--component-space-xs);
+  --comp-motion-boundary-title-family: var(--component-font-family-title);
+  --comp-motion-boundary-icon-family: var(--component-font-family-icon);
+  --comp-motion-boundary-state-line-height: var(--component-line-height-none);
   background: var(--comp-motion-boundary-surface-bg);
   border: var(--component-border-width) solid var(--comp-motion-boundary-surface-border);
   border-radius: var(--comp-motion-boundary-surface-radius);
@@ -6888,7 +6912,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   border-radius: var(--comp-motion-boundary-cue-radius);
   color: var(--comp-motion-boundary-icon-fg);
   display: inline-flex;
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-motion-boundary-icon-family);
   font-size: var(--comp-motion-boundary-icon-font-size);
   justify-content: center;
   min-block-size: var(--comp-motion-boundary-icon-size);
@@ -6919,7 +6943,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .motion-boundary__content {
   display: grid;
   flex: 1;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-motion-boundary-content-gap);
 }
 
 .biometric-prompt__content {
@@ -6935,7 +6959,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .motion-boundary__content strong,
 .animated-moment strong {
-  font-family: var(--sys-font-title);
+  font-family: var(--comp-motion-boundary-title-family);
 }
 
 .motion-boundary__state {
@@ -6948,7 +6972,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   font-size: var(--comp-motion-boundary-state-font-size);
   font-weight: var(--comp-motion-boundary-state-font-weight);
   inline-size: fit-content;
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--comp-motion-boundary-state-line-height);
   padding: var(--comp-motion-boundary-state-padding);
 }
 
@@ -7249,19 +7273,15 @@ body[data-contrast="quiet"] .tree-view {
 
 body[data-contrast="quiet"] .motion-boundary__icon,
 body[data-contrast="quiet"] .motion-boundary__state {
-  color: var(--sys-color-action-hover);
+  color: var(--comp-motion-boundary-quiet-action);
 }
 
 body[data-contrast="quiet"] .motion-boundary__cue {
-  background: var(--sys-color-action-hover);
+  background: var(--comp-motion-boundary-quiet-action);
 }
 
 body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-boundary__cue {
-  background: repeating-linear-gradient(
-    90deg,
-    var(--sys-color-action-hover) 0 10px,
-    transparent 10px 16px
-  );
+  background: var(--comp-motion-boundary-quiet-route-bg);
 }
 
 .motion-boundary[data-state="reduced-motion"] .motion-boundary__cue,
@@ -7295,6 +7315,9 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   display: inline-grid;
   justify-items: center;
   place-items: center;
+  --comp-animation-asset-fallback-icon-bg: var(--component-color-action);
+  --comp-animation-asset-fallback-icon-fg: var(--component-color-action-text);
+  --comp-animation-asset-fallback-icon-family: var(--component-font-family-icon);
 }
 
 .animation-asset__fallback[hidden] {
@@ -7303,11 +7326,11 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 .animation-asset__fallback-icon {
   align-items: center;
-  background: var(--sys-color-action);
+  background: var(--comp-animation-asset-fallback-icon-bg);
   border-radius: var(--component-radius-pill);
-  color: var(--sys-color-action-text);
+  color: var(--comp-animation-asset-fallback-icon-fg);
   display: inline-flex;
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-animation-asset-fallback-icon-family);
   font-size: var(--component-font-size-display-sm);
   justify-content: center;
   min-block-size: 100%;
@@ -7326,11 +7349,18 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 .illustration-asset {
   --comp-illustration-asset-max-size: var(--component-illustration-asset-max-size-md);
+  --comp-illustration-asset-fg: var(--component-energy-text-secondary);
+  --comp-illustration-asset-fallback-min-block-size: calc(var(--component-frame-gap-section) * 2);
+  --comp-illustration-asset-fallback-padding: var(--component-frame-gap-component);
+  --comp-illustration-asset-fallback-border: var(--component-frame-border-thin) solid var(--component-energy-border-default);
+  --comp-illustration-asset-fallback-radius: var(--component-frame-radius-panel);
+  --comp-illustration-asset-fallback-bg: var(--component-energy-surface-secondary);
+  --comp-illustration-asset-fallback-fg: var(--component-energy-text-secondary);
   display: grid;
   place-items: center;
   inline-size: 100%;
   margin: 0;
-  color: var(--sys-energy-text-secondary);
+  color: var(--comp-illustration-asset-fg);
 }
 
 .illustration-asset[data-density="sm"] {
@@ -7390,12 +7420,12 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .illustration-asset__fallback {
   display: inline-grid;
   place-items: center;
-  min-block-size: calc(var(--sys-frame-gap-section) * 2);
-  padding: var(--sys-frame-gap-component);
-  border: var(--sys-frame-border-thin) solid var(--sys-energy-border-default);
-  border-radius: var(--sys-frame-radius-panel);
-  background: var(--sys-energy-surface-secondary);
-  color: var(--sys-energy-text-secondary);
+  min-block-size: var(--comp-illustration-asset-fallback-min-block-size);
+  padding: var(--comp-illustration-asset-fallback-padding);
+  border: var(--comp-illustration-asset-fallback-border);
+  border-radius: var(--comp-illustration-asset-fallback-radius);
+  background: var(--comp-illustration-asset-fallback-bg);
+  color: var(--comp-illustration-asset-fallback-fg);
   font-family: var(--component-font-family-body);
   font-size: var(--component-font-size-body-sm);
   line-height: var(--component-line-height-body-sm);
@@ -7407,6 +7437,11 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-animated-moment-accent-surface: color-mix(in srgb, var(--comp-animated-moment-accent) 12%, var(--component-color-surface));
   --comp-animated-moment-accent-border: color-mix(in srgb, var(--comp-animated-moment-accent) 34%, var(--component-color-border));
   --comp-animated-moment-accent-halo: 0 0 0 calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--comp-animated-moment-accent-surface);
+  --comp-animated-moment-border: color-mix(in srgb, var(--component-color-border) 82%, transparent);
+  --comp-animated-moment-paused-border: color-mix(in srgb, var(--component-color-warning) 40%, var(--component-color-border));
+  --comp-animated-moment-icon-fg: var(--component-color-action-text);
+  --comp-animated-moment-disabled-icon-bg: var(--component-color-surface-raised);
+  --comp-animated-moment-disabled-icon-fg: var(--component-color-text-muted);
   --comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 4.5);
   --comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9);
   --comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38);
@@ -7422,8 +7457,10 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-animated-moment-title-line-height: var(--component-line-height-crisp);
   --comp-animated-moment-title-max-inline-size: var(--component-content-size-sm);
   --comp-animated-moment-copy-size: var(--component-font-size-body);
+  --comp-animated-moment-copy-fg: var(--component-color-text-muted);
   --comp-animated-moment-copy-line-height: var(--component-line-height-reading);
   --comp-animated-moment-copy-max-inline-size: var(--component-content-size-md);
+  --comp-animated-moment-full-width-icon-margin-inline-end: var(--component-space-xl);
   --comp-animated-moment-cue-block-size: calc(var(--component-field-gap) / 2);
   --comp-animated-moment-cue-inline-size: calc(var(--component-inline-size-md) - var(--component-space-sm));
   --comp-animated-moment-cue-complete-inline-size: var(--component-inline-size-md);
@@ -7482,12 +7519,12 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment[data-variant] {
-  border-color: color-mix(in srgb, var(--sys-color-border) 82%, transparent);
+  border-color: var(--comp-animated-moment-border);
 }
 
 .animated-moment[data-variant] .animated-moment__icon {
   background: var(--comp-animated-moment-accent);
-  color: var(--sys-color-action-text);
+  color: var(--comp-animated-moment-icon-fg);
 }
 
 .animated-moment[data-state="complete"] {
@@ -7495,7 +7532,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment[data-state="paused"] {
-  border-color: color-mix(in srgb, var(--sys-color-warning) 40%, var(--sys-color-border));
+  border-color: var(--comp-animated-moment-paused-border);
 }
 
 .animated-moment[data-state="disabled"] {
@@ -7508,14 +7545,14 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .animated-moment[data-state="disabled"] .animated-moment__state,
 .animated-moment[data-state="disabled"] .animated-moment__cue,
 .animated-moment[data-state="disabled"] .animation-asset__fallback-icon {
-  background: var(--sys-color-surface-raised);
-  color: var(--sys-color-text-muted);
+  background: var(--comp-animated-moment-disabled-icon-bg);
+  color: var(--comp-animated-moment-disabled-icon-fg);
 }
 
 .animated-moment .animated-moment__icon {
   block-size: var(--comp-animated-moment-icon-size);
   box-shadow: var(--comp-animated-moment-accent-halo);
-  color: var(--sys-color-action-text);
+  color: var(--comp-animated-moment-icon-fg);
   font-size: var(--comp-animated-moment-icon-font-size);
   inline-size: var(--comp-animated-moment-icon-size);
   margin-block: var(--comp-animated-moment-icon-margin-block);
@@ -7529,7 +7566,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment.animated-moment small {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-animated-moment-copy-fg);
   font-size: var(--comp-animated-moment-copy-size);
   line-height: var(--comp-animated-moment-copy-line-height);
   max-inline-size: var(--comp-animated-moment-copy-max-inline-size);
@@ -7595,7 +7632,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   .animated-moment[data-full-width="true"] .animated-moment__icon {
     grid-row: 1 / span 4;
     margin-block: calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2);
-    margin-inline: calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--sys-space-xl);
+    margin-inline: calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--comp-animated-moment-full-width-icon-margin-inline-end);
   }
 
   .animated-moment[data-full-width="true"] .animated-moment__stage,
