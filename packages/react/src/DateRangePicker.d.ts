@@ -4,7 +4,7 @@ import { dateRangePickerPlatformContract } from "@design-system/components/platf
 export type DateRangePickerDensity = "sm" | "md" | "lg";
 export type DateRangePickerState = "default" | "hover" | "focus" | "selected" | "warning" | "error" | "disabled";
 export type DateRangePickerValue = { from?: string; to?: string };
-export type DateRangePickerPreset = { label: string; days: number };
+export type DateRangePickerPreset = { key: string; label: string; days: number };
 
 export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;

@@ -2419,8 +2419,8 @@ const dateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRange
   weekdays: ["L", "M", "X", "J", "V", "S", "D"],
   helper: "One bounded date range.",
   presetItems: [
-    { label: "Last 7 days", days: 7 },
-    { label: "Last 30 days", days: 30 },
+    { key: "last-7", label: "Last 7 days", days: 7 },
+    { key: "last-30", label: "Last 30 days", days: 30 },
   ],
   calendarLabel: "Reporting range calendar",
   previousMonthLabel: "Previous reporting month",
@@ -2443,6 +2443,12 @@ assert.match(dateRangePickerMarkup, /class="field__icon date-picker__icon date-r
 assert.match(dateRangePickerMarkup, /date_range/);
 assert.match(dateRangePickerMarkup, /class="date-picker__value date-range-picker__value"/);
 assert.match(dateRangePickerMarkup, /01 jul 2026 - 15 jul 2026/);
+assert.match(dateRangePickerMarkup, /data-key="last-7"/);
+const unstablePresetDateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
+  label: "Reporting range",
+  presetItems: [{ label: "Last 7 days", days: 7 }],
+}));
+assert.doesNotMatch(unstablePresetDateRangePickerMarkup, /class="date-range-picker__preset"|data-key="Last 7 days-7"/);
 assert.match(dateRangePickerMarkup, /data-date-range-picker-from=""/);
 assert.match(dateRangePickerMarkup, /data-date-range-picker-to=""/);
 assert.match(dateRangePickerMarkup, /class="date-picker__panel date-range-picker__panel"/);

@@ -106,7 +106,9 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const todayValue = useMemo(() => dateIso(new Date()), []);
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
   const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
-  const presetOptions = Array.isArray(presetItems) ? presetItems : [];
+  const presetOptions = Array.isArray(presetItems)
+    ? presetItems.filter((preset) => preset?.key !== undefined && preset.key !== null && preset.key !== "" && preset?.label && Number.isFinite(Number(preset.days)))
+    : [];
   const showPresets = presets ?? presetOptions.length > 0;
   const visibleValue = rangeLabel({ ...range, placeholder, locale });
 
@@ -298,9 +300,10 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       },
       showPresets
         ? React.createElement("div", { className: "date-range-picker__presets" }, presetOptions.map((preset) => React.createElement("button", {
-          key: `${preset.label}-${preset.days}`,
+          key: preset.key,
           type: "button",
           className: "date-range-picker__preset",
+          "data-key": preset.key,
           onClick: () => applyPreset(preset),
         }, preset.label)))
         : null,
