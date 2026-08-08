@@ -1583,6 +1583,20 @@ try {
     onValueChange: (key, event) => segmentChanges.push({ key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(listSegment.getAttribute("aria-selected"), "true"));
+  fireEvent.click(timelineSegment);
+  assert.deepEqual(segmentChanges.at(-1), { key: "timeline", eventType: "click" });
+  assert.equal(timelineSegment.getAttribute("aria-selected"), "false");
+  rerenderSegmentedControl(React.createElement(SegmentedControl, {
+    label: "View mode",
+    selectedKey: "timeline",
+    items: [
+      { key: "list", label: "List" },
+      { key: "map", label: "Map", disabled: true },
+      { key: "timeline", label: "Timeline" },
+    ],
+    onValueChange: (key, event) => segmentChanges.push({ key, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(timelineSegment.getAttribute("aria-selected"), "true"));
 
   cleanup();
 
