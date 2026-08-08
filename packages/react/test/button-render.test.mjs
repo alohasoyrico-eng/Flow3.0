@@ -2223,13 +2223,14 @@ const formDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   closeLabel: "Close route filters",
   variant: "filter",
   open: true,
-  fields: [{ label: "Region" }, { label: "Fuel type", value: "Diesel" }],
+  fields: [{ label: "Region" }, { label: "Fuel type", value: "Diesel" }, { value: "Empty drawer field" }],
 }));
 assert.match(formDrawerMarkup, /data-variant="filter"/);
 assert.match(formDrawerMarkup, /class="drawer__body"/);
 assert.match(formDrawerMarkup, /class="field"/);
 assert.doesNotMatch(formDrawerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(formDrawerMarkup, /value="Diesel"/);
+assert.doesNotMatch(formDrawerMarkup, /Empty drawer field/);
 
 const emptyContentDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Details",
@@ -2242,6 +2243,8 @@ const unnamedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer));
 assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Open drawer"/);
 assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Drawer"/);
 assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Close drawer"/);
+assert.doesNotMatch(unnamedDrawerMarkup, /class="button button--secondary drawer__trigger"/);
+assert.doesNotMatch(unnamedDrawerMarkup, /class="icon-button icon-button--ghost drawer__close"/);
 
 const comboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
   label: "Vehicle",

@@ -97,6 +97,8 @@ export const Drawer = forwardRef(function Drawer({
   const drawerId = id || `drawer-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = label ? `${drawerId}-title` : undefined;
   const resolvedActions = actions;
+  const hasTrigger = Boolean(triggerLabel || triggerAriaLabel);
+  const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label) : [];
 
   useEffect(() => {
     if (!isOpenControlled) return;
@@ -134,7 +136,7 @@ export const Drawer = forwardRef(function Drawer({
       "data-open": String(Boolean(isOpen)),
       "data-side": resolvedSide,
     },
-    React.createElement(Button, {
+    hasTrigger ? React.createElement(Button, {
       ref: triggerRef,
       label: triggerLabel,
       variant: "secondary",
@@ -146,7 +148,7 @@ export const Drawer = forwardRef(function Drawer({
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": drawerId,
       onClick: () => setOpen(true),
-    }),
+    }) : null,
     React.createElement(
       "div",
       {
@@ -173,7 +175,7 @@ export const Drawer = forwardRef(function Drawer({
           "header",
           null,
           label ? React.createElement("strong", { id: titleId }, label) : null,
-          React.createElement(IconButton, {
+          closeLabel ? React.createElement(IconButton, {
             ref: closeRef,
             icon: "close",
             ariaLabel: closeLabel,
@@ -182,14 +184,14 @@ export const Drawer = forwardRef(function Drawer({
             className: "drawer__close",
             "data-overlay-close": "",
             onClick: () => closeDrawer(),
-          }),
+          }) : null,
           description ? React.createElement("p", null, description) : null,
         ),
         React.createElement(
           "div",
           { className: "drawer__body" },
           content.map((item, index) => renderContentItem(item, resolvedDensity, index)),
-          fields.map((field, index) => {
+          visibleFields.map((field, index) => {
             const normalized = field ?? {};
             return React.createElement(Input, {
               ...normalized,
