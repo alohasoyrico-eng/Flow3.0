@@ -75,6 +75,7 @@
   --component-space-3: var(--sys-space-3);
   --component-space-4: var(--sys-space-4);
   --component-space-5: var(--sys-space-5);
+  --component-space-32: var(--sys-space-32);
   --component-space-xs: var(--sys-space-xs);
   --component-space-sm: var(--sys-space-sm);
   --component-space-md: var(--sys-space-md);
@@ -459,6 +460,11 @@
   --component-chart-stroke-control: var(--sys-frame-border-control);
   --component-chart-stroke-medium: var(--sys-frame-border-medium);
   --component-chart-stroke-strong: var(--sys-frame-border-indicator);
+  --component-chart-grid-color: var(--sys-chart-grid-color);
+  --component-chart-axis-color: var(--sys-chart-axis-color);
+  --component-chart-tooltip-bg: var(--sys-chart-tooltip-background);
+  --component-chart-tooltip-fg: var(--sys-chart-tooltip-foreground);
+  --component-chart-threshold-warning: var(--sys-chart-threshold-warning);
   --component-energy-surface-sunken: var(--sys-energy-surface-sunken);
   --component-energy-surface-primary: var(--sys-energy-surface-primary);
   --component-energy-border-default: var(--sys-energy-border-default);
@@ -8176,8 +8182,23 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-header-gap: var(--component-frame-space-none);
   --comp-chart-panel-header-title-family: var(--component-font-family-title);
   --comp-chart-panel-header-title-color: var(--component-color-text-muted);
+  --comp-chart-panel-header-title-weight: var(--component-font-weight-semibold);
+  --comp-chart-panel-header-title-letter-spacing: var(--component-letter-spacing-widest);
+  --comp-chart-panel-header-title-transform: var(--component-text-transform-uppercase);
+  --comp-chart-panel-output-color: var(--component-color-text);
+  --comp-chart-panel-output-family: var(--component-font-family-mono);
+  --comp-chart-panel-output-weight: var(--component-font-weight-semibold);
   --comp-chart-panel-tooltip-x: 50%;
   --comp-chart-panel-tooltip-y: var(--component-offset-zero);
+  --comp-chart-panel-tooltip-bg: var(--component-chart-tooltip-bg);
+  --comp-chart-panel-tooltip-fg: var(--component-chart-tooltip-fg);
+  --comp-chart-panel-tooltip-weight: var(--component-font-weight-bold);
+  --comp-chart-panel-tooltip-padding: var(--component-space-xs) var(--component-space-sm);
+  --comp-chart-panel-tooltip-z: var(--component-z-dropdown);
+  --comp-chart-panel-local-tooltip-bg: var(--component-color-text);
+  --comp-chart-panel-local-tooltip-fg: var(--component-color-surface);
+  --comp-chart-panel-local-tooltip-z: var(--component-z-raised);
+  --comp-chart-panel-tooltip-visible-opacity: var(--component-opacity-visible);
   --comp-chart-panel-hover-border: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--component-color-border));
   --comp-chart-panel-hover-depth: var(--component-depth-action-hover);
   --comp-chart-panel-hover-transform: var(--component-transform-lift-sm);
@@ -8191,6 +8212,34 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-plot-density-offset: 0px;
   --comp-chart-panel-plot-size: calc(var(--comp-chart-panel-plot-size-base) + var(--comp-chart-panel-plot-density-offset));
   --comp-chart-panel-donut-bg: color-mix(in srgb, var(--component-color-action) 10%, transparent);
+  --comp-chart-panel-figure-gap: var(--component-space-xs);
+  --comp-chart-panel-plot-gap: var(--component-space-sm);
+  --comp-chart-panel-plot-padding-block: var(--component-space-xs);
+  --comp-chart-panel-bar-gap: var(--component-space-xs);
+  --comp-chart-panel-outline-reset: var(--component-a11y-outline-reset);
+  --comp-chart-panel-bar-label-color: var(--component-color-text-muted);
+  --comp-chart-panel-bar-label-weight: var(--component-font-weight-semibold);
+  --comp-chart-panel-bar-fill: color-mix(in srgb, var(--component-color-border) 62%, var(--component-color-surface));
+  --comp-chart-panel-grid-line-stroke: color-mix(in srgb, var(--component-chart-grid-color) 32%, transparent);
+  --comp-chart-panel-dot-stroke: var(--component-color-surface);
+  --comp-chart-panel-focus-stroke: var(--component-color-focus);
+  --comp-chart-panel-donut-radius: var(--component-radius-pill);
+  --comp-chart-panel-donut-size: min(calc(var(--component-space-32) + var(--component-space-4)), var(--comp-chart-panel-plot-size));
+  --comp-chart-panel-donut-center-bg: var(--component-color-surface);
+  --comp-chart-panel-donut-center-color: var(--component-color-text);
+  --comp-chart-panel-donut-center-family: var(--component-font-family-title);
+  --comp-chart-panel-donut-center-weight: var(--component-font-weight-extrabold);
+  --comp-chart-panel-bullet-gap: var(--component-space-sm);
+  --comp-chart-panel-bullet-meter-bg: color-mix(in srgb, var(--component-color-border) 28%, transparent);
+  --comp-chart-panel-bullet-value-color: var(--component-color-text);
+  --comp-chart-panel-bullet-value-family: var(--component-font-family-title);
+  --comp-chart-panel-bullet-value-weight: var(--component-font-weight-extrabold);
+  --comp-chart-panel-pareto-focus-fill: color-mix(in srgb, var(--comp-chart-panel-tone) 82%, var(--component-color-text));
+  --comp-chart-panel-pareto-stroke: var(--component-color-text);
+  --comp-chart-panel-threshold-stroke: color-mix(in srgb, var(--component-chart-threshold-warning) 72%, var(--component-chart-grid-color));
+  --comp-chart-panel-axis-color: var(--component-chart-axis-color);
+  --comp-chart-panel-axis-family: var(--component-font-family-body);
+  --comp-chart-panel-axis-weight: var(--component-font-weight-semibold);
   --comp-chart-panel-series-1: var(--component-chart-series-primary);
   --comp-chart-panel-series-2: var(--component-chart-series-secondary);
   --comp-chart-panel-series-3: var(--component-chart-series-quaternary);
@@ -8487,23 +8536,23 @@ body[data-contrast="quiet"] .route-summary__icon {
   color: var(--comp-chart-panel-header-title-color);
   font-family: var(--comp-chart-panel-header-title-family);
   font-size: var(--component-font-size-micro);
-  font-weight: var(--sys-voice-weight-semibold);
-  letter-spacing: var(--sys-voice-letter-spacing-widest);
+  font-weight: var(--comp-chart-panel-header-title-weight);
+  letter-spacing: var(--comp-chart-panel-header-title-letter-spacing);
   line-height: var(--component-line-height-snug);
-  text-transform: var(--sys-voice-transform-uppercase);
+  text-transform: var(--comp-chart-panel-header-title-transform);
 }
 
 .chart-panel output {
-  color: var(--sys-color-text);
-  font-family: var(--sys-font-mono);
+  color: var(--comp-chart-panel-output-color);
+  font-family: var(--comp-chart-panel-output-family);
   font-size: var(--component-font-size-title-lg);
-  font-weight: var(--sys-voice-weight-semibold);
+  font-weight: var(--comp-chart-panel-header-title-weight);
   line-height: var(--component-line-height-snug);
 }
 
 .chart-panel figure {
   display: grid;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-chart-panel-figure-gap);
   margin: 0;
 }
 
@@ -8511,7 +8560,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   align-items: end;
   block-size: var(--comp-chart-panel-plot-size);
   display: flex;
-  gap: var(--sys-space-sm);
+  gap: var(--comp-chart-panel-plot-gap);
   inline-size: 100%;
   padding-block-start: 0;
   position: relative;
@@ -8534,25 +8583,25 @@ body[data-contrast="quiet"] .route-summary__icon {
   border-radius: var(--component-radius-sm);
   display: grid;
   flex: 1;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-chart-panel-figure-gap);
   grid-template-rows: auto minmax(0, 1fr) auto;
   min-inline-size: 0;
-  outline: var(--sys-a11y-outline-reset);
+  outline: var(--comp-chart-panel-outline-reset);
   position: relative;
 }
 
 .chart-panel__bar-group:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
+  outline: var(--component-focus-ring-width) solid var(--comp-chart-panel-focus-stroke);
   outline-offset: var(--component-focus-ring-offset);
 }
 
 .chart-panel__bar-group small,
 .chart-panel__bar-group em {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-chart-panel-bar-label-color);
   display: block;
   font-size: var(--component-font-size-micro);
   font-style: normal;
-  font-weight: var(--sys-voice-weight-semibold);
+  font-weight: var(--comp-chart-panel-header-title-weight);
   line-height: var(--component-line-height-snug);
   overflow: hidden;
   text-align: center;
@@ -8575,7 +8624,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__bar {
-  fill: color-mix(in srgb, var(--sys-color-border) 62%, var(--sys-color-surface));
+  fill: var(--comp-chart-panel-bar-fill);
   rx: var(--component-focus-ring-width);
   transition: fill var(--component-duration-state) var(--component-ease-state);
 }
@@ -8599,7 +8648,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel[data-variant="area"] .chart-panel__plot {
   align-items: center;
   border-block-end: 0;
-  padding-block: var(--sys-space-xs);
+  padding-block: var(--comp-chart-panel-figure-gap);
 }
 
 .chart-panel[data-variant="sparkline"] {
@@ -8619,12 +8668,12 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__hit-dot {
   fill: transparent;
-  outline: var(--sys-a11y-outline-reset);
+  outline: var(--comp-chart-panel-outline-reset);
   stroke: transparent;
 }
 
 .chart-panel__grid-line {
-  stroke: color-mix(in srgb, var(--sys-chart-grid-color) 32%, transparent);
+  stroke: var(--comp-chart-panel-grid-line-stroke);
   stroke-width: var(--component-chart-stroke-thin);
 }
 
@@ -8646,13 +8695,13 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__dot {
   animation: chart-dot-enter var(--component-duration-reveal) var(--component-ease-enter) both;
   fill: var(--comp-chart-panel-current-series);
-  stroke: var(--sys-color-surface);
+  stroke: var(--comp-chart-panel-dot-stroke);
   stroke-width: var(--component-chart-stroke-strong);
 }
 
 .chart-panel__hit-dot:hover,
 .chart-panel__hit-dot:focus-visible {
-  stroke: var(--sys-color-focus);
+  stroke: var(--comp-chart-panel-focus-stroke);
   stroke-width: var(--component-chart-stroke-medium);
 }
 
@@ -8670,11 +8719,11 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__donut {
   align-items: center;
   background: var(--comp-chart-panel-donut-bg);
-  border-radius: var(--sys-radius-pill);
-  block-size: min(calc(var(--sys-space-32) + var(--sys-space-4)), var(--comp-chart-panel-plot-size));
+  border-radius: var(--comp-chart-panel-donut-radius);
+  block-size: var(--comp-chart-panel-donut-size);
   display: inline-grid;
-  inline-size: min(calc(var(--sys-space-32) + var(--sys-space-4)), var(--comp-chart-panel-plot-size));
-  outline: var(--sys-a11y-outline-reset);
+  inline-size: var(--comp-chart-panel-donut-size);
+  outline: var(--comp-chart-panel-outline-reset);
   place-items: center;
   position: relative;
   transition:
@@ -8689,13 +8738,13 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__donut:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
+  outline: var(--component-focus-ring-width) solid var(--comp-chart-panel-focus-stroke);
   outline-offset: var(--component-focus-ring-offset);
   transform: var(--component-transform-scale-hover);
 }
 
 .chart-panel__donut::after {
-  background: var(--sys-color-surface);
+  background: var(--comp-chart-panel-dot-stroke);
   border-radius: inherit;
   content: "";
   inset: 16%;
@@ -8703,10 +8752,10 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__donut-center {
-  color: var(--sys-color-text);
-  font-family: var(--sys-font-title);
+  color: var(--comp-chart-panel-output-color);
+  font-family: var(--comp-chart-panel-donut-center-family);
   font-size: var(--component-font-size-title-md);
-  font-weight: var(--sys-voice-weight-extrabold);
+  font-weight: var(--comp-chart-panel-donut-center-weight);
   position: relative;
   z-index: var(--component-z-raised);
 }
@@ -8716,7 +8765,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   background: none;
   border-block-end: 0;
   display: grid;
-  gap: var(--sys-space-sm);
+  gap: var(--comp-chart-panel-plot-gap);
   padding-block-start: 0;
 }
 
@@ -8724,9 +8773,9 @@ body[data-contrast="quiet"] .route-summary__icon {
   align-items: center;
   border-radius: var(--component-radius-sm);
   display: grid;
-  gap: var(--sys-space-sm);
+  gap: var(--comp-chart-panel-plot-gap);
   grid-template-columns: minmax(4.5rem, 0.8fr) minmax(6rem, 1fr) auto;
-  outline: var(--sys-a11y-outline-reset);
+  outline: var(--comp-chart-panel-outline-reset);
   position: relative;
   transition: background var(--component-duration-state) var(--component-ease-state);
 }
@@ -8745,7 +8794,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__bullet-meter {
   appearance: none;
-  background: color-mix(in srgb, var(--sys-color-border) 28%, transparent);
+  background: var(--comp-chart-panel-bullet-meter-bg);
   border: 0;
   border-radius: var(--component-radius-sm);
   block-size: var(--component-inline-size-sm);
@@ -8754,7 +8803,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__bullet-meter::-webkit-progress-bar {
-  background: color-mix(in srgb, var(--sys-color-border) 28%, transparent);
+  background: var(--comp-chart-panel-bullet-meter-bg);
   border-radius: var(--component-radius-sm);
 }
 
@@ -8769,16 +8818,16 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__bullet em {
-  color: var(--sys-color-text);
-  font-family: var(--sys-font-title);
+  color: var(--comp-chart-panel-output-color);
+  font-family: var(--comp-chart-panel-donut-center-family);
   font-size: var(--component-font-size-caption);
   font-style: normal;
-  font-weight: var(--sys-voice-weight-extrabold);
+  font-weight: var(--comp-chart-panel-donut-center-weight);
 }
 
 .chart-panel[data-variant="comparison"] .chart-panel__plot {
   align-items: end;
-  gap: var(--sys-space-sm);
+  gap: var(--comp-chart-panel-plot-gap);
 }
 
 .chart-panel__comparison-group {
@@ -8790,7 +8839,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   flex: 1;
   gap: var(--component-focus-ring-width);
   min-block-size: 0;
-  outline: var(--sys-a11y-outline-reset);
+  outline: var(--comp-chart-panel-outline-reset);
   position: relative;
 }
 
@@ -8806,20 +8855,20 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__donut[data-tooltip]::after,
 .chart-panel__bullet[data-tooltip]::after,
 .chart-panel__comparison-group[data-tooltip]::after {
-  background: var(--sys-color-text);
+  background: var(--comp-chart-panel-output-color);
   border-radius: var(--component-radius-sm);
   box-shadow: var(--component-depth-action-hover);
-  color: var(--sys-color-surface);
+  color: var(--comp-chart-panel-dot-stroke);
   content: attr(data-tooltip);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-bold);
+  font-weight: var(--comp-chart-panel-tooltip-weight);
   inline-size: max-content;
   inset-block-start: 0;
   inset-inline-start: 50%;
   line-height: var(--component-line-height-snug);
   max-inline-size: var(--component-content-size-sm);
   opacity: 0;
-  padding: var(--sys-space-xs) var(--sys-space-sm);
+  padding: var(--comp-chart-panel-figure-gap) var(--comp-chart-panel-plot-gap);
   pointer-events: none;
   position: absolute;
   transform: var(--component-transform-chart-tooltip-hidden);
@@ -8827,7 +8876,7 @@ body[data-contrast="quiet"] .route-summary__icon {
     opacity var(--component-duration-state) var(--component-ease-state),
     transform var(--component-duration-state) var(--component-ease-enter);
   white-space: nowrap;
-  z-index: var(--sys-depth-z-local-popover);
+  z-index: var(--comp-chart-panel-local-tooltip-z);
 }
 
 .chart-panel__bar-group[data-tooltip]:hover::after,
@@ -8838,12 +8887,12 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__bullet[data-tooltip]:focus-visible::after,
 .chart-panel__comparison-group[data-tooltip]:hover::after,
 .chart-panel__comparison-group[data-tooltip]:focus-visible::after {
-  opacity: var(--sys-state-visible-opacity);
+  opacity: var(--comp-chart-panel-tooltip-visible-opacity);
   transform: var(--component-transform-chart-tooltip-visible);
 }
 
 .chart-panel__comparison-group:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
+  outline: var(--component-focus-ring-width) solid var(--comp-chart-panel-focus-stroke);
   outline-offset: var(--component-focus-ring-offset);
 }
 
@@ -8869,14 +8918,14 @@ body[data-contrast="quiet"] .route-summary__icon {
   align-items: center;
   background: none;
   border-block-end: 0;
-  padding-block: var(--sys-space-sm);
+  padding-block: var(--comp-chart-panel-plot-gap);
 }
 
 .chart-panel__pareto-bar {
   animation: chart-bar-enter var(--component-duration-reveal) var(--component-ease-enter) both;
   animation-delay: var(--comp-chart-panel-stagger-delay);
   fill: var(--comp-chart-panel-tone);
-  outline: var(--sys-a11y-outline-reset);
+  outline: var(--comp-chart-panel-outline-reset);
   transform-box: fill-box;
   transform-origin: bottom;
   transition: fill var(--component-duration-state) var(--component-ease-state);
@@ -8884,13 +8933,13 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__pareto-bar:hover,
 .chart-panel__pareto-bar:focus-visible {
-  fill: color-mix(in srgb, var(--comp-chart-panel-tone) 82%, var(--sys-color-text));
+  fill: color-mix(in srgb, var(--comp-chart-panel-tone) 82%, var(--comp-chart-panel-output-color));
 }
 
 .chart-panel__pareto-line {
   animation: chart-line-draw var(--component-duration-reveal) var(--component-ease-enter) both;
   fill: none;
-  stroke: var(--sys-color-text);
+  stroke: var(--comp-chart-panel-output-color);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 320;
@@ -8899,39 +8948,39 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__pareto-dot {
-  fill: var(--sys-color-text);
-  outline: var(--sys-a11y-outline-reset);
-  stroke: var(--sys-color-surface);
+  fill: var(--comp-chart-panel-output-color);
+  outline: var(--comp-chart-panel-outline-reset);
+  stroke: var(--comp-chart-panel-dot-stroke);
   stroke-width: var(--component-chart-stroke-medium);
 }
 
 .chart-panel__pareto-dot:hover,
 .chart-panel__pareto-dot:focus-visible {
-  stroke: var(--sys-color-focus);
+  stroke: var(--comp-chart-panel-focus-stroke);
   stroke-width: var(--component-chart-stroke-strong);
 }
 
 .chart-panel__tooltip {
-  background: var(--sys-chart-tooltip-background);
+  background: var(--comp-chart-panel-tooltip-bg);
   border-radius: var(--component-radius-sm);
   box-shadow: var(--component-depth-action-hover);
-  color: var(--sys-chart-tooltip-foreground);
+  color: var(--comp-chart-panel-tooltip-fg);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-bold);
+  font-weight: var(--comp-chart-panel-tooltip-weight);
   inline-size: max-content;
   inset-block-start: var(--comp-chart-panel-tooltip-y);
   inset-inline-start: var(--comp-chart-panel-tooltip-x);
   line-height: var(--component-line-height-snug);
   max-inline-size: min(var(--component-content-size-sm), 92%);
   opacity: 0;
-  padding: var(--sys-space-xs) var(--sys-space-sm);
+  padding: var(--comp-chart-panel-figure-gap) var(--comp-chart-panel-plot-gap);
   pointer-events: none;
   position: absolute;
   transform: var(--component-transform-chart-tooltip-hidden);
   transition:
     opacity var(--component-duration-state) var(--component-ease-state),
     transform var(--component-duration-state) var(--component-ease-enter);
-  z-index: var(--sys-depth-z-floating);
+  z-index: var(--comp-chart-panel-tooltip-z);
 }
 
 .chart-panel__tooltip[data-visible="true"] {
@@ -8940,16 +8989,16 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__threshold-line {
-  stroke: color-mix(in srgb, var(--sys-chart-threshold-warning) 72%, var(--sys-chart-grid-color));
+  stroke: var(--comp-chart-panel-threshold-stroke);
   stroke-dasharray: 4 4;
   stroke-width: var(--component-chart-stroke-control);
 }
 
 .chart-panel__axis-label {
-  fill: var(--sys-chart-axis-color);
-  font-family: var(--sys-font-body);
+  fill: var(--comp-chart-panel-axis-color);
+  font-family: var(--comp-chart-panel-axis-family);
   font-size: var(--component-font-size-micro);
-  font-weight: var(--sys-voice-weight-semibold);
+  font-weight: var(--comp-chart-panel-header-title-weight);
 }
 
 .chart-panel figcaption,
