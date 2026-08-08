@@ -458,6 +458,7 @@
   --component-skeleton-row-leading-size: var(--sys-frame-content-skeleton-row-leading);
   --component-table-expander-size: var(--sys-frame-content-table-expander);
   --component-tree-control-min-block-size-lg: var(--sys-frame-content-tree-control-lg);
+  --component-tree-view-hover-shadow: 0 0 0 var(--component-border-width) color-mix(in srgb, var(--sys-energy-border-default) 72%, transparent), var(--component-depth-raised-soft);
   --component-skeleton-pill-block-size: var(--component-field-control-size-sm);
   --component-skeleton-card-block-size: var(--component-block-size-lg);
   --component-empty-state-icon-size-sm: calc(var(--component-control-min-size) + var(--sys-space-lg));
@@ -880,6 +881,7 @@
   --component-route-summary-icon-size-sm: var(--component-field-icon-action-size-md);
   --component-route-summary-icon-size-md: var(--component-card-icon-size-md);
   --component-route-summary-icon-size-lg: var(--component-card-icon-size-lg);
+  --component-station-pin-pointer-shadow: drop-shadow(0 var(--component-border-width) var(--component-border-width) color-mix(in srgb, var(--sys-map-pin-foreground) 14%, transparent));
   --component-station-pin-pointer-size-sm: calc(var(--component-station-pin-pointer-size) - var(--sys-frame-border-thin));
   --component-station-pin-pointer-size-lg: calc(var(--component-station-pin-pointer-size) + var(--sys-frame-border-thin));
   --component-card-icon-size-sm: calc(var(--component-control-min-size) - var(--sys-space-lg));
@@ -6720,7 +6722,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-selected-border: transparent;
   --comp-tree-view-hover-bg: var(--sys-energy-surface-primary);
   --comp-tree-view-hover-border: var(--sys-energy-border-default);
-  --comp-tree-view-hover-shadow: 0 0 0 var(--sys-frame-border-thin) color-mix(in srgb, var(--sys-energy-border-default) 72%, transparent), var(--component-depth-raised-soft);
+  --comp-tree-view-hover-shadow: var(--component-tree-view-hover-shadow);
   --comp-tree-view-hover-transform: var(--component-transform-inline-nudge);
   --comp-tree-view-expanded-text: var(--sys-color-text);
   --comp-tree-view-motion-duration: var(--component-duration-medium);
@@ -8709,7 +8711,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-station-pin-focus-offset: var(--component-focus-ring-offset);
   --comp-station-pin-focus-width: var(--component-focus-ring-width);
   --comp-station-pin-marker-fg: var(--sys-map-pin-action-color);
-  --comp-station-pin-pointer-shadow: drop-shadow(0 var(--sys-frame-border-thin) var(--sys-frame-border-thin) color-mix(in srgb, var(--sys-map-pin-foreground) 14%, transparent));
+  --comp-station-pin-pointer-shadow: var(--component-station-pin-pointer-shadow);
   --comp-station-pin-pointer-inset-block-start: calc(100% - var(--component-visually-hidden-size));
   --comp-station-pin-pointer-inset-inline-start: 50%;
   --comp-station-pin-pointer-transform: translateX(-50%);

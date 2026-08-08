@@ -58,6 +58,7 @@ function checkStationPinCssContract({ text, blocks, packageCssFile, selectorKey,
       "--comp-station-pin-font-family: var(--component-font-family-mono)",
       "--comp-station-pin-marker-size:",
       "--comp-station-pin-min-block-size:",
+      "--comp-station-pin-pointer-shadow: var(--component-station-pin-pointer-shadow)",
       "--comp-station-pin-pointer-size:",
       "--comp-station-pin-radius: var(--component-radius-pill)",
       "align-items: var(--comp-station-pin-align)",
@@ -88,6 +89,9 @@ function checkStationPinCssContract({ text, blocks, packageCssFile, selectorKey,
     ],
     message: "StationPin pointer must consume pointer aliases instead of hardcoded geometry.",
   });
+  if (/--comp-station-pin-pointer-shadow:\s*drop-shadow\([^;]*var\(--sys-frame-border-thin/.test(text)) {
+    add("errors", packageCssFile, 1, "StationPin pointer shadow must route through the component pointer shadow alias.");
+  }
   for (const [block, message] of [
     [densitySmBlock, "StationPin small density must set marker, pointer, frame, font, and touch target aliases."],
     [densityLgBlock, "StationPin large density must set marker, pointer, frame, and touch target aliases."],

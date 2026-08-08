@@ -36,7 +36,7 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-tree-view-icon-size: var(--sys-icon-size-md)",
       "--comp-tree-view-hover-bg: var(--sys-energy-surface-primary)",
       "--comp-tree-view-hover-border: var(--sys-energy-border-default)",
-      "--comp-tree-view-hover-shadow: 0 0 0 var(--sys-frame-border-thin)",
+      "--comp-tree-view-hover-shadow: var(--component-tree-view-hover-shadow)",
       "--comp-tree-view-hover-transform: var(--component-transform-inline-nudge)",
       "--comp-tree-view-motion-duration: var(--component-duration-medium)",
     ],
@@ -107,6 +107,9 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
   });
   if (/--comp-tree-view-(?:control-min-block|icon-size):\s*var\(--comp-button-(?:size|icon-size)-sm\)/.test(treeBlock?.body ?? "")) {
     add("errors", packageCssFile, lineNumber(text, treeBlock.index), "TreeView root must not bake sm as the default; base size comes from density.");
+  }
+  if (/--comp-tree-view-hover-shadow:\s*0\s+0\s+0\s+var\(--sys-frame-border-thin/.test(text)) {
+    add("errors", packageCssFile, 1, "TreeView hover shadow must route through the component hover shadow alias.");
   }
 }
 
