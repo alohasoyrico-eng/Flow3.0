@@ -16,6 +16,9 @@ const integrationChecksManifestFile = path.join(root, "docs/repo-split/integrati
 const systemSplitAuditFile = path.join(root, "scripts/audit-system-split.mjs");
 const docsSplitAuditFile = path.join(root, "scripts/audit-docs-split.mjs");
 const extractReposFile = path.join(root, "scripts/extract-repos.mjs");
+const hasDocsApp = fs.existsSync(path.join(root, "apps/docs"));
+const hasExtractionManifests = fs.existsSync(path.join(root, "docs/repo-split"));
+const isExtractedSystemRepo = !hasDocsApp && !hasExtractionManifests;
 
 const systemOnlyForbidden = [
   "audit-docs",
@@ -23,6 +26,14 @@ const systemOnlyForbidden = [
   "audit-docs-runtime",
   "audit-component-demo-registry",
   "audit-component-demo-interactions",
+  "apps/docs",
+  "build:docs",
+];
+
+const systemAuditForbidden = [
+  "audit-docs.js",
+  "audit-integration.js",
+  "audit-docs-runtime.mjs",
   "apps/docs",
   "build:docs",
 ];
@@ -239,6 +250,24 @@ function checkRepoBoundary() {
   checkCommandScope("validate:docs", scripts["validate:docs"], docsOnlyForbidden, "docs-only");
   checkCommandScope("audit:docs", scripts["audit:docs"], docsOnlyForbidden, "docs-only");
 
+  const systemAudit = fs.existsSync(systemAuditFile) ? read(systemAuditFile) : "";
+  for (const term of systemAuditForbidden) {
+    if (systemAudit.includes(term)) add("errors", systemAuditFile, 1, `audit:system must not import or mention ${term}.`);
+  }
+
+  if (isExtractedSystemRepo) {
+    if (scripts["audit:system"] !== "node packages/audit/scripts/audit-system-scope.js") {
+      add("errors", packageJsonFile, 1, "Extracted system repo must expose audit:system through audit-system-scope.js.");
+    }
+    if (scripts["audit:consumer-install"] !== "node packages/audit/scripts/audit-consumer-install.mjs") {
+      add("errors", packageJsonFile, 1, "Extracted system repo must expose audit:consumer-install.");
+    }
+    if (scripts["validate:system"] !== "npm run audit:system && npm test && npm run build:react && npm run test:react && npm run audit:consumer-install") {
+      add("errors", packageJsonFile, 1, "Extracted system repo must keep validate:system as the full system gate.");
+    }
+    return;
+  }
+
   if (!scripts["audit:repo-boundary"]) {
     add("errors", packageJsonFile, 1, "Root package must expose audit:repo-boundary for split governance.");
   }
@@ -246,11 +275,6 @@ function checkRepoBoundary() {
     add("errors", packageJsonFile, 1, "validate:integration must run audit:repo-boundary before cross-repo checks.");
   }
   checkExtractReposScript(scripts);
-
-  const systemAudit = fs.existsSync(systemAuditFile) ? read(systemAuditFile) : "";
-  for (const term of systemOnlyForbidden) {
-    if (systemAudit.includes(term)) add("errors", systemAuditFile, 1, `audit:system must not import or mention ${term}.`);
-  }
 
   const docsAudit = fs.existsSync(docsAuditFile) ? read(docsAuditFile) : "";
   for (const term of docsOnlyForbidden) {
