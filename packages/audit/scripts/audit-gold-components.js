@@ -259,7 +259,7 @@ function checkGoldComponentTokens() {
     [".chip[data-chip-remove=\"true\"]", "Removable Chip must own extra inline-end padding through the package root."],
     ["--comp-tabs-bg: var(--sys-energy-surface-sunken)", "Tabs default variant must use a sunken pill group surface."],
     ["--comp-tabs-tab-bg-selected: var(--sys-energy-surface-primary)", "Tabs selected state must use raised surface treatment, not a filled action button."],
-    ["--comp-chip-hover-transform: scale(var(--sys-momentum-scale-hover))", "Chip hover motion must use Package component motion in the package."],
+    ["--comp-chip-hover-transform: scale(var(--component-scale-hover))", "Chip hover motion must use Package component motion in the package."],
     ["button.chip:active:not(:disabled)", "Chip press motion must be owned by the package button state."],
     ["--comp-tag-bg-neutral: var(--sys-energy-surface-sunken)", "Tag must use subtle metadata surfaces instead of action styling."],
     ["--comp-tag-hover-transform: scale(var(--sys-momentum-scale-hover))", "Interactive Tag hover motion must use valid spring scale from Momentum tokens."],

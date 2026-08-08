@@ -2216,6 +2216,12 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
 }
 
 .chip {
+  --comp-chip-border-width: var(--component-border-width);
+  --comp-chip-radius: var(--component-radius-pill);
+  --comp-chip-font-size: var(--component-font-size-label);
+  --comp-chip-font-weight: var(--sys-voice-weight-bold);
+  --comp-chip-min-block-size: var(--component-badge-min-size);
+  --comp-chip-interactive-min-block-size: var(--component-control-min-size);
   --comp-chip-bg: var(--sys-color-surface);
   --comp-chip-border: var(--sys-color-border);
   --comp-chip-fg: var(--sys-color-text);
@@ -2226,12 +2232,21 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
   --comp-chip-selected-border: var(--sys-color-action);
   --comp-chip-selected-fg: var(--sys-color-action-text);
   --comp-chip-hover-bg: var(--sys-energy-surface-sunken);
-  --comp-chip-hover-transform: scale(var(--sys-momentum-scale-hover));
-  --comp-chip-press-transform: scale(var(--sys-momentum-scale-press));
+  --comp-chip-hover-shadow: var(--component-depth-raised);
+  --comp-chip-hover-transform: scale(var(--component-scale-hover));
+  --comp-chip-press-transform: scale(var(--component-scale-press));
+  --comp-chip-focus-width: var(--component-focus-ring-width);
+  --comp-chip-focus-color: var(--sys-color-focus);
+  --comp-chip-focus-offset: var(--component-focus-ring-offset);
+  --comp-chip-disabled-opacity: var(--sys-disabled-readable-opacity);
   background: var(--comp-chip-bg);
-  border-color: var(--comp-chip-border);
+  border: var(--comp-chip-border-width) solid var(--comp-chip-border);
+  border-radius: var(--comp-chip-radius);
   color: var(--comp-chip-fg);
+  font-size: var(--comp-chip-font-size);
+  font-weight: var(--comp-chip-font-weight);
   gap: var(--comp-chip-gap);
+  min-block-size: var(--comp-chip-min-block-size);
   padding-inline: var(--comp-chip-padding-inline);
 }
 
@@ -2293,15 +2308,19 @@ button.tag {
   min-block-size: var(--component-control-min-size);
 }
 
+button.chip {
+  min-block-size: var(--comp-chip-interactive-min-block-size);
+}
+
 button.chip:hover:not(:disabled) {
   background: var(--comp-chip-hover-bg);
-  box-shadow: var(--component-depth-raised);
+  box-shadow: var(--comp-chip-hover-shadow);
   transform: var(--comp-chip-hover-transform);
 }
 
 .chip[data-state="hover"] {
   background: var(--comp-chip-hover-bg);
-  box-shadow: var(--component-depth-raised);
+  box-shadow: var(--comp-chip-hover-shadow);
   transform: var(--comp-chip-hover-transform);
 }
 
@@ -2336,11 +2355,23 @@ button.tag:focus-visible,
   outline-offset: var(--component-focus-ring-offset);
 }
 
+button.chip:focus-visible,
+.chip[data-state="focus"] {
+  outline: var(--comp-chip-focus-width) solid var(--comp-chip-focus-color);
+  outline-offset: var(--comp-chip-focus-offset);
+}
+
 button.chip:disabled,
 button.tag:disabled,
 .tag[data-state="disabled"] {
   cursor: not-allowed;
   opacity: var(--sys-disabled-readable-opacity);
+}
+
+button.chip:disabled,
+.chip[data-state="disabled"] {
+  cursor: not-allowed;
+  opacity: var(--comp-chip-disabled-opacity);
 }
 
 .tabs {
