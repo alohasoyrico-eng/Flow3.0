@@ -34,6 +34,9 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (!source.includes("React.createElement(\"img\", { src, alt: sourceName })") || !source.includes("avatar__initials") || !source.includes("avatar__status")) {
     add("errors", sourceFile, 1, "Avatar must keep image, initials, and status as the single React implementation surface.");
   }
+  if (/\.avatar\[data-color-index=/.test(text) || source.includes("\"data-color-index\"")) {
+    add("errors", packageCssFile, text.includes(".avatar[data-color-index=") ? lineNumber(text, text.indexOf(".avatar[data-color-index=")) : 1, "Avatar identity color must flow through --comp-avatar-identity-* variables instead of enumerated data-color-index CSS rules.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -42,6 +45,8 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
     snippets: [
       "--comp-avatar-font-weight: var(--sys-voice-weight-bold)",
       "--comp-avatar-letter-spacing: var(--sys-voice-letter-spacing-wide)",
+      "--comp-avatar-identity-bg: var(--comp-avatar-identity-action-bg)",
+      "--comp-avatar-identity-fg: var(--comp-avatar-identity-default-fg)",
       "--comp-avatar-align: center",
       "--comp-avatar-display: inline-flex",
       "--comp-avatar-radius: var(--component-radius-pill)",
@@ -74,23 +79,6 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
       text,
       packageCssFile,
       snippets: ["--comp-avatar-size:"],
-      message,
-    });
-  }
-
-  for (const [selector, message] of [
-    [".avatar[data-color-index=\"0\"]", "Avatar color index 0 must route through the Avatar background alias."],
-    [".avatar[data-color-index=\"1\"]", "Avatar color index 1 must route through the Avatar background alias."],
-    [".avatar[data-color-index=\"2\"]", "Avatar color index 2 must route through the Avatar background alias."],
-    [".avatar[data-color-index=\"3\"]", "Avatar warning color index must route through Avatar color aliases."],
-    [".avatar[data-color-index=\"4\"]", "Avatar color index 4 must route through the Avatar background alias."],
-    [".avatar[data-color-index=\"5\"]", "Avatar color index 5 must route through the Avatar background alias."],
-  ]) {
-    requireIncludes({
-      block: blockFor(blocks, selectorKey, selector),
-      text,
-      packageCssFile,
-      snippets: ["--comp-avatar-bg:"],
       message,
     });
   }

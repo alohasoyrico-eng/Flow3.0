@@ -3736,8 +3736,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-font-size: calc(var(--comp-avatar-size) * 0.36);
   --comp-avatar-font-weight: var(--sys-voice-weight-bold);
   --comp-avatar-letter-spacing: var(--sys-voice-letter-spacing-wide);
-  --comp-avatar-bg: var(--sys-color-action);
-  --comp-avatar-fg: var(--sys-color-action-text);
+  --comp-avatar-identity-danger-bg: var(--sys-color-danger);
+  --comp-avatar-identity-success-bg: var(--sys-color-success);
+  --comp-avatar-identity-action-bg: var(--sys-color-action);
+  --comp-avatar-identity-warning-bg: var(--sys-color-warning);
+  --comp-avatar-identity-purple-bg: var(--ref-energy-purple-500, color-mix(in srgb, var(--sys-color-action) 60%, var(--sys-color-danger)));
+  --comp-avatar-identity-teal-bg: var(--ref-energy-teal-500, color-mix(in srgb, var(--sys-color-success) 72%, var(--sys-color-action)));
+  --comp-avatar-identity-default-fg: var(--sys-color-action-text);
+  --comp-avatar-identity-warning-fg: var(--sys-energy-status-warning-foreground);
+  --comp-avatar-identity-bg: var(--comp-avatar-identity-action-bg);
+  --comp-avatar-identity-fg: var(--comp-avatar-identity-default-fg);
+  --comp-avatar-bg: var(--comp-avatar-identity-bg);
+  --comp-avatar-fg: var(--comp-avatar-identity-fg);
   --comp-avatar-align: center;
   --comp-avatar-display: inline-flex;
   --comp-avatar-justify: center;
@@ -3790,16 +3800,6 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .avatar[data-density="sm"] { --comp-avatar-size: calc(var(--sys-density-control-height) - var(--sys-space-5)); }
 .avatar[data-density="lg"] { --comp-avatar-size: calc(var(--sys-density-control-height) + var(--sys-space-4)); }
-
-.avatar[data-color-index="0"] { --comp-avatar-bg: var(--sys-color-danger); }
-.avatar[data-color-index="1"] { --comp-avatar-bg: var(--sys-color-success); }
-.avatar[data-color-index="2"] { --comp-avatar-bg: var(--sys-color-action); }
-.avatar[data-color-index="3"] {
-  --comp-avatar-bg: var(--sys-color-warning);
-  --comp-avatar-fg: var(--sys-energy-status-warning-foreground);
-}
-.avatar[data-color-index="4"] { --comp-avatar-bg: var(--ref-energy-purple-500, color-mix(in srgb, var(--sys-color-action) 60%, var(--sys-color-danger))); }
-.avatar[data-color-index="5"] { --comp-avatar-bg: var(--ref-energy-teal-500, color-mix(in srgb, var(--sys-color-success) 72%, var(--sys-color-action))); }
 
 .avatar img {
   border-radius: var(--comp-avatar-img-radius);

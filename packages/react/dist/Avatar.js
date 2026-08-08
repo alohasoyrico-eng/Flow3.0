@@ -20,7 +20,19 @@ function colorIndexFromName(name) {
   const sourceName = String(name ?? "");
   let hash = 0;
   for (let index = 0; index < sourceName.length; index += 1) hash = (hash * 31 + sourceName.charCodeAt(index)) | 0;
-  return String(Math.abs(hash) % 6);
+  return Math.abs(hash) % 6;
+}
+
+function identityColorFromName(name) {
+  const palettes = [
+    { bg: "var(--comp-avatar-identity-danger-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+    { bg: "var(--comp-avatar-identity-success-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+    { bg: "var(--comp-avatar-identity-action-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+    { bg: "var(--comp-avatar-identity-warning-bg)", fg: "var(--comp-avatar-identity-warning-fg)" },
+    { bg: "var(--comp-avatar-identity-purple-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+    { bg: "var(--comp-avatar-identity-teal-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+  ];
+  return palettes[colorIndexFromName(name)] ?? palettes[0];
 }
 
 export const Avatar = forwardRef(function Avatar({
@@ -40,6 +52,7 @@ export const Avatar = forwardRef(function Avatar({
   const sourceName = String(name ?? "");
 
   if (!sourceName) return null;
+  const identityColor = identityColorFromName(sourceName);
 
   return React.createElement(
     "span",
@@ -51,7 +64,10 @@ export const Avatar = forwardRef(function Avatar({
       ...flowDensityProps(resolvedDensity),
       "data-status": resolvedStatus,
       ...flowStateProps(resolvedState),
-      "data-color-index": colorIndexFromName(sourceName),
+      style: {
+        "--comp-avatar-identity-bg": identityColor.bg,
+        "--comp-avatar-identity-fg": identityColor.fg,
+      },
     },
     src
       ? React.createElement("img", { src, alt: sourceName })

@@ -73,7 +73,7 @@ const components = [
     requiredTokens: ["comp.avatar.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.growth.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography"],
     props: ["name", "src", "size", "density", "status", "state"],
-    jsSnippets: ["avatarPlatformContract", "className: [\"avatar\"", '"data-status": resolvedStatus', 'flowStateProps(resolvedState)', '"data-color-index": colorIndexFromName', "avatar__initials", "avatar__status"],
+    jsSnippets: ["avatarPlatformContract", "className: [\"avatar\"", '"data-status": resolvedStatus', 'flowStateProps(resolvedState)', '"--comp-avatar-identity-bg"', '"--comp-avatar-identity-fg"', "avatar__initials", "avatar__status"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement>", "AvatarProps", "AvatarSize", "AvatarStatus", "AvatarState", "avatarPlatformContract"],
     packagePath: "./avatar",
     exportName: "Avatar",
