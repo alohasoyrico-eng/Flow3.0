@@ -24,7 +24,7 @@ export const Toast = forwardRef(function Toast({
   state = "visible",
   density,
   icon = "",
-  actionLabel = "",
+  actionLabel,
   dismissible = false,
   dismissLabel,
   onAction,
