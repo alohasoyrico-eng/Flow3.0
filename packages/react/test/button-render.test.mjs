@@ -1856,6 +1856,7 @@ assert.match(triggerNamedMenuMarkup, /role="menu"/);
 assert.match(triggerNamedMenuMarkup, /aria-label="Actions"/);
 
 const unnamedMenuMarkup = renderToStaticMarkup(React.createElement(Menu));
+assert.equal(unnamedMenuMarkup, "");
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Open menu"/);
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Account menu"/);
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Menu"/);
@@ -1866,6 +1867,7 @@ const unlabeledMenuItemMarkup = renderToStaticMarkup(React.createElement(Menu, {
   open: true,
   items: [{ key: "ghost", icon: "more_horiz" }],
 }));
+assert.equal(unlabeledMenuItemMarkup, "");
 assert.doesNotMatch(unlabeledMenuItemMarkup, /role="menuitem"/);
 assert.doesNotMatch(unlabeledMenuItemMarkup, /class="menu__item-label"><\/span>/);
 
@@ -1874,6 +1876,7 @@ const unstableMenuItemMarkup = renderToStaticMarkup(React.createElement(Menu, {
   open: true,
   items: [{ label: "Open" }],
 }));
+assert.equal(unstableMenuItemMarkup, "");
 assert.doesNotMatch(unstableMenuItemMarkup, /role="menuitem"/);
 assert.doesNotMatch(unstableMenuItemMarkup, /data-key="Open"|data-key="0"/);
 

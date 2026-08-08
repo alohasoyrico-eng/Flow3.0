@@ -22,11 +22,8 @@ function hasStableItemKey(item) {
 }
 
 export const Menu = forwardRef(function Menu({
-  triggerLabel = "",
-  triggerAriaLabel,
-  menuAriaLabel,
-  avatarTriggerAriaLabel,
-  items = [],
+  triggerLabel,
+  items,
   open: openProp,
   label = "",
   variant = "actions",
@@ -56,13 +53,16 @@ export const Menu = forwardRef(function Menu({
   const menuId = `menu-${slug(label || triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const isDisabled = disabled || interactionState === "disabled";
   const resolvedAlign = align === "end" || align === "right" ? "end" : "start";
-  const resolvedItems = items.filter((item) => item === "divider" || item?.separator || (item?.label && hasStableItemKey(item)));
+  const resolvedItems = Array.isArray(items) ? items.filter((item) => item === "divider" || item?.separator || (item?.label && hasStableItemKey(item))) : [];
+  const hasVisibleItems = resolvedItems.some((item) => item !== "divider" && !item?.separator);
 
   useEffect(() => {
     if (!isOpenControlled) return;
     const normalizedOpen = Boolean(openProp);
     setInteractionState(normalizedOpen ? "open" : initialState);
   }, [openProp, initialState, isOpenControlled]);
+
+  if (!triggerLabel || !hasVisibleItems) return null;
 
   const setOpen = (nextOpen, { restoreFocus = false, focusFirst = false } = {}) => {
     if (isDisabled) return;
@@ -93,7 +93,6 @@ export const Menu = forwardRef(function Menu({
     className: "menu__trigger",
     "data-menu-trigger": "",
     "aria-haspopup": "menu",
-    "aria-label": triggerLabel ? undefined : triggerAriaLabel,
     "aria-expanded": String(Boolean(isOpen)),
     "aria-controls": menuId,
     onClick: () => setOpen(!isOpen, { focusFirst: !isOpen }),
@@ -102,9 +101,9 @@ export const Menu = forwardRef(function Menu({
       if (event.key === "Escape") { event.preventDefault(); setOpen(false, { restoreFocus: true }); }
     },
   };
-  const iconTriggerLabel = triggerAriaLabel || triggerLabel || label || undefined;
-  const avatarAccessibleLabel = avatarTriggerAriaLabel || triggerAriaLabel || triggerLabel || label || undefined;
-  const menuAccessibleLabel = menuAriaLabel || label || triggerLabel || iconTriggerLabel || avatarAccessibleLabel || undefined;
+  const iconTriggerLabel = triggerLabel;
+  const avatarAccessibleLabel = triggerLabel;
+  const menuAccessibleLabel = label || triggerLabel;
   const hasTrigger = resolvedVariant === "icon-trigger"
     ? Boolean(iconTriggerLabel)
     : resolvedVariant === "avatar-trigger"

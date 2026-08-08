@@ -9,21 +9,21 @@ export type MenuAlign = "start" | "end" | "right";
 export type MenuItemTone = "danger";
 
 export interface MenuItem {
-  label?: string;
+  label: string;
   icon?: string;
-  key?: string;
+  key: string;
   disabled?: boolean;
-  separator?: boolean;
   tone?: MenuItemTone;
   shortcut?: string;
 }
 
+export interface MenuSeparator {
+  separator: true;
+}
+
 export interface MenuProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  triggerLabel?: string;
-  triggerAriaLabel?: string;
-  menuAriaLabel?: string;
-  avatarTriggerAriaLabel?: string;
-  items?: Array<MenuItem | "divider">;
+  triggerLabel: string;
+  items: Array<MenuItem | MenuSeparator | "divider">;
   open?: boolean;
   label?: string;
   variant?: MenuVariant;
