@@ -1,9 +1,10 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { tabsPlatformContract } from "@design-system/components/platforms";
 import type { BadgeState, BadgeTone, BadgeVariant } from "./Badge.js";
 
 export type TabsVariant = "default" | "underline";
 export type TabsDensity = "sm" | "md" | "lg";
+export type TabsValueChangeEvent = MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>;
 export interface TabsBadge {
   label: string;
   tone?: BadgeTone;
@@ -30,7 +31,7 @@ export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" 
   selectedKey?: string;
   variant?: TabsVariant;
   density?: TabsDensity;
-  onValueChange?: (key: string) => void;
+  onValueChange?: (key: string, event: TabsValueChangeEvent) => void;
 }
 
 export interface TabsComponent extends ForwardRefExoticComponent<TabsProps & RefAttributes<HTMLDivElement>> {

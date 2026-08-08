@@ -1826,7 +1826,7 @@ try {
       { key: "design", label: "Design", disabled: true },
       { key: "build", label: "Build" },
     ],
-    onValueChange: (key) => tabChanges.push(key),
+    onValueChange: (key, event) => tabChanges.push({ key, eventType: event.type }),
   }));
 
   const overviewTab = getTabsRole("tab", { name: /overview/i });
@@ -1834,10 +1834,10 @@ try {
   assert.equal(overviewTab.getAttribute("aria-selected"), "true");
   fireEvent.click(buildTab);
   await waitFor(() => assert.equal(buildTab.getAttribute("aria-selected"), "true"));
-  assert.deepEqual(tabChanges, ["build"]);
+  assert.deepEqual(tabChanges, [{ key: "build", eventType: "click" }]);
 
   fireEvent.keyDown(overviewTab, { key: "ArrowRight" });
-  assert.deepEqual(tabChanges, ["build", "overview"]);
+  assert.deepEqual(tabChanges, [{ key: "build", eventType: "click" }, { key: "overview", eventType: "keydown" }]);
   const tabsRoot = getTabsRole("tablist", { name: /component sections/i });
   assert.match(tabsRoot.style.getPropertyValue("--comp-tabs-indicator-left"), /px$/);
   assert.match(tabsRoot.style.getPropertyValue("--comp-tabs-indicator-width"), /px$/);
@@ -1849,7 +1849,7 @@ try {
       { key: "overview", label: "Overview" },
       { key: "build", label: "Build", onClick: (event) => event.preventDefault(), onKeyDown: (event) => event.preventDefault() },
     ],
-    onValueChange: (key) => preventedTabChanges.push(key),
+    onValueChange: (key, event) => preventedTabChanges.push({ key, eventType: event.type }),
   }));
   const preventedBuildTab = getTabsRole("tab", { name: /build/i });
   fireEvent.click(preventedBuildTab);
@@ -1864,7 +1864,7 @@ try {
       { key: "design", label: "Design", disabled: true },
       { key: "build", label: "Build" },
     ],
-    onValueChange: (key) => tabChanges.push(key),
+    onValueChange: (key, event) => tabChanges.push({ key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(overviewTab.getAttribute("aria-selected"), "true"));
 

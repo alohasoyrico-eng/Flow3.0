@@ -69,25 +69,25 @@ export const Tabs = forwardRef(function Tabs({
     return () => observer.disconnect();
   }, [activeKey, normalizedItems]);
 
-  const commitKey = (nextKey, restoreFocus = false) => {
+  const commitKey = (nextKey, restoreFocus = false, event) => {
     const tab = normalizedItems.find((item) => item.key === nextKey);
     if (!tab || tab.disabled) return;
     if (!isSelectedKeyControlled) setCurrentKey(nextKey);
-    onValueChange?.(nextKey);
+    onValueChange?.(nextKey, event);
     const schedule = globalThis.requestAnimationFrame ?? ((callback) => globalThis.setTimeout?.(callback, 0));
     schedule(() => syncIndicator(nextKey));
     if (restoreFocus) schedule(() => tabRefs.current.get(nextKey)?.focus());
   };
 
   const enabled = normalizedItems.filter((item) => !item.disabled);
-  const move = (direction) => {
+  const move = (direction, event) => {
     if (!enabled.length) return;
     const currentIndex = Math.max(0, enabled.findIndex((item) => item.key === activeKey));
-    commitKey(enabled[(currentIndex + direction + enabled.length) % enabled.length]?.key, true);
+    commitKey(enabled[(currentIndex + direction + enabled.length) % enabled.length]?.key, true, event);
   };
-  const moveToEdge = (edge) => {
+  const moveToEdge = (edge, event) => {
     const next = edge === "first" ? enabled[0] : enabled[enabled.length - 1];
-    if (next) commitKey(next.key, true);
+    if (next) commitKey(next.key, true, event);
   };
 
   if (!normalizedItems.length) return null;
@@ -131,23 +131,23 @@ export const Tabs = forwardRef(function Tabs({
           onClick: (event) => {
             onClick?.(event);
             if (event.defaultPrevented) return;
-            commitKey(item.key);
+            commitKey(item.key, false, event);
           },
           onKeyDown: (event) => {
             onKeyDown?.(event);
             if (event.defaultPrevented) return;
             if (event.key === "ArrowRight") {
               event.preventDefault();
-              move(1);
+              move(1, event);
             } else if (event.key === "ArrowLeft") {
               event.preventDefault();
-              move(-1);
+              move(-1, event);
             } else if (event.key === "Home") {
               event.preventDefault();
-              moveToEdge("first");
+              moveToEdge("first", event);
             } else if (event.key === "End") {
               event.preventDefault();
-              moveToEdge("last");
+              moveToEdge("last", event);
             }
           },
         },
