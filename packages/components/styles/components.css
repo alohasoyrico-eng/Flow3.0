@@ -3369,7 +3369,16 @@ button.tag:disabled,
   --comp-toast-muted: color-mix(in srgb, var(--component-color-surface) 78%, transparent);
   --comp-toast-icon-fg: var(--component-color-surface);
   --comp-toast-action-fg: var(--component-color-action);
+  --comp-toast-action-hover-bg: color-mix(in srgb, var(--component-color-surface) 10%, transparent);
+  --comp-toast-action-hover-border: color-mix(in srgb, var(--component-color-surface) 14%, transparent);
   --comp-toast-shadow: var(--component-depth-elevation-3);
+  --comp-toast-stacked-shadow: 0 0.6rem 0 -0.28rem color-mix(in srgb, var(--component-color-surface) 88%, var(--component-color-border));
+  --comp-toast-closed-opacity: var(--component-opacity-closed);
+  --comp-toast-icon-line-height: var(--component-line-height-none);
+  --comp-toast-content-gap: calc(var(--component-space-xs) / 2);
+  --comp-toast-title-weight: var(--component-font-weight-extrabold);
+  --comp-toast-title-line-height: var(--component-line-height-snug-state);
+  --comp-toast-body-line-height: var(--component-line-height-reading);
   --comp-toast-motion-duration: var(--component-duration-state);
   --comp-toast-motion-enter-duration: var(--component-duration-enter);
   --comp-toast-motion-exit-duration: var(--component-duration-exit);
@@ -3442,13 +3451,13 @@ button.tag:disabled,
 
 .toast[data-state="stacked"] {
   box-shadow:
-    0 0.6rem 0 -0.28rem color-mix(in srgb, var(--sys-color-surface) 88%, var(--sys-color-border)),
+    var(--comp-toast-stacked-shadow),
     var(--comp-toast-shadow);
 }
 
 .toast[data-state="exiting"],
 .toast[data-toast-dismissed="true"] {
-  opacity: var(--sys-state-closed-opacity);
+  opacity: var(--comp-toast-closed-opacity);
   pointer-events: none;
   transform: translateY(calc(var(--comp-toast-enter-y) * -1));
 }
@@ -3461,27 +3470,27 @@ button.tag:disabled,
   font-size: var(--component-font-size-icon-md);
   font-variation-settings: var(--component-icon-variation-filled-strong);
   inline-size: var(--component-font-size-icon-md);
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--comp-toast-icon-line-height);
   place-items: center;
 }
 
 .toast__content {
   display: grid;
-  gap: calc(var(--sys-space-xs) / 2);
+  gap: var(--comp-toast-content-gap);
   min-inline-size: 0;
 }
 
 .toast__content strong {
   color: var(--comp-toast-fg);
   font-size: var(--component-font-size-small);
-  font-weight: var(--sys-voice-weight-extrabold);
-  line-height: var(--sys-voice-line-height-snug);
+  font-weight: var(--comp-toast-title-weight);
+  line-height: var(--comp-toast-title-line-height);
 }
 
 .toast__content p {
   color: var(--comp-toast-muted);
   font-size: var(--component-font-size-small);
-  line-height: var(--sys-voice-line-height-comfortable);
+  line-height: var(--comp-toast-body-line-height);
   margin: 0;
 }
 
@@ -3495,8 +3504,8 @@ button.tag:disabled,
 }
 
 .toast .toast__action:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--sys-color-surface) 10%, transparent);
-  border-color: color-mix(in srgb, var(--sys-color-surface) 14%, transparent);
+  background: var(--comp-toast-action-hover-bg);
+  border-color: var(--comp-toast-action-hover-border);
 }
 
 .toast__dismiss {
