@@ -45,21 +45,23 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "background: var(--comp-motion-boundary-surface-bg, var(--sys-color-surface))",
-      "border-radius: var(--comp-motion-boundary-surface-radius, calc(var(--sys-radius-md) * 1.5))",
-      "box-shadow: var(--comp-motion-boundary-surface-shadow, var(--component-depth-panel))",
-      "padding: var(--comp-motion-boundary-surface-padding, var(--sys-space-lg))",
+      "--comp-motion-boundary-surface-bg: var(--sys-color-surface)",
+      "background: var(--comp-motion-boundary-surface-bg)",
+      "border-radius: var(--comp-motion-boundary-surface-radius)",
+      "box-shadow: var(--comp-motion-boundary-surface-shadow)",
+      "padding: var(--comp-motion-boundary-surface-padding)",
     ],
-    message: "MotionBoundary surface treatment must be driven through component aliases with systemic fallbacks.",
+    message: "MotionBoundary surface treatment must be driven through component aliases without fallback defaults.",
   });
   requireIncludes({
     block: iconBlock,
     text,
     packageCssFile,
     snippets: [
-      "background: var(--comp-motion-boundary-icon-bg, color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface)))",
-      "font-size: var(--comp-motion-boundary-icon-font-size, var(--component-font-size-icon-md))",
-      "min-block-size: var(--comp-motion-boundary-icon-size, var(--component-inline-size-lg))",
+      "--comp-motion-boundary-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface))",
+      "background: var(--comp-motion-boundary-icon-bg)",
+      "font-size: var(--comp-motion-boundary-icon-font-size)",
+      "min-block-size: var(--comp-motion-boundary-icon-size)",
     ],
     message: "MotionBoundary icon treatment must be routed through icon aliases instead of shared raw values.",
   });
@@ -80,8 +82,9 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "background: var(--comp-motion-boundary-cue-bg, var(--sys-color-action))",
-      "border-radius: var(--comp-motion-boundary-cue-radius, var(--component-radius-pill))",
+      "--comp-motion-boundary-cue-bg: var(--sys-color-action)",
+      "background: var(--comp-motion-boundary-cue-bg)",
+      "border-radius: var(--comp-motion-boundary-cue-radius)",
     ],
     message: "MotionBoundary cue base must expose color and shape through aliases.",
   });

@@ -207,6 +207,7 @@
   --comp-input-action-size: calc(var(--sys-density-control-height) - var(--sys-space-lg));
   --comp-input-gap: var(--component-field-gap);
   --comp-input-padding-x: var(--sys-space-lg);
+  --comp-input-helper-fg: var(--sys-color-text-muted);
   --comp-text-area-min-block: var(--component-textarea-min-block);
   --comp-text-area-padding-block: var(--sys-space-md);
   --comp-text-area-padding-inline: var(--sys-space-lg);
@@ -1535,9 +1536,32 @@
   --comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2);
   --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm-plus);
   --comp-choice-current-gap: var(--sys-space-sm);
+  --comp-choice-current-padding-block: var(--sys-space-xs);
+  --comp-choice-current-mark-bg: var(--sys-color-surface);
+  --comp-choice-current-mark-border: var(--sys-color-border);
+  --comp-choice-current-mark-radius: var(--sys-frame-radius-sm);
+  --comp-choice-current-mark-hover-border: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
+  --comp-choice-current-indicator-fg: var(--sys-color-action-text);
+  --comp-choice-current-focus-width: var(--component-focus-ring-width);
+  --comp-choice-current-focus-color: var(--sys-color-focus);
+  --comp-choice-current-focus-offset: var(--component-focus-ring-offset);
+  --comp-choice-current-label-weight: var(--sys-voice-weight-bold);
+  --comp-choice-current-description-size: var(--component-font-size-label);
+  --comp-choice-current-description-fg: var(--sys-color-text-muted);
+  --comp-choice-current-error-fg: var(--sys-color-danger);
+  --comp-choice-current-error-weight: var(--sys-voice-weight-bold);
+  --comp-choice-current-motion-duration: var(--component-duration-state);
+  --comp-choice-current-motion-press-duration: var(--component-duration-press);
+  --comp-choice-current-motion-ease: var(--component-ease-state);
+  --comp-choice-current-motion-enter: var(--component-ease-enter);
+  --comp-choice-current-motion-press: var(--component-ease-press);
+  --comp-choice-current-hover-scale: var(--component-scale-hover);
+  --comp-choice-current-press-scale: var(--component-scale-press);
+  --comp-choice-current-text-gap: var(--sys-space-sm);
+  --comp-choice-current-disabled-opacity: var(--sys-disabled-readable-opacity);
   grid-template-columns: auto 1fr;
   gap: var(--comp-choice-current-gap);
-  padding-block: var(--comp-choice-current-padding-block, var(--sys-space-xs));
+  padding-block: var(--comp-choice-current-padding-block);
   position: relative;
 }
 
@@ -1555,6 +1579,7 @@
   --comp-choice-current-mark-hover-border: var(--comp-checkbox-hover-border);
   --comp-choice-current-mark-radius: var(--comp-checkbox-radius);
   --comp-choice-current-indicator-fg: var(--comp-checkbox-indicator-fg);
+  --comp-choice-current-text-gap: var(--comp-checkbox-gap-md);
   --comp-choice-current-focus-width: var(--comp-checkbox-focus-width);
   --comp-choice-current-focus-color: var(--comp-checkbox-focus-color);
   --comp-choice-current-focus-offset: var(--comp-checkbox-focus-offset);
@@ -1588,6 +1613,7 @@
   --comp-choice-current-mark-radius: var(--comp-radio-button-radius);
   --comp-choice-current-dot-bg: var(--comp-radio-button-dot-bg);
   --comp-choice-current-dot-error-bg: var(--comp-radio-button-error-dot-bg);
+  --comp-choice-current-text-gap: var(--comp-radio-button-gap-md);
   --comp-choice-current-focus-width: var(--comp-radio-button-focus-width);
   --comp-choice-current-focus-color: var(--comp-radio-button-focus-color);
   --comp-choice-current-focus-offset: var(--comp-radio-button-focus-offset);
@@ -1616,11 +1642,13 @@
   --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-sm);
   --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-sm);
   --comp-choice-current-gap: var(--comp-checkbox-gap-sm);
+  --comp-choice-current-text-gap: var(--comp-checkbox-gap-sm);
 }
 
 .radio[data-density="sm"] {
   --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-sm);
   --comp-choice-current-gap: var(--comp-radio-button-gap-sm);
+  --comp-choice-current-text-gap: var(--comp-radio-button-gap-sm);
 }
 
 .choice[data-density="lg"] {
@@ -1633,11 +1661,13 @@
   --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-lg);
   --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-lg);
   --comp-choice-current-gap: var(--comp-checkbox-gap-lg);
+  --comp-choice-current-text-gap: var(--comp-checkbox-gap-lg);
 }
 
 .radio[data-density="lg"] {
   --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-lg);
   --comp-choice-current-gap: var(--comp-radio-button-gap-lg);
+  --comp-choice-current-text-gap: var(--comp-radio-button-gap-lg);
 }
 
 .choice[data-variant="compact"] {
@@ -1652,11 +1682,13 @@
   --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-compact);
   --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-sm);
   --comp-choice-current-gap: var(--comp-checkbox-gap-sm);
+  --comp-choice-current-text-gap: var(--comp-checkbox-gap-sm);
 }
 
 .radio[data-variant="compact"] {
   --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-compact);
   --comp-choice-current-gap: var(--comp-radio-button-gap-sm);
+  --comp-choice-current-text-gap: var(--comp-radio-button-gap-sm);
 }
 
 .choice__input,
@@ -1672,54 +1704,54 @@
 
 .choice__mark {
   align-items: center;
-  background: var(--comp-choice-current-mark-bg, var(--sys-color-surface));
-  border: var(--component-border-width) solid var(--comp-choice-current-mark-border, var(--sys-color-border));
+  background: var(--comp-choice-current-mark-bg);
+  border: var(--component-border-width) solid var(--comp-choice-current-mark-border);
   display: inline-flex;
   block-size: var(--comp-choice-current-mark-size);
   inline-size: var(--comp-choice-current-mark-size);
   justify-content: center;
   margin-block-start: var(--sys-frame-border-thin);
   transition:
-    background-color var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state)),
-    border-color var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state)),
-    box-shadow var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state)),
-    transform var(--comp-choice-current-motion-press-duration, var(--component-duration-press)) var(--comp-choice-current-motion-press, var(--component-ease-press));
+    background-color var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-ease),
+    border-color var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-ease),
+    box-shadow var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-ease),
+    transform var(--comp-choice-current-motion-press-duration) var(--comp-choice-current-motion-press);
 }
 
 .checkbox .choice__mark {
-  border-radius: var(--comp-choice-current-mark-radius, var(--sys-frame-radius-sm));
+  border-radius: var(--comp-choice-current-mark-radius);
 }
 
 .radio .choice__mark {
-  border-radius: var(--comp-choice-current-mark-radius, var(--component-radius-pill));
+  border-radius: var(--comp-choice-current-mark-radius);
 }
 
 .checkbox .choice__input:checked + .choice__mark {
-  background: var(--comp-choice-current-mark-checked-bg, var(--sys-color-action));
-  border-color: var(--comp-choice-current-mark-checked-border, var(--sys-color-action));
+  background: var(--comp-choice-current-mark-checked-bg);
+  border-color: var(--comp-choice-current-mark-checked-border);
 }
 
 .checkbox[data-indeterminate="true"] .choice__mark,
 .checkbox .choice__input:indeterminate + .choice__mark {
-  background: var(--comp-choice-current-mark-checked-bg, var(--sys-color-action));
-  border-color: var(--comp-choice-current-mark-checked-border, var(--sys-color-action));
+  background: var(--comp-choice-current-mark-checked-bg);
+  border-color: var(--comp-choice-current-mark-checked-border);
 }
 
 .checkbox[data-state="error"] .choice__mark,
 .checkbox[data-invalid="true"] .choice__mark {
-  border-color: var(--comp-choice-current-mark-error-border, var(--sys-color-danger));
+  border-color: var(--comp-choice-current-mark-error-border);
 }
 
 .checkbox[data-state="error"] .choice__input:checked + .choice__mark,
 .checkbox[data-invalid="true"] .choice__input:checked + .choice__mark,
 .checkbox[data-state="error"][data-indeterminate="true"] .choice__mark,
 .checkbox[data-invalid="true"][data-indeterminate="true"] .choice__mark {
-  background: var(--comp-choice-current-mark-error-bg, var(--sys-color-danger));
-  border-color: var(--comp-choice-current-mark-error-border, var(--sys-color-danger));
+  background: var(--comp-choice-current-mark-error-bg);
+  border-color: var(--comp-choice-current-mark-error-border);
 }
 
 .choice__indicator {
-  color: var(--comp-choice-current-indicator-fg, var(--sys-color-action-text));
+  color: var(--comp-choice-current-indicator-fg);
   display: inline-flex;
   font-size: var(--comp-choice-current-indicator-font-size);
   font-variation-settings: var(--sys-icon-variation-outline-strong);
@@ -1727,63 +1759,63 @@
   opacity: 0;
   transform: var(--component-transform-scale-enter);
   transition:
-    opacity var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state)),
-    transform var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state));
+    opacity var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-ease),
+    transform var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-ease);
 }
 
 .choice__indicator.material-symbol {
-  --comp-choice-current-icon-color: var(--comp-choice-current-indicator-fg, var(--sys-color-action-text));
-  color: var(--comp-choice-current-indicator-fg, var(--sys-color-action-text));
+  --comp-choice-current-icon-color: var(--comp-choice-current-indicator-fg);
+  color: var(--comp-choice-current-indicator-fg);
 }
 
 .checkbox .choice__input:checked + .choice__mark .choice__indicator,
 .checkbox[data-indeterminate="true"] .choice__indicator,
 .checkbox .choice__input:indeterminate + .choice__mark .choice__indicator {
-  animation: choice-indicator-enter var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-enter, var(--component-ease-enter)) both;
+  animation: choice-indicator-enter var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-enter) both;
   opacity: 1;
   transform: var(--component-transform-scale-rest);
 }
 
 .radio .choice__mark::after {
-  background: var(--comp-choice-current-dot-bg, var(--sys-color-action));
-  border-radius: var(--comp-choice-current-mark-radius, var(--component-radius-pill));
+  background: var(--comp-choice-current-dot-bg);
+  border-radius: var(--comp-choice-current-mark-radius);
   content: "";
   block-size: var(--comp-choice-current-indicator-size);
   inline-size: var(--comp-choice-current-indicator-size);
   transform: var(--component-transform-scale-none);
-  transition: transform var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-press, var(--component-ease-press));
+  transition: transform var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-press);
 }
 
 .radio .choice__input:checked + .choice__mark::after {
-  animation: choice-dot-enter var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-enter, var(--component-ease-enter)) both;
+  animation: choice-dot-enter var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-enter) both;
   transform: var(--component-transform-scale-rest);
 }
 
 .radio .choice__input:checked + .choice__mark {
-  background: var(--comp-choice-current-mark-selected-bg, var(--sys-color-surface));
-  border-color: var(--comp-choice-current-mark-selected-border, var(--sys-color-action));
+  background: var(--comp-choice-current-mark-selected-bg);
+  border-color: var(--comp-choice-current-mark-selected-border);
 }
 
 .radio[data-state="error"] .choice__mark,
 .radio[data-invalid="true"] .choice__mark {
-  background: var(--comp-choice-current-mark-error-bg, color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface)));
-  border-color: var(--comp-choice-current-mark-error-border, var(--sys-color-danger));
+  background: var(--comp-choice-current-mark-error-bg);
+  border-color: var(--comp-choice-current-mark-error-border);
 }
 
 .radio[data-state="error"] .choice__input:checked + .choice__mark,
 .radio[data-invalid="true"] .choice__input:checked + .choice__mark {
-  border-color: var(--comp-choice-current-mark-error-border, var(--sys-color-danger));
+  border-color: var(--comp-choice-current-mark-error-border);
 }
 
 .radio[data-state="error"] .choice__input:checked + .choice__mark::after,
 .radio[data-invalid="true"] .choice__input:checked + .choice__mark::after {
-  background: var(--comp-choice-current-dot-error-bg, var(--sys-color-danger));
+  background: var(--comp-choice-current-dot-error-bg);
 }
 
 .choice__input:focus-visible + .choice__mark,
 .choice[data-state="focus"] .choice__mark {
-  outline: var(--comp-choice-current-focus-width, var(--component-focus-ring-width)) solid var(--comp-choice-current-focus-color, var(--sys-color-focus));
-  outline-offset: var(--comp-choice-current-focus-offset, var(--component-focus-ring-offset));
+  outline: var(--comp-choice-current-focus-width) solid var(--comp-choice-current-focus-color);
+  outline-offset: var(--comp-choice-current-focus-offset);
 }
 
 .switch__input:focus-visible ~ .switch__track {
@@ -1792,17 +1824,17 @@
 }
 
 .choice:hover .choice__mark {
-  border-color: var(--comp-choice-current-mark-hover-border, color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border)));
-  transform: scale(var(--comp-choice-current-hover-scale, var(--component-scale-hover)));
+  border-color: var(--comp-choice-current-mark-hover-border);
+  transform: scale(var(--comp-choice-current-hover-scale));
 }
 
 .choice:active:not(:has(input:disabled)) .choice__mark {
-  transform: scale(var(--comp-choice-current-press-scale, var(--component-scale-press)));
+  transform: scale(var(--comp-choice-current-press-scale));
 }
 
 .choice__text {
   display: grid;
-  gap: var(--comp-choice-current-text-gap, var(--sys-space-sm));
+  gap: var(--comp-choice-current-text-gap);
 }
 
 .switch__text {
@@ -1811,7 +1843,7 @@
 }
 
 .choice__label {
-  font-weight: var(--comp-choice-current-label-weight, var(--sys-voice-weight-bold));
+  font-weight: var(--comp-choice-current-label-weight);
 }
 
 .switch__label {
@@ -1820,8 +1852,8 @@
 
 .choice__description,
 .choice__error {
-  color: var(--comp-choice-current-description-fg, var(--sys-color-text-muted));
-  font-size: var(--comp-choice-current-description-size, var(--component-font-size-label));
+  color: var(--comp-choice-current-description-fg);
+  font-size: var(--comp-choice-current-description-size);
 }
 
 .switch__description {
@@ -1830,13 +1862,13 @@
 }
 
 .choice__error {
-  color: var(--comp-choice-current-error-fg, var(--sys-color-danger));
-  font-weight: var(--comp-choice-current-error-weight, var(--sys-voice-weight-bold));
+  color: var(--comp-choice-current-error-fg);
+  font-weight: var(--comp-choice-current-error-weight);
 }
 
 .choice:has(input:disabled) {
   cursor: not-allowed;
-  opacity: var(--comp-choice-current-disabled-opacity, var(--sys-disabled-readable-opacity));
+  opacity: var(--comp-choice-current-disabled-opacity);
 }
 
 .switch:has(input:disabled) {
@@ -3969,6 +4001,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .skeleton {
   --comp-skeleton-width: min(100%, var(--component-content-size-md));
   --comp-skeleton-current-width: var(--comp-skeleton-width);
+  --comp-skeleton-current-height: var(--comp-skeleton-text-block-size);
   --comp-skeleton-current-columns: 4;
   --comp-skeleton-gap: var(--sys-space-sm);
   --comp-skeleton-fg: var(--sys-color-text-muted);
@@ -4033,41 +4066,45 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .skeleton--text .skeleton__bone {
-  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-text-block-size));
+  block-size: var(--comp-skeleton-current-height);
 }
 
 .skeleton--title {
   --comp-skeleton-current-width: var(--comp-skeleton-title-width);
+  --comp-skeleton-current-height: var(--comp-skeleton-title-block-size);
   inline-size: var(--comp-skeleton-current-width);
 }
 
 .skeleton--title .skeleton__bone {
-  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-title-block-size));
+  block-size: var(--comp-skeleton-current-height);
   border-radius: var(--comp-skeleton-title-radius);
 }
 
 .skeleton--circle {
   --comp-skeleton-current-width: var(--comp-skeleton-circle-width);
+  --comp-skeleton-current-height: var(--comp-skeleton-current-width);
   inline-size: var(--comp-skeleton-current-width);
 }
 
 .skeleton--circle .skeleton__bone {
-  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-current-width));
+  block-size: var(--comp-skeleton-current-height);
   border-radius: var(--comp-skeleton-radius);
 }
 
 .skeleton--pill {
   --comp-skeleton-current-width: var(--comp-skeleton-pill-width);
+  --comp-skeleton-current-height: var(--comp-skeleton-pill-block-size);
   inline-size: var(--comp-skeleton-current-width);
 }
 
 .skeleton--pill .skeleton__bone {
-  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-pill-block-size));
+  block-size: var(--comp-skeleton-current-height);
   border-radius: var(--comp-skeleton-radius);
 }
 
 .skeleton--card .skeleton__bone:first-child {
-  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-card-block-size));
+  --comp-skeleton-current-height: var(--comp-skeleton-card-block-size);
+  block-size: var(--comp-skeleton-current-height);
   border-radius: var(--comp-skeleton-card-radius);
 }
 
@@ -4107,7 +4144,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .skeleton--table .skeleton__bone {
-  block-size: var(--comp-skeleton-current-height, var(--comp-skeleton-table-cell-block-size));
+  --comp-skeleton-current-height: var(--comp-skeleton-table-cell-block-size);
+  block-size: var(--comp-skeleton-current-height);
   inline-size: 100%;
 }
 
@@ -5228,8 +5266,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-error-panel-icon-radius: var(--component-radius-pill);
   --comp-error-panel-icon-fg: var(--comp-error-panel-tone);
   --comp-error-panel-icon-family: var(--sys-font-icon);
-  --comp-error-panel-empty-icon-size: var(--comp-empty-state-icon-size, var(--component-error-panel-empty-icon-size));
-  --comp-error-panel-empty-icon-font-size: var(--comp-empty-state-icon-glyph-size, var(--sys-icon-size-display-sm));
+  --comp-error-panel-empty-icon-size: var(--component-error-panel-empty-icon-size);
+  --comp-error-panel-empty-icon-font-size: var(--sys-icon-size-display-sm);
   --comp-error-panel-padding: var(--sys-space-md);
   --comp-error-panel-gap: var(--sys-space-sm);
   --comp-error-panel-content-gap: var(--sys-space-2xs);
@@ -6549,13 +6587,19 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .biometric-prompt,
 .motion-boundary,
 .animated-moment {
-  background: var(--comp-motion-boundary-surface-bg, var(--sys-color-surface));
-  border: var(--component-border-width) solid var(--comp-motion-boundary-surface-border, color-mix(in srgb, var(--sys-color-border) 82%, transparent));
-  border-radius: var(--comp-motion-boundary-surface-radius, calc(var(--sys-radius-md) * 1.5));
-  box-shadow: var(--comp-motion-boundary-surface-shadow, var(--component-depth-panel));
-  color: var(--comp-motion-boundary-text, var(--sys-color-text));
+  --comp-motion-boundary-surface-bg: var(--sys-color-surface);
+  --comp-motion-boundary-surface-border: color-mix(in srgb, var(--sys-color-border) 82%, transparent);
+  --comp-motion-boundary-surface-radius: calc(var(--sys-radius-md) * 1.5);
+  --comp-motion-boundary-surface-shadow: var(--component-depth-panel);
+  --comp-motion-boundary-surface-padding: var(--sys-space-lg);
+  --comp-motion-boundary-text: var(--sys-color-text);
+  background: var(--comp-motion-boundary-surface-bg);
+  border: var(--component-border-width) solid var(--comp-motion-boundary-surface-border);
+  border-radius: var(--comp-motion-boundary-surface-radius);
+  box-shadow: var(--comp-motion-boundary-surface-shadow);
+  color: var(--comp-motion-boundary-text);
   overflow: hidden;
-  padding: var(--comp-motion-boundary-surface-padding, var(--sys-space-lg));
+  padding: var(--comp-motion-boundary-surface-padding);
   position: relative;
   transition:
     border-color var(--component-duration-state) var(--component-ease-state),
@@ -6624,16 +6668,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .biometric-prompt__icon,
 .motion-boundary__icon,
 .animated-moment__icon {
+  --comp-motion-boundary-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
+  --comp-motion-boundary-cue-radius: var(--component-radius-pill);
+  --comp-motion-boundary-icon-fg: var(--sys-color-action);
+  --comp-motion-boundary-icon-font-size: var(--component-font-size-icon-md);
+  --comp-motion-boundary-icon-size: var(--component-inline-size-lg);
   align-items: center;
-  background: var(--comp-motion-boundary-icon-bg, color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface)));
-  border-radius: var(--comp-motion-boundary-cue-radius, var(--component-radius-pill));
-  color: var(--comp-motion-boundary-icon-fg, var(--sys-color-action));
+  background: var(--comp-motion-boundary-icon-bg);
+  border-radius: var(--comp-motion-boundary-cue-radius);
+  color: var(--comp-motion-boundary-icon-fg);
   display: inline-flex;
   font-family: var(--sys-font-icon);
-  font-size: var(--comp-motion-boundary-icon-font-size, var(--component-font-size-icon-md));
+  font-size: var(--comp-motion-boundary-icon-font-size);
   justify-content: center;
-  min-block-size: var(--comp-motion-boundary-icon-size, var(--component-inline-size-lg));
-  min-inline-size: var(--comp-motion-boundary-icon-size, var(--component-inline-size-lg));
+  min-block-size: var(--comp-motion-boundary-icon-size);
+  min-inline-size: var(--comp-motion-boundary-icon-size);
 }
 
 .biometric-prompt__icon {
@@ -6923,8 +6972,10 @@ body[data-contrast="quiet"] .tree-view {
 
 .motion-boundary__cue,
 .animated-moment__cue {
-  background: var(--comp-motion-boundary-cue-bg, var(--sys-color-action));
-  border-radius: var(--comp-motion-boundary-cue-radius, var(--component-radius-pill));
+  --comp-motion-boundary-cue-bg: var(--sys-color-action);
+  --comp-motion-boundary-cue-radius: var(--component-radius-pill);
+  background: var(--comp-motion-boundary-cue-bg);
+  border-radius: var(--comp-motion-boundary-cue-radius);
   display: block;
 }
 
@@ -7044,7 +7095,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 .animation-asset__fallback-icon {
   align-items: center;
-  background: var(--comp-animated-moment-accent, var(--sys-color-action));
+  background: var(--sys-color-action);
   border-radius: var(--component-radius-pill);
   color: var(--sys-color-action-text);
   display: inline-flex;
@@ -7066,6 +7117,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .illustration-asset {
+  --comp-illustration-asset-max-size: var(--sys-frame-content-callout);
   display: grid;
   place-items: center;
   inline-size: 100%;
@@ -7088,7 +7140,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .illustration-asset__media,
 .illustration-asset__image {
   display: block;
-  inline-size: min(100%, var(--comp-illustration-asset-max-size, var(--sys-frame-content-callout)));
+  inline-size: min(100%, var(--comp-illustration-asset-max-size));
 }
 
 .illustration-asset__media {
@@ -7166,6 +7218,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-animated-moment-cue-block-size: calc(var(--component-field-gap) / 2);
   --comp-animated-moment-cue-inline-size: calc(var(--component-inline-size-md) - var(--sys-space-sm));
   --comp-animated-moment-cue-complete-inline-size: var(--component-inline-size-md);
+  --comp-animated-moment-cue-radius: var(--component-radius-pill);
   --comp-animated-moment-cue-duration: var(--component-duration-medium);
   --comp-animated-moment-cue-ease: var(--component-ease-press);
   align-items: center;
@@ -7297,7 +7350,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .animated-moment__cue {
   background: var(--comp-animated-moment-accent);
   block-size: var(--comp-animated-moment-cue-block-size);
-  border-radius: var(--comp-motion-boundary-cue-radius, var(--component-radius-pill));
+  border-radius: var(--comp-animated-moment-cue-radius);
   display: none;
   inline-size: var(--comp-animated-moment-cue-inline-size);
   transition: inline-size var(--comp-animated-moment-cue-duration) var(--comp-animated-moment-cue-ease);
@@ -7621,7 +7674,7 @@ body[data-contrast="quiet"] .inline-validation {
 .code-input small,
 .phone-input small {
   align-items: center;
-  color: var(--comp-inline-validation-tone, var(--sys-color-text-muted));
+  color: var(--comp-input-helper-fg);
   display: flex;
   gap: var(--sys-space-xs);
   margin: 0;
@@ -9043,7 +9096,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   border: 0;
   color: transparent;
   caret-color: transparent;
-  font-size: var(--comp-input-font-size, var(--component-font-size-body));
+  font-size: var(--comp-input-font-size);
   inset: 0;
   opacity: 0.01;
   outline: var(--sys-a11y-outline-reset);
