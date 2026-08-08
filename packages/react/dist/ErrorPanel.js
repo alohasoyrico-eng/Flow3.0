@@ -85,7 +85,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
         onClick: (event) => {
           action.onClick?.(event);
           if (event.defaultPrevented) return;
-          onAction?.(actionKey);
+          onAction?.(actionKey, event);
         },
       })
       : null,

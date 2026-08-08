@@ -32,7 +32,7 @@ export interface ErrorPanelProps extends Omit<HTMLAttributes<HTMLElement>, "styl
   fullWidth?: boolean;
   icon?: string;
   role?: ErrorPanelRole;
-  onAction?: (key: string) => void;
+  onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface ErrorPanelComponent extends ForwardRefExoticComponent<ErrorPanelProps & RefAttributes<HTMLElement>> {

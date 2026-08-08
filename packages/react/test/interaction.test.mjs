@@ -929,12 +929,12 @@ try {
       label: "Retry",
       onClick: (event) => errorPanelClicks.push(event.type),
     },
-    onAction: (key) => errorPanelActions.push(key),
+    onAction: (key, event) => errorPanelActions.push({ key, eventType: event.type }),
   }));
 
   fireEvent.click(getErrorPanelRole("button", { name: /retry/i }));
   assert.deepEqual(errorPanelClicks, ["click"]);
-  assert.deepEqual(errorPanelActions, ["retry"]);
+  assert.deepEqual(errorPanelActions, [{ key: "retry", eventType: "click" }]);
 
   cleanup();
 
