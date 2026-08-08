@@ -69,7 +69,7 @@ export const Slider = forwardRef(function Slider({
     if (disabled) return;
     const nextValue = clampValue(event.currentTarget.value, min, max);
     if (!isValueControlled) setCurrentValue(nextValue);
-    onValueChange?.(nextValue, { name, min: Number(min), max: Number(max), step: Number(step), unit });
+    onValueChange?.(nextValue, { name, min: Number(min), max: Number(max), step: Number(step), unit }, event);
   };
 
   const handlePointerDown = () => {

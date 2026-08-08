@@ -1,4 +1,5 @@
 import type {
+  ChangeEvent,
   ForwardRefExoticComponent,
   InputHTMLAttributes,
   RefAttributes,
@@ -31,7 +32,7 @@ export interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
   name?: string;
   valueLabel?: string;
   formatValue?: (value: number) => string;
-  onValueChange?: (value: number, meta: SliderValueMeta) => void;
+  onValueChange?: (value: number, meta: SliderValueMeta, event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface SliderComponent extends ForwardRefExoticComponent<SliderProps & RefAttributes<HTMLInputElement>> {
