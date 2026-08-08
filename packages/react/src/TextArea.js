@@ -45,6 +45,8 @@ export const TextArea = forwardRef(function TextArea({
     if (isValueControlled) setCurrentValue(value ?? "");
   }, [isValueControlled, value]);
 
+  if (!label) return null;
+
   const handleChange = (event) => {
     if (isDisabled) return;
     const nextValue = event.target.value;
@@ -59,7 +61,7 @@ export const TextArea = forwardRef(function TextArea({
       ...flowStateProps(resolvedState),
       ...flowDensityProps(density),
     },
-    label ? React.createElement("span", { className: "field__label", id: `${textAreaId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label", id: `${textAreaId}-label` }, label),
     React.createElement(
       "span",
       { className: "text-area__surface", "data-has-counter": maxLength != null ? "true" : undefined },
@@ -75,8 +77,7 @@ export const TextArea = forwardRef(function TextArea({
         required,
         rows,
         maxLength: maxLength == null ? undefined : Number(maxLength),
-        "aria-labelledby": label ? `${textAreaId}-label` : undefined,
-        "aria-label": label ? undefined : rest["aria-label"],
+        "aria-labelledby": `${textAreaId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
         onChange: handleChange,

@@ -1986,6 +1986,7 @@ assert.match(textAreaMarkup, /aria-describedby="[^"]+-helper [^"]+-counter"/);
 
 const unnamedTextAreaMarkup = renderToStaticMarkup(React.createElement(TextArea));
 assert.doesNotMatch(unnamedTextAreaMarkup, /aria-label="Text area"/);
+assert.doesNotMatch(unnamedTextAreaMarkup, /class="field"|class="text-area"/);
 
 const ref = createRef();
 React.createElement(Button, { ref, label: "Ref" });
