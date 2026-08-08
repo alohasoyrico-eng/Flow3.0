@@ -895,12 +895,12 @@ try {
       label: "Clear filters",
       onClick: (event) => emptyStateClicks.push(event.type),
     },
-    onAction: (key) => emptyStateActions.push(key),
+    onAction: (key, event) => emptyStateActions.push({ key, eventType: event.type }),
   }));
 
   fireEvent.click(getEmptyStateRole("button", { name: /clear filters/i }));
   assert.deepEqual(emptyStateClicks, ["click"]);
-  assert.deepEqual(emptyStateActions, ["clear-filters"]);
+  assert.deepEqual(emptyStateActions, [{ key: "clear-filters", eventType: "click" }]);
 
   cleanup();
 

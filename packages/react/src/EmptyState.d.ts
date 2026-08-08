@@ -28,7 +28,7 @@ export interface EmptyStateProps extends Omit<HTMLAttributes<HTMLElement>, "styl
   state?: EmptyStateState;
   density?: EmptyStateDensity;
   fullWidth?: boolean;
-  onAction?: (key: string) => void;
+  onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface EmptyStateComponent extends ForwardRefExoticComponent<EmptyStateProps & RefAttributes<HTMLElement>> {

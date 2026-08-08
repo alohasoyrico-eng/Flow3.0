@@ -75,7 +75,7 @@ export const EmptyState = forwardRef(function EmptyState({
         onClick: (event) => {
           action.onClick?.(event);
           if (event.defaultPrevented) return;
-          onAction?.(actionKey);
+          onAction?.(actionKey, event);
         },
       })
       : null,
