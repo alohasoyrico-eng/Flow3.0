@@ -701,6 +701,7 @@ export const componentContracts = {
       "Use role dialog and aria-modal when open.",
       "Connect title through aria-labelledby.",
       "Move focus into the dialog on open and restore it to the trigger on close.",
+      "Require stable action keys before composing local actions.",
       "Use patterns for confirmation policy, irreversible actions, and process recovery."
     ]
   },

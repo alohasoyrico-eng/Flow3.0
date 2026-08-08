@@ -76,7 +76,9 @@ export const Dialog = forwardRef(function Dialog({
     closeDialog();
   };
 
-  const resolvedActions = actions;
+  const resolvedActions = Array.isArray(actions)
+    ? actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "")
+    : [];
 
   useEffect(() => {
     if (!isOpenControlled) return;
@@ -167,21 +169,21 @@ export const Dialog = forwardRef(function Dialog({
           ? React.createElement(
             "footer",
             null,
-            resolvedActions.filter((action) => action?.label).map((action, index) => {
+            resolvedActions.map((action, index) => {
               const actionLabel = action.label;
               const needsDangerIntent = action.intent == null && resolvedTone === "danger" && index === 0;
               return React.createElement(Button, {
                 ...action,
-                key: action.key ?? actionLabel,
+                key: action.key,
                 label: actionLabel,
                 density: action.density ?? resolvedDensity,
                 variant: action.variant === "danger" ? "primary" : action.variant ?? (index === 0 ? "primary" : "secondary"),
                 intent: action.variant === "danger" ? "danger" : needsDangerIntent ? "danger" : action.intent,
                 "data-overlay-close": "",
-                "data-key": action.key ?? actionLabel,
+                "data-key": action.key,
                 onClick: (event) => {
                   action.onClick?.(event);
-                  onAction?.(action.key ?? actionLabel);
+                  onAction?.(action.key);
                   closeDialog();
                 },
               });
