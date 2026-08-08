@@ -5,7 +5,7 @@
   "inventory": {
     "components": 56,
     "prohibitedDefaults": 0,
-    "semanticDefaults": 99,
+    "semanticDefaults": 100,
     "semanticDefaultContractGaps": 0,
     "semanticByRule": [
       {
@@ -27,6 +27,11 @@
         "rule": "intent-default",
         "description": "Action intent fallback; allowed when constrained by the component contract.",
         "count": 2
+      },
+      {
+        "rule": "status-default",
+        "description": "Component status fallback; allowed when constrained by the component contract.",
+        "count": 1
       }
     ]
   },
@@ -71,6 +76,16 @@
       "value": "default",
       "description": "Component behavior default; allowed when normalized through component state.",
       "text": "state = \"default\","
+    },
+    {
+      "component": "Avatar",
+      "file": "packages/react/src/Avatar.js",
+      "line": 41,
+      "rule": "status-default",
+      "prop": "status",
+      "value": "none",
+      "description": "Component status fallback; allowed when constrained by the component contract.",
+      "text": "status = \"none\","
     },
     {
       "component": "Avatar",

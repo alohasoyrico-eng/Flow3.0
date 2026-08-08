@@ -8,7 +8,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 
 - React components scanned: 56
 - Prohibited platform defaults: 0
-- Visible semantic defaults: 99
+- Visible semantic defaults: 100
 - Semantic default contract gaps: 0
 
 ## Semantic Default Summary
@@ -19,6 +19,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | variant-default | 40 | Component composition default; allowed when constrained by the component contract. |
 | tone-default | 14 | Component tone fallback; allowed when constrained by the component contract. |
 | intent-default | 2 | Action intent fallback; allowed when constrained by the component contract. |
+| status-default | 1 | Component status fallback; allowed when constrained by the component contract. |
 
 ## Prohibited Defaults
 
@@ -40,6 +41,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | AnimatedMoment | state-default | state | playing | packages/react/src/AnimatedMoment.js:22 | `state = "playing",` |
 | AuditEvent | tone-default | tone | neutral | packages/react/src/AuditEvent.js:25 | `tone = "neutral",` |
 | AuditEvent | state-default | state | default | packages/react/src/AuditEvent.js:26 | `state = "default",` |
+| Avatar | status-default | status | none | packages/react/src/Avatar.js:41 | `status = "none",` |
 | Avatar | state-default | state | default | packages/react/src/Avatar.js:42 | `state = "default",` |
 | Badge | state-default | state | default | packages/react/src/Badge.js:17 | `function normalizeState({ hidden = false, state = "default" } = {}) {` |
 | Badge | tone-default | tone | neutral | packages/react/src/Badge.js:24 | `tone = "neutral",` |

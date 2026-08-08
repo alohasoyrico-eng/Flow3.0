@@ -79,6 +79,12 @@ const semanticRules = [
     description: "Action intent fallback; allowed when constrained by the component contract.",
     pattern: /\bintent\s*=\s*["']([^"']+)["']/,
   },
+  {
+    id: "status-default",
+    prop: "status",
+    description: "Component status fallback; allowed when constrained by the component contract.",
+    pattern: /\bstatus\s*=\s*["']([^"']+)["']/,
+  },
 ];
 
 function sourceFiles() {
@@ -116,6 +122,7 @@ function contractNamedValues(contractsSource, component, propName) {
   const contractBody = contractBodyFor(contractsSource, lowerFirst(component));
   const fieldByProp = {
     intent: "intents",
+    status: "statuses",
     state: "states",
     tone: "intents",
     variant: "variants",
