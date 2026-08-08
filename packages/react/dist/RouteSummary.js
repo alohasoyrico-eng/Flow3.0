@@ -50,7 +50,7 @@ function renderAction(action, index, { compact, density, disabled }) {
 
 export const RouteSummary = forwardRef(function RouteSummary({
   label,
-  description = "",
+  description,
   metrics,
   actions,
   variant = "standard",
