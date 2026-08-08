@@ -170,7 +170,8 @@ export const Table = forwardRef(function Table({
           const selected = currentSelected === key;
           const expanded = currentExpanded === key;
           const expandLabel = typeof getExpandLabel === "function" ? getExpandLabel(row, { expanded, key }) : undefined;
-          const rowCanExpand = canRenderExpanders && Boolean(expandLabel);
+          const detail = typeof renderDetail === "function" ? renderDetail(row) : row.detail;
+          const rowCanExpand = canRenderExpanders && Boolean(expandLabel) && detail !== undefined && detail !== null && detail !== "";
           const interactive = selectable || rowCanExpand;
           const rowNode = React.createElement(
             "tr",
@@ -221,7 +222,6 @@ export const Table = forwardRef(function Table({
             )),
           );
           if (!rowCanExpand) return [rowNode];
-          const detail = typeof renderDetail === "function" ? renderDetail(row) : row.detail ?? "";
           return [
             rowNode,
             React.createElement(
