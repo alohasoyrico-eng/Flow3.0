@@ -10132,28 +10132,50 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary {
-  --card-summary-gap: var(--comp-card-summary-gap-md);
-  --card-summary-padding: var(--comp-card-summary-padding-md);
-  --card-summary-icon-size: var(--comp-card-summary-icon-size-md);
-  --card-summary-chip-block: var(--comp-card-summary-chip-block-md);
-  --card-summary-chip-inline: var(--comp-card-summary-chip-inline-md);
-  --card-summary-number-size: var(--comp-card-summary-number-size-md);
-  --card-summary-metric-min: var(--comp-card-summary-metric-min-md);
-  --card-summary-tone: var(--comp-card-summary-tone);
-  --card-summary-bg: var(--comp-card-summary-bg);
-  --card-summary-fg: var(--comp-card-summary-fg);
-  --card-summary-muted: var(--comp-card-summary-muted);
-  aspect-ratio: 1.586;
+  --comp-card-summary-aspect-ratio: 1.586;
+  --comp-card-summary-badge-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 16%, transparent);
+  --comp-card-summary-badge-border: color-mix(in srgb, var(--comp-card-summary-current-fg) 18%, transparent);
+  --comp-card-summary-brand-family: var(--sys-font-title);
+  --comp-card-summary-brand-letter-spacing: var(--sys-voice-letter-spacing-widest);
+  --comp-card-summary-brand-size: var(--component-font-size-label);
+  --comp-card-summary-brand-transform: uppercase;
+  --comp-card-summary-brand-weight: var(--sys-voice-weight-black);
+  --comp-card-summary-chip-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 24%, transparent);
+  --comp-card-summary-chip-display: inline-block;
+  --comp-card-summary-chip-radius: var(--sys-radius-sm);
+  --comp-card-summary-current-bg: var(--comp-card-summary-bg);
+  --comp-card-summary-current-chip-block: var(--comp-card-summary-chip-block-md);
+  --comp-card-summary-current-chip-inline: var(--comp-card-summary-chip-inline-md);
+  --comp-card-summary-current-fg: var(--comp-card-summary-fg);
+  --comp-card-summary-current-gap: var(--comp-card-summary-gap-md);
+  --comp-card-summary-current-icon-size: var(--comp-card-summary-icon-size-md);
+  --comp-card-summary-current-metric-min: var(--comp-card-summary-metric-min-md);
+  --comp-card-summary-current-muted: var(--comp-card-summary-muted);
+  --comp-card-summary-current-number-size: var(--comp-card-summary-number-size-md);
+  --comp-card-summary-current-padding: var(--comp-card-summary-padding-md);
+  --comp-card-summary-current-tone: var(--comp-card-summary-tone);
+  --comp-card-summary-gradient: linear-gradient(135deg, color-mix(in srgb, var(--comp-card-summary-current-fg) 8%, transparent), transparent 42%);
+  --comp-card-summary-header-align: start;
+  --comp-card-summary-header-gap: var(--sys-space-sm);
+  --comp-card-summary-header-grid: minmax(0, 1fr) auto;
+  --comp-card-summary-metrics-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 10%, transparent);
+  --comp-card-summary-metrics-border: color-mix(in srgb, var(--comp-card-summary-current-fg) 14%, transparent);
+  --comp-card-summary-overflow: hidden;
+  --comp-card-summary-position: relative;
+  --comp-card-summary-tech-display: flex;
+  --comp-card-summary-tech-gap: var(--sys-space-sm);
+  --comp-card-summary-tech-margin-block-start: auto;
+  aspect-ratio: var(--comp-card-summary-aspect-ratio);
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--card-summary-fg) 8%, transparent), transparent 42%),
-    var(--card-summary-bg);
+    var(--comp-card-summary-gradient),
+    var(--comp-card-summary-current-bg);
   border-radius: var(--comp-card-summary-radius);
-  color: var(--card-summary-fg);
-  gap: var(--card-summary-gap);
+  color: var(--comp-card-summary-current-fg);
+  gap: var(--comp-card-summary-current-gap);
   inline-size: var(--comp-card-summary-width);
-  overflow: hidden;
-  padding: var(--card-summary-padding);
-  position: relative;
+  overflow: var(--comp-card-summary-overflow);
+  padding: var(--comp-card-summary-current-padding);
+  position: var(--comp-card-summary-position);
   transition:
     background-color var(--comp-card-summary-motion-duration) var(--comp-card-summary-motion-ease),
     border-color var(--comp-card-summary-motion-duration) var(--comp-card-summary-motion-ease),
@@ -10163,23 +10185,23 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-density="sm"] {
-  --card-summary-gap: var(--comp-card-summary-gap-sm);
-  --card-summary-padding: var(--comp-card-summary-padding-sm);
-  --card-summary-icon-size: var(--comp-card-summary-icon-size-sm);
-  --card-summary-chip-block: var(--comp-card-summary-chip-block-sm);
-  --card-summary-chip-inline: var(--comp-card-summary-chip-inline-sm);
-  --card-summary-number-size: var(--comp-card-summary-number-size-sm);
-  --card-summary-metric-min: var(--comp-card-summary-metric-min-sm);
+  --comp-card-summary-current-chip-block: var(--comp-card-summary-chip-block-sm);
+  --comp-card-summary-current-chip-inline: var(--comp-card-summary-chip-inline-sm);
+  --comp-card-summary-current-gap: var(--comp-card-summary-gap-sm);
+  --comp-card-summary-current-icon-size: var(--comp-card-summary-icon-size-sm);
+  --comp-card-summary-current-metric-min: var(--comp-card-summary-metric-min-sm);
+  --comp-card-summary-current-number-size: var(--comp-card-summary-number-size-sm);
+  --comp-card-summary-current-padding: var(--comp-card-summary-padding-sm);
 }
 
 .card-summary[data-density="lg"] {
-  --card-summary-gap: var(--comp-card-summary-gap-lg);
-  --card-summary-padding: var(--comp-card-summary-padding-lg);
-  --card-summary-icon-size: var(--comp-card-summary-icon-size-lg);
-  --card-summary-chip-block: var(--comp-card-summary-chip-block-lg);
-  --card-summary-chip-inline: var(--comp-card-summary-chip-inline-lg);
-  --card-summary-number-size: var(--comp-card-summary-number-size-lg);
-  --card-summary-metric-min: var(--comp-card-summary-metric-min-lg);
+  --comp-card-summary-current-chip-block: var(--comp-card-summary-chip-block-lg);
+  --comp-card-summary-current-chip-inline: var(--comp-card-summary-chip-inline-lg);
+  --comp-card-summary-current-gap: var(--comp-card-summary-gap-lg);
+  --comp-card-summary-current-icon-size: var(--comp-card-summary-icon-size-lg);
+  --comp-card-summary-current-metric-min: var(--comp-card-summary-metric-min-lg);
+  --comp-card-summary-current-number-size: var(--comp-card-summary-number-size-lg);
+  --comp-card-summary-current-padding: var(--comp-card-summary-padding-lg);
 }
 
 .card-summary[data-full-width="true"] {
@@ -10187,17 +10209,17 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-variant="virtual"] {
-  --card-summary-tone: var(--comp-card-summary-tone-virtual);
-  --card-summary-bg: var(--comp-card-summary-bg-virtual);
+  --comp-card-summary-current-bg: var(--comp-card-summary-bg-virtual);
+  --comp-card-summary-current-tone: var(--comp-card-summary-tone-virtual);
 }
 
 .card-summary[data-state="warning"] {
-  --card-summary-tone: var(--comp-card-summary-tone-warning);
+  --comp-card-summary-current-tone: var(--comp-card-summary-tone-warning);
   border-color: color-mix(in srgb, var(--sys-color-warning) 38%, var(--sys-color-border));
 }
 
 .card-summary[data-state="frozen"] {
-  --card-summary-tone: var(--sys-color-action);
+  --comp-card-summary-current-tone: var(--sys-color-action);
 }
 
 .card-summary[data-state="hover"],
@@ -10214,7 +10236,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-state="active"] {
-  border-color: color-mix(in srgb, var(--card-summary-tone) 34%, var(--sys-color-border));
+  border-color: color-mix(in srgb, var(--comp-card-summary-current-tone) 34%, var(--sys-color-border));
   box-shadow: var(--comp-card-summary-shadow-active);
 }
 
@@ -10225,45 +10247,45 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary header {
-  align-items: start;
+  align-items: var(--comp-card-summary-header-align);
   display: grid;
-  gap: var(--sys-space-sm);
-  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--comp-card-summary-header-gap);
+  grid-template-columns: var(--comp-card-summary-header-grid);
 }
 
 .card-summary .badge {
-  background: color-mix(in srgb, var(--card-summary-fg) 16%, transparent);
-  border-color: color-mix(in srgb, var(--card-summary-fg) 18%, transparent);
-  color: var(--card-summary-fg);
+  background: var(--comp-card-summary-badge-bg);
+  border-color: var(--comp-card-summary-badge-border);
+  color: var(--comp-card-summary-current-fg);
 }
 
 .card-summary__brand {
-  color: var(--card-summary-fg);
-  font-family: var(--sys-font-title);
-  font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-black);
-  letter-spacing: var(--sys-voice-letter-spacing-widest);
-  text-transform: uppercase;
+  color: var(--comp-card-summary-current-fg);
+  font-family: var(--comp-card-summary-brand-family);
+  font-size: var(--comp-card-summary-brand-size);
+  font-weight: var(--comp-card-summary-brand-weight);
+  letter-spacing: var(--comp-card-summary-brand-letter-spacing);
+  text-transform: var(--comp-card-summary-brand-transform);
 }
 
 .card-summary__tech {
   align-items: center;
-  display: flex;
-  gap: var(--sys-space-sm);
-  margin-block-start: auto;
+  display: var(--comp-card-summary-tech-display);
+  gap: var(--comp-card-summary-tech-gap);
+  margin-block-start: var(--comp-card-summary-tech-margin-block-start);
 }
 
 .card-summary__chip {
-  background: color-mix(in srgb, var(--card-summary-fg) 24%, transparent);
-  block-size: var(--card-summary-chip-block);
-  border-radius: var(--sys-radius-sm);
-  display: inline-block;
-  inline-size: var(--card-summary-chip-inline);
+  background: var(--comp-card-summary-chip-bg);
+  block-size: var(--comp-card-summary-current-chip-block);
+  border-radius: var(--comp-card-summary-chip-radius);
+  display: var(--comp-card-summary-chip-display);
+  inline-size: var(--comp-card-summary-current-chip-inline);
 }
 
 .card-summary__icon {
-  color: var(--card-summary-muted);
-  font-size: var(--card-summary-icon-size);
+  color: var(--comp-card-summary-current-muted);
+  font-size: var(--comp-card-summary-current-icon-size);
 }
 
 .card-summary__number-row {
@@ -10274,7 +10296,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary__expires {
-  color: var(--card-summary-muted);
+  color: var(--comp-card-summary-current-muted);
   font-family: var(--sys-voice-family-mono);
   font-size: var(--component-font-size-caption);
   font-weight: var(--sys-voice-weight-semibold);
@@ -10282,20 +10304,20 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary__number {
-  color: var(--card-summary-fg);
+  color: var(--comp-card-summary-current-fg);
   font-family: var(--sys-voice-family-mono);
-  font-size: var(--card-summary-number-size);
+  font-size: var(--comp-card-summary-current-number-size);
   font-weight: var(--sys-voice-weight-semibold);
   letter-spacing: var(--sys-voice-letter-spacing-widest);
   white-space: nowrap;
 }
 
 .card-summary[data-variant="compact"] {
-  --card-summary-bg: var(--comp-card-summary-bg-compact);
-  --card-summary-fg: var(--comp-card-summary-fg-compact);
-  --card-summary-muted: var(--comp-card-summary-muted-compact);
-  aspect-ratio: auto;
-  --card-summary-padding: var(--sys-space-md);
+  --comp-card-summary-aspect-ratio: auto;
+  --comp-card-summary-current-bg: var(--comp-card-summary-bg-compact);
+  --comp-card-summary-current-fg: var(--comp-card-summary-fg-compact);
+  --comp-card-summary-current-muted: var(--comp-card-summary-muted-compact);
+  --comp-card-summary-current-padding: var(--sys-space-md);
   align-items: center;
   grid-template-columns: auto minmax(0, 1fr) auto;
   inline-size: min(100%, var(--component-content-size-md));
@@ -10316,10 +10338,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .card-summary[data-variant="compact"] .card-summary__icon {
   align-items: center;
-  background: color-mix(in srgb, var(--card-summary-tone) 12%, var(--sys-color-surface));
+  background: color-mix(in srgb, var(--comp-card-summary-current-tone) 12%, var(--sys-color-surface));
   block-size: var(--component-inline-size-md);
   border-radius: var(--component-radius-pill);
-  color: var(--card-summary-tone);
+  color: var(--comp-card-summary-current-tone);
   display: inline-flex;
   inline-size: var(--component-inline-size-md);
   justify-content: center;
@@ -10349,14 +10371,14 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary[data-variant="limit"] .card-summary__number {
-  color: var(--card-summary-fg);
+  color: var(--comp-card-summary-current-fg);
 }
 
 .card-summary .card-summary__metrics {
-  background: color-mix(in srgb, var(--card-summary-fg) 10%, transparent);
-  border: var(--component-border-width) solid color-mix(in srgb, var(--card-summary-fg) 14%, transparent);
+  background: var(--comp-card-summary-metrics-bg);
+  border: var(--component-border-width) solid var(--comp-card-summary-metrics-border);
   border-radius: var(--comp-card-summary-metric-radius);
-  grid-template-columns: repeat(auto-fit, minmax(var(--card-summary-metric-min), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--comp-card-summary-current-metric-min), 1fr));
   padding: var(--sys-space-sm);
 }
 
@@ -10366,7 +10388,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-summary .card-summary__holder {
-  color: var(--card-summary-muted);
+  color: var(--comp-card-summary-current-muted);
   font-size: var(--component-font-size-caption);
   font-weight: var(--sys-voice-weight-bold);
   letter-spacing: var(--sys-voice-letter-spacing-wider);
