@@ -1,6 +1,7 @@
 import type {
   ForwardRefExoticComponent,
   HTMLAttributes,
+  MouseEvent,
   RefAttributes,
 } from "react";
 import type { movementRowPlatformContract } from "@design-system/components/platforms";
@@ -32,7 +33,7 @@ export interface MovementRowProps extends Omit<HTMLAttributes<HTMLElement>, "sty
   fullWidth?: boolean;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
-  onSelect?: (meta: MovementRowMeta) => void;
+  onSelect?: (meta: MovementRowMeta, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface MovementRowComponent extends ForwardRefExoticComponent<MovementRowProps & RefAttributes<HTMLElement>> {

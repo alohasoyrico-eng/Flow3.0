@@ -1095,22 +1095,23 @@ try {
     category: "fuel",
     variant: "standard",
     onClick: (event) => movementClicks.push(event.type),
-    onSelect: (meta) => selectedMovements.push(meta),
+    onSelect: (meta, event) => selectedMovements.push({ meta, eventType: event.type }),
   }));
 
   fireEvent.click(getMovementRole("button", { name: /fuel charge/i }));
   assert.equal(movementClicks.length, 1);
   assert.equal(selectedMovements.length, 1);
-  assert.equal(selectedMovements[0].label, "Fuel charge");
-  assert.equal(selectedMovements[0].status, "Pending");
-  assert.equal(selectedMovements[0].category, "fuel");
-  assert.equal(selectedMovements[0].state, "default");
+  assert.equal(selectedMovements[0].meta.label, "Fuel charge");
+  assert.equal(selectedMovements[0].meta.status, "Pending");
+  assert.equal(selectedMovements[0].meta.category, "fuel");
+  assert.equal(selectedMovements[0].meta.state, "default");
+  assert.equal(selectedMovements[0].eventType, "click");
 
   rerenderMovement(React.createElement(MovementRow, {
     label: "Fuel charge",
     disabled: true,
     onClick: (event) => movementClicks.push(event.type),
-    onSelect: (meta) => selectedMovements.push(meta),
+    onSelect: (meta, event) => selectedMovements.push({ meta, eventType: event.type }),
   }));
 
   fireEvent.click(getMovementRole("button", { name: /fuel charge/i }));
