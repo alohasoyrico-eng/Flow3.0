@@ -48,7 +48,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
   inline = false,
   searchable = true,
   searchPlaceholder = "",
-  emptyText = "",
+  emptyText,
   className = "",
   onValueChange,
   id,
