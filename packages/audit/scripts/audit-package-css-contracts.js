@@ -78,6 +78,8 @@ function checkPackageCssContracts() {
     "--component-ease-press",
     "--component-ease-loading-rhythm",
     "--component-loading-easing-linear",
+    "--component-surface-transparent",
+    "--component-border-transparent",
     "--component-depth-none",
     "--component-depth-low",
     "--component-depth-low-soft",
@@ -198,6 +200,12 @@ function checkPackageCssContracts() {
   }
   for (const match of text.matchAll(/--comp-[\w-]*(?:depth|shadow)[\w-]*:\s*none;/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component depth and shadow aliases must consume --component-depth-none instead of hardcoding none.");
+  }
+  for (const match of text.matchAll(/--comp-[\w-]*(?:bg|background|surface)[\w-]*:\s*transparent;/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component surface aliases must consume --component-surface-transparent instead of hardcoding transparent.");
+  }
+  for (const match of text.matchAll(/--comp-[\w-]*border[\w-]*:\s*transparent;/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component border aliases must consume --component-border-transparent instead of hardcoding transparent.");
   }
 
   const blocks = cssBlocks(text);

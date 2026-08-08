@@ -277,6 +277,8 @@
   --component-opacity-closed: var(--sys-state-closed-opacity);
   --component-opacity-visible: var(--sys-state-visible-opacity);
   --component-input-ghost-opacity: calc(var(--component-border-width) / 100);
+  --component-surface-transparent: transparent;
+  --component-border-transparent: transparent;
   --component-ease-standard: var(--sys-motion-curve-standard);
   --component-ease-emphasis: var(--sys-motion-curve-touch);
   --component-ease-progress: var(--sys-motion-curve-move);
@@ -603,7 +605,7 @@
   --comp-list-meta-size-sm: var(--component-font-size-caption);
   --comp-list-meta-size-md: var(--component-font-size-small);
   --comp-list-meta-size-lg: var(--component-font-size-label);
-  --comp-list-bg: transparent;
+  --comp-list-bg: var(--component-surface-transparent);
   --comp-list-fg: var(--sys-color-text);
   --comp-list-muted-fg: var(--sys-color-text-muted);
   --comp-list-border: var(--sys-color-border);
@@ -841,7 +843,7 @@
   --comp-movement-row-gap-md: var(--sys-space-md);
   --comp-movement-row-gap-lg: var(--sys-space-lg);
   --comp-movement-row-radius: var(--sys-radius-md);
-  --comp-movement-row-bg: transparent;
+  --comp-movement-row-bg: var(--component-surface-transparent);
   --comp-movement-row-bg-hover: var(--sys-color-surface-raised);
   --comp-movement-row-text: var(--sys-color-text);
   --comp-movement-row-muted: var(--sys-color-text-muted);
@@ -987,7 +989,7 @@
   --comp-button-current-padding: var(--comp-button-padding);
   --comp-button-current-icon-size: var(--comp-button-icon-size);
   --comp-button-current-font-size: var(--comp-button-font-size);
-  --comp-button-border-color: transparent;
+  --comp-button-border-color: var(--component-border-transparent);
   --comp-button-border: var(--component-border-width) solid var(--comp-button-border-color);
   --comp-button-radius: var(--component-radius-pill);
   --comp-button-cursor: pointer;
@@ -1017,7 +1019,7 @@
   --comp-button-bg-danger: var(--sys-color-danger);
   --comp-button-fg-danger: var(--sys-color-action-text);
   --comp-button-bg-tertiary: var(--sys-color-surface-raised);
-  --comp-button-border-tertiary: transparent;
+  --comp-button-border-tertiary: var(--component-border-transparent);
   --comp-button-fg-tertiary: var(--sys-color-text);
   --comp-button-bg-tertiary-hover: var(--sys-color-surface);
   --comp-button-border-tertiary-hover: color-mix(in srgb, var(--sys-color-action) 18%, transparent);
@@ -1025,8 +1027,8 @@
   --comp-button-border-outlined: var(--sys-color-border);
   --comp-button-fg-outlined: var(--sys-color-text);
   --comp-button-border-outlined-hover: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
-  --comp-button-bg-ghost: transparent;
-  --comp-button-border-ghost: transparent;
+  --comp-button-bg-ghost: var(--component-surface-transparent);
+  --comp-button-border-ghost: var(--component-border-transparent);
   --comp-button-fg-ghost: var(--sys-color-text);
   --comp-button-bg-ghost-hover: var(--sys-color-surface-raised);
   --comp-button-bg-warning: var(--sys-color-warning);
@@ -1228,7 +1230,7 @@
   --comp-icon-button-align: center;
   --comp-icon-button-current-size: var(--comp-icon-button-size);
   --comp-icon-button-current-icon-size: var(--comp-icon-button-icon-size);
-  --comp-icon-button-bg: transparent;
+  --comp-icon-button-bg: var(--component-surface-transparent);
   --comp-icon-button-border-color: var(--sys-color-border);
   --comp-icon-button-border: var(--component-border-width) solid var(--comp-icon-button-border-color);
   --comp-icon-button-radius: var(--component-radius-pill);
@@ -1245,7 +1247,7 @@
   --comp-icon-button-hover-transform: scale(var(--comp-icon-button-hover-scale));
   --comp-icon-button-press-transform: scale(var(--comp-icon-button-press-scale));
   --comp-icon-button-tonal-bg: var(--sys-color-surface);
-  --comp-icon-button-primary-border: transparent;
+  --comp-icon-button-primary-border: var(--component-border-transparent);
   --comp-icon-button-primary-bg: var(--sys-color-action);
   --comp-icon-button-primary-fg: var(--sys-color-action-text);
   --comp-icon-button-primary-hover-bg: var(--sys-color-action-hover);
@@ -2549,7 +2551,7 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
 }
 
 .chip[data-variant="assist"] {
-  --comp-chip-border: transparent;
+  --comp-chip-border: var(--component-border-transparent);
 }
 
 .chip[data-tone="warning"] {
@@ -2703,7 +2705,7 @@ button.tag:disabled,
   --comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch);
   --comp-tabs-indicator-z: var(--sys-depth-z-base);
   --comp-tabs-tab-align: center;
-  --comp-tabs-tab-bg: transparent;
+  --comp-tabs-tab-bg: var(--component-surface-transparent);
   --comp-tabs-tab-border: 0;
   --comp-tabs-tab-radius: var(--component-radius-pill);
   --comp-tabs-tab-fg: var(--sys-color-text-muted);
@@ -2728,7 +2730,7 @@ button.tag:disabled,
   --comp-tabs-focus-color: var(--sys-color-focus);
   --comp-tabs-focus-offset: var(--component-focus-ring-offset);
   --comp-tabs-icon-selected-variation: var(--sys-icon-variation-filled-strong);
-  --comp-tabs-underline-bg: transparent;
+  --comp-tabs-underline-bg: var(--component-surface-transparent);
   --comp-tabs-underline-border: 0;
   --comp-tabs-underline-border-block-end: var(--comp-tabs-border-width) solid var(--sys-color-border);
   --comp-tabs-underline-radius: 0;
@@ -3687,7 +3689,7 @@ button.tag:disabled,
   --comp-slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 4) color-mix(in srgb, var(--comp-slider-state-color) 18%, transparent);
   --comp-slider-thumb-transform: var(--component-transform-center);
   --comp-slider-thumb-active-transform: var(--component-transform-center-raised);
-  --comp-slider-input-bg: transparent;
+  --comp-slider-input-bg: var(--component-surface-transparent);
   --comp-slider-input-cursor: grab;
   --comp-slider-input-active-cursor: grabbing;
   --comp-slider-input-disabled-cursor: not-allowed;
@@ -4809,7 +4811,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .pagination {
   --comp-pagination-align: center;
   --comp-pagination-button-align: center;
-  --comp-pagination-button-bg: transparent;
+  --comp-pagination-button-bg: var(--component-surface-transparent);
   --comp-pagination-button-border: 0;
   --comp-pagination-button-display: inline-flex;
   --comp-pagination-button-justify: center;
@@ -5910,7 +5912,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-offset: var(--sys-space-xs);
   --comp-menu-panel-z-index: var(--sys-depth-z-overlay);
   --comp-menu-panel-gap: var(--sys-space-xs);
-  --comp-menu-item-bg: transparent;
+  --comp-menu-item-bg: var(--component-surface-transparent);
   --comp-menu-item-fg: var(--sys-color-text);
   --comp-menu-item-hover-bg: var(--sys-color-surface-muted);
   --comp-menu-item-danger-fg: var(--sys-color-danger);
@@ -5933,9 +5935,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-disabled-transform: var(--component-transform-none);
   --comp-menu-separator-border: var(--sys-color-border);
   --comp-menu-separator-margin-block: var(--sys-space-xs);
-  --comp-menu-trigger-avatar-bg: transparent;
+  --comp-menu-trigger-avatar-bg: var(--component-surface-transparent);
   --comp-menu-trigger-avatar-border-width: var(--component-border-width);
-  --comp-menu-trigger-avatar-border: transparent;
+  --comp-menu-trigger-avatar-border: var(--component-border-transparent);
   --comp-menu-trigger-avatar-radius: var(--sys-radius-full);
   --comp-menu-trigger-avatar-fg: var(--sys-color-text);
   --comp-menu-trigger-avatar-size: var(--sys-touch-target-min);
@@ -6718,9 +6720,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-icon-size-sm: var(--sys-icon-size-sm-plus);
   --comp-tree-view-icon-size: var(--sys-icon-size-md);
   --comp-tree-view-icon-size-lg: var(--component-font-size-icon-md);
-  --comp-tree-view-selected-bg: transparent;
+  --comp-tree-view-selected-bg: var(--component-surface-transparent);
   --comp-tree-view-selected-text: var(--sys-color-action);
-  --comp-tree-view-selected-border: transparent;
+  --comp-tree-view-selected-border: var(--component-border-transparent);
   --comp-tree-view-hover-bg: var(--sys-energy-surface-primary);
   --comp-tree-view-hover-border: var(--sys-energy-border-default);
   --comp-tree-view-hover-shadow: var(--component-tree-view-hover-shadow);
@@ -8051,7 +8053,7 @@ body[data-contrast="quiet"] .inline-validation {
 
 .route-summary[data-variant="compact"] {
   --comp-route-summary-compact-align: center;
-  --comp-route-summary-compact-border: transparent;
+  --comp-route-summary-compact-border: var(--component-border-transparent);
   --comp-route-summary-compact-display: flex;
   --comp-route-summary-compact-grid: none;
   --comp-route-summary-gap: var(--sys-space-sm);
@@ -9170,8 +9172,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-trigger-padding-start: var(--comp-select-padding-start);
   --comp-country-selector-trigger-padding-end: var(--comp-select-padding-end);
   --comp-country-selector-trigger-font-size: var(--component-font-size-label);
-  --comp-country-selector-inline-trigger-bg: transparent;
-  --comp-country-selector-inline-trigger-border: transparent;
+  --comp-country-selector-inline-trigger-bg: var(--component-surface-transparent);
+  --comp-country-selector-inline-trigger-border: var(--component-border-transparent);
   --comp-country-selector-inline-trigger-color: var(--sys-color-text-muted);
   --comp-country-selector-inline-trigger-gap: var(--sys-space-xs);
   --comp-country-selector-inline-trigger-padding-end: var(--comp-select-inline-padding-end);
@@ -10195,7 +10197,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-indicator-selected-transform: var(--component-transform-scale-rest);
   --comp-segmented-control-item-gap: var(--sys-space-xs);
   --comp-segmented-control-item-align: center;
-  --comp-segmented-control-item-bg: transparent;
+  --comp-segmented-control-item-bg: var(--component-surface-transparent);
   --comp-segmented-control-item-border: 0;
   --comp-segmented-control-item-fg: var(--sys-color-text-muted);
   --comp-segmented-control-item-cursor: pointer;
@@ -10946,7 +10948,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .quick-action {
-  --comp-quick-action-bg: transparent;
+  --comp-quick-action-bg: var(--component-surface-transparent);
   --comp-quick-action-border-width: 0;
   --comp-quick-action-cursor: default;
   --comp-quick-action-display: inline-grid;
