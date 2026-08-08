@@ -2429,17 +2429,40 @@ button.tag:disabled,
   --comp-tooltip-trigger-bg: var(--sys-color-surface);
   --comp-tooltip-trigger-border: var(--sys-color-border);
   --comp-tooltip-trigger-fg: var(--sys-color-text);
-  --comp-tooltip-trigger-min-block: var(--component-control-min-size);
-  --comp-tooltip-trigger-padding-x: var(--sys-space-md);
-  --comp-tooltip-trigger-font-size: var(--component-font-size-label);
-  --comp-tooltip-bubble-padding-block: var(--sys-space-sm);
-  --comp-tooltip-bubble-padding-inline: var(--sys-space-md);
-  --comp-tooltip-bubble-font-size: var(--component-font-size-label);
-  --comp-tooltip-bubble-min-inline: 13.75rem;
-  --comp-tooltip-scale-closed: 0.92;
-  --comp-tooltip-scale-open: 1;
-  --comp-tooltip-arrow-size: 0.5rem;
+  --comp-tooltip-trigger-min-block-sm: calc(var(--component-control-min-size) - var(--sys-space-sm));
+  --comp-tooltip-trigger-min-block-md: var(--component-control-min-size);
+  --comp-tooltip-trigger-min-block-lg: calc(var(--component-control-min-size) + var(--sys-space-sm));
+  --comp-tooltip-trigger-padding-x-sm: var(--sys-space-sm);
+  --comp-tooltip-trigger-padding-x-md: var(--sys-space-md);
+  --comp-tooltip-trigger-padding-x-lg: var(--sys-space-lg);
+  --comp-tooltip-trigger-font-size-sm: var(--component-font-size-small);
+  --comp-tooltip-trigger-font-size-md: var(--component-font-size-label);
+  --comp-tooltip-trigger-font-size-lg: var(--component-font-size-body);
+  --comp-tooltip-trigger-min-block: var(--comp-tooltip-trigger-min-block-md);
+  --comp-tooltip-trigger-padding-x: var(--comp-tooltip-trigger-padding-x-md);
+  --comp-tooltip-trigger-font-size: var(--comp-tooltip-trigger-font-size-md);
+  --comp-tooltip-bubble-padding-block-sm: var(--sys-space-xs);
+  --comp-tooltip-bubble-padding-block-md: var(--sys-space-sm);
+  --comp-tooltip-bubble-padding-block-lg: var(--sys-space-md);
+  --comp-tooltip-bubble-padding-inline-sm: var(--sys-space-sm);
+  --comp-tooltip-bubble-padding-inline-md: var(--sys-space-md);
+  --comp-tooltip-bubble-padding-inline-lg: var(--sys-space-lg);
+  --comp-tooltip-bubble-font-size-sm: var(--component-font-size-small);
+  --comp-tooltip-bubble-font-size-md: var(--component-font-size-label);
+  --comp-tooltip-bubble-font-size-lg: var(--component-font-size-body);
+  --comp-tooltip-bubble-min-inline-sm: var(--component-content-size-xs);
+  --comp-tooltip-bubble-min-inline-md: var(--component-content-size-sm);
+  --comp-tooltip-bubble-min-inline-lg: var(--component-content-size-md);
+  --comp-tooltip-bubble-padding-block: var(--comp-tooltip-bubble-padding-block-md);
+  --comp-tooltip-bubble-padding-inline: var(--comp-tooltip-bubble-padding-inline-md);
+  --comp-tooltip-bubble-font-size: var(--comp-tooltip-bubble-font-size-md);
+  --comp-tooltip-bubble-min-inline: var(--comp-tooltip-bubble-min-inline-md);
+  --comp-tooltip-scale-closed: var(--component-scale-enter);
+  --comp-tooltip-scale-open: var(--component-scale-none);
+  --comp-tooltip-arrow-size: var(--component-inline-size-xs);
   --comp-tooltip-transition: opacity var(--component-duration-state) var(--component-ease-press), transform var(--component-duration-state) var(--component-ease-press);
+  --comp-tooltip-open-transform-y: translate(-50%, 0) scale(var(--comp-tooltip-scale-open));
+  --comp-tooltip-open-transform-x: translate(0, -50%) scale(var(--comp-tooltip-scale-open));
   contain: layout;
   display: inline-flex;
   position: relative;
@@ -2463,23 +2486,23 @@ button.tag:disabled,
 }
 
 .tooltip[data-density="sm"] {
-  --comp-tooltip-trigger-min-block: var(--button-size-sm);
-  --comp-tooltip-trigger-padding-x: var(--button-padding-sm);
-  --comp-tooltip-trigger-font-size: var(--component-font-size-small);
-  --comp-tooltip-bubble-padding-block: var(--sys-space-xs);
-  --comp-tooltip-bubble-padding-inline: var(--sys-space-sm);
-  --comp-tooltip-bubble-font-size: var(--component-font-size-small);
-  --comp-tooltip-bubble-min-inline: 12rem;
+  --comp-tooltip-trigger-min-block: var(--comp-tooltip-trigger-min-block-sm);
+  --comp-tooltip-trigger-padding-x: var(--comp-tooltip-trigger-padding-x-sm);
+  --comp-tooltip-trigger-font-size: var(--comp-tooltip-trigger-font-size-sm);
+  --comp-tooltip-bubble-padding-block: var(--comp-tooltip-bubble-padding-block-sm);
+  --comp-tooltip-bubble-padding-inline: var(--comp-tooltip-bubble-padding-inline-sm);
+  --comp-tooltip-bubble-font-size: var(--comp-tooltip-bubble-font-size-sm);
+  --comp-tooltip-bubble-min-inline: var(--comp-tooltip-bubble-min-inline-sm);
 }
 
 .tooltip[data-density="lg"] {
-  --comp-tooltip-trigger-min-block: var(--button-size-lg);
-  --comp-tooltip-trigger-padding-x: var(--button-padding-lg);
-  --comp-tooltip-trigger-font-size: var(--component-font-size-body);
-  --comp-tooltip-bubble-padding-block: var(--sys-space-md);
-  --comp-tooltip-bubble-padding-inline: var(--sys-space-lg);
-  --comp-tooltip-bubble-font-size: var(--component-font-size-body);
-  --comp-tooltip-bubble-min-inline: 15rem;
+  --comp-tooltip-trigger-min-block: var(--comp-tooltip-trigger-min-block-lg);
+  --comp-tooltip-trigger-padding-x: var(--comp-tooltip-trigger-padding-x-lg);
+  --comp-tooltip-trigger-font-size: var(--comp-tooltip-trigger-font-size-lg);
+  --comp-tooltip-bubble-padding-block: var(--comp-tooltip-bubble-padding-block-lg);
+  --comp-tooltip-bubble-padding-inline: var(--comp-tooltip-bubble-padding-inline-lg);
+  --comp-tooltip-bubble-font-size: var(--comp-tooltip-bubble-font-size-lg);
+  --comp-tooltip-bubble-min-inline: var(--comp-tooltip-bubble-min-inline-lg);
 }
 
 .tooltip__trigger:hover {
@@ -2539,7 +2562,7 @@ button.tag:disabled,
   min-inline-size: min(var(--comp-tooltip-bubble-min-inline), calc(100vw - var(--sys-frame-gap-component-lg)));
   opacity: var(--sys-state-visible-opacity);
   padding: var(--comp-tooltip-bubble-padding-block) var(--comp-tooltip-bubble-padding-inline);
-  transform: translate(-50%, 0) scale(var(--comp-tooltip-scale-open));
+  transform: var(--comp-tooltip-open-transform-y);
   visibility: visible;
 }
 
@@ -2587,13 +2610,13 @@ button.tag:disabled,
 .tooltip[data-placement="left"]:hover .tooltip__bubble,
 .tooltip[data-placement="left"]:focus-within .tooltip__bubble,
 .tooltip[data-placement="left"][data-open="true"] .tooltip__bubble {
-  transform: translate(0, -50%) scale(1);
+  transform: var(--comp-tooltip-open-transform-x);
 }
 
 .tooltip[data-placement="right"]:hover .tooltip__bubble,
 .tooltip[data-placement="right"]:focus-within .tooltip__bubble,
 .tooltip[data-placement="right"][data-open="true"] .tooltip__bubble {
-  transform: translate(0, -50%) scale(1);
+  transform: var(--comp-tooltip-open-transform-x);
 }
 
 .tooltip[data-variant="metric"] {
