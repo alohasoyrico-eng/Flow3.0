@@ -41,11 +41,9 @@ export type DrawerContent =
   | { type: "text"; key: string; label?: string; copy?: string };
 
 export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label?: string;
+  label: string;
   description?: string;
   triggerLabel?: string;
-  triggerAriaLabel?: string;
-  drawerAriaLabel?: string;
   closeLabel?: string;
   variant?: DrawerVariant;
   state?: DrawerState;

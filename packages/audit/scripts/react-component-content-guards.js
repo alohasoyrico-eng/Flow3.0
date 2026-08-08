@@ -94,6 +94,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Dialog" && !source.includes("actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== \"\")")) add("errors", sourceFile, 1, "Dialog actions must require visible labels and stable keys before rendering controls.");
   if (name === "Dialog" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "Dialog must not synthesize action keys from visible labels.");
   if (name === "Drawer" && !source.includes("const hasTrigger = Boolean(triggerLabel);")) add("errors", sourceFile, 1, "Drawer must gate Button trigger composition on visible triggerLabel.");
+  if (name === "Drawer" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Drawer must not render without its required visible label.");
+  if (name === "Drawer" && /drawerAriaLabel|"aria-label":\s*label\s*\?/.test(source)) add("errors", sourceFile, 1, "Drawer must not replace its required visible label with an aria-only drawer name.");
   if (name === "Drawer" && /const hasTrigger = Boolean\(triggerLabel \|\| triggerAriaLabel\)/.test(source)) add("errors", sourceFile, 1, "Drawer triggerAriaLabel must not create a Button without visible text.");
   if (name === "Drawer" && /^\s*React\.createElement\(IconButton,\s*\{\n\s*ref:\s*closeRef/m.test(source)) add("errors", sourceFile, 1, "Drawer must not render an unnamed close button; gate close composition on closeLabel.");
   if (name === "Drawer" && /fields\.map\(\(field,\s*index\)\s*=>/.test(source)) add("errors", sourceFile, 1, "Drawer must filter fields without visible labels before composing Input.");

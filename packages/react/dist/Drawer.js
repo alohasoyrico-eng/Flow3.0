@@ -69,11 +69,9 @@ function renderContentItem(item, density) {
 }
 
 export const Drawer = forwardRef(function Drawer({
-  label = "",
+  label,
   description = "",
   triggerLabel = "",
-  triggerAriaLabel,
-  drawerAriaLabel,
   closeLabel,
   variant = "side-sheet",
   state = "closed",
@@ -104,7 +102,7 @@ export const Drawer = forwardRef(function Drawer({
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
   const drawerId = id || `drawer-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const titleId = label ? `${drawerId}-title` : undefined;
+  const titleId = `${drawerId}-title`;
   const resolvedActions = Array.isArray(actions)
     ? actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "")
     : [];
@@ -116,6 +114,8 @@ export const Drawer = forwardRef(function Drawer({
     const normalizedOpen = Boolean(openProp);
     setInteractionState(normalizedOpen ? "open" : initialState === "default" ? "default" : "closed");
   }, [openProp, initialState, isOpenControlled]);
+
+  if (!label) return null;
 
   const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
     const normalizedOpen = Boolean(nextOpen);
@@ -178,13 +178,12 @@ export const Drawer = forwardRef(function Drawer({
           role: "dialog",
           "aria-modal": "true",
           "aria-labelledby": titleId,
-          "aria-label": label ? undefined : drawerAriaLabel,
           onClick: (event) => event.stopPropagation(),
         },
         React.createElement(
           "header",
           null,
-          label ? React.createElement("strong", { id: titleId }, label) : null,
+          React.createElement("strong", { id: titleId }, label),
           closeLabel ? React.createElement(IconButton, {
             ref: closeRef,
             icon: "close",

@@ -2633,19 +2633,18 @@ const unstableContentDrawerMarkup = renderToStaticMarkup(React.createElement(Dra
 assert.doesNotMatch(unstableContentDrawerMarkup, /drawer__status-row|drawer__progress-row|drawer__supporting-copy|En ruta|Documentos|Support copy/);
 
 const unnamedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer));
+assert.equal(unnamedDrawerMarkup, "");
 assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Open drawer"/);
 assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Drawer"/);
 assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Close drawer"/);
 assert.doesNotMatch(unnamedDrawerMarkup, /class="button button--secondary drawer__trigger"/);
 assert.doesNotMatch(unnamedDrawerMarkup, /class="icon-button icon-button--ghost drawer__close"/);
 
-const ariaOnlyDrawerTriggerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
-  triggerAriaLabel: "Open filters",
+const drawerWithoutTriggerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Route filters",
 }));
-assert.doesNotMatch(ariaOnlyDrawerTriggerMarkup, /data-overlay-open=""/);
-assert.doesNotMatch(ariaOnlyDrawerTriggerMarkup, /aria-label="Open filters"/);
-assert.doesNotMatch(ariaOnlyDrawerTriggerMarkup, /class="button button--secondary drawer__trigger"/);
+assert.doesNotMatch(drawerWithoutTriggerMarkup, /data-overlay-open=""/);
+assert.doesNotMatch(drawerWithoutTriggerMarkup, /class="button button--secondary drawer__trigger"/);
 
 const comboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
   label: "Vehicle",
