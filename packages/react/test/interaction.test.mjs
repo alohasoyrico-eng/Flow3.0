@@ -1508,6 +1508,7 @@ try {
     onAction: (key) => popoverActions.push(key),
   }));
   await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false"));
+  await waitFor(() => assert.equal(popoverTrigger.closest(".popover").dataset.state, "default"));
 
   fireEvent.click(popoverTrigger);
   await waitFor(() => assert.deepEqual(popoverOpenChanges, [
@@ -1517,6 +1518,7 @@ try {
     { open: true, eventType: "click" },
   ]));
   assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false");
+  assert.equal(popoverTrigger.closest(".popover").dataset.state, "default");
 
   cleanup();
 

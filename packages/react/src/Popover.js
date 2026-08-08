@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
+import React, { forwardRef, useId, useRef, useState } from "react";
 import { popoverPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { Input } from "./Input.js";
@@ -42,19 +42,14 @@ export const Popover = forwardRef(function Popover({
   const [internalOpen, setInternalOpen] = useState(initiallyOpen);
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? "open" : initialState);
+  const resolvedInteractionState = isOpenControlled ? (isOpen ? "open" : initialState) : interactionState;
   const panelId = id || `popover-${slug(triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = `${panelId}-title`;
   const sourceActions = Array.isArray(actions) ? actions : [];
   const resolvedActions = sourceActions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "");
-  const isDisabled = disabled || interactionState === "disabled";
+  const isDisabled = disabled || resolvedInteractionState === "disabled";
   const hasTrigger = Boolean(triggerLabel);
   const hasField = Boolean(field?.label);
-
-  useEffect(() => {
-    if (!isOpenControlled) return;
-    const normalizedOpen = Boolean(openProp);
-    setInteractionState(normalizedOpen ? "open" : initialState);
-  }, [openProp, initialState, isOpenControlled]);
 
   if (!triggerLabel || !title) return null;
 
@@ -62,7 +57,7 @@ export const Popover = forwardRef(function Popover({
     if (isDisabled) return;
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
-    setInteractionState(normalizedOpen ? "open" : "closed");
+    if (!isOpenControlled) setInteractionState(normalizedOpen ? "open" : "closed");
     onOpenChange?.(normalizedOpen, event);
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
   };
@@ -81,7 +76,7 @@ export const Popover = forwardRef(function Popover({
       className: ["popover", className].filter(Boolean).join(" "),
       "data-open": String(Boolean(isOpen)),
       ...flowVariantProps(resolvedVariant),
-      ...flowStateProps(isDisabled ? "disabled" : interactionState),
+      ...flowStateProps(isDisabled ? "disabled" : resolvedInteractionState),
       "data-placement": resolvedPlacement,
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
