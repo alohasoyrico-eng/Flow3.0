@@ -48,7 +48,7 @@ export const TreeView = forwardRef(function TreeView({
 }, ref) {
   const normalizedNodes = useMemo(() => normalizeNodes(nodes), [nodes]);
   const isSelectedKeyControlled = selectedKey !== undefined;
-  const [selected, setSelected] = useState(() => selectedKey || normalizedNodes.find((node) => node.selected)?.key || "");
+  const [selected, setSelected] = useState(() => selectedKey ?? normalizedNodes.find((node) => node.selected)?.key ?? "");
   const [expanded, setExpanded] = useState(() => normalizedNodes.filter((node) => node.expanded).map((node) => node.key));
   const controlRefs = useRef(new Map());
   const resolvedDensity = normalizeFlowDensity(density);
@@ -56,7 +56,7 @@ export const TreeView = forwardRef(function TreeView({
   const visible = visibleKeys(normalizedNodes, expanded);
 
   useEffect(() => {
-    if (isSelectedKeyControlled) setSelected(selectedKey || "");
+    if (isSelectedKeyControlled) setSelected(selectedKey ?? "");
   }, [isSelectedKeyControlled, selectedKey]);
 
   if (!normalizedNodes.length) return null;
