@@ -126,6 +126,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "RouteSummary" && !source.includes("return hasStableKey && Boolean(action.label);")) add("errors", sourceFile, 1, "RouteSummary actions must require visible labels for both Button and compact IconButton composition.");
   if (name === "Dialog" && !source.includes("const hasTrigger = Boolean(triggerLabel);")) add("errors", sourceFile, 1, "Dialog must gate Button trigger composition on visible triggerLabel.");
   if (name === "Dialog" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Dialog must not render without its required visible label.");
+  if (name === "Dialog" && /description\s*=\s*""|triggerLabel\s*=\s*""|icon\s*=\s*""|id\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "Dialog must not hide optional description, trigger, icon, or id behind empty defaults.");
   if (name === "Dialog" && /dialogAriaLabel|"aria-label":\s*label\s*\?/.test(source)) add("errors", sourceFile, 1, "Dialog must not replace its required visible label with an aria-only dialog name.");
   if (name === "Dialog" && /const hasTrigger = Boolean\(triggerLabel \|\| triggerAriaLabel\)/.test(source)) add("errors", sourceFile, 1, "Dialog triggerAriaLabel must not create a Button without visible text.");
   if (name === "Dialog" && /^\s*React\.createElement\(IconButton,\s*\{\n\s*ref:\s*closeRef/m.test(source)) add("errors", sourceFile, 1, "Dialog must not render an unnamed close button; gate close composition on closeLabel.");

@@ -26,8 +26,8 @@ function hasStableFieldName(field) {
 
 export const Dialog = forwardRef(function Dialog({
   label,
-  description = "",
-  triggerLabel = "",
+  description,
+  triggerLabel,
   closeLabel,
   actions,
   open: openProp,
@@ -35,9 +35,9 @@ export const Dialog = forwardRef(function Dialog({
   variant = "confirmation",
   state = "closed",
   density,
-  icon = "",
+  icon,
   fields,
-  id = "",
+  id,
   onOpenChange,
   onAction,
   className = "",
