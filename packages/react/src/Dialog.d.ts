@@ -49,7 +49,7 @@ export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, "style
   fields?: DialogField[];
   id?: string;
   onOpenChange?: (open: boolean) => void;
-  onAction?: (key: string) => void;
+  onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface DialogComponent extends ForwardRefExoticComponent<DialogProps & RefAttributes<HTMLDivElement>> {

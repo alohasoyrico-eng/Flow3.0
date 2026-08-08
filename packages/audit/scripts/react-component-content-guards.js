@@ -173,6 +173,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Dialog" && /field\.name\s*\?\?\s*field\.label|field\.label\s*\?\?\s*index|key:\s*field\.name\s*\?\?/.test(source)) add("errors", sourceFile, 1, "Dialog must not synthesize field keys from labels or indexes.");
   if (name === "Dialog" && !source.includes("sourceActions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== \"\")")) add("errors", sourceFile, 1, "Dialog actions must require visible labels and stable keys before rendering controls.");
   if (name === "Dialog" && !source.includes("if (event.defaultPrevented) return;")) add("errors", sourceFile, 1, "Dialog must respect prevented action clicks before dispatching onAction or closing.");
+  if (name === "Dialog" && !source.includes("onAction?.(action.key, event);")) add("errors", sourceFile, 1, "Dialog must pass the original click event through the semantic onAction contract.");
   if (name === "Dialog" && /actions\s*=\s*\[\]|fields\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "Dialog must not hide missing action or field collections behind empty prop defaults.");
   if (name === "Dialog" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "Dialog must not synthesize action keys from visible labels.");
   if (name === "Drawer" && !source.includes("const hasTrigger = Boolean(triggerLabel);")) add("errors", sourceFile, 1, "Drawer must gate Button trigger composition on visible triggerLabel.");

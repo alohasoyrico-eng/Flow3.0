@@ -187,7 +187,7 @@ export const Dialog = forwardRef(function Dialog({
                 onClick: (event) => {
                   action.onClick?.(event);
                   if (event.defaultPrevented) return;
-                  onAction?.(action.key);
+                  onAction?.(action.key, event);
                   closeDialog();
                 },
               });

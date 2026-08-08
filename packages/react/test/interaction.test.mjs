@@ -764,7 +764,7 @@ try {
     closeLabel: "Close route modal",
     actions: [{ key: "confirm", label: "Confirm", onClick: (event) => dialogActionClicks.push(event.type) }],
     onOpenChange: (open) => dialogOpenChanges.push(open),
-    onAction: (key) => dialogActions.push(key),
+    onAction: (key, event) => dialogActions.push({ key, eventType: event.type }),
   }));
 
   const dialogTrigger = getDialogRole("button", { name: /open review/i });
@@ -776,7 +776,7 @@ try {
   fireEvent.click(getDialogRole("button", { name: /confirm/i }));
   await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(dialogActionClicks, ["click"]);
-  assert.deepEqual(dialogActions, ["confirm"]);
+  assert.deepEqual(dialogActions, [{ key: "confirm", eventType: "click" }]);
   assert.deepEqual(dialogOpenChanges, [true, false]);
 
   const preventedDialogActions = [];
