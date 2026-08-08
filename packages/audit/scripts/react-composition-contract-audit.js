@@ -39,4 +39,4 @@ function checkReactComponentComposition({ add, name, sourceFile, source }) {
   }
 }
 
-module.exports = { checkReactComponentComposition };
+module.exports = { allowedReactComponentComposition, checkReactComponentComposition };

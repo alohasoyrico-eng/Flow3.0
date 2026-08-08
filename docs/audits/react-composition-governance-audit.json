@@ -1,0 +1,801 @@
+{
+  "status": "pass",
+  "audit": "react composition governance",
+  "principle": "React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently.",
+  "inventory": {
+    "components": 56,
+    "compositionalComponents": 23,
+    "compositionEdges": 39,
+    "allowedEntries": 23,
+    "unexpectedImports": 0,
+    "missingImports": 0
+  },
+  "edges": [
+    {
+      "from": "BiometricPrompt",
+      "to": "Button"
+    },
+    {
+      "from": "Button",
+      "to": "Spinner"
+    },
+    {
+      "from": "Card",
+      "to": "Button"
+    },
+    {
+      "from": "Card",
+      "to": "IconButton"
+    },
+    {
+      "from": "Card",
+      "to": "Spinner"
+    },
+    {
+      "from": "CardExpiryInput",
+      "to": "Spinner"
+    },
+    {
+      "from": "CardNumberInput",
+      "to": "Spinner"
+    },
+    {
+      "from": "CardSecurityCodeInput",
+      "to": "Spinner"
+    },
+    {
+      "from": "CardSummary",
+      "to": "Badge"
+    },
+    {
+      "from": "Dialog",
+      "to": "Button"
+    },
+    {
+      "from": "Dialog",
+      "to": "IconButton"
+    },
+    {
+      "from": "Dialog",
+      "to": "Input"
+    },
+    {
+      "from": "Drawer",
+      "to": "Badge"
+    },
+    {
+      "from": "Drawer",
+      "to": "Button"
+    },
+    {
+      "from": "Drawer",
+      "to": "IconButton"
+    },
+    {
+      "from": "Drawer",
+      "to": "Input"
+    },
+    {
+      "from": "Drawer",
+      "to": "ProgressIndicator"
+    },
+    {
+      "from": "EmptyState",
+      "to": "Button"
+    },
+    {
+      "from": "EmptyState",
+      "to": "Spinner"
+    },
+    {
+      "from": "ErrorPanel",
+      "to": "Button"
+    },
+    {
+      "from": "ErrorPanel",
+      "to": "Spinner"
+    },
+    {
+      "from": "FloatingActionButton",
+      "to": "Spinner"
+    },
+    {
+      "from": "InlineValidation",
+      "to": "Input"
+    },
+    {
+      "from": "Input",
+      "to": "Spinner"
+    },
+    {
+      "from": "Menu",
+      "to": "Avatar"
+    },
+    {
+      "from": "Menu",
+      "to": "Button"
+    },
+    {
+      "from": "Menu",
+      "to": "IconButton"
+    },
+    {
+      "from": "PhoneInput",
+      "to": "CountrySelector"
+    },
+    {
+      "from": "Popover",
+      "to": "Button"
+    },
+    {
+      "from": "Popover",
+      "to": "Input"
+    },
+    {
+      "from": "QuickAction",
+      "to": "Badge"
+    },
+    {
+      "from": "QuickAction",
+      "to": "Spinner"
+    },
+    {
+      "from": "RouteSummary",
+      "to": "Button"
+    },
+    {
+      "from": "RouteSummary",
+      "to": "IconButton"
+    },
+    {
+      "from": "Table",
+      "to": "Badge"
+    },
+    {
+      "from": "Tabs",
+      "to": "Badge"
+    },
+    {
+      "from": "Toast",
+      "to": "Button"
+    },
+    {
+      "from": "Toast",
+      "to": "IconButton"
+    },
+    {
+      "from": "TreeView",
+      "to": "Button"
+    }
+  ],
+  "components": [
+    {
+      "component": "Accordion",
+      "file": "packages/react/src/Accordion.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "AnimatedMoment",
+      "file": "packages/react/src/AnimatedMoment.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "AuditEvent",
+      "file": "packages/react/src/AuditEvent.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Avatar",
+      "file": "packages/react/src/Avatar.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "BiometricPrompt",
+      "file": "packages/react/src/BiometricPrompt.js",
+      "actual": [
+        "Button"
+      ],
+      "allowed": [
+        "Button"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Breadcrumbs",
+      "file": "packages/react/src/Breadcrumbs.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "actual": [
+        "Spinner"
+      ],
+      "allowed": [
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "actual": [
+        "Button",
+        "IconButton",
+        "Spinner"
+      ],
+      "allowed": [
+        "Button",
+        "IconButton",
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardExpiryInput",
+      "file": "packages/react/src/CardExpiryInput.js",
+      "actual": [
+        "Spinner"
+      ],
+      "allowed": [
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardNumberInput",
+      "file": "packages/react/src/CardNumberInput.js",
+      "actual": [
+        "Spinner"
+      ],
+      "allowed": [
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSecurityCodeInput",
+      "file": "packages/react/src/CardSecurityCodeInput.js",
+      "actual": [
+        "Spinner"
+      ],
+      "allowed": [
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSummary",
+      "file": "packages/react/src/CardSummary.js",
+      "actual": [
+        "Badge"
+      ],
+      "allowed": [
+        "Badge"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Checkbox",
+      "file": "packages/react/src/Checkbox.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "CodeInput",
+      "file": "packages/react/src/CodeInput.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Combobox",
+      "file": "packages/react/src/Combobox.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "CountrySelector",
+      "file": "packages/react/src/CountrySelector.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "DatePicker",
+      "file": "packages/react/src/DatePicker.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "DateRangePicker",
+      "file": "packages/react/src/DateRangePicker.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "actual": [
+        "Button",
+        "IconButton",
+        "Input"
+      ],
+      "allowed": [
+        "Button",
+        "IconButton",
+        "Input"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "actual": [
+        "Badge",
+        "Button",
+        "IconButton",
+        "Input",
+        "ProgressIndicator"
+      ],
+      "allowed": [
+        "Badge",
+        "Button",
+        "IconButton",
+        "Input",
+        "ProgressIndicator"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "EmptyState",
+      "file": "packages/react/src/EmptyState.js",
+      "actual": [
+        "Button",
+        "Spinner"
+      ],
+      "allowed": [
+        "Button",
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "actual": [
+        "Button",
+        "Spinner"
+      ],
+      "allowed": [
+        "Button",
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.js",
+      "actual": [
+        "Spinner"
+      ],
+      "allowed": [
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "InlineValidation",
+      "file": "packages/react/src/InlineValidation.js",
+      "actual": [
+        "Input"
+      ],
+      "allowed": [
+        "Input"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Input",
+      "file": "packages/react/src/Input.js",
+      "actual": [
+        "Spinner"
+      ],
+      "allowed": [
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "List",
+      "file": "packages/react/src/List.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "actual": [
+        "Avatar",
+        "Button",
+        "IconButton"
+      ],
+      "allowed": [
+        "Avatar",
+        "Button",
+        "IconButton"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "MotionBoundary",
+      "file": "packages/react/src/MotionBoundary.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Pagination",
+      "file": "packages/react/src/Pagination.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "PhoneInput",
+      "file": "packages/react/src/PhoneInput.js",
+      "actual": [
+        "CountrySelector"
+      ],
+      "allowed": [
+        "CountrySelector"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "actual": [
+        "Button",
+        "Input"
+      ],
+      "allowed": [
+        "Button",
+        "Input"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "ProgressIndicator",
+      "file": "packages/react/src/ProgressIndicator.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "QuickAction",
+      "file": "packages/react/src/QuickAction.js",
+      "actual": [
+        "Badge",
+        "Spinner"
+      ],
+      "allowed": [
+        "Badge",
+        "Spinner"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "RadioButton",
+      "file": "packages/react/src/RadioButton.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "actual": [
+        "Button",
+        "IconButton"
+      ],
+      "allowed": [
+        "Button",
+        "IconButton"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "SegmentedControl",
+      "file": "packages/react/src/SegmentedControl.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Select",
+      "file": "packages/react/src/Select.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Skeleton",
+      "file": "packages/react/src/Skeleton.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Slider",
+      "file": "packages/react/src/Slider.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Spinner",
+      "file": "packages/react/src/Spinner.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "StationPin",
+      "file": "packages/react/src/StationPin.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Stepper",
+      "file": "packages/react/src/Stepper.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Switch",
+      "file": "packages/react/src/Switch.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "actual": [
+        "Badge"
+      ],
+      "allowed": [
+        "Badge"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tabs",
+      "file": "packages/react/src/Tabs.js",
+      "actual": [
+        "Badge"
+      ],
+      "allowed": [
+        "Badge"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "TextArea",
+      "file": "packages/react/src/TextArea.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "actual": [
+        "Button",
+        "IconButton"
+      ],
+      "allowed": [
+        "Button",
+        "IconButton"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "actual": [],
+      "allowed": [],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    },
+    {
+      "component": "TreeView",
+      "file": "packages/react/src/TreeView.js",
+      "actual": [
+        "Button"
+      ],
+      "allowed": [
+        "Button"
+      ],
+      "unexpected": [],
+      "missing": [],
+      "status": "pass"
+    }
+  ]
+}
