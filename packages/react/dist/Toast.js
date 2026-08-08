@@ -75,7 +75,7 @@ export const Toast = forwardRef(function Toast({
       : null,
     dismissible && dismissLabel
       ? React.createElement(IconButton, {
-        ariaLabel: dismissLabel,
+        label: dismissLabel,
         icon: "close",
         density: resolvedDensity,
         className: "toast__dismiss",
