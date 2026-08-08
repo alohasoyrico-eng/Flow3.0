@@ -2187,6 +2187,18 @@ try {
   }));
   await waitFor(() => assert.equal(notesTextArea.value, "Externally updated"));
   getTextAreaText("18/30");
+  fireEvent.change(notesTextArea, { target: { value: "Local draft" } });
+  assert.equal(textAreaChanges.at(-1).value, "Local draft");
+  await waitFor(() => assert.equal(notesTextArea.value, "Externally updated"));
+  getTextAreaText("18/30");
+  rerenderTextArea(React.createElement(TextArea, {
+    label: "Notes",
+    value: "Local draft",
+    maxLength: 30,
+    onChange: (value, meta, event) => textAreaChanges.push({ value, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(notesTextArea.value, "Local draft"));
+  getTextAreaText("11/30");
 
   cleanup();
 
