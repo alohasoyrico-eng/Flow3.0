@@ -32,6 +32,7 @@ export const Button = forwardRef(function Button({
 }, ref) {
   const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : state;
   const buttonLabel = children ?? label ?? "";
+  if (!buttonLabel) return null;
 
   return React.createElement(
     "button",

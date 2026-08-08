@@ -130,6 +130,10 @@ assert.match(markup, /data-full-width="true"/);
 assert.match(markup, /class="button__icon"/);
 assert.match(markup, /class="button__label">Approve<\/span>/);
 assert.match(markup, /button__icon--trailing/);
+const unnamedButtonMarkup = renderToStaticMarkup(React.createElement(Button, {
+  icon: "check",
+}));
+assert.equal(unnamedButtonMarkup, "");
 
 const loadingMarkup = renderToStaticMarkup(React.createElement(Button, {
   label: "Saving",
