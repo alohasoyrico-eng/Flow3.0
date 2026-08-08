@@ -192,6 +192,9 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*var\(--sys-frame-gap-subsection\);/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-gap-subsection instead of reaching into sys frame gap directly.");
   }
+  for (const match of text.matchAll(/--comp-[\w-]*radius[\w-]*:\s*calc\(var\(--sys-radius-md\)\s*\+\s*var\(--sys-radius-sm\)\);/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component radius aliases must consume --component-radius-control instead of duplicating the radius formula.");
+  }
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
