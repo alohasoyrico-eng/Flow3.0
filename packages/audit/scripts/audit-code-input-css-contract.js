@@ -11,7 +11,7 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 
 function checkCodeInputCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const baseBlock = blockFor(blocks, selectorKey, ".code-input");
-  const slotsBlock = blockFor(blocks, selectorKey, ".code-input .code-input__slots,.segmented-control");
+  const slotsBlock = blockFor(blocks, selectorKey, ".code-input .code-input__slots");
   const slotBlock = blockFor(blocks, selectorKey, ".code-input .code-input__slot");
   const smBlock = blockFor(blocks, selectorKey, ".code-input[data-density=\"sm\"]");
   const compactBlock = blockFor(blocks, selectorKey, ".code-input[data-variant=\"compact\"]");

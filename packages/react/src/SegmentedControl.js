@@ -61,7 +61,8 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
     if (!option || option.disabled) return;
     if (!isSelectedKeyControlled) setCurrentKey(nextKey);
     onValueChange?.(nextKey, event);
-    if (restoreFocus) requestAnimationFrame(() => itemRefs.current.get(nextKey)?.focus());
+    const schedule = globalThis.requestAnimationFrame ?? ((callback) => globalThis.setTimeout?.(callback, 0));
+    if (restoreFocus) schedule(() => itemRefs.current.get(nextKey)?.focus());
   };
 
   const move = (direction, event) => {

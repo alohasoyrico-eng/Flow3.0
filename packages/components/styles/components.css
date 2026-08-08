@@ -8903,8 +8903,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   block-size: 100%;
 }
 
-.code-input .code-input__slots,
-.segmented-control {
+.code-input .code-input__slots {
   align-items: center;
   display: inline-flex;
   gap: var(--code-input-slot-gap, var(--comp-code-input-slot-gap-md));
@@ -10097,6 +10096,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control {
+  --comp-segmented-control-align: stretch;
+  --comp-segmented-control-display: inline-flex;
+  --comp-segmented-control-gap: 0;
+  --comp-segmented-control-position: relative;
   --comp-segmented-control-item-min-block: var(--component-control-min-size);
   --comp-segmented-control-item-padding-inline: var(--sys-space-md);
   --comp-segmented-control-icon-size: var(--component-icon-size-sm);
@@ -10111,11 +10114,32 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-indicator-border: var(--sys-color-action);
   --comp-segmented-control-indicator-shadow: var(--component-depth-action-halo-strong);
   --comp-segmented-control-indicator-inset: 0;
+  --comp-segmented-control-indicator-pointer-events: none;
+  --comp-segmented-control-indicator-position: absolute;
+  --comp-segmented-control-indicator-transform: var(--component-transform-scale-quiet);
+  --comp-segmented-control-indicator-selected-transform: var(--component-transform-scale-rest);
   --comp-segmented-control-item-gap: var(--sys-space-xs);
+  --comp-segmented-control-item-align: center;
+  --comp-segmented-control-item-bg: transparent;
+  --comp-segmented-control-item-border: 0;
   --comp-segmented-control-item-fg: var(--sys-color-text-muted);
+  --comp-segmented-control-item-cursor: pointer;
+  --comp-segmented-control-item-display: inline-flex;
+  --comp-segmented-control-item-flex: 1 1 0;
+  --comp-segmented-control-item-justify: center;
+  --comp-segmented-control-item-min-inline: 0;
+  --comp-segmented-control-item-position: relative;
+  --comp-segmented-control-item-z: var(--sys-depth-z-raised);
   --comp-segmented-control-item-selected-fg: var(--sys-color-action);
   --comp-segmented-control-item-weight: var(--sys-voice-weight-semibold);
   --comp-segmented-control-item-selected-weight: var(--sys-voice-weight-extrabold);
+  --comp-segmented-control-icon-selected-variation: var(--sys-icon-variation-filled-strong);
+  --comp-segmented-control-content-position: relative;
+  --comp-segmented-control-content-z: var(--sys-depth-z-raised);
+  --comp-segmented-control-icon-line-height: 1;
+  --comp-segmented-control-label-overflow: hidden;
+  --comp-segmented-control-label-text-overflow: ellipsis;
+  --comp-segmented-control-label-white-space: nowrap;
   --comp-segmented-control-focus-width: var(--component-focus-ring-width);
   --comp-segmented-control-focus-color: var(--sys-color-focus);
   --comp-segmented-control-focus-offset: var(--component-focus-ring-offset);
@@ -10125,15 +10149,25 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-motion-move: var(--component-ease-move);
   --comp-segmented-control-motion-press: var(--component-ease-press);
   --comp-segmented-control-press-transform: var(--component-transform-scale-quiet);
-  align-items: stretch;
+  --comp-segmented-control-icon-only-inline-size: auto;
+  --comp-segmented-control-icon-only-item-aspect-ratio: 1;
+  --comp-segmented-control-icon-only-item-padding: 0;
+  --comp-segmented-control-visually-hidden-size: var(--component-visually-hidden-size);
+  --comp-segmented-control-visually-hidden-clip: rect(0 0 0 0);
+  --comp-segmented-control-visually-hidden-clip-path: inset(50%);
+  --comp-segmented-control-visually-hidden-margin: calc(var(--comp-segmented-control-visually-hidden-size) * -1);
+  --comp-segmented-control-visually-hidden-overflow: hidden;
+  --comp-segmented-control-visually-hidden-position: absolute;
+  --comp-segmented-control-visually-hidden-white-space: nowrap;
+  align-items: var(--comp-segmented-control-align);
   background: var(--comp-segmented-control-bg);
   border: var(--comp-segmented-control-border-width) solid var(--comp-segmented-control-border);
   border-radius: var(--comp-segmented-control-radius);
-  display: inline-flex;
-  gap: 0;
+  display: var(--comp-segmented-control-display);
+  gap: var(--comp-segmented-control-gap);
   inline-size: var(--comp-segmented-control-inline-size);
   padding: var(--comp-segmented-control-padding);
-  position: relative;
+  position: var(--comp-segmented-control-position);
 }
 
 .segmented-control[data-variant="toolbar"] {
@@ -10169,9 +10203,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   border-radius: var(--comp-segmented-control-inner-radius);
   box-shadow: var(--comp-segmented-control-indicator-shadow);
   inset: var(--comp-segmented-control-indicator-inset);
-  pointer-events: none;
-  position: absolute;
-  transform: var(--component-transform-scale-quiet);
+  pointer-events: var(--comp-segmented-control-indicator-pointer-events);
+  position: var(--comp-segmented-control-indicator-position);
+  transform: var(--comp-segmented-control-indicator-transform);
   transition:
     opacity var(--comp-segmented-control-motion-duration) var(--comp-segmented-control-motion-ease),
     transform var(--comp-segmented-control-motion-move-duration) var(--comp-segmented-control-motion-move),
@@ -10179,19 +10213,19 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control__item {
-  align-items: center;
-  background: transparent;
-  border: 0;
+  align-items: var(--comp-segmented-control-item-align);
+  background: var(--comp-segmented-control-item-bg);
+  border: var(--comp-segmented-control-item-border);
   border-radius: var(--comp-segmented-control-inner-radius);
   color: var(--comp-segmented-control-item-fg);
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 0;
+  cursor: var(--comp-segmented-control-item-cursor);
+  display: var(--comp-segmented-control-item-display);
+  flex: var(--comp-segmented-control-item-flex);
   gap: var(--comp-segmented-control-item-gap);
-  justify-content: center;
-  min-inline-size: 0;
-  position: relative;
-  z-index: var(--sys-depth-z-raised);
+  justify-content: var(--comp-segmented-control-item-justify);
+  min-inline-size: var(--comp-segmented-control-item-min-inline);
+  position: var(--comp-segmented-control-item-position);
+  z-index: var(--comp-segmented-control-item-z);
   font-weight: var(--comp-segmented-control-item-weight);
   min-block-size: var(--comp-segmented-control-item-min-block);
   padding: 0 var(--comp-segmented-control-item-padding-inline);
@@ -10201,7 +10235,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control__item[aria-selected="true"] .segmented-control__indicator {
-  transform: var(--component-transform-scale-rest);
+  transform: var(--comp-segmented-control-indicator-selected-transform);
 }
 
 .segmented-control__item:active:not(:disabled) {
@@ -10214,13 +10248,13 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control__item[aria-selected="true"] .segmented-control__icon {
-  font-variation-settings: var(--sys-icon-variation-filled-strong);
+  font-variation-settings: var(--comp-segmented-control-icon-selected-variation);
 }
 
 .segmented-control__icon,
 .segmented-control__label {
-  position: relative;
-  z-index: var(--sys-depth-z-raised);
+  position: var(--comp-segmented-control-content-position);
+  z-index: var(--comp-segmented-control-content-z);
 }
 
 .segmented-control__item:focus-visible {
@@ -10230,34 +10264,34 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .segmented-control__icon {
   font-size: var(--comp-segmented-control-icon-size);
-  line-height: 1;
+  line-height: var(--comp-segmented-control-icon-line-height);
 }
 
 .segmented-control__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: var(--comp-segmented-control-label-overflow);
+  text-overflow: var(--comp-segmented-control-label-text-overflow);
+  white-space: var(--comp-segmented-control-label-white-space);
 }
 
 .segmented-control[data-variant="icon-only"] {
-  inline-size: auto;
+  inline-size: var(--comp-segmented-control-icon-only-inline-size);
 }
 
 .segmented-control[data-variant="icon-only"] .segmented-control__item {
-  aspect-ratio: 1;
+  aspect-ratio: var(--comp-segmented-control-icon-only-item-aspect-ratio);
   min-inline-size: var(--comp-segmented-control-item-min-block);
-  padding: 0;
+  padding: var(--comp-segmented-control-icon-only-item-padding);
 }
 
 .segmented-control[data-variant="icon-only"] .segmented-control__item[data-icon-only="true"] .segmented-control__label {
-  block-size: var(--component-visually-hidden-size);
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  inline-size: var(--component-visually-hidden-size);
-  margin: calc(var(--component-visually-hidden-size) * -1);
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
+  block-size: var(--comp-segmented-control-visually-hidden-size);
+  clip: var(--comp-segmented-control-visually-hidden-clip);
+  clip-path: var(--comp-segmented-control-visually-hidden-clip-path);
+  inline-size: var(--comp-segmented-control-visually-hidden-size);
+  margin: var(--comp-segmented-control-visually-hidden-margin);
+  overflow: var(--comp-segmented-control-visually-hidden-overflow);
+  position: var(--comp-segmented-control-visually-hidden-position);
+  white-space: var(--comp-segmented-control-visually-hidden-white-space);
 }
 
 .popover {
