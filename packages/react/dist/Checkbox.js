@@ -31,8 +31,9 @@ export const Checkbox = forwardRef(function Checkbox({
   ...rest
 }, ref) {
   const isCheckedControlled = checked !== undefined;
-  const [currentChecked, setCurrentChecked] = useState(Boolean(checked));
+  const [internalChecked, setInternalChecked] = useState(Boolean(checked));
   const [currentIndeterminate, setCurrentIndeterminate] = useState(Boolean(indeterminate));
+  const currentChecked = isCheckedControlled ? Boolean(checked) : internalChecked;
   const inputRef = useRef(null);
   const normalizedState = normalizeState({
     checked: currentChecked,
@@ -49,10 +50,6 @@ export const Checkbox = forwardRef(function Checkbox({
     if (inputRef.current) inputRef.current.indeterminate = currentIndeterminate;
   }, [currentIndeterminate]);
 
-  useEffect(() => {
-    if (isCheckedControlled) setCurrentChecked(Boolean(checked));
-  }, [checked, isCheckedControlled]);
-
   const assignRef = (node) => {
     inputRef.current = node;
     if (typeof ref === "function") ref(node);
@@ -63,7 +60,7 @@ export const Checkbox = forwardRef(function Checkbox({
     if (disabled) return;
     const nextChecked = event.currentTarget.checked;
     setCurrentIndeterminate(false);
-    if (!isCheckedControlled) setCurrentChecked(nextChecked);
+    if (!isCheckedControlled) setInternalChecked(nextChecked);
     onCheckedChange?.(nextChecked, { indeterminate: false, value }, event);
   };
 

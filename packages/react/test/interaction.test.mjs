@@ -362,6 +362,16 @@ try {
   }));
   await waitFor(() => assert.equal(checkboxInput.checked, false));
   await waitFor(() => assert.equal(checkboxInput.getAttribute("aria-checked"), "false"));
+  fireEvent.click(checkboxInput);
+  assert.equal(checkboxChanges.at(-1).checked, true);
+  await waitFor(() => assert.equal(checkboxInput.checked, false));
+  rerenderCheckbox(React.createElement(Checkbox, {
+    label: "Enable fuel card",
+    value: "fuel-card",
+    checked: true,
+    onCheckedChange: (checked, meta, event) => checkboxChanges.push({ checked, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(checkboxInput.checked, true));
 
   cleanup();
 
