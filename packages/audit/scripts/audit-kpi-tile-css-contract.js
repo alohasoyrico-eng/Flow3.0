@@ -48,7 +48,7 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "--comp-kpi-tile-min-block-size:",
       "--comp-kpi-tile-header-size: var(--component-font-size-caption)",
       "--comp-kpi-tile-value-family: var(--component-font-family-mono)",
-      "--comp-kpi-tile-risk-rail-width: var(--sys-space-xs)",
+      "--comp-kpi-tile-risk-rail-width: var(--component-space-xs)",
       "background: var(--comp-kpi-tile-bg)",
       "border: var(--comp-kpi-tile-border-width) solid var(--comp-kpi-tile-border)",
       "border-radius: var(--comp-kpi-tile-radius)",
@@ -66,7 +66,7 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
     text,
     packageCssFile,
     snippets: [
-      "--comp-kpi-tile-padding: var(--sys-space-lg)",
+      "--comp-kpi-tile-padding: var(--component-space-lg)",
       "--comp-kpi-tile-value-size: var(--component-font-size-title-lg)",
       "--comp-kpi-tile-min-block-size:",
     ],
@@ -77,7 +77,7 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
     text,
     packageCssFile,
     snippets: [
-      "--comp-kpi-tile-padding: var(--sys-space-xl)",
+      "--comp-kpi-tile-padding: var(--component-space-xl)",
       "--comp-kpi-tile-value-size: var(--component-font-size-display-sm)",
       "--comp-kpi-tile-min-block-size:",
     ],

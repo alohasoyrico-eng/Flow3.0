@@ -51,7 +51,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "--comp-drawer-panel-inline: var(--component-drawer-panel-inline-sm)",
-      "--comp-drawer-panel-padding: var(--sys-space-xl)",
+      "--comp-drawer-panel-padding: var(--component-space-xl)",
       "--comp-drawer-title-font-size: var(--component-font-size-title-md)",
     ],
     message: "Drawer sm density must set aliases on the Drawer root.",
@@ -62,7 +62,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "--comp-drawer-panel-inline: var(--component-drawer-panel-inline-lg)",
-      "--comp-drawer-panel-gap: var(--sys-space-lg)",
+      "--comp-drawer-panel-gap: var(--component-space-lg)",
       "--comp-drawer-title-font-size: var(--component-font-size-display-sm)",
     ],
     message: "Drawer lg density must set aliases on the Drawer root.",

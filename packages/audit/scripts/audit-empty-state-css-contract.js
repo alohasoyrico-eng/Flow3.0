@@ -46,14 +46,14 @@ function checkEmptyStateCssContract({ text, blocks, packageCssFile, selectorKey,
     block: smBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-empty-state-icon-size: var(--component-empty-state-icon-size-sm)", "--comp-empty-state-gap: var(--sys-space-xs)"],
+    snippets: ["--comp-empty-state-icon-size: var(--component-empty-state-icon-size-sm)", "--comp-empty-state-gap: var(--component-space-xs)"],
     message: "EmptyState sm density must scale through EmptyState aliases.",
   });
   requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-empty-state-icon-size: var(--component-empty-state-icon-size-lg)", "--comp-empty-state-gap: var(--sys-space-md)"],
+    snippets: ["--comp-empty-state-icon-size: var(--component-empty-state-icon-size-lg)", "--comp-empty-state-gap: var(--component-space-md)"],
     message: "EmptyState lg density must scale through EmptyState aliases.",
   });
   requireIncludes({

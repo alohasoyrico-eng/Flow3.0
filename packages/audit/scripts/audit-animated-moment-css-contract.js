@@ -31,7 +31,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
       "--comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9)",
       "--comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38)",
       "--comp-animated-moment-cycle: var(--component-duration-loop)",
-      "--comp-animated-moment-gap: var(--sys-space-lg)",
+      "--comp-animated-moment-gap: var(--component-space-lg)",
       "--comp-animated-moment-title-size: var(--component-font-size-title-md)",
       "--comp-animated-moment-cue-duration: var(--component-duration-medium)",
       "gap: var(--comp-animated-moment-gap)",
@@ -46,7 +46,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     snippets: [
       "--comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 3.5)",
       "--comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.1)",
-      "--comp-animated-moment-gap: var(--sys-space-md)",
+      "--comp-animated-moment-gap: var(--component-space-md)",
       "--comp-animated-moment-title-size: var(--component-font-size-title-sm)",
       "--comp-animated-moment-copy-size: var(--component-font-size-small)",
     ],
@@ -59,7 +59,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     snippets: [
       "--comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 5)",
       "--comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 3.2)",
-      "--comp-animated-moment-gap: var(--sys-space-xl)",
+      "--comp-animated-moment-gap: var(--component-space-xl)",
       "--comp-animated-moment-title-size: var(--component-font-size-title-lg)",
       "--comp-animated-moment-copy-size: var(--component-font-size-title-sm)",
     ],

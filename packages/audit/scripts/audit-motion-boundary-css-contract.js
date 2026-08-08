@@ -31,7 +31,7 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "--comp-motion-boundary-gap: var(--sys-space-md)",
+      "--comp-motion-boundary-gap: var(--component-space-md)",
       "--comp-motion-boundary-surface-bg: var(--sys-color-surface)",
       "--comp-motion-boundary-icon-size: var(--component-inline-size-lg)",
       "--comp-motion-boundary-cue-inline-size: var(--component-motion-cue-inline-size)",

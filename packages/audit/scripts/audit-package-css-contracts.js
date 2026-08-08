@@ -178,12 +178,8 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc)\([^;]*--sys-density-control-padding-[xy][^;]*;/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-density-control-padding-* instead of reaching into sys density directly.");
   }
-  for (const match of text.matchAll(/--comp-[\w-]*radius[\w-]*:\s*var\(--sys-frame-radius-surface\);/g)) {
-    add("errors", packageCssFile, lineNumber(text, match.index), "Component surface radius aliases must consume --component-radius-surface instead of reaching into sys frame radius directly.");
-  }
-  for (const match of text.matchAll(/--comp-[\w-]*radius[\w-]*:\s*var\(--sys-frame-radius-sm\);/g)) {
-    add("errors", packageCssFile, lineNumber(text, match.index), "Component small radius aliases must consume --component-radius-sm instead of reaching into sys frame radius directly.");
-  }
+  for (const match of text.matchAll(/--comp-[\w-]*radius[\w-]*:\s*var\(--sys-frame-radius-surface\);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component surface radius aliases must consume --component-radius-surface instead of reaching into sys frame radius directly.");
+  for (const match of text.matchAll(/--comp-[\w-]*radius[\w-]*:\s*var\(--sys-frame-radius-sm\);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component small radius aliases must consume --component-radius-sm instead of reaching into sys frame radius directly.");
   for (const match of text.matchAll(/--comp-[\w-]*border-width[\w-]*:\s*var\(--sys-(?:frame-border|border-width)-[\w-]+\);/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component border-width aliases must consume --component-border-width* aliases instead of reaching into sys frame border directly.");
   }
@@ -215,6 +211,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*(?:align|justify|text-align|justify-self|justify-items)[\w-]*:\s*(?:center|start|end|stretch|space-between|flex-end);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component alignment aliases must consume semantic component alignment aliases instead of hardcoding alignment keywords.");
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:inherit|cover|wrap|ellipsis|anywhere|normal);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component content behavior aliases must consume semantic component content aliases instead of hardcoding keywords.");
   for (const match of text.matchAll(/--comp-[\w-]*animation-name[\w-]*:\s*component-[\w-]+;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component animation-name aliases must consume semantic component animation aliases instead of hardcoding keyframe names.");
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc|min|max)\([^;]*--sys-space-[\w-]+[^;]*;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component spacing aliases must consume --component-space-* instead of reaching into sys space directly.");
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });

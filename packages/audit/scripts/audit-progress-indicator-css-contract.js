@@ -44,14 +44,14 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
     block: smBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-progress-indicator-track-size: var(--sys-space-xs)"],
+    snippets: ["--comp-progress-indicator-track-size: var(--component-space-xs)"],
     message: "Progress Indicator sm density must scale through Progress aliases.",
   });
   requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-progress-indicator-track-size: var(--sys-space-md)"],
+    snippets: ["--comp-progress-indicator-track-size: var(--component-space-md)"],
     message: "Progress Indicator lg density must scale through Progress aliases.",
   });
   requireIncludes({

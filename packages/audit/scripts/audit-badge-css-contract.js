@@ -29,7 +29,7 @@ function checkBadgeCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-badge-radius: var(--component-radius-pill)",
       "--comp-badge-dot-size: var(--component-field-gap)",
       "--comp-badge-font-size: var(--component-font-size-label)",
-      "--comp-badge-gap: var(--sys-space-xs)",
+      "--comp-badge-gap: var(--component-space-xs)",
       "--comp-badge-motion-duration: var(--component-duration-state)",
       "border: var(--comp-badge-border-width) solid var(--comp-badge-border)",
       "font-size: var(--comp-badge-font-size)",

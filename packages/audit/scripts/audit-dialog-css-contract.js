@@ -24,8 +24,8 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
     snippets: [
       "--comp-dialog-panel-border-width: var(--component-border-width)",
       "--comp-dialog-panel-inline: var(--component-dialog-panel-inline)",
-      "--comp-dialog-panel-padding: var(--sys-space-lg)",
-      "--comp-dialog-panel-gap: var(--sys-space-md)",
+      "--comp-dialog-panel-padding: var(--component-space-lg)",
+      "--comp-dialog-panel-gap: var(--component-space-md)",
       "--comp-dialog-z-index: var(--sys-depth-z-dialog)",
       "--comp-dialog-enter-ease: var(--component-ease-enter)",
       "--comp-dialog-exit-ease: var(--component-ease-exit)",
@@ -49,7 +49,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-dialog-panel-padding: var(--sys-space-md)",
+      "--comp-dialog-panel-padding: var(--component-space-md)",
       "--comp-dialog-icon-size: var(--component-dialog-icon-size-sm)",
       "--comp-dialog-title-font-size: var(--component-font-size-body)",
     ],
@@ -60,7 +60,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-dialog-panel-padding: var(--sys-space-xl)",
+      "--comp-dialog-panel-padding: var(--component-space-xl)",
       "--comp-dialog-icon-size: var(--component-dialog-icon-size-lg)",
       "--comp-dialog-title-font-size: var(--component-font-size-title-md)",
     ],

@@ -61,7 +61,7 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
     snippets: [
       "--comp-choice-current-mark-size: var(--component-inline-size-sm)",
       "--comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2)",
-      "--comp-choice-current-gap: var(--sys-space-sm)",
+      "--comp-choice-current-gap: var(--component-space-sm)",
       "gap: var(--comp-choice-current-gap)",
       "padding-block: var(--comp-choice-current-padding-block)",
     ],

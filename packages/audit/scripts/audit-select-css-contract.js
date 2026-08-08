@@ -26,7 +26,7 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-select-padding-end: calc(var(--sys-space-lg) - var(--component-frame-space-micro))",
+      "--comp-select-padding-end: calc(var(--component-space-lg) - var(--component-frame-space-micro))",
       "--comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro))",
       "--comp-select-option-min-size: var(--component-option-min-block-size)",
       "--comp-select-option-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro))",

@@ -30,7 +30,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
     packageCssFile,
     snippets: [
       "--comp-date-picker-control-size: var(--component-density-control-height)",
-      "--comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--sys-space-lg) + var(--component-frame-space-micro))",
+      "--comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--component-space-lg) + var(--component-frame-space-micro))",
       "--comp-date-picker-panel-inline-size: var(--component-date-picker-panel-inline-size)",
       "--comp-date-picker-radius: var(--component-radius-control)",
       "--comp-date-picker-panel-radius: var(--component-radius-surface)",

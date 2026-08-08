@@ -57,14 +57,14 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: smBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-sm)", "--comp-slider-touch-size: var(--component-slider-touch-size-sm)", "--comp-slider-gap: var(--sys-space-xs)"],
+    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-sm)", "--comp-slider-touch-size: var(--component-slider-touch-size-sm)", "--comp-slider-gap: var(--component-space-xs)"],
     message: "Slider sm density must scale through Slider aliases.",
   });
   requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-lg)", "--comp-slider-touch-size: var(--component-slider-touch-size-lg)", "--comp-slider-gap: var(--sys-space-md)"],
+    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-lg)", "--comp-slider-touch-size: var(--component-slider-touch-size-lg)", "--comp-slider-gap: var(--component-space-md)"],
     message: "Slider lg density must scale through Slider aliases.",
   });
   requireIncludes({

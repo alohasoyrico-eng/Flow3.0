@@ -27,7 +27,7 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
     text,
     packageCssFile,
     snippets: [
-      "--comp-biometric-prompt-gap: var(--sys-space-md)",
+      "--comp-biometric-prompt-gap: var(--component-space-md)",
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-sm))",
       "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 - var(--component-frame-space-micro))",
       "--comp-biometric-prompt-title-family: var(--sys-font-title)",
@@ -43,8 +43,8 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
     packageCssFile,
     snippets: [
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-xs))",
-      "--comp-biometric-prompt-padding: var(--sys-space-lg)",
-      "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) + var(--sys-space-md))",
+      "--comp-biometric-prompt-padding: var(--component-space-lg)",
+      "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) + var(--component-space-md))",
     ],
     message: "BiometricPrompt sm density must override current prompt aliases instead of using fixed component blocks.",
   });
@@ -54,8 +54,8 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
     packageCssFile,
     snippets: [
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-md))",
-      "--comp-biometric-prompt-padding: var(--sys-space-xl) var(--sys-space-lg)",
-      "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 + var(--sys-space-md))",
+      "--comp-biometric-prompt-padding: var(--component-space-xl) var(--component-space-lg)",
+      "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 + var(--component-space-md))",
     ],
     message: "BiometricPrompt lg density must override current prompt aliases instead of using fixed component blocks.",
   });
