@@ -18,7 +18,7 @@ export const CardSummary = forwardRef(function CardSummary({
   meta = "",
   number = "",
   status = "",
-  metrics = [],
+  metrics,
   expires = "",
   variant = "physical",
   state = "default",
@@ -35,7 +35,8 @@ export const CardSummary = forwardRef(function CardSummary({
   if (!label) return null;
   const statusLabel = status || "";
   const resolvedIcon = icon || (resolvedVariant === "virtual" ? "smartphone" : resolvedState === "frozen" ? "ac_unit" : "contactless");
-  const visibleMetrics = metrics.filter((metric) => metric?.key && metric?.label && metric?.value);
+  const sourceMetrics = Array.isArray(metrics) ? metrics : [];
+  const visibleMetrics = sourceMetrics.filter((metric) => metric?.key && metric?.label && metric?.value);
 
   return React.createElement(
     "article",
