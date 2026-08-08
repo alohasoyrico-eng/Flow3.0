@@ -25,7 +25,7 @@ export const Menu = forwardRef(function Menu({
   triggerLabel,
   items,
   open: openProp,
-  label = "",
+  label,
   variant = "actions",
   avatarName = "",
   avatarStatus = "none",
