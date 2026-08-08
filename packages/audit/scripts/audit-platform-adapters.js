@@ -12,6 +12,12 @@ const forbiddenPrefix = "fl" + "ow-";
 
 const { components } = require("./platform-adapter-components.js");
 
+function contractBodyFor(source, contractKey) {
+  if (!source) return "";
+  const match = source.match(new RegExp(`^\\s+${contractKey}:\\s*\\{([\\s\\S]*?)(?=^\\s+[a-z][A-Za-z0-9]*:\\s*\\{|\\n\\};)`, "m"));
+  return match?.[1] ?? "";
+}
+
 function checkPlatformAdapters() {
   const adapterIndex = read(adapterIndexFile);
   const componentIndex = read(componentIndexFile);
@@ -143,6 +149,7 @@ function checkComponent(component, shared) {
   const adapter = read(adapterFile);
   const react = read(reactFile);
   const reactTypes = read(reactTypesFile);
+  const contractBody = contractBodyFor(shared.contracts, component.contractKey);
 
   for (const exportName of component.exports) {
     if (!shared.adapterIndex.includes(exportName)) add("errors", adapterIndexFile, 1, `Platform index must export ${exportName}.`);
@@ -160,8 +167,11 @@ function checkComponent(component, shared) {
   for (const primitive of component.primitives) {
     if (!adapter.includes(`"${primitive}"`)) add("errors", adapterFile, 1, `${component.label} platform contract must include primitive dependency ${primitive}.`);
   }
+  if (!contractBody) {
+    add("errors", contractsFile, 1, `${component.label} contract block is missing for ${component.contractKey}.`);
+  }
   for (const prop of component.props) {
-    if (!shared.contracts.includes(`name: "${prop}"`)) add("errors", contractsFile, 1, `${component.label} contract is missing prop ${prop}.`);
+    if (!contractBody.includes(`name: "${prop}"`)) add("errors", contractsFile, 1, `${component.label} contract is missing prop ${prop}.`);
   }
   for (const snippet of component.jsSnippets) {
     if (!react.includes(snippet)) add("errors", reactFile, 1, `React primary component missing required snippet: ${snippet}.`);
