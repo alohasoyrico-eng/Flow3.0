@@ -1,0 +1,1191 @@
+{
+  "status": "pass",
+  "audit": "react accessibility governance",
+  "principle": "React components with accessibility-critical interaction must keep explicit role, ARIA, keyboard, and focus contracts visible in source and gated in validation.",
+  "inventory": {
+    "components": 56,
+    "criticalComponents": 10,
+    "criticalPassing": 10,
+    "totalRoles": 68,
+    "totalAria": 310,
+    "keyboardHandlers": 40,
+    "focusCalls": 15,
+    "failures": 0
+  },
+  "components": [
+    {
+      "component": "Accordion",
+      "file": "packages/react/src/Accordion.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 5,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "AnimatedMoment",
+      "file": "packages/react/src/AnimatedMoment.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 2,
+        "aria": 8,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "AuditEvent",
+      "file": "packages/react/src/AuditEvent.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 2,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Avatar",
+      "file": "packages/react/src/Avatar.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 6,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "BiometricPrompt",
+      "file": "packages/react/src/BiometricPrompt.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 2,
+        "aria": 2,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Breadcrumbs",
+      "file": "packages/react/src/Breadcrumbs.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 5,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 8,
+        "tabIndex": 2,
+        "keyboardHandlers": 3,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "CardExpiryInput",
+      "file": "packages/react/src/CardExpiryInput.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 4,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "CardNumberInput",
+      "file": "packages/react/src/CardNumberInput.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 5,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "CardSecurityCodeInput",
+      "file": "packages/react/src/CardSecurityCodeInput.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 7,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "CardSummary",
+      "file": "packages/react/src/CardSummary.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 4,
+        "tabIndex": 2,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 9,
+        "aria": 9,
+        "tabIndex": 4,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Checkbox",
+      "file": "packages/react/src/Checkbox.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 6,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "CodeInput",
+      "file": "packages/react/src/CodeInput.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 4,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Combobox",
+      "file": "packages/react/src/Combobox.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "role combobox",
+          "present": true
+        },
+        {
+          "label": "autocomplete",
+          "present": true
+        },
+        {
+          "label": "expanded state",
+          "present": true
+        },
+        {
+          "label": "listbox",
+          "present": true
+        },
+        {
+          "label": "option",
+          "present": true
+        },
+        {
+          "label": "active descendant",
+          "present": true
+        },
+        {
+          "label": "keyboard",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 4,
+        "aria": 15,
+        "tabIndex": 1,
+        "keyboardHandlers": 2,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "CountrySelector",
+      "file": "packages/react/src/CountrySelector.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "role combobox",
+          "present": true
+        },
+        {
+          "label": "expanded state",
+          "present": true
+        },
+        {
+          "label": "listbox",
+          "present": true
+        },
+        {
+          "label": "option",
+          "present": true
+        },
+        {
+          "label": "active descendant",
+          "present": true
+        },
+        {
+          "label": "keyboard",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 4,
+        "aria": 14,
+        "tabIndex": 2,
+        "keyboardHandlers": 3,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "DatePicker",
+      "file": "packages/react/src/DatePicker.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "dialog trigger",
+          "present": true
+        },
+        {
+          "label": "expanded state",
+          "present": true
+        },
+        {
+          "label": "role dialog",
+          "present": true
+        },
+        {
+          "label": "grid",
+          "present": true
+        },
+        {
+          "label": "gridcell",
+          "present": true
+        },
+        {
+          "label": "keyboard",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        },
+        {
+          "label": "focus restoration",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 5,
+        "aria": 20,
+        "tabIndex": 1,
+        "keyboardHandlers": 4,
+        "usesId": true,
+        "focusCalls": 1
+      },
+      "status": "pass"
+    },
+    {
+      "component": "DateRangePicker",
+      "file": "packages/react/src/DateRangePicker.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "dialog trigger",
+          "present": true
+        },
+        {
+          "label": "expanded state",
+          "present": true
+        },
+        {
+          "label": "role dialog",
+          "present": true
+        },
+        {
+          "label": "grid",
+          "present": true
+        },
+        {
+          "label": "gridcell",
+          "present": true
+        },
+        {
+          "label": "keyboard",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        },
+        {
+          "label": "focus restoration",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 5,
+        "aria": 21,
+        "tabIndex": 2,
+        "keyboardHandlers": 4,
+        "usesId": true,
+        "focusCalls": 1
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "role dialog",
+          "present": true
+        },
+        {
+          "label": "modal",
+          "present": true
+        },
+        {
+          "label": "labelledby",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        },
+        {
+          "label": "focus restoration",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 6,
+        "tabIndex": 0,
+        "keyboardHandlers": 2,
+        "usesId": true,
+        "focusCalls": 2
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "role dialog",
+          "present": true
+        },
+        {
+          "label": "modal",
+          "present": true
+        },
+        {
+          "label": "labelledby",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        },
+        {
+          "label": "focus restoration",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 5,
+        "tabIndex": 0,
+        "keyboardHandlers": 2,
+        "usesId": true,
+        "focusCalls": 2
+      },
+      "status": "pass"
+    },
+    {
+      "component": "EmptyState",
+      "file": "packages/react/src/EmptyState.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 2,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 1,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 4,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "InlineValidation",
+      "file": "packages/react/src/InlineValidation.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 4,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Input",
+      "file": "packages/react/src/Input.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 11,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 8,
+        "tabIndex": 1,
+        "keyboardHandlers": 2,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "List",
+      "file": "packages/react/src/List.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 5,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "menu trigger",
+          "present": true
+        },
+        {
+          "label": "expanded state",
+          "present": true
+        },
+        {
+          "label": "role menu",
+          "present": true
+        },
+        {
+          "label": "role menuitem",
+          "present": true
+        },
+        {
+          "label": "keyboard",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        },
+        {
+          "label": "focus management",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 3,
+        "aria": 7,
+        "tabIndex": 1,
+        "keyboardHandlers": 2,
+        "usesId": true,
+        "focusCalls": 5
+      },
+      "status": "pass"
+    },
+    {
+      "component": "MotionBoundary",
+      "file": "packages/react/src/MotionBoundary.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 5,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 2,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Pagination",
+      "file": "packages/react/src/Pagination.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 6,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "PhoneInput",
+      "file": "packages/react/src/PhoneInput.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "dialog trigger",
+          "present": true
+        },
+        {
+          "label": "expanded state",
+          "present": true
+        },
+        {
+          "label": "role dialog",
+          "present": true
+        },
+        {
+          "label": "labelledby",
+          "present": true
+        },
+        {
+          "label": "keyboard",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        },
+        {
+          "label": "focus restoration",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 4,
+        "tabIndex": 0,
+        "keyboardHandlers": 2,
+        "usesId": true,
+        "focusCalls": 1
+      },
+      "status": "pass"
+    },
+    {
+      "component": "ProgressIndicator",
+      "file": "packages/react/src/ProgressIndicator.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 7,
+        "tabIndex": 1,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "QuickAction",
+      "file": "packages/react/src/QuickAction.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "RadioButton",
+      "file": "packages/react/src/RadioButton.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 2,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 3,
+        "tabIndex": 2,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "SegmentedControl",
+      "file": "packages/react/src/SegmentedControl.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 2,
+        "aria": 6,
+        "tabIndex": 1,
+        "keyboardHandlers": 3,
+        "usesId": true,
+        "focusCalls": 1
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Select",
+      "file": "packages/react/src/Select.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "role combobox",
+          "present": true
+        },
+        {
+          "label": "expanded state",
+          "present": true
+        },
+        {
+          "label": "listbox",
+          "present": true
+        },
+        {
+          "label": "option",
+          "present": true
+        },
+        {
+          "label": "active descendant",
+          "present": true
+        },
+        {
+          "label": "keyboard",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 4,
+        "aria": 13,
+        "tabIndex": 1,
+        "keyboardHandlers": 3,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Skeleton",
+      "file": "packages/react/src/Skeleton.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 5,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Slider",
+      "file": "packages/react/src/Slider.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 6,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Spinner",
+      "file": "packages/react/src/Spinner.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "StationPin",
+      "file": "packages/react/src/StationPin.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Stepper",
+      "file": "packages/react/src/Stepper.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 4,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Switch",
+      "file": "packages/react/src/Switch.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 5,
+        "tabIndex": 1,
+        "keyboardHandlers": 1,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Tabs",
+      "file": "packages/react/src/Tabs.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 2,
+        "aria": 3,
+        "tabIndex": 1,
+        "keyboardHandlers": 3,
+        "usesId": false,
+        "focusCalls": 1
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 2,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "TextArea",
+      "file": "packages/react/src/TextArea.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 2,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "critical": true,
+      "requirements": [
+        {
+          "label": "describedby",
+          "present": true
+        },
+        {
+          "label": "role tooltip",
+          "present": true
+        },
+        {
+          "label": "keyboard",
+          "present": true
+        },
+        {
+          "label": "escape",
+          "present": true
+        },
+        {
+          "label": "focus trigger",
+          "present": true
+        }
+      ],
+      "missing": [],
+      "signals": {
+        "roles": 1,
+        "aria": 3,
+        "tabIndex": 0,
+        "keyboardHandlers": 1,
+        "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "TreeView",
+      "file": "packages/react/src/TreeView.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 3,
+        "aria": 4,
+        "tabIndex": 1,
+        "keyboardHandlers": 3,
+        "usesId": false,
+        "focusCalls": 1
+      },
+      "status": "pass"
+    }
+  ]
+}
