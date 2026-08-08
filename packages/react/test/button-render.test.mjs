@@ -304,6 +304,16 @@ const inheritedRouteSummaryMarkup = renderToStaticMarkup(React.createElement(Rou
 }));
 assert.doesNotMatch(inheritedRouteSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedRouteSummaryMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
+const visualFocusRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  label: "Visual focus route",
+  state: "focus",
+}));
+assert.doesNotMatch(visualFocusRouteSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /tabindex/);
+const focusableRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  label: "Focusable route",
+  tabIndex: 0,
+}));
+assert.match(focusableRouteSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /tabindex="0"/);
 
 const inheritedCompactRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Inherited compact route density",

@@ -24,6 +24,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "RouteSummary" && /metric\.key\s*\?\?\s*`\$\{metric\.label\}-\$\{index\}`/.test(source)) add("errors", sourceFile, 1, "RouteSummary must not synthesize metric keys from labels or indexes.");
   if (name === "RouteSummary" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "RouteSummary must require a visible label before rendering.");
   if (name === "RouteSummary" && /description\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "RouteSummary must not hide optional description behind an empty default.");
+  if (name === "RouteSummary" && /tabIndex:\s*resolvedState\s*===\s*"focus"\s*\?\s*0\s*:\s*rest\.tabIndex/.test(source)) add("errors", sourceFile, 1, "RouteSummary visual focus state must not add real focusability.");
   if (name === "MovementRow" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "MovementRow must require a visible label before rendering a row button.");
   if (name === "MovementRow" && /const resolvedLabel = label \?\? ""/.test(source)) add("errors", sourceFile, 1, "MovementRow must not synthesize an empty row label.");
   if (name === "MovementRow" && /meta\s*=\s*""|amount\s*=\s*""|status\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "MovementRow must not synthesize empty metadata.");

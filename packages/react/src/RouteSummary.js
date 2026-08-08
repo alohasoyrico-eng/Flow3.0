@@ -89,7 +89,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
       "data-full-width": String(Boolean(fullWidth)),
       "aria-selected": resolvedState === "selected" ? "true" : undefined,
       "aria-disabled": isDisabled ? "true" : undefined,
-      tabIndex: resolvedState === "focus" ? 0 : rest.tabIndex,
+      tabIndex: rest.tabIndex,
     },
     React.createElement(
       "header",
