@@ -110,6 +110,10 @@
   --component-motion-cue-slide-inline-size: 62%;
   --component-motion-cue-collapse-inline-size: 42%;
   --component-motion-cue-route-inline-size: 68%;
+  --component-motion-cue-idle-transform: var(--sys-momentum-cue-transform-idle);
+  --component-motion-cue-enter-transform: var(--sys-momentum-cue-transform-enter);
+  --component-motion-cue-active-transform: var(--sys-momentum-cue-transform-active);
+  --component-motion-cue-exit-transform: var(--sys-momentum-cue-transform-exit);
   --component-scale-rest: var(--sys-momentum-scale-rest);
   --component-scale-none: var(--sys-momentum-scale-none);
   --component-scale-enter: var(--sys-momentum-scale-enter);
@@ -6349,10 +6353,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-motion-boundary-cue-inline-size: var(--component-motion-cue-inline-size);
   --comp-motion-boundary-cue-duration: var(--component-duration-medium);
   --comp-motion-boundary-cue-ease: var(--component-ease-move);
-  --comp-motion-boundary-cue-idle-transform: scaleX(0.18);
-  --comp-motion-boundary-cue-enter-transform: translateX(32%) scaleX(0.72);
-  --comp-motion-boundary-cue-active-transform: scaleX(1);
-  --comp-motion-boundary-cue-exit-transform: translateX(86%) scaleX(0.46);
+  --comp-motion-boundary-cue-idle-transform: var(--component-motion-cue-idle-transform);
+  --comp-motion-boundary-cue-enter-transform: var(--component-motion-cue-enter-transform);
+  --comp-motion-boundary-cue-active-transform: var(--component-motion-cue-active-transform);
+  --comp-motion-boundary-cue-exit-transform: var(--component-motion-cue-exit-transform);
   --comp-motion-boundary-cue-slide-inline-size: var(--component-motion-cue-slide-inline-size);
   --comp-motion-boundary-cue-collapse-inline-size: var(--component-motion-cue-collapse-inline-size);
   --comp-motion-boundary-cue-route-inline-size: var(--component-motion-cue-route-inline-size);

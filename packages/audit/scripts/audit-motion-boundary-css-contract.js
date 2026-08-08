@@ -37,6 +37,10 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
       "--comp-motion-boundary-cue-inline-size: var(--component-motion-cue-inline-size)",
       "--comp-motion-boundary-cue-duration: var(--component-duration-medium)",
       "--comp-motion-boundary-cue-ease: var(--component-ease-move)",
+      "--comp-motion-boundary-cue-idle-transform: var(--component-motion-cue-idle-transform)",
+      "--comp-motion-boundary-cue-enter-transform: var(--component-motion-cue-enter-transform)",
+      "--comp-motion-boundary-cue-active-transform: var(--component-motion-cue-active-transform)",
+      "--comp-motion-boundary-cue-exit-transform: var(--component-motion-cue-exit-transform)",
       "gap: var(--comp-motion-boundary-gap)",
     ],
     message: "MotionBoundary root must declare the motion/surface/icon aliases consumed by its parts.",
@@ -113,6 +117,11 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
   const hardcodedCueSize = text.match(/--comp-motion-boundary-cue-(?:inline|slide-inline|collapse-inline|route-inline)-size:\s*[0-9.]+%/);
   if (hardcodedCueSize) {
     add("errors", packageCssFile, lineNumber(text, hardcodedCueSize.index), "MotionBoundary cue sizes must flow through component motion cue roles, not local hardcoded percentages.");
+  }
+
+  const hardcodedCueTransform = text.match(/--comp-motion-boundary-cue-(?:idle|enter|active|exit)-transform:\s*(?:translate|scale|rotate|skew|matrix)[^;]*[0-9]/);
+  if (hardcodedCueTransform) {
+    add("errors", packageCssFile, lineNumber(text, hardcodedCueTransform.index), "MotionBoundary cue transforms must flow through component Momentum cue roles, not local hardcoded transforms.");
   }
 }
 

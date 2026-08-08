@@ -656,6 +656,12 @@ export const systemTokens = {
       mid: "var(--sys-momentum-progress-translate-mid)",
       end: "var(--sys-momentum-progress-translate-end)",
     },
+    cueTransform: {
+      idle: "var(--sys-momentum-cue-transform-idle)",
+      enter: "var(--sys-momentum-cue-transform-enter)",
+      active: "var(--sys-momentum-cue-transform-active)",
+      exit: "var(--sys-momentum-cue-transform-exit)",
+    },
     rotate: {
       rest: "var(--sys-momentum-rotate-rest)",
       quarter: "var(--sys-momentum-rotate-quarter)",
