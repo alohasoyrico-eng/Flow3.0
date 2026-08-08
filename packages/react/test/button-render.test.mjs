@@ -2697,6 +2697,7 @@ assert.match(emptyComboboxMarkup, /class="combobox__empty"/);
 assert.match(emptyComboboxMarkup, />No matching options<\/span>/);
 
 const unnamedComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox));
+assert.equal(unnamedComboboxMarkup, "");
 assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Combobox"/);
 assert.doesNotMatch(unnamedComboboxMarkup, /class="combobox"|role="combobox"|role="listbox"|data-combobox-clear/);
 
@@ -2717,6 +2718,7 @@ const unstableOptionComboboxMarkup = renderToStaticMarkup(React.createElement(Co
     { value: "mx-8840" },
   ],
 }));
+assert.equal(unstableOptionComboboxMarkup, "");
 assert.doesNotMatch(unstableOptionComboboxMarkup, /role="option"/);
 assert.doesNotMatch(unstableOptionComboboxMarkup, /data-value="MX-4821|data-label="mx-8840"/);
 

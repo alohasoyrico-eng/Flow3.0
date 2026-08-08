@@ -32,7 +32,7 @@ export const Combobox = forwardRef(function Combobox({
   label,
   helper = "",
   icon = "search",
-  options = [],
+  options,
   optionsLabel,
   clearSelectionLabel,
   value,
@@ -80,7 +80,7 @@ export const Combobox = forwardRef(function Combobox({
     setActiveIndex(0);
   }, [isValueControlled, normalizedOptions, value]);
 
-  if (!label) return null;
+  if (!label || !normalizedOptions.length) return null;
 
   const commitOption = (option) => {
     if (!option || option.disabled) return;
