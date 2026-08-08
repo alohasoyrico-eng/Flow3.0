@@ -62,10 +62,10 @@ export const TreeView = forwardRef(function TreeView({
   if (!normalizedNodes.length) return null;
 
   const focusKey = (key) => requestAnimationFrame(() => controlRefs.current.get(key)?.focus());
-  const commitSelected = (node) => {
+  const commitSelected = (node, event) => {
     if (!node || node.disabled) return;
     if (!isSelectedKeyControlled) setSelected(node.key);
-    onSelect?.(node.key);
+    onSelect?.(node.key, event);
     focusKey(node.key);
   };
   const commitExpanded = (node, nextExpanded) => {
@@ -143,7 +143,7 @@ export const TreeView = forwardRef(function TreeView({
           onClick: (event) => {
             onClick?.(event);
             if (event.defaultPrevented) return;
-            commitSelected(node);
+            commitSelected(node, event);
             if (node.expandable) commitExpanded(node, !isExpanded);
           },
           onKeyDown: (event) => {

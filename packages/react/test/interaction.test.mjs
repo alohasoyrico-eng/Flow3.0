@@ -2010,7 +2010,7 @@ try {
       { key: "button", label: "Button", level: 2 },
       { key: "input", label: "Input", level: 2 },
     ],
-    onSelect: (key) => treeSelections.push(key),
+    onSelect: (key, event) => treeSelections.push({ key, eventType: event.type }),
     onExpandedChange: (keys) => treeExpandedChanges.push(keys),
   }));
 
@@ -2018,7 +2018,7 @@ try {
   assert.equal(componentsTreeItem.getAttribute("aria-expanded"), "false");
   fireEvent.click(componentsTreeItem);
   await waitFor(() => assert.equal(componentsTreeItem.getAttribute("aria-expanded"), "true"));
-  assert.deepEqual(treeSelections, ["components"]);
+  assert.deepEqual(treeSelections, [{ key: "components", eventType: "click" }]);
   assert.deepEqual(treeExpandedChanges, [["components"]]);
 
   fireEvent.keyDown(componentsTreeItem, { key: "ArrowLeft" });
@@ -2033,7 +2033,7 @@ try {
       { key: "button", label: "Button", level: 2 },
       { key: "input", label: "Input", level: 2 },
     ],
-    onSelect: (key) => treeSelections.push(key),
+    onSelect: (key, event) => treeSelections.push({ key, eventType: event.type }),
     onExpandedChange: (keys) => treeExpandedChanges.push(keys),
   }));
   await waitFor(() => assert.equal(document.querySelector('[data-key="input"] [role="treeitem"]').getAttribute("aria-selected"), "true"));

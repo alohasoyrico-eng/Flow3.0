@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
 import type { treeViewPlatformContract } from "@design-system/components/platforms";
 
 export type TreeViewDensity = "sm" | "md" | "lg";
@@ -21,7 +21,7 @@ export interface TreeViewProps extends Omit<HTMLAttributes<HTMLUListElement>, "s
   state?: TreeViewState;
   density?: TreeViewDensity;
   selectedKey?: string;
-  onSelect?: (key: string) => void;
+  onSelect?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
   onExpandedChange?: (expandedKeys: string[]) => void;
 }
 
