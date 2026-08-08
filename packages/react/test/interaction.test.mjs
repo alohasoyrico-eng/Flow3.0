@@ -837,7 +837,7 @@ try {
     triggerLabel: "Open details",
     closeLabel: "Close vehicle details",
     actions: [{ key: "save", label: "Save" }],
-    onOpenChange: (open) => drawerOpenChanges.push(open),
+    onOpenChange: (open, event) => drawerOpenChanges.push({ open, eventType: event?.type }),
     onAction: (key, event) => drawerActions.push({ key, eventType: event.type }),
   }));
 
@@ -845,12 +845,12 @@ try {
   fireEvent.click(drawerTrigger);
   await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "true"));
   assert.equal(getDrawerRole("dialog", { name: /vehicle details/i }).hidden, false);
-  assert.deepEqual(drawerOpenChanges, [true]);
+  assert.deepEqual(drawerOpenChanges, [{ open: true, eventType: "click" }]);
 
   fireEvent.click(getDrawerRole("button", { name: /save/i }));
   await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(drawerActions, [{ key: "save", eventType: "click" }]);
-  assert.deepEqual(drawerOpenChanges, [true, false]);
+  assert.deepEqual(drawerOpenChanges, [{ open: true, eventType: "click" }, { open: false, eventType: "click" }]);
 
   const preventedDrawerActions = [];
   rerenderDrawer(React.createElement(Drawer, {
@@ -859,7 +859,7 @@ try {
     triggerLabel: "Open details",
     closeLabel: "Close vehicle details",
     actions: [{ key: "save", label: "Save", onClick: (event) => event.preventDefault() }],
-    onOpenChange: (open) => drawerOpenChanges.push(open),
+    onOpenChange: (open, event) => drawerOpenChanges.push({ open, eventType: event?.type }),
     onAction: (key) => preventedDrawerActions.push(key),
   }));
   fireEvent.click(drawerTrigger);
@@ -875,7 +875,7 @@ try {
     closeLabel: "Close vehicle details",
     actions: [{ key: "save", label: "Save" }],
     open: true,
-    onOpenChange: (open) => drawerOpenChanges.push(open),
+    onOpenChange: (open, event) => drawerOpenChanges.push({ open, eventType: event?.type }),
     onAction: (key) => drawerActions.push(key),
   }));
   await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "true"));
@@ -887,7 +887,7 @@ try {
     closeLabel: "Close vehicle details",
     actions: [{ key: "save", label: "Save" }],
     open: false,
-    onOpenChange: (open) => drawerOpenChanges.push(open),
+    onOpenChange: (open, event) => drawerOpenChanges.push({ open, eventType: event?.type }),
     onAction: (key) => drawerActions.push(key),
   }));
   await waitFor(() => assert.equal(drawerTrigger.getAttribute("aria-expanded"), "false"));

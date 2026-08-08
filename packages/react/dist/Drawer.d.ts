@@ -1,11 +1,12 @@
 import type { drawerPlatformContract } from "#flow/platforms";
-import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 
 export type DrawerVariant = "side-sheet" | "filter" | "detail" | "edit" | "review";
 export type DrawerState = "closed" | "default" | "open" | "focus" | "closing";
 export type DrawerTone = "neutral" | "info" | "danger";
 export type DrawerDensity = "sm" | "md" | "lg";
 export type DrawerSide = "left" | "right";
+export type DrawerOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
 
 export interface DrawerAction {
   key?: string;
@@ -55,7 +56,7 @@ export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style
   actions?: DrawerAction[];
   open?: boolean;
   id?: string;
-  onOpenChange?: (open: boolean) => void;
+  onOpenChange?: (open: boolean, event?: DrawerOpenChangeEvent) => void;
   onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
 }
 

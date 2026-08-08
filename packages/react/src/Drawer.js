@@ -118,21 +118,21 @@ export const Drawer = forwardRef(function Drawer({
 
   if (!label) return null;
 
-  const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
+  const setOpen = (nextOpen, { restoreFocus = false, event } = {}) => {
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
     setInteractionState(normalizedOpen ? "open" : "closed");
-    onOpenChange?.(normalizedOpen);
+    onOpenChange?.(normalizedOpen, event);
     if (normalizedOpen) requestAnimationFrame(() => closeRef.current?.focus());
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
-  const closeDrawer = ({ restoreFocus = true } = {}) => setOpen(false, { restoreFocus });
+  const closeDrawer = ({ restoreFocus = true, event } = {}) => setOpen(false, { restoreFocus, event });
 
   const onKeyDown = (event) => {
     if (event.key !== "Escape") return;
     event.preventDefault();
-    closeDrawer();
+    closeDrawer({ event });
   };
 
   return React.createElement(
@@ -158,7 +158,7 @@ export const Drawer = forwardRef(function Drawer({
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": drawerId,
-      onClick: () => setOpen(true),
+      onClick: (event) => setOpen(true, { event }),
     }) : null,
     React.createElement(
       "div",
@@ -167,7 +167,7 @@ export const Drawer = forwardRef(function Drawer({
         hidden: !isOpen,
         "data-overlay-dismiss": "",
         onClick: (event) => {
-          if (event.target === event.currentTarget) closeDrawer();
+          if (event.target === event.currentTarget) closeDrawer({ event });
         },
         onKeyDown,
       },
@@ -193,7 +193,7 @@ export const Drawer = forwardRef(function Drawer({
             variant: "ghost",
             className: "drawer__close",
             "data-overlay-close": "",
-            onClick: () => closeDrawer(),
+            onClick: (event) => closeDrawer({ event }),
           }) : null,
           description ? React.createElement("p", null, description) : null,
         ),
@@ -232,7 +232,7 @@ export const Drawer = forwardRef(function Drawer({
                   action.onClick?.(event);
                   if (event.defaultPrevented) return;
                   onAction?.(action.key, event);
-                  closeDrawer();
+                  closeDrawer({ event });
                 },
               });
             }),
