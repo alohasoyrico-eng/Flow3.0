@@ -2510,7 +2510,6 @@ button.tag:disabled,
 
 .tabs__tab:focus-visible,
 .tooltip__trigger:focus-visible,
-.accordion__trigger:focus-visible,
 .slider__input:focus-visible {
   outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
   outline-offset: var(--component-focus-ring-offset);
@@ -3142,18 +3141,50 @@ button.tag:disabled,
 }
 
 .accordion {
-  --comp-accordion-trigger-min-block: calc(var(--button-size-lg) + var(--sys-space-xs));
+  --comp-accordion-bg: var(--sys-color-surface);
+  --comp-accordion-border-width: var(--component-border-width);
+  --comp-accordion-border: var(--sys-color-border);
+  --comp-accordion-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
+  --comp-accordion-depth: var(--component-depth-panel);
+  --comp-accordion-item-divider-width: var(--component-border-width);
+  --comp-accordion-item-divider: var(--sys-color-border);
+  --comp-accordion-trigger-bg: var(--sys-color-surface);
+  --comp-accordion-trigger-fg: var(--sys-color-text);
+  --comp-accordion-trigger-hover-bg: color-mix(in srgb, var(--sys-color-action) 6%, var(--sys-color-surface));
+  --comp-accordion-trigger-disabled-fg: var(--sys-color-text-muted);
+  --comp-accordion-trigger-disabled-opacity: var(--sys-state-muted-opacity);
+  --comp-accordion-trigger-min-block: calc(var(--component-control-min-size) + var(--sys-space-md));
   --comp-accordion-trigger-padding-inline: var(--sys-space-md);
+  --comp-accordion-trigger-gap: var(--sys-space-sm);
+  --comp-accordion-trigger-font-family: inherit;
+  --comp-accordion-trigger-font-weight: var(--sys-voice-weight-bold);
   --comp-accordion-panel-padding-block-start: calc(var(--sys-space-xs) / 2);
   --comp-accordion-panel-padding-block-end: var(--sys-space-md);
+  --comp-accordion-panel-fg: var(--sys-color-text-muted);
+  --comp-accordion-panel-line-height: var(--sys-voice-line-height-loose);
   --comp-accordion-trigger-font-size: var(--component-font-size-label);
   --comp-accordion-panel-font-size: var(--component-font-size-small);
+  --comp-accordion-icon-family: var(--sys-font-icon);
+  --comp-accordion-icon-fg: var(--sys-color-text-muted);
+  --comp-accordion-icon-size: var(--component-font-size-title-sm);
+  --comp-accordion-meta-fg: var(--sys-color-text-muted);
+  --comp-accordion-meta-font-size: var(--component-font-size-small);
+  --comp-accordion-meta-font-weight: var(--sys-voice-weight-semibold);
+  --comp-accordion-chevron-fg: var(--sys-color-text-muted);
+  --comp-accordion-chevron-size: var(--component-font-size-title-md);
+  --comp-accordion-chevron-expanded-transform: var(--component-transform-rotate-expanded);
+  --comp-accordion-focus-ring: var(--component-focus-ring);
+  --comp-accordion-focus-ring-offset: var(--component-focus-ring-offset);
   --comp-accordion-motion-duration: var(--component-duration-medium);
   --comp-accordion-motion-ease: var(--component-ease-move);
-  border: var(--component-border-width) solid var(--sys-color-border);
-  border-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
-  box-shadow: var(--component-depth-panel);
-  background: var(--sys-color-surface);
+  --comp-accordion-state-duration: var(--component-duration-state);
+  --comp-accordion-state-ease: var(--component-ease-state);
+  --comp-accordion-trigger-transition: background-color var(--comp-accordion-state-duration) var(--comp-accordion-state-ease), color var(--comp-accordion-state-duration) var(--comp-accordion-state-ease);
+  --comp-accordion-chevron-transition: transform var(--component-duration-enter) var(--comp-accordion-state-ease);
+  background: var(--comp-accordion-bg);
+  border: var(--comp-accordion-border-width) solid var(--comp-accordion-border);
+  border-radius: var(--comp-accordion-radius);
+  box-shadow: var(--comp-accordion-depth);
   overflow: hidden;
 }
 
@@ -3167,7 +3198,7 @@ button.tag:disabled,
 }
 
 .accordion[data-density="lg"] {
-  --comp-accordion-trigger-min-block: calc(var(--button-size-lg) + var(--sys-space-md));
+  --comp-accordion-trigger-min-block: calc(var(--component-control-min-size) + var(--sys-space-xl));
   --comp-accordion-trigger-padding-inline: var(--sys-space-lg);
   --comp-accordion-panel-padding-block-start: var(--sys-space-xs);
   --comp-accordion-panel-padding-block-end: var(--sys-space-lg);
@@ -3176,44 +3207,47 @@ button.tag:disabled,
 }
 
 .accordion__item + .accordion__item {
-  border-block-start: 1px solid var(--sys-color-border);
+  border-block-start: var(--comp-accordion-item-divider-width) solid var(--comp-accordion-item-divider);
 }
 
 .accordion__trigger {
   align-items: center;
-  background: var(--sys-color-surface);
+  background: var(--comp-accordion-trigger-bg);
   border: 0;
-  color: var(--sys-color-text);
+  color: var(--comp-accordion-trigger-fg);
   cursor: pointer;
   display: flex;
-  font: inherit;
+  font-family: var(--comp-accordion-trigger-font-family);
   font-size: var(--comp-accordion-trigger-font-size);
-  font-weight: var(--sys-voice-weight-bold);
-  gap: var(--sys-space-sm);
+  font-weight: var(--comp-accordion-trigger-font-weight);
+  gap: var(--comp-accordion-trigger-gap);
   inline-size: 100%;
   min-block-size: var(--comp-accordion-trigger-min-block);
   padding: 0 var(--comp-accordion-trigger-padding-inline);
   text-align: start;
-  transition:
-    background-color var(--component-duration-state) var(--component-ease-state),
-    color var(--component-duration-state) var(--component-ease-state);
+  transition: var(--comp-accordion-trigger-transition);
+}
+
+.accordion__trigger:focus-visible {
+  outline: var(--comp-accordion-focus-ring);
+  outline-offset: var(--comp-accordion-focus-ring-offset);
 }
 
 .accordion__trigger:disabled {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-accordion-trigger-disabled-fg);
   cursor: not-allowed;
-  opacity: var(--sys-state-muted-opacity);
+  opacity: var(--comp-accordion-trigger-disabled-opacity);
 }
 
 .accordion__icon,
 .accordion__chevron {
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-accordion-icon-family);
   line-height: 1;
 }
 
 .accordion__icon {
-  color: var(--sys-color-text-muted);
-  font-size: var(--component-font-size-title-sm);
+  color: var(--comp-accordion-icon-fg);
+  font-size: var(--comp-accordion-icon-size);
 }
 
 .accordion__title {
@@ -3222,32 +3256,32 @@ button.tag:disabled,
 }
 
 .accordion__meta {
-  color: var(--sys-color-text-muted);
-  font-size: var(--component-font-size-small);
-  font-weight: var(--sys-voice-weight-semibold);
+  color: var(--comp-accordion-meta-fg);
+  font-size: var(--comp-accordion-meta-font-size);
+  font-weight: var(--comp-accordion-meta-font-weight);
   white-space: nowrap;
 }
 
 .accordion__chevron {
-  color: var(--sys-color-text-muted);
-  font-size: var(--component-font-size-title-md);
-  transition: transform var(--component-duration-enter) var(--component-ease-state);
+  color: var(--comp-accordion-chevron-fg);
+  font-size: var(--comp-accordion-chevron-size);
+  transition: var(--comp-accordion-chevron-transition);
 }
 
 .accordion__trigger:hover {
-  background: color-mix(in srgb, var(--sys-color-action) 6%, var(--sys-color-surface));
+  background: var(--comp-accordion-trigger-hover-bg);
 }
 
 .accordion__item[data-open="true"] .accordion__chevron {
-  transform: var(--component-transform-rotate-expanded);
+  transform: var(--comp-accordion-chevron-expanded-transform);
 }
 
 .accordion__panel {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-accordion-panel-fg);
   display: grid;
   font-size: var(--comp-accordion-panel-font-size);
   grid-template-rows: 0fr;
-  line-height: var(--sys-voice-line-height-loose);
+  line-height: var(--comp-accordion-panel-line-height);
   transition: grid-template-rows var(--comp-accordion-motion-duration) var(--comp-accordion-motion-ease);
 }
 
