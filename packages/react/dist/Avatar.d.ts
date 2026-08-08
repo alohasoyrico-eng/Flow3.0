@@ -12,7 +12,6 @@ export interface AvatarProps extends Omit<HTMLAttributes<HTMLSpanElement>, "styl
   density?: "sm" | "md" | "lg";
   status?: AvatarStatus;
   state?: AvatarState;
-  ariaLabel?: string;
 }
 
 export interface AvatarComponent extends ForwardRefExoticComponent<AvatarProps & RefAttributes<HTMLSpanElement>> {

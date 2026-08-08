@@ -646,8 +646,7 @@ export const componentContracts = {
       { name: "size", type: "AvatarSize", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "status", type: "AvatarStatus", required: false },
-      { name: "state", type: "AvatarState", required: false },
-      { name: "ariaLabel", type: "string", required: false }
+      { name: "state", type: "AvatarState", required: false }
     ],
     accessibility: [
       "Expose a readable identity label.",

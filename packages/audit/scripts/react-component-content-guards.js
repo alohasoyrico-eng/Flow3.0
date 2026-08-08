@@ -196,6 +196,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Pagination" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "PaginationButton must not render controls without an accessible label.");
   if (name === "Pagination" && !source.includes("if (!hasLabels || !hasPages) return null;")) add("errors", sourceFile, 1, "Pagination must not render an unnamed or incomplete navigation shell.");
   if (name === "Pagination" && /label\s*=\s*""|previousLabel\s*=\s*""|nextLabel\s*=\s*""|ariaLabel|"aria-label":\s*label\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Pagination must not hide required navigation labels behind empty defaults or parallel aria labels.");
+  if (name === "Avatar" && !source.includes("if (!sourceName) return null;")) add("errors", sourceFile, 1, "Avatar must not render initials, image alt text, or color identity without a required name.");
+  if (name === "Avatar" && /ariaLabel|"aria-label":\s*ariaLabel|"aria-label":\s*sourceName\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Avatar must use name as the single accessible-name source instead of ariaLabel overrides.");
   if (name === "Skeleton" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Skeleton must not render a status region without an accessible loading label.");
   if (name === "Skeleton" && /label\s*=\s*""|"aria-label":\s*label\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Skeleton must not hide its required status label behind an empty default.");
   if (name === "DatePicker" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "DatePicker must not render without its required visible label.");

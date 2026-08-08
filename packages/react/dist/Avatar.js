@@ -30,7 +30,6 @@ export const Avatar = forwardRef(function Avatar({
   density,
   status = "none",
   state = "default",
-  ariaLabel = "",
   className = "",
   ...rest
 }, ref) {
@@ -40,13 +39,15 @@ export const Avatar = forwardRef(function Avatar({
   const resolvedState = state === "disabled" ? "disabled" : resolvedStatus !== "none" ? resolvedStatus : validStates.has(state) ? state : "default";
   const sourceName = String(name ?? "");
 
+  if (!sourceName) return null;
+
   return React.createElement(
     "span",
     {
       ...flowRestProps(rest),
       ref,
       className: ["avatar", resolvedSize ? `avatar--${resolvedSize}` : "", className].filter(Boolean).join(" "),
-      "aria-label": ariaLabel || sourceName || undefined,
+      "aria-label": sourceName,
       ...flowDensityProps(resolvedDensity),
       "data-status": resolvedStatus,
       ...flowStateProps(resolvedState),
