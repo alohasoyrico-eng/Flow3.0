@@ -4,6 +4,7 @@ const { checkDomEscapeTypeContract, forbiddenInheritedDomProps } = require("./re
 const { checkDensityContractConsistency, checkReactDensityCascade, checkStateContractConsistency } = require("./react-density-contract-audit.js");
 const { checkRuntimeDomMutationContract } = require("./react-runtime-dom-mutation-audit.js");
 const { checkReactComponentContentGuards } = require("./react-component-content-guards.js");
+const { checkReactEffectContract } = require("./react-effect-contract-audit.js");
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
 const reactIndexFile = path.join(reactSrcDir, "index.js");
@@ -189,6 +190,7 @@ function checkReactComponent(file, shared) {
   if (source.includes("innerHTML") || source.includes("insertAdjacentHTML")) add("errors", sourceFile, 1, `${name} React source must not inject HTML strings as a parallel DOM implementation.`);
   checkInlineStyleContract({ name, sourceFile, source });
   checkRuntimeDomMutationContract({ name, sourceFile, source });
+  checkReactEffectContract({ name, sourceFile, source });
   checkReactDensityCascade({ add, componentName: name, sourceFile, source });
   checkRestPropContract({ name, sourceFile, source });
   if (source.includes("createTransitional") || source.includes("createCard(") || source.includes("createTable(")) add("errors", sourceFile, 1, `${name} React source must not call component DOM factories; React is the primary implementation.`);
@@ -200,6 +202,7 @@ function checkReactComponent(file, shared) {
     add("errors", sourceFile, 1, `${name} React source imports non-primitive implementation helpers from components: ${illegalImports.join(", ")}.`);
   }
 }
+
 function checkRestPropContract({ name, sourceFile, source }) {
   const directRestSpread = source.search(/^\s*\.\.\.rest,\s*$/m);
   if (directRestSpread >= 0) add("errors", sourceFile, 1, `${name} React source must sanitize rest props with flowRestProps(rest) so style cannot bypass Flow tokens.`);
