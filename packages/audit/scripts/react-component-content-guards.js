@@ -66,7 +66,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Popover" && !source.includes("if (!triggerLabel || !title) return null;")) add("errors", sourceFile, 1, "Popover must not render without its required visible triggerLabel and title.");
   if (name === "Popover" && /triggerAriaLabel|popoverAriaLabel|"aria-label":\s*popoverAriaLabel/.test(source)) add("errors", sourceFile, 1, "Popover must not replace required visible names with aria-only trigger or panel labels.");
   if (name === "Popover" && /const hasTrigger = Boolean\(triggerLabel \|\| triggerAriaLabel\)/.test(source)) add("errors", sourceFile, 1, "Popover triggerAriaLabel must not create a Button without visible text.");
-  if (name === "Popover" && /description\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "Popover must not hide optional description behind an empty default.");
+  if (name === "Popover" && /description\s*=\s*""|id\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "Popover must not hide optional description or id behind an empty default.");
   if (name === "Popover" && /const hasField = Boolean\(field\?\.(?:value|placeholder|helper)/.test(source)) add("errors", sourceFile, 1, "Popover form field must require a visible label before composing Input.");
   if (name === "Popover" && /label:\s*field\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Popover must not synthesize empty field labels before composing Input.");
   if (name === "Popover" && !source.includes("sourceActions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== \"\")")) add("errors", sourceFile, 1, "Popover actions must require visible labels and stable keys before rendering controls.");

@@ -16,7 +16,7 @@ export const Popover = forwardRef(function Popover({
   triggerLabel,
   title,
   description,
-  id = "",
+  id,
   open: openProp,
   variant = "information",
   state = "default",
