@@ -13,6 +13,7 @@
   --component-density-card-padding: var(--sys-density-card-padding);
   --component-density-component-gap: var(--sys-density-component-gap);
   --component-frame-padding-control: var(--sys-frame-padding-control);
+  --component-frame-space-none: var(--sys-frame-space-none);
   --component-frame-space-micro: var(--sys-frame-space-micro);
   --component-focus-ring: var(--sys-focus-ring);
   --component-focus-ring-width: var(--sys-frame-border-indicator);
@@ -805,7 +806,7 @@
   --comp-table-sort-active-icon-opacity: var(--sys-state-visible-opacity);
   --comp-table-expander-size: var(--component-table-expander-size);
   --comp-table-expander-cell-gap: var(--sys-space-sm);
-  --comp-table-expander-cell-padding-inline-end: var(--sys-frame-space-none);
+  --comp-table-expander-cell-padding-inline-end: var(--component-frame-space-none);
   --comp-table-expander-icon-size: var(--component-font-size-body);
   --comp-table-expander-fg: var(--sys-color-text-muted);
   --comp-table-expander-active-fg: var(--sys-color-action);

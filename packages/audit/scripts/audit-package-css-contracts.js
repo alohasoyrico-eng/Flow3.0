@@ -186,6 +186,9 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc)\([^;]*--sys-frame-padding-control[^;]*;/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-padding-control instead of reaching into sys frame padding directly.");
   }
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*var\(--sys-frame-space-none\);/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-space-none instead of reaching into sys frame spacing directly.");
+  }
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
