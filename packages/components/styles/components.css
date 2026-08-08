@@ -6490,9 +6490,48 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .motion-boundary {
+  --comp-motion-boundary-gap: var(--sys-space-md);
+  --comp-motion-boundary-surface-bg: var(--sys-color-surface);
+  --comp-motion-boundary-surface-border: color-mix(in srgb, var(--sys-color-border) 82%, transparent);
+  --comp-motion-boundary-surface-radius: calc(var(--sys-radius-md) * 1.5);
+  --comp-motion-boundary-surface-shadow: var(--component-depth-panel);
+  --comp-motion-boundary-surface-padding: var(--sys-space-lg);
+  --comp-motion-boundary-text: var(--sys-color-text);
+  --comp-motion-boundary-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
+  --comp-motion-boundary-icon-fg: var(--sys-color-action);
+  --comp-motion-boundary-icon-size: var(--component-inline-size-lg);
+  --comp-motion-boundary-icon-font-size: var(--component-font-size-icon-md);
+  --comp-motion-boundary-state-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
+  --comp-motion-boundary-state-border: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
+  --comp-motion-boundary-state-fg: var(--sys-color-action);
+  --comp-motion-boundary-state-font-size: var(--component-font-size-caption);
+  --comp-motion-boundary-state-font-weight: var(--sys-voice-weight-extrabold);
+  --comp-motion-boundary-state-padding: calc(var(--sys-space-xs) / 2) var(--sys-space-xs);
+  --comp-motion-boundary-cue-bg: var(--sys-color-action);
+  --comp-motion-boundary-cue-radius: var(--component-radius-pill);
+  --comp-motion-boundary-cue-block-size: var(--sys-space-xs);
+  --comp-motion-boundary-cue-inline-size: 54%;
+  --comp-motion-boundary-cue-duration: var(--component-duration-medium);
+  --comp-motion-boundary-cue-ease: var(--component-ease-move);
+  --comp-motion-boundary-cue-idle-transform: scaleX(0.18);
+  --comp-motion-boundary-cue-enter-transform: translateX(32%) scaleX(0.72);
+  --comp-motion-boundary-cue-active-transform: scaleX(1);
+  --comp-motion-boundary-cue-exit-transform: translateX(86%) scaleX(0.46);
+  --comp-motion-boundary-cue-slide-inline-size: 62%;
+  --comp-motion-boundary-cue-collapse-inline-size: 42%;
+  --comp-motion-boundary-cue-route-inline-size: 68%;
+  --comp-motion-boundary-cue-route-bg: repeating-linear-gradient(
+    90deg,
+    var(--sys-color-action) 0 10px,
+    transparent 10px 16px
+  );
+  --comp-motion-boundary-disabled-state-bg: var(--sys-color-surface-raised);
+  --comp-motion-boundary-disabled-state-border: var(--sys-color-border);
+  --comp-motion-boundary-disabled-state-fg: var(--sys-color-text-muted);
+  --comp-motion-boundary-disabled-cue-bg: var(--sys-color-border);
   align-items: center;
   display: flex;
-  gap: var(--sys-space-md);
+  gap: var(--comp-motion-boundary-gap);
 }
 
 .biometric-prompt p,
@@ -6510,13 +6549,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .biometric-prompt,
 .motion-boundary,
 .animated-moment {
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid color-mix(in srgb, var(--sys-color-border) 82%, transparent);
-  border-radius: calc(var(--sys-radius-md) * 1.5);
-  box-shadow: var(--component-depth-panel);
-  color: var(--sys-color-text);
+  background: var(--comp-motion-boundary-surface-bg, var(--sys-color-surface));
+  border: var(--component-border-width) solid var(--comp-motion-boundary-surface-border, color-mix(in srgb, var(--sys-color-border) 82%, transparent));
+  border-radius: var(--comp-motion-boundary-surface-radius, calc(var(--sys-radius-md) * 1.5));
+  box-shadow: var(--comp-motion-boundary-surface-shadow, var(--component-depth-panel));
+  color: var(--comp-motion-boundary-text, var(--sys-color-text));
   overflow: hidden;
-  padding: var(--sys-space-lg);
+  padding: var(--comp-motion-boundary-surface-padding, var(--sys-space-lg));
   position: relative;
   transition:
     border-color var(--component-duration-state) var(--component-ease-state),
@@ -6586,15 +6625,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .motion-boundary__icon,
 .animated-moment__icon {
   align-items: center;
-  background: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
-  border-radius: var(--component-radius-pill);
-  color: var(--sys-color-action);
+  background: var(--comp-motion-boundary-icon-bg, color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface)));
+  border-radius: var(--comp-motion-boundary-cue-radius, var(--component-radius-pill));
+  color: var(--comp-motion-boundary-icon-fg, var(--sys-color-action));
   display: inline-flex;
   font-family: var(--sys-font-icon);
-  font-size: var(--component-font-size-icon-md);
+  font-size: var(--comp-motion-boundary-icon-font-size, var(--component-font-size-icon-md));
   justify-content: center;
-  min-block-size: var(--component-inline-size-lg);
-  min-inline-size: var(--component-inline-size-lg);
+  min-block-size: var(--comp-motion-boundary-icon-size, var(--component-inline-size-lg));
+  min-inline-size: var(--comp-motion-boundary-icon-size, var(--component-inline-size-lg));
 }
 
 .biometric-prompt__icon {
@@ -6642,16 +6681,16 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .motion-boundary__state {
   align-items: center;
-  background: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
-  border: var(--component-border-width) solid color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
-  border-radius: var(--component-radius-pill);
-  color: var(--sys-color-action);
+  background: var(--comp-motion-boundary-state-bg);
+  border: var(--component-border-width) solid var(--comp-motion-boundary-state-border);
+  border-radius: var(--comp-motion-boundary-cue-radius);
+  color: var(--comp-motion-boundary-state-fg);
   display: inline-flex;
-  font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-extrabold);
+  font-size: var(--comp-motion-boundary-state-font-size);
+  font-weight: var(--comp-motion-boundary-state-font-weight);
   inline-size: fit-content;
   line-height: 1;
-  padding: calc(var(--sys-space-xs) / 2) var(--sys-space-xs);
+  padding: var(--comp-motion-boundary-state-padding);
 }
 
 .biometric-prompt[data-state="authenticating"] .biometric-prompt__icon {
@@ -6884,16 +6923,14 @@ body[data-contrast="quiet"] .tree-view {
 
 .motion-boundary__cue,
 .animated-moment__cue {
-  background: var(--sys-color-action);
-  border-radius: var(--component-radius-pill);
+  background: var(--comp-motion-boundary-cue-bg, var(--sys-color-action));
+  border-radius: var(--comp-motion-boundary-cue-radius, var(--component-radius-pill));
   display: block;
 }
 
 .motion-boundary__cue {
-  --comp-motion-boundary-cue-duration: var(--component-duration-medium);
-  --comp-motion-boundary-cue-ease: var(--component-ease-move);
-  block-size: var(--sys-space-xs);
-  inline-size: 54%;
+  block-size: var(--comp-motion-boundary-cue-block-size);
+  inline-size: var(--comp-motion-boundary-cue-inline-size);
   inset-block-end: 0;
   inset-inline-start: 0;
   position: absolute;
@@ -6902,24 +6939,24 @@ body[data-contrast="quiet"] .tree-view {
 }
 
 .motion-boundary[data-state="idle"] .motion-boundary__cue {
-  transform: scaleX(0.18);
+  transform: var(--comp-motion-boundary-cue-idle-transform);
 }
 
 .motion-boundary[data-state="entering"] .motion-boundary__cue {
   --comp-motion-boundary-cue-duration: var(--component-duration-enter);
   --comp-motion-boundary-cue-ease: var(--component-ease-enter);
-  transform: translateX(32%) scaleX(0.72);
+  transform: var(--comp-motion-boundary-cue-enter-transform);
 }
 
 .motion-boundary[data-state="active"] .motion-boundary__cue {
   --comp-motion-boundary-cue-ease: var(--component-ease-move);
-  transform: scaleX(1);
+  transform: var(--comp-motion-boundary-cue-active-transform);
 }
 
 .motion-boundary[data-state="exiting"] .motion-boundary__cue {
   --comp-motion-boundary-cue-duration: var(--component-duration-exit);
   --comp-motion-boundary-cue-ease: var(--component-ease-exit);
-  transform: translateX(86%) scaleX(0.46);
+  transform: var(--comp-motion-boundary-cue-exit-transform);
 }
 
 .motion-boundary[data-state="disabled"] {
@@ -6928,31 +6965,27 @@ body[data-contrast="quiet"] .tree-view {
 }
 
 .motion-boundary[data-state="disabled"] .motion-boundary__state {
-  background: var(--sys-color-surface-raised);
-  border-color: var(--sys-color-border);
-  color: var(--sys-color-text-muted);
+  background: var(--comp-motion-boundary-disabled-state-bg);
+  border-color: var(--comp-motion-boundary-disabled-state-border);
+  color: var(--comp-motion-boundary-disabled-state-fg);
 }
 
 .motion-boundary[data-state="disabled"] .motion-boundary__cue {
-  background: var(--sys-color-border);
-  transform: scaleX(0.18);
+  background: var(--comp-motion-boundary-disabled-cue-bg);
+  transform: var(--comp-motion-boundary-cue-idle-transform);
 }
 
 .motion-boundary[data-variant="slide"] .motion-boundary__cue {
-  inline-size: 62%;
+  inline-size: var(--comp-motion-boundary-cue-slide-inline-size);
 }
 
 .motion-boundary[data-variant="collapse"] .motion-boundary__cue {
-  inline-size: 42%;
+  inline-size: var(--comp-motion-boundary-cue-collapse-inline-size);
 }
 
 .motion-boundary[data-variant="route"] .motion-boundary__cue {
-  background: repeating-linear-gradient(
-    90deg,
-    var(--sys-color-action) 0 10px,
-    transparent 10px 16px
-  );
-  inline-size: 68%;
+  background: var(--comp-motion-boundary-cue-route-bg);
+  inline-size: var(--comp-motion-boundary-cue-route-inline-size);
 }
 
 body[data-contrast="quiet"] .motion-boundary__icon,

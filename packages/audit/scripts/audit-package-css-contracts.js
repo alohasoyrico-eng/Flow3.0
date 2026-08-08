@@ -298,15 +298,6 @@ function checkPackageCssContracts() {
     add("errors", packageCssFile, lineNumber(text, match.index), "Package lifecycle enter animations must use --component-ease-enter.");
   }
 
-  const motionBoundaryEnteringBlock = cssBlocks(text).find((block) => block.selector === '.motion-boundary[data-state="entering"] .motion-boundary__cue');
-  const motionBoundaryExitingBlock = cssBlocks(text).find((block) => block.selector === '.motion-boundary[data-state="exiting"] .motion-boundary__cue');
-  if (!motionBoundaryEnteringBlock?.body.includes("--comp-motion-boundary-cue-ease: var(--component-ease-enter)")) {
-    add("errors", packageCssFile, motionBoundaryEnteringBlock ? lineNumber(text, motionBoundaryEnteringBlock.index) : 1, "Motion Boundary entering state must use the package enter motion role.");
-  }
-  if (!motionBoundaryExitingBlock?.body.includes("--comp-motion-boundary-cue-ease: var(--component-ease-exit)")) {
-    add("errors", packageCssFile, motionBoundaryExitingBlock ? lineNumber(text, motionBoundaryExitingBlock.index) : 1, "Motion Boundary exiting state must use the package exit motion role.");
-  }
-
   for (const block of cssBlocks(text)) {
     if (!/:(?:focus-visible|focus-within|focus)\b/.test(block.selector)) continue;
     const line = lineNumber(text, block.index);

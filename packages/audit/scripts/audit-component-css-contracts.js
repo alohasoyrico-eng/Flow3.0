@@ -22,6 +22,7 @@ const { checkInlineValidationCssContract } = require("./audit-inline-validation-
 const { checkKpiTileCssContract } = require("./audit-kpi-tile-css-contract.js");
 const { checkListCssContract } = require("./audit-list-css-contract.js");
 const { checkMenuCssContract } = require("./audit-menu-css-contract.js");
+const { checkMotionBoundaryCssContract } = require("./audit-motion-boundary-css-contract.js");
 const { checkMovementRowCssContract } = require("./audit-movement-row-css-contract.js");
 const { checkPaginationCssContract } = require("./audit-pagination-css-contract.js");
 const { checkPopoverCssContract } = require("./audit-popover-css-contract.js");
@@ -68,6 +69,7 @@ function checkComponentCssContracts(context) {
   checkKpiTileCssContract(context);
   checkListCssContract(context);
   checkMenuCssContract(context);
+  checkMotionBoundaryCssContract(context);
   checkMovementRowCssContract(context);
   checkPaginationCssContract(context);
   checkPopoverCssContract(context);
