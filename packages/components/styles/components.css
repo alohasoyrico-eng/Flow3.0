@@ -7424,7 +7424,6 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 	  }
 }
 
-.inline-validation,
 .code-input,
 .phone-input,
 .card-number-input,
@@ -7437,7 +7436,12 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .inline-validation {
+  --comp-inline-validation-color: var(--sys-color-text);
+  --comp-inline-validation-display: grid;
+  --comp-inline-validation-gap: var(--sys-space-xs);
   --comp-inline-validation-width: min(100%, var(--component-content-size-md));
+  --comp-inline-validation-full-width: 100%;
+  --comp-inline-validation-auto-width: auto;
   --comp-inline-validation-message: var(--sys-color-text-muted);
   --comp-inline-validation-info: var(--sys-color-action);
   --comp-inline-validation-success: var(--sys-color-success);
@@ -7445,12 +7449,33 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-inline-validation-danger: var(--sys-energy-status-error);
   --comp-inline-validation-disabled: var(--sys-color-text-muted);
   --comp-inline-validation-tone: var(--comp-inline-validation-message);
+  --comp-inline-validation-field-width: 100%;
+  --comp-inline-validation-message-align: center;
+  --comp-inline-validation-message-display: flex;
+  --comp-inline-validation-message-gap: var(--sys-space-xs);
+  --comp-inline-validation-message-margin: 0;
+  --comp-inline-validation-message-min-block: var(--sys-space-md);
+  --comp-inline-validation-message-auto-min-block: auto;
+  --comp-inline-validation-message-size: var(--component-font-size-caption);
+  --comp-inline-validation-message-weight: var(--sys-voice-weight-medium);
+  --comp-inline-validation-message-line-height: var(--sys-voice-line-height-snug);
+  --comp-inline-validation-icon-content: "info";
+  --comp-inline-validation-icon-family: var(--sys-font-icon);
+  --comp-inline-validation-icon-size: var(--component-font-size-small);
+  --comp-inline-validation-icon-weight: var(--sys-voice-weight-semibold);
+  --comp-inline-validation-icon-line-height: 1;
+  --comp-inline-validation-error-icon: "error";
+  --comp-inline-validation-success-icon: "check_circle";
+  --comp-inline-validation-warning-icon: "warning";
+  color: var(--comp-inline-validation-color);
+  display: var(--comp-inline-validation-display);
+  gap: var(--comp-inline-validation-gap);
   inline-size: var(--comp-inline-validation-width);
-  max-inline-size: 100%;
+  max-inline-size: var(--comp-inline-validation-full-width);
 }
 
 .inline-validation[data-full-width="true"] {
-  inline-size: 100%;
+  inline-size: var(--comp-inline-validation-full-width);
 }
 
 .inline-validation[data-state="info"] { --comp-inline-validation-tone: var(--comp-inline-validation-info); }
@@ -7467,11 +7492,11 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .inline-validation .field {
-  inline-size: 100%;
+  inline-size: var(--comp-inline-validation-field-width);
 }
 
 .inline-validation[data-field="false"] {
-  inline-size: auto;
+  inline-size: var(--comp-inline-validation-auto-width);
 }
 
 .inline-validation[data-state="info"] .field__control,
@@ -7481,7 +7506,6 @@ body[data-contrast="quiet"] .inline-validation {
   border-color: var(--comp-inline-validation-tone);
 }
 
-.inline-validation__message,
 .code-input small,
 .phone-input small {
   align-items: center;
@@ -7495,16 +7519,28 @@ body[data-contrast="quiet"] .inline-validation {
   line-height: var(--sys-voice-line-height-snug);
 }
 
+.inline-validation__message {
+  align-items: var(--comp-inline-validation-message-align);
+  color: var(--comp-inline-validation-tone);
+  display: var(--comp-inline-validation-message-display);
+  font-size: var(--comp-inline-validation-message-size);
+  font-weight: var(--comp-inline-validation-message-weight);
+  gap: var(--comp-inline-validation-message-gap);
+  line-height: var(--comp-inline-validation-message-line-height);
+  margin: var(--comp-inline-validation-message-margin);
+  min-block-size: var(--comp-inline-validation-message-min-block);
+}
+
 .inline-validation[data-field="false"] .inline-validation__message {
-  min-block-size: auto;
+  min-block-size: var(--comp-inline-validation-message-auto-min-block);
 }
 
 .inline-validation__message::before {
-  content: "info";
-  font-family: var(--sys-font-icon);
-  font-size: var(--component-font-size-small);
-  font-weight: var(--sys-voice-weight-semibold);
-  line-height: 1;
+  content: var(--comp-inline-validation-icon-content);
+  font-family: var(--comp-inline-validation-icon-family);
+  font-size: var(--comp-inline-validation-icon-size);
+  font-weight: var(--comp-inline-validation-icon-weight);
+  line-height: var(--comp-inline-validation-icon-line-height);
 }
 
 .inline-validation[data-state="error"] .inline-validation__message {
@@ -7512,7 +7548,7 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .inline-validation[data-state="error"] .inline-validation__message::before {
-  content: "error";
+  content: var(--comp-inline-validation-error-icon);
 }
 
 .inline-validation[data-state="success"] .inline-validation__message {
@@ -7520,7 +7556,7 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .inline-validation[data-state="success"] .inline-validation__message::before {
-  content: "check_circle";
+  content: var(--comp-inline-validation-success-icon);
 }
 
 .inline-validation[data-state="warning"] .inline-validation__message {
@@ -7528,7 +7564,7 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .inline-validation[data-state="warning"] .inline-validation__message::before {
-  content: "warning";
+  content: var(--comp-inline-validation-warning-icon);
 }
 
 .stepper {
