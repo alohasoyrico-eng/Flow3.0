@@ -22,6 +22,7 @@
   --component-radius-control: calc(var(--sys-radius-md) + var(--sys-radius-sm));
   --component-radius-surface: var(--sys-frame-radius-surface);
   --component-radius-sm: var(--sys-frame-radius-sm);
+  --component-ratio-half: var(--sys-frame-ratio-half);
   --component-field-gap: var(--sys-frame-gap-element);
   --component-offset-xs: var(--sys-space-1);
   --component-min-text-line: var(--sys-space-6);
@@ -531,7 +532,7 @@
   --comp-radio-button-mark-size-md: var(--component-inline-size-sm);
   --comp-radio-button-mark-size-lg: var(--component-min-text-line);
   --comp-radio-button-mark-size-compact: var(--comp-radio-button-mark-size-sm);
-  --comp-radio-button-indicator-scale: var(--sys-frame-ratio-half);
+  --comp-radio-button-indicator-scale: var(--component-ratio-half);
   --comp-radio-button-indicator-size: calc(var(--comp-choice-current-mark-size) * var(--comp-radio-button-indicator-scale));
   --comp-radio-button-gap-sm: var(--sys-space-xs);
   --comp-radio-button-gap-md: var(--sys-space-sm);

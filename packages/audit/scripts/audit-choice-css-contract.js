@@ -47,6 +47,12 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (text.includes("--icon-color")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--icon-color")), "Choice must not create a generic --icon-color hook; use a component-scoped alias.");
   }
+  if (text.includes("--comp-radio-button-indicator-scale: var(--sys-frame-ratio-half);")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-radio-button-indicator-scale: var(--sys-frame-ratio-half);")), "RadioButton indicator scale must consume --component-ratio-half instead of reaching into frame ratio directly.");
+  }
+  if (!text.includes("--comp-radio-button-indicator-scale: var(--component-ratio-half);")) {
+    add("errors", packageCssFile, 1, "RadioButton indicator scale must consume --component-ratio-half.");
+  }
 
   requireIncludes({
     block: choiceBlock,
