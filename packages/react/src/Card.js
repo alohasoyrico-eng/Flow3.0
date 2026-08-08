@@ -19,12 +19,13 @@ function resolveState({ disabled, loading, selected, state }) {
 
 function isValidCardAction(action) {
   if (!action) return false;
+  const hasStableKey = action.key !== undefined && action.key !== null && action.key !== "";
   const isIconOnly = Boolean(action.iconOnly) || (!action.label && Boolean(action.icon));
-  return isIconOnly ? Boolean(action.icon && (action.ariaLabel || action.label)) : Boolean(action.label);
+  return hasStableKey && (isIconOnly ? Boolean(action.icon && (action.ariaLabel || action.label)) : Boolean(action.label));
 }
 
 function cardAction(action, density, index, onAction) {
-  const key = action.key ?? action.label ?? action.icon ?? index;
+  const key = action.key;
   const isIconOnly = Boolean(action.iconOnly) || (!action.label && Boolean(action.icon));
   const { iconOnly, ...actionProps } = action;
   const handleClick = (event) => {
@@ -76,12 +77,14 @@ export const Card = forwardRef(function Card({
   const resolvedVariant = variants.has(variant) ? variant : "default";
   const resolvedComposition = compositions.has(composition) ? composition : "standard";
   const resolvedState = resolveState({ disabled, loading, selected, state });
-  const resolvedActionKey = actionKey ?? (typeof title === "string" ? title : "card");
+  const hasStableActionKey = actionKey !== undefined && actionKey !== null && actionKey !== "";
+  const resolvedActionKey = hasStableActionKey ? actionKey : "";
   const validActions = Array.isArray(actions) ? actions.filter(isValidCardAction) : [];
   const hasActions = validActions.length > 0;
   const hasInteractiveContent = Boolean(title || value || detail || status || mediaAlt);
-  const requestedInteraction = Boolean(interactive || resolvedState === "interactive" || resolvedState === "hover" || resolvedState === "focus" || selected || onAction);
-  const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction;
+  const requestedInteraction = Boolean(interactive || resolvedState === "interactive" || onAction || rest.onClick);
+  const canActivateCard = hasStableActionKey && Boolean(onAction || rest.onClick);
+  const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction && canActivateCard;
   const isDisabled = resolvedState === "disabled" || resolvedState === "loading";
   const header = React.createElement(
     "div",

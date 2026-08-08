@@ -756,11 +756,19 @@ const unnamedCardActionMarkup = renderToStaticMarkup(React.createElement(Card, {
 assert.doesNotMatch(unnamedCardActionMarkup, /Card action/);
 assert.doesNotMatch(unnamedCardActionMarkup, /class="card__actions"/);
 assert.doesNotMatch(unnamedCardActionMarkup, /class="icon-button/);
+const unstableCardActionMarkup = renderToStaticMarkup(React.createElement(Card, {
+  title: "Card controls",
+  actions: [{ label: "Details" }],
+}));
+assert.doesNotMatch(unstableCardActionMarkup, /class="card__actions"/);
+assert.doesNotMatch(unstableCardActionMarkup, /class="button/);
 
 const selectedCardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Driver card",
+  actionKey: "driver-card",
   selected: true,
   interactive: true,
+  onAction: () => {},
   composition: "stats",
   unit: "$",
   value: "1200",
@@ -780,6 +788,13 @@ const unnamedInteractiveCardMarkup = renderToStaticMarkup(React.createElement(Ca
 assert.match(unnamedInteractiveCardMarkup, /^<article/);
 assert.match(unnamedInteractiveCardMarkup, /data-interactive="false"/);
 assert.doesNotMatch(unnamedInteractiveCardMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /role="button"|tabIndex=|aria-pressed=/);
+const unstableInteractiveCardMarkup = renderToStaticMarkup(React.createElement(Card, {
+  title: "Driver card",
+  interactive: true,
+  onAction: () => {},
+}));
+assert.match(unstableInteractiveCardMarkup, /data-interactive="false"/);
+assert.doesNotMatch(unstableInteractiveCardMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /role="button"|tabIndex=|aria-pressed=/);
 
 const loadingCardMarkup = renderToStaticMarkup(React.createElement(Card, {
   title: "Loading card",

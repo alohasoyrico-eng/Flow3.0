@@ -276,6 +276,7 @@ export const componentContracts = {
       "Use a meaningful title.",
       "Keep status visible as text, not color alone.",
       "Use real buttons for nested actions.",
+      "Require stable action keys before composing nested or whole-card actions.",
       "When the whole Card is interactive, expose role button, keyboard activation, and aria-pressed for selected state."
     ]
   },
