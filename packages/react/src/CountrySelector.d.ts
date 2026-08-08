@@ -17,6 +17,10 @@ export interface CountrySelectorCountry {
 }
 
 export type CountrySelectorValueChangeEvent = MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>;
+export type CountrySelectorOpenChangeEvent =
+  | MouseEvent<HTMLSpanElement>
+  | KeyboardEvent<HTMLSpanElement>
+  | KeyboardEvent<HTMLInputElement>;
 
 export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -30,7 +34,9 @@ export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElemen
   searchable?: boolean;
   searchPlaceholder?: string;
   emptyText?: string;
+  open?: boolean;
   onValueChange?: (countryCode: string, country: CountrySelectorCountry, event: CountrySelectorValueChangeEvent) => void;
+  onOpenChange?: (open: boolean, event?: CountrySelectorOpenChangeEvent) => void;
 }
 
 export interface CountrySelectorComponent extends ForwardRefExoticComponent<CountrySelectorProps & RefAttributes<HTMLSpanElement>> {

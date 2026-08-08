@@ -49,8 +49,10 @@ export const CountrySelector = forwardRef(function CountrySelector({
   searchable = true,
   searchPlaceholder = "",
   emptyText,
+  open: openProp,
   className = "",
   onValueChange,
+  onOpenChange,
   id,
   ...rest
 }, ref) {
@@ -61,7 +63,9 @@ export const CountrySelector = forwardRef(function CountrySelector({
   const initialCountry = resolveCountryCallingCodeOption({ country: country ?? value }, options);
   const [selectedCountry, setSelectedCountry] = useState(initialCountry);
   const [activeCountryCode, setActiveCountryCode] = useState(initialCountry.country);
-  const [open, setOpen] = useState(false);
+  const isOpenControlled = openProp !== undefined;
+  const [internalOpen, setInternalOpen] = useState(false);
+  const open = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [query, setQuery] = useState("");
   const filteredOptions = options.filter((option) => matchesQuery(option, query));
   const activeOption = filteredOptions.find((option) => option.country === activeCountryCode) ?? filteredOptions.find((option) => option.country === selectedCountry.country) ?? filteredOptions[0];
@@ -76,11 +80,18 @@ export const CountrySelector = forwardRef(function CountrySelector({
 
   if (!label) return null;
 
+  const setOpen = (nextOpen, event) => {
+    if (disabled) return;
+    const normalizedOpen = Boolean(nextOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedOpen);
+    onOpenChange?.(normalizedOpen, event);
+  };
+
   const commitOption = (option, event) => {
     if (!option || disabled) return;
     if (!isValueControlled) setSelectedCountry(option);
     setActiveCountryCode(option.country);
-    setOpen(false);
+    setOpen(false, event);
     setQuery("");
     onValueChange?.(option.country, option, event);
   };
@@ -117,30 +128,30 @@ export const CountrySelector = forwardRef(function CountrySelector({
         "aria-label": label,
         "aria-disabled": disabled ? "true" : undefined,
         "aria-invalid": invalid ? "true" : undefined,
-        onClick: () => {
+        onClick: (event) => {
           if (!disabled) {
             setActiveCountryCode(selectedCountry.country);
-            setOpen((current) => !current);
+            setOpen(!open, event);
           }
         },
         onKeyDown: (event) => {
           if (disabled) return;
           if (["Enter", " "].includes(event.key)) {
             event.preventDefault();
-            setOpen((current) => !current);
+            setOpen(!open, event);
           }
           if (event.key === "Escape") {
             event.preventDefault();
-            setOpen(false);
+            setOpen(false, event);
           }
           if (event.key === "ArrowDown") {
             event.preventDefault();
-            setOpen(true);
+            setOpen(true, event);
             moveActive(1);
           }
           if (event.key === "ArrowUp") {
             event.preventDefault();
-            setOpen(true);
+            setOpen(true, event);
             moveActive(-1);
           }
         },
@@ -177,7 +188,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
             onKeyDown: (event) => {
               if (event.key === "Escape") {
                 event.preventDefault();
-                setOpen(false);
+                setOpen(false, event);
               }
             },
           }),
@@ -209,7 +220,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
               }
               if (event.key === "Escape") {
                 event.preventDefault();
-                setOpen(false);
+                setOpen(false, event);
               }
             },
           },

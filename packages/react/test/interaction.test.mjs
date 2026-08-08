@@ -533,6 +533,7 @@ try {
   cleanup();
 
   const countryChanges = [];
+  const countryOpenChanges = [];
   const countries = [
     { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
     { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
@@ -541,12 +542,14 @@ try {
     label: "Country",
     countries,
     onValueChange: (countryCode, option, event) => countryChanges.push({ countryCode, option, eventType: event.type }),
+    onOpenChange: (open, event) => countryOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
 
   const countryTrigger = getCountryRole("combobox", { name: /country/i });
   assert.equal(countryTrigger.getAttribute("aria-expanded"), "false");
   fireEvent.click(countryTrigger);
   assert.equal(countryTrigger.getAttribute("aria-expanded"), "true");
+  assert.deepEqual(countryOpenChanges, [{ open: true, eventType: "click", key: undefined }]);
 
   fireEvent.click(getCountryRole("option", { name: /united states/i }));
   await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "false"));
@@ -554,12 +557,17 @@ try {
   assert.equal(countryChanges.at(-1).option.label, "United States");
   assert.equal(countryChanges.at(-1).option.callingCode, "+1");
   assert.equal(countryChanges.at(-1).eventType, "click");
+  assert.deepEqual(countryOpenChanges, [
+    { open: true, eventType: "click", key: undefined },
+    { open: false, eventType: "click", key: undefined },
+  ]);
 
   rerenderCountrySelector(React.createElement(CountrySelector, {
     label: "Country",
     value: "MX",
     countries,
     onValueChange: (countryCode, option, event) => countryChanges.push({ countryCode, option, eventType: event.type }),
+    onOpenChange: (open, event) => countryOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(countryTrigger.textContent.includes("+52"), true));
 
