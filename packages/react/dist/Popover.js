@@ -47,7 +47,8 @@ export const Popover = forwardRef(function Popover({
   const panelId = id || `popover-${slug(triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const resolvedActions = actions;
   const isDisabled = disabled || interactionState === "disabled";
-  const hasField = Boolean(field?.label || field?.value || field?.placeholder || field?.helper);
+  const hasTrigger = Boolean(triggerLabel || triggerAriaLabel);
+  const hasField = Boolean(field?.label);
 
   useEffect(() => {
     if (!isOpenControlled) return;
@@ -83,7 +84,7 @@ export const Popover = forwardRef(function Popover({
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
     },
-    React.createElement(Button, {
+    hasTrigger ? React.createElement(Button, {
       ref: triggerRef,
       label: triggerLabel,
       variant: resolvedVariant === "metric" ? "tertiary" : "secondary",
@@ -99,7 +100,7 @@ export const Popover = forwardRef(function Popover({
       "aria-controls": panelId,
       onClick: () => setOpen(!isOpen),
       onKeyDown: closeFromKeyboard,
-    }),
+    }) : null,
     React.createElement(
       "section",
       {

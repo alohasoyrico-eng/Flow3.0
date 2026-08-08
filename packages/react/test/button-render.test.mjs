@@ -1471,14 +1471,17 @@ assert.match(formPopoverMarkup, /data-density="lg"/);
 const unnamedPopoverMarkup = renderToStaticMarkup(React.createElement(Popover));
 assert.doesNotMatch(unnamedPopoverMarkup, /aria-label="Open popover"/);
 assert.doesNotMatch(unnamedPopoverMarkup, /aria-label="Popover"/);
+assert.doesNotMatch(unnamedPopoverMarkup, /class="button button--secondary popover__trigger"/);
 
 const emptyFormPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
   triggerLabel: "Edit",
   variant: "form",
   open: true,
+  field: { value: "$500", placeholder: "Limit" },
 }));
 assert.doesNotMatch(emptyFormPopoverMarkup, /class="field"/);
 assert.doesNotMatch(emptyFormPopoverMarkup, /<input/);
+assert.doesNotMatch(emptyFormPopoverMarkup, /\$500|Limit/);
 
 const menuMarkup = renderToStaticMarkup(React.createElement(Menu, {
   triggerLabel: "Actions",
