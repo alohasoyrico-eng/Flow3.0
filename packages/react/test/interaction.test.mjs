@@ -27,7 +27,7 @@ try {
       { id: "overview", title: "Overview", content: "Route overview" },
       { id: "pricing", title: "Pricing", content: "Route pricing" },
     ],
-    onExpandedChange: (expandedIds) => expandedChanges.push(expandedIds),
+    onExpandedChange: (expandedIds, event) => expandedChanges.push({ expandedIds, eventType: event.type }),
   }));
 
   const overviewTrigger = getByRole("button", { name: /overview/i });
@@ -38,12 +38,12 @@ try {
 
   fireEvent.click(overviewTrigger);
   assert.equal(overviewTrigger.getAttribute("aria-expanded"), "true");
-  assert.deepEqual(expandedChanges.at(-1), ["overview"]);
+  assert.deepEqual(expandedChanges.at(-1), { expandedIds: ["overview"], eventType: "click" });
 
   fireEvent.click(pricingTrigger);
   assert.equal(overviewTrigger.getAttribute("aria-expanded"), "false");
   assert.equal(pricingTrigger.getAttribute("aria-expanded"), "true");
-  assert.deepEqual(expandedChanges.at(-1), ["pricing"]);
+  assert.deepEqual(expandedChanges.at(-1), { expandedIds: ["pricing"], eventType: "click" });
 
   rerenderAccordion(React.createElement(Accordion, {
     expandedIds: ["overview"],
@@ -51,7 +51,7 @@ try {
       { id: "overview", title: "Overview", content: "Route overview" },
       { id: "pricing", title: "Pricing", content: "Route pricing" },
     ],
-    onExpandedChange: (expandedIds) => expandedChanges.push(expandedIds),
+    onExpandedChange: (expandedIds, event) => expandedChanges.push({ expandedIds, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(overviewTrigger.getAttribute("aria-expanded"), "true"));
   assert.equal(pricingTrigger.getAttribute("aria-expanded"), "false");
@@ -65,7 +65,7 @@ try {
       { id: "overview", title: "Overview", content: "Route overview" },
       { id: "pricing", title: "Pricing", content: "Route pricing" },
     ],
-    onExpandedChange: (expandedIds) => multipleExpandedChanges.push(expandedIds),
+    onExpandedChange: (expandedIds, event) => multipleExpandedChanges.push({ expandedIds, eventType: event.type }),
   }));
 
   const multipleOverviewTrigger = getMultipleAccordionRole("button", { name: /overview/i });
@@ -74,7 +74,7 @@ try {
   fireEvent.click(multiplePricingTrigger);
   await waitFor(() => assert.equal(multipleOverviewTrigger.getAttribute("aria-expanded"), "true"));
   assert.equal(multiplePricingTrigger.getAttribute("aria-expanded"), "true");
-  assert.deepEqual(multipleExpandedChanges.at(-1), ["overview", "pricing"]);
+  assert.deepEqual(multipleExpandedChanges.at(-1), { expandedIds: ["overview", "pricing"], eventType: "click" });
 
   cleanup();
 

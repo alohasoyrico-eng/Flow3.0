@@ -54,7 +54,7 @@ export const Accordion = forwardRef(function Accordion({
     setOpenIds(allowsMultiple ? nextIds : nextIds.slice(0, 1));
   }, [allowsMultiple, expandedIds, isExpandedIdsControlled]);
 
-  const setItemOpen = (item, open) => {
+  const setItemOpen = (item, open, event) => {
     if (item.disabled) return;
     const next = open
       ? allowsMultiple
@@ -62,7 +62,7 @@ export const Accordion = forwardRef(function Accordion({
         : [item.id]
       : openIds.filter((id) => id !== item.id);
     if (!isExpandedIdsControlled) setOpenIds(next);
-    onExpandedChange?.(next);
+    onExpandedChange?.(next, event);
   };
 
   if (!normalizedItems.length) return null;
@@ -104,7 +104,7 @@ export const Accordion = forwardRef(function Accordion({
             onClick: (event) => {
               onClick?.(event);
               if (event.defaultPrevented) return;
-              setItemOpen(item, !open);
+              setItemOpen(item, !open, event);
             },
           },
           icon

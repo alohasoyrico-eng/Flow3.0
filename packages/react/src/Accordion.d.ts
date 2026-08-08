@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactNode, RefAttributes } from "react";
 import { accordionPlatformContract } from "@design-system/components/platforms";
 
 export type AccordionDensity = "sm" | "md" | "lg";
@@ -20,7 +20,7 @@ export interface AccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, "st
   multiple?: boolean;
   expandedIds?: string[];
   density?: AccordionDensity;
-  onExpandedChange?: (expandedIds: string[]) => void;
+  onExpandedChange?: (expandedIds: string[], event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface AccordionComponent extends ForwardRefExoticComponent<AccordionProps & RefAttributes<HTMLDivElement>> {
