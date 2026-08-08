@@ -51,8 +51,8 @@ function renderAction(action, index, { compact, density, disabled }) {
 export const RouteSummary = forwardRef(function RouteSummary({
   label,
   description = "",
-  metrics = [],
-  actions = [],
+  metrics,
+  actions,
   variant = "standard",
   state = "default",
   density,
@@ -71,8 +71,10 @@ export const RouteSummary = forwardRef(function RouteSummary({
   if (!label) return null;
   const isDisabled = resolvedState === "disabled";
   const isCompact = resolvedVariant === "compact";
-  const visibleMetrics = metrics.filter((metric) => metric?.key && metric?.label && metric?.value);
-  const visibleActions = Array.isArray(actions) ? actions.filter((action) => isValidRouteAction(action, isCompact)) : [];
+  const sourceMetrics = Array.isArray(metrics) ? metrics : [];
+  const sourceActions = Array.isArray(actions) ? actions : [];
+  const visibleMetrics = sourceMetrics.filter((metric) => metric?.key && metric?.label && metric?.value);
+  const visibleActions = sourceActions.filter((action) => isValidRouteAction(action, isCompact));
 
   return React.createElement(
     "article",

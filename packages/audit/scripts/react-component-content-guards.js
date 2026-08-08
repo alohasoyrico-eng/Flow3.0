@@ -16,7 +16,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "CardSummary" && /metrics\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "CardSummary must not hide missing metric collections behind an empty prop default.");
   if (name === "CardSummary" && /metric\.key\s*\?\?\s*`\$\{metric\.label\}-\$\{index\}`/.test(source)) add("errors", sourceFile, 1, "CardSummary must not synthesize metric keys from labels or indexes.");
   if (name === "CardSummary" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "CardSummary must require a visible label before rendering.");
-  if (name === "RouteSummary" && !source.includes("const visibleMetrics = metrics.filter((metric) => metric?.key && metric?.label && metric?.value);")) add("errors", sourceFile, 1, "RouteSummary metrics must require stable keys, labels, and values before rendering.");
+  if (name === "RouteSummary" && !source.includes("const visibleMetrics = sourceMetrics.filter((metric) => metric?.key && metric?.label && metric?.value);")) add("errors", sourceFile, 1, "RouteSummary metrics must require stable keys, labels, and values before rendering.");
+  if (name === "RouteSummary" && /metrics\s*=\s*\[\]|actions\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "RouteSummary must not hide missing metric or action collections behind empty prop defaults.");
   if (name === "RouteSummary" && /metric\.key\s*\?\?\s*`\$\{metric\.label\}-\$\{index\}`/.test(source)) add("errors", sourceFile, 1, "RouteSummary must not synthesize metric keys from labels or indexes.");
   if (name === "RouteSummary" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "RouteSummary must require a visible label before rendering.");
   if (name === "MovementRow" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "MovementRow must require a visible label before rendering a row button.");
