@@ -1046,9 +1046,14 @@
   --comp-table-min-inline-size: min(var(--component-content-size-lg), 100%);
   --comp-table-border-width: var(--component-border-width);
   --comp-table-border: var(--component-color-border);
+  --comp-table-bg: var(--component-color-surface);
+  --comp-table-fg: var(--component-color-text);
+  --comp-table-radius: var(--component-radius-surface);
+  --comp-table-depth: var(--component-depth-panel-strong);
   --comp-table-header-bg: color-mix(in srgb, var(--component-color-surface-raised) 80%, var(--component-color-surface));
   --comp-table-header-fg: var(--component-color-text-muted);
   --comp-table-header-weight: var(--component-font-weight-extrabold);
+  --comp-table-header-letter-spacing: var(--component-letter-spacing-normal);
   --comp-table-header-transform: var(--component-text-transform-uppercase);
   --comp-table-row-hover-bg: color-mix(in srgb, var(--component-color-action) 5%, var(--component-color-surface));
   --comp-table-row-selected-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
@@ -1061,12 +1066,15 @@
   --comp-table-detail-fg: var(--component-color-text-muted);
   --comp-table-detail-padding-block: var(--component-space-md);
   --comp-table-sort-gap: var(--component-space-2xs);
+  --comp-table-sort-icon-family: var(--component-font-family-icon);
   --comp-table-sort-icon-size: var(--component-font-size-body);
+  --comp-table-sort-icon-line-height: var(--component-line-height-none);
   --comp-table-sort-icon-opacity: var(--component-opacity-muted);
   --comp-table-sort-active-icon-opacity: var(--component-opacity-visible);
   --comp-table-expander-size: var(--component-table-expander-size);
   --comp-table-expander-cell-gap: var(--component-space-sm);
   --comp-table-expander-cell-padding-inline-end: var(--component-frame-space-none);
+  --comp-table-expander-icon-family: var(--component-font-family-icon);
   --comp-table-expander-icon-size: var(--component-font-size-body);
   --comp-table-expander-fg: var(--component-color-text-muted);
   --comp-table-expander-active-fg: var(--component-color-action);
@@ -6006,8 +6014,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .dialog__panel,
-.drawer__panel,
-.table {
+.drawer__panel {
   background: var(--sys-color-surface);
   border: var(--component-border-width) solid var(--sys-color-border);
   border-radius: var(--sys-frame-radius-surface);
@@ -6525,6 +6532,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-table-current-row-transition: background-color var(--comp-table-motion-duration) var(--comp-table-motion-ease),
     box-shadow var(--comp-table-motion-duration) var(--comp-table-motion-ease);
   -webkit-overflow-scrolling: touch;
+  background: var(--comp-table-bg);
+  border: var(--comp-table-border-width) solid var(--comp-table-border);
+  border-radius: var(--comp-table-radius);
+  box-shadow: var(--comp-table-depth);
+  color: var(--comp-table-fg);
   container-type: inline-size;
   overflow: auto;
 }
@@ -6564,7 +6576,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   color: var(--comp-table-current-header-fg);
   font-size: var(--comp-table-current-header-size);
   font-weight: var(--comp-table-current-header-weight);
-  letter-spacing: var(--sys-voice-letter-spacing-normal);
+  letter-spacing: var(--comp-table-header-letter-spacing);
   text-transform: var(--comp-table-current-header-transform);
 }
 
@@ -6619,9 +6631,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table__sort::after {
   content: "unfold_more";
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-table-sort-icon-family);
   font-size: var(--comp-table-sort-icon-size);
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--comp-table-sort-icon-line-height);
   opacity: var(--comp-table-sort-icon-opacity);
   transition:
     opacity var(--comp-table-motion-duration) var(--comp-table-motion-ease),
@@ -6651,7 +6663,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   color: var(--comp-table-expander-fg);
   cursor: pointer;
   display: inline-flex;
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-table-expander-icon-family);
   font-size: var(--comp-table-current-expander-icon-size);
   justify-content: center;
   min-block-size: var(--comp-table-expander-size);
