@@ -4076,13 +4076,28 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .list {
-  --list-item-padding: var(--comp-list-item-padding-md);
-  --list-item-gap: var(--comp-list-item-gap-md);
-  --list-item-min-block: var(--comp-list-item-min-block-md);
-  --list-icon-size: var(--comp-list-icon-size-md);
-  --list-icon-box-size: var(--comp-list-icon-box-size-md);
-  --list-meta-size: var(--comp-list-meta-size-md);
-  border: var(--component-border-width) solid var(--comp-list-border);
+  --comp-list-border-width: var(--component-border-width);
+  --comp-list-content-display: grid;
+  --comp-list-content-gap: var(--sys-space-xs);
+  --comp-list-current-icon-box-size: var(--comp-list-icon-box-size-md);
+  --comp-list-current-icon-size: var(--comp-list-icon-size-md);
+  --comp-list-current-item-gap: var(--comp-list-item-gap-md);
+  --comp-list-current-item-min-block: var(--comp-list-item-min-block-md);
+  --comp-list-current-item-padding: var(--comp-list-item-padding-md);
+  --comp-list-current-meta-size: var(--comp-list-meta-size-md);
+  --comp-list-disabled-cursor: not-allowed;
+  --comp-list-icon-display: inline-flex;
+  --comp-list-icon-line-height: 1;
+  --comp-list-interactive-cursor: pointer;
+  --comp-list-item-border-width: 0;
+  --comp-list-item-display: grid;
+  --comp-list-item-grid-template: auto 1fr auto;
+  --comp-list-item-inline-size: 100%;
+  --comp-list-item-radius: 0;
+  --comp-list-item-text-align: start;
+  --comp-list-row-margin: 0;
+  --comp-list-value-weight: var(--sys-voice-weight-extrabold);
+  border: var(--comp-list-border-width) solid var(--comp-list-border);
   border-radius: var(--comp-list-radius);
   box-shadow: var(--comp-list-shadow);
   list-style: none;
@@ -4092,41 +4107,41 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .list[data-density="sm"] {
-  --list-item-padding: var(--comp-list-item-padding-sm);
-  --list-item-gap: var(--comp-list-item-gap-sm);
-  --list-item-min-block: var(--comp-list-item-min-block-sm);
-  --list-icon-size: var(--comp-list-icon-size-sm);
-  --list-icon-box-size: var(--comp-list-icon-box-size-sm);
-  --list-meta-size: var(--comp-list-meta-size-sm);
+  --comp-list-current-icon-box-size: var(--comp-list-icon-box-size-sm);
+  --comp-list-current-icon-size: var(--comp-list-icon-size-sm);
+  --comp-list-current-item-gap: var(--comp-list-item-gap-sm);
+  --comp-list-current-item-min-block: var(--comp-list-item-min-block-sm);
+  --comp-list-current-item-padding: var(--comp-list-item-padding-sm);
+  --comp-list-current-meta-size: var(--comp-list-meta-size-sm);
 }
 
 .list[data-density="lg"] {
-  --list-item-padding: var(--comp-list-item-padding-lg);
-  --list-item-gap: var(--comp-list-item-gap-lg);
-  --list-item-min-block: var(--comp-list-item-min-block-lg);
-  --list-icon-size: var(--comp-list-icon-size-lg);
-  --list-icon-box-size: var(--comp-list-icon-box-size-lg);
-  --list-meta-size: var(--comp-list-meta-size-lg);
+  --comp-list-current-icon-box-size: var(--comp-list-icon-box-size-lg);
+  --comp-list-current-icon-size: var(--comp-list-icon-size-lg);
+  --comp-list-current-item-gap: var(--comp-list-item-gap-lg);
+  --comp-list-current-item-min-block: var(--comp-list-item-min-block-lg);
+  --comp-list-current-item-padding: var(--comp-list-item-padding-lg);
+  --comp-list-current-meta-size: var(--comp-list-meta-size-lg);
 }
 
 .list__row {
-  margin: 0;
+  margin: var(--comp-list-row-margin);
 }
 
 .list__item {
   align-items: center;
   background: var(--comp-list-bg);
-  border: 0;
-  border-radius: 0;
+  border: var(--comp-list-item-border-width);
+  border-radius: var(--comp-list-item-radius);
   box-sizing: border-box;
   color: var(--comp-list-fg);
-  display: grid;
-  gap: var(--list-item-gap);
-  grid-template-columns: auto 1fr auto;
-  inline-size: 100%;
-  min-block-size: var(--list-item-min-block);
-  padding: var(--list-item-padding);
-  text-align: start;
+  display: var(--comp-list-item-display);
+  gap: var(--comp-list-current-item-gap);
+  grid-template-columns: var(--comp-list-item-grid-template);
+  inline-size: var(--comp-list-item-inline-size);
+  min-block-size: var(--comp-list-current-item-min-block);
+  padding: var(--comp-list-current-item-padding);
+  text-align: var(--comp-list-item-text-align);
   transition:
     background-color var(--comp-list-motion-duration) var(--comp-list-motion-ease),
     box-shadow var(--comp-list-motion-duration) var(--comp-list-motion-ease),
@@ -4134,7 +4149,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .list__item:is(button) {
-  cursor: pointer;
+  cursor: var(--comp-list-interactive-cursor);
   font: inherit;
 }
 
@@ -4161,21 +4176,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .list__item[data-state="disabled"],
 .list__item:disabled {
-  cursor: not-allowed;
+  cursor: var(--comp-list-disabled-cursor);
   opacity: var(--comp-list-disabled-opacity);
 }
 
 .list__icon {
   align-items: center;
   background: var(--comp-list-icon-bg);
-  block-size: var(--list-icon-box-size);
+  block-size: var(--comp-list-current-icon-box-size);
   border-radius: var(--comp-list-icon-box-radius);
   color: var(--comp-list-icon-fg);
-  display: inline-flex;
-  font-size: var(--list-icon-size);
-  inline-size: var(--list-icon-box-size);
+  display: var(--comp-list-icon-display);
+  font-size: var(--comp-list-current-icon-size);
+  inline-size: var(--comp-list-current-icon-box-size);
   justify-content: center;
-  line-height: 1;
+  line-height: var(--comp-list-icon-line-height);
 }
 
 .list__item[data-tone="danger"] .list__icon,
@@ -4185,22 +4200,22 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .list__row + .list__row {
-  border-block-start: var(--component-border-width) solid var(--comp-list-border);
+  border-block-start: var(--comp-list-border-width) solid var(--comp-list-border);
 }
 
 .list__content {
-  display: grid;
-  gap: var(--sys-space-xs);
+  display: var(--comp-list-content-display);
+  gap: var(--comp-list-content-gap);
 }
 
 .list__content small,
 .list__value {
   color: var(--comp-list-muted-fg);
-  font-size: var(--list-meta-size);
+  font-size: var(--comp-list-current-meta-size);
 }
 
 .list__value {
-  font-weight: var(--sys-voice-weight-extrabold);
+  font-weight: var(--comp-list-value-weight);
 }
 
 .kpi-tile {
