@@ -37,6 +37,8 @@ export const Tag = forwardRef(function Tag({
   const isInteractive = Boolean(interactive) || resolvedVariant === "link";
   const element = isInteractive ? "button" : "span";
 
+  if (!label) return null;
+
   return React.createElement(
     element,
     {
@@ -52,7 +54,7 @@ export const Tag = forwardRef(function Tag({
       "data-interactive": isInteractive ? "true" : undefined,
     },
     icon ? React.createElement("span", { className: "tag__icon", "aria-hidden": "true" }, icon) : null,
-    label ? React.createElement("span", { className: "tag__label" }, label) : null,
+    React.createElement("span", { className: "tag__label" }, label),
   );
 });
 

@@ -35,7 +35,7 @@ export const Badge = forwardRef(function Badge({
   const resolvedVariant = normalizeVariant(variant);
   const resolvedState = normalizeState({ hidden, state });
   const text = resolvedVariant === "dot" ? "" : label;
-  const accessibleLabel = resolvedVariant === "dot" ? ariaLabel : ariaLabel || undefined;
+  const accessibleLabel = ["dot", "count"].includes(resolvedVariant) ? ariaLabel : undefined;
 
   if (resolvedVariant === "dot" && !accessibleLabel) return null;
   if (resolvedVariant !== "dot" && !label) return null;
