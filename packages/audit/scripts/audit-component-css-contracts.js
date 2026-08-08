@@ -51,17 +51,17 @@ const { checkToastCssContract } = require("./audit-toast-css-contract.js");
 const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js");
 
 const familyCssContracts = {
-  checkbox: { contract: "choice", requiredRoot: "choice" },
-  "radio-button": { contract: "choice", requiredRoot: "choice" },
-  input: { contract: "field", requiredRoot: "field" },
-  "text-area": { contract: "field", requiredRoot: "field" },
-  "phone-input": { contract: "field", requiredRoot: "field" },
-  "card-number-input": { contract: "field", requiredRoot: "field" },
-  "card-expiry-input": { contract: "field", requiredRoot: "field" },
-  "card-security-code-input": { contract: "field", requiredRoot: "field" },
-  combobox: { contract: "select", requiredRoot: "select-control" },
-  "country-selector": { contract: "select", requiredRoot: "select-control" },
-  "date-range-picker": { contract: "date-picker", requiredRoot: "date-picker" },
+  checkbox: { contract: "choice", requiredRoot: "choice", allowedExtensionRoots: ["checkbox"] },
+  "radio-button": { contract: "choice", requiredRoot: "choice", allowedExtensionRoots: ["radio"] },
+  input: { contract: "field", requiredRoot: "field", allowedExtensionRoots: [] },
+  "text-area": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["text-area"] },
+  "phone-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["phone-input"] },
+  "card-number-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-number-input"] },
+  "card-expiry-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-expiry-input"] },
+  "card-security-code-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-security-code-input"] },
+  combobox: { contract: "select", requiredRoot: "select-control", allowedExtensionRoots: ["combobox", "field"] },
+  "country-selector": { contract: "select", requiredRoot: "select-control", allowedExtensionRoots: ["country-flag", "country-selector"] },
+  "date-range-picker": { contract: "date-picker", requiredRoot: "date-picker", allowedExtensionRoots: ["date-range-picker", "field"] },
 };
 
 const directCssContractRoots = {
@@ -97,13 +97,17 @@ function componentCssContractCoverage() {
       const familyContract = familyCssContracts[component];
       const observedRoots = observedReactRootsForComponent(component);
       const requiredRootObserved = observedRoots.includes(familyContract.requiredRoot);
+      const allowedRoots = [familyContract.requiredRoot, ...(familyContract.allowedExtensionRoots ?? [])];
+      const unexpectedRoots = observedRoots.filter((root) => !allowedRoots.includes(root));
       return {
         component,
         coverage: "family",
         contract: familyContract.contract,
         requiredRoot: familyContract.requiredRoot,
+        allowedExtensionRoots: familyContract.allowedExtensionRoots ?? [],
         observedRoots,
         requiredRootObserved,
+        unexpectedRoots,
       };
     }
     return { component, coverage: "missing", contract: null };
@@ -122,10 +126,19 @@ function componentCssContractCoverage() {
     requiredRoot: item.requiredRoot,
     observedRoots: item.observedRoots,
   }));
+  const familyUnexpectedRoots = family.filter((item) => item.unexpectedRoots.length).map((item) => ({
+    component: item.component,
+    contract: item.contract,
+    requiredRoot: item.requiredRoot,
+    allowedExtensionRoots: item.allowedExtensionRoots,
+    observedRoots: item.observedRoots,
+    unexpectedRoots: item.unexpectedRoots,
+  }));
   const familyGroups = [...new Set(family.map((item) => item.contract))].sort().map((contract) => ({
     contract,
     components: family.filter((item) => item.contract === contract).map((item) => item.component),
     requiredRoots: [...new Set(family.filter((item) => item.contract === contract).map((item) => item.requiredRoot))].sort(),
+    allowedExtensionRoots: [...new Set(family.flatMap((item) => item.contract === contract ? item.allowedExtensionRoots : []))].sort(),
   }));
   return {
     total: components.length,
@@ -134,8 +147,9 @@ function componentCssContractCoverage() {
     missing,
     directRootGaps,
     familyRootGaps,
+    familyUnexpectedRoots,
     familyContractPolicy: {
-      principle: "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract instead of duplicating token/class rules.",
+      principle: "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract; component-specific roots are explicit extension scopes and cannot multiply silently.",
       groups: familyGroups,
     },
     components,
@@ -166,6 +180,9 @@ function checkComponentCssContractCoverage({ packageCssFile }) {
   }
   if (coverage.familyRootGaps.length) {
     add("errors", packageCssFile, 1, `Family CSS contract coverage is not backed by observed React roots: ${coverage.familyRootGaps.map((item) => `${item.component}->${item.requiredRoot}`).join(", ")}.`);
+  }
+  if (coverage.familyUnexpectedRoots.length) {
+    add("errors", packageCssFile, 1, `Family CSS contract coverage has undeclared extension roots: ${coverage.familyUnexpectedRoots.map((item) => `${item.component}->${item.unexpectedRoots.join("+")}`).join(", ")}.`);
   }
   const direct = currentCssContractIds();
   const orphanFamilies = Object.entries(familyCssContracts)

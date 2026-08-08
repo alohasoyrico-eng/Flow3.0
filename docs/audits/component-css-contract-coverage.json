@@ -6,8 +6,9 @@
   "missing": [],
   "directRootGaps": [],
   "familyRootGaps": [],
+  "familyUnexpectedRoots": [],
   "familyContractPolicy": {
-    "principle": "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract instead of duplicating token/class rules.",
+    "principle": "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract; component-specific roots are explicit extension scopes and cannot multiply silently.",
     "groups": [
       {
         "contract": "choice",
@@ -17,6 +18,10 @@
         ],
         "requiredRoots": [
           "choice"
+        ],
+        "allowedExtensionRoots": [
+          "checkbox",
+          "radio"
         ]
       },
       {
@@ -26,6 +31,10 @@
         ],
         "requiredRoots": [
           "date-picker"
+        ],
+        "allowedExtensionRoots": [
+          "date-range-picker",
+          "field"
         ]
       },
       {
@@ -40,6 +49,13 @@
         ],
         "requiredRoots": [
           "field"
+        ],
+        "allowedExtensionRoots": [
+          "card-expiry-input",
+          "card-number-input",
+          "card-security-code-input",
+          "phone-input",
+          "text-area"
         ]
       },
       {
@@ -50,6 +66,12 @@
         ],
         "requiredRoots": [
           "select-control"
+        ],
+        "allowedExtensionRoots": [
+          "combobox",
+          "country-flag",
+          "country-selector",
+          "field"
         ]
       }
     ]
@@ -81,24 +103,34 @@
       "coverage": "family",
       "contract": "select",
       "requiredRoot": "select-control",
+      "allowedExtensionRoots": [
+        "combobox",
+        "field"
+      ],
       "observedRoots": [
         "combobox",
         "field",
         "select-control"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "country-selector",
       "coverage": "family",
       "contract": "select",
       "requiredRoot": "select-control",
+      "allowedExtensionRoots": [
+        "country-flag",
+        "country-selector"
+      ],
       "observedRoots": [
         "country-flag",
         "country-selector",
         "select-control"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "card",
@@ -115,21 +147,27 @@
       "coverage": "family",
       "contract": "field",
       "requiredRoot": "field",
+      "allowedExtensionRoots": [],
       "observedRoots": [
         "field"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "checkbox",
       "coverage": "family",
       "contract": "choice",
       "requiredRoot": "choice",
+      "allowedExtensionRoots": [
+        "checkbox"
+      ],
       "observedRoots": [
         "checkbox",
         "choice"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "switch",
@@ -146,22 +184,30 @@
       "coverage": "family",
       "contract": "choice",
       "requiredRoot": "choice",
+      "allowedExtensionRoots": [
+        "radio"
+      ],
       "observedRoots": [
         "choice",
         "radio"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "text-area",
       "coverage": "family",
       "contract": "field",
       "requiredRoot": "field",
+      "allowedExtensionRoots": [
+        "text-area"
+      ],
       "observedRoots": [
         "field",
         "text-area"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "icon-button",
@@ -429,44 +475,60 @@
       "coverage": "family",
       "contract": "field",
       "requiredRoot": "field",
+      "allowedExtensionRoots": [
+        "phone-input"
+      ],
       "observedRoots": [
         "field",
         "phone-input"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "card-number-input",
       "coverage": "family",
       "contract": "field",
       "requiredRoot": "field",
+      "allowedExtensionRoots": [
+        "card-number-input"
+      ],
       "observedRoots": [
         "card-number-input",
         "field"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "card-expiry-input",
       "coverage": "family",
       "contract": "field",
       "requiredRoot": "field",
+      "allowedExtensionRoots": [
+        "card-expiry-input"
+      ],
       "observedRoots": [
         "card-expiry-input",
         "field"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "card-security-code-input",
       "coverage": "family",
       "contract": "field",
       "requiredRoot": "field",
+      "allowedExtensionRoots": [
+        "card-security-code-input"
+      ],
       "observedRoots": [
         "card-security-code-input",
         "field"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "date-picker",
@@ -484,12 +546,17 @@
       "coverage": "family",
       "contract": "date-picker",
       "requiredRoot": "date-picker",
+      "allowedExtensionRoots": [
+        "date-range-picker",
+        "field"
+      ],
       "observedRoots": [
         "date-picker",
         "date-range-picker",
         "field"
       ],
-      "requiredRootObserved": true
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
     },
     {
       "component": "segmented-control",

@@ -10,16 +10,19 @@ const markdownOutput = path.join(outputDir, "component-css-contract-coverage.md"
 
 function renderMarkdown(report) {
   const rows = report.components
-    .map((item) => `| ${item.component} | ${item.coverage} | ${item.contract ?? "missing"} | ${item.requiredRoot ?? "n/a"} | ${item.requiredRootObserved == null ? "n/a" : String(item.requiredRootObserved)} |`)
+    .map((item) => `| ${item.component} | ${item.coverage} | ${item.contract ?? "missing"} | ${item.requiredRoot ?? "n/a"} | ${item.requiredRootObserved == null ? "n/a" : String(item.requiredRootObserved)} | ${(item.allowedExtensionRoots ?? []).join(", ") || "n/a"} | ${(item.unexpectedRoots ?? []).join(", ") || "None"} |`)
     .join("\n");
   const familyRows = report.familyContractPolicy.groups
-    .map((item) => `| ${item.contract} | ${item.requiredRoots.join(", ")} | ${item.components.join(", ")} |`)
+    .map((item) => `| ${item.contract} | ${item.requiredRoots.join(", ")} | ${item.allowedExtensionRoots.join(", ") || "None"} | ${item.components.join(", ")} |`)
     .join("\n");
   const familyGapRows = report.familyRootGaps
     .map((item) => `| ${item.component} | ${item.contract} | ${item.requiredRoot} | ${item.observedRoots.join(", ") || "None"} |`)
     .join("\n");
   const directGapRows = report.directRootGaps
     .map((item) => `| ${item.component} | ${item.contract} | ${item.requiredRoot} | ${item.observedRoots.join(", ") || "None"} |`)
+    .join("\n");
+  const familyUnexpectedRootRows = report.familyUnexpectedRoots
+    .map((item) => `| ${item.component} | ${item.contract} | ${item.requiredRoot} | ${item.allowedExtensionRoots.join(", ") || "None"} | ${item.observedRoots.join(", ") || "None"} | ${item.unexpectedRoots.join(", ") || "None"} |`)
     .join("\n");
   return [
     "# Component CSS Contract Coverage",
@@ -32,14 +35,15 @@ function renderMarkdown(report) {
     `- Missing contracts: ${report.missing.length}`,
     `- Direct root gaps: ${report.directRootGaps.length}`,
     `- Family root gaps: ${report.familyRootGaps.length}`,
+    `- Undeclared family extension roots: ${report.familyUnexpectedRoots.length}`,
     "",
     "## Family Contract Policy",
     "",
     report.familyContractPolicy.principle,
     "",
-    "| Shared contract | Required React root | Components covered |",
-    "| --- | --- | --- |",
-    familyRows || "| None | None | None |",
+    "| Shared contract | Required React root | Allowed extension roots | Components covered |",
+    "| --- | --- | --- | --- |",
+    familyRows || "| None | None | None | None |",
     "",
     "## Direct Root Gaps",
     "",
@@ -53,8 +57,14 @@ function renderMarkdown(report) {
     "| --- | --- | --- | --- |",
     familyGapRows || "| None | None | None | None |",
     "",
-    "| Component | Coverage | Contract | Required root | Required root observed |",
-    "| --- | --- | --- | --- | --- |",
+    "## Undeclared Family Extension Roots",
+    "",
+    "| Component | Contract | Required root | Allowed extensions | Observed roots | Unexpected roots |",
+    "| --- | --- | --- | --- | --- | --- |",
+    familyUnexpectedRootRows || "| None | None | None | None | None | None |",
+    "",
+    "| Component | Coverage | Contract | Required root | Required root observed | Allowed extension roots | Unexpected roots |",
+    "| --- | --- | --- | --- | --- | --- | --- |",
     rows,
     "",
   ].join("\n");
@@ -63,7 +73,7 @@ function renderMarkdown(report) {
 function main() {
   const coverage = componentCssContractCoverage();
   const report = {
-    status: coverage.missing.length || coverage.directRootGaps.length || coverage.familyRootGaps.length ? "fail" : "pass",
+    status: coverage.missing.length || coverage.directRootGaps.length || coverage.familyRootGaps.length || coverage.familyUnexpectedRoots.length ? "fail" : "pass",
     ...coverage,
   };
 
@@ -81,6 +91,7 @@ function main() {
     missing: report.missing,
     directRootGaps: report.directRootGaps,
     familyRootGaps: report.familyRootGaps,
+    familyUnexpectedRoots: report.familyUnexpectedRoots,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));
