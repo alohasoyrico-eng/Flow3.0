@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
 import { radioButtonPlatformContract } from "@design-system/components/platforms";
 
 export type RadioButtonVariant = "default" | "descriptive" | "compact" | "critical";
@@ -21,7 +21,7 @@ export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElem
   name: string;
   value?: string;
   required?: boolean;
-  onCheckedChange?: (checked: boolean, meta: RadioButtonValueMeta) => void;
+  onCheckedChange?: (checked: boolean, meta: RadioButtonValueMeta, event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
 

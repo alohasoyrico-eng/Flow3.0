@@ -1343,14 +1343,14 @@ try {
     label: "Card payment",
     name: "payment",
     value: "card",
-    onCheckedChange: (checked, meta) => radioChanges.push({ checked, meta }),
+    onCheckedChange: (checked, meta, event) => radioChanges.push({ checked, meta, eventType: event.type }),
   }));
 
   const radioInput = getRadioLabel(/card payment/i);
   assert.equal(radioInput.checked, false);
   fireEvent.click(radioInput);
   await waitFor(() => assert.equal(radioInput.checked, true));
-  assert.deepEqual(radioChanges, [{ checked: true, meta: { value: "card" } }]);
+  assert.deepEqual(radioChanges, [{ checked: true, meta: { value: "card" }, eventType: "change" }]);
 
   rerenderRadio(React.createElement(RadioButton, {
     label: "Card payment",
@@ -1358,12 +1358,12 @@ try {
     value: "card",
     checked: false,
     disabled: true,
-    onCheckedChange: (checked, meta) => radioChanges.push({ checked, meta }),
+    onCheckedChange: (checked, meta, event) => radioChanges.push({ checked, meta, eventType: event.type }),
   }));
 
   await waitFor(() => assert.equal(radioInput.checked, false));
   fireEvent.click(getRadioLabel(/card payment/i));
-  assert.deepEqual(radioChanges, [{ checked: true, meta: { value: "card" } }]);
+  assert.deepEqual(radioChanges, [{ checked: true, meta: { value: "card" }, eventType: "change" }]);
 
   cleanup();
 

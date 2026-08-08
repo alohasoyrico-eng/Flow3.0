@@ -48,7 +48,7 @@ export const RadioButton = forwardRef(function RadioButton({
     if (disabled) return;
     const nextChecked = event.currentTarget.checked;
     if (!isCheckedControlled) setCurrentChecked(nextChecked);
-    onCheckedChange?.(nextChecked, { value });
+    onCheckedChange?.(nextChecked, { value }, event);
   };
 
   return React.createElement(
