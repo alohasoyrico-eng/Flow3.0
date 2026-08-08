@@ -85,6 +85,30 @@ const semanticRules = [
     description: "Component status fallback; allowed when constrained by the component contract.",
     pattern: /\bstatus\s*=\s*["']([^"']+)["']/,
   },
+  {
+    id: "placement-default",
+    prop: "placement",
+    description: "Overlay placement fallback; allowed when constrained by the component contract.",
+    pattern: /\bplacement\s*=\s*["']([^"']+)["']/,
+  },
+  {
+    id: "side-default",
+    prop: "side",
+    description: "Surface side fallback; allowed when constrained by the component contract.",
+    pattern: /\bside\s*=\s*["']([^"']+)["']/,
+  },
+  {
+    id: "align-default",
+    prop: "align",
+    description: "Alignment fallback; allowed when constrained by the component contract.",
+    pattern: /\balign\s*=\s*["']([^"']+)["']/,
+  },
+  {
+    id: "orientation-default",
+    prop: "orientation",
+    description: "Layout orientation fallback; allowed when constrained by the component contract.",
+    pattern: /\borientation\s*=\s*["']([^"']+)["']/,
+  },
 ];
 
 function sourceFiles() {

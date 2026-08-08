@@ -8,7 +8,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 
 - React components scanned: 56
 - Prohibited platform defaults: 0
-- Visible semantic defaults: 100
+- Visible semantic defaults: 106
 - Semantic default contract gaps: 0
 
 ## Semantic Default Summary
@@ -20,6 +20,10 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | tone-default | 14 | Component tone fallback; allowed when constrained by the component contract. |
 | intent-default | 2 | Action intent fallback; allowed when constrained by the component contract. |
 | status-default | 1 | Component status fallback; allowed when constrained by the component contract. |
+| placement-default | 2 | Overlay placement fallback; allowed when constrained by the component contract. |
+| side-default | 1 | Surface side fallback; allowed when constrained by the component contract. |
+| align-default | 2 | Alignment fallback; allowed when constrained by the component contract. |
+| orientation-default | 1 | Layout orientation fallback; allowed when constrained by the component contract. |
 
 ## Prohibited Defaults
 
@@ -76,6 +80,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | Drawer | variant-default | variant | side-sheet | packages/react/src/Drawer.js:76 | `variant = "side-sheet",` |
 | Drawer | state-default | state | closed | packages/react/src/Drawer.js:77 | `state = "closed",` |
 | Drawer | tone-default | tone | neutral | packages/react/src/Drawer.js:78 | `tone = "neutral",` |
+| Drawer | side-default | side | right | packages/react/src/Drawer.js:80 | `side = "right",` |
 | EmptyState | variant-default | variant | first-use | packages/react/src/EmptyState.js:23 | `variant = "first-use",` |
 | EmptyState | state-default | state | default | packages/react/src/EmptyState.js:24 | `state = "default",` |
 | ErrorPanel | tone-default | tone | error | packages/react/src/ErrorPanel.js:30 | `tone = "error",` |
@@ -87,6 +92,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | IconButton | variant-default | variant | ghost | packages/react/src/IconButton.js:15 | `variant = "ghost",` |
 | InlineValidation | state-default | state | default | packages/react/src/InlineValidation.js:20 | `state = "default",` |
 | Input | variant-default | variant | text | packages/react/src/Input.js:76 | `variant = "text",` |
+| Input | align-default | align | start | packages/react/src/Input.js:84 | `align = "start",` |
 | KpiTile | tone-default | tone | neutral | packages/react/src/KpiTile.js:27 | `tone = "neutral",` |
 | KpiTile | variant-default | variant | standard | packages/react/src/KpiTile.js:29 | `variant = "standard",` |
 | KpiTile | state-default | state | default | packages/react/src/KpiTile.js:30 | `state = "default",` |
@@ -94,6 +100,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | List | state-default | state | default | packages/react/src/List.js:14 | `state = "default",` |
 | Menu | variant-default | variant | actions | packages/react/src/Menu.js:29 | `variant = "actions",` |
 | Menu | state-default | state | default | packages/react/src/Menu.js:33 | `state = "default",` |
+| Menu | align-default | align | start | packages/react/src/Menu.js:34 | `align = "start",` |
 | MotionBoundary | variant-default | variant | fade | packages/react/src/MotionBoundary.js:17 | `variant = "fade",` |
 | MotionBoundary | state-default | state | active | packages/react/src/MotionBoundary.js:18 | `state = "active",` |
 | MovementRow | variant-default | variant | standard | packages/react/src/MovementRow.js:23 | `variant = "standard",` |
@@ -103,6 +110,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | PhoneInput | variant-default | variant | country-code | packages/react/src/PhoneInput.js:56 | `variant = "country-code",` |
 | Popover | variant-default | variant | information | packages/react/src/Popover.js:21 | `variant = "information",` |
 | Popover | state-default | state | default | packages/react/src/Popover.js:22 | `state = "default",` |
+| Popover | placement-default | placement | bottom | packages/react/src/Popover.js:23 | `placement = "bottom",` |
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.js:18 | `function progressMeta({ value = 0, max = 100, state = "active", indeterminate = false } = {}) {` |
 | ProgressIndicator | tone-default | tone | accent | packages/react/src/ProgressIndicator.js:34 | `tone = "accent",` |
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.js:35 | `state = "active",` |
@@ -123,6 +131,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | Spinner | state-default | state | loading | packages/react/src/Spinner.js:21 | `state = "loading",` |
 | StationPin | variant-default | variant | fuel | packages/react/src/StationPin.js:15 | `variant = "fuel",` |
 | StationPin | state-default | state | default | packages/react/src/StationPin.js:16 | `state = "default",` |
+| Stepper | orientation-default | orientation | horizontal | packages/react/src/Stepper.js:25 | `orientation = "horizontal",` |
 | Switch | state-default | state | off | packages/react/src/Switch.js:17 | `state = "off",` |
 | Table | variant-default | variant | standard | packages/react/src/Table.js:36 | `variant = "standard",` |
 | Table | state-default | state | default | packages/react/src/Table.js:37 | `state = "default",` |
@@ -134,6 +143,7 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | Toast | tone-default | tone | neutral | packages/react/src/Toast.js:22 | `tone = "neutral",` |
 | Toast | variant-default | variant | status | packages/react/src/Toast.js:23 | `variant = "status",` |
 | Toast | state-default | state | visible | packages/react/src/Toast.js:24 | `state = "visible",` |
+| Tooltip | placement-default | placement | top | packages/react/src/Tooltip.js:18 | `placement = "top",` |
 | Tooltip | variant-default | variant | default | packages/react/src/Tooltip.js:19 | `variant = "default",` |
 | Tooltip | state-default | state | default | packages/react/src/Tooltip.js:21 | `state = "default",` |
 | TreeView | state-default | state | expanded | packages/react/src/TreeView.js:41 | `state = "expanded",` |

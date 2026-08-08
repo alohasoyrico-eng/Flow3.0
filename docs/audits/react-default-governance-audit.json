@@ -5,7 +5,7 @@
   "inventory": {
     "components": 56,
     "prohibitedDefaults": 0,
-    "semanticDefaults": 100,
+    "semanticDefaults": 106,
     "semanticDefaultContractGaps": 0,
     "semanticByRule": [
       {
@@ -31,6 +31,26 @@
       {
         "rule": "status-default",
         "description": "Component status fallback; allowed when constrained by the component contract.",
+        "count": 1
+      },
+      {
+        "rule": "placement-default",
+        "description": "Overlay placement fallback; allowed when constrained by the component contract.",
+        "count": 2
+      },
+      {
+        "rule": "side-default",
+        "description": "Surface side fallback; allowed when constrained by the component contract.",
+        "count": 1
+      },
+      {
+        "rule": "align-default",
+        "description": "Alignment fallback; allowed when constrained by the component contract.",
+        "count": 2
+      },
+      {
+        "rule": "orientation-default",
+        "description": "Layout orientation fallback; allowed when constrained by the component contract.",
         "count": 1
       }
     ]
@@ -428,6 +448,16 @@
       "text": "tone = \"neutral\","
     },
     {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "line": 80,
+      "rule": "side-default",
+      "prop": "side",
+      "value": "right",
+      "description": "Surface side fallback; allowed when constrained by the component contract.",
+      "text": "side = \"right\","
+    },
+    {
       "component": "EmptyState",
       "file": "packages/react/src/EmptyState.js",
       "line": 23,
@@ -538,6 +568,16 @@
       "text": "variant = \"text\","
     },
     {
+      "component": "Input",
+      "file": "packages/react/src/Input.js",
+      "line": 84,
+      "rule": "align-default",
+      "prop": "align",
+      "value": "start",
+      "description": "Alignment fallback; allowed when constrained by the component contract.",
+      "text": "align = \"start\","
+    },
+    {
       "component": "KpiTile",
       "file": "packages/react/src/KpiTile.js",
       "line": 27,
@@ -606,6 +646,16 @@
       "value": "default",
       "description": "Component behavior default; allowed when normalized through component state.",
       "text": "state = \"default\","
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "line": 34,
+      "rule": "align-default",
+      "prop": "align",
+      "value": "start",
+      "description": "Alignment fallback; allowed when constrained by the component contract.",
+      "text": "align = \"start\","
     },
     {
       "component": "MotionBoundary",
@@ -696,6 +746,16 @@
       "value": "default",
       "description": "Component behavior default; allowed when normalized through component state.",
       "text": "state = \"default\","
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "line": 23,
+      "rule": "placement-default",
+      "prop": "placement",
+      "value": "bottom",
+      "description": "Overlay placement fallback; allowed when constrained by the component contract.",
+      "text": "placement = \"bottom\","
     },
     {
       "component": "ProgressIndicator",
@@ -898,6 +958,16 @@
       "text": "state = \"default\","
     },
     {
+      "component": "Stepper",
+      "file": "packages/react/src/Stepper.js",
+      "line": 25,
+      "rule": "orientation-default",
+      "prop": "orientation",
+      "value": "horizontal",
+      "description": "Layout orientation fallback; allowed when constrained by the component contract.",
+      "text": "orientation = \"horizontal\","
+    },
+    {
       "component": "Switch",
       "file": "packages/react/src/Switch.js",
       "line": 17,
@@ -1006,6 +1076,16 @@
       "value": "visible",
       "description": "Component behavior default; allowed when normalized through component state.",
       "text": "state = \"visible\","
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "line": 18,
+      "rule": "placement-default",
+      "prop": "placement",
+      "value": "top",
+      "description": "Overlay placement fallback; allowed when constrained by the component contract.",
+      "text": "placement = \"top\","
     },
     {
       "component": "Tooltip",
