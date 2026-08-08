@@ -1133,6 +1133,7 @@
   --comp-movement-row-title-weight: var(--component-font-weight-semibold);
   --comp-movement-row-caption-size: var(--component-font-size-caption);
   --comp-movement-row-caption-weight: var(--component-font-weight-regular);
+  --comp-movement-row-amount-family: var(--component-font-family-mono);
   --comp-movement-row-amount-size: var(--component-font-size-label);
   --comp-movement-row-amount-weight: var(--component-font-weight-semibold);
   --comp-movement-row-status-size: var(--component-font-size-micro);
@@ -9030,9 +9031,9 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel figcaption,
 .card-summary small,
 .movement-row small {
-  color: var(--sys-color-text-muted);
+  color: var(--component-color-text-muted);
   font-size: var(--component-font-size-label);
-  line-height: var(--sys-voice-line-height-comfortable);
+  line-height: var(--component-line-height-reading);
 }
 
 .route-summary small {
@@ -9214,7 +9215,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .movement-row__content,
 .movement-row__value {
   display: grid;
-  gap: var(--sys-space-xs);
+  gap: var(--component-space-xs);
 }
 
 .station-pin__value {
@@ -11375,7 +11376,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .movement-row__value strong {
   color: var(--comp-movement-row-text);
-  font-family: var(--sys-voice-family-mono);
+  font-family: var(--comp-movement-row-amount-family);
   font-size: var(--comp-movement-row-amount-size);
   font-variant-numeric: tabular-nums;
   font-weight: var(--comp-movement-row-amount-weight);
