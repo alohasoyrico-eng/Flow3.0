@@ -81,6 +81,7 @@ export const Accordion = forwardRef(function Accordion({
       const open = openIds.includes(item.id);
       const panelId = `${reactId}-${item.id}`;
       const triggerId = `${panelId}-trigger`;
+      const { id, title, content, open: itemOpen, disabled, icon, meta, onClick, ...itemRest } = item;
       return React.createElement(
         "section",
         {
@@ -92,20 +93,25 @@ export const Accordion = forwardRef(function Accordion({
         React.createElement(
           "button",
           {
+            ...itemRest,
             type: "button",
             className: "accordion__trigger",
             id: triggerId,
-            disabled: Boolean(item.disabled),
+            disabled: Boolean(disabled),
             "data-accordion-trigger": "",
             "aria-expanded": String(open),
             "aria-controls": panelId,
-            onClick: () => setItemOpen(item, !open),
+            onClick: (event) => {
+              onClick?.(event);
+              if (event.defaultPrevented) return;
+              setItemOpen(item, !open);
+            },
           },
-          item.icon
-            ? React.createElement("span", { className: "accordion__icon", "aria-hidden": "true" }, item.icon)
+          icon
+            ? React.createElement("span", { className: "accordion__icon", "aria-hidden": "true" }, icon)
             : null,
-          item.title ? React.createElement("span", { className: "accordion__title" }, item.title) : null,
-          item.meta ? React.createElement("span", { className: "accordion__meta" }, item.meta) : null,
+          title ? React.createElement("span", { className: "accordion__title" }, title) : null,
+          meta ? React.createElement("span", { className: "accordion__meta" }, meta) : null,
           React.createElement("span", { className: "accordion__chevron", "aria-hidden": "true" }, "expand_more"),
         ),
         React.createElement(
@@ -121,7 +127,7 @@ export const Accordion = forwardRef(function Accordion({
           React.createElement(
             "div",
             { className: "accordion__panel-clip" },
-            React.createElement("div", { className: "accordion__panel-body" }, renderContent(item.content)),
+            React.createElement("div", { className: "accordion__panel-body" }, renderContent(content)),
           ),
         ),
       );

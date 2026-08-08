@@ -1,10 +1,10 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
 import { accordionPlatformContract } from "@design-system/components/platforms";
 
 export type AccordionDensity = "sm" | "md" | "lg";
 export type AccordionVariant = "single" | "multiple";
 
-export interface AccordionItem {
+export interface AccordionItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "aria-controls" | "aria-expanded" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   id: string;
   title: string;
   content: ReactNode;

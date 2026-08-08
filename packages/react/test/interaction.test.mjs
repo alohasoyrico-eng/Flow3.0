@@ -78,6 +78,31 @@ try {
 
   cleanup();
 
+  const preventedAccordionChanges = [];
+  const accordionTriggerClicks = [];
+  const { getByRole: getPreventedAccordionRole } = render(React.createElement(Accordion, {
+    items: [
+      {
+        id: "prevented",
+        title: "Prevented",
+        content: "Blocked content",
+        onClick: (event) => {
+          accordionTriggerClicks.push(event.type);
+          event.preventDefault();
+        },
+      },
+    ],
+    onExpandedChange: (expandedIds) => preventedAccordionChanges.push(expandedIds),
+  }));
+
+  const preventedAccordionTrigger = getPreventedAccordionRole("button", { name: /prevented/i });
+  fireEvent.click(preventedAccordionTrigger);
+  assert.deepEqual(accordionTriggerClicks, ["click"]);
+  assert.equal(preventedAccordionTrigger.getAttribute("aria-expanded"), "false");
+  assert.deepEqual(preventedAccordionChanges, []);
+
+  cleanup();
+
   const clickedBreadcrumbs = [];
   const { getByRole: getBreadcrumbRole } = render(React.createElement(Breadcrumbs, {
     items: [
