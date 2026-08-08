@@ -1405,6 +1405,50 @@ try {
 
   cleanup();
 
+  const selectTriggerEvents = [];
+  const { getByRole: getNativeSelectRole } = render(React.createElement(Select, {
+    label: "Native country",
+    options: [
+      { label: "Mexico", value: "mx", meta: "+52" },
+      { label: "United States", value: "us", meta: "+1" },
+    ],
+    onClick: (event) => selectTriggerEvents.push(event.type),
+    onKeyDown: (event) => selectTriggerEvents.push(event.key),
+  }));
+
+  const nativeSelectTrigger = getNativeSelectRole("combobox", { name: /native country/i });
+  fireEvent.click(nativeSelectTrigger);
+  fireEvent.keyDown(nativeSelectTrigger, { key: "Escape" });
+  assert.deepEqual(selectTriggerEvents, ["click", "Escape"]);
+  assert.equal(nativeSelectTrigger.getAttribute("aria-expanded"), "false");
+
+  cleanup();
+
+  const preventedSelectTriggerEvents = [];
+  const { getByRole: getPreventedSelectRole } = render(React.createElement(Select, {
+    label: "Prevented country",
+    options: [
+      { label: "Mexico", value: "mx", meta: "+52" },
+      { label: "United States", value: "us", meta: "+1" },
+    ],
+    onClick: (event) => {
+      preventedSelectTriggerEvents.push(event.type);
+      event.preventDefault();
+    },
+    onKeyDown: (event) => {
+      preventedSelectTriggerEvents.push(event.key);
+      event.preventDefault();
+    },
+  }));
+
+  const preventedSelectTrigger = getPreventedSelectRole("combobox", { name: /prevented country/i });
+  fireEvent.click(preventedSelectTrigger);
+  fireEvent.keyDown(preventedSelectTrigger, { key: "ArrowDown" });
+  assert.deepEqual(preventedSelectTriggerEvents, ["click", "ArrowDown"]);
+  assert.equal(preventedSelectTrigger.getAttribute("aria-expanded"), "false");
+
+  cleanup();
+
   const sliderChanges = [];
   const { getByRole: getSliderRole, getByText: getSliderText, rerender: rerenderSlider } = render(React.createElement(Slider, {
     label: "Search radius",

@@ -55,6 +55,23 @@ export const Select = forwardRef(function Select({
     setOpen(false);
     onValueChange?.(optionValue, { label: option.label, meta: option.meta ?? "" });
   };
+  const handleTriggerClick = (event) => {
+    rest.onClick?.(event);
+    if (event.defaultPrevented) return;
+    setOpen((current) => !current);
+  };
+  const handleTriggerKeyDown = (event) => {
+    rest.onKeyDown?.(event);
+    if (event.defaultPrevented) return;
+    if (["ArrowDown", "Enter", " "].includes(event.key)) {
+      event.preventDefault();
+      setOpen(true);
+    }
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setOpen(false);
+    }
+  };
 
   return React.createElement(
     "span",
@@ -92,17 +109,8 @@ export const Select = forwardRef(function Select({
           "aria-labelledby": `${selectId}-label`,
           "aria-invalid": state === "error" ? "true" : undefined,
           "aria-activedescendant": selectedOption ? `${selectId}-option-${activeIndex}` : undefined,
-          onClick: () => setOpen((current) => !current),
-          onKeyDown: (event) => {
-            if (["ArrowDown", "Enter", " "].includes(event.key)) {
-              event.preventDefault();
-              setOpen(true);
-            }
-            if (event.key === "Escape") {
-              event.preventDefault();
-              setOpen(false);
-            }
-          },
+          onClick: handleTriggerClick,
+          onKeyDown: handleTriggerKeyDown,
         },
         icon ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, icon) : null,
         selectedLabel ? React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedLabel) : null,
