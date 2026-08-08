@@ -1954,6 +1954,20 @@ try {
     onValueChange: (key, event) => tabChanges.push({ key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(overviewTab.getAttribute("aria-selected"), "true"));
+  fireEvent.click(buildTab);
+  assert.deepEqual(tabChanges.at(-1), { key: "build", eventType: "click" });
+  assert.equal(buildTab.getAttribute("aria-selected"), "false");
+  rerenderTabs(React.createElement(Tabs, {
+    label: "Component sections",
+    selectedKey: "build",
+    items: [
+      { key: "overview", label: "Overview" },
+      { key: "design", label: "Design", disabled: true },
+      { key: "build", label: "Build" },
+    ],
+    onValueChange: (key, event) => tabChanges.push({ key, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(buildTab.getAttribute("aria-selected"), "true"));
 
   cleanup();
 

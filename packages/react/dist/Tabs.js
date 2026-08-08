@@ -57,10 +57,6 @@ export const Tabs = forwardRef(function Tabs({
   };
 
   useEffect(() => {
-    if (isSelectedKeyControlled) setCurrentKey(selectedFromItems(normalizedItems, selectedKey));
-  }, [isSelectedKeyControlled, normalizedItems, selectedKey]);
-
-  useEffect(() => {
     syncIndicator(activeKey);
     const root = rootRef.current;
     if (!root || typeof ResizeObserver === "undefined") return undefined;
