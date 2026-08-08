@@ -58,6 +58,9 @@
   --component-disclosure-trigger-min-block-size-sm: var(--sys-frame-content-disclosure-trigger-min-block-sm);
   --component-disclosure-trigger-min-block-size-md: var(--sys-frame-content-disclosure-trigger-min-block-md);
   --component-disclosure-trigger-min-block-size-lg: var(--sys-frame-content-disclosure-trigger-min-block-lg);
+  --component-inline-trigger-min-block-size-sm: var(--sys-frame-content-inline-trigger-min-block-sm);
+  --component-inline-trigger-min-block-size-md: var(--sys-frame-content-inline-trigger-min-block-md);
+  --component-inline-trigger-min-block-size-lg: var(--sys-frame-content-inline-trigger-min-block-lg);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -2780,9 +2783,9 @@ button.tag:disabled,
   --comp-tooltip-trigger-bg: var(--sys-color-surface);
   --comp-tooltip-trigger-border: var(--sys-color-border);
   --comp-tooltip-trigger-fg: var(--sys-color-text);
-  --comp-tooltip-trigger-min-block-sm: calc(var(--component-control-min-size) - var(--sys-space-sm));
-  --comp-tooltip-trigger-min-block-md: var(--component-control-min-size);
-  --comp-tooltip-trigger-min-block-lg: calc(var(--component-control-min-size) + var(--sys-space-sm));
+  --comp-tooltip-trigger-min-block-sm: var(--component-inline-trigger-min-block-size-sm);
+  --comp-tooltip-trigger-min-block-md: var(--component-inline-trigger-min-block-size-md);
+  --comp-tooltip-trigger-min-block-lg: var(--component-inline-trigger-min-block-size-lg);
   --comp-tooltip-trigger-padding-x-sm: var(--sys-space-sm);
   --comp-tooltip-trigger-padding-x-md: var(--sys-space-md);
   --comp-tooltip-trigger-padding-x-lg: var(--sys-space-lg);

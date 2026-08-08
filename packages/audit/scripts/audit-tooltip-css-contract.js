@@ -16,6 +16,10 @@ function checkTooltipCssContract({ text, blocks, packageCssFile, selectorKey }) 
   const openBlock = blockFor(blocks, selectorKey, ".tooltip:hover .tooltip__bubble,.tooltip:focus-within .tooltip__bubble,.tooltip[data-open=\"true\"] .tooltip__bubble");
   const leftOpenBlock = blockFor(blocks, selectorKey, ".tooltip[data-placement=\"left\"]:hover .tooltip__bubble,.tooltip[data-placement=\"left\"]:focus-within .tooltip__bubble,.tooltip[data-placement=\"left\"][data-open=\"true\"] .tooltip__bubble");
   const rightOpenBlock = blockFor(blocks, selectorKey, ".tooltip[data-placement=\"right\"]:hover .tooltip__bubble,.tooltip[data-placement=\"right\"]:focus-within .tooltip__bubble,.tooltip[data-placement=\"right\"][data-open=\"true\"] .tooltip__bubble");
+  const localTriggerSize = /--comp-tooltip-trigger-min-block-(?:sm|md|lg):\s*(?:calc\(var\(--component-control-min-size\)[^;]+|var\(--component-control-min-size\));/.exec(text);
+  if (localTriggerSize) {
+    add("errors", packageCssFile, lineNumber(text, localTriggerSize.index), "Tooltip trigger heights must flow through shared inline trigger Frame roles instead of local control-size calculations.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -25,6 +29,9 @@ function checkTooltipCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "--comp-tooltip-trigger-min-block-sm:",
       "--comp-tooltip-trigger-min-block-md:",
       "--comp-tooltip-trigger-min-block-lg:",
+      "--comp-tooltip-trigger-min-block-sm: var(--component-inline-trigger-min-block-size-sm)",
+      "--comp-tooltip-trigger-min-block-md: var(--component-inline-trigger-min-block-size-md)",
+      "--comp-tooltip-trigger-min-block-lg: var(--component-inline-trigger-min-block-size-lg)",
       "--comp-tooltip-bubble-min-inline-sm:",
       "--comp-tooltip-bubble-min-inline-md:",
       "--comp-tooltip-bubble-min-inline-lg:",
