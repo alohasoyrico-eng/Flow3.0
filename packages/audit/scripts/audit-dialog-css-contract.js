@@ -25,6 +25,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-dialog-panel-border-width: var(--component-border-width)",
       "--comp-dialog-panel-padding: var(--sys-space-lg)",
       "--comp-dialog-panel-gap: var(--sys-space-md)",
+      "--comp-dialog-z-index: var(--sys-depth-z-dialog)",
       "--comp-dialog-enter-ease: var(--component-ease-enter)",
       "--comp-dialog-exit-ease: var(--component-ease-exit)",
     ],
@@ -82,6 +83,9 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
     if (blockFor(blocks, selectorKey, staleSelector)) {
       add("errors", packageCssFile, 1, "Dialog density aliases must live on the root, not on the panel selector.");
     }
+  }
+  if (/--comp-dialog-z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text) || /z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text)) {
+    add("errors", packageCssFile, 1, "Dialog z-index must come directly from Depth tokens without literal fallbacks.");
   }
 }
 

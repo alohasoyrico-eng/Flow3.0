@@ -25,6 +25,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-drawer-panel-border-width: var(--component-border-width)",
       "--comp-drawer-panel-padding:",
       "--comp-drawer-footer-border-width: var(--component-border-width)",
+      "--comp-drawer-z-index: var(--sys-depth-z-dialog)",
       "--comp-drawer-enter-ease: var(--component-ease-enter)",
       "--comp-drawer-exit-ease: var(--component-ease-exit)",
     ],
@@ -82,6 +83,9 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
     if (blockFor(blocks, selectorKey, staleSelector)) {
       add("errors", packageCssFile, 1, "Drawer density aliases must live on the root, not on the panel selector.");
     }
+  }
+  if (/--comp-drawer-z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text) || /z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text)) {
+    add("errors", packageCssFile, 1, "Drawer z-index must come directly from Depth tokens without literal fallbacks.");
   }
 }
 

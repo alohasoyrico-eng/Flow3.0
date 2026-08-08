@@ -5711,7 +5711,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-drawer-gap: var(--sys-space-sm);
   --comp-drawer-overlay-bg: color-mix(in srgb, var(--sys-color-text) 40%, transparent);
   --comp-drawer-overlay-blur: var(--sys-depth-backdrop-blur);
-  --comp-drawer-z-index: var(--sys-depth-z-dialog, 1001);
+  --comp-drawer-z-index: var(--sys-depth-z-dialog);
   --comp-drawer-panel-bg: var(--sys-color-surface);
   --comp-drawer-panel-border-width: var(--component-border-width);
   --comp-drawer-panel-border: var(--sys-color-border);
@@ -5749,7 +5749,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-gap: var(--sys-space-sm);
   --comp-dialog-overlay-bg: color-mix(in srgb, var(--sys-color-text) 40%, transparent);
   --comp-dialog-overlay-blur: var(--sys-depth-backdrop-blur);
-  --comp-dialog-z-index: var(--sys-depth-z-dialog, 1001);
+  --comp-dialog-z-index: var(--sys-depth-z-dialog);
   --comp-dialog-panel-bg: var(--sys-color-surface);
   --comp-dialog-panel-border-width: var(--component-border-width);
   --comp-dialog-panel-border: var(--sys-color-border);
@@ -5789,7 +5789,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   inset: 0;
   place-items: center;
   position: fixed;
-  z-index: var(--sys-depth-z-dialog, 1001);
+  z-index: var(--sys-depth-z-dialog);
 }
 
 .drawer__overlay {
