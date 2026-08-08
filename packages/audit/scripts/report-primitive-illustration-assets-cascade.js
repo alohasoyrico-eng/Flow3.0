@@ -97,6 +97,9 @@ const implementation = {
   supportsFallback: /illustration-asset__fallback/.test(primitive) && /onerror/.test(primitive),
   gatesSourceAndFormat: /unapprovedSource/.test(primitive) && /unsupportedFormat/.test(primitive),
   avoidsHandDrawnSvg: !/createElementNS|polygon|path\.setAttribute|setAttribute\("d"/.test(primitive),
+  avoidsFixedDensityDefault: !/\bdensity\s*=\s*["']md["']/.test(primitive)
+    && !/validDensities\.has\(density\)\s*\?\s*density\s*:\s*["']md["']/.test(primitive)
+    && /if\s*\(resolvedDensity\)\s*figure\.dataset\.density\s*=\s*resolvedDensity/.test(primitive),
   cssTargetsAsset: /\.illustration-asset\b/.test(css) && /illustration-asset__image/.test(css),
   cssUsesComponentNamespace: /--comp-illustration-asset-max-size:/.test(css) && !/--illustration-asset-max-size:/.test(css),
   cssUsesComponentSizeAliases: /--component-illustration-asset-max-size-sm:/.test(css)

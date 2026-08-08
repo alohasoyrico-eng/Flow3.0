@@ -36,8 +36,8 @@ function normalizePurpose(purpose = "decorative") {
   return validPurposes.has(purpose) ? purpose : "decorative";
 }
 
-function normalizeDensity(density = "md") {
-  return validDensities.has(density) ? density : "md";
+function normalizeDensity(density) {
+  return validDensities.has(density) ? density : undefined;
 }
 
 function sourceModelFor(source = "open-doodles") {
@@ -68,7 +68,7 @@ export function createIllustrationAsset({
   purpose = "decorative",
   source = "open-doodles",
   format,
-  density = "md",
+  density,
   theme = "auto",
   fallbackText,
   loading = "lazy",
@@ -99,7 +99,7 @@ export function createIllustrationAsset({
   figure.dataset.source = sourceModel.id;
   figure.dataset.purpose = resolvedPurpose;
   figure.dataset.format = resolvedFormat;
-  figure.dataset.density = resolvedDensity;
+  if (resolvedDensity) figure.dataset.density = resolvedDensity;
   figure.dataset.status = status;
   figure.dataset.theme = theme === "dark" || theme === "light" ? theme : "auto";
   if (id) figure.dataset.assetId = id;
@@ -110,7 +110,7 @@ export function createIllustrationAsset({
     darkSrc: darkSrc || null,
     format: resolvedFormat,
     purpose: resolvedPurpose,
-    density: resolvedDensity,
+    density: resolvedDensity ?? null,
     theme: figure.dataset.theme,
     status,
   };
