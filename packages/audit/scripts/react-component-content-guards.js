@@ -11,6 +11,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "RouteSummary" && !source.includes("const visibleMetrics = metrics.filter((metric) => metric?.key && metric?.label && metric?.value);")) add("errors", sourceFile, 1, "RouteSummary metrics must require stable keys, labels, and values before rendering.");
   if (name === "RouteSummary" && /metric\.key\s*\?\?\s*`\$\{metric\.label\}-\$\{index\}`/.test(source)) add("errors", sourceFile, 1, "RouteSummary must not synthesize metric keys from labels or indexes.");
   if (name === "RouteSummary" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "RouteSummary must require a visible label before rendering.");
+  if (name === "MovementRow" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "MovementRow must require a visible label before rendering a row button.");
+  if (name === "MovementRow" && /const resolvedLabel = label \?\? ""/.test(source)) add("errors", sourceFile, 1, "MovementRow must not synthesize an empty row label.");
   if (name === "Menu" && /item\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Menu items must not render empty labels; filter unlabeled menu items before rendering.");
   if (name === "Menu" && !source.includes("const hasTrigger = resolvedVariant")) add("errors", sourceFile, 1, "Menu must gate trigger composition on a visible or accessible trigger name.");
   if (name === "Menu" && !source.includes("const menuAccessibleLabel = menuAriaLabel || label || triggerLabel || iconTriggerLabel || avatarAccessibleLabel || undefined;")) add("errors", sourceFile, 1, "Menu panel must inherit an accessible name from the same label contract as its trigger.");

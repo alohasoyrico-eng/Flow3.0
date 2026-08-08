@@ -34,10 +34,10 @@ export const MovementRow = forwardRef(function MovementRow({
   const resolvedCategory = normalizeFlowValue(category, validCategories, "transfer");
   const resolvedState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedLabel = label ?? "";
+  if (!label) return null;
   const blocked = disabled || resolvedState === "disabled";
   const selectMeta = {
-    label: resolvedLabel,
+    label,
     meta,
     amount,
     status,
@@ -69,7 +69,7 @@ export const MovementRow = forwardRef(function MovementRow({
     React.createElement(
       "span",
       { className: "movement-row__content" },
-      resolvedLabel ? React.createElement("strong", null, resolvedLabel) : null,
+      React.createElement("strong", null, label),
       meta ? React.createElement("small", null, meta) : null,
     ),
     React.createElement(

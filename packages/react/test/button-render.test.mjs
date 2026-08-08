@@ -249,6 +249,11 @@ const copyOnlyMovementRowMarkup = renderToStaticMarkup(React.createElement(Movem
 }));
 assert.match(copyOnlyMovementRowMarkup, /data-state="default"/);
 assert.doesNotMatch(copyOnlyMovementRowMarkup, /data-state="pending"/);
+const unlabeledMovementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
+  amount: "-$842.00",
+  status: "Pending",
+}));
+assert.doesNotMatch(unlabeledMovementRowMarkup, /movement-row|-\$842\.00|Pending/);
 
 const routeSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Fast route",
