@@ -5,6 +5,7 @@ import { flowToneProps, flowStateProps, flowVariantProps, flowRestProps } from "
 const validVariants = new Set(["metadata", "status", "platform", "link"]);
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validStates = new Set(["default", "hover", "pressed", "focus", "disabled"]);
+const validTypes = new Set(["button", "submit", "reset"]);
 
 function normalizeVariant(variant) {
   return validVariants.has(variant) ? variant : "metadata";
@@ -34,7 +35,8 @@ export const Tag = forwardRef(function Tag({
   const resolvedVariant = normalizeVariant(variant);
   const resolvedTone = normalizeTone(tone);
   const resolvedState = normalizeState({ disabled, state });
-  const canInteract = Boolean(rest.onClick || type === "submit" || type === "reset");
+  const resolvedType = validTypes.has(type) ? type : "button";
+  const canInteract = Boolean(rest.onClick || resolvedType === "submit" || resolvedType === "reset");
   const isInteractive = (Boolean(interactive) || resolvedVariant === "link") && canInteract;
   const element = isInteractive ? "button" : "span";
 
@@ -46,7 +48,7 @@ export const Tag = forwardRef(function Tag({
       ...flowRestProps(rest),
       ref,
       className: ["tag", className].filter(Boolean).join(" "),
-      type: isInteractive ? type : undefined,
+      type: isInteractive ? resolvedType : undefined,
       disabled: isInteractive ? resolvedState === "disabled" : undefined,
       "aria-disabled": !isInteractive && resolvedState === "disabled" ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),

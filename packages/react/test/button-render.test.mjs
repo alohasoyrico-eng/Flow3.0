@@ -1393,6 +1393,16 @@ assert.match(inertLinkTagMarkup, /^<span/);
 assert.match(inertLinkTagMarkup, /data-variant="link"/);
 assert.doesNotMatch(inertLinkTagMarkup, /data-interactive/);
 
+const normalizedTagTypeMarkup = renderToStaticMarkup(React.createElement(Tag, {
+  label: "Unsafe type",
+  variant: "link",
+  type: "menu",
+  onClick: () => {},
+}));
+assert.match(normalizedTagTypeMarkup, /^<button/);
+assert.match(normalizedTagTypeMarkup, /type="button"/);
+assert.doesNotMatch(normalizedTagTypeMarkup, /type="menu"/);
+
 const skeletonMarkup = renderToStaticMarkup(React.createElement(Skeleton, {
   label: "Table loading",
   variant: "table",
