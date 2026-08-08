@@ -445,6 +445,7 @@
   --component-z-overlay: var(--sys-depth-z-overlay);
   --component-z-dropdown: var(--sys-depth-z-dropdown);
   --component-touch-target-min: var(--sys-touch-target-min);
+  --component-a11y-touch-target-min: var(--sys-a11y-touch-target-min);
   --component-depth-live-rest: var(--sys-elevation-0);
   --component-depth-live-active: 0 0 0 var(--sys-space-xs) color-mix(in srgb, currentColor 14%, transparent);
   --component-depth-chart-halo: 0 0 0 var(--sys-space-xs) color-mix(in srgb, var(--comp-chart-panel-tone) 14%, transparent);
@@ -452,6 +453,27 @@
   --component-chart-stroke-control: var(--sys-frame-border-control);
   --component-chart-stroke-medium: var(--sys-frame-border-medium);
   --component-chart-stroke-strong: var(--sys-frame-border-indicator);
+  --component-energy-surface-sunken: var(--sys-energy-surface-sunken);
+  --component-energy-surface-primary: var(--sys-energy-surface-primary);
+  --component-energy-border-default: var(--sys-energy-border-default);
+  --component-energy-text-primary: var(--sys-energy-text-primary);
+  --component-energy-status-warning-foreground: var(--sys-energy-status-warning-foreground);
+  --component-energy-status-error: var(--sys-energy-status-error);
+  --component-chart-series-primary: var(--sys-chart-series-primary);
+  --component-chart-series-secondary: var(--sys-chart-series-secondary);
+  --component-chart-series-tertiary: var(--sys-chart-series-tertiary);
+  --component-chart-series-quaternary: var(--sys-chart-series-quaternary);
+  --component-chart-series-mixed: color-mix(in srgb, var(--component-chart-series-primary) 54%, var(--component-chart-series-secondary));
+  --component-map-pin-background: var(--sys-map-pin-background);
+  --component-map-pin-foreground: var(--sys-map-pin-foreground);
+  --component-map-pin-border: var(--sys-map-pin-border);
+  --component-map-pin-action-color: var(--sys-map-pin-action-color);
+  --component-map-focus-ring: var(--sys-map-focus-ring);
+  --component-map-depth-selected: var(--sys-map-depth-selected);
+  --component-map-pin-cluster-background: var(--sys-map-pin-cluster-background);
+  --component-map-pin-cluster-foreground: var(--sys-map-pin-cluster-foreground);
+  --component-map-pin-selected-background: var(--sys-map-pin-selected-background);
+  --component-map-pin-selected-foreground: var(--sys-map-pin-selected-foreground);
   --component-depth-action-halo: 0 0 0 var(--sys-frame-border-indicator) color-mix(in srgb, var(--sys-color-action) 8%, transparent);
   --component-depth-action-halo-strong: 0 0 0 var(--sys-frame-border-indicator) color-mix(in srgb, var(--sys-color-action) 10%, transparent);
   --component-depth-error-ring: 0 0 0 var(--component-border-width) var(--sys-color-danger) inset;
@@ -2554,8 +2576,8 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
   --comp-tag-min-block-size: var(--component-min-text-line);
   --comp-tag-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md);
   --comp-tag-padding-inline: var(--component-space-sm);
-  --comp-tag-bg-neutral: var(--sys-energy-surface-sunken);
-  --comp-tag-border-neutral: var(--sys-energy-border-default);
+  --comp-tag-bg-neutral: var(--component-energy-surface-sunken);
+  --comp-tag-border-neutral: var(--component-energy-border-default);
   --comp-tag-fg-neutral: var(--component-color-text-muted);
   --comp-tag-bg-info: color-mix(in srgb, var(--component-color-action) 8%, var(--component-color-surface));
   --comp-tag-border-info: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
@@ -2565,7 +2587,7 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
   --comp-tag-fg-success: var(--component-color-success);
   --comp-tag-bg-warning: color-mix(in srgb, var(--component-color-warning) 12%, var(--component-color-surface));
   --comp-tag-border-warning: color-mix(in srgb, var(--component-color-warning) 30%, var(--component-color-border));
-  --comp-tag-fg-warning: var(--sys-energy-status-warning-foreground);
+  --comp-tag-fg-warning: var(--component-energy-status-warning-foreground);
   --comp-tag-bg-danger: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
   --comp-tag-border-danger: color-mix(in srgb, var(--component-color-danger) 28%, var(--component-color-border));
   --comp-tag-fg-danger: var(--component-color-danger);
@@ -2655,7 +2677,7 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
   --comp-chip-selected-bg: var(--component-color-action);
   --comp-chip-selected-border: var(--component-color-action);
   --comp-chip-selected-fg: var(--component-color-action-text);
-  --comp-chip-hover-bg: var(--sys-energy-surface-sunken);
+  --comp-chip-hover-bg: var(--component-energy-surface-sunken);
   --comp-chip-hover-shadow: var(--component-depth-raised);
   --comp-chip-hover-transform: scale(var(--component-scale-hover));
   --comp-chip-press-transform: scale(var(--component-scale-press));
@@ -2679,7 +2701,7 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
 }
 
 .chip[data-variant="input"] {
-  --comp-chip-bg: var(--sys-energy-surface-sunken);
+  --comp-chip-bg: var(--component-energy-surface-sunken);
 }
 
 .chip[data-variant="suggestion"] {
@@ -2816,7 +2838,7 @@ button.tag:disabled,
 
 .tabs {
   --comp-tabs-align: var(--component-align-center);
-  --comp-tabs-bg: var(--sys-energy-surface-sunken);
+  --comp-tabs-bg: var(--component-energy-surface-sunken);
   --comp-tabs-border-width: var(--component-border-width);
   --comp-tabs-border-color: color-mix(in srgb, var(--component-color-border) 76%, transparent);
   --comp-tabs-border: var(--comp-tabs-border-width) solid var(--comp-tabs-border-color);
@@ -2826,7 +2848,7 @@ button.tag:disabled,
   --comp-tabs-isolation: var(--component-isolation-isolate);
   --comp-tabs-padding: var(--component-space-xs);
   --comp-tabs-position: var(--component-position-relative);
-  --comp-tabs-tab-bg-selected: var(--sys-energy-surface-primary);
+  --comp-tabs-tab-bg-selected: var(--component-energy-surface-primary);
   --comp-tabs-indicator-bg: var(--comp-tabs-tab-bg-selected);
   --comp-tabs-indicator-border-color: color-mix(in srgb, var(--component-color-action) 22%, var(--component-color-border));
   --comp-tabs-indicator-border: var(--comp-tabs-border-width) solid var(--comp-tabs-indicator-border-color);
@@ -2996,8 +3018,8 @@ button.tag:disabled,
 }
 
 .tooltip {
-  --comp-tooltip-bubble-bg: var(--sys-energy-text-primary);
-  --comp-tooltip-bubble-fg: var(--sys-energy-surface-primary);
+  --comp-tooltip-bubble-bg: var(--component-energy-text-primary);
+  --comp-tooltip-bubble-fg: var(--component-energy-surface-primary);
   --comp-tooltip-trigger-bg: var(--component-color-surface);
   --comp-tooltip-trigger-border: var(--component-color-border);
   --comp-tooltip-trigger-fg: var(--component-color-text);
@@ -4005,7 +4027,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-identity-purple-bg: var(--ref-energy-purple-500, color-mix(in srgb, var(--component-color-action) 60%, var(--component-color-danger)));
   --comp-avatar-identity-teal-bg: var(--ref-energy-teal-500, color-mix(in srgb, var(--component-color-success) 72%, var(--component-color-action)));
   --comp-avatar-identity-default-fg: var(--component-color-action-text);
-  --comp-avatar-identity-warning-fg: var(--sys-energy-status-warning-foreground);
+  --comp-avatar-identity-warning-fg: var(--component-energy-status-warning-foreground);
   --comp-avatar-identity-bg: var(--comp-avatar-identity-action-bg);
   --comp-avatar-identity-fg: var(--comp-avatar-identity-default-fg);
   --comp-avatar-bg: var(--comp-avatar-identity-bg);
@@ -4916,7 +4938,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .breadcrumbs[data-variant="compact"],
 .breadcrumbs[data-density="sm"] {
-  --comp-breadcrumbs-target-block: var(--sys-a11y-touch-target-min);
+  --comp-breadcrumbs-target-block: var(--component-a11y-touch-target-min);
   --comp-breadcrumbs-target-padding-inline: var(--component-space-xs);
   --comp-breadcrumbs-font-size: var(--component-font-size-caption);
 }
@@ -6859,8 +6881,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-selected-bg: var(--component-surface-transparent);
   --comp-tree-view-selected-text: var(--component-color-action);
   --comp-tree-view-selected-border: var(--component-border-transparent);
-  --comp-tree-view-hover-bg: var(--sys-energy-surface-primary);
-  --comp-tree-view-hover-border: var(--sys-energy-border-default);
+  --comp-tree-view-hover-bg: var(--component-energy-surface-primary);
+  --comp-tree-view-hover-border: var(--component-energy-border-default);
   --comp-tree-view-hover-shadow: var(--component-tree-view-hover-shadow);
   --comp-tree-view-hover-transform: var(--component-transform-inline-nudge);
   --comp-tree-view-expanded-text: var(--component-color-text);
@@ -7651,7 +7673,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-inline-validation-info: var(--component-color-action);
   --comp-inline-validation-success: var(--component-color-success);
   --comp-inline-validation-warning: var(--component-color-warning);
-  --comp-inline-validation-danger: var(--sys-energy-status-error);
+  --comp-inline-validation-danger: var(--component-energy-status-error);
   --comp-inline-validation-disabled: var(--component-color-text-muted);
   --comp-inline-validation-tone: var(--comp-inline-validation-message);
   --comp-inline-validation-field-width: var(--component-inline-size-full);
@@ -7693,7 +7715,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-inline-validation-info: color-mix(in srgb, var(--component-color-action) 55%, var(--component-color-text));
   --comp-inline-validation-success: color-mix(in srgb, var(--component-color-success) 55%, var(--component-color-text));
   --comp-inline-validation-warning: color-mix(in srgb, var(--component-color-warning) 55%, var(--component-color-text));
-  --comp-inline-validation-danger: color-mix(in srgb, var(--sys-energy-status-error) 55%, var(--component-color-text));
+  --comp-inline-validation-danger: color-mix(in srgb, var(--component-energy-status-error) 55%, var(--component-color-text));
 }
 
 .inline-validation .field {
@@ -8047,11 +8069,11 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-plot-density-offset: 0px;
   --comp-chart-panel-plot-size: calc(var(--comp-chart-panel-plot-size-base) + var(--comp-chart-panel-plot-density-offset));
   --comp-chart-panel-donut-bg: color-mix(in srgb, var(--component-color-action) 10%, transparent);
-  --comp-chart-panel-series-1: var(--sys-chart-series-primary);
-  --comp-chart-panel-series-2: var(--sys-chart-series-secondary);
-  --comp-chart-panel-series-3: var(--sys-chart-series-quaternary);
-  --comp-chart-panel-series-4: color-mix(in srgb, var(--sys-chart-series-primary) 54%, var(--sys-chart-series-secondary));
-  --comp-chart-panel-series-5: var(--sys-chart-series-tertiary);
+  --comp-chart-panel-series-1: var(--component-chart-series-primary);
+  --comp-chart-panel-series-2: var(--component-chart-series-secondary);
+  --comp-chart-panel-series-3: var(--component-chart-series-quaternary);
+  --comp-chart-panel-series-4: color-mix(in srgb, var(--component-chart-series-primary) 54%, var(--component-chart-series-secondary));
+  --comp-chart-panel-series-5: var(--component-chart-series-tertiary);
   --comp-chart-panel-current-series: var(--comp-chart-panel-tone);
   --comp-chart-panel-comparison-reference-fill: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--component-color-border));
   --comp-chart-panel-stagger-delay: 0ms;
@@ -8840,23 +8862,23 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-station-pin-frame-padding-block: var(--component-space-sm);
   --comp-station-pin-frame-padding-inline: var(--component-space-md);
   --comp-station-pin-min-block-size: var(--component-map-pin-min-block-size-md);
-  --comp-station-pin-bg: var(--sys-map-pin-background);
-  --comp-station-pin-fg: var(--sys-map-pin-foreground);
-  --comp-station-pin-border: var(--sys-map-pin-border);
-  --comp-station-pin-hover-border: color-mix(in srgb, var(--sys-map-pin-action-color) 36%, var(--sys-map-pin-border));
+  --comp-station-pin-bg: var(--component-map-pin-background);
+  --comp-station-pin-fg: var(--component-map-pin-foreground);
+  --comp-station-pin-border: var(--component-map-pin-border);
+  --comp-station-pin-hover-border: color-mix(in srgb, var(--component-map-pin-action-color) 36%, var(--component-map-pin-border));
   --comp-station-pin-hover-depth: var(--component-depth-action-hover);
   --comp-station-pin-hover-transform: translateY(var(--component-lift-sm)) scale(var(--component-scale-hover));
-  --comp-station-pin-focus-color: var(--sys-map-focus-ring);
+  --comp-station-pin-focus-color: var(--component-map-focus-ring);
   --comp-station-pin-focus-offset: var(--component-focus-ring-offset);
   --comp-station-pin-focus-width: var(--component-focus-ring-width);
-  --comp-station-pin-marker-fg: var(--sys-map-pin-action-color);
+  --comp-station-pin-marker-fg: var(--component-map-pin-action-color);
   --comp-station-pin-pointer-shadow: var(--component-station-pin-pointer-shadow);
   --comp-station-pin-pointer-inset-block-start: calc(100% - var(--component-visually-hidden-size));
   --comp-station-pin-pointer-inset-inline-start: 50%;
   --comp-station-pin-pointer-transform: translateX(-50%);
   --comp-station-pin-position: var(--component-position-relative);
   --comp-station-pin-radius: var(--component-radius-pill);
-  --comp-station-pin-selected-depth: var(--sys-map-depth-selected);
+  --comp-station-pin-selected-depth: var(--component-map-depth-selected);
   --comp-station-pin-selected-transform: var(--component-transform-scale-raised);
   --comp-station-pin-transform-origin: center bottom;
   --comp-station-pin-white-space: var(--component-white-space-nowrap);
@@ -8922,10 +8944,10 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .station-pin[data-variant="cluster"] {
-  --comp-station-pin-bg: var(--sys-map-pin-cluster-background);
-  --comp-station-pin-fg: var(--sys-map-pin-cluster-foreground);
-  --comp-station-pin-border: var(--sys-map-pin-cluster-background);
-  --comp-station-pin-marker-fg: var(--sys-map-pin-cluster-foreground);
+  --comp-station-pin-bg: var(--component-map-pin-cluster-background);
+  --comp-station-pin-fg: var(--component-map-pin-cluster-foreground);
+  --comp-station-pin-border: var(--component-map-pin-cluster-background);
+  --comp-station-pin-marker-fg: var(--component-map-pin-cluster-foreground);
 }
 
 body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
@@ -8947,10 +8969,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .station-pin[data-state="selected"] {
-  --comp-station-pin-bg: var(--sys-map-pin-selected-background);
-  --comp-station-pin-fg: var(--sys-map-pin-selected-foreground);
-  --comp-station-pin-border: var(--sys-map-pin-selected-background);
-  --comp-station-pin-marker-fg: var(--sys-map-pin-selected-foreground);
+  --comp-station-pin-bg: var(--component-map-pin-selected-background);
+  --comp-station-pin-fg: var(--component-map-pin-selected-foreground);
+  --comp-station-pin-border: var(--component-map-pin-selected-background);
+  --comp-station-pin-marker-fg: var(--component-map-pin-selected-foreground);
   box-shadow: var(--comp-station-pin-selected-depth);
   transform: var(--comp-station-pin-selected-transform);
 }

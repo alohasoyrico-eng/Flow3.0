@@ -61,8 +61,8 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
     text,
     packageCssFile,
     snippets: [
-      "--comp-tabs-bg: var(--sys-energy-surface-sunken)",
-      "--comp-tabs-tab-bg-selected: var(--sys-energy-surface-primary)",
+      "--comp-tabs-bg: var(--component-energy-surface-sunken)",
+      "--comp-tabs-tab-bg-selected: var(--component-energy-surface-primary)",
       "--comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch)",
       "--comp-tabs-tab-min-block: var(--component-navigation-target-size-lg)",
       "--comp-tabs-tab-min-inline: var(--component-navigation-target-size-lg)",
