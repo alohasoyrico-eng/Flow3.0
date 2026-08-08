@@ -111,7 +111,7 @@ export const Slider = forwardRef(function Slider({
         type: "range",
         className: "slider__input",
         "data-slider-input": "",
-        "aria-label": label || undefined,
+        "aria-label": label,
         "aria-valuetext": formattedValue,
         "aria-invalid": normalizedState === "error" ? "true" : undefined,
         name,
