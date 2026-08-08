@@ -1947,6 +1947,13 @@
 }
 
 .badge {
+  --comp-badge-border-width: var(--component-border-width);
+  --comp-badge-radius: var(--component-radius-pill);
+  --comp-badge-font-size: var(--component-font-size-label);
+  --comp-badge-font-weight: var(--sys-voice-weight-bold);
+  --comp-badge-gap: var(--sys-space-xs);
+  --comp-badge-min-block-size: var(--component-badge-min-size);
+  --comp-badge-padding-inline: var(--sys-space-sm);
   --comp-badge-bg-neutral: var(--sys-color-surface-raised);
   --comp-badge-border-neutral: var(--sys-color-border);
   --comp-badge-fg-neutral: var(--sys-color-text-muted);
@@ -1970,17 +1977,39 @@
   --comp-badge-fg: var(--comp-badge-fg-neutral);
   --comp-badge-dot-size: var(--sys-frame-gap-element);
   --comp-badge-icon-size: var(--component-inline-size-xs);
+  --comp-badge-hover-shadow: var(--component-depth-action-hover);
+  --comp-badge-hover-transform: var(--component-transform-lift-sm);
+  --comp-badge-focus-width: var(--component-focus-ring-width);
+  --comp-badge-focus-color: var(--sys-color-focus);
+  --comp-badge-focus-offset: var(--component-focus-ring-offset);
+  --comp-badge-disabled-text: var(--component-disabled-text);
+  --comp-badge-disabled-opacity: var(--component-opacity-disabled);
+  --comp-badge-motion-duration: var(--component-duration-state);
+  --comp-badge-motion-ease: var(--component-ease-state);
+  --comp-badge-motion-press-ease: var(--component-ease-press);
+  --comp-badge-live-animation-duration: var(--component-duration-loop);
+  --comp-badge-live-animation-ease: var(--component-ease-state);
+  --comp-badge-live-opacity-rest: var(--sys-state-muted-opacity);
+  --comp-badge-live-opacity-active: var(--sys-state-visible-opacity);
+  --comp-badge-live-scale-rest: var(--component-scale-enter);
+  --comp-badge-live-scale-active: var(--component-scale-raised);
   background: var(--comp-badge-bg);
-  border-color: var(--comp-badge-border);
+  border: var(--comp-badge-border-width) solid var(--comp-badge-border);
+  border-radius: var(--comp-badge-radius);
   color: var(--comp-badge-fg);
+  font-size: var(--comp-badge-font-size);
+  font-weight: var(--comp-badge-font-weight);
+  gap: var(--comp-badge-gap);
+  min-block-size: var(--comp-badge-min-block-size);
   min-inline-size: var(--component-badge-min-size);
+  padding: 0 var(--comp-badge-padding-inline);
   justify-content: center;
   transition:
-    background-color var(--component-duration-state) var(--component-ease-state),
-    border-color var(--component-duration-state) var(--component-ease-state),
-    color var(--component-duration-state) var(--component-ease-state),
-    box-shadow var(--component-duration-state) var(--component-ease-state),
-    transform var(--component-duration-state) var(--component-ease-press);
+    background-color var(--comp-badge-motion-duration) var(--comp-badge-motion-ease),
+    border-color var(--comp-badge-motion-duration) var(--comp-badge-motion-ease),
+    color var(--comp-badge-motion-duration) var(--comp-badge-motion-ease),
+    box-shadow var(--comp-badge-motion-duration) var(--comp-badge-motion-ease),
+    transform var(--comp-badge-motion-duration) var(--comp-badge-motion-press-ease);
 }
 
 .badge[data-tone="info"] {
@@ -2061,13 +2090,13 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
 
 .badge[data-state="hover"],
 .badge[data-state="focus"] {
-  box-shadow: var(--component-depth-action-hover);
-  transform: var(--component-transform-lift-sm);
+  box-shadow: var(--comp-badge-hover-shadow);
+  transform: var(--comp-badge-hover-transform);
 }
 
 .badge[data-state="focus"] {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-badge-focus-width) solid var(--comp-badge-focus-color);
+  outline-offset: var(--comp-badge-focus-offset);
 }
 
 .badge[data-state="overflow"] .badge__label {
@@ -2075,26 +2104,26 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
 }
 
 .badge[data-state="disabled"] {
-  color: var(--component-disabled-text);
-  opacity: var(--component-opacity-disabled);
+  color: var(--comp-badge-disabled-text);
+  opacity: var(--comp-badge-disabled-opacity);
 }
 
 .badge[data-live="true"] .badge__live {
-  animation: badge-live-dot var(--component-duration-loop) var(--component-ease-state) infinite;
+  animation: badge-live-dot var(--comp-badge-live-animation-duration) var(--comp-badge-live-animation-ease) infinite;
 }
 
 @keyframes badge-live-dot {
   0%,
   100% {
     box-shadow: var(--component-depth-live-rest);
-    opacity: 0.72;
-    transform: scale(0.9);
+    opacity: var(--comp-badge-live-opacity-rest);
+    transform: scale(var(--comp-badge-live-scale-rest));
   }
 
   50% {
     box-shadow: var(--component-depth-live-active);
-    opacity: 1;
-    transform: scale(1.18);
+    opacity: var(--comp-badge-live-opacity-active);
+    transform: scale(var(--comp-badge-live-scale-active));
   }
 }
 
