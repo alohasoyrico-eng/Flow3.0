@@ -89,6 +89,30 @@ function checkAntiDuplicationGovernance() {
   checkReactComponentClassOwnership();
 }
 
+function antiDuplicationCoverage() {
+  return {
+    docsApps: docsAppDirs.map((dir) => normalize(path.relative(root, dir))),
+    componentClassRoots: [...componentClassRoots].sort(),
+    duplicateConcepts: duplicateConceptClassPatterns.map((item) => ({
+      concept: item.concept,
+      classNames: item.classNames,
+    })),
+    protectedComponentRoots: [...protectedComponentRoots].sort(),
+    docsAllowedComponentAuthors: [...docsAllowedComponentAuthors].sort(),
+    docsAllowedPackageClassTokens: [...docsAllowedPackageClassTokens.entries()].map(([file, tokens]) => ({
+      file,
+      tokens: [...tokens].sort(),
+    })),
+    checks: [
+      "docs package component class ownership",
+      "known duplicate concept classes",
+      "primitive interactive DOM factories",
+      "React-only component boundaries",
+      "React component class ownership",
+    ],
+  };
+}
+
 function checkDocsDoNotOwnPackageComponentMarkup() {
   for (const dir of docsAppDirs) {
     for (const file of walkFiles(dir, (candidate) => /\.js$/.test(candidate))) {
@@ -331,4 +355,4 @@ function lineForIndex(text, index) {
   return text.slice(0, index).split("\n").length;
 }
 
-module.exports = { checkAntiDuplicationGovernance };
+module.exports = { checkAntiDuplicationGovernance, antiDuplicationCoverage };

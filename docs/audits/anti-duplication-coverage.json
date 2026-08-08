@@ -1,0 +1,104 @@
+{
+  "status": "pass",
+  "errors": [],
+  "docsApps": [
+    "../FlowDocs/apps/docs"
+  ],
+  "componentClassRoots": [
+    "accordion",
+    "animated-moment",
+    "audit-event",
+    "avatar",
+    "badge",
+    "biometric-prompt",
+    "breadcrumbs",
+    "button",
+    "card",
+    "chart-panel",
+    "checkbox",
+    "chip",
+    "code-input",
+    "combobox",
+    "country-flag",
+    "country-selector",
+    "dialog",
+    "drawer",
+    "empty-state",
+    "error-panel",
+    "fab",
+    "field",
+    "icon-button",
+    "inline-validation",
+    "kpi-tile",
+    "list",
+    "menu",
+    "motion-boundary",
+    "movement-row",
+    "pagination",
+    "phone-input",
+    "popover",
+    "progress",
+    "quick-action",
+    "radio",
+    "route-summary",
+    "segmented-control",
+    "select",
+    "skeleton",
+    "slider",
+    "spinner",
+    "station-pin",
+    "stepper",
+    "switch",
+    "table",
+    "tabs",
+    "tag",
+    "text-area",
+    "toast",
+    "tooltip",
+    "tree-view"
+  ],
+  "duplicateConcepts": [
+    {
+      "concept": "search",
+      "classNames": [
+        "pattern-topbar-search",
+        "topbar-search",
+        "top-search",
+        "pattern-search-results"
+      ]
+    },
+    {
+      "concept": "account menu",
+      "classNames": [
+        "pattern-account-menu"
+      ]
+    }
+  ],
+  "protectedComponentRoots": [
+    "button",
+    "card",
+    "dialog",
+    "drawer",
+    "menu",
+    "popover"
+  ],
+  "docsAllowedComponentAuthors": [
+    "apps/docs/component-demo.js",
+    "apps/docs/react-component-islands.js"
+  ],
+  "docsAllowedPackageClassTokens": [
+    {
+      "file": "apps/docs/docs-layout.js",
+      "tokens": [
+        "tag"
+      ]
+    }
+  ],
+  "checks": [
+    "docs package component class ownership",
+    "known duplicate concept classes",
+    "primitive interactive DOM factories",
+    "React-only component boundaries",
+    "React component class ownership"
+  ]
+}
