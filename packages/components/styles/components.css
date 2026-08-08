@@ -4528,8 +4528,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   opacity: var(--comp-floating-action-button-disabled-opacity);
 }
 
-.breadcrumbs ol,
-.pagination {
+.breadcrumbs ol {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -4662,9 +4661,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .pagination {
+  --comp-pagination-align: center;
+  --comp-pagination-button-align: center;
+  --comp-pagination-button-bg: transparent;
+  --comp-pagination-button-border: 0;
+  --comp-pagination-button-display: inline-flex;
+  --comp-pagination-button-justify: center;
+  --comp-pagination-current-cursor: default;
   --comp-pagination-size: calc(var(--component-control-min-size) - var(--sys-space-sm));
   --comp-pagination-gap: var(--sys-space-xs);
   --comp-pagination-radius: var(--component-radius-pill);
+  --comp-pagination-cursor: pointer;
+  --comp-pagination-disabled-cursor: default;
   --comp-pagination-fg: var(--sys-color-text-subtle);
   --comp-pagination-font-family: var(--component-font-family-mono);
   --comp-pagination-font-size: var(--component-font-size-small);
@@ -4689,29 +4697,33 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-motion-ease: var(--component-ease-state);
   --comp-pagination-motion-enter: var(--component-ease-enter);
   --comp-pagination-press-transform: var(--component-transform-press);
-  align-items: center;
-  display: inline-flex;
-  flex-wrap: wrap;
+  --comp-pagination-wrap: wrap;
+  --comp-pagination-width: fit-content;
+  --comp-pagination-full-width: 100%;
+  align-items: var(--comp-pagination-align);
+  display: var(--comp-pagination-button-display);
+  flex-wrap: var(--comp-pagination-wrap);
   gap: var(--comp-pagination-gap);
+  inline-size: var(--comp-pagination-width);
 }
 
 .pagination[data-full-width="true"] {
-  inline-size: 100%;
+  inline-size: var(--comp-pagination-full-width);
 }
 
 .pagination__button {
-  align-items: center;
+  align-items: var(--comp-pagination-button-align);
   appearance: none;
-  background: transparent;
-  border: 0;
+  background: var(--comp-pagination-button-bg);
+  border: var(--comp-pagination-button-border);
   border-radius: var(--comp-pagination-radius);
   color: var(--comp-pagination-fg);
-  cursor: pointer;
-  display: inline-flex;
+  cursor: var(--comp-pagination-cursor);
+  display: var(--comp-pagination-button-display);
   font-family: var(--comp-pagination-font-family);
   font-size: var(--comp-pagination-font-size);
   font-weight: var(--comp-pagination-font-weight);
-  justify-content: center;
+  justify-content: var(--comp-pagination-button-justify);
   min-block-size: var(--comp-pagination-size);
   min-inline-size: var(--comp-pagination-size);
   padding-inline: var(--comp-pagination-padding-inline);
@@ -4744,13 +4756,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-pagination-current-bg);
   box-shadow: var(--comp-pagination-current-shadow);
   color: var(--comp-pagination-current-fg);
-  cursor: default;
+  cursor: var(--comp-pagination-current-cursor);
   font-weight: var(--comp-pagination-current-weight);
 }
 
 .pagination__button:disabled,
 .pagination[data-state="disabled"] .pagination__button {
-  cursor: default;
+  cursor: var(--comp-pagination-disabled-cursor);
   opacity: var(--comp-pagination-disabled-opacity);
 }
 
@@ -4761,13 +4773,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .pagination__ellipsis {
-  align-items: center;
+  align-items: var(--comp-pagination-button-align);
   color: var(--comp-pagination-ellipsis-fg);
-  display: inline-flex;
+  display: var(--comp-pagination-button-display);
   font-family: var(--comp-pagination-font-family);
   font-size: var(--comp-pagination-font-size);
   font-weight: var(--comp-pagination-font-weight);
-  justify-content: center;
+  justify-content: var(--comp-pagination-button-justify);
   min-block-size: var(--comp-pagination-size);
   min-inline-size: var(--comp-pagination-ellipsis-inline-size);
 }
@@ -4775,10 +4787,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .pagination[data-density="sm"] {
   --comp-pagination-size: var(--button-size-sm);
   --comp-pagination-gap: var(--component-focus-ring-offset);
+  --comp-pagination-padding-inline: var(--sys-space-xs);
 }
 
 .pagination[data-density="lg"] {
   --comp-pagination-size: var(--component-control-min-size);
+  --comp-pagination-gap: var(--sys-space-sm);
+  --comp-pagination-padding-inline: var(--sys-space-md);
 }
 
 @keyframes pagination-current-enter {
