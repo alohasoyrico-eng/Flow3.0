@@ -36,6 +36,7 @@
   --component-drawer-panel-inline-lg: var(--sys-frame-content-drawer-lg);
   --component-date-picker-panel-inline-size: var(--sys-frame-content-date-panel);
   --component-date-range-picker-panel-inline-size: var(--sys-frame-content-date-range-panel);
+  --component-date-range-picker-preset-min-block-size: var(--sys-frame-content-date-range-preset-min-block);
   --component-country-selector-inline-listbox-max-inline-size: var(--sys-frame-content-country-listbox-max-inline);
   --component-country-selector-inline-listbox-inline-size: var(--sys-frame-content-country-listbox-inline);
   --component-phone-input-flex-basis: var(--sys-frame-content-phone-input-flex-basis);
@@ -10038,7 +10039,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-date-range-picker-preset-radius: var(--component-radius-pill);
   --comp-date-range-picker-preset-font-size: var(--component-font-size-caption);
   --comp-date-range-picker-preset-font-weight: var(--sys-voice-weight-extrabold);
-  --comp-date-range-picker-preset-min-block-size: calc(var(--component-control-min-size) - var(--sys-space-lg) - var(--component-offset-xs));
+  --comp-date-range-picker-preset-min-block-size: var(--component-date-range-picker-preset-min-block-size);
   --comp-date-range-picker-preset-padding-inline: var(--sys-space-sm);
   --comp-date-range-picker-range-bg: color-mix(in srgb, var(--sys-color-action) 14%, var(--sys-color-surface));
   --comp-date-range-picker-range-fg: var(--sys-color-text);

@@ -19,6 +19,10 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
   const dateRangePanelBlock = blockFor(blocks, selectorKey, ".date-range-picker__panel");
   const dateRangePresetBlock = blockFor(blocks, selectorKey, ".date-range-picker__preset");
   const dateRangeDayBlock = blockFor(blocks, selectorKey, ".date-range-picker__day[data-in-range=\"true\"]");
+  const localPresetMinBlock = /--comp-date-range-picker-preset-min-block-size:\s*calc\(var\(--component-control-min-size\)\s*[+-][^;]+;/.exec(text);
+  if (localPresetMinBlock) {
+    add("errors", packageCssFile, lineNumber(text, localPresetMinBlock.index), "DateRangePicker preset sizing must flow through shared Frame date range preset roles instead of local control-size math.");
+  }
 
   requireIncludes({
     block: datePickerBlock,
@@ -93,6 +97,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
     packageCssFile,
     snippets: [
       "--comp-date-range-picker-panel-inline-size: var(--component-date-range-picker-panel-inline-size)",
+      "--comp-date-range-picker-preset-min-block-size: var(--component-date-range-picker-preset-min-block-size)",
       "--comp-date-range-picker-preset-radius: var(--component-radius-pill)",
       "--comp-date-range-picker-motion-duration: var(--component-duration-state)",
     ],
