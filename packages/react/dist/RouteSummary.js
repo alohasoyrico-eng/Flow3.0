@@ -8,6 +8,11 @@ const validVariants = new Set(["standard", "compact", "compare", "policy"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "warning", "disabled"]);
 const validTones = new Set(["neutral", "info", "warning"]);
 
+function isValidRouteAction(action, compact) {
+  if (!action) return false;
+  return compact ? Boolean(action.label || action.ariaLabel) : Boolean(action.label);
+}
+
 function renderAction(action, index, { compact, density, disabled }) {
   const actionDisabled = Boolean(disabled || action?.disabled);
   const actionKey = action?.key ?? action?.label ?? `action-${index}`;
@@ -66,6 +71,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
   const isDisabled = resolvedState === "disabled";
   const isCompact = resolvedVariant === "compact";
   const visibleMetrics = metrics.filter((metric) => metric?.label && metric?.value);
+  const visibleActions = Array.isArray(actions) ? actions.filter((action) => isValidRouteAction(action, isCompact)) : [];
 
   return React.createElement(
     "article",
@@ -107,11 +113,11 @@ export const RouteSummary = forwardRef(function RouteSummary({
           )),
         )
       : null,
-    actions?.length
+    visibleActions.length
       ? React.createElement(
           "footer",
           null,
-          actions.map((action, index) => renderAction(action, index, { compact: isCompact, density: resolvedDensity || undefined, disabled: isDisabled })),
+          visibleActions.map((action, index) => renderAction(action, index, { compact: isCompact, density: resolvedDensity || undefined, disabled: isDisabled })),
         )
       : null,
   );

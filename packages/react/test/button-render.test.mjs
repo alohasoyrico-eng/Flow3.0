@@ -293,6 +293,7 @@ const unnamedCompactRouteActionMarkup = renderToStaticMarkup(React.createElement
 }));
 assert.doesNotMatch(unnamedCompactRouteActionMarkup, /Route action/);
 assert.doesNotMatch(unnamedCompactRouteActionMarkup.match(/<button[^>]+>/)?.[0] ?? "", /aria-label=/);
+assert.doesNotMatch(unnamedCompactRouteActionMarkup, /class="icon-button/);
 
 const incompleteMetricRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Airport run",
