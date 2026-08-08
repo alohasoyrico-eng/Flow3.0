@@ -3794,18 +3794,52 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .skeleton {
   --comp-skeleton-width: min(100%, var(--component-content-size-md));
   --skeleton-width: var(--comp-skeleton-width);
+  --comp-skeleton-gap: var(--sys-space-sm);
+  --comp-skeleton-fg: var(--sys-color-text-muted);
   --comp-skeleton-bg: var(--component-loading-skeleton-surface);
   --comp-skeleton-highlight: var(--component-loading-skeleton-highlight);
   --comp-skeleton-gradient: linear-gradient(90deg, var(--comp-skeleton-bg) 25%, var(--comp-skeleton-highlight) 50%, var(--comp-skeleton-bg) 75%);
+  --comp-skeleton-background-size: 200% 100%;
+  --comp-skeleton-radius: var(--component-radius-pill);
+  --comp-skeleton-bone-block-size: var(--component-field-gap);
+  --comp-skeleton-text-block-size: var(--sys-symbol-size-marker);
+  --comp-skeleton-title-width: 60%;
+  --comp-skeleton-title-block-size: var(--sys-symbol-size-md-plus);
+  --comp-skeleton-title-radius: var(--sys-radius-sm);
+  --comp-skeleton-circle-width: var(--component-control-min-size);
+  --comp-skeleton-pill-width: var(--component-content-size-xs);
+  --comp-skeleton-pill-block-size: var(--component-skeleton-pill-block-size);
+  --comp-skeleton-card-block-size: var(--component-skeleton-card-block-size);
+  --comp-skeleton-card-radius: var(--sys-radius-md);
+  --comp-skeleton-row-template: var(--component-control-min-size) minmax(0, 1fr) var(--component-block-size-sm);
+  --comp-skeleton-row-min-block: var(--component-block-size-sm);
+  --comp-skeleton-media-block-size: var(--component-block-size-md);
+  --comp-skeleton-chart-block-size: var(--component-block-size-lg);
+  --comp-skeleton-table-width: min(100%, var(--component-content-size-lg));
+  --comp-skeleton-table-gap: var(--sys-space-xs);
+  --comp-skeleton-table-row-gap: var(--sys-space-sm);
+  --comp-skeleton-table-row-min-block: var(--component-inline-size-md);
+  --comp-skeleton-table-cell-block-size: var(--sys-symbol-size-marker);
+  --comp-skeleton-table-header-block-size: var(--component-field-gap);
+  --comp-skeleton-line-compact-inline: 90%;
+  --comp-skeleton-line-short-inline: 60%;
+  --comp-skeleton-cell-short-inline: 68%;
+  --comp-skeleton-cell-medium-inline: 82%;
+  --comp-skeleton-paused-bg: color-mix(in srgb, var(--sys-color-warning) 14%, var(--sys-color-surface-sunken));
+  --comp-skeleton-loaded-opacity: var(--component-loading-stale-opacity);
+  --comp-skeleton-disabled-fg: var(--component-disabled-text);
+  --comp-skeleton-disabled-opacity: var(--sys-disabled-opacity);
   --comp-skeleton-shimmer-duration: var(--component-duration-shimmer);
   --comp-skeleton-shimmer-easing: var(--component-ease-loading-rhythm);
+  --comp-skeleton-state-duration: var(--component-duration-state);
+  --comp-skeleton-state-ease: var(--component-ease-state);
   display: grid;
-  gap: var(--sys-space-sm);
+  gap: var(--comp-skeleton-gap);
   inline-size: var(--skeleton-width);
   max-inline-size: 100%;
   overflow: hidden;
-  color: var(--sys-color-text-muted);
-  transition: opacity var(--component-duration-state) var(--component-ease-state);
+  color: var(--comp-skeleton-fg);
+  transition: opacity var(--comp-skeleton-state-duration) var(--comp-skeleton-state-ease);
 }
 
 .skeleton[data-full-width="true"] {
@@ -3814,104 +3848,104 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .skeleton__bone {
   background-image: var(--comp-skeleton-gradient);
-  background-size: 200% 100%;
-  border-radius: var(--component-radius-pill);
-  block-size: var(--component-field-gap);
+  background-size: var(--comp-skeleton-background-size);
+  border-radius: var(--comp-skeleton-radius);
+  block-size: var(--comp-skeleton-bone-block-size);
   display: block;
   inline-size: 100%;
   animation: skeleton-shimmer var(--comp-skeleton-shimmer-duration) var(--comp-skeleton-shimmer-easing) infinite;
 }
 
 .skeleton--text .skeleton__bone {
-  block-size: var(--skeleton-height, var(--sys-symbol-size-marker));
+  block-size: var(--skeleton-height, var(--comp-skeleton-text-block-size));
 }
 
 .skeleton--title {
-  --skeleton-width: 60%;
+  --skeleton-width: var(--comp-skeleton-title-width);
   inline-size: var(--skeleton-width);
 }
 
 .skeleton--title .skeleton__bone {
-  block-size: var(--skeleton-height, var(--sys-symbol-size-md-plus));
-  border-radius: var(--sys-radius-sm);
+  block-size: var(--skeleton-height, var(--comp-skeleton-title-block-size));
+  border-radius: var(--comp-skeleton-title-radius);
 }
 
 .skeleton--circle {
-  --skeleton-width: var(--component-control-min-size);
+  --skeleton-width: var(--comp-skeleton-circle-width);
   inline-size: var(--skeleton-width);
 }
 
 .skeleton--circle .skeleton__bone {
-  block-size: var(--skeleton-height, var(--skeleton-width, var(--component-control-min-size)));
-  border-radius: var(--component-radius-pill);
+  block-size: var(--skeleton-height, var(--skeleton-width, var(--comp-skeleton-circle-width)));
+  border-radius: var(--comp-skeleton-radius);
 }
 
 .skeleton--pill {
-  --skeleton-width: var(--component-content-size-xs);
+  --skeleton-width: var(--comp-skeleton-pill-width);
   inline-size: var(--skeleton-width);
 }
 
 .skeleton--pill .skeleton__bone {
-  block-size: var(--skeleton-height, var(--component-skeleton-pill-block-size));
-  border-radius: var(--component-radius-pill);
+  block-size: var(--skeleton-height, var(--comp-skeleton-pill-block-size));
+  border-radius: var(--comp-skeleton-radius);
 }
 
 .skeleton--card .skeleton__bone:first-child {
-  block-size: var(--skeleton-height, var(--component-skeleton-card-block-size));
-  border-radius: var(--sys-radius-md);
+  block-size: var(--skeleton-height, var(--comp-skeleton-card-block-size));
+  border-radius: var(--comp-skeleton-card-radius);
 }
 
 .skeleton--row {
   align-items: center;
-  grid-template-columns: var(--component-control-min-size) minmax(0, 1fr) var(--component-block-size-sm);
-  min-block-size: var(--component-block-size-sm);
+  grid-template-columns: var(--comp-skeleton-row-template);
+  min-block-size: var(--comp-skeleton-row-min-block);
 }
 
 .skeleton--row .skeleton__bone:first-child {
-  block-size: var(--component-control-min-size);
-  border-radius: var(--component-radius-pill);
+  block-size: var(--comp-skeleton-circle-width);
+  border-radius: var(--comp-skeleton-radius);
 }
 
 .skeleton--media .skeleton__bone:first-child {
-  block-size: var(--component-block-size-md);
-  border-radius: var(--sys-radius-md);
+  block-size: var(--comp-skeleton-media-block-size);
+  border-radius: var(--comp-skeleton-card-radius);
 }
 
 .skeleton--chart .skeleton__bone:first-child {
-  block-size: var(--component-block-size-lg);
-  border-radius: var(--sys-radius-md);
+  block-size: var(--comp-skeleton-chart-block-size);
+  border-radius: var(--comp-skeleton-card-radius);
 }
 
 .skeleton--table {
-  --skeleton-width: min(100%, var(--component-content-size-lg));
+  --skeleton-width: var(--comp-skeleton-table-width);
   inline-size: var(--skeleton-width);
-  gap: var(--sys-space-xs);
+  gap: var(--comp-skeleton-table-gap);
 }
 
 .skeleton--table .skeleton__row {
   display: grid;
   grid-template-columns: repeat(var(--skeleton-columns, 4), minmax(0, 1fr));
-  gap: var(--sys-space-sm);
+  gap: var(--comp-skeleton-table-row-gap);
   align-items: center;
-  min-block-size: var(--component-inline-size-md);
+  min-block-size: var(--comp-skeleton-table-row-min-block);
 }
 
 .skeleton--table .skeleton__bone {
-  block-size: var(--skeleton-height, var(--sys-symbol-size-marker));
+  block-size: var(--skeleton-height, var(--comp-skeleton-table-cell-block-size));
   inline-size: 100%;
 }
 
 .skeleton--table .skeleton__row:first-child .skeleton__bone {
-  block-size: var(--component-field-gap);
+  block-size: var(--comp-skeleton-table-header-block-size);
 }
 
 .skeleton[data-state="paused"] .skeleton__bone {
-  --comp-skeleton-bg: color-mix(in srgb, var(--sys-color-warning) 14%, var(--sys-color-surface-sunken));
+  --comp-skeleton-bg: var(--comp-skeleton-paused-bg);
   animation-play-state: paused;
 }
 
 .skeleton[data-state="loaded"] {
-  opacity: var(--component-loading-stale-opacity);
+  opacity: var(--comp-skeleton-loaded-opacity);
 }
 
 .skeleton[data-state="loaded"] .skeleton__bone,
@@ -3920,30 +3954,30 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .skeleton[data-state="disabled"] {
-  color: var(--component-disabled-text);
-  opacity: var(--sys-disabled-opacity);
+  color: var(--comp-skeleton-disabled-fg);
+  opacity: var(--comp-skeleton-disabled-opacity);
 }
 
 .skeleton--text .skeleton__bone:nth-child(2),
 .skeleton--card .skeleton__bone:nth-child(2),
 .skeleton--media .skeleton__bone:nth-child(2),
 .skeleton--chart .skeleton__bone:nth-child(2) {
-  inline-size: 90%;
+  inline-size: var(--comp-skeleton-line-compact-inline);
 }
 
 .skeleton--text .skeleton__bone:last-child,
 .skeleton--card .skeleton__bone:last-child,
 .skeleton--media .skeleton__bone:last-child,
 .skeleton--chart .skeleton__bone:last-child {
-  inline-size: 60%;
+  inline-size: var(--comp-skeleton-line-short-inline);
 }
 
 .skeleton--table .skeleton__row:nth-child(even) .skeleton__cell:last-child {
-  inline-size: 68%;
+  inline-size: var(--comp-skeleton-cell-short-inline);
 }
 
 .skeleton--table .skeleton__row:nth-child(odd) .skeleton__cell:nth-child(2) {
-  inline-size: 82%;
+  inline-size: var(--comp-skeleton-cell-medium-inline);
 }
 
 .empty-state {
