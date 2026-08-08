@@ -42,6 +42,10 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
   if (/\.breadcrumbs ol,\s*\.pagination\s*{/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".breadcrumbs ol")), "Breadcrumbs must not share its root list layout block with Pagination.");
   }
+  const localTargetSize = /--comp-breadcrumbs-target-block:\s*var\(--component-control-min-size\)/.exec(text);
+  if (localTargetSize) {
+    add("errors", packageCssFile, lineNumber(text, localTargetSize.index), "Breadcrumbs target size must consume navigation target roles instead of the generic control min size.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -53,7 +57,7 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
       "--comp-breadcrumbs-list-wrap: wrap",
       "--comp-breadcrumbs-item-display: inline-flex",
       "--comp-breadcrumbs-target-display: inline-flex",
-      "--comp-breadcrumbs-target-block: var(--component-control-min-size)",
+      "--comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg)",
       "--comp-breadcrumbs-width: fit-content",
       "--comp-breadcrumbs-full-width: 100%",
       "color: var(--comp-breadcrumbs-target-fg)",
@@ -170,6 +174,13 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
       message,
     });
   }
+  requireIncludes({
+    block: densityLgBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg)"],
+    message: "Breadcrumbs mobile/large density must consume the large navigation target role.",
+  });
   requireIncludes({
     block: stateFocusBlock,
     text,

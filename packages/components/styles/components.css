@@ -4632,7 +4632,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-target-display: inline-flex;
   --comp-breadcrumbs-target-justify: center;
   --comp-breadcrumbs-target-decoration: none;
-  --comp-breadcrumbs-target-block: var(--component-control-min-size);
+  --comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg);
   --comp-breadcrumbs-target-padding-inline: var(--sys-space-xs);
   --comp-breadcrumbs-target-radius: var(--sys-radius-sm);
   --comp-breadcrumbs-font-size: var(--component-font-size-small);
@@ -4741,7 +4741,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .breadcrumbs[data-variant="mobile"],
 .breadcrumbs[data-density="lg"] {
-  --comp-breadcrumbs-target-block: var(--component-control-min-size);
+  --comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg);
   --comp-breadcrumbs-target-padding-inline: var(--sys-space-sm);
   --comp-breadcrumbs-font-size: var(--component-font-size-label);
 }
