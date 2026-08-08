@@ -1,0 +1,723 @@
+{
+  "status": "pass",
+  "audit": "react default governance",
+  "principle": "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic defaults may exist only as visible contract decisions.",
+  "inventory": {
+    "components": 56,
+    "prohibitedDefaults": 0,
+    "semanticDefaults": 86,
+    "semanticByRule": [
+      {
+        "rule": "state-default",
+        "description": "Component behavior default; allowed when normalized through component state.",
+        "count": 30
+      },
+      {
+        "rule": "variant-default",
+        "description": "Component composition default; allowed when constrained by the component contract.",
+        "count": 40
+      },
+      {
+        "rule": "tone-default",
+        "description": "Component tone fallback; allowed when constrained by the component contract.",
+        "count": 14
+      },
+      {
+        "rule": "intent-default",
+        "description": "Action intent fallback; allowed when constrained by the component contract.",
+        "count": 2
+      }
+    ]
+  },
+  "prohibitedDefaults": [],
+  "semanticDefaults": [
+    {
+      "component": "AnimatedMoment",
+      "file": "packages/react/src/AnimatedMoment.js",
+      "line": 21,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"success\","
+    },
+    {
+      "component": "AuditEvent",
+      "file": "packages/react/src/AuditEvent.js",
+      "line": 25,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "AuditEvent",
+      "file": "packages/react/src/AuditEvent.js",
+      "line": 26,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Avatar",
+      "file": "packages/react/src/Avatar.js",
+      "line": 42,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "line": 17,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "function normalizeState({ hidden = false, state = \"default\" } = {}) {"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "line": 24,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "line": 25,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"status\","
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "line": 26,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "BiometricPrompt",
+      "file": "packages/react/src/BiometricPrompt.js",
+      "line": 30,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"fingerprint\","
+    },
+    {
+      "component": "BiometricPrompt",
+      "file": "packages/react/src/BiometricPrompt.js",
+      "line": 31,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Breadcrumbs",
+      "file": "packages/react/src/Breadcrumbs.js",
+      "line": 45,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\","
+    },
+    {
+      "component": "Breadcrumbs",
+      "file": "packages/react/src/Breadcrumbs.js",
+      "line": 46,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 8,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "function buttonClassName({ variant = \"primary\", intent = \"default\", className = \"\" } = {}) {"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 8,
+      "rule": "intent-default",
+      "description": "Action intent fallback; allowed when constrained by the component contract.",
+      "text": "function buttonClassName({ variant = \"primary\", intent = \"default\", className = \"\" } = {}) {"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 20,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"primary\","
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 21,
+      "rule": "intent-default",
+      "description": "Action intent fallback; allowed when constrained by the component contract.",
+      "text": "intent = \"default\","
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 23,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "line": 63,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\","
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "line": 65,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "CardSummary",
+      "file": "packages/react/src/CardSummary.js",
+      "line": 23,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"physical\","
+    },
+    {
+      "component": "CardSummary",
+      "file": "packages/react/src/CardSummary.js",
+      "line": 24,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "line": 220,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"sparkline\","
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "line": 221,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "line": 222,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "Checkbox",
+      "file": "packages/react/src/Checkbox.js",
+      "line": 20,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\","
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "line": 18,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "function normalizeState({ disabled = false, selected = false, state = \"default\" } = {}) {"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "line": 27,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"filter\","
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "line": 28,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"default\","
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "line": 29,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "CodeInput",
+      "file": "packages/react/src/CodeInput.js",
+      "line": 31,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"sms\","
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "line": 34,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "line": 35,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"confirmation\","
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "line": 76,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"side-sheet\","
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "line": 78,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "EmptyState",
+      "file": "packages/react/src/EmptyState.js",
+      "line": 23,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"first-use\","
+    },
+    {
+      "component": "EmptyState",
+      "file": "packages/react/src/EmptyState.js",
+      "line": 24,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "line": 30,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"error\","
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "line": 31,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"panel\","
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.js",
+      "line": 13,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"primary\","
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.js",
+      "line": 14,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.js",
+      "line": 7,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "function iconButtonClassName({ variant = \"ghost\", className = \"\" } = {}) {"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.js",
+      "line": 15,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"ghost\","
+    },
+    {
+      "component": "InlineValidation",
+      "file": "packages/react/src/InlineValidation.js",
+      "line": 20,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Input",
+      "file": "packages/react/src/Input.js",
+      "line": 76,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"text\","
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "line": 27,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "line": 29,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\","
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "line": 30,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "List",
+      "file": "packages/react/src/List.js",
+      "line": 13,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\","
+    },
+    {
+      "component": "List",
+      "file": "packages/react/src/List.js",
+      "line": 14,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "line": 29,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"actions\","
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "line": 33,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "MotionBoundary",
+      "file": "packages/react/src/MotionBoundary.js",
+      "line": 17,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"fade\","
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "line": 23,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\","
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "line": 24,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Pagination",
+      "file": "packages/react/src/Pagination.js",
+      "line": 53,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"numbered\","
+    },
+    {
+      "component": "Pagination",
+      "file": "packages/react/src/Pagination.js",
+      "line": 54,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "PhoneInput",
+      "file": "packages/react/src/PhoneInput.js",
+      "line": 56,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"country-code\","
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "line": 21,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"information\","
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "line": 22,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "ProgressIndicator",
+      "file": "packages/react/src/ProgressIndicator.js",
+      "line": 34,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"accent\","
+    },
+    {
+      "component": "QuickAction",
+      "file": "packages/react/src/QuickAction.js",
+      "line": 16,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "QuickAction",
+      "file": "packages/react/src/QuickAction.js",
+      "line": 19,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "RadioButton",
+      "file": "packages/react/src/RadioButton.js",
+      "line": 19,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\","
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "line": 57,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\","
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "line": 58,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "line": 60,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "SegmentedControl",
+      "file": "packages/react/src/SegmentedControl.js",
+      "line": 42,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"outlined\","
+    },
+    {
+      "component": "Select",
+      "file": "packages/react/src/Select.js",
+      "line": 26,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\","
+    },
+    {
+      "component": "Select",
+      "file": "packages/react/src/Select.js",
+      "line": 27,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Skeleton",
+      "file": "packages/react/src/Skeleton.js",
+      "line": 79,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"text\","
+    },
+    {
+      "component": "Slider",
+      "file": "packages/react/src/Slider.js",
+      "line": 38,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"continuous\","
+    },
+    {
+      "component": "Slider",
+      "file": "packages/react/src/Slider.js",
+      "line": 39,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Spinner",
+      "file": "packages/react/src/Spinner.js",
+      "line": 20,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"accent\","
+    },
+    {
+      "component": "StationPin",
+      "file": "packages/react/src/StationPin.js",
+      "line": 15,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"fuel\","
+    },
+    {
+      "component": "StationPin",
+      "file": "packages/react/src/StationPin.js",
+      "line": 16,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "line": 36,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\","
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "line": 37,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Tabs",
+      "file": "packages/react/src/Tabs.js",
+      "line": 36,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\","
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "line": 18,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "function normalizeState({ disabled = false, state = \"default\" } = {}) {"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "line": 25,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"metadata\","
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "line": 26,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "line": 27,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "line": 22,
+      "rule": "tone-default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "line": 23,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"status\","
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "line": 19,
+      "rule": "variant-default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\","
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "line": 21,
+      "rule": "state-default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    }
+  ]
+}
