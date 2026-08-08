@@ -6,7 +6,6 @@ const validTones = new Set(["neutral", "info", "success", "warning", "danger", "
 const validStates = new Set(["default", "hover", "focus", "verified", "warning", "critical", "disabled"]);
 
 function statusFor(state, tone, status) {
-  const statusText = status || "";
   const statusTone = state === "verified"
     ? "success"
     : state === "warning"
@@ -14,19 +13,19 @@ function statusFor(state, tone, status) {
       : state === "critical"
         ? "danger"
         : normalizeFlowValue(tone, validTones, "neutral");
-  return { statusText, statusTone };
+  return { statusText: status, statusTone };
 }
 
 export const AuditEvent = forwardRef(function AuditEvent({
   label,
-  description = "",
-  meta = "",
-  status = "",
+  description,
+  meta,
+  status,
   icon = "",
   tone = "neutral",
   state = "default",
   density,
-  timestamp = "",
+  timestamp,
   className = "",
   ...rest
 }, ref) {
