@@ -1175,7 +1175,8 @@ const unnamedTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   columns: tableColumns,
   rows: tableRows,
 }));
-assert.doesNotMatch(unnamedTableMarkup, /aria-label="Table"/);
+assert.equal(unnamedTableMarkup, "");
+assert.doesNotMatch(unnamedTableMarkup, /class="table"|aria-label="Table"/);
 const unlabeledColumnTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   label: "Guarded columns",
   variant: "sortable",
@@ -1194,6 +1195,7 @@ const unstableRowTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   columns: tableColumns.slice(0, 2),
   rows: [{ plate: "NO-ID", status: "Draft" }],
 }));
+assert.equal(unstableRowTableMarkup, "");
 assert.doesNotMatch(unstableRowTableMarkup, /NO-ID|data-key="undefined"/);
 
 const decorativeSelectedTableMarkup = renderToStaticMarkup(React.createElement(Table, {

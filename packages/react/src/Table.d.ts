@@ -35,7 +35,7 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"
   columns: TableColumn[];
   rows: TableRow[];
   rowKey?: string;
-  label?: string;
+  label: string;
   variant?: TableVariant;
   state?: TableState;
   density?: TableDensity;

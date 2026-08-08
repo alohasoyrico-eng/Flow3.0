@@ -28,10 +28,10 @@ function renderCell(value, density) {
 }
 
 export const Table = forwardRef(function Table({
-  columns = [],
-  rows = [],
+  columns,
+  rows,
   rowKey = "id",
-  label = "",
+  label,
   getExpandLabel,
   variant = "standard",
   state = "default",
@@ -51,8 +51,8 @@ export const Table = forwardRef(function Table({
   const resolvedVariant = dense ? "dense" : normalizeFlowValue(variant, validVariants, "standard");
   const initialState = normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedColumns = useMemo(() => columns.filter((column) => column?.key && column?.label), [columns]);
-  const resolvedRows = useMemo(() => rows.filter((row) => {
+  const resolvedColumns = useMemo(() => (Array.isArray(columns) ? columns : []).filter((column) => column?.key && column?.label), [columns]);
+  const resolvedRows = useMemo(() => (Array.isArray(rows) ? rows : []).filter((row) => {
     const key = row?.[rowKey];
     return key !== undefined && key !== null && key !== "";
   }), [rowKey, rows]);
@@ -95,6 +95,8 @@ export const Table = forwardRef(function Table({
   }, [currentSort.direction, currentSort.key, resolvedColumns, resolvedRows]);
 
   const interactionState = currentExpanded ? "expanded" : currentSort.key ? "sorted" : currentSelected ? "selected" : initialState;
+  if (!label || !resolvedColumns.length || !resolvedRows.length) return null;
+
   const changeSort = (key) => {
     const direction = currentSort.key === key && currentSort.direction !== "descending" ? "descending" : "ascending";
     if (!isSortControlled) setCurrentSort({ key, direction });
@@ -122,7 +124,7 @@ export const Table = forwardRef(function Table({
     },
     React.createElement(
       "table",
-      { "aria-label": label || undefined },
+      { "aria-label": label },
       React.createElement(
         "thead",
         null,
