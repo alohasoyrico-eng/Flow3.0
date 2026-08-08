@@ -472,7 +472,6 @@ export function componentDemoProps(component, demo = {}) {
     name: demo.name ?? "",
     placeholder: demo.placeholder ?? "CVC",
     expectedLength: demo.expectedLength ?? 3,
-    validationMessage: demo.validationMessage ?? "Enter the security code.",
     revealable: demo.revealable ?? true,
     revealed: Boolean(demo.revealed),
   };
@@ -656,4 +655,3 @@ export function componentDemoProps(component, demo = {}) {
   if (component === "animated-moment") return { label: demo.label ?? "Action complete", description: demo.description ?? "", variant: demo.variant ?? "success", state: demo.state ?? "playing", density: demo.density ?? "md", fullWidth: Boolean(demo.fullWidth), icon: demo.icon ?? "", animationSource: demo.animationSource ?? "", animationData: demo.animationData, reducedMotionFallback: demo.reducedMotionFallback ?? "Short controlled animation with reduced-motion fallback." };
   return demo;
 }
-

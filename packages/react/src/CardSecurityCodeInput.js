@@ -40,7 +40,6 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   name = "",
   placeholder = "",
   expectedLength = 3,
-  validationMessage = "",
   revealable = true,
   revealLabel,
   hideLabel,
@@ -60,8 +59,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   const isRevealed = isRevealedControlled ? Boolean(revealed) : internalRevealed;
   const digits = normalizeCardSecurityCode(currentValue, resolvedLength);
   const validity = cardSecurityCodeValidity(digits, resolvedLength);
-  const localError = validity === "invalid" ? validationMessage : "";
-  const resolvedError = error || localError;
+  const resolvedError = error;
   const resolvedHelper = resolvedError || helper;
   const isDisabled = Boolean(disabled || loading);
   const canReveal = Boolean(revealable && revealLabel && hideLabel);
@@ -89,7 +87,6 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
       "data-validity": validity,
       "data-length": String(digits.length),
       "data-expected-length": String(resolvedLength),
-      "data-validation-message": validationMessage,
     },
     React.createElement("span", { className: "field__label card-security-code-input__label", id: `${inputId}-label` }, label),
     React.createElement(

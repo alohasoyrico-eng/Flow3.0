@@ -172,7 +172,6 @@ export const componentContracts = {
       { name: "name", type: "string", required: false },
       { name: "placeholder", type: "string", required: false },
       { name: "expectedLength", type: "3 | 4", required: false },
-      { name: "validationMessage", type: "string", required: false },
       { name: "revealable", type: "boolean", required: false },
       { name: "revealed", type: "boolean", required: false },
       { name: "onValueChange", type: "(digits: string, meta: CardSecurityCodeMeta) => void", required: false }

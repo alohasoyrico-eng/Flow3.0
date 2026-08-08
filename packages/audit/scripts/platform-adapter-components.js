@@ -216,7 +216,7 @@ const components = [
     exports: ["cardSecurityCodeInputPlatformAdapters", "cardSecurityCodeInputPlatformContract", "cardSecurityCodeInputPlatformProps"],
     requiredTokens: ["comp.card-security-code-input.*", "comp.input.*", "component-field-*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.growth.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "loading", "message", "measurement"],
-    props: ["label", "value", "helper", "error", "disabled", "loading", "required", "density", "state", "name", "placeholder", "expectedLength", "validationMessage", "revealable", "revealed", "onValueChange"],
+    props: ["label", "value", "helper", "error", "disabled", "loading", "required", "density", "state", "name", "placeholder", "expectedLength", "revealable", "revealed", "onValueChange"],
     jsSnippets: ["cardSecurityCodeInputPlatformContract", "className: [\"field card-security-code-input\"", 'flowDensityProps(density)', '"data-validity": validity', '"data-length": String(digits.length)', '"data-expected-length": String(resolvedLength)', "cardSecurityCodeValidity", "normalizeCardSecurityCode", "card-security-code-input__control", "card-security-code-input__input", "field-action card-security-code-input__action", "onValueChange"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLInputElement>", "CardSecurityCodeInputProps", "CardSecurityCodeInputDensity", "CardSecurityCodeInputState", "CardSecurityCodeMeta", "cardSecurityCodeInputPlatformContract"],
     packagePath: "./card-security-code-input",
