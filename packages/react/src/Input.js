@@ -116,7 +116,7 @@ export const Input = forwardRef(function Input({
   const handleChange = (event) => {
     const meta = normalizeValue(event.target.value, resolvedVariant);
     if (!isValueControlled) setCurrentValue(meta.value);
-    onValueChange?.(meta.value, meta);
+    onValueChange?.(meta.value, meta, event);
   };
 
   return React.createElement(

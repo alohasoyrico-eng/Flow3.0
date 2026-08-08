@@ -965,7 +965,7 @@ try {
   const { getByLabelText: getInputLabel, rerender: rerenderInput } = render(React.createElement(Input, {
     label: "Amount",
     variant: "currency",
-    onValueChange: (value, meta) => inputChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => inputChanges.push({ value, meta, eventType: event.type }),
   }));
 
   const amountInput = getInputLabel(/amount/i);
@@ -974,12 +974,13 @@ try {
   assert.equal(inputChanges.at(-1).meta.numericValue, 1234.5);
   assert.equal(inputChanges.at(-1).meta.displayValue, "$1,234.50");
   assert.equal(inputChanges.at(-1).meta.rawValue, "$1,234.50");
+  assert.equal(inputChanges.at(-1).eventType, "change");
 
   rerenderInput(React.createElement(Input, {
     label: "Amount",
     variant: "currency",
     value: "9876.5",
-    onValueChange: (value, meta) => inputChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => inputChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(amountInput.value, "9,876.50"));
 
