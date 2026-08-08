@@ -53,8 +53,8 @@ export const TextArea = forwardRef(function TextArea({
     const nextValue = event.target.value;
     const meta = { maxLength: maxLength == null ? undefined : Number(maxLength), length: String(nextValue).length };
     if (!isValueControlled) setCurrentValue(nextValue);
-    onValueChange?.(nextValue, meta);
-    onChange?.(nextValue, meta);
+    onValueChange?.(nextValue, meta, event);
+    onChange?.(nextValue, meta, event);
   };
 
   return React.createElement(
