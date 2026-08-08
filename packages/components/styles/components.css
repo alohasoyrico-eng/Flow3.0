@@ -452,6 +452,7 @@
   --component-z-dropdown: var(--sys-depth-z-dropdown);
   --component-touch-target-min: var(--sys-touch-target-min);
   --component-a11y-touch-target-min: var(--sys-a11y-touch-target-min);
+  --component-a11y-outline-reset: var(--sys-a11y-outline-reset);
   --component-depth-live-rest: var(--sys-elevation-0);
   --component-depth-live-active: 0 0 0 var(--sys-space-xs) color-mix(in srgb, currentColor 14%, transparent);
   --component-chart-stroke-thin: var(--sys-frame-border-thin);
@@ -600,6 +601,7 @@
   --comp-code-input-focus-width: var(--component-focus-ring-width);
   --comp-code-input-focus-color: var(--component-color-focus);
   --comp-code-input-focus-offset: var(--component-focus-ring-offset);
+  --comp-code-input-outline-reset: var(--component-a11y-outline-reset);
   --comp-code-input-hover-shadow: var(--component-depth-low-soft);
   --comp-code-input-hover-transform: var(--component-transform-lift-sm);
   --comp-code-input-complete-bg: color-mix(in srgb, var(--component-color-success) 9%, var(--component-color-surface));
@@ -610,6 +612,10 @@
   --comp-code-input-error-bg: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
   --comp-code-input-error-border: var(--component-color-danger);
   --comp-code-input-disabled-bg: var(--component-color-surface-raised);
+  --comp-code-input-helper-gap: var(--component-space-xs);
+  --comp-code-input-helper-min-block: var(--component-space-md);
+  --comp-code-input-helper-weight: var(--component-font-weight-medium);
+  --comp-code-input-helper-line-height: var(--component-line-height-snug-state);
   --comp-code-input-dot-size: var(--component-field-gap);
   --comp-code-input-dot-radius: var(--component-radius-pill);
   --comp-code-input-caret-bg: var(--component-color-action);
@@ -639,6 +645,10 @@
   --comp-phone-input-otp-shadow: var(--component-depth-action-halo);
   --comp-phone-input-otp-helper-fg: var(--component-color-action);
   --comp-phone-input-helper-fg: var(--component-color-text-muted);
+  --comp-phone-input-helper-gap: var(--component-space-xs);
+  --comp-phone-input-helper-min-block: var(--component-space-md);
+  --comp-phone-input-helper-weight: var(--component-font-weight-medium);
+  --comp-phone-input-helper-line-height: var(--component-line-height-snug-state);
   --comp-phone-input-readonly-bg: var(--component-color-surface-raised);
   --comp-phone-input-warning-bg: color-mix(in srgb, var(--component-color-warning) 9%, var(--component-color-surface));
   --comp-phone-input-warning-border: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-border));
@@ -7848,24 +7858,24 @@ body[data-contrast="quiet"] .inline-validation {
   align-items: center;
   color: var(--comp-code-input-helper-fg);
   display: flex;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-code-input-helper-gap);
   margin: 0;
-  min-block-size: var(--sys-space-md);
+  min-block-size: var(--comp-code-input-helper-min-block);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-medium);
-  line-height: var(--sys-voice-line-height-snug);
+  font-weight: var(--comp-code-input-helper-weight);
+  line-height: var(--comp-code-input-helper-line-height);
 }
 
 .phone-input small {
   align-items: center;
   color: var(--comp-phone-input-helper-fg);
   display: flex;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-phone-input-helper-gap);
   margin: 0;
-  min-block-size: var(--sys-space-md);
+  min-block-size: var(--comp-phone-input-helper-min-block);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-medium);
-  line-height: var(--sys-voice-line-height-snug);
+  font-weight: var(--comp-phone-input-helper-weight);
+  line-height: var(--comp-phone-input-helper-line-height);
 }
 
 .inline-validation__message {
@@ -9240,7 +9250,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   font-size: var(--comp-code-input-input-font-size);
   inset: 0;
   opacity: var(--component-input-ghost-opacity);
-  outline: var(--sys-a11y-outline-reset);
+  outline: var(--comp-code-input-outline-reset);
   padding: 0;
   position: absolute;
   inline-size: 100%;
@@ -9407,7 +9417,22 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-padding-start: var(--component-space-lg);
   --comp-select-padding-end: calc(var(--component-space-lg) - var(--component-frame-space-micro));
   --comp-select-inline-padding-end: var(--component-space-sm);
+  --comp-select-bg: var(--component-color-surface);
+  --comp-select-border: var(--component-color-border);
+  --comp-select-fg: var(--component-color-text);
+  --comp-select-outline-reset: var(--component-a11y-outline-reset);
+  --comp-select-trigger-z: var(--component-z-dropdown);
+  --comp-select-hover-bg: color-mix(in srgb, var(--component-color-surface-raised) 72%, var(--component-color-surface));
+  --comp-select-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
+  --comp-select-focus-border: var(--component-color-action);
+  --comp-select-focus-ring: color-mix(in srgb, var(--component-color-action) 35%, transparent);
+  --comp-select-error-border: var(--component-color-danger);
+  --comp-select-error-bg: color-mix(in srgb, var(--component-color-danger) 8%, var(--component-color-surface));
   --comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro));
+  --comp-select-chevron-color: var(--component-color-text-muted);
+  --comp-select-chevron-family: var(--component-font-family-icon);
+  --comp-select-chevron-weight: var(--component-font-weight-regular);
+  --comp-select-chevron-line-height: var(--component-line-height-none);
   --comp-select-chevron-motion-duration: var(--component-duration-state);
   --comp-select-chevron-motion-ease: var(--component-ease-press);
   --comp-select-overlay-motion-duration: var(--component-duration-state);
@@ -9415,12 +9440,24 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-listbox-gap: var(--component-space-2xs);
   --comp-select-listbox-padding: var(--component-space-xs);
   --comp-select-listbox-radius: var(--component-radius-control);
+  --comp-select-listbox-bg: var(--component-color-surface);
+  --comp-select-listbox-border: var(--component-color-border);
+  --comp-select-listbox-inline: min(100%, calc(100vw - (var(--component-space-md) * 2)));
+  --comp-select-listbox-offset: var(--component-space-xs);
   --comp-select-listbox-depth: var(--component-depth-popover);
   --comp-select-listbox-max-block-size: var(--component-content-size-lg);
+  --comp-select-listbox-open-opacity: var(--component-opacity-visible);
   --comp-select-option-gap: var(--component-space-sm);
   --comp-select-option-min-size: var(--component-option-min-block-size);
   --comp-select-option-padding-x: var(--component-space-sm);
   --comp-select-option-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
+  --comp-select-option-color: var(--component-color-text);
+  --comp-select-option-hover-bg: color-mix(in srgb, var(--component-color-action) 9%, transparent);
+  --comp-select-option-selected-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
+  --comp-select-option-selected-weight: var(--component-font-weight-semibold);
+  --comp-select-option-check-family: var(--component-font-family-icon);
+  --comp-select-option-check-weight: var(--component-font-weight-medium);
+  --comp-select-option-check-visible-opacity: var(--component-opacity-visible);
   --comp-select-current-control-size: var(--comp-select-control-size);
   --comp-select-current-icon-size: var(--comp-select-icon-size);
   display: grid;
@@ -9446,18 +9483,25 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-inline-trigger-border: var(--component-border-transparent);
   --comp-country-selector-inline-trigger-color: var(--component-color-text-muted);
   --comp-country-selector-inline-trigger-gap: var(--component-space-xs);
+  --comp-country-selector-inline-trigger-size: calc(var(--comp-select-current-control-size) - (var(--component-space-xs) * 2));
   --comp-country-selector-inline-trigger-padding-end: var(--comp-select-inline-padding-end);
   --comp-country-selector-inline-listbox-max-inline-size: var(--component-country-selector-inline-listbox-max-inline-size);
   --comp-country-selector-inline-listbox-inline-size: var(--component-country-selector-inline-listbox-inline-size);
   --comp-country-selector-flag-size: calc(var(--component-inline-size-sm) - var(--component-focus-ring-offset));
   --comp-country-selector-flag-radius: var(--component-radius-pill);
   --comp-country-selector-flag-ring: var(--component-depth-border-ring);
+  --comp-country-selector-flag-fallback-bg: var(--component-color-surface-raised);
+  --comp-country-selector-flag-fallback-color: var(--component-color-text-muted);
+  --comp-country-selector-flag-fallback-weight: var(--component-font-weight-bold);
   --comp-country-selector-label-font-size: var(--component-font-size-label);
   --comp-country-selector-label-font-weight: var(--component-font-weight-medium);
   --comp-country-selector-code-color: var(--component-color-text-muted);
   --comp-country-selector-code-font-size: var(--component-font-size-caption);
   --comp-country-selector-code-font-weight: var(--component-font-weight-bold);
   --comp-country-selector-chevron-color: var(--component-color-text-muted);
+  --comp-country-selector-chevron-family: var(--comp-select-chevron-family);
+  --comp-country-selector-chevron-weight: var(--comp-select-chevron-weight);
+  --comp-country-selector-chevron-line-height: var(--comp-select-chevron-line-height);
   --comp-country-selector-chevron-size: var(--comp-select-chevron-size);
   --comp-country-selector-chevron-duration: var(--comp-select-chevron-motion-duration);
   --comp-country-selector-chevron-ease: var(--comp-select-chevron-motion-ease);
@@ -9468,6 +9512,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-listbox-gap: var(--comp-select-listbox-gap);
   --comp-country-selector-listbox-padding: var(--comp-select-listbox-padding);
   --comp-country-selector-listbox-max-block-size: var(--comp-select-listbox-max-block-size);
+  --comp-country-selector-listbox-inline-size-fluid: var(--comp-select-listbox-inline);
+  --comp-country-selector-listbox-offset: var(--comp-select-listbox-offset);
+  --comp-country-selector-listbox-open-opacity: var(--comp-select-listbox-open-opacity);
   --comp-country-selector-overlay-duration: var(--comp-select-overlay-motion-duration);
   --comp-country-selector-overlay-ease: var(--comp-select-overlay-motion-ease);
   --comp-country-selector-search-gap: var(--component-space-xs);
@@ -9476,6 +9523,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
   --comp-country-selector-search-font-size: var(--component-font-size-small);
   --comp-country-selector-search-font-weight: var(--component-font-weight-semibold);
+  --comp-country-selector-search-color: var(--component-color-text);
+  --comp-country-selector-search-min-block: calc(var(--comp-select-current-control-size) - var(--component-space-sm));
+  --comp-country-selector-search-focus-border: var(--component-color-action);
   --comp-country-selector-option-color: var(--component-color-text);
   --comp-country-selector-option-hover-bg: color-mix(in srgb, var(--component-color-action) 9%, transparent);
   --comp-country-selector-option-selected-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
@@ -9484,7 +9534,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-option-padding-x: var(--comp-select-option-padding-x);
   --comp-country-selector-option-radius: var(--comp-select-option-radius);
   --comp-country-selector-option-code-opacity: var(--component-opacity-muted);
+  --comp-country-selector-option-selected-weight: var(--comp-select-option-selected-weight);
+  --comp-country-selector-option-check-family: var(--comp-select-option-check-family);
+  --comp-country-selector-option-check-weight: var(--comp-select-option-check-weight);
+  --comp-country-selector-option-check-visible-opacity: var(--comp-select-option-check-visible-opacity);
   --comp-country-selector-empty-color: var(--component-color-text-muted);
+  --comp-country-selector-empty-padding: var(--component-space-md) var(--component-space-sm);
 }
 
 .select-control[data-density="sm"] {
@@ -9534,11 +9589,11 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .country-flag__fallback {
   align-items: center;
-  background: var(--sys-color-surface-raised);
-  color: var(--sys-color-text-muted);
+  background: var(--comp-country-selector-flag-fallback-bg);
+  color: var(--comp-country-selector-flag-fallback-color);
   display: inline-flex;
   font-size: var(--component-font-size-helper);
-  font-weight: var(--sys-voice-weight-bold);
+  font-weight: var(--comp-country-selector-flag-fallback-weight);
   justify-content: center;
 }
 
@@ -9550,10 +9605,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .country-selector__trigger,
 .phone-input__country-trigger {
   align-items: center;
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid var(--sys-color-border);
+  background: var(--comp-select-bg);
+  border: var(--component-border-width) solid var(--comp-select-border);
   border-radius: var(--component-radius-control);
-  color: var(--sys-color-text);
+  color: var(--comp-select-fg);
   cursor: pointer;
   display: inline-flex;
   gap: var(--comp-select-gap);
@@ -9563,10 +9618,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   justify-content: space-between;
   min-block-size: var(--comp-select-current-control-size);
   min-inline-size: 0;
-  outline: var(--sys-a11y-outline-reset);
+  outline: var(--comp-select-outline-reset);
   padding: 0 var(--comp-select-padding-end) 0 var(--comp-select-padding-start);
   position: relative;
-  z-index: var(--sys-depth-z-floating);
+  z-index: var(--comp-select-trigger-z);
   transition:
     background-color var(--component-duration-state) var(--component-ease-state),
     border-color var(--component-duration-state) var(--component-ease-state),
@@ -9589,11 +9644,11 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .phone-input__country-trigger {
   background: transparent;
   border: 0;
-  color: var(--sys-color-text-muted);
-  gap: var(--sys-space-xs);
+  color: var(--comp-country-selector-inline-trigger-color);
+  gap: var(--comp-country-selector-inline-trigger-gap);
   inline-size: max-content;
   justify-content: flex-start;
-  min-block-size: calc(var(--comp-select-current-control-size) - (var(--sys-space-xs) * 2));
+  min-block-size: var(--comp-country-selector-inline-trigger-size);
   min-inline-size: 0;
   padding: 0 var(--comp-select-inline-padding-end) 0 0;
 }
@@ -9612,8 +9667,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control__trigger:focus-visible,
 .country-selector__trigger:hover,
 .country-selector__trigger:focus-visible {
-  background: color-mix(in srgb, var(--sys-color-surface-raised) 72%, var(--sys-color-surface));
-  border-color: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
+  background: var(--comp-select-hover-bg);
+  border-color: var(--comp-select-hover-border);
 }
 
 .country-selector__trigger:hover,
@@ -9624,12 +9679,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .country-selector__trigger:hover,
 .country-selector__trigger:focus-visible {
-  color: var(--sys-color-text);
+  color: var(--comp-select-fg);
 }
 
 .select-control__trigger:focus-visible,
 .country-selector__trigger:focus-visible {
-  outline: var(--component-focus-ring-width) solid color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  outline: var(--component-focus-ring-width) solid var(--comp-select-focus-ring);
   outline-offset: var(--component-focus-ring-offset);
 }
 
@@ -9641,7 +9696,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .phone-input__country-value {
   align-items: center;
   display: inline-flex;
-  gap: var(--sys-space-sm);
+  gap: var(--component-space-sm);
   justify-self: start;
 }
 
@@ -9650,9 +9705,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   align-items: baseline;
   display: inline-flex;
   flex: 1 1 auto;
-  gap: var(--sys-space-xs);
+  gap: var(--component-space-xs);
   font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-medium);
+  font-weight: var(--component-font-weight-medium);
   min-inline-size: 0;
   overflow: hidden;
   text-align: start;
@@ -9681,11 +9736,11 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control__code,
 .country-selector__code,
 .phone-input__prefix {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-country-selector-code-color);
   flex: 0 0 auto;
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-bold);
-  line-height: var(--sys-voice-line-height-none);
+  font-weight: var(--comp-country-selector-code-font-weight);
+  line-height: var(--component-line-height-none);
   min-inline-size: max-content;
   white-space: nowrap;
 }
@@ -9700,12 +9755,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control__icon,
 .select-control__chevron,
 .country-selector__chevron {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-select-chevron-color);
   flex: 0 0 auto;
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-select-chevron-family);
   font-size: var(--comp-select-chevron-size);
-  font-weight: var(--sys-voice-weight-regular);
-  line-height: var(--sys-voice-line-height-none);
+  font-weight: var(--comp-select-chevron-weight);
+  line-height: var(--comp-select-chevron-line-height);
   transform-origin: center;
   transition:
     color var(--component-duration-state) var(--component-ease-state),
@@ -9714,7 +9769,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .country-selector__chevron {
   color: var(--comp-country-selector-chevron-color);
+  font-family: var(--comp-country-selector-chevron-family);
   font-size: var(--comp-country-selector-chevron-size);
+  font-weight: var(--comp-country-selector-chevron-weight);
+  line-height: var(--comp-country-selector-chevron-line-height);
   transition:
     color var(--component-duration-state) var(--component-ease-state),
     transform var(--comp-country-selector-chevron-duration) var(--comp-country-selector-chevron-ease);
@@ -9726,7 +9784,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .select-control:focus-within .select-control__chevron,
 .country-selector:focus-within .country-selector__chevron {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-select-chevron-color);
 }
 
 .country-selector:focus-within .country-selector__chevron {
@@ -9740,27 +9798,27 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .select-control[data-state="focus"] .select-control__trigger,
 .select-control[data-open="true"] .select-control__trigger {
-  border-color: var(--sys-color-action);
-  outline: var(--component-focus-ring-width) solid color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  border-color: var(--comp-select-focus-border);
+  outline: var(--component-focus-ring-width) solid var(--comp-select-focus-ring);
   outline-offset: var(--component-focus-ring-offset);
 }
 
 .select-control[data-state="error"] .select-control__trigger {
-  border-color: var(--sys-color-danger);
-  background: color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface));
+  border-color: var(--comp-select-error-border);
+  background: var(--comp-select-error-bg);
 }
 
 .select-control__listbox,
 .country-selector__listbox,
 .phone-input__country-listbox {
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid var(--sys-color-border);
+  background: var(--comp-select-listbox-bg);
+  border: var(--component-border-width) solid var(--comp-select-listbox-border);
   border-radius: var(--comp-select-listbox-radius);
   box-shadow: var(--comp-select-listbox-depth);
   display: grid;
   gap: var(--comp-select-listbox-gap);
-  inline-size: min(100%, calc(100vw - (var(--sys-space-md) * 2)));
-  inset-block-start: calc(100% + var(--sys-space-xs));
+  inline-size: var(--comp-select-listbox-inline);
+  inset-block-start: calc(100% + var(--comp-select-listbox-offset));
   inset-inline-end: 0;
   inset-inline-start: 0;
   max-block-size: var(--comp-select-listbox-max-block-size);
@@ -9807,7 +9865,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .select-control[data-open="true"] .select-control__listbox,
 .country-selector[data-open="true"] .country-selector__listbox {
-  opacity: var(--sys-state-visible-opacity);
+  opacity: var(--comp-select-listbox-open-opacity);
   pointer-events: auto;
   transform: var(--component-transform-rest);
   transition:
@@ -9833,12 +9891,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: var(--comp-country-selector-search-bg);
   border: var(--component-border-width) solid var(--comp-country-selector-search-border);
   border-radius: var(--comp-country-selector-search-radius);
-  color: var(--sys-color-text);
+  color: var(--comp-country-selector-search-color);
   font: inherit;
   font-size: var(--comp-country-selector-search-font-size);
   font-weight: var(--comp-country-selector-search-font-weight);
-  min-block-size: calc(var(--comp-select-current-control-size) - var(--sys-space-sm));
-  outline: var(--sys-a11y-outline-reset);
+  min-block-size: var(--comp-country-selector-search-min-block);
+  outline: var(--comp-select-outline-reset);
   padding: 0 var(--comp-country-selector-option-padding-x);
   transition:
     background-color var(--component-duration-state) var(--component-ease-state),
@@ -9847,7 +9905,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .country-selector__search-input:focus-visible {
-  border-color: var(--sys-color-action);
+  border-color: var(--comp-country-selector-search-focus-border);
   outline: var(--component-focus-ring-width) solid var(--comp-country-selector-trigger-focus-ring);
   outline-offset: var(--component-focus-ring-offset);
 }
@@ -9857,7 +9915,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .phone-input__country-option {
   align-items: center;
   border-radius: var(--comp-select-option-radius);
-  color: var(--sys-color-text);
+  color: var(--comp-select-option-color);
   cursor: pointer;
   display: grid;
   gap: var(--comp-select-option-gap);
@@ -9882,8 +9940,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control__option:focus-visible,
 .country-selector__option:hover,
 .country-selector__option:focus-visible {
-  background: color-mix(in srgb, var(--sys-color-action) 9%, transparent);
-  outline: var(--component-focus-ring-width) solid color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  background: var(--comp-select-option-hover-bg);
+  outline: var(--component-focus-ring-width) solid var(--comp-select-focus-ring);
   outline-offset: calc(var(--component-focus-ring-offset) * -1);
 }
 
@@ -9895,8 +9953,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .select-control__option[data-selected="true"],
 .country-selector__option[data-selected="true"] {
-  background: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
-  color: var(--sys-color-text);
+  background: var(--comp-select-option-selected-bg);
+  color: var(--comp-select-option-color);
 }
 
 .country-selector__option[data-selected="true"] {
@@ -9923,7 +9981,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .select-control__option[data-selected="true"] .select-control__option-label,
 .country-selector__option[data-selected="true"] .country-selector__option-label {
-  font-weight: var(--sys-voice-weight-semibold);
+  font-weight: var(--comp-country-selector-option-selected-weight);
 }
 
 .select-control__option-code,
@@ -9936,21 +9994,21 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .country-selector__option-check {
   color: currentColor;
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-country-selector-option-check-family);
   font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-medium);
+  font-weight: var(--comp-country-selector-option-check-weight);
   opacity: 0;
 }
 
 .country-selector__option[data-selected="true"] .country-selector__option-check {
-  opacity: var(--sys-state-visible-opacity);
+  opacity: var(--comp-country-selector-option-check-visible-opacity);
 }
 
 .country-selector__empty {
   color: var(--comp-country-selector-empty-color);
   font-size: var(--comp-country-selector-search-font-size);
   font-weight: var(--comp-country-selector-search-font-weight);
-  padding: var(--sys-space-md) var(--sys-space-sm);
+  padding: var(--comp-country-selector-empty-padding);
   text-align: center;
 }
 
