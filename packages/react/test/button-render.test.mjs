@@ -414,6 +414,11 @@ const unstableMetricCardSummaryMarkup = renderToStaticMarkup(React.createElement
 }));
 assert.doesNotMatch(unstableMetricCardSummaryMarkup, /class="card-summary__metrics"/);
 assert.doesNotMatch(unstableMetricCardSummaryMarkup, /Available|\$2,480/);
+const unlabeledCardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
+  number: "**** 4821",
+  status: "Active",
+}));
+assert.doesNotMatch(unlabeledCardSummaryMarkup, /card-summary|Active|\*\*\*\* 4821/);
 
 const chartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
   label: "Spend",

@@ -32,6 +32,7 @@ export const CardSummary = forwardRef(function CardSummary({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "physical");
   const resolvedState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
+  if (!label) return null;
   const statusLabel = status || "";
   const resolvedIcon = icon || (resolvedVariant === "virtual" ? "smartphone" : resolvedState === "frozen" ? "ac_unit" : "contactless");
   const visibleMetrics = metrics.filter((metric) => metric?.key && metric?.label && metric?.value);
