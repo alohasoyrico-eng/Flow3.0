@@ -7,10 +7,10 @@ React components may only author their own visual class roots or explicit family
 ## Inventory
 
 - React components scanned: 56
-- Component class roots known: 53
+- Component class roots known: 59
 - Protected class roots: button, card, dialog, drawer, menu, popover
 - Components with family roots: 13
-- Observed root assignments: 65
+- Observed root assignments: 72
 - Violations: 0
 
 ## Components
@@ -26,18 +26,18 @@ React components may only author their own visual class roots or explicit family
 | Breadcrumbs | pass | breadcrumbs | breadcrumbs | breadcrumbs | 0 |
 | Button | pass | button | button | button | 0 |
 | Card | pass | card | card | card | 0 |
-| CardExpiryInput | pass | card-expiry-input | card-expiry-input, field | field | 0 |
-| CardNumberInput | pass | card-number-input | card-number-input, field | field | 0 |
-| CardSecurityCodeInput | pass | card-security-code-input | card-security-code-input, field | field | 0 |
-| CardSummary | pass | card-summary | card-summary | None | 0 |
+| CardExpiryInput | pass | card-expiry-input | card-expiry-input, field | card-expiry-input, field | 0 |
+| CardNumberInput | pass | card-number-input | card-number-input, field | card-number-input, field | 0 |
+| CardSecurityCodeInput | pass | card-security-code-input | card-security-code-input, field | card-security-code-input, field | 0 |
+| CardSummary | pass | card-summary | card-summary | card-summary | 0 |
 | ChartPanel | pass | chart-panel | chart-panel | chart-panel | 0 |
 | Checkbox | pass | checkbox | checkbox, choice | checkbox, choice | 0 |
 | Chip | pass | chip | chip | chip | 0 |
 | CodeInput | pass | code-input | code-input, field | code-input, field | 0 |
 | Combobox | pass | combobox | combobox, field, select-control | combobox, field, select-control | 0 |
 | CountrySelector | pass | country-selector | country-flag, country-selector, select-control | country-flag, country-selector, select-control | 0 |
-| DatePicker | pass | date-picker | date-picker, field | field | 0 |
-| DateRangePicker | pass | date-range-picker | date-picker, date-range-picker, field | field | 0 |
+| DatePicker | pass | date-picker | date-picker, field | date-picker, field | 0 |
+| DateRangePicker | pass | date-range-picker | date-picker, date-range-picker, field | date-picker, date-range-picker, field | 0 |
 | Dialog | pass | dialog | dialog | dialog | 0 |
 | Drawer | pass | drawer | drawer | drawer | 0 |
 | EmptyState | pass | empty-state | empty-state | empty-state | 0 |
