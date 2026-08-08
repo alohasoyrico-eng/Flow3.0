@@ -1225,6 +1225,7 @@ const unnamedStepperMarkup = renderToStaticMarkup(React.createElement(Stepper, {
 }));
 assert.doesNotMatch(unnamedStepperMarkup, /Progress|Step 1/);
 assert.doesNotMatch(unnamedStepperMarkup.match(/^<ol[^>]+>/)?.[0] ?? "", /aria-label=/);
+assert.doesNotMatch(unnamedStepperMarkup, /class="stepper__item"/);
 
 const emptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
   title: "No vehicles match",

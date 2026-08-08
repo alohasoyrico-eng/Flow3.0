@@ -199,13 +199,13 @@ function checkReactComponent(file, shared) {
   if (name === "Accordion" && /ariaLabel:\s*item\.ariaLabel\s*\?\?\s*item\["aria-label"\]\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Accordion must not render unlabeled triggers; filter items without title, label, or ariaLabel before normalizing.");
   if (name === "Tabs" && /label:\s*item\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Tabs must not render unlabeled tabs; filter items without visible labels before normalizing.");
   if (name === "SegmentedControl" && /label:\s*item\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "SegmentedControl must not render unlabeled segments; filter items without visible labels before normalizing.");
+  if (name === "Stepper" && /label:\s*step\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Stepper must not render unlabeled progress steps; filter steps without visible labels before normalizing.");
   const componentImports = importsFromComponents(source);
   const illegalImports = componentImports.filter((item) => !allowedPrimitiveImports.has(item));
   if (illegalImports.length) {
     add("errors", sourceFile, 1, `${name} React source imports non-primitive implementation helpers from components: ${illegalImports.join(", ")}.`);
   }
 }
-
 function checkRestPropContract({ name, sourceFile, source }) {
   const directRestSpread = source.search(/^\s*\.\.\.rest,\s*$/m);
   if (directRestSpread >= 0) add("errors", sourceFile, 1, `${name} React source must sanitize rest props with flowRestProps(rest) so style cannot bypass Flow tokens.`);

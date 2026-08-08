@@ -6,10 +6,10 @@ const allowedOrientations = new Set(["horizontal", "vertical"]);
 
 function normalizeSteps(steps) {
   const sourceSteps = Array.isArray(steps) ? steps : [];
-  return sourceSteps.map((step) => ({
+  return sourceSteps.filter((step) => step?.label).map((step) => ({
     ...step,
-    label: step?.label ?? "",
-    ariaLabel: step?.ariaLabel ?? step?.["aria-label"] ?? step?.label ?? "",
+    label: step.label,
+    ariaLabel: step?.ariaLabel ?? step?.["aria-label"] ?? step.label,
     description: step?.description ?? "",
   }));
 }
