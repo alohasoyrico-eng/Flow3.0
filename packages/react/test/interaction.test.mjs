@@ -771,7 +771,7 @@ try {
     triggerLabel: "Open review",
     closeLabel: "Close route modal",
     actions: [{ key: "confirm", label: "Confirm", onClick: (event) => dialogActionClicks.push(event.type) }],
-    onOpenChange: (open) => dialogOpenChanges.push(open),
+    onOpenChange: (open, event) => dialogOpenChanges.push({ open, eventType: event?.type }),
     onAction: (key, event) => dialogActions.push({ key, eventType: event.type }),
   }));
 
@@ -779,13 +779,13 @@ try {
   fireEvent.click(dialogTrigger);
   await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "true"));
   assert.equal(getDialogRole("dialog", { name: /confirm route/i }).hidden, false);
-  assert.deepEqual(dialogOpenChanges, [true]);
+  assert.deepEqual(dialogOpenChanges, [{ open: true, eventType: "click" }]);
 
   fireEvent.click(getDialogRole("button", { name: /confirm/i }));
   await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(dialogActionClicks, ["click"]);
   assert.deepEqual(dialogActions, [{ key: "confirm", eventType: "click" }]);
-  assert.deepEqual(dialogOpenChanges, [true, false]);
+  assert.deepEqual(dialogOpenChanges, [{ open: true, eventType: "click" }, { open: false, eventType: "click" }]);
 
   const preventedDialogActions = [];
   rerenderDialog(React.createElement(Dialog, {
@@ -794,7 +794,7 @@ try {
     triggerLabel: "Open review",
     closeLabel: "Close route modal",
     actions: [{ key: "confirm", label: "Confirm", onClick: (event) => event.preventDefault() }],
-    onOpenChange: (open) => dialogOpenChanges.push(open),
+    onOpenChange: (open, event) => dialogOpenChanges.push({ open, eventType: event?.type }),
     onAction: (key) => preventedDialogActions.push(key),
   }));
   fireEvent.click(dialogTrigger);
@@ -810,7 +810,7 @@ try {
     closeLabel: "Close route modal",
     actions: [{ key: "confirm", label: "Confirm" }],
     open: true,
-    onOpenChange: (open) => dialogOpenChanges.push(open),
+    onOpenChange: (open, event) => dialogOpenChanges.push({ open, eventType: event?.type }),
     onAction: (key) => dialogActions.push(key),
   }));
   await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "true"));
@@ -822,7 +822,7 @@ try {
     closeLabel: "Close route modal",
     actions: [{ key: "confirm", label: "Confirm" }],
     open: false,
-    onOpenChange: (open) => dialogOpenChanges.push(open),
+    onOpenChange: (open, event) => dialogOpenChanges.push({ open, eventType: event?.type }),
     onAction: (key) => dialogActions.push(key),
   }));
   await waitFor(() => assert.equal(dialogTrigger.getAttribute("aria-expanded"), "false"));

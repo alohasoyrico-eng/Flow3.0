@@ -1,10 +1,11 @@
-import type { HTMLAttributes, ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
+import type { HTMLAttributes, ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { dialogPlatformContract } from "#flow/platforms";
 
 export type DialogVariant = "confirmation" | "destructive" | "form" | "review" | "success";
 export type DialogTone = "neutral" | "info" | "success" | "danger";
 export type DialogState = "open" | "focus" | "closing" | "default" | "closed";
 export type DialogDensity = "sm" | "md" | "lg";
+export type DialogOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
 
 export interface DialogAction {
   key?: string;
@@ -48,7 +49,7 @@ export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, "style
   icon?: string;
   fields?: DialogField[];
   id?: string;
-  onOpenChange?: (open: boolean) => void;
+  onOpenChange?: (open: boolean, event?: DialogOpenChangeEvent) => void;
   onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
 }
 

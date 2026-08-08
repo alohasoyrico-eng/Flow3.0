@@ -62,21 +62,21 @@ export const Dialog = forwardRef(function Dialog({
   const sourceFields = Array.isArray(fields) ? fields : [];
   const visibleFields = sourceFields.filter((field) => field?.label && hasStableFieldName(field));
 
-  const setOpen = (nextOpen, { restoreFocus = false } = {}) => {
+  const setOpen = (nextOpen, { restoreFocus = false, event } = {}) => {
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
     setInteractionState(normalizedOpen ? "open" : "closed");
-    onOpenChange?.(normalizedOpen);
+    onOpenChange?.(normalizedOpen, event);
     if (normalizedOpen) requestAnimationFrame(() => closeRef.current?.focus());
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
-  const closeDialog = ({ restoreFocus = true } = {}) => setOpen(false, { restoreFocus });
+  const closeDialog = ({ restoreFocus = true, event } = {}) => setOpen(false, { restoreFocus, event });
 
   const onKeyDown = (event) => {
     if (event.key !== "Escape") return;
     event.preventDefault();
-    closeDialog();
+    closeDialog({ event });
   };
 
   const sourceActions = Array.isArray(actions) ? actions : [];
@@ -112,7 +112,7 @@ export const Dialog = forwardRef(function Dialog({
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": dialogId,
-      onClick: () => setOpen(true),
+      onClick: (event) => setOpen(true, { event }),
     }) : null,
     React.createElement(
       "div",
@@ -121,7 +121,7 @@ export const Dialog = forwardRef(function Dialog({
         hidden: !isOpen,
         "data-overlay-dismiss": "",
         onClick: (event) => {
-          if (event.target === event.currentTarget) closeDialog();
+          if (event.target === event.currentTarget) closeDialog({ event });
         },
         onKeyDown,
       },
@@ -153,7 +153,7 @@ export const Dialog = forwardRef(function Dialog({
             variant: "ghost",
             className: "dialog__close",
             "data-overlay-close": "",
-            onClick: () => closeDialog(),
+            onClick: (event) => closeDialog({ event }),
           }) : null,
         ),
         visibleFields.length
@@ -188,7 +188,7 @@ export const Dialog = forwardRef(function Dialog({
                   action.onClick?.(event);
                   if (event.defaultPrevented) return;
                   onAction?.(action.key, event);
-                  closeDialog();
+                  closeDialog({ event });
                 },
               });
             }),

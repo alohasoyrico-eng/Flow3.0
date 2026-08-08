@@ -196,6 +196,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Dialog" && !source.includes("onAction?.(action.key, event);")) add("errors", sourceFile, 1, "Dialog must pass the original click event through the semantic onAction contract.");
   if (name === "Dialog" && /actions\s*=\s*\[\]|fields\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "Dialog must not hide missing action or field collections behind empty prop defaults.");
   if (name === "Dialog" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "Dialog must not synthesize action keys from visible labels.");
+  if (name === "Dialog" && !source.includes("onOpenChange?.(normalizedOpen, event);")) add("errors", sourceFile, 1, "Dialog must pass the original user event through onOpenChange when user interaction changes overlay state.");
   if (name === "Drawer" && !source.includes("const hasTrigger = Boolean(triggerLabel);")) add("errors", sourceFile, 1, "Drawer must gate Button trigger composition on visible triggerLabel.");
   if (name === "Drawer" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Drawer must not render without its required visible label.");
   if (name === "Drawer" && /description\s*=\s*""|triggerLabel\s*=\s*""|id\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "Drawer must not hide optional description, trigger, or id behind empty defaults.");
