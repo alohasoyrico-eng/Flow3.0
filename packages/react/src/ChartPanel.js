@@ -15,6 +15,16 @@ function normalizeValues(values = []) {
   return (Array.isArray(values) ? values : []).map((value) => Number(value)).map((value) => (Number.isFinite(value) ? Math.max(0, value) : 0));
 }
 
+function hasStableSeriesId(item) {
+  return item?.id !== undefined && item?.id !== null && item?.id !== "";
+}
+
+function normalizeSeries(series = []) {
+  return (Array.isArray(series) ? series : [])
+    .filter((item) => hasStableSeriesId(item) && Array.isArray(item.values))
+    .map((item) => ({ ...item, id: String(item.id), values: normalizeValues(item.values) }));
+}
+
 function pointsFor(values = []) {
   const safeValues = normalizeValues(values);
   if (!safeValues.length) return "";
@@ -29,13 +39,13 @@ function pointsFor(values = []) {
 }
 
 function renderLinePlot(values, variant, series = []) {
-  const resolvedSeries = Array.isArray(series) && series.length ? series.slice(0, 3) : values.length ? [{ values }] : [];
+  const resolvedSeries = series.length ? series.slice(0, 3) : values.length ? [{ id: "primary", values }] : [];
   return React.createElement(
     "svg",
     { className: "chart-panel__svg", viewBox: "0 0 160 72", role: "img", "aria-hidden": "true" },
     variant === "area" ? React.createElement("polygon", { className: "chart-panel__area", points: `0,72 ${pointsFor(values)} 160,72` }) : null,
     resolvedSeries.map((item, index) => React.createElement("polyline", {
-      key: item.id ?? item.label ?? index,
+      key: item.id,
       className: "chart-panel__line",
       points: pointsFor(item.values ?? values),
     })),
@@ -101,11 +111,11 @@ function renderBullet(values, labels) {
 }
 
 function renderComparison(comparisons, values, labels) {
-  const source = Array.isArray(comparisons) && comparisons.length ? comparisons.slice(0, 3) : values.length ? [{ values }] : [];
+  const source = comparisons.length ? comparisons.slice(0, 3) : values.length ? [{ id: "primary", values }] : [];
   const max = Math.max(...source.flatMap((item) => normalizeValues(item.values)), 1);
   return labels.map((label, index) => React.createElement(
     "span",
-    { key: label, className: "chart-panel__comparison-group", role: "listitem", tabIndex: 0, "data-tooltip": label },
+    { key: `comparison-point-${index}`, className: "chart-panel__comparison-group", role: "listitem", tabIndex: 0, "data-tooltip": label },
     React.createElement(
       "svg",
       { className: "chart-panel__comparison-bars", viewBox: "0 0 24 100", preserveAspectRatio: "none", "aria-hidden": "true" },
@@ -113,7 +123,7 @@ function renderComparison(comparisons, values, labels) {
         const value = normalizeValues(item.values)[index] ?? 0;
         const percent = Math.round((value / max) * 100);
         return React.createElement("rect", {
-          key: item.id ?? item.label,
+          key: item.id,
           className: "chart-panel__comparison-bar",
           x: String(seriesIndex * 10),
           y: String(100 - percent),
@@ -127,13 +137,13 @@ function renderComparison(comparisons, values, labels) {
 }
 
 function renderPareto(values, labels) {
-  const sorted = normalizeValues(values).map((value, index) => ({ value, label: labels[index] })).filter((item) => item.label).sort((a, b) => b.value - a.value);
+  const sorted = normalizeValues(values).map((value, index) => ({ value, label: labels[index], pointKey: `pareto-point-${index}` })).filter((item) => item.label).sort((a, b) => b.value - a.value);
   const max = Math.max(...sorted.map((item) => item.value), 1);
   return React.createElement(
     "svg",
     { className: "chart-panel__svg chart-panel__pareto-svg", viewBox: "0 0 160 72", role: "img", "aria-hidden": "true" },
     sorted.map((item, index) => React.createElement("rect", {
-      key: item.label,
+      key: item.pointKey,
       className: "chart-panel__pareto-bar",
       x: 8 + index * 46,
       y: 72 - (item.value / max) * 60,
@@ -177,6 +187,8 @@ export const ChartPanel = forwardRef(function ChartPanel({
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedValues = normalizeValues(values);
   const resolvedLabels = labels.length ? labels : valueLabels.length ? valueLabels : [];
+  const resolvedSeries = normalizeSeries(series);
+  const resolvedComparisons = normalizeSeries(comparisons);
   const chartPrimitive = createChartsPrimitive({
     type: resolvedVariant,
     label: label ?? "",
@@ -185,8 +197,8 @@ export const ChartPanel = forwardRef(function ChartPanel({
     values: resolvedValues,
     labels: resolvedLabels,
     segments,
-    series,
-    comparisons,
+    series: resolvedSeries,
+    comparisons: resolvedComparisons,
   });
   const optionModel = {
     engine: "apache-echarts",
@@ -223,7 +235,7 @@ export const ChartPanel = forwardRef(function ChartPanel({
     React.createElement(
       "figure",
       { role: "group", "aria-label": chartPrimitive.textSummary },
-      React.createElement("div", { className: "chart-panel__plot", role: "list" }, renderPlot(chartPrimitive.type, resolvedValues, resolvedLabels, series, comparisons)),
+      React.createElement("div", { className: "chart-panel__plot", role: "list" }, renderPlot(chartPrimitive.type, resolvedValues, resolvedLabels, resolvedSeries, resolvedComparisons)),
       React.createElement("span", { className: "chart-panel__tooltip", role: "status", "aria-live": "polite", "data-visible": "false" }),
       React.createElement("div", { className: "chart-panel__echarts", "aria-hidden": "true" }),
       React.createElement("script", { type: "application/json", className: "chart-panel__option" }, JSON.stringify(optionModel)),

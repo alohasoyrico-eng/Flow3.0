@@ -91,6 +91,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Card" && !source.includes("const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction && canActivateCard;")) add("errors", sourceFile, 1, "Card must gate interactive behavior on visible content and executable actions.");
   if (name === "ChartPanel" && /labels\[index\]\s*\?\?\s*String\(index\)/.test(source)) add("errors", sourceFile, 1, "ChartPanel must not synthesize point labels from indexes.");
   if (name === "ChartPanel" && !source.includes("role: pointLabel ? \"listitem\" : undefined")) add("errors", sourceFile, 1, "ChartPanel must gate focusable chart points on real point labels.");
+  if (name === "ChartPanel" && !source.includes("function hasStableSeriesId(item)")) add("errors", sourceFile, 1, "ChartPanel must centralize stable series id validation before composing explicit series.");
+  if (name === "ChartPanel" && /item\.id\s*\?\?\s*item\.label|item\.id\s*\?\?\s*index|key:\s*item\.label/.test(source)) add("errors", sourceFile, 1, "ChartPanel must not synthesize explicit series keys from labels or indexes.");
   if (name === "Button" && !source.includes("if (!buttonLabel) return null;")) add("errors", sourceFile, 1, "Button must not render without visible text.");
   if (name === "IconButton" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "IconButton must not render without an accessible label.");
   if (name === "Tooltip" && !source.includes("if (!triggerLabel) return null;")) add("errors", sourceFile, 1, "Tooltip must not render a trigger without visible triggerLabel.");

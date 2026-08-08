@@ -1184,6 +1184,7 @@ export const componentContracts = {
       "Expose a readable chart label through the Charts primitive textSummary.",
       "Treat decorative plot marks as hidden while preserving tableFallback and echartsOption.",
       "Hydrate with Apache ECharts when the runtime provides it; otherwise keep the accessible Flow fallback.",
+      "Require stable ids before composing explicit series or comparison series.",
       "Use chart patterns for legends, filters, and series toggles."
     ]
   },

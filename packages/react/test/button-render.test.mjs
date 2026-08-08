@@ -449,6 +449,23 @@ const emptyChartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPane
 }));
 assert.doesNotMatch(emptyChartPanelMarkup, /Value 1|Series 1|Current|Previous/);
 assert.doesNotMatch(emptyChartPanelMarkup, /32|54|48|70|62|84/);
+const unstableSeriesChartMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
+  label: "Series chart",
+  values: [1, 2, 3],
+  variant: "line",
+  series: [{ label: "Projected", values: [2, 4, 6] }],
+}));
+assert.doesNotMatch(unstableSeriesChartMarkup, /Projected/);
+assert.doesNotMatch(unstableSeriesChartMarkup, /key="Projected"|key="0"/);
+const comparisonChartMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
+  label: "Comparison chart",
+  values: [1, 2],
+  labels: ["Current", "Previous"],
+  variant: "comparison",
+  comparisons: [{ id: "projected", label: "Projected", values: [2, 4] }],
+}));
+assert.match(comparisonChartMarkup, /data-variant="comparison"/);
+assert.match(comparisonChartMarkup, /data-series="1"/);
 
 const auditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
   label: "Document rejected",

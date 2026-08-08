@@ -11,13 +11,13 @@ export type ChartPanelTone = "neutral" | "info" | "warning" | "danger";
 export type ChartPanelDensity = "sm" | "md" | "lg";
 
 export interface ChartPanelSegment {
-  id?: string;
+  id: string;
   label: string;
   value: number;
 }
 
 export interface ChartPanelSeries {
-  id?: string;
+  id: string;
   label: string;
   values: number[];
 }
