@@ -2473,8 +2473,8 @@ const openDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   open: true,
   density: "md",
   content: [
-    { type: "badge", label: "En ruta", tone: "success", live: true },
-    { type: "progress", label: "Documentos", value: 75, max: 100, showValue: true },
+    { key: "status", type: "badge", label: "En ruta", tone: "success", live: true },
+    { key: "documents", type: "progress", label: "Documentos", value: 75, max: 100, showValue: true },
   ],
   actions: [{ key: "close", label: "Cerrar", variant: "ghost" }, { key: "save", label: "Guardar" }],
 }));
@@ -2505,7 +2505,7 @@ const formDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   closeLabel: "Close route filters",
   variant: "filter",
   open: true,
-  fields: [{ label: "Region" }, { label: "Fuel type", value: "Diesel" }, { value: "Empty drawer field" }],
+  fields: [{ name: "region", label: "Region" }, { name: "fuel", label: "Fuel type", value: "Diesel" }, { value: "Empty drawer field" }],
 }));
 assert.match(formDrawerMarkup, /data-variant="filter"/);
 assert.match(formDrawerMarkup, /class="drawer__body"/);
@@ -2513,6 +2513,12 @@ assert.match(formDrawerMarkup, /class="field"/);
 assert.doesNotMatch(formDrawerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(formDrawerMarkup, /value="Diesel"/);
 assert.doesNotMatch(formDrawerMarkup, /Empty drawer field/);
+const unstableDrawerFieldMarkup = renderToStaticMarkup(React.createElement(Drawer, {
+  label: "Filter routes",
+  open: true,
+  fields: [{ label: "Fuel type", value: "Diesel" }],
+}));
+assert.doesNotMatch(unstableDrawerFieldMarkup, /class="field"|Fuel type|Diesel/);
 
 const emptyContentDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Details",
@@ -2520,6 +2526,12 @@ const emptyContentDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer
   content: [{ type: "badge" }, { type: "progress", value: 75 }, { type: "text" }],
 }));
 assert.doesNotMatch(emptyContentDrawerMarkup, /drawer__status-row|drawer__progress-row|drawer__supporting-copy/);
+const unstableContentDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
+  label: "Details",
+  open: true,
+  content: [{ type: "badge", label: "En ruta" }, { type: "progress", label: "Documentos", value: 75 }, { type: "text", copy: "Support copy" }],
+}));
+assert.doesNotMatch(unstableContentDrawerMarkup, /drawer__status-row|drawer__progress-row|drawer__supporting-copy|En ruta|Documentos|Support copy/);
 
 const unnamedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer));
 assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Open drawer"/);

@@ -23,8 +23,8 @@ export interface DrawerAction {
 
 export interface DrawerField {
   label: string;
+  name: string;
   value?: string;
-  name?: string;
   placeholder?: string;
   helper?: string;
   error?: string;
@@ -36,9 +36,9 @@ export interface DrawerField {
 }
 
 export type DrawerContent =
-  | { type: "badge"; key?: string; label?: string; tone?: "neutral" | "info" | "success" | "warning" | "danger" | "accent"; variant?: "count" | "dot" | "status" | "icon"; live?: boolean }
-  | { type: "progress"; key?: string; label?: string; value?: number; max?: number; showValue?: boolean; tone?: "accent" | "success" | "warning" | "danger" | "ink" }
-  | { type: "text"; key?: string; label?: string; copy?: string };
+  | { type: "badge"; key: string; label?: string; tone?: "neutral" | "info" | "success" | "warning" | "danger" | "accent"; variant?: "count" | "dot" | "status" | "icon"; live?: boolean }
+  | { type: "progress"; key: string; label?: string; value?: number; max?: number; showValue?: boolean; tone?: "accent" | "success" | "warning" | "danger" | "ink" }
+  | { type: "text"; key: string; label?: string; copy?: string };
 
 export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label?: string;

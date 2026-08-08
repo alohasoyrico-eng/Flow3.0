@@ -16,12 +16,21 @@ function slug(value) {
   return String(value ?? "drawer").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-function renderContentItem(item, density, index) {
+function hasStableKey(item) {
+  return item?.key !== undefined && item?.key !== null && item?.key !== "";
+}
+
+function hasStableFieldName(field) {
+  return field?.name !== undefined && field?.name !== null && field?.name !== "";
+}
+
+function renderContentItem(item, density) {
+  if (!hasStableKey(item)) return null;
   if (item?.type === "badge") {
     if (!item.label) return null;
     return React.createElement(
       "div",
-      { className: "drawer__status-row", key: item.key ?? item.label ?? index },
+      { className: "drawer__status-row", key: item.key },
       React.createElement(Badge, {
         label: item.label,
         tone: item.tone ?? "success",
@@ -35,7 +44,7 @@ function renderContentItem(item, density, index) {
     if (!item.label) return null;
     return React.createElement(
       "div",
-      { className: "drawer__progress-row", key: item.key ?? item.label ?? index },
+      { className: "drawer__progress-row", key: item.key },
       React.createElement(ProgressIndicator, {
         label: item.label,
         value: item.value ?? 0,
@@ -52,7 +61,7 @@ function renderContentItem(item, density, index) {
     if (!copy) return null;
     return React.createElement(
       "p",
-      { className: "drawer__supporting-copy", key: item.key ?? copy ?? index },
+      { className: "drawer__supporting-copy", key: item.key },
       copy,
     );
   }
@@ -100,7 +109,7 @@ export const Drawer = forwardRef(function Drawer({
     ? actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "")
     : [];
   const hasTrigger = Boolean(triggerLabel);
-  const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label) : [];
+  const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label && hasStableFieldName(field)) : [];
 
   useEffect(() => {
     if (!isOpenControlled) return;
@@ -191,12 +200,12 @@ export const Drawer = forwardRef(function Drawer({
         React.createElement(
           "div",
           { className: "drawer__body" },
-          content.map((item, index) => renderContentItem(item, resolvedDensity, index)),
-          visibleFields.map((field, index) => {
+          content.map((item) => renderContentItem(item, resolvedDensity)),
+          visibleFields.map((field) => {
             const normalized = field ?? {};
             return React.createElement(Input, {
               ...normalized,
-              key: normalized.name ?? normalized.label ?? index,
+              key: normalized.name,
               density: normalized.density ?? resolvedDensity,
               value: normalized.value ?? "",
               readOnly: normalized.readOnly ?? true,

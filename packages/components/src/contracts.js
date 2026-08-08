@@ -767,6 +767,7 @@ export const componentContracts = {
       "Use dialog semantics when the drawer overlays content.",
       "Keep header, body, and footer order predictable.",
       "Require stable action keys before composing local actions.",
+      "Require stable content keys and field names before composing body content.",
       "Use patterns for edit lifecycle, validation, submit, and support handoff."
     ]
   },
