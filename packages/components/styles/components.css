@@ -10557,20 +10557,38 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .quick-action {
+  --comp-quick-action-bg: transparent;
+  --comp-quick-action-border-width: 0;
+  --comp-quick-action-cursor: default;
+  --comp-quick-action-display: inline-grid;
   --comp-quick-action-icon-size: var(--component-inline-size-md);
   --comp-quick-action-label-width: calc(var(--component-control-min-size) * 2);
   --comp-quick-action-label-size: var(--component-font-size-caption);
   --comp-quick-action-gap: var(--sys-space-md);
+  --comp-quick-action-inline-size: max-content;
+  --comp-quick-action-justify-self: start;
+  --comp-quick-action-justify-items: center;
+  --comp-quick-action-loading-cursor: progress;
+  --comp-quick-action-max-inline-size: 100%;
   --comp-quick-action-min-block-size: calc(var(--component-control-min-size) + var(--component-inline-size-md));
   --comp-quick-action-min-inline-size: var(--component-block-size-md);
   --comp-quick-action-padding: 0;
+  --comp-quick-action-shadow: none;
+  --comp-quick-action-text-align: center;
   --comp-quick-action-control-bg: var(--sys-color-surface);
   --comp-quick-action-control-border: var(--sys-color-border);
   --comp-quick-action-control-border-width: var(--component-border-width);
+  --comp-quick-action-control-cursor: pointer;
+  --comp-quick-action-control-display: inline-flex;
+  --comp-quick-action-control-justify: center;
   --comp-quick-action-control-radius: var(--component-radius-pill);
   --comp-quick-action-control-shadow: var(--component-depth-low-soft);
   --comp-quick-action-control-fg: var(--sys-color-action);
+  --comp-quick-action-control-padding: 0;
+  --comp-quick-action-full-width: 100%;
+  --comp-quick-action-icon-display: inline-flex;
   --comp-quick-action-icon-font-size: var(--component-font-size-icon-md);
+  --comp-quick-action-icon-justify: center;
   --comp-quick-action-hover-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
   --comp-quick-action-hover-border: color-mix(in srgb, var(--sys-color-action) 36%, var(--sys-color-border));
   --comp-quick-action-hover-transform: var(--component-transform-scale-raised);
@@ -10583,26 +10601,28 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-danger-bg: color-mix(in srgb, var(--sys-color-danger) 12%, var(--sys-color-surface));
   --comp-quick-action-danger-fg: var(--sys-color-danger);
   --comp-quick-action-label-fg: var(--sys-color-text-muted);
+  --comp-quick-action-label-display: block;
   --comp-quick-action-label-weight: var(--sys-voice-weight-extrabold);
   --comp-quick-action-label-line-height: var(--sys-voice-line-height-tight);
+  --comp-quick-action-label-overflow-wrap: anywhere;
   --comp-quick-action-motion-duration: var(--component-duration-state);
   --comp-quick-action-motion-ease: var(--component-ease-state);
   --comp-quick-action-motion-press: var(--component-ease-press);
   align-items: center;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  cursor: default;
-  display: inline-grid;
+  background: var(--comp-quick-action-bg);
+  border: var(--comp-quick-action-border-width);
+  box-shadow: var(--comp-quick-action-shadow);
+  cursor: var(--comp-quick-action-cursor);
+  display: var(--comp-quick-action-display);
   gap: var(--comp-quick-action-gap);
-  inline-size: max-content;
-  justify-self: start;
-  max-inline-size: 100%;
-  justify-items: center;
+  inline-size: var(--comp-quick-action-inline-size);
+  justify-self: var(--comp-quick-action-justify-self);
+  max-inline-size: var(--comp-quick-action-max-inline-size);
+  justify-items: var(--comp-quick-action-justify-items);
   min-block-size: var(--comp-quick-action-min-block-size);
   min-inline-size: max(var(--comp-quick-action-min-inline-size), var(--comp-quick-action-label-width));
   padding: var(--comp-quick-action-padding);
-  text-align: center;
+  text-align: var(--comp-quick-action-text-align);
 }
 
 .quick-action[data-density="sm"] {
@@ -10635,7 +10655,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .quick-action[data-full-width="true"] {
-  inline-size: 100%;
+  inline-size: var(--comp-quick-action-full-width);
 }
 
 .quick-action__control {
@@ -10645,12 +10665,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   border-radius: var(--comp-quick-action-control-radius);
   box-shadow: var(--comp-quick-action-control-shadow);
   color: var(--comp-quick-action-control-fg);
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
+  cursor: var(--comp-quick-action-control-cursor);
+  display: var(--comp-quick-action-control-display);
+  justify-content: var(--comp-quick-action-control-justify);
   min-block-size: var(--comp-quick-action-icon-size);
   min-inline-size: var(--comp-quick-action-icon-size);
-  padding: 0;
+  padding: var(--comp-quick-action-control-padding);
   transition:
     background-color var(--comp-quick-action-motion-duration) var(--comp-quick-action-motion-ease),
     border-color var(--comp-quick-action-motion-duration) var(--comp-quick-action-motion-ease),
@@ -10661,9 +10681,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .quick-action__icon {
   align-items: center;
-  display: inline-flex;
+  display: var(--comp-quick-action-icon-display);
   font-size: var(--comp-quick-action-icon-font-size);
-  justify-content: center;
+  justify-content: var(--comp-quick-action-icon-justify);
 }
 
 .quick-action:hover .quick-action__control,
@@ -10698,7 +10718,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .quick-action[data-state="loading"] {
-  cursor: progress;
+  cursor: var(--comp-quick-action-loading-cursor);
 }
 
 .quick-action[data-state="loading"] .quick-action__control {
@@ -10707,12 +10727,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .quick-action__label {
   color: var(--comp-quick-action-label-fg);
-  display: block;
+  display: var(--comp-quick-action-label-display);
   font-size: var(--comp-quick-action-label-size);
   font-weight: var(--comp-quick-action-label-weight);
   inline-size: var(--comp-quick-action-label-width);
   line-height: var(--comp-quick-action-label-line-height);
-  overflow-wrap: anywhere;
+  overflow-wrap: var(--comp-quick-action-label-overflow-wrap);
 }
 
 .tabs__tab {
