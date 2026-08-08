@@ -12,6 +12,7 @@
   --component-density-row-height: var(--sys-density-row-height);
   --component-density-card-padding: var(--sys-density-card-padding);
   --component-density-component-gap: var(--sys-density-component-gap);
+  --component-frame-padding-control: var(--sys-frame-padding-control);
   --component-frame-space-micro: var(--sys-frame-space-micro);
   --component-focus-ring: var(--sys-focus-ring);
   --component-focus-ring-width: var(--sys-frame-border-indicator);
@@ -2494,8 +2495,8 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
   --comp-chip-border: var(--sys-color-border);
   --comp-chip-fg: var(--sys-color-text);
   --comp-chip-gap: var(--sys-space-xs);
-  --comp-chip-padding-inline: var(--sys-frame-padding-control);
-  --comp-chip-removable-padding-inline-end: calc(var(--sys-frame-padding-control) + var(--sys-space-xs));
+  --comp-chip-padding-inline: var(--component-frame-padding-control);
+  --comp-chip-removable-padding-inline-end: calc(var(--component-frame-padding-control) + var(--sys-space-xs));
   --comp-chip-selected-bg: var(--sys-color-action);
   --comp-chip-selected-border: var(--sys-color-action);
   --comp-chip-selected-fg: var(--sys-color-action-text);
@@ -3052,7 +3053,7 @@ button.tag:disabled,
   --comp-toast-padding-block-sm: var(--sys-space-sm);
   --comp-toast-padding-block-md: var(--component-density-control-padding-y);
   --comp-toast-padding-block-lg: var(--sys-space-lg);
-  --comp-toast-padding-inline-sm: var(--sys-frame-padding-control);
+  --comp-toast-padding-inline-sm: var(--component-frame-padding-control);
   --comp-toast-padding-inline-md: var(--sys-space-lg);
   --comp-toast-padding-inline-lg: var(--sys-space-xl);
   --comp-toast-gap-sm: var(--sys-space-xs);

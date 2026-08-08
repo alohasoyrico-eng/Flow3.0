@@ -254,7 +254,7 @@ function checkGoldComponentTokens() {
     ["--comp-badge-bg-danger: color-mix", "Badge must use subtle semantic surfaces translated from the ZIP benchmark, not solid fills."],
     [".chip[data-selected=\"true\"]", "Chip selected state must be owned by the package root."],
     ["color: var(--sys-color-action-text)", "Chip selected state must preserve high-contrast inverse text through Design System action text."],
-    ["--comp-chip-padding-inline: var(--sys-frame-padding-control)", "Chip horizontal padding must resolve from Frame control padding instead of shared Badge/Tag padding."],
+    ["--comp-chip-padding-inline: var(--component-frame-padding-control)", "Chip horizontal padding must resolve from component Frame control padding instead of shared Badge/Tag padding."],
     ["--comp-chip-gap: var(--sys-space-xs)", "Chip internal gap must use compact spacing instead of the larger component gap."],
     [".chip[data-chip-remove=\"true\"]", "Removable Chip must own extra inline-end padding through the package root."],
     ["--comp-tabs-bg: var(--sys-energy-surface-sunken)", "Tabs default variant must use a sunken pill group surface."],
