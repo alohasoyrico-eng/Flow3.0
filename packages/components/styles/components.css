@@ -1198,9 +1198,9 @@
 
 .field-control,
 .field {
-  --field-control-size: var(--comp-input-control-size);
-  --field-icon-size: var(--comp-input-icon-size);
-  --field-icon-action-size: var(--comp-input-action-size);
+  --comp-field-control-size: var(--comp-input-control-size);
+  --comp-field-icon-size: var(--comp-input-icon-size);
+  --comp-field-icon-action-size: var(--comp-input-action-size);
   display: grid;
   gap: var(--comp-input-gap);
   inline-size: 100%;
@@ -1224,7 +1224,7 @@
   color: var(--sys-color-text);
   display: flex;
   gap: var(--comp-input-gap);
-  min-block-size: var(--field-control-size);
+  min-block-size: var(--comp-field-control-size);
   min-inline-size: 0;
   padding: 0 var(--comp-input-padding-x);
   position: relative;
@@ -1294,22 +1294,22 @@
 
 .field-control[data-density="sm"],
 .field[data-density="sm"] {
-  --field-control-size: var(--comp-input-control-size-sm);
-  --field-icon-size: var(--comp-input-icon-size-sm);
-  --field-icon-action-size: var(--comp-input-action-size-sm);
+  --comp-field-control-size: var(--comp-input-control-size-sm);
+  --comp-field-icon-size: var(--comp-input-icon-size-sm);
+  --comp-field-icon-action-size: var(--comp-input-action-size-sm);
 }
 
 .field-control[data-density="lg"],
 .field[data-density="lg"] {
-  --field-control-size: var(--comp-input-control-size-lg);
-  --field-icon-size: var(--comp-input-icon-size-lg);
-  --field-icon-action-size: var(--comp-input-action-size-lg);
+  --comp-field-control-size: var(--comp-input-control-size-lg);
+  --comp-field-icon-size: var(--comp-input-icon-size-lg);
+  --comp-field-icon-action-size: var(--comp-input-action-size-lg);
 }
 
 .field__icon {
   color: var(--sys-color-text-muted);
   flex: none;
-  font-size: var(--field-icon-size);
+  font-size: var(--comp-field-icon-size);
 }
 
 .field__icon--loading {
@@ -1347,9 +1347,9 @@
   cursor: pointer;
   display: inline-flex;
   flex: none;
-  inline-size: var(--field-icon-action-size);
+  inline-size: var(--comp-field-icon-action-size);
   justify-content: center;
-  min-block-size: var(--field-icon-action-size);
+  min-block-size: var(--comp-field-icon-action-size);
   padding: 0;
   transition:
     color var(--component-duration-state) var(--component-ease-state),
@@ -9197,8 +9197,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-option-min-size: calc(var(--component-control-min-size) - var(--sys-space-xs));
   --comp-select-option-padding-x: var(--sys-space-sm);
   --comp-select-option-radius: calc(var(--component-radius-control) - 2px);
-  --field-control-size: var(--comp-select-control-size);
-  --field-icon-size: var(--comp-select-icon-size);
+  --comp-select-current-control-size: var(--comp-select-control-size);
+  --comp-select-current-icon-size: var(--comp-select-icon-size);
   display: grid;
   inline-size: 100%;
   min-inline-size: 0;
@@ -9206,7 +9206,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .country-selector {
-  --comp-country-selector-control-size: var(--field-control-size);
+  --comp-country-selector-control-size: var(--comp-select-current-control-size);
   --comp-country-selector-trigger-bg: var(--sys-color-surface);
   --comp-country-selector-trigger-border: var(--sys-color-border);
   --comp-country-selector-trigger-color: var(--sys-color-text);
@@ -9264,13 +9264,13 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .select-control[data-density="sm"] {
-  --field-control-size: var(--comp-select-control-size-sm);
-  --field-icon-size: var(--comp-select-icon-size-sm);
+  --comp-select-current-control-size: var(--comp-select-control-size-sm);
+  --comp-select-current-icon-size: var(--comp-select-icon-size-sm);
 }
 
 .select-control[data-density="lg"] {
-  --field-control-size: var(--comp-select-control-size-lg);
-  --field-icon-size: var(--comp-select-icon-size-lg);
+  --comp-select-current-control-size: var(--comp-select-control-size-lg);
+  --comp-select-current-icon-size: var(--comp-select-icon-size-lg);
 }
 
 .select-control--inline,
@@ -9337,7 +9337,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   font: inherit;
   inline-size: 100%;
   justify-content: space-between;
-  min-block-size: var(--field-control-size);
+  min-block-size: var(--comp-select-current-control-size);
   min-inline-size: 0;
   outline: var(--sys-a11y-outline-reset);
   padding: 0 var(--comp-select-padding-end) 0 var(--comp-select-padding-start);
@@ -9369,7 +9369,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   gap: var(--sys-space-xs);
   inline-size: max-content;
   justify-content: flex-start;
-  min-block-size: calc(var(--field-control-size) - (var(--sys-space-xs) * 2));
+  min-block-size: calc(var(--comp-select-current-control-size) - (var(--sys-space-xs) * 2));
   min-inline-size: 0;
   padding: 0 var(--comp-select-inline-padding-end) 0 0;
 }
@@ -9497,7 +9497,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .select-control__icon {
-  font-size: var(--field-icon-size);
+  font-size: var(--comp-select-current-icon-size);
 }
 
 .select-control:focus-within .select-control__chevron,
@@ -9613,7 +9613,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   font: inherit;
   font-size: var(--comp-country-selector-search-font-size);
   font-weight: var(--comp-country-selector-search-font-weight);
-  min-block-size: calc(var(--field-control-size) - var(--sys-space-sm));
+  min-block-size: calc(var(--comp-select-current-control-size) - var(--sys-space-sm));
   outline: var(--sys-a11y-outline-reset);
   padding: 0 var(--comp-country-selector-option-padding-x);
   transition:
@@ -9740,7 +9740,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .phone-input[data-variant="compact"] .phone-input__control {
-  --field-control-size: var(--comp-phone-input-control-size-compact);
+  --comp-field-control-size: var(--comp-phone-input-control-size-compact);
 }
 
 .phone-input[data-variant="compact"] .phone-input__input {
@@ -9788,15 +9788,15 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .card-number-input,
 .card-expiry-input,
 .card-security-code-input {
-  --comp-card-number-input-control-size: var(--field-control-size);
-  --comp-card-number-input-icon-size: var(--field-icon-size);
+  --comp-card-number-input-control-size: var(--comp-field-control-size);
+  --comp-card-number-input-icon-size: var(--comp-field-icon-size);
   --comp-card-number-input-value-spacing: 0.02em;
-  --comp-card-expiry-input-control-size: var(--field-control-size);
-  --comp-card-expiry-input-icon-size: var(--field-icon-size);
+  --comp-card-expiry-input-control-size: var(--comp-field-control-size);
+  --comp-card-expiry-input-icon-size: var(--comp-field-icon-size);
   --comp-card-expiry-input-value-spacing: var(--comp-card-number-input-value-spacing);
-  --comp-card-security-code-input-control-size: var(--field-control-size);
-  --comp-card-security-code-input-icon-size: var(--field-icon-size);
-  --comp-card-security-code-input-action-size: var(--field-icon-action-size);
+  --comp-card-security-code-input-control-size: var(--comp-field-control-size);
+  --comp-card-security-code-input-icon-size: var(--comp-field-icon-size);
+  --comp-card-security-code-input-action-size: var(--comp-field-icon-action-size);
   --comp-card-security-code-input-value-spacing: var(--comp-card-number-input-value-spacing);
 
   inline-size: 100%;
