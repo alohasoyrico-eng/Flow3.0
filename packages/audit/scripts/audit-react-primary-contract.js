@@ -1,7 +1,7 @@
 const { fs, path, root, read, readJson, add } = require("./audit-context.js");
 const { checkReactPropContracts } = require("./react-prop-contract-audit.js");
 const { checkDomEscapeTypeContract, forbiddenInheritedDomProps } = require("./react-dom-escape-contract.js");
-const { checkDensityContractConsistency, checkReactDensityCascade, checkStateContractConsistency } = require("./react-density-contract-audit.js");
+const { checkDensityContractConsistency, checkReactDensityCascade, checkReactPublicDensityContract, checkStateContractConsistency } = require("./react-density-contract-audit.js");
 const { checkRuntimeDomMutationContract } = require("./react-runtime-dom-mutation-audit.js");
 const { checkReactComponentContentGuards } = require("./react-component-content-guards.js");
 const { checkReactEffectContract } = require("./react-effect-contract-audit.js");
@@ -160,6 +160,7 @@ function checkReactComponent(file, shared) {
   if (!types.includes(`export interface ${propsName}`) && !types.includes(`export type ${propsName}`)) {
     add("errors", typesFile, 1, `${name} React types missing exported props contract: ${propsName}.`);
   }
+  checkReactPublicDensityContract({ add, name, sourceFile, source, typesFile, types, reactTypesIndex: shared.reactTypesIndex, reactTypesIndexFile });
 
   checkReactPropContracts({ add, componentName: name, typesFile, types, contractBody });
   checkDomEscapeTypeContract({ add, name, typesFile, types });

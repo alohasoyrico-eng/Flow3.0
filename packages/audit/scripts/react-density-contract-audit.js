@@ -107,6 +107,19 @@ function checkDensityContractConsistency({ add, contractsSource, componentContra
   }
 }
 
+function checkReactPublicDensityContract({ add, name, sourceFile, source, typesFile, types, reactTypesIndex, reactTypesIndexFile }) {
+  if (!/\bdensity\?:/.test(types)) {
+    add("errors", typesFile, 1, `${name} React props must expose density?: "sm" | "md" | "lg" so product code can opt into the cascade without local size props.`);
+  }
+  if (!/\bflowDensityProps\(/.test(source)) {
+    add("errors", sourceFile, 1, `${name} React source must propagate density through flowDensityProps() instead of relying on implicit or hardcoded size behavior.`);
+  }
+  const densityTypeName = `${name}Density`;
+  if (types.includes(`export type ${densityTypeName}`) && !reactTypesIndex.includes(densityTypeName)) {
+    add("errors", reactTypesIndexFile, 1, `React type index must export ${densityTypeName}.`);
+  }
+}
+
 function checkStateContractConsistency({ add, contractsSource, componentContractsFile }) {
   for (const match of contractsSource.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {
     const [, contractKey, body] = match;
@@ -119,5 +132,6 @@ function checkStateContractConsistency({ add, contractsSource, componentContract
 module.exports = {
   checkDensityContractConsistency,
   checkReactDensityCascade,
+  checkReactPublicDensityContract,
   checkStateContractConsistency,
 };
