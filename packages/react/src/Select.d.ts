@@ -15,6 +15,11 @@ export type SelectValueMeta = {
   meta: string;
 };
 export type SelectValueChangeEvent = MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>;
+export type SelectOpenChangeEvent =
+  | MouseEvent<HTMLButtonElement>
+  | KeyboardEvent<HTMLButtonElement>
+  | KeyboardEvent<HTMLSpanElement>
+  | MouseEvent<HTMLSpanElement>;
 
 export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -28,7 +33,9 @@ export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   density?: SelectDensity;
   variant?: SelectVariant;
   state?: SelectState;
+  open?: boolean;
   onValueChange?: (value: string, meta: SelectValueMeta, event: SelectValueChangeEvent) => void;
+  onOpenChange?: (open: boolean, event?: SelectOpenChangeEvent) => void;
 }
 
 export interface SelectComponent extends ForwardRefExoticComponent<SelectProps & RefAttributes<HTMLButtonElement>> {

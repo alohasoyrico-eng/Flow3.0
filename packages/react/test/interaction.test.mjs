@@ -1593,6 +1593,7 @@ try {
   cleanup();
 
   const selectChanges = [];
+  const selectOpenChanges = [];
   const { getByRole: getSelectRole, rerender: rerenderSelect } = render(React.createElement(Select, {
     label: "Country",
     value: "mx",
@@ -1602,12 +1603,14 @@ try {
       { label: "United States", value: "us", meta: "+1" },
     ],
     onValueChange: (value, meta, event) => selectChanges.push({ value, meta, eventType: event.type }),
+    onOpenChange: (open, event) => selectOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
 
   const selectTrigger = getSelectRole("combobox", { name: /country/i });
   assert.equal(selectTrigger.getAttribute("aria-expanded"), "false");
   fireEvent.click(selectTrigger);
   assert.equal(selectTrigger.getAttribute("aria-expanded"), "true");
+  assert.deepEqual(selectOpenChanges, [{ open: true, eventType: "click", key: undefined }]);
 
   fireEvent.click(getSelectRole("option", { name: /canada/i }));
   assert.deepEqual(selectChanges, []);
@@ -1615,6 +1618,10 @@ try {
   fireEvent.click(getSelectRole("option", { name: /united states/i }));
   await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(selectChanges, [{ value: "us", meta: { label: "United States", meta: "+1" }, eventType: "click" }]);
+  assert.deepEqual(selectOpenChanges, [
+    { open: true, eventType: "click", key: undefined },
+    { open: false, eventType: "click", key: undefined },
+  ]);
 
   rerenderSelect(React.createElement(Select, {
     label: "Country",
@@ -1625,6 +1632,7 @@ try {
       { label: "United States", value: "us", meta: "+1" },
     ],
     onValueChange: (value, meta, event) => selectChanges.push({ value, meta, eventType: event.type }),
+    onOpenChange: (open, event) => selectOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(selectTrigger.textContent.includes("Mexico"), true));
 

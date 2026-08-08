@@ -25,7 +25,9 @@ export const Select = forwardRef(function Select({
   density,
   variant = "default",
   state = "default",
+  open: openProp,
   onValueChange,
+  onOpenChange,
   className = "",
   id,
   ...rest
@@ -35,7 +37,9 @@ export const Select = forwardRef(function Select({
   const normalizedOptions = normalizeOptions(options);
   const isValueControlled = value !== undefined;
   const [currentValue, setCurrentValue] = useState(value ?? "");
-  const [open, setOpen] = useState(state === "open");
+  const isOpenControlled = openProp !== undefined;
+  const [internalOpen, setInternalOpen] = useState(state === "open");
+  const open = isOpenControlled ? Boolean(openProp) : internalOpen;
   const selectedOption = selectedOptionFor(normalizedOptions, currentValue);
   const selectedValue = selectedOption ? selectedOption.value : "";
   const selectedLabel = selectedOption ? selectedOption.label : "";
@@ -48,28 +52,35 @@ export const Select = forwardRef(function Select({
 
   if (!label || !normalizedOptions.length) return null;
 
+  const setOpen = (nextOpen, event) => {
+    if (disabled) return;
+    const normalizedOpen = Boolean(nextOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedOpen);
+    onOpenChange?.(normalizedOpen, event);
+  };
+
   const commitOption = (option, event) => {
     if (option.disabled) return;
     const optionValue = option.value;
     if (!isValueControlled) setCurrentValue(optionValue);
-    setOpen(false);
+    setOpen(false, event);
     onValueChange?.(optionValue, { label: option.label, meta: option.meta ?? "" }, event);
   };
   const handleTriggerClick = (event) => {
     rest.onClick?.(event);
     if (event.defaultPrevented) return;
-    setOpen((current) => !current);
+    setOpen(!open, event);
   };
   const handleTriggerKeyDown = (event) => {
     rest.onKeyDown?.(event);
     if (event.defaultPrevented) return;
     if (["ArrowDown", "Enter", " "].includes(event.key)) {
       event.preventDefault();
-      setOpen(true);
+      setOpen(true, event);
     }
     if (event.key === "Escape") {
       event.preventDefault();
-      setOpen(false);
+      setOpen(false, event);
     }
   };
 
@@ -155,7 +166,7 @@ export const Select = forwardRef(function Select({
                 }
                 if (event.key === "Escape") {
                   event.preventDefault();
-                  setOpen(false);
+                  setOpen(false, event);
                 }
               },
             },
