@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
 import type { paginationPlatformContract } from "#flow/platforms";
 
 export type PaginationVariant = "numbered";
@@ -17,7 +17,7 @@ export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "styl
   density?: PaginationDensity;
   fullWidth?: boolean;
   disabled?: boolean;
-  onPageChange?: (page: number) => void;
+  onPageChange?: (page: number, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface PaginationComponent extends ForwardRefExoticComponent<PaginationProps & RefAttributes<HTMLElement>> {

@@ -79,12 +79,12 @@ export const Pagination = forwardRef(function Pagination({
 
   if (!hasLabels || !hasPages) return null;
 
-  const requestPage = (nextPage) => {
+  const requestPage = (nextPage, event) => {
     if (disabled) return;
     const next = normalizePage(nextPage, totalPages).currentPage;
     if (next === currentPage) return;
     if (!isPageControlled) setCurrentPage(next);
-    if (typeof onPageChange === "function") onPageChange(next);
+    if (typeof onPageChange === "function") onPageChange(next, event);
   };
 
   return React.createElement(
@@ -107,7 +107,7 @@ export const Pagination = forwardRef(function Pagination({
       label: previousLabel,
       kind: "prev",
       disabled: disabled || currentPage <= 1,
-      onClick: () => requestPage(currentPage - 1),
+      onClick: (event) => requestPage(currentPage - 1, event),
     }),
     visibleItems.map((item, index) => item === "..."
       ? React.createElement(
@@ -127,14 +127,14 @@ export const Pagination = forwardRef(function Pagination({
           page: item,
           current: item === currentPage,
           disabled,
-          onClick: () => requestPage(item),
+          onClick: (event) => requestPage(item, event),
         })),
     React.createElement(PaginationButton, {
       icon: "chevron_right",
       label: nextLabel,
       kind: "next",
       disabled: disabled || currentPage >= totalPages,
-      onClick: () => requestPage(currentPage + 1),
+      onClick: (event) => requestPage(currentPage + 1, event),
     }),
   );
 });

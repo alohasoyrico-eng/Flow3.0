@@ -1138,7 +1138,7 @@ try {
     previousLabel: "Previous results page",
     nextLabel: "Next results page",
     getPageLabel: (page) => `Results page ${page}`,
-    onPageChange: (page) => pageChanges.push(page),
+    onPageChange: (page, event) => pageChanges.push({ page, eventType: event.type }),
   }));
 
   const pageOneButton = getPaginationRole("button", { name: /^results page 1$/i });
@@ -1146,11 +1146,11 @@ try {
 
   fireEvent.click(getPaginationRole("button", { name: /next results page/i }));
   await waitFor(() => assert.equal(getPaginationRole("button", { name: /^results page 2$/i }).getAttribute("aria-current"), "page"));
-  assert.deepEqual(pageChanges, [2]);
+  assert.deepEqual(pageChanges, [{ page: 2, eventType: "click" }]);
 
   fireEvent.click(getPaginationRole("button", { name: /next results page/i }));
   await waitFor(() => assert.equal(getPaginationRole("button", { name: /^results page 3$/i }).getAttribute("aria-current"), "page"));
-  assert.deepEqual(pageChanges, [2, 3]);
+  assert.deepEqual(pageChanges, [{ page: 2, eventType: "click" }, { page: 3, eventType: "click" }]);
 
   rerenderPagination(React.createElement(Pagination, {
     page: 5,
@@ -1160,11 +1160,11 @@ try {
     nextLabel: "Next results page",
     getPageLabel: (page) => `Results page ${page}`,
     disabled: true,
-    onPageChange: (page) => pageChanges.push(page),
+    onPageChange: (page, event) => pageChanges.push({ page, eventType: event.type }),
   }));
 
   fireEvent.click(getPaginationRole("button", { name: /results page 6/i }));
-  assert.deepEqual(pageChanges, [2, 3]);
+  assert.deepEqual(pageChanges, [{ page: 2, eventType: "click" }, { page: 3, eventType: "click" }]);
 
   cleanup();
 
