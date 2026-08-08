@@ -41,13 +41,13 @@ function renderContentItem(item, density) {
     );
   }
   if (item?.type === "progress") {
-    if (!item.label) return null;
+    if (!item.label || item.value === undefined || item.value === null) return null;
     return React.createElement(
       "div",
       { className: "drawer__progress-row", key: item.key },
       React.createElement(ProgressIndicator, {
         label: item.label,
-        value: item.value ?? 0,
+        value: item.value,
         max: item.max ?? 100,
         showValue: item.showValue ?? true,
         tone: item.tone ?? "accent",
@@ -78,9 +78,9 @@ export const Drawer = forwardRef(function Drawer({
   tone = "neutral",
   density,
   side = "right",
-  fields = [],
-  content = [],
-  actions = [],
+  fields,
+  content,
+  actions,
   open: openProp,
   id = "",
   onOpenChange,
@@ -103,11 +103,12 @@ export const Drawer = forwardRef(function Drawer({
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
   const drawerId = id || `drawer-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = `${drawerId}-title`;
-  const resolvedActions = Array.isArray(actions)
-    ? actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "")
-    : [];
+  const sourceActions = Array.isArray(actions) ? actions : [];
+  const resolvedActions = sourceActions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "");
   const hasTrigger = Boolean(triggerLabel);
-  const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label && hasStableFieldName(field)) : [];
+  const sourceFields = Array.isArray(fields) ? fields : [];
+  const sourceContent = Array.isArray(content) ? content : [];
+  const visibleFields = sourceFields.filter((field) => field?.label && hasStableFieldName(field));
 
   useEffect(() => {
     if (!isOpenControlled) return;
@@ -199,7 +200,7 @@ export const Drawer = forwardRef(function Drawer({
         React.createElement(
           "div",
           { className: "drawer__body" },
-          content.map((item) => renderContentItem(item, resolvedDensity)),
+          sourceContent.map((item) => renderContentItem(item, resolvedDensity)),
           visibleFields.map((field) => {
             const normalized = field ?? {};
             return React.createElement(Input, {
