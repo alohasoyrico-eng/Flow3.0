@@ -36,6 +36,10 @@ function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey,
   if (/\.breadcrumbs ol,\s*\.pagination\s*{/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".breadcrumbs ol")), "Pagination must not share its root layout block with Breadcrumbs.");
   }
+  const localNavigationSize = /--comp-pagination-(?:size|size-sm|size-lg|ellipsis-inline-size):\s*(?:calc\(var\(--component-control-min-size\)[^;]+|var\(--component-control-min-size\));/.exec(text);
+  if (localNavigationSize) {
+    add("errors", packageCssFile, lineNumber(text, localNavigationSize.index), "Pagination navigation target sizes must flow through shared Frame navigation roles instead of local control-size calculations.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -47,7 +51,10 @@ function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey,
       "--comp-pagination-cursor: pointer",
       "--comp-pagination-disabled-cursor: default",
       "--comp-pagination-full-width: 100%",
-      "--comp-pagination-size:",
+      "--comp-pagination-size: var(--component-navigation-target-size-md)",
+      "--comp-pagination-size-sm: var(--component-navigation-target-size-sm)",
+      "--comp-pagination-size-lg: var(--component-navigation-target-size-lg)",
+      "--comp-pagination-ellipsis-inline-size: var(--component-navigation-ellipsis-inline-size)",
       "--comp-pagination-gap:",
       "--comp-pagination-wrap: wrap",
       "--comp-pagination-width: fit-content",

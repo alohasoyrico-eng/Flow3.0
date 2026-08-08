@@ -61,6 +61,10 @@
   --component-inline-trigger-min-block-size-sm: var(--sys-frame-content-inline-trigger-min-block-sm);
   --component-inline-trigger-min-block-size-md: var(--sys-frame-content-inline-trigger-min-block-md);
   --component-inline-trigger-min-block-size-lg: var(--sys-frame-content-inline-trigger-min-block-lg);
+  --component-navigation-target-size-sm: var(--sys-frame-content-navigation-target-sm);
+  --component-navigation-target-size-md: var(--sys-frame-content-navigation-target-md);
+  --component-navigation-target-size-lg: var(--sys-frame-content-navigation-target-lg);
+  --component-navigation-ellipsis-inline-size: var(--sys-frame-content-navigation-ellipsis-inline);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -4734,9 +4738,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-button-display: inline-flex;
   --comp-pagination-button-justify: center;
   --comp-pagination-current-cursor: default;
-  --comp-pagination-size: calc(var(--component-control-min-size) - var(--sys-space-sm));
-  --comp-pagination-size-sm: calc(var(--component-control-min-size) - var(--sys-space-md));
-  --comp-pagination-size-lg: var(--component-control-min-size);
+  --comp-pagination-size: var(--component-navigation-target-size-md);
+  --comp-pagination-size-sm: var(--component-navigation-target-size-sm);
+  --comp-pagination-size-lg: var(--component-navigation-target-size-lg);
   --comp-pagination-gap: var(--sys-space-xs);
   --comp-pagination-radius: var(--component-radius-pill);
   --comp-pagination-cursor: pointer;
@@ -4760,7 +4764,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-icon-size: var(--component-font-size-title-sm);
   --comp-pagination-icon-line-height: var(--sys-voice-line-height-none);
   --comp-pagination-ellipsis-fg: var(--sys-color-text-muted);
-  --comp-pagination-ellipsis-inline-size: calc(var(--component-control-min-size) * 0.75);
+  --comp-pagination-ellipsis-inline-size: var(--component-navigation-ellipsis-inline-size);
   --comp-pagination-motion-duration: var(--component-duration-state);
   --comp-pagination-motion-ease: var(--component-ease-state);
   --comp-pagination-motion-enter: var(--component-ease-enter);
