@@ -5264,6 +5264,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-drawer-overlay-blur: var(--sys-depth-backdrop-blur);
   --comp-drawer-z-index: var(--sys-depth-z-dialog, 1001);
   --comp-drawer-panel-bg: var(--sys-color-surface);
+  --comp-drawer-panel-border-width: var(--component-border-width);
   --comp-drawer-panel-border: var(--sys-color-border);
   --comp-drawer-panel-radius: var(--sys-frame-radius-surface);
   --comp-drawer-panel-color: var(--sys-color-text);
@@ -5285,9 +5286,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-drawer-supporting-copy-font-size: var(--component-font-size-body);
   --comp-drawer-supporting-copy-line-height: var(--sys-voice-line-height-reading);
   --comp-drawer-footer-gap: var(--sys-space-sm);
+  --comp-drawer-footer-border-width: var(--component-border-width);
   --comp-drawer-footer-border: var(--sys-color-border);
   --comp-drawer-footer-padding-block-start: var(--sys-space-xl);
   --comp-drawer-enter-duration: var(--component-duration-overlay);
+  --comp-drawer-enter-ease: var(--component-ease-enter);
   --comp-drawer-exit-duration: var(--component-duration-exit);
   --comp-drawer-exit-ease: var(--component-ease-exit);
   gap: var(--comp-drawer-gap);
@@ -5686,11 +5689,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .drawer__panel {
   background: var(--comp-drawer-panel-bg);
-  border-color: var(--comp-drawer-panel-border);
+  border: var(--comp-drawer-panel-border-width) solid var(--comp-drawer-panel-border);
   border-radius: var(--comp-drawer-panel-radius);
   box-shadow: var(--comp-drawer-panel-depth);
   color: var(--comp-drawer-panel-color);
-  animation: drawer-enter var(--comp-drawer-enter-duration) var(--component-ease-enter);
+  animation: drawer-enter var(--comp-drawer-enter-duration) var(--comp-drawer-enter-ease);
   block-size: 100dvh;
   display: grid;
   gap: var(--comp-drawer-panel-gap);
@@ -5700,14 +5703,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   padding: var(--comp-drawer-panel-padding);
 }
 
-.drawer[data-density="sm"] .drawer__panel {
+.drawer[data-density="sm"] {
   --comp-drawer-panel-inline: min(68vw, 42rem);
   --comp-drawer-panel-padding: var(--sys-space-xl);
   --comp-drawer-panel-gap: var(--sys-space-sm);
   --comp-drawer-title-font-size: var(--component-font-size-title-md);
 }
 
-.drawer[data-density="lg"] .drawer__panel {
+.drawer[data-density="lg"] {
   --comp-drawer-panel-inline: min(82vw, 50rem);
   --comp-drawer-panel-padding: calc(var(--sys-space-xl) + var(--sys-space-lg));
   --comp-drawer-panel-gap: var(--sys-space-lg);
@@ -5777,7 +5780,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .drawer__panel footer {
   align-items: center;
-  border-block-start: var(--component-border-width) solid var(--comp-drawer-footer-border);
+  border-block-start: var(--comp-drawer-footer-border-width) solid var(--comp-drawer-footer-border);
   gap: var(--comp-drawer-footer-gap);
   margin-inline: calc(var(--comp-drawer-panel-padding) * -1);
   padding: var(--comp-drawer-footer-padding-block-start) var(--comp-drawer-panel-padding) 0;
