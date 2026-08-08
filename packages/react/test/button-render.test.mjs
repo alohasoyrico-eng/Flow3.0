@@ -334,7 +334,7 @@ assert.doesNotMatch(inheritedStationPinMarkup.match(/^<button[^>]+>/)?.[0] ?? ""
 const unnamedStationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
   value: "",
 }));
-assert.doesNotMatch(unnamedStationPinMarkup, /Station pin|Station 1/);
+assert.equal(unnamedStationPinMarkup, "");
 
 const cardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
   label: "Fleet",

@@ -42,6 +42,7 @@ export const StationPin = forwardRef(function StationPin({
     }],
   });
   const accessibleLabel = mapPrimitive.mapLayerModel.pins[0]?.accessibleLabel ?? String(label ?? visibleValue ?? "");
+  if (!accessibleLabel) return null;
 
   function handleClick(event) {
     if (blocked) return;
