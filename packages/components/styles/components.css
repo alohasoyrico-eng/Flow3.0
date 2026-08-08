@@ -10121,6 +10121,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .card-security-code-input {
   --comp-card-number-input-control-size: var(--comp-field-control-size);
   --comp-card-number-input-icon-size: var(--comp-field-icon-size);
+  --comp-card-number-input-brand-fg: var(--component-color-text-muted);
+  --comp-card-number-input-brand-weight: var(--component-font-weight-extrabold);
+  --comp-card-number-input-brand-letter-spacing: var(--component-letter-spacing-normal);
   --comp-card-number-input-value-spacing: 0.02em;
   --comp-card-expiry-input-control-size: var(--comp-field-control-size);
   --comp-card-expiry-input-icon-size: var(--comp-field-icon-size);
@@ -10189,10 +10192,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .card-number-input__brand {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-card-number-input-brand-fg);
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-extrabold);
-  letter-spacing: var(--sys-voice-letter-spacing-normal);
+  font-weight: var(--comp-card-number-input-brand-weight);
+  letter-spacing: var(--comp-card-number-input-brand-letter-spacing);
   min-inline-size: calc(var(--component-control-min-size) + var(--component-inline-size-sm));
   text-align: end;
 }
