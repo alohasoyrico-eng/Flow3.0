@@ -38,6 +38,10 @@
   --component-date-range-picker-panel-inline-size: var(--sys-frame-content-date-range-panel);
   --component-country-selector-inline-listbox-max-inline-size: var(--sys-frame-content-country-listbox-max-inline);
   --component-country-selector-inline-listbox-inline-size: var(--sys-frame-content-country-listbox-inline);
+  --component-phone-input-flex-basis: var(--sys-frame-content-phone-input-flex-basis);
+  --component-phone-input-flex-basis-compact: var(--sys-frame-content-phone-input-flex-basis-compact);
+  --component-phone-input-min-inline-size: var(--sys-frame-content-phone-input-min-inline);
+  --component-phone-input-min-inline-size-compact: var(--sys-frame-content-phone-input-min-inline-compact);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -342,10 +346,10 @@
   --comp-code-input-motion-enter: var(--component-ease-enter);
   --comp-code-input-invalid-shift: var(--sys-space-sm);
   --comp-phone-input-control-size-compact: var(--component-phone-compact-control-size);
-  --comp-phone-input-flex-basis: calc(var(--component-control-min-size) * 3.5);
-  --comp-phone-input-flex-basis-compact: calc(var(--component-control-min-size) * 3);
-  --comp-phone-input-min-inline-size: calc(var(--component-control-min-size) * 2.5);
-  --comp-phone-input-min-inline-size-compact: calc(var(--component-control-min-size) * 2);
+  --comp-phone-input-flex-basis: var(--component-phone-input-flex-basis);
+  --comp-phone-input-flex-basis-compact: var(--component-phone-input-flex-basis-compact);
+  --comp-phone-input-min-inline-size: var(--component-phone-input-min-inline-size);
+  --comp-phone-input-min-inline-size-compact: var(--component-phone-input-min-inline-size-compact);
   --comp-phone-input-font-family: var(--sys-voice-family-mono);
   --comp-phone-input-font-size-compact: var(--component-font-size-small);
   --comp-phone-input-font-weight: var(--sys-voice-weight-semibold);
