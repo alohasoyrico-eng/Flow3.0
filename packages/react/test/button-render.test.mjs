@@ -171,6 +171,8 @@ const inheritedFabMarkup = renderToStaticMarkup(React.createElement(FloatingActi
   label: "Inherited fab density",
 }));
 assert.doesNotMatch(inheritedFabMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
+const unnamedFabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton));
+assert.equal(unnamedFabMarkup, "");
 
 const quickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction, {
   label: "Freeze",

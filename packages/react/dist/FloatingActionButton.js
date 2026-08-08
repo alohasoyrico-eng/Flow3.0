@@ -25,6 +25,7 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedLabel = label ?? "";
   const isExtended = Boolean(extended) || resolvedVariant === "extended";
+  if (!resolvedLabel) return null;
 
   return React.createElement(
     "button",
