@@ -1025,7 +1025,7 @@ const tabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
   variant: "underline",
   items: [
     { key: "drivers", label: "Drivers", icon: "person" },
-    { key: "cards", label: "Cards", count: 8 },
+    { key: "cards", label: "Cards", badge: { label: "8", variant: "count", tone: "neutral" } },
   ],
 }));
 assert.match(tabsMarkup, /^<div/);
@@ -1038,6 +1038,16 @@ assert.match(tabsMarkup, /aria-selected="true"/);
 assert.match(tabsMarkup, /class="tabs__icon"/);
 assert.match(tabsMarkup, /class="tabs__label">Cards<\/span>/);
 assert.match(tabsMarkup, /class="badge"/);
+const countOnlyTabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
+  label: "Fleet views",
+  items: [{ key: "cards", label: "Cards", count: 8 }],
+}));
+assert.doesNotMatch(countOnlyTabsMarkup, /class="badge"|aria-label=""/);
+const incompleteBadgeTabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
+  label: "Fleet views",
+  items: [{ key: "cards", label: "Cards", badge: { count: 8 } }],
+}));
+assert.doesNotMatch(incompleteBadgeTabsMarkup, /class="badge"|aria-label=""/);
 const unnamedTabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
   items: [{ key: "overview", icon: "dashboard" }],
 }));

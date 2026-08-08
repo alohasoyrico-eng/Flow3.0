@@ -483,6 +483,7 @@ export const componentContracts = {
       "Use role tablist and role tab.",
       "Expose selected state with aria-selected.",
       "Require stable item key or value before composing tabs.",
+      "Use badge only through explicit TabsBadge labels; do not synthesize badges from count shorthands.",
       "Keep roving tab index aligned with selection."
     ]
   },

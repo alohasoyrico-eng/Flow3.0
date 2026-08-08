@@ -20,7 +20,6 @@ export interface TabsItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 
   value?: string;
   label: string;
   icon?: string;
-  count?: number;
   badge?: TabsBadge;
   selected?: boolean;
   disabled?: boolean;

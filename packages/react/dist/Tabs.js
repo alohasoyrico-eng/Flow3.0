@@ -101,7 +101,7 @@ export const Tabs = forwardRef(function Tabs({
     },
     normalizedItems.map((item) => {
       const selected = item.key === activeKey;
-      const badge = item.badge ?? (item.count != null ? { label: String(item.count), variant: "count", tone: "neutral" } : null);
+      const badge = item.badge?.label ? item.badge : null;
       return React.createElement(
         "button",
         {
@@ -139,11 +139,11 @@ export const Tabs = forwardRef(function Tabs({
         item.icon ? React.createElement("span", { className: "tabs__icon", "aria-hidden": "true" }, item.icon) : null,
         React.createElement("span", { className: "tabs__label" }, item.label),
         badge ? React.createElement(Badge, {
-          label: badge.label ?? String(badge.count ?? ""),
+          label: badge.label,
           tone: badge.tone ?? "neutral",
           variant: badge.variant ?? "count",
           density: resolvedDensity || undefined,
-          ariaLabel: badge.ariaLabel ?? "",
+          ariaLabel: badge.ariaLabel,
         }) : null,
       );
     }),
