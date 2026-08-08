@@ -5,6 +5,7 @@ const { checkDensityContractConsistency, checkReactDensityCascade, checkStateCon
 const { checkRuntimeDomMutationContract } = require("./react-runtime-dom-mutation-audit.js");
 const { checkReactComponentContentGuards } = require("./react-component-content-guards.js");
 const { checkReactEffectContract } = require("./react-effect-contract-audit.js");
+const { checkReactPrimaryInventory } = require("./audit-react-primary-inventory.js");
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
 const reactIndexFile = path.join(reactSrcDir, "index.js");
@@ -39,6 +40,7 @@ function checkReactPrimaryContract() {
     add("errors", reactSrcDir, 1, "React package must expose primary component source files.");
     return;
   }
+  checkReactPrimaryInventory(componentFiles);
 
   if (!reactPackage?.scripts?.test?.includes("test/ref.test.mjs")) {
     add("errors", reactPackageFile, 1, "React package test script must run test/ref.test.mjs so ForwardRefExoticComponent is verified at runtime.");

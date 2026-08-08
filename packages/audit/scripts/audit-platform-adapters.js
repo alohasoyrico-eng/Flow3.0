@@ -1,4 +1,4 @@
-const { fs, path, root, read, add } = require("./audit-context.js");
+const { fs, path, root, read, add, goldComponents } = require("./audit-context.js");
 const adapterIndexFile = path.join(root, "packages/components/src/platforms/index.js");
 const componentIndexFile = path.join(root, "packages/components/src/index.js");
 const componentPackageFile = path.join(root, "packages/components/package.json");
@@ -33,6 +33,7 @@ function checkPlatformAdapters() {
   for (const component of components) {
     checkComponent(component, { adapterIndex, contracts, reactIndex, reactIndexTypes, reactPackage });
   }
+  checkPlatformComponentInventory();
   checkAllPlatformFilesHaveReactPrimary({ adapterIndex, reactIndex, reactIndexTypes, reactPackage });
 
   if (!reactExample.includes('import { Button } from "@design-system/react"') || !reactExample.includes('import "@design-system/components/styles.css"')) {
@@ -50,6 +51,28 @@ function checkPlatformAdapters() {
   }
   for (const cssDependency of ["--comp-select-control-size: var(--sys-density-control-height)", "--comp-select-padding-start", ".select-control[data-density=\"sm\"]", ".select-control[data-density=\"lg\"]", ".select-control__trigger"]) {
     if (!componentCss.includes(cssDependency)) add("errors", componentCssFile, 1, `Select CSS must expose cascade dependency ${cssDependency}.`);
+  }
+}
+
+function checkPlatformComponentInventory() {
+  const platformsDir = path.join(root, "packages/components/src/platforms");
+  const componentIds = fs.readdirSync(platformsDir)
+    .filter((file) => file.endsWith(".js") && file !== "index.js")
+    .map((file) => path.basename(file, ".js"))
+    .sort();
+  const checkedIds = components.map((component) => component.id).sort();
+  const expectedIds = [...goldComponents].sort();
+  const missing = expectedIds.filter((id) => !componentIds.includes(id));
+  const extra = componentIds.filter((id) => !goldComponents.includes(id));
+  const checkedOutsideGovernance = checkedIds.filter((id) => !goldComponents.includes(id));
+  if (missing.length) {
+    add("errors", path.join(root, "packages/components/src/platforms"), 1, `Platform adapter files are missing accepted components: ${missing.join(", ")}.`);
+  }
+  if (extra.length) {
+    add("errors", path.join(root, "packages/components/src/platforms"), 1, `Platform adapter files include components outside goldComponents governance: ${extra.join(", ")}.`);
+  }
+  if (checkedOutsideGovernance.length) {
+    add("errors", path.join(root, "packages/audit/scripts/platform-adapter-components.js"), 1, `Detailed platform adapter checks include components outside goldComponents governance: ${checkedOutsideGovernance.join(", ")}.`);
   }
 }
 
