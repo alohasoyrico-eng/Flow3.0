@@ -23,7 +23,7 @@ export const QuickAction = forwardRef(function QuickAction({
   className = "",
   ...rest
 }, ref) {
-  const resolvedLabel = label ?? "";
+  const resolvedLabel = label;
   const resolvedVariant = validVariants.has(variant) ? variant : tone === "danger" ? "destructive" : "standard";
   const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);

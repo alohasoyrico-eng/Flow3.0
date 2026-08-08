@@ -151,6 +151,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "FloatingActionButton" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "FloatingActionButton must not render without an accessible label.");
   if (name === "FloatingActionButton" && /const resolvedLabel = label \?\? ""/.test(source)) add("errors", sourceFile, 1, "FloatingActionButton must not synthesize empty accessible labels before its runtime guard.");
   if (name === "QuickAction" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "QuickAction must not render without an accessible label.");
+  if (name === "QuickAction" && /const resolvedLabel = label \?\? ""/.test(source)) add("errors", sourceFile, 1, "QuickAction must not synthesize empty accessible labels before its runtime guard.");
   if (name === "EmptyState" && !source.includes("const canRenderAction = Boolean(actionLabel && actionKey !== undefined && actionKey !== null && actionKey !== \"\");")) add("errors", sourceFile, 1, "EmptyState actions must require visible labels and stable keys before rendering controls.");
   if (name === "EmptyState" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "EmptyState must not synthesize action keys from visible labels.");
   if (name === "EmptyState" && /title\s*\?\?\s*label|label\s*\?\?\s*title/.test(source)) add("errors", sourceFile, 1, "EmptyState must not alias label into title.");
