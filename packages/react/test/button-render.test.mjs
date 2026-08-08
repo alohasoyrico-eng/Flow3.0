@@ -1330,6 +1330,7 @@ assert.match(skeletonMarkup, /--skeleton-columns:3/);
 assert.equal((skeletonMarkup.match(/class="skeleton__row"/g) ?? []).length, 2);
 assert.equal((skeletonMarkup.match(/class="skeleton__bone skeleton__cell"/g) ?? []).length, 6);
 const unnamedSkeletonMarkup = renderToStaticMarkup(React.createElement(Skeleton));
+assert.equal(unnamedSkeletonMarkup, "");
 assert.doesNotMatch(unnamedSkeletonMarkup, /Content loading/);
 assert.doesNotMatch(unnamedSkeletonMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /aria-label=/);
 

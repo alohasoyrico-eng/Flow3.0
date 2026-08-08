@@ -5,7 +5,7 @@ export type SkeletonVariant = "text" | "title" | "circle" | "card" | "pill" | "r
 export type SkeletonState = "default" | "loading" | "stale" | "paused" | "loaded" | "disabled";
 
 export interface SkeletonProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label?: string;
+  label: string;
   variant?: SkeletonVariant;
   lines?: number;
   rows?: number;

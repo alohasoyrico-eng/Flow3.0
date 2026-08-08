@@ -663,7 +663,7 @@ export const componentContracts = {
     intents: ["default"],
     states: ["default", "loading", "stale", "paused", "loaded", "disabled"],
     props: [
-      { name: "label", type: "string", required: false },
+      { name: "label", type: "string", required: true },
       { name: "variant", type: "\"text\" | \"title\" | \"circle\" | \"card\" | \"pill\" | \"row\" | \"media\" | \"chart\" | \"table\"", required: false },
       { name: "lines", type: "number", required: false },
       { name: "rows", type: "number", required: false },

@@ -26,7 +26,7 @@ function toCssLength(value) {
 }
 
 export const Skeleton = forwardRef(function Skeleton({
-  label = "",
+  label,
   variant = "text",
   lines = 3,
   rows,
@@ -52,6 +52,8 @@ export const Skeleton = forwardRef(function Skeleton({
   const hasStyle = Object.values(style).some((value) => value !== undefined);
   const boneCount = singleBoneVariants.has(resolvedVariant) ? 1 : clampNumber(lines, 1, 6, 3);
 
+  if (!label) return null;
+
   return React.createElement(
     "div",
     {
@@ -60,7 +62,7 @@ export const Skeleton = forwardRef(function Skeleton({
       className: ["skeleton", `skeleton--${resolvedVariant}`, className].filter(Boolean).join(" "),
       role: "status",
       "aria-busy": String(isBusy),
-      "aria-label": label || undefined,
+      "aria-label": label,
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
       "data-full-width": String(Boolean(fullWidth)),
