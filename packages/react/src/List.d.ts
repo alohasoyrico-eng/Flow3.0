@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
 import type { listPlatformContract } from "@design-system/components/platforms";
 
 export type ListVariant = "standard" | "compact" | "action" | "status" | "media";
@@ -6,7 +6,7 @@ export type ListState = "default" | "hover" | "selected" | "loading" | "error" |
 export type ListDensity = "sm" | "md" | "lg";
 export type ListItemTone = "danger";
 
-export interface ListItem {
+export interface ListItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "value" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   key: string;
   label: ReactNode;
   meta?: ReactNode;

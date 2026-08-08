@@ -57,12 +57,14 @@ export const List = forwardRef(function List({
       const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
       const itemCanInteract = isInteractive;
       const Control = itemCanInteract ? "button" : "span";
+      const { key: itemKey, label: itemLabel, meta, value, icon, state: itemState, tone, disabled: itemDisabled, onClick, ...itemRest } = item;
       return React.createElement(
         "li",
         { className: "list__row", key },
         React.createElement(
           Control,
           {
+            ...(itemCanInteract ? flowRestProps(itemRest) : {}),
             className: "list__item",
             type: itemCanInteract ? "button" : undefined,
             disabled: itemCanInteract ? disabled : undefined,
@@ -71,22 +73,24 @@ export const List = forwardRef(function List({
             "data-key": itemCanInteract ? key : undefined,
             "aria-current": rowState === "selected" ? "true" : undefined,
             "aria-busy": rowState === "loading" ? "true" : undefined,
-            onClick: itemCanInteract ? () => {
+            onClick: itemCanInteract ? (event) => {
               if (disabled) return;
+              onClick?.(event);
+              if (event.defaultPrevented) return;
               if (!isSelectedKeyControlled) setCurrentSelectedKey(key);
               onSelect?.(key);
             } : undefined,
           },
-          item.icon
-            ? React.createElement("span", { className: "list__icon material-symbol", "aria-hidden": "true" }, item.icon)
+          icon
+            ? React.createElement("span", { className: "list__icon material-symbol", "aria-hidden": "true" }, icon)
             : null,
           React.createElement(
             "span",
             { className: "list__content" },
-            React.createElement("strong", null, item.label),
-            item.meta ? React.createElement("small", null, item.meta) : null,
+            React.createElement("strong", null, itemLabel),
+            meta ? React.createElement("small", null, meta) : null,
           ),
-          item.value ? React.createElement("span", { className: "list__value" }, item.value) : null,
+          value ? React.createElement("span", { className: "list__value" }, value) : null,
         ),
       );
     }),

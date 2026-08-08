@@ -1245,6 +1245,32 @@ try {
 
   cleanup();
 
+  const preventedListSelections = [];
+  const preventedListClicks = [];
+  const { getByRole: getPreventedListRole } = render(React.createElement(List, {
+    label: "Prevented tasks",
+    variant: "action",
+    items: [
+      {
+        key: "docs",
+        label: "Documents",
+        onClick: (event) => {
+          preventedListClicks.push(event.type);
+          event.preventDefault();
+        },
+      },
+    ],
+    onSelect: (key) => preventedListSelections.push(key),
+  }));
+
+  const preventedDocumentsRow = getPreventedListRole("button", { name: /documents/i });
+  fireEvent.click(preventedDocumentsRow);
+  assert.deepEqual(preventedListClicks, ["click"]);
+  assert.equal(preventedDocumentsRow.getAttribute("aria-current"), null);
+  assert.deepEqual(preventedListSelections, []);
+
+  cleanup();
+
   const segmentChanges = [];
   const { getByRole: getSegmentRole, rerender: rerenderSegmentedControl } = render(React.createElement(SegmentedControl, {
     label: "View mode",
