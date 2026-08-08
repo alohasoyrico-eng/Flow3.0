@@ -23,6 +23,11 @@ const forbiddenPackageRegistryApi = [
   "listComponents",
   "hasComponent",
 ];
+const forbiddenRegistryPropFallbacks = [
+  "demo.size",
+  "avatarSize",
+  "size: demo",
+];
 
 function checkComponentRegistry() {
   const registrySource = read(registryFile);
@@ -36,6 +41,12 @@ function checkComponentRegistry() {
   for (const forbidden of forbiddenPackageRegistryApi) {
     if (registrySource.includes(forbidden)) {
       add("errors", registryFile, 1, `Package component registry must not expose transitional DOM demo API: ${forbidden}.`);
+    }
+  }
+
+  for (const forbidden of forbiddenRegistryPropFallbacks) {
+    if (registrySource.includes(forbidden)) {
+      add("errors", registryFile, 1, `Package component registry must not translate legacy visual sizing props; density is the only demo scale route: ${forbidden}.`);
     }
   }
 

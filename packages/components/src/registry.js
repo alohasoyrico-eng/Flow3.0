@@ -12,7 +12,7 @@ export function componentDemoProps(component, demo = {}) {
     label: demo.label ?? "Action",
     variant: String(demo.variant ?? "primary").replace(" full", ""),
     intent: demo.intent ?? "default",
-    density: demo.density || demo.size || "md",
+    density: demo.density ?? "md",
     state,
     icon: demo.icon === "none" ? "" : demo.icon ?? "",
     trailingIcon: demo.trailingIcon ?? demo.iconTrailing ?? "",
@@ -158,7 +158,7 @@ export function componentDemoProps(component, demo = {}) {
     disabled: state === "disabled",
     loading: state === "loading",
   };
-  if (component === "avatar") return { name: demo.name ?? demo.label ?? "Ana Sosa", src: demo.src ?? "", size: demo.size ?? demo.density ?? "md", density: demo.density, status: demo.status ?? "online", state };
+  if (component === "avatar") return { name: demo.name ?? demo.label ?? "Ana Sosa", src: demo.src ?? "", density: demo.density ?? "md", status: demo.status ?? "online", state };
   if (component === "slider") return {
     label: demo.label ?? "Search radius",
     value: demo.value ?? 42,
@@ -589,7 +589,7 @@ export function componentDemoProps(component, demo = {}) {
       ],
     };
   }
-  if (component === "menu") return { triggerLabel: demo.trigger ?? "Actions", label: demo.label ?? "Actions", variant: demo.variant ?? "actions", avatarName: demo.avatarName ?? demo.name ?? demo.trigger ?? "", avatarStatus: demo.avatarStatus ?? demo.status ?? "none", avatarSize: demo.avatarSize ?? demo.size ?? "md", density: demo.density ?? "md", state, align: demo.align ?? "start", disabled: state === "disabled", open: state === "open" || state === "focus", items: demo.items ?? [{ label: "Edit driver", icon: "edit" }, { label: "Duplicate rules", icon: "content_copy" }, { separator: true }, { label: "Suspend access", icon: "block", tone: "danger" }] };
+  if (component === "menu") return { triggerLabel: demo.trigger ?? "Actions", label: demo.label ?? "Actions", variant: demo.variant ?? "actions", avatarName: demo.avatarName ?? demo.name ?? demo.trigger ?? "", avatarStatus: demo.avatarStatus ?? demo.status ?? "none", density: demo.density ?? "md", state, align: demo.align ?? "start", disabled: state === "disabled", open: state === "open" || state === "focus", items: demo.items ?? [{ label: "Edit driver", icon: "edit" }, { label: "Duplicate rules", icon: "content_copy" }, { separator: true }, { label: "Suspend access", icon: "block", tone: "danger" }] };
   if (component === "drawer") {
     const hasFields = Array.isArray(demo.fields) && demo.fields.length > 0;
     return {
