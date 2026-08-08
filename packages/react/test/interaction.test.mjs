@@ -574,19 +574,22 @@ try {
     min: "2026-07-01",
     max: "2026-07-31",
     onValueChange: (value, event) => dateValues.push({ value, eventType: event.type }),
-    onOpenChange: (open) => dateOpenChanges.push(open),
+    onOpenChange: (open, event) => dateOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
 
   const dateTrigger = getDateRole("button", { name: /service date/i });
   assert.equal(dateTrigger.getAttribute("aria-expanded"), "false");
   fireEvent.click(dateTrigger);
   assert.equal(dateTrigger.getAttribute("aria-expanded"), "true");
-  assert.deepEqual(dateOpenChanges, [true]);
+  assert.deepEqual(dateOpenChanges, [{ open: true, eventType: "click", key: undefined }]);
 
   fireEvent.click(getDateRole("gridcell", { name: /miércoles, 15 de julio de 2026/i }));
   await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "false"));
   assert.deepEqual(dateValues, [{ value: "2026-07-15", eventType: "click" }]);
-  assert.deepEqual(dateOpenChanges, [true, false]);
+  assert.deepEqual(dateOpenChanges, [
+    { open: true, eventType: "click", key: undefined },
+    { open: false, eventType: "click", key: undefined },
+  ]);
 
   rerenderDatePicker(React.createElement(DatePicker, {
     label: "Service date",
@@ -595,7 +598,7 @@ try {
     min: "2026-07-01",
     max: "2026-07-31",
     onValueChange: (value, event) => dateValues.push({ value, eventType: event.type }),
-    onOpenChange: (open) => dateOpenChanges.push(open),
+    onOpenChange: (open, event) => dateOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(dateTrigger.textContent.includes("20 jul 2026"), true));
 
@@ -607,7 +610,7 @@ try {
     max: "2026-07-31",
     open: true,
     onValueChange: (value, event) => dateValues.push({ value, eventType: event.type }),
-    onOpenChange: (open) => dateOpenChanges.push(open),
+    onOpenChange: (open, event) => dateOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "true"));
 
@@ -619,7 +622,7 @@ try {
     max: "2026-07-31",
     open: false,
     onValueChange: (value, event) => dateValues.push({ value, eventType: event.type }),
-    onOpenChange: (open) => dateOpenChanges.push(open),
+    onOpenChange: (open, event) => dateOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "false"));
 
