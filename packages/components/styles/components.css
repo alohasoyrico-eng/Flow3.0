@@ -625,7 +625,7 @@
   --comp-checkbox-motion-press: var(--component-ease-press);
   --comp-checkbox-hover-scale: var(--component-scale-hover);
   --comp-checkbox-press-scale: var(--component-scale-press);
-  --comp-checkbox-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-checkbox-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-switch-track-width-sm: var(--component-switch-track-width-sm);
   --comp-switch-track-width-md: var(--component-switch-track-width-md);
   --comp-switch-track-width-lg: var(--component-switch-track-width-lg);
@@ -666,7 +666,7 @@
   --comp-switch-motion-enter: var(--component-ease-enter);
   --comp-switch-motion-press: var(--component-ease-press);
   --comp-switch-press-scale: var(--component-scale-press);
-  --comp-switch-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-switch-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-radio-button-mark-size-sm: var(--component-inline-size-xs);
   --comp-radio-button-mark-size-md: var(--component-inline-size-sm);
   --comp-radio-button-mark-size-lg: var(--component-min-text-line);
@@ -702,7 +702,7 @@
   --comp-radio-button-motion-press: var(--component-ease-press);
   --comp-radio-button-hover-scale: var(--component-scale-hover);
   --comp-radio-button-press-scale: var(--component-scale-press);
-  --comp-radio-button-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-radio-button-disabled-opacity: var(--component-disabled-readable-opacity);
   --component-list-icon-box-size: calc(var(--component-control-min-size) - var(--sys-space-md) + var(--component-frame-space-micro));
   --component-list-icon-box-size-sm: var(--component-field-icon-action-size-lg);
   --component-list-icon-box-size-lg: var(--component-inline-size-lg);
@@ -781,7 +781,7 @@
   --comp-floating-action-button-focus-width: var(--component-focus-ring-width);
   --comp-floating-action-button-focus-color: var(--component-color-focus);
   --comp-floating-action-button-focus-offset: var(--component-focus-ring-offset);
-  --comp-floating-action-button-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-floating-action-button-disabled-opacity: var(--component-disabled-readable-opacity);
   --component-error-panel-icon-size: var(--component-list-icon-box-size);
   --component-error-panel-icon-size-sm: var(--component-list-icon-box-size-sm);
   --component-error-panel-icon-size-lg: var(--component-list-icon-box-size-lg);
@@ -942,8 +942,8 @@
   --comp-table-detail-padding-block: var(--component-space-md);
   --comp-table-sort-gap: var(--component-space-2xs);
   --comp-table-sort-icon-size: var(--component-font-size-body);
-  --comp-table-sort-icon-opacity: var(--sys-state-muted-opacity);
-  --comp-table-sort-active-icon-opacity: var(--sys-state-visible-opacity);
+  --comp-table-sort-icon-opacity: var(--component-opacity-muted);
+  --comp-table-sort-active-icon-opacity: var(--component-opacity-visible);
   --comp-table-expander-size: var(--component-table-expander-size);
   --comp-table-expander-cell-gap: var(--component-space-sm);
   --comp-table-expander-cell-padding-inline-end: var(--component-frame-space-none);
@@ -1127,7 +1127,7 @@
   --comp-button-hover-transform: var(--component-transform-lift-hover);
   --comp-button-press-transform: var(--component-transform-press);
   --comp-button-disabled-cursor: var(--component-cursor-not-allowed);
-  --comp-button-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-button-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
   --comp-button-spinner-tone: currentColor;
   --comp-button-icon-color: currentColor;
@@ -1382,7 +1382,7 @@
   --comp-icon-button-focus-ring: var(--component-focus-ring);
   --comp-icon-button-focus-offset: var(--component-focus-ring-offset);
   --comp-icon-button-disabled-cursor: var(--component-cursor-not-allowed);
-  --comp-icon-button-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-icon-button-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-icon-button-badge-animation: component-pulse var(--component-duration-loop) var(--component-ease-state) infinite;
   --comp-icon-button-badge-bg: var(--component-color-success);
   --comp-icon-button-badge-border-width: var(--component-border-width-medium);
@@ -1847,7 +1847,7 @@
   --comp-choice-current-hover-scale: var(--component-scale-hover);
   --comp-choice-current-press-scale: var(--component-scale-press);
   --comp-choice-current-text-gap: var(--component-space-sm);
-  --comp-choice-current-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-choice-current-disabled-opacity: var(--component-disabled-readable-opacity);
   grid-template-columns: auto 1fr;
   gap: var(--comp-choice-current-gap);
   padding-block: var(--comp-choice-current-padding-block);
@@ -2383,8 +2383,8 @@
   --comp-badge-motion-press-ease: var(--component-ease-press);
   --comp-badge-live-animation-duration: var(--component-duration-loop);
   --comp-badge-live-animation-ease: var(--component-ease-state);
-  --comp-badge-live-opacity-rest: var(--sys-state-muted-opacity);
-  --comp-badge-live-opacity-active: var(--sys-state-visible-opacity);
+  --comp-badge-live-opacity-rest: var(--component-opacity-muted);
+  --comp-badge-live-opacity-active: var(--component-opacity-visible);
   --comp-badge-live-scale-rest: var(--component-scale-enter);
   --comp-badge-live-scale-active: var(--component-scale-raised);
   background: var(--comp-badge-bg);
@@ -2566,7 +2566,7 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
   --comp-tag-focus-width: var(--component-focus-ring-width);
   --comp-tag-focus-color: var(--component-color-focus);
   --comp-tag-focus-offset: var(--component-focus-ring-offset);
-  --comp-tag-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-tag-disabled-opacity: var(--component-disabled-readable-opacity);
   background: var(--comp-tag-bg);
   border: var(--comp-tag-border-width) solid var(--comp-tag-border);
   border-radius: var(--comp-tag-radius);
@@ -2649,7 +2649,7 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
   --comp-chip-focus-width: var(--component-focus-ring-width);
   --comp-chip-focus-color: var(--component-color-focus);
   --comp-chip-focus-offset: var(--component-focus-ring-offset);
-  --comp-chip-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-chip-disabled-opacity: var(--component-disabled-readable-opacity);
   background: var(--comp-chip-bg);
   border: var(--comp-chip-border-width) solid var(--comp-chip-border);
   border-radius: var(--comp-chip-radius);
@@ -3227,7 +3227,7 @@ button.tag:disabled,
   --comp-toast-action-padding-inline: var(--component-space-sm);
   --comp-toast-dismiss-size: var(--component-field-icon-action-size-md);
   --comp-toast-dismiss-icon-size: var(--component-icon-size-sm-plus);
-  --comp-toast-dismiss-opacity: var(--sys-state-muted-opacity);
+  --comp-toast-dismiss-opacity: var(--component-opacity-muted);
   --comp-toast-focus-width: var(--component-focus-ring-width);
   --comp-toast-focus-color: color-mix(in srgb, var(--component-color-focus) 35%, transparent);
   --comp-toast-focus-offset: var(--component-focus-ring-offset);
@@ -3632,7 +3632,7 @@ button.tag:disabled,
   --comp-accordion-trigger-fg: var(--component-color-text);
   --comp-accordion-trigger-hover-bg: color-mix(in srgb, var(--component-color-action) 6%, var(--component-color-surface));
   --comp-accordion-trigger-disabled-fg: var(--component-color-text-muted);
-  --comp-accordion-trigger-disabled-opacity: var(--sys-state-muted-opacity);
+  --comp-accordion-trigger-disabled-opacity: var(--component-opacity-muted);
   --comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-md);
   --comp-accordion-trigger-padding-inline: var(--component-space-md);
   --comp-accordion-trigger-gap: var(--component-space-sm);
@@ -3817,7 +3817,7 @@ button.tag:disabled,
   --comp-slider-input-active-cursor: var(--component-cursor-grabbing);
   --comp-slider-input-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-slider-disabled-cursor: var(--component-disabled-cursor);
-  --comp-slider-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-slider-disabled-opacity: var(--component-opacity-disabled);
   --comp-slider-focus-ring-width: var(--component-focus-ring-width);
   --comp-slider-focus-ring-color: var(--component-color-focus);
   --comp-slider-focus-ring-offset: var(--component-focus-ring-offset);
@@ -4124,7 +4124,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-skeleton-paused-bg: color-mix(in srgb, var(--component-color-warning) 14%, var(--component-color-surface-sunken));
   --comp-skeleton-loaded-opacity: var(--component-loading-stale-opacity);
   --comp-skeleton-disabled-fg: var(--component-disabled-text);
-  --comp-skeleton-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-skeleton-disabled-opacity: var(--component-opacity-disabled);
   --comp-skeleton-shimmer-duration: var(--component-duration-shimmer);
   --comp-skeleton-shimmer-easing: var(--component-ease-loading-rhythm);
   --comp-skeleton-state-duration: var(--component-duration-state);
@@ -4476,7 +4476,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-depth: var(--component-depth-panel);
   --comp-kpi-tile-depth-interactive: var(--component-depth-raised-soft);
   --comp-kpi-tile-disabled-cursor: var(--component-cursor-not-allowed);
-  --comp-kpi-tile-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-kpi-tile-disabled-opacity: var(--component-opacity-disabled);
   --comp-kpi-tile-disabled-transform: var(--component-transform-none);
   --comp-kpi-tile-fg: var(--component-color-text);
   --comp-kpi-tile-focus-ring-color: var(--component-color-focus);
@@ -4827,7 +4827,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-motion-ease: var(--component-ease-state);
   --comp-breadcrumbs-disabled-fg: var(--component-disabled-text);
   --comp-breadcrumbs-disabled-cursor: var(--component-disabled-cursor);
-  --comp-breadcrumbs-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-breadcrumbs-disabled-opacity: var(--component-opacity-disabled);
   --comp-breadcrumbs-width: var(--component-inline-size-fit-content);
   --comp-breadcrumbs-full-width: var(--component-inline-size-full);
   color: var(--comp-breadcrumbs-target-fg);
@@ -4960,7 +4960,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-current-fg: var(--component-color-action-text);
   --comp-pagination-current-weight: var(--component-font-weight-extrabold);
   --comp-pagination-current-shadow: 0 0 0 var(--component-space-sm) color-mix(in srgb, var(--component-color-action) 16%, transparent), var(--component-depth-pill);
-  --comp-pagination-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-pagination-disabled-opacity: var(--component-opacity-disabled);
   --comp-pagination-icon-family: var(--component-font-family-icon);
   --comp-pagination-icon-size: var(--component-font-size-title-sm);
   --comp-pagination-icon-line-height: var(--component-line-height-none);
@@ -5091,7 +5091,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-depth: var(--component-depth-none);
   --comp-audit-event-disabled-border: var(--component-disabled-border);
   --comp-audit-event-disabled-fg: var(--component-disabled-text);
-  --comp-audit-event-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-audit-event-disabled-opacity: var(--component-opacity-disabled);
   --comp-audit-event-display: var(--component-display-grid);
   --comp-audit-event-fg: var(--component-color-text);
   --comp-audit-event-focus-color: var(--component-color-focus);
@@ -5297,7 +5297,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-error-panel-fg: var(--component-color-text);
   --comp-error-panel-disabled-border: var(--component-disabled-border);
   --comp-error-panel-disabled-fg: var(--component-disabled-text);
-  --comp-error-panel-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-error-panel-disabled-opacity: var(--component-opacity-disabled);
   --comp-error-panel-icon-size: var(--component-error-panel-icon-size);
   --comp-error-panel-icon-font-size: var(--component-font-size-title-sm);
   --comp-error-panel-icon-bg: color-mix(in srgb, var(--comp-error-panel-tone) 12%, var(--component-color-surface));
@@ -6663,7 +6663,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-biometric-prompt-ring-border-width: var(--component-border-width-indicator);
   --comp-biometric-prompt-ring-border-color: var(--component-color-action);
   --comp-biometric-prompt-ring-inset: calc(var(--component-space-xs) * -1);
-  --comp-biometric-prompt-ring-opacity: var(--sys-state-muted-opacity);
+  --comp-biometric-prompt-ring-opacity: var(--component-opacity-muted);
   --comp-biometric-prompt-success-bg: color-mix(in srgb, var(--component-color-success) 14%, var(--component-color-surface));
   --comp-biometric-prompt-success-fg: var(--component-color-success);
   --comp-biometric-prompt-warning-bg: color-mix(in srgb, var(--component-color-warning) 14%, var(--component-color-surface));
@@ -8008,7 +8008,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-depth: var(--component-depth-panel);
   --comp-chart-panel-disabled-border: var(--component-disabled-border);
   --comp-chart-panel-disabled-fg: var(--component-disabled-text);
-  --comp-chart-panel-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-chart-panel-disabled-opacity: var(--component-opacity-disabled);
   --comp-chart-panel-display: var(--component-display-grid);
   --comp-chart-panel-fg: var(--component-color-text);
   --comp-chart-panel-focus-color: color-mix(in srgb, var(--component-color-action) 35%, transparent);

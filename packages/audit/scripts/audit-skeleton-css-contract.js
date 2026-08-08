@@ -51,7 +51,7 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-skeleton-circle-width: var(--component-skeleton-circle-size)",
       "--comp-skeleton-row-template: var(--component-skeleton-row-leading-size) minmax(0, 1fr) var(--component-block-size-sm)",
       "--comp-skeleton-shimmer-duration: var(--component-duration-shimmer)",
-      "--comp-skeleton-disabled-opacity: var(--sys-disabled-opacity)",
+      "--comp-skeleton-disabled-opacity: var(--component-opacity-disabled)",
       "gap: var(--comp-skeleton-gap)",
       "color: var(--comp-skeleton-fg)",
       "transition: opacity var(--comp-skeleton-state-duration) var(--comp-skeleton-state-ease)",

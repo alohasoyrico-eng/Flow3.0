@@ -68,7 +68,7 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-button-current-font-size: var(--comp-button-font-size)",
       "--comp-button-border: var(--component-border-width) solid var(--comp-button-border-color)",
       "--comp-button-focus-ring: var(--component-focus-ring)",
-      "--comp-button-disabled-opacity: var(--sys-disabled-readable-opacity)",
+      "--comp-button-disabled-opacity: var(--component-disabled-readable-opacity)",
       "--comp-button-transition:",
       "align-items: var(--comp-button-align)",
       "border: var(--comp-button-border)",

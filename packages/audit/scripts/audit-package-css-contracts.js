@@ -211,6 +211,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|color-mix)\([^;]*--sys-color-[\w-]+[^;]*;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component color aliases must consume --component-color-* instead of reaching into sys color directly.");
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc|min|max)\([^;]*--sys-(?:voice|font)-[\w-]+[^;]*;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component voice aliases must consume component font/voice aliases instead of reaching into sys voice or font directly.");
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc|min|max)\([^;]*--sys-(?:icon|symbol)-[\w-]+[^;]*;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component icon and symbol aliases must consume component icon/symbol aliases instead of reaching into sys icon or symbol directly.");
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*var\(--sys-(?:disabled|state)-[\w-]+\);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component state aliases must consume component opacity/disabled aliases instead of reaching into sys state or disabled directly.");
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
