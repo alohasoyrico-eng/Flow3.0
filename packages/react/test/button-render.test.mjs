@@ -679,6 +679,14 @@ const unnamedInteractiveKpiMarkup = renderToStaticMarkup(React.createElement(Kpi
 assert.match(unnamedInteractiveKpiMarkup, /^<article/);
 assert.doesNotMatch(unnamedInteractiveKpiMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /role="button"|tabIndex=|href=|aria-label=/);
 assert.doesNotMatch(unnamedInteractiveKpiMarkup, /class="kpi-tile__affordance"/);
+const inertDrillInKpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
+  label: "Cards at risk",
+  value: "18",
+  variant: "drill-in",
+}));
+assert.match(inertDrillInKpiMarkup, /^<article/);
+assert.doesNotMatch(inertDrillInKpiMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /role="button"|tabIndex=|href=/);
+assert.doesNotMatch(inertDrillInKpiMarkup, /class="kpi-tile__affordance"/);
 
 const treeViewMarkup = renderToStaticMarkup(React.createElement(TreeView, {
   label: "Fleet hierarchy",

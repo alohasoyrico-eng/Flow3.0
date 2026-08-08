@@ -964,6 +964,7 @@ export const componentContracts = {
       "Keep label and value readable as text.",
       "Do not encode trend only in color.",
       "Use button or link semantics when the tile drills in.",
+      "Require href or onSelect before showing drill-in affordance.",
       "Use dashboard patterns for metric grouping, formulas, thresholds, and cross-panel drill-down."
     ]
   },

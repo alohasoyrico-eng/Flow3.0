@@ -45,9 +45,10 @@ export const KpiTile = forwardRef(function KpiTile({
   const resolvedState = loading ? "loading" : disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const requestedInteraction = Boolean(href || onSelect || resolvedVariant === "drill-in");
+  const canActivateTile = Boolean(href || onSelect);
   const selectMeta = { label, value, delta, tone: resolvedTone, variant: resolvedVariant };
   const accessibleLabel = ariaLabel || (requestedInteraction && (label || value || delta) ? `${label ?? ""} ${value ?? ""}${delta ? `, ${delta}` : ""}`.trim() : undefined);
-  const interactive = requestedInteraction && Boolean(accessibleLabel);
+  const interactive = requestedInteraction && canActivateTile && Boolean(accessibleLabel);
   const Element = href && interactive ? "a" : "article";
 
   return React.createElement(
