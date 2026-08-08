@@ -127,8 +127,8 @@ const componentQualityRequirements = {
       ".code-input .code-input__control",
       ".code-input .code-input__slots",
       ".code-input .code-input__slot",
-      '.code-input[data-density="sm"] .code-input__slot',
-      '.code-input[data-density="lg"] .code-input__slot',
+      '.code-input[data-density="sm"]',
+      '.code-input[data-density="lg"]',
     ],
     reactSnippets: [
       'className: "code-input__control"',

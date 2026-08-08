@@ -8273,22 +8273,24 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
     transform var(--comp-code-input-motion-duration) var(--comp-code-input-motion-ease);
 }
 
-.code-input[data-density="sm"] .code-input__slot {
-  --code-input-slot-block-size: var(--comp-code-input-slot-block-size-sm);
-  --code-input-slot-font-size: var(--comp-code-input-slot-font-size-sm);
-  --code-input-slot-inline-size: var(--comp-code-input-slot-inline-size-sm);
-}
-
-.code-input[data-variant="compact"] .code-input__slot {
+.code-input[data-density="sm"] {
   --code-input-slot-block-size: var(--comp-code-input-slot-block-size-sm);
   --code-input-slot-font-size: var(--comp-code-input-slot-font-size-sm);
   --code-input-slot-gap: var(--comp-code-input-slot-gap-sm);
   --code-input-slot-inline-size: var(--comp-code-input-slot-inline-size-sm);
 }
 
-.code-input[data-density="lg"] .code-input__slot {
+.code-input[data-variant="compact"] {
+  --code-input-slot-block-size: var(--comp-code-input-slot-block-size-sm);
+  --code-input-slot-font-size: var(--comp-code-input-slot-font-size-sm);
+  --code-input-slot-gap: var(--comp-code-input-slot-gap-sm);
+  --code-input-slot-inline-size: var(--comp-code-input-slot-inline-size-sm);
+}
+
+.code-input[data-density="lg"] {
   --code-input-slot-block-size: var(--comp-code-input-slot-block-size-lg);
   --code-input-slot-font-size: var(--comp-code-input-slot-font-size-lg);
+  --code-input-slot-gap: var(--comp-code-input-slot-gap-md);
   --code-input-slot-inline-size: var(--comp-code-input-slot-inline-size-lg);
 }
 
@@ -8329,7 +8331,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .code-input__digit {
-  animation: code-digit-enter var(--comp-code-input-motion-enter-duration) var(--component-ease-enter) both;
+  animation: code-digit-enter var(--comp-code-input-motion-enter-duration) var(--comp-code-input-motion-enter) both;
 }
 
 .code-input[data-masked="true"] .code-input__digit {
