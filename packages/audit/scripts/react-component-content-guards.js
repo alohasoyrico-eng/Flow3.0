@@ -264,6 +264,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Slider" && /unit\s*=\s*""|valueLabel\s*=\s*""|return `\$\{value\}\$\{unit\}`/.test(source)) add("errors", sourceFile, 1, "Slider must not synthesize empty unit or valueLabel copy before formatting values.");
   if (name === "InlineValidation" && !source.includes("const showField = Boolean(label && requestedField);")) add("errors", sourceFile, 1, "InlineValidation must require a visible label before composing Input.");
   if (name === "InlineValidation" && /fieldAriaLabel|label:\s*label\s*\?\?\s*""|"aria-label":\s*label\s*\?\s*undefined/.test(source)) add("errors", sourceFile, 1, "InlineValidation must not synthesize field labels or replace visible labels with aria-only fields.");
+  if (name === "InlineValidation" && /message\s*=\s*""|id\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "InlineValidation must not hide optional message or id behind empty defaults.");
   if (name === "Stepper" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Stepper must not render without an accessible progress label.");
 }
 

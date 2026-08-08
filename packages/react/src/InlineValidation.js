@@ -16,9 +16,9 @@ function slug(value) {
 export const InlineValidation = forwardRef(function InlineValidation({
   label,
   value = "",
-  message = "",
+  message,
   state = "default",
-  id = "",
+  id,
   density,
   fullWidth = false,
   field,
