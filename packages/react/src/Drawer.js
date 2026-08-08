@@ -70,8 +70,8 @@ function renderContentItem(item, density) {
 
 export const Drawer = forwardRef(function Drawer({
   label,
-  description = "",
-  triggerLabel = "",
+  description,
+  triggerLabel,
   closeLabel,
   variant = "side-sheet",
   state = "closed",
@@ -82,7 +82,7 @@ export const Drawer = forwardRef(function Drawer({
   content,
   actions,
   open: openProp,
-  id = "",
+  id,
   onOpenChange,
   onAction,
   className = "",
