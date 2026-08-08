@@ -45,6 +45,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "DateRangePicker" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "DateRangePicker must not render without its required visible label.");
   if (name === "DateRangePicker" && /"aria-label":\s*previousMonthLabel\s*\|\|\s*undefined|"aria-label":\s*nextMonthLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "DateRangePicker month navigation must require accessible labels before rendering controls.");
   if (name === "Slider" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Slider must not render without its required visible label.");
+  if (name === "Stepper" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Stepper must not render without an accessible progress label.");
 }
 
 module.exports = { checkReactComponentContentGuards };

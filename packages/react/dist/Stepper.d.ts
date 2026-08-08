@@ -13,7 +13,7 @@ export interface StepperStep {
 export interface StepperProps extends Omit<HTMLAttributes<HTMLOListElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   steps: StepperStep[];
   current?: number;
-  label?: string;
+  label: string;
   orientation?: StepperOrientation;
   density?: StepperDensity;
 }

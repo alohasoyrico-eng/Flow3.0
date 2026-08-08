@@ -1127,7 +1127,7 @@ export const componentContracts = {
     props: [
       { name: "steps", type: "StepperStep[]", required: true },
       { name: "current", type: "number", required: false },
-      { name: "label", type: "string", required: false },
+      { name: "label", type: "string", required: true },
       { name: "orientation", type: "\"horizontal\" | \"vertical\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false }
     ],

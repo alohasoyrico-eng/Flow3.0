@@ -27,6 +27,7 @@ export const Stepper = forwardRef(function Stepper({
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedSteps = useMemo(() => normalizeSteps(steps), [steps]);
   const currentIndex = Math.max(0, Math.min(Number(current) || 0, resolvedSteps.length - 1));
+  if (!label) return null;
 
   return React.createElement(
     "ol",
