@@ -1626,6 +1626,7 @@ const toastMarkup = renderToStaticMarkup(React.createElement(Toast, {
   state: "action",
   density: "sm",
   actionLabel: "Undo",
+  onAction: () => {},
   dismissible: true,
   dismissLabel: "Dismiss route update",
 }));
@@ -1646,6 +1647,13 @@ assert.match(toastMarkup, /class="button button--ghost toast__action"/);
 assert.match(toastMarkup, /data-toast-action=""/);
 assert.match(toastMarkup, /class="icon-button icon-button--ghost toast__dismiss"/);
 assert.match(toastMarkup, /data-toast-dismiss=""/);
+
+const inertToastActionMarkup = renderToStaticMarkup(React.createElement(Toast, {
+  label: "Route updated",
+  actionLabel: "Undo",
+}));
+assert.doesNotMatch(inertToastActionMarkup, /data-toast-action/);
+assert.doesNotMatch(inertToastActionMarkup, /class="button button--ghost toast__action"/);
 
 const warningToastMarkup = renderToStaticMarkup(React.createElement(Toast, {
   label: "Policy conflict",

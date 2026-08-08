@@ -39,6 +39,7 @@ export const Toast = forwardRef(function Toast({
   const [dismissed, setDismissed] = useState(false);
   const hidden = dismissed || resolvedState === "default";
   const role = resolvedTone === "danger" || resolvedTone === "warning" ? "alert" : "status";
+  const canRenderAction = Boolean(actionLabel && onAction);
 
   if (!label) return null;
 
@@ -63,14 +64,14 @@ export const Toast = forwardRef(function Toast({
       React.createElement("strong", null, label),
       description ? React.createElement("p", null, description) : null,
     ),
-    actionLabel
+    canRenderAction
       ? React.createElement(Button, {
         label: actionLabel,
         variant: "ghost",
         density: resolvedDensity,
         className: "toast__action",
         "data-toast-action": "",
-        onClick: () => onAction?.(),
+        onClick: () => onAction(),
       })
       : null,
     dismissible && dismissLabel
