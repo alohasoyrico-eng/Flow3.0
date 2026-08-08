@@ -13,7 +13,6 @@ function normalizeItems(items) {
     ...item,
     key: itemKey(item),
     label: item.label,
-    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item.label,
   }));
 }
 
@@ -46,8 +45,9 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
   const [currentKey, setCurrentKey] = useState(() => selectedFromItems(normalizedItems, selectedKey));
   const itemRefs = useRef(new Map());
   const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
-  const resolvedLabel = label ?? "";
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "outlined");
+
+  if (!label || !normalizedItems.length) return null;
 
   const commitKey = (nextKey, restoreFocus = false) => {
     const option = normalizedItems.find((item) => item.key === nextKey);
@@ -75,7 +75,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
       id: controlId,
       className: ["segmented-control", className].filter(Boolean).join(" "),
       role: "tablist",
-      "aria-label": resolvedLabel,
+      "aria-label": label,
       ...flowVariantProps(resolvedVariant),
       ...flowDensityProps(density),
     },
@@ -96,7 +96,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
           disabled: Boolean(item.disabled),
           tabIndex: selected ? 0 : -1,
           "aria-selected": String(selected),
-          "aria-label": iconOnly || !item.label ? item.ariaLabel : undefined,
+          "aria-label": iconOnly ? item.label : undefined,
           "data-segmented-control-item": "",
           "data-key": item.key,
           "data-icon-only": iconOnly ? "true" : undefined,
