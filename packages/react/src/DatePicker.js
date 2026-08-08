@@ -69,10 +69,10 @@ export const DatePicker = forwardRef(function DatePicker({
   state,
   invalid = false,
   locale,
-  weekdays = [],
+  weekdays,
   calendarLabel,
-  previousMonthLabel = "",
-  nextMonthLabel = "",
+  previousMonthLabel,
+  nextMonthLabel,
   open: openProp,
   onValueChange,
   onOpenChange,
@@ -96,6 +96,7 @@ export const DatePicker = forwardRef(function DatePicker({
   const helperText = error || helper;
   const todayValue = useMemo(() => dateIso(new Date()), []);
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
+  const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
   const visibleValue = formatDateLabel(selectedValue, locale) || placeholder;
 
   useEffect(() => {
@@ -279,7 +280,7 @@ export const DatePicker = forwardRef(function DatePicker({
           role: "grid",
           "aria-labelledby": monthId,
         },
-        weekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)),
+        sourceWeekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)),
         dayButtons,
       ),
     ),
