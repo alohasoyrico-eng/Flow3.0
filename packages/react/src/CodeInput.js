@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useId, useState } from "react";
+import React, { forwardRef, useId, useState } from "react";
 import { codeInputPlatformContract } from "@design-system/components/platforms";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
 
@@ -47,17 +47,14 @@ export const CodeInput = forwardRef(function CodeInput({
   const resolvedLength = Math.max(1, Number(length) || 6);
   const isValueControlled = value !== undefined;
   const [focused, setFocused] = useState(state === "focus");
-  const [currentValue, setCurrentValue] = useState(normalizeCodeValue(value ?? "", resolvedLength));
+  const [internalValue, setInternalValue] = useState(normalizeCodeValue(value ?? "", resolvedLength));
+  const currentValue = isValueControlled ? normalizeCodeValue(value ?? "", resolvedLength) : internalValue;
   const digits = normalizeCodeValue(currentValue, resolvedLength);
   const resolvedState = resolveCodeInputState({ disabled, error, state, value: digits, length: resolvedLength });
   const resolvedHelper = error || helper;
   const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
   const isMasked = Boolean(masked) || resolvedVariant === "masked";
   const activeIndex = Math.min(digits.length, Math.max(resolvedLength - 1, 0));
-
-  useEffect(() => {
-    if (isValueControlled) setCurrentValue(normalizeCodeValue(value ?? "", resolvedLength));
-  }, [isValueControlled, resolvedLength, value]);
 
   if (!label) return null;
 
@@ -104,7 +101,7 @@ export const CodeInput = forwardRef(function CodeInput({
         },
         onChange: (event) => {
           const nextValue = normalizeCodeValue(event.target.value, resolvedLength);
-          if (!isValueControlled) setCurrentValue(nextValue);
+          if (!isValueControlled) setInternalValue(nextValue);
           const nextMeta = codeMeta(nextValue, resolvedLength);
           onValueChange?.(nextValue, nextMeta, event);
           if (nextMeta.complete) onComplete?.(nextValue, nextMeta, event);

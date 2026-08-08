@@ -439,6 +439,17 @@ try {
     onComplete: (value, meta, event) => completedCodes.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(codeInput.value, "9876"));
+  fireEvent.input(codeInput, { target: { value: "1111" } });
+  assert.deepEqual(codeValues.at(-1), { value: "1111", meta: { value: "1111", length: 4, complete: true }, eventType: "change" });
+  await waitFor(() => assert.equal(codeInput.value, "9876"));
+  rerenderCodeInput(React.createElement(CodeInput, {
+    label: "SMS code",
+    length: 4,
+    value: "1111",
+    onValueChange: (value, meta, event) => codeValues.push({ value, meta, eventType: event.type }),
+    onComplete: (value, meta, event) => completedCodes.push({ value, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(codeInput.value, "1111"));
 
   cleanup();
 
