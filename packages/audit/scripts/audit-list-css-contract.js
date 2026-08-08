@@ -28,6 +28,16 @@ function checkListCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (/--list-/.test(rootBlock?.body ?? "")) {
     add("errors", packageCssFile, lineNumber(text, rootBlock.index), "List must not create parallel --list-* runtime aliases; use --comp-list-* aliases.");
   }
+  for (const density of ["sm", "md", "lg"]) {
+    const directFrameHeight = `--comp-list-item-min-block-${density}: var(--sys-frame-height-control-${density});`;
+    if (text.includes(directFrameHeight)) {
+      add("errors", packageCssFile, lineNumber(text, text.indexOf(directFrameHeight)), "List item block sizes must route through --component-list-item-min-block-* aliases.");
+    }
+    const componentAlias = `--comp-list-item-min-block-${density}: var(--component-list-item-min-block-${density});`;
+    if (!text.includes(componentAlias)) {
+      add("errors", packageCssFile, 1, `List ${density} item block size must consume --component-list-item-min-block-${density}.`);
+    }
+  }
 
   requireIncludes({
     block: rootBlock,
