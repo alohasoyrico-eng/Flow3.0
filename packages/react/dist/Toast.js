@@ -71,7 +71,7 @@ export const Toast = forwardRef(function Toast({
         density: resolvedDensity,
         className: "toast__action",
         "data-toast-action": "",
-        onClick: () => onAction(),
+        onClick: (event) => onAction(event),
       })
       : null,
     dismissible && dismissLabel
@@ -81,9 +81,10 @@ export const Toast = forwardRef(function Toast({
         density: resolvedDensity,
         className: "toast__dismiss",
         "data-toast-dismiss": "",
-        onClick: () => {
+        onClick: (event) => {
+          onDismiss?.(event);
+          if (event.defaultPrevented) return;
           setDismissed(true);
-          onDismiss?.();
         },
       })
       : null,

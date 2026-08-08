@@ -1911,18 +1911,36 @@ try {
     actionLabel: "Undo",
     dismissible: true,
     dismissLabel: "Dismiss route saved",
-    onAction: () => toastActions.push("undo"),
-    onDismiss: () => toastDismissals.push("dismiss"),
+    onAction: (event) => toastActions.push(event.type),
+    onDismiss: (event) => toastDismissals.push(event.type),
   }));
 
   const toastRegion = getToastRole("status");
   assert.equal(toastRegion.hidden, false);
   fireEvent.click(getToastRole("button", { name: /undo/i }));
-  assert.deepEqual(toastActions, ["undo"]);
+  assert.deepEqual(toastActions, ["click"]);
 
   fireEvent.click(getToastRole("button", { name: /dismiss route saved/i }));
-  assert.deepEqual(toastDismissals, ["dismiss"]);
+  assert.deepEqual(toastDismissals, ["click"]);
   assert.equal(toastRegion.hidden, true);
+
+  cleanup();
+
+  const preventedToastDismissals = [];
+  const { getByRole: getPreventedToastRole } = render(React.createElement(Toast, {
+    label: "Route pending",
+    dismissible: true,
+    dismissLabel: "Keep route pending",
+    onDismiss: (event) => {
+      preventedToastDismissals.push(event.type);
+      event.preventDefault();
+    },
+  }));
+
+  const preventedToastRegion = getPreventedToastRole("status");
+  fireEvent.click(getPreventedToastRole("button", { name: /keep route pending/i }));
+  assert.deepEqual(preventedToastDismissals, ["click"]);
+  assert.equal(preventedToastRegion.hidden, false);
 
   cleanup();
 
