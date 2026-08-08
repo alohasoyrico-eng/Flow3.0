@@ -17,15 +17,15 @@ function variantIcon(variant, icon) {
 
 export const AnimatedMoment = forwardRef(function AnimatedMoment({
   label,
-  description = "",
+  description,
   variant = "success",
   state = "playing",
   density,
   fullWidth = false,
   icon = "",
-  animationSource = "",
+  animationSource,
   animationData,
-  reducedMotionFallback = "",
+  reducedMotionFallback,
   stateLabel,
   className = "",
   ...rest
@@ -39,6 +39,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   const hasAsset = Boolean(animationSource || animationData);
   const canAnimate = hasAsset && resolvedState !== "reduced-motion" && resolvedState !== "disabled";
   const accessibleLabel = resolvedStateLabel ? `${label}: ${resolvedStateLabel}` : label;
+  const supportingCopy = description || reducedMotionFallback;
 
   return React.createElement(
     "div",
@@ -75,13 +76,13 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
           "span",
           { className: "animation-asset__fallback", "aria-hidden": "true", hidden: canAnimate || undefined },
           React.createElement("span", { className: "animation-asset__fallback-icon material-symbol" }, resolvedIcon),
-          React.createElement("span", { className: "animation-asset__fallback-label" }, reducedMotionFallback),
+          reducedMotionFallback ? React.createElement("span", { className: "animation-asset__fallback-label" }, reducedMotionFallback) : null,
         ),
       ),
     ),
     React.createElement("strong", null, label),
     resolvedStateLabel ? React.createElement("span", { className: "animated-moment__state", hidden: true }, resolvedStateLabel) : null,
-    React.createElement("small", null, description || reducedMotionFallback),
+    supportingCopy ? React.createElement("small", null, supportingCopy) : null,
     React.createElement("span", { className: "animated-moment__cue", "data-animated-moment-cue": "", "aria-hidden": "true" }),
   );
 });
