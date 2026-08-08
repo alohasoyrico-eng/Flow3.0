@@ -35,7 +35,9 @@ export const MovementRow = forwardRef(function MovementRow({
   const resolvedState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   if (!label) return null;
+  const canInteract = Boolean(onSelect || rest.onClick);
   const blocked = disabled || resolvedState === "disabled";
+  const Element = canInteract ? "button" : "article";
   const selectMeta = {
     label,
     meta,
@@ -47,23 +49,26 @@ export const MovementRow = forwardRef(function MovementRow({
   };
 
   return React.createElement(
-    "button",
+    Element,
     {
       ...flowRestProps(rest),
       ref,
-      type: ["button", "submit", "reset"].includes(type) ? type : "button",
+      type: canInteract && ["button", "submit", "reset"].includes(type) ? type : undefined,
       className: ["movement-row", className].filter(Boolean).join(" "),
-      disabled: blocked,
+      disabled: canInteract ? blocked : undefined,
+      "aria-disabled": !canInteract && blocked ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-category": resolvedCategory,
       "data-full-width": String(Boolean(fullWidth)),
-      onClick: (event) => {
-        if (blocked) return;
-        onSelect?.(selectMeta);
-        rest.onClick?.(event);
-      },
+      onClick: canInteract
+        ? (event) => {
+          if (blocked) return;
+          onSelect?.(selectMeta);
+          rest.onClick?.(event);
+        }
+        : undefined,
     },
     React.createElement("span", { className: "movement-row__icon material-symbol", "aria-hidden": "true" }, categoryIcons[resolvedCategory]),
     React.createElement(

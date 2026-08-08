@@ -223,7 +223,7 @@ const movementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, 
   density: "sm",
   fullWidth: true,
 }));
-assert.match(movementRowMarkup, /^<button/);
+assert.match(movementRowMarkup, /^<article/);
 assert.match(movementRowMarkup, /class="movement-row"/);
 assert.match(movementRowMarkup, /data-variant="standard"/);
 assert.match(movementRowMarkup, /data-state="pending"/);
@@ -237,11 +237,18 @@ assert.match(movementRowMarkup, /Fuel purchase/);
 assert.match(movementRowMarkup, /Today/);
 assert.match(movementRowMarkup, /class="movement-row__amount">-\$842\.00<\/strong>/);
 assert.match(movementRowMarkup, /class="movement-row__status">Pending<\/small>/);
+assert.doesNotMatch(movementRowMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /type=|disabled=|role="button"/);
+
+const interactiveMovementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
+  label: "Fuel purchase",
+  onSelect: () => {},
+}));
+assert.match(interactiveMovementRowMarkup, /^<button/);
 
 const inheritedMovementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
   label: "Inherited movement density",
 }));
-assert.doesNotMatch(inheritedMovementRowMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(inheritedMovementRowMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 const copyOnlyMovementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
   label: "Copy-only state",
   status: "Pending",
