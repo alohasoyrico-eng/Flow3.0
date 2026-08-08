@@ -1543,6 +1543,7 @@ const unnamedMenuMarkup = renderToStaticMarkup(React.createElement(Menu));
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Open menu"/);
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Account menu"/);
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Menu"/);
+assert.doesNotMatch(unnamedMenuMarkup, /menu__trigger/);
 
 const unlabeledMenuItemMarkup = renderToStaticMarkup(React.createElement(Menu, {
   triggerLabel: "Actions",

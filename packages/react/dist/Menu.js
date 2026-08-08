@@ -100,6 +100,11 @@ export const Menu = forwardRef(function Menu({
   };
   const iconTriggerLabel = triggerAriaLabel || triggerLabel || label || undefined;
   const avatarAccessibleLabel = avatarTriggerAriaLabel || triggerAriaLabel || triggerLabel || label || undefined;
+  const hasTrigger = resolvedVariant === "icon-trigger"
+    ? Boolean(iconTriggerLabel)
+    : resolvedVariant === "avatar-trigger"
+      ? Boolean(avatarAccessibleLabel)
+      : Boolean(triggerLabel);
 
   return React.createElement(
     "span",
@@ -113,11 +118,11 @@ export const Menu = forwardRef(function Menu({
       "data-align": resolvedAlign,
       "data-open": String(Boolean(isOpen)),
     },
-    resolvedVariant === "icon-trigger"
+    hasTrigger && resolvedVariant === "icon-trigger"
       ? React.createElement(IconButton, { ...triggerProps, ariaLabel: iconTriggerLabel, icon: "more_horiz", variant: "ghost", density: resolvedDensity })
-      : resolvedVariant === "avatar-trigger"
+      : hasTrigger && resolvedVariant === "avatar-trigger"
         ? React.createElement("button", { ...triggerProps, type: "button", className: "menu__trigger menu__trigger--avatar", "aria-label": avatarAccessibleLabel }, React.createElement(Avatar, { name: avatarName, status: avatarStatus, size: avatarSize, density: resolvedDensity }))
-        : React.createElement(Button, { ...triggerProps, label: triggerLabel, variant: "secondary", density: resolvedDensity, trailingIcon: isOpen ? "expand_less" : "expand_more" }),
+        : hasTrigger ? React.createElement(Button, { ...triggerProps, label: triggerLabel, variant: "secondary", density: resolvedDensity, trailingIcon: isOpen ? "expand_less" : "expand_more" }) : null,
     React.createElement(
       "div",
       {
