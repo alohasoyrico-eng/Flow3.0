@@ -4,6 +4,7 @@ const { checkCodeInputCssContract } = require("./audit-code-input-css-contract.j
 const { checkChipCssContract } = require("./audit-chip-css-contract.js");
 const { checkDialogCssContract } = require("./audit-dialog-css-contract.js");
 const { checkDrawerCssContract } = require("./audit-drawer-css-contract.js");
+const { checkPopoverCssContract } = require("./audit-popover-css-contract.js");
 const { checkTableCssContract } = require("./audit-table-css-contract.js");
 const { checkTagCssContract } = require("./audit-tag-css-contract.js");
 const { checkTooltipCssContract } = require("./audit-tooltip-css-contract.js");
@@ -16,6 +17,7 @@ function checkComponentCssContracts(context) {
   checkCodeInputCssContract(context);
   checkDialogCssContract(context);
   checkDrawerCssContract(context);
+  checkPopoverCssContract(context);
   checkTableCssContract(context);
   checkTagCssContract(context);
   checkTooltipCssContract(context);
