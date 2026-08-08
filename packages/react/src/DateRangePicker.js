@@ -74,10 +74,10 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   state,
   invalid = false,
   locale,
-  weekdays = [],
+  weekdays,
   calendarLabel,
-  previousMonthLabel = "",
-  nextMonthLabel = "",
+  previousMonthLabel,
+  nextMonthLabel,
   presets,
   presetItems,
   open: openProp,
@@ -105,6 +105,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
   const resolvedState = resolveDateRangePickerState({ disabled, error, invalid, state, from: range.from, to: range.to });
   const todayValue = useMemo(() => dateIso(new Date()), []);
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
+  const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
   const presetOptions = Array.isArray(presetItems) ? presetItems : [];
   const showPresets = presets ?? presetOptions.length > 0;
   const visibleValue = rangeLabel({ ...range, placeholder, locale });
@@ -328,7 +329,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
           role: "grid",
           "aria-labelledby": monthId,
         },
-        weekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)),
+        sourceWeekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)),
         dayButtons,
       ),
     ),
