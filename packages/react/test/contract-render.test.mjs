@@ -1,8 +1,14 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import * as reactComponents from "../src/index.js";
 import { componentContracts } from "@design-system/components/contracts";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const reactSrcDir = path.resolve(__dirname, "../src");
 
 function componentNameFromFactory(factory) {
   const slug = String(factory ?? "").split("/").pop();
@@ -83,12 +89,14 @@ const failures = [];
 for (const [id, contract] of Object.entries(componentContracts)) {
   const componentName = componentNameFromFactory(contract.factory);
   const Component = reactComponents[componentName];
+  const typeSource = fs.readFileSync(path.join(reactSrcDir, `${componentName}.d.ts`), "utf8");
   if (!Component) {
     failures.push(`${id}: missing React export ${componentName}`);
     continue;
   }
 
   try {
+    assert.match(typeSource, /\bdensity\?:/, `${componentName} must expose a public density prop`);
     const markup = renderToStaticMarkup(React.createElement(Component, {
       ...fixtureForContract(id, contract),
       className: "flow-external-hook",
