@@ -1314,7 +1314,7 @@ export const componentContracts = {
     intents: ["selection"],
     states: ["default", "open", "focus", "error", "disabled"],
     props: [
-      { name: "label", type: "string", required: false },
+      { name: "label", type: "string", required: true },
       { name: "value", type: "string", required: false },
       { name: "country", type: "string", required: false },
       { name: "countries", type: "CountrySelectorCountry[]", required: false },

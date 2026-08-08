@@ -38,7 +38,7 @@ function matchesQuery(option, query) {
 }
 
 export const CountrySelector = forwardRef(function CountrySelector({
-  label = "",
+  label,
   value,
   country,
   countries,
@@ -49,8 +49,6 @@ export const CountrySelector = forwardRef(function CountrySelector({
   searchable = true,
   searchPlaceholder = "",
   emptyText = "",
-  ariaLabel,
-  listboxLabel,
   className = "",
   onValueChange,
   id,
@@ -75,6 +73,8 @@ export const CountrySelector = forwardRef(function CountrySelector({
     setSelectedCountry(nextCountry);
     setActiveCountryCode(nextCountry.country);
   }, [country, isValueControlled, options, value]);
+
+  if (!label) return null;
 
   const commitOption = (option) => {
     if (!option || disabled) return;
@@ -114,7 +114,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
         "aria-haspopup": "listbox",
         "aria-controls": `${selectorId}-listbox`,
         "aria-activedescendant": `${selectorId}-option-${activeIndex}`,
-        "aria-label": ariaLabel ?? label,
+        "aria-label": label,
         "aria-disabled": disabled ? "true" : undefined,
         "aria-invalid": invalid ? "true" : undefined,
         onClick: () => {
@@ -161,7 +161,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
         className: "select-control__listbox country-selector__listbox",
         "data-country-selector-list": "",
         role: "listbox",
-        "aria-label": listboxLabel ?? (label ? `${label} options` : undefined),
+        "aria-label": `${label} options`,
       },
       searchable
         ? React.createElement(

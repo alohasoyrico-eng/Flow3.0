@@ -15,7 +15,7 @@ export interface CountrySelectorCountry {
 }
 
 export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label?: string;
+  label: string;
   value?: string;
   country?: string;
   countries?: CountrySelectorCountry[];
@@ -26,8 +26,6 @@ export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElemen
   searchable?: boolean;
   searchPlaceholder?: string;
   emptyText?: string;
-  ariaLabel?: string;
-  listboxLabel?: string;
   onValueChange?: (countryCode: string, country: CountrySelectorCountry) => void;
 }
 
