@@ -8306,15 +8306,24 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-header-gap: var(--component-space-sm);
   --comp-route-summary-header-grid: auto minmax(0, 1fr);
   --comp-route-summary-header-title-family: var(--component-font-family-title);
+  --comp-route-summary-header-title-weight: var(--component-font-weight-bold);
+  --comp-route-summary-header-meta-weight: var(--component-font-weight-regular);
+  --comp-route-summary-label-gap: var(--component-space-xs);
+  --comp-route-summary-description-line-height: var(--component-line-height-reading);
   --comp-route-summary-hover-border: color-mix(in srgb, var(--comp-route-summary-tone) 32%, var(--component-color-border));
   --comp-route-summary-hover-border-state: color-mix(in srgb, var(--comp-route-summary-tone) 38%, var(--component-color-border));
+  --comp-route-summary-icon-bg: color-mix(in srgb, var(--comp-route-summary-tone) 14%, var(--component-color-surface));
+  --comp-route-summary-icon-quiet-fg: var(--component-color-action-text);
   --comp-route-summary-padding: var(--component-space-lg);
   --comp-route-summary-icon-size: var(--component-route-summary-icon-size-md);
   --comp-route-summary-metric-border: var(--component-color-border);
   --comp-route-summary-metric-display: var(--component-display-grid);
   --comp-route-summary-metric-gap: var(--component-space-sm);
+  --comp-route-summary-metric-inner-gap: var(--component-space-xs);
   --comp-route-summary-metric-padding: var(--component-space-md);
   --comp-route-summary-metric-min: var(--component-metric-min-inline-size-md);
+  --comp-route-summary-metric-strong-fg: var(--component-color-text);
+  --comp-route-summary-metric-strong-family: var(--component-font-family-title);
   --comp-route-summary-description-color: var(--component-color-text-muted);
   --comp-route-summary-metric-surface: color-mix(in srgb, var(--component-color-surface-raised) 72%, var(--component-color-surface));
   --comp-route-summary-radius: var(--component-radius-control);
@@ -8439,15 +8448,15 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .route-summary[data-variant="compact"] .route-summary__label strong {
-  font-family: var(--sys-font-title);
+  font-family: var(--comp-route-summary-header-title-family);
   font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-bold);
+  font-weight: var(--comp-route-summary-header-title-weight);
   line-height: var(--component-line-height-snug);
 }
 
 .route-summary[data-variant="compact"] .route-summary__label small {
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-regular);
+  font-weight: var(--comp-route-summary-header-meta-weight);
 }
 
 .route-summary[data-variant="compact"] .route-summary__metrics {
@@ -8520,7 +8529,7 @@ body[data-contrast="quiet"] .inline-validation {
 
 .route-summary__icon {
   align-items: center;
-  background: color-mix(in srgb, var(--comp-route-summary-tone) 14%, var(--sys-color-surface));
+  background: var(--comp-route-summary-icon-bg);
   border-radius: var(--component-radius-pill);
   color: var(--comp-route-summary-tone);
   display: inline-flex;
@@ -8532,12 +8541,12 @@ body[data-contrast="quiet"] .inline-validation {
 
 body[data-contrast="quiet"] .route-summary__icon {
   background: var(--comp-route-summary-tone);
-  color: var(--sys-color-action-text);
+  color: var(--comp-route-summary-icon-quiet-fg);
 }
 
 .route-summary__label {
   display: grid;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-route-summary-label-gap);
   min-inline-size: 0;
 }
 
@@ -9029,7 +9038,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 .route-summary small {
   color: var(--comp-route-summary-description-color);
   font-size: var(--component-font-size-label);
-  line-height: var(--sys-voice-line-height-comfortable);
+  line-height: var(--comp-route-summary-description-line-height);
 }
 
 .station-pin {
@@ -9228,13 +9237,13 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   border: var(--comp-route-summary-border-width) solid var(--comp-route-summary-metric-border);
   border-radius: var(--component-radius-md);
   display: grid;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-route-summary-metric-inner-gap);
   padding: var(--comp-route-summary-metric-padding);
 }
 
 .route-summary__metrics strong {
-  color: var(--sys-color-text);
-  font-family: var(--sys-font-title);
+  color: var(--comp-route-summary-metric-strong-fg);
+  font-family: var(--comp-route-summary-metric-strong-family);
 }
 
 .route-summary footer {
