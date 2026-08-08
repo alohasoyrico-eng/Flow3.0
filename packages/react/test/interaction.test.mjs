@@ -352,11 +352,11 @@ try {
     label: "Active",
     removable: true,
     onRemoveLabel: "Remove Active",
-    onRemove: (label) => removedChips.push(label),
+    onRemove: (label, event) => removedChips.push({ label, eventType: event.type }),
   }));
 
   fireEvent.click(getChipRole("button", { name: /remove active/i }));
-  assert.deepEqual(removedChips, ["Active"]);
+  assert.deepEqual(removedChips, [{ label: "Active", eventType: "click" }]);
 
   cleanup();
 
@@ -364,13 +364,13 @@ try {
   const { getByRole: getSelectableChipRole } = render(React.createElement(Chip, {
     label: "EV",
     selected: false,
-    onSelectedChange: (selected) => selectedChips.push(selected),
+    onSelectedChange: (selected, event) => selectedChips.push({ selected, eventType: event.type }),
   }));
 
   const selectableChip = getSelectableChipRole("button", { name: /ev/i });
   assert.equal(selectableChip.getAttribute("aria-pressed"), "false");
   fireEvent.click(selectableChip);
-  assert.deepEqual(selectedChips, [true]);
+  assert.deepEqual(selectedChips, [{ selected: true, eventType: "click" }]);
 
   cleanup();
 

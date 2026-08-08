@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
 import { chipPlatformContract } from "#flow/platforms";
 
 export type ChipVariant = "filter" | "input" | "suggestion" | "assist";
@@ -16,8 +16,8 @@ export interface ChipProps extends Omit<HTMLAttributes<HTMLSpanElement> & Button
   icon?: string;
   interactive?: boolean;
   onRemoveLabel?: string;
-  onRemove?: (label: string) => void;
-  onSelectedChange?: (selected: boolean) => void;
+  onRemove?: (label: string, event: MouseEvent<HTMLButtonElement>) => void;
+  onSelectedChange?: (selected: boolean, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface ChipComponent extends ForwardRefExoticComponent<ChipProps & RefAttributes<HTMLSpanElement | HTMLButtonElement>> {

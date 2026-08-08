@@ -55,11 +55,11 @@ export const Chip = forwardRef(function Chip({
     rest.onClick?.(event);
     if (event.defaultPrevented || resolvedState === "disabled") return;
     if (canRemove) {
-      onRemove?.(label);
+      onRemove?.(label, event);
       return;
     }
     if (typeof onSelectedChange === "function") {
-      onSelectedChange(!isSelected);
+      onSelectedChange(!isSelected, event);
     }
   }
 
