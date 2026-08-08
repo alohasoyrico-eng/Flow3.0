@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useMemo, useRef, useState } from "react";
 import { sliderPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
@@ -49,8 +49,9 @@ export const Slider = forwardRef(function Slider({
 }, ref) {
   const isValueControlled = value !== undefined;
   const initialValueRef = useRef(value ?? min);
-  const [currentValue, setCurrentValue] = useState(clampValue(value ?? min, min, max));
+  const [internalValue, setInternalValue] = useState(clampValue(value ?? min, min, max));
   const [dragging, setDragging] = useState(false);
+  const currentValue = isValueControlled ? clampValue(value ?? min, min, max) : internalValue;
   const normalizedVariant = allowedVariants.has(variant) ? variant : "continuous";
   const normalizedState = normalizeState({ disabled, state, dragging });
   const pct = percentFor(currentValue, min, max);
@@ -59,16 +60,12 @@ export const Slider = forwardRef(function Slider({
     [currentValue, formatValue, unit, valueLabel],
   );
 
-  useEffect(() => {
-    if (isValueControlled) setCurrentValue(clampValue(value ?? min, min, max));
-  }, [isValueControlled, max, min, value]);
-
   if (!label) return null;
 
   const handleChange = (event) => {
     if (disabled) return;
     const nextValue = clampValue(event.currentTarget.value, min, max);
-    if (!isValueControlled) setCurrentValue(nextValue);
+    if (!isValueControlled) setInternalValue(nextValue);
     onValueChange?.(nextValue, { name, min: Number(min), max: Number(max), step: Number(step), unit }, event);
   };
 
