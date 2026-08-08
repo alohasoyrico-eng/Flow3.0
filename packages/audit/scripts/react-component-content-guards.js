@@ -211,7 +211,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "IconButton" && /"aria-label":\s*resolvedLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "IconButton must use the resolved accessible label directly after the runtime guard.");
   if (name === "IconButton" && /ariaLabel\s*\?\?\s*label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "IconButton must not synthesize empty accessible labels before its runtime guard.");
   if (name === "Tooltip" && !source.includes("if (!triggerLabel || !content) return null;")) add("errors", sourceFile, 1, "Tooltip must not render a trigger without visible triggerLabel and content.");
-  if (name === "Tooltip" && /triggerAriaLabel|"aria-label":\s*triggerLabel\s*\?/.test(source)) add("errors", sourceFile, 1, "Tooltip must not replace the required visible triggerLabel with an aria-only fallback.");
+  if (name === "Tooltip" && /triggerLabel\s*\?\?\s*""|triggerAriaLabel|"aria-label":\s*triggerLabel\s*\?/.test(source)) add("errors", sourceFile, 1, "Tooltip must not replace or synthesize the required visible triggerLabel with empty or aria-only fallbacks.");
   if (name === "AnimatedMoment" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "AnimatedMoment must not render an image role without a visible label.");
   if (name === "AnimatedMoment" && /const resolvedLabel = label \?\? ""|stateLabel\s*=\s*""|stateLabel\s*\|\|\s*""/.test(source)) add("errors", sourceFile, 1, "AnimatedMoment must not synthesize empty accessible labels or state copy.");
   if (name === "MotionBoundary" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "MotionBoundary must not render a group without a visible label.");

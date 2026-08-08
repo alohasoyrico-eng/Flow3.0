@@ -84,7 +84,7 @@ export const Tooltip = forwardRef(function Tooltip({
           onOpenChange?.(false);
         },
       },
-      triggerLabel ?? "",
+      triggerLabel,
     ),
     React.createElement(
       "span",
