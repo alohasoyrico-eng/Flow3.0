@@ -21,7 +21,7 @@ function isValidCardAction(action) {
   if (!action) return false;
   const hasStableKey = action.key !== undefined && action.key !== null && action.key !== "";
   const isIconOnly = Boolean(action.iconOnly) || (!action.label && Boolean(action.icon));
-  return hasStableKey && (isIconOnly ? Boolean(action.icon && (action.ariaLabel || action.label)) : Boolean(action.label));
+  return hasStableKey && Boolean(action.label) && (!isIconOnly || Boolean(action.icon));
 }
 
 function cardAction(action, density, index, onAction) {
@@ -36,7 +36,7 @@ function cardAction(action, density, index, onAction) {
     ? React.createElement(IconButton, {
       key,
       ...actionProps,
-      ariaLabel: action.ariaLabel ?? action.label,
+      label: action.label,
       density,
       variant: action.variant ?? "ghost",
       onClick: handleClick,

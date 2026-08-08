@@ -835,7 +835,7 @@ const cardMarkup = renderToStaticMarkup(React.createElement(Card, {
   fullWidth: true,
   actions: [
     { key: "details", label: "Details", variant: "secondary" },
-    { key: "more", icon: "more_horiz", ariaLabel: "More", iconOnly: true },
+    { key: "more", icon: "more_horiz", label: "More", iconOnly: true },
   ],
 }));
 assert.match(cardMarkup, /^<article/);

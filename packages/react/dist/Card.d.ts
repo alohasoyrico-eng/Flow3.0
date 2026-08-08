@@ -11,7 +11,6 @@ export type CardAction = {
   label?: string;
   icon?: string;
   trailingIcon?: string;
-  ariaLabel?: string;
   variant?: "primary" | "secondary" | "tertiary" | "ghost" | "danger";
   intent?: "default" | "danger";
   state?: "default" | "hover" | "active" | "focus" | "loading" | "disabled";
