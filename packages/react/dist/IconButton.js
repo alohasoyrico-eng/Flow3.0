@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { iconButtonPlatformContract } from "#flow/platforms";
-import { flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const allowedTypes = new Set(["button", "submit", "reset"]);
 
@@ -23,6 +23,7 @@ export const IconButton = forwardRef(function IconButton({
 }, ref) {
   const resolvedLabel = ariaLabel ?? label;
   if (!resolvedLabel) return null;
+  const resolvedDensity = normalizeFlowDensity(density);
 
   return React.createElement(
     "button",
@@ -34,7 +35,7 @@ export const IconButton = forwardRef(function IconButton({
       disabled,
       "aria-label": resolvedLabel,
       "aria-pressed": selected ? "true" : undefined,
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
     },
     React.createElement("span", { className: "icon-button__icon", "aria-hidden": "true" }, icon),
     badge ? React.createElement("span", { className: "icon-button__badge", "aria-hidden": "true" }) : null,

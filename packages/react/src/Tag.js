@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { tagPlatformContract } from "@design-system/components/platforms";
-import { flowToneProps, flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["metadata", "status", "platform", "link"]);
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
@@ -40,6 +40,7 @@ export const Tag = forwardRef(function Tag({
   const canInteract = Boolean(rest.onClick || resolvedType === "submit" || resolvedType === "reset");
   const isInteractive = (Boolean(interactive) || resolvedVariant === "link") && canInteract;
   const element = isInteractive ? "button" : "span";
+  const resolvedDensity = normalizeFlowDensity(density);
 
   if (!label) return null;
 
@@ -54,7 +55,7 @@ export const Tag = forwardRef(function Tag({
       "aria-disabled": !isInteractive && resolvedState === "disabled" ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),
       ...flowToneProps(resolvedTone),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       ...flowStateProps(resolvedState),
       "data-interactive": isInteractive ? "true" : undefined,
     },

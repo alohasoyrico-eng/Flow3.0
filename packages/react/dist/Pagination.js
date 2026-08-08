@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo, useState } from "react";
 import { paginationPlatformContract } from "#flow/platforms";
-import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const allowedStates = new Set(["default", "hover", "focus", "selected", "disabled"]);
 
@@ -73,6 +73,7 @@ export const Pagination = forwardRef(function Pagination({
   );
   const hasLabels = Boolean(label && previousLabel && nextLabel && typeof getPageLabel === "function");
   const hasPages = Number(pageCount) >= 1;
+  const resolvedDensity = normalizeFlowDensity(density);
 
   if (!hasLabels || !hasPages) return null;
 
@@ -94,7 +95,7 @@ export const Pagination = forwardRef(function Pagination({
       "aria-disabled": disabled ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       "data-page": String(currentPage),
       "data-page-count": String(totalPages),
       "data-full-width": fullWidth ? "true" : undefined,

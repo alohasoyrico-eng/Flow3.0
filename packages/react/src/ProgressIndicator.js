@@ -42,6 +42,7 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
   const generatedId = useId();
   const labelId = id ? `${id}-label` : `progress-label-${generatedId}`;
   const { numericMax, numericValue, percent, resolvedState, isIndeterminate } = progressMeta({ value, max, state, indeterminate });
+  const resolvedDensity = normalizeFlowDensity(density);
   if (!label) return null;
 
   return React.createElement(
@@ -60,7 +61,7 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
       ...flowToneProps(normalizeTone(tone)),
       ...flowStateProps(resolvedState),
-      ...flowDensityProps(normalizeFlowDensity(density)),
+      ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
       "data-indeterminate": String(Boolean(isIndeterminate)),
     },

@@ -43,8 +43,11 @@ function checkReactDensityCascade({ add, componentName, sourceFile, source }) {
   if (source.includes('"data-density"')) {
     add("errors", sourceFile, 1, `${componentName} React source must use flowDensityProps() instead of writing data-density directly.`);
   }
-  if (source.includes("const resolvedDensity = normalizeFlowDensity(density)") && /\bflowDensityProps\(\s*density\s*\)/.test(source)) {
-    add("errors", sourceFile, 1, `${componentName} React source must pass resolvedDensity into flowDensityProps() once density has been normalized.`);
+  if (/\bflowDensityProps\(\s*density\s*\)/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must normalize density once and pass resolvedDensity into flowDensityProps().`);
+  }
+  if (/\bflowDensityProps\(\s*normalizeFlowDensity\(\s*density\s*\)\s*\)/.test(source)) {
+    add("errors", sourceFile, 1, `${componentName} React source must assign normalizeFlowDensity(density) to resolvedDensity before passing it into flowDensityProps().`);
   }
   if (/\bdensity\s*=\s*["'](?:sm|md|lg)["']|\bdensity:\s*["'](?:sm|md|lg)["']/.test(source)) {
     add("errors", sourceFile, 1, `${componentName} React source must not assign a local default density; density must inherit through the Flow cascade unless product code opts in.`);

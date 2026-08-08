@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { badgePlatformContract } from "@design-system/components/platforms";
-import { flowToneProps, flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validTones = new Set(["neutral", "info", "success", "warning", "danger", "accent"]);
 const validVariants = new Set(["count", "dot", "status", "icon"]);
@@ -40,6 +40,7 @@ export const Badge = forwardRef(function Badge({
 
   if (resolvedVariant === "dot" && !accessibleLabel) return null;
   if (resolvedVariant !== "dot" && !label) return null;
+  const resolvedDensity = normalizeFlowDensity(density);
 
   return React.createElement(
     "span",
@@ -54,7 +55,7 @@ export const Badge = forwardRef(function Badge({
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
       ...flowToneProps(resolvedTone),
       ...flowVariantProps(resolvedVariant),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       ...flowStateProps(resolvedState),
       "data-live": live ? "true" : undefined,
     },

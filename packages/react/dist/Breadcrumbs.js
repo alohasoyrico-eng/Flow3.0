@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from "react";
 import { breadcrumbsPlatformContract } from "#flow/platforms";
-import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const allowedVariants = new Set(["standard", "compact", "overflow", "mobile"]);
 const allowedStates = new Set(["default", "hover", "focus", "collapsed", "current", "disabled"]);
@@ -58,6 +58,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
     () => resolveBreadcrumbItems(normalizeItems(items), { variant: resolvedVariant, maxItems, collapsedLabel }),
     [items, maxItems, resolvedVariant, collapsedLabel],
   );
+  const resolvedDensity = normalizeFlowDensity(density);
 
   if (!visibleItems.length) return null;
 
@@ -71,7 +72,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
       "aria-disabled": disabled ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       "data-full-width": fullWidth ? "true" : undefined,
     },
     React.createElement(

@@ -20,7 +20,7 @@ function checkIconButtonCssContract({ text, blocks, packageCssFile, selectorKey,
   const iconBlock = blockFor(blocks, selectorKey, ".icon-button__icon");
   const badgeBlock = blockFor(blocks, selectorKey, ".icon-button__badge");
 
-  if (!source.includes("forwardRef") || !source.includes("iconButtonPlatformContract") || !source.includes("flowDensityProps(density)")) {
+  if (!source.includes("forwardRef") || !source.includes("iconButtonPlatformContract") || !source.includes("flowDensityProps(")) {
     add("errors", sourceFile, 1, "IconButton must expose a real React ref contract, platform contract, and density prop.");
   }
   if (!source.includes("if (!resolvedLabel) return null;") || !source.includes("\"aria-label\": resolvedLabel") || !source.includes("\"aria-pressed\": selected ? \"true\" : undefined")) {

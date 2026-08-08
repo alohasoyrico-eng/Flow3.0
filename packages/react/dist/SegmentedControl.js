@@ -1,6 +1,6 @@
 import React, { forwardRef, useId, useMemo, useRef, useState } from "react";
 import { segmentedControlPlatformContract } from "#flow/platforms";
-import { flowVariantProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["outlined", "toolbar", "compact", "icon-only"]);
 
@@ -53,6 +53,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
   const itemRefs = useRef(new Map());
   const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "outlined");
+  const resolvedDensity = normalizeFlowDensity(density);
 
   if (!label || !normalizedItems.length) return null;
 
@@ -85,7 +86,7 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
       role: "tablist",
       "aria-label": label,
       ...flowVariantProps(resolvedVariant),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
     },
     normalizedItems.map((item) => {
       const selected = item.key === activeKey;

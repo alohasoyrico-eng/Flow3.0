@@ -1,6 +1,6 @@
 import React, { forwardRef, useId, useState } from "react";
 import { selectPlatformContract } from "@design-system/components/platforms";
-import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 function selectedOptionFor(options, value) {
   if (!value) return null;
@@ -80,13 +80,14 @@ export const Select = forwardRef(function Select({
       setOpen(false, event);
     }
   };
+  const resolvedDensity = normalizeFlowDensity(density);
 
   return React.createElement(
     "span",
     {
       className: ["field", className].filter(Boolean).join(" "),
       ...flowStateProps(resolvedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       role: "group",
       "aria-labelledby": `${selectId}-label`,
     },
@@ -97,7 +98,7 @@ export const Select = forwardRef(function Select({
         className: ["select-control", variant === "inline" ? "select-control--inline" : ""].filter(Boolean).join(" "),
         "data-open": String(isOpen),
         ...flowStateProps(resolvedState),
-        ...flowDensityProps(density),
+        ...flowDensityProps(resolvedDensity),
         "data-value": selectedValue,
         "data-select-control": "",
       },

@@ -37,7 +37,7 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
     !source.includes("forwardRef") ||
     !source.includes("segmentedControlPlatformContract") ||
     !source.includes("flowVariantProps(resolvedVariant)") ||
-    !source.includes("flowDensityProps(density)")
+    !source.includes("flowDensityProps(")
   ) {
     add("errors", sourceFile, 1, "SegmentedControl must expose a real React ref contract, platform contract, variant, and density props.");
   }

@@ -35,10 +35,10 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
   const errorBlock = blockFor(blocks, selectorKey, ".choice__error");
   const disabledBlock = blockFor(blocks, selectorKey, ".choice:has(input:disabled)");
 
-  if (!checkboxSource.includes("flowDensityProps(density)") || !checkboxSource.includes("checkboxPlatformContract") || !checkboxSource.includes("forwardRef")) {
+  if (!checkboxSource.includes("flowDensityProps(") || !checkboxSource.includes("checkboxPlatformContract") || !checkboxSource.includes("forwardRef")) {
     add("errors", checkboxSourceFile, 1, "Checkbox must keep the React density, platform, and ref contract while consuming Choice CSS.");
   }
-  if (!radioSource.includes("flowDensityProps(density)") || !radioSource.includes("radioButtonPlatformContract") || !radioSource.includes("forwardRef")) {
+  if (!radioSource.includes("flowDensityProps(") || !radioSource.includes("radioButtonPlatformContract") || !radioSource.includes("forwardRef")) {
     add("errors", radioSourceFile, 1, "RadioButton must keep the React density, platform, and ref contract while consuming Choice CSS.");
   }
   if (text.includes("--choice-")) {

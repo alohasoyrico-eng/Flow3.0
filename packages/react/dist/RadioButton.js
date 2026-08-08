@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import { radioButtonPlatformContract } from "#flow/platforms";
-import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["default", "descriptive", "compact", "critical"]);
 
@@ -47,6 +47,7 @@ export const RadioButton = forwardRef(function RadioButton({
     if (!isCheckedControlled) setInternalChecked(nextChecked);
     onCheckedChange?.(nextChecked, { value }, event);
   };
+  const resolvedDensity = normalizeFlowDensity(density);
 
   return React.createElement(
     "label",
@@ -55,7 +56,7 @@ export const RadioButton = forwardRef(function RadioButton({
       "data-checked": String(currentChecked),
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(normalizedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       "data-invalid": isInvalid ? "true" : undefined,
     },
     React.createElement("input", {

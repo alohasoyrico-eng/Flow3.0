@@ -1,6 +1,6 @@
 import React, { forwardRef, useId, useState } from "react";
 import { textAreaPlatformContract } from "#flow/platforms";
-import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 function resolveState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
   if (disabled) return "disabled";
@@ -41,6 +41,7 @@ export const TextArea = forwardRef(function TextArea({
   const helperId = resolvedHelper ? `${textAreaId}-helper` : "";
   const describedBy = [helperId, counterId].filter(Boolean).join(" ") || undefined;
   const counterText = maxLength != null ? `${String(currentValue ?? "").length}/${Number(maxLength)}` : "";
+  const resolvedDensity = normalizeFlowDensity(density);
 
   if (!label) return null;
 
@@ -57,7 +58,7 @@ export const TextArea = forwardRef(function TextArea({
     {
       className: ["field", className].filter(Boolean).join(" "),
       ...flowStateProps(resolvedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
     },
     React.createElement("span", { className: "field__label", id: `${textAreaId}-label` }, label),
     React.createElement(

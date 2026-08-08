@@ -35,7 +35,7 @@ function checkSwitchCssContract({ text, blocks, packageCssFile, selectorKey, roo
   const errorBlock = blockFor(blocks, selectorKey, ".switch__error");
   const hoverBlock = blockFor(blocks, selectorKey, ".switch:hover .switch__track");
 
-  if (!source.includes("forwardRef") || !source.includes("switchPlatformContract") || !source.includes("flowDensityProps(density)")) {
+  if (!source.includes("forwardRef") || !source.includes("switchPlatformContract") || !source.includes("flowDensityProps(")) {
     add("errors", sourceFile, 1, "Switch must expose a real React ref contract, platform contract, and density prop.");
   }
   if (!source.includes("if (!label) return null;") || !source.includes("role: \"switch\"") || !source.includes("\"aria-checked\": String(currentChecked)")) {

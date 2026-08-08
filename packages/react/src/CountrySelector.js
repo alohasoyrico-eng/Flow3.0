@@ -5,7 +5,7 @@ import {
   resolveCountryCallingCodeOption,
 } from "@design-system/components";
 import { countrySelectorPlatformContract } from "@design-system/components/platforms";
-import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 function CountryFlag({ country, className = "" }) {
   const code = String(country ?? "").toUpperCase();
@@ -72,6 +72,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
   const activeOption = filteredOptions.find((option) => option.country === activeCountryCode) ?? filteredOptions.find((option) => option.country === selectedCountry.country) ?? filteredOptions[0];
   const activeIndex = Math.max(options.findIndex((option) => option.country === activeOption?.country), 0);
   const resolvedState = disabled ? "disabled" : invalid ? "error" : "default";
+  const resolvedDensity = normalizeFlowDensity(density);
 
   if (!label) return null;
 
@@ -106,7 +107,7 @@ export const CountrySelector = forwardRef(function CountrySelector({
       "data-country": selectedCountry.country,
       "data-value": selectedCountry.country,
       "data-open": String(open),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       ...flowStateProps(resolvedState === "default" ? undefined : resolvedState),
     },
     React.createElement(

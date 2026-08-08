@@ -1,6 +1,6 @@
 import React, { forwardRef, useId } from "react";
 import { motionBoundaryPlatformContract } from "@design-system/components/platforms";
-import { flowStateProps, flowVariantProps, flowDensityProps, normalizeFlowValue, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowDensityProps, normalizeFlowValue, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["fade", "slide", "collapse", "route"]);
 const validStates = new Set(["idle", "entering", "active", "exiting", "reduced-motion", "disabled"]);
@@ -31,6 +31,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   if (!label) return null;
   const resolvedStateLabel = stateLabel;
   const describedBy = [description ? `${id}-description` : "", resolvedStateLabel ? `${id}-state` : ""].filter(Boolean).join(" ") || undefined;
+  const resolvedDensity = normalizeFlowDensity(density);
 
   return React.createElement(
     "div",
@@ -39,7 +40,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
       ref,
       className: ["motion-boundary", className].filter(Boolean).join(" "),
       ...flowVariantProps(resolvedVariant),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       ...flowStateProps(resolvedState),
       "data-reduced-motion": String(isReducedMotion),
       role: "group",

@@ -30,7 +30,7 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
   const stateCollapsedBlock = blockFor(blocks, selectorKey, ".breadcrumbs[data-state=\"collapsed\"] .breadcrumbs__target--collapsed");
   const disabledBlock = blockFor(blocks, selectorKey, ".breadcrumbs[data-state=\"disabled\"],.breadcrumbs[aria-disabled=\"true\"]");
 
-  if (!source.includes("forwardRef") || !source.includes("flowVariantProps(resolvedVariant)") || !source.includes("flowDensityProps(density)")) {
+  if (!source.includes("forwardRef") || !source.includes("flowVariantProps(resolvedVariant)") || !source.includes("flowDensityProps(")) {
     add("errors", sourceFile, 1, "Breadcrumbs must expose real React ref, variant/state, and density props.");
   }
   if (!source.includes("if (!visibleItems.length) return null;") || !source.includes("return item?.label && stableKey !== undefined && stableKey !== null && stableKey !== \"\";")) {

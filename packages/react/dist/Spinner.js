@@ -24,6 +24,7 @@ export const Spinner = forwardRef(function Spinner({
   ...rest
 }, ref) {
   const resolvedState = decorative ? "decorative" : normalizeState(state);
+  const resolvedDensity = normalizeFlowDensity(density);
   const isDecorative = decorative || resolvedState === "decorative" || !label;
 
   return React.createElement(
@@ -35,7 +36,7 @@ export const Spinner = forwardRef(function Spinner({
       role: isDecorative ? undefined : "status",
       "aria-hidden": isDecorative ? "true" : undefined,
       "aria-label": !isDecorative && label ? label : undefined,
-      ...flowDensityProps(normalizeFlowDensity(density)),
+      ...flowDensityProps(resolvedDensity),
       ...flowToneProps(normalizeTone(tone)),
       ...flowStateProps(resolvedState),
     },

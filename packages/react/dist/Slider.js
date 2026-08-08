@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo, useRef, useState } from "react";
 import { sliderPlatformContract } from "#flow/platforms";
-import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
 const allowedVariants = new Set(["continuous", "stepped", "bounded", "threshold", "paired-value"]);
 const allowedStates = new Set(["default", "focus", "dragging", "disabled", "error", "complete"]);
@@ -59,6 +59,7 @@ export const Slider = forwardRef(function Slider({
     () => formatSliderValue({ value: currentValue, initialValue: initialValueRef.current, valueLabel, unit, formatValue }),
     [currentValue, formatValue, unit, valueLabel],
   );
+  const resolvedDensity = normalizeFlowDensity(density);
 
   if (!label) return null;
 
@@ -87,7 +88,7 @@ export const Slider = forwardRef(function Slider({
       className: ["slider", className].filter(Boolean).join(" "),
       ...flowVariantProps(normalizedVariant),
       ...flowStateProps(normalizedState),
-      ...flowDensityProps(density),
+      ...flowDensityProps(resolvedDensity),
       style: { "--comp-slider-percent": `${pct}%` },
       "data-value": String(currentValue),
       "data-unit": unit,
