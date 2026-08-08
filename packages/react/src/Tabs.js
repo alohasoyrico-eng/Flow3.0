@@ -15,7 +15,6 @@ function normalizeItems(items) {
     ...item,
     key: itemKey(item),
     label: item.label,
-    ariaLabel: item?.ariaLabel ?? item?.["aria-label"] ?? item.label,
   }));
 }
 
@@ -24,8 +23,8 @@ function selectedFromItems(items, selectedKey) {
 }
 
 export const Tabs = forwardRef(function Tabs({
-  label = "",
-  items = [],
+  label,
+  items,
   selectedKey,
   variant = "default",
   density,
@@ -84,6 +83,8 @@ export const Tabs = forwardRef(function Tabs({
     if (next) commitKey(next.key, true);
   };
 
+  if (!normalizedItems.length) return null;
+
   return React.createElement(
     "div",
     {
@@ -116,7 +117,6 @@ export const Tabs = forwardRef(function Tabs({
           disabled: Boolean(item.disabled),
           tabIndex: selected ? 0 : -1,
           "aria-selected": String(selected),
-          "aria-label": item.label ? undefined : item.ariaLabel,
           "data-tabs-item": "",
           "data-key": item.key,
           onClick: () => commitKey(item.key),
