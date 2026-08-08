@@ -26,8 +26,9 @@ function checkStepperCssContract({ text, blocks, packageCssFile, selectorKey }) 
   const strongStateBlock = blocks.find((block) => selectorKey(block).includes(".stepper__item[data-state=\"active\"] .stepper__text strong"));
   const lgBlock = blockFor(blocks, selectorKey, ".stepper[data-density=\"lg\"]");
 
-  if (lgBlock?.body.includes("--comp-stepper-current-scale: 1.")) {
-    add("errors", packageCssFile, lineNumber(text, lgBlock.index), "Stepper lg density must not define current scale with a raw number.");
+  const rawCurrentScale = text.match(/--comp-stepper-current-(?:start-|overshoot-)?scale:\s*[0-9.]+/);
+  if (rawCurrentScale) {
+    add("errors", packageCssFile, lineNumber(text, rawCurrentScale.index), "Stepper current animation scale must flow through component Momentum scale roles instead of raw numbers.");
   }
 
   requireIncludes({
@@ -40,6 +41,8 @@ function checkStepperCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "--comp-stepper-marker-active-bg:",
       "--comp-stepper-connector-bg: var(--sys-color-border)",
       "--comp-stepper-label-font-weight: var(--sys-voice-weight-semibold)",
+      "--comp-stepper-current-start-scale: var(--component-scale-current-start)",
+      "--comp-stepper-current-overshoot-scale: var(--component-scale-current-overshoot)",
       "--comp-stepper-marker-transition:",
       "--comp-stepper-connector-transition:",
     ],

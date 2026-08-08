@@ -113,6 +113,8 @@
   --component-scale-quiet: var(--sys-momentum-scale-quiet);
   --component-scale-settle: var(--sys-momentum-scale-settle);
   --component-scale-raised: var(--sys-momentum-scale-raised);
+  --component-scale-current-start: var(--sys-momentum-scale-current-start);
+  --component-scale-current-overshoot: var(--sys-momentum-scale-current-overshoot);
   --component-scale-hover: var(--sys-momentum-scale-hover);
   --component-scale-press: var(--sys-momentum-scale-press);
   --component-lift-sm: calc(var(--component-lift-hover) / 3);
@@ -7568,8 +7570,8 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-stepper-connector-vertical-margin-block: var(--component-focus-ring-offset);
   --comp-stepper-item-gap: calc(var(--sys-space-sm) + (var(--component-border-width) * 2));
   --comp-stepper-current-scale: var(--component-scale-raised);
-  --comp-stepper-current-start-scale: 0.88;
-  --comp-stepper-current-overshoot-scale: 1.14;
+  --comp-stepper-current-start-scale: var(--component-scale-current-start);
+  --comp-stepper-current-overshoot-scale: var(--component-scale-current-overshoot);
   --comp-stepper-complete-duration: var(--component-duration-medium);
   --comp-stepper-current-duration: var(--component-duration-medium);
   --comp-stepper-connector-duration: var(--component-duration-medium);

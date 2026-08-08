@@ -925,6 +925,8 @@
   --sys-momentum-scale-quiet: 0.98;
   --sys-momentum-scale-settle: 0.985;
   --sys-momentum-scale-raised: 1.08;
+  --sys-momentum-scale-current-start: 0.88;
+  --sys-momentum-scale-current-overshoot: 1.14;
   --sys-momentum-translate-rest: 0;
   --sys-momentum-progress-translate-start: -120%;
   --sys-momentum-progress-translate-mid: 40%;

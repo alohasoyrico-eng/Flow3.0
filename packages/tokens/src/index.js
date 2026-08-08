@@ -643,6 +643,8 @@ export const systemTokens = {
       quiet: "var(--sys-momentum-scale-quiet)",
       settle: "var(--sys-momentum-scale-settle)",
       raised: "var(--sys-momentum-scale-raised)",
+      currentStart: "var(--sys-momentum-scale-current-start)",
+      currentOvershoot: "var(--sys-momentum-scale-current-overshoot)",
       hover: "var(--sys-momentum-scale-hover)",
       press: "var(--sys-momentum-scale-press)",
     },
