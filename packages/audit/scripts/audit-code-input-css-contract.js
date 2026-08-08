@@ -21,6 +21,22 @@ function checkCodeInputCssContract({ text, blocks, packageCssFile, selectorKey }
   if (text.includes("--code-input-slot-")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--code-input-slot-")), "Code Input must not use short --code-input-slot-* aliases; use --comp-code-input-current-slot-* resolved aliases.");
   }
+  const rawSlotSize = /--comp-code-input-slot-(?:block|inline)-size-(?:sm|md|lg):\s*(?:calc\(var\(--component-control-min-size\)[^;]+|var\(--component-control-min-size\));/.exec(text);
+  if (rawSlotSize) {
+    add("errors", packageCssFile, lineNumber(text, rawSlotSize.index), "Code Input slot geometry must flow through shared Frame code slot roles instead of local control-size calculations.");
+  }
+  for (const snippet of [
+    "--comp-code-input-slot-block-size-sm: var(--component-code-slot-block-size-sm)",
+    "--comp-code-input-slot-block-size-md: var(--component-code-slot-block-size-md)",
+    "--comp-code-input-slot-block-size-lg: var(--component-code-slot-block-size-lg)",
+    "--comp-code-input-slot-inline-size-sm: var(--component-code-slot-inline-size-sm)",
+    "--comp-code-input-slot-inline-size-md: var(--component-code-slot-inline-size-md)",
+    "--comp-code-input-slot-inline-size-lg: var(--component-code-slot-inline-size-lg)",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "Code Input slot geometry must expose component aliases backed by shared Frame code slot roles.");
+    }
+  }
 
   requireIncludes({
     block: baseBlock,
