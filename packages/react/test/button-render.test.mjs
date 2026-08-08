@@ -486,6 +486,7 @@ assert.match(chartPanelMarkup, /<output>\$12k<\/output>/);
 assert.match(chartPanelMarkup, /<figure role="group" aria-label="Spend\. \$12k\. Last 7 days\. bars chart/);
 assert.match(chartPanelMarkup, /class="chart-panel__plot" role="list"/);
 assert.match(chartPanelMarkup, /class="chart-panel__bar-group"/);
+assert.match(chartPanelMarkup, /style="--comp-chart-panel-stagger-delay:calc\(var\(--sys-momentum-stagger-chart\) \* 1\)"/);
 assert.match(chartPanelMarkup, /class="chart-panel__tooltip" role="status" aria-live="polite"/);
 assert.match(chartPanelMarkup, /class="chart-panel__echarts" aria-hidden="true"/);
 assert.match(chartPanelMarkup, /class="chart-panel__option">/);
@@ -537,11 +538,15 @@ const comparisonChartMarkup = renderToStaticMarkup(React.createElement(ChartPane
   values: [1, 2],
   labels: ["Current", "Previous"],
   variant: "comparison",
-  comparisons: [{ id: "projected", label: "Projected", values: [2, 4] }],
+  comparisons: [
+    { id: "projected", label: "Projected", values: [2, 4] },
+    { id: "actual", label: "Actual", values: [1, 3] },
+  ],
 }));
 assert.match(comparisonChartMarkup, /data-variant="comparison"/);
 assert.match(comparisonChartMarkup, /data-series="1"/);
-assert.match(comparisonChartMarkup, /style="--comp-chart-panel-current-series:var\(--comp-chart-panel-comparison-reference-fill\)"/);
+assert.match(comparisonChartMarkup, /--comp-chart-panel-current-series:var\(--comp-chart-panel-comparison-reference-fill\)/);
+assert.match(comparisonChartMarkup, /--comp-chart-panel-stagger-delay:calc\(var\(--sys-momentum-stagger-chart-compact\) \* 1\)/);
 
 const auditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
   label: "Document rejected",

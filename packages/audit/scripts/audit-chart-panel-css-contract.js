@@ -27,7 +27,9 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
   const echartsBlock = blockFor(blocks, selectorKey, ".chart-panel__echarts");
   const lineBlock = blockFor(blocks, selectorKey, ".chart-panel__line");
   const dotBlock = blockFor(blocks, selectorKey, ".chart-panel__dot");
+  const barSvgBlock = blockFor(blocks, selectorKey, ".chart-panel__bar-svg");
   const comparisonBarBlock = blockFor(blocks, selectorKey, ".chart-panel__comparison-bar");
+  const paretoBarBlock = blockFor(blocks, selectorKey, ".chart-panel__pareto-bar");
   const donutBlock = blockFor(blocks, selectorKey, ".chart-panel__donut");
   const tooltipBlock = blockFor(blocks, selectorKey, ".chart-panel__tooltip");
 
@@ -48,6 +50,9 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
   }
   if (/\.chart-panel__(?:line|dot|comparison-bar)\[data-series=/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.search(/\.chart-panel__(?:line|dot|comparison-bar)\[data-series=/)), "ChartPanel series color must flow through --comp-chart-panel-current-series instead of enumerated data-series CSS selectors.");
+  }
+  if (/\.chart-panel__(?:bar-group|comparison-bar|pareto-bar)[^{]*(?:nth-child|nth-of-type)/.test(text)) {
+    add("errors", packageCssFile, lineNumber(text, text.search(/\.chart-panel__(?:bar-group|comparison-bar|pareto-bar)[^{]*(?:nth-child|nth-of-type)/)), "ChartPanel stagger must flow through --comp-chart-panel-stagger-delay instead of nth-child CSS selectors.");
   }
 
   requireIncludes({
@@ -73,6 +78,7 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
       "--comp-chart-panel-series-5: var(--sys-chart-series-tertiary)",
       "--comp-chart-panel-current-series: var(--comp-chart-panel-tone)",
       "--comp-chart-panel-comparison-reference-fill:",
+      "--comp-chart-panel-stagger-delay: 0ms",
       "background: var(--comp-chart-panel-bg)",
       "border: var(--comp-chart-panel-border-width) solid var(--comp-chart-panel-border)",
       "border-radius: var(--comp-chart-panel-radius)",
@@ -166,7 +172,9 @@ function checkChartPanelCssContract({ text, blocks, packageCssFile, selectorKey,
   for (const [block, snippets, message] of [
     [lineBlock, ["stroke: var(--comp-chart-panel-current-series)"], "ChartPanel lines must consume the dynamic series color contract."],
     [dotBlock, ["fill: var(--comp-chart-panel-current-series)"], "ChartPanel dots must consume the dynamic series color contract."],
-    [comparisonBarBlock, ["fill: var(--comp-chart-panel-current-series)"], "ChartPanel comparison bars must consume the dynamic series color contract."],
+    [barSvgBlock, ["animation-delay: var(--comp-chart-panel-stagger-delay)"], "ChartPanel bars must consume the dynamic stagger contract."],
+    [comparisonBarBlock, ["fill: var(--comp-chart-panel-current-series)", "animation-delay: var(--comp-chart-panel-stagger-delay)"], "ChartPanel comparison bars must consume the dynamic series color and stagger contracts."],
+    [paretoBarBlock, ["animation-delay: var(--comp-chart-panel-stagger-delay)"], "ChartPanel Pareto bars must consume the dynamic stagger contract."],
     [donutBlock, ["background: var(--comp-chart-panel-donut-bg)"], "ChartPanel donut must consume component-scoped donut background alias."],
     [tooltipBlock, ["inset-block-start: var(--comp-chart-panel-tooltip-y)", "inset-inline-start: var(--comp-chart-panel-tooltip-x)"], "ChartPanel tooltip coordinates must use component-scoped runtime aliases without inline fallbacks."],
   ]) {

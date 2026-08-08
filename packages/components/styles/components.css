@@ -7840,6 +7840,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-series-5: var(--sys-chart-series-tertiary);
   --comp-chart-panel-current-series: var(--comp-chart-panel-tone);
   --comp-chart-panel-comparison-reference-fill: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--sys-color-border));
+  --comp-chart-panel-stagger-delay: 0ms;
   background: var(--comp-chart-panel-bg);
   border: var(--comp-chart-panel-border-width) solid var(--comp-chart-panel-border);
   border-radius: var(--comp-chart-panel-radius);
@@ -8203,27 +8204,16 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__bar-svg {
   align-self: end;
+  animation: chart-bar-enter var(--component-duration-reveal) var(--component-ease-enter) both;
+  animation-delay: var(--comp-chart-panel-stagger-delay);
   display: block;
   block-size: 100%;
   inline-size: 100%;
   min-block-size: var(--component-field-gap);
   overflow: visible;
   transform-origin: bottom;
-  animation: chart-bar-enter var(--component-duration-reveal) var(--component-ease-enter) both;
   transition:
     transform var(--component-duration-state) var(--component-ease-press);
-}
-
-.chart-panel__bar-group:nth-child(2) .chart-panel__bar-svg {
-  animation-delay: var(--sys-momentum-stagger-chart);
-}
-
-.chart-panel__bar-group:nth-child(3) .chart-panel__bar-svg {
-  animation-delay: calc(var(--sys-momentum-stagger-chart) * 2);
-}
-
-.chart-panel__bar-group:nth-child(4) .chart-panel__bar-svg {
-  animation-delay: calc(var(--sys-momentum-stagger-chart) * 3);
 }
 
 .chart-panel__bar {
@@ -8501,17 +8491,10 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__comparison-bar {
   animation: chart-bar-enter var(--component-duration-reveal) var(--component-ease-enter) both;
+  animation-delay: var(--comp-chart-panel-stagger-delay);
   fill: var(--comp-chart-panel-current-series);
   rx: var(--component-focus-ring-width);
   transition: fill var(--component-duration-state) var(--component-ease-state);
-}
-
-.chart-panel__comparison-bar:nth-child(2) {
-  animation-delay: var(--sys-momentum-stagger-chart-compact);
-}
-
-.chart-panel__comparison-bar:nth-child(3) {
-  animation-delay: calc(var(--sys-momentum-stagger-chart-compact) * 2);
 }
 
 .chart-panel__comparison-group:hover .chart-panel__comparison-bar,
@@ -8533,19 +8516,12 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__pareto-bar {
   animation: chart-bar-enter var(--component-duration-reveal) var(--component-ease-enter) both;
+  animation-delay: var(--comp-chart-panel-stagger-delay);
   fill: var(--comp-chart-panel-tone);
   outline: var(--sys-a11y-outline-reset);
   transform-box: fill-box;
   transform-origin: bottom;
   transition: fill var(--component-duration-state) var(--component-ease-state);
-}
-
-.chart-panel__pareto-bar:nth-of-type(2) {
-  animation-delay: var(--sys-momentum-stagger-chart);
-}
-
-.chart-panel__pareto-bar:nth-of-type(3) {
-  animation-delay: calc(var(--sys-momentum-stagger-chart) * 2);
 }
 
 .chart-panel__pareto-bar:hover,

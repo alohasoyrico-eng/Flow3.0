@@ -66,6 +66,11 @@ function chartSeriesColor(index, role = "series") {
   return `var(--comp-chart-panel-series-${(index % 5) + 1})`;
 }
 
+function chartStaggerDelay(index, compact = false) {
+  if (index <= 0) return "0ms";
+  return `calc(var(--sys-momentum-stagger-chart${compact ? "-compact" : ""}) * ${index})`;
+}
+
 function renderLinePlot(values, labels, variant, series = []) {
   const resolvedSeries = series.length ? series : values.length ? [{ id: "primary", values }] : [];
   const labeledPoints = normalizePoints(values, labels);
@@ -94,7 +99,7 @@ function renderLinePlot(values, labels, variant, series = []) {
 function renderBars(values, labels) {
   const points = normalizePoints(values, labels);
   const max = Math.max(...points.map((point) => point.value), 1);
-  return points.map((point) => {
+  return points.map((point, index) => {
     const value = point.value;
     const pointLabel = point.label;
     const text = pointLabel ? `${pointLabel}: ${value}` : undefined;
@@ -110,7 +115,7 @@ function renderBars(values, labels) {
       },
       React.createElement(
         "svg",
-        { className: "chart-panel__bar-svg", viewBox: "0 0 12 100", preserveAspectRatio: "none", "aria-hidden": "true" },
+        { className: "chart-panel__bar-svg", viewBox: "0 0 12 100", preserveAspectRatio: "none", "aria-hidden": "true", style: { "--comp-chart-panel-stagger-delay": chartStaggerDelay(index) } },
         React.createElement("rect", { className: "chart-panel__bar", x: "0", y: String(100 - percent), width: "12", height: String(percent), "data-max": value === max ? "true" : undefined }),
       ),
       pointLabel ? React.createElement("small", null, pointLabel) : null,
@@ -163,7 +168,10 @@ function renderComparison(comparisons, values, labels) {
           y: String(100 - percent),
           width: "8",
           height: String(percent),
-          style: { "--comp-chart-panel-current-series": chartSeriesColor(seriesIndex, "comparison") },
+          style: {
+            "--comp-chart-panel-current-series": chartSeriesColor(seriesIndex, "comparison"),
+            "--comp-chart-panel-stagger-delay": chartStaggerDelay(seriesIndex, true),
+          },
           "data-series": String(seriesIndex + 1),
         });
       }),
@@ -184,6 +192,7 @@ function renderPareto(values, labels) {
       y: 72 - (item.value / max) * 60,
       width: 26,
       height: (item.value / max) * 60,
+      style: { "--comp-chart-panel-stagger-delay": chartStaggerDelay(index) },
     })),
     React.createElement("polyline", { className: "chart-panel__pareto-line", points: pointsFor(sorted.map((item) => item.value)) }),
   );
