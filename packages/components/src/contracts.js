@@ -1448,6 +1448,7 @@ export const componentContracts = {
     accessibility: [
       "Expose dialog relationship with aria-haspopup and aria-controls.",
       "Keep panel content short and contextual.",
+      "Require visible field labels before composing form inputs.",
       "Require stable action keys before composing local actions.",
       "Use patterns for multi-step decisions inside a popover."
     ]

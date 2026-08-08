@@ -116,10 +116,10 @@ export const Popover = forwardRef(function Popover({
       description ? React.createElement("p", null, description) : null,
       resolvedVariant === "form" && hasField
         ? React.createElement(Input, {
-          label: field?.label ?? "",
+          label: field.label,
           value: field?.value ?? "",
-          placeholder: field?.placeholder ?? "",
-          helper: field?.helper ?? "",
+          placeholder: field?.placeholder,
+          helper: field?.helper,
           density: resolvedDensity,
           readOnly: true,
         })

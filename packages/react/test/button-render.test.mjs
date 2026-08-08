@@ -1694,6 +1694,7 @@ const formPopoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
 assert.match(formPopoverMarkup, /data-variant="form"/);
 assert.match(formPopoverMarkup, /class="field"/);
 assert.match(formPopoverMarkup, /data-density="lg"/);
+assert.doesNotMatch(formPopoverMarkup, /data-helper=""/);
 
 const unnamedPopoverMarkup = renderToStaticMarkup(React.createElement(Popover));
 assert.doesNotMatch(unnamedPopoverMarkup, /aria-label="Open popover"/);

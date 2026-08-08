@@ -21,7 +21,7 @@ export interface PopoverAction {
 }
 
 export interface PopoverField {
-  label?: string;
+  label: string;
   value?: string;
   placeholder?: string;
   helper?: string;
