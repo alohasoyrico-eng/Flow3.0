@@ -54,6 +54,7 @@ export const CodeInput = forwardRef(function CodeInput({
   const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
   const isMasked = Boolean(masked) || resolvedVariant === "masked";
   const activeIndex = Math.min(digits.length, Math.max(resolvedLength - 1, 0));
+  if (!label) return null;
 
   useEffect(() => {
     if (isValueControlled) setCurrentValue(normalizeCodeValue(value ?? "", resolvedLength));
@@ -70,7 +71,7 @@ export const CodeInput = forwardRef(function CodeInput({
       "data-focused": focused ? "true" : "false",
       "data-length": String(resolvedLength),
     },
-    label ? React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label),
     React.createElement(
       "span",
       { className: "code-input__control" },
@@ -87,8 +88,7 @@ export const CodeInput = forwardRef(function CodeInput({
         value: digits,
         disabled: Boolean(disabled),
         "data-code-input": "",
-        "aria-labelledby": label ? `${inputId}-label` : undefined,
-        "aria-label": label ? undefined : rest["aria-label"],
+        "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
         onFocus: (event) => {
