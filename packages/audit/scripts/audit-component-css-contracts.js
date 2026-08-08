@@ -27,6 +27,7 @@ const { checkSpinnerCssContract } = require("./audit-spinner-css-contract.js");
 const { checkStationPinCssContract } = require("./audit-station-pin-css-contract.js");
 const { checkStepperCssContract } = require("./audit-stepper-css-contract.js");
 const { checkTableCssContract } = require("./audit-table-css-contract.js");
+const { checkTabsCssContract } = require("./audit-tabs-css-contract.js");
 const { checkTagCssContract } = require("./audit-tag-css-contract.js");
 const { checkTooltipCssContract } = require("./audit-tooltip-css-contract.js");
 const { checkToastCssContract } = require("./audit-toast-css-contract.js");
@@ -61,6 +62,7 @@ function checkComponentCssContracts(context) {
   checkStationPinCssContract(context);
   checkStepperCssContract(context);
   checkTableCssContract(context);
+  checkTabsCssContract(context);
   checkTagCssContract(context);
   checkTooltipCssContract(context);
   checkToastCssContract(context);

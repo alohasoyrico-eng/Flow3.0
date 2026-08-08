@@ -2408,107 +2408,181 @@ button.tag:disabled,
 }
 
 .tabs {
-  align-items: center;
-  background: var(--sys-color-surface-raised);
-  border: var(--component-border-width) solid color-mix(in srgb, var(--sys-color-border) 76%, transparent);
-  border-radius: var(--component-radius-pill);
-  display: inline-flex;
-  gap: var(--sys-space-xs);
-  isolation: isolate;
-  padding: var(--sys-space-xs);
-  position: relative;
+  --comp-tabs-align: center;
+  --comp-tabs-bg: var(--sys-energy-surface-sunken);
+  --comp-tabs-border-width: var(--component-border-width);
+  --comp-tabs-border-color: color-mix(in srgb, var(--sys-color-border) 76%, transparent);
+  --comp-tabs-border: var(--comp-tabs-border-width) solid var(--comp-tabs-border-color);
+  --comp-tabs-radius: var(--component-radius-pill);
+  --comp-tabs-display: inline-flex;
+  --comp-tabs-gap: var(--sys-space-xs);
+  --comp-tabs-isolation: isolate;
+  --comp-tabs-padding: var(--sys-space-xs);
+  --comp-tabs-position: relative;
+  --comp-tabs-tab-bg-selected: var(--sys-energy-surface-primary);
+  --comp-tabs-indicator-bg: var(--comp-tabs-tab-bg-selected);
+  --comp-tabs-indicator-border-color: color-mix(in srgb, var(--sys-color-action) 22%, var(--sys-color-border));
+  --comp-tabs-indicator-border: var(--comp-tabs-border-width) solid var(--comp-tabs-indicator-border-color);
+  --comp-tabs-indicator-radius: var(--component-radius-pill);
+  --comp-tabs-indicator-shadow: 0 0 0 3px color-mix(in srgb, var(--sys-color-action) 7%, transparent), var(--component-depth-raised-soft);
+  --comp-tabs-indicator-content: "";
+  --comp-tabs-indicator-inset-block: var(--sys-space-xs);
+  --comp-tabs-indicator-left: var(--sys-space-xs);
+  --comp-tabs-indicator-width: 0;
+  --comp-tabs-indicator-pointer-events: none;
+  --comp-tabs-indicator-position: absolute;
+  --comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch);
+  --comp-tabs-indicator-z: var(--sys-depth-z-base);
+  --comp-tabs-tab-align: center;
+  --comp-tabs-tab-bg: transparent;
+  --comp-tabs-tab-border: 0;
+  --comp-tabs-tab-radius: var(--component-radius-pill);
+  --comp-tabs-tab-fg: var(--sys-color-text-muted);
+  --comp-tabs-tab-cursor: pointer;
+  --comp-tabs-tab-display: inline-flex;
+  --comp-tabs-tab-font: inherit;
+  --comp-tabs-tab-font-size: var(--component-font-size-label);
+  --comp-tabs-tab-font-weight: var(--sys-voice-weight-semibold);
+  --comp-tabs-tab-gap: var(--sys-space-xs);
+  --comp-tabs-tab-justify: center;
+  --comp-tabs-tab-min-block: var(--component-control-min-size);
+  --comp-tabs-tab-min-inline: var(--component-control-min-size);
+  --comp-tabs-tab-padding-inline: var(--sys-space-lg);
+  --comp-tabs-tab-position: relative;
+  --comp-tabs-tab-transition: color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
+  --comp-tabs-tab-z: var(--sys-depth-z-raised);
+  --comp-tabs-selected-fg: var(--sys-color-action);
+  --comp-tabs-selected-weight: var(--sys-voice-weight-extrabold);
+  --comp-tabs-hover-fg: var(--sys-color-text);
+  --comp-tabs-pressed-transform: var(--component-transform-press);
+  --comp-tabs-focus-width: var(--component-focus-ring-width);
+  --comp-tabs-focus-color: var(--sys-color-focus);
+  --comp-tabs-focus-offset: var(--component-focus-ring-offset);
+  --comp-tabs-icon-selected-variation: var(--sys-icon-variation-filled-strong);
+  --comp-tabs-underline-bg: transparent;
+  --comp-tabs-underline-border: 0;
+  --comp-tabs-underline-border-block-end: var(--comp-tabs-border-width) solid var(--sys-color-border);
+  --comp-tabs-underline-radius: 0;
+  --comp-tabs-underline-gap: var(--sys-space-xl);
+  --comp-tabs-underline-padding: 0;
+  --comp-tabs-underline-indicator-bg: var(--sys-color-action);
+  --comp-tabs-underline-indicator-border: 0;
+  --comp-tabs-underline-indicator-block-size: calc(var(--comp-tabs-border-width) * 3);
+  --comp-tabs-underline-indicator-shadow: none;
+  --comp-tabs-underline-indicator-inset-block: auto;
+  --comp-tabs-underline-indicator-inset-block-end: calc(var(--comp-tabs-border-width) * -1);
+  --comp-tabs-underline-tab-radius: 0;
+  --comp-tabs-underline-tab-padding-inline: var(--sys-space-xs);
+  align-items: var(--comp-tabs-align);
+  background: var(--comp-tabs-bg);
+  border: var(--comp-tabs-border);
+  border-radius: var(--comp-tabs-radius);
+  display: var(--comp-tabs-display);
+  gap: var(--comp-tabs-gap);
+  isolation: var(--comp-tabs-isolation);
+  padding: var(--comp-tabs-padding);
+  position: var(--comp-tabs-position);
 }
 
 .tabs::before {
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid color-mix(in srgb, var(--sys-color-action) 22%, var(--sys-color-border));
-  border-radius: var(--component-radius-pill);
-  box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--sys-color-action) 7%, transparent),
-    var(--component-depth-raised-soft);
-  content: "";
-  inset-block: var(--sys-space-xs);
-  inline-size: var(--comp-tabs-indicator-width, 0);
-  inset-inline-start: var(--comp-tabs-indicator-left, var(--sys-space-xs));
-  pointer-events: none;
-  position: absolute;
-  transition:
-    inset-inline-start var(--component-duration-medium) var(--component-ease-move),
-    inline-size var(--component-duration-medium) var(--component-ease-move),
-    box-shadow var(--component-duration-state) var(--component-ease-state);
-  z-index: var(--sys-depth-z-base);
+  background: var(--comp-tabs-indicator-bg);
+  border: var(--comp-tabs-indicator-border);
+  border-radius: var(--comp-tabs-indicator-radius);
+  box-shadow: var(--comp-tabs-indicator-shadow);
+  content: var(--comp-tabs-indicator-content);
+  inset-block: var(--comp-tabs-indicator-inset-block);
+  left: var(--comp-tabs-indicator-left, var(--sys-space-xs));
+  pointer-events: var(--comp-tabs-indicator-pointer-events);
+  position: var(--comp-tabs-indicator-position);
+  transition: var(--comp-tabs-indicator-transition);
+  width: var(--comp-tabs-indicator-width, 0);
+  z-index: var(--comp-tabs-indicator-z);
 }
 
 .tabs__tab {
-  align-items: center;
-  background: transparent;
-  border: 0;
-  border-radius: var(--component-radius-pill);
-  color: var(--sys-color-text-muted);
-  cursor: pointer;
-  display: inline-flex;
-  font: inherit;
-  font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-semibold);
-  gap: var(--sys-space-xs);
-  justify-content: center;
-  min-block-size: var(--component-control-min-size);
-  min-inline-size: var(--component-control-min-size);
-  padding: 0 var(--sys-space-lg);
-  position: relative;
-  transition:
-    color var(--component-duration-state) var(--component-ease-state),
-    transform var(--component-duration-press) var(--component-ease-press);
-  z-index: var(--sys-depth-z-raised);
+  align-items: var(--comp-tabs-tab-align);
+  background: var(--comp-tabs-tab-bg);
+  border: var(--comp-tabs-tab-border);
+  border-radius: var(--comp-tabs-tab-radius);
+  color: var(--comp-tabs-tab-fg);
+  cursor: var(--comp-tabs-tab-cursor);
+  display: var(--comp-tabs-tab-display);
+  font: var(--comp-tabs-tab-font);
+  font-size: var(--comp-tabs-tab-font-size);
+  font-weight: var(--comp-tabs-tab-font-weight);
+  gap: var(--comp-tabs-tab-gap);
+  justify-content: var(--comp-tabs-tab-justify);
+  min-block-size: var(--comp-tabs-tab-min-block);
+  min-height: var(--comp-tabs-tab-min-block);
+  min-inline-size: var(--comp-tabs-tab-min-inline);
+  padding: 0 var(--comp-tabs-tab-padding-inline);
+  position: var(--comp-tabs-tab-position);
+  transition: var(--comp-tabs-tab-transition);
+  z-index: var(--comp-tabs-tab-z);
 }
 
 .tabs__tab[aria-selected="true"] {
-  color: var(--sys-color-action);
-  font-weight: var(--sys-voice-weight-extrabold);
+  color: var(--comp-tabs-selected-fg);
+  font-weight: var(--comp-tabs-selected-weight);
 }
 
 .tabs__tab[aria-selected="true"] .tabs__icon {
-  font-variation-settings: var(--sys-icon-variation-filled-strong);
+  font-variation-settings: var(--comp-tabs-icon-selected-variation);
 }
 
 .tabs__tab:hover:not([aria-selected="true"]):not(:disabled) {
-  color: var(--sys-color-text);
+  color: var(--comp-tabs-hover-fg);
 }
 
 .tabs__tab:active:not(:disabled) {
-  transform: var(--component-transform-press);
+  transform: var(--comp-tabs-pressed-transform);
 }
 
 .tabs[data-variant="underline"] {
-  background: transparent;
-  border: 0;
-  border-block-end: var(--component-border-width) solid var(--sys-color-border);
-  border-radius: 0;
-  gap: var(--sys-space-xl);
-  padding: 0;
+  background: var(--comp-tabs-underline-bg);
+  border: var(--comp-tabs-underline-border);
+  border-block-end: var(--comp-tabs-underline-border-block-end);
+  border-radius: var(--comp-tabs-underline-radius);
+  gap: var(--comp-tabs-underline-gap);
+  padding: var(--comp-tabs-underline-padding);
 }
 
 .tabs[data-variant="underline"]::before {
-  background: var(--sys-color-action);
-  border: 0;
-  border-radius: var(--component-radius-pill);
-  block-size: calc(var(--component-border-width) * 3);
-  box-shadow: none;
-  inset-block: auto;
-  inset-block-end: calc(var(--component-border-width) * -1);
-  inset-inline-start: var(--comp-tabs-indicator-left, 0);
+  background: var(--comp-tabs-underline-indicator-bg);
+  border: var(--comp-tabs-underline-indicator-border);
+  block-size: var(--comp-tabs-underline-indicator-block-size);
+  box-shadow: var(--comp-tabs-underline-indicator-shadow);
+  inset-block: var(--comp-tabs-underline-indicator-inset-block);
+  inset-block-end: var(--comp-tabs-underline-indicator-inset-block-end);
+  left: var(--comp-tabs-indicator-left, 0);
 }
 
 .tabs[data-variant="underline"] .tabs__tab {
-  border-radius: 0;
-  padding: 0 var(--sys-space-xs);
+  border-radius: var(--comp-tabs-underline-tab-radius);
+  padding: 0 var(--comp-tabs-underline-tab-padding-inline);
 }
 
 .tabs[data-variant="underline"] .tabs__tab[aria-selected="true"] {
-  color: var(--sys-color-action);
+  color: var(--comp-tabs-selected-fg);
 }
 
-.tabs__tab:focus-visible,
+.tabs[data-density="sm"] {
+  --comp-tabs-tab-min-block: calc(var(--sys-density-control-height) - var(--sys-space-3));
+  --comp-tabs-tab-padding-inline: var(--sys-space-md);
+  --comp-tabs-tab-font-size: var(--sys-voice-size-caption);
+}
+
+.tabs[data-density="lg"] {
+  --comp-tabs-tab-min-block: calc(var(--sys-density-control-height) + var(--sys-space-sm));
+  --comp-tabs-tab-padding-inline: var(--sys-space-xl);
+  --comp-tabs-tab-font-size: var(--sys-voice-size-body);
+}
+
+.tabs__tab:focus-visible {
+  outline: var(--comp-tabs-focus-width) solid var(--comp-tabs-focus-color);
+  outline-offset: var(--comp-tabs-focus-offset);
+}
+
 .tooltip__trigger:focus-visible {
   outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
   outline-offset: var(--component-focus-ring-offset);
@@ -10939,9 +11013,4 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   inline-size: var(--comp-quick-action-label-width);
   line-height: var(--comp-quick-action-label-line-height);
   overflow-wrap: var(--comp-quick-action-label-overflow-wrap);
-}
-
-.tabs__tab {
-  min-block-size: var(--component-control-min-size);
-  min-height: var(--component-control-min-size);
 }
