@@ -26,7 +26,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   animationSource = "",
   animationData,
   reducedMotionFallback = "",
-  stateLabel = "",
+  stateLabel,
   className = "",
   ...rest
 }, ref) {
@@ -35,7 +35,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({
   const resolvedDensity = normalizeFlowDensity(density);
   if (!label) return null;
   const resolvedIcon = variantIcon(resolvedVariant, icon);
-  const resolvedStateLabel = stateLabel || "";
+  const resolvedStateLabel = stateLabel;
   const hasAsset = Boolean(animationSource || animationData);
   const canAnimate = hasAsset && resolvedState !== "reduced-motion" && resolvedState !== "disabled";
   const accessibleLabel = resolvedStateLabel ? `${label}: ${resolvedStateLabel}` : label;
