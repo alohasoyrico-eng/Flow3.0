@@ -253,7 +253,7 @@ assert.doesNotMatch(copyOnlyMovementRowMarkup, /data-state="pending"/);
 const routeSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Fast route",
   description: "Best option for current policy.",
-  metrics: [{ label: "ETA", value: "18 min" }, { label: "Distance", value: "12.4 km" }],
+  metrics: [{ key: "eta", label: "ETA", value: "18 min" }, { key: "distance", label: "Distance", value: "12.4 km" }],
   actions: [{ key: "start", label: "Start route" }, { key: "compare", label: "Compare", variant: "secondary" }],
   variant: "compare",
   state: "selected",
@@ -314,6 +314,13 @@ const incompleteMetricRouteSummaryMarkup = renderToStaticMarkup(React.createElem
 }));
 assert.doesNotMatch(incompleteMetricRouteSummaryMarkup, /class="route-summary__metrics"/);
 assert.doesNotMatch(incompleteMetricRouteSummaryMarkup, /<small><\/small>|<strong><\/strong>/);
+
+const unstableMetricRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  label: "Airport run",
+  metrics: [{ label: "ETA", value: "18 min" }],
+}));
+assert.doesNotMatch(unstableMetricRouteSummaryMarkup, /class="route-summary__metrics"/);
+assert.doesNotMatch(unstableMetricRouteSummaryMarkup, /ETA|18 min/);
 
 const stationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
   label: "Station 24",
