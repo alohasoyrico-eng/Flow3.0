@@ -40,6 +40,7 @@ export const Tooltip = forwardRef(function Tooltip({
   const isDismissed = !isOpenControlled && interactionState === "dismissed";
   const openValue = isOpenControlled ? Boolean(openProp) : internalOpen;
   const isOpen = Boolean(openValue) && !isDismissed;
+  if (!triggerLabel) return null;
 
   const setOpen = (nextOpen, nextState) => {
     if (isDisabled) return;

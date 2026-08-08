@@ -1460,8 +1460,13 @@ assert.match(openTooltipMarkup, /aria-describedby="tip-cost"/);
 assert.doesNotMatch(openTooltipMarkup, /hidden=""/);
 
 const unnamedTooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip));
-assert.doesNotMatch(unnamedTooltipMarkup, /aria-label="Tooltip trigger"/);
-assert.doesNotMatch(unnamedTooltipMarkup, />\?<\/button>/);
+assert.equal(unnamedTooltipMarkup, "");
+
+const ariaOnlyTooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
+  triggerAriaLabel: "Open help",
+  content: "Contextual help",
+}));
+assert.equal(ariaOnlyTooltipMarkup, "");
 
 const popoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
   triggerLabel: "Details",
