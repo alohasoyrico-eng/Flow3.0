@@ -10,7 +10,7 @@ const components = [
     primitives: ["color", "typography", "spacing", "radius", "elevation", "focus", "disabled", "duration", "motion-curves", "iconography"],
     props: ["items", "multiple", "density", "onExpandedChange"],
     jsSnippets: ["accordionPlatformContract", "className: [\"accordion\"", 'flowVariantProps(resolvedVariant)', '"data-multiple": String(allowsMultiple)', 'flowDensityProps(resolvedDensity)', '"data-accordion-trigger": ""', '"aria-expanded": String(open)', '"aria-controls": panelId', "accordion__icon", "accordion__title", "accordion__meta", "accordion__chevron", "accordion__panel", "onExpandedChange"],
-    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "AccordionProps", "AccordionItem", "AccordionDensity", "AccordionVariant", "ariaLabel?: string", "accordionPlatformContract"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "AccordionProps", "AccordionItem", "AccordionDensity", "AccordionVariant", "id: string", "title: string", "content: ReactNode", "accordionPlatformContract"],
     packagePath: "./accordion",
     exportName: "Accordion",
     propsName: "AccordionProps",

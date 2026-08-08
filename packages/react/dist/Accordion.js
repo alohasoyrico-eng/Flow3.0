@@ -10,11 +10,10 @@ function hasStableItemId(item) {
 
 function normalizeItems(items) {
   const sourceItems = Array.isArray(items) ? items : [];
-  return sourceItems.filter((item) => item?.title && hasStableItemId(item)).map((item) => ({
+  return sourceItems.filter((item) => item?.title && item?.content !== undefined && item?.content !== null && hasStableItemId(item)).map((item) => ({
     ...item,
     id: String(item.id),
     title: item.title,
-    ariaLabel: item.ariaLabel ?? item["aria-label"],
     content: item.content,
     open: Boolean(item.open),
   }));
@@ -28,7 +27,7 @@ function renderContent(content) {
 }
 
 export const Accordion = forwardRef(function Accordion({
-  items = [],
+  items,
   variant,
   multiple = false,
   expandedIds,
@@ -66,6 +65,8 @@ export const Accordion = forwardRef(function Accordion({
     onExpandedChange?.(next);
   };
 
+  if (!normalizedItems.length) return null;
+
   return React.createElement(
     "div",
     {
@@ -98,7 +99,6 @@ export const Accordion = forwardRef(function Accordion({
             "data-accordion-trigger": "",
             "aria-expanded": String(open),
             "aria-controls": panelId,
-            "aria-label": item.title ? undefined : item.ariaLabel || undefined,
             onClick: () => setItemOpen(item, !open),
           },
           item.icon

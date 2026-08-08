@@ -5,10 +5,9 @@ export type AccordionDensity = "sm" | "md" | "lg";
 export type AccordionVariant = "single" | "multiple";
 
 export interface AccordionItem {
-  id?: string;
-  title?: string;
-  ariaLabel?: string;
-  content?: ReactNode;
+  id: string;
+  title: string;
+  content: ReactNode;
   open?: boolean;
   disabled?: boolean;
   icon?: string;
