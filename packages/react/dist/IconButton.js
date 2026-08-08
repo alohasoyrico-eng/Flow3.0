@@ -32,7 +32,7 @@ export const IconButton = forwardRef(function IconButton({
       type: allowedTypes.has(type) ? type : "button",
       className: iconButtonClassName({ variant, className }),
       disabled,
-      "aria-label": resolvedLabel || undefined,
+      "aria-label": resolvedLabel,
       "aria-pressed": selected ? "true" : undefined,
       ...flowDensityProps(density),
     },

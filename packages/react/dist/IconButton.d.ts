@@ -5,9 +5,11 @@ export type IconButtonVariant = "ghost" | "tonal" | "primary" | "accent";
 export type IconButtonDensity = "sm" | "md" | "lg";
 export type IconButtonType = "button" | "submit" | "reset";
 
-export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  ariaLabel?: string;
-  label?: string;
+export type IconButtonAccessibleName =
+  | { ariaLabel: string; label?: string }
+  | { ariaLabel?: string; label: string };
+
+export type IconButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> & IconButtonAccessibleName & {
   icon: string;
   variant?: IconButtonVariant;
   density?: IconButtonDensity;
@@ -15,7 +17,7 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   badge?: boolean;
   disabled?: boolean;
   type?: IconButtonType;
-}
+};
 
 export interface IconButtonComponent extends ForwardRefExoticComponent<IconButtonProps & RefAttributes<HTMLButtonElement>> {
   displayName: "IconButton";

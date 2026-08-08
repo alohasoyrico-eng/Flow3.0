@@ -145,7 +145,6 @@ function checkReactComponent(file, shared) {
   for (const snippet of [
     "ForwardRefExoticComponent",
     "RefAttributes<",
-    `export interface ${propsName}`,
     `export interface ${componentName}`,
     `displayName: "${name}"`,
     `platformContract: typeof ${contractName}`,
@@ -154,6 +153,9 @@ function checkReactComponent(file, shared) {
     if (!types.includes(snippet)) {
       add("errors", typesFile, 1, `${name} React types missing contract snippet: ${snippet}.`);
     }
+  }
+  if (!types.includes(`export interface ${propsName}`) && !types.includes(`export type ${propsName}`)) {
+    add("errors", typesFile, 1, `${name} React types missing exported props contract: ${propsName}.`);
   }
 
   checkReactPropContracts({ add, componentName: name, typesFile, types, contractBody });
