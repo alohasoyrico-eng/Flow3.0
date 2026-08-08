@@ -797,6 +797,8 @@ export const componentContracts = {
       "Use native table semantics.",
       "Expose aria-sort on sortable columns.",
       "Require visible column labels instead of exposing technical column keys.",
+      "Require stable row keys before composing table rows.",
+      "Do not derive selected or expanded rows from visual state alone.",
       "Use patterns for remote data, filtering, pagination, expansion, and row processs."
     ]
   },

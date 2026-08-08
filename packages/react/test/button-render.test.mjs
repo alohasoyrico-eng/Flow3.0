@@ -1107,6 +1107,24 @@ const unlabeledColumnTableMarkup = renderToStaticMarkup(React.createElement(Tabl
 assert.doesNotMatch(unlabeledColumnTableMarkup, /<span>plate<\/span>|<th[^>]*>plate<\/th>/);
 assert.match(unlabeledColumnTableMarkup, />Status</);
 
+const unstableRowTableMarkup = renderToStaticMarkup(React.createElement(Table, {
+  label: "Guarded rows",
+  rowKey: "id",
+  columns: tableColumns.slice(0, 2),
+  rows: [{ plate: "NO-ID", status: "Draft" }],
+}));
+assert.doesNotMatch(unstableRowTableMarkup, /NO-ID|data-key="undefined"/);
+
+const decorativeSelectedTableMarkup = renderToStaticMarkup(React.createElement(Table, {
+  label: "Decorative selected table",
+  rowKey: "id",
+  state: "selected",
+  columns: tableColumns.slice(0, 2),
+  rows: tableRows,
+}));
+assert.match(decorativeSelectedTableMarkup, /data-state="selected"/);
+assert.doesNotMatch(decorativeSelectedTableMarkup, /data-selected="true"/);
+
 const expandableTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   label: "Expandable fleet",
   getExpandLabel: (row, { expanded }) => `${expanded ? "Close" : "Open"} ${row.plate}`,
@@ -1135,6 +1153,18 @@ const unlabeledExpandableTableMarkup = renderToStaticMarkup(React.createElement(
 assert.doesNotMatch(unlabeledExpandableTableMarkup, /class="table__expander"/);
 assert.doesNotMatch(unlabeledExpandableTableMarkup, /class="table__detail-row"/);
 assert.doesNotMatch(unlabeledExpandableTableMarkup, /aria-expanded=/);
+
+const decorativeExpandedTableMarkup = renderToStaticMarkup(React.createElement(Table, {
+  label: "Decorative expandable fleet",
+  getExpandLabel: (row, { expanded }) => `${expanded ? "Close" : "Open"} ${row.plate}`,
+  rowKey: "id",
+  variant: "expandable",
+  state: "expanded",
+  columns: tableColumns.slice(0, 2),
+  rows: tableRows,
+}));
+assert.match(decorativeExpandedTableMarkup, /data-state="expanded"/);
+assert.doesNotMatch(decorativeExpandedTableMarkup, /aria-expanded="true"/);
 
 const chipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Active",

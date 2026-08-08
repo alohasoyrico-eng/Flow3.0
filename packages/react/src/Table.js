@@ -52,6 +52,10 @@ export const Table = forwardRef(function Table({
   const initialState = normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedColumns = useMemo(() => columns.filter((column) => column?.key && column?.label), [columns]);
+  const resolvedRows = useMemo(() => rows.filter((row) => {
+    const key = row?.[rowKey];
+    return key !== undefined && key !== null && key !== "";
+  }), [rowKey, rows]);
   const sortable = resolvedVariant === "sortable" || resolvedColumns.some((column) => column.sortable);
   const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
   const expandable = resolvedVariant === "expandable" || Boolean(renderDetail || expandedKey);
@@ -61,7 +65,7 @@ export const Table = forwardRef(function Table({
   const isExpandedKeyControlled = expandedKey !== undefined;
   const [currentSort, setCurrentSort] = useState({ key: sortKey ?? "", direction: sortDir });
   const [currentSelected, setCurrentSelected] = useState(String(selectedKey || ""));
-  const [currentExpanded, setCurrentExpanded] = useState(String(expandedKey || (initialState === "expanded" ? rows[0]?.[rowKey] ?? "" : "")));
+  const [currentExpanded, setCurrentExpanded] = useState(String(expandedKey || ""));
 
   useEffect(() => {
     if (isSelectedKeyControlled) setCurrentSelected(String(selectedKey || ""));
@@ -76,11 +80,11 @@ export const Table = forwardRef(function Table({
   }, [expandedKey, isExpandedKeyControlled]);
 
   const sortedRows = useMemo(() => {
-    if (!currentSort.key) return [...rows];
+    if (!currentSort.key) return [...resolvedRows];
     const column = resolvedColumns.find((item) => item.key === currentSort.key);
-    if (!column) return [...rows];
+    if (!column) return [...resolvedRows];
     const direction = currentSort.direction === "descending" ? -1 : 1;
-    return [...rows].sort((a, b) => {
+    return [...resolvedRows].sort((a, b) => {
       const aValue = sortValue(a, column);
       const bValue = sortValue(b, column);
       if (aValue == null) return 1;
@@ -88,7 +92,7 @@ export const Table = forwardRef(function Table({
       if (typeof aValue === "number" && typeof bValue === "number") return (aValue - bValue) * direction;
       return String(aValue).localeCompare(String(bValue), "en") * direction;
     });
-  }, [currentSort.direction, currentSort.key, resolvedColumns, rows]);
+  }, [currentSort.direction, currentSort.key, resolvedColumns, resolvedRows]);
 
   const interactionState = currentExpanded ? "expanded" : currentSort.key ? "sorted" : currentSelected ? "selected" : initialState;
   const changeSort = (key) => {
@@ -161,7 +165,7 @@ export const Table = forwardRef(function Table({
         null,
         sortedRows.flatMap((row, index) => {
           const key = String(row[rowKey]);
-          const selected = currentSelected ? currentSelected === key : initialState === "selected" && index === 1;
+          const selected = currentSelected === key;
           const expanded = currentExpanded === key;
           const expandLabel = typeof getExpandLabel === "function" ? getExpandLabel(row, { expanded, key }) : undefined;
           const rowCanExpand = canRenderExpanders && Boolean(expandLabel);
