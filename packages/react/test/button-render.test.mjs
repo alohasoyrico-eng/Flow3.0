@@ -1264,8 +1264,7 @@ const inheritedSliderMarkup = renderToStaticMarkup(React.createElement(Slider, {
 assert.doesNotMatch(inheritedSliderMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const unnamedSliderMarkup = renderToStaticMarkup(React.createElement(Slider));
-assert.doesNotMatch(unnamedSliderMarkup, /aria-label="Slider"/);
-assert.doesNotMatch(unnamedSliderMarkup.match(/<input[^>]+>/)?.[0] ?? "", /aria-label=/);
+assert.equal(unnamedSliderMarkup, "");
 
 const stepperMarkup = renderToStaticMarkup(React.createElement(Stepper, {
   label: "Setup progress",

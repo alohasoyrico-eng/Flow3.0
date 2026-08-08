@@ -63,6 +63,8 @@ export const Slider = forwardRef(function Slider({
     if (isValueControlled) setCurrentValue(clampValue(value ?? min, min, max));
   }, [isValueControlled, max, min, value]);
 
+  if (!label) return null;
+
   const handleChange = (event) => {
     if (disabled) return;
     const nextValue = clampValue(event.currentTarget.value, min, max);
