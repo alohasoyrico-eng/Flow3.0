@@ -62,6 +62,7 @@
   --component-card-chip-inline-size-sm: var(--sys-frame-content-card-chip-inline-sm);
   --component-card-chip-inline-size-md: var(--sys-frame-content-card-chip-inline-md);
   --component-card-chip-inline-size-lg: var(--sys-frame-content-card-chip-inline-lg);
+  --component-card-media-block-size: var(--sys-frame-content-card-media-block);
   --component-movement-row-min-block-size-sm: var(--sys-frame-content-movement-row-min-block-sm);
   --component-movement-row-min-block-size-md: var(--sys-frame-content-movement-row-min-block-md);
   --component-movement-row-min-block-size-lg: var(--sys-frame-content-movement-row-min-block-lg);
@@ -5330,7 +5331,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card[data-composition="media"] {
   --comp-card-current-padding: 0;
   --comp-card-current-gap: var(--comp-card-media-gap);
-  --comp-card-current-media-block-size: calc(var(--component-control-min-size) * 4 + var(--sys-space-xl));
+  --comp-card-current-media-block-size: var(--component-card-media-block-size);
   overflow: clip;
 }
 

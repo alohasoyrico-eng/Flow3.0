@@ -316,6 +316,7 @@ export const systemTokens = {
       contentCardChipInlineSm: "var(--sys-frame-content-card-chip-inline-sm)",
       contentCardChipInlineMd: "var(--sys-frame-content-card-chip-inline-md)",
       contentCardChipInlineLg: "var(--sys-frame-content-card-chip-inline-lg)",
+      contentCardMediaBlock: "var(--sys-frame-content-card-media-block)",
       contentMovementRowMinBlockSm: "var(--sys-frame-content-movement-row-min-block-sm)",
       contentMovementRowMinBlockMd: "var(--sys-frame-content-movement-row-min-block-md)",
       contentMovementRowMinBlockLg: "var(--sys-frame-content-movement-row-min-block-lg)",

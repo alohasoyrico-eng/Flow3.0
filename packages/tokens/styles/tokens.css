@@ -541,6 +541,7 @@
   --sys-frame-content-card-chip-inline-sm: var(--sys-space-9);
   --sys-frame-content-card-chip-inline-md: var(--sys-space-9);
   --sys-frame-content-card-chip-inline-lg: var(--sys-space-10);
+  --sys-frame-content-card-media-block: calc((var(--sys-space-11) * 4) + var(--sys-space-xl));
   --sys-frame-content-movement-row-min-block-sm: calc(var(--sys-space-11) + var(--sys-space-sm));
   --sys-frame-content-movement-row-min-block-md: calc(var(--sys-space-11) * 1.5);
   --sys-frame-content-movement-row-min-block-lg: calc(var(--sys-space-11) * 2);

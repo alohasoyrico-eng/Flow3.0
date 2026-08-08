@@ -30,6 +30,10 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (text.includes("--card-")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--card-")), "Card must not introduce short --card-* aliases; use the component namespace and --comp-card-current-* resolved aliases.");
   }
+  const localMediaSize = /--comp-card-current-media-block-size:\s*calc\([^;]*--component-control-min-size[^;]*\)/.exec(text);
+  if (localMediaSize) {
+    add("errors", packageCssFile, lineNumber(text, localMediaSize.index), "Card media block size must flow through shared frame/content roles instead of local control-size math.");
+  }
 
   requireIncludes({
     block: cardBlock,
@@ -62,7 +66,7 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: mediaBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-card-current-gap: var(--comp-card-media-gap)", "--comp-card-current-media-block-size:"],
+    snippets: ["--comp-card-current-gap: var(--comp-card-media-gap)", "--comp-card-current-media-block-size: var(--component-card-media-block-size)"],
     message: "Card media composition must resolve through comp Card media aliases.",
   });
   requireIncludes({
