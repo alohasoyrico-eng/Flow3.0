@@ -61,8 +61,13 @@ function pointsFor(values = []) {
   }).join(" ");
 }
 
+function chartSeriesColor(index, role = "series") {
+  if (role === "comparison" && index === 0) return "var(--comp-chart-panel-comparison-reference-fill)";
+  return `var(--comp-chart-panel-series-${(index % 5) + 1})`;
+}
+
 function renderLinePlot(values, labels, variant, series = []) {
-  const resolvedSeries = series.length ? series.slice(0, 3) : values.length ? [{ id: "primary", values }] : [];
+  const resolvedSeries = series.length ? series : values.length ? [{ id: "primary", values }] : [];
   const labeledPoints = normalizePoints(values, labels);
   return React.createElement(
     "svg",
@@ -72,6 +77,8 @@ function renderLinePlot(values, labels, variant, series = []) {
       key: item.id,
       className: "chart-panel__line",
       points: pointsFor(item.values ?? values),
+      style: { "--comp-chart-panel-current-series": chartSeriesColor(index) },
+      "data-series": String(index + 1),
     })),
     labeledPoints.map((point, index) => React.createElement("circle", {
       key: point.key,
@@ -137,7 +144,7 @@ function renderBullet(values, labels) {
 }
 
 function renderComparison(comparisons, values, labels) {
-  const source = comparisons.length ? comparisons.slice(0, 3) : values.length ? [{ id: "primary", values }] : [];
+  const source = comparisons.length ? comparisons : values.length ? [{ id: "primary", values }] : [];
   const points = normalizePoints(values, labels);
   const max = Math.max(...source.flatMap((item) => normalizeValues(item.values)), 1);
   return points.map((point) => React.createElement(
@@ -156,6 +163,7 @@ function renderComparison(comparisons, values, labels) {
           y: String(100 - percent),
           width: "8",
           height: String(percent),
+          style: { "--comp-chart-panel-current-series": chartSeriesColor(seriesIndex, "comparison") },
           "data-series": String(seriesIndex + 1),
         });
       }),

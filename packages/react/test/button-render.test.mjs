@@ -520,6 +520,18 @@ const unstableSeriesChartMarkup = renderToStaticMarkup(React.createElement(Chart
 }));
 assert.doesNotMatch(unstableSeriesChartMarkup, /Projected/);
 assert.doesNotMatch(unstableSeriesChartMarkup, /key="Projected"|key="0"/);
+const multiSeriesChartMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
+  label: "Multi series chart",
+  variant: "line",
+  series: [
+    { id: "actual", values: [1, 2, 3] },
+    { id: "forecast", values: [2, 3, 4] },
+    { id: "budget", values: [3, 4, 5] },
+    { id: "risk", values: [4, 5, 6] },
+  ],
+}));
+assert.match(multiSeriesChartMarkup, /data-series="4"/);
+assert.match(multiSeriesChartMarkup, /style="--comp-chart-panel-current-series:var\(--comp-chart-panel-series-4\)"/);
 const comparisonChartMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
   label: "Comparison chart",
   values: [1, 2],
@@ -529,6 +541,7 @@ const comparisonChartMarkup = renderToStaticMarkup(React.createElement(ChartPane
 }));
 assert.match(comparisonChartMarkup, /data-variant="comparison"/);
 assert.match(comparisonChartMarkup, /data-series="1"/);
+assert.match(comparisonChartMarkup, /style="--comp-chart-panel-current-series:var\(--comp-chart-panel-comparison-reference-fill\)"/);
 
 const auditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
   label: "Document rejected",

@@ -7838,6 +7838,8 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-series-3: var(--sys-chart-series-quaternary);
   --comp-chart-panel-series-4: color-mix(in srgb, var(--sys-chart-series-primary) 54%, var(--sys-chart-series-secondary));
   --comp-chart-panel-series-5: var(--sys-chart-series-tertiary);
+  --comp-chart-panel-current-series: var(--comp-chart-panel-tone);
+  --comp-chart-panel-comparison-reference-fill: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--sys-color-border));
   background: var(--comp-chart-panel-bg);
   border: var(--comp-chart-panel-border-width) solid var(--comp-chart-panel-border);
   border-radius: var(--comp-chart-panel-radius);
@@ -8285,7 +8287,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__line {
   animation: chart-line-draw var(--component-duration-reveal) var(--component-ease-enter) both;
   fill: none;
-  stroke: var(--comp-chart-panel-tone);
+  stroke: var(--comp-chart-panel-current-series);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 320;
@@ -8293,19 +8295,9 @@ body[data-contrast="quiet"] .route-summary__icon {
   stroke-width: var(--component-chart-stroke-strong);
 }
 
-.chart-panel__line[data-series="2"],
-.chart-panel__dot[data-series="2"] {
-  stroke: var(--comp-chart-panel-series-2);
-}
-
-.chart-panel__line[data-series="3"],
-.chart-panel__dot[data-series="3"] {
-  stroke: var(--comp-chart-panel-series-5);
-}
-
 .chart-panel__dot {
   animation: chart-dot-enter var(--component-duration-reveal) var(--component-ease-enter) both;
-  fill: var(--comp-chart-panel-tone);
+  fill: var(--comp-chart-panel-current-series);
   stroke: var(--sys-color-surface);
   stroke-width: var(--component-chart-stroke-strong);
 }
@@ -8314,14 +8306,6 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__hit-dot:focus-visible {
   stroke: var(--sys-color-focus);
   stroke-width: var(--component-chart-stroke-medium);
-}
-
-.chart-panel__dot[data-series="2"] {
-  fill: var(--comp-chart-panel-series-2);
-}
-
-.chart-panel__dot[data-series="3"] {
-  fill: var(--comp-chart-panel-series-5);
 }
 
 .chart-panel[data-variant="compact"] {
@@ -8517,7 +8501,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__comparison-bar {
   animation: chart-bar-enter var(--component-duration-reveal) var(--component-ease-enter) both;
-  fill: var(--comp-chart-panel-tone);
+  fill: var(--comp-chart-panel-current-series);
   rx: var(--component-focus-ring-width);
   transition: fill var(--component-duration-state) var(--component-ease-state);
 }
@@ -8528,10 +8512,6 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__comparison-bar:nth-child(3) {
   animation-delay: calc(var(--sys-momentum-stagger-chart-compact) * 2);
-}
-
-.chart-panel__comparison-bar[data-series="1"] {
-  fill: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--sys-color-border));
 }
 
 .chart-panel__comparison-group:hover .chart-panel__comparison-bar,
