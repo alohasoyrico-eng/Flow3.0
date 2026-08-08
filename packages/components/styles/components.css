@@ -394,7 +394,7 @@
   --comp-radio-button-mark-size-lg: var(--component-min-text-line);
   --comp-radio-button-mark-size-compact: var(--comp-radio-button-mark-size-sm);
   --comp-radio-button-indicator-scale: 0.5;
-  --comp-radio-button-indicator-size: calc(var(--choice-mark-size) * var(--comp-radio-button-indicator-scale));
+  --comp-radio-button-indicator-size: calc(var(--comp-choice-current-mark-size) * var(--comp-radio-button-indicator-scale));
   --comp-radio-button-gap-sm: var(--sys-space-xs);
   --comp-radio-button-gap-md: var(--sys-space-sm);
   --comp-radio-button-gap-lg: var(--sys-space-md);
@@ -1545,132 +1545,132 @@
 }
 
 .choice {
-  --choice-mark-size: var(--component-inline-size-sm);
-  --choice-indicator-size: calc(var(--choice-mark-size) / 2);
-  --choice-indicator-font-size: var(--sys-icon-size-sm-plus);
-  --choice-gap: var(--sys-space-sm);
+  --comp-choice-current-mark-size: var(--component-inline-size-sm);
+  --comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2);
+  --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm-plus);
+  --comp-choice-current-gap: var(--sys-space-sm);
   grid-template-columns: auto 1fr;
-  gap: var(--choice-gap);
-  padding-block: var(--choice-padding-block, var(--sys-space-xs));
+  gap: var(--comp-choice-current-gap);
+  padding-block: var(--comp-choice-current-padding-block, var(--sys-space-xs));
   position: relative;
 }
 
 .checkbox {
-  --choice-mark-size: var(--comp-checkbox-mark-size-md);
-  --choice-indicator-font-size: var(--comp-checkbox-indicator-size-md);
-  --choice-gap: var(--comp-checkbox-gap-md);
-  --choice-padding-block: var(--comp-checkbox-padding-block);
-  --choice-mark-bg: var(--comp-checkbox-bg);
-  --choice-mark-border: var(--comp-checkbox-border);
-  --choice-mark-checked-bg: var(--comp-checkbox-checked-bg);
-  --choice-mark-checked-border: var(--comp-checkbox-checked-border);
-  --choice-mark-error-bg: var(--comp-checkbox-error-bg);
-  --choice-mark-error-border: var(--comp-checkbox-error-border);
-  --choice-mark-hover-border: var(--comp-checkbox-hover-border);
-  --choice-mark-radius: var(--comp-checkbox-radius);
-  --choice-indicator-fg: var(--comp-checkbox-indicator-fg);
-  --choice-focus-width: var(--comp-checkbox-focus-width);
-  --choice-focus-color: var(--comp-checkbox-focus-color);
-  --choice-focus-offset: var(--comp-checkbox-focus-offset);
-  --choice-label-weight: var(--comp-checkbox-label-weight);
-  --choice-description-size: var(--comp-checkbox-description-size);
-  --choice-description-fg: var(--comp-checkbox-description-fg);
-  --choice-error-fg: var(--comp-checkbox-error-fg);
-  --choice-error-weight: var(--comp-checkbox-error-weight);
-  --choice-motion-duration: var(--comp-checkbox-motion-duration);
-  --choice-motion-press-duration: var(--comp-checkbox-motion-press-duration);
-  --choice-motion-ease: var(--comp-checkbox-motion-ease);
-  --choice-motion-enter: var(--comp-checkbox-motion-enter);
-  --choice-motion-press: var(--comp-checkbox-motion-press);
-  --choice-hover-scale: var(--comp-checkbox-hover-scale);
-  --choice-press-scale: var(--comp-checkbox-press-scale);
-  --choice-disabled-opacity: var(--comp-checkbox-disabled-opacity);
+  --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-md);
+  --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-md);
+  --comp-choice-current-gap: var(--comp-checkbox-gap-md);
+  --comp-choice-current-padding-block: var(--comp-checkbox-padding-block);
+  --comp-choice-current-mark-bg: var(--comp-checkbox-bg);
+  --comp-choice-current-mark-border: var(--comp-checkbox-border);
+  --comp-choice-current-mark-checked-bg: var(--comp-checkbox-checked-bg);
+  --comp-choice-current-mark-checked-border: var(--comp-checkbox-checked-border);
+  --comp-choice-current-mark-error-bg: var(--comp-checkbox-error-bg);
+  --comp-choice-current-mark-error-border: var(--comp-checkbox-error-border);
+  --comp-choice-current-mark-hover-border: var(--comp-checkbox-hover-border);
+  --comp-choice-current-mark-radius: var(--comp-checkbox-radius);
+  --comp-choice-current-indicator-fg: var(--comp-checkbox-indicator-fg);
+  --comp-choice-current-focus-width: var(--comp-checkbox-focus-width);
+  --comp-choice-current-focus-color: var(--comp-checkbox-focus-color);
+  --comp-choice-current-focus-offset: var(--comp-checkbox-focus-offset);
+  --comp-choice-current-label-weight: var(--comp-checkbox-label-weight);
+  --comp-choice-current-description-size: var(--comp-checkbox-description-size);
+  --comp-choice-current-description-fg: var(--comp-checkbox-description-fg);
+  --comp-choice-current-error-fg: var(--comp-checkbox-error-fg);
+  --comp-choice-current-error-weight: var(--comp-checkbox-error-weight);
+  --comp-choice-current-motion-duration: var(--comp-checkbox-motion-duration);
+  --comp-choice-current-motion-press-duration: var(--comp-checkbox-motion-press-duration);
+  --comp-choice-current-motion-ease: var(--comp-checkbox-motion-ease);
+  --comp-choice-current-motion-enter: var(--comp-checkbox-motion-enter);
+  --comp-choice-current-motion-press: var(--comp-checkbox-motion-press);
+  --comp-choice-current-hover-scale: var(--comp-checkbox-hover-scale);
+  --comp-choice-current-press-scale: var(--comp-checkbox-press-scale);
+  --comp-choice-current-disabled-opacity: var(--comp-checkbox-disabled-opacity);
 }
 
 .radio {
-  --choice-mark-size: var(--comp-radio-button-mark-size-md);
-  --choice-indicator-size: var(--comp-radio-button-indicator-size);
-  --choice-gap: var(--comp-radio-button-gap-md);
-  --choice-padding-block: var(--comp-radio-button-padding-block);
-  --choice-mark-bg: var(--comp-radio-button-bg);
-  --choice-mark-border: var(--comp-radio-button-border);
-  --choice-mark-selected-bg: var(--comp-radio-button-selected-bg);
-  --choice-mark-selected-border: var(--comp-radio-button-selected-border);
-  --choice-mark-error-bg: var(--comp-radio-button-error-bg);
-  --choice-mark-error-border: var(--comp-radio-button-error-border);
-  --choice-mark-hover-border: var(--comp-radio-button-hover-border);
-  --choice-mark-radius: var(--comp-radio-button-radius);
-  --choice-dot-bg: var(--comp-radio-button-dot-bg);
-  --choice-dot-error-bg: var(--comp-radio-button-error-dot-bg);
-  --choice-focus-width: var(--comp-radio-button-focus-width);
-  --choice-focus-color: var(--comp-radio-button-focus-color);
-  --choice-focus-offset: var(--comp-radio-button-focus-offset);
-  --choice-label-weight: var(--comp-radio-button-label-weight);
-  --choice-description-size: var(--comp-radio-button-description-size);
-  --choice-description-fg: var(--comp-radio-button-description-fg);
-  --choice-error-fg: var(--comp-radio-button-error-fg);
-  --choice-error-weight: var(--comp-radio-button-error-weight);
-  --choice-motion-duration: var(--comp-radio-button-motion-duration);
-  --choice-motion-press-duration: var(--comp-radio-button-motion-press-duration);
-  --choice-motion-ease: var(--comp-radio-button-motion-ease);
-  --choice-motion-enter: var(--comp-radio-button-motion-enter);
-  --choice-motion-press: var(--comp-radio-button-motion-press);
-  --choice-hover-scale: var(--comp-radio-button-hover-scale);
-  --choice-press-scale: var(--comp-radio-button-press-scale);
-  --choice-disabled-opacity: var(--comp-radio-button-disabled-opacity);
+  --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-md);
+  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size);
+  --comp-choice-current-gap: var(--comp-radio-button-gap-md);
+  --comp-choice-current-padding-block: var(--comp-radio-button-padding-block);
+  --comp-choice-current-mark-bg: var(--comp-radio-button-bg);
+  --comp-choice-current-mark-border: var(--comp-radio-button-border);
+  --comp-choice-current-mark-selected-bg: var(--comp-radio-button-selected-bg);
+  --comp-choice-current-mark-selected-border: var(--comp-radio-button-selected-border);
+  --comp-choice-current-mark-error-bg: var(--comp-radio-button-error-bg);
+  --comp-choice-current-mark-error-border: var(--comp-radio-button-error-border);
+  --comp-choice-current-mark-hover-border: var(--comp-radio-button-hover-border);
+  --comp-choice-current-mark-radius: var(--comp-radio-button-radius);
+  --comp-choice-current-dot-bg: var(--comp-radio-button-dot-bg);
+  --comp-choice-current-dot-error-bg: var(--comp-radio-button-error-dot-bg);
+  --comp-choice-current-focus-width: var(--comp-radio-button-focus-width);
+  --comp-choice-current-focus-color: var(--comp-radio-button-focus-color);
+  --comp-choice-current-focus-offset: var(--comp-radio-button-focus-offset);
+  --comp-choice-current-label-weight: var(--comp-radio-button-label-weight);
+  --comp-choice-current-description-size: var(--comp-radio-button-description-size);
+  --comp-choice-current-description-fg: var(--comp-radio-button-description-fg);
+  --comp-choice-current-error-fg: var(--comp-radio-button-error-fg);
+  --comp-choice-current-error-weight: var(--comp-radio-button-error-weight);
+  --comp-choice-current-motion-duration: var(--comp-radio-button-motion-duration);
+  --comp-choice-current-motion-press-duration: var(--comp-radio-button-motion-press-duration);
+  --comp-choice-current-motion-ease: var(--comp-radio-button-motion-ease);
+  --comp-choice-current-motion-enter: var(--comp-radio-button-motion-enter);
+  --comp-choice-current-motion-press: var(--comp-radio-button-motion-press);
+  --comp-choice-current-hover-scale: var(--comp-radio-button-hover-scale);
+  --comp-choice-current-press-scale: var(--comp-radio-button-press-scale);
+  --comp-choice-current-disabled-opacity: var(--comp-radio-button-disabled-opacity);
 }
 
 .choice[data-density="sm"] {
-  --choice-mark-size: var(--component-inline-size-xs);
-  --choice-indicator-font-size: var(--sys-icon-size-sm);
-  --choice-gap: var(--sys-space-xs);
+  --comp-choice-current-mark-size: var(--component-inline-size-xs);
+  --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm);
+  --comp-choice-current-gap: var(--sys-space-xs);
 }
 
 .checkbox[data-density="sm"] {
-  --choice-mark-size: var(--comp-checkbox-mark-size-sm);
-  --choice-indicator-font-size: var(--comp-checkbox-indicator-size-sm);
-  --choice-gap: var(--comp-checkbox-gap-sm);
+  --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-sm);
+  --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-sm);
+  --comp-choice-current-gap: var(--comp-checkbox-gap-sm);
 }
 
 .radio[data-density="sm"] {
-  --choice-mark-size: var(--comp-radio-button-mark-size-sm);
-  --choice-gap: var(--comp-radio-button-gap-sm);
+  --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-sm);
+  --comp-choice-current-gap: var(--comp-radio-button-gap-sm);
 }
 
 .choice[data-density="lg"] {
-  --choice-mark-size: var(--component-min-text-line);
-  --choice-indicator-font-size: var(--sys-icon-size-sm-plus);
-  --choice-gap: var(--sys-space-md);
+  --comp-choice-current-mark-size: var(--component-min-text-line);
+  --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm-plus);
+  --comp-choice-current-gap: var(--sys-space-md);
 }
 
 .checkbox[data-density="lg"] {
-  --choice-mark-size: var(--comp-checkbox-mark-size-lg);
-  --choice-indicator-font-size: var(--comp-checkbox-indicator-size-lg);
-  --choice-gap: var(--comp-checkbox-gap-lg);
+  --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-lg);
+  --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-lg);
+  --comp-choice-current-gap: var(--comp-checkbox-gap-lg);
 }
 
 .radio[data-density="lg"] {
-  --choice-mark-size: var(--comp-radio-button-mark-size-lg);
-  --choice-gap: var(--comp-radio-button-gap-lg);
+  --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-lg);
+  --comp-choice-current-gap: var(--comp-radio-button-gap-lg);
 }
 
 .choice[data-variant="compact"] {
-  --choice-mark-size: var(--component-inline-size-xs);
-  --choice-indicator-font-size: var(--sys-icon-size-sm);
-  --choice-gap: var(--sys-space-xs);
+  --comp-choice-current-mark-size: var(--component-inline-size-xs);
+  --comp-choice-current-indicator-font-size: var(--sys-icon-size-sm);
+  --comp-choice-current-gap: var(--sys-space-xs);
   min-block-size: auto;
   padding-block: 0;
 }
 
 .checkbox[data-variant="compact"] {
-  --choice-mark-size: var(--comp-checkbox-mark-size-compact);
-  --choice-indicator-font-size: var(--comp-checkbox-indicator-size-sm);
-  --choice-gap: var(--comp-checkbox-gap-sm);
+  --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-compact);
+  --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-sm);
+  --comp-choice-current-gap: var(--comp-checkbox-gap-sm);
 }
 
 .radio[data-variant="compact"] {
-  --choice-mark-size: var(--comp-radio-button-mark-size-compact);
-  --choice-gap: var(--comp-radio-button-gap-sm);
+  --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-compact);
+  --comp-choice-current-gap: var(--comp-radio-button-gap-sm);
 }
 
 .choice__input,
@@ -1686,118 +1686,118 @@
 
 .choice__mark {
   align-items: center;
-  background: var(--choice-mark-bg, var(--sys-color-surface));
-  border: var(--component-border-width) solid var(--choice-mark-border, var(--sys-color-border));
+  background: var(--comp-choice-current-mark-bg, var(--sys-color-surface));
+  border: var(--component-border-width) solid var(--comp-choice-current-mark-border, var(--sys-color-border));
   display: inline-flex;
-  block-size: var(--choice-mark-size);
-  inline-size: var(--choice-mark-size);
+  block-size: var(--comp-choice-current-mark-size);
+  inline-size: var(--comp-choice-current-mark-size);
   justify-content: center;
   margin-block-start: var(--sys-frame-border-thin);
   transition:
-    background-color var(--choice-motion-duration, var(--component-duration-state)) var(--choice-motion-ease, var(--component-ease-state)),
-    border-color var(--choice-motion-duration, var(--component-duration-state)) var(--choice-motion-ease, var(--component-ease-state)),
-    box-shadow var(--choice-motion-duration, var(--component-duration-state)) var(--choice-motion-ease, var(--component-ease-state)),
-    transform var(--choice-motion-press-duration, var(--component-duration-press)) var(--choice-motion-press, var(--component-ease-press));
+    background-color var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state)),
+    border-color var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state)),
+    box-shadow var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state)),
+    transform var(--comp-choice-current-motion-press-duration, var(--component-duration-press)) var(--comp-choice-current-motion-press, var(--component-ease-press));
 }
 
 .checkbox .choice__mark {
-  border-radius: var(--choice-mark-radius, var(--sys-frame-radius-sm));
+  border-radius: var(--comp-choice-current-mark-radius, var(--sys-frame-radius-sm));
 }
 
 .radio .choice__mark {
-  border-radius: var(--choice-mark-radius, var(--component-radius-pill));
+  border-radius: var(--comp-choice-current-mark-radius, var(--component-radius-pill));
 }
 
 .checkbox .choice__input:checked + .choice__mark {
-  background: var(--choice-mark-checked-bg, var(--sys-color-action));
-  border-color: var(--choice-mark-checked-border, var(--sys-color-action));
+  background: var(--comp-choice-current-mark-checked-bg, var(--sys-color-action));
+  border-color: var(--comp-choice-current-mark-checked-border, var(--sys-color-action));
 }
 
 .checkbox[data-indeterminate="true"] .choice__mark,
 .checkbox .choice__input:indeterminate + .choice__mark {
-  background: var(--choice-mark-checked-bg, var(--sys-color-action));
-  border-color: var(--choice-mark-checked-border, var(--sys-color-action));
+  background: var(--comp-choice-current-mark-checked-bg, var(--sys-color-action));
+  border-color: var(--comp-choice-current-mark-checked-border, var(--sys-color-action));
 }
 
 .checkbox[data-state="error"] .choice__mark,
 .checkbox[data-invalid="true"] .choice__mark {
-  border-color: var(--choice-mark-error-border, var(--sys-color-danger));
+  border-color: var(--comp-choice-current-mark-error-border, var(--sys-color-danger));
 }
 
 .checkbox[data-state="error"] .choice__input:checked + .choice__mark,
 .checkbox[data-invalid="true"] .choice__input:checked + .choice__mark,
 .checkbox[data-state="error"][data-indeterminate="true"] .choice__mark,
 .checkbox[data-invalid="true"][data-indeterminate="true"] .choice__mark {
-  background: var(--choice-mark-error-bg, var(--sys-color-danger));
-  border-color: var(--choice-mark-error-border, var(--sys-color-danger));
+  background: var(--comp-choice-current-mark-error-bg, var(--sys-color-danger));
+  border-color: var(--comp-choice-current-mark-error-border, var(--sys-color-danger));
 }
 
 .choice__indicator {
-  color: var(--choice-indicator-fg, var(--sys-color-action-text));
+  color: var(--comp-choice-current-indicator-fg, var(--sys-color-action-text));
   display: inline-flex;
-  font-size: var(--choice-indicator-font-size);
+  font-size: var(--comp-choice-current-indicator-font-size);
   font-variation-settings: var(--sys-icon-variation-outline-strong);
   line-height: 1;
   opacity: 0;
   transform: var(--component-transform-scale-enter);
   transition:
-    opacity var(--choice-motion-duration, var(--component-duration-state)) var(--choice-motion-ease, var(--component-ease-state)),
-    transform var(--choice-motion-duration, var(--component-duration-state)) var(--choice-motion-ease, var(--component-ease-state));
+    opacity var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state)),
+    transform var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-ease, var(--component-ease-state));
 }
 
 .choice__indicator.material-symbol {
-  --icon-color: var(--choice-indicator-fg, var(--sys-color-action-text));
-  color: var(--choice-indicator-fg, var(--sys-color-action-text));
+  --comp-choice-current-icon-color: var(--comp-choice-current-indicator-fg, var(--sys-color-action-text));
+  color: var(--comp-choice-current-indicator-fg, var(--sys-color-action-text));
 }
 
 .checkbox .choice__input:checked + .choice__mark .choice__indicator,
 .checkbox[data-indeterminate="true"] .choice__indicator,
 .checkbox .choice__input:indeterminate + .choice__mark .choice__indicator {
-  animation: choice-indicator-enter var(--choice-motion-duration, var(--component-duration-state)) var(--choice-motion-enter, var(--component-ease-enter)) both;
+  animation: choice-indicator-enter var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-enter, var(--component-ease-enter)) both;
   opacity: 1;
   transform: var(--component-transform-scale-rest);
 }
 
 .radio .choice__mark::after {
-  background: var(--choice-dot-bg, var(--sys-color-action));
-  border-radius: var(--choice-mark-radius, var(--component-radius-pill));
+  background: var(--comp-choice-current-dot-bg, var(--sys-color-action));
+  border-radius: var(--comp-choice-current-mark-radius, var(--component-radius-pill));
   content: "";
-  block-size: var(--choice-indicator-size);
-  inline-size: var(--choice-indicator-size);
+  block-size: var(--comp-choice-current-indicator-size);
+  inline-size: var(--comp-choice-current-indicator-size);
   transform: var(--component-transform-scale-none);
-  transition: transform var(--choice-motion-duration, var(--component-duration-state)) var(--choice-motion-press, var(--component-ease-press));
+  transition: transform var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-press, var(--component-ease-press));
 }
 
 .radio .choice__input:checked + .choice__mark::after {
-  animation: choice-dot-enter var(--choice-motion-duration, var(--component-duration-state)) var(--choice-motion-enter, var(--component-ease-enter)) both;
+  animation: choice-dot-enter var(--comp-choice-current-motion-duration, var(--component-duration-state)) var(--comp-choice-current-motion-enter, var(--component-ease-enter)) both;
   transform: var(--component-transform-scale-rest);
 }
 
 .radio .choice__input:checked + .choice__mark {
-  background: var(--choice-mark-selected-bg, var(--sys-color-surface));
-  border-color: var(--choice-mark-selected-border, var(--sys-color-action));
+  background: var(--comp-choice-current-mark-selected-bg, var(--sys-color-surface));
+  border-color: var(--comp-choice-current-mark-selected-border, var(--sys-color-action));
 }
 
 .radio[data-state="error"] .choice__mark,
 .radio[data-invalid="true"] .choice__mark {
-  background: var(--choice-mark-error-bg, color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface)));
-  border-color: var(--choice-mark-error-border, var(--sys-color-danger));
+  background: var(--comp-choice-current-mark-error-bg, color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface)));
+  border-color: var(--comp-choice-current-mark-error-border, var(--sys-color-danger));
 }
 
 .radio[data-state="error"] .choice__input:checked + .choice__mark,
 .radio[data-invalid="true"] .choice__input:checked + .choice__mark {
-  border-color: var(--choice-mark-error-border, var(--sys-color-danger));
+  border-color: var(--comp-choice-current-mark-error-border, var(--sys-color-danger));
 }
 
 .radio[data-state="error"] .choice__input:checked + .choice__mark::after,
 .radio[data-invalid="true"] .choice__input:checked + .choice__mark::after {
-  background: var(--choice-dot-error-bg, var(--sys-color-danger));
+  background: var(--comp-choice-current-dot-error-bg, var(--sys-color-danger));
 }
 
 .choice__input:focus-visible + .choice__mark,
 .choice[data-state="focus"] .choice__mark {
-  outline: var(--choice-focus-width, var(--component-focus-ring-width)) solid var(--choice-focus-color, var(--sys-color-focus));
-  outline-offset: var(--choice-focus-offset, var(--component-focus-ring-offset));
+  outline: var(--comp-choice-current-focus-width, var(--component-focus-ring-width)) solid var(--comp-choice-current-focus-color, var(--sys-color-focus));
+  outline-offset: var(--comp-choice-current-focus-offset, var(--component-focus-ring-offset));
 }
 
 .switch__input:focus-visible ~ .switch__track {
@@ -1806,17 +1806,17 @@
 }
 
 .choice:hover .choice__mark {
-  border-color: var(--choice-mark-hover-border, color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border)));
-  transform: scale(var(--choice-hover-scale, var(--component-scale-hover)));
+  border-color: var(--comp-choice-current-mark-hover-border, color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border)));
+  transform: scale(var(--comp-choice-current-hover-scale, var(--component-scale-hover)));
 }
 
 .choice:active:not(:has(input:disabled)) .choice__mark {
-  transform: scale(var(--choice-press-scale, var(--component-scale-press)));
+  transform: scale(var(--comp-choice-current-press-scale, var(--component-scale-press)));
 }
 
 .choice__text {
   display: grid;
-  gap: var(--choice-text-gap, var(--sys-space-sm));
+  gap: var(--comp-choice-current-text-gap, var(--sys-space-sm));
 }
 
 .switch__text {
@@ -1825,7 +1825,7 @@
 }
 
 .choice__label {
-  font-weight: var(--choice-label-weight, var(--sys-voice-weight-bold));
+  font-weight: var(--comp-choice-current-label-weight, var(--sys-voice-weight-bold));
 }
 
 .switch__label {
@@ -1834,8 +1834,8 @@
 
 .choice__description,
 .choice__error {
-  color: var(--choice-description-fg, var(--sys-color-text-muted));
-  font-size: var(--choice-description-size, var(--component-font-size-label));
+  color: var(--comp-choice-current-description-fg, var(--sys-color-text-muted));
+  font-size: var(--comp-choice-current-description-size, var(--component-font-size-label));
 }
 
 .switch__description {
@@ -1844,13 +1844,13 @@
 }
 
 .choice__error {
-  color: var(--choice-error-fg, var(--sys-color-danger));
-  font-weight: var(--choice-error-weight, var(--sys-voice-weight-bold));
+  color: var(--comp-choice-current-error-fg, var(--sys-color-danger));
+  font-weight: var(--comp-choice-current-error-weight, var(--sys-voice-weight-bold));
 }
 
 .choice:has(input:disabled) {
   cursor: not-allowed;
-  opacity: var(--choice-disabled-opacity, var(--sys-disabled-readable-opacity));
+  opacity: var(--comp-choice-current-disabled-opacity, var(--sys-disabled-readable-opacity));
 }
 
 .switch:has(input:disabled) {

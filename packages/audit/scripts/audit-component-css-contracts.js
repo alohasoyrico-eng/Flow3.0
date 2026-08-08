@@ -7,6 +7,7 @@ const { checkButtonCssContract } = require("./audit-button-css-contract.js");
 const { checkCardCssContract } = require("./audit-card-css-contract.js");
 const { checkCardSummaryCssContract } = require("./audit-card-summary-css-contract.js");
 const { checkChartPanelCssContract } = require("./audit-chart-panel-css-contract.js");
+const { checkChoiceCssContract } = require("./audit-choice-css-contract.js");
 const { checkCodeInputCssContract } = require("./audit-code-input-css-contract.js");
 const { checkChipCssContract } = require("./audit-chip-css-contract.js");
 const { checkDialogCssContract } = require("./audit-dialog-css-contract.js");
@@ -48,6 +49,7 @@ function checkComponentCssContracts(context) {
   checkCardCssContract(context);
   checkCardSummaryCssContract(context);
   checkChartPanelCssContract(context);
+  checkChoiceCssContract(context);
   checkChipCssContract(context);
   checkCodeInputCssContract(context);
   checkDialogCssContract(context);
