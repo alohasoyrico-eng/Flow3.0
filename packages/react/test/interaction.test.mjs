@@ -519,6 +519,25 @@ try {
     onOpenChange: (open, event) => comboboxOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(comboboxInput.value, "Luis Perez"));
+  fireEvent.focus(comboboxInput);
+  fireEvent.input(comboboxInput, { target: { value: "Ana" } });
+  assert.equal(comboboxInput.value, "Ana");
+  fireEvent.click(getComboboxRole("option", { name: /ana sosa/i }));
+  assert.deepEqual(comboboxChanges.at(-1), { value: "ana", meta: { label: "Ana Sosa", meta: "Driver", inputValue: "Ana Sosa" }, eventType: "click" });
+  await waitFor(() => assert.equal(comboboxInput.value, "Luis Perez"));
+  rerenderCombobox(React.createElement(Combobox, {
+    label: "Driver",
+    optionsLabel: "Driver options",
+    clearSelectionLabel: "Clear driver",
+    value: "ana",
+    options: [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Driver" },
+    ],
+    onValueChange: (value, meta, event) => comboboxChanges.push({ value, meta, eventType: event.type }),
+    onOpenChange: (open, event) => comboboxOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
+  }));
+  await waitFor(() => assert.equal(comboboxInput.value, "Ana Sosa"));
 
   cleanup();
 

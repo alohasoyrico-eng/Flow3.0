@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useId, useMemo, useState } from "react";
+import React, { forwardRef, useId, useMemo, useState } from "react";
 import { comboboxPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
@@ -55,13 +55,19 @@ export const Combobox = forwardRef(function Combobox({
   const isValueControlled = value !== undefined;
   const initialValue = value ?? "";
   const initialOption = selectedOptionFor(normalizedOptions, initialValue);
-  const [currentValue, setCurrentValue] = useState(initialValue);
+  const [internalValue, setInternalValue] = useState(initialValue);
   const [inputValue, setInputValue] = useState(initialOption ? optionLabel(initialOption) : initialValue);
   const isOpenControlled = openProp !== undefined;
   const [internalOpen, setInternalOpen] = useState(state === "open");
   const open = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [activeIndex, setActiveIndex] = useState(0);
-  const query = inputValue.trim().toLowerCase();
+  const currentValue = isValueControlled ? value ?? "" : internalValue;
+  const selectedOption = selectedOptionFor(normalizedOptions, currentValue);
+  const selectedValue = selectedOption ? optionValue(selectedOption) : currentValue;
+  const isOpen = Boolean(open) && !disabled;
+  const controlledSelectionLabel = selectedOption ? optionLabel(selectedOption) : currentValue;
+  const displayInputValue = isValueControlled && (!isOpen || (selectedOption && inputValue === "")) ? controlledSelectionLabel : inputValue;
+  const query = displayInputValue.trim().toLowerCase();
   const filteredOptions = useMemo(
     () => normalizedOptions.filter((option) => {
       const haystack = `${optionLabel(option)} ${option.meta ?? ""}`.toLowerCase();
@@ -71,18 +77,7 @@ export const Combobox = forwardRef(function Combobox({
   );
   const enabledOptions = filteredOptions.filter((option) => !option.disabled);
   const activeOption = enabledOptions[activeIndex] ?? enabledOptions[0] ?? null;
-  const resolvedState = normalizedState({ disabled, state, currentValue: inputValue, visibleCount: filteredOptions.length });
-  const isOpen = Boolean(open) && !disabled;
-  const selectedOption = selectedOptionFor(normalizedOptions, currentValue);
-  const selectedValue = selectedOption ? optionValue(selectedOption) : currentValue;
-
-  useEffect(() => {
-    if (!isValueControlled) return;
-    const nextOption = selectedOptionFor(normalizedOptions, value);
-    setCurrentValue(value ?? "");
-    setInputValue(nextOption ? optionLabel(nextOption) : value ?? "");
-    setActiveIndex(0);
-  }, [isValueControlled, normalizedOptions, value]);
+  const resolvedState = normalizedState({ disabled, state, currentValue: displayInputValue, visibleCount: filteredOptions.length });
 
   if (!label || !normalizedOptions.length) return null;
 
@@ -97,7 +92,7 @@ export const Combobox = forwardRef(function Combobox({
     if (!option || option.disabled) return;
     const nextValue = optionValue(option);
     const nextLabel = optionLabel(option);
-    if (!isValueControlled) setCurrentValue(nextValue);
+    if (!isValueControlled) setInternalValue(nextValue);
     setInputValue(nextLabel);
     setOpen(false, event);
     setActiveIndex(0);
@@ -105,7 +100,7 @@ export const Combobox = forwardRef(function Combobox({
   };
 
   const clearValue = (event) => {
-    if (!isValueControlled) setCurrentValue("");
+    if (!isValueControlled) setInternalValue("");
     setInputValue("");
     setOpen(true, event);
     setActiveIndex(0);
@@ -165,7 +160,7 @@ export const Combobox = forwardRef(function Combobox({
         className: "input combobox__input",
         name,
         type: "text",
-        value: inputValue,
+        value: displayInputValue,
         placeholder,
         disabled,
         autoComplete: "off",
@@ -182,7 +177,7 @@ export const Combobox = forwardRef(function Combobox({
         onChange: (event) => {
           const nextValue = event.target.value;
           setInputValue(nextValue);
-          if (!isValueControlled) setCurrentValue(nextValue);
+          if (!isValueControlled) setInternalValue(nextValue);
           setOpen(true, event);
           setActiveIndex(0);
           onValueChange?.(nextValue, { label: nextValue, meta: "", inputValue: nextValue }, event);
@@ -194,7 +189,7 @@ export const Combobox = forwardRef(function Combobox({
         {
           className: "field-action field__action combobox__clear",
           type: "button",
-          disabled: disabled || !inputValue,
+          disabled: disabled || !displayInputValue,
           "aria-label": clearSelectionLabel,
           "data-field-action": "clear",
           "data-combobox-clear": "",
