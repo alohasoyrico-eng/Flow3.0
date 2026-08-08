@@ -38,6 +38,9 @@
   --component-inline-size-lg: var(--sys-space-12);
   --component-inline-size-xl: var(--sys-space-12);
   --component-inline-size-full: 100%;
+  --component-inline-size-fit-content: fit-content;
+  --component-inline-size-max-content: max-content;
+  --component-inline-size-auto: auto;
   --component-content-size-xs: calc(var(--component-control-min-size) * 4);
   --component-content-size-sm: calc(var(--component-control-min-size) * 6);
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
@@ -4571,7 +4574,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-border: 0;
   --comp-floating-action-button-cursor: pointer;
   --comp-floating-action-button-display: inline-flex;
-  --comp-floating-action-button-inline-size: fit-content;
+  --comp-floating-action-button-inline-size: var(--component-inline-size-fit-content);
   --comp-floating-action-button-justify: center;
   --comp-floating-action-button-transition: background-color var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), box-shadow var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), transform var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-enter);
   --comp-floating-action-button-accent-bg-hover: color-mix(in srgb, var(--sys-color-success) 86%, var(--sys-color-text));
@@ -4706,7 +4709,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-disabled-fg: var(--component-disabled-text);
   --comp-breadcrumbs-disabled-cursor: var(--component-disabled-cursor);
   --comp-breadcrumbs-disabled-opacity: var(--sys-disabled-opacity);
-  --comp-breadcrumbs-width: fit-content;
+  --comp-breadcrumbs-width: var(--component-inline-size-fit-content);
   --comp-breadcrumbs-full-width: var(--component-inline-size-full);
   color: var(--comp-breadcrumbs-target-fg);
   inline-size: var(--comp-breadcrumbs-width);
@@ -4849,7 +4852,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-motion-enter: var(--component-ease-enter);
   --comp-pagination-press-transform: var(--component-transform-press);
   --comp-pagination-wrap: wrap;
-  --comp-pagination-width: fit-content;
+  --comp-pagination-width: var(--component-inline-size-fit-content);
   --comp-pagination-full-width: var(--component-inline-size-full);
   align-items: var(--comp-pagination-align);
   display: var(--comp-pagination-button-display);
@@ -7511,7 +7514,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-inline-validation-gap: var(--sys-space-xs);
   --comp-inline-validation-width: min(100%, var(--component-content-size-md));
   --comp-inline-validation-full-width: var(--component-inline-size-full);
-  --comp-inline-validation-auto-width: auto;
+  --comp-inline-validation-auto-width: var(--component-inline-size-auto);
   --comp-inline-validation-message: var(--sys-color-text-muted);
   --comp-inline-validation-info: var(--sys-color-action);
   --comp-inline-validation-success: var(--sys-color-success);
@@ -10227,7 +10230,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-motion-move: var(--component-ease-move);
   --comp-segmented-control-motion-press: var(--component-ease-press);
   --comp-segmented-control-press-transform: var(--component-transform-scale-quiet);
-  --comp-segmented-control-icon-only-inline-size: auto;
+  --comp-segmented-control-icon-only-inline-size: var(--component-inline-size-auto);
   --comp-segmented-control-icon-only-item-aspect-ratio: 1;
   --comp-segmented-control-icon-only-item-padding: 0;
   --comp-segmented-control-visually-hidden-size: var(--component-visually-hidden-size);
@@ -10253,7 +10256,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-padding-inline: var(--sys-space-sm);
   --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
   --comp-segmented-control-bg: color-mix(in srgb, var(--sys-color-surface) 76%, var(--sys-color-border));
-  --comp-segmented-control-inline-size: auto;
+  --comp-segmented-control-inline-size: var(--component-inline-size-auto);
 }
 
 .segmented-control[data-variant="compact"] {
@@ -10804,7 +10807,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-movement-row-text-align: start;
   --comp-movement-row-value-gap: var(--component-visually-hidden-size);
   --comp-movement-row-value-justify: end;
-  --comp-movement-row-value-min-inline-size: max-content;
+  --comp-movement-row-value-min-inline-size: var(--component-inline-size-max-content);
   align-items: center;
   background: var(--comp-movement-row-bg);
   border: var(--comp-movement-row-border-width);
@@ -10957,7 +10960,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-label-width: var(--component-action-label-inline-size-md);
   --comp-quick-action-label-size: var(--component-font-size-caption);
   --comp-quick-action-gap: var(--sys-space-md);
-  --comp-quick-action-inline-size: max-content;
+  --comp-quick-action-inline-size: var(--component-inline-size-max-content);
   --comp-quick-action-justify-self: start;
   --comp-quick-action-justify-items: center;
   --comp-quick-action-loading-cursor: progress;
@@ -11043,7 +11046,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .quick-action[data-variant="wide"] {
   --comp-quick-action-label-width: var(--component-action-label-inline-size-xl);
-  --comp-quick-action-min-inline-size: max-content;
+  --comp-quick-action-min-inline-size: var(--component-inline-size-max-content);
 }
 
 .quick-action[data-full-width="true"] {

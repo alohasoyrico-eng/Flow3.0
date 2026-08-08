@@ -39,6 +39,9 @@ function checkPackageCssContracts() {
     "--component-radius-pill",
     "--component-radius-control",
     "--component-inline-size-full",
+    "--component-inline-size-fit-content",
+    "--component-inline-size-max-content",
+    "--component-inline-size-auto",
     "--component-font-size-caption",
     "--component-font-size-small",
     "--component-font-size-label",
@@ -208,9 +211,8 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*border[\w-]*:\s*transparent;/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component border aliases must consume --component-border-transparent instead of hardcoding transparent.");
   }
-  for (const match of text.matchAll(/--comp-[\w-]*(?:full-width|width|inline-size|field-width|max-inline-size)[\w-]*:\s*100%;/g)) {
-    add("errors", packageCssFile, lineNumber(text, match.index), "Component full-width aliases must consume --component-inline-size-full instead of hardcoding 100%.");
-  }
+  for (const match of text.matchAll(/--comp-[\w-]*(?:full-width|width|inline-size|field-width|max-inline-size)[\w-]*:\s*100%;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component full-width aliases must consume --component-inline-size-full instead of hardcoding 100%.");
+  for (const match of text.matchAll(/--comp-[\w-]*(?:width|inline-size|min-inline-size|auto-width)[\w-]*:\s*(?:fit-content|max-content|auto);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component intrinsic width aliases must consume component inline-size aliases instead of hardcoding fit-content, max-content, or auto.");
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });

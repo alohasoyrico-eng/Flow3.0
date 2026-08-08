@@ -58,7 +58,7 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
       "--comp-breadcrumbs-item-display: inline-flex",
       "--comp-breadcrumbs-target-display: inline-flex",
       "--comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg)",
-      "--comp-breadcrumbs-width: fit-content",
+      "--comp-breadcrumbs-width: var(--component-inline-size-fit-content)",
       "--comp-breadcrumbs-full-width: var(--component-inline-size-full)",
       "color: var(--comp-breadcrumbs-target-fg)",
       "inline-size: var(--comp-breadcrumbs-width)",

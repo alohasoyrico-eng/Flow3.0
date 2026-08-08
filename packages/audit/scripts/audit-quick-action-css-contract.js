@@ -62,7 +62,7 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
       "--comp-quick-action-shadow: var(--component-depth-none)",
       "--comp-quick-action-cursor: default",
       "--comp-quick-action-display: inline-grid",
-      "--comp-quick-action-inline-size: max-content",
+      "--comp-quick-action-inline-size: var(--component-inline-size-max-content)",
       "--comp-quick-action-max-inline-size: var(--component-inline-size-full)",
       "--comp-quick-action-control-cursor: pointer",
       "--comp-quick-action-control-display: inline-flex",
