@@ -306,13 +306,13 @@ function checkPackageCssContracts() {
   const iconButtonBlock = blocks.find((block) => block.selector === ".icon-button");
   const iconButtonIconBlock = blocks.find((block) => block.selector === ".icon-button__icon");
   const iconButtonBadgeBlock = blocks.find((block) => block.selector === ".icon-button__badge");
-  if (!iconButtonBlock?.body.includes("block-size: var(--icon-button-size, var(--comp-icon-button-size))")) {
+  if (!iconButtonBlock?.body.includes("block-size: var(--comp-icon-button-current-size)")) {
     add("errors", packageCssFile, iconButtonBlock ? lineNumber(text, iconButtonBlock.index) : 1, "Icon Button must use the density-owned size for both axes.");
   }
-  if (!iconButtonIconBlock?.body.includes("color: currentColor") || !iconButtonIconBlock?.body.includes("font-size: var(--icon-button-current-icon-size, var(--comp-icon-button-icon-size))")) {
+  if (!iconButtonIconBlock?.body.includes("color: var(--comp-icon-button-icon-fg)") || !iconButtonIconBlock?.body.includes("font-size: var(--comp-icon-button-current-icon-size)")) {
     add("errors", packageCssFile, iconButtonIconBlock ? lineNumber(text, iconButtonIconBlock.index) : 1, "Icon Button symbol size and color must follow current density and currentColor.");
   }
-  if (!iconButtonBadgeBlock?.body.includes("animation: component-pulse var(--component-duration-loop) var(--component-ease-state) infinite")) {
+  if (!iconButtonBadgeBlock?.body.includes("animation: var(--comp-icon-button-badge-animation)")) {
     add("errors", packageCssFile, iconButtonBadgeBlock ? lineNumber(text, iconButtonBadgeBlock.index) : 1, "Icon Button badge must use the shared pulse motion role.");
   }
   if (!/@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.icon-button__badge[\s\S]*?animation:\s*none\s*!important/.test(text)) {

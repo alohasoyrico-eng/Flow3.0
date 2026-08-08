@@ -14,6 +14,7 @@ const { checkDrawerCssContract } = require("./audit-drawer-css-contract.js");
 const { checkEmptyStateCssContract } = require("./audit-empty-state-css-contract.js");
 const { checkErrorPanelCssContract } = require("./audit-error-panel-css-contract.js");
 const { checkFloatingActionButtonCssContract } = require("./audit-floating-action-button-css-contract.js");
+const { checkIconButtonCssContract } = require("./audit-icon-button-css-contract.js");
 const { checkInlineValidationCssContract } = require("./audit-inline-validation-css-contract.js");
 const { checkKpiTileCssContract } = require("./audit-kpi-tile-css-contract.js");
 const { checkListCssContract } = require("./audit-list-css-contract.js");
@@ -53,6 +54,7 @@ function checkComponentCssContracts(context) {
   checkEmptyStateCssContract(context);
   checkErrorPanelCssContract(context);
   checkFloatingActionButtonCssContract(context);
+  checkIconButtonCssContract(context);
   checkInlineValidationCssContract(context);
   checkKpiTileCssContract(context);
   checkListCssContract(context);

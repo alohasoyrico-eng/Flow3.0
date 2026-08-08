@@ -749,17 +749,6 @@
   --comp-icon-button-badge-size: var(--sys-space-2);
   --comp-icon-button-hover-scale: var(--sys-momentum-scale-hover);
   --comp-icon-button-press-scale: var(--sys-momentum-scale-press);
-  --icon-button-size-sm: var(--comp-icon-button-size-sm);
-  --icon-button-size-md: var(--comp-icon-button-size-md);
-  --icon-button-size-lg: var(--comp-icon-button-size-lg);
-  --icon-button-size: var(--comp-icon-button-size);
-  --icon-button-icon-size-sm: var(--comp-icon-button-icon-size-sm);
-  --icon-button-icon-size-md: var(--comp-icon-button-icon-size-md);
-  --icon-button-icon-size-lg: var(--comp-icon-button-icon-size-lg);
-  --icon-button-icon-size: var(--comp-icon-button-icon-size);
-  --icon-button-badge-size: var(--comp-icon-button-badge-size);
-  --icon-button-hover-scale: var(--comp-icon-button-hover-scale);
-  --icon-button-press-scale: var(--comp-icon-button-press-scale);
   --comp-button-size-sm: var(--sys-space-9);
   --comp-button-size-md: var(--component-control-min-size);
   --comp-button-size-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
@@ -934,10 +923,14 @@
   inline-size: var(--comp-button-full-width);
 }
 
-.icon-button:focus-visible,
 .text-area:focus-visible {
   outline: var(--component-focus-ring);
   outline-offset: var(--component-focus-ring-offset);
+}
+
+.icon-button:focus-visible {
+  outline: var(--comp-icon-button-focus-ring);
+  outline-offset: var(--comp-icon-button-focus-offset);
 }
 
 .button:focus-visible {
@@ -955,8 +948,8 @@
 }
 
 .icon-button:disabled {
-  cursor: not-allowed;
-  opacity: var(--sys-disabled-readable-opacity);
+  cursor: var(--comp-icon-button-disabled-cursor);
+  opacity: var(--comp-icon-button-disabled-opacity);
 }
 
 .button:disabled {
@@ -1081,104 +1074,138 @@
 }
 
 .icon-button {
-  align-items: center;
-  background: transparent;
-  border: var(--component-border-width) solid var(--sys-color-border);
-  border-radius: var(--component-radius-pill);
-  color: var(--sys-color-text);
-  cursor: pointer;
-  display: inline-flex;
-  flex: none;
-  block-size: var(--icon-button-size, var(--comp-icon-button-size));
-  inline-size: var(--icon-button-size, var(--comp-icon-button-size));
-  justify-content: center;
-  min-block-size: var(--icon-button-size, var(--comp-icon-button-size));
-  padding: 0;
-  position: relative;
-  transition:
-    background-color var(--component-duration-state) var(--component-ease-state),
-    border-color var(--component-duration-state) var(--component-ease-state),
-    box-shadow var(--component-duration-state) var(--component-ease-state),
-    color var(--component-duration-state) var(--component-ease-state),
-    transform var(--component-duration-press) var(--component-ease-press);
+  --comp-icon-button-align: center;
+  --comp-icon-button-current-size: var(--comp-icon-button-size);
+  --comp-icon-button-current-icon-size: var(--comp-icon-button-icon-size);
+  --comp-icon-button-bg: transparent;
+  --comp-icon-button-border-color: var(--sys-color-border);
+  --comp-icon-button-border: var(--component-border-width) solid var(--comp-icon-button-border-color);
+  --comp-icon-button-radius: var(--component-radius-pill);
+  --comp-icon-button-fg: var(--sys-color-text);
+  --comp-icon-button-cursor: pointer;
+  --comp-icon-button-display: inline-flex;
+  --comp-icon-button-flex: none;
+  --comp-icon-button-justify: center;
+  --comp-icon-button-padding: 0;
+  --comp-icon-button-position: relative;
+  --comp-icon-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
+  --comp-icon-button-hover-bg: var(--sys-color-surface-raised);
+  --comp-icon-button-hover-border: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
+  --comp-icon-button-hover-transform: scale(var(--comp-icon-button-hover-scale));
+  --comp-icon-button-press-transform: scale(var(--comp-icon-button-press-scale));
+  --comp-icon-button-tonal-bg: var(--sys-color-surface);
+  --comp-icon-button-primary-border: transparent;
+  --comp-icon-button-primary-bg: var(--sys-color-action);
+  --comp-icon-button-primary-fg: var(--sys-color-action-text);
+  --comp-icon-button-primary-hover-bg: var(--sys-color-action-hover);
+  --comp-icon-button-selected-border: var(--sys-color-action);
+  --comp-icon-button-selected-fg: var(--sys-color-action);
+  --comp-icon-button-selected-primary-fg: var(--sys-color-action-text);
+  --comp-icon-button-selected-icon-variation: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 24;
+  --comp-icon-button-icon-fg: currentColor;
+  --comp-icon-button-focus-ring: var(--component-focus-ring);
+  --comp-icon-button-focus-offset: var(--component-focus-ring-offset);
+  --comp-icon-button-disabled-cursor: not-allowed;
+  --comp-icon-button-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-icon-button-badge-animation: component-pulse var(--component-duration-loop) var(--component-ease-state) infinite;
+  --comp-icon-button-badge-bg: var(--sys-color-success);
+  --comp-icon-button-badge-border-width: var(--sys-frame-border-medium);
+  --comp-icon-button-badge-border-color: var(--sys-color-surface);
+  --comp-icon-button-badge-border: var(--comp-icon-button-badge-border-width) solid var(--comp-icon-button-badge-border-color);
+  --comp-icon-button-badge-radius: var(--component-radius-pill);
+  --comp-icon-button-badge-position: absolute;
+  --comp-icon-button-badge-inset-block-start: var(--component-offset-xs);
+  --comp-icon-button-badge-inset-inline-end: var(--component-offset-xs);
+  --comp-icon-button-badge-pointer-events: none;
+  align-items: var(--comp-icon-button-align);
+  background: var(--comp-icon-button-bg);
+  border: var(--comp-icon-button-border);
+  border-radius: var(--comp-icon-button-radius);
+  color: var(--comp-icon-button-fg);
+  cursor: var(--comp-icon-button-cursor);
+  display: var(--comp-icon-button-display);
+  flex: var(--comp-icon-button-flex);
+  block-size: var(--comp-icon-button-current-size);
+  inline-size: var(--comp-icon-button-current-size);
+  justify-content: var(--comp-icon-button-justify);
+  min-block-size: var(--comp-icon-button-current-size);
+  padding: var(--comp-icon-button-padding);
+  position: var(--comp-icon-button-position);
+  transition: var(--comp-icon-button-transition);
 }
 
 .icon-button[data-density="sm"] {
-  --icon-button-size: var(--comp-icon-button-size-sm);
-  --icon-button-current-icon-size: var(--comp-icon-button-icon-size-sm);
+  --comp-icon-button-current-size: var(--comp-icon-button-size-sm);
+  --comp-icon-button-current-icon-size: var(--comp-icon-button-icon-size-sm);
 }
 
 .icon-button[data-density="md"] {
-  --icon-button-size: var(--comp-icon-button-size-md);
-  --icon-button-current-icon-size: var(--comp-icon-button-icon-size-md);
+  --comp-icon-button-current-size: var(--comp-icon-button-size-md);
+  --comp-icon-button-current-icon-size: var(--comp-icon-button-icon-size-md);
 }
 
 .icon-button[data-density="lg"] {
-  --icon-button-size: var(--comp-icon-button-size-lg);
-  --icon-button-current-icon-size: var(--comp-icon-button-icon-size-lg);
+  --comp-icon-button-current-size: var(--comp-icon-button-size-lg);
+  --comp-icon-button-current-icon-size: var(--comp-icon-button-icon-size-lg);
 }
 
 .icon-button:hover:not(:disabled) {
-  background: var(--sys-color-surface-raised);
-  border-color: color-mix(in srgb, var(--sys-color-action) 24%, var(--sys-color-border));
-  transform: scale(var(--comp-icon-button-hover-scale));
+  background: var(--comp-icon-button-hover-bg);
+  border-color: var(--comp-icon-button-hover-border);
+  transform: var(--comp-icon-button-hover-transform);
 }
 
 .icon-button:active:not(:disabled) {
-  transform: scale(var(--comp-icon-button-press-scale));
+  transform: var(--comp-icon-button-press-transform);
 }
 
 .icon-button--tonal {
-  background: var(--sys-color-surface);
+  background: var(--comp-icon-button-tonal-bg);
 }
 
 .icon-button--primary,
 .icon-button--accent {
-  border-color: transparent;
-  background: var(--sys-color-action);
-  color: var(--sys-color-action-text);
+  border-color: var(--comp-icon-button-primary-border);
+  background: var(--comp-icon-button-primary-bg);
+  color: var(--comp-icon-button-primary-fg);
 }
 
 .icon-button--primary:hover:not(:disabled),
 .icon-button--accent:hover:not(:disabled) {
-  background: var(--sys-color-action-hover);
-  border-color: transparent;
+  background: var(--comp-icon-button-primary-hover-bg);
+  border-color: var(--comp-icon-button-primary-border);
 }
 
 .icon-button[aria-pressed="true"] {
-  border-color: var(--sys-color-action);
-  color: var(--sys-color-action);
+  border-color: var(--comp-icon-button-selected-border);
+  color: var(--comp-icon-button-selected-fg);
 }
 
 .icon-button--primary[aria-pressed="true"],
 .icon-button--accent[aria-pressed="true"] {
-  color: var(--sys-color-action-text);
+  color: var(--comp-icon-button-selected-primary-fg);
 }
 
 .icon-button[aria-pressed="true"] .icon-button__icon {
-  font-variation-settings:
-    "FILL" 1,
-    "wght" 600,
-    "GRAD" 0,
-    "opsz" 24;
+  font-variation-settings: var(--comp-icon-button-selected-icon-variation);
 }
 
 .icon-button__icon {
-  color: currentColor;
-  font-size: var(--icon-button-current-icon-size, var(--comp-icon-button-icon-size));
+  color: var(--comp-icon-button-icon-fg);
+  font-size: var(--comp-icon-button-current-icon-size);
 }
 
 .icon-button__badge {
-  animation: component-pulse var(--component-duration-loop) var(--component-ease-state) infinite;
-  background: var(--sys-color-success);
+  animation: var(--comp-icon-button-badge-animation);
+  background: var(--comp-icon-button-badge-bg);
   block-size: var(--comp-icon-button-badge-size);
-  border: var(--sys-frame-border-medium) solid var(--sys-color-surface);
-  border-radius: var(--component-radius-pill);
+  border: var(--comp-icon-button-badge-border);
+  border-radius: var(--comp-icon-button-badge-radius);
   inline-size: var(--comp-icon-button-badge-size);
-  position: absolute;
-  inset-block-start: var(--component-offset-xs);
-  inset-inline-end: var(--component-offset-xs);
-  pointer-events: none;
+  position: var(--comp-icon-button-badge-position);
+  inset-block-start: var(--comp-icon-button-badge-inset-block-start);
+  inset-inline-end: var(--comp-icon-button-badge-inset-inline-end);
+  pointer-events: var(--comp-icon-button-badge-pointer-events);
 }
 
 .field-control,
