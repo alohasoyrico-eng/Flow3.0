@@ -115,6 +115,8 @@ export const PhoneInput = forwardRef(function PhoneInput({
     setDigits(nextParsed.digits);
   }, [countryOptions, initialCountry, isValueControlled, value]);
 
+  if (!label) return null;
+
   const commitDigits = (nextValue, countryValue = selectedCountry) => {
     const parsedNext = parsePhoneValue(nextValue, countryValue, countryOptions);
     const nextCountry = parsedNext.country;
@@ -142,7 +144,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
       ...flowDensityProps(density),
       ...flowVariantProps(resolvedVariant),
     },
-    label ? React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label),
     React.createElement(
       "span",
       { className: "field__control phone-input__control" },
@@ -255,8 +257,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
         disabled,
         readOnly: isReadonly,
         "data-phone-input": "",
-        "aria-labelledby": label ? `${inputId}-label` : undefined,
-        "aria-label": label ? undefined : rest["aria-label"],
+        "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
         onChange: (event) => commitDigits(event.target.value),

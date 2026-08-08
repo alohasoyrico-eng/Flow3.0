@@ -18,7 +18,7 @@ export type PhoneInputMeta = {
 };
 
 export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label?: string;
+  label: string;
   value?: string;
   prefix?: string;
   country?: string;

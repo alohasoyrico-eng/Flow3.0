@@ -2338,6 +2338,7 @@ const inheritedPhoneInputMarkup = renderToStaticMarkup(React.createElement(Phone
 assert.doesNotMatch(inheritedPhoneInputMarkup.match(/^<label[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const unnamedPhoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput));
+assert.equal(unnamedPhoneInputMarkup, "");
 assert.doesNotMatch(unnamedPhoneInputMarkup, /Phone input/);
 assert.doesNotMatch(unnamedPhoneInputMarkup, /Country options/);
 assert.doesNotMatch(unnamedPhoneInputMarkup, /Country code/);
