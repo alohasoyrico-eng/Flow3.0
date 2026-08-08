@@ -5299,6 +5299,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-overlay-blur: var(--sys-depth-backdrop-blur);
   --comp-dialog-z-index: var(--sys-depth-z-dialog, 1001);
   --comp-dialog-panel-bg: var(--sys-color-surface);
+  --comp-dialog-panel-border-width: var(--component-border-width);
   --comp-dialog-panel-border: var(--sys-color-border);
   --comp-dialog-panel-radius: var(--sys-frame-radius-surface);
   --comp-dialog-panel-color: var(--sys-color-text);
@@ -5370,11 +5371,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .dialog__panel {
   background: var(--comp-dialog-panel-bg);
-  border-color: var(--comp-dialog-panel-border);
+  border: var(--comp-dialog-panel-border-width) solid var(--comp-dialog-panel-border);
   border-radius: var(--comp-dialog-panel-radius);
   box-shadow: var(--comp-dialog-panel-depth);
   color: var(--comp-dialog-panel-color);
-  animation: dialog-enter var(--comp-dialog-enter-duration) var(--component-ease-enter) both;
+  animation: dialog-enter var(--comp-dialog-enter-duration) var(--comp-dialog-enter-ease) both;
   display: grid;
   gap: var(--comp-dialog-panel-gap);
   inline-size: min(var(--comp-dialog-panel-inline), calc(100vw - (var(--comp-dialog-panel-viewport-gap) * 2)));
@@ -5382,7 +5383,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   position: relative;
 }
 
-.dialog[data-density="sm"] .dialog__panel {
+.dialog[data-density="sm"] {
   --comp-dialog-panel-padding: var(--sys-space-md);
   --comp-dialog-panel-gap: var(--sys-space-sm);
   --comp-dialog-icon-size: var(--component-dialog-icon-size-sm);
@@ -5391,7 +5392,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-description-font-size: var(--component-font-size-small);
 }
 
-.dialog[data-density="lg"] .dialog__panel {
+.dialog[data-density="lg"] {
   --comp-dialog-panel-padding: var(--sys-space-xl);
   --comp-dialog-panel-gap: var(--sys-space-lg);
   --comp-dialog-icon-size: var(--component-dialog-icon-size-lg);
