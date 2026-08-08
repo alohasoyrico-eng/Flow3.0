@@ -100,6 +100,7 @@ export const Menu = forwardRef(function Menu({
   };
   const iconTriggerLabel = triggerAriaLabel || triggerLabel || label || undefined;
   const avatarAccessibleLabel = avatarTriggerAriaLabel || triggerAriaLabel || triggerLabel || label || undefined;
+  const menuAccessibleLabel = menuAriaLabel || label || triggerLabel || iconTriggerLabel || avatarAccessibleLabel || undefined;
   const hasTrigger = resolvedVariant === "icon-trigger"
     ? Boolean(iconTriggerLabel)
     : resolvedVariant === "avatar-trigger"
@@ -132,7 +133,7 @@ export const Menu = forwardRef(function Menu({
         hidden: !isOpen,
         id: menuId,
         role: "menu",
-        "aria-label": menuAriaLabel || label || undefined,
+        "aria-label": menuAccessibleLabel,
         onKeyDown: onPanelKeyDown,
       },
       resolvedItems.map((item, index) => {

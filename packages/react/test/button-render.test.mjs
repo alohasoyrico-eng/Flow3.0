@@ -1617,6 +1617,14 @@ const inheritedMenuMarkup = renderToStaticMarkup(React.createElement(Menu, {
 }));
 assert.doesNotMatch(inheritedMenuMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /data-density=/);
 
+const triggerNamedMenuMarkup = renderToStaticMarkup(React.createElement(Menu, {
+  triggerLabel: "Actions",
+  open: true,
+  items: [{ label: "Open", key: "open" }],
+}));
+assert.match(triggerNamedMenuMarkup, /role="menu"/);
+assert.match(triggerNamedMenuMarkup, /aria-label="Actions"/);
+
 const unnamedMenuMarkup = renderToStaticMarkup(React.createElement(Menu));
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Open menu"/);
 assert.doesNotMatch(unnamedMenuMarkup, /aria-label="Account menu"/);
