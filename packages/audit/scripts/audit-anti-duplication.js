@@ -355,4 +355,12 @@ function lineForIndex(text, index) {
   return text.slice(0, index).split("\n").length;
 }
 
-module.exports = { checkAntiDuplicationGovernance, antiDuplicationCoverage };
+module.exports = {
+  allowedClassRootsForReactComponent,
+  checkAntiDuplicationGovernance,
+  antiDuplicationCoverage,
+  classRootsFromClassExpression,
+  componentClassRoots,
+  ownerClassRootForReactComponent,
+  protectedComponentRoots,
+};

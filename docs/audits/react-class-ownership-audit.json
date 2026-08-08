@@ -1,0 +1,840 @@
+{
+  "status": "pass",
+  "audit": "react class ownership",
+  "principle": "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition.",
+  "inventory": {
+    "components": 56,
+    "componentClassRoots": 51,
+    "protectedComponentRoots": 6,
+    "componentsWithFamilyRoots": 12,
+    "observedRootAssignments": 60,
+    "violations": 0
+  },
+  "protectedComponentRoots": [
+    "button",
+    "card",
+    "dialog",
+    "drawer",
+    "menu",
+    "popover"
+  ],
+  "components": [
+    {
+      "component": "Accordion",
+      "file": "packages/react/src/Accordion.js",
+      "ownerRoot": "accordion",
+      "allowedRoots": [
+        "accordion"
+      ],
+      "observedRoots": [
+        "accordion"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "AnimatedMoment",
+      "file": "packages/react/src/AnimatedMoment.js",
+      "ownerRoot": "animated-moment",
+      "allowedRoots": [
+        "animated-moment"
+      ],
+      "observedRoots": [
+        "animated-moment"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "AuditEvent",
+      "file": "packages/react/src/AuditEvent.js",
+      "ownerRoot": "audit-event",
+      "allowedRoots": [
+        "audit-event"
+      ],
+      "observedRoots": [
+        "audit-event"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Avatar",
+      "file": "packages/react/src/Avatar.js",
+      "ownerRoot": "avatar",
+      "allowedRoots": [
+        "avatar"
+      ],
+      "observedRoots": [
+        "avatar"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "ownerRoot": "badge",
+      "allowedRoots": [
+        "badge"
+      ],
+      "observedRoots": [
+        "badge"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "BiometricPrompt",
+      "file": "packages/react/src/BiometricPrompt.js",
+      "ownerRoot": "biometric-prompt",
+      "allowedRoots": [
+        "biometric-prompt"
+      ],
+      "observedRoots": [
+        "biometric-prompt"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Breadcrumbs",
+      "file": "packages/react/src/Breadcrumbs.js",
+      "ownerRoot": "breadcrumbs",
+      "allowedRoots": [
+        "breadcrumbs"
+      ],
+      "observedRoots": [
+        "breadcrumbs"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "ownerRoot": "button",
+      "allowedRoots": [
+        "button"
+      ],
+      "observedRoots": [
+        "button"
+      ],
+      "protectedRootsObserved": [
+        "button"
+      ],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "ownerRoot": "card",
+      "allowedRoots": [
+        "card"
+      ],
+      "observedRoots": [
+        "card"
+      ],
+      "protectedRootsObserved": [
+        "card"
+      ],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardExpiryInput",
+      "file": "packages/react/src/CardExpiryInput.js",
+      "ownerRoot": "card-expiry-input",
+      "allowedRoots": [
+        "card-expiry-input",
+        "field"
+      ],
+      "observedRoots": [
+        "field"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardNumberInput",
+      "file": "packages/react/src/CardNumberInput.js",
+      "ownerRoot": "card-number-input",
+      "allowedRoots": [
+        "card-number-input",
+        "field"
+      ],
+      "observedRoots": [
+        "field"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSecurityCodeInput",
+      "file": "packages/react/src/CardSecurityCodeInput.js",
+      "ownerRoot": "card-security-code-input",
+      "allowedRoots": [
+        "card-security-code-input",
+        "field"
+      ],
+      "observedRoots": [
+        "field"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSummary",
+      "file": "packages/react/src/CardSummary.js",
+      "ownerRoot": "card-summary",
+      "allowedRoots": [
+        "card-summary"
+      ],
+      "observedRoots": [],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "ownerRoot": "chart-panel",
+      "allowedRoots": [
+        "chart-panel"
+      ],
+      "observedRoots": [
+        "chart-panel"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Checkbox",
+      "file": "packages/react/src/Checkbox.js",
+      "ownerRoot": "checkbox",
+      "allowedRoots": [
+        "checkbox"
+      ],
+      "observedRoots": [
+        "checkbox"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "ownerRoot": "chip",
+      "allowedRoots": [
+        "chip"
+      ],
+      "observedRoots": [
+        "chip"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CodeInput",
+      "file": "packages/react/src/CodeInput.js",
+      "ownerRoot": "code-input",
+      "allowedRoots": [
+        "code-input",
+        "field"
+      ],
+      "observedRoots": [
+        "code-input",
+        "field"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Combobox",
+      "file": "packages/react/src/Combobox.js",
+      "ownerRoot": "combobox",
+      "allowedRoots": [
+        "combobox",
+        "field",
+        "select-control"
+      ],
+      "observedRoots": [
+        "combobox",
+        "field"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CountrySelector",
+      "file": "packages/react/src/CountrySelector.js",
+      "ownerRoot": "country-selector",
+      "allowedRoots": [
+        "country-flag",
+        "country-selector",
+        "select-control"
+      ],
+      "observedRoots": [
+        "country-flag",
+        "country-selector"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "DatePicker",
+      "file": "packages/react/src/DatePicker.js",
+      "ownerRoot": "date-picker",
+      "allowedRoots": [
+        "date-picker",
+        "field"
+      ],
+      "observedRoots": [
+        "field"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "DateRangePicker",
+      "file": "packages/react/src/DateRangePicker.js",
+      "ownerRoot": "date-range-picker",
+      "allowedRoots": [
+        "date-picker",
+        "date-range-picker",
+        "field"
+      ],
+      "observedRoots": [
+        "field"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "ownerRoot": "dialog",
+      "allowedRoots": [
+        "dialog"
+      ],
+      "observedRoots": [
+        "dialog"
+      ],
+      "protectedRootsObserved": [
+        "dialog"
+      ],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "ownerRoot": "drawer",
+      "allowedRoots": [
+        "drawer"
+      ],
+      "observedRoots": [
+        "drawer"
+      ],
+      "protectedRootsObserved": [
+        "drawer"
+      ],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "EmptyState",
+      "file": "packages/react/src/EmptyState.js",
+      "ownerRoot": "empty-state",
+      "allowedRoots": [
+        "empty-state"
+      ],
+      "observedRoots": [
+        "empty-state"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "ownerRoot": "error-panel",
+      "allowedRoots": [
+        "error-panel"
+      ],
+      "observedRoots": [
+        "error-panel"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.js",
+      "ownerRoot": "fab",
+      "allowedRoots": [
+        "fab"
+      ],
+      "observedRoots": [
+        "fab"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.js",
+      "ownerRoot": "icon-button",
+      "allowedRoots": [
+        "icon-button"
+      ],
+      "observedRoots": [
+        "icon-button"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "InlineValidation",
+      "file": "packages/react/src/InlineValidation.js",
+      "ownerRoot": "inline-validation",
+      "allowedRoots": [
+        "inline-validation"
+      ],
+      "observedRoots": [
+        "inline-validation"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Input",
+      "file": "packages/react/src/Input.js",
+      "ownerRoot": "input",
+      "allowedRoots": [
+        "field"
+      ],
+      "observedRoots": [
+        "field"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "ownerRoot": "kpi-tile",
+      "allowedRoots": [
+        "kpi-tile"
+      ],
+      "observedRoots": [
+        "kpi-tile"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "List",
+      "file": "packages/react/src/List.js",
+      "ownerRoot": "list",
+      "allowedRoots": [
+        "list"
+      ],
+      "observedRoots": [
+        "list"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "ownerRoot": "menu",
+      "allowedRoots": [
+        "menu"
+      ],
+      "observedRoots": [
+        "menu"
+      ],
+      "protectedRootsObserved": [
+        "menu"
+      ],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "MotionBoundary",
+      "file": "packages/react/src/MotionBoundary.js",
+      "ownerRoot": "motion-boundary",
+      "allowedRoots": [
+        "motion-boundary"
+      ],
+      "observedRoots": [
+        "motion-boundary"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "ownerRoot": "movement-row",
+      "allowedRoots": [
+        "movement-row"
+      ],
+      "observedRoots": [
+        "movement-row"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Pagination",
+      "file": "packages/react/src/Pagination.js",
+      "ownerRoot": "pagination",
+      "allowedRoots": [
+        "pagination"
+      ],
+      "observedRoots": [
+        "pagination"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "PhoneInput",
+      "file": "packages/react/src/PhoneInput.js",
+      "ownerRoot": "phone-input",
+      "allowedRoots": [
+        "country-flag",
+        "country-selector",
+        "field",
+        "phone-input",
+        "select-control"
+      ],
+      "observedRoots": [
+        "field",
+        "phone-input"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "ownerRoot": "popover",
+      "allowedRoots": [
+        "popover"
+      ],
+      "observedRoots": [
+        "popover"
+      ],
+      "protectedRootsObserved": [
+        "popover"
+      ],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ProgressIndicator",
+      "file": "packages/react/src/ProgressIndicator.js",
+      "ownerRoot": "progress",
+      "allowedRoots": [
+        "progress"
+      ],
+      "observedRoots": [
+        "progress"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "QuickAction",
+      "file": "packages/react/src/QuickAction.js",
+      "ownerRoot": "quick-action",
+      "allowedRoots": [
+        "quick-action"
+      ],
+      "observedRoots": [
+        "quick-action"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "RadioButton",
+      "file": "packages/react/src/RadioButton.js",
+      "ownerRoot": "radio",
+      "allowedRoots": [
+        "choice",
+        "radio"
+      ],
+      "observedRoots": [
+        "radio"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "ownerRoot": "route-summary",
+      "allowedRoots": [
+        "route-summary"
+      ],
+      "observedRoots": [
+        "route-summary"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "SegmentedControl",
+      "file": "packages/react/src/SegmentedControl.js",
+      "ownerRoot": "segmented-control",
+      "allowedRoots": [
+        "segmented-control"
+      ],
+      "observedRoots": [
+        "segmented-control"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Select",
+      "file": "packages/react/src/Select.js",
+      "ownerRoot": "select",
+      "allowedRoots": [
+        "field",
+        "select-control"
+      ],
+      "observedRoots": [
+        "field"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Skeleton",
+      "file": "packages/react/src/Skeleton.js",
+      "ownerRoot": "skeleton",
+      "allowedRoots": [
+        "skeleton"
+      ],
+      "observedRoots": [
+        "skeleton"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Slider",
+      "file": "packages/react/src/Slider.js",
+      "ownerRoot": "slider",
+      "allowedRoots": [
+        "slider"
+      ],
+      "observedRoots": [
+        "slider"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Spinner",
+      "file": "packages/react/src/Spinner.js",
+      "ownerRoot": "spinner",
+      "allowedRoots": [
+        "spinner"
+      ],
+      "observedRoots": [
+        "spinner"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "StationPin",
+      "file": "packages/react/src/StationPin.js",
+      "ownerRoot": "station-pin",
+      "allowedRoots": [
+        "station-pin"
+      ],
+      "observedRoots": [
+        "station-pin"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Stepper",
+      "file": "packages/react/src/Stepper.js",
+      "ownerRoot": "stepper",
+      "allowedRoots": [
+        "stepper"
+      ],
+      "observedRoots": [
+        "stepper"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Switch",
+      "file": "packages/react/src/Switch.js",
+      "ownerRoot": "switch",
+      "allowedRoots": [
+        "switch"
+      ],
+      "observedRoots": [
+        "switch"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "ownerRoot": "table",
+      "allowedRoots": [
+        "table"
+      ],
+      "observedRoots": [
+        "table"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tabs",
+      "file": "packages/react/src/Tabs.js",
+      "ownerRoot": "tabs",
+      "allowedRoots": [
+        "tabs"
+      ],
+      "observedRoots": [
+        "tabs"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "ownerRoot": "tag",
+      "allowedRoots": [
+        "tag"
+      ],
+      "observedRoots": [
+        "tag"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "TextArea",
+      "file": "packages/react/src/TextArea.js",
+      "ownerRoot": "text-area",
+      "allowedRoots": [
+        "field",
+        "text-area"
+      ],
+      "observedRoots": [
+        "field",
+        "text-area"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "ownerRoot": "toast",
+      "allowedRoots": [
+        "toast"
+      ],
+      "observedRoots": [
+        "toast"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "ownerRoot": "tooltip",
+      "allowedRoots": [
+        "tooltip"
+      ],
+      "observedRoots": [
+        "tooltip"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "TreeView",
+      "file": "packages/react/src/TreeView.js",
+      "ownerRoot": "tree-view",
+      "allowedRoots": [
+        "tree-view"
+      ],
+      "observedRoots": [
+        "tree-view"
+      ],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    }
+  ]
+}
