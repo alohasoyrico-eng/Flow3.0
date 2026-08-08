@@ -33,7 +33,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
       "--comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--sys-space-lg) + var(--sys-frame-space-micro))",
       "--comp-date-picker-panel-inline-size: var(--component-date-picker-panel-inline-size)",
       "--comp-date-picker-radius: var(--component-radius-control)",
-      "--comp-date-picker-panel-radius: var(--sys-frame-radius-surface)",
+      "--comp-date-picker-panel-radius: var(--component-radius-surface)",
     ],
     message: "DatePicker base geometry must derive from the density and frame cascades, not a baked md size.",
   });

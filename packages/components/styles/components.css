@@ -14,6 +14,7 @@
   --component-focus-ring-offset: var(--sys-focus-ring-offset);
   --component-radius-pill: var(--sys-frame-radius-full);
   --component-radius-control: calc(var(--sys-radius-md) + var(--sys-radius-sm));
+  --component-radius-surface: var(--sys-frame-radius-surface);
   --component-field-gap: var(--sys-frame-gap-element);
   --component-offset-xs: var(--sys-space-1);
   --component-min-text-line: var(--sys-space-6);
@@ -660,7 +661,7 @@
   --comp-card-stats-value-size: var(--component-font-size-title-lg);
   --comp-card-minimal-gap: calc(var(--sys-space-xs) / 2) calc(var(--sys-space-sm) + var(--component-border-width) * 2);
   --comp-card-elevated-gap: var(--sys-space-xs);
-  --comp-card-radius: var(--sys-frame-radius-surface);
+  --comp-card-radius: var(--component-radius-surface);
   --comp-card-bg: var(--sys-color-surface);
   --comp-card-bg-muted: color-mix(in srgb, var(--sys-color-surface) 72%, var(--sys-color-bg));
   --comp-card-bg-selected: color-mix(in srgb, var(--sys-color-action) 7%, var(--sys-color-surface));
@@ -723,7 +724,7 @@
   --comp-card-summary-padding-sm: var(--sys-space-md);
   --comp-card-summary-padding-md: var(--sys-space-lg);
   --comp-card-summary-padding-lg: var(--sys-space-xl);
-  --comp-card-summary-radius: var(--sys-frame-radius-surface);
+  --comp-card-summary-radius: var(--component-radius-surface);
   --comp-card-summary-metric-radius: var(--sys-radius-md);
   --comp-card-summary-bg: var(--sys-color-surface-sunken, var(--sys-color-text));
   --comp-card-summary-bg-virtual: var(--sys-color-action);
@@ -3056,7 +3057,7 @@ button.tag:disabled,
   --comp-toast-padding-block: var(--comp-toast-padding-block-md);
   --comp-toast-padding-inline: var(--comp-toast-padding-inline-md);
   --comp-toast-gap: var(--comp-toast-gap-md);
-  --comp-toast-radius: var(--sys-frame-radius-surface);
+  --comp-toast-radius: var(--component-radius-surface);
   --comp-toast-bg: var(--sys-color-text);
   --comp-toast-fg: var(--sys-color-surface);
   --comp-toast-muted: color-mix(in srgb, var(--sys-color-surface) 78%, transparent);
@@ -5640,7 +5641,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-drawer-panel-bg: var(--sys-color-surface);
   --comp-drawer-panel-border-width: var(--component-border-width);
   --comp-drawer-panel-border: var(--sys-color-border);
-  --comp-drawer-panel-radius: var(--sys-frame-radius-surface);
+  --comp-drawer-panel-radius: var(--component-radius-surface);
   --comp-drawer-panel-color: var(--sys-color-text);
   --comp-drawer-panel-depth: var(--component-depth-panel-strong);
   --comp-drawer-panel-inline: var(--component-drawer-panel-inline-md);
@@ -5678,7 +5679,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-panel-bg: var(--sys-color-surface);
   --comp-dialog-panel-border-width: var(--component-border-width);
   --comp-dialog-panel-border: var(--sys-color-border);
-  --comp-dialog-panel-radius: var(--sys-frame-radius-surface);
+  --comp-dialog-panel-radius: var(--component-radius-surface);
   --comp-dialog-panel-color: var(--sys-color-text);
   --comp-dialog-panel-depth: var(--component-depth-panel-strong);
   --comp-dialog-panel-inline: min(100%, var(--sys-frame-content-dialog));
@@ -5881,7 +5882,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-fg: var(--sys-color-text);
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-md);
   --comp-menu-panel-padding: var(--sys-space-xs);
-  --comp-menu-panel-radius: var(--sys-frame-radius-surface);
+  --comp-menu-panel-radius: var(--component-radius-surface);
   --comp-menu-panel-depth: var(--component-depth-popover);
   --comp-menu-panel-offset: var(--sys-space-xs);
   --comp-menu-panel-z-index: var(--sys-depth-z-overlay);
@@ -5947,7 +5948,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .menu[data-density="lg"] {
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-lg);
   --comp-menu-panel-padding: var(--sys-space-sm);
-  --comp-menu-panel-radius: var(--sys-frame-radius-surface);
+  --comp-menu-panel-radius: var(--component-radius-surface);
   --comp-menu-item-height: var(--component-inline-size-lg);
   --comp-menu-item-padding-x: var(--sys-space-md);
   --comp-menu-item-radius: var(--sys-radius-md);
@@ -9814,7 +9815,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-date-picker-panel-padding: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
   --comp-date-picker-panel-inline-size: var(--component-date-picker-panel-inline-size);
   --comp-date-picker-radius: var(--component-radius-control);
-  --comp-date-picker-panel-radius: var(--sys-frame-radius-surface);
+  --comp-date-picker-panel-radius: var(--component-radius-surface);
 }
 
 .date-picker[data-density="sm"] {

@@ -171,6 +171,9 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc)\([^;]*--sys-density-control-padding-[xy][^;]*;/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-density-control-padding-* instead of reaching into sys density directly.");
   }
+  for (const match of text.matchAll(/--comp-[\w-]*radius[\w-]*:\s*var\(--sys-frame-radius-surface\);/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component surface radius aliases must consume --component-radius-surface instead of reaching into sys frame radius directly.");
+  }
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
