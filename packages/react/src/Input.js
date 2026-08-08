@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useId, useState } from "react";
+import React, { forwardRef, useId, useState } from "react";
 import { inputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
@@ -101,8 +101,9 @@ export const Input = forwardRef(function Input({
   const canReveal = Boolean(isRevealable && revealLabel && hideLabel);
   const isValueControlled = value !== undefined;
   const isRevealControlled = revealedProp !== undefined;
-  const [currentValue, setCurrentValue] = useState(value ?? "");
+  const [internalValue, setInternalValue] = useState(value ?? "");
   const [internalRevealed, setInternalRevealed] = useState(Boolean(revealedProp));
+  const currentValue = isValueControlled ? value ?? "" : internalValue;
   const revealed = isRevealControlled ? Boolean(revealedProp) : internalRevealed;
   const resolvedState = resolveInputState({ disabled, loading, error, state, value: currentValue });
   const resolvedHelper = error || helperText || helper;
@@ -111,19 +112,11 @@ export const Input = forwardRef(function Input({
   const describedBy = [resolvedHelper ? `${inputId}-helper` : "", rest["aria-describedby"]].filter(Boolean).join(" ") || undefined;
   const inputType = canReveal && revealed ? "text" : resolvedType;
 
-  useEffect(() => {
-    if (isValueControlled) setCurrentValue(value ?? "");
-  }, [isValueControlled, value]);
-
-  useEffect(() => {
-    if (isRevealControlled) setInternalRevealed(Boolean(revealedProp));
-  }, [isRevealControlled, revealedProp]);
-
   if (!label) return null;
 
   const handleChange = (event) => {
     const meta = normalizeValue(event.target.value, resolvedVariant);
-    if (!isValueControlled) setCurrentValue(meta.value);
+    if (!isValueControlled) setInternalValue(meta.value);
     onValueChange?.(meta.value, meta, event);
   };
 

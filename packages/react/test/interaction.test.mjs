@@ -1032,6 +1032,16 @@ try {
     onValueChange: (value, meta, event) => inputChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(amountInput.value, "9,876.50"));
+  fireEvent.input(amountInput, { target: { value: "10.00" } });
+  assert.equal(inputChanges.at(-1).value, "10.00");
+  await waitFor(() => assert.equal(amountInput.value, "9,876.50"));
+  rerenderInput(React.createElement(Input, {
+    label: "Amount",
+    variant: "currency",
+    value: "10",
+    onValueChange: (value, meta, event) => inputChanges.push({ value, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(amountInput.value, "10.00"));
 
   cleanup();
 
@@ -1066,6 +1076,16 @@ try {
   fireEvent.click(getPasswordRole("button", { name: /reveal secret/i }));
   assert.deepEqual(inputRevealChanges.at(-1), { revealed: true, eventType: "click" });
   assert.equal(passwordInput.type, "password");
+  rerenderPasswordInput(React.createElement(Input, {
+    label: "Password",
+    variant: "password",
+    value: "secret",
+    revealed: true,
+    revealLabel: "Reveal secret",
+    hideLabel: "Conceal secret",
+    onRevealChange: (revealed, event) => inputRevealChanges.push({ revealed, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(passwordInput.type, "text"));
 
   cleanup();
 
