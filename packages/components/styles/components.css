@@ -1237,7 +1237,7 @@
 .combobox {
   --comp-combobox-chevron-color: var(--sys-color-text-muted);
   --comp-combobox-chevron-focus-color: var(--sys-color-action);
-  --comp-combobox-chevron-size: calc(var(--component-font-size-title-md) + 0.125rem);
+  --comp-combobox-chevron-size: calc(var(--component-font-size-title-md) + var(--sys-frame-space-micro));
   --comp-combobox-chevron-motion-duration: var(--component-duration-state);
   --comp-combobox-chevron-motion-ease: var(--component-ease-press);
   --comp-combobox-overlay-motion-duration: var(--component-duration-state);
@@ -9183,9 +9183,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-icon-size: var(--sys-icon-size-md);
   --comp-select-gap: var(--component-field-gap);
   --comp-select-padding-start: var(--sys-space-lg);
-  --comp-select-padding-end: calc(var(--sys-space-lg) - 2px);
+  --comp-select-padding-end: calc(var(--sys-space-lg) - var(--sys-frame-space-micro));
   --comp-select-inline-padding-end: var(--sys-space-sm);
-  --comp-select-chevron-size: calc(var(--component-font-size-title-md) + 0.125rem);
+  --comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--sys-frame-space-micro));
   --comp-select-chevron-motion-duration: var(--component-duration-state);
   --comp-select-chevron-motion-ease: var(--component-ease-press);
   --comp-select-overlay-motion-duration: var(--component-duration-state);
@@ -9198,7 +9198,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-option-gap: var(--sys-space-sm);
   --comp-select-option-min-size: calc(var(--component-control-min-size) - var(--sys-space-xs));
   --comp-select-option-padding-x: var(--sys-space-sm);
-  --comp-select-option-radius: calc(var(--component-radius-control) - 2px);
+  --comp-select-option-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro));
   --comp-select-current-control-size: var(--comp-select-control-size);
   --comp-select-current-icon-size: var(--comp-select-icon-size);
   display: grid;
@@ -9251,7 +9251,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-search-gap: var(--sys-space-xs);
   --comp-country-selector-search-bg: color-mix(in srgb, var(--sys-color-surface-raised) 72%, var(--sys-color-surface));
   --comp-country-selector-search-border: var(--sys-color-border);
-  --comp-country-selector-search-radius: calc(var(--component-radius-control) - 2px);
+  --comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro));
   --comp-country-selector-search-font-size: var(--component-font-size-small);
   --comp-country-selector-search-font-weight: var(--sys-voice-weight-semibold);
   --comp-country-selector-option-color: var(--sys-color-text);
