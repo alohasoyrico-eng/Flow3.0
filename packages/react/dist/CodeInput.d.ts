@@ -1,9 +1,15 @@
-import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
 import { codeInputPlatformContract } from "#flow/platforms";
 
 export type CodeInputDensity = "sm" | "md" | "lg";
 export type CodeInputVariant = "sms" | "otp" | "approval" | "masked" | "compact";
 export type CodeInputState = "default" | "hover" | "focus" | "complete" | "warning" | "error" | "disabled";
+
+export interface CodeInputChangeMeta {
+  value: string;
+  length: number;
+  complete: boolean;
+}
 
 export interface CodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -16,8 +22,8 @@ export interface CodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElemen
   state?: CodeInputState;
   density?: CodeInputDensity;
   error?: string;
-  onValueChange?: (value: string) => void;
-  onComplete?: (value: string) => void;
+  onValueChange?: (value: string, meta: CodeInputChangeMeta, event: ChangeEvent<HTMLInputElement>) => void;
+  onComplete?: (value: string, meta: CodeInputChangeMeta, event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface CodeInputComponent extends ForwardRefExoticComponent<CodeInputProps & RefAttributes<HTMLInputElement>> {

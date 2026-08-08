@@ -106,8 +106,8 @@ export const CodeInput = forwardRef(function CodeInput({
           const nextValue = normalizeCodeValue(event.target.value, resolvedLength);
           if (!isValueControlled) setCurrentValue(nextValue);
           const nextMeta = codeMeta(nextValue, resolvedLength);
-          onValueChange?.(nextValue);
-          if (nextMeta.complete) onComplete?.(nextValue);
+          onValueChange?.(nextValue, nextMeta, event);
+          if (nextMeta.complete) onComplete?.(nextValue, nextMeta, event);
         },
       }),
       React.createElement(

@@ -394,8 +394,8 @@ try {
   const { getByLabelText: getCodeLabel, rerender: rerenderCodeInput } = render(React.createElement(CodeInput, {
     label: "SMS code",
     length: 4,
-    onValueChange: (value) => codeValues.push(value),
-    onComplete: (value) => completedCodes.push(value),
+    onValueChange: (value, meta, event) => codeValues.push({ value, meta, eventType: event.type }),
+    onComplete: (value, meta, event) => completedCodes.push({ value, meta, eventType: event.type }),
   }));
 
   const codeInput = getCodeLabel(/sms code/i);
@@ -403,15 +403,15 @@ try {
   fireEvent.input(codeInput, { target: { value: "12a34" } });
 
   await waitFor(() => assert.equal(codeInput.value, "1234"));
-  assert.deepEqual(codeValues, ["1234"]);
-  assert.deepEqual(completedCodes, ["1234"]);
+  assert.deepEqual(codeValues, [{ value: "1234", meta: { value: "1234", length: 4, complete: true }, eventType: "change" }]);
+  assert.deepEqual(completedCodes, [{ value: "1234", meta: { value: "1234", length: 4, complete: true }, eventType: "change" }]);
 
   rerenderCodeInput(React.createElement(CodeInput, {
     label: "SMS code",
     length: 4,
     value: "9876",
-    onValueChange: (value) => codeValues.push(value),
-    onComplete: (value) => completedCodes.push(value),
+    onValueChange: (value, meta, event) => codeValues.push({ value, meta, eventType: event.type }),
+    onComplete: (value, meta, event) => completedCodes.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(codeInput.value, "9876"));
 
