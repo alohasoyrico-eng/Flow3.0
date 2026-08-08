@@ -429,6 +429,8 @@
   --component-slider-thumb-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg) + var(--sys-frame-space-micro));
   --component-slider-thumb-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md) + var(--sys-frame-space-micro));
   --component-slider-touch-size-sm: calc(var(--component-control-min-size) - var(--sys-space-sm));
+  --component-skeleton-circle-size: var(--sys-frame-content-skeleton-circle);
+  --component-skeleton-row-leading-size: var(--sys-frame-content-skeleton-row-leading);
   --component-skeleton-pill-block-size: var(--component-field-control-size-sm);
   --component-skeleton-card-block-size: var(--component-block-size-lg);
   --component-empty-state-icon-size-sm: calc(var(--component-control-min-size) + var(--sys-space-lg));
@@ -3933,12 +3935,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-skeleton-title-width: 60%;
   --comp-skeleton-title-block-size: var(--sys-symbol-size-md-plus);
   --comp-skeleton-title-radius: var(--sys-radius-sm);
-  --comp-skeleton-circle-width: var(--component-control-min-size);
+  --comp-skeleton-circle-width: var(--component-skeleton-circle-size);
   --comp-skeleton-pill-width: var(--component-content-size-xs);
   --comp-skeleton-pill-block-size: var(--component-skeleton-pill-block-size);
   --comp-skeleton-card-block-size: var(--component-skeleton-card-block-size);
   --comp-skeleton-card-radius: var(--sys-radius-md);
-  --comp-skeleton-row-template: var(--component-control-min-size) minmax(0, 1fr) var(--component-block-size-sm);
+  --comp-skeleton-row-template: var(--component-skeleton-row-leading-size) minmax(0, 1fr) var(--component-block-size-sm);
   --comp-skeleton-row-min-block: var(--component-block-size-sm);
   --comp-skeleton-media-block-size: var(--component-block-size-md);
   --comp-skeleton-chart-block-size: var(--component-block-size-lg);

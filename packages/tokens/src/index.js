@@ -340,6 +340,8 @@ export const systemTokens = {
       contentNavigationEllipsisInline: "var(--sys-frame-content-navigation-ellipsis-inline)",
       contentOptionMinBlock: "var(--sys-frame-content-option-min-block)",
       contentSegmentedControlInline: "var(--sys-frame-content-segmented-control-inline)",
+      contentSkeletonCircle: "var(--sys-frame-content-skeleton-circle)",
+      contentSkeletonRowLeading: "var(--sys-frame-content-skeleton-row-leading)",
       contentCodeSlotBlockSm: "var(--sys-frame-content-code-slot-block-sm)",
       contentCodeSlotBlockMd: "var(--sys-frame-content-code-slot-block-md)",
       contentCodeSlotBlockLg: "var(--sys-frame-content-code-slot-block-lg)",

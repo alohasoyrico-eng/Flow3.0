@@ -31,6 +31,10 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
   if (positionalSelector) {
     add("errors", packageCssFile, lineNumber(text, positionalSelector.index), "Skeleton must not infer placeholder anatomy with positional CSS selectors; React must emit component-scoped bone variables.");
   }
+  const localSkeletonFrame = /--comp-skeleton-(?:circle-width|row-template):[^;]*var\(--component-control-min-size\)/.exec(text);
+  if (localSkeletonFrame) {
+    add("errors", packageCssFile, lineNumber(text, localSkeletonFrame.index), "Skeleton anatomy sizes must flow through Skeleton frame roles instead of the generic control min size.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -44,6 +48,8 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-skeleton-bone-current-radius: var(--comp-skeleton-radius)",
       "--comp-skeleton-bg: var(--component-loading-skeleton-surface)",
       "--comp-skeleton-highlight: var(--component-loading-skeleton-highlight)",
+      "--comp-skeleton-circle-width: var(--component-skeleton-circle-size)",
+      "--comp-skeleton-row-template: var(--component-skeleton-row-leading-size) minmax(0, 1fr) var(--component-block-size-sm)",
       "--comp-skeleton-shimmer-duration: var(--component-duration-shimmer)",
       "--comp-skeleton-disabled-opacity: var(--sys-disabled-opacity)",
       "gap: var(--comp-skeleton-gap)",
