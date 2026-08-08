@@ -150,9 +150,11 @@ const fabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton,
   icon: "add",
   variant: "extended",
   density: "lg",
+  onClick: () => {},
 }));
 assert.match(fabMarkup, /^<button/);
 assert.match(fabMarkup, /class="fab"/);
+assert.doesNotMatch(fabMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /disabled/);
 assert.match(fabMarkup, /aria-label="Add movement"/);
 assert.match(fabMarkup, /data-variant="extended"/);
 assert.match(fabMarkup, /data-density="lg"/);
@@ -175,6 +177,7 @@ const inheritedFabMarkup = renderToStaticMarkup(React.createElement(FloatingActi
   label: "Inherited fab density",
 }));
 assert.doesNotMatch(inheritedFabMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.match(inheritedFabMarkup, /disabled=""/);
 const unnamedFabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton));
 assert.equal(unnamedFabMarkup, "");
 
@@ -185,12 +188,14 @@ const quickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction, 
   variant: "destructive",
   state: "warning",
   density: "sm",
+  onAction: () => {},
 }));
 assert.match(quickActionMarkup, /class="quick-action"/);
 assert.match(quickActionMarkup, /data-variant="destructive"/);
 assert.match(quickActionMarkup, /data-state="warning"/);
 assert.match(quickActionMarkup, /data-density="sm"/);
 assert.match(quickActionMarkup, /class="quick-action__control"/);
+assert.doesNotMatch(quickActionMarkup.match(/<button[^>]+class="quick-action__control"[^>]*>/)?.[0] ?? "", /disabled/);
 assert.match(quickActionMarkup, /aria-label="Freeze"/);
 assert.match(quickActionMarkup, /class="quick-action__icon"/);
 assert.match(quickActionMarkup, /lock/);
@@ -209,6 +214,7 @@ const inheritedQuickActionMarkup = renderToStaticMarkup(React.createElement(Quic
   label: "Inherited action density",
 }));
 assert.doesNotMatch(inheritedQuickActionMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.match(inheritedQuickActionMarkup, /disabled=""/);
 const unnamedQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction));
 assert.equal(unnamedQuickActionMarkup, "");
 

@@ -27,7 +27,9 @@ export const QuickAction = forwardRef(function QuickAction({
   const resolvedVariant = validVariants.has(variant) ? variant : tone === "danger" ? "destructive" : "standard";
   const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
-  const blocked = resolvedState === "disabled" || resolvedState === "loading";
+  const resolvedType = validTypes.has(type) ? type : "button";
+  const canInteract = Boolean(onAction || rest.onClick || resolvedType === "submit" || resolvedType === "reset");
+  const blocked = resolvedState === "disabled" || resolvedState === "loading" || !canInteract;
   if (!resolvedLabel) return null;
 
   return React.createElement(
@@ -43,7 +45,7 @@ export const QuickAction = forwardRef(function QuickAction({
       {
         ...flowRestProps(rest),
         ref,
-        type: validTypes.has(type) ? type : "button",
+        type: resolvedType,
         className: "quick-action__control",
         disabled: blocked,
         "aria-label": resolvedLabel,

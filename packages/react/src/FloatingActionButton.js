@@ -24,6 +24,8 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
   const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedLabel = label;
+  const resolvedType = validTypes.has(type) ? type : "button";
+  const canInteract = Boolean(rest.onClick || resolvedType === "submit" || resolvedType === "reset");
   const isExtended = Boolean(extended) || resolvedVariant === "extended";
   if (!resolvedLabel) return null;
 
@@ -32,9 +34,9 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({
     {
       ...flowRestProps(rest),
       ref,
-      type: validTypes.has(type) ? type : "button",
+      type: resolvedType,
       className: ["fab", className].filter(Boolean).join(" "),
-      disabled: resolvedState === "disabled" || resolvedState === "loading",
+      disabled: resolvedState === "disabled" || resolvedState === "loading" || !canInteract,
       "aria-label": resolvedLabel,
       "aria-busy": resolvedState === "loading" ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),
