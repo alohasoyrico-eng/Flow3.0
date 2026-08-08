@@ -536,7 +536,7 @@ try {
   const { getByRole: getCountryRole, rerender: rerenderCountrySelector } = render(React.createElement(CountrySelector, {
     label: "Country",
     countries,
-    onValueChange: (countryCode, option) => countryChanges.push({ countryCode, option }),
+    onValueChange: (countryCode, option, event) => countryChanges.push({ countryCode, option, eventType: event.type }),
   }));
 
   const countryTrigger = getCountryRole("combobox", { name: /country/i });
@@ -549,12 +549,13 @@ try {
   assert.equal(countryChanges.at(-1).countryCode, "US");
   assert.equal(countryChanges.at(-1).option.label, "United States");
   assert.equal(countryChanges.at(-1).option.callingCode, "+1");
+  assert.equal(countryChanges.at(-1).eventType, "click");
 
   rerenderCountrySelector(React.createElement(CountrySelector, {
     label: "Country",
     value: "MX",
     countries,
-    onValueChange: (countryCode, option) => countryChanges.push({ countryCode, option }),
+    onValueChange: (countryCode, option, event) => countryChanges.push({ countryCode, option, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(countryTrigger.textContent.includes("+52"), true));
 

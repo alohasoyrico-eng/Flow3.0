@@ -76,13 +76,13 @@ export const CountrySelector = forwardRef(function CountrySelector({
 
   if (!label) return null;
 
-  const commitOption = (option) => {
+  const commitOption = (option, event) => {
     if (!option || disabled) return;
     if (!isValueControlled) setSelectedCountry(option);
     setActiveCountryCode(option.country);
     setOpen(false);
     setQuery("");
-    onValueChange?.(option.country, option);
+    onValueChange?.(option.country, option, event);
   };
   const moveActive = (direction) => {
     const currentIndex = filteredOptions.findIndex((option) => option.country === activeOption?.country);
@@ -201,11 +201,11 @@ export const CountrySelector = forwardRef(function CountrySelector({
             tabIndex: hidden ? undefined : -1,
             hidden,
             "aria-selected": String(isSelected),
-            onClick: () => commitOption(option),
+            onClick: (event) => commitOption(option, event),
             onKeyDown: (event) => {
               if (["Enter", " "].includes(event.key)) {
                 event.preventDefault();
-                commitOption(option);
+                commitOption(option, event);
               }
               if (event.key === "Escape") {
                 event.preventDefault();

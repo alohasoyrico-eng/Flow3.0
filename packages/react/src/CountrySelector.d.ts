@@ -1,6 +1,8 @@
 import type {
   ForwardRefExoticComponent,
   HTMLAttributes,
+  KeyboardEvent,
+  MouseEvent,
   RefAttributes,
 } from "react";
 import type { countrySelectorPlatformContract } from "@design-system/components/platforms";
@@ -14,6 +16,8 @@ export interface CountrySelectorCountry {
   nationalLength: number;
 }
 
+export type CountrySelectorValueChangeEvent = MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>;
+
 export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
   value?: string;
@@ -26,7 +30,7 @@ export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElemen
   searchable?: boolean;
   searchPlaceholder?: string;
   emptyText?: string;
-  onValueChange?: (countryCode: string, country: CountrySelectorCountry) => void;
+  onValueChange?: (countryCode: string, country: CountrySelectorCountry, event: CountrySelectorValueChangeEvent) => void;
 }
 
 export interface CountrySelectorComponent extends ForwardRefExoticComponent<CountrySelectorProps & RefAttributes<HTMLSpanElement>> {
