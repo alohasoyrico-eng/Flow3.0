@@ -1707,21 +1707,21 @@ try {
   const { getByRole: getSwitchRole, rerender: rerenderSwitch } = render(React.createElement(Switch, {
     label: "Enable notifications",
     name: "notifications",
-    onCheckedChange: (checked, meta) => switchChanges.push({ checked, meta }),
+    onCheckedChange: (checked, meta, event) => switchChanges.push({ checked, meta, eventType: event.type }),
   }));
 
   const switchInput = getSwitchRole("switch", { name: /enable notifications/i });
   assert.equal(switchInput.getAttribute("aria-checked"), "false");
   fireEvent.click(switchInput);
   await waitFor(() => assert.equal(switchInput.getAttribute("aria-checked"), "true"));
-  assert.deepEqual(switchChanges, [{ checked: true, meta: { name: "notifications" } }]);
+  assert.deepEqual(switchChanges, [{ checked: true, meta: { name: "notifications" }, eventType: "change" }]);
 
   rerenderSwitch(React.createElement(Switch, {
     label: "Enable notifications",
     name: "notifications",
     checked: false,
     disabled: true,
-    onCheckedChange: (checked, meta) => switchChanges.push({ checked, meta }),
+    onCheckedChange: (checked, meta, event) => switchChanges.push({ checked, meta, eventType: event.type }),
   }));
 
   await waitFor(() => assert.equal(switchInput.getAttribute("aria-checked"), "false"));

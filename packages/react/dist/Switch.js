@@ -38,7 +38,7 @@ export const Switch = forwardRef(function Switch({
     if (disabled) return;
     const nextChecked = event.currentTarget.checked;
     if (!isCheckedControlled) setCurrentChecked(nextChecked);
-    onCheckedChange?.(nextChecked, { name });
+    onCheckedChange?.(nextChecked, { name }, event);
   };
 
   return React.createElement(

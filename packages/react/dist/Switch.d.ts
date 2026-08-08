@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
 import { switchPlatformContract } from "#flow/platforms";
 
 export type SwitchState = "off" | "on" | "focus" | "pressed" | "error" | "disabled";
@@ -18,7 +18,7 @@ export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
   disabled?: boolean;
   name?: string;
   required?: boolean;
-  onCheckedChange?: (checked: boolean, meta: SwitchValueMeta) => void;
+  onCheckedChange?: (checked: boolean, meta: SwitchValueMeta, event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
 
