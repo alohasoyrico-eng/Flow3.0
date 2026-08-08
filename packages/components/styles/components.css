@@ -1972,6 +1972,8 @@
   --comp-choice-current-mark-size: var(--component-inline-size-sm);
   --comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2);
   --comp-choice-current-indicator-font-size: var(--component-icon-size-sm-plus);
+  --comp-choice-current-indicator-variation: var(--component-icon-variation-outline-strong);
+  --comp-choice-current-indicator-line-height: var(--component-line-height-none);
   --comp-choice-current-gap: var(--component-space-sm);
   --comp-choice-current-padding-block: var(--component-space-xs);
   --comp-choice-current-mark-bg: var(--component-color-surface);
@@ -2191,8 +2193,8 @@
   color: var(--comp-choice-current-indicator-fg);
   display: inline-flex;
   font-size: var(--comp-choice-current-indicator-font-size);
-  font-variation-settings: var(--sys-icon-variation-outline-strong);
-  line-height: var(--sys-voice-line-height-none);
+  font-variation-settings: var(--comp-choice-current-indicator-variation);
+  line-height: var(--comp-choice-current-indicator-line-height);
   opacity: 0;
   transform: var(--component-transform-scale-enter);
   transition:
@@ -2914,7 +2916,7 @@ button.chip:focus-visible,
 .chip[data-state="focus"],
 button.tag:focus-visible,
 .tag[data-state="focus"][data-interactive="true"] {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
+  outline: var(--component-focus-ring-width) solid var(--component-color-focus);
   outline-offset: var(--component-focus-ring-offset);
 }
 
@@ -2934,7 +2936,7 @@ button.chip:disabled,
 button.tag:disabled,
 .tag[data-state="disabled"] {
   cursor: not-allowed;
-  opacity: var(--sys-disabled-readable-opacity);
+  opacity: var(--component-disabled-readable-opacity);
 }
 
 button.chip:disabled,
@@ -3890,7 +3892,7 @@ button.tag:disabled,
 .accordion__icon,
 .accordion__chevron {
   font-family: var(--comp-accordion-icon-family);
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--component-line-height-none);
 }
 
 .accordion__icon {
@@ -4459,7 +4461,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   block-size: var(--comp-empty-state-icon-size);
   inline-size: var(--comp-empty-state-icon-size);
   justify-content: center;
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--component-line-height-none);
   margin-block-end: var(--comp-empty-state-icon-margin-block-end);
 }
 
@@ -5569,7 +5571,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   block-size: var(--comp-error-panel-icon-size);
   inline-size: var(--comp-error-panel-icon-size);
   justify-content: center;
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--component-line-height-none);
 }
 
 .error-panel__content {
@@ -6381,7 +6383,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   font-family: var(--comp-menu-item-icon-family);
   font-size: var(--comp-menu-item-icon-size);
   font-weight: var(--comp-menu-item-icon-weight);
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--component-line-height-none);
 }
 
 .menu__item-label {
@@ -11548,7 +11550,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .quick-action[data-state="focus"] {
-  outline: var(--sys-a11y-outline-reset);
+  outline: var(--component-a11y-outline-reset);
 }
 
 .quick-action__control:focus-visible,
