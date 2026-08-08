@@ -28,9 +28,9 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 
 ## Semantic Default Contract Gaps
 
-| Component | Prop | Default value | Allowed values | Location |
-| --- | --- | --- | --- | --- |
-| None | None | None | None | None |
+| Component | Prop | Default value | React type values | System contract values | Location |
+| --- | --- | --- | --- | --- | --- |
+| None | None | None | None | None | None |
 
 ## Visible Semantic Defaults
 

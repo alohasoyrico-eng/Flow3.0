@@ -4539,7 +4539,7 @@
         },
         {
           "name": "state",
-          "type": "\\\"closed\\\" | \\\"open\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"warning\\\" | \\\"disabled\\\"",
+          "type": "\\\"default\\\" | \\\"closed\\\" | \\\"open\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"warning\\\" | \\\"disabled\\\"",
           "required": false
         },
         {

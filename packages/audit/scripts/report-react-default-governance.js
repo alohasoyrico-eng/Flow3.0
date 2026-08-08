@@ -10,6 +10,7 @@ const {
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
+const contractsFile = path.join(root, "packages/components/src/contracts.js");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-default-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-default-governance-audit.md");
@@ -114,7 +115,37 @@ function propTypeExpression(types, componentName, propName) {
 }
 
 function unionValues(typeExpression) {
-  return [...typeExpression.matchAll(/"([^"]+)"/g)].map((match) => match[1]);
+  return [...typeExpression.replaceAll('\\"', '"').matchAll(/"([^"]+)"/g)].map((match) => match[1]);
+}
+
+function lowerFirst(value) {
+  return `${value.charAt(0).toLowerCase()}${value.slice(1)}`;
+}
+
+function contractBodyFor(source, contractKey) {
+  if (!source) return "";
+  const match = source.match(new RegExp(`^\\s+${contractKey}:\\s*\\{([\\s\\S]*?)(?=^\\s+[a-z][A-Za-z0-9]*:\\s*\\{|\\n\\};)`, "m"));
+  return match?.[1] ?? "";
+}
+
+function contractPropTypeExpression(contractsSource, component, propName) {
+  const contractBody = contractBodyFor(contractsSource, lowerFirst(component));
+  const escapedProp = propName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return contractBody.match(new RegExp(`\\{ name: "${escapedProp}", type: "((?:\\\\.|[^"])*)", required: (?:true|false) \\}`))?.[1] ?? "";
+}
+
+function contractNamedValues(contractsSource, component, propName) {
+  const contractBody = contractBodyFor(contractsSource, lowerFirst(component));
+  const fieldByProp = {
+    intent: "intents",
+    state: "states",
+    tone: "intents",
+    variant: "variants",
+  };
+  const field = fieldByProp[propName];
+  if (!field) return [];
+  const valuesExpression = contractBody.match(new RegExp(`\\b${field}:\\s*\\[([^\\]]*)\\]`))?.[1] ?? "";
+  return unionValues(valuesExpression);
 }
 
 function publicPropAllowedValues(component, propName) {
@@ -128,14 +159,25 @@ function publicPropAllowedValues(component, propName) {
   return aliasName ? aliasUnionValues(types, aliasName) : [];
 }
 
-function semanticContractGaps(semanticDefaults) {
+function contractAllowedValues(contractsSource, component, propName) {
+  const propValues = unionValues(contractPropTypeExpression(contractsSource, component, propName));
+  return propValues.length ? propValues : contractNamedValues(contractsSource, component, propName);
+}
+
+function semanticContractGaps(semanticDefaults, contractsSource) {
   return semanticDefaults
     .map((match) => {
-      const allowedValues = publicPropAllowedValues(match.component, match.prop);
+      const publicAllowedValues = publicPropAllowedValues(match.component, match.prop);
+      const contractAllowedValuesForProp = contractAllowedValues(contractsSource, match.component, match.prop);
+      const publicContractStatus = publicAllowedValues.includes(match.value) ? "pass" : "fail";
+      const systemContractStatus = contractAllowedValuesForProp.includes(match.value) ? "pass" : "fail";
       return {
         ...match,
-        allowedValues,
-        status: allowedValues.includes(match.value) ? "pass" : "fail",
+        publicAllowedValues,
+        contractAllowedValues: contractAllowedValuesForProp,
+        publicContractStatus,
+        systemContractStatus,
+        status: publicContractStatus === "pass" && systemContractStatus === "pass" ? "pass" : "fail",
       };
     })
     .filter((match) => match.status === "fail");
@@ -143,9 +185,10 @@ function semanticContractGaps(semanticDefaults) {
 
 function createReport() {
   const files = sourceFiles();
+  const contractsSource = fs.existsSync(contractsFile) ? read(contractsFile) : "";
   const prohibitedDefaults = files.flatMap((file) => lineMatches(file, prohibitedRules));
   const semanticDefaults = files.flatMap((file) => lineMatches(file, semanticRules));
-  const semanticDefaultContractGaps = semanticContractGaps(semanticDefaults);
+  const semanticDefaultContractGaps = semanticContractGaps(semanticDefaults, contractsSource);
   const semanticByRule = semanticRules.map((rule) => ({
     rule: rule.id,
     description: rule.description,
@@ -171,7 +214,7 @@ function createReport() {
 function toMarkdown(report) {
   const prohibitedRows = report.prohibitedDefaults.map((match) => `| ${match.component} | ${match.rule} | ${match.file}:${match.line} | \`${match.text.replaceAll("|", "\\|")}\` |`);
   const semanticRows = report.semanticDefaults.map((match) => `| ${match.component} | ${match.rule} | ${match.prop} | ${match.value} | ${match.file}:${match.line} | \`${match.text.replaceAll("|", "\\|")}\` |`);
-  const semanticGapRows = report.semanticDefaultContractGaps.map((match) => `| ${match.component} | ${match.prop} | ${match.value} | ${match.allowedValues.join(", ") || "None"} | ${match.file}:${match.line} |`);
+  const semanticGapRows = report.semanticDefaultContractGaps.map((match) => `| ${match.component} | ${match.prop} | ${match.value} | ${match.publicAllowedValues.join(", ") || "None"} | ${match.contractAllowedValues.join(", ") || "None"} | ${match.file}:${match.line} |`);
   const semanticSummaryRows = report.inventory.semanticByRule.map((item) => `| ${item.rule} | ${item.count} | ${item.description} |`);
   return [
     "# React Default Governance Audit",
@@ -201,9 +244,9 @@ function toMarkdown(report) {
     "",
     "## Semantic Default Contract Gaps",
     "",
-    "| Component | Prop | Default value | Allowed values | Location |",
-    "| --- | --- | --- | --- | --- |",
-    ...(semanticGapRows.length ? semanticGapRows : ["| None | None | None | None | None |"]),
+    "| Component | Prop | Default value | React type values | System contract values | Location |",
+    "| --- | --- | --- | --- | --- | --- |",
+    ...(semanticGapRows.length ? semanticGapRows : ["| None | None | None | None | None | None |"]),
     "",
     "## Visible Semantic Defaults",
     "",
