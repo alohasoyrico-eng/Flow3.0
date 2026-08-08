@@ -82,7 +82,7 @@ export const Combobox = forwardRef(function Combobox({
 
   if (!label || !normalizedOptions.length) return null;
 
-  const commitOption = (option) => {
+  const commitOption = (option, event) => {
     if (!option || option.disabled) return;
     const nextValue = optionValue(option);
     const nextLabel = optionLabel(option);
@@ -90,15 +90,15 @@ export const Combobox = forwardRef(function Combobox({
     setInputValue(nextLabel);
     setOpen(false);
     setActiveIndex(0);
-    onValueChange?.(nextValue, { label: nextLabel, meta: option.meta ?? "", inputValue: nextLabel });
+    onValueChange?.(nextValue, { label: nextLabel, meta: option.meta ?? "", inputValue: nextLabel }, event);
   };
 
-  const clearValue = () => {
+  const clearValue = (event) => {
     if (!isValueControlled) setCurrentValue("");
     setInputValue("");
     setOpen(true);
     setActiveIndex(0);
-    onValueChange?.("", { label: "", meta: "", inputValue: "", cleared: true });
+    onValueChange?.("", { label: "", meta: "", inputValue: "", cleared: true }, event);
   };
   const handleInputFocus = (event) => {
     rest.onFocus?.(event);
@@ -120,7 +120,7 @@ export const Combobox = forwardRef(function Combobox({
     }
     if (event.key === "Enter") {
       event.preventDefault();
-      commitOption(activeOption);
+      commitOption(activeOption, event);
     }
     if (event.key === "Escape") {
       event.preventDefault();
@@ -174,7 +174,7 @@ export const Combobox = forwardRef(function Combobox({
           if (!isValueControlled) setCurrentValue(nextValue);
           setOpen(true);
           setActiveIndex(0);
-          onValueChange?.(nextValue, { label: nextValue, meta: "", inputValue: nextValue });
+          onValueChange?.(nextValue, { label: nextValue, meta: "", inputValue: nextValue }, event);
         },
         onKeyDown: handleInputKeyDown,
       }),
@@ -223,7 +223,7 @@ export const Combobox = forwardRef(function Combobox({
               "data-meta": option.meta || undefined,
               "data-disabled": option.disabled ? "true" : undefined,
               onMouseDown: (event) => event.preventDefault(),
-              onClick: option.disabled ? undefined : () => commitOption(option),
+              onClick: option.disabled ? undefined : (event) => commitOption(option, event),
             },
             React.createElement("span", { className: "select-control__option-label combobox__option-label" }, optionLabel(option)),
             option.meta ? React.createElement("span", { className: "select-control__option-code combobox__option-meta" }, option.meta) : null,

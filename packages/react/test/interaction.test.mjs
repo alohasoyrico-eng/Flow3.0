@@ -447,7 +447,7 @@ try {
       { label: "Ana Sosa", value: "ana", meta: "Driver" },
       { label: "Luis Perez", value: "luis", meta: "Driver" },
     ],
-    onValueChange: (value, meta) => comboboxChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => comboboxChanges.push({ value, meta, eventType: event.type }),
   }));
 
   const comboboxInput = getComboboxRole("combobox", { name: /driver/i });
@@ -455,16 +455,19 @@ try {
   fireEvent.input(comboboxInput, { target: { value: "Ana" } });
   assert.equal(comboboxChanges.at(-1).value, "Ana");
   assert.equal(comboboxChanges.at(-1).meta.inputValue, "Ana");
+  assert.equal(comboboxChanges.at(-1).eventType, "change");
 
   fireEvent.click(getComboboxRole("option", { name: /ana sosa/i }));
   await waitFor(() => assert.equal(comboboxInput.value, "Ana Sosa"));
   assert.equal(comboboxChanges.at(-1).value, "ana");
   assert.deepEqual(comboboxChanges.at(-1).meta, { label: "Ana Sosa", meta: "Driver", inputValue: "Ana Sosa" });
+  assert.equal(comboboxChanges.at(-1).eventType, "click");
 
   fireEvent.click(getComboboxRole("button", { name: /clear driver/i }));
   await waitFor(() => assert.equal(comboboxInput.value, ""));
   assert.equal(comboboxChanges.at(-1).value, "");
   assert.deepEqual(comboboxChanges.at(-1).meta, { label: "", meta: "", inputValue: "", cleared: true });
+  assert.equal(comboboxChanges.at(-1).eventType, "click");
 
   rerenderCombobox(React.createElement(Combobox, {
     label: "Driver",
@@ -475,7 +478,7 @@ try {
       { label: "Ana Sosa", value: "ana", meta: "Driver" },
       { label: "Luis Perez", value: "luis", meta: "Driver" },
     ],
-    onValueChange: (value, meta) => comboboxChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => comboboxChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(comboboxInput.value, "Luis Perez"));
 
