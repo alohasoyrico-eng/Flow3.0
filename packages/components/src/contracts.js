@@ -81,7 +81,12 @@ export const componentContracts = {
       { name: "autocomplete", type: "string", required: false },
       { name: "align", type: "\"start\" | \"end\"", required: false },
       { name: "revealable", type: "boolean", required: false },
-      { name: "onValueChange", type: "(value: string, meta: InputValueMeta) => void", required: false }
+      { name: "revealed", type: "boolean", required: false },
+      { name: "revealLabel", type: "string", required: false },
+      { name: "hideLabel", type: "string", required: false },
+      { name: "locale", type: "string | string[]", required: false },
+      { name: "onValueChange", type: "(value: string, meta: InputValueMeta) => void", required: false },
+      { name: "onRevealChange", type: "(revealed: boolean) => void", required: false }
     ],
     accessibility: [
       "Keep the visible label associated with the input.",
@@ -174,7 +179,10 @@ export const componentContracts = {
       { name: "expectedLength", type: "3 | 4", required: false },
       { name: "revealable", type: "boolean", required: false },
       { name: "revealed", type: "boolean", required: false },
-      { name: "onValueChange", type: "(digits: string, meta: CardSecurityCodeMeta) => void", required: false }
+      { name: "revealLabel", type: "string", required: false },
+      { name: "hideLabel", type: "string", required: false },
+      { name: "onValueChange", type: "(digits: string, meta: CardSecurityCodeMeta) => void", required: false },
+      { name: "onRevealChange", type: "(revealed: boolean) => void", required: false }
     ],
     accessibility: [
       "Keep the visible label associated with the security code input.",
@@ -202,7 +210,10 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "variant", type: "\"default\" | \"inline\"", required: false },
       { name: "state", type: "\"default\" | \"open\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"", required: false },
-      { name: "onValueChange", type: "(value: string, meta: SelectValueMeta) => void", required: false }
+      { name: "optionsLabel", type: "string", required: false },
+      { name: "open", type: "boolean", required: false },
+      { name: "onValueChange", type: "(value: string, meta: SelectValueMeta) => void", required: false },
+      { name: "onOpenChange", type: "(open: boolean) => void", required: false }
     ],
     accessibility: [
       "Keep the visible label associated with the select.",
@@ -225,6 +236,8 @@ export const componentContracts = {
       { name: "helper", type: "string", required: false },
       { name: "icon", type: "string", required: false },
       { name: "options", type: "ComboboxOption[]", required: true },
+      { name: "optionsLabel", type: "string", required: false },
+      { name: "clearSelectionLabel", type: "string", required: false },
       { name: "value", type: "string", required: false },
       { name: "name", type: "string", required: false },
       { name: "placeholder", type: "string", required: false },
@@ -232,7 +245,9 @@ export const componentContracts = {
       { name: "disabled", type: "boolean", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "state", type: "\"default\" | \"open\" | \"focus\" | \"filled\" | \"empty\" | \"error\" | \"disabled\"", required: false },
-      { name: "onValueChange", type: "(value: string, meta: ComboboxValueMeta) => void", required: false }
+      { name: "open", type: "boolean", required: false },
+      { name: "onValueChange", type: "(value: string, meta: ComboboxValueMeta) => void", required: false },
+      { name: "onOpenChange", type: "(open: boolean) => void", required: false }
     ],
     accessibility: [
       "Keep the visible label associated with the editable combobox input.",
@@ -436,7 +451,9 @@ export const componentContracts = {
       { name: "removable", type: "boolean", required: false },
       { name: "icon", type: "string", required: false },
       { name: "interactive", type: "boolean", required: false },
-      { name: "onRemoveLabel", type: "string", required: false }
+      { name: "onRemoveLabel", type: "string", required: false },
+      { name: "onRemove", type: "(label: string) => void", required: false },
+      { name: "onSelectedChange", type: "(selected: boolean) => void", required: false }
     ],
     accessibility: [
       "Expose interactive chips as buttons.",
@@ -532,7 +549,12 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "icon", type: "string", required: false },
       { name: "actionLabel", type: "string", required: false },
-      { name: "dismissible", type: "boolean", required: false }
+      { name: "dismissible", type: "boolean", required: false },
+      { name: "dismissLabel", type: "string", required: false },
+      { name: "dismissed", type: "boolean", required: false },
+      { name: "onAction", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false },
+      { name: "onDismiss", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false },
+      { name: "onDismissChange", type: "(dismissed: boolean) => void", required: false }
     ],
     accessibility: [
       "Use status for neutral feedback and alert for warning or danger.",
@@ -550,6 +572,7 @@ export const componentContracts = {
     props: [
       { name: "label", type: "string", required: true },
       { name: "value", type: "number", required: false },
+      { name: "ariaValueText", type: "string", required: false },
       { name: "max", type: "number", required: false },
       { name: "indeterminate", type: "boolean", required: false },
       { name: "showValue", type: "boolean", required: false },
@@ -702,6 +725,7 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "icon", type: "string", required: false },
       { name: "fields", type: "DialogField[]", required: false },
+      { name: "closeLabel", type: "string", required: false },
       { name: "id", type: "string", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false },
       { name: "onAction", type: "(key: string) => void", required: false }
@@ -761,8 +785,10 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "side", type: "\"left\" | \"right\"", required: false },
       { name: "fields", type: "DrawerField[]", required: false },
+      { name: "content", type: "DrawerContent[]", required: false },
       { name: "actions", type: "DrawerAction[]", required: false },
       { name: "open", type: "boolean", required: false },
+      { name: "closeLabel", type: "string", required: false },
       { name: "id", type: "string", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false },
       { name: "onAction", type: "(key: string) => void", required: false }
@@ -824,7 +850,10 @@ export const componentContracts = {
       { name: "actionLabel", type: "string", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "fullWidth", type: "boolean", required: false },
-      { name: "fallback", type: "string", required: false }
+      { name: "fallback", type: "string", required: false },
+      { name: "icon", type: "string", required: false },
+      { name: "onAction", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false },
+      { name: "onFallback", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false }
     ],
     accessibility: [
       "Provide visible prompt copy and an accessible group label.",
@@ -844,6 +873,7 @@ export const componentContracts = {
       { name: "nodes", type: "TreeViewNode[]", required: true },
       { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"expanded\" | \"selected\" | \"disabled\"", required: false },
       { name: "selectedKey", type: "string", required: false },
+      { name: "expandedKeys", type: "string[]", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "onSelect", type: "(key: string) => void", required: false },
       { name: "onExpandedChange", type: "(expandedKeys: string[]) => void", required: false }
@@ -895,7 +925,8 @@ export const componentContracts = {
       { name: "icon", type: "IconName", required: false },
       { name: "animationSource", type: "string", required: false },
       { name: "animationData", type: "AnimatedMomentAnimationData", required: false },
-      { name: "reducedMotionFallback", type: "string", required: false }
+      { name: "reducedMotionFallback", type: "string", required: false },
+      { name: "stateLabel", type: "string", required: false }
     ],
     accessibility: [
       "Provide an accessible label and visible fallback text.",
@@ -1298,6 +1329,7 @@ export const componentContracts = {
       { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"valid\" | \"warning\" | \"error\" | \"disabled\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "error", type: "string", required: false },
+      { name: "emptyText", type: "string", required: false },
       { name: "onValueChange", type: "(nationalNumber: string, meta: PhoneMeta) => void", required: false }
     ],
     accessibility: [
@@ -1325,7 +1357,10 @@ export const componentContracts = {
       { name: "inline", type: "boolean", required: false },
       { name: "searchable", type: "boolean", required: false },
       { name: "searchPlaceholder", type: "string", required: false },
-      { name: "onValueChange", type: "(countryCode: string, country: CountryMeta) => void", required: false }
+      { name: "emptyText", type: "string", required: false },
+      { name: "open", type: "boolean", required: false },
+      { name: "onValueChange", type: "(countryCode: string, country: CountryMeta) => void", required: false },
+      { name: "onOpenChange", type: "(open: boolean) => void", required: false }
     ],
     accessibility: [
       "Expose combobox/listbox semantics with aria-expanded, aria-controls, and aria-activedescendant.",
@@ -1481,8 +1516,7 @@ export const componentContracts = {
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "icon", type: "string", required: false },
       { name: "fullWidth", type: "boolean", required: false },
-      { name: "disabled", type: "boolean", required: false },
-      { name: "onSelect", type: "(meta: MovementRowMeta) => void", required: false }
+      { name: "disabled", type: "boolean", required: false }
     ],
     accessibility: [
       "Keep card identity and status visible.",

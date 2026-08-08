@@ -15,6 +15,7 @@ const inheritedReactPropNames = new Set([
   "type",
   "inputMode",
   "rows",
+  "maxLength",
   "min",
   "max",
   "value",

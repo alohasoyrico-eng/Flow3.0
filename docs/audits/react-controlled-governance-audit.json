@@ -5,7 +5,7 @@
   "inventory": {
     "components": 56,
     "controlledComponents": 28,
-    "openControlledComponents": 7,
+    "openControlledComponents": 10,
     "controlledPropEdges": 25,
     "testCoveredEdges": 25,
     "failures": 0
@@ -261,9 +261,9 @@
       "component": "Combobox",
       "file": "packages/react/src/Combobox.js",
       "openControlled": {
-        "contractControlled": false,
+        "contractControlled": true,
         "sourceControlled": true,
-        "testCovered": false
+        "testCovered": true
       },
       "controlledProps": [
         {
@@ -280,9 +280,9 @@
       "component": "CountrySelector",
       "file": "packages/react/src/CountrySelector.js",
       "openControlled": {
-        "contractControlled": false,
+        "contractControlled": true,
         "sourceControlled": true,
-        "testCovered": false
+        "testCovered": true
       },
       "controlledProps": [
         {
@@ -631,9 +631,9 @@
       "component": "Select",
       "file": "packages/react/src/Select.js",
       "openControlled": {
-        "contractControlled": false,
+        "contractControlled": true,
         "sourceControlled": true,
-        "testCovered": false
+        "testCovered": true
       },
       "controlledProps": [
         {

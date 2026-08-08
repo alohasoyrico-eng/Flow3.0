@@ -1,0 +1,6650 @@
+{
+  "status": "pass",
+  "audit": "react contract prop alignment",
+  "principle": "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract.",
+  "inventory": {
+    "components": 56,
+    "pass": 56,
+    "fail": 0,
+    "contractProps": 671,
+    "publicReactProps": 559,
+    "semanticInheritedProps": 1,
+    "inheritedContractProps": 24,
+    "extraReactProps": 0,
+    "missingReactProps": 0,
+    "requiredMismatches": 0
+  },
+  "components": [
+    {
+      "component": "Accordion",
+      "contractKey": "accordion",
+      "source": "packages/react/src/Accordion.js",
+      "types": "packages/react/src/Accordion.d.ts",
+      "contractProps": [
+        {
+          "name": "items",
+          "type": "AccordionItem[]",
+          "required": true
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "expandedIds",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "(expandedIds: string[]) => void",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"single\\\" | \\\"multiple\\\"",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "multiple",
+          "required": false
+        },
+        {
+          "name": "expandedIds",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "onExpandedChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "AnimatedMoment",
+      "contractKey": "animatedMoment",
+      "source": "packages/react/src/AnimatedMoment.js",
+      "types": "packages/react/src/AnimatedMoment.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "AnimatedMomentVariant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "AnimatedMomentState",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": false
+        },
+        {
+          "name": "animationSource",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "animationData",
+          "type": "AnimatedMomentAnimationData",
+          "required": false
+        },
+        {
+          "name": "reducedMotionFallback",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "stateLabel",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "animationSource",
+          "required": false
+        },
+        {
+          "name": "animationData",
+          "required": false
+        },
+        {
+          "name": "reducedMotionFallback",
+          "required": false
+        },
+        {
+          "name": "stateLabel",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "AuditEvent",
+      "contractKey": "auditEvent",
+      "source": "packages/react/src/AuditEvent.js",
+      "types": "packages/react/src/AuditEvent.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "meta",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"danger\\\" | \\\"action\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"verified\\\" | \\\"warning\\\" | \\\"critical\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "timestamp",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "meta",
+          "required": false
+        },
+        {
+          "name": "status",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "timestamp",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Avatar",
+      "contractKey": "avatar",
+      "source": "packages/react/src/Avatar.js",
+      "types": "packages/react/src/Avatar.d.ts",
+      "contractProps": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "AvatarStatus",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "AvatarState",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "src",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "status",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "contractKey": "badge",
+      "source": "packages/react/src/Badge.js",
+      "types": "packages/react/src/Badge.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"danger\\\" | \\\"accent\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"count\\\" | \\\"dot\\\" | \\\"status\\\" | \\\"icon\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"overflow\\\" | \\\"hidden\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "hidden",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "live",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "IconName",
+          "required": false
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "hidden",
+          "required": false
+        },
+        {
+          "name": "live",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "ariaLabel",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "BiometricPrompt",
+      "contractKey": "biometricPrompt",
+      "source": "packages/react/src/BiometricPrompt.js",
+      "types": "packages/react/src/BiometricPrompt.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"fingerprint\\\" | \\\"face\\\" | \\\"passcode\\\" | \\\"fallback\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "BiometricPromptState",
+          "required": false
+        },
+        {
+          "name": "actionLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "fallback",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void",
+          "required": false
+        },
+        {
+          "name": "onFallback",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "actionLabel",
+          "required": false
+        },
+        {
+          "name": "fallback",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "required": false
+        },
+        {
+          "name": "onFallback",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Breadcrumbs",
+      "contractKey": "breadcrumbs",
+      "source": "packages/react/src/Breadcrumbs.js",
+      "types": "packages/react/src/Breadcrumbs.d.ts",
+      "contractProps": [
+        {
+          "name": "items",
+          "type": "BreadcrumbItem[]",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "maxItems",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "separator",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"standard\\\" | \\\"compact\\\" | \\\"overflow\\\" | \\\"mobile\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"collapsed\\\" | \\\"current\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "maxItems",
+          "required": false
+        },
+        {
+          "name": "separator",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "contractKey": "button",
+      "source": "packages/react/src/Button.js",
+      "types": "packages/react/src/Button.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"primary\\\" | \\\"secondary\\\" | \\\"tertiary\\\" | \\\"outlined\\\" | \\\"ghost\\\"",
+          "required": false
+        },
+        {
+          "name": "intent",
+          "type": "\\\"default\\\" | \\\"danger\\\" | \\\"warning\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"pressed\\\" | \\\"disabled\\\" | \\\"loading\\\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "trailingIcon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\\\"button\\\" | \\\"submit\\\" | \\\"reset\\\"",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "intent",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "trailingIcon",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "contractKey": "card",
+      "source": "packages/react/src/Card.js",
+      "types": "packages/react/src/Card.d.ts",
+      "contractProps": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "detail",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "trend",
+          "type": "\\\"up\\\" | \\\"down\\\" | \\\"neutral\\\"",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "media",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "mediaAlt",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"default\\\" | \\\"minimal\\\" | \\\"elevated\\\" | \\\"ghost\\\"",
+          "required": false
+        },
+        {
+          "name": "composition",
+          "type": "\\\"standard\\\" | \\\"compact\\\" | \\\"media\\\" | \\\"stats\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"selected\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\" | \\\"muted\\\" | \\\"interactive\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "actionKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "type": "CardAction[]",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "type": "(key: string, action?: CardAction, event?: MouseEvent<HTMLElement>) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "unit",
+          "required": false
+        },
+        {
+          "name": "detail",
+          "required": false
+        },
+        {
+          "name": "status",
+          "required": false
+        },
+        {
+          "name": "trend",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "media",
+          "required": false
+        },
+        {
+          "name": "mediaAlt",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "composition",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "actionKey",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardExpiryInput",
+      "contractKey": "cardExpiryInput",
+      "source": "packages/react/src/CardExpiryInput.js",
+      "types": "packages/react/src/CardExpiryInput.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"filled\\\" | \\\"valid\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "validationMessage",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "expiredMessage",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: CardExpiryMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "validationMessage",
+          "required": false
+        },
+        {
+          "name": "expiredMessage",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [
+        "disabled",
+        "required",
+        "name",
+        "placeholder"
+      ],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardNumberInput",
+      "contractKey": "cardNumberInput",
+      "source": "packages/react/src/CardNumberInput.js",
+      "types": "packages/react/src/CardNumberInput.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"filled\\\" | \\\"valid\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "validationMessage",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(digits: string, meta: CardNumberMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "validationMessage",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [
+        "disabled",
+        "required",
+        "name",
+        "placeholder"
+      ],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSecurityCodeInput",
+      "contractKey": "cardSecurityCodeInput",
+      "source": "packages/react/src/CardSecurityCodeInput.js",
+      "types": "packages/react/src/CardSecurityCodeInput.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"filled\\\" | \\\"valid\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "expectedLength",
+          "type": "3 | 4",
+          "required": false
+        },
+        {
+          "name": "revealable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "revealed",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "revealLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hideLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(digits: string, meta: CardSecurityCodeMeta) => void",
+          "required": false
+        },
+        {
+          "name": "onRevealChange",
+          "type": "(revealed: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "expectedLength",
+          "required": false
+        },
+        {
+          "name": "revealable",
+          "required": false
+        },
+        {
+          "name": "revealLabel",
+          "required": false
+        },
+        {
+          "name": "hideLabel",
+          "required": false
+        },
+        {
+          "name": "revealed",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "onRevealChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [
+        "disabled",
+        "required",
+        "name",
+        "placeholder"
+      ],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSummary",
+      "contractKey": "cardSummary",
+      "source": "packages/react/src/CardSummary.js",
+      "types": "packages/react/src/CardSummary.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "meta",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "number",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "expires",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "metrics",
+          "type": "CardSummaryMetric[]",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"physical\\\" | \\\"virtual\\\" | \\\"compact\\\" | \\\"limit\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"active\\\" | \\\"warning\\\" | \\\"frozen\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "meta",
+          "required": false
+        },
+        {
+          "name": "number",
+          "required": false
+        },
+        {
+          "name": "expires",
+          "required": false
+        },
+        {
+          "name": "status",
+          "required": false
+        },
+        {
+          "name": "metrics",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "contractKey": "chartPanel",
+      "source": "packages/react/src/ChartPanel.js",
+      "types": "packages/react/src/ChartPanel.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "values",
+          "type": "number[]",
+          "required": false
+        },
+        {
+          "name": "valueLabels",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "labels",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "segments",
+          "type": "ChartPanelSegment[]",
+          "required": false
+        },
+        {
+          "name": "series",
+          "type": "ChartPanelSeries[]",
+          "required": false
+        },
+        {
+          "name": "comparisons",
+          "type": "ChartPanelSeries[]",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"sparkline\\\" | \\\"bars\\\" | \\\"line\\\" | \\\"area\\\" | \\\"donut\\\" | \\\"pareto\\\" | \\\"bullet\\\" | \\\"comparison\\\" | \\\"compact\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"focus\\\" | \\\"hover\\\" | \\\"warning\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"warning\\\" | \\\"danger\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "caption",
+          "required": false
+        },
+        {
+          "name": "values",
+          "required": false
+        },
+        {
+          "name": "valueLabels",
+          "required": false
+        },
+        {
+          "name": "labels",
+          "required": false
+        },
+        {
+          "name": "segments",
+          "required": false
+        },
+        {
+          "name": "series",
+          "required": false
+        },
+        {
+          "name": "comparisons",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Checkbox",
+      "contractKey": "checkbox",
+      "source": "packages/react/src/Checkbox.js",
+      "types": "packages/react/src/Checkbox.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"default\\\" | \\\"descriptive\\\" | \\\"select-all\\\" | \\\"compact\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"unchecked\\\" | \\\"checked\\\" | \\\"indeterminate\\\" | \\\"focus\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onCheckedChange",
+          "type": "(checked: boolean, meta: CheckboxValueMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "indeterminate",
+          "required": false
+        },
+        {
+          "name": "onCheckedChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "contractKey": "chip",
+      "source": "packages/react/src/Chip.js",
+      "types": "packages/react/src/Chip.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "type": "ChipVariant",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"default\\\" | \\\"danger\\\" | \\\"warning\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "ChipState",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "removable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onRemoveLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onRemove",
+          "type": "(label: string) => void",
+          "required": false
+        },
+        {
+          "name": "onSelectedChange",
+          "type": "(selected: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "required": false
+        },
+        {
+          "name": "removable",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "required": false
+        },
+        {
+          "name": "onRemoveLabel",
+          "required": false
+        },
+        {
+          "name": "onRemove",
+          "required": false
+        },
+        {
+          "name": "onSelectedChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CodeInput",
+      "contractKey": "codeInput",
+      "source": "packages/react/src/CodeInput.js",
+      "types": "packages/react/src/CodeInput.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "length",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"sms\\\" | \\\"otp\\\" | \\\"approval\\\" | \\\"masked\\\" | \\\"compact\\\"",
+          "required": false
+        },
+        {
+          "name": "masked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"complete\\\" | \\\"warning\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string) => void",
+          "required": false
+        },
+        {
+          "name": "onComplete",
+          "type": "(value: string) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "length",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "masked",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "onComplete",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Combobox",
+      "contractKey": "combobox",
+      "source": "packages/react/src/Combobox.js",
+      "types": "packages/react/src/Combobox.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "ComboboxOption[]",
+          "required": true
+        },
+        {
+          "name": "optionsLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "clearSelectionLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "emptyText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"open\\\" | \\\"focus\\\" | \\\"filled\\\" | \\\"empty\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: ComboboxValueMeta) => void",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "options",
+          "required": true
+        },
+        {
+          "name": "optionsLabel",
+          "required": false
+        },
+        {
+          "name": "clearSelectionLabel",
+          "required": false
+        },
+        {
+          "name": "emptyText",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CountrySelector",
+      "contractKey": "countrySelector",
+      "source": "packages/react/src/CountrySelector.js",
+      "types": "packages/react/src/CountrySelector.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "country",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "countries",
+          "type": "CountrySelectorCountry[]",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "searchable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "searchPlaceholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "emptyText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(countryCode: string, country: CountryMeta) => void",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "country",
+          "required": false
+        },
+        {
+          "name": "countries",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "inline",
+          "required": false
+        },
+        {
+          "name": "searchable",
+          "required": false
+        },
+        {
+          "name": "searchPlaceholder",
+          "required": false
+        },
+        {
+          "name": "emptyText",
+          "required": false
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "DatePicker",
+      "contractKey": "datePicker",
+      "source": "packages/react/src/DatePicker.js",
+      "types": "packages/react/src/DatePicker.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "string | string[]",
+          "required": false
+        },
+        {
+          "name": "weekdays",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "calendarLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "previousMonthLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "nextMonthLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"selected\\\" | \\\"warning\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string) => void",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "required": false
+        },
+        {
+          "name": "weekdays",
+          "required": false
+        },
+        {
+          "name": "calendarLabel",
+          "required": false
+        },
+        {
+          "name": "previousMonthLabel",
+          "required": false
+        },
+        {
+          "name": "nextMonthLabel",
+          "required": false
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "DateRangePicker",
+      "contractKey": "dateRangePicker",
+      "source": "packages/react/src/DateRangePicker.js",
+      "types": "packages/react/src/DateRangePicker.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "DateRangePickerValue",
+          "required": false
+        },
+        {
+          "name": "from",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "to",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "string | string[]",
+          "required": false
+        },
+        {
+          "name": "weekdays",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "calendarLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "previousMonthLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "nextMonthLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"selected\\\" | \\\"warning\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "presets",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "presetItems",
+          "type": "DateRangePickerPreset[]",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: DateRangePickerValue) => void",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "from",
+          "required": false
+        },
+        {
+          "name": "to",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "required": false
+        },
+        {
+          "name": "weekdays",
+          "required": false
+        },
+        {
+          "name": "calendarLabel",
+          "required": false
+        },
+        {
+          "name": "previousMonthLabel",
+          "required": false
+        },
+        {
+          "name": "nextMonthLabel",
+          "required": false
+        },
+        {
+          "name": "presets",
+          "required": false
+        },
+        {
+          "name": "presetItems",
+          "required": false
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Dialog",
+      "contractKey": "dialog",
+      "source": "packages/react/src/Dialog.js",
+      "types": "packages/react/src/Dialog.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "triggerLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "type": "DialogAction[]",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"success\\\" | \\\"danger\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"confirmation\\\" | \\\"destructive\\\" | \\\"form\\\" | \\\"review\\\" | \\\"success\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"open\\\" | \\\"focus\\\" | \\\"closing\\\" | \\\"default\\\" | \\\"closed\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "fields",
+          "type": "DialogField[]",
+          "required": false
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "type": "(key: string) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "triggerLabel",
+          "required": false
+        },
+        {
+          "name": "closeLabel",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "required": false
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "fields",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "contractKey": "drawer",
+      "source": "packages/react/src/Drawer.js",
+      "types": "packages/react/src/Drawer.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "triggerLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"side-sheet\\\" | \\\"filter\\\" | \\\"detail\\\" | \\\"edit\\\" | \\\"review\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"closed\\\" | \\\"default\\\" | \\\"open\\\" | \\\"focus\\\" | \\\"closing\\\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"danger\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "side",
+          "type": "\\\"left\\\" | \\\"right\\\"",
+          "required": false
+        },
+        {
+          "name": "fields",
+          "type": "DrawerField[]",
+          "required": false
+        },
+        {
+          "name": "content",
+          "type": "DrawerContent[]",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "type": "DrawerAction[]",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "type": "(key: string) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "triggerLabel",
+          "required": false
+        },
+        {
+          "name": "closeLabel",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "side",
+          "required": false
+        },
+        {
+          "name": "fields",
+          "required": false
+        },
+        {
+          "name": "content",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "required": false
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "EmptyState",
+      "contractKey": "emptyState",
+      "source": "packages/react/src/EmptyState.js",
+      "types": "packages/react/src/EmptyState.d.ts",
+      "contractProps": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "action",
+          "type": "EmptyStateAction",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"first-use\\\" | \\\"search-empty\\\" | \\\"permission\\\" | \\\"error\\\" | \\\"maintenance\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"action\\\" | \\\"search-empty\\\" | \\\"permission\\\" | \\\"loading\\\" | \\\"error\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "type": "(key: string) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "action",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ErrorPanel",
+      "contractKey": "errorPanel",
+      "source": "packages/react/src/ErrorPanel.js",
+      "types": "packages/react/src/ErrorPanel.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "action",
+          "type": "ErrorPanelAction",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"warning\\\" | \\\"error\\\" | \\\"critical\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"inline\\\" | \\\"panel\\\" | \\\"blocking\\\" | \\\"empty-recovery\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"warning\\\" | \\\"error\\\" | \\\"critical\\\" | \\\"loading\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "type": "(key: string) => void",
+          "required": false
+        },
+        {
+          "name": "role",
+          "type": "\\\"status\\\" | \\\"alert\\\"",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "action",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "FloatingActionButton",
+      "contractKey": "floatingActionButton",
+      "source": "packages/react/src/FloatingActionButton.js",
+      "types": "packages/react/src/FloatingActionButton.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"primary\\\" | \\\"accent\\\" | \\\"extended\\\" | \\\"mini\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"pressed\\\" | \\\"loading\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "extended",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\\\"button\\\" | \\\"submit\\\" | \\\"reset\\\"",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "extended",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "contractKey": "iconButton",
+      "source": "packages/react/src/IconButton.js",
+      "types": "packages/react/src/IconButton.d.ts",
+      "contractProps": [
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "type": "\\\"ghost\\\" | \\\"tonal\\\" | \\\"primary\\\" | \\\"accent\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "badge",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\\\"button\\\" | \\\"submit\\\" | \\\"reset\\\"",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "icon",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "required": false
+        },
+        {
+          "name": "badge",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "InlineValidation",
+      "contractKey": "inlineValidation",
+      "source": "packages/react/src/InlineValidation.js",
+      "types": "packages/react/src/InlineValidation.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"info\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "field",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "live",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "message",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "field",
+          "required": false
+        },
+        {
+          "name": "live",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Input",
+      "contractKey": "input",
+      "source": "packages/react/src/Input.js",
+      "types": "packages/react/src/Input.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"focus\\\" | \\\"filled\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"text\\\" | \\\"email\\\" | \\\"password\\\" | \\\"number\\\" | \\\"currency\\\" | \\\"unit\\\" | \\\"search\\\"",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "suffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "mono",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "inputMode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "autocomplete",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "align",
+          "type": "\\\"start\\\" | \\\"end\\\"",
+          "required": false
+        },
+        {
+          "name": "revealable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "revealed",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "revealLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hideLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "string | string[]",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: InputValueMeta) => void",
+          "required": false
+        },
+        {
+          "name": "onRevealChange",
+          "type": "(revealed: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "prefix",
+          "required": false
+        },
+        {
+          "name": "suffix",
+          "required": false
+        },
+        {
+          "name": "mono",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "align",
+          "required": false
+        },
+        {
+          "name": "revealable",
+          "required": false
+        },
+        {
+          "name": "revealed",
+          "required": false
+        },
+        {
+          "name": "revealLabel",
+          "required": false
+        },
+        {
+          "name": "hideLabel",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "required": false
+        },
+        {
+          "name": "autocomplete",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "onRevealChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [
+        "name",
+        "placeholder",
+        "disabled",
+        "required",
+        "type",
+        "inputMode"
+      ],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "contractKey": "kpiTile",
+      "source": "packages/react/src/KpiTile.js",
+      "types": "packages/react/src/KpiTile.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "delta",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "trend",
+          "type": "\\\"up\\\" | \\\"down\\\" | \\\"flat\\\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"danger\\\"",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"standard\\\" | \\\"delta\\\" | \\\"threshold\\\" | \\\"sparkline\\\" | \\\"drill-in\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"selected\\\" | \\\"loading\\\" | \\\"risk\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "values",
+          "type": "number[]",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "type": "(metric: KpiTileMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "delta",
+          "required": false
+        },
+        {
+          "name": "trend",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "values",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "List",
+      "contractKey": "list",
+      "source": "packages/react/src/List.js",
+      "types": "packages/react/src/List.d.ts",
+      "contractProps": [
+        {
+          "name": "items",
+          "type": "ListItem[]",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "type": "\\\"standard\\\" | \\\"compact\\\" | \\\"action\\\" | \\\"status\\\" | \\\"media\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"selected\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selectedKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "type": "(key: string) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "required": false
+        },
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "selectedKey",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "contractKey": "menu",
+      "source": "packages/react/src/Menu.js",
+      "types": "packages/react/src/Menu.d.ts",
+      "contractProps": [
+        {
+          "name": "triggerLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "items",
+          "type": "Array<MenuItem | \\\"divider\\\">",
+          "required": true
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"actions\\\" | \\\"grouped\\\" | \\\"selection\\\" | \\\"danger\\\" | \\\"icon-trigger\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"closed\\\" | \\\"open\\\" | \\\"focus\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "align",
+          "type": "\\\"start\\\" | \\\"end\\\"",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "avatarName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "avatarStatus",
+          "type": "\\\"none\\\" | \\\"online\\\" | \\\"busy\\\" | \\\"offline\\\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "type": "(item: MenuItem) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "triggerLabel",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "avatarName",
+          "required": false
+        },
+        {
+          "name": "avatarStatus",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "align",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "MotionBoundary",
+      "contractKey": "motionBoundary",
+      "source": "packages/react/src/MotionBoundary.js",
+      "types": "packages/react/src/MotionBoundary.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "MotionBoundaryVariant",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "MotionBoundaryState",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "reducedMotion",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "stateLabel",
+          "type": "string",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "reducedMotion",
+          "required": false
+        },
+        {
+          "name": "stateLabel",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "contractKey": "movementRow",
+      "source": "packages/react/src/MovementRow.js",
+      "types": "packages/react/src/MovementRow.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "meta",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "amount",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "category",
+          "type": "\\\"fuel\\\" | \\\"charge\\\" | \\\"toll\\\" | \\\"food\\\" | \\\"transfer\\\" | \\\"income\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"standard\\\" | \\\"refund\\\" | \\\"declined\\\" | \\\"compact\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"pending\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "type": "(meta: MovementRowMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "meta",
+          "required": false
+        },
+        {
+          "name": "amount",
+          "required": false
+        },
+        {
+          "name": "status",
+          "required": false
+        },
+        {
+          "name": "category",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Pagination",
+      "contractKey": "pagination",
+      "source": "packages/react/src/Pagination.js",
+      "types": "packages/react/src/Pagination.d.ts",
+      "contractProps": [
+        {
+          "name": "page",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "pageCount",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "previousLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "nextLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "getPageLabel",
+          "type": "(page: number) => string",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "type": "numbered",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"selected\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onPageChange",
+          "type": "(page: number) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "page",
+          "required": false
+        },
+        {
+          "name": "pageCount",
+          "required": true
+        },
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "previousLabel",
+          "required": true
+        },
+        {
+          "name": "nextLabel",
+          "required": true
+        },
+        {
+          "name": "getPageLabel",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "onPageChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "PhoneInput",
+      "contractKey": "phoneInput",
+      "source": "packages/react/src/PhoneInput.js",
+      "types": "packages/react/src/PhoneInput.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "country",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "countries",
+          "type": "PhoneCountry[]",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"country-code\\\" | \\\"compact\\\" | \\\"otp-handoff\\\" | \\\"readonly\\\"",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"valid\\\" | \\\"warning\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "emptyText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(nationalNumber: string, meta: PhoneMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "prefix",
+          "required": false
+        },
+        {
+          "name": "country",
+          "required": false
+        },
+        {
+          "name": "countries",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "emptyText",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Popover",
+      "contractKey": "popover",
+      "source": "packages/react/src/Popover.js",
+      "types": "packages/react/src/Popover.d.ts",
+      "contractProps": [
+        {
+          "name": "triggerLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"information\\\" | \\\"action\\\" | \\\"form\\\" | \\\"metric\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"closed\\\" | \\\"open\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"warning\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "\\\"top\\\" | \\\"right\\\" | \\\"bottom\\\" | \\\"left\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "type": "PopoverAction[]",
+          "required": false
+        },
+        {
+          "name": "field",
+          "type": "PopoverField",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "type": "(key: string) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "triggerLabel",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "required": false
+        },
+        {
+          "name": "field",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ProgressIndicator",
+      "contractKey": "progressIndicator",
+      "source": "packages/react/src/ProgressIndicator.js",
+      "types": "packages/react/src/ProgressIndicator.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "ariaValueText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"accent\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"danger\\\" | \\\"ink\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"active\\\" | \\\"indeterminate\\\" | \\\"paused\\\" | \\\"complete\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "ariaValueText",
+          "required": false
+        },
+        {
+          "name": "indeterminate",
+          "required": false
+        },
+        {
+          "name": "showValue",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "QuickAction",
+      "contractKey": "quickAction",
+      "source": "packages/react/src/QuickAction.js",
+      "types": "packages/react/src/QuickAction.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "badge",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"standard\\\" | \\\"destructive\\\" | \\\"compact\\\" | \\\"wide\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"pressed\\\" | \\\"loading\\\" | \\\"warning\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"danger\\\"",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\\\"button\\\" | \\\"submit\\\" | \\\"reset\\\"",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "type": "(meta: QuickActionMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "badge",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [
+        "type"
+      ],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "RadioButton",
+      "contractKey": "radioButton",
+      "source": "packages/react/src/RadioButton.js",
+      "types": "packages/react/src/RadioButton.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"default\\\" | \\\"descriptive\\\" | \\\"compact\\\" | \\\"critical\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"unselected\\\" | \\\"selected\\\" | \\\"focus\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onCheckedChange",
+          "type": "(checked: boolean, meta: RadioButtonValueMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "onCheckedChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "RouteSummary",
+      "contractKey": "routeSummary",
+      "source": "packages/react/src/RouteSummary.js",
+      "types": "packages/react/src/RouteSummary.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "metrics",
+          "type": "RouteMetric[]",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "type": "RouteSummaryAction[]",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"standard\\\" | \\\"compact\\\" | \\\"compare\\\" | \\\"policy\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"selected\\\" | \\\"warning\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"warning\\\"",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "metrics",
+          "required": false
+        },
+        {
+          "name": "actions",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "SegmentedControl",
+      "contractKey": "segmentedControl",
+      "source": "packages/react/src/SegmentedControl.js",
+      "types": "packages/react/src/SegmentedControl.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "items",
+          "type": "SegmentedControlItem[]",
+          "required": true
+        },
+        {
+          "name": "selectedKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(key: string) => void",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"outlined\\\" | \\\"toolbar\\\" | \\\"compact\\\" | \\\"icon-only\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "selectedKey",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Select",
+      "contractKey": "select",
+      "source": "packages/react/src/Select.js",
+      "types": "packages/react/src/Select.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "SelectOption[]",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"default\\\" | \\\"inline\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"open\\\" | \\\"focus\\\" | \\\"filled\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "optionsLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: SelectValueMeta) => void",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "options",
+          "required": true
+        },
+        {
+          "name": "optionsLabel",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Skeleton",
+      "contractKey": "skeleton",
+      "source": "packages/react/src/Skeleton.js",
+      "types": "packages/react/src/Skeleton.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "type": "\\\"text\\\" | \\\"title\\\" | \\\"circle\\\" | \\\"card\\\" | \\\"pill\\\" | \\\"row\\\" | \\\"media\\\" | \\\"chart\\\" | \\\"table\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "lines",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "busy",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"loading\\\" | \\\"stale\\\" | \\\"paused\\\" | \\\"loaded\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "lines",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "required": false
+        },
+        {
+          "name": "busy",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "fullWidth",
+          "required": false
+        },
+        {
+          "name": "width",
+          "required": false
+        },
+        {
+          "name": "height",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Slider",
+      "contractKey": "slider",
+      "source": "packages/react/src/Slider.js",
+      "types": "packages/react/src/Slider.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"continuous\\\" | \\\"stepped\\\" | \\\"bounded\\\" | \\\"threshold\\\" | \\\"paired-value\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"focus\\\" | \\\"dragging\\\" | \\\"disabled\\\" | \\\"error\\\" | \\\"complete\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "valueLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "formatValue",
+          "type": "(value: number) => string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: number, meta: SliderValueMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "step",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "unit",
+          "required": false
+        },
+        {
+          "name": "valueLabel",
+          "required": false
+        },
+        {
+          "name": "formatValue",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Spinner",
+      "contractKey": "spinner",
+      "source": "packages/react/src/Spinner.js",
+      "types": "packages/react/src/Spinner.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"accent\\\" | \\\"ink\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"danger\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"loading\\\" | \\\"decorative\\\" | \\\"subtle\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "decorative",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "decorative",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "StationPin",
+      "contractKey": "stationPin",
+      "source": "packages/react/src/StationPin.js",
+      "types": "packages/react/src/StationPin.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "meta",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"fuel\\\" | \\\"ev\\\" | \\\"service\\\" | \\\"cluster\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"selected\\\" | \\\"unavailable\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "unavailable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "type": "(meta: StationPinMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "meta",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "count",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "required": false
+        },
+        {
+          "name": "unavailable",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [
+        "value"
+      ],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Stepper",
+      "contractKey": "stepper",
+      "source": "packages/react/src/Stepper.js",
+      "types": "packages/react/src/Stepper.d.ts",
+      "contractProps": [
+        {
+          "name": "steps",
+          "type": "StepperStep[]",
+          "required": true
+        },
+        {
+          "name": "current",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "orientation",
+          "type": "\\\"horizontal\\\" | \\\"vertical\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "steps",
+          "required": true
+        },
+        {
+          "name": "current",
+          "required": false
+        },
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "orientation",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Switch",
+      "contractKey": "switch",
+      "source": "packages/react/src/Switch.js",
+      "types": "packages/react/src/Switch.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"off\\\" | \\\"on\\\" | \\\"focus\\\" | \\\"pressed\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onCheckedChange",
+          "type": "(checked: boolean, meta: SwitchValueMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "onCheckedChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Table",
+      "contractKey": "table",
+      "source": "packages/react/src/Table.js",
+      "types": "packages/react/src/Table.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "columns",
+          "type": "TableColumn[]",
+          "required": true
+        },
+        {
+          "name": "rows",
+          "type": "Array<Record<string, TableCellValue>>",
+          "required": true
+        },
+        {
+          "name": "rowKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"standard\\\" | \\\"dense\\\" | \\\"sortable\\\" | \\\"selectable\\\" | \\\"expandable\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"selected\\\" | \\\"sorted\\\" | \\\"expanded\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "dense",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "sortKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sortDir",
+          "type": "\\\"ascending\\\" | \\\"descending\\\"",
+          "required": false
+        },
+        {
+          "name": "selectedKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "expandedKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "renderDetail",
+          "type": "(row: TableRow) => ReactNode",
+          "required": false
+        },
+        {
+          "name": "onSortChange",
+          "type": "(sort: TableSort) => void",
+          "required": false
+        },
+        {
+          "name": "onRowSelect",
+          "type": "(key: string) => void",
+          "required": false
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "(key: string) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "columns",
+          "required": true
+        },
+        {
+          "name": "rowKey",
+          "required": false
+        },
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "dense",
+          "required": false
+        },
+        {
+          "name": "sortKey",
+          "required": false
+        },
+        {
+          "name": "sortDir",
+          "required": false
+        },
+        {
+          "name": "selectedKey",
+          "required": false
+        },
+        {
+          "name": "expandedKey",
+          "required": false
+        },
+        {
+          "name": "renderDetail",
+          "required": false
+        },
+        {
+          "name": "onSortChange",
+          "required": false
+        },
+        {
+          "name": "onRowSelect",
+          "required": false
+        },
+        {
+          "name": "onExpandedChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tabs",
+      "contractKey": "tabs",
+      "source": "packages/react/src/Tabs.js",
+      "types": "packages/react/src/Tabs.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "items",
+          "type": "TabsItem[]",
+          "required": true
+        },
+        {
+          "name": "selectedKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(key: string) => void",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"default\\\" | \\\"underline\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "selectedKey",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "contractKey": "tag",
+      "source": "packages/react/src/Tag.js",
+      "types": "packages/react/src/Tag.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "type": "TagVariant",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"danger\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "TagState",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "TextArea",
+      "contractKey": "textArea",
+      "source": "packages/react/src/TextArea.js",
+      "types": "packages/react/src/TextArea.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "maxLength",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"focus\\\" | \\\"filled\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: TextAreaChangeMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [
+        "name",
+        "placeholder",
+        "disabled",
+        "required",
+        "rows"
+      ],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Toast",
+      "contractKey": "toast",
+      "source": "packages/react/src/Toast.js",
+      "types": "packages/react/src/Toast.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"danger\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"status\\\" | \\\"progress\\\" | \\\"warning\\\" | \\\"recovery\\\" | \\\"undo\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"visible\\\" | \\\"action\\\" | \\\"stacked\\\" | \\\"exiting\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "actionLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dismissible",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "dismissLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dismissed",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void",
+          "required": false
+        },
+        {
+          "name": "onDismiss",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void",
+          "required": false
+        },
+        {
+          "name": "onDismissChange",
+          "type": "(dismissed: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "actionLabel",
+          "required": false
+        },
+        {
+          "name": "dismissible",
+          "required": false
+        },
+        {
+          "name": "dismissLabel",
+          "required": false
+        },
+        {
+          "name": "dismissed",
+          "required": false
+        },
+        {
+          "name": "onAction",
+          "required": false
+        },
+        {
+          "name": "onDismiss",
+          "required": false
+        },
+        {
+          "name": "onDismissChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tooltip",
+      "contractKey": "tooltip",
+      "source": "packages/react/src/Tooltip.js",
+      "types": "packages/react/src/Tooltip.d.ts",
+      "contractProps": [
+        {
+          "name": "triggerLabel",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "\\\"top\\\" | \\\"right\\\" | \\\"bottom\\\" | \\\"left\\\"",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"default\\\" | \\\"icon-help\\\" | \\\"metric\\\" | \\\"disabled-help\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"open\\\" | \\\"disabled\\\" | \\\"dismissed\\\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "triggerLabel",
+          "required": true
+        },
+        {
+          "name": "content",
+          "required": true
+        },
+        {
+          "name": "placement",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "open",
+          "required": false
+        },
+        {
+          "name": "onOpenChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "TreeView",
+      "contractKey": "treeView",
+      "source": "packages/react/src/TreeView.js",
+      "types": "packages/react/src/TreeView.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "nodes",
+          "type": "TreeViewNode[]",
+          "required": true
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"expanded\\\" | \\\"selected\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "selectedKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "expandedKeys",
+          "type": "string[]",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "type": "(key: string) => void",
+          "required": false
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "(expandedKeys: string[]) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "nodes",
+          "required": true
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "selectedKey",
+          "required": false
+        },
+        {
+          "name": "expandedKeys",
+          "required": false
+        },
+        {
+          "name": "onSelect",
+          "required": false
+        },
+        {
+          "name": "onExpandedChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "failures": [],
+      "status": "pass"
+    }
+  ]
+}

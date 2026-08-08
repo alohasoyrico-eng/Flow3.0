@@ -582,6 +582,25 @@ try {
   }));
   await waitFor(() => assert.equal(comboboxInput.value, "Ana Sosa"));
 
+  rerenderCombobox(React.createElement(Combobox, {
+    label: "Driver",
+    options: [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Driver" },
+    ],
+    open: true,
+  }));
+  await waitFor(() => assert.equal(comboboxInput.getAttribute("aria-expanded"), "true"));
+  rerenderCombobox(React.createElement(Combobox, {
+    label: "Driver",
+    options: [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Driver" },
+    ],
+    open: false,
+  }));
+  await waitFor(() => assert.equal(comboboxInput.getAttribute("aria-expanded"), "false"));
+
   cleanup();
 
   const comboboxInputEvents = [];
@@ -678,6 +697,19 @@ try {
     onOpenChange: (open, event) => countryOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(countryTrigger.textContent.includes("+1"), true));
+
+  rerenderCountrySelector(React.createElement(CountrySelector, {
+    label: "Country",
+    countries,
+    open: true,
+  }));
+  await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "true"));
+  rerenderCountrySelector(React.createElement(CountrySelector, {
+    label: "Country",
+    countries,
+    open: false,
+  }));
+  await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "false"));
 
   cleanup();
 
@@ -1886,6 +1918,25 @@ try {
     onOpenChange: (open, event) => selectOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(selectTrigger.textContent.includes("United States"), true));
+
+  rerenderSelect(React.createElement(Select, {
+    label: "Country",
+    options: [
+      { label: "Mexico", value: "mx", meta: "+52" },
+      { label: "United States", value: "us", meta: "+1" },
+    ],
+    open: true,
+  }));
+  await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-expanded"), "true"));
+  rerenderSelect(React.createElement(Select, {
+    label: "Country",
+    options: [
+      { label: "Mexico", value: "mx", meta: "+52" },
+      { label: "United States", value: "us", meta: "+1" },
+    ],
+    open: false,
+  }));
+  await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-expanded"), "false"));
 
   cleanup();
 

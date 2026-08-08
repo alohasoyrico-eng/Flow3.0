@@ -8,7 +8,7 @@ Controlled React props must be explicit in source and covered by external rerend
 
 - React components scanned: 56
 - Controlled components: 28
-- Open-controlled components: 7
+- Open-controlled components: 10
 - Controlled prop edges: 25
 - Tested controlled prop edges: 25
 - Failures: 0
@@ -23,8 +23,8 @@ Controlled React props must be explicit in source and covered by external rerend
 | CardSecurityCodeInput | pass | no | no | no | value:tested | None |
 | Checkbox | pass | no | no | no | checked:tested | None |
 | CodeInput | pass | no | no | no | value:tested | None |
-| Combobox | pass | no | yes | no | value:tested | None |
-| CountrySelector | pass | no | yes | no | value:tested | None |
+| Combobox | pass | yes | yes | yes | value:tested | None |
+| CountrySelector | pass | yes | yes | yes | value:tested | None |
 | DatePicker | pass | yes | yes | yes | value:tested | None |
 | DateRangePicker | pass | yes | yes | yes | value:tested | None |
 | Dialog | pass | yes | yes | yes | None | None |
@@ -37,7 +37,7 @@ Controlled React props must be explicit in source and covered by external rerend
 | Popover | pass | yes | yes | yes | None | None |
 | RadioButton | pass | no | no | no | checked:tested | None |
 | SegmentedControl | pass | no | no | no | selectedKey:tested | None |
-| Select | pass | no | yes | no | value:tested | None |
+| Select | pass | yes | yes | yes | value:tested | None |
 | Slider | pass | no | no | no | value:tested | None |
 | Switch | pass | no | no | no | checked:tested | None |
 | Table | pass | no | no | no | selectedKey:tested, sortKey:tested, expandedKey:tested | None |
