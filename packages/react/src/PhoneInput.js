@@ -90,7 +90,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
 
   if (!label) return null;
 
-  const commitDigits = (nextValue, countryValue = selectedCountry) => {
+  const commitDigits = (nextValue, countryValue = selectedCountry, event) => {
     const parsedNext = parsePhoneValue(nextValue, countryValue, countryOptions);
     const nextCountry = parsedNext.country;
     const nextDigits = parsedNext.digits.slice(0, nextCountry.nationalLength);
@@ -98,14 +98,14 @@ export const PhoneInput = forwardRef(function PhoneInput({
       setSelectedCountry(nextCountry);
       setDigits(nextDigits);
     }
-    onValueChange?.(nextDigits, countryMeta(nextCountry, nextDigits));
+    onValueChange?.(nextDigits, countryMeta(nextCountry, nextDigits), event);
   };
 
-  const commitCountry = (nextCountry) => {
+  const commitCountry = (nextCountry, event) => {
     setSelectedCountry(nextCountry);
     const nextDigits = digits.slice(0, nextCountry.nationalLength);
     setDigits(nextDigits);
-    onValueChange?.(nextDigits, countryMeta(nextCountry, nextDigits));
+    onValueChange?.(nextDigits, countryMeta(nextCountry, nextDigits), event);
   };
 
   return React.createElement(
@@ -131,7 +131,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
         searchable: false,
         emptyText,
         className: "phone-input__country",
-        onValueChange: (_countryCode, option) => commitCountry(option),
+        onValueChange: (_countryCode, option, event) => commitCountry(option, event),
       }),
       React.createElement("input", {
         ...flowRestProps(rest),
@@ -149,7 +149,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
         "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": error ? "true" : undefined,
-        onChange: (event) => commitDigits(event.target.value),
+        onChange: (event) => commitDigits(event.target.value, selectedCountry, event),
       }),
     ),
     resolvedHelper

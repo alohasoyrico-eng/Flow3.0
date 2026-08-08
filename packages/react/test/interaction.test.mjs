@@ -1182,7 +1182,7 @@ try {
     label: "Phone number",
     country: "MX",
     countries: phoneCountries,
-    onValueChange: (value, meta) => phoneChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => phoneChanges.push({ value, meta, eventType: event.type }),
   }));
 
   const phoneInput = getPhoneLabel(/phone number/i, { selector: "input" });
@@ -1195,6 +1195,7 @@ try {
     e164: "+525512345678",
     nationalNumber: "5512345678",
   });
+  assert.equal(phoneChanges.at(-1).eventType, "change");
 
   const phoneCountryTrigger = getPhoneRole("combobox", { name: /phone number/i });
   fireEvent.click(phoneCountryTrigger);
@@ -1207,13 +1208,14 @@ try {
     e164: "+15512345678",
     nationalNumber: "5512345678",
   });
+  assert.equal(phoneChanges.at(-1).eventType, "click");
 
   rerenderPhoneInput(React.createElement(PhoneInput, {
     label: "Phone number",
     value: "+525598765432",
     country: "MX",
     countries: phoneCountries,
-    onValueChange: (value, meta) => phoneChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => phoneChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(phoneInput.value, "55 9876 5432"));
   await waitFor(() => assert.equal(phoneCountryTrigger.textContent.includes("+52"), true));

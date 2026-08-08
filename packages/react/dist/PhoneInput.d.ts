@@ -1,5 +1,6 @@
-import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
 import { phoneInputPlatformContract } from "#flow/platforms";
+import type { CountrySelectorValueChangeEvent } from "./CountrySelector.js";
 
 export type PhoneInputDensity = "sm" | "md" | "lg";
 export type PhoneInputVariant = "country-code" | "compact" | "otp-handoff" | "readonly";
@@ -16,6 +17,7 @@ export type PhoneInputMeta = {
   e164: string;
   nationalNumber: string;
 };
+export type PhoneInputValueChangeEvent = ChangeEvent<HTMLInputElement> | CountrySelectorValueChangeEvent;
 
 export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -30,7 +32,7 @@ export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputEleme
   density?: PhoneInputDensity;
   error?: string;
   emptyText?: string;
-  onValueChange?: (nationalNumber: string, meta: PhoneInputMeta) => void;
+  onValueChange?: (nationalNumber: string, meta: PhoneInputMeta, event: PhoneInputValueChangeEvent) => void;
 }
 
 export interface PhoneInputComponent extends ForwardRefExoticComponent<PhoneInputProps & RefAttributes<HTMLInputElement>> {
