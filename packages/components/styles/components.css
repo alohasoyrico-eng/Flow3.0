@@ -732,9 +732,9 @@
   --component-card-icon-size-lg: calc(var(--component-control-min-size) - var(--sys-space-sm));
   --component-station-pin-pointer-size: calc(var(--sys-space-sm) - var(--sys-frame-space-micro));
   --component-phone-compact-control-size: var(--component-field-control-size-sm);
-  --component-date-picker-control-size-sm: var(--button-size-sm);
+  --component-date-picker-control-size-sm: var(--comp-button-size-sm);
   --component-date-picker-control-size-md: calc(var(--component-control-min-size) + var(--sys-frame-border-control));
-  --component-date-picker-control-size-lg: var(--button-size-lg);
+  --component-date-picker-control-size-lg: var(--comp-button-size-lg);
   --component-date-picker-day-size-sm: var(--component-field-icon-action-size-md);
   --component-date-picker-day-size-md: calc(var(--component-field-icon-action-size-md) + var(--sys-frame-space-micro));
   --component-date-picker-day-size-lg: var(--component-list-icon-box-size);
@@ -762,18 +762,6 @@
   --comp-button-icon-size-lg: var(--sys-icon-size-md-plus);
   --comp-button-icon-size: var(--sys-icon-size-md);
   --comp-button-font-size: var(--component-font-size-label);
-  --button-size-sm: var(--comp-button-size-sm);
-  --button-size-md: var(--comp-button-size-md);
-  --button-size-lg: var(--comp-button-size-lg);
-  --button-size: var(--comp-button-size);
-  --button-padding-sm: var(--comp-button-padding-sm);
-  --button-padding-md: var(--comp-button-padding-md);
-  --button-padding-lg: var(--comp-button-padding-lg);
-  --button-padding: var(--comp-button-padding);
-  --button-icon-size-sm: var(--comp-button-icon-size-sm);
-  --button-icon-size-md: var(--comp-button-icon-size-md);
-  --button-icon-size-lg: var(--comp-button-icon-size-lg);
-  --button-icon-size: var(--comp-button-icon-size);
 }
 
 .button,
@@ -4996,7 +4984,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .pagination[data-density="sm"] {
-  --comp-pagination-size: var(--button-size-sm);
+  --comp-pagination-size: var(--comp-button-size-sm);
   --comp-pagination-gap: var(--component-focus-ring-offset);
   --comp-pagination-padding-inline: var(--sys-space-xs);
 }
@@ -6724,8 +6712,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .tree-view {
   --comp-tree-view-padding: var(--sys-space-sm);
   --comp-tree-view-indent: var(--sys-space-lg);
-  --comp-tree-view-control-min-block: var(--button-size-sm);
-  --comp-tree-view-icon-size: var(--button-icon-size-sm);
+  --comp-tree-view-control-min-block: var(--comp-button-size-sm);
+  --comp-tree-view-icon-size: var(--comp-button-icon-size-sm);
   --comp-tree-view-selected-bg: transparent;
   --comp-tree-view-selected-text: var(--sys-color-action);
   --comp-tree-view-selected-border: transparent;
@@ -6750,7 +6738,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .tree-view[data-density="sm"] {
   --comp-tree-view-padding: var(--sys-space-xs);
   --comp-tree-view-indent: var(--sys-space-md);
-  --comp-tree-view-control-min-block: var(--button-size-sm);
+  --comp-tree-view-control-min-block: var(--comp-button-size-sm);
 }
 
 .tree-view[data-density="lg"] {
@@ -10303,7 +10291,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control[data-variant="toolbar"] {
-  --comp-segmented-control-item-min-block: var(--button-size-sm);
+  --comp-segmented-control-item-min-block: var(--comp-button-size-sm);
   --comp-segmented-control-item-padding-inline: var(--sys-space-sm);
   --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
   --comp-segmented-control-bg: color-mix(in srgb, var(--sys-color-surface) 76%, var(--sys-color-border));
@@ -10311,20 +10299,20 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control[data-variant="compact"] {
-  --comp-segmented-control-item-min-block: var(--button-size-sm);
+  --comp-segmented-control-item-min-block: var(--comp-button-size-sm);
   --comp-segmented-control-item-padding-inline: var(--sys-space-sm);
   --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
   --comp-segmented-control-inline-size: min(100%, var(--component-content-size-md));
 }
 
 .segmented-control[data-density="sm"] {
-  --comp-segmented-control-item-min-block: var(--button-size-sm);
+  --comp-segmented-control-item-min-block: var(--comp-button-size-sm);
   --comp-segmented-control-item-padding-inline: var(--sys-space-sm);
   --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
 }
 
 .segmented-control[data-density="lg"] {
-  --comp-segmented-control-item-min-block: var(--button-size-lg);
+  --comp-segmented-control-item-min-block: var(--comp-button-size-lg);
   --comp-segmented-control-item-padding-inline: var(--sys-space-lg);
   --comp-segmented-control-icon-size: var(--component-font-size-title-md);
 }

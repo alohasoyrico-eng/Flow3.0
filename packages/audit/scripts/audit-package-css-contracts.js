@@ -149,6 +149,9 @@ function checkPackageCssContracts() {
   if (!text.includes("--comp-button-size: var(--sys-density-control-height)") || !text.includes("--comp-button-padding: var(--sys-density-control-padding-x)")) {
     add("errors", packageCssFile, 1, "Button base geometry must inherit from sys-density aliases instead of a fixed md size.");
   }
+  if (/--button-(?:size|padding|icon-size)(?:-|:|\))/.test(text)) {
+    add("errors", packageCssFile, 1, "Button geometry aliases must stay in the --comp-button-* contract; legacy --button-* shortcuts are not allowed.");
+  }
   if (!buttonIconBlock?.body.includes("font-size: var(--comp-button-current-icon-size)")) {
     add("errors", packageCssFile, buttonIconBlock ? lineNumber(text, buttonIconBlock.index) : 1, "Button icon size must follow the current density token.");
   }
