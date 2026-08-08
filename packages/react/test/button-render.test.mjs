@@ -583,6 +583,10 @@ const unnamedAccordionItemMarkup = renderToStaticMarkup(React.createElement(Acco
   items: [{ id: "empty", ariaLabel: "Consumer section", content: "Panel" }],
 }));
 assert.doesNotMatch(unnamedAccordionItemMarkup, /accordion__item|data-accordion-trigger|aria-label="Consumer section"/);
+const unstableAccordionItemMarkup = renderToStaticMarkup(React.createElement(Accordion, {
+  items: [{ title: "Documents", content: "Insurance" }],
+}));
+assert.doesNotMatch(unstableAccordionItemMarkup, /accordion__item|data-accordion-trigger|accordion-panel-|Documents/);
 assert.doesNotMatch(loadingMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.match(loadingMarkup, /class="spinner"/);
 assert.match(loadingMarkup, /class="spinner__svg"/);

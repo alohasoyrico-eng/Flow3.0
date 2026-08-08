@@ -4,12 +4,15 @@ import { flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps
 
 const validVariants = new Set(["single", "multiple"]);
 
+function hasStableItemId(item) {
+  return item?.id !== undefined && item?.id !== null && item?.id !== "";
+}
 
 function normalizeItems(items) {
   const sourceItems = Array.isArray(items) ? items : [];
-  return sourceItems.filter((item) => item?.title || item?.label).map((item, index) => ({
+  return sourceItems.filter((item) => (item?.title || item?.label) && hasStableItemId(item)).map((item) => ({
     ...item,
-    id: item.id || `accordion-panel-${index}`,
+    id: String(item.id),
     title: item.title ?? item.label ?? "",
     ariaLabel: item.ariaLabel ?? item["aria-label"],
     content: item.content ?? item.description ?? "",

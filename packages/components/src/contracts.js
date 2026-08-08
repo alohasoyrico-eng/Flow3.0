@@ -598,6 +598,7 @@ export const componentContracts = {
     accessibility: [
       "Use buttons for section triggers.",
       "Connect triggers and panels with aria-controls and aria-labelledby.",
+      "Require stable item ids before composing triggers and panels.",
       "Expose open state with aria-expanded."
     ]
   },
