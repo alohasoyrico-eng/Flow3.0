@@ -34,6 +34,7 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
       "--comp-motion-boundary-gap: var(--sys-space-md)",
       "--comp-motion-boundary-surface-bg: var(--sys-color-surface)",
       "--comp-motion-boundary-icon-size: var(--component-inline-size-lg)",
+      "--comp-motion-boundary-cue-inline-size: var(--component-motion-cue-inline-size)",
       "--comp-motion-boundary-cue-duration: var(--component-duration-medium)",
       "--comp-motion-boundary-cue-ease: var(--component-ease-move)",
       "gap: var(--comp-motion-boundary-gap)",
@@ -109,8 +110,9 @@ function checkMotionBoundaryCssContract({ text, blocks, packageCssFile, selector
   requireIncludes({ block: collapseBlock, text, packageCssFile, snippets: ["inline-size: var(--comp-motion-boundary-cue-collapse-inline-size)"], message: "MotionBoundary collapse variant cue width must be aliased." });
   requireIncludes({ block: routeBlock, text, packageCssFile, snippets: ["background: var(--comp-motion-boundary-cue-route-bg)", "inline-size: var(--comp-motion-boundary-cue-route-inline-size)"], message: "MotionBoundary route variant cue treatment must be aliased." });
 
-  if (/\.motion-boundary__cue\s*{[\s\S]*?inline-size:\s*54%/.test(text)) {
-    add("errors", packageCssFile, cueBlock ? lineNumber(text, cueBlock.index) : 1, "MotionBoundary cue must not hardcode its base inline size.");
+  const hardcodedCueSize = text.match(/--comp-motion-boundary-cue-(?:inline|slide-inline|collapse-inline|route-inline)-size:\s*[0-9.]+%/);
+  if (hardcodedCueSize) {
+    add("errors", packageCssFile, lineNumber(text, hardcodedCueSize.index), "MotionBoundary cue sizes must flow through component motion cue roles, not local hardcoded percentages.");
   }
 }
 

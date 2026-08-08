@@ -103,6 +103,10 @@
   --component-duration-progress: var(--component-loading-progress-duration);
   --component-duration-shimmer: var(--component-loading-cycle-duration);
   --component-duration-pulse: var(--component-loading-pulse-duration);
+  --component-motion-cue-inline-size: 54%;
+  --component-motion-cue-slide-inline-size: 62%;
+  --component-motion-cue-collapse-inline-size: 42%;
+  --component-motion-cue-route-inline-size: 68%;
   --component-scale-rest: var(--sys-momentum-scale-rest);
   --component-scale-none: var(--sys-momentum-scale-none);
   --component-scale-enter: var(--sys-momentum-scale-enter);
@@ -6337,16 +6341,16 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-motion-boundary-cue-bg: var(--sys-color-action);
   --comp-motion-boundary-cue-radius: var(--component-radius-pill);
   --comp-motion-boundary-cue-block-size: var(--sys-space-xs);
-  --comp-motion-boundary-cue-inline-size: 54%;
+  --comp-motion-boundary-cue-inline-size: var(--component-motion-cue-inline-size);
   --comp-motion-boundary-cue-duration: var(--component-duration-medium);
   --comp-motion-boundary-cue-ease: var(--component-ease-move);
   --comp-motion-boundary-cue-idle-transform: scaleX(0.18);
   --comp-motion-boundary-cue-enter-transform: translateX(32%) scaleX(0.72);
   --comp-motion-boundary-cue-active-transform: scaleX(1);
   --comp-motion-boundary-cue-exit-transform: translateX(86%) scaleX(0.46);
-  --comp-motion-boundary-cue-slide-inline-size: 62%;
-  --comp-motion-boundary-cue-collapse-inline-size: 42%;
-  --comp-motion-boundary-cue-route-inline-size: 68%;
+  --comp-motion-boundary-cue-slide-inline-size: var(--component-motion-cue-slide-inline-size);
+  --comp-motion-boundary-cue-collapse-inline-size: var(--component-motion-cue-collapse-inline-size);
+  --comp-motion-boundary-cue-route-inline-size: var(--component-motion-cue-route-inline-size);
   --comp-motion-boundary-cue-route-bg: repeating-linear-gradient(
     90deg,
     var(--sys-color-action) 0 10px,
