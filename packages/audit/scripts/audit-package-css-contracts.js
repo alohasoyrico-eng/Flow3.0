@@ -3,6 +3,7 @@ const { checkComponentCssContracts } = require("./audit-component-css-contracts.
 const { checkTokenizedVisualProperties } = require("./audit-tokenized-css-properties.js");
 const { checkComponentVarFallbacks } = require("./audit-component-var-fallbacks.js");
 const { checkComponentCrossAliases } = require("./audit-component-cross-aliases.js");
+const { checkComponentAliasLiterals } = require("./audit-component-alias-literals.js");
 
 const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css");
 const packageSpinnerFile = path.join(process.cwd(), "packages/react/src/Spinner.js");
@@ -30,6 +31,7 @@ function selectorKey(block) {
 function checkPackageCssContracts() {
   const text = read(packageCssFile);
   const spinnerSource = read(packageSpinnerFile);
+  const rootAliasBlock = text.match(/:root\s*{[\s\S]*?\n}/)?.[0] ?? "";
   const requiredAliases = [
     "--component-control-min-size",
     "--component-focus-ring-width",
@@ -123,6 +125,7 @@ function checkPackageCssContracts() {
     add("errors", packageCssFile, lineNumber(text, sourceIndex), "Package typography must use internal font-size aliases instead of raw rem or px values.");
   }
   checkTokenizedVisualProperties(cssWithoutDefinitions, text);
+  checkComponentAliasLiterals(rootAliasBlock, text);
   checkComponentVarFallbacks(cssWithoutDefinitions, text);
   checkComponentCrossAliases(cssWithoutDefinitions, text);
   const rawTransformIndex = cssWithoutDefinitions.search(/transform:\s*[^;]*(?:translate[XY]?\([^)]*\d+px|scale\((?:0\.98|0\.985|1\.04)\))/);

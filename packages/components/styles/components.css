@@ -287,8 +287,8 @@
   --comp-code-input-motion-enter: var(--component-ease-enter);
   --comp-code-input-invalid-shift: var(--sys-space-sm);
   --comp-phone-input-control-size-compact: var(--component-phone-compact-control-size);
-  --comp-phone-input-flex-basis: 10rem;
-  --comp-phone-input-flex-basis-compact: 8rem;
+  --comp-phone-input-flex-basis: calc(var(--component-control-min-size) * 3.5);
+  --comp-phone-input-flex-basis-compact: calc(var(--component-control-min-size) * 3);
   --comp-phone-input-min-inline-size: calc(var(--component-control-min-size) * 2.5);
   --comp-phone-input-min-inline-size-compact: calc(var(--component-control-min-size) * 2);
   --comp-phone-input-font-family: var(--sys-voice-family-mono);
@@ -722,7 +722,7 @@
   --comp-movement-row-motion-press-duration: var(--component-duration-press);
   --comp-movement-row-motion-ease: var(--component-ease-state);
   --comp-movement-row-motion-press-ease: var(--component-ease-press);
-  --comp-movement-row-press-transform: scale(0.99);
+  --comp-movement-row-press-transform: var(--component-transform-rest-quiet);
   --comp-movement-row-focus-width: var(--component-focus-ring-width);
   --comp-movement-row-focus-color: var(--sys-color-focus);
   --comp-movement-row-focus-offset: var(--component-focus-ring-offset);
