@@ -20,7 +20,7 @@ const cssDensityContracts = {
   pagination: { selector: '.pagination[data-density="sm"]', token: "--comp-pagination-size" },
   spinner: { selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size" },
   stepper: { selector: '.stepper[data-density="sm"]', token: "--comp-stepper-marker-size" },
-  switch: { selector: '.switch[data-density="sm"]', token: "--switch-track-width" },
+  switch: { selector: '.switch[data-density="sm"]', token: "--comp-switch-current-track-width" },
   table: { selector: '.table[data-density="sm"]', token: "--comp-table-cell-padding-block-sm" },
 };
 

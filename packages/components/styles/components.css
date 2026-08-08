@@ -1795,10 +1795,14 @@
 }
 
 .choice__input:focus-visible + .choice__mark,
-.choice[data-state="focus"] .choice__mark,
-.switch__input:focus-visible ~ .switch__track {
+.choice[data-state="focus"] .choice__mark {
   outline: var(--choice-focus-width, var(--component-focus-ring-width)) solid var(--choice-focus-color, var(--sys-color-focus));
   outline-offset: var(--choice-focus-offset, var(--component-focus-ring-offset));
+}
+
+.switch__input:focus-visible ~ .switch__track {
+  outline: var(--comp-switch-current-focus-width) solid var(--comp-switch-current-focus-color);
+  outline-offset: var(--comp-switch-current-focus-offset);
 }
 
 .choice:hover .choice__mark {
@@ -1810,10 +1814,14 @@
   transform: scale(var(--choice-press-scale, var(--component-scale-press)));
 }
 
-.choice__text,
+.choice__text {
+  display: grid;
+  gap: var(--choice-text-gap, var(--sys-space-sm));
+}
+
 .switch__text {
   display: grid;
-  gap: var(--choice-text-gap, var(--switch-gap, var(--sys-space-sm)));
+  gap: var(--comp-switch-current-gap);
 }
 
 .choice__label {
@@ -1821,7 +1829,7 @@
 }
 
 .switch__label {
-  font-weight: var(--switch-label-weight, var(--sys-voice-weight-bold));
+  font-weight: var(--comp-switch-current-label-weight);
 }
 
 .choice__description,
@@ -1831,8 +1839,8 @@
 }
 
 .switch__description {
-  color: var(--switch-description-fg, var(--sys-color-text-muted));
-  font-size: var(--switch-description-size, var(--component-font-size-label));
+  color: var(--comp-switch-current-description-fg);
+  font-size: var(--comp-switch-current-description-size);
 }
 
 .choice__error {
@@ -1847,7 +1855,7 @@
 
 .switch:has(input:disabled) {
   cursor: not-allowed;
-  opacity: var(--switch-disabled-opacity, var(--sys-disabled-readable-opacity));
+  opacity: var(--comp-switch-current-disabled-opacity);
 }
 
 @keyframes choice-indicator-enter {
@@ -1882,38 +1890,38 @@
 
 .switch {
   align-items: center;
-  --switch-track-width: var(--comp-switch-track-width-md);
-  --switch-track-block: var(--comp-switch-track-block-md);
-  --switch-track-padding: var(--comp-switch-track-padding);
-  --switch-thumb-size: var(--comp-switch-thumb-size-md);
-  --switch-thumb-press-inline: var(--comp-switch-thumb-press-inline-md);
-  --switch-thumb-on-x: calc(var(--switch-track-width) - var(--switch-thumb-size) - (var(--switch-track-padding) * 2));
-  --switch-thumb-on-press-x: calc(var(--switch-track-width) - var(--switch-thumb-press-inline) - (var(--switch-track-padding) * 2));
-  --switch-gap: var(--comp-switch-gap-md);
-  --switch-track-bg: var(--comp-switch-track-bg);
-  --switch-track-on-bg: var(--comp-switch-track-on-bg);
-  --switch-thumb-bg: var(--comp-switch-thumb-bg);
-  --switch-thumb-shadow: var(--comp-switch-thumb-shadow);
-  --switch-hover-shadow: var(--comp-switch-hover-shadow);
-  --switch-error-bg: var(--comp-switch-error-bg);
-  --switch-error-on-bg: var(--comp-switch-error-on-bg);
-  --switch-error-shadow: var(--comp-switch-error-shadow);
-  --switch-focus-width: var(--comp-switch-focus-width);
-  --switch-focus-color: var(--comp-switch-focus-color);
-  --switch-focus-offset: var(--comp-switch-focus-offset);
-  --switch-label-weight: var(--comp-switch-label-weight);
-  --switch-description-size: var(--comp-switch-description-size);
-  --switch-description-fg: var(--comp-switch-description-fg);
-  --switch-error-fg: var(--comp-switch-error-fg);
-  --switch-error-weight: var(--comp-switch-error-weight);
-  --switch-motion-duration: var(--comp-switch-motion-duration);
-  --switch-motion-press-duration: var(--comp-switch-motion-press-duration);
-  --switch-motion-ease: var(--comp-switch-motion-ease);
-  --switch-motion-enter: var(--comp-switch-motion-enter);
-  --switch-motion-press: var(--comp-switch-motion-press);
-  --switch-press-scale: var(--comp-switch-press-scale);
-  --switch-disabled-opacity: var(--comp-switch-disabled-opacity);
-  gap: var(--switch-gap);
+  --comp-switch-current-track-width: var(--comp-switch-track-width-md);
+  --comp-switch-current-track-block: var(--comp-switch-track-block-md);
+  --comp-switch-current-track-padding: var(--comp-switch-track-padding);
+  --comp-switch-current-thumb-size: var(--comp-switch-thumb-size-md);
+  --comp-switch-current-thumb-press-inline: var(--comp-switch-thumb-press-inline-md);
+  --comp-switch-current-thumb-on-x: calc(var(--comp-switch-current-track-width) - var(--comp-switch-current-thumb-size) - (var(--comp-switch-current-track-padding) * 2));
+  --comp-switch-current-thumb-on-press-x: calc(var(--comp-switch-current-track-width) - var(--comp-switch-current-thumb-press-inline) - (var(--comp-switch-current-track-padding) * 2));
+  --comp-switch-current-gap: var(--comp-switch-gap-md);
+  --comp-switch-current-track-bg: var(--comp-switch-track-bg);
+  --comp-switch-current-track-on-bg: var(--comp-switch-track-on-bg);
+  --comp-switch-current-thumb-bg: var(--comp-switch-thumb-bg);
+  --comp-switch-current-thumb-shadow: var(--comp-switch-thumb-shadow);
+  --comp-switch-current-hover-shadow: var(--comp-switch-hover-shadow);
+  --comp-switch-current-error-bg: var(--comp-switch-error-bg);
+  --comp-switch-current-error-on-bg: var(--comp-switch-error-on-bg);
+  --comp-switch-current-error-shadow: var(--comp-switch-error-shadow);
+  --comp-switch-current-focus-width: var(--comp-switch-focus-width);
+  --comp-switch-current-focus-color: var(--comp-switch-focus-color);
+  --comp-switch-current-focus-offset: var(--comp-switch-focus-offset);
+  --comp-switch-current-label-weight: var(--comp-switch-label-weight);
+  --comp-switch-current-description-size: var(--comp-switch-description-size);
+  --comp-switch-current-description-fg: var(--comp-switch-description-fg);
+  --comp-switch-current-error-fg: var(--comp-switch-error-fg);
+  --comp-switch-current-error-weight: var(--comp-switch-error-weight);
+  --comp-switch-current-motion-duration: var(--comp-switch-motion-duration);
+  --comp-switch-current-motion-press-duration: var(--comp-switch-motion-press-duration);
+  --comp-switch-current-motion-ease: var(--comp-switch-motion-ease);
+  --comp-switch-current-motion-enter: var(--comp-switch-motion-enter);
+  --comp-switch-current-motion-press: var(--comp-switch-motion-press);
+  --comp-switch-current-press-scale: var(--comp-switch-press-scale);
+  --comp-switch-current-disabled-opacity: var(--comp-switch-disabled-opacity);
+  gap: var(--comp-switch-current-gap);
   grid-template-columns: auto minmax(0, 1fr);
   justify-content: start;
   padding-block: var(--comp-switch-padding-block);
@@ -1921,93 +1929,93 @@
 }
 
 .switch[data-density="sm"] {
-  --switch-track-width: var(--comp-switch-track-width-sm);
-  --switch-track-block: var(--comp-switch-track-block-sm);
-  --switch-thumb-size: var(--comp-switch-thumb-size-sm);
-  --switch-thumb-press-inline: var(--comp-switch-thumb-press-inline-sm);
-  --switch-gap: var(--comp-switch-gap-sm);
+  --comp-switch-current-track-width: var(--comp-switch-track-width-sm);
+  --comp-switch-current-track-block: var(--comp-switch-track-block-sm);
+  --comp-switch-current-thumb-size: var(--comp-switch-thumb-size-sm);
+  --comp-switch-current-thumb-press-inline: var(--comp-switch-thumb-press-inline-sm);
+  --comp-switch-current-gap: var(--comp-switch-gap-sm);
 }
 
 .switch[data-density="lg"] {
-  --switch-track-width: var(--comp-switch-track-width-lg);
-  --switch-track-block: var(--comp-switch-track-block-lg);
-  --switch-thumb-size: var(--comp-switch-thumb-size-lg);
-  --switch-thumb-press-inline: var(--comp-switch-thumb-press-inline-lg);
-  --switch-gap: var(--comp-switch-gap-lg);
+  --comp-switch-current-track-width: var(--comp-switch-track-width-lg);
+  --comp-switch-current-track-block: var(--comp-switch-track-block-lg);
+  --comp-switch-current-thumb-size: var(--comp-switch-thumb-size-lg);
+  --comp-switch-current-thumb-press-inline: var(--comp-switch-thumb-press-inline-lg);
+  --comp-switch-current-gap: var(--comp-switch-gap-lg);
 }
 
 .switch__track {
   align-items: center;
-  background: var(--switch-track-bg);
+  background: var(--comp-switch-current-track-bg);
   border-radius: var(--comp-switch-radius);
   display: inline-flex;
-  inline-size: var(--switch-track-width);
-  min-block-size: var(--switch-track-block);
-  padding: var(--switch-track-padding);
+  inline-size: var(--comp-switch-current-track-width);
+  min-block-size: var(--comp-switch-current-track-block);
+  padding: var(--comp-switch-current-track-padding);
   transition:
-    background-color var(--switch-motion-duration) var(--switch-motion-ease),
-    box-shadow var(--switch-motion-duration) var(--switch-motion-ease),
-    transform var(--switch-motion-press-duration) var(--switch-motion-press);
+    background-color var(--comp-switch-current-motion-duration) var(--comp-switch-current-motion-ease),
+    box-shadow var(--comp-switch-current-motion-duration) var(--comp-switch-current-motion-ease),
+    transform var(--comp-switch-current-motion-press-duration) var(--comp-switch-current-motion-press);
 }
 
 .switch__thumb {
-  background: var(--switch-thumb-bg);
+  background: var(--comp-switch-current-thumb-bg);
   border-radius: var(--comp-switch-radius);
-  block-size: var(--switch-thumb-size);
-  box-shadow: var(--switch-thumb-shadow);
-  inline-size: var(--switch-thumb-size);
+  block-size: var(--comp-switch-current-thumb-size);
+  box-shadow: var(--comp-switch-current-thumb-shadow);
+  inline-size: var(--comp-switch-current-thumb-size);
   transition:
-    inline-size var(--switch-motion-press-duration) var(--switch-motion-press),
-    transform var(--switch-motion-duration) var(--switch-motion-enter);
+    inline-size var(--comp-switch-current-motion-press-duration) var(--comp-switch-current-motion-press),
+    transform var(--comp-switch-current-motion-duration) var(--comp-switch-current-motion-enter);
 }
 
 .switch__input:checked ~ .switch__track {
-  background: var(--switch-track-on-bg);
+  background: var(--comp-switch-current-track-on-bg);
 }
 
 .switch__input:checked ~ .switch__track .switch__thumb {
-  transform: translateX(var(--switch-thumb-on-x));
+  transform: translateX(var(--comp-switch-current-thumb-on-x));
 }
 
 .switch:active:not(:has(input:disabled)) .switch__track,
 .switch[data-state="pressed"] .switch__track {
-  transform: scale(var(--switch-press-scale));
+  transform: scale(var(--comp-switch-current-press-scale));
 }
 
 .switch:active:not(:has(input:disabled)) .switch__thumb,
 .switch[data-state="pressed"] .switch__thumb {
-  inline-size: var(--switch-thumb-press-inline);
+  inline-size: var(--comp-switch-current-thumb-press-inline);
 }
 
 .switch:active:not(:has(input:disabled)) .switch__input:checked ~ .switch__track .switch__thumb,
 .switch[data-state="pressed"] .switch__input:checked ~ .switch__track .switch__thumb {
-  transform: translateX(var(--switch-thumb-on-press-x));
+  transform: translateX(var(--comp-switch-current-thumb-on-press-x));
 }
 
 .switch[data-state="focus"] .switch__track {
-  outline: var(--switch-focus-width) solid var(--switch-focus-color);
-  outline-offset: var(--switch-focus-offset);
+  outline: var(--comp-switch-current-focus-width) solid var(--comp-switch-current-focus-color);
+  outline-offset: var(--comp-switch-current-focus-offset);
 }
 
 .switch[data-state="error"] .switch__track,
 .switch[data-invalid="true"] .switch__track {
-  background: var(--switch-error-bg);
-  box-shadow: var(--switch-error-shadow);
+  background: var(--comp-switch-current-error-bg);
+  box-shadow: var(--comp-switch-current-error-shadow);
 }
 
 .switch[data-state="error"] .switch__input:checked ~ .switch__track,
 .switch[data-invalid="true"] .switch__input:checked ~ .switch__track {
-  background: var(--switch-error-on-bg);
+  background: var(--comp-switch-current-error-on-bg);
 }
 
 .switch__error {
-  color: var(--switch-error-fg);
-  font-size: var(--switch-description-size);
-  font-weight: var(--switch-error-weight);
+  color: var(--comp-switch-current-error-fg);
+  font-size: var(--comp-switch-current-description-size);
+  font-weight: var(--comp-switch-current-error-weight);
 }
 
 .switch:hover .switch__track {
-  box-shadow: var(--switch-hover-shadow);
+  box-shadow: var(--comp-switch-current-hover-shadow);
 }
 
 .badge,
