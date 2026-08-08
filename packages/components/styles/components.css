@@ -7235,15 +7235,59 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .stepper {
+  --comp-stepper-orientation-gap: var(--sys-space-xs);
+  --comp-stepper-item-fg: var(--sys-color-text-muted);
+  --comp-stepper-item-active-fg: var(--sys-color-text);
+  --comp-stepper-item-complete-fg: var(--sys-color-text);
   --comp-stepper-marker-size: calc(var(--component-control-min-size) - var(--sys-space-lg) - var(--component-offset-xs));
+  --comp-stepper-marker-bg: var(--sys-color-surface);
+  --comp-stepper-marker-border-width: var(--sys-frame-border-control);
+  --comp-stepper-marker-border: var(--sys-color-border);
+  --comp-stepper-marker-radius: var(--component-radius-pill);
+  --comp-stepper-marker-fg: var(--sys-color-text-muted);
+  --comp-stepper-marker-font-family: var(--component-font-family-mono);
+  --comp-stepper-marker-font-size: var(--component-font-size-small);
+  --comp-stepper-marker-font-weight: var(--sys-voice-weight-extrabold);
+  --comp-stepper-marker-active-bg: linear-gradient(145deg, color-mix(in srgb, var(--sys-color-action) 78%, var(--sys-color-surface)) 0%, var(--sys-color-action) 62%, color-mix(in srgb, var(--sys-color-action) 84%, var(--sys-color-text)) 100%);
+  --comp-stepper-marker-active-border: var(--sys-color-action);
+  --comp-stepper-marker-active-fg: var(--sys-color-action-text);
+  --comp-stepper-marker-active-depth: 0 0 0 var(--component-focus-ring-width) color-mix(in srgb, var(--sys-color-action) 20%, transparent), var(--component-depth-raised-strong);
+  --comp-stepper-marker-complete-bg: var(--sys-color-success);
+  --comp-stepper-marker-complete-border: var(--sys-color-success);
+  --comp-stepper-marker-complete-fg: var(--sys-color-action-text);
+  --comp-stepper-marker-complete-font-family: var(--sys-font-icon);
+  --comp-stepper-marker-complete-font-size: var(--component-font-size-body);
   --comp-stepper-label-size: var(--component-font-size-small);
+  --comp-stepper-label-font-weight: var(--sys-voice-weight-semibold);
+  --comp-stepper-label-active-font-weight: var(--sys-voice-weight-extrabold);
   --comp-stepper-description-size: var(--component-font-size-caption);
+  --comp-stepper-description-fg: var(--sys-color-text-muted);
+  --comp-stepper-text-gap: var(--component-visually-hidden-size);
+  --comp-stepper-text-max-inline: calc(var(--component-control-min-size) * 3);
+  --comp-stepper-text-min-inline: calc(var(--component-control-min-size) * 2);
+  --comp-stepper-connector-bg: var(--sys-color-border);
+  --comp-stepper-connector-complete-bg: var(--sys-color-success);
+  --comp-stepper-connector-radius: var(--component-radius-pill);
   --comp-stepper-connector-size: var(--component-focus-ring-offset);
   --comp-stepper-connector-min-inline: var(--component-inline-size-sm);
+  --comp-stepper-connector-flex-basis: var(--component-inline-size-md);
+  --comp-stepper-connector-vertical-block: var(--component-inline-size-sm);
   --comp-stepper-connector-margin-block: calc((var(--component-control-min-size) - var(--sys-space-lg) - var(--component-offset-xs) - var(--component-focus-ring-offset)) / 2);
   --comp-stepper-connector-margin-inline: var(--sys-space-sm);
+  --comp-stepper-connector-vertical-margin-block: var(--component-focus-ring-offset);
   --comp-stepper-item-gap: calc(var(--sys-space-sm) + (var(--component-border-width) * 2));
   --comp-stepper-current-scale: var(--component-scale-raised);
+  --comp-stepper-current-start-scale: 0.88;
+  --comp-stepper-current-overshoot-scale: 1.14;
+  --comp-stepper-complete-duration: var(--component-duration-medium);
+  --comp-stepper-current-duration: var(--component-duration-medium);
+  --comp-stepper-connector-duration: var(--component-duration-medium);
+  --comp-stepper-state-ease: var(--component-ease-state);
+  --comp-stepper-enter-ease: var(--component-ease-enter);
+  --comp-stepper-press-ease: var(--component-ease-press);
+  --comp-stepper-move-ease: var(--component-ease-move);
+  --comp-stepper-marker-transition: background-color var(--comp-stepper-current-duration) var(--comp-stepper-state-ease), border-color var(--comp-stepper-current-duration) var(--comp-stepper-state-ease), box-shadow var(--comp-stepper-current-duration) var(--comp-stepper-state-ease), color var(--comp-stepper-current-duration) var(--comp-stepper-state-ease), transform var(--comp-stepper-current-duration) var(--comp-stepper-press-ease);
+  --comp-stepper-connector-transition: background-color var(--comp-stepper-connector-duration) var(--comp-stepper-state-ease), transform var(--comp-stepper-connector-duration) var(--comp-stepper-press-ease);
   align-items: flex-start;
   display: flex;
   flex-direction: row;
@@ -7258,12 +7302,12 @@ body[data-contrast="quiet"] .inline-validation {
 .stepper[data-orientation="vertical"] {
   align-items: stretch;
   flex-direction: column;
-  gap: var(--sys-space-xs);
+  gap: var(--comp-stepper-orientation-gap);
 }
 
 .stepper__item {
   align-items: center;
-  color: var(--sys-color-text-muted);
+  color: var(--comp-stepper-item-fg);
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
@@ -7273,11 +7317,11 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .stepper__item[data-state="active"] {
-  color: var(--sys-color-text);
+  color: var(--comp-stepper-item-active-fg);
 }
 
 .stepper__item[data-state="complete"] {
-  color: var(--sys-color-text);
+  color: var(--comp-stepper-item-complete-fg);
 }
 
 .stepper[data-orientation="vertical"] .stepper__item {
@@ -7290,74 +7334,59 @@ body[data-contrast="quiet"] .inline-validation {
 
 .stepper__marker {
   align-items: center;
-  background: var(--sys-color-surface);
-  border: var(--sys-frame-border-control) solid var(--sys-color-border);
-  border-radius: var(--component-radius-pill);
-  color: var(--sys-color-text-muted);
+  background: var(--comp-stepper-marker-bg);
+  border: var(--comp-stepper-marker-border-width) solid var(--comp-stepper-marker-border);
+  border-radius: var(--comp-stepper-marker-radius);
+  color: var(--comp-stepper-marker-fg);
   display: inline-flex;
   flex: none;
-  font-family: var(--component-font-family-mono);
-  font-size: var(--component-font-size-small);
-  font-weight: var(--sys-voice-weight-extrabold);
+  font-family: var(--comp-stepper-marker-font-family);
+  font-size: var(--comp-stepper-marker-font-size);
+  font-weight: var(--comp-stepper-marker-font-weight);
   justify-content: center;
   min-block-size: var(--comp-stepper-marker-size);
   min-inline-size: var(--comp-stepper-marker-size);
-  transition:
-    background-color var(--component-duration-medium) var(--component-ease-state),
-    border-color var(--component-duration-medium) var(--component-ease-state),
-    box-shadow var(--component-duration-medium) var(--component-ease-state),
-    color var(--component-duration-medium) var(--component-ease-state),
-    transform var(--component-duration-medium) var(--component-ease-press);
+  transition: var(--comp-stepper-marker-transition);
 }
 
 .stepper__item[data-state="active"] .stepper__marker {
-  animation: stepper-current-enter var(--component-duration-medium) var(--component-ease-enter) both;
-  background:
-    linear-gradient(
-      145deg,
-      color-mix(in srgb, var(--sys-color-action) 78%, var(--sys-color-surface)) 0%,
-      var(--sys-color-action) 62%,
-      color-mix(in srgb, var(--sys-color-action) 84%, var(--sys-color-text)) 100%
-    );
-  border-color: var(--sys-color-action);
-  color: var(--sys-color-action-text);
-  box-shadow:
-    0 0 0 var(--component-focus-ring-width) color-mix(in srgb, var(--sys-color-action) 20%, transparent),
-    var(--component-depth-raised-strong);
+  animation: stepper-current-enter var(--comp-stepper-current-duration) var(--comp-stepper-enter-ease) both;
+  background: var(--comp-stepper-marker-active-bg);
+  border-color: var(--comp-stepper-marker-active-border);
+  color: var(--comp-stepper-marker-active-fg);
+  box-shadow: var(--comp-stepper-marker-active-depth);
 }
 
 .stepper__item[data-state="complete"] .stepper__marker {
-  background: var(--sys-color-success);
-  border-color: var(--sys-color-success);
-  color: var(--sys-color-action-text);
-  font-family: var(--sys-font-icon);
-  font-size: var(--component-font-size-body);
-  animation: stepper-check-enter var(--component-duration-medium) var(--component-ease-enter) both;
+  animation: stepper-check-enter var(--comp-stepper-complete-duration) var(--comp-stepper-enter-ease) both;
+  background: var(--comp-stepper-marker-complete-bg);
+  border-color: var(--comp-stepper-marker-complete-border);
+  color: var(--comp-stepper-marker-complete-fg);
+  font-family: var(--comp-stepper-marker-complete-font-family);
+  font-size: var(--comp-stepper-marker-complete-font-size);
 }
 
 .stepper__connector {
-  background: var(--sys-color-border);
-  border-radius: var(--component-radius-pill);
+  background: var(--comp-stepper-connector-bg);
+  border-radius: var(--comp-stepper-connector-radius);
   block-size: var(--comp-stepper-connector-size);
-  flex: 1 1 24px;
+  flex: 1 1 var(--comp-stepper-connector-flex-basis);
   margin: var(--comp-stepper-connector-margin-block) var(--comp-stepper-connector-margin-inline) 0;
   min-inline-size: var(--comp-stepper-connector-min-inline);
   transform-origin: left center;
-  transition:
-    background-color var(--component-duration-medium) var(--component-ease-state),
-    transform var(--component-duration-medium) var(--component-ease-press);
+  transition: var(--comp-stepper-connector-transition);
 }
 
 .stepper__connector[data-state="complete"] {
-  background: var(--sys-color-success);
-  animation: stepper-connector-fill var(--component-duration-medium) var(--component-ease-move) both;
+  animation: stepper-connector-fill var(--comp-stepper-connector-duration) var(--comp-stepper-move-ease) both;
+  background: var(--comp-stepper-connector-complete-bg);
 }
 
 .stepper[data-orientation="vertical"] .stepper__connector {
-  block-size: var(--component-inline-size-sm);
+  block-size: var(--comp-stepper-connector-vertical-block);
   flex: none;
   inline-size: var(--comp-stepper-connector-size);
-  margin: var(--component-focus-ring-offset) 0 var(--component-focus-ring-offset) var(--comp-stepper-connector-margin-block);
+  margin: var(--comp-stepper-connector-vertical-margin-block) 0 var(--comp-stepper-connector-vertical-margin-block) var(--comp-stepper-connector-margin-block);
   min-inline-size: 0;
 }
 
@@ -7365,26 +7394,26 @@ body[data-contrast="quiet"] .inline-validation {
   align-self: stretch;
   display: grid;
   font-size: var(--comp-stepper-label-size);
-  gap: var(--component-visually-hidden-size);
+  gap: var(--comp-stepper-text-gap);
   inline-size: 100%;
-  max-inline-size: calc(var(--component-control-min-size) * 3);
-  min-inline-size: calc(var(--component-control-min-size) * 2);
+  max-inline-size: var(--comp-stepper-text-max-inline);
+  min-inline-size: var(--comp-stepper-text-min-inline);
 }
 
 .stepper__text small {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-stepper-description-fg);
   font-size: var(--comp-stepper-description-size);
 }
 
 .stepper__text strong {
   font-size: inherit;
-  font-weight: var(--sys-voice-weight-semibold);
+  font-weight: var(--comp-stepper-label-font-weight);
   white-space: normal;
 }
 
 .stepper__item[data-state="active"] .stepper__text strong,
 .stepper__item[data-state="complete"] .stepper__text strong {
-  font-weight: var(--sys-voice-weight-extrabold);
+  font-weight: var(--comp-stepper-label-active-font-weight);
 }
 
 .stepper[data-density="sm"] {
@@ -7397,15 +7426,15 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-stepper-marker-size: var(--component-control-min-size);
   --comp-stepper-label-size: var(--component-font-size-body);
   --comp-stepper-description-size: var(--component-font-size-small);
-  --comp-stepper-current-scale: 1.06;
+  --comp-stepper-current-scale: var(--component-scale-hover);
 }
 
 @keyframes stepper-current-enter {
   0% {
-    transform: scale(0.88);
+    transform: scale(var(--comp-stepper-current-start-scale));
   }
   70% {
-    transform: scale(1.14);
+    transform: scale(var(--comp-stepper-current-overshoot-scale));
   }
   100% {
     transform: scale(var(--comp-stepper-current-scale));
