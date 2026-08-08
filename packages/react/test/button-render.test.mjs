@@ -2092,6 +2092,9 @@ const datePickerMarkup = renderToStaticMarkup(React.createElement(DatePicker, {
   helper: "One operational date.",
   min: "2026-01-01",
   max: "2026-12-31",
+  calendarLabel: "Service date calendar",
+  previousMonthLabel: "Previous service month",
+  nextMonthLabel: "Next service month",
   density: "lg",
   state: "focus",
 }));
@@ -2115,6 +2118,9 @@ assert.match(datePickerMarkup, /max="2026-12-31"/);
 assert.match(datePickerMarkup, /class="date-picker__panel"/);
 assert.match(datePickerMarkup, /role="dialog"/);
 assert.match(datePickerMarkup, /aria-modal="false"/);
+assert.match(datePickerMarkup, /aria-label="Service date calendar"/);
+assert.match(datePickerMarkup, /aria-label="Previous service month"/);
+assert.match(datePickerMarkup, /aria-label="Next service month"/);
 assert.match(datePickerMarkup, /class="date-picker__grid"/);
 assert.match(datePickerMarkup, /role="grid"/);
 assert.match(datePickerMarkup, /class="date-picker__weekday"/);
@@ -2129,11 +2135,12 @@ const inheritedDatePickerMarkup = renderToStaticMarkup(React.createElement(DateP
 assert.doesNotMatch(inheritedDatePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
 
 const unnamedDatePickerMarkup = renderToStaticMarkup(React.createElement(DatePicker));
-assert.doesNotMatch(unnamedDatePickerMarkup, /Date picker/);
-assert.doesNotMatch(unnamedDatePickerMarkup, /native picker/);
-assert.doesNotMatch(unnamedDatePickerMarkup, /Date picker calendar/);
-assert.doesNotMatch(unnamedDatePickerMarkup, /Previous month|Next month/);
-assert.doesNotMatch(unnamedDatePickerMarkup, /date-picker__value/);
+assert.equal(unnamedDatePickerMarkup, "");
+const datePickerWithoutNavLabelsMarkup = renderToStaticMarkup(React.createElement(DatePicker, {
+  label: "Service date",
+  value: "2026-07-13",
+}));
+assert.doesNotMatch(datePickerWithoutNavLabelsMarkup, /class="date-picker__nav"/);
 
 const dateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
   label: "Reporting range",

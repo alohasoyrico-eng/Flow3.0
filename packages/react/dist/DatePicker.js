@@ -114,6 +114,8 @@ export const DatePicker = forwardRef(function DatePicker({
     return () => document.removeEventListener("mousedown", onPointerDown);
   }, [open]);
 
+  if (!label) return null;
+
   const setOpen = (nextOpen, restoreFocus = false) => {
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
@@ -256,19 +258,19 @@ export const DatePicker = forwardRef(function DatePicker({
       React.createElement(
         "div",
         { className: "date-picker__header" },
-        React.createElement("button", {
+        previousMonthLabel ? React.createElement("button", {
           type: "button",
           className: "date-picker__nav",
-          "aria-label": previousMonthLabel || undefined,
+          "aria-label": previousMonthLabel,
           onClick: () => moveMonth(-1),
-        }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_left")),
+        }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_left")) : null,
         React.createElement("strong", { id: monthId, "data-date-picker-month": "" }, formatMonthLabel(viewDate, locale)),
-        React.createElement("button", {
+        nextMonthLabel ? React.createElement("button", {
           type: "button",
           className: "date-picker__nav",
-          "aria-label": nextMonthLabel || undefined,
+          "aria-label": nextMonthLabel,
           onClick: () => moveMonth(1),
-        }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_right")),
+        }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_right")) : null,
       ),
       React.createElement(
         "div",
