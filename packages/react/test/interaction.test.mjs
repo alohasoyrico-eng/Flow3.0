@@ -1734,6 +1734,41 @@ try {
     onExpandedChange: (keys) => treeExpandedChanges.push(keys),
   }));
   await waitFor(() => assert.equal(document.querySelector('[data-key="input"] [role="treeitem"]').getAttribute("aria-selected"), "true"));
+
+  cleanup();
+
+  const preventedTreeSelections = [];
+  const preventedTreeExpandedChanges = [];
+  const preventedTreeEvents = [];
+  const { getByRole: getPreventedTreeRole } = render(React.createElement(TreeView, {
+    label: "Prevented docs navigation",
+    nodes: [
+      {
+        key: "components",
+        label: "Components",
+        level: 1,
+        expanded: false,
+        onClick: (event) => {
+          preventedTreeEvents.push(event.type);
+          event.preventDefault();
+        },
+        onKeyDown: (event) => {
+          preventedTreeEvents.push(event.key);
+          event.preventDefault();
+        },
+      },
+    ],
+    onSelect: (key) => preventedTreeSelections.push(key),
+    onExpandedChange: (keys) => preventedTreeExpandedChanges.push(keys),
+  }));
+
+  const preventedTreeItem = getPreventedTreeRole("treeitem", { name: /components/i });
+  fireEvent.click(preventedTreeItem);
+  fireEvent.keyDown(preventedTreeItem, { key: "ArrowRight" });
+  assert.deepEqual(preventedTreeEvents, ["click", "ArrowRight"]);
+  assert.equal(preventedTreeItem.getAttribute("aria-expanded"), "false");
+  assert.deepEqual(preventedTreeSelections, []);
+  assert.deepEqual(preventedTreeExpandedChanges, []);
 } finally {
   cleanup();
   dom.window.close();

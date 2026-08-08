@@ -107,6 +107,7 @@ export const TreeView = forwardRef(function TreeView({
       const isExpanded = expanded.includes(node.key);
       const isSelected = selected === node.key;
       const isVisible = visible.includes(node.key);
+      const { key, id, label: nodeLabel, level, expanded: nodeExpanded, expandable, selected: nodeSelected, disabled, icon, children, onClick, onKeyDown, ...nodeRest } = node;
       return React.createElement(
         "li",
         {
@@ -121,14 +122,15 @@ export const TreeView = forwardRef(function TreeView({
           hidden: !isVisible,
         },
         React.createElement(Button, {
+          ...nodeRest,
           ref: (control) => {
             if (control) controlRefs.current.set(node.key, control);
             else controlRefs.current.delete(node.key);
           },
-          label: node.label,
+          label: nodeLabel,
           variant: "secondary",
-          disabled: Boolean(node.disabled),
-          icon: node.expandable ? node.icon ?? "folder" : node.icon ?? "",
+          disabled: Boolean(disabled),
+          icon: node.expandable ? icon ?? "folder" : icon ?? "",
           trailingIcon: node.expandable ? "expand_more" : "",
           density: resolvedDensity,
           className: "tree-view__control",
@@ -138,11 +140,15 @@ export const TreeView = forwardRef(function TreeView({
           "aria-expanded": node.expandable ? String(isExpanded) : undefined,
           "aria-selected": String(isSelected),
           tabIndex: isSelected || (!selected && visible[0] === node.key) ? 0 : -1,
-          onClick: () => {
+          onClick: (event) => {
+            onClick?.(event);
+            if (event.defaultPrevented) return;
             commitSelected(node);
             if (node.expandable) commitExpanded(node, !isExpanded);
           },
           onKeyDown: (event) => {
+            onKeyDown?.(event);
+            if (event.defaultPrevented) return;
             if (event.key === "ArrowDown") {
               event.preventDefault();
               move(node, 1);

@@ -1,10 +1,10 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import type { treeViewPlatformContract } from "@design-system/components/platforms";
 
 export type TreeViewDensity = "sm" | "md" | "lg";
 export type TreeViewState = "default" | "hover" | "focus" | "expanded" | "selected" | "disabled";
 
-export interface TreeViewNode {
+export interface TreeViewNode extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "role" | "aria-expanded" | "aria-selected" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   key?: string;
   id?: string;
   label: string;
