@@ -29,7 +29,7 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
     snippets: [
       "--comp-biometric-prompt-gap: var(--sys-space-md)",
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-sm))",
-      "--comp-biometric-prompt-icon-size: calc(var(--sys-density-control-height) * 2 - var(--sys-frame-space-micro))",
+      "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 - var(--sys-frame-space-micro))",
       "--comp-biometric-prompt-title-family: var(--sys-font-title)",
       "--comp-biometric-prompt-motion-pulse-duration: var(--component-duration-pulse)",
       "gap: var(--comp-biometric-prompt-gap)",
@@ -44,7 +44,7 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
     snippets: [
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-xs))",
       "--comp-biometric-prompt-padding: var(--sys-space-lg)",
-      "--comp-biometric-prompt-icon-size: calc(var(--sys-density-control-height) + var(--sys-space-md))",
+      "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) + var(--sys-space-md))",
     ],
     message: "BiometricPrompt sm density must override current prompt aliases instead of using fixed component blocks.",
   });
@@ -55,7 +55,7 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
     snippets: [
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-md))",
       "--comp-biometric-prompt-padding: var(--sys-space-xl) var(--sys-space-lg)",
-      "--comp-biometric-prompt-icon-size: calc(var(--sys-density-control-height) * 2 + var(--sys-space-md))",
+      "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 + var(--sys-space-md))",
     ],
     message: "BiometricPrompt lg density must override current prompt aliases instead of using fixed component blocks.",
   });

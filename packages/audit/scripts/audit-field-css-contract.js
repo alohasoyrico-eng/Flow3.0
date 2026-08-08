@@ -26,7 +26,7 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const cardInputBlock = blockFor(blocks, selectorKey, ".card-number-input__input,.card-expiry-input__input,.card-security-code-input__input");
   const cardSecurityActionBlock = blockFor(blocks, selectorKey, ".card-security-code-input__action");
 
-  if (!text.includes("--comp-input-control-size: var(--sys-density-control-height)")) {
+  if (!text.includes("--comp-input-control-size: var(--component-density-control-height)")) {
     add("errors", packageCssFile, 1, "Input base control size must inherit from the density cascade.");
   }
   requireIncludes({

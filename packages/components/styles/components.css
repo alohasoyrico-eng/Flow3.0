@@ -313,7 +313,7 @@
   --comp-input-control-size-sm: var(--component-field-control-size-sm);
   --comp-input-control-size-md: var(--component-field-control-size-md);
   --comp-input-control-size-lg: var(--component-field-control-size-lg);
-  --comp-input-control-size: var(--sys-density-control-height);
+  --comp-input-control-size: var(--component-density-control-height);
   --comp-input-icon-size-sm: var(--sys-icon-size-sm-plus);
   --comp-input-icon-size-md: var(--sys-icon-size-md);
   --comp-input-icon-size-lg: var(--component-font-size-icon-md);
@@ -321,7 +321,7 @@
   --comp-input-action-size-sm: var(--component-field-icon-action-size-sm);
   --comp-input-action-size-md: var(--component-field-icon-action-size-md);
   --comp-input-action-size-lg: var(--component-field-icon-action-size-lg);
-  --comp-input-action-size: calc(var(--sys-density-control-height) - var(--sys-space-lg));
+  --comp-input-action-size: calc(var(--component-density-control-height) - var(--sys-space-lg));
   --comp-input-gap: var(--component-field-gap);
   --comp-input-padding-x: var(--sys-space-lg);
   --comp-input-helper-fg: var(--sys-color-text-muted);
@@ -603,7 +603,7 @@
   --comp-floating-action-button-size-sm: var(--component-fab-size-sm);
   --comp-floating-action-button-size-md: var(--component-fab-size-md);
   --comp-floating-action-button-size-lg: var(--component-fab-size-lg);
-  --comp-floating-action-button-size: var(--sys-density-control-height);
+  --comp-floating-action-button-size: var(--component-density-control-height);
   --comp-floating-action-button-mini-size: var(--comp-floating-action-button-size-sm);
   --comp-floating-action-button-icon-size-sm: var(--component-font-size-icon-sm);
   --comp-floating-action-button-icon-size-md: var(--component-font-size-icon-md);
@@ -875,7 +875,7 @@
   --comp-icon-button-size-sm: var(--component-icon-button-size-sm);
   --comp-icon-button-size-md: var(--component-icon-button-size-md);
   --comp-icon-button-size-lg: var(--component-icon-button-size-lg);
-  --comp-icon-button-size: var(--sys-density-control-height);
+  --comp-icon-button-size: var(--component-density-control-height);
   --comp-icon-button-icon-size-sm: var(--sys-icon-size-sm-plus);
   --comp-icon-button-icon-size-md: var(--sys-icon-size-md-plus);
   --comp-icon-button-icon-size-lg: var(--component-font-size-icon-md);
@@ -886,7 +886,7 @@
   --comp-button-size-sm: var(--component-button-size-sm);
   --comp-button-size-md: var(--component-button-size-md);
   --comp-button-size-lg: var(--component-button-size-lg);
-  --comp-button-size: var(--sys-density-control-height);
+  --comp-button-size: var(--component-density-control-height);
   --comp-button-padding-sm: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
   --comp-button-padding-md: var(--sys-space-lg);
   --comp-button-padding-lg: calc(var(--sys-space-xl) + var(--sys-frame-space-micro));
@@ -2807,13 +2807,13 @@ button.tag:disabled,
 }
 
 .tabs[data-density="sm"] {
-  --comp-tabs-tab-min-block: calc(var(--sys-density-control-height) - var(--sys-space-3));
+  --comp-tabs-tab-min-block: calc(var(--component-density-control-height) - var(--sys-space-3));
   --comp-tabs-tab-padding-inline: var(--sys-space-md);
   --comp-tabs-tab-font-size: var(--sys-voice-size-caption);
 }
 
 .tabs[data-density="lg"] {
-  --comp-tabs-tab-min-block: calc(var(--sys-density-control-height) + var(--sys-space-sm));
+  --comp-tabs-tab-min-block: calc(var(--component-density-control-height) + var(--sys-space-sm));
   --comp-tabs-tab-padding-inline: var(--sys-space-xl);
   --comp-tabs-tab-font-size: var(--sys-voice-size-body);
 }
@@ -3893,8 +3893,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .avatar--lg { --comp-avatar-size: var(--component-inline-size-lg); }
 .avatar--xl { --comp-avatar-size: var(--sys-space-16); }
 
-.avatar[data-density="sm"] { --comp-avatar-size: calc(var(--sys-density-control-height) - var(--sys-space-5)); }
-.avatar[data-density="lg"] { --comp-avatar-size: calc(var(--sys-density-control-height) + var(--sys-space-4)); }
+.avatar[data-density="sm"] { --comp-avatar-size: calc(var(--component-density-control-height) - var(--sys-space-5)); }
+.avatar[data-density="lg"] { --comp-avatar-size: calc(var(--component-density-control-height) + var(--sys-space-4)); }
 
 .avatar img {
   border-radius: var(--comp-avatar-img-radius);
@@ -6495,7 +6495,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-biometric-prompt-gap: var(--sys-space-md);
   --comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-sm));
   --comp-biometric-prompt-padding: calc(var(--sys-space-xl) + var(--sys-space-xs)) var(--sys-space-lg) var(--sys-space-lg);
-  --comp-biometric-prompt-icon-size: calc(var(--sys-density-control-height) * 2 - var(--sys-frame-space-micro));
+  --comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 - var(--sys-frame-space-micro));
   --comp-biometric-prompt-icon-bg: color-mix(in srgb, var(--sys-color-action) 12%, var(--sys-color-surface));
   --comp-biometric-prompt-icon-fg: var(--sys-color-action);
   --comp-biometric-prompt-icon-font-size: var(--component-font-size-display-sm);
@@ -6540,13 +6540,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .biometric-prompt[data-density="sm"] {
   --comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-xs));
   --comp-biometric-prompt-padding: var(--sys-space-lg);
-  --comp-biometric-prompt-icon-size: calc(var(--sys-density-control-height) + var(--sys-space-md));
+  --comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) + var(--sys-space-md));
 }
 
 .biometric-prompt[data-density="lg"] {
   --comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-md));
   --comp-biometric-prompt-padding: var(--sys-space-xl) var(--sys-space-lg);
-  --comp-biometric-prompt-icon-size: calc(var(--sys-density-control-height) * 2 + var(--sys-space-md));
+  --comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 + var(--sys-space-md));
 }
 
 .biometric-prompt__icon,
@@ -6683,7 +6683,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-level: 1;
   --comp-tree-view-padding: var(--sys-space-sm);
   --comp-tree-view-indent: var(--sys-space-lg);
-  --comp-tree-view-control-min-block: var(--sys-density-control-height);
+  --comp-tree-view-control-min-block: var(--component-density-control-height);
   --comp-tree-view-control-min-block-sm: var(--component-field-control-size-sm);
   --comp-tree-view-control-min-block-lg: var(--component-tree-control-min-block-size-lg);
   --comp-tree-view-icon-size-sm: var(--sys-icon-size-sm-plus);
@@ -7071,8 +7071,8 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-animated-moment-accent: var(--sys-color-action);
   --comp-animated-moment-accent-surface: color-mix(in srgb, var(--comp-animated-moment-accent) 12%, var(--sys-color-surface));
   --comp-animated-moment-accent-border: color-mix(in srgb, var(--comp-animated-moment-accent) 34%, var(--sys-color-border));
-  --comp-animated-moment-halo-size: calc(var(--sys-density-control-height) * 4.5);
-  --comp-animated-moment-icon-size: calc(var(--sys-density-control-height) * 2.9);
+  --comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 4.5);
+  --comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9);
   --comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38);
   --comp-animated-moment-icon-margin-block: calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--sys-space-lg);
   --comp-animated-moment-cycle: var(--component-duration-loop);
@@ -7105,8 +7105,8 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment[data-density="sm"] {
-  --comp-animated-moment-halo-size: calc(var(--sys-density-control-height) * 3.5);
-  --comp-animated-moment-icon-size: calc(var(--sys-density-control-height) * 2.1);
+  --comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 3.5);
+  --comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.1);
   --comp-animated-moment-max-inline-size: var(--component-content-size-md);
   --comp-animated-moment-padding: var(--sys-space-lg);
   --comp-animated-moment-gap: var(--sys-space-md);
@@ -7115,8 +7115,8 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment[data-density="lg"] {
-  --comp-animated-moment-halo-size: calc(var(--sys-density-control-height) * 5);
-  --comp-animated-moment-icon-size: calc(var(--sys-density-control-height) * 3.2);
+  --comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 5);
+  --comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 3.2);
   --comp-animated-moment-max-inline-size: var(--component-content-size-xl);
   --comp-animated-moment-padding: calc(var(--sys-space-xl) + var(--sys-space-md)) var(--sys-space-xl);
   --comp-animated-moment-gap: var(--sys-space-xl);
@@ -9097,7 +9097,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-control-size-md: var(--component-field-control-size-md);
   --comp-select-control-size-sm: var(--component-field-control-size-sm);
   --comp-select-control-size-lg: var(--component-field-control-size-lg);
-  --comp-select-control-size: var(--sys-density-control-height);
+  --comp-select-control-size: var(--component-density-control-height);
   --comp-select-icon-size-md: var(--sys-icon-size-md);
   --comp-select-icon-size-sm: var(--sys-icon-size-sm-plus);
   --comp-select-icon-size-lg: var(--component-font-size-icon-md);
@@ -9800,9 +9800,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   inline-size: 100%;
   min-inline-size: 0;
   position: relative;
-  --comp-date-picker-control-size: var(--sys-density-control-height);
+  --comp-date-picker-control-size: var(--component-density-control-height);
   --comp-date-picker-control-gap: calc(var(--sys-space-sm) + var(--sys-frame-space-micro));
-  --comp-date-picker-day-size: calc(var(--sys-density-control-height) - var(--sys-space-lg) + var(--sys-frame-space-micro));
+  --comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--sys-space-lg) + var(--sys-frame-space-micro));
   --comp-date-picker-day-font-size: var(--component-font-size-small);
   --comp-date-picker-icon-size: var(--component-font-size-title-md);
   --comp-date-picker-panel-gap: var(--sys-space-xs);

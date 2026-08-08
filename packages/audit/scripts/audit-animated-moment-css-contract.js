@@ -27,8 +27,8 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     packageCssFile,
     snippets: [
       "--comp-animated-moment-accent: var(--sys-color-action)",
-      "--comp-animated-moment-halo-size: calc(var(--sys-density-control-height) * 4.5)",
-      "--comp-animated-moment-icon-size: calc(var(--sys-density-control-height) * 2.9)",
+      "--comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 4.5)",
+      "--comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9)",
       "--comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38)",
       "--comp-animated-moment-cycle: var(--component-duration-loop)",
       "--comp-animated-moment-gap: var(--sys-space-lg)",
@@ -44,8 +44,8 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "--comp-animated-moment-halo-size: calc(var(--sys-density-control-height) * 3.5)",
-      "--comp-animated-moment-icon-size: calc(var(--sys-density-control-height) * 2.1)",
+      "--comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 3.5)",
+      "--comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.1)",
       "--comp-animated-moment-gap: var(--sys-space-md)",
       "--comp-animated-moment-title-size: var(--component-font-size-title-sm)",
       "--comp-animated-moment-copy-size: var(--component-font-size-small)",
@@ -57,8 +57,8 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "--comp-animated-moment-halo-size: calc(var(--sys-density-control-height) * 5)",
-      "--comp-animated-moment-icon-size: calc(var(--sys-density-control-height) * 3.2)",
+      "--comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 5)",
+      "--comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 3.2)",
       "--comp-animated-moment-gap: var(--sys-space-xl)",
       "--comp-animated-moment-title-size: var(--component-font-size-title-lg)",
       "--comp-animated-moment-copy-size: var(--component-font-size-title-sm)",

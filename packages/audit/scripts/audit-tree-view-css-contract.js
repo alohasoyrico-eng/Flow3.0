@@ -30,7 +30,7 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
     text,
     packageCssFile,
     snippets: [
-      "--comp-tree-view-control-min-block: var(--sys-density-control-height)",
+      "--comp-tree-view-control-min-block: var(--component-density-control-height)",
       "--comp-tree-view-control-min-block-sm: var(--component-field-control-size-sm)",
       "--comp-tree-view-control-min-block-lg: var(--component-tree-control-min-block-size-lg)",
       "--comp-tree-view-icon-size: var(--sys-icon-size-md)",

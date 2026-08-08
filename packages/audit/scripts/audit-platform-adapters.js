@@ -40,16 +40,16 @@ function checkPlatformAdapters() {
     add("errors", reactExampleFile, 1, "React prototype example must consume the React component entrypoint and component CSS.");
   }
 
-  for (const cssDependency of ["--comp-button-size: var(--sys-density-control-height)", "--comp-button-padding: var(--sys-density-control-padding-x)", "--comp-button-icon-size", ".button[data-density=\"md\"]"]) {
+  for (const cssDependency of ["--comp-button-size: var(--component-density-control-height)", "--comp-button-padding: var(--sys-density-control-padding-x)", "--comp-button-icon-size", ".button[data-density=\"md\"]"]) {
     if (!componentCss.includes(cssDependency)) add("errors", componentCssFile, 1, `Button CSS must expose cascade dependency ${cssDependency}.`);
   }
-  for (const cssDependency of ["--comp-icon-button-size: var(--sys-density-control-height)", "--comp-icon-button-icon-size", ".icon-button[data-density=\"md\"]"]) {
+  for (const cssDependency of ["--comp-icon-button-size: var(--component-density-control-height)", "--comp-icon-button-icon-size", ".icon-button[data-density=\"md\"]"]) {
     if (!componentCss.includes(cssDependency)) add("errors", componentCssFile, 1, `Icon Button CSS must expose cascade dependency ${cssDependency}.`);
   }
-  for (const cssDependency of ["--comp-input-control-size: var(--sys-density-control-height)", "--comp-input-padding-x", ".field[data-density=\"sm\"]", ".field[data-density=\"lg\"]", ".field__control", ".input"]) {
+  for (const cssDependency of ["--comp-input-control-size: var(--component-density-control-height)", "--comp-input-padding-x", ".field[data-density=\"sm\"]", ".field[data-density=\"lg\"]", ".field__control", ".input"]) {
     if (!componentCss.includes(cssDependency)) add("errors", componentCssFile, 1, `Input CSS must expose cascade dependency ${cssDependency}.`);
   }
-  for (const cssDependency of ["--comp-select-control-size: var(--sys-density-control-height)", "--comp-select-padding-start", ".select-control[data-density=\"sm\"]", ".select-control[data-density=\"lg\"]", ".select-control__trigger"]) {
+  for (const cssDependency of ["--comp-select-control-size: var(--component-density-control-height)", "--comp-select-padding-start", ".select-control[data-density=\"sm\"]", ".select-control[data-density=\"lg\"]", ".select-control__trigger"]) {
     if (!componentCss.includes(cssDependency)) add("errors", componentCssFile, 1, `Select CSS must expose cascade dependency ${cssDependency}.`);
   }
 }

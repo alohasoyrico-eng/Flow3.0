@@ -165,6 +165,9 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*calc\(var\(--component-control-min-size\)\s*[+-][^;]+;/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must not derive local geometry from --component-control-min-size math; route reusable sizes through sys-frame/component roles.");
   }
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc)\([^;]*--sys-density-control-height[^;]*;/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-density-control-height instead of reaching into sys density directly.");
+  }
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
@@ -181,8 +184,8 @@ function checkPackageCssContracts() {
   if (!buttonSmBlock?.body.includes("--comp-button-current-size: var(--comp-button-size-sm)") || !buttonLgBlock?.body.includes("--comp-button-current-size: var(--comp-button-size-lg)")) {
     add("errors", packageCssFile, 1, "Button sm and lg densities must set --comp-button-current-size from comp Button size tokens.");
   }
-  if (!text.includes("--comp-button-size: var(--sys-density-control-height)") || !text.includes("--comp-button-padding: var(--sys-density-control-padding-x)")) {
-    add("errors", packageCssFile, 1, "Button base geometry must inherit from sys-density aliases instead of a fixed md size.");
+  if (!text.includes("--comp-button-size: var(--component-density-control-height)") || !text.includes("--comp-button-padding: var(--sys-density-control-padding-x)")) {
+    add("errors", packageCssFile, 1, "Button base geometry must inherit from component density aliases instead of a fixed md size.");
   }
   if (/--button-(?:size|padding|icon-size)(?:-|:|\))/.test(text)) {
     add("errors", packageCssFile, 1, "Button geometry aliases must stay in the --comp-button-* contract; legacy --button-* shortcuts are not allowed.");
@@ -206,7 +209,7 @@ function checkPackageCssContracts() {
   if (/--select-|--component-select/.test(text)) {
     add("errors", packageCssFile, 1, "Select must use the component alias family --comp-select-*; legacy --select-* and --component-select-* aliases are not allowed.");
   }
-  if (!selectControlBlock?.body.includes("--comp-select-control-size: var(--sys-density-control-height)") || !selectControlBlock?.body.includes("--comp-select-current-control-size: var(--comp-select-control-size)")) {
+  if (!selectControlBlock?.body.includes("--comp-select-control-size: var(--component-density-control-height)") || !selectControlBlock?.body.includes("--comp-select-current-control-size: var(--comp-select-control-size)")) {
     add("errors", packageCssFile, selectControlBlock ? lineNumber(text, selectControlBlock.index) : 1, "Select must inherit base control size from the density cascade.");
   }
   if (!selectSmBlock?.body.includes("--comp-select-current-control-size: var(--comp-select-control-size-sm)") || !selectLgBlock?.body.includes("--comp-select-current-control-size: var(--comp-select-control-size-lg)")) {

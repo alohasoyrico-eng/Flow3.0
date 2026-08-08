@@ -29,8 +29,8 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
     text,
     packageCssFile,
     snippets: [
-      "--comp-date-picker-control-size: var(--sys-density-control-height)",
-      "--comp-date-picker-day-size: calc(var(--sys-density-control-height) - var(--sys-space-lg) + var(--sys-frame-space-micro))",
+      "--comp-date-picker-control-size: var(--component-density-control-height)",
+      "--comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--sys-space-lg) + var(--sys-frame-space-micro))",
       "--comp-date-picker-panel-inline-size: var(--component-date-picker-panel-inline-size)",
       "--comp-date-picker-radius: var(--component-radius-control)",
       "--comp-date-picker-panel-radius: var(--sys-frame-radius-surface)",
@@ -126,7 +126,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
     message: "DateRangePicker range days must consume range aliases instead of hardcoded styling.",
   });
   if (/--component-date-picker-(?:control|day)-size-md/.test(text)) {
-    add("errors", packageCssFile, 1, "DatePicker must not keep md-only size aliases; base size comes from --sys-density-control-height.");
+    add("errors", packageCssFile, 1, "DatePicker must not keep md-only size aliases; base size comes from --component-density-control-height.");
   }
   const rawDatePanelInline =
     text.match(/--comp-date-range-picker-panel-inline-size:\s*calc\(var\(--component-control-min-size\) \* [0-9.]+\)/) ||
