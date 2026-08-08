@@ -15,8 +15,8 @@ function normalizeState({ checked, indeterminate, disabled, state, error }) {
 
 export const Checkbox = forwardRef(function Checkbox({
   label,
-  description = "",
-  error = "",
+  description,
+  error,
   variant = "default",
   state = "unchecked",
   density,
@@ -43,6 +43,7 @@ export const Checkbox = forwardRef(function Checkbox({
   });
   const isInvalid = normalizedState === "error" || Boolean(error);
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "default");
+  if (!label) return null;
 
   useEffect(() => {
     if (inputRef.current) inputRef.current.indeterminate = currentIndeterminate;
@@ -103,7 +104,7 @@ export const Checkbox = forwardRef(function Checkbox({
     React.createElement(
       "span",
       { className: "choice__text" },
-      label ? React.createElement("span", { className: "choice__label" }, label) : null,
+      React.createElement("span", { className: "choice__label" }, label),
       description ? React.createElement("span", { className: "choice__description" }, description) : null,
       error ? React.createElement("span", { className: "choice__error" }, error) : null,
     ),
