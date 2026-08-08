@@ -2,6 +2,9 @@
 
 :root {
   --component-border-width: var(--sys-frame-border-thin);
+  --component-border-width-medium: var(--sys-frame-border-medium);
+  --component-border-width-control: var(--sys-frame-border-control);
+  --component-border-width-indicator: var(--sys-frame-border-indicator);
   --component-control-min-size: var(--sys-space-11);
   --component-density-control-height: var(--sys-density-control-height);
   --component-density-control-padding-x: var(--sys-density-control-padding-x);
@@ -1238,7 +1241,7 @@
   --comp-icon-button-disabled-opacity: var(--sys-disabled-readable-opacity);
   --comp-icon-button-badge-animation: component-pulse var(--component-duration-loop) var(--component-ease-state) infinite;
   --comp-icon-button-badge-bg: var(--sys-color-success);
-  --comp-icon-button-badge-border-width: var(--sys-frame-border-medium);
+  --comp-icon-button-badge-border-width: var(--component-border-width-medium);
   --comp-icon-button-badge-border-color: var(--sys-color-surface);
   --comp-icon-button-badge-border: var(--comp-icon-button-badge-border-width) solid var(--comp-icon-button-badge-border-color);
   --comp-icon-button-badge-radius: var(--component-radius-pill);
@@ -3228,7 +3231,7 @@ button.tag:disabled,
 
 .spinner {
   --comp-spinner-size: var(--component-inline-size-sm);
-  --comp-spinner-border-width: var(--sys-frame-border-indicator);
+  --comp-spinner-border-width: var(--component-border-width-indicator);
   --comp-spinner-tone: var(--component-loading-spinner-tone);
   --comp-spinner-track-tone: var(--component-loading-spinner-track);
   --comp-spinner-spin-cycle: var(--component-duration-loading-spin);
@@ -3276,7 +3279,7 @@ button.tag:disabled,
 
 .spinner[data-density="sm"] {
   --comp-spinner-size: var(--component-inline-size-xs);
-  --comp-spinner-border-width: var(--sys-frame-border-medium);
+  --comp-spinner-border-width: var(--component-border-width-medium);
 }
 
 .spinner[data-density="lg"] {
@@ -3865,7 +3868,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-img-fit: cover;
   --comp-avatar-status-bg: var(--sys-color-success);
   --comp-avatar-status-size: max(var(--sys-space-sm), calc(var(--comp-avatar-size) * 0.26));
-  --comp-avatar-status-border-width: var(--sys-frame-border-medium);
+  --comp-avatar-status-border-width: var(--component-border-width-medium);
   --comp-avatar-status-border-color: var(--sys-color-surface);
   --comp-avatar-status-border: var(--comp-avatar-status-border-width) solid var(--comp-avatar-status-border-color);
   --comp-avatar-status-radius: var(--component-radius-pill);
@@ -5912,7 +5915,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-separator-border: var(--sys-color-border);
   --comp-menu-separator-margin-block: var(--sys-space-xs);
   --comp-menu-trigger-avatar-bg: transparent;
-  --comp-menu-trigger-avatar-border-width: var(--sys-border-width-thin);
+  --comp-menu-trigger-avatar-border-width: var(--component-border-width);
   --comp-menu-trigger-avatar-border: transparent;
   --comp-menu-trigger-avatar-radius: var(--sys-radius-full);
   --comp-menu-trigger-avatar-fg: var(--sys-color-text);
@@ -6513,7 +6516,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-biometric-prompt-title-weight: var(--sys-voice-weight-black);
   --comp-biometric-prompt-title-line-height: var(--sys-voice-line-height-crisp);
   --comp-biometric-prompt-action-inline-size: min(100%, var(--component-content-size-sm));
-  --comp-biometric-prompt-ring-border-width: var(--sys-frame-border-indicator);
+  --comp-biometric-prompt-ring-border-width: var(--component-border-width-indicator);
   --comp-biometric-prompt-ring-border-color: var(--sys-color-action);
   --comp-biometric-prompt-ring-inset: calc(var(--sys-space-xs) * -1);
   --comp-biometric-prompt-ring-opacity: var(--sys-state-muted-opacity);
@@ -7630,7 +7633,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-stepper-item-complete-fg: var(--sys-color-text);
   --comp-stepper-marker-size: var(--component-step-marker-size-md);
   --comp-stepper-marker-bg: var(--sys-color-surface);
-  --comp-stepper-marker-border-width: var(--sys-frame-border-control);
+  --comp-stepper-marker-border-width: var(--component-border-width-control);
   --comp-stepper-marker-border: var(--sys-color-border);
   --comp-stepper-marker-radius: var(--component-radius-pill);
   --comp-stepper-marker-fg: var(--sys-color-text-muted);

@@ -177,6 +177,9 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*radius[\w-]*:\s*var\(--sys-frame-radius-sm\);/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component small radius aliases must consume --component-radius-sm instead of reaching into sys frame radius directly.");
   }
+  for (const match of text.matchAll(/--comp-[\w-]*border-width[\w-]*:\s*var\(--sys-(?:frame-border|border-width)-[\w-]+\);/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component border-width aliases must consume --component-border-width* aliases instead of reaching into sys frame border directly.");
+  }
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });

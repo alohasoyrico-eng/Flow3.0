@@ -43,7 +43,7 @@ function checkStepperCssContract({ text, blocks, packageCssFile, selectorKey }) 
     snippets: [
       "--comp-stepper-marker-bg: var(--sys-color-surface)",
       "--comp-stepper-marker-size: var(--component-step-marker-size-md)",
-      "--comp-stepper-marker-border-width: var(--sys-frame-border-control)",
+      "--comp-stepper-marker-border-width: var(--component-border-width-control)",
       "--comp-stepper-marker-active-bg:",
       "--comp-stepper-connector-bg: var(--sys-color-border)",
       "--comp-stepper-label-font-weight: var(--sys-voice-weight-semibold)",

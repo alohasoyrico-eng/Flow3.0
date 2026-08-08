@@ -85,7 +85,7 @@ function checkSpinnerCssContract({ text, blocks, packageCssFile, selectorKey }) 
     block: smBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-spinner-size: var(--component-inline-size-xs)", "--comp-spinner-border-width: var(--sys-frame-border-medium)"],
+    snippets: ["--comp-spinner-size: var(--component-inline-size-xs)", "--comp-spinner-border-width: var(--component-border-width-medium)"],
     message: "Spinner sm density must scale through Spinner aliases.",
   });
   requireIncludes({
