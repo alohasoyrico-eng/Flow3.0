@@ -22,6 +22,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Drawer" && /fields\.map\(\(field,\s*index\)\s*=>/.test(source)) add("errors", sourceFile, 1, "Drawer must filter fields without visible labels before composing Input.");
   if (name === "Toast" && /dismissible\s*\?\s*React\.createElement\(IconButton/.test(source)) add("errors", sourceFile, 1, "Toast must gate dismiss IconButton on dismissLabel, not dismissible alone.");
   if (name === "FloatingActionButton" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "FloatingActionButton must not render without an accessible label.");
+  if (name === "QuickAction" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "QuickAction must not render without an accessible label.");
 }
 
 module.exports = { checkReactComponentContentGuards };

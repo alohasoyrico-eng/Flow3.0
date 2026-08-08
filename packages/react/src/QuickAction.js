@@ -28,6 +28,7 @@ export const QuickAction = forwardRef(function QuickAction({
   const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const blocked = resolvedState === "disabled" || resolvedState === "loading";
+  if (!resolvedLabel) return null;
 
   return React.createElement(
     "div",

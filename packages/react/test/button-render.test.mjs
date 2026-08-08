@@ -205,6 +205,8 @@ const inheritedQuickActionMarkup = renderToStaticMarkup(React.createElement(Quic
   label: "Inherited action density",
 }));
 assert.doesNotMatch(inheritedQuickActionMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+const unnamedQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction));
+assert.equal(unnamedQuickActionMarkup, "");
 
 const movementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
   label: "Fuel purchase",
