@@ -290,6 +290,7 @@
   --component-duration-fast: var(--sys-duration-fast);
   --component-duration-snappy: var(--sys-duration-snappy);
   --component-duration-instant: var(--sys-duration-instant);
+  --component-duration-base: var(--sys-duration-base);
   --component-duration-enter: var(--sys-duration-enter);
   --component-duration-exit: var(--component-duration-fast);
   --component-duration-state: var(--component-duration-fast);
@@ -482,6 +483,8 @@
   --component-depth-today-ring: inset 0 0 0 var(--sys-frame-border-control) color-mix(in srgb, var(--sys-color-text) 56%, transparent);
   --component-depth-accent-halo: 0 0 0 calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--comp-animated-moment-accent-surface);
   --component-depth-frost-text: 0 var(--sys-frame-border-thin) var(--sys-space-xl) color-mix(in srgb, var(--sys-color-text) 30%, transparent);
+  --component-transition-tabs-indicator: left var(--component-duration-base) var(--component-ease-state), width var(--component-duration-base) var(--component-ease-state);
+  --component-gradient-stepper-marker-active: linear-gradient(145deg, color-mix(in srgb, var(--component-color-action) 78%, var(--component-color-surface)) 0%, var(--component-color-action) 62%, color-mix(in srgb, var(--component-color-action) 84%, var(--component-color-text)) 100%);
   --component-field-control-size-sm: calc(var(--ref-frame-height-control-sm-compact) - var(--component-frame-space-micro));
   --component-field-control-size-md: calc(var(--sys-frame-height-control-sm) - var(--component-frame-space-micro));
   --component-field-control-size-lg: calc(var(--ref-frame-height-control-md-compact) + var(--component-frame-space-micro));
@@ -2860,7 +2863,7 @@ button.tag:disabled,
   --comp-tabs-indicator-width: var(--component-inline-size-zero);
   --comp-tabs-indicator-pointer-events: var(--component-pointer-events-none);
   --comp-tabs-indicator-position: var(--component-position-absolute);
-  --comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch);
+  --comp-tabs-indicator-transition: var(--component-transition-tabs-indicator);
   --comp-tabs-indicator-z: var(--component-z-base);
   --comp-tabs-tab-align: var(--component-align-center);
   --comp-tabs-tab-bg: var(--component-surface-transparent);
@@ -7819,7 +7822,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-stepper-marker-font-family: var(--component-font-family-mono);
   --comp-stepper-marker-font-size: var(--component-font-size-small);
   --comp-stepper-marker-font-weight: var(--component-font-weight-extrabold);
-  --comp-stepper-marker-active-bg: linear-gradient(145deg, color-mix(in srgb, var(--sys-color-action) 78%, var(--component-color-surface)) 0%, var(--sys-color-action) 62%, color-mix(in srgb, var(--component-color-action) 84%, var(--component-color-text)) 100%);
+  --comp-stepper-marker-active-bg: var(--component-gradient-stepper-marker-active);
   --comp-stepper-marker-active-border: var(--component-color-action);
   --comp-stepper-marker-active-fg: var(--component-color-action-text);
   --comp-stepper-marker-active-depth: 0 0 0 var(--component-focus-ring-width) color-mix(in srgb, var(--component-color-action) 20%, transparent), var(--component-depth-raised-strong);

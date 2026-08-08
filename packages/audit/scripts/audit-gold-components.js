@@ -264,7 +264,7 @@ function checkGoldComponentTokens() {
     ["--comp-tag-bg-neutral: var(--component-energy-surface-sunken)", "Tag must use subtle metadata surfaces instead of action styling."],
     ["--comp-tag-hover-transform: scale(var(--component-scale-hover))", "Interactive Tag hover motion must use valid spring scale from Momentum tokens."],
     ["--comp-tag-press-transform: scale(var(--component-scale-press))", "Interactive Tag press motion must use valid press scale from Momentum tokens."],
-    ["--comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch)", "Tabs must move a benchmark-style active indicator with left/width spring motion."],
+    ["--comp-tabs-indicator-transition: var(--component-transition-tabs-indicator)", "Tabs must move a benchmark-style active indicator with left/width spring motion."],
     [".tabs::before", "Tabs must render a moving active indicator instead of styling the selected tab as a static button."],
     ["--comp-tooltip-bubble-bg: var(--component-energy-text-primary)", "Tooltip bubble must use a high-contrast layer surface from Design System Energy."],
     ["--comp-tooltip-transition: opacity var(--component-duration-state) var(--component-ease-press), transform var(--component-duration-state) var(--component-ease-press)", "Tooltip motion must use ZIP-like scale with Design System Momentum."],
