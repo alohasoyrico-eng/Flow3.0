@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "audit": "legacy DOM source governance",
+  "principle": "Executable audits and package sources must target Flow React/system contracts, not the retired DOM component implementation paths.",
+  "inventory": {
+    "scanRoots": [
+      "packages/audit/scripts",
+      "packages/react/src",
+      "packages/components/src"
+    ],
+    "filesScanned": 359,
+    "violations": 0
+  },
+  "forbiddenRules": [
+    {
+      "id": "legacy-component-dir",
+      "label": "Legacy DOM component directory"
+    },
+    {
+      "id": "legacy-component-family-file",
+      "label": "Legacy DOM component family file"
+    }
+  ],
+  "violations": []
+}
