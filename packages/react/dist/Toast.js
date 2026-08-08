@@ -27,8 +27,10 @@ export const Toast = forwardRef(function Toast({
   actionLabel,
   dismissible = false,
   dismissLabel,
+  dismissed: dismissedProp,
   onAction,
   onDismiss,
+  onDismissChange,
   className = "",
   ...rest
 }, ref) {
@@ -36,7 +38,9 @@ export const Toast = forwardRef(function Toast({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "status");
   const resolvedState = normalizeFlowValue(state, validStates, "visible");
   const resolvedDensity = normalizeFlowDensity(density);
-  const [dismissed, setDismissed] = useState(false);
+  const isDismissedControlled = dismissedProp !== undefined;
+  const [internalDismissed, setInternalDismissed] = useState(false);
+  const dismissed = isDismissedControlled ? Boolean(dismissedProp) : internalDismissed;
   const hidden = dismissed || resolvedState === "default";
   const role = resolvedTone === "danger" || resolvedTone === "warning" ? "alert" : "status";
   const canRenderAction = Boolean(actionLabel && onAction);
@@ -84,7 +88,8 @@ export const Toast = forwardRef(function Toast({
         onClick: (event) => {
           onDismiss?.(event);
           if (event.defaultPrevented) return;
-          setDismissed(true);
+          if (!isDismissedControlled) setInternalDismissed(true);
+          onDismissChange?.(true, event);
         },
       })
       : null,

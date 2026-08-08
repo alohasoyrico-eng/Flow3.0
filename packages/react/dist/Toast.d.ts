@@ -17,8 +17,10 @@ export interface ToastProps extends Omit<HTMLAttributes<HTMLElement>, "style" | 
   actionLabel?: string;
   dismissible?: boolean;
   dismissLabel?: string;
+  dismissed?: boolean;
   onAction?: (event: MouseEvent<HTMLButtonElement>) => void;
   onDismiss?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onDismissChange?: (dismissed: boolean, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface ToastComponent extends ForwardRefExoticComponent<ToastProps & RefAttributes<HTMLElement>> {

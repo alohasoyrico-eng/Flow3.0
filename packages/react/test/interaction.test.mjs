@@ -1994,6 +1994,7 @@ try {
 
   const toastActions = [];
   const toastDismissals = [];
+  const toastDismissChanges = [];
   const { getByRole: getToastRole } = render(React.createElement(Toast, {
     label: "Route saved",
     description: "Changes are available.",
@@ -2002,6 +2003,7 @@ try {
     dismissLabel: "Dismiss route saved",
     onAction: (event) => toastActions.push(event.type),
     onDismiss: (event) => toastDismissals.push(event.type),
+    onDismissChange: (dismissed, event) => toastDismissChanges.push({ dismissed, eventType: event.type }),
   }));
 
   const toastRegion = getToastRole("status");
@@ -2011,6 +2013,7 @@ try {
 
   fireEvent.click(getToastRole("button", { name: /dismiss route saved/i }));
   assert.deepEqual(toastDismissals, ["click"]);
+  assert.deepEqual(toastDismissChanges, [{ dismissed: true, eventType: "click" }]);
   assert.equal(toastRegion.hidden, true);
 
   cleanup();
@@ -2030,6 +2033,30 @@ try {
   fireEvent.click(getPreventedToastRole("button", { name: /keep route pending/i }));
   assert.deepEqual(preventedToastDismissals, ["click"]);
   assert.equal(preventedToastRegion.hidden, false);
+
+  cleanup();
+
+  const controlledToastDismissChanges = [];
+  const { getByRole: getControlledToastRole, rerender: rerenderControlledToast } = render(React.createElement(Toast, {
+    label: "Route synced",
+    dismissible: true,
+    dismissLabel: "Dismiss synced route",
+    dismissed: false,
+    onDismissChange: (dismissed, event) => controlledToastDismissChanges.push({ dismissed, eventType: event.type }),
+  }));
+
+  const controlledToastRegion = getControlledToastRole("status");
+  fireEvent.click(getControlledToastRole("button", { name: /dismiss synced route/i }));
+  assert.deepEqual(controlledToastDismissChanges, [{ dismissed: true, eventType: "click" }]);
+  assert.equal(controlledToastRegion.hidden, false);
+  rerenderControlledToast(React.createElement(Toast, {
+    label: "Route synced",
+    dismissible: true,
+    dismissLabel: "Dismiss synced route",
+    dismissed: true,
+    onDismissChange: (dismissed, event) => controlledToastDismissChanges.push({ dismissed, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(controlledToastRegion.hidden, true));
 
   cleanup();
 
