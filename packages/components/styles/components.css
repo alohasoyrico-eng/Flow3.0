@@ -61,6 +61,10 @@
   --component-card-chip-inline-size-sm: var(--sys-frame-content-card-chip-inline-sm);
   --component-card-chip-inline-size-md: var(--sys-frame-content-card-chip-inline-md);
   --component-card-chip-inline-size-lg: var(--sys-frame-content-card-chip-inline-lg);
+  --component-movement-row-min-block-size-sm: var(--sys-frame-content-movement-row-min-block-sm);
+  --component-movement-row-min-block-size-md: var(--sys-frame-content-movement-row-min-block-md);
+  --component-movement-row-min-block-size-lg: var(--sys-frame-content-movement-row-min-block-lg);
+  --component-movement-icon-size: var(--sys-frame-content-movement-icon-size);
   --component-disclosure-trigger-min-block-size-sm: var(--sys-frame-content-disclosure-trigger-min-block-sm);
   --component-disclosure-trigger-min-block-size-md: var(--sys-frame-content-disclosure-trigger-min-block-md);
   --component-disclosure-trigger-min-block-size-lg: var(--sys-frame-content-disclosure-trigger-min-block-lg);
@@ -781,9 +785,9 @@
   --comp-table-motion-ease: var(--component-ease-state);
   --comp-table-motion-press-ease: var(--component-ease-press);
   --comp-movement-row-width: var(--sys-frame-width-control);
-  --comp-movement-row-min-block-size-sm: calc(var(--component-control-min-size) + var(--sys-space-sm));
-  --comp-movement-row-min-block-size-md: var(--component-block-size-sm);
-  --comp-movement-row-min-block-size-lg: var(--component-block-size-md);
+  --comp-movement-row-min-block-size-sm: var(--component-movement-row-min-block-size-sm);
+  --comp-movement-row-min-block-size-md: var(--component-movement-row-min-block-size-md);
+  --comp-movement-row-min-block-size-lg: var(--component-movement-row-min-block-size-lg);
   --comp-movement-row-padding-block-sm: var(--sys-space-xs);
   --comp-movement-row-padding-block-md: var(--sys-space-sm);
   --comp-movement-row-padding-block-lg: var(--sys-space-md);
@@ -806,7 +810,7 @@
   --comp-movement-row-icon-fg-action: var(--sys-color-action);
   --comp-movement-row-icon-bg-danger: color-mix(in srgb, var(--sys-color-danger) 10%, var(--sys-color-surface));
   --comp-movement-row-icon-fg-danger: var(--sys-color-danger);
-  --comp-movement-row-icon-size: calc(var(--component-control-min-size) - var(--component-focus-ring-offset));
+  --comp-movement-row-icon-size: var(--component-movement-icon-size);
   --comp-movement-row-icon-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm) / 2);
   --comp-movement-row-icon-font-size: var(--component-icon-size-lg);
   --comp-movement-row-title-size: var(--component-font-size-label);

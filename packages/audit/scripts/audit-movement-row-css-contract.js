@@ -28,6 +28,21 @@ function checkMovementRowCssContract({ text, blocks, packageCssFile, selectorKey
   if (/--movement-row-/.test(rootBlock?.body ?? "")) {
     add("errors", packageCssFile, lineNumber(text, rootBlock.index), "MovementRow must not create parallel --movement-row-* aliases; use --comp-movement-row-* aliases.");
   }
+  const localFrameSize = /--comp-movement-row-(?:min-block-size-(?:sm|md|lg)|icon-size):\s*calc\(var\(--component-control-min-size\)\s*[+-][^;]+;/.exec(text);
+  if (localFrameSize) {
+    add("errors", packageCssFile, lineNumber(text, localFrameSize.index), "MovementRow frame geometry must flow through shared Frame movement roles instead of local control-size math.");
+  }
+  for (const snippet of [
+    "--comp-movement-row-min-block-size-sm: var(--component-movement-row-min-block-size-sm)",
+    "--comp-movement-row-min-block-size-md: var(--component-movement-row-min-block-size-md)",
+    "--comp-movement-row-min-block-size-lg: var(--component-movement-row-min-block-size-lg)",
+    "--comp-movement-row-icon-size: var(--component-movement-icon-size)",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "MovementRow frame aliases must be defined from shared Frame movement roles.");
+      break;
+    }
+  }
 
   requireIncludes({
     block: rootBlock,
