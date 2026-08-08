@@ -192,7 +192,10 @@ function checkStationPinCssContract({ text, blocks, packageCssFile, selectorKey,
     block: markerIconBlock,
     text,
     packageCssFile,
-    snippets: ["font-family: var(--sys-font-icon)", "font-size: var(--comp-station-pin-marker-glyph-size)"],
+    snippets: [
+      "font-family: var(--comp-station-pin-marker-glyph-family)",
+      "font-size: var(--comp-station-pin-marker-glyph-size)",
+    ],
     message: "StationPin icon marker must consume iconography aliases.",
   });
 }

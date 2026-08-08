@@ -9055,6 +9055,9 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-station-pin-font-weight: var(--component-font-weight-bold);
   --comp-station-pin-marker-size: var(--component-symbol-size-md-plus);
   --comp-station-pin-marker-glyph-size: var(--component-icon-size-station);
+  --comp-station-pin-marker-glyph-family: var(--component-font-family-icon);
+  --comp-station-pin-marker-weight: var(--component-font-weight-extrabold);
+  --comp-station-pin-marker-line-height: var(--component-line-height-none);
   --comp-station-pin-pointer-size: var(--component-station-pin-pointer-size);
   --comp-station-pin-frame-gap: var(--component-space-xs);
   --comp-station-pin-frame-padding-block: var(--component-space-sm);
@@ -9192,12 +9195,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   color: var(--comp-station-pin-marker-fg);
   display: inline-flex;
   flex: 0 0 var(--comp-station-pin-marker-size);
-  font-weight: var(--sys-voice-weight-extrabold);
+  font-weight: var(--comp-station-pin-marker-weight);
   justify-content: center;
   block-size: var(--comp-station-pin-marker-size);
   height: var(--comp-station-pin-marker-size);
   inline-size: var(--comp-station-pin-marker-size);
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--comp-station-pin-marker-line-height);
   max-inline-size: var(--comp-station-pin-marker-size);
   max-width: var(--comp-station-pin-marker-size);
   min-inline-size: var(--comp-station-pin-marker-size);
@@ -9207,7 +9210,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .station-pin__marker[data-kind="icon"] {
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-station-pin-marker-glyph-family);
   font-size: var(--comp-station-pin-marker-glyph-size);
 }
 
