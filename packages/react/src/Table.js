@@ -64,11 +64,11 @@ export const Table = forwardRef(function Table({
   const isSortControlled = sortKey !== undefined;
   const isExpandedKeyControlled = expandedKey !== undefined;
   const [currentSort, setCurrentSort] = useState({ key: sortKey ?? "", direction: sortDir });
-  const [currentSelected, setCurrentSelected] = useState(String(selectedKey || ""));
-  const [currentExpanded, setCurrentExpanded] = useState(String(expandedKey || ""));
+  const [currentSelected, setCurrentSelected] = useState(String(selectedKey ?? ""));
+  const [currentExpanded, setCurrentExpanded] = useState(String(expandedKey ?? ""));
 
   useEffect(() => {
-    if (isSelectedKeyControlled) setCurrentSelected(String(selectedKey || ""));
+    if (isSelectedKeyControlled) setCurrentSelected(String(selectedKey ?? ""));
   }, [isSelectedKeyControlled, selectedKey]);
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export const Table = forwardRef(function Table({
   }, [isSortControlled, sortDir, sortKey]);
 
   useEffect(() => {
-    if (isExpandedKeyControlled) setCurrentExpanded(String(expandedKey || ""));
+    if (isExpandedKeyControlled) setCurrentExpanded(String(expandedKey ?? ""));
   }, [expandedKey, isExpandedKeyControlled]);
 
   const sortedRows = useMemo(() => {
