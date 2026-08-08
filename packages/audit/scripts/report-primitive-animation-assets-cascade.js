@@ -19,7 +19,6 @@ const docsIndexFile = path.join(root, "apps/docs/index.html");
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const primitiveFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/primitives/animation-assets.js");
 const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/index.js");
-const motionComponentFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/components/motion.js");
 const animatedMomentReactFile = path.join(root, "packages/react/src/AnimatedMoment.js");
 const specFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json");
 const contractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/animation-assets.md");
@@ -67,7 +66,7 @@ const docsIndex = readIfExists(docsIndexFile);
 const css = readIfExists(componentCssFile);
 const primitive = readIfExists(primitiveFile);
 const index = readIfExists(componentIndexFile);
-const motion = readIfExists(motionComponentFile);
+const animatedMomentReact = readIfExists(animatedMomentReactFile);
 const specWrapper = readJson(specFile);
 const spec = specWrapper.artifacts?.primitives?.["animation-assets"] ?? specWrapper;
 const contract = readIfExists(contractFile);
@@ -97,8 +96,8 @@ const implementation = {
   supportsFallback: /animation-asset__fallback/.test(primitive) && /fallbackText/.test(primitive),
   cssTargetsAsset: /\.animation-asset\b/.test(css) && /animation-asset__viewport/.test(css),
   cssTargetsFallback: /animation-asset__fallback-icon/.test(css) && /animation-asset__fallback-label/.test(css),
-  animatedMomentConsumesPrimitive: /animation-asset animated-moment__asset/.test(read(animatedMomentReactFile)) && /data-animation-library": "lottie-web"/.test(read(animatedMomentReactFile)),
-  animatedMomentAvoidsRuntimeOwnership: !/loadAnimation|globalThis\.lottie/.test(motion),
+  animatedMomentConsumesPrimitive: /animation-asset animated-moment__asset/.test(animatedMomentReact) && /"data-animation-library":\s*"lottie-web"/.test(animatedMomentReact),
+  animatedMomentAvoidsRuntimeOwnership: !/loadAnimation|globalThis\.lottie/.test(animatedMomentReact),
   docsAvoidsRemoteRuntime: !/unpkg|jsdelivr|cdnjs/.test(docsIndex),
 };
 

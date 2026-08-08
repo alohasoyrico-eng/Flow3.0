@@ -18,7 +18,7 @@ const tokenCssFile = resolveBoundaryPath("#design-system/tokens-css", "packages/
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const componentPackageFile = resolveBoundaryPath("#design-system/components-package", "packages/components/package.json");
 const chartsPrimitiveFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/primitives/charts.js");
-const chartPanelFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/components/commerce.js");
+const chartPanelFile = path.join(root, "packages/react/src/ChartPanel.js");
 const chartsSpecFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/charts.json");
 const chartsContractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/charts.md");
 const energyReportFile = path.join(root, "docs/audits/foundation-energy-cascade-audit.json");
@@ -150,9 +150,9 @@ const implementation = {
   primitiveDefinesDataset: /dataset:\s*\{[\s\S]*source:\s*tableFallback/.test(chartsPrimitiveSource),
   primitiveUsesSemanticMotion: /chartMotion\.(?:enterDuration|updateDuration|enterEasing|updateEasing)/.test(chartsPrimitiveSource),
   panelConsumesPrimitive: /createChartsPrimitive/.test(chartPanelSource),
-  panelMarksEngine: /dataset\.chartEngine\s*=\s*"echarts-option"/.test(chartPanelSource),
-  panelFigureSummary: /figure\.setAttribute\("aria-label",\s*chartPrimitive\.textSummary\)/.test(chartPanelSource),
-  panelTooltipLive: /aria-live",\s*"polite"/.test(chartPanelSource) && /role",\s*"status"/.test(chartPanelSource),
+  panelMarksEngine: /"data-chart-engine":\s*"echarts-option"/.test(chartPanelSource),
+  panelFigureSummary: /"aria-label":\s*chartPrimitive\.textSummary/.test(chartPanelSource),
+  panelTooltipLive: /"aria-live":\s*"polite"/.test(chartPanelSource) && /role:\s*"status"/.test(chartPanelSource),
   componentCssUsesChartTokens: countMatches(componentCss, /var\(--sys-chart-/g),
 };
 const references = {

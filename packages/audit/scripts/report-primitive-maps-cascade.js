@@ -19,7 +19,7 @@ const tokenIndexFile = resolveBoundaryPath("#design-system/tokens-js", "packages
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const mapsPrimitiveFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/primitives/maps.js");
 const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/index.js");
-const commerceFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/components/commerce.js");
+const stationPinReactFile = path.join(root, "packages/react/src/StationPin.js");
 const mapsSpecFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/maps.json");
 const mapsContractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/maps.md");
 const stationPinContractFile = path.join(root, "packages/content/content/component-contracts/components/station-pin.md");
@@ -129,7 +129,7 @@ const tokenIndex = readIfExists(tokenIndexFile);
 const componentCss = readIfExists(componentCssFile);
 const mapsPrimitive = readIfExists(mapsPrimitiveFile);
 const componentIndex = readIfExists(componentIndexFile);
-const commerce = readIfExists(commerceFile);
+const stationPinReact = readIfExists(stationPinReactFile);
 const mapsContract = readIfExists(mapsContractFile);
 const stationPinContract = readIfExists(stationPinContractFile);
 const routeSummaryContract = readIfExists(routeSummaryContractFile);
@@ -174,8 +174,8 @@ const implementation = {
   createsRouteSummary: /createRouteSummary/.test(mapsPrimitive) && /routeSummary/.test(mapsPrimitive),
   outputsMapLayerModel: /mapLayerModel/.test(mapsPrimitive),
   outputsStationListModel: /stationListModel/.test(mapsPrimitive),
-  stationPinConsumesPrimitive: /createMapsPrimitive/.test(commerce) && /dataset\.mapPrimitive\s*=\s*"maps"/.test(commerce),
-  stationPinUsesPrimitiveLabel: /mapPrimitive\.mapLayerModel\.pins\[0\]\?\.accessibleLabel/.test(commerce),
+  stationPinConsumesPrimitive: /createMapsPrimitive/.test(stationPinReact) && /"data-map-primitive":\s*"maps"/.test(stationPinReact),
+  stationPinUsesPrimitiveLabel: /mapPrimitive\.mapLayerModel\.pins\[0\]\?\.accessibleLabel/.test(stationPinReact),
   stationPinCssUsesMapTokens: countMatches(componentCss, /var\(--sys-map-/g),
   tokenIndexExportsMap: /map:\s*\{[\s\S]*permission:[\s\S]*pin:[\s\S]*route:[\s\S]*fallback:/m.test(tokenIndex),
 };
