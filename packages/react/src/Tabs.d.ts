@@ -12,7 +12,6 @@ export interface TabsBadge {
   hidden?: boolean;
   live?: boolean;
   icon?: string;
-  ariaLabel?: string;
 }
 
 export interface TabsItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {

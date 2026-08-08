@@ -85,7 +85,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Tabs" && !source.includes("filter((item) => item?.label && itemKey(item))")) add("errors", sourceFile, 1, "Tabs must require visible labels and stable keys before composing tabs.");
   if (name === "Tabs" && /items\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "Tabs must not hide a missing required items contract behind an empty default.");
   if (name === "Tabs" && !source.includes("if (!normalizedItems.length) return null;")) add("errors", sourceFile, 1, "Tabs must not render an empty tablist shell when no valid tabs remain.");
-  if (name === "Tabs" && /item\??\.ariaLabel|item\??\.\["aria-label"\]|"aria-label":\s*item\.label/.test(source)) add("errors", sourceFile, 1, "Tabs must use visible labels as tab names instead of parallel aria-only names.");
+  if (name === "Tabs" && /item\??\.ariaLabel|item\??\.\["aria-label"\]|badge\.ariaLabel|"aria-label":\s*item\.label/.test(source)) add("errors", sourceFile, 1, "Tabs must use visible labels and explicit badge labels instead of parallel aria-only names.");
   if (name === "Tabs" && /item\.count\s*!=\s*null|String\(badge\.count|badge\.label\s*\?\?/.test(source)) add("errors", sourceFile, 1, "Tabs must not synthesize badges from count shorthands or empty badge labels.");
   if (name === "Tabs" && !source.includes("const badge = item.badge?.label ? item.badge : null;")) add("errors", sourceFile, 1, "Tabs must require explicit badge labels before composing Badge.");
   if (name === "SegmentedControl" && /label:\s*item\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "SegmentedControl must not render unlabeled segments; filter items without visible labels before normalizing.");

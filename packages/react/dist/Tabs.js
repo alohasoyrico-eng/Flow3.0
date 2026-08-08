@@ -143,7 +143,6 @@ export const Tabs = forwardRef(function Tabs({
           tone: badge.tone ?? "neutral",
           variant: badge.variant ?? "count",
           density: resolvedDensity || undefined,
-          ariaLabel: badge.ariaLabel,
         }) : null,
       );
     }),
