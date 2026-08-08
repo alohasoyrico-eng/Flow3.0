@@ -789,6 +789,7 @@ export const componentContracts = {
     accessibility: [
       "Use native table semantics.",
       "Expose aria-sort on sortable columns.",
+      "Require visible column labels instead of exposing technical column keys.",
       "Use patterns for remote data, filtering, pagination, expansion, and row processs."
     ]
   },

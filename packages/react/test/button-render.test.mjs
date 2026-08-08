@@ -1025,6 +1025,17 @@ const unnamedTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   rows: tableRows,
 }));
 assert.doesNotMatch(unnamedTableMarkup, /aria-label="Table"/);
+const unlabeledColumnTableMarkup = renderToStaticMarkup(React.createElement(Table, {
+  label: "Guarded columns",
+  variant: "sortable",
+  columns: [
+    { key: "plate", sortable: true },
+    { key: "status", label: "Status" },
+  ],
+  rows: tableRows,
+}));
+assert.doesNotMatch(unlabeledColumnTableMarkup, /<span>plate<\/span>|<th[^>]*>plate<\/th>/);
+assert.match(unlabeledColumnTableMarkup, />Status</);
 
 const expandableTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   label: "Expandable fleet",

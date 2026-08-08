@@ -51,7 +51,8 @@ export const Table = forwardRef(function Table({
   const resolvedVariant = dense ? "dense" : normalizeFlowValue(variant, validVariants, "standard");
   const initialState = normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
-  const sortable = resolvedVariant === "sortable" || columns.some((column) => column.sortable);
+  const resolvedColumns = useMemo(() => columns.filter((column) => column?.key && column?.label), [columns]);
+  const sortable = resolvedVariant === "sortable" || resolvedColumns.some((column) => column.sortable);
   const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
   const expandable = resolvedVariant === "expandable" || Boolean(renderDetail || expandedKey);
   const canRenderExpanders = expandable && typeof getExpandLabel === "function";
@@ -76,7 +77,7 @@ export const Table = forwardRef(function Table({
 
   const sortedRows = useMemo(() => {
     if (!currentSort.key) return [...rows];
-    const column = columns.find((item) => item.key === currentSort.key);
+    const column = resolvedColumns.find((item) => item.key === currentSort.key);
     if (!column) return [...rows];
     const direction = currentSort.direction === "descending" ? -1 : 1;
     return [...rows].sort((a, b) => {
@@ -87,7 +88,7 @@ export const Table = forwardRef(function Table({
       if (typeof aValue === "number" && typeof bValue === "number") return (aValue - bValue) * direction;
       return String(aValue).localeCompare(String(bValue), "en") * direction;
     });
-  }, [columns, currentSort.direction, currentSort.key, rows]);
+  }, [currentSort.direction, currentSort.key, resolvedColumns, rows]);
 
   const interactionState = currentExpanded ? "expanded" : currentSort.key ? "sorted" : currentSelected ? "selected" : initialState;
   const changeSort = (key) => {
@@ -125,7 +126,7 @@ export const Table = forwardRef(function Table({
           "tr",
           null,
           canRenderExpanders ? React.createElement("th", { className: "table__expander-head", scope: "col" }) : null,
-          columns.map((column) => {
+          resolvedColumns.map((column) => {
             const active = currentSort.key === column.key;
             const canSort = column.sortable || sortable;
             return React.createElement(
@@ -148,9 +149,9 @@ export const Table = forwardRef(function Table({
                     "data-dir": active && currentSort.direction === "descending" ? "desc" : "asc",
                     onClick: () => changeSort(column.key),
                   },
-                  React.createElement("span", null, column.label ?? column.key),
+                  React.createElement("span", null, column.label),
                 )
-                : column.label ?? column.key,
+                : column.label,
             );
           }),
         ),
@@ -202,7 +203,7 @@ export const Table = forwardRef(function Table({
                 "chevron_right",
               ),
             ) : null,
-            columns.map((column) => React.createElement(
+            resolvedColumns.map((column) => React.createElement(
               "td",
               {
                 key: column.key,
@@ -220,7 +221,7 @@ export const Table = forwardRef(function Table({
             React.createElement(
               "tr",
               { key: `${key}-detail`, className: "table__detail-row", hidden: !expanded },
-              React.createElement("td", { className: "table__detail", colSpan: columns.length + 1 }, detail),
+              React.createElement("td", { className: "table__detail", colSpan: resolvedColumns.length + 1 }, detail),
             ),
           ];
         }),
