@@ -709,6 +709,7 @@ const listMarkup = renderToStaticMarkup(React.createElement(List, {
     { key: "docs", label: "Documents", meta: "3 pending", value: "75%", icon: "description", state: "selected" },
     { key: "fuel", label: "Fuel card", meta: "Needs review", value: "$842", icon: "credit_card", tone: "danger" },
   ],
+  onSelect: () => {},
 }));
 assert.match(listMarkup, /^<ul/);
 assert.match(listMarkup, /class="list"/);
@@ -731,6 +732,15 @@ const passiveListMarkup = renderToStaticMarkup(React.createElement(List, {
 assert.match(passiveListMarkup, /<span class="list__item"/);
 assert.doesNotMatch(passiveListMarkup.match(/^<ul[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(passiveListMarkup, /<button/);
+
+const inertActionListMarkup = renderToStaticMarkup(React.createElement(List, {
+  variant: "action",
+  interactive: true,
+  items: [{ key: "docs", label: "Documents", meta: "3 pending" }],
+}));
+assert.match(inertActionListMarkup, /data-interactive="false"/);
+assert.match(inertActionListMarkup, /<span class="list__item"/);
+assert.doesNotMatch(inertActionListMarkup, /<button/);
 
 const loadingListItemMarkup = renderToStaticMarkup(React.createElement(List, {
   items: [{ key: "loading-row", label: "Refreshing assignments", state: "loading" }],

@@ -21,7 +21,8 @@ export const List = forwardRef(function List({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "standard");
   const resolvedState = normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
-  const isInteractive = Boolean(interactive || resolvedVariant === "action" || typeof onSelect === "function");
+  const requestedInteraction = Boolean(interactive || resolvedVariant === "action" || typeof onSelect === "function");
+  const isInteractive = requestedInteraction && typeof onSelect === "function";
   const sourceItems = Array.isArray(items) ? items : [];
   const resolvedItems = sourceItems.filter((item) => item?.key !== undefined && item?.key !== null && item?.key !== "" && item?.label);
   const initialSelectedKey = selectedKey ?? resolvedItems.find((item) => item.state === "selected")?.key ?? "";
