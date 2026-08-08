@@ -93,6 +93,8 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
     if (isValueControlled) setCurrentValue(value ?? "");
   }, [isValueControlled, value]);
 
+  if (!label) return null;
+
   return React.createElement(
     "label",
     {
@@ -104,7 +106,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
       "data-brand": brand,
       "data-validation-message": validationMessage,
     },
-    label ? React.createElement("span", { className: "field__label card-number-input__label", id: `${inputId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label card-number-input__label", id: `${inputId}-label` }, label),
     React.createElement(
       "span",
       { className: "field__control card-number-input__control" },
@@ -126,8 +128,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
         enterKeyHint: "next",
         spellCheck: false,
         "data-card-number-input": "",
-        "aria-labelledby": label ? `${inputId}-label` : undefined,
-        "aria-label": label ? undefined : rest["aria-label"],
+        "aria-labelledby": `${inputId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {
