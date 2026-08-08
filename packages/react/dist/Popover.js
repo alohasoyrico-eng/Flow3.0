@@ -141,7 +141,7 @@ export const Popover = forwardRef(function Popover({
               onClick: (event) => {
                 action.onClick?.(event);
                 if (event.defaultPrevented) return;
-                onAction?.(action.key);
+                onAction?.(action.key, event);
                 setOpen(false, { restoreFocus: true });
               },
             });

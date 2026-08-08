@@ -42,7 +42,7 @@ export interface PopoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, "sty
   actions?: PopoverAction[];
   field?: PopoverField;
   onOpenChange?: (open: boolean) => void;
-  onAction?: (key: string) => void;
+  onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface PopoverComponent extends ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLSpanElement>> {

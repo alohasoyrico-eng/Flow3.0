@@ -92,6 +92,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Popover" && /label:\s*field\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Popover must not synthesize empty field labels before composing Input.");
   if (name === "Popover" && !source.includes("sourceActions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== \"\")")) add("errors", sourceFile, 1, "Popover actions must require visible labels and stable keys before rendering controls.");
   if (name === "Popover" && !source.includes("if (event.defaultPrevented) return;")) add("errors", sourceFile, 1, "Popover must respect prevented action clicks before dispatching onAction or closing.");
+  if (name === "Popover" && !source.includes("onAction?.(action.key, event);")) add("errors", sourceFile, 1, "Popover must pass the original click event through the semantic onAction contract.");
   if (name === "Popover" && /actions\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "Popover must not hide missing action collections behind an empty prop default.");
   if (name === "Popover" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "Popover must not synthesize action keys from visible labels.");
   if (name === "Drawer" && /item\.(?:copy|label)\s*\?\?\s*""|label:\s*item\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Drawer content must not render empty rows; filter incomplete content before composing child components.");

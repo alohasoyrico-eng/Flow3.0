@@ -1224,7 +1224,7 @@ try {
     variant: "action",
     actions: [{ key: "apply", label: "Apply", variant: "primary" }],
     onOpenChange: (open) => popoverOpenChanges.push(open),
-    onAction: (key) => popoverActions.push(key),
+    onAction: (key, event) => popoverActions.push({ key, eventType: event.type }),
   }));
 
   const popoverTrigger = getPopoverRole("button", { name: /open filters/i });
@@ -1236,7 +1236,7 @@ try {
 
   fireEvent.click(getPopoverRole("button", { name: /apply/i }));
   await waitFor(() => assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false"));
-  assert.deepEqual(popoverActions, ["apply"]);
+  assert.deepEqual(popoverActions, [{ key: "apply", eventType: "click" }]);
   assert.deepEqual(popoverOpenChanges, [true, false]);
 
   const preventedPopoverActions = [];
