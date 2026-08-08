@@ -1410,6 +1410,8 @@ assert.doesNotMatch(inheritedSpinnerMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /da
 const unnamedSpinnerMarkup = renderToStaticMarkup(React.createElement(Spinner));
 assert.doesNotMatch(unnamedSpinnerMarkup, /Loading/);
 assert.doesNotMatch(unnamedSpinnerMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /aria-label=/);
+assert.doesNotMatch(unnamedSpinnerMarkup.match(/^<span[^>]+>/)?.[0] ?? "", /role="status"/);
+assert.match(unnamedSpinnerMarkup, /aria-hidden="true"/);
 
 const decorativeSpinnerMarkup = renderToStaticMarkup(React.createElement(Spinner, {
   decorative: true,

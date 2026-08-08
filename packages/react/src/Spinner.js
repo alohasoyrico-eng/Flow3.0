@@ -24,7 +24,7 @@ export const Spinner = forwardRef(function Spinner({
   ...rest
 }, ref) {
   const resolvedState = decorative ? "decorative" : normalizeState(state);
-  const isDecorative = decorative || resolvedState === "decorative";
+  const isDecorative = decorative || resolvedState === "decorative" || !label;
 
   return React.createElement(
     "span",
