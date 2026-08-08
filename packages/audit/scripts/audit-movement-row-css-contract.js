@@ -32,7 +32,11 @@ function checkMovementRowCssContract({ text, blocks, packageCssFile, selectorKey
   if (localFrameSize) {
     add("errors", packageCssFile, lineNumber(text, localFrameSize.index), "MovementRow frame geometry must flow through shared Frame movement roles instead of local control-size math.");
   }
+  if (text.includes("--comp-movement-row-width: var(--sys-frame-width-control);")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-movement-row-width: var(--sys-frame-width-control);")), "MovementRow width must consume --component-frame-width-control instead of reaching into frame width directly.");
+  }
   for (const snippet of [
+    "--comp-movement-row-width: var(--component-frame-width-control)",
     "--comp-movement-row-min-block-size-sm: var(--component-movement-row-min-block-size-sm)",
     "--comp-movement-row-min-block-size-md: var(--component-movement-row-min-block-size-md)",
     "--comp-movement-row-min-block-size-lg: var(--component-movement-row-min-block-size-lg)",

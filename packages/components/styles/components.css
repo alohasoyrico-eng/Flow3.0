@@ -16,6 +16,7 @@
   --component-frame-padding-control: var(--sys-frame-padding-control);
   --component-frame-space-none: var(--sys-frame-space-none);
   --component-frame-space-micro: var(--sys-frame-space-micro);
+  --component-frame-width-control: var(--sys-frame-width-control);
   --component-focus-ring: var(--sys-focus-ring);
   --component-focus-ring-width: var(--sys-frame-border-indicator);
   --component-focus-ring-offset: var(--sys-focus-ring-offset);
@@ -816,7 +817,7 @@
   --comp-table-motion-duration: var(--component-duration-snappy);
   --comp-table-motion-ease: var(--component-ease-state);
   --comp-table-motion-press-ease: var(--component-ease-press);
-  --comp-movement-row-width: var(--sys-frame-width-control);
+  --comp-movement-row-width: var(--component-frame-width-control);
   --comp-movement-row-min-block-size-sm: var(--component-movement-row-min-block-size-sm);
   --comp-movement-row-min-block-size-md: var(--component-movement-row-min-block-size-md);
   --comp-movement-row-min-block-size-lg: var(--component-movement-row-min-block-size-lg);
