@@ -213,7 +213,7 @@ try {
   const expiryChanges = [];
   const { getByLabelText, rerender: rerenderExpiry } = render(React.createElement(CardExpiryInput, {
     label: "Expiry date",
-    onValueChange: (value, meta) => expiryChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => expiryChanges.push({ value, meta, eventType: event.type }),
   }));
 
   const expiryInput = getByLabelText(/expiry date/i);
@@ -225,11 +225,12 @@ try {
   assert.equal(expiryChanges.at(-1).meta.month, "12");
   assert.equal(expiryChanges.at(-1).meta.year, "28");
   assert.equal(expiryChanges.at(-1).meta.validity, "valid");
+  assert.equal(expiryChanges.at(-1).eventType, "change");
 
   rerenderExpiry(React.createElement(CardExpiryInput, {
     label: "Expiry date",
     value: "1029",
-    onValueChange: (value, meta) => expiryChanges.push({ value, meta }),
+    onValueChange: (value, meta, event) => expiryChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(expiryInput.value, "10/29"));
 

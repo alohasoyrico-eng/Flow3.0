@@ -138,7 +138,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
             year: parsed.year,
             validity: nextValidity,
             expired: nextValidity === "expired",
-          });
+          }, event);
         },
       }),
       loading ? React.createElement(Spinner, { density, decorative: true, className: "field__icon field__icon--loading" }) : null,

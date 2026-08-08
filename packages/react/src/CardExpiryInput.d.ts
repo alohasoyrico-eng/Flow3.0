@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
 import { cardExpiryInputPlatformContract } from "@design-system/components/platforms";
 
 export type CardExpiryInputDensity = "sm" | "md" | "lg";
@@ -21,7 +21,7 @@ export interface CardExpiryInputProps extends Omit<InputHTMLAttributes<HTMLInput
   loading?: boolean;
   validationMessage?: string;
   expiredMessage?: string;
-  onValueChange?: (value: string, meta: CardExpiryMeta) => void;
+  onValueChange?: (value: string, meta: CardExpiryMeta, event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface CardExpiryInputComponent extends ForwardRefExoticComponent<CardExpiryInputProps & RefAttributes<HTMLInputElement>> {
