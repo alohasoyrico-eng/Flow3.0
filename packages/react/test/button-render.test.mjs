@@ -328,6 +328,12 @@ const unstableMetricRouteSummaryMarkup = renderToStaticMarkup(React.createElemen
 }));
 assert.doesNotMatch(unstableMetricRouteSummaryMarkup, /class="route-summary__metrics"/);
 assert.doesNotMatch(unstableMetricRouteSummaryMarkup, /ETA|18 min/);
+const unlabeledRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  description: "No route identity",
+  metrics: [{ key: "eta", label: "ETA", value: "18 min" }],
+  actions: [{ key: "start", label: "Start route" }],
+}));
+assert.doesNotMatch(unlabeledRouteSummaryMarkup, /route-summary|No route identity|ETA|Start route/);
 
 const stationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
   label: "Station 24",

@@ -74,7 +74,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
   const resolvedState = disabled ? "disabled" : selected ? "selected" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedTone = normalizeFlowValue(tone, validTones, resolvedState === "warning" || resolvedVariant === "policy" ? "warning" : "neutral");
-  const resolvedLabel = label ?? "";
+  if (!label) return null;
   const isDisabled = resolvedState === "disabled";
   const isCompact = resolvedVariant === "compact";
   const visibleMetrics = metrics.filter((metric) => metric?.key && metric?.label && metric?.value);
@@ -104,7 +104,7 @@ export const RouteSummary = forwardRef(function RouteSummary({
       React.createElement(
         "div",
         { className: "route-summary__label" },
-        resolvedLabel ? React.createElement("strong", null, resolvedLabel) : null,
+        React.createElement("strong", null, label),
         description ? React.createElement("small", null, description) : null,
       ),
     ),
