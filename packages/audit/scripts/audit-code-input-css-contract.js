@@ -18,41 +18,47 @@ function checkCodeInputCssContract({ text, blocks, packageCssFile, selectorKey }
   const lgBlock = blockFor(blocks, selectorKey, ".code-input[data-density=\"lg\"]");
   const digitBlock = blockFor(blocks, selectorKey, ".code-input__digit");
 
+  if (text.includes("--code-input-slot-")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--code-input-slot-")), "Code Input must not use short --code-input-slot-* aliases; use --comp-code-input-current-slot-* resolved aliases.");
+  }
+
   requireIncludes({
     block: baseBlock,
     text,
     packageCssFile,
     snippets: [
-      "--code-input-slot-block-size: var(--comp-code-input-slot-block-size-md)",
-      "--code-input-slot-font-size: var(--comp-code-input-slot-font-size-md)",
-      "--code-input-slot-gap: var(--comp-code-input-slot-gap-md)",
-      "--code-input-slot-inline-size: var(--comp-code-input-slot-inline-size-md)",
+      "--comp-code-input-current-slot-block-size: var(--comp-code-input-slot-block-size-md)",
+      "--comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-md)",
+      "--comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-md)",
+      "--comp-code-input-current-slot-inline-size: var(--comp-code-input-slot-inline-size-md)",
     ],
-    message: "Code Input base must expose local aliases for slot size, font, gap, and inline size.",
+    message: "Code Input base must expose component-scoped current aliases for slot size, font, gap, and inline size.",
   });
   requireIncludes({
     block: slotsBlock,
     text,
     packageCssFile,
-    snippets: ["gap: var(--code-input-slot-gap, var(--comp-code-input-slot-gap-md))"],
-    message: "Code Input slots container must consume the local gap alias.",
+    snippets: ["gap: var(--comp-code-input-current-slot-gap)"],
+    message: "Code Input slots container must consume the component-scoped current gap alias.",
   });
   requireIncludes({
     block: slotBlock,
     text,
     packageCssFile,
     snippets: [
-      "font-size: var(--code-input-slot-font-size, var(--comp-code-input-slot-font-size-md))",
-      "block-size: var(--code-input-slot-block-size)",
-      "inline-size: var(--code-input-slot-inline-size)",
+      "font-size: var(--comp-code-input-current-slot-font-size)",
+      "block-size: var(--comp-code-input-current-slot-block-size)",
+      "inline-size: var(--comp-code-input-current-slot-inline-size)",
+      "min-block-size: var(--comp-code-input-current-slot-block-size)",
+      "min-inline-size: var(--comp-code-input-current-slot-inline-size)",
     ],
-    message: "Code Input slot geometry and voice must consume local slot aliases.",
+    message: "Code Input slot geometry and voice must consume component-scoped current slot aliases.",
   });
 
   const densityContracts = [
-    [smBlock, "--code-input-slot-gap: var(--comp-code-input-slot-gap-sm)", "Code Input sm density must set gap on the root so the slots container can inherit it."],
-    [compactBlock, "--code-input-slot-gap: var(--comp-code-input-slot-gap-sm)", "Code Input compact variant must set gap on the root so the slots container can inherit it."],
-    [lgBlock, "--code-input-slot-gap: var(--comp-code-input-slot-gap-md)", "Code Input lg density must set gap on the root so the slots container can inherit it."],
+    [smBlock, "--comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-sm)", "Code Input sm density must set current gap on the root so the slots container can inherit it."],
+    [compactBlock, "--comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-sm)", "Code Input compact variant must set current gap on the root so the slots container can inherit it."],
+    [lgBlock, "--comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-md)", "Code Input lg density must set current gap on the root so the slots container can inherit it."],
   ];
   for (const [block, snippet, message] of densityContracts) {
     requireIncludes({ block, text, packageCssFile, snippets: [snippet], message });

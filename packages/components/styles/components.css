@@ -8994,10 +8994,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .code-input {
-  --code-input-slot-block-size: var(--comp-code-input-slot-block-size-md);
-  --code-input-slot-font-size: var(--comp-code-input-slot-font-size-md);
-  --code-input-slot-gap: var(--comp-code-input-slot-gap-md);
-  --code-input-slot-inline-size: var(--comp-code-input-slot-inline-size-md);
+  --comp-code-input-current-slot-block-size: var(--comp-code-input-slot-block-size-md);
+  --comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-md);
+  --comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-md);
+  --comp-code-input-current-slot-inline-size: var(--comp-code-input-slot-inline-size-md);
 }
 
 .code-input .code-input__control {
@@ -9029,7 +9029,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .code-input .code-input__slots {
   align-items: center;
   display: inline-flex;
-  gap: var(--code-input-slot-gap, var(--comp-code-input-slot-gap-md));
+  gap: var(--comp-code-input-current-slot-gap);
 }
 
 .code-input .code-input__slot {
@@ -9040,13 +9040,13 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   color: var(--comp-code-input-fg);
   display: inline-flex;
   font-family: var(--comp-code-input-font-family);
-  font-size: var(--code-input-slot-font-size, var(--comp-code-input-slot-font-size-md));
+  font-size: var(--comp-code-input-current-slot-font-size);
   font-weight: var(--comp-code-input-font-weight);
   justify-content: center;
-  block-size: var(--code-input-slot-block-size);
-  inline-size: var(--code-input-slot-inline-size);
-  min-block-size: var(--code-input-slot-block-size);
-  min-inline-size: var(--code-input-slot-inline-size);
+  block-size: var(--comp-code-input-current-slot-block-size);
+  inline-size: var(--comp-code-input-current-slot-inline-size);
+  min-block-size: var(--comp-code-input-current-slot-block-size);
+  min-inline-size: var(--comp-code-input-current-slot-inline-size);
   padding: 0;
   text-align: center;
   transition:
@@ -9056,24 +9056,24 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .code-input[data-density="sm"] {
-  --code-input-slot-block-size: var(--comp-code-input-slot-block-size-sm);
-  --code-input-slot-font-size: var(--comp-code-input-slot-font-size-sm);
-  --code-input-slot-gap: var(--comp-code-input-slot-gap-sm);
-  --code-input-slot-inline-size: var(--comp-code-input-slot-inline-size-sm);
+  --comp-code-input-current-slot-block-size: var(--comp-code-input-slot-block-size-sm);
+  --comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-sm);
+  --comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-sm);
+  --comp-code-input-current-slot-inline-size: var(--comp-code-input-slot-inline-size-sm);
 }
 
 .code-input[data-variant="compact"] {
-  --code-input-slot-block-size: var(--comp-code-input-slot-block-size-sm);
-  --code-input-slot-font-size: var(--comp-code-input-slot-font-size-sm);
-  --code-input-slot-gap: var(--comp-code-input-slot-gap-sm);
-  --code-input-slot-inline-size: var(--comp-code-input-slot-inline-size-sm);
+  --comp-code-input-current-slot-block-size: var(--comp-code-input-slot-block-size-sm);
+  --comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-sm);
+  --comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-sm);
+  --comp-code-input-current-slot-inline-size: var(--comp-code-input-slot-inline-size-sm);
 }
 
 .code-input[data-density="lg"] {
-  --code-input-slot-block-size: var(--comp-code-input-slot-block-size-lg);
-  --code-input-slot-font-size: var(--comp-code-input-slot-font-size-lg);
-  --code-input-slot-gap: var(--comp-code-input-slot-gap-md);
-  --code-input-slot-inline-size: var(--comp-code-input-slot-inline-size-lg);
+  --comp-code-input-current-slot-block-size: var(--comp-code-input-slot-block-size-lg);
+  --comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-lg);
+  --comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-md);
+  --comp-code-input-current-slot-inline-size: var(--comp-code-input-slot-inline-size-lg);
 }
 
 .code-input[data-state="hover"] .code-input__slot {
