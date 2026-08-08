@@ -56,6 +56,20 @@ try {
   await waitFor(() => assert.equal(overviewTrigger.getAttribute("aria-expanded"), "true"));
   assert.equal(pricingTrigger.getAttribute("aria-expanded"), "false");
 
+  fireEvent.click(pricingTrigger);
+  assert.deepEqual(expandedChanges.at(-1), { expandedIds: ["pricing"], eventType: "click" });
+  assert.equal(pricingTrigger.getAttribute("aria-expanded"), "false");
+  rerenderAccordion(React.createElement(Accordion, {
+    expandedIds: ["pricing"],
+    items: [
+      { id: "overview", title: "Overview", content: "Route overview" },
+      { id: "pricing", title: "Pricing", content: "Route pricing" },
+    ],
+    onExpandedChange: (expandedIds, event) => expandedChanges.push({ expandedIds, eventType: event.type }),
+  }));
+  assert.equal(pricingTrigger.getAttribute("aria-expanded"), "true");
+  assert.equal(overviewTrigger.getAttribute("aria-expanded"), "false");
+
   cleanup();
 
   const multipleExpandedChanges = [];
