@@ -2227,7 +2227,7 @@
   --comp-badge-bg: var(--comp-badge-bg-neutral);
   --comp-badge-border: var(--comp-badge-border-neutral);
   --comp-badge-fg: var(--comp-badge-fg-neutral);
-  --comp-badge-dot-size: var(--sys-frame-gap-element);
+  --comp-badge-dot-size: var(--component-field-gap);
   --comp-badge-icon-size: var(--component-inline-size-xs);
   --comp-badge-hover-shadow: var(--component-depth-action-hover);
   --comp-badge-hover-transform: var(--component-transform-lift-sm);

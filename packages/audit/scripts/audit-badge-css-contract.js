@@ -16,6 +16,9 @@ function checkBadgeCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const disabledBlock = blockFor(blocks, selectorKey, ".badge[data-state=\"disabled\"]");
   const liveBlock = blockFor(blocks, selectorKey, ".badge[data-live=\"true\"] .badge__live");
   const liveKeyframes = text.match(/@keyframes\s+badge-live-dot\s*{[\s\S]*?\n}/)?.[0] ?? "";
+  if (text.includes("--comp-badge-dot-size: var(--sys-frame-gap-element);")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-badge-dot-size: var(--sys-frame-gap-element);")), "Badge dot size must consume --component-field-gap instead of reaching into frame gap directly.");
+  }
 
   requireIncludes({
     block: badgeBlock,
@@ -24,6 +27,7 @@ function checkBadgeCssContract({ text, blocks, packageCssFile, selectorKey }) {
     snippets: [
       "--comp-badge-border-width: var(--component-border-width)",
       "--comp-badge-radius: var(--component-radius-pill)",
+      "--comp-badge-dot-size: var(--component-field-gap)",
       "--comp-badge-font-size: var(--component-font-size-label)",
       "--comp-badge-gap: var(--sys-space-xs)",
       "--comp-badge-motion-duration: var(--component-duration-state)",
