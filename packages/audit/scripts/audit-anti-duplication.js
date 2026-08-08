@@ -8,6 +8,10 @@ const docsAllowedComponentAuthors = new Set([
 const docsAllowedPackageClassTokens = new Map([
   ["apps/docs/docs-layout.js", new Set(["tag"])],
 ]);
+const docsAppDirs = [
+  path.join(root, "apps/docs"),
+  path.join(root, "../FlowDocs/apps/docs"),
+].filter((dir) => fs.existsSync(dir));
 
 const componentClassRoots = new Set([
   "accordion",
@@ -86,24 +90,26 @@ function checkAntiDuplicationGovernance() {
 }
 
 function checkDocsDoNotOwnPackageComponentMarkup() {
-  if (!fs.existsSync(docsAppDir)) return;
-  for (const file of walkFiles(docsAppDir, (candidate) => /\.js$/.test(candidate))) {
-    const relativeFile = normalize(path.relative(root, file));
-    if (docsAllowedComponentAuthors.has(relativeFile)) continue;
-    const source = read(file);
-    const classStrings = [...source.matchAll(/\bclass(?:Name)?\s*[:=]\s*["'`]([^"'`]+)["'`]/g)];
-    for (const match of classStrings) {
-      const tokens = match[1].split(/\s+/).filter(Boolean);
-      for (const token of tokens) {
-        if (docsAllowedPackageClassTokens.get(relativeFile)?.has(token)) continue;
-        const rootToken = componentRootForClassToken(token);
-        if (!rootToken) continue;
-        add(
-          "errors",
-          file,
-          lineForIndex(source, match.index),
-          `Docs must not author Package component class "${token}" directly; compose ${rootToken} through componentDemo()/packageDemo()/React.`
-        );
+  for (const dir of docsAppDirs) {
+    for (const file of walkFiles(dir, (candidate) => /\.js$/.test(candidate))) {
+      const relativeFile = docsRelativeFile(file, dir);
+      if (relativeFile.includes("/generated/")) continue;
+      if (docsAllowedComponentAuthors.has(relativeFile)) continue;
+      const source = read(file);
+      const classStrings = [...source.matchAll(/\bclass(?:Name)?\s*[:=]\s*["'`]([^"'`]+)["'`]/g)];
+      for (const match of classStrings) {
+        const tokens = match[1].split(/\s+/).filter(Boolean);
+        for (const token of tokens) {
+          if (docsAllowedPackageClassTokens.get(relativeFile)?.has(token)) continue;
+          const rootToken = componentRootForClassToken(token);
+          if (!rootToken) continue;
+          add(
+            "errors",
+            file,
+            lineForIndex(source, match.index),
+            `Docs must not author Package component class "${token}" directly; compose ${rootToken} through componentDemo()/packageDemo()/React.`
+          );
+        }
       }
     }
   }
@@ -112,6 +118,7 @@ function checkDocsDoNotOwnPackageComponentMarkup() {
 function checkKnownDuplicateConcepts() {
   const files = [
     ...walkFiles(path.join(root, "apps"), (candidate) => /\.(?:css|html|js)$/.test(candidate)),
+    ...docsAppDirs.flatMap((dir) => walkFiles(dir, (candidate) => /\.(?:css|html|js)$/.test(candidate))),
     ...walkFiles(path.join(root, "packages"), (candidate) => /\.(?:css|html|js|mjs|ts|tsx)$/.test(candidate)),
   ];
   for (const file of files) {
@@ -301,6 +308,10 @@ function walkFiles(dir, matcher, output = []) {
 
 function normalize(value) {
   return value.split(path.sep).join("/");
+}
+
+function docsRelativeFile(file, docsDir) {
+  return `apps/docs/${normalize(path.relative(docsDir, file))}`;
 }
 
 function labelForComponentName(value) {
