@@ -34,6 +34,8 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
   icon = "",
   density,
   fullWidth = false,
+  onAction,
+  onFallback,
   className = "",
   ...rest
 }, ref) {
@@ -42,6 +44,8 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
   const resolvedDensity = normalizeFlowDensity(density);
   if (!label) return null;
   const disabled = resolvedState === "disabled";
+  const canRenderAction = Boolean(actionLabel && onAction);
+  const canRenderFallback = Boolean(fallback && onFallback);
 
   return React.createElement(
     "section",
@@ -67,7 +71,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
       React.createElement("strong", null, label),
       description ? React.createElement("p", { role: "status" }, description) : null,
     ),
-    actionLabel ? React.createElement(Button, {
+    canRenderAction ? React.createElement(Button, {
         className: "biometric-prompt__action",
         label: actionLabel,
         disabled,
@@ -75,14 +79,16 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
         fullWidth: true,
         density: resolvedDensity,
         "data-biometric-action": "",
+        onClick: (event) => onAction(event),
       }) : null,
-    fallback ? React.createElement(Button, {
+    canRenderFallback ? React.createElement(Button, {
         className: "biometric-prompt__fallback",
         label: fallback,
         variant: "tertiary",
         disabled,
         density: resolvedDensity,
         "data-biometric-fallback": "",
+        onClick: (event) => onFallback(event),
       }) : null,
   );
 });

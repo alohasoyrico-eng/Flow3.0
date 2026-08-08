@@ -1,6 +1,7 @@
 import type {
   ForwardRefExoticComponent,
   HTMLAttributes,
+  MouseEvent,
   RefAttributes,
 } from "react";
 import type { biometricPromptPlatformContract } from "#flow/platforms";
@@ -19,6 +20,8 @@ export interface BiometricPromptProps extends Omit<HTMLAttributes<HTMLElement>, 
   icon?: string;
   density?: BiometricPromptDensity;
   fullWidth?: boolean;
+  onAction?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onFallback?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface BiometricPromptComponent extends ForwardRefExoticComponent<BiometricPromptProps & RefAttributes<HTMLElement>> {

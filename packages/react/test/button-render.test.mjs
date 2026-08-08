@@ -579,6 +579,8 @@ const biometricPromptMarkup = renderToStaticMarkup(React.createElement(Biometric
   state: "authenticating",
   actionLabel: "Use face ID",
   fallback: "Use passcode instead",
+  onAction: () => {},
+  onFallback: () => {},
   density: "sm",
   fullWidth: true,
 }));
@@ -601,6 +603,13 @@ assert.match(biometricPromptMarkup, /data-state="loading"/);
 assert.match(biometricPromptMarkup, /data-biometric-action=""/);
 assert.match(biometricPromptMarkup, /class="button button--tertiary biometric-prompt__fallback"/);
 assert.match(biometricPromptMarkup, /data-biometric-fallback=""/);
+const inertBiometricPromptMarkup = renderToStaticMarkup(React.createElement(BiometricPrompt, {
+  label: "Confirm it is you",
+  actionLabel: "Use face ID",
+  fallback: "Use passcode instead",
+}));
+assert.doesNotMatch(inertBiometricPromptMarkup, /data-biometric-action/);
+assert.doesNotMatch(inertBiometricPromptMarkup, /data-biometric-fallback/);
 const unnamedBiometricPromptMarkup = renderToStaticMarkup(React.createElement(BiometricPrompt));
 assert.doesNotMatch(unnamedBiometricPromptMarkup, /biometric-prompt|role="group"|fingerprint|Biometric authentication/);
 
