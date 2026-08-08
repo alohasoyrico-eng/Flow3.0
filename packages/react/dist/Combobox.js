@@ -42,7 +42,9 @@ export const Combobox = forwardRef(function Combobox({
   disabled = false,
   density,
   state,
+  open: openProp,
   onValueChange,
+  onOpenChange,
   className = "",
   id,
   ...rest
@@ -55,7 +57,9 @@ export const Combobox = forwardRef(function Combobox({
   const initialOption = selectedOptionFor(normalizedOptions, initialValue);
   const [currentValue, setCurrentValue] = useState(initialValue);
   const [inputValue, setInputValue] = useState(initialOption ? optionLabel(initialOption) : initialValue);
-  const [open, setOpen] = useState(state === "open");
+  const isOpenControlled = openProp !== undefined;
+  const [internalOpen, setInternalOpen] = useState(state === "open");
+  const open = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [activeIndex, setActiveIndex] = useState(0);
   const query = inputValue.trim().toLowerCase();
   const filteredOptions = useMemo(
@@ -82,13 +86,20 @@ export const Combobox = forwardRef(function Combobox({
 
   if (!label || !normalizedOptions.length) return null;
 
+  const setOpen = (nextOpen, event) => {
+    if (disabled) return;
+    const normalizedOpen = Boolean(nextOpen);
+    if (!isOpenControlled) setInternalOpen(normalizedOpen);
+    onOpenChange?.(normalizedOpen, event);
+  };
+
   const commitOption = (option, event) => {
     if (!option || option.disabled) return;
     const nextValue = optionValue(option);
     const nextLabel = optionLabel(option);
     if (!isValueControlled) setCurrentValue(nextValue);
     setInputValue(nextLabel);
-    setOpen(false);
+    setOpen(false, event);
     setActiveIndex(0);
     onValueChange?.(nextValue, { label: nextLabel, meta: option.meta ?? "", inputValue: nextLabel }, event);
   };
@@ -96,26 +107,26 @@ export const Combobox = forwardRef(function Combobox({
   const clearValue = (event) => {
     if (!isValueControlled) setCurrentValue("");
     setInputValue("");
-    setOpen(true);
+    setOpen(true, event);
     setActiveIndex(0);
     onValueChange?.("", { label: "", meta: "", inputValue: "", cleared: true }, event);
   };
   const handleInputFocus = (event) => {
     rest.onFocus?.(event);
     if (event.defaultPrevented || disabled) return;
-    setOpen(true);
+    setOpen(true, event);
   };
   const handleInputKeyDown = (event) => {
     rest.onKeyDown?.(event);
     if (event.defaultPrevented) return;
     if (event.key === "ArrowDown") {
       event.preventDefault();
-      setOpen(true);
+      setOpen(true, event);
       setActiveIndex((index) => Math.min(enabledOptions.length - 1, index + 1));
     }
     if (event.key === "ArrowUp") {
       event.preventDefault();
-      setOpen(true);
+      setOpen(true, event);
       setActiveIndex((index) => Math.max(0, index - 1));
     }
     if (event.key === "Enter") {
@@ -124,7 +135,7 @@ export const Combobox = forwardRef(function Combobox({
     }
     if (event.key === "Escape") {
       event.preventDefault();
-      setOpen(false);
+      setOpen(false, event);
     }
   };
 
@@ -172,7 +183,7 @@ export const Combobox = forwardRef(function Combobox({
           const nextValue = event.target.value;
           setInputValue(nextValue);
           if (!isValueControlled) setCurrentValue(nextValue);
-          setOpen(true);
+          setOpen(true, event);
           setActiveIndex(0);
           onValueChange?.(nextValue, { label: nextValue, meta: "", inputValue: nextValue }, event);
         },
