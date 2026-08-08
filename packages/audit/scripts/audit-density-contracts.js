@@ -31,6 +31,11 @@ function checkDensityContracts() {
   const css = read(packageCssFile);
   const reactFiles = reactComponentFiles();
   const densityContracts = contractIdsWithDensity(contracts);
+  const explicitMediumSelectors = [...css.matchAll(/^\.[^{\n]+?\[data-density="md"\][^{]*\{/gm)].map((match) => match[0].trim());
+
+  if (explicitMediumSelectors.length) {
+    add("errors", packageCssFile, 1, `Component CSS must not define explicit md density selectors; medium is the inherited base cascade. Found: ${explicitMediumSelectors.join(", ")}`);
+  }
 
   for (const id of densityContracts) {
     const component = reactFiles.get(id);

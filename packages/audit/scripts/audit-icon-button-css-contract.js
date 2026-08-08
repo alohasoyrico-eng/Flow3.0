@@ -65,7 +65,6 @@ function checkIconButtonCssContract({ text, blocks, packageCssFile, selectorKey,
 
   for (const [selector, message] of [
     [".icon-button[data-density=\"sm\"]", "IconButton small density must set current size and icon aliases."],
-    [".icon-button[data-density=\"md\"]", "IconButton medium density must set current size and icon aliases."],
     [".icon-button[data-density=\"lg\"]", "IconButton large density must set current size and icon aliases."],
   ]) {
     requireIncludes({

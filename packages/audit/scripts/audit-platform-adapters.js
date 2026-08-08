@@ -40,10 +40,10 @@ function checkPlatformAdapters() {
     add("errors", reactExampleFile, 1, "React prototype example must consume the React component entrypoint and component CSS.");
   }
 
-  for (const cssDependency of ["--comp-button-size: var(--component-density-control-height)", "--comp-button-padding: var(--component-density-control-padding-x)", "--comp-button-icon-size", ".button[data-density=\"md\"]"]) {
+  for (const cssDependency of ["--comp-button-size: var(--component-density-control-height)", "--comp-button-padding: var(--component-density-control-padding-x)", "--comp-button-icon-size", ".button[data-density=\"sm\"]", ".button[data-density=\"lg\"]"]) {
     if (!componentCss.includes(cssDependency)) add("errors", componentCssFile, 1, `Button CSS must expose cascade dependency ${cssDependency}.`);
   }
-  for (const cssDependency of ["--comp-icon-button-size: var(--component-density-control-height)", "--comp-icon-button-icon-size", ".icon-button[data-density=\"md\"]"]) {
+  for (const cssDependency of ["--comp-icon-button-size: var(--component-density-control-height)", "--comp-icon-button-icon-size", ".icon-button[data-density=\"sm\"]", ".icon-button[data-density=\"lg\"]"]) {
     if (!componentCss.includes(cssDependency)) add("errors", componentCssFile, 1, `Icon Button CSS must expose cascade dependency ${cssDependency}.`);
   }
   for (const cssDependency of ["--comp-input-control-size: var(--component-density-control-height)", "--comp-input-padding-x", ".field[data-density=\"sm\"]", ".field[data-density=\"lg\"]", ".field__control", ".input"]) {

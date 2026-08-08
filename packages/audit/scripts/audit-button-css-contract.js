@@ -16,7 +16,6 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const rootBlock = blockFor(blocks, selectorKey, ".button");
   const smBlock = blockFor(blocks, selectorKey, ".button[data-density=\"sm\"]");
-  const mdBlock = blockFor(blocks, selectorKey, ".button[data-density=\"md\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".button[data-density=\"lg\"]");
   const fullWidthBlock = blockFor(blocks, selectorKey, ".button[data-full-width=\"true\"]");
   const focusBlock = blockFor(blocks, selectorKey, ".button:focus-visible");
@@ -87,7 +86,6 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
   });
   for (const [block, message] of [
     [smBlock, "Button small density must set component current size, padding, icon, and font aliases."],
-    [mdBlock, "Button medium density must set component current size, padding, icon, and font aliases."],
     [lgBlock, "Button large density must set component current size, padding, icon, and font aliases."],
   ]) {
     requireIncludes({
