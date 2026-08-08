@@ -3838,6 +3838,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-skeleton-current-width: var(--comp-skeleton-width);
   --comp-skeleton-current-height: var(--comp-skeleton-text-block-size);
   --comp-skeleton-current-columns: 4;
+  --comp-skeleton-bone-current-inline-size: 100%;
+  --comp-skeleton-bone-current-block-size: var(--comp-skeleton-bone-block-size);
+  --comp-skeleton-bone-current-radius: var(--comp-skeleton-radius);
   --comp-skeleton-gap: var(--sys-space-sm);
   --comp-skeleton-fg: var(--sys-color-text-muted);
   --comp-skeleton-bg: var(--component-loading-skeleton-surface);
@@ -3893,15 +3896,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .skeleton__bone {
   background-image: var(--comp-skeleton-gradient);
   background-size: var(--comp-skeleton-background-size);
-  border-radius: var(--comp-skeleton-radius);
-  block-size: var(--comp-skeleton-bone-block-size);
+  border-radius: var(--comp-skeleton-bone-current-radius);
+  block-size: var(--comp-skeleton-bone-current-block-size);
   display: block;
-  inline-size: 100%;
+  inline-size: var(--comp-skeleton-bone-current-inline-size);
   animation: skeleton-shimmer var(--comp-skeleton-shimmer-duration) var(--comp-skeleton-shimmer-easing) infinite;
 }
 
 .skeleton--text .skeleton__bone {
-  block-size: var(--comp-skeleton-current-height);
+  --comp-skeleton-bone-current-block-size: var(--comp-skeleton-current-height);
 }
 
 .skeleton--title {
@@ -3911,8 +3914,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .skeleton--title .skeleton__bone {
-  block-size: var(--comp-skeleton-current-height);
-  border-radius: var(--comp-skeleton-title-radius);
+  --comp-skeleton-bone-current-block-size: var(--comp-skeleton-current-height);
+  --comp-skeleton-bone-current-radius: var(--comp-skeleton-title-radius);
 }
 
 .skeleton--circle {
@@ -3922,8 +3925,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .skeleton--circle .skeleton__bone {
-  block-size: var(--comp-skeleton-current-height);
-  border-radius: var(--comp-skeleton-radius);
+  --comp-skeleton-bone-current-block-size: var(--comp-skeleton-current-height);
 }
 
 .skeleton--pill {
@@ -3933,35 +3935,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .skeleton--pill .skeleton__bone {
-  block-size: var(--comp-skeleton-current-height);
-  border-radius: var(--comp-skeleton-radius);
-}
-
-.skeleton--card .skeleton__bone:first-child {
-  --comp-skeleton-current-height: var(--comp-skeleton-card-block-size);
-  block-size: var(--comp-skeleton-current-height);
-  border-radius: var(--comp-skeleton-card-radius);
+  --comp-skeleton-bone-current-block-size: var(--comp-skeleton-current-height);
 }
 
 .skeleton--row {
   align-items: center;
   grid-template-columns: var(--comp-skeleton-row-template);
   min-block-size: var(--comp-skeleton-row-min-block);
-}
-
-.skeleton--row .skeleton__bone:first-child {
-  block-size: var(--comp-skeleton-circle-width);
-  border-radius: var(--comp-skeleton-radius);
-}
-
-.skeleton--media .skeleton__bone:first-child {
-  block-size: var(--comp-skeleton-media-block-size);
-  border-radius: var(--comp-skeleton-card-radius);
-}
-
-.skeleton--chart .skeleton__bone:first-child {
-  block-size: var(--comp-skeleton-chart-block-size);
-  border-radius: var(--comp-skeleton-card-radius);
 }
 
 .skeleton--table {
@@ -3979,13 +3959,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .skeleton--table .skeleton__bone {
-  --comp-skeleton-current-height: var(--comp-skeleton-table-cell-block-size);
-  block-size: var(--comp-skeleton-current-height);
-  inline-size: 100%;
-}
-
-.skeleton--table .skeleton__row:first-child .skeleton__bone {
-  block-size: var(--comp-skeleton-table-header-block-size);
+  --comp-skeleton-bone-current-block-size: var(--comp-skeleton-table-cell-block-size);
 }
 
 .skeleton[data-state="paused"] .skeleton__bone {
@@ -4005,28 +3979,6 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .skeleton[data-state="disabled"] {
   color: var(--comp-skeleton-disabled-fg);
   opacity: var(--comp-skeleton-disabled-opacity);
-}
-
-.skeleton--text .skeleton__bone:nth-child(2),
-.skeleton--card .skeleton__bone:nth-child(2),
-.skeleton--media .skeleton__bone:nth-child(2),
-.skeleton--chart .skeleton__bone:nth-child(2) {
-  inline-size: var(--comp-skeleton-line-compact-inline);
-}
-
-.skeleton--text .skeleton__bone:last-child,
-.skeleton--card .skeleton__bone:last-child,
-.skeleton--media .skeleton__bone:last-child,
-.skeleton--chart .skeleton__bone:last-child {
-  inline-size: var(--comp-skeleton-line-short-inline);
-}
-
-.skeleton--table .skeleton__row:nth-child(even) .skeleton__cell:last-child {
-  inline-size: var(--comp-skeleton-cell-short-inline);
-}
-
-.skeleton--table .skeleton__row:nth-child(odd) .skeleton__cell:nth-child(2) {
-  inline-size: var(--comp-skeleton-cell-medium-inline);
 }
 
 .empty-state {

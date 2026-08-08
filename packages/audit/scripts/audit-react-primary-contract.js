@@ -24,7 +24,7 @@ const allowedPrimitiveImports = new Set([
   "resolveCountryCallingCodeOption",
 ]);
 
-const allowedInlineStyleKeysByComponent = { Avatar: ["--comp-avatar-identity-bg", "--comp-avatar-identity-fg"], ChartPanel: ["--comp-chart-panel-current-series", "--comp-chart-panel-stagger-delay"], Slider: ["--comp-slider-percent"], TreeView: ["--comp-tree-view-level"] };
+const allowedInlineStyleKeysByComponent = { Avatar: ["--comp-avatar-identity-bg", "--comp-avatar-identity-fg"], ChartPanel: ["--comp-chart-panel-current-series", "--comp-chart-panel-stagger-delay"], Skeleton: ["--comp-skeleton-current-width", "--comp-skeleton-current-height", "--comp-skeleton-current-columns", "--comp-skeleton-bone-current-inline-size", "--comp-skeleton-bone-current-block-size", "--comp-skeleton-bone-current-radius"], Slider: ["--comp-slider-percent"], TreeView: ["--comp-tree-view-level"] };
 
 function checkReactPrimaryContract() {
   const reactIndex = read(reactIndexFile);

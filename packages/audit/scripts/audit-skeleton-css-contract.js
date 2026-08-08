@@ -23,13 +23,13 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
   const pausedBlock = blockFor(blocks, selectorKey, ".skeleton[data-state=\"paused\"] .skeleton__bone");
   const loadedBlock = blockFor(blocks, selectorKey, ".skeleton[data-state=\"loaded\"]");
   const disabledBlock = blockFor(blocks, selectorKey, ".skeleton[data-state=\"disabled\"]");
-  const secondLineBlock = blocks.find((block) => selectorKey(block).includes(".skeleton--text .skeleton__bone:nth-child(2)"));
-  const lastLineBlock = blocks.find((block) => selectorKey(block).includes(".skeleton--text .skeleton__bone:last-child"));
-  const shortCellBlock = blockFor(blocks, selectorKey, ".skeleton--table .skeleton__row:nth-child(even) .skeleton__cell:last-child");
-  const mediumCellBlock = blockFor(blocks, selectorKey, ".skeleton--table .skeleton__row:nth-child(odd) .skeleton__cell:nth-child(2)");
 
   if (text.includes("--skeleton-")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--skeleton-")), "Skeleton must not use short --skeleton-* aliases; use component-scoped --comp-skeleton-current-* aliases.");
+  }
+  const positionalSelector = text.match(/\.skeleton[^{]*(?:first-child|last-child|nth-child|nth-of-type)/);
+  if (positionalSelector) {
+    add("errors", packageCssFile, lineNumber(text, positionalSelector.index), "Skeleton must not infer placeholder anatomy with positional CSS selectors; React must emit component-scoped bone variables.");
   }
 
   requireIncludes({
@@ -39,6 +39,9 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
     snippets: [
       "--comp-skeleton-current-width: var(--comp-skeleton-width)",
       "--comp-skeleton-current-columns: 4",
+      "--comp-skeleton-bone-current-inline-size: 100%",
+      "--comp-skeleton-bone-current-block-size: var(--comp-skeleton-bone-block-size)",
+      "--comp-skeleton-bone-current-radius: var(--comp-skeleton-radius)",
       "--comp-skeleton-bg: var(--component-loading-skeleton-surface)",
       "--comp-skeleton-highlight: var(--component-loading-skeleton-highlight)",
       "--comp-skeleton-shimmer-duration: var(--component-duration-shimmer)",
@@ -56,8 +59,9 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
     snippets: [
       "background-image: var(--comp-skeleton-gradient)",
       "background-size: var(--comp-skeleton-background-size)",
-      "border-radius: var(--comp-skeleton-radius)",
-      "block-size: var(--comp-skeleton-bone-block-size)",
+      "border-radius: var(--comp-skeleton-bone-current-radius)",
+      "block-size: var(--comp-skeleton-bone-current-block-size)",
+      "inline-size: var(--comp-skeleton-bone-current-inline-size)",
       "animation: skeleton-shimmer var(--comp-skeleton-shimmer-duration) var(--comp-skeleton-shimmer-easing) infinite",
     ],
     message: "Skeleton bone must consume Skeleton surface, frame, and loading motion aliases.",
@@ -73,7 +77,7 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
     block: titleBoneBlock,
     text,
     packageCssFile,
-    snippets: ["block-size: var(--comp-skeleton-current-height)", "border-radius: var(--comp-skeleton-title-radius)"],
+    snippets: ["--comp-skeleton-bone-current-block-size: var(--comp-skeleton-current-height)", "--comp-skeleton-bone-current-radius: var(--comp-skeleton-title-radius)"],
     message: "Skeleton title bone must consume Skeleton title aliases.",
   });
   requireIncludes({
@@ -115,7 +119,7 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
     block: tableBoneBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-skeleton-current-height: var(--comp-skeleton-table-cell-block-size)", "block-size: var(--comp-skeleton-current-height)"],
+    snippets: ["--comp-skeleton-bone-current-block-size: var(--comp-skeleton-table-cell-block-size)"],
     message: "Skeleton table cell must consume Skeleton table cell alias.",
   });
   requireIncludes({
@@ -138,34 +142,6 @@ function checkSkeletonCssContract({ text, blocks, packageCssFile, selectorKey })
     packageCssFile,
     snippets: ["color: var(--comp-skeleton-disabled-fg)", "opacity: var(--comp-skeleton-disabled-opacity)"],
     message: "Skeleton disabled state must consume Skeleton disabled aliases.",
-  });
-  requireIncludes({
-    block: secondLineBlock,
-    text,
-    packageCssFile,
-    snippets: ["inline-size: var(--comp-skeleton-line-compact-inline)"],
-    message: "Skeleton compact line width must consume Skeleton line alias.",
-  });
-  requireIncludes({
-    block: lastLineBlock,
-    text,
-    packageCssFile,
-    snippets: ["inline-size: var(--comp-skeleton-line-short-inline)"],
-    message: "Skeleton short line width must consume Skeleton line alias.",
-  });
-  requireIncludes({
-    block: shortCellBlock,
-    text,
-    packageCssFile,
-    snippets: ["inline-size: var(--comp-skeleton-cell-short-inline)"],
-    message: "Skeleton short table cell width must consume Skeleton cell alias.",
-  });
-  requireIncludes({
-    block: mediumCellBlock,
-    text,
-    packageCssFile,
-    snippets: ["inline-size: var(--comp-skeleton-cell-medium-inline)"],
-    message: "Skeleton medium table cell width must consume Skeleton cell alias.",
   });
 }
 
