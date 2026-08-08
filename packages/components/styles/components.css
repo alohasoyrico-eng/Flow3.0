@@ -4671,6 +4671,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-value-letter-spacing: var(--component-letter-spacing-normal);
   --comp-kpi-tile-value-line-height: var(--component-line-height-crisp);
   --comp-kpi-tile-delta-color: var(--component-color-text-muted);
+  --comp-kpi-tile-delta-weight: var(--component-font-weight-semibold);
+  --comp-kpi-tile-icon-weight: var(--component-font-weight-regular);
+  --comp-kpi-tile-sparkline-block-size: var(--component-field-icon-action-size-lg);
+  --comp-kpi-tile-affordance-family: var(--component-font-family-icon);
+  --comp-kpi-tile-affordance-line-height: var(--component-line-height-none);
+  --comp-kpi-tile-loading-gradient-start: color-mix(in srgb, var(--component-color-border) 55%, transparent);
+  --comp-kpi-tile-loading-gradient-mid: color-mix(in srgb, var(--component-color-text-muted) 14%, transparent);
+  --comp-kpi-tile-loading-gradient-end: var(--comp-kpi-tile-loading-gradient-start);
   background: var(--comp-kpi-tile-bg);
   border: var(--comp-kpi-tile-border-width) solid var(--comp-kpi-tile-border);
   border-radius: var(--comp-kpi-tile-radius);
@@ -4753,7 +4761,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   color: var(--comp-kpi-tile-delta-color);
   display: inline-flex;
   font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-semibold);
+  font-weight: var(--comp-kpi-tile-delta-weight);
   gap: var(--component-focus-ring-width);
   margin: 0;
 }
@@ -4771,7 +4779,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   color: var(--comp-kpi-tile-tone);
   font-size: var(--comp-kpi-tile-icon-size);
   font-family: var(--comp-kpi-tile-icon-family);
-  font-weight: var(--sys-voice-weight-regular);
+  font-weight: var(--comp-kpi-tile-icon-weight);
   line-height: var(--comp-kpi-tile-icon-line-height);
 }
 
@@ -4781,7 +4789,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .kpi-tile__sparkline {
-  block-size: calc(var(--component-control-min-size) - var(--sys-space-md));
+  block-size: var(--comp-kpi-tile-sparkline-block-size);
   color: var(--comp-kpi-tile-tone);
   inline-size: calc(var(--component-control-min-size) * 2.5);
   margin-block-start: auto;
@@ -4798,9 +4806,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .kpi-tile__affordance {
   bottom: var(--comp-kpi-tile-padding);
   color: var(--comp-kpi-tile-tone);
-  font-family: var(--sys-font-icon);
+  font-family: var(--comp-kpi-tile-affordance-family);
   font-size: var(--component-font-size-title-md);
-  line-height: var(--sys-voice-line-height-none);
+  line-height: var(--comp-kpi-tile-affordance-line-height);
   position: absolute;
   right: var(--comp-kpi-tile-padding);
 }
@@ -4809,9 +4817,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background:
     linear-gradient(
       90deg,
-      color-mix(in srgb, var(--sys-color-border) 55%, transparent),
-      color-mix(in srgb, var(--sys-color-text-muted) 14%, transparent),
-      color-mix(in srgb, var(--sys-color-border) 55%, transparent)
+      var(--comp-kpi-tile-loading-gradient-start),
+      var(--comp-kpi-tile-loading-gradient-mid),
+      var(--comp-kpi-tile-loading-gradient-end)
     );
   background-size: 220% 100%;
   border-radius: var(--component-radius-pill);
