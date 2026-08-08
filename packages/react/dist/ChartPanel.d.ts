@@ -5,7 +5,7 @@ import type {
 } from "react";
 import type { chartPanelPlatformContract } from "#flow/platforms";
 
-export type ChartPanelVariant = "sparkline" | "bar" | "bars" | "line" | "area" | "donut" | "pareto" | "bullet" | "comparison" | "compact";
+export type ChartPanelVariant = "sparkline" | "bars" | "line" | "area" | "donut" | "pareto" | "bullet" | "comparison" | "compact";
 export type ChartPanelState = "default" | "focus" | "hover" | "warning" | "error" | "disabled";
 export type ChartPanelTone = "neutral" | "info" | "warning" | "danger";
 export type ChartPanelDensity = "sm" | "md" | "lg";

@@ -45,8 +45,8 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | Badge | tone-default | tone | neutral | packages/react/src/Badge.js:24 | `tone = "neutral",` |
 | Badge | variant-default | variant | status | packages/react/src/Badge.js:25 | `variant = "status",` |
 | Badge | state-default | state | default | packages/react/src/Badge.js:26 | `state = "default",` |
-| BiometricPrompt | variant-default | variant | fingerprint | packages/react/src/BiometricPrompt.js:30 | `variant = "fingerprint",` |
-| BiometricPrompt | state-default | state | default | packages/react/src/BiometricPrompt.js:31 | `state = "default",` |
+| BiometricPrompt | variant-default | variant | fingerprint | packages/react/src/BiometricPrompt.js:26 | `variant = "fingerprint",` |
+| BiometricPrompt | state-default | state | default | packages/react/src/BiometricPrompt.js:27 | `state = "default",` |
 | Breadcrumbs | variant-default | variant | standard | packages/react/src/Breadcrumbs.js:45 | `variant = "standard",` |
 | Breadcrumbs | state-default | state | default | packages/react/src/Breadcrumbs.js:46 | `state = "default",` |
 | Button | variant-default | variant | primary | packages/react/src/Button.js:8 | `function buttonClassName({ variant = "primary", intent = "default", className = "" } = {}) {` |

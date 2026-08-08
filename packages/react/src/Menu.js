@@ -52,7 +52,7 @@ export const Menu = forwardRef(function Menu({
   const resolvedInteractionState = isOpenControlled ? (isOpen ? "open" : initialState) : interactionState;
   const menuId = `menu-${slug(label || triggerLabel)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const isDisabled = disabled || resolvedInteractionState === "disabled";
-  const resolvedAlign = align === "end" || align === "right" ? "end" : "start";
+  const resolvedAlign = align === "end" ? "end" : "start";
   const resolvedItems = Array.isArray(items) ? items.filter((item) => item === "divider" || item?.separator || (item?.label && hasStableItemKey(item))) : [];
   const hasVisibleItems = resolvedItems.some((item) => item !== "divider" && !item?.separator);
 

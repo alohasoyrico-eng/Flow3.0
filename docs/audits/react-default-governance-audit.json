@@ -125,7 +125,7 @@
     {
       "component": "BiometricPrompt",
       "file": "packages/react/src/BiometricPrompt.js",
-      "line": 30,
+      "line": 26,
       "rule": "variant-default",
       "prop": "variant",
       "value": "fingerprint",
@@ -135,7 +135,7 @@
     {
       "component": "BiometricPrompt",
       "file": "packages/react/src/BiometricPrompt.js",
-      "line": 31,
+      "line": 27,
       "rule": "state-default",
       "prop": "state",
       "value": "default",

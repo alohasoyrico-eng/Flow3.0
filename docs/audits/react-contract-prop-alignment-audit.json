@@ -12,7 +12,8 @@
     "inheritedContractProps": 24,
     "extraReactProps": 0,
     "missingReactProps": 0,
-    "requiredMismatches": 0
+    "requiredMismatches": 0,
+    "typeValueMismatches": 0
   },
   "components": [
     {
@@ -84,6 +85,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -201,6 +203,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -300,6 +303,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -359,6 +363,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -458,6 +463,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -575,6 +581,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -670,6 +677,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -779,6 +787,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -974,6 +983,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -1103,6 +1113,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -1223,6 +1234,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -1388,6 +1400,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -1510,6 +1523,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -1650,6 +1664,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -1765,6 +1780,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -1896,6 +1912,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -2014,6 +2031,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -2160,6 +2178,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -2296,6 +2315,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -2465,6 +2485,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -2660,6 +2681,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -2809,6 +2831,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -2967,6 +2990,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -3062,6 +3086,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -3175,6 +3200,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -3266,6 +3292,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -3349,6 +3376,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -3440,6 +3468,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -3689,6 +3718,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -3830,6 +3860,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -3920,6 +3951,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -3946,7 +3978,7 @@
         },
         {
           "name": "variant",
-          "type": "\\\"actions\\\" | \\\"grouped\\\" | \\\"selection\\\" | \\\"danger\\\" | \\\"icon-trigger\\\"",
+          "type": "\\\"actions\\\" | \\\"grouped\\\" | \\\"selection\\\" | \\\"danger\\\" | \\\"icon-trigger\\\" | \\\"avatar-trigger\\\"",
           "required": false
         },
         {
@@ -4051,6 +4083,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -4141,6 +4174,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -4254,6 +4288,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -4376,6 +4411,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -4503,6 +4539,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -4644,6 +4681,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -4744,6 +4782,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -4855,6 +4894,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -4961,6 +5001,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -5083,6 +5124,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -5155,6 +5197,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -5287,6 +5330,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -5400,6 +5444,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -5524,6 +5569,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -5587,6 +5633,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -5707,6 +5754,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -5770,6 +5818,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -5862,6 +5911,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -6020,6 +6070,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -6092,6 +6143,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -6178,6 +6230,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -6309,6 +6362,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -6453,6 +6507,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -6553,6 +6608,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     },
@@ -6643,6 +6699,7 @@
       "missingReactProps": [],
       "semanticInheritedMissingFromContract": [],
       "requiredMismatches": [],
+      "typeValueMismatches": [],
       "failures": [],
       "status": "pass"
     }

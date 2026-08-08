@@ -5,7 +5,7 @@ import { menuPlatformContract } from "@design-system/components/platforms";
 export type MenuVariant = "actions" | "grouped" | "selection" | "danger" | "icon-trigger" | "avatar-trigger";
 export type MenuDensity = "sm" | "md" | "lg";
 export type MenuState = "default" | "closed" | "open" | "focus" | "disabled";
-export type MenuAlign = "start" | "end" | "right";
+export type MenuAlign = "start" | "end";
 export type MenuItemTone = "danger";
 export type MenuOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
 

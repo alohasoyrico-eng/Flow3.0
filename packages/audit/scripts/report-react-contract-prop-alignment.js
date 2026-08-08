@@ -26,6 +26,21 @@ function propsBodyFor(types, componentName) {
     ?? "";
 }
 
+function unionValues(typeExpression) {
+  return [...String(typeExpression).replaceAll('\\"', '"').matchAll(/"([^"]+)"/g)].map((match) => match[1]);
+}
+
+function propTypeExpression(types, componentName, propName) {
+  const escapedProp = propName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return propsBodyFor(types, componentName).match(new RegExp(`^\\s*${escapedProp}\\??:\\s*([^;]+);`, "m"))?.[1]?.trim() ?? "";
+}
+
+function aliasUnionValues(types, aliasName) {
+  const escapedAlias = aliasName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const aliasMatch = types.match(new RegExp(`export type ${escapedAlias}\\s*=\\s*([^;]+);`));
+  return aliasMatch ? unionValues(aliasMatch[1]) : [];
+}
+
 function ownPropsFor(types, componentName) {
   return [...propsBodyFor(types, componentName).matchAll(/^\s*([A-Za-z][A-Za-z0-9]*)(\?)?:/gm)]
     .map((match) => ({ name: match[1], required: !match[2] }));
@@ -40,6 +55,42 @@ function contractBodyFor(source, contractKey) {
 function contractPropsFor(contractBody) {
   return [...contractBody.matchAll(/\{ name: "([^"]+)", type: "((?:\\.|[^"])*)", required: (true|false) \}/g)]
     .map((match) => ({ name: match[1], type: match[2], required: match[3] === "true" }));
+}
+
+function contractNamedValues(contractBody, propName) {
+  const fieldByProp = {
+    intent: "intents",
+    state: "states",
+    tone: "intents",
+    variant: "variants",
+  };
+  const field = fieldByProp[propName];
+  if (!field) return [];
+  const valuesExpression = contractBody.match(new RegExp(`\\b${field}:\\s*\\[([^\\]]*)\\]`))?.[1] ?? "";
+  return unionValues(valuesExpression);
+}
+
+function reactAllowedValues(types, componentName, propName) {
+  const typeExpression = propTypeExpression(types, componentName, propName);
+  const inlineValues = unionValues(typeExpression);
+  if (inlineValues.length) return inlineValues;
+  const aliasName = typeExpression.match(/\b[A-Z][A-Za-z0-9]*\b/)?.[0];
+  return aliasName ? aliasUnionValues(types, aliasName) : [];
+}
+
+function contractAllowedValues(contractBody, contractProp) {
+  const propValues = unionValues(contractProp.type);
+  return propValues.length ? propValues : contractNamedValues(contractBody, contractProp.name);
+}
+
+function sortedUnique(values) {
+  return [...new Set(values)].sort();
+}
+
+function sameValues(left, right) {
+  const leftValues = sortedUnique(left);
+  const rightValues = sortedUnique(right);
+  return leftValues.length === rightValues.length && leftValues.every((value, index) => value === rightValues[index]);
 }
 
 function componentFiles() {
@@ -85,11 +136,20 @@ function createReport() {
         return reactProp && reactProp.required !== contractProp.required;
       })
       .map((contractProp) => contractProp.name);
+    const typeValueMismatches = contractProps
+      .filter((contractProp) => reactExposesProp(contractProp.name))
+      .map((contractProp) => ({
+        prop: contractProp.name,
+        contractValues: contractAllowedValues(contractBody, contractProp),
+        reactValues: reactAllowedValues(types, component, contractProp.name),
+      }))
+      .filter((item) => item.contractValues.length && item.reactValues.length && !sameValues(item.contractValues, item.reactValues));
     const failures = [
       ...extraReactProps.map((prop) => `extra React prop ${prop}`),
       ...semanticInheritedMissingFromContract.map((prop) => `semantic inherited prop missing from contract ${prop}`),
       ...missingReactProps.map((prop) => `contract prop missing from React ${prop}`),
       ...requiredMismatches.map((prop) => `required mismatch ${prop}`),
+      ...typeValueMismatches.map((item) => `type values mismatch ${item.prop}`),
     ];
     return {
       component,
@@ -104,6 +164,7 @@ function createReport() {
       missingReactProps,
       semanticInheritedMissingFromContract,
       requiredMismatches,
+      typeValueMismatches,
       failures,
       status: failures.length ? "fail" : "pass",
     };
@@ -123,14 +184,16 @@ function createReport() {
       extraReactProps: components.reduce((total, component) => total + component.extraReactProps.length, 0),
       missingReactProps: components.reduce((total, component) => total + component.missingReactProps.length, 0),
       requiredMismatches: components.reduce((total, component) => total + component.requiredMismatches.length, 0),
+      typeValueMismatches: components.reduce((total, component) => total + component.typeValueMismatches.length, 0),
     },
     components,
   };
 }
 
 function toMarkdown(report) {
-  const componentRows = report.components.map((component) => `| ${component.component} | ${component.status} | ${component.contractProps.length} | ${component.publicReactProps.length} | ${component.extraReactProps.join(", ") || "None"} | ${component.missingReactProps.join(", ") || "None"} | ${component.requiredMismatches.join(", ") || "None"} |`);
+  const componentRows = report.components.map((component) => `| ${component.component} | ${component.status} | ${component.contractProps.length} | ${component.publicReactProps.length} | ${component.extraReactProps.join(", ") || "None"} | ${component.missingReactProps.join(", ") || "None"} | ${component.requiredMismatches.join(", ") || "None"} | ${component.typeValueMismatches.map((item) => item.prop).join(", ") || "None"} |`);
   const failureRows = report.components.flatMap((component) => component.failures.map((failure) => `| ${component.component} | ${failure} |`));
+  const typeValueRows = report.components.flatMap((component) => component.typeValueMismatches.map((item) => `| ${component.component} | ${item.prop} | ${item.contractValues.join(", ")} | ${item.reactValues.join(", ")} |`));
   return [
     "# React Contract Prop Alignment Audit",
     "",
@@ -150,12 +213,19 @@ function toMarkdown(report) {
     `- Extra React props: ${report.inventory.extraReactProps}`,
     `- Missing React props: ${report.inventory.missingReactProps}`,
     `- Required mismatches: ${report.inventory.requiredMismatches}`,
+    `- Type value mismatches: ${report.inventory.typeValueMismatches}`,
     "",
     "## Components",
     "",
-    "| Component | Status | Contract props | React props | Extra React props | Missing React props | Required mismatches |",
-    "| --- | --- | ---: | ---: | --- | --- | --- |",
+    "| Component | Status | Contract props | React props | Extra React props | Missing React props | Required mismatches | Type value mismatches |",
+    "| --- | --- | ---: | ---: | --- | --- | --- | --- |",
     ...componentRows,
+    "",
+    "## Type Value Mismatches",
+    "",
+    "| Component | Prop | Contract values | React values |",
+    "| --- | --- | --- | --- |",
+    ...(typeValueRows.length ? typeValueRows : ["| None | None | None | None |"]),
     "",
     "## Failures",
     "",
@@ -196,6 +266,7 @@ function main() {
     extraReactProps: report.inventory.extraReactProps,
     missingReactProps: report.inventory.missingReactProps,
     requiredMismatches: report.inventory.requiredMismatches,
+    typeValueMismatches: report.inventory.typeValueMismatches,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

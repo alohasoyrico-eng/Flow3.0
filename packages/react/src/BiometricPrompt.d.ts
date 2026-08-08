@@ -7,7 +7,7 @@ import type {
 import type { biometricPromptPlatformContract } from "@design-system/components/platforms";
 
 export type BiometricPromptVariant = "fingerprint" | "face" | "passcode" | "fallback";
-export type BiometricPromptState = "default" | "focus" | "authenticating" | "success" | "warning" | "error" | "disabled" | "scanning";
+export type BiometricPromptState = "default" | "focus" | "authenticating" | "success" | "warning" | "error" | "disabled";
 export type BiometricPromptDensity = "sm" | "md" | "lg";
 
 export interface BiometricPromptProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {

@@ -8,7 +8,7 @@ const validStates = new Set(["default", "focus", "hover", "warning", "error", "d
 const validTones = new Set(["neutral", "info", "warning", "danger"]);
 
 function normalizeVariant(variant) {
-  return variant === "bar" ? "bars" : normalizeFlowValue(variant, validVariants, "sparkline");
+  return normalizeFlowValue(variant, validVariants, "sparkline");
 }
 
 function normalizeValues(values = []) {

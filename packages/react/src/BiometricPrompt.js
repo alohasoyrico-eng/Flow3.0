@@ -6,10 +6,6 @@ import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDens
 const validVariants = new Set(["fingerprint", "face", "passcode", "fallback"]);
 const validStates = new Set(["default", "focus", "authenticating", "success", "warning", "error", "disabled"]);
 
-function normalizeState(state) {
-  return state === "scanning" ? "authenticating" : normalizeFlowValue(state, validStates, "default");
-}
-
 function promptIcon(variant, state, icon) {
   if (icon) return icon;
   return {
@@ -40,7 +36,7 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({
   ...rest
 }, ref) {
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "fingerprint");
-  const resolvedState = normalizeState(state);
+  const resolvedState = normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   if (!label) return null;
   const disabled = resolvedState === "disabled";

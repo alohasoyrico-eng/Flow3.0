@@ -750,7 +750,7 @@ export const componentContracts = {
       { name: "triggerLabel", type: "string", required: true },
       { name: "items", type: "Array<MenuItem | \"divider\">", required: true },
       { name: "open", type: "boolean", required: false },
-      { name: "variant", type: "\"actions\" | \"grouped\" | \"selection\" | \"danger\" | \"icon-trigger\"", required: false },
+      { name: "variant", type: "\"actions\" | \"grouped\" | \"selection\" | \"danger\" | \"icon-trigger\" | \"avatar-trigger\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "state", type: "\"default\" | \"closed\" | \"open\" | \"focus\" | \"disabled\"", required: false },
       { name: "align", type: "\"start\" | \"end\"", required: false },
@@ -841,7 +841,7 @@ export const componentContracts = {
     purpose: "Show one local biometric authentication prompt with icon, copy, primary action, fallback text, and explicit state.",
     variants: ["fingerprint", "face", "passcode", "fallback"],
     intents: ["authentication"],
-    states: ["default", "authenticating", "success", "warning", "error", "disabled"],
+    states: ["default", "focus", "authenticating", "success", "warning", "error", "disabled"],
     props: [
       { name: "label", type: "string", required: true },
       { name: "description", type: "string", required: false },
