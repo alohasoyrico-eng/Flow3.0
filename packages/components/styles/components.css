@@ -491,7 +491,7 @@
   --comp-switch-track-block-sm: var(--component-min-text-line);
   --comp-switch-track-block-md: var(--component-badge-min-size);
   --comp-switch-track-block-lg: var(--component-inline-size-md);
-  --comp-switch-track-padding: var(--sys-frame-border-indicator);
+  --comp-switch-track-padding: var(--component-border-width-indicator);
   --comp-switch-thumb-size-sm: var(--component-inline-size-xs);
   --comp-switch-thumb-size-md: var(--component-inline-size-sm);
   --comp-switch-thumb-size-lg: var(--component-min-text-line);

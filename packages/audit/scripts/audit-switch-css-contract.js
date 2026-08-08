@@ -50,6 +50,12 @@ function checkSwitchCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (!text.includes("--comp-switch-track-width-sm: var(--component-switch-track-width-sm);")) {
     add("errors", packageCssFile, 1, "Switch small track width must consume --component-switch-track-width-sm.");
   }
+  if (text.includes("--comp-switch-track-padding: var(--sys-frame-border-indicator);")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-switch-track-padding: var(--sys-frame-border-indicator);")), "Switch track padding must consume --component-border-width-indicator instead of reaching into frame border directly.");
+  }
+  if (!text.includes("--comp-switch-track-padding: var(--component-border-width-indicator);")) {
+    add("errors", packageCssFile, 1, "Switch track padding must consume --component-border-width-indicator.");
+  }
 
   requireIncludes({
     block: rootBlock,
