@@ -49,7 +49,7 @@ export const StationPin = forwardRef(function StationPin({
     if (blocked) return;
     onClick?.(event);
     if (event.defaultPrevented) return;
-    onSelect?.({ label, value: visibleValue, variant: resolvedVariant, state: resolvedState });
+    onSelect?.({ label, value: visibleValue, variant: resolvedVariant, state: resolvedState }, event);
   }
 
   return React.createElement(

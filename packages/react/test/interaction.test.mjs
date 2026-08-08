@@ -1658,24 +1658,24 @@ try {
     meta: "2.4 km",
     variant: "ev",
     onClick: (event) => stationClicks.push(event.type),
-    onSelect: (meta) => stationSelections.push(meta),
+    onSelect: (meta, event) => stationSelections.push({ meta, eventType: event.type }),
   }));
 
   fireEvent.click(getStationRole("button", { name: /station 24/i }));
   assert.deepEqual(stationClicks, ["click"]);
-  assert.deepEqual(stationSelections, [{ label: "Station 24", value: "Open", variant: "ev", state: "default" }]);
+  assert.deepEqual(stationSelections, [{ meta: { label: "Station 24", value: "Open", variant: "ev", state: "default" }, eventType: "click" }]);
 
   rerenderStation(React.createElement(StationPin, {
     label: "Station 24",
     value: "Open",
     unavailable: true,
     onClick: (event) => stationClicks.push(event.type),
-    onSelect: (meta) => stationSelections.push(meta),
+    onSelect: (meta, event) => stationSelections.push({ meta, eventType: event.type }),
   }));
 
   fireEvent.click(getStationRole("button", { name: /station 24/i }));
   assert.deepEqual(stationClicks, ["click"]);
-  assert.deepEqual(stationSelections, [{ label: "Station 24", value: "Open", variant: "ev", state: "default" }]);
+  assert.deepEqual(stationSelections, [{ meta: { label: "Station 24", value: "Open", variant: "ev", state: "default" }, eventType: "click" }]);
 
   cleanup();
 

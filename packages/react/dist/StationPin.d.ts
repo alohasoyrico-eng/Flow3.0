@@ -24,7 +24,7 @@ export interface StationPinProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   selected?: boolean;
   unavailable?: boolean;
   disabled?: boolean;
-  onSelect?: (meta: StationPinMeta) => void;
+  onSelect?: (meta: StationPinMeta, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface StationPinComponent extends ForwardRefExoticComponent<StationPinProps & RefAttributes<HTMLButtonElement>> {
