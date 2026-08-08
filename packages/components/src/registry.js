@@ -12,7 +12,7 @@ export function componentDemoProps(component, demo = {}) {
     label: demo.label ?? "Action",
     variant: String(demo.variant ?? "primary").replace(" full", ""),
     intent: demo.intent ?? "default",
-    density: demo.density ?? "md",
+    density: demo.density,
     state,
     icon: demo.icon === "none" ? "" : demo.icon ?? "",
     trailingIcon: demo.trailingIcon ?? demo.iconTrailing ?? "",
@@ -20,14 +20,14 @@ export function componentDemoProps(component, demo = {}) {
     loading: state === "loading" || Boolean(demo.loading),
     fullWidth: Boolean(demo.fullWidth) || String(demo.variant ?? "").includes("full"),
   };
-  if (component === "icon-button") return { ariaLabel: demo.ariaLabel ?? demo.label ?? "Action", icon: demo.icon ?? "grid_view", variant: demo.variant ?? "ghost", density: demo.density ?? "md", selected: Boolean(demo.selected) || state === "selected" || state === "badged", badge: Boolean(demo.badge) || state === "badged", disabled: state === "disabled" };
+  if (component === "icon-button") return { ariaLabel: demo.ariaLabel ?? demo.label ?? "Action", icon: demo.icon ?? "grid_view", variant: demo.variant ?? "ghost", density: demo.density, selected: Boolean(demo.selected) || state === "selected" || state === "badged", badge: Boolean(demo.badge) || state === "badged", disabled: state === "disabled" };
   if (component === "select") return {
     label: demo.field ?? demo.label ?? "Select",
     value: demo.value ?? (demo.variant === "inline" ? "MX" : "north"),
     helper: demo.helper ?? "",
     disabled: state === "disabled" || state === "loading",
     icon: demo.icon ?? "",
-    density: demo.density ?? "md",
+    density: demo.density,
     variant: demo.variant ?? "default",
     state,
     options: demo.options ?? (demo.variant === "inline"
@@ -42,7 +42,7 @@ export function componentDemoProps(component, demo = {}) {
     placeholder: demo.placeholder ?? "Search or select",
     emptyText: demo.emptyText ?? "No matching options",
     disabled: state === "disabled",
-    density: demo.density ?? "md",
+    density: demo.density,
     state,
     options: demo.options ?? [
       { label: "MX-4821 - Ana Gomez", value: "mx-4821", meta: "Driver" },
@@ -57,7 +57,7 @@ export function componentDemoProps(component, demo = {}) {
     country: demo.country ?? demo.value ?? "MX",
     disabled: state === "disabled",
     invalid: state === "error",
-    density: demo.density ?? "md",
+    density: demo.density,
     inline: Boolean(demo.inline),
     countries: demo.countries,
   };
@@ -74,7 +74,7 @@ export function componentDemoProps(component, demo = {}) {
     variant: demo.variant ?? "default",
     composition: demo.composition ?? "standard",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     fullWidth: Boolean(demo.fullWidth),
     interactive: Boolean(demo.interactive) || ["interactive", "hover", "focus", "selected"].includes(state),
     selected: Boolean(demo.selected) || state === "selected",
@@ -93,7 +93,7 @@ export function componentDemoProps(component, demo = {}) {
       error: state === "error" ? demo.helper ?? "Fix the value to continue" : "",
       disabled: state === "disabled",
       loading: state === "loading",
-      density: demo.density ?? "md",
+      density: demo.density,
       state,
       icon: demo.icon ?? "",
       prefix: demo.prefix ?? "",
@@ -113,7 +113,7 @@ export function componentDemoProps(component, demo = {}) {
     error: state === "error" ? demo.error ?? "Required before continuing." : demo.error ?? "",
     variant: demo.variant ?? "default",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     checked: Boolean(demo.checked) || state === "checked",
     indeterminate: Boolean(demo.indeterminate) || state === "indeterminate",
     disabled: state === "disabled",
@@ -126,7 +126,7 @@ export function componentDemoProps(component, demo = {}) {
     description: demo.description ?? "",
     error: state === "error" ? demo.error ?? "Review required before enabling." : demo.error ?? "",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     checked: Boolean(demo.checked) || state === "on" || state === "pressed",
     disabled: state === "disabled",
     required: Boolean(demo.required),
@@ -139,7 +139,7 @@ export function componentDemoProps(component, demo = {}) {
     error: state === "error" ? demo.error ?? "Select an available option." : demo.error ?? "",
     variant: demo.variant ?? "default",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     checked: Boolean(demo.checked) || state === "selected",
     disabled: state === "disabled",
     required: Boolean(demo.required),
@@ -153,12 +153,12 @@ export function componentDemoProps(component, demo = {}) {
     error: state === "error" ? demo.helper ?? "Fix the note to continue" : "",
     rows: demo.rows ?? 3,
     maxLength: demo.maxLength,
-    density: demo.density ?? "md",
+    density: demo.density,
     state,
     disabled: state === "disabled",
     loading: state === "loading",
   };
-  if (component === "avatar") return { name: demo.name ?? demo.label ?? "Ana Sosa", src: demo.src ?? "", density: demo.density ?? "md", status: demo.status ?? "online", state };
+  if (component === "avatar") return { name: demo.name ?? demo.label ?? "Ana Sosa", src: demo.src ?? "", density: demo.density, status: demo.status ?? "online", state };
   if (component === "slider") return {
     label: demo.label ?? "Search radius",
     value: demo.value ?? 42,
@@ -167,7 +167,7 @@ export function componentDemoProps(component, demo = {}) {
     step: demo.step ?? 1,
     variant: demo.variant ?? "continuous",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     unit: demo.unit ?? "",
     valueLabel: demo.valueLabel ?? "",
     disabled: state === "disabled",
@@ -192,7 +192,7 @@ export function componentDemoProps(component, demo = {}) {
       label: demo.ariaLabel ?? "Movements",
       variant: demo.variant ?? "standard",
       state: listState,
-      density: demo.density ?? "md",
+      density: demo.density,
       interactive: Boolean(demo.interactive) || demo.variant === "action",
       items: rows,
     };
@@ -206,14 +206,14 @@ export function componentDemoProps(component, demo = {}) {
     icon: demo.icon ?? "",
     variant: demo.variant ?? "standard",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     values: demo.values ?? [],
     href: demo.href ?? "",
     selected: state === "selected",
     disabled: state === "disabled",
     loading: state === "loading",
   };
-  if (component === "floating-action-button") return { label: demo.label ?? "Add movement", icon: demo.icon ?? "add", variant: demo.variant ?? "primary", state, density: demo.density ?? "md", extended: demo.variant === "extended" || Boolean(demo.extended), loading: state === "loading" || Boolean(demo.loading), disabled: state === "disabled" || Boolean(demo.disabled), type: demo.type ?? "button" };
+  if (component === "floating-action-button") return { label: demo.label ?? "Add movement", icon: demo.icon ?? "add", variant: demo.variant ?? "primary", state, density: demo.density, extended: demo.variant === "extended" || Boolean(demo.extended), loading: state === "loading" || Boolean(demo.loading), disabled: state === "disabled" || Boolean(demo.disabled), type: demo.type ?? "button" };
   if (component === "badge") return { label: demo.label ?? demo.count ?? "8", tone: demo.tone ?? "neutral", variant: demo.variant ?? "count", state, hidden: state === "hidden", live: Boolean(demo.live), icon: demo.icon ?? "", ariaLabel: demo.ariaLabel ?? "" };
   if (component === "chip") return { label: demo.label ?? "Active filter", variant: demo.variant ?? "filter", tone: demo.tone ?? "default", state, selected: Boolean(demo.selected) || state === "selected", disabled: state === "disabled", removable: Boolean(demo.removable), icon: demo.icon ?? "", interactive: Boolean(demo.interactive) || state !== "default" || Boolean(demo.selected) || Boolean(demo.removable) };
   if (component === "tag") return { label: demo.label ?? "Cross-platform", variant: demo.variant ?? "metadata", tone: demo.tone ?? "neutral", state, icon: demo.icon ?? "", interactive: Boolean(demo.interactive) || demo.variant === "link", disabled: state === "disabled" };
@@ -236,11 +236,11 @@ export function componentDemoProps(component, demo = {}) {
     id: `tooltip-demo-${demoSlug(demo.trigger ?? "info")}`,
     placement: demo.placement ?? "top",
     variant: demo.variant ?? "default",
-    density: demo.density ?? "md",
+    density: demo.density,
     state: demo.state ?? state,
     disabled: state === "disabled" || Boolean(demo.disabled),
   };
-  if (component === "toast") return { label: demo.label ?? "Toast message", description: demo.description ?? "", tone: demo.tone ?? "neutral", variant: demo.variant ?? "status", state: demo.state ?? state ?? "visible", density: demo.density ?? "md", icon: demo.icon ?? "", actionLabel: demo.actionLabel ?? "", dismissible: Boolean(demo.dismissible) };
+  if (component === "toast") return { label: demo.label ?? "Toast message", description: demo.description ?? "", tone: demo.tone ?? "neutral", variant: demo.variant ?? "status", state: demo.state ?? state ?? "visible", density: demo.density, icon: demo.icon ?? "", actionLabel: demo.actionLabel ?? "", dismissible: Boolean(demo.dismissible) };
   if (component === "progress-indicator") return {
     label: demo.label ?? "Progress",
     value: demo.value ?? 68,
@@ -249,12 +249,12 @@ export function componentDemoProps(component, demo = {}) {
     showValue: Boolean(demo.showValue),
     tone: demo.tone ?? (state === "complete" ? "success" : state === "paused" ? "warning" : state === "error" ? "danger" : "accent"),
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     fullWidth: Boolean(demo.fullWidth),
   };
   if (component === "spinner") return {
     label: demo.label ?? "Loading",
-    density: demo.density ?? "md",
+    density: demo.density,
     tone: demo.tone ?? (state === "subtle" ? "ink" : state === "danger" ? "danger" : "accent"),
     state: demo.state ?? "loading",
     decorative: Boolean(demo.decorative),
@@ -278,7 +278,7 @@ export function componentDemoProps(component, demo = {}) {
       { title: "Audit", content: "Last update was approved by Operations.", icon: "history", meta: "Updated" }
     ],
     multiple: Boolean(demo.multiple),
-    density: demo.variant === "compact" ? "sm" : demo.density ?? "md"
+    density: demo.density
   };
   if (component === "empty-state") return {
     title: demo.label ?? "No active vehicles",
@@ -287,7 +287,7 @@ export function componentDemoProps(component, demo = {}) {
     action: demo.actionLabel ? { label: demo.actionLabel } : undefined,
     variant: demo.variant ?? "first-use",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     fullWidth: Boolean(demo.fullWidth),
   };
   if (component === "breadcrumbs") {
@@ -313,7 +313,7 @@ export function componentDemoProps(component, demo = {}) {
       label: demo.ariaLabel ?? demo.label ?? "Breadcrumbs",
       variant: resolvedVariant,
       state,
-      density: demo.density ?? "md",
+      density: demo.density,
       maxItems: demo.maxItems ?? (needsCollapsedPath ? 4 : undefined),
       separator: demo.separator ?? "chevron_right",
       disabled: state === "disabled",
@@ -326,7 +326,7 @@ export function componentDemoProps(component, demo = {}) {
     label: demo.ariaLabel ?? demo.label ?? "Pagination",
     variant: "numbered",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     disabled: state === "disabled",
     fullWidth: Boolean(demo.fullWidth),
   };
@@ -339,7 +339,7 @@ export function componentDemoProps(component, demo = {}) {
     icon: demo.icon ?? "manage_history",
     tone: demo.tone ?? (state === "critical" ? "danger" : state === "warning" ? "warning" : state === "verified" ? "success" : "neutral"),
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
   };
   if (component === "error-panel") return {
     label: demo.label ?? "Something needs attention",
@@ -348,7 +348,7 @@ export function componentDemoProps(component, demo = {}) {
     tone: state === "warning" ? "warning" : "error",
     variant: demo.variant ?? "panel",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     fullWidth: Boolean(demo.fullWidth),
     icon: demo.icon ?? "",
   };
@@ -357,7 +357,7 @@ export function componentDemoProps(component, demo = {}) {
     label: demo.label ?? "Setup progress",
     current: demo.current ?? 1,
     orientation: demo.orientation ?? (demo.variant === "vertical" ? "vertical" : "horizontal"),
-    density: demo.density ?? "md",
+    density: demo.density,
     steps: demo.steps ?? [
       { label: "Vehicle", description: "Basic data" },
       { label: "Driver", description: "Assignment" },
@@ -377,7 +377,7 @@ export function componentDemoProps(component, demo = {}) {
     variant: demo.variant ?? "sparkline",
     state,
     tone: demo.tone ?? (state === "warning" ? "warning" : state === "error" ? "danger" : "info"),
-    density: demo.density ?? "md",
+    density: demo.density,
     fullWidth: Boolean(demo.fullWidth),
   };
   if (component === "station-pin") {
@@ -390,7 +390,7 @@ export function componentDemoProps(component, demo = {}) {
       count: demo.count,
       variant: resolvedVariant,
       state,
-      density: demo.density ?? "md",
+      density: demo.density,
       disabled: state === "disabled",
       unavailable: state === "unavailable",
       selected: state === "selected",
@@ -403,7 +403,7 @@ export function componentDemoProps(component, demo = {}) {
     actions: demo.actions ?? (demo.variant === "compact" ? [{ label: "Cancelar ruta", icon: "close", variant: "ghost" }] : [{ label: demo.primaryLabel ?? "Start route" }, { label: demo.secondaryLabel ?? "Compare", variant: "secondary" }]),
     variant: demo.variant ?? "standard",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     tone: demo.tone ?? (state === "warning" ? "warning" : "neutral"),
     icon: demo.icon ?? "navigation",
     selected: state === "selected",
@@ -418,7 +418,7 @@ export function componentDemoProps(component, demo = {}) {
     helper: state === "error" ? "" : demo.helper ?? "Code expires in 00:42",
     error: state === "error" ? demo.error ?? demo.helper ?? "Code expired" : "",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     disabled: state === "disabled",
   };
   if (component === "phone-input") return {
@@ -430,7 +430,7 @@ export function componentDemoProps(component, demo = {}) {
     helper: state === "error" ? "" : demo.helper ?? "Used for OTP and support recovery.",
     error: state === "error" ? demo.error ?? demo.helper ?? "Enter a reachable number." : "",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     disabled: state === "disabled",
   };
   if (component === "card-number-input") return {
@@ -439,7 +439,7 @@ export function componentDemoProps(component, demo = {}) {
     helper: state === "error" ? "" : demo.helper ?? "Use the number printed on the front of the card.",
     error: state === "error" ? demo.error ?? demo.helper ?? "Check the card number." : "",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     disabled: state === "disabled",
     loading: state === "loading",
     name: demo.name ?? "",
@@ -452,7 +452,7 @@ export function componentDemoProps(component, demo = {}) {
     helper: state === "error" ? "" : demo.helper ?? "Use the expiry printed on the card.",
     error: state === "error" ? demo.error ?? demo.helper ?? "Check the expiry date." : "",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     disabled: state === "disabled",
     loading: state === "loading",
     name: demo.name ?? "",
@@ -466,7 +466,7 @@ export function componentDemoProps(component, demo = {}) {
     helper: state === "error" ? "" : demo.helper ?? "Use the code printed on the card.",
     error: state === "error" ? demo.error ?? demo.helper ?? "Enter the security code." : "",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     disabled: state === "disabled",
     loading: state === "loading",
     name: demo.name ?? "",
@@ -483,7 +483,7 @@ export function componentDemoProps(component, demo = {}) {
     error: state === "error" ? demo.error ?? demo.helper ?? "Select an available date." : "",
     min: demo.min ?? "",
     max: demo.max ?? "",
-    density: demo.density ?? "md",
+    density: demo.density,
     state,
     invalid: state === "error" || Boolean(demo.invalid),
     disabled: state === "disabled",
@@ -496,7 +496,7 @@ export function componentDemoProps(component, demo = {}) {
     placeholder: demo.placeholder ?? "Rango de fechas",
     helper: state === "error" ? "" : demo.helper ?? "One bounded date range.",
     error: state === "error" ? demo.error ?? demo.helper ?? "Choose a valid date range." : "",
-    density: demo.density ?? "md",
+    density: demo.density,
     state,
     invalid: state === "error" || Boolean(demo.invalid),
     disabled: state === "disabled",
@@ -512,7 +512,7 @@ export function componentDemoProps(component, demo = {}) {
       label: demo.ariaLabel ?? demo.label ?? "View mode",
       items,
       selectedKey: demo.selectedKey ?? items.find((item) => item.selected)?.key ?? items.find((item) => item.selected)?.value ?? items[0]?.key ?? items[0]?.value,
-      density: demo.density ?? "md",
+      density: demo.density,
       variant: demo.variant ?? "outlined",
     };
   }
@@ -525,7 +525,7 @@ export function componentDemoProps(component, demo = {}) {
     state,
     open: state === "open" || state === "focus" || state === "warning",
     placement: demo.placement ?? "bottom",
-    density: demo.density ?? "md",
+    density: demo.density,
     fullWidth: Boolean(demo.fullWidth),
     disabled: state === "disabled",
     actions: demo.actions ?? (demo.variant === "action" ? [{ label: "Apply", variant: "primary" }, { label: "Cancel", variant: "secondary" }] : []),
@@ -540,7 +540,7 @@ export function componentDemoProps(component, demo = {}) {
     metrics: demo.metrics ?? (demo.variant === "limit" ? [{ label: "Available", value: demo.available ?? "$2,480" }, { label: "Limit", value: demo.limit ?? "$5,000" }] : []),
     variant: demo.variant ?? "physical",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     icon: demo.icon,
     fullWidth: Boolean(demo.fullWidth),
     disabled: state === "disabled",
@@ -553,7 +553,7 @@ export function componentDemoProps(component, demo = {}) {
     category: demo.category ?? (demo.variant === "refund" ? "income" : demo.variant === "declined" ? "toll" : "fuel"),
     variant: demo.variant ?? "standard",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     fullWidth: Boolean(demo.fullWidth),
     disabled: state === "disabled",
   };
@@ -563,7 +563,7 @@ export function componentDemoProps(component, demo = {}) {
     badge: demo.badge ?? "",
     variant: demo.variant ?? "standard",
     state,
-    density: demo.density ?? "md",
+    density: demo.density,
     loading: state === "loading",
     disabled: state === "disabled",
     tone: demo.tone ?? "neutral",
@@ -579,7 +579,7 @@ export function componentDemoProps(component, demo = {}) {
       tone,
       variant,
       state: dialogState,
-      density: demo.density ?? "md",
+      density: demo.density,
       icon: demo.icon ?? "",
       fields: demo.fields ?? [],
       open: Boolean(demo.open),
@@ -589,7 +589,7 @@ export function componentDemoProps(component, demo = {}) {
       ],
     };
   }
-  if (component === "menu") return { triggerLabel: demo.trigger ?? "Actions", label: demo.label ?? "Actions", variant: demo.variant ?? "actions", avatarName: demo.avatarName ?? demo.name ?? demo.trigger ?? "", avatarStatus: demo.avatarStatus ?? demo.status ?? "none", density: demo.density ?? "md", state, align: demo.align ?? "start", disabled: state === "disabled", open: state === "open" || state === "focus", items: demo.items ?? [{ label: "Edit driver", icon: "edit" }, { label: "Duplicate rules", icon: "content_copy" }, { separator: true }, { label: "Suspend access", icon: "block", tone: "danger" }] };
+  if (component === "menu") return { triggerLabel: demo.trigger ?? "Actions", label: demo.label ?? "Actions", variant: demo.variant ?? "actions", avatarName: demo.avatarName ?? demo.name ?? demo.trigger ?? "", avatarStatus: demo.avatarStatus ?? demo.status ?? "none", density: demo.density, state, align: demo.align ?? "start", disabled: state === "disabled", open: state === "open" || state === "focus", items: demo.items ?? [{ label: "Edit driver", icon: "edit" }, { label: "Duplicate rules", icon: "content_copy" }, { separator: true }, { label: "Suspend access", icon: "block", tone: "danger" }] };
   if (component === "drawer") {
     const hasFields = Array.isArray(demo.fields) && demo.fields.length > 0;
     return {
@@ -599,7 +599,7 @@ export function componentDemoProps(component, demo = {}) {
       variant: demo.variant ?? "side-sheet",
       state,
       tone: demo.tone ?? "neutral",
-      density: demo.density ?? "md",
+      density: demo.density,
       side: demo.side ?? "right",
       open: Boolean(demo.open),
       content: demo.content ?? (hasFields ? [] : [
@@ -619,7 +619,7 @@ export function componentDemoProps(component, demo = {}) {
       rowKey: demo.rowKey ?? "id",
       variant: tableVariant,
       state: tableState,
-      density: demo.density ?? (demo.dense || tableVariant === "dense" ? "sm" : "md"),
+      density: demo.density,
       dense: Boolean(demo.dense || tableVariant === "dense"),
       sortKey: demo.sortKey ?? (tableVariant === "sortable" || tableState === "sorted" ? "spend" : ""),
       sortDir: demo.sortDir ?? "ascending",
@@ -638,7 +638,7 @@ export function componentDemoProps(component, demo = {}) {
       ],
     };
   }
-  if (component === "biometric-prompt") return { label: demo.label ?? "Confirm it is you", description: demo.description ?? "", variant: demo.variant ?? "fingerprint", state, actionLabel: demo.actionLabel ?? "Use biometrics", fallback: demo.fallback ?? "Use passcode instead", icon: demo.icon ?? "", density: demo.density ?? "md", fullWidth: Boolean(demo.fullWidth) };
+  if (component === "biometric-prompt") return { label: demo.label ?? "Confirm it is you", description: demo.description ?? "", variant: demo.variant ?? "fingerprint", state, actionLabel: demo.actionLabel ?? "Use biometrics", fallback: demo.fallback ?? "Use passcode instead", icon: demo.icon ?? "", density: demo.density, fullWidth: Boolean(demo.fullWidth) };
   if (component === "tree-view") return {
     label: demo.ariaLabel ?? demo.label ?? "Tree view",
     state: state === "default" ? "expanded" : state,
@@ -652,6 +652,6 @@ export function componentDemoProps(component, demo = {}) {
     ],
   };
   if (component === "motion-boundary") return { label: demo.label ?? "Panel transition", description: demo.description ?? "Controls the entrance, exit, and reduced-motion behavior of one bounded region.", variant: demo.variant ?? "fade", state: demo.state ?? "active", icon: demo.icon ?? "transition_slide", reducedMotion: state === "reduced-motion" || Boolean(demo.reducedMotion) };
-  if (component === "animated-moment") return { label: demo.label ?? "Action complete", description: demo.description ?? "", variant: demo.variant ?? "success", state: demo.state ?? "playing", density: demo.density ?? "md", fullWidth: Boolean(demo.fullWidth), icon: demo.icon ?? "", animationSource: demo.animationSource ?? "", animationData: demo.animationData, reducedMotionFallback: demo.reducedMotionFallback ?? "Short controlled animation with reduced-motion fallback." };
+  if (component === "animated-moment") return { label: demo.label ?? "Action complete", description: demo.description ?? "", variant: demo.variant ?? "success", state: demo.state ?? "playing", density: demo.density, fullWidth: Boolean(demo.fullWidth), icon: demo.icon ?? "", animationSource: demo.animationSource ?? "", animationData: demo.animationData, reducedMotionFallback: demo.reducedMotionFallback ?? "Short controlled animation with reduced-motion fallback." };
   return demo;
 }

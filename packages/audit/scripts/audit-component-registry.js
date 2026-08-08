@@ -27,6 +27,10 @@ const forbiddenRegistryPropFallbacks = [
   "demo.size",
   "avatarSize",
   "size: demo",
+  'density: demo.density ?? "md"',
+  'density: demo.density ?? "sm"',
+  'density: demo.density || "md"',
+  'density: demo.density || "sm"',
 ];
 
 function checkComponentRegistry() {
@@ -48,6 +52,10 @@ function checkComponentRegistry() {
     if (registrySource.includes(forbidden)) {
       add("errors", registryFile, 1, `Package component registry must not translate legacy visual sizing props; density is the only demo scale route: ${forbidden}.`);
     }
+  }
+
+  if (/\bdensity:\s*[^,\n]*(?:\?\?|\|\|)\s*["'](?:sm|md|lg)["']/.test(registrySource) || /\bdensity:\s*[^,\n?]+\?\s*["'](?:sm|md|lg)["']/.test(registrySource)) {
+    add("errors", registryFile, 1, "Package component registry must not assign fixed demo density fallbacks; omit density so demos inherit the Flow cascade unless content opts in.");
   }
 
   if (!indexSource.includes("componentDemoProps")) {
