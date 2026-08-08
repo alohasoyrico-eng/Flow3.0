@@ -1,8 +1,9 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { segmentedControlPlatformContract } from "@design-system/components/platforms";
 
 export type SegmentedControlDensity = "sm" | "md" | "lg";
 export type SegmentedControlVariant = "outlined" | "toolbar" | "compact" | "icon-only";
+export type SegmentedControlValueChangeEvent = MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>;
 
 export interface SegmentedControlItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   key?: string;
@@ -17,7 +18,7 @@ export interface SegmentedControlProps extends Omit<HTMLAttributes<HTMLDivElemen
   label: string;
   items: SegmentedControlItem[];
   selectedKey?: string;
-  onValueChange?: (key: string) => void;
+  onValueChange?: (key: string, event: SegmentedControlValueChangeEvent) => void;
   variant?: SegmentedControlVariant;
   density?: SegmentedControlDensity;
 }

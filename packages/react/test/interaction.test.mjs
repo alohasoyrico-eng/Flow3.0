@@ -1480,7 +1480,7 @@ try {
       { key: "map", label: "Map", disabled: true },
       { key: "timeline", label: "Timeline" },
     ],
-    onValueChange: (key) => segmentChanges.push(key),
+    onValueChange: (key, event) => segmentChanges.push({ key, eventType: event.type }),
   }));
 
   const listSegment = getSegmentRole("tab", { name: /list/i });
@@ -1488,10 +1488,10 @@ try {
   assert.equal(listSegment.getAttribute("aria-selected"), "true");
   fireEvent.click(timelineSegment);
   await waitFor(() => assert.equal(timelineSegment.getAttribute("aria-selected"), "true"));
-  assert.deepEqual(segmentChanges, ["timeline"]);
+  assert.deepEqual(segmentChanges, [{ key: "timeline", eventType: "click" }]);
 
   fireEvent.keyDown(listSegment, { key: "ArrowRight" });
-  assert.deepEqual(segmentChanges, ["timeline", "list"]);
+  assert.deepEqual(segmentChanges, [{ key: "timeline", eventType: "click" }, { key: "list", eventType: "keydown" }]);
 
   rerenderSegmentedControl(React.createElement(SegmentedControl, {
     label: "View mode",
@@ -1501,7 +1501,7 @@ try {
       { key: "map", label: "Map", disabled: true },
       { key: "timeline", label: "Timeline" },
     ],
-    onValueChange: (key) => segmentChanges.push(key),
+    onValueChange: (key, event) => segmentChanges.push({ key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(listSegment.getAttribute("aria-selected"), "true"));
 
@@ -1526,7 +1526,7 @@ try {
         },
       },
     ],
-    onValueChange: (key) => preventedSegmentChanges.push(key),
+    onValueChange: (key, event) => preventedSegmentChanges.push({ key, eventType: event.type }),
   }));
 
   const preventedTimelineSegment = getPreventedSegmentRole("tab", { name: /timeline/i });

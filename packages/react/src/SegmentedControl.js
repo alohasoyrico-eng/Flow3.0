@@ -56,22 +56,22 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
 
   if (!label || !normalizedItems.length) return null;
 
-  const commitKey = (nextKey, restoreFocus = false) => {
+  const commitKey = (nextKey, restoreFocus = false, event) => {
     const option = normalizedItems.find((item) => item.key === nextKey);
     if (!option || option.disabled) return;
     if (!isSelectedKeyControlled) setCurrentKey(nextKey);
-    onValueChange?.(nextKey);
+    onValueChange?.(nextKey, event);
     if (restoreFocus) requestAnimationFrame(() => itemRefs.current.get(nextKey)?.focus());
   };
 
-  const move = (direction) => {
-    commitKey(nextEnabledKey(normalizedItems, activeKey, direction), true);
+  const move = (direction, event) => {
+    commitKey(nextEnabledKey(normalizedItems, activeKey, direction), true, event);
   };
 
-  const moveToEdge = (edge) => {
+  const moveToEdge = (edge, event) => {
     const enabled = normalizedItems.filter((item) => !item.disabled);
     const next = edge === "first" ? enabled[0] : enabled[enabled.length - 1];
-    if (next) commitKey(next.key, true);
+    if (next) commitKey(next.key, true, event);
   };
 
   return React.createElement(
@@ -112,23 +112,23 @@ export const SegmentedControl = forwardRef(function SegmentedControl({
           onClick: (event) => {
             onClick?.(event);
             if (event.defaultPrevented) return;
-            commitKey(item.key);
+            commitKey(item.key, false, event);
           },
           onKeyDown: (event) => {
             onKeyDown?.(event);
             if (event.defaultPrevented) return;
             if (event.key === "ArrowRight") {
               event.preventDefault();
-              move(1);
+              move(1, event);
             } else if (event.key === "ArrowLeft") {
               event.preventDefault();
-              move(-1);
+              move(-1, event);
             } else if (event.key === "Home") {
               event.preventDefault();
-              moveToEdge("first");
+              moveToEdge("first", event);
             } else if (event.key === "End") {
               event.preventDefault();
-              moveToEdge("last");
+              moveToEdge("last", event);
             }
           },
         },
