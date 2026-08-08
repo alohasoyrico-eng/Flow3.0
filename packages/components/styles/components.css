@@ -7587,7 +7587,6 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .chart-panel,
-.route-summary,
 .card-summary {
   --comp-chart-panel-tone: var(--sys-color-action);
   --comp-chart-panel-plot-size-base: var(--component-block-size-md);
@@ -7627,15 +7626,46 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .route-summary {
+  --comp-route-summary-bg: var(--sys-color-surface);
+  --comp-route-summary-border: var(--sys-color-border);
+  --comp-route-summary-border-width: var(--component-border-width);
+  --comp-route-summary-depth: var(--component-depth-panel);
+  --comp-route-summary-disabled-cursor: not-allowed;
+  --comp-route-summary-disabled-opacity: var(--component-opacity-disabled);
+  --comp-route-summary-display: grid;
+  --comp-route-summary-fg: var(--sys-color-text);
+  --comp-route-summary-focus-color: var(--sys-color-focus);
+  --comp-route-summary-focus-offset: var(--component-focus-ring-offset);
+  --comp-route-summary-focus-width: var(--component-focus-ring-width);
+  --comp-route-summary-full-width: 100%;
   --comp-route-summary-tone: var(--sys-color-action);
   --comp-route-summary-gap: var(--sys-space-md);
+  --comp-route-summary-header-display: grid;
+  --comp-route-summary-header-gap: var(--sys-space-sm);
+  --comp-route-summary-header-grid: auto minmax(0, 1fr);
+  --comp-route-summary-header-title-family: var(--sys-font-title);
+  --comp-route-summary-hover-border: color-mix(in srgb, var(--comp-route-summary-tone) 32%, var(--sys-color-border));
+  --comp-route-summary-hover-border-state: color-mix(in srgb, var(--comp-route-summary-tone) 38%, var(--sys-color-border));
   --comp-route-summary-padding: var(--sys-space-lg);
   --comp-route-summary-icon-size: var(--component-route-summary-icon-size-md);
+  --comp-route-summary-metric-border: var(--sys-color-border);
+  --comp-route-summary-metric-display: grid;
   --comp-route-summary-metric-gap: var(--sys-space-sm);
   --comp-route-summary-metric-padding: var(--sys-space-md);
   --comp-route-summary-metric-min: calc(var(--component-control-min-size) * 2.5);
   --comp-route-summary-description-color: var(--sys-color-text-muted);
   --comp-route-summary-metric-surface: color-mix(in srgb, var(--sys-color-surface-raised) 72%, var(--sys-color-surface));
+  --comp-route-summary-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
+  --comp-route-summary-selected-border: var(--sys-color-action);
+  --comp-route-summary-selected-shadow: 0 0 0 3px color-mix(in srgb, var(--sys-color-action) 14%, transparent),
+    var(--component-depth-panel);
+  --comp-route-summary-warning-border: color-mix(in srgb, var(--sys-color-warning) 52%, var(--sys-color-border));
+  background: var(--comp-route-summary-bg);
+  border: var(--comp-route-summary-border-width) solid var(--comp-route-summary-border);
+  border-radius: var(--comp-route-summary-radius);
+  box-shadow: var(--comp-route-summary-depth);
+  color: var(--comp-route-summary-fg);
+  display: var(--comp-route-summary-display);
   gap: var(--comp-route-summary-gap);
   padding: var(--comp-route-summary-padding);
   transition:
@@ -7663,7 +7693,7 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .route-summary[data-full-width="true"] {
-  inline-size: 100%;
+  inline-size: var(--comp-route-summary-full-width);
 }
 
 .route-summary[data-tone="warning"],
@@ -7677,54 +7707,60 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .route-summary[data-state="hover"] {
-  border-color: color-mix(in srgb, var(--comp-route-summary-tone) 38%, var(--sys-color-border));
+  border-color: var(--comp-route-summary-hover-border-state);
   box-shadow: var(--component-depth-action-hover);
   transform: var(--component-transform-lift-hover);
 }
 
 .route-summary:hover {
-  border-color: color-mix(in srgb, var(--comp-route-summary-tone) 32%, var(--sys-color-border));
+  border-color: var(--comp-route-summary-hover-border);
 }
 
 .route-summary[data-state="focus"] {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-route-summary-focus-width) solid var(--comp-route-summary-focus-color);
+  outline-offset: var(--comp-route-summary-focus-offset);
 }
 
 .route-summary[data-state="selected"] {
-  border-color: var(--sys-color-action);
-  box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--sys-color-action) 14%, transparent),
-    var(--component-depth-panel);
+  border-color: var(--comp-route-summary-selected-border);
+  box-shadow: var(--comp-route-summary-selected-shadow);
 }
 
 .route-summary[data-state="warning"] {
-  border-color: color-mix(in srgb, var(--sys-color-warning) 52%, var(--sys-color-border));
+  border-color: var(--comp-route-summary-warning-border);
 }
 
 .route-summary[data-state="disabled"] {
-  cursor: not-allowed;
-  opacity: var(--component-opacity-disabled);
+  cursor: var(--comp-route-summary-disabled-cursor);
+  opacity: var(--comp-route-summary-disabled-opacity);
 }
 
 .route-summary[data-variant="compact"] {
+  --comp-route-summary-compact-align: center;
+  --comp-route-summary-compact-border: transparent;
+  --comp-route-summary-compact-display: flex;
+  --comp-route-summary-compact-grid: none;
   --comp-route-summary-gap: var(--sys-space-sm);
+  --comp-route-summary-compact-gap: var(--sys-space-md);
+  --comp-route-summary-compact-header-display: flex;
+  --comp-route-summary-compact-header-flex: 1 1 auto;
+  --comp-route-summary-compact-header-min-inline: 0;
   --comp-route-summary-padding: calc(var(--sys-space-md) + var(--sys-frame-space-micro));
   --comp-route-summary-metric-min: calc(var(--component-control-min-size) * 2);
-  align-items: center;
-  border-color: transparent;
-  box-shadow: var(--component-depth-panel);
-  display: flex;
-  gap: var(--sys-space-md);
-  grid-template-columns: none;
+  align-items: var(--comp-route-summary-compact-align);
+  border-color: var(--comp-route-summary-compact-border);
+  box-shadow: var(--comp-route-summary-depth);
+  display: var(--comp-route-summary-compact-display);
+  gap: var(--comp-route-summary-compact-gap);
+  grid-template-columns: var(--comp-route-summary-compact-grid);
 }
 
 .route-summary[data-variant="compact"] header {
-  align-items: center;
-  display: flex;
-  flex: 1 1 auto;
-  gap: var(--sys-space-md);
-  min-inline-size: 0;
+  align-items: var(--comp-route-summary-compact-align);
+  display: var(--comp-route-summary-compact-header-display);
+  flex: var(--comp-route-summary-compact-header-flex);
+  gap: var(--comp-route-summary-compact-gap);
+  min-inline-size: var(--comp-route-summary-compact-header-min-inline);
 }
 
 .route-summary[data-variant="compact"] .route-summary__icon {
@@ -7809,7 +7845,6 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .chart-panel header,
-.route-summary header,
 .card-summary header {
   display: grid;
   gap: var(--sys-space-xs);
@@ -7821,8 +7856,9 @@ body[data-contrast="quiet"] .inline-validation {
 
 .route-summary header {
   align-items: center;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: var(--sys-space-sm);
+  display: var(--comp-route-summary-header-display);
+  grid-template-columns: var(--comp-route-summary-header-grid);
+  gap: var(--comp-route-summary-header-gap);
 }
 
 .route-summary__icon {
@@ -7853,9 +7889,12 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel header strong,
-.route-summary header strong,
 .card-summary header strong {
   font-family: var(--sys-font-title);
+}
+
+.route-summary header strong {
+  font-family: var(--comp-route-summary-header-title-family);
 }
 
 .chart-panel header strong {
@@ -8530,7 +8569,6 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   font-size: var(--comp-station-pin-marker-glyph-size);
 }
 
-.route-summary__metrics,
 .card-summary__metrics,
 .movement-row__content,
 .movement-row__value {
@@ -8542,20 +8580,20 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   line-height: var(--component-line-height-snug);
 }
 
-.route-summary__metrics,
 .card-summary__metrics {
   gap: var(--sys-space-sm);
   grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
 }
 
 .route-summary__metrics {
+  display: var(--comp-route-summary-metric-display);
   gap: var(--comp-route-summary-metric-gap);
   grid-template-columns: repeat(auto-fit, minmax(var(--comp-route-summary-metric-min), 1fr));
 }
 
 .route-summary__metrics span {
   background: var(--comp-route-summary-metric-surface);
-  border: var(--component-border-width) solid var(--sys-color-border);
+  border: var(--comp-route-summary-border-width) solid var(--comp-route-summary-metric-border);
   border-radius: var(--sys-radius-md);
   display: grid;
   gap: var(--sys-space-xs);

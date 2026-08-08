@@ -15,6 +15,7 @@ const { checkMovementRowCssContract } = require("./audit-movement-row-css-contra
 const { checkPopoverCssContract } = require("./audit-popover-css-contract.js");
 const { checkProgressIndicatorCssContract } = require("./audit-progress-indicator-css-contract.js");
 const { checkQuickActionCssContract } = require("./audit-quick-action-css-contract.js");
+const { checkRouteSummaryCssContract } = require("./audit-route-summary-css-contract.js");
 const { checkSkeletonCssContract } = require("./audit-skeleton-css-contract.js");
 const { checkSliderCssContract } = require("./audit-slider-css-contract.js");
 const { checkSpinnerCssContract } = require("./audit-spinner-css-contract.js");
@@ -42,6 +43,7 @@ function checkComponentCssContracts(context) {
   checkPopoverCssContract(context);
   checkProgressIndicatorCssContract(context);
   checkQuickActionCssContract(context);
+  checkRouteSummaryCssContract(context);
   checkSkeletonCssContract(context);
   checkSliderCssContract(context);
   checkSpinnerCssContract(context);
