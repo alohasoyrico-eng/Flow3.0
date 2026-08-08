@@ -431,6 +431,7 @@
   --component-slider-touch-size-sm: calc(var(--component-control-min-size) - var(--sys-space-sm));
   --component-skeleton-circle-size: var(--sys-frame-content-skeleton-circle);
   --component-skeleton-row-leading-size: var(--sys-frame-content-skeleton-row-leading);
+  --component-table-expander-size: var(--sys-frame-content-table-expander);
   --component-skeleton-pill-block-size: var(--component-field-control-size-sm);
   --component-skeleton-card-block-size: var(--component-block-size-lg);
   --component-empty-state-icon-size-sm: calc(var(--component-control-min-size) + var(--sys-space-lg));
@@ -786,7 +787,7 @@
   --comp-table-sort-icon-size: var(--component-font-size-body);
   --comp-table-sort-icon-opacity: var(--sys-state-muted-opacity);
   --comp-table-sort-active-icon-opacity: var(--sys-state-visible-opacity);
-  --comp-table-expander-size: var(--component-control-min-size);
+  --comp-table-expander-size: var(--component-table-expander-size);
   --comp-table-expander-cell-gap: var(--sys-space-sm);
   --comp-table-expander-cell-padding-inline-end: var(--sys-frame-space-none);
   --comp-table-expander-icon-size: var(--component-font-size-body);

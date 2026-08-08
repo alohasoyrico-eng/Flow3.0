@@ -567,6 +567,7 @@
   --sys-frame-content-segmented-control-inline: calc(var(--sys-space-11) * 9);
   --sys-frame-content-skeleton-circle: var(--sys-space-11);
   --sys-frame-content-skeleton-row-leading: var(--sys-space-11);
+  --sys-frame-content-table-expander: var(--sys-space-11);
   --sys-frame-content-code-slot-block-sm: var(--sys-space-11);
   --sys-frame-content-code-slot-block-md: calc(var(--sys-space-11) + var(--sys-frame-border-control));
   --sys-frame-content-code-slot-block-lg: calc(var(--sys-space-11) + var(--sys-space-md));

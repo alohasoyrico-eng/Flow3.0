@@ -27,6 +27,13 @@ function checkTableCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (text.includes("--table-")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--table-")), "Table must not introduce short --table-* aliases; use the component namespace and --comp-table-current-* resolved aliases.");
   }
+  const localExpanderSize = /--comp-table-expander-size:\s*var\(--component-control-min-size\)/.exec(text);
+  if (localExpanderSize) {
+    add("errors", packageCssFile, lineNumber(text, localExpanderSize.index), "Table expander size must consume table expander frame roles instead of the generic control min size.");
+  }
+  if (!text.includes("--comp-table-expander-size: var(--component-table-expander-size)")) {
+    add("errors", packageCssFile, 1, "Table expander size must expose the component table expander frame alias.");
+  }
 
   requireIncludes({
     block: tableBlock,
