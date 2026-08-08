@@ -1373,6 +1373,26 @@ try {
   }));
   await waitFor(() => assert.equal(phoneInput.value, "55 9876 5432"));
   await waitFor(() => assert.equal(phoneCountryTrigger.textContent.includes("+52"), true));
+  fireEvent.input(phoneInput, { target: { value: "5511112222" } });
+  assert.equal(phoneChanges.at(-1).value, "5511112222");
+  await waitFor(() => assert.equal(phoneInput.value, "55 9876 5432"));
+  rerenderPhoneInput(React.createElement(PhoneInput, {
+    label: "Phone number",
+    value: "+525511112222",
+    country: "MX",
+    countries: phoneCountries,
+    onValueChange: (value, meta, event) => phoneChanges.push({ value, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(phoneInput.value, "55 1111 2222"));
+  fireEvent.click(phoneCountryTrigger);
+  fireEvent.click(getPhoneRole("option", { name: /united states/i }));
+  assert.deepEqual(phoneChanges.at(-1).meta, {
+    country: "US",
+    callingCode: "+1",
+    e164: "+15511112222",
+    nationalNumber: "5511112222",
+  });
+  await waitFor(() => assert.equal(phoneCountryTrigger.textContent.includes("+52"), true));
 
   cleanup();
 
