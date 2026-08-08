@@ -1221,6 +1221,7 @@ export const componentContracts = {
     ],
     accessibility: [
       "Keep route metrics visible as text.",
+      "Require stable action keys before composing local actions.",
       "Use actions only for local route decisions.",
       "Use route patterns for comparison, map state, and navigation."
     ]

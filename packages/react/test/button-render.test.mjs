@@ -254,7 +254,7 @@ const routeSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary
   label: "Fast route",
   description: "Best option for current policy.",
   metrics: [{ label: "ETA", value: "18 min" }, { label: "Distance", value: "12.4 km" }],
-  actions: [{ label: "Start route" }, { label: "Compare", variant: "secondary" }],
+  actions: [{ key: "start", label: "Start route" }, { key: "compare", label: "Compare", variant: "secondary" }],
   variant: "compare",
   state: "selected",
   density: "sm",
@@ -282,7 +282,7 @@ assert.match(routeSummaryMarkup, /Start route/);
 
 const inheritedRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Inherited route density",
-  actions: [{ label: "Start route" }],
+  actions: [{ key: "start", label: "Start route" }],
 }));
 assert.doesNotMatch(inheritedRouteSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedRouteSummaryMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
@@ -290,7 +290,7 @@ assert.doesNotMatch(inheritedRouteSummaryMarkup.match(/<button[^>]+>/)?.[0] ?? "
 const inheritedCompactRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Inherited compact route density",
   variant: "compact",
-  actions: [{ label: "Cancel route" }],
+  actions: [{ key: "cancel", label: "Cancel route" }],
 }));
 assert.doesNotMatch(inheritedCompactRouteSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedCompactRouteSummaryMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
@@ -302,6 +302,11 @@ const unnamedCompactRouteActionMarkup = renderToStaticMarkup(React.createElement
 assert.doesNotMatch(unnamedCompactRouteActionMarkup, /Route action/);
 assert.doesNotMatch(unnamedCompactRouteActionMarkup.match(/<button[^>]+>/)?.[0] ?? "", /aria-label=/);
 assert.doesNotMatch(unnamedCompactRouteActionMarkup, /class="icon-button/);
+const unstableRouteActionMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
+  label: "Route A",
+  actions: [{ label: "Start route" }],
+}));
+assert.doesNotMatch(unstableRouteActionMarkup, /class="button/);
 
 const incompleteMetricRouteSummaryMarkup = renderToStaticMarkup(React.createElement(RouteSummary, {
   label: "Airport run",

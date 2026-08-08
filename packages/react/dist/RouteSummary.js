@@ -10,12 +10,13 @@ const validTones = new Set(["neutral", "info", "warning"]);
 
 function isValidRouteAction(action, compact) {
   if (!action) return false;
-  return compact ? Boolean(action.label || action.ariaLabel) : Boolean(action.label);
+  const hasStableKey = action.key !== undefined && action.key !== null && action.key !== "";
+  return hasStableKey && (compact ? Boolean(action.label || action.ariaLabel) : Boolean(action.label));
 }
 
 function renderAction(action, index, { compact, density, disabled }) {
   const actionDisabled = Boolean(disabled || action?.disabled);
-  const actionKey = action?.key ?? action?.label ?? `action-${index}`;
+  const actionKey = action?.key;
   const handleActionClick = (event) => {
     event.stopPropagation();
     action?.onClick?.(event);
