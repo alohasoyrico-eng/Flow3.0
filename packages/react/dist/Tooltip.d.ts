@@ -7,9 +7,8 @@ export type TooltipDensity = "sm" | "md" | "lg";
 export type TooltipState = "default" | "hover" | "focus" | "open" | "disabled" | "dismissed";
 
 export interface TooltipProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  triggerLabel?: string;
-  triggerAriaLabel?: string;
-  content?: string;
+  triggerLabel: string;
+  content: string;
   id?: string;
   placement?: TooltipPlacement;
   variant?: TooltipVariant;

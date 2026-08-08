@@ -1698,6 +1698,11 @@ const ariaOnlyTooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, 
 }));
 assert.equal(ariaOnlyTooltipMarkup, "");
 
+const contentlessTooltipMarkup = renderToStaticMarkup(React.createElement(Tooltip, {
+  triggerLabel: "Help",
+}));
+assert.equal(contentlessTooltipMarkup, "");
+
 const popoverMarkup = renderToStaticMarkup(React.createElement(Popover, {
   triggerLabel: "Details",
   title: "Card status",

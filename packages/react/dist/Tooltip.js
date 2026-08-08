@@ -13,7 +13,6 @@ function normalizeState({ disabled, state }) {
 
 export const Tooltip = forwardRef(function Tooltip({
   triggerLabel,
-  triggerAriaLabel,
   content,
   id,
   placement = "top",
@@ -40,7 +39,7 @@ export const Tooltip = forwardRef(function Tooltip({
   const isDismissed = !isOpenControlled && interactionState === "dismissed";
   const openValue = isOpenControlled ? Boolean(openProp) : internalOpen;
   const isOpen = Boolean(openValue) && !isDismissed;
-  if (!triggerLabel) return null;
+  if (!triggerLabel || !content) return null;
 
   const setOpen = (nextOpen, nextState) => {
     if (isDisabled) return;
@@ -70,8 +69,7 @@ export const Tooltip = forwardRef(function Tooltip({
         "data-tooltip-trigger": "",
         disabled: isDisabled,
         "aria-disabled": isDisabled ? "true" : undefined,
-        "aria-describedby": isOpen && content ? tooltipId : undefined,
-        "aria-label": triggerLabel ? undefined : triggerAriaLabel,
+        "aria-describedby": isOpen ? tooltipId : undefined,
         onMouseEnter: () => setOpen(true, "hover"),
         onMouseLeave: () => setOpen(false, "default"),
         onFocus: () => setOpen(true, "focus"),
@@ -88,7 +86,7 @@ export const Tooltip = forwardRef(function Tooltip({
       },
       triggerLabel ?? "",
     ),
-    content ? React.createElement(
+    React.createElement(
       "span",
       {
         id: tooltipId,
@@ -99,7 +97,7 @@ export const Tooltip = forwardRef(function Tooltip({
         "aria-hidden": String(!isOpen),
       },
       content,
-    ) : null,
+    ),
   );
 });
 
