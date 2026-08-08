@@ -351,7 +351,7 @@ const cardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, 
   number: "**** 4821",
   expires: "12/28",
   status: "Frozen",
-  metrics: [{ label: "Available", value: "$2,480" }],
+  metrics: [{ key: "available", label: "Available", value: "$2,480" }],
   variant: "limit",
   state: "frozen",
   density: "sm",
@@ -383,6 +383,14 @@ const incompleteMetricCardSummaryMarkup = renderToStaticMarkup(React.createEleme
 }));
 assert.doesNotMatch(incompleteMetricCardSummaryMarkup, /class="card-summary__metrics"/);
 assert.doesNotMatch(incompleteMetricCardSummaryMarkup, /<small><\/small>|<strong><\/strong>/);
+
+const unstableMetricCardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
+  label: "Fleet",
+  metrics: [{ label: "Available", value: "$2,480" }],
+  variant: "limit",
+}));
+assert.doesNotMatch(unstableMetricCardSummaryMarkup, /class="card-summary__metrics"/);
+assert.doesNotMatch(unstableMetricCardSummaryMarkup, /Available|\$2,480/);
 
 const chartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
   label: "Spend",

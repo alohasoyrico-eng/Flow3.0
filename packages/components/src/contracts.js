@@ -1464,6 +1464,7 @@ export const componentContracts = {
     accessibility: [
       "Keep card identity and status visible.",
       "Use masked values for card numbers.",
+      "Require stable metric keys before composing metric rows.",
       "Use card management patterns for lifecycle actions."
     ]
   },

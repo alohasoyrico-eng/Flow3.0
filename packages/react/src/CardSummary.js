@@ -34,7 +34,7 @@ export const CardSummary = forwardRef(function CardSummary({
   const resolvedDensity = normalizeFlowDensity(density);
   const statusLabel = status || "";
   const resolvedIcon = icon || (resolvedVariant === "virtual" ? "smartphone" : resolvedState === "frozen" ? "ac_unit" : "contactless");
-  const visibleMetrics = metrics.filter((metric) => metric?.label && metric?.value);
+  const visibleMetrics = metrics.filter((metric) => metric?.key && metric?.label && metric?.value);
 
   return React.createElement(
     "article",
@@ -80,9 +80,9 @@ export const CardSummary = forwardRef(function CardSummary({
       ? React.createElement(
           "div",
           { className: "card-summary__metrics" },
-          visibleMetrics.map((metric, index) => React.createElement(
+          visibleMetrics.map((metric) => React.createElement(
             "span",
-            { key: metric.key ?? `${metric.label}-${index}` },
+            { key: metric.key },
             React.createElement("small", null, metric.label),
             React.createElement("strong", null, metric.value),
           )),
