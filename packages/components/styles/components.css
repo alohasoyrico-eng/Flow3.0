@@ -1886,10 +1886,10 @@
 .choice,
 .switch {
   align-items: start;
-  color: var(--sys-color-text);
-  cursor: pointer;
+  color: var(--component-color-text);
+  cursor: var(--component-cursor-pointer);
   display: grid;
-  gap: var(--sys-space-sm);
+  gap: var(--component-space-sm);
   min-block-size: var(--component-control-min-size);
 }
 
@@ -2072,7 +2072,7 @@
   block-size: var(--comp-choice-current-mark-size);
   inline-size: var(--comp-choice-current-mark-size);
   justify-content: center;
-  margin-block-start: var(--sys-frame-border-thin);
+  margin-block-start: var(--component-border-width);
   transition:
     background-color var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-ease),
     border-color var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-ease),
@@ -2402,15 +2402,15 @@
 .chip,
 .tag {
   align-items: center;
-  border: var(--component-border-width) solid var(--sys-color-border);
+  border: var(--component-border-width) solid var(--component-color-border);
   border-radius: var(--component-radius-pill);
-  color: var(--sys-color-text);
+  color: var(--component-color-text);
   display: inline-flex;
   font-size: var(--component-font-size-label);
-  font-weight: var(--sys-voice-weight-bold);
-  gap: var(--sys-space-xs);
+  font-weight: var(--component-font-weight-bold);
+  gap: var(--component-space-xs);
   min-block-size: var(--component-badge-min-size);
-  padding: 0 var(--sys-space-sm);
+  padding: 0 var(--component-space-sm);
 }
 
 .badge {
@@ -2549,10 +2549,10 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
 }
 
 .badge__icon {
-  font-family: var(--sys-font-icon);
+  font-family: var(--component-font-family-icon);
   font-size: var(--comp-badge-icon-size);
-  font-variation-settings: var(--sys-icon-variation-filled-strong);
-  line-height: var(--sys-voice-line-height-none);
+  font-variation-settings: var(--component-icon-variation-filled-strong);
+  line-height: var(--component-line-height-none);
 }
 
 .badge[data-state="hover"],
@@ -2596,7 +2596,7 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
 
 .chip,
 .tag {
-  background: var(--sys-color-surface);
+  background: var(--component-color-surface);
   transition:
     background-color var(--component-duration-state) var(--component-ease-state),
     border-color var(--component-duration-state) var(--component-ease-state),
@@ -2768,14 +2768,14 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
 .chip__remove {
   direction: ltr;
   display: inline-block;
-  font-family: var(--sys-font-icon);
+  font-family: var(--component-font-family-icon);
   font-feature-settings: "liga";
   font-size: var(--component-font-size-body);
   font-style: normal;
-  font-variation-settings: var(--sys-icon-variation-outline-strong);
-  letter-spacing: var(--sys-voice-letter-spacing-normal);
-  line-height: var(--sys-voice-line-height-none);
-  text-transform: var(--sys-voice-transform-none);
+  font-variation-settings: var(--component-icon-variation-outline-strong);
+  letter-spacing: var(--component-letter-spacing-normal);
+  line-height: var(--component-line-height-none);
+  text-transform: var(--component-text-transform-none);
   white-space: nowrap;
   word-wrap: normal;
   -webkit-font-feature-settings: "liga";
