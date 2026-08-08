@@ -7586,9 +7586,33 @@ body[data-contrast="quiet"] .inline-validation {
   }
 }
 
-.chart-panel,
-.card-summary {
+.chart-panel {
+  --comp-chart-panel-bg: var(--sys-color-surface);
+  --comp-chart-panel-border: var(--sys-color-border);
+  --comp-chart-panel-border-width: var(--component-border-width);
+  --comp-chart-panel-depth: var(--component-depth-panel);
+  --comp-chart-panel-disabled-border: var(--component-disabled-border);
+  --comp-chart-panel-disabled-fg: var(--component-disabled-text);
+  --comp-chart-panel-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-chart-panel-display: grid;
+  --comp-chart-panel-fg: var(--sys-color-text);
+  --comp-chart-panel-focus-color: color-mix(in srgb, var(--sys-color-action) 35%, transparent);
+  --comp-chart-panel-focus-offset: var(--component-focus-ring-offset);
+  --comp-chart-panel-focus-width: var(--component-focus-ring-width);
+  --comp-chart-panel-full-width: 100%;
+  --comp-chart-panel-gap: var(--sys-space-sm);
+  --comp-chart-panel-header-display: grid;
+  --comp-chart-panel-header-gap: 0;
+  --comp-chart-panel-header-title-family: var(--sys-font-title);
+  --comp-chart-panel-header-title-color: var(--sys-color-text-muted);
+  --comp-chart-panel-hover-border: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--sys-color-border));
+  --comp-chart-panel-hover-depth: var(--component-depth-action-hover);
+  --comp-chart-panel-hover-transform: var(--component-transform-lift-sm);
+  --comp-chart-panel-padding: var(--sys-space-lg);
+  --comp-chart-panel-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
+  --comp-chart-panel-state-border: color-mix(in srgb, var(--comp-chart-panel-tone) 48%, var(--sys-color-border));
   --comp-chart-panel-tone: var(--sys-color-action);
+  --comp-chart-panel-width: min(100%, var(--component-content-size-md));
   --comp-chart-panel-plot-size-base: var(--component-block-size-md);
   --comp-chart-panel-plot-density-offset: 0px;
   --comp-chart-panel-plot-size: calc(var(--comp-chart-panel-plot-size-base) + var(--comp-chart-panel-plot-density-offset));
@@ -7598,20 +7622,15 @@ body[data-contrast="quiet"] .inline-validation {
   --chart-segment-3: var(--sys-chart-series-quaternary);
   --chart-segment-4: color-mix(in srgb, var(--sys-chart-series-primary) 54%, var(--sys-chart-series-secondary));
   --chart-segment-5: var(--sys-chart-series-tertiary);
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid var(--sys-color-border);
-  border-radius: calc(var(--sys-radius-md) + var(--sys-radius-sm));
-  box-shadow: var(--component-depth-panel);
-  color: var(--sys-color-text);
-  display: grid;
-  gap: var(--sys-space-md);
-  padding: var(--sys-space-md);
-}
-
-.chart-panel {
-  gap: var(--sys-space-sm);
-  inline-size: min(100%, var(--component-content-size-md));
-  padding: var(--sys-space-lg);
+  background: var(--comp-chart-panel-bg);
+  border: var(--comp-chart-panel-border-width) solid var(--comp-chart-panel-border);
+  border-radius: var(--comp-chart-panel-radius);
+  box-shadow: var(--comp-chart-panel-depth);
+  color: var(--comp-chart-panel-fg);
+  display: var(--comp-chart-panel-display);
+  gap: var(--comp-chart-panel-gap);
+  inline-size: var(--comp-chart-panel-width);
+  padding: var(--comp-chart-panel-padding);
   transition:
     border-color var(--component-duration-state) var(--component-ease-state),
     box-shadow var(--component-duration-state) var(--component-ease-state),
@@ -7620,9 +7639,9 @@ body[data-contrast="quiet"] .inline-validation {
 
 .chart-panel:hover,
 .chart-panel:focus-within {
-  border-color: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--sys-color-border));
-  box-shadow: var(--component-depth-action-hover);
-  transform: var(--component-transform-lift-sm);
+  border-color: var(--comp-chart-panel-hover-border);
+  box-shadow: var(--comp-chart-panel-hover-depth);
+  transform: var(--comp-chart-panel-hover-transform);
 }
 
 .route-summary {
@@ -7804,18 +7823,18 @@ body[data-contrast="quiet"] .inline-validation {
 
 .chart-panel[data-density="sm"] {
   --comp-chart-panel-plot-density-offset: calc(var(--sys-space-xs) * -1);
-  gap: var(--sys-space-sm);
-  padding: var(--sys-space-md);
+  --comp-chart-panel-gap: var(--sys-space-sm);
+  --comp-chart-panel-padding: var(--sys-space-md);
 }
 
 .chart-panel[data-density="lg"] {
   --comp-chart-panel-plot-density-offset: var(--sys-space-lg);
-  gap: var(--sys-space-md);
-  padding: var(--sys-space-xl);
+  --comp-chart-panel-gap: var(--sys-space-md);
+  --comp-chart-panel-padding: var(--sys-space-xl);
 }
 
 .chart-panel[data-full-width="true"] {
-  inline-size: 100%;
+  inline-size: var(--comp-chart-panel-full-width);
 }
 
 .chart-panel[data-tone="warning"],
@@ -7830,28 +7849,23 @@ body[data-contrast="quiet"] .inline-validation {
 
 .chart-panel[data-state="error"],
 .chart-panel[data-state="warning"] {
-  border-color: color-mix(in srgb, var(--comp-chart-panel-tone) 48%, var(--sys-color-border));
+  border-color: var(--comp-chart-panel-state-border);
 }
 
 .chart-panel[data-state="focus"] {
-  outline: var(--component-focus-ring-width) solid color-mix(in srgb, var(--sys-color-action) 35%, transparent);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-chart-panel-focus-width) solid var(--comp-chart-panel-focus-color);
+  outline-offset: var(--comp-chart-panel-focus-offset);
 }
 
 .chart-panel[data-state="disabled"] {
-  border-color: var(--component-disabled-border);
-  color: var(--component-disabled-text);
-  opacity: var(--sys-disabled-opacity);
-}
-
-.chart-panel header,
-.card-summary header {
-  display: grid;
-  gap: var(--sys-space-xs);
+  border-color: var(--comp-chart-panel-disabled-border);
+  color: var(--comp-chart-panel-disabled-fg);
+  opacity: var(--comp-chart-panel-disabled-opacity);
 }
 
 .chart-panel header {
-  gap: 0;
+  display: var(--comp-chart-panel-header-display);
+  gap: var(--comp-chart-panel-header-gap);
 }
 
 .route-summary header {
@@ -7888,17 +7902,13 @@ body[data-contrast="quiet"] .route-summary__icon {
   overflow-wrap: anywhere;
 }
 
-.chart-panel header strong,
-.card-summary header strong {
-  font-family: var(--sys-font-title);
-}
-
 .route-summary header strong {
   font-family: var(--comp-route-summary-header-title-family);
 }
 
 .chart-panel header strong {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-chart-panel-header-title-color);
+  font-family: var(--comp-chart-panel-header-title-family);
   font-size: var(--component-font-size-micro);
   font-weight: var(--sys-voice-weight-semibold);
   letter-spacing: var(--sys-voice-letter-spacing-widest);
@@ -10173,6 +10183,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-card-summary-aspect-ratio: 1.586;
   --comp-card-summary-badge-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 16%, transparent);
   --comp-card-summary-badge-border: color-mix(in srgb, var(--comp-card-summary-current-fg) 18%, transparent);
+  --comp-card-summary-border: var(--sys-color-border);
+  --comp-card-summary-border-width: var(--component-border-width);
   --comp-card-summary-brand-family: var(--sys-font-title);
   --comp-card-summary-brand-letter-spacing: var(--sys-voice-letter-spacing-widest);
   --comp-card-summary-brand-size: var(--component-font-size-label);
@@ -10192,8 +10204,11 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-card-summary-current-number-size: var(--comp-card-summary-number-size-md);
   --comp-card-summary-current-padding: var(--comp-card-summary-padding-md);
   --comp-card-summary-current-tone: var(--comp-card-summary-tone);
+  --comp-card-summary-depth: var(--component-depth-panel);
+  --comp-card-summary-display: grid;
   --comp-card-summary-gradient: linear-gradient(135deg, color-mix(in srgb, var(--comp-card-summary-current-fg) 8%, transparent), transparent 42%);
   --comp-card-summary-header-align: start;
+  --comp-card-summary-header-display: grid;
   --comp-card-summary-header-gap: var(--sys-space-sm);
   --comp-card-summary-header-grid: minmax(0, 1fr) auto;
   --comp-card-summary-metrics-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 10%, transparent);
@@ -10207,8 +10222,11 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background:
     var(--comp-card-summary-gradient),
     var(--comp-card-summary-current-bg);
+  border: var(--comp-card-summary-border-width) solid var(--comp-card-summary-border);
   border-radius: var(--comp-card-summary-radius);
+  box-shadow: var(--comp-card-summary-depth);
   color: var(--comp-card-summary-current-fg);
+  display: var(--comp-card-summary-display);
   gap: var(--comp-card-summary-current-gap);
   inline-size: var(--comp-card-summary-width);
   overflow: var(--comp-card-summary-overflow);
@@ -10286,7 +10304,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .card-summary header {
   align-items: var(--comp-card-summary-header-align);
-  display: grid;
+  display: var(--comp-card-summary-header-display);
   gap: var(--comp-card-summary-header-gap);
   grid-template-columns: var(--comp-card-summary-header-grid);
 }
