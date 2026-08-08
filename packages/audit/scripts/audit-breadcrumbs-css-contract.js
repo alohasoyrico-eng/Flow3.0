@@ -52,7 +52,7 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
     text,
     packageCssFile,
     snippets: [
-      "--comp-breadcrumbs-list-align: center",
+      "--comp-breadcrumbs-list-align: var(--component-align-center)",
       "--comp-breadcrumbs-list-display: var(--component-display-flex)",
       "--comp-breadcrumbs-list-wrap: wrap",
       "--comp-breadcrumbs-item-display: var(--component-display-inline-flex)",

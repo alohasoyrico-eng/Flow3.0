@@ -57,7 +57,7 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
     text,
     packageCssFile,
     snippets: [
-      "--comp-floating-action-button-align: center",
+      "--comp-floating-action-button-align: var(--component-align-center)",
       "--comp-floating-action-button-size: var(--comp-floating-action-button-size-md)",
       "--comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-md)",
       "--comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-md)",

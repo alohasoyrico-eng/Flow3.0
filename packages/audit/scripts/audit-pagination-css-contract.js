@@ -46,7 +46,7 @@ function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey,
     text,
     packageCssFile,
     snippets: [
-      "--comp-pagination-align: center",
+      "--comp-pagination-align: var(--component-align-center)",
       "--comp-pagination-button-display: var(--component-display-inline-flex)",
       "--comp-pagination-cursor: var(--component-cursor-pointer)",
       "--comp-pagination-disabled-cursor: var(--component-cursor-default)",

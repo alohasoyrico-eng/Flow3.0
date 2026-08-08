@@ -47,7 +47,7 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-avatar-letter-spacing: var(--sys-voice-letter-spacing-wide)",
       "--comp-avatar-identity-bg: var(--comp-avatar-identity-action-bg)",
       "--comp-avatar-identity-fg: var(--comp-avatar-identity-default-fg)",
-      "--comp-avatar-align: center",
+      "--comp-avatar-align: var(--component-align-center)",
       "--comp-avatar-display: var(--component-display-inline-flex)",
       "--comp-avatar-radius: var(--component-radius-pill)",
       "--comp-avatar-shadow: var(--component-depth-low-medium)",

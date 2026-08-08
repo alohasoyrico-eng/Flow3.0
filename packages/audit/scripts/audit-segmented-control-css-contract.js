@@ -80,11 +80,11 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
     text,
     packageCssFile,
     snippets: [
-      "--comp-segmented-control-align: stretch",
+      "--comp-segmented-control-align: var(--component-align-stretch)",
       "--comp-segmented-control-display: var(--component-display-inline-flex)",
       "--comp-segmented-control-gap: var(--component-frame-space-none)",
       "--comp-segmented-control-indicator-selected-transform: var(--component-transform-scale-rest)",
-      "--comp-segmented-control-item-align: center",
+      "--comp-segmented-control-item-align: var(--component-align-center)",
       "--comp-segmented-control-item-display: var(--component-display-inline-flex)",
       "--comp-segmented-control-item-min-block: var(--component-inline-trigger-min-block-size-md)",
       "--comp-segmented-control-icon-selected-variation: var(--sys-icon-variation-filled-strong)",

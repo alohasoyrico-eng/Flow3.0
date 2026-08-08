@@ -75,6 +75,17 @@
   --component-position-absolute: absolute;
   --component-position-relative: relative;
   --component-white-space-nowrap: nowrap;
+  --component-align-center: center;
+  --component-align-start: start;
+  --component-align-stretch: stretch;
+  --component-justify-center: center;
+  --component-justify-end: end;
+  --component-justify-flex-end: flex-end;
+  --component-justify-space-between: space-between;
+  --component-justify-self-start: start;
+  --component-justify-items-center: center;
+  --component-text-align-center: center;
+  --component-text-align-start: start;
   --component-content-size-xs: calc(var(--component-control-min-size) * 4);
   --component-content-size-sm: calc(var(--component-control-min-size) * 6);
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
@@ -767,7 +778,7 @@
   --comp-card-detail-fg: var(--comp-card-muted-fg);
   --comp-card-loading-gap: var(--sys-space-sm);
   --comp-card-actions-gap: var(--sys-space-sm);
-  --comp-card-actions-justify: flex-end;
+  --comp-card-actions-justify: var(--component-justify-flex-end);
   --comp-card-minimal-icon-size: var(--component-font-size-title-md);
   --comp-card-minimal-detail-size: var(--component-font-size-small);
   --comp-card-elevated-detail-size: var(--component-font-size-small);
@@ -1022,7 +1033,7 @@
 }
 
 .button {
-  --comp-button-align: center;
+  --comp-button-align: var(--component-align-center);
   --comp-button-current-size: var(--comp-button-size);
   --comp-button-current-padding: var(--comp-button-padding);
   --comp-button-current-icon-size: var(--comp-button-icon-size);
@@ -1034,7 +1045,7 @@
   --comp-button-display: var(--component-display-inline-flex);
   --comp-button-font-weight: var(--sys-voice-weight-bold);
   --comp-button-gap: var(--sys-space-sm);
-  --comp-button-justify: center;
+  --comp-button-justify: var(--component-justify-center);
   --comp-button-full-width: var(--component-inline-size-full);
   --comp-button-focus-ring: var(--component-focus-ring);
   --comp-button-focus-offset: var(--component-focus-ring-offset);
@@ -1265,7 +1276,7 @@
 }
 
 .icon-button {
-  --comp-icon-button-align: center;
+  --comp-icon-button-align: var(--component-align-center);
   --comp-icon-button-current-size: var(--comp-icon-button-size);
   --comp-icon-button-current-icon-size: var(--comp-icon-button-icon-size);
   --comp-icon-button-bg: var(--component-surface-transparent);
@@ -1276,7 +1287,7 @@
   --comp-icon-button-cursor: var(--component-cursor-pointer);
   --comp-icon-button-display: var(--component-display-inline-flex);
   --comp-icon-button-flex: var(--component-flex-none);
-  --comp-icon-button-justify: center;
+  --comp-icon-button-justify: var(--component-justify-center);
   --comp-icon-button-padding: var(--component-frame-space-none);
   --comp-icon-button-position: var(--component-position-relative);
   --comp-icon-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
@@ -2717,7 +2728,7 @@ button.tag:disabled,
 }
 
 .tabs {
-  --comp-tabs-align: center;
+  --comp-tabs-align: var(--component-align-center);
   --comp-tabs-bg: var(--sys-energy-surface-sunken);
   --comp-tabs-border-width: var(--component-border-width);
   --comp-tabs-border-color: color-mix(in srgb, var(--sys-color-border) 76%, transparent);
@@ -2742,7 +2753,7 @@ button.tag:disabled,
   --comp-tabs-indicator-position: var(--component-position-absolute);
   --comp-tabs-indicator-transition: left var(--sys-duration-base) var(--sys-motion-curve-touch), width var(--sys-duration-base) var(--sys-motion-curve-touch);
   --comp-tabs-indicator-z: var(--sys-depth-z-base);
-  --comp-tabs-tab-align: center;
+  --comp-tabs-tab-align: var(--component-align-center);
   --comp-tabs-tab-bg: var(--component-surface-transparent);
   --comp-tabs-tab-border: var(--component-border-none);
   --comp-tabs-tab-radius: var(--component-radius-pill);
@@ -2753,7 +2764,7 @@ button.tag:disabled,
   --comp-tabs-tab-font-size: var(--component-font-size-label);
   --comp-tabs-tab-font-weight: var(--sys-voice-weight-semibold);
   --comp-tabs-tab-gap: var(--sys-space-xs);
-  --comp-tabs-tab-justify: center;
+  --comp-tabs-tab-justify: var(--component-justify-center);
   --comp-tabs-tab-min-block: var(--component-navigation-target-size-lg);
   --comp-tabs-tab-min-inline: var(--component-navigation-target-size-lg);
   --comp-tabs-tab-padding-inline: var(--sys-space-lg);
@@ -3912,9 +3923,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-identity-fg: var(--comp-avatar-identity-default-fg);
   --comp-avatar-bg: var(--comp-avatar-identity-bg);
   --comp-avatar-fg: var(--comp-avatar-identity-fg);
-  --comp-avatar-align: center;
+  --comp-avatar-align: var(--component-align-center);
   --comp-avatar-display: var(--component-display-inline-flex);
-  --comp-avatar-justify: center;
+  --comp-avatar-justify: var(--component-justify-center);
   --comp-avatar-radius: var(--component-radius-pill);
   --comp-avatar-shadow: var(--component-depth-low-medium);
   --comp-avatar-position: var(--component-position-relative);
@@ -4259,7 +4270,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-list-item-grid-template: auto 1fr auto;
   --comp-list-item-inline-size: var(--component-inline-size-full);
   --comp-list-item-radius: var(--component-radius-none);
-  --comp-list-item-text-align: start;
+  --comp-list-item-text-align: var(--component-align-start);
   --comp-list-row-margin: var(--component-frame-space-none);
   --comp-list-value-weight: var(--sys-voice-weight-extrabold);
   border: var(--comp-list-border-width) solid var(--comp-list-border);
@@ -4398,10 +4409,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-focus-ring-offset: var(--component-focus-ring-offset);
   --comp-kpi-tile-focus-ring-width: var(--component-focus-ring-width);
   --comp-kpi-tile-gap: var(--sys-space-sm);
-  --comp-kpi-tile-header-align: start;
+  --comp-kpi-tile-header-align: var(--component-align-start);
   --comp-kpi-tile-header-display: var(--component-display-flex);
   --comp-kpi-tile-header-fg: var(--sys-color-text-muted);
-  --comp-kpi-tile-header-justify: space-between;
+  --comp-kpi-tile-header-justify: var(--component-justify-space-between);
   --comp-kpi-tile-header-letter-spacing: var(--sys-voice-letter-spacing-widest);
   --comp-kpi-tile-header-line-height: var(--sys-voice-line-height-dense);
   --comp-kpi-tile-header-size: var(--component-font-size-caption);
@@ -4601,7 +4612,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab {
-  --comp-floating-action-button-align: center;
+  --comp-floating-action-button-align: var(--component-align-center);
   --comp-floating-action-button-size: var(--comp-floating-action-button-size-md);
   --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-md);
   --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-md);
@@ -4609,7 +4620,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-cursor: var(--component-cursor-pointer);
   --comp-floating-action-button-display: var(--component-display-inline-flex);
   --comp-floating-action-button-inline-size: var(--component-inline-size-fit-content);
-  --comp-floating-action-button-justify: center;
+  --comp-floating-action-button-justify: var(--component-justify-center);
   --comp-floating-action-button-transition: background-color var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), box-shadow var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), transform var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-enter);
   --comp-floating-action-button-accent-bg-hover: color-mix(in srgb, var(--sys-color-success) 86%, var(--sys-color-text));
   --comp-floating-action-button-active-transform: var(--component-transform-rest-quiet);
@@ -4702,19 +4713,19 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .breadcrumbs {
-  --comp-breadcrumbs-list-align: center;
+  --comp-breadcrumbs-list-align: var(--component-align-center);
   --comp-breadcrumbs-list-display: var(--component-display-flex);
   --comp-breadcrumbs-list-gap: var(--sys-space-xs);
   --comp-breadcrumbs-list-margin: var(--component-frame-space-none);
   --comp-breadcrumbs-list-padding: var(--component-frame-space-none);
   --comp-breadcrumbs-list-style: var(--component-list-style-none);
   --comp-breadcrumbs-list-wrap: wrap;
-  --comp-breadcrumbs-item-align: center;
+  --comp-breadcrumbs-item-align: var(--component-align-center);
   --comp-breadcrumbs-item-display: var(--component-display-inline-flex);
   --comp-breadcrumbs-item-gap: var(--sys-space-xs);
-  --comp-breadcrumbs-target-align: center;
+  --comp-breadcrumbs-target-align: var(--component-align-center);
   --comp-breadcrumbs-target-display: var(--component-display-inline-flex);
-  --comp-breadcrumbs-target-justify: center;
+  --comp-breadcrumbs-target-justify: var(--component-justify-center);
   --comp-breadcrumbs-target-decoration: var(--component-text-decoration-none);
   --comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg);
   --comp-breadcrumbs-target-padding-inline: var(--sys-space-xs);
@@ -4847,12 +4858,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .pagination {
-  --comp-pagination-align: center;
-  --comp-pagination-button-align: center;
+  --comp-pagination-align: var(--component-align-center);
+  --comp-pagination-button-align: var(--component-align-center);
   --comp-pagination-button-bg: var(--component-surface-transparent);
   --comp-pagination-button-border: var(--component-border-none);
   --comp-pagination-button-display: var(--component-display-inline-flex);
-  --comp-pagination-button-justify: center;
+  --comp-pagination-button-justify: var(--component-justify-center);
   --comp-pagination-current-cursor: var(--component-cursor-default);
   --comp-pagination-size: var(--component-navigation-target-size-md);
   --comp-pagination-size-sm: var(--component-navigation-target-size-sm);
@@ -4997,7 +5008,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .audit-event {
-  --comp-audit-event-align: start;
+  --comp-audit-event-align: var(--component-align-start);
   --comp-audit-event-bg: var(--sys-color-surface);
   --comp-audit-event-border: color-mix(in srgb, var(--sys-color-border) 84%, transparent);
   --comp-audit-event-border-width: var(--component-border-width);
@@ -5023,17 +5034,17 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-hover-border: color-mix(in srgb, var(--comp-audit-event-tone) 22%, var(--sys-color-border));
   --comp-audit-event-hover-transform: var(--component-transform-lift-sm);
   --comp-audit-event-marker-size: var(--sys-symbol-size-lg-plus);
-  --comp-audit-event-marker-align: center;
+  --comp-audit-event-marker-align: var(--component-align-center);
   --comp-audit-event-marker-border: color-mix(in srgb, var(--comp-audit-event-tone) 18%, var(--sys-color-border));
   --comp-audit-event-marker-display: var(--component-display-inline-flex);
   --comp-audit-event-icon-size: var(--sys-icon-size-marker);
-  --comp-audit-event-meta-align: center;
+  --comp-audit-event-meta-align: var(--component-align-center);
   --comp-audit-event-meta-display: var(--component-display-flex);
   --comp-audit-event-meta-gap-block: var(--sys-space-xs);
   --comp-audit-event-meta-gap-inline: var(--sys-space-sm);
   --comp-audit-event-meta-wrap: wrap;
   --comp-audit-event-radius: var(--sys-radius-md);
-  --comp-audit-event-status-align: center;
+  --comp-audit-event-status-align: var(--component-align-center);
   --comp-audit-event-status-border: color-mix(in srgb, var(--comp-audit-event-tone) 28%, var(--sys-color-border));
   --comp-audit-event-title-size: var(--component-font-size-body);
   --comp-audit-event-title-family: var(--sys-font-title);
@@ -7557,7 +7568,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-inline-validation-disabled: var(--sys-color-text-muted);
   --comp-inline-validation-tone: var(--comp-inline-validation-message);
   --comp-inline-validation-field-width: var(--component-inline-size-full);
-  --comp-inline-validation-message-align: center;
+  --comp-inline-validation-message-align: var(--component-align-center);
   --comp-inline-validation-message-display: var(--component-display-flex);
   --comp-inline-validation-message-gap: var(--sys-space-xs);
   --comp-inline-validation-message-margin: var(--component-frame-space-none);
@@ -8090,7 +8101,7 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .route-summary[data-variant="compact"] {
-  --comp-route-summary-compact-align: center;
+  --comp-route-summary-compact-align: var(--component-align-center);
   --comp-route-summary-compact-border: var(--component-border-transparent);
   --comp-route-summary-compact-display: var(--component-display-flex);
   --comp-route-summary-compact-grid: var(--component-grid-template-none);
@@ -8725,7 +8736,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .station-pin {
-  --comp-station-pin-align: center;
+  --comp-station-pin-align: var(--component-align-center);
   --comp-station-pin-border-width: var(--component-border-width);
   --comp-station-pin-cursor: var(--component-cursor-pointer);
   --comp-station-pin-depth: var(--component-depth-pill);
@@ -10209,7 +10220,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control {
-  --comp-segmented-control-align: stretch;
+  --comp-segmented-control-align: var(--component-align-stretch);
   --comp-segmented-control-display: var(--component-display-inline-flex);
   --comp-segmented-control-gap: var(--component-frame-space-none);
   --comp-segmented-control-position: var(--component-position-relative);
@@ -10234,14 +10245,14 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-indicator-transform: var(--component-transform-scale-quiet);
   --comp-segmented-control-indicator-selected-transform: var(--component-transform-scale-rest);
   --comp-segmented-control-item-gap: var(--sys-space-xs);
-  --comp-segmented-control-item-align: center;
+  --comp-segmented-control-item-align: var(--component-align-center);
   --comp-segmented-control-item-bg: var(--component-surface-transparent);
   --comp-segmented-control-item-border: var(--component-border-none);
   --comp-segmented-control-item-fg: var(--sys-color-text-muted);
   --comp-segmented-control-item-cursor: var(--component-cursor-pointer);
   --comp-segmented-control-item-display: var(--component-display-inline-flex);
   --comp-segmented-control-item-flex: 1 1 0;
-  --comp-segmented-control-item-justify: center;
+  --comp-segmented-control-item-justify: var(--component-justify-center);
   --comp-segmented-control-item-min-inline: var(--component-inline-size-zero);
   --comp-segmented-control-item-position: var(--component-position-relative);
   --comp-segmented-control-item-z: var(--sys-depth-z-raised);
@@ -10558,7 +10569,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-card-summary-depth: var(--component-depth-panel);
   --comp-card-summary-display: var(--component-display-grid);
   --comp-card-summary-gradient: linear-gradient(135deg, color-mix(in srgb, var(--comp-card-summary-current-fg) 8%, transparent), transparent 42%);
-  --comp-card-summary-header-align: start;
+  --comp-card-summary-header-align: var(--component-align-start);
   --comp-card-summary-header-display: var(--component-display-grid);
   --comp-card-summary-header-gap: var(--sys-space-sm);
   --comp-card-summary-header-grid: minmax(0, 1fr) auto;
@@ -10834,13 +10845,13 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-movement-row-display: var(--component-display-grid);
   --comp-movement-row-grid-template: auto minmax(0, 1fr) auto;
   --comp-movement-row-icon-display: var(--component-display-inline-flex);
-  --comp-movement-row-icon-justify: center;
+  --comp-movement-row-icon-justify: var(--component-justify-center);
   --comp-movement-row-interactive-cursor: var(--component-cursor-pointer);
-  --comp-movement-row-justify: space-between;
+  --comp-movement-row-justify: var(--component-justify-space-between);
   --comp-movement-row-status-padding: var(--component-frame-space-none);
-  --comp-movement-row-text-align: start;
+  --comp-movement-row-text-align: var(--component-align-start);
   --comp-movement-row-value-gap: var(--component-visually-hidden-size);
-  --comp-movement-row-value-justify: end;
+  --comp-movement-row-value-justify: var(--component-justify-end);
   --comp-movement-row-value-min-inline-size: var(--component-inline-size-max-content);
   align-items: center;
   background: var(--comp-movement-row-bg);
@@ -10995,21 +11006,21 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-label-size: var(--component-font-size-caption);
   --comp-quick-action-gap: var(--sys-space-md);
   --comp-quick-action-inline-size: var(--component-inline-size-max-content);
-  --comp-quick-action-justify-self: start;
-  --comp-quick-action-justify-items: center;
+  --comp-quick-action-justify-self: var(--component-justify-self-start);
+  --comp-quick-action-justify-items: var(--component-justify-items-center);
   --comp-quick-action-loading-cursor: var(--component-cursor-progress);
   --comp-quick-action-max-inline-size: var(--component-inline-size-full);
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
   --comp-quick-action-min-inline-size: var(--component-action-min-inline-size-md);
   --comp-quick-action-padding: var(--component-frame-space-none);
   --comp-quick-action-shadow: var(--component-depth-none);
-  --comp-quick-action-text-align: center;
+  --comp-quick-action-text-align: var(--component-align-center);
   --comp-quick-action-control-bg: var(--sys-color-surface);
   --comp-quick-action-control-border: var(--sys-color-border);
   --comp-quick-action-control-border-width: var(--component-border-width);
   --comp-quick-action-control-cursor: var(--component-cursor-pointer);
   --comp-quick-action-control-display: var(--component-display-inline-flex);
-  --comp-quick-action-control-justify: center;
+  --comp-quick-action-control-justify: var(--component-justify-center);
   --comp-quick-action-control-radius: var(--component-radius-pill);
   --comp-quick-action-control-shadow: var(--component-depth-low-soft);
   --comp-quick-action-control-fg: var(--sys-color-action);
@@ -11017,7 +11028,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-full-width: var(--component-inline-size-full);
   --comp-quick-action-icon-display: var(--component-display-inline-flex);
   --comp-quick-action-icon-font-size: var(--component-font-size-icon-md);
-  --comp-quick-action-icon-justify: center;
+  --comp-quick-action-icon-justify: var(--component-justify-center);
   --comp-quick-action-hover-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
   --comp-quick-action-hover-border: color-mix(in srgb, var(--sys-color-action) 36%, var(--sys-color-border));
   --comp-quick-action-hover-transform: var(--component-transform-scale-raised);
