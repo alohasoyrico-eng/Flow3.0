@@ -32,6 +32,7 @@ function contractPropsFor(contractBody) {
 function contractNamedValues(contractBody, propName) {
   const fieldByProp = {
     intent: "intents",
+    status: "statuses",
     state: "states",
     tone: "intents",
     variant: "variants",

@@ -666,6 +666,7 @@ export const componentContracts = {
     purpose: "Represent a person, actor, or system identity with initials, optional image, and optional presence status.",
     variants: ["initials", "image", "status"],
     intents: ["default"],
+    statuses: ["none", "online", "busy", "offline"],
     states: ["default", "online", "busy", "offline", "disabled", "unknown"],
     props: [
       { name: "name", type: "string", required: true },
