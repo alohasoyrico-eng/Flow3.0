@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
 import { checkboxPlatformContract } from "@design-system/components/platforms";
 
 export type CheckboxVariant = "default" | "descriptive" | "select-all" | "compact";
@@ -23,7 +23,7 @@ export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement
   name?: string;
   value?: string;
   required?: boolean;
-  onCheckedChange?: (checked: boolean, meta: CheckboxValueMeta) => void;
+  onCheckedChange?: (checked: boolean, meta: CheckboxValueMeta, event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
 

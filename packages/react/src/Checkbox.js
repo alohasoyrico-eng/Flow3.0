@@ -64,7 +64,7 @@ export const Checkbox = forwardRef(function Checkbox({
     const nextChecked = event.currentTarget.checked;
     setCurrentIndeterminate(false);
     if (!isCheckedControlled) setCurrentChecked(nextChecked);
-    onCheckedChange?.(nextChecked, { indeterminate: false, value });
+    onCheckedChange?.(nextChecked, { indeterminate: false, value }, event);
   };
 
   return React.createElement(

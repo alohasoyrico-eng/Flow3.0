@@ -325,7 +325,7 @@ try {
     label: "Enable fuel card",
     value: "fuel-card",
     indeterminate: true,
-    onCheckedChange: (checked, meta) => checkboxChanges.push({ checked, meta }),
+    onCheckedChange: (checked, meta, event) => checkboxChanges.push({ checked, meta, eventType: event.type }),
   }));
 
   const checkboxInput = getCheckboxLabel(/enable fuel card/i);
@@ -338,12 +338,13 @@ try {
   assert.equal(checkboxInput.getAttribute("aria-checked"), "true");
   assert.equal(checkboxChanges.at(-1).checked, true);
   assert.deepEqual(checkboxChanges.at(-1).meta, { indeterminate: false, value: "fuel-card" });
+  assert.equal(checkboxChanges.at(-1).eventType, "change");
 
   rerenderCheckbox(React.createElement(Checkbox, {
     label: "Enable fuel card",
     value: "fuel-card",
     checked: false,
-    onCheckedChange: (checked, meta) => checkboxChanges.push({ checked, meta }),
+    onCheckedChange: (checked, meta, event) => checkboxChanges.push({ checked, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(checkboxInput.checked, false));
   await waitFor(() => assert.equal(checkboxInput.getAttribute("aria-checked"), "false"));
