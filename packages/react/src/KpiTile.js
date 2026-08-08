@@ -8,7 +8,7 @@ const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validTrends = new Set(["up", "down", "flat"]);
 
 function sparklinePoints(values) {
-  const safeValues = (values.length ? values : [24, 32, 28, 44, 38, 52]).map((item) => Number.isFinite(Number(item)) ? Math.max(0, Number(item)) : 0);
+  const safeValues = values.map((item) => Number.isFinite(Number(item)) ? Math.max(0, Number(item)) : 0);
   const max = Math.max(...safeValues, 1);
   const width = 112;
   const height = 34;
@@ -29,7 +29,7 @@ export const KpiTile = forwardRef(function KpiTile({
   variant = "standard",
   state = "default",
   density,
-  values = [],
+  values,
   href = "",
   selected = false,
   disabled = false,
@@ -44,6 +44,7 @@ export const KpiTile = forwardRef(function KpiTile({
   const resolvedState = loading ? "loading" : disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const hasValue = value !== undefined && value !== null && value !== "";
+  const sparklineValues = Array.isArray(values) ? values : [];
   const requestedInteraction = Boolean(href || onSelect || resolvedVariant === "drill-in");
   const canActivateTile = Boolean(href || onSelect);
   const selectMeta = { label, value, delta, tone: resolvedTone, variant: resolvedVariant };
@@ -101,11 +102,11 @@ export const KpiTile = forwardRef(function KpiTile({
           delta,
         )
         : null,
-    resolvedVariant === "sparkline"
+    resolvedVariant === "sparkline" && sparklineValues.length
       ? React.createElement(
         "svg",
         { className: "kpi-tile__sparkline", viewBox: "0 0 112 34", "aria-hidden": "true" },
-        React.createElement("polyline", { points: sparklinePoints(values) }),
+        React.createElement("polyline", { points: sparklinePoints(sparklineValues) }),
       )
       : null,
     resolvedVariant === "drill-in" && interactive

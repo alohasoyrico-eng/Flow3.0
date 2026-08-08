@@ -764,6 +764,12 @@ const kpiSparklineMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
 }));
 assert.match(kpiSparklineMarkup, /class="kpi-tile__sparkline"/);
 assert.match(kpiSparklineMarkup, /<polyline points="/);
+const kpiMissingSparklineDataMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
+  label: "Resolved cases",
+  value: "94%",
+  variant: "sparkline",
+}));
+assert.doesNotMatch(kpiMissingSparklineDataMarkup, /class="kpi-tile__sparkline"/);
 const unnamedInteractiveKpiMarkup = renderToStaticMarkup(React.createElement(KpiTile, {
   variant: "drill-in",
   onSelect: () => {},
