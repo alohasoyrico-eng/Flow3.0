@@ -7,7 +7,7 @@ Executable audits and package sources must target Flow React/system contracts, n
 ## Inventory
 
 - Scan roots: packages/audit/scripts, packages/react/src, packages/components/src
-- Files scanned: 361
+- Files scanned: 362
 - Violations: 0
 
 ## Violations

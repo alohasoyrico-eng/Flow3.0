@@ -1,0 +1,328 @@
+{
+  "status": "pass",
+  "audit": "family CSS contract maturity",
+  "principle": "Family CSS contracts are allowed when a component shares a visual cascade; large component-specific selector or alias surface should be visible as a graduation candidate before it becomes accidental duplication.",
+  "thresholds": {
+    "selectorCount": 20,
+    "aliasCount": 40
+  },
+  "inventory": {
+    "familyComponents": 11,
+    "reviewCandidates": 6
+  },
+  "reviewCandidates": [
+    {
+      "component": "country-selector",
+      "familyContract": "select",
+      "requiredRoot": "select-control",
+      "extensionRoots": [
+        "country-flag",
+        "country-selector"
+      ],
+      "ownExtensionRoots": [
+        "country-selector"
+      ],
+      "sharedExtensionRoots": [
+        "country-flag"
+      ],
+      "selectorCount": 63,
+      "aliasCount": 163,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "selector surface 63 >= 20",
+        "component aliases 163 >= 40"
+      ]
+    },
+    {
+      "component": "checkbox",
+      "familyContract": "choice",
+      "requiredRoot": "choice",
+      "extensionRoots": [
+        "checkbox"
+      ],
+      "ownExtensionRoots": [
+        "checkbox"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 17,
+      "aliasCount": 79,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "component aliases 79 >= 40"
+      ]
+    },
+    {
+      "component": "radio-button",
+      "familyContract": "choice",
+      "requiredRoot": "choice",
+      "extensionRoots": [
+        "radio"
+      ],
+      "ownExtensionRoots": [
+        "radio"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 14,
+      "aliasCount": 78,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "component aliases 78 >= 40"
+      ]
+    },
+    {
+      "component": "text-area",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [
+        "text-area"
+      ],
+      "ownExtensionRoots": [
+        "text-area"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 15,
+      "aliasCount": 60,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "component aliases 60 >= 40"
+      ]
+    },
+    {
+      "component": "phone-input",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [
+        "phone-input"
+      ],
+      "ownExtensionRoots": [
+        "phone-input"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 38,
+      "aliasCount": 52,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "selector surface 38 >= 20",
+        "component aliases 52 >= 40"
+      ]
+    },
+    {
+      "component": "date-range-picker",
+      "familyContract": "date-picker",
+      "requiredRoot": "date-picker",
+      "extensionRoots": [
+        "date-range-picker",
+        "field"
+      ],
+      "ownExtensionRoots": [
+        "date-range-picker"
+      ],
+      "sharedExtensionRoots": [
+        "field"
+      ],
+      "selectorCount": 10,
+      "aliasCount": 62,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "component aliases 62 >= 40"
+      ]
+    }
+  ],
+  "familyComponents": [
+    {
+      "component": "combobox",
+      "familyContract": "select",
+      "requiredRoot": "select-control",
+      "extensionRoots": [
+        "combobox",
+        "field"
+      ],
+      "ownExtensionRoots": [
+        "combobox"
+      ],
+      "sharedExtensionRoots": [
+        "field"
+      ],
+      "selectorCount": 11,
+      "aliasCount": 35,
+      "recommendation": "keep-family",
+      "reasons": []
+    },
+    {
+      "component": "country-selector",
+      "familyContract": "select",
+      "requiredRoot": "select-control",
+      "extensionRoots": [
+        "country-flag",
+        "country-selector"
+      ],
+      "ownExtensionRoots": [
+        "country-selector"
+      ],
+      "sharedExtensionRoots": [
+        "country-flag"
+      ],
+      "selectorCount": 63,
+      "aliasCount": 163,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "selector surface 63 >= 20",
+        "component aliases 163 >= 40"
+      ]
+    },
+    {
+      "component": "input",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [],
+      "ownExtensionRoots": [],
+      "sharedExtensionRoots": [],
+      "selectorCount": 0,
+      "aliasCount": 0,
+      "recommendation": "keep-family",
+      "reasons": []
+    },
+    {
+      "component": "checkbox",
+      "familyContract": "choice",
+      "requiredRoot": "choice",
+      "extensionRoots": [
+        "checkbox"
+      ],
+      "ownExtensionRoots": [
+        "checkbox"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 17,
+      "aliasCount": 79,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "component aliases 79 >= 40"
+      ]
+    },
+    {
+      "component": "radio-button",
+      "familyContract": "choice",
+      "requiredRoot": "choice",
+      "extensionRoots": [
+        "radio"
+      ],
+      "ownExtensionRoots": [
+        "radio"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 14,
+      "aliasCount": 78,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "component aliases 78 >= 40"
+      ]
+    },
+    {
+      "component": "text-area",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [
+        "text-area"
+      ],
+      "ownExtensionRoots": [
+        "text-area"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 15,
+      "aliasCount": 60,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "component aliases 60 >= 40"
+      ]
+    },
+    {
+      "component": "phone-input",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [
+        "phone-input"
+      ],
+      "ownExtensionRoots": [
+        "phone-input"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 38,
+      "aliasCount": 52,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "selector surface 38 >= 20",
+        "component aliases 52 >= 40"
+      ]
+    },
+    {
+      "component": "card-number-input",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [
+        "card-number-input"
+      ],
+      "ownExtensionRoots": [
+        "card-number-input"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 8,
+      "aliasCount": 14,
+      "recommendation": "keep-family",
+      "reasons": []
+    },
+    {
+      "component": "card-expiry-input",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [
+        "card-expiry-input"
+      ],
+      "ownExtensionRoots": [
+        "card-expiry-input"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 9,
+      "aliasCount": 6,
+      "recommendation": "keep-family",
+      "reasons": []
+    },
+    {
+      "component": "card-security-code-input",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [
+        "card-security-code-input"
+      ],
+      "ownExtensionRoots": [
+        "card-security-code-input"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 12,
+      "aliasCount": 11,
+      "recommendation": "keep-family",
+      "reasons": []
+    },
+    {
+      "component": "date-range-picker",
+      "familyContract": "date-picker",
+      "requiredRoot": "date-picker",
+      "extensionRoots": [
+        "date-range-picker",
+        "field"
+      ],
+      "ownExtensionRoots": [
+        "date-range-picker"
+      ],
+      "sharedExtensionRoots": [
+        "field"
+      ],
+      "selectorCount": 10,
+      "aliasCount": 62,
+      "recommendation": "review-for-direct-contract",
+      "reasons": [
+        "component aliases 62 >= 40"
+      ]
+    }
+  ]
+}

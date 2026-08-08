@@ -8,7 +8,7 @@
       "packages/react/src",
       "packages/components/src"
     ],
-    "filesScanned": 361,
+    "filesScanned": 362,
     "violations": 0
   },
   "forbiddenRules": [
