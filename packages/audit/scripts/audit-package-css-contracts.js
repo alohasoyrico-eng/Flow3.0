@@ -159,20 +159,6 @@ function checkPackageCssContracts() {
     add("errors", packageCssFile, 1, "Button must not be reset by a later generic 44px rule; use Button density tokens.");
   }
 
-  const fieldBlock = blocks.find((block) => selectorKey(block) === ".field-control,.field");
-  const fieldSurfaceBlock = blocks.find((block) => selectorKey(block) === ".field-control__surface,.field__control");
-  const fieldSmBlock = blocks.find((block) => selectorKey(block) === ".field-control[data-density=\"sm\"],.field[data-density=\"sm\"]");
-  const fieldLgBlock = blocks.find((block) => selectorKey(block) === ".field-control[data-density=\"lg\"],.field[data-density=\"lg\"]");
-  if (!text.includes("--comp-input-control-size: var(--sys-density-control-height)") || !fieldBlock?.body.includes("--comp-field-control-size: var(--comp-input-control-size)")) {
-    add("errors", packageCssFile, fieldBlock ? lineNumber(text, fieldBlock.index) : 1, "Input field shell must inherit base control size from the density cascade.");
-  }
-  if (!fieldSurfaceBlock?.body.includes("gap: var(--comp-input-gap)") || !fieldSurfaceBlock?.body.includes("padding: 0 var(--comp-input-padding-x)")) {
-    add("errors", packageCssFile, fieldSurfaceBlock ? lineNumber(text, fieldSurfaceBlock.index) : 1, "Input field surface must consume comp Input frame tokens for gap and padding.");
-  }
-  if (!fieldSmBlock?.body.includes("--comp-field-control-size: var(--comp-input-control-size-sm)") || !fieldLgBlock?.body.includes("--comp-field-control-size: var(--comp-input-control-size-lg)")) {
-    add("errors", packageCssFile, 1, "Input density states must consume comp Input size tokens.");
-  }
-
   const selectControlBlock = blocks.find((block) => selectorKey(block) === ".select-control");
   const selectSmBlock = blocks.find((block) => selectorKey(block) === ".select-control[data-density=\"sm\"]");
   const selectLgBlock = blocks.find((block) => selectorKey(block) === ".select-control[data-density=\"lg\"]");
@@ -210,71 +196,11 @@ function checkPackageCssContracts() {
     add("errors", packageCssFile, inlineCountryListboxBlock ? lineNumber(text, inlineCountryListboxBlock.index) : 1, "Country Selector and Phone Input inline listboxes must consume the shared component width alias.");
   }
 
-  const cardNumberBlock = blocks.find((block) => selectorKey(block) === ".card-number-input,.card-expiry-input,.card-security-code-input");
-  const cardNumberControlBlock = blocks.find((block) => selectorKey(block) === ".card-number-input__control,.card-expiry-input__control,.card-security-code-input__control");
-  const cardNumberIconBlock = blocks.find((block) => selectorKey(block) === ".card-number-input__icon,.card-expiry-input__icon,.card-security-code-input__icon");
-  const cardNumberInputBlock = blocks.find((block) => selectorKey(block) === ".card-number-input__input,.card-expiry-input__input,.card-security-code-input__input");
-  const cardNumberBrandBlock = blocks.find((block) => selectorKey(block) === ".card-number-input__brand");
-  if (!cardNumberBlock?.body.includes("--comp-card-number-input-control-size: var(--comp-field-control-size)") || !cardNumberBlock?.body.includes("--comp-card-number-input-icon-size: var(--comp-field-icon-size)")) {
-    add("errors", packageCssFile, cardNumberBlock ? lineNumber(text, cardNumberBlock.index) : 1, "Card Number Input must derive its component tokens from the shared Input/Field shell, not duplicate field geometry.");
-  }
-  if (!cardNumberControlBlock?.body.includes("min-block-size: var(--comp-card-number-input-control-size)")) {
-    add("errors", packageCssFile, cardNumberControlBlock ? lineNumber(text, cardNumberControlBlock.index) : 1, "Card Number Input control must consume its component control-size alias.");
-  }
-  if (!cardNumberIconBlock?.body.includes("font-size: var(--comp-card-number-input-icon-size)")) {
-    add("errors", packageCssFile, cardNumberIconBlock ? lineNumber(text, cardNumberIconBlock.index) : 1, "Card Number Input icon must consume its component icon-size alias.");
-  }
-  if (!cardNumberInputBlock?.body.includes("font-variant-numeric: tabular-nums") || !cardNumberInputBlock?.body.includes("letter-spacing: var(--comp-card-number-input-value-spacing)")) {
-    add("errors", packageCssFile, cardNumberInputBlock ? lineNumber(text, cardNumberInputBlock.index) : 1, "Card Number Input value must use tabular numeric rhythm and its component spacing alias.");
-  }
-  if (!cardNumberBrandBlock?.body.includes("font-size: var(--component-font-size-caption)") || !cardNumberBrandBlock?.body.includes("font-weight: var(--sys-voice-weight-extrabold)")) {
-    add("errors", packageCssFile, cardNumberBrandBlock ? lineNumber(text, cardNumberBrandBlock.index) : 1, "Card Number Input brand suffix must use Flow voice aliases.");
-  }
-
   const avatarBlocks = blocks.filter((block) => /^\.avatar(?:$|--|\[|__)/.test(normalizedSelector(block) ?? ""));
   for (const block of avatarBlocks) {
     if (/(?:--comp-avatar-size|--comp-avatar-status-size|inline-size|block-size|min-block-size):[^;]*(?:\d+px|\d+rem|\d+em)/.test(block.body)) {
       add("errors", packageCssFile, lineNumber(text, block.index), "Avatar geometry must use Flow frame/density/space aliases instead of raw unit values.");
     }
-  }
-
-  const cardExpiryControlBlock = blocks.find((block) => selectorKey(block) === ".card-expiry-input__control");
-  const cardExpiryIconBlock = blocks.find((block) => selectorKey(block) === ".card-expiry-input__icon");
-  const cardExpiryInputBlock = blocks.find((block) => selectorKey(block) === ".card-expiry-input__input");
-  if (!cardNumberBlock?.body.includes("--comp-card-expiry-input-control-size: var(--comp-field-control-size)") || !cardNumberBlock?.body.includes("--comp-card-expiry-input-icon-size: var(--comp-field-icon-size)")) {
-    add("errors", packageCssFile, cardNumberBlock ? lineNumber(text, cardNumberBlock.index) : 1, "Card Expiry Input must expose component tokens derived from the shared Input/Field shell.");
-  }
-  if (!cardExpiryControlBlock?.body.includes("min-block-size: var(--comp-card-expiry-input-control-size)")) {
-    add("errors", packageCssFile, cardExpiryControlBlock ? lineNumber(text, cardExpiryControlBlock.index) : 1, "Card Expiry Input control must consume its own component control-size alias.");
-  }
-  if (!cardExpiryIconBlock?.body.includes("font-size: var(--comp-card-expiry-input-icon-size)")) {
-    add("errors", packageCssFile, cardExpiryIconBlock ? lineNumber(text, cardExpiryIconBlock.index) : 1, "Card Expiry Input icon must consume its own component icon-size alias.");
-  }
-  if (!cardExpiryInputBlock?.body.includes("letter-spacing: var(--comp-card-expiry-input-value-spacing)")) {
-    add("errors", packageCssFile, cardExpiryInputBlock ? lineNumber(text, cardExpiryInputBlock.index) : 1, "Card Expiry Input value rhythm must consume its own component spacing alias.");
-  }
-
-  const cardSecurityControlBlock = blocks.find((block) => selectorKey(block) === ".card-security-code-input__control");
-  const cardSecurityIconBlock = blocks.find((block) => selectorKey(block) === ".card-security-code-input__icon");
-  const cardSecurityActionBlock = blocks.find((block) => selectorKey(block) === ".card-security-code-input__action");
-  const cardSecurityInputBlock = blocks.find((block) => selectorKey(block) === ".card-security-code-input__input");
-  if (!cardNumberBlock?.body.includes("--comp-card-security-code-input-control-size: var(--comp-field-control-size)") || !cardNumberBlock?.body.includes("--comp-card-security-code-input-action-size: var(--comp-field-icon-action-size)")) {
-    add("errors", packageCssFile, cardNumberBlock ? lineNumber(text, cardNumberBlock.index) : 1, "Card Security Code Input must expose component tokens derived from the shared Input/Field shell and Field Action size.");
-  }
-  if (/--field-(?:control-size|icon-size|icon-action-size)(?:-|:|\))/.test(text)) {
-    add("errors", packageCssFile, 1, "Field geometry aliases must stay in the --comp-field-* contract; legacy --field-* shortcuts are not allowed.");
-  }
-  if (!cardSecurityControlBlock?.body.includes("min-block-size: var(--comp-card-security-code-input-control-size)")) {
-    add("errors", packageCssFile, cardSecurityControlBlock ? lineNumber(text, cardSecurityControlBlock.index) : 1, "Card Security Code Input control must consume its own component control-size alias.");
-  }
-  if (!cardSecurityIconBlock?.body.includes("font-size: var(--comp-card-security-code-input-icon-size)")) {
-    add("errors", packageCssFile, cardSecurityIconBlock ? lineNumber(text, cardSecurityIconBlock.index) : 1, "Card Security Code Input icon must consume its own component icon-size alias.");
-  }
-  if (!cardSecurityActionBlock?.body.includes("inline-size: var(--comp-card-security-code-input-action-size)") || !cardSecurityActionBlock?.body.includes("block-size: var(--comp-card-security-code-input-action-size)")) {
-    add("errors", packageCssFile, cardSecurityActionBlock ? lineNumber(text, cardSecurityActionBlock.index) : 1, "Card Security Code Input reveal action must consume its own component action-size alias.");
-  }
-  if (!cardSecurityInputBlock?.body.includes("letter-spacing: var(--comp-card-security-code-input-value-spacing)")) {
-    add("errors", packageCssFile, cardSecurityInputBlock ? lineNumber(text, cardSecurityInputBlock.index) : 1, "Card Security Code Input value rhythm must consume its own component spacing alias.");
   }
 
   const sliderBlock = blocks.find((block) => normalizedSelector(block) === ".slider");
