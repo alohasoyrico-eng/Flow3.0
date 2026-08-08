@@ -515,6 +515,8 @@
   --sys-frame-content-drawer-lg: min(82vw, var(--ref-frame-content-drawer-lg));
   --sys-frame-content-date-panel: calc(var(--sys-space-11) * 6.5);
   --sys-frame-content-date-range-panel: calc(var(--sys-space-11) * 7);
+  --sys-frame-content-country-listbox-max-inline: calc(var(--sys-space-11) * 6);
+  --sys-frame-content-country-listbox-inline: min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)));
   --sys-frame-content-narrow: 100%;
   --sys-frame-content-prose: 100%;
   --sys-frame-content-prose-wide: 100%;

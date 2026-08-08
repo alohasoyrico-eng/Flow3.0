@@ -221,7 +221,7 @@ function checkPackageCssContracts() {
   if (!selectOptionBlock?.body.includes("min-block-size: var(--comp-select-option-min-size)") || !selectOptionBlock?.body.includes("padding: 0 var(--comp-select-option-padding-x)")) {
     add("errors", packageCssFile, selectOptionBlock ? lineNumber(text, selectOptionBlock.index) : 1, "Select options must consume comp Select density/frame aliases.");
   }
-  if (!countrySelectorBlock?.body.includes("--comp-country-selector-inline-listbox-max-inline-size:") || !countrySelectorBlock?.body.includes("--comp-country-selector-inline-listbox-inline-size: min(var(--comp-country-selector-inline-listbox-max-inline-size)")) {
+  if (!countrySelectorBlock?.body.includes("--comp-country-selector-inline-listbox-max-inline-size: var(--component-country-selector-inline-listbox-max-inline-size)") || !countrySelectorBlock?.body.includes("--comp-country-selector-inline-listbox-inline-size: var(--component-country-selector-inline-listbox-inline-size)")) {
     add("errors", packageCssFile, countrySelectorBlock ? lineNumber(text, countrySelectorBlock.index) : 1, "Country Selector inline listbox width must be exposed through component frame aliases.");
   }
   if (!inlineCountryListboxBlock?.body.includes("inline-size: var(--comp-country-selector-inline-listbox-inline-size)")) {

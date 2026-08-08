@@ -36,11 +36,19 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: countrySelectorBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro))"],
-    message: "Country Selector search radius must consume Frame micro aliases instead of raw px values.",
+    snippets: [
+      "--comp-country-selector-inline-listbox-max-inline-size: var(--component-country-selector-inline-listbox-max-inline-size)",
+      "--comp-country-selector-inline-listbox-inline-size: var(--component-country-selector-inline-listbox-inline-size)",
+      "--comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--sys-frame-space-micro))",
+    ],
+    message: "Country Selector listbox frame and search radius must consume Frame/component aliases instead of local values.",
   });
   if (/--comp-(?:combobox|select|country-selector)[^:]*:\s*calc\([^;]*(?:2px|0\.125rem)/.test(text)) {
     add("errors", packageCssFile, 1, "Select and Combobox component aliases must not hardcode 2px or 0.125rem frame offsets.");
+  }
+  const rawCountryInline = text.match(/--comp-country-selector-inline-listbox-(?:max-inline-size|inline-size):\s*(?:calc\(var\(--component-control-min-size\) \* [0-9.]+\)|min\([^;]*100vw)/);
+  if (rawCountryInline) {
+    add("errors", packageCssFile, lineNumber(text, rawCountryInline.index), "Country Selector inline listbox sizes must flow through Frame listbox roles instead of local control multipliers or viewport clamps.");
   }
 }
 

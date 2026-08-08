@@ -36,6 +36,8 @@
   --component-drawer-panel-inline-lg: var(--sys-frame-content-drawer-lg);
   --component-date-picker-panel-inline-size: var(--sys-frame-content-date-panel);
   --component-date-range-picker-panel-inline-size: var(--sys-frame-content-date-range-panel);
+  --component-country-selector-inline-listbox-max-inline-size: var(--sys-frame-content-country-listbox-max-inline);
+  --component-country-selector-inline-listbox-inline-size: var(--sys-frame-content-country-listbox-inline);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -9070,8 +9072,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-inline-trigger-color: var(--sys-color-text-muted);
   --comp-country-selector-inline-trigger-gap: var(--sys-space-xs);
   --comp-country-selector-inline-trigger-padding-end: var(--comp-select-inline-padding-end);
-  --comp-country-selector-inline-listbox-max-inline-size: calc(var(--component-control-min-size) * 6);
-  --comp-country-selector-inline-listbox-inline-size: min(var(--comp-country-selector-inline-listbox-max-inline-size), calc(100vw - (var(--sys-space-md) * 2)));
+  --comp-country-selector-inline-listbox-max-inline-size: var(--component-country-selector-inline-listbox-max-inline-size);
+  --comp-country-selector-inline-listbox-inline-size: var(--component-country-selector-inline-listbox-inline-size);
   --comp-country-selector-flag-size: calc(var(--component-inline-size-sm) - var(--component-focus-ring-offset));
   --comp-country-selector-flag-radius: var(--component-radius-pill);
   --comp-country-selector-flag-ring: var(--component-depth-border-ring);

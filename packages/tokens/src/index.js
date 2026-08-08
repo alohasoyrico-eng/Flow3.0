@@ -290,6 +290,8 @@ export const systemTokens = {
       contentDrawerLg: "var(--sys-frame-content-drawer-lg)",
       contentDatePanel: "var(--sys-frame-content-date-panel)",
       contentDateRangePanel: "var(--sys-frame-content-date-range-panel)",
+      contentCountryListboxMaxInline: "var(--sys-frame-content-country-listbox-max-inline)",
+      contentCountryListboxInline: "var(--sys-frame-content-country-listbox-inline)",
       contentMenuMinSm: "var(--sys-frame-content-menu-min-sm)",
       contentMenuMinMd: "var(--sys-frame-content-menu-min-md)",
       contentMenuMinLg: "var(--sys-frame-content-menu-min-lg)",
