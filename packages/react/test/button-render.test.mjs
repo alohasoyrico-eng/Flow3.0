@@ -927,7 +927,7 @@ const breadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, 
     { label: "Regions", href: "#/regions" },
     { label: "North", href: "#/north" },
     { label: "Cards", href: "#/cards" },
-    { label: "JMX-214-B", current: true },
+    { id: "jmx-214-b", label: "JMX-214-B", current: true },
   ],
 }));
 assert.match(breadcrumbsMarkup, /^<nav/);
@@ -951,7 +951,7 @@ const unnamedBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadc
     { href: "#/empty" },
     { label: "Fleet", href: "#/fleet" },
     { label: "Regions", href: "#/regions" },
-    { label: "Cards", current: true },
+    { id: "cards", label: "Cards", current: true },
   ],
 }));
 assert.doesNotMatch(unnamedBreadcrumbsMarkup, /Breadcrumbs|Collapsed breadcrumb items/);
@@ -959,20 +959,27 @@ assert.doesNotMatch(unnamedBreadcrumbsMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /a
 assert.doesNotMatch(unnamedBreadcrumbsMarkup, /#\/empty/);
 const nonNavigableBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
   items: [
-    { label: "Fleet" },
-    { label: "Vehicle", current: true },
+    { id: "fleet", label: "Fleet" },
+    { id: "vehicle", label: "Vehicle", current: true },
   ],
 }));
 assert.doesNotMatch(nonNavigableBreadcrumbsMarkup, /href="#"/);
 assert.match(nonNavigableBreadcrumbsMarkup, />Fleet<\/span>/);
 const actionBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
   items: [
-    { label: "Fleet", onClick: () => {} },
-    { label: "Vehicle", current: true },
+    { id: "fleet", label: "Fleet", onClick: () => {} },
+    { id: "vehicle", label: "Vehicle", current: true },
   ],
 }));
 assert.match(actionBreadcrumbsMarkup, /<button type="button" class="breadcrumbs__target">Fleet<\/button>/);
 assert.doesNotMatch(actionBreadcrumbsMarkup, /href="#"/);
+const unstableBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
+  items: [
+    { label: "Fleet" },
+    { label: "Vehicle", current: true },
+  ],
+}));
+assert.doesNotMatch(unstableBreadcrumbsMarkup, /Fleet|Vehicle|breadcrumbs__target/);
 
 const tabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
   label: "Fleet views",

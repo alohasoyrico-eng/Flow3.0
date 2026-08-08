@@ -14,19 +14,23 @@ function resolveBreadcrumbItems(items, { variant, maxItems, collapsedLabel } = {
   }
   const limit = Number(maxItems ?? (variant === "overflow" ? 4 : items.length));
   if (!Number.isFinite(limit) || limit < 3 || items.length <= limit) return items;
+  if (!collapsedLabel) return items;
   const head = items[0];
   const tailCount = Math.max(1, limit - 2);
   const tail = items.slice(-tailCount);
   return [
     { ...head, current: false },
-    { label: collapsedLabel ?? "", collapsed: true, current: false },
+    { id: "__collapsed", label: collapsedLabel, collapsed: true, current: false },
     ...tail.map((item, index) => ({ ...item, current: index === tail.length - 1 })),
   ];
 }
 
 function normalizeItems(items) {
   const sourceItems = Array.isArray(items) ? items : [];
-  const labeledItems = sourceItems.filter((item) => item?.label);
+  const labeledItems = sourceItems.filter((item) => {
+    const stableKey = item?.id ?? item?.href;
+    return item?.label && stableKey !== undefined && stableKey !== null && stableKey !== "";
+  });
   return labeledItems.map((item, index) => ({
     ...item,
     label: item.label,
@@ -72,7 +76,7 @@ export const Breadcrumbs = forwardRef(function Breadcrumbs({
       "ol",
       null,
       visibleItems.map((item, index) => {
-        const key = item.id ?? item.href ?? `${item.label}-${index}`;
+        const key = item.id ?? item.href;
         const isLast = index === visibleItems.length - 1;
         const hasAction = typeof item.onClick === "function";
         const target = item.collapsed
