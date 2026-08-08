@@ -2,7 +2,7 @@
 
 Status: pass
 
-- Component class roots protected: 51
+- Component class roots protected: 53
 - Protected high-risk roots: button, card, dialog, drawer, menu, popover
 - Duplicate concept rules: 2
 - Docs apps scanned: ../FlowDocs/apps/docs

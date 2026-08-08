@@ -7,10 +7,10 @@ React components may only author their own visual class roots or explicit family
 ## Inventory
 
 - React components scanned: 56
-- Component class roots known: 51
+- Component class roots known: 53
 - Protected class roots: button, card, dialog, drawer, menu, popover
-- Components with family roots: 12
-- Observed root assignments: 60
+- Components with family roots: 13
+- Observed root assignments: 65
 - Violations: 0
 
 ## Components
@@ -31,11 +31,11 @@ React components may only author their own visual class roots or explicit family
 | CardSecurityCodeInput | pass | card-security-code-input | card-security-code-input, field | field | 0 |
 | CardSummary | pass | card-summary | card-summary | None | 0 |
 | ChartPanel | pass | chart-panel | chart-panel | chart-panel | 0 |
-| Checkbox | pass | checkbox | checkbox | checkbox | 0 |
+| Checkbox | pass | checkbox | checkbox, choice | checkbox, choice | 0 |
 | Chip | pass | chip | chip | chip | 0 |
 | CodeInput | pass | code-input | code-input, field | code-input, field | 0 |
-| Combobox | pass | combobox | combobox, field, select-control | combobox, field | 0 |
-| CountrySelector | pass | country-selector | country-flag, country-selector, select-control | country-flag, country-selector | 0 |
+| Combobox | pass | combobox | combobox, field, select-control | combobox, field, select-control | 0 |
+| CountrySelector | pass | country-selector | country-flag, country-selector, select-control | country-flag, country-selector, select-control | 0 |
 | DatePicker | pass | date-picker | date-picker, field | field | 0 |
 | DateRangePicker | pass | date-range-picker | date-picker, date-range-picker, field | field | 0 |
 | Dialog | pass | dialog | dialog | dialog | 0 |
@@ -56,10 +56,10 @@ React components may only author their own visual class roots or explicit family
 | Popover | pass | popover | popover | popover | 0 |
 | ProgressIndicator | pass | progress | progress | progress | 0 |
 | QuickAction | pass | quick-action | quick-action | quick-action | 0 |
-| RadioButton | pass | radio | choice, radio | radio | 0 |
+| RadioButton | pass | radio | choice, radio | choice, radio | 0 |
 | RouteSummary | pass | route-summary | route-summary | route-summary | 0 |
 | SegmentedControl | pass | segmented-control | segmented-control | segmented-control | 0 |
-| Select | pass | select | field, select-control | field | 0 |
+| Select | pass | select | field, select-control | field, select-control | 0 |
 | Skeleton | pass | skeleton | skeleton | skeleton | 0 |
 | Slider | pass | slider | slider | slider | 0 |
 | Spinner | pass | spinner | spinner | spinner | 0 |

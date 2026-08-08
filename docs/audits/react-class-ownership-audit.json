@@ -4,10 +4,10 @@
   "principle": "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition.",
   "inventory": {
     "components": 56,
-    "componentClassRoots": 51,
+    "componentClassRoots": 53,
     "protectedComponentRoots": 6,
-    "componentsWithFamilyRoots": 12,
-    "observedRootAssignments": 60,
+    "componentsWithFamilyRoots": 13,
+    "observedRootAssignments": 65,
     "violations": 0
   },
   "protectedComponentRoots": [
@@ -225,10 +225,12 @@
       "file": "packages/react/src/Checkbox.js",
       "ownerRoot": "checkbox",
       "allowedRoots": [
-        "checkbox"
+        "checkbox",
+        "choice"
       ],
       "observedRoots": [
-        "checkbox"
+        "checkbox",
+        "choice"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -275,7 +277,8 @@
       ],
       "observedRoots": [
         "combobox",
-        "field"
+        "field",
+        "select-control"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -292,7 +295,8 @@
       ],
       "observedRoots": [
         "country-flag",
-        "country-selector"
+        "country-selector",
+        "select-control"
       ],
       "protectedRootsObserved": [],
       "violations": [],
@@ -603,6 +607,7 @@
         "radio"
       ],
       "observedRoots": [
+        "choice",
         "radio"
       ],
       "protectedRootsObserved": [],
@@ -646,7 +651,8 @@
         "select-control"
       ],
       "observedRoots": [
-        "field"
+        "field",
+        "select-control"
       ],
       "protectedRootsObserved": [],
       "violations": [],
