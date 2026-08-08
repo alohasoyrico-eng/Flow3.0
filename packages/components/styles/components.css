@@ -185,7 +185,7 @@
   --component-depth-focus-ring-soft: 0 0 0 var(--component-focus-ring-width) color-mix(in srgb, var(--sys-color-focus) 28%, transparent);
   --component-depth-border-ring: 0 0 0 var(--component-border-width) color-mix(in srgb, var(--sys-color-border) 76%, transparent);
   --component-depth-today-ring: inset 0 0 0 var(--sys-frame-border-control) color-mix(in srgb, var(--sys-color-text) 56%, transparent);
-  --component-depth-accent-halo: 0 0 0 calc((var(--comp-animated-moment-halo-size, var(--component-animated-moment-halo-size)) - var(--comp-animated-moment-icon-size, var(--component-animated-moment-icon-size))) / 2) var(--comp-animated-moment-accent-surface, var(--component-animated-moment-accent-surface));
+  --component-depth-accent-halo: 0 0 0 calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--comp-animated-moment-accent-surface);
   --component-depth-frost-text: 0 var(--sys-frame-border-thin) var(--sys-space-xl) color-mix(in srgb, var(--sys-color-text) 30%, transparent);
   --component-field-control-size-sm: calc(var(--ref-frame-height-control-sm-compact) - var(--sys-frame-space-micro));
   --component-field-control-size-md: calc(var(--sys-frame-height-control-sm) - var(--sys-frame-space-micro));
@@ -7044,7 +7044,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 .animation-asset__fallback-icon {
   align-items: center;
-  background: var(--comp-animated-moment-accent, var(--component-animated-moment-accent, var(--sys-color-action)));
+  background: var(--comp-animated-moment-accent, var(--sys-color-action));
   border-radius: var(--component-radius-pill);
   color: var(--sys-color-action-text);
   display: inline-flex;
@@ -7143,48 +7143,59 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment {
-  --component-animated-moment-accent: var(--sys-color-action);
-  --component-animated-moment-accent-surface: color-mix(in srgb, var(--component-animated-moment-accent) 12%, var(--sys-color-surface));
-  --component-animated-moment-accent-border: color-mix(in srgb, var(--component-animated-moment-accent) 34%, var(--sys-color-border));
-  --component-animated-moment-halo-size: calc(var(--component-control-min-size) * 4.5);
-  --component-animated-moment-icon-size: calc(var(--component-control-min-size) * 2.9);
-  --component-animated-moment-cycle: var(--component-duration-loop);
-  --component-animated-moment-cycle-ease: var(--component-ease-move);
-  --component-animated-moment-max-inline-size: var(--component-content-size-xl);
-  --component-animated-moment-padding: var(--sys-space-xl);
-  --comp-animated-moment-accent: var(--component-animated-moment-accent);
+  --comp-animated-moment-accent: var(--sys-color-action);
   --comp-animated-moment-accent-surface: color-mix(in srgb, var(--comp-animated-moment-accent) 12%, var(--sys-color-surface));
   --comp-animated-moment-accent-border: color-mix(in srgb, var(--comp-animated-moment-accent) 34%, var(--sys-color-border));
-  --comp-animated-moment-halo-size: var(--component-animated-moment-halo-size);
-  --comp-animated-moment-icon-size: var(--component-animated-moment-icon-size);
-  --comp-animated-moment-cycle: var(--component-animated-moment-cycle);
-  --comp-animated-moment-cycle-ease: var(--component-animated-moment-cycle-ease);
-  --comp-animated-moment-max-inline-size: var(--component-animated-moment-max-inline-size);
-  --comp-animated-moment-padding: var(--component-animated-moment-padding);
+  --comp-animated-moment-halo-size: calc(var(--sys-density-control-height) * 4.5);
+  --comp-animated-moment-icon-size: calc(var(--sys-density-control-height) * 2.9);
+  --comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38);
+  --comp-animated-moment-icon-margin-block: calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--sys-space-lg);
+  --comp-animated-moment-cycle: var(--component-duration-loop);
+  --comp-animated-moment-cycle-ease: var(--component-ease-move);
+  --comp-animated-moment-max-inline-size: var(--component-content-size-xl);
+  --comp-animated-moment-min-inline-size: min(100%, var(--component-content-size-sm));
+  --comp-animated-moment-padding: var(--sys-space-xl);
+  --comp-animated-moment-gap: var(--sys-space-lg);
+  --comp-animated-moment-title-size: var(--component-font-size-title-md);
+  --comp-animated-moment-title-weight: var(--sys-voice-weight-black);
+  --comp-animated-moment-title-line-height: var(--sys-voice-line-height-crisp);
+  --comp-animated-moment-title-max-inline-size: var(--component-content-size-sm);
+  --comp-animated-moment-copy-size: var(--component-font-size-body);
+  --comp-animated-moment-copy-line-height: var(--sys-voice-line-height-reading);
+  --comp-animated-moment-copy-max-inline-size: var(--component-content-size-md);
+  --comp-animated-moment-cue-block-size: calc(var(--component-field-gap) / 2);
+  --comp-animated-moment-cue-inline-size: calc(var(--component-inline-size-md) - var(--sys-space-sm));
+  --comp-animated-moment-cue-complete-inline-size: var(--component-inline-size-md);
+  --comp-animated-moment-cue-duration: var(--component-duration-medium);
+  --comp-animated-moment-cue-ease: var(--component-ease-press);
   align-items: center;
   display: inline-grid;
-  gap: var(--sys-space-lg);
+  gap: var(--comp-animated-moment-gap);
   justify-items: center;
   max-inline-size: var(--comp-animated-moment-max-inline-size);
-  min-inline-size: min(100%, var(--component-content-size-sm));
+  min-inline-size: var(--comp-animated-moment-min-inline-size);
   padding: var(--comp-animated-moment-padding);
   text-align: center;
 }
 
 .animated-moment[data-density="sm"] {
-  --comp-animated-moment-halo-size: calc(var(--component-control-min-size) * 3.5);
-  --comp-animated-moment-icon-size: calc(var(--component-control-min-size) * 2.1);
+  --comp-animated-moment-halo-size: calc(var(--sys-density-control-height) * 3.5);
+  --comp-animated-moment-icon-size: calc(var(--sys-density-control-height) * 2.1);
   --comp-animated-moment-max-inline-size: var(--component-content-size-md);
   --comp-animated-moment-padding: var(--sys-space-lg);
-  gap: var(--sys-space-md);
+  --comp-animated-moment-gap: var(--sys-space-md);
+  --comp-animated-moment-title-size: var(--component-font-size-title-sm);
+  --comp-animated-moment-copy-size: var(--component-font-size-small);
 }
 
 .animated-moment[data-density="lg"] {
-  --comp-animated-moment-halo-size: calc(var(--component-control-min-size) * 5);
-  --comp-animated-moment-icon-size: calc(var(--component-control-min-size) * 3.2);
+  --comp-animated-moment-halo-size: calc(var(--sys-density-control-height) * 5);
+  --comp-animated-moment-icon-size: calc(var(--sys-density-control-height) * 3.2);
   --comp-animated-moment-max-inline-size: var(--component-content-size-xl);
   --comp-animated-moment-padding: calc(var(--sys-space-xl) + var(--sys-space-md)) var(--sys-space-xl);
-  gap: var(--sys-space-xl);
+  --comp-animated-moment-gap: var(--sys-space-xl);
+  --comp-animated-moment-title-size: var(--component-font-size-title-lg);
+  --comp-animated-moment-copy-size: var(--component-font-size-title-sm);
 }
 
 .animated-moment[data-full-width="true"] {
@@ -7243,39 +7254,23 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   block-size: var(--comp-animated-moment-icon-size);
   box-shadow: var(--component-depth-accent-halo);
   color: var(--sys-color-action-text);
-  font-size: calc(var(--comp-animated-moment-icon-size) * 0.38);
+  font-size: var(--comp-animated-moment-icon-font-size);
   inline-size: var(--comp-animated-moment-icon-size);
-  margin-block: calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--sys-space-lg);
+  margin-block: var(--comp-animated-moment-icon-margin-block);
 }
 
 .animated-moment strong {
-  font-size: var(--component-font-size-title-md);
-  font-weight: var(--sys-voice-weight-black);
-  line-height: var(--sys-voice-line-height-crisp);
-  max-inline-size: var(--component-content-size-sm);
+  font-size: var(--comp-animated-moment-title-size);
+  font-weight: var(--comp-animated-moment-title-weight);
+  line-height: var(--comp-animated-moment-title-line-height);
+  max-inline-size: var(--comp-animated-moment-title-max-inline-size);
 }
 
 .animated-moment.animated-moment small {
   color: var(--sys-color-text-muted);
-  font-size: var(--component-font-size-body);
-  line-height: var(--sys-voice-line-height-reading);
-  max-inline-size: var(--component-content-size-md);
-}
-
-.animated-moment[data-density="sm"] strong {
-  font-size: var(--component-font-size-title-sm);
-}
-
-.animated-moment[data-density="sm"].animated-moment small {
-  font-size: var(--component-font-size-small);
-}
-
-.animated-moment[data-density="lg"] strong {
-  font-size: var(--component-font-size-title-lg);
-}
-
-.animated-moment[data-density="lg"].animated-moment small {
-  font-size: var(--component-font-size-title-sm);
+  font-size: var(--comp-animated-moment-copy-size);
+  line-height: var(--comp-animated-moment-copy-line-height);
+  max-inline-size: var(--comp-animated-moment-copy-max-inline-size);
 }
 
 .animated-moment__state {
@@ -7301,15 +7296,15 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 .animated-moment__cue {
   background: var(--comp-animated-moment-accent);
-  block-size: calc(var(--component-field-gap) / 2);
-  border-radius: var(--component-radius-pill);
+  block-size: var(--comp-animated-moment-cue-block-size);
+  border-radius: var(--comp-motion-boundary-cue-radius, var(--component-radius-pill));
   display: none;
-  inline-size: calc(var(--component-inline-size-md) - var(--sys-space-sm));
-  transition: inline-size var(--component-duration-medium) var(--component-ease-press);
+  inline-size: var(--comp-animated-moment-cue-inline-size);
+  transition: inline-size var(--comp-animated-moment-cue-duration) var(--comp-animated-moment-cue-ease);
 }
 
 .animated-moment[data-state="complete"] .animated-moment__cue {
-  inline-size: var(--component-inline-size-md);
+  inline-size: var(--comp-animated-moment-cue-complete-inline-size);
 }
 
 @keyframes animated-moment-icon-breathe {

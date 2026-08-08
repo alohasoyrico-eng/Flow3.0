@@ -1,4 +1,5 @@
 const { checkAccordionCssContract } = require("./audit-accordion-css-contract.js");
+const { checkAnimatedMomentCssContract } = require("./audit-animated-moment-css-contract.js");
 const { checkAuditEventCssContract } = require("./audit-audit-event-css-contract.js");
 const { checkAvatarCssContract } = require("./audit-avatar-css-contract.js");
 const { checkBadgeCssContract } = require("./audit-badge-css-contract.js");
@@ -47,6 +48,7 @@ const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js"
 
 function checkComponentCssContracts(context) {
   checkAccordionCssContract(context);
+  checkAnimatedMomentCssContract(context);
   checkAuditEventCssContract(context);
   checkAvatarCssContract(context);
   checkBadgeCssContract(context);
