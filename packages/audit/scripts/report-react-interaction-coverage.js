@@ -15,6 +15,18 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-interaction-coverage-audit.json");
 const markdownOutput = path.join(outputDir, "react-interaction-coverage-audit.md");
 const checkMode = process.argv.includes("--check");
+const manualAccessibilityCriticalComponents = [
+  "Dialog",
+  "Drawer",
+  "Menu",
+  "Popover",
+  "Tooltip",
+  "Select",
+  "Combobox",
+  "CountrySelector",
+  "DatePicker",
+  "DateRangePicker",
+];
 
 function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
@@ -77,10 +89,24 @@ function createReport() {
       status: missingInSource.length ? "fail" : missingInTests.length ? "review" : "pass",
     };
   });
+  const byComponent = new Map(components.map((component) => [component.component, component]));
+  const manualAccessibilityCritical = manualAccessibilityCriticalComponents.map((component) => {
+    const entry = byComponent.get(component);
+    const hasTestPresence = new RegExp(`\\b${component}\\b`).test(tests);
+    return {
+      component,
+      present: Boolean(entry),
+      status: entry?.status ?? "missing",
+      callbacks: entry?.callbacks ?? [],
+      hasInteractionTestPresence: hasTestPresence,
+    };
+  });
+  const criticalMissing = manualAccessibilityCritical.filter((component) => !component.present || component.status !== "pass" || !component.hasInteractionTestPresence);
   return {
     status: components.some((component) => component.status === "fail")
-      ? "fail"
-      : components.some((component) => component.status === "review")
+      || criticalMissing.length
+        ? "fail"
+        : components.some((component) => component.status === "review")
         ? "review"
         : "pass",
     audit: "react interaction coverage",
@@ -92,7 +118,10 @@ function createReport() {
       review: components.filter((component) => component.status === "review").length,
       fail: components.filter((component) => component.status === "fail").length,
       missingTestCallbacks: components.reduce((total, component) => total + component.missingInTests.length, 0),
+      manualAccessibilityCritical: manualAccessibilityCritical.length,
+      manualAccessibilityCriticalPass: manualAccessibilityCritical.filter((component) => component.present && component.status === "pass" && component.hasInteractionTestPresence).length,
     },
+    manualAccessibilityCritical,
     components,
   };
 }
@@ -113,6 +142,13 @@ function toMarkdown(report) {
     `- Review: ${report.inventory.review}`,
     `- Fail: ${report.inventory.fail}`,
     `- Missing callback test assertions: ${report.inventory.missingTestCallbacks}`,
+    `- Manual accessibility critical pass: ${report.inventory.manualAccessibilityCriticalPass}/${report.inventory.manualAccessibilityCritical}`,
+    "",
+    "## Manual Accessibility Critical Components",
+    "",
+    "| Component | Status | Callbacks | Interaction test presence |",
+    "| --- | --- | --- | --- |",
+    ...report.manualAccessibilityCritical.map((component) => `| ${component.component} | ${component.status} | ${component.callbacks.join(", ") || "None"} | ${component.hasInteractionTestPresence ? "yes" : "no"} |`),
     "",
     "## Missing Interaction Tests",
     "",
@@ -159,6 +195,10 @@ function checkReactInteractionCoverage() {
   const review = report.components.filter((component) => component.missingInTests.length);
   if (review.length) {
     add("warnings", path.join(root, "packages/react/test/button-render.test.mjs"), 1, `React interaction coverage missing for ${review.length} components; see docs/audits/react-interaction-coverage-audit.md.`);
+  }
+  const criticalMissing = report.manualAccessibilityCritical.filter((component) => !component.present || component.status !== "pass" || !component.hasInteractionTestPresence);
+  if (criticalMissing.length) {
+    add("errors", path.join(root, "packages/react/test/interaction.test.mjs"), 1, `Manual accessibility critical components need passing interaction coverage: ${criticalMissing.map((component) => component.component).join(", ")}.`);
   }
 }
 

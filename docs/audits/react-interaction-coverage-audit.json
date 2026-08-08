@@ -8,8 +8,114 @@
     "pass": 56,
     "review": 0,
     "fail": 0,
-    "missingTestCallbacks": 0
+    "missingTestCallbacks": 0,
+    "manualAccessibilityCritical": 10,
+    "manualAccessibilityCriticalPass": 10
   },
+  "manualAccessibilityCritical": [
+    {
+      "component": "Dialog",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onAction",
+        "onClick",
+        "onOpenChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "Drawer",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onAction",
+        "onClick",
+        "onOpenChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "Menu",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onSelect"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "Popover",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onAction",
+        "onClick",
+        "onOpenChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "Tooltip",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "Select",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "Combobox",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "CountrySelector",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "DatePicker",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "DateRangePicker",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "hasInteractionTestPresence": true
+    }
+  ],
   "components": [
     {
       "component": "Accordion",
