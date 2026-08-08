@@ -1243,7 +1243,7 @@
   --comp-icon-button-display: inline-flex;
   --comp-icon-button-flex: none;
   --comp-icon-button-justify: center;
-  --comp-icon-button-padding: 0;
+  --comp-icon-button-padding: var(--component-frame-space-none);
   --comp-icon-button-position: relative;
   --comp-icon-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
   --comp-icon-button-hover-bg: var(--sys-color-surface-raised);
@@ -2739,7 +2739,7 @@ button.tag:disabled,
   --comp-tabs-underline-border-block-end: var(--comp-tabs-border-width) solid var(--sys-color-border);
   --comp-tabs-underline-radius: 0;
   --comp-tabs-underline-gap: var(--sys-space-xl);
-  --comp-tabs-underline-padding: 0;
+  --comp-tabs-underline-padding: var(--component-frame-space-none);
   --comp-tabs-underline-indicator-bg: var(--sys-color-action);
   --comp-tabs-underline-indicator-border: 0;
   --comp-tabs-underline-indicator-block-size: calc(var(--comp-tabs-border-width) * 3);
@@ -3552,7 +3552,7 @@ button.tag:disabled,
 .accordion[data-density="sm"] {
   --comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-sm);
   --comp-accordion-trigger-padding-inline: var(--sys-space-sm);
-  --comp-accordion-panel-padding-block-start: 0;
+  --comp-accordion-panel-padding-block-start: var(--component-frame-space-none);
   --comp-accordion-panel-padding-block-end: var(--sys-space-sm);
   --comp-accordion-trigger-font-size: var(--component-font-size-small);
   --comp-accordion-panel-font-size: var(--component-font-size-small);
@@ -4226,7 +4226,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-list-item-inline-size: var(--component-inline-size-full);
   --comp-list-item-radius: 0;
   --comp-list-item-text-align: start;
-  --comp-list-row-margin: 0;
+  --comp-list-row-margin: var(--component-frame-space-none);
   --comp-list-value-weight: var(--sys-voice-weight-extrabold);
   border: var(--comp-list-border-width) solid var(--comp-list-border);
   border-radius: var(--comp-list-radius);
@@ -4579,7 +4579,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-transition: background-color var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), box-shadow var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), transform var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-enter);
   --comp-floating-action-button-accent-bg-hover: color-mix(in srgb, var(--sys-color-success) 86%, var(--sys-color-text));
   --comp-floating-action-button-active-transform: var(--component-transform-rest-quiet);
-  --comp-floating-action-button-collapsed-padding-x: 0;
+  --comp-floating-action-button-collapsed-padding-x: var(--component-frame-space-none);
   --comp-floating-action-button-disabled-cursor: not-allowed;
   align-items: var(--comp-floating-action-button-align);
   background: var(--comp-floating-action-button-bg);
@@ -4671,8 +4671,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-list-align: center;
   --comp-breadcrumbs-list-display: flex;
   --comp-breadcrumbs-list-gap: var(--sys-space-xs);
-  --comp-breadcrumbs-list-margin: 0;
-  --comp-breadcrumbs-list-padding: 0;
+  --comp-breadcrumbs-list-margin: var(--component-frame-space-none);
+  --comp-breadcrumbs-list-padding: var(--component-frame-space-none);
   --comp-breadcrumbs-list-style: none;
   --comp-breadcrumbs-list-wrap: wrap;
   --comp-breadcrumbs-item-align: center;
@@ -5383,7 +5383,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-composition="media"] {
-  --comp-card-current-padding: 0;
+  --comp-card-current-padding: var(--component-frame-space-none);
   --comp-card-current-gap: var(--comp-card-media-gap);
   --comp-card-current-media-block-size: var(--component-card-media-block-size);
   overflow: clip;
@@ -7526,7 +7526,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-inline-validation-message-align: center;
   --comp-inline-validation-message-display: flex;
   --comp-inline-validation-message-gap: var(--sys-space-xs);
-  --comp-inline-validation-message-margin: 0;
+  --comp-inline-validation-message-margin: var(--component-frame-space-none);
   --comp-inline-validation-message-min-block: var(--sys-space-md);
   --comp-inline-validation-message-auto-min-block: auto;
   --comp-inline-validation-message-size: var(--component-font-size-caption);
@@ -7898,7 +7898,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-full-width: var(--component-inline-size-full);
   --comp-chart-panel-gap: var(--sys-space-sm);
   --comp-chart-panel-header-display: grid;
-  --comp-chart-panel-header-gap: 0;
+  --comp-chart-panel-header-gap: var(--component-frame-space-none);
   --comp-chart-panel-header-title-family: var(--sys-font-title);
   --comp-chart-panel-header-title-color: var(--sys-color-text-muted);
   --comp-chart-panel-tooltip-x: 50%;
@@ -10177,7 +10177,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .segmented-control {
   --comp-segmented-control-align: stretch;
   --comp-segmented-control-display: inline-flex;
-  --comp-segmented-control-gap: 0;
+  --comp-segmented-control-gap: var(--component-frame-space-none);
   --comp-segmented-control-position: relative;
   --comp-segmented-control-item-min-block-sm: var(--component-segmented-control-item-min-block-sm);
   --comp-segmented-control-item-min-block-lg: var(--component-segmented-control-item-min-block-lg);
@@ -10232,7 +10232,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-press-transform: var(--component-transform-scale-quiet);
   --comp-segmented-control-icon-only-inline-size: var(--component-inline-size-auto);
   --comp-segmented-control-icon-only-item-aspect-ratio: 1;
-  --comp-segmented-control-icon-only-item-padding: 0;
+  --comp-segmented-control-icon-only-item-padding: var(--component-frame-space-none);
   --comp-segmented-control-visually-hidden-size: var(--component-visually-hidden-size);
   --comp-segmented-control-visually-hidden-clip: rect(0 0 0 0);
   --comp-segmented-control-visually-hidden-clip-path: inset(50%);
@@ -10803,7 +10803,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-movement-row-icon-justify: center;
   --comp-movement-row-interactive-cursor: pointer;
   --comp-movement-row-justify: space-between;
-  --comp-movement-row-status-padding: 0;
+  --comp-movement-row-status-padding: var(--component-frame-space-none);
   --comp-movement-row-text-align: start;
   --comp-movement-row-value-gap: var(--component-visually-hidden-size);
   --comp-movement-row-value-justify: end;
@@ -10967,7 +10967,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-max-inline-size: var(--component-inline-size-full);
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
   --comp-quick-action-min-inline-size: var(--component-action-min-inline-size-md);
-  --comp-quick-action-padding: 0;
+  --comp-quick-action-padding: var(--component-frame-space-none);
   --comp-quick-action-shadow: var(--component-depth-none);
   --comp-quick-action-text-align: center;
   --comp-quick-action-control-bg: var(--sys-color-surface);
@@ -10979,7 +10979,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-control-radius: var(--component-radius-pill);
   --comp-quick-action-control-shadow: var(--component-depth-low-soft);
   --comp-quick-action-control-fg: var(--sys-color-action);
-  --comp-quick-action-control-padding: 0;
+  --comp-quick-action-control-padding: var(--component-frame-space-none);
   --comp-quick-action-full-width: var(--component-inline-size-full);
   --comp-quick-action-icon-display: inline-flex;
   --comp-quick-action-icon-font-size: var(--component-font-size-icon-md);

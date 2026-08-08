@@ -82,7 +82,7 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
     snippets: [
       "--comp-segmented-control-align: stretch",
       "--comp-segmented-control-display: inline-flex",
-      "--comp-segmented-control-gap: 0",
+      "--comp-segmented-control-gap: var(--component-frame-space-none)",
       "--comp-segmented-control-indicator-selected-transform: var(--component-transform-scale-rest)",
       "--comp-segmented-control-item-align: center",
       "--comp-segmented-control-item-display: inline-flex",
