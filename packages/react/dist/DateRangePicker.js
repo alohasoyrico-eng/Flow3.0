@@ -220,7 +220,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
       "data-from": range.from,
       "data-to": range.to,
     },
-    label ? React.createElement("span", { className: "field__label date-picker__label date-range-picker__label", id: `${controlId}-label` }, label) : null,
+    React.createElement("span", { className: "field__label date-picker__label date-range-picker__label", id: `${controlId}-label` }, label),
     React.createElement(
       "button",
       {
@@ -238,8 +238,7 @@ export const DateRangePicker = forwardRef(function DateRangePicker({
         "aria-haspopup": "dialog",
         "aria-expanded": String(open),
         "aria-controls": panelId,
-        "aria-labelledby": label ? `${controlId}-label` : undefined,
-        "aria-label": label ? undefined : rest["aria-label"],
+        "aria-labelledby": `${controlId}-label`,
         "aria-describedby": describedBy,
         "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
         onClick: () => {

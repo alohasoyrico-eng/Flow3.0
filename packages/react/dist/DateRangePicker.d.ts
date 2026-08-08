@@ -7,7 +7,7 @@ export type DateRangePickerValue = { from?: string; to?: string };
 export type DateRangePickerPreset = { label: string; days: number };
 
 export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label?: string;
+  label: string;
   value?: DateRangePickerValue;
   from?: string;
   to?: string;
