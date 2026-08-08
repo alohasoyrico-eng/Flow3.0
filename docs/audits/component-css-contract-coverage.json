@@ -4,6 +4,42 @@
   "direct": 45,
   "family": 11,
   "missing": [],
+  "familyContractPolicy": {
+    "principle": "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract instead of duplicating token/class rules.",
+    "groups": [
+      {
+        "contract": "choice",
+        "components": [
+          "checkbox",
+          "radio-button"
+        ]
+      },
+      {
+        "contract": "date-picker",
+        "components": [
+          "date-range-picker"
+        ]
+      },
+      {
+        "contract": "field",
+        "components": [
+          "input",
+          "text-area",
+          "phone-input",
+          "card-number-input",
+          "card-expiry-input",
+          "card-security-code-input"
+        ]
+      },
+      {
+        "contract": "select",
+        "components": [
+          "combobox",
+          "country-selector"
+        ]
+      }
+    ]
+  },
   "components": [
     {
       "component": "button",

@@ -79,11 +79,19 @@ function componentCssContractCoverage() {
   });
   const family = components.filter((item) => item.coverage === "family");
   const missing = components.filter((item) => item.coverage === "missing").map((item) => item.component);
+  const familyGroups = [...new Set(family.map((item) => item.contract))].sort().map((contract) => ({
+    contract,
+    components: family.filter((item) => item.contract === contract).map((item) => item.component),
+  }));
   return {
     total: components.length,
     direct: components.filter((item) => item.coverage === "direct").length,
     family: family.length,
     missing,
+    familyContractPolicy: {
+      principle: "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract instead of duplicating token/class rules.",
+      groups: familyGroups,
+    },
     components,
   };
 }
@@ -154,4 +162,4 @@ function checkComponentCssContracts(context) {
   checkTreeViewCssContract(context);
 }
 
-module.exports = { checkComponentCssContracts, componentCssContractCoverage };
+module.exports = { checkComponentCssContracts, componentCssContractCoverage, familyCssContracts };

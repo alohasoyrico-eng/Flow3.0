@@ -12,6 +12,9 @@ function renderMarkdown(report) {
   const rows = report.components
     .map((item) => `| ${item.component} | ${item.coverage} | ${item.contract ?? "missing"} |`)
     .join("\n");
+  const familyRows = report.familyContractPolicy.groups
+    .map((item) => `| ${item.contract} | ${item.components.join(", ")} |`)
+    .join("\n");
   return [
     "# Component CSS Contract Coverage",
     "",
@@ -21,6 +24,14 @@ function renderMarkdown(report) {
     `- Direct contracts: ${report.direct}`,
     `- Family contracts: ${report.family}`,
     `- Missing contracts: ${report.missing.length}`,
+    "",
+    "## Family Contract Policy",
+    "",
+    report.familyContractPolicy.principle,
+    "",
+    "| Shared contract | Components covered |",
+    "| --- | --- |",
+    familyRows || "| None | None |",
     "",
     "| Component | Coverage | Contract |",
     "| --- | --- | --- |",

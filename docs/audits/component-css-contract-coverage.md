@@ -7,6 +7,17 @@ Status: pass
 - Family contracts: 11
 - Missing contracts: 0
 
+## Family Contract Policy
+
+Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract instead of duplicating token/class rules.
+
+| Shared contract | Components covered |
+| --- | --- |
+| choice | checkbox, radio-button |
+| date-picker | date-range-picker |
+| field | input, text-area, phone-input, card-number-input, card-expiry-input, card-security-code-input |
+| select | combobox, country-selector |
+
 | Component | Coverage | Contract |
 | --- | --- | --- |
 | button | direct | button |
