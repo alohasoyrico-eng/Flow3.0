@@ -247,6 +247,15 @@ try {
     onValueChange: (value, meta, event) => expiryChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(expiryInput.value, "10/29"));
+  fireEvent.input(expiryInput, { target: { value: "1129" } });
+  assert.equal(expiryChanges.at(-1).value, "11/29");
+  await waitFor(() => assert.equal(expiryInput.value, "10/29"));
+  rerenderExpiry(React.createElement(CardExpiryInput, {
+    label: "Expiry date",
+    value: "1129",
+    onValueChange: (value, meta, event) => expiryChanges.push({ value, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(expiryInput.value, "11/29"));
 
   cleanup();
 
