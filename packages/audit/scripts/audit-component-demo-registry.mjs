@@ -19,8 +19,8 @@ function docsModulePath(fileName) {
 
 function docsModulePathOptional(fileName) {
   const candidates = [
-    path.join(repoRoot, "apps/docs", fileName),
     path.join(repoRoot, "../FlowDocs/apps/docs", fileName),
+    path.join(repoRoot, "apps/docs", fileName),
   ];
   return candidates.find((file) => fs.existsSync(file));
 }

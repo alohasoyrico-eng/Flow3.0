@@ -11,8 +11,8 @@ const forbiddenDocsSystemImports = /\bimport\s*\{[^}]*\bhydrate[A-Z][A-Za-z0-9_]
 
 function docsModulePath(fileName) {
   const candidates = [
-    path.join(repoRoot, "apps/docs", fileName),
     path.join(repoRoot, "../FlowDocs/apps/docs", fileName),
+    path.join(repoRoot, "apps/docs", fileName),
   ];
   const found = candidates.find((file) => fs.existsSync(file));
   if (!found) throw new Error(`Docs module not found for split audit: ${fileName}`);
