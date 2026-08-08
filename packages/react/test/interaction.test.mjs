@@ -1988,7 +1988,7 @@ try {
   const { getByRole: getTooltipRole, rerender: rerenderTooltip } = render(React.createElement(Tooltip, {
     triggerLabel: "Help",
     content: "Helpful context",
-    onOpenChange: (open) => tooltipOpenChanges.push(open),
+    onOpenChange: (open, event) => tooltipOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
 
   const tooltipTrigger = getTooltipRole("button", { name: /help/i });
@@ -1996,23 +1996,31 @@ try {
   assert.equal(tooltipBubble.hidden, true);
   fireEvent.mouseEnter(tooltipTrigger);
   await waitFor(() => assert.equal(tooltipBubble.hidden, false));
-  assert.deepEqual(tooltipOpenChanges, [true]);
+  assert.deepEqual(tooltipOpenChanges, [{ open: true, eventType: "mouseenter", key: undefined }]);
 
   fireEvent.mouseLeave(tooltipTrigger);
   await waitFor(() => assert.equal(tooltipBubble.hidden, true));
-  assert.deepEqual(tooltipOpenChanges, [true, false]);
+  assert.deepEqual(tooltipOpenChanges, [
+    { open: true, eventType: "mouseenter", key: undefined },
+    { open: false, eventType: "mouseleave", key: undefined },
+  ]);
 
   fireEvent.focus(tooltipTrigger);
   await waitFor(() => assert.equal(tooltipBubble.hidden, false));
   fireEvent.keyDown(tooltipTrigger, { key: "Escape" });
   await waitFor(() => assert.equal(tooltipBubble.hidden, true));
-  assert.deepEqual(tooltipOpenChanges, [true, false, true, false]);
+  assert.deepEqual(tooltipOpenChanges, [
+    { open: true, eventType: "mouseenter", key: undefined },
+    { open: false, eventType: "mouseleave", key: undefined },
+    { open: true, eventType: "focus", key: undefined },
+    { open: false, eventType: "keydown", key: "Escape" },
+  ]);
 
   rerenderTooltip(React.createElement(Tooltip, {
     triggerLabel: "Help",
     content: "Helpful context",
     open: true,
-    onOpenChange: (open) => tooltipOpenChanges.push(open),
+    onOpenChange: (open, event) => tooltipOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(tooltipBubble.hidden, false));
 
@@ -2020,7 +2028,7 @@ try {
     triggerLabel: "Help",
     content: "Helpful context",
     open: false,
-    onOpenChange: (open) => tooltipOpenChanges.push(open),
+    onOpenChange: (open, event) => tooltipOpenChanges.push({ open, eventType: event?.type, key: event?.key }),
   }));
   await waitFor(() => assert.equal(tooltipBubble.hidden, true));
 

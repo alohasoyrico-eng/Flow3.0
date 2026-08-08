@@ -41,12 +41,12 @@ export const Tooltip = forwardRef(function Tooltip({
   const isOpen = Boolean(openValue) && !isDismissed;
   if (!triggerLabel || !content) return null;
 
-  const setOpen = (nextOpen, nextState) => {
+  const setOpen = (nextOpen, nextState, event) => {
     if (isDisabled) return;
     const normalizedNextOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedNextOpen);
     if (nextState) setInteractionState(nextState);
-    onOpenChange?.(normalizedNextOpen);
+    onOpenChange?.(normalizedNextOpen, event);
   };
 
   return React.createElement(
@@ -70,10 +70,10 @@ export const Tooltip = forwardRef(function Tooltip({
         disabled: isDisabled,
         "aria-disabled": isDisabled ? "true" : undefined,
         "aria-describedby": isOpen ? tooltipId : undefined,
-        onMouseEnter: () => setOpen(true, "hover"),
-        onMouseLeave: () => setOpen(false, "default"),
-        onFocus: () => setOpen(true, "focus"),
-        onBlur: () => setOpen(false, "default"),
+        onMouseEnter: (event) => setOpen(true, "hover", event),
+        onMouseLeave: (event) => setOpen(false, "default", event),
+        onFocus: (event) => setOpen(true, "focus", event),
+        onBlur: (event) => setOpen(false, "default", event),
         onKeyDown: (event) => {
           if (event.key !== "Escape") return;
           event.preventDefault();
@@ -81,7 +81,7 @@ export const Tooltip = forwardRef(function Tooltip({
             setInteractionState("dismissed");
             setInternalOpen(false);
           }
-          onOpenChange?.(false);
+          onOpenChange?.(false, event);
         },
       },
       triggerLabel,
