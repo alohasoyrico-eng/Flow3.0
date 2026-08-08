@@ -15,7 +15,7 @@ function slug(value) {
 export const Popover = forwardRef(function Popover({
   triggerLabel,
   title,
-  description = "",
+  description,
   id = "",
   open: openProp,
   variant = "information",
