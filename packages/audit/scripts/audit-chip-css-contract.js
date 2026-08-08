@@ -16,6 +16,10 @@ function checkChipCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const hoverStateBlock = blockFor(blocks, selectorKey, ".chip[data-state=\"hover\"]");
   const focusBlock = blockFor(blocks, selectorKey, "button.chip:focus-visible,.chip[data-state=\"focus\"]");
   const disabledBlock = blockFor(blocks, selectorKey, "button.chip:disabled,.chip[data-state=\"disabled\"]");
+  const localInteractiveSize = /--comp-chip-interactive-min-block-size:\s*var\(--component-control-min-size\)/.exec(text);
+  if (localInteractiveSize) {
+    add("errors", packageCssFile, lineNumber(text, localInteractiveSize.index), "Chip interactive size must consume inline trigger roles instead of the generic control min size.");
+  }
 
   requireIncludes({
     block: chipBlock,
@@ -25,6 +29,7 @@ function checkChipCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-chip-border-width: var(--component-border-width)",
       "--comp-chip-radius: var(--component-radius-pill)",
       "--comp-chip-font-size: var(--component-font-size-label)",
+      "--comp-chip-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md)",
       "--comp-chip-hover-transform: scale(var(--component-scale-hover))",
       "--comp-chip-press-transform: scale(var(--component-scale-press))",
       "border: var(--comp-chip-border-width) solid var(--comp-chip-border)",

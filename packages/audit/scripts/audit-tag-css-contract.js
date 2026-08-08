@@ -15,6 +15,10 @@ function checkTagCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const hoverBlock = blockFor(blocks, selectorKey, "button.tag:hover:not(:disabled),.tag[data-state=\"hover\"][data-interactive=\"true\"]");
   const focusBlock = blockFor(blocks, selectorKey, "button.tag:focus-visible,.tag[data-state=\"focus\"][data-interactive=\"true\"]");
   const disabledBlock = blockFor(blocks, selectorKey, "button.tag:disabled,.tag[data-state=\"disabled\"]");
+  const localInteractiveSize = /--comp-tag-interactive-min-block-size:\s*var\(--component-control-min-size\)/.exec(text);
+  if (localInteractiveSize) {
+    add("errors", packageCssFile, lineNumber(text, localInteractiveSize.index), "Tag interactive size must consume inline trigger roles instead of the generic control min size.");
+  }
 
   requireIncludes({
     block: tagBlock,
@@ -24,6 +28,7 @@ function checkTagCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-tag-border-width: var(--component-border-width)",
       "--comp-tag-radius: var(--sys-frame-radius-sm)",
       "--comp-tag-font-size: var(--component-font-size-label)",
+      "--comp-tag-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md)",
       "--comp-tag-hover-transform: scale(var(--component-scale-hover))",
       "--comp-tag-press-transform: scale(var(--component-scale-press))",
       "border: var(--comp-tag-border-width) solid var(--comp-tag-border)",

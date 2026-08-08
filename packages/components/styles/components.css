@@ -2374,7 +2374,7 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
   --comp-tag-font-weight: var(--sys-voice-weight-bold);
   --comp-tag-gap: var(--sys-space-xs);
   --comp-tag-min-block-size: var(--component-min-text-line);
-  --comp-tag-interactive-min-block-size: var(--component-control-min-size);
+  --comp-tag-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md);
   --comp-tag-padding-inline: var(--sys-space-sm);
   --comp-tag-bg-neutral: var(--sys-energy-surface-sunken);
   --comp-tag-border-neutral: var(--sys-energy-border-default);
@@ -2467,7 +2467,7 @@ body[data-contrast="quiet"] .tag[data-tone="danger"] {
   --comp-chip-font-size: var(--component-font-size-label);
   --comp-chip-font-weight: var(--sys-voice-weight-bold);
   --comp-chip-min-block-size: var(--component-badge-min-size);
-  --comp-chip-interactive-min-block-size: var(--component-control-min-size);
+  --comp-chip-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md);
   --comp-chip-bg: var(--sys-color-surface);
   --comp-chip-border: var(--sys-color-border);
   --comp-chip-fg: var(--sys-color-text);
