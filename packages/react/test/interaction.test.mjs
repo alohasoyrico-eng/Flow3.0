@@ -1850,6 +1850,18 @@ try {
     onRowSelect: (key, event) => rowSelections.push({ key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(selectableTableContainer.querySelector('tr[data-key="unit-24"]').getAttribute("data-selected"), "true"));
+  fireEvent.click(selectableTableContainer.querySelector('tr[data-key="unit-31"]'));
+  assert.deepEqual(rowSelections.at(-1), { key: "unit-31", eventType: "click" });
+  assert.equal(selectableTableContainer.querySelector('tr[data-key="unit-31"]').getAttribute("data-selected"), "false");
+  rerenderTable(React.createElement(Table, {
+    label: "Vehicles",
+    variant: "selectable",
+    selectedKey: "unit-31",
+    columns: tableColumns,
+    rows: tableRows,
+    onRowSelect: (key, event) => rowSelections.push({ key, eventType: event.type }),
+  }));
+  assert.equal(selectableTableContainer.querySelector('tr[data-key="unit-31"]').getAttribute("data-selected"), "true");
 
   cleanup();
 
@@ -1881,6 +1893,22 @@ try {
     onSortChange: (sort, event) => sortChanges.push({ sort, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(getSortableTableRole("columnheader", { name: /driver/i }).getAttribute("aria-sort"), "descending"));
+  fireEvent.click(getSortableTableRole("button", { name: /plate/i }));
+  assert.deepEqual(sortChanges.at(-1), { sort: { key: "plate", direction: "ascending" }, eventType: "click" });
+  assert.equal(getSortableTableRole("columnheader", { name: /plate/i }).getAttribute("aria-sort"), "none");
+  rerenderSortableTable(React.createElement(Table, {
+    label: "Sortable vehicles",
+    variant: "sortable",
+    sortKey: "plate",
+    sortDir: "ascending",
+    columns: [
+      { key: "plate", label: "Plate", sortable: true },
+      { key: "driver", label: "Driver", sortable: true },
+    ],
+    rows: tableRows,
+    onSortChange: (sort, event) => sortChanges.push({ sort, eventType: event.type }),
+  }));
+  assert.equal(getSortableTableRole("columnheader", { name: /plate/i }).getAttribute("aria-sort"), "ascending");
 
   cleanup();
 
@@ -1916,6 +1944,20 @@ try {
     onExpandedChange: (key, event) => expandedRows.push({ key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(getTableRole("button", { name: /close xyz-789/i }).getAttribute("aria-expanded"), "true"));
+  fireEvent.click(getTableRole("button", { name: /open abc-123/i }));
+  assert.deepEqual(expandedRows.at(-1), { key: "unit-24", eventType: "click" });
+  assert.equal(getTableRole("button", { name: /open abc-123/i }).getAttribute("aria-expanded"), "false");
+  rerenderExpandedTable(React.createElement(Table, {
+    label: "Vehicle details",
+    getExpandLabel: (row, { expanded }) => `${expanded ? "Close" : "Open"} ${row.plate}`,
+    variant: "expandable",
+    expandedKey: "unit-24",
+    columns: tableColumns,
+    rows: tableRows,
+    renderDetail: (row) => `${row.plate} detail`,
+    onExpandedChange: (key, event) => expandedRows.push({ key, eventType: event.type }),
+  }));
+  assert.equal(getTableRole("button", { name: /close abc-123/i }).getAttribute("aria-expanded"), "true");
 
   cleanup();
 

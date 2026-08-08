@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo, useState } from "react";
+import React, { forwardRef, useMemo, useState } from "react";
 import { tablePlatformContract } from "@design-system/components/platforms";
 import { Badge } from "./Badge.js";
 import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
@@ -63,21 +63,12 @@ export const Table = forwardRef(function Table({
   const isSelectedKeyControlled = selectedKey !== undefined;
   const isSortControlled = sortKey !== undefined;
   const isExpandedKeyControlled = expandedKey !== undefined;
-  const [currentSort, setCurrentSort] = useState({ key: sortKey ?? "", direction: sortDir });
-  const [currentSelected, setCurrentSelected] = useState(String(selectedKey ?? ""));
-  const [currentExpanded, setCurrentExpanded] = useState(String(expandedKey ?? ""));
-
-  useEffect(() => {
-    if (isSelectedKeyControlled) setCurrentSelected(String(selectedKey ?? ""));
-  }, [isSelectedKeyControlled, selectedKey]);
-
-  useEffect(() => {
-    if (isSortControlled) setCurrentSort({ key: sortKey ?? "", direction: sortDir });
-  }, [isSortControlled, sortDir, sortKey]);
-
-  useEffect(() => {
-    if (isExpandedKeyControlled) setCurrentExpanded(String(expandedKey ?? ""));
-  }, [expandedKey, isExpandedKeyControlled]);
+  const [internalSort, setInternalSort] = useState({ key: sortKey ?? "", direction: sortDir });
+  const [internalSelected, setInternalSelected] = useState(String(selectedKey ?? ""));
+  const [internalExpanded, setInternalExpanded] = useState(String(expandedKey ?? ""));
+  const currentSort = isSortControlled ? { key: sortKey ?? "", direction: sortDir } : internalSort;
+  const currentSelected = isSelectedKeyControlled ? String(selectedKey ?? "") : internalSelected;
+  const currentExpanded = isExpandedKeyControlled ? String(expandedKey ?? "") : internalExpanded;
 
   const sortedRows = useMemo(() => {
     if (!currentSort.key) return [...resolvedRows];
@@ -99,16 +90,16 @@ export const Table = forwardRef(function Table({
 
   const changeSort = (key, event) => {
     const direction = currentSort.key === key && currentSort.direction !== "descending" ? "descending" : "ascending";
-    if (!isSortControlled) setCurrentSort({ key, direction });
+    if (!isSortControlled) setInternalSort({ key, direction });
     onSortChange?.({ key, direction }, event);
   };
   const selectRow = (key, event) => {
-    if (!isSelectedKeyControlled) setCurrentSelected(String(key));
+    if (!isSelectedKeyControlled) setInternalSelected(String(key));
     onRowSelect?.(String(key), event);
   };
   const toggleExpanded = (key, event) => {
     const next = currentExpanded === String(key) ? "" : String(key);
-    if (!isExpandedKeyControlled) setCurrentExpanded(next);
+    if (!isExpandedKeyControlled) setInternalExpanded(next);
     onExpandedChange?.(next, event);
   };
 
