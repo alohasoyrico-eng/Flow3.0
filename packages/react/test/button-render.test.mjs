@@ -2710,6 +2710,11 @@ const unnamedMotionBoundaryMarkup = renderToStaticMarkup(React.createElement(Mot
   state: "active",
 }));
 assert.doesNotMatch(unnamedMotionBoundaryMarkup, /Idle|Entering|Active|Exiting|Reduced motion|Disabled/);
+const unlabeledMotionBoundaryMarkup = renderToStaticMarkup(React.createElement(MotionBoundary, {
+  description: "No boundary identity",
+  stateLabel: "Active",
+}));
+assert.doesNotMatch(unlabeledMotionBoundaryMarkup, /motion-boundary|role="group"|No boundary identity|Active/);
 
 const selectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",

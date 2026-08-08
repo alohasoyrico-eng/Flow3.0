@@ -112,6 +112,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Tooltip" && !source.includes("if (!triggerLabel) return null;")) add("errors", sourceFile, 1, "Tooltip must not render a trigger without visible triggerLabel.");
   if (name === "AnimatedMoment" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "AnimatedMoment must not render an image role without a visible label.");
   if (name === "AnimatedMoment" && /const resolvedLabel = label \?\? ""/.test(source)) add("errors", sourceFile, 1, "AnimatedMoment must not synthesize an empty accessible label.");
+  if (name === "MotionBoundary" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "MotionBoundary must not render a group without a visible label.");
+  if (name === "MotionBoundary" && /const resolvedLabel = label \?\? ""/.test(source)) add("errors", sourceFile, 1, "MotionBoundary must not synthesize an empty accessible label.");
   if (name === "Pagination" && !source.includes("if (!label && !ariaLabel) return null;")) add("errors", sourceFile, 1, "PaginationButton must not render icon controls without an accessible label.");
   if (name === "DatePicker" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "DatePicker must not render without its required visible label.");
   if (name === "DatePicker" && /"aria-label":\s*previousMonthLabel\s*\|\|\s*undefined|"aria-label":\s*nextMonthLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "DatePicker month navigation must require accessible labels before rendering controls.");

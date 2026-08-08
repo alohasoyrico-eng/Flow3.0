@@ -27,7 +27,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "fade");
   const resolvedState = normalizeState(state, reducedMotion);
   const isReducedMotion = Boolean(reducedMotion || resolvedState === "reduced-motion");
-  const resolvedLabel = label ?? "";
+  if (!label) return null;
   const resolvedDescription = description || "";
   const resolvedStateLabel = stateLabel || "";
   const describedBy = [resolvedDescription ? `${id}-description` : "", resolvedStateLabel ? `${id}-state` : ""].filter(Boolean).join(" ") || undefined;
@@ -42,7 +42,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
       ...flowStateProps(resolvedState),
       "data-reduced-motion": String(isReducedMotion),
       role: "group",
-      "aria-labelledby": resolvedLabel ? `${id}-label` : undefined,
+      "aria-labelledby": `${id}-label`,
       "aria-describedby": describedBy,
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
     },
@@ -50,7 +50,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
     React.createElement(
       "div",
       { className: "motion-boundary__content" },
-      resolvedLabel ? React.createElement("strong", { id: `${id}-label` }, resolvedLabel) : null,
+      React.createElement("strong", { id: `${id}-label` }, label),
       resolvedDescription ? React.createElement("p", { id: `${id}-description` }, resolvedDescription) : null,
       resolvedStateLabel ? React.createElement("span", { className: "motion-boundary__state", id: `${id}-state`, hidden: true }, resolvedStateLabel) : null,
     ),

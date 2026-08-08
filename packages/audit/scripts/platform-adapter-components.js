@@ -57,7 +57,7 @@ const components = [
     requiredTokens: ["comp.motion-boundary.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.symbol.*", "sys.growth.*", "sys.iconography.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "message", "measurement"],
     props: ["label", "description", "variant", "state", "icon", "reducedMotion", "stateLabel"],
-    jsSnippets: ["motionBoundaryPlatformContract", "className: [\"motion-boundary\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', '"data-reduced-motion": String(isReducedMotion)', "role: \"group\"", '"aria-labelledby": resolvedLabel ? `${id}-label` : undefined', "motion-boundary__icon", "motion-boundary__content", "motion-boundary__state", "motion-boundary__cue"],
+    jsSnippets: ["motionBoundaryPlatformContract", "className: [\"motion-boundary\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', '"data-reduced-motion": String(isReducedMotion)', "role: \"group\"", '"aria-labelledby": `${id}-label`', "if (!label) return null;", "motion-boundary__icon", "motion-boundary__content", "motion-boundary__state", "motion-boundary__cue"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "MotionBoundaryProps", "MotionBoundaryVariant", "MotionBoundaryState", "stateLabel?: string", "motionBoundaryPlatformContract"],
     packagePath: "./motion-boundary",
     exportName: "MotionBoundary",
