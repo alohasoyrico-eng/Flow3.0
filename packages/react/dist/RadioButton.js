@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useState } from "react";
 import { radioButtonPlatformContract } from "#flow/platforms";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps } from "./internal/props.js";
 
@@ -29,7 +29,8 @@ export const RadioButton = forwardRef(function RadioButton({
   ...rest
 }, ref) {
   const isCheckedControlled = checked !== undefined;
-  const [currentChecked, setCurrentChecked] = useState(Boolean(checked));
+  const [internalChecked, setInternalChecked] = useState(Boolean(checked));
+  const currentChecked = isCheckedControlled ? Boolean(checked) : internalChecked;
   const normalizedState = normalizeState({
     checked: currentChecked,
     disabled,
@@ -40,14 +41,10 @@ export const RadioButton = forwardRef(function RadioButton({
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "default");
   if (!label) return null;
 
-  useEffect(() => {
-    if (isCheckedControlled) setCurrentChecked(Boolean(checked));
-  }, [checked, isCheckedControlled]);
-
   const handleChange = (event) => {
     if (disabled) return;
     const nextChecked = event.currentTarget.checked;
-    if (!isCheckedControlled) setCurrentChecked(nextChecked);
+    if (!isCheckedControlled) setInternalChecked(nextChecked);
     onCheckedChange?.(nextChecked, { value }, event);
   };
 

@@ -1466,6 +1466,24 @@ try {
   await waitFor(() => assert.equal(radioInput.checked, false));
   fireEvent.click(getRadioLabel(/card payment/i));
   assert.deepEqual(radioChanges, [{ checked: true, meta: { value: "card" }, eventType: "change" }]);
+  rerenderRadio(React.createElement(RadioButton, {
+    label: "Card payment",
+    name: "payment",
+    value: "card",
+    checked: false,
+    onCheckedChange: (checked, meta, event) => radioChanges.push({ checked, meta, eventType: event.type }),
+  }));
+  fireEvent.click(radioInput);
+  assert.deepEqual(radioChanges.at(-1), { checked: true, meta: { value: "card" }, eventType: "change" });
+  await waitFor(() => assert.equal(radioInput.checked, false));
+  rerenderRadio(React.createElement(RadioButton, {
+    label: "Card payment",
+    name: "payment",
+    value: "card",
+    checked: true,
+    onCheckedChange: (checked, meta, event) => radioChanges.push({ checked, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(radioInput.checked, true));
 
   cleanup();
 
