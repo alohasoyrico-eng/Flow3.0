@@ -189,6 +189,9 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*var\(--sys-frame-space-none\);/g)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-space-none instead of reaching into sys frame spacing directly.");
   }
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*var\(--sys-frame-gap-subsection\);/g)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Component aliases must consume --component-frame-gap-subsection instead of reaching into sys frame gap directly.");
+  }
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
