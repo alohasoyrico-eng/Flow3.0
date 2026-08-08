@@ -62,7 +62,7 @@ function checkInlineValidationCssContract({ text, blocks, packageCssFile, select
       "--comp-inline-validation-gap: var(--component-space-xs)",
       "--comp-inline-validation-full-width: var(--component-inline-size-full)",
       "--comp-inline-validation-message-size: var(--component-font-size-caption)",
-      "--comp-inline-validation-icon-family: var(--sys-font-icon)",
+      "--comp-inline-validation-icon-family: var(--component-font-family-icon)",
       "--comp-inline-validation-error-icon: \"error\"",
       "color: var(--comp-inline-validation-color)",
       "display: var(--comp-inline-validation-display)",

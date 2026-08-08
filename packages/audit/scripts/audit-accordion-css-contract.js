@@ -41,7 +41,7 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
       "--comp-accordion-bg: var(--component-color-surface)",
       "--comp-accordion-border-width: var(--component-border-width)",
       "--comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-md)",
-      "--comp-accordion-trigger-font-weight: var(--sys-voice-weight-bold)",
+      "--comp-accordion-trigger-font-weight: var(--component-font-weight-bold)",
       "--comp-accordion-focus-ring: var(--component-focus-ring)",
       "--comp-accordion-motion-ease: var(--component-ease-move)",
       "background: var(--comp-accordion-bg)",

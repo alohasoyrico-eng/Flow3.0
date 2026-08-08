@@ -209,6 +209,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*animation-name[\w-]*:\s*component-[\w-]+;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component animation-name aliases must consume semantic component animation aliases instead of hardcoding keyframe names.");
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc|min|max)\([^;]*--sys-space-[\w-]+[^;]*;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component spacing aliases must consume --component-space-* instead of reaching into sys space directly.");
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|color-mix)\([^;]*--sys-color-[\w-]+[^;]*;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component color aliases must consume --component-color-* instead of reaching into sys color directly.");
+  for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:var|calc|min|max)\([^;]*--sys-(?:voice|font)-[\w-]+[^;]*;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component voice aliases must consume component font/voice aliases instead of reaching into sys voice or font directly.");
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });

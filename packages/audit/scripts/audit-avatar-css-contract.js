@@ -43,8 +43,8 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
     text,
     packageCssFile,
     snippets: [
-      "--comp-avatar-font-weight: var(--sys-voice-weight-bold)",
-      "--comp-avatar-letter-spacing: var(--sys-voice-letter-spacing-wide)",
+      "--comp-avatar-font-weight: var(--component-font-weight-bold)",
+      "--comp-avatar-letter-spacing: var(--component-letter-spacing-wide)",
       "--comp-avatar-identity-bg: var(--comp-avatar-identity-action-bg)",
       "--comp-avatar-identity-fg: var(--comp-avatar-identity-default-fg)",
       "--comp-avatar-align: var(--component-align-center)",

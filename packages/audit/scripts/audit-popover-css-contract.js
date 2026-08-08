@@ -27,7 +27,7 @@ function checkPopoverCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "--comp-popover-panel-border-width: var(--component-border-width)",
       "--comp-popover-panel-depth: var(--component-depth-popover)",
       "--comp-popover-enter-ease: var(--component-ease-enter)",
-      "--comp-popover-title-family: var(--sys-font-title)",
+      "--comp-popover-title-family: var(--component-font-family-title)",
       "--comp-popover-body-fg: var(--component-color-text-muted)",
     ],
     message: "Popover root must own panel frame, surface, depth, voice, and enter motion aliases.",

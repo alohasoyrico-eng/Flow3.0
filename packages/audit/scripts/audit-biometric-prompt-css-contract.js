@@ -30,7 +30,7 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
       "--comp-biometric-prompt-gap: var(--component-space-md)",
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-sm))",
       "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 - var(--component-frame-space-micro))",
-      "--comp-biometric-prompt-title-family: var(--sys-font-title)",
+      "--comp-biometric-prompt-title-family: var(--component-font-family-title)",
       "--comp-biometric-prompt-motion-pulse-duration: var(--component-duration-pulse)",
       "gap: var(--comp-biometric-prompt-gap)",
       "padding: var(--comp-biometric-prompt-padding)",
