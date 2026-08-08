@@ -1,0 +1,860 @@
+{
+  "status": "pass",
+  "audit": "react controlled governance",
+  "principle": "Controlled React props must be explicit in source and covered by external rerender tests so product code can own state without hidden uncontrolled drift.",
+  "inventory": {
+    "components": 56,
+    "controlledComponents": 28,
+    "openControlledComponents": 7,
+    "controlledPropEdges": 25,
+    "testCoveredEdges": 25,
+    "failures": 0
+  },
+  "components": [
+    {
+      "component": "Accordion",
+      "file": "packages/react/src/Accordion.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "expandedIds",
+          "marker": "isExpandedIdsControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "AnimatedMoment",
+      "file": "packages/react/src/AnimatedMoment.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "AuditEvent",
+      "file": "packages/react/src/AuditEvent.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Avatar",
+      "file": "packages/react/src/Avatar.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "BiometricPrompt",
+      "file": "packages/react/src/BiometricPrompt.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Breadcrumbs",
+      "file": "packages/react/src/Breadcrumbs.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardExpiryInput",
+      "file": "packages/react/src/CardExpiryInput.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardNumberInput",
+      "file": "packages/react/src/CardNumberInput.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSecurityCodeInput",
+      "file": "packages/react/src/CardSecurityCodeInput.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CardSummary",
+      "file": "packages/react/src/CardSummary.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Checkbox",
+      "file": "packages/react/src/Checkbox.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "checked",
+          "marker": "isCheckedControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CodeInput",
+      "file": "packages/react/src/CodeInput.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Combobox",
+      "file": "packages/react/src/Combobox.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": true,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CountrySelector",
+      "file": "packages/react/src/CountrySelector.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": true,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "DatePicker",
+      "file": "packages/react/src/DatePicker.js",
+      "openControlled": {
+        "contractControlled": true,
+        "sourceControlled": true,
+        "testCovered": true
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "DateRangePicker",
+      "file": "packages/react/src/DateRangePicker.js",
+      "openControlled": {
+        "contractControlled": true,
+        "sourceControlled": true,
+        "testCovered": true
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "openControlled": {
+        "contractControlled": true,
+        "sourceControlled": true,
+        "testCovered": true
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "openControlled": {
+        "contractControlled": true,
+        "sourceControlled": true,
+        "testCovered": true
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "EmptyState",
+      "file": "packages/react/src/EmptyState.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "InlineValidation",
+      "file": "packages/react/src/InlineValidation.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Input",
+      "file": "packages/react/src/Input.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "List",
+      "file": "packages/react/src/List.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "selectedKey",
+          "marker": "isSelectedKeyControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "openControlled": {
+        "contractControlled": true,
+        "sourceControlled": true,
+        "testCovered": true
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "MotionBoundary",
+      "file": "packages/react/src/MotionBoundary.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Pagination",
+      "file": "packages/react/src/Pagination.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "page",
+          "marker": "isPageControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "PhoneInput",
+      "file": "packages/react/src/PhoneInput.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "openControlled": {
+        "contractControlled": true,
+        "sourceControlled": true,
+        "testCovered": true
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ProgressIndicator",
+      "file": "packages/react/src/ProgressIndicator.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "QuickAction",
+      "file": "packages/react/src/QuickAction.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "RadioButton",
+      "file": "packages/react/src/RadioButton.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "checked",
+          "marker": "isCheckedControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "SegmentedControl",
+      "file": "packages/react/src/SegmentedControl.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "selectedKey",
+          "marker": "isSelectedKeyControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Select",
+      "file": "packages/react/src/Select.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": true,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Skeleton",
+      "file": "packages/react/src/Skeleton.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Slider",
+      "file": "packages/react/src/Slider.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Spinner",
+      "file": "packages/react/src/Spinner.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "StationPin",
+      "file": "packages/react/src/StationPin.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Stepper",
+      "file": "packages/react/src/Stepper.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Switch",
+      "file": "packages/react/src/Switch.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "checked",
+          "marker": "isCheckedControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "selectedKey",
+          "marker": "isSelectedKeyControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        },
+        {
+          "prop": "sortKey",
+          "marker": "isSortControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        },
+        {
+          "prop": "expandedKey",
+          "marker": "isExpandedKeyControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tabs",
+      "file": "packages/react/src/Tabs.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "selectedKey",
+          "marker": "isSelectedKeyControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "TextArea",
+      "file": "packages/react/src/TextArea.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "openControlled": {
+        "contractControlled": true,
+        "sourceControlled": true,
+        "testCovered": true
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "TreeView",
+      "file": "packages/react/src/TreeView.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "selectedKey",
+          "marker": "isSelectedKeyControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    }
+  ]
+}
