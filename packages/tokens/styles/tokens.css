@@ -389,6 +389,9 @@
   --ref-frame-content-narrow: 640px;
   --ref-frame-content-max: 1440px;
   --ref-frame-content-dialog: 480px;
+  --ref-frame-content-drawer-sm: 672px;
+  --ref-frame-content-drawer-md: 736px;
+  --ref-frame-content-drawer-lg: 800px;
   --ref-frame-border-thin: 1px;
   --ref-frame-border-control: 1.5px;
   --ref-frame-border-medium: 2px;
@@ -507,6 +510,9 @@
   --sys-frame-border-medium: var(--ref-frame-border-medium);
   --sys-frame-border-indicator: var(--ref-frame-border-indicator);
   --sys-frame-content-dialog: var(--ref-frame-content-dialog);
+  --sys-frame-content-drawer-sm: min(68vw, var(--ref-frame-content-drawer-sm));
+  --sys-frame-content-drawer-md: min(72vw, var(--ref-frame-content-drawer-md));
+  --sys-frame-content-drawer-lg: min(82vw, var(--ref-frame-content-drawer-lg));
   --sys-frame-content-narrow: 100%;
   --sys-frame-content-prose: 100%;
   --sys-frame-content-prose-wide: 100%;

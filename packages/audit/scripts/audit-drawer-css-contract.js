@@ -23,6 +23,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "--comp-drawer-panel-border-width: var(--component-border-width)",
+      "--comp-drawer-panel-inline: var(--component-drawer-panel-inline-md)",
       "--comp-drawer-panel-padding:",
       "--comp-drawer-footer-border-width: var(--component-border-width)",
       "--comp-drawer-z-index: var(--sys-depth-z-dialog)",
@@ -39,6 +40,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "border: var(--comp-drawer-panel-border-width) solid var(--comp-drawer-panel-border)",
       "animation: drawer-enter var(--comp-drawer-enter-duration) var(--comp-drawer-enter-ease)",
       "gap: var(--comp-drawer-panel-gap)",
+      "inline-size: min(var(--comp-drawer-panel-inline), 92vw)",
       "padding: var(--comp-drawer-panel-padding)",
     ],
     message: "Drawer panel must consume Drawer frame and enter motion aliases.",
@@ -48,7 +50,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-drawer-panel-inline: min(68vw, 42rem)",
+      "--comp-drawer-panel-inline: var(--component-drawer-panel-inline-sm)",
       "--comp-drawer-panel-padding: var(--sys-space-xl)",
       "--comp-drawer-title-font-size: var(--component-font-size-title-md)",
     ],
@@ -59,7 +61,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-drawer-panel-inline: min(82vw, 50rem)",
+      "--comp-drawer-panel-inline: var(--component-drawer-panel-inline-lg)",
       "--comp-drawer-panel-gap: var(--sys-space-lg)",
       "--comp-drawer-title-font-size: var(--component-font-size-display-sm)",
     ],
@@ -86,6 +88,10 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
   }
   if (/--comp-drawer-z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text) || /z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text)) {
     add("errors", packageCssFile, 1, "Drawer z-index must come directly from Depth tokens without literal fallbacks.");
+  }
+  const rawPanelInline = text.match(/--comp-drawer-panel-inline:\s*min\([^;]*(?:rem|vw)/);
+  if (rawPanelInline) {
+    add("errors", packageCssFile, lineNumber(text, rawPanelInline.index), "Drawer panel inline sizes must flow through Frame drawer content roles instead of local viewport/rem values.");
   }
 }
 

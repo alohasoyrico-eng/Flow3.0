@@ -31,6 +31,9 @@
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
   --component-content-size-lg: calc(var(--component-control-min-size) * 12);
   --component-content-size-xl: var(--sys-frame-content-dialog);
+  --component-drawer-panel-inline-sm: var(--sys-frame-content-drawer-sm);
+  --component-drawer-panel-inline-md: var(--sys-frame-content-drawer-md);
+  --component-drawer-panel-inline-lg: var(--sys-frame-content-drawer-lg);
   --component-menu-panel-min-inline-sm: var(--sys-frame-content-menu-min-sm);
   --component-menu-panel-min-inline-md: var(--sys-frame-content-menu-min-md);
   --component-menu-panel-min-inline-lg: var(--sys-frame-content-menu-min-lg);
@@ -5557,7 +5560,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-drawer-panel-radius: var(--sys-frame-radius-surface);
   --comp-drawer-panel-color: var(--sys-color-text);
   --comp-drawer-panel-depth: var(--component-depth-panel-strong);
-  --comp-drawer-panel-inline: min(72vw, 46rem);
+  --comp-drawer-panel-inline: var(--component-drawer-panel-inline-md);
   --comp-drawer-panel-padding: calc(var(--sys-space-xl) + var(--sys-space-md));
   --comp-drawer-panel-gap: var(--sys-space-md);
   --comp-drawer-title-font-family: var(--sys-font-title);
@@ -6034,14 +6037,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .drawer[data-density="sm"] {
-  --comp-drawer-panel-inline: min(68vw, 42rem);
+  --comp-drawer-panel-inline: var(--component-drawer-panel-inline-sm);
   --comp-drawer-panel-padding: var(--sys-space-xl);
   --comp-drawer-panel-gap: var(--sys-space-sm);
   --comp-drawer-title-font-size: var(--component-font-size-title-md);
 }
 
 .drawer[data-density="lg"] {
-  --comp-drawer-panel-inline: min(82vw, 50rem);
+  --comp-drawer-panel-inline: var(--component-drawer-panel-inline-lg);
   --comp-drawer-panel-padding: calc(var(--sys-space-xl) + var(--sys-space-lg));
   --comp-drawer-panel-gap: var(--sys-space-lg);
   --comp-drawer-title-font-size: var(--component-font-size-display-sm);
