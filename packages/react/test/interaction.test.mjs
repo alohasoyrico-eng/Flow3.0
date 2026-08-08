@@ -1884,6 +1884,22 @@ try {
   await waitFor(() => assert.equal(switchInput.getAttribute("aria-checked"), "false"));
   fireEvent.click(getSwitchRole("switch", { name: /enable notifications/i }));
   assert.equal(switchChanges.length, 1);
+  rerenderSwitch(React.createElement(Switch, {
+    label: "Enable notifications",
+    name: "notifications",
+    checked: false,
+    onCheckedChange: (checked, meta, event) => switchChanges.push({ checked, meta, eventType: event.type }),
+  }));
+  fireEvent.click(switchInput);
+  assert.deepEqual(switchChanges.at(-1), { checked: true, meta: { name: "notifications" }, eventType: "change" });
+  await waitFor(() => assert.equal(switchInput.getAttribute("aria-checked"), "false"));
+  rerenderSwitch(React.createElement(Switch, {
+    label: "Enable notifications",
+    name: "notifications",
+    checked: true,
+    onCheckedChange: (checked, meta, event) => switchChanges.push({ checked, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(switchInput.getAttribute("aria-checked"), "true"));
 
   cleanup();
 

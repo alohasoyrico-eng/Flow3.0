@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useState } from "react";
 import { switchPlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps } from "./internal/props.js";
 
@@ -25,19 +25,16 @@ export const Switch = forwardRef(function Switch({
   ...rest
 }, ref) {
   const isCheckedControlled = checked !== undefined;
-  const [currentChecked, setCurrentChecked] = useState(Boolean(checked));
+  const [internalChecked, setInternalChecked] = useState(Boolean(checked));
+  const currentChecked = isCheckedControlled ? Boolean(checked) : internalChecked;
   const normalizedState = normalizeState({ checked: currentChecked, disabled, state, error });
   const isInvalid = normalizedState === "error" || Boolean(error);
   if (!label) return null;
 
-  useEffect(() => {
-    if (isCheckedControlled) setCurrentChecked(Boolean(checked));
-  }, [checked, isCheckedControlled]);
-
   const handleChange = (event) => {
     if (disabled) return;
     const nextChecked = event.currentTarget.checked;
-    if (!isCheckedControlled) setCurrentChecked(nextChecked);
+    if (!isCheckedControlled) setInternalChecked(nextChecked);
     onCheckedChange?.(nextChecked, { name }, event);
   };
 
