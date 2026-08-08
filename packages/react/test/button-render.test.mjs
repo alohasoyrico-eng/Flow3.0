@@ -612,6 +612,14 @@ const incompleteAccordionMarkup = renderToStaticMarkup(React.createElement(Accor
   items: [{ id: "ghost", content: "Panel" }],
 }));
 assert.doesNotMatch(incompleteAccordionMarkup, /accordion__item|data-accordion-trigger/);
+const labelAliasAccordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
+  items: [{ id: "ghost", label: "Alias title", content: "Panel" }],
+}));
+assert.doesNotMatch(labelAliasAccordionMarkup, /accordion__item|data-accordion-trigger|Alias title/);
+const descriptionAliasAccordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
+  items: [{ id: "ghost", title: "Documents", description: "Alias panel", open: true }],
+}));
+assert.doesNotMatch(descriptionAliasAccordionMarkup, /Alias panel/);
 const unnamedAccordionItemMarkup = renderToStaticMarkup(React.createElement(Accordion, {
   items: [{ id: "empty", ariaLabel: "Consumer section", content: "Panel" }],
 }));

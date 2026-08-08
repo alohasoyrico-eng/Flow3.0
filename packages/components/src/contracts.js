@@ -600,6 +600,7 @@ export const componentContracts = {
       "Use buttons for section triggers.",
       "Connect triggers and panels with aria-controls and aria-labelledby.",
       "Require stable item ids before composing triggers and panels.",
+      "Use title and content as the only AccordionItem title and panel sources; do not alias label or description.",
       "Expose open state with aria-expanded."
     ]
   },

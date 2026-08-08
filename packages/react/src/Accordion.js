@@ -10,20 +10,21 @@ function hasStableItemId(item) {
 
 function normalizeItems(items) {
   const sourceItems = Array.isArray(items) ? items : [];
-  return sourceItems.filter((item) => (item?.title || item?.label) && hasStableItemId(item)).map((item) => ({
+  return sourceItems.filter((item) => item?.title && hasStableItemId(item)).map((item) => ({
     ...item,
     id: String(item.id),
-    title: item.title ?? item.label ?? "",
+    title: item.title,
     ariaLabel: item.ariaLabel ?? item["aria-label"],
-    content: item.content ?? item.description ?? "",
+    content: item.content,
     open: Boolean(item.open),
   }));
 }
 
 function renderContent(content) {
+  if (content === undefined || content === null) return null;
   if (React.isValidElement(content)) return content;
   if (Array.isArray(content)) return content;
-  return String(content ?? "");
+  return String(content);
 }
 
 export const Accordion = forwardRef(function Accordion({
