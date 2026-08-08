@@ -3,8 +3,8 @@
 Status: pass
 
 - Components: 56
-- Direct contracts: 46
-- Family contracts: 10
+- Direct contracts: 47
+- Family contracts: 9
 - Missing contracts: 0
 - Direct root gaps: 0
 - Family root gaps: 0
@@ -18,7 +18,7 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | --- | --- | --- | --- |
 | choice | choice | checkbox, radio | checkbox, radio-button |
 | date-picker | date-picker | date-range-picker, field | date-range-picker |
-| field | field | card-expiry-input, card-number-input, card-security-code-input, phone-input, text-area | input, text-area, phone-input, card-number-input, card-expiry-input, card-security-code-input |
+| field | field | card-expiry-input, card-number-input, card-security-code-input, text-area | input, text-area, card-number-input, card-expiry-input, card-security-code-input |
 | select | select-control | combobox, field | combobox |
 
 ## Direct Root Gaps
@@ -77,7 +77,7 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | station-pin | direct | station-pin | station-pin | true | n/a | None |
 | route-summary | direct | route-summary | route-summary | true | n/a | None |
 | code-input | direct | code-input | code-input | true | n/a | None |
-| phone-input | family | field | field | true | phone-input | None |
+| phone-input | direct | phone-input | phone-input | true | n/a | None |
 | card-number-input | family | field | field | true | card-number-input | None |
 | card-expiry-input | family | field | field | true | card-expiry-input | None |
 | card-security-code-input | family | field | field | true | card-security-code-input | None |

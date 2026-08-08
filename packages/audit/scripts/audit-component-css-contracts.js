@@ -32,6 +32,7 @@ const { checkMenuCssContract } = require("./audit-menu-css-contract.js");
 const { checkMotionBoundaryCssContract } = require("./audit-motion-boundary-css-contract.js");
 const { checkMovementRowCssContract } = require("./audit-movement-row-css-contract.js");
 const { checkPaginationCssContract } = require("./audit-pagination-css-contract.js");
+const { checkPhoneInputCssContract } = require("./audit-phone-input-css-contract.js");
 const { checkPopoverCssContract } = require("./audit-popover-css-contract.js");
 const { checkProgressIndicatorCssContract } = require("./audit-progress-indicator-css-contract.js");
 const { checkQuickActionCssContract } = require("./audit-quick-action-css-contract.js");
@@ -56,7 +57,6 @@ const familyCssContracts = {
   "radio-button": { contract: "choice", requiredRoot: "choice", allowedExtensionRoots: ["radio"] },
   input: { contract: "field", requiredRoot: "field", allowedExtensionRoots: [] },
   "text-area": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["text-area"] },
-  "phone-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["phone-input"] },
   "card-number-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-number-input"] },
   "card-expiry-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-expiry-input"] },
   "card-security-code-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-security-code-input"] },
@@ -225,6 +225,7 @@ function checkComponentCssContracts(context) {
   checkMotionBoundaryCssContract(context);
   checkMovementRowCssContract(context);
   checkPaginationCssContract(context);
+  checkPhoneInputCssContract(context);
   checkPopoverCssContract(context);
   checkProgressIndicatorCssContract(context);
   checkQuickActionCssContract(context);

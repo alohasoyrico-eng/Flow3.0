@@ -7,8 +7,8 @@
     "aliasCount": 40
   },
   "inventory": {
-    "familyComponents": 10,
-    "reviewCandidates": 5
+    "familyComponents": 9,
+    "reviewCandidates": 4
   },
   "reviewCandidates": [
     {
@@ -63,25 +63,6 @@
       "recommendation": "review-for-direct-contract",
       "reasons": [
         "component aliases 60 >= 40"
-      ]
-    },
-    {
-      "component": "phone-input",
-      "familyContract": "field",
-      "requiredRoot": "field",
-      "extensionRoots": [
-        "phone-input"
-      ],
-      "ownExtensionRoots": [
-        "phone-input"
-      ],
-      "sharedExtensionRoots": [],
-      "selectorCount": 38,
-      "aliasCount": 52,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "selector surface 38 >= 20",
-        "component aliases 52 >= 40"
       ]
     },
     {
@@ -190,25 +171,6 @@
       "recommendation": "review-for-direct-contract",
       "reasons": [
         "component aliases 60 >= 40"
-      ]
-    },
-    {
-      "component": "phone-input",
-      "familyContract": "field",
-      "requiredRoot": "field",
-      "extensionRoots": [
-        "phone-input"
-      ],
-      "ownExtensionRoots": [
-        "phone-input"
-      ],
-      "sharedExtensionRoots": [],
-      "selectorCount": 38,
-      "aliasCount": 52,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "selector surface 38 >= 20",
-        "component aliases 52 >= 40"
       ]
     },
     {

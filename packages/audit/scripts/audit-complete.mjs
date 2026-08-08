@@ -105,6 +105,7 @@ const expectedAuditFiles = new Set([
   "audit-package-css-contracts.js",
   "audit-package-css-namespace.js",
   "audit-pagination-css-contract.js",
+  "audit-phone-input-css-contract.js",
   "audit-pattern-contracts.js",
   "audit-platform.js",
   "audit-popover-css-contract.js",
