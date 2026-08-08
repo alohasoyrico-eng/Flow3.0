@@ -842,74 +842,126 @@
 }
 
 .button {
-  align-items: center;
-  border: var(--component-border-width) solid transparent;
-  border-radius: var(--component-radius-pill);
-  cursor: pointer;
-  display: inline-flex;
-  font-weight: var(--sys-voice-weight-bold);
-  gap: var(--sys-space-sm);
-  justify-content: center;
-  font-size: var(--button-current-font-size, var(--comp-button-font-size));
-  min-block-size: var(--button-current-size, var(--comp-button-size));
-  min-height: var(--button-current-size, var(--comp-button-size));
-  padding: 0 var(--button-current-padding, var(--comp-button-padding));
-  transition:
-    background-color var(--component-duration-state) var(--component-ease-state),
-    border-color var(--component-duration-state) var(--component-ease-state),
-    box-shadow var(--component-duration-state) var(--component-ease-state),
-    color var(--component-duration-state) var(--component-ease-state),
-    transform var(--component-duration-press) var(--component-ease-press);
+  --comp-button-align: center;
+  --comp-button-current-size: var(--comp-button-size);
+  --comp-button-current-padding: var(--comp-button-padding);
+  --comp-button-current-icon-size: var(--comp-button-icon-size);
+  --comp-button-current-font-size: var(--comp-button-font-size);
+  --comp-button-border-color: transparent;
+  --comp-button-border: var(--component-border-width) solid var(--comp-button-border-color);
+  --comp-button-radius: var(--component-radius-pill);
+  --comp-button-cursor: pointer;
+  --comp-button-display: inline-flex;
+  --comp-button-font-weight: var(--sys-voice-weight-bold);
+  --comp-button-gap: var(--sys-space-sm);
+  --comp-button-justify: center;
+  --comp-button-full-width: 100%;
+  --comp-button-focus-ring: var(--component-focus-ring);
+  --comp-button-focus-offset: var(--component-focus-ring-offset);
+  --comp-button-hover-shadow: var(--component-depth-raised);
+  --comp-button-hover-transform: var(--component-transform-lift-hover);
+  --comp-button-press-transform: var(--component-transform-press);
+  --comp-button-disabled-cursor: not-allowed;
+  --comp-button-disabled-opacity: var(--sys-disabled-readable-opacity);
+  --comp-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
+  --comp-button-spinner-tone: currentColor;
+  --comp-button-icon-color: currentColor;
+  --comp-button-bg-primary: var(--sys-color-action);
+  --comp-button-fg-primary: var(--sys-color-action-text);
+  --comp-button-bg-primary-hover: var(--sys-color-action-hover);
+  --comp-button-bg-secondary: var(--sys-color-surface);
+  --comp-button-border-secondary: var(--sys-color-text);
+  --comp-button-fg-secondary: var(--sys-color-text);
+  --comp-button-bg-secondary-hover: var(--sys-color-surface-raised);
+  --comp-button-border-secondary-hover: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
+  --comp-button-bg-danger: var(--sys-color-danger);
+  --comp-button-fg-danger: var(--sys-color-action-text);
+  --comp-button-bg-tertiary: var(--sys-color-surface-raised);
+  --comp-button-border-tertiary: transparent;
+  --comp-button-fg-tertiary: var(--sys-color-text);
+  --comp-button-bg-tertiary-hover: var(--sys-color-surface);
+  --comp-button-border-tertiary-hover: color-mix(in srgb, var(--sys-color-action) 18%, transparent);
+  --comp-button-bg-outlined: var(--sys-color-surface);
+  --comp-button-border-outlined: var(--sys-color-border);
+  --comp-button-fg-outlined: var(--sys-color-text);
+  --comp-button-border-outlined-hover: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
+  --comp-button-bg-ghost: transparent;
+  --comp-button-border-ghost: transparent;
+  --comp-button-fg-ghost: var(--sys-color-text);
+  --comp-button-bg-ghost-hover: var(--sys-color-surface-raised);
+  --comp-button-bg-warning: var(--sys-color-warning);
+  --comp-button-fg-warning: var(--sys-color-action-text);
+  --comp-button-bg-danger-secondary: var(--sys-color-surface);
+  --comp-button-border-danger-secondary: var(--sys-color-danger);
+  --comp-button-fg-danger-secondary: var(--sys-color-danger);
+  align-items: var(--comp-button-align);
+  border: var(--comp-button-border);
+  border-radius: var(--comp-button-radius);
+  cursor: var(--comp-button-cursor);
+  display: var(--comp-button-display);
+  font-size: var(--comp-button-current-font-size);
+  font-weight: var(--comp-button-font-weight);
+  gap: var(--comp-button-gap);
+  justify-content: var(--comp-button-justify);
+  min-block-size: var(--comp-button-current-size);
+  min-height: var(--comp-button-current-size);
+  padding: 0 var(--comp-button-current-padding);
+  transition: var(--comp-button-transition);
 }
 
 .button[data-density="sm"] {
-  --button-current-size: var(--comp-button-size-sm);
-  --button-current-padding: var(--comp-button-padding-sm);
-  --button-current-icon-size: var(--comp-button-icon-size-sm);
-  --button-current-font-size: var(--component-font-size-small);
-  font-size: var(--component-font-size-small);
+  --comp-button-current-size: var(--comp-button-size-sm);
+  --comp-button-current-padding: var(--comp-button-padding-sm);
+  --comp-button-current-icon-size: var(--comp-button-icon-size-sm);
+  --comp-button-current-font-size: var(--component-font-size-small);
 }
 
 .button[data-density="md"] {
-  --button-current-size: var(--comp-button-size-md);
-  --button-current-padding: var(--comp-button-padding-md);
-  --button-current-icon-size: var(--comp-button-icon-size-md);
-  --button-current-font-size: var(--component-font-size-label);
-  font-size: var(--component-font-size-label);
+  --comp-button-current-size: var(--comp-button-size-md);
+  --comp-button-current-padding: var(--comp-button-padding-md);
+  --comp-button-current-icon-size: var(--comp-button-icon-size-md);
+  --comp-button-current-font-size: var(--component-font-size-label);
 }
 
 .button[data-density="lg"] {
-  --button-current-size: var(--comp-button-size-lg);
-  --button-current-padding: var(--comp-button-padding-lg);
-  --button-current-icon-size: var(--comp-button-icon-size-lg);
-  --button-current-font-size: var(--component-font-size-body);
-  font-size: var(--component-font-size-body);
+  --comp-button-current-size: var(--comp-button-size-lg);
+  --comp-button-current-padding: var(--comp-button-padding-lg);
+  --comp-button-current-icon-size: var(--comp-button-icon-size-lg);
+  --comp-button-current-font-size: var(--component-font-size-body);
 }
 
 .button[data-full-width="true"] {
-  inline-size: 100%;
+  inline-size: var(--comp-button-full-width);
 }
 
-.button:focus-visible,
 .icon-button:focus-visible,
 .text-area:focus-visible {
   outline: var(--component-focus-ring);
   outline-offset: var(--component-focus-ring-offset);
 }
 
+.button:focus-visible {
+  outline: var(--comp-button-focus-ring);
+  outline-offset: var(--comp-button-focus-offset);
+}
+
 .button:hover:not(:disabled) {
-  box-shadow: var(--component-depth-raised);
-  transform: var(--component-transform-lift-hover);
+  box-shadow: var(--comp-button-hover-shadow);
+  transform: var(--comp-button-hover-transform);
 }
 
 .button:active:not(:disabled) {
-  transform: var(--component-transform-press);
+  transform: var(--comp-button-press-transform);
 }
 
-.button:disabled,
 .icon-button:disabled {
   cursor: not-allowed;
   opacity: var(--sys-disabled-readable-opacity);
+}
+
+.button:disabled {
+  cursor: var(--comp-button-disabled-cursor);
+  opacity: var(--comp-button-disabled-opacity);
 }
 
 .button__icon,
@@ -948,84 +1000,84 @@
 }
 
 .button__icon {
-  color: currentColor;
-  font-size: var(--button-current-icon-size, var(--comp-button-icon-size));
+  color: var(--comp-button-icon-color);
+  font-size: var(--comp-button-current-icon-size);
 }
 
 .button .spinner {
-  --comp-spinner-tone: currentColor;
+  --comp-spinner-tone: var(--comp-button-spinner-tone);
 }
 
 .button--primary {
-  background: var(--sys-color-action);
-  color: var(--sys-color-action-text);
+  background: var(--comp-button-bg-primary);
+  color: var(--comp-button-fg-primary);
 }
 
 .button--primary:hover:not(:disabled) {
-  background: var(--sys-color-action-hover);
+  background: var(--comp-button-bg-primary-hover);
 }
 
 .button--secondary {
-  background: var(--sys-color-surface);
-  border-color: var(--sys-color-text);
-  color: var(--sys-color-text);
+  background: var(--comp-button-bg-secondary);
+  border-color: var(--comp-button-border-secondary);
+  color: var(--comp-button-fg-secondary);
 }
 
 .button--secondary:hover:not(:disabled) {
-  background: var(--sys-color-surface-raised);
-  border-color: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
+  background: var(--comp-button-bg-secondary-hover);
+  border-color: var(--comp-button-border-secondary-hover);
 }
 
 .button--danger {
-  background: var(--sys-color-danger);
-  color: var(--sys-color-action-text);
+  background: var(--comp-button-bg-danger);
+  color: var(--comp-button-fg-danger);
 }
 
 .button--tertiary {
-  background: var(--sys-color-surface-raised);
-  border-color: transparent;
-  color: var(--sys-color-text);
+  background: var(--comp-button-bg-tertiary);
+  border-color: var(--comp-button-border-tertiary);
+  color: var(--comp-button-fg-tertiary);
 }
 
 .button--tertiary:hover:not(:disabled) {
-  background: var(--sys-color-surface);
-  border-color: color-mix(in srgb, var(--sys-color-action) 18%, transparent);
+  background: var(--comp-button-bg-tertiary-hover);
+  border-color: var(--comp-button-border-tertiary-hover);
 }
 
 .button--outlined {
-  background: var(--sys-color-surface);
-  border-color: var(--sys-color-border);
-  color: var(--sys-color-text);
+  background: var(--comp-button-bg-outlined);
+  border-color: var(--comp-button-border-outlined);
+  color: var(--comp-button-fg-outlined);
 }
 
 .button--outlined:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
+  border-color: var(--comp-button-border-outlined-hover);
 }
 
 .button--ghost {
-  background: transparent;
-  border-color: transparent;
-  color: var(--sys-color-text);
+  background: var(--comp-button-bg-ghost);
+  border-color: var(--comp-button-border-ghost);
+  color: var(--comp-button-fg-ghost);
 }
 
 .button--ghost:hover:not(:disabled) {
-  background: var(--sys-color-surface-raised);
+  background: var(--comp-button-bg-ghost-hover);
 }
 
 .button--warning {
-  background: var(--sys-color-warning);
-  color: var(--sys-color-action-text);
+  background: var(--comp-button-bg-warning);
+  color: var(--comp-button-fg-warning);
 }
 
 .button--danger.button--secondary,
 .button--danger.button--outlined {
-  background: var(--sys-color-surface);
-  border-color: var(--sys-color-danger);
-  color: var(--sys-color-danger);
+  background: var(--comp-button-bg-danger-secondary);
+  border-color: var(--comp-button-border-danger-secondary);
+  color: var(--comp-button-fg-danger-secondary);
 }
 
 .button[data-state="pressed"]:not(:disabled) {
-  transform: var(--component-transform-press);
+  transform: var(--comp-button-press-transform);
 }
 
 .icon-button {

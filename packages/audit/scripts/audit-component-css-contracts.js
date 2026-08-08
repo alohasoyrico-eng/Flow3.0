@@ -3,6 +3,7 @@ const { checkAuditEventCssContract } = require("./audit-audit-event-css-contract
 const { checkAvatarCssContract } = require("./audit-avatar-css-contract.js");
 const { checkBadgeCssContract } = require("./audit-badge-css-contract.js");
 const { checkBreadcrumbsCssContract } = require("./audit-breadcrumbs-css-contract.js");
+const { checkButtonCssContract } = require("./audit-button-css-contract.js");
 const { checkCardCssContract } = require("./audit-card-css-contract.js");
 const { checkCardSummaryCssContract } = require("./audit-card-summary-css-contract.js");
 const { checkChartPanelCssContract } = require("./audit-chart-panel-css-contract.js");
@@ -41,6 +42,7 @@ function checkComponentCssContracts(context) {
   checkAvatarCssContract(context);
   checkBadgeCssContract(context);
   checkBreadcrumbsCssContract(context);
+  checkButtonCssContract(context);
   checkCardCssContract(context);
   checkCardSummaryCssContract(context);
   checkChartPanelCssContract(context);

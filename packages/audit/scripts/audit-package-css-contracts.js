@@ -137,19 +137,19 @@ function checkPackageCssContracts() {
   const buttonSmBlock = blocks.find((block) => block.selector === ".button[data-density=\"sm\"]");
   const buttonLgBlock = blocks.find((block) => block.selector === ".button[data-density=\"lg\"]");
   const buttonIconBlock = blocks.find((block) => block.selector === ".button__icon");
-  if (!buttonBlock?.body.includes("min-block-size: var(--button-current-size, var(--comp-button-size))")) {
+  if (!buttonBlock?.body.includes("min-block-size: var(--comp-button-current-size)")) {
     add("errors", packageCssFile, buttonBlock ? lineNumber(text, buttonBlock.index) : 1, "Button block size must follow its density-owned size token.");
   }
-  if (!buttonBlock?.body.includes("min-height: var(--button-current-size, var(--comp-button-size))")) {
+  if (!buttonBlock?.body.includes("min-height: var(--comp-button-current-size)")) {
     add("errors", packageCssFile, buttonBlock ? lineNumber(text, buttonBlock.index) : 1, "Button physical fallback height must follow the same density-owned size token.");
   }
-  if (!buttonSmBlock?.body.includes("--button-current-size: var(--comp-button-size-sm)") || !buttonLgBlock?.body.includes("--button-current-size: var(--comp-button-size-lg)")) {
-    add("errors", packageCssFile, 1, "Button sm and lg densities must set --button-current-size from comp Button size tokens.");
+  if (!buttonSmBlock?.body.includes("--comp-button-current-size: var(--comp-button-size-sm)") || !buttonLgBlock?.body.includes("--comp-button-current-size: var(--comp-button-size-lg)")) {
+    add("errors", packageCssFile, 1, "Button sm and lg densities must set --comp-button-current-size from comp Button size tokens.");
   }
   if (!text.includes("--comp-button-size: var(--sys-density-control-height)") || !text.includes("--comp-button-padding: var(--sys-density-control-padding-x)")) {
     add("errors", packageCssFile, 1, "Button base geometry must inherit from sys-density aliases instead of a fixed md size.");
   }
-  if (!buttonIconBlock?.body.includes("font-size: var(--button-current-icon-size, var(--comp-button-icon-size))")) {
+  if (!buttonIconBlock?.body.includes("font-size: var(--comp-button-current-icon-size)")) {
     add("errors", packageCssFile, buttonIconBlock ? lineNumber(text, buttonIconBlock.index) : 1, "Button icon size must follow the current density token.");
   }
   if (/\.button,\s*\n[\s\S]{0,160}?min-block-size:\s*var\(--component-control-min-size\)/.test(text)) {

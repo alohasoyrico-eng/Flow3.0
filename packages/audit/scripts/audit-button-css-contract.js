@@ -1,0 +1,176 @@
+const fs = require("fs");
+const path = require("path");
+const { add, lineNumber } = require("./audit-context.js");
+
+function blockFor(blocks, selectorKey, selector) {
+  return blocks.find((block) => selectorKey(block) === selector);
+}
+
+function requireIncludes({ block, text, packageCssFile, snippets, message }) {
+  if (block && snippets.every((snippet) => block.body.includes(snippet))) return;
+  add("errors", packageCssFile, block ? lineNumber(text, block.index) : 1, message);
+}
+
+function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
+  const sourceFile = path.join(root || process.cwd(), "packages/react/src/Button.js");
+  const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
+  const rootBlock = blockFor(blocks, selectorKey, ".button");
+  const smBlock = blockFor(blocks, selectorKey, ".button[data-density=\"sm\"]");
+  const mdBlock = blockFor(blocks, selectorKey, ".button[data-density=\"md\"]");
+  const lgBlock = blockFor(blocks, selectorKey, ".button[data-density=\"lg\"]");
+  const fullWidthBlock = blockFor(blocks, selectorKey, ".button[data-full-width=\"true\"]");
+  const focusBlock = blockFor(blocks, selectorKey, ".button:focus-visible");
+  const hoverBlock = blockFor(blocks, selectorKey, ".button:hover:not(:disabled)");
+  const activeBlock = blockFor(blocks, selectorKey, ".button:active:not(:disabled)");
+  const disabledBlock = blockFor(blocks, selectorKey, ".button:disabled");
+  const iconBlock = blockFor(blocks, selectorKey, ".button__icon");
+  const spinnerBlock = blockFor(blocks, selectorKey, ".button .spinner");
+  const pressedBlock = blockFor(blocks, selectorKey, ".button[data-state=\"pressed\"]:not(:disabled)");
+
+  if (
+    !source.includes("forwardRef") ||
+    !source.includes("buttonPlatformContract") ||
+    !source.includes("flowDensityProps(density)") ||
+    !source.includes("flowStateProps(resolvedState)")
+  ) {
+    add("errors", sourceFile, 1, "Button must expose a real React ref contract, platform contract, density, and state props.");
+  }
+  if (!source.includes("if (!buttonLabel) return null;") || !source.includes("React.createElement(Spinner") || !source.includes("decorative: true")) {
+    add("errors", sourceFile, 1, "Button must avoid empty buttons and compose Spinner through React for loading.");
+  }
+  if (!source.includes("disabled: resolvedState === \"disabled\" || resolvedState === \"loading\"") || !source.includes("\"aria-busy\": resolvedState === \"loading\" ? \"true\" : undefined")) {
+    add("errors", sourceFile, 1, "Button must keep disabled/loading semantics in React.");
+  }
+  if (text.includes("--button-current-")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--button-current-")), "Button must not use short --button-current-* aliases; density belongs in the component namespace.");
+  }
+  if (blockFor(blocks, selectorKey, ".button:focus-visible,.icon-button:focus-visible,.text-area:focus-visible")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf(".button:focus-visible")), "Button focus must not share a CSS block with IconButton or TextArea.");
+  }
+  if (blockFor(blocks, selectorKey, ".button:disabled,.icon-button:disabled")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf(".button:disabled")), "Button disabled state must not share a CSS block with IconButton.");
+  }
+
+  requireIncludes({
+    block: rootBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-button-current-size: var(--comp-button-size)",
+      "--comp-button-current-padding: var(--comp-button-padding)",
+      "--comp-button-current-icon-size: var(--comp-button-icon-size)",
+      "--comp-button-current-font-size: var(--comp-button-font-size)",
+      "--comp-button-border: var(--component-border-width) solid var(--comp-button-border-color)",
+      "--comp-button-focus-ring: var(--component-focus-ring)",
+      "--comp-button-disabled-opacity: var(--sys-disabled-readable-opacity)",
+      "--comp-button-transition:",
+      "align-items: var(--comp-button-align)",
+      "border: var(--comp-button-border)",
+      "border-radius: var(--comp-button-radius)",
+      "cursor: var(--comp-button-cursor)",
+      "display: var(--comp-button-display)",
+      "font-size: var(--comp-button-current-font-size)",
+      "font-weight: var(--comp-button-font-weight)",
+      "gap: var(--comp-button-gap)",
+      "min-block-size: var(--comp-button-current-size)",
+      "min-height: var(--comp-button-current-size)",
+      "padding: 0 var(--comp-button-current-padding)",
+      "transition: var(--comp-button-transition)",
+    ],
+    message: "Button root must own and consume aliases for density, frame, voice, layout, focus, disabled, variants, and motion.",
+  });
+  for (const [block, message] of [
+    [smBlock, "Button small density must set component current size, padding, icon, and font aliases."],
+    [mdBlock, "Button medium density must set component current size, padding, icon, and font aliases."],
+    [lgBlock, "Button large density must set component current size, padding, icon, and font aliases."],
+  ]) {
+    requireIncludes({
+      block,
+      text,
+      packageCssFile,
+      snippets: [
+        "--comp-button-current-size:",
+        "--comp-button-current-padding:",
+        "--comp-button-current-icon-size:",
+        "--comp-button-current-font-size:",
+      ],
+      message,
+    });
+  }
+  requireIncludes({
+    block: fullWidthBlock,
+    text,
+    packageCssFile,
+    snippets: ["inline-size: var(--comp-button-full-width)"],
+    message: "Button full-width state must consume width alias.",
+  });
+  requireIncludes({
+    block: focusBlock,
+    text,
+    packageCssFile,
+    snippets: ["outline: var(--comp-button-focus-ring)", "outline-offset: var(--comp-button-focus-offset)"],
+    message: "Button focus-visible state must consume Button accessibility aliases.",
+  });
+  requireIncludes({
+    block: hoverBlock,
+    text,
+    packageCssFile,
+    snippets: ["box-shadow: var(--comp-button-hover-shadow)", "transform: var(--comp-button-hover-transform)"],
+    message: "Button hover state must consume Button depth and motion aliases.",
+  });
+  requireIncludes({
+    block: activeBlock,
+    text,
+    packageCssFile,
+    snippets: ["transform: var(--comp-button-press-transform)"],
+    message: "Button active state must consume Button press alias.",
+  });
+  requireIncludes({
+    block: pressedBlock,
+    text,
+    packageCssFile,
+    snippets: ["transform: var(--comp-button-press-transform)"],
+    message: "Button forced pressed state must consume Button press alias.",
+  });
+  requireIncludes({
+    block: disabledBlock,
+    text,
+    packageCssFile,
+    snippets: ["cursor: var(--comp-button-disabled-cursor)", "opacity: var(--comp-button-disabled-opacity)"],
+    message: "Button disabled state must consume Button disabled aliases.",
+  });
+  requireIncludes({
+    block: iconBlock,
+    text,
+    packageCssFile,
+    snippets: ["color: var(--comp-button-icon-color)", "font-size: var(--comp-button-current-icon-size)"],
+    message: "Button icon must consume Button icon aliases.",
+  });
+  requireIncludes({
+    block: spinnerBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-spinner-tone: var(--comp-button-spinner-tone)"],
+    message: "Button loading spinner must inherit tone through Button alias.",
+  });
+
+  for (const [selector, snippets, message] of [
+    [".button--primary", ["background: var(--comp-button-bg-primary)", "color: var(--comp-button-fg-primary)"], "Button primary variant must consume primary aliases."],
+    [".button--primary:hover:not(:disabled)", ["background: var(--comp-button-bg-primary-hover)"], "Button primary hover must consume primary hover alias."],
+    [".button--secondary", ["background: var(--comp-button-bg-secondary)", "border-color: var(--comp-button-border-secondary)", "color: var(--comp-button-fg-secondary)"], "Button secondary variant must consume secondary aliases."],
+    [".button--secondary:hover:not(:disabled)", ["background: var(--comp-button-bg-secondary-hover)", "border-color: var(--comp-button-border-secondary-hover)"], "Button secondary hover must consume secondary hover aliases."],
+    [".button--danger", ["background: var(--comp-button-bg-danger)", "color: var(--comp-button-fg-danger)"], "Button danger variant must consume danger aliases."],
+    [".button--tertiary", ["background: var(--comp-button-bg-tertiary)", "border-color: var(--comp-button-border-tertiary)", "color: var(--comp-button-fg-tertiary)"], "Button tertiary variant must consume tertiary aliases."],
+    [".button--tertiary:hover:not(:disabled)", ["background: var(--comp-button-bg-tertiary-hover)", "border-color: var(--comp-button-border-tertiary-hover)"], "Button tertiary hover must consume tertiary hover aliases."],
+    [".button--outlined", ["background: var(--comp-button-bg-outlined)", "border-color: var(--comp-button-border-outlined)", "color: var(--comp-button-fg-outlined)"], "Button outlined variant must consume outlined aliases."],
+    [".button--outlined:hover:not(:disabled)", ["border-color: var(--comp-button-border-outlined-hover)"], "Button outlined hover must consume outlined hover alias."],
+    [".button--ghost", ["background: var(--comp-button-bg-ghost)", "border-color: var(--comp-button-border-ghost)", "color: var(--comp-button-fg-ghost)"], "Button ghost variant must consume ghost aliases."],
+    [".button--ghost:hover:not(:disabled)", ["background: var(--comp-button-bg-ghost-hover)"], "Button ghost hover must consume ghost hover alias."],
+    [".button--warning", ["background: var(--comp-button-bg-warning)", "color: var(--comp-button-fg-warning)"], "Button warning variant must consume warning aliases."],
+    [".button--danger.button--secondary,.button--danger.button--outlined", ["background: var(--comp-button-bg-danger-secondary)", "border-color: var(--comp-button-border-danger-secondary)", "color: var(--comp-button-fg-danger-secondary)"], "Button danger secondary/outlined intent must consume danger outline aliases."],
+  ]) {
+    requireIncludes({ block: blockFor(blocks, selectorKey, selector), text, packageCssFile, snippets, message });
+  }
+}
+
+module.exports = { checkButtonCssContract };

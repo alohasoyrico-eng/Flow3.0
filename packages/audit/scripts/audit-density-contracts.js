@@ -12,7 +12,7 @@ const reactSrcDir = path.join(root, "packages/react/src");
 
 const cssDensityContracts = {
   breadcrumbs: { selector: '.breadcrumbs[data-density="sm"]', token: "--comp-breadcrumbs-target-block" },
-  button: { selector: '.button[data-density="sm"]', token: "--button-current-size" },
+  button: { selector: '.button[data-density="sm"]', token: "--comp-button-current-size" },
   card: { selector: '.card[data-density="sm"]', token: "--comp-card-padding" },
   chartPanel: { selector: '.chart-panel[data-density="sm"]', token: "--comp-chart-panel-plot-size" },
   codeInput: { selector: '.code-input[data-density="sm"]', token: "--comp-code-input-slot-block-size-sm" },

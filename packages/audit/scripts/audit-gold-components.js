@@ -339,7 +339,7 @@ function checkGoldComponentTokens() {
     }
   }
 
-  if (!/\.button__icon\s*{[^}]*color:\s*currentColor;[^}]*font-size:\s*var\(--button-current-icon-size,\s*var\(--comp-button-icon-size\)\);/s.test(packageCss)) {
+  if (!/\.button__icon\s*{[^}]*color:\s*var\(--comp-button-icon-color\);[^}]*font-size:\s*var\(--comp-button-current-icon-size\);/s.test(packageCss)) {
     add("errors", packageCssFile, 1, "Button icons must inherit Button density and currentColor from the label.");
   }
 

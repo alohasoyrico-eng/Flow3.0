@@ -30,7 +30,7 @@ function checkSpinnerCssContract({ text, blocks, packageCssFile, selectorKey }) 
     block: buttonSpinnerBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-spinner-tone: currentColor"],
+    snippets: ["--comp-spinner-tone: var(--comp-button-spinner-tone)"],
     message: "Button-hosted Spinner must override the live Spinner component tone alias.",
   });
   requireIncludes({
