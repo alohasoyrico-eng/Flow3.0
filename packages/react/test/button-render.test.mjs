@@ -351,6 +351,15 @@ const unnamedStationPinMarkup = renderToStaticMarkup(React.createElement(Station
   value: "",
 }));
 assert.equal(unnamedStationPinMarkup, "");
+const valueOnlyStationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
+  value: "Open",
+}));
+assert.equal(valueOnlyStationPinMarkup, "");
+const clusterOnlyStationPinMarkup = renderToStaticMarkup(React.createElement(StationPin, {
+  variant: "cluster",
+  count: 6,
+}));
+assert.equal(clusterOnlyStationPinMarkup, "");
 
 const cardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
   label: "Fleet",

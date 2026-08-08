@@ -1212,6 +1212,7 @@ export const componentContracts = {
     ],
     accessibility: [
       "Expose station name in aria-label.",
+      "Require a station label before deriving visible value or map primitive labels.",
       "Do not rely on marker icon alone.",
       "Use map patterns for clustering, routing, and viewport behavior."
     ]
