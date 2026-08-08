@@ -117,12 +117,12 @@ const screen = React.createElement("main", { className: "product-screen", "data-
     variant: "sortable",
   }),
   React.createElement(Dialog, {
-    title: "Confirm route",
+    label: "Confirm route",
     description: "This dialog renders outside FlowDocs.",
     open: true,
     actions: [
-      { label: "Cancel", variant: "secondary" },
-      { label: "Confirm", variant: "primary" },
+      { key: "cancel", label: "Cancel", variant: "secondary" },
+      { key: "confirm", label: "Confirm", variant: "primary" },
     ],
   }),
   React.createElement(Button, { label: "Continue", variant: "primary" }),

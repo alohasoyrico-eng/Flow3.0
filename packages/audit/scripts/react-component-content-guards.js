@@ -82,6 +82,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "RouteSummary" && /ariaLabel:\s*action\?\.ariaLabel\s*\?\?\s*action\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "RouteSummary compact actions must not synthesize empty accessible labels.");
   if (name === "RouteSummary" && !source.includes("function routeActionLabel(action)")) add("errors", sourceFile, 1, "RouteSummary must centralize compact action accessible label resolution.");
   if (name === "Dialog" && !source.includes("const hasTrigger = Boolean(triggerLabel);")) add("errors", sourceFile, 1, "Dialog must gate Button trigger composition on visible triggerLabel.");
+  if (name === "Dialog" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Dialog must not render without its required visible label.");
+  if (name === "Dialog" && /dialogAriaLabel|"aria-label":\s*label\s*\?/.test(source)) add("errors", sourceFile, 1, "Dialog must not replace its required visible label with an aria-only dialog name.");
   if (name === "Dialog" && /const hasTrigger = Boolean\(triggerLabel \|\| triggerAriaLabel\)/.test(source)) add("errors", sourceFile, 1, "Dialog triggerAriaLabel must not create a Button without visible text.");
   if (name === "Dialog" && /^\s*React\.createElement\(IconButton,\s*\{\n\s*ref:\s*closeRef/m.test(source)) add("errors", sourceFile, 1, "Dialog must not render an unnamed close button; gate close composition on closeLabel.");
   if (name === "Dialog" && /fields\.map\(\(field,\s*index\)\s*=>\s*React\.createElement\(Input/.test(source)) add("errors", sourceFile, 1, "Dialog must filter fields without visible labels before composing Input.");

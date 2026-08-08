@@ -25,11 +25,9 @@ function hasStableFieldName(field) {
 }
 
 export const Dialog = forwardRef(function Dialog({
-  label = "",
+  label,
   description = "",
   triggerLabel = "",
-  triggerAriaLabel,
-  dialogAriaLabel,
   closeLabel,
   actions = [],
   open: openProp,
@@ -58,7 +56,7 @@ export const Dialog = forwardRef(function Dialog({
   const isOpen = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
   const dialogId = id || `dialog-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
-  const titleId = label ? `${dialogId}-title` : undefined;
+  const titleId = `${dialogId}-title`;
   const resolvedIcon = icon || { danger: "warning", info: "info", success: "check_circle", neutral: "" }[resolvedTone];
   const hasTrigger = Boolean(triggerLabel);
   const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label && hasStableFieldName(field)) : [];
@@ -89,6 +87,8 @@ export const Dialog = forwardRef(function Dialog({
     const normalizedOpen = Boolean(openProp);
     setInteractionState(normalizedOpen ? "open" : initialState === "default" ? "default" : "closed");
   }, [openProp, initialState, isOpenControlled]);
+
+  if (!label) return null;
 
   return React.createElement(
     "div",
@@ -133,7 +133,6 @@ export const Dialog = forwardRef(function Dialog({
           role: "dialog",
           "aria-modal": "true",
           "aria-labelledby": titleId,
-          "aria-label": label ? undefined : dialogAriaLabel,
           onClick: (event) => event.stopPropagation(),
         },
         React.createElement(
@@ -143,7 +142,7 @@ export const Dialog = forwardRef(function Dialog({
           React.createElement(
             "div",
             { className: "dialog__content" },
-            label ? React.createElement("h3", { id: titleId }, label) : null,
+            React.createElement("h3", { id: titleId }, label),
             description ? React.createElement("p", null, description) : null,
           ),
           closeLabel ? React.createElement(IconButton, {

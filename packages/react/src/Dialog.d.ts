@@ -35,11 +35,9 @@ export interface DialogField {
 }
 
 export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
-  label?: string;
+  label: string;
   description?: string;
   triggerLabel?: string;
-  triggerAriaLabel?: string;
-  dialogAriaLabel?: string;
   closeLabel?: string;
   actions?: DialogAction[];
   open?: boolean;

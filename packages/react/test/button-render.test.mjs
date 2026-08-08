@@ -2527,19 +2527,18 @@ const unstableDialogFieldMarkup = renderToStaticMarkup(React.createElement(Dialo
 assert.doesNotMatch(unstableDialogFieldMarkup, /class="dialog__body dialog__fields"|Driver|Ana Sosa/);
 
 const unnamedDialogMarkup = renderToStaticMarkup(React.createElement(Dialog));
+assert.equal(unnamedDialogMarkup, "");
 assert.doesNotMatch(unnamedDialogMarkup, /aria-label="Open dialog"/);
 assert.doesNotMatch(unnamedDialogMarkup, /aria-label="Dialog"/);
 assert.doesNotMatch(unnamedDialogMarkup, /aria-label="Close dialog"/);
 assert.doesNotMatch(unnamedDialogMarkup, /class="button button--secondary dialog__trigger"/);
 assert.doesNotMatch(unnamedDialogMarkup, /class="icon-button icon-button--ghost dialog__close"/);
 
-const ariaOnlyDialogTriggerMarkup = renderToStaticMarkup(React.createElement(Dialog, {
-  triggerAriaLabel: "Open review",
+const dialogWithoutTriggerMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   label: "Review route",
 }));
-assert.doesNotMatch(ariaOnlyDialogTriggerMarkup, /data-overlay-open=""/);
-assert.doesNotMatch(ariaOnlyDialogTriggerMarkup, /aria-label="Open review"/);
-assert.doesNotMatch(ariaOnlyDialogTriggerMarkup, /class="button button--secondary dialog__trigger"/);
+assert.doesNotMatch(dialogWithoutTriggerMarkup, /data-overlay-open=""/);
+assert.doesNotMatch(dialogWithoutTriggerMarkup, /class="button button--secondary dialog__trigger"/);
 
 const closedDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Card controls",
