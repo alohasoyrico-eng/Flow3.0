@@ -7,23 +7,29 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../../..");
-const bundlePath = path.join(repoRoot, "apps/docs/generated/docs-content.bundle.json");
+const docsDir = [
+  path.join(repoRoot, "../FlowDocs/apps/docs"),
+  path.join(repoRoot, "apps/docs"),
+].find((dir) => fs.existsSync(dir)) ?? path.join(repoRoot, "apps/docs");
+const docsRepoRoot = path.resolve(docsDir, "../..");
+const docsPath = (...segments) => path.join(docsDir, ...segments);
+const bundlePath = docsPath("generated/docs-content.bundle.json");
 const backlogPath = path.join(repoRoot, "packages/content/content/component-quality-backlog.json");
 const implementationStatusPath = path.join(repoRoot, "packages/content/content/component-implementation-status.json");
-const candidatePlansPath = path.join(repoRoot, "apps/docs/candidate-component-plans.js");
-const candidateLayoutCssPath = path.join(repoRoot, "apps/docs/styles/04b-component-standard-layout.css");
+const candidatePlansPath = docsPath("candidate-component-plans.js");
+const candidateLayoutCssPath = docsPath("styles/04b-component-standard-layout.css");
 const componentDocsPath = path.join(repoRoot, "packages/content/content/component-docs.json");
 const componentCopyPath = path.join(repoRoot, "packages/content/content/component-copy.json");
 const componentCopyComponentsDir = path.join(repoRoot, "packages/content/content/component-copy/components");
 const packageIndexPath = path.join(repoRoot, "packages/components/src/index.js");
 const packageContractsPath = path.join(repoRoot, "packages/components/src/contracts.js");
-const goldComponentDocsPath = path.join(repoRoot, "apps/docs/gold-component-docs.js");
-const buildDocsContentPath = path.join(repoRoot, "scripts/build-docs-content.mjs");
-const contentSourcesPath = path.join(repoRoot, "apps/docs/content-sources.js");
-const docsStatePath = path.join(repoRoot, "apps/docs/docs-state.js");
-const appPath = path.join(repoRoot, "apps/docs/app.js");
-const catalogRenderersPath = path.join(repoRoot, "apps/docs/catalog-renderers.js");
-const docsLayoutPath = path.join(repoRoot, "apps/docs/docs-layout.js");
+const goldComponentDocsPath = docsPath("gold-component-docs.js");
+const buildDocsContentPath = path.join(docsRepoRoot, "scripts/build-docs-content.mjs");
+const contentSourcesPath = docsPath("content-sources.js");
+const docsStatePath = docsPath("docs-state.js");
+const appPath = docsPath("app.js");
+const catalogRenderersPath = docsPath("catalog-renderers.js");
+const docsLayoutPath = docsPath("docs-layout.js");
 
 const bundle = JSON.parse(fs.readFileSync(bundlePath, "utf8"));
 const backlog = JSON.parse(fs.readFileSync(backlogPath, "utf8"));
@@ -103,7 +109,7 @@ assert.deepEqual(candidateGoldCopy, [], `Candidate scope decisions must not have
 const candidateCopyShards = candidateIds.filter((id) => fs.existsSync(path.join(componentCopyComponentsDir, id)));
 assert.deepEqual(candidateCopyShards, [], `Candidate scope decisions must not have component-copy shards until promoted: ${candidateCopyShards.join(", ")}`);
 
-const candidateGoldModules = candidateIds.filter((id) => fs.existsSync(path.join(repoRoot, "apps/docs", `gold-${id}-docs.js`)));
+const candidateGoldModules = candidateIds.filter((id) => fs.existsSync(docsPath(`gold-${id}-docs.js`)));
 assert.deepEqual(candidateGoldModules, [], `Candidate scope decisions must not have gold docs modules until promoted: ${candidateGoldModules.join(", ")}`);
 
 const candidateGoldRendererImports = candidateIds.filter((id) => goldComponentDocsSource.includes(`gold-${id}-docs.js`) || goldComponentDocsSource.includes(`renderer === "${id}"`));

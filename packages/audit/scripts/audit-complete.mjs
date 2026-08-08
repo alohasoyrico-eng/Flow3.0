@@ -8,6 +8,10 @@ const root = process.cwd();
 const auditScriptsDir = path.join(root, "packages/audit/scripts");
 const forbiddenPrefix = "fl" + "ow-";
 const hasDocsApp = fs.existsSync(path.join(root, "apps/docs"));
+const hasDocsConsumerApp = [
+  path.join(root, "../FlowDocs/apps/docs"),
+  path.join(root, "apps/docs"),
+].some((dir) => fs.existsSync(dir));
 const hasFoundationDependencyMatrix = hasRepoFile("docs/audits/foundation-dependency-matrix.json");
 const hasPrimitiveCascadeGate = hasFoundationDependencyMatrix
   && hasRepoFile("docs/audits/foundation-frame-cascade-audit.json")
@@ -246,7 +250,7 @@ const checks = [
     ? [["docs split", () => run("node", ["scripts/audit-docs-split.mjs"])]]
     : []),
   ["component demo registry", () => run("node", ["packages/audit/scripts/audit-component-demo-registry.mjs"])],
-  ...(hasDocsApp ? [["component catalog classification", () => run("node", ["packages/audit/scripts/audit-component-catalog-classification.mjs"])]] : []),
+  ...(hasDocsConsumerApp ? [["component catalog classification", () => run("node", ["packages/audit/scripts/audit-component-catalog-classification.mjs"])]] : []),
   ["component demo interactions", () => run("node", ["packages/audit/scripts/audit-component-demo-interactions.mjs"])],
   ["react interaction coverage report", () => run("node", ["packages/audit/scripts/report-react-interaction-coverage.js", "--check"])],
   ["component visual cascade report", () => run("node", ["packages/audit/scripts/report-component-visual-cascade.js", "--check"])],
