@@ -273,6 +273,15 @@ try {
     onValueChange: (digits, meta, event) => cardNumberChanges.push({ digits, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(cardNumberInput.value, "5555 5555 5555 4444"));
+  fireEvent.input(cardNumberInput, { target: { value: "4111111111111111" } });
+  assert.equal(cardNumberChanges.at(-1).digits, "4111111111111111");
+  await waitFor(() => assert.equal(cardNumberInput.value, "5555 5555 5555 4444"));
+  rerenderCardNumber(React.createElement(CardNumberInput, {
+    label: "Card number",
+    value: "4111111111111111",
+    onValueChange: (digits, meta, event) => cardNumberChanges.push({ digits, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(cardNumberInput.value, "4111 1111 1111 1111"));
 
   cleanup();
 
