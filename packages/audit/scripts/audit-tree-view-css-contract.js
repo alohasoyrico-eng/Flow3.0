@@ -33,7 +33,7 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-tree-view-hover-bg: var(--sys-energy-surface-primary)",
       "--comp-tree-view-hover-border: var(--sys-energy-border-default)",
       "--comp-tree-view-hover-shadow: 0 0 0 var(--sys-frame-border-thin)",
-      "--comp-tree-view-hover-transform: translateX(calc(var(--sys-space-xs) / 2))",
+      "--comp-tree-view-hover-transform: var(--component-transform-inline-nudge)",
       "--comp-tree-view-motion-duration: var(--component-duration-medium)",
     ],
     message: "TreeView base contract must derive control size from density and compose TreeView/Energy/Momentum aliases.",

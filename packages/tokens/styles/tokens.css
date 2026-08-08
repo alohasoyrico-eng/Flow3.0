@@ -931,6 +931,7 @@
   --sys-momentum-scale-current-start: 0.88;
   --sys-momentum-scale-current-overshoot: 1.14;
   --sys-momentum-translate-rest: 0;
+  --sys-momentum-translate-inline-nudge: calc(var(--sys-space-xs) / 2);
   --sys-momentum-progress-translate-start: -120%;
   --sys-momentum-progress-translate-mid: 40%;
   --sys-momentum-progress-translate-end: 230%;

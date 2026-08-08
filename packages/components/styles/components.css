@@ -149,6 +149,7 @@
   --component-transform-lift-sm: translateY(var(--component-lift-sm));
   --component-transform-y-rest: translateY(var(--component-translate-rest));
   --component-transform-x-rest: translateX(var(--component-translate-rest));
+  --component-transform-inline-nudge: translateX(var(--sys-momentum-translate-inline-nudge));
   --component-transform-rest: translateY(var(--component-translate-rest)) scale(var(--component-scale-rest));
   --component-transform-rest-quiet: translateY(var(--component-translate-rest)) scale(var(--component-scale-quiet));
   --component-transform-rotate-expanded: rotate(var(--component-rotation-expanded));
@@ -5818,7 +5819,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-icon-weight: var(--sys-font-weight-regular);
   --comp-menu-item-shortcut-fg: var(--sys-color-text-muted);
   --comp-menu-item-shortcut-font-size: var(--component-font-size-helper);
-  --comp-menu-item-hover-transform: translateX(calc(var(--sys-space-xs) / 2));
+  --comp-menu-item-hover-transform: var(--component-transform-inline-nudge);
   --comp-menu-item-disabled-transform: var(--component-transform-none);
   --comp-menu-separator-border: var(--sys-color-border);
   --comp-menu-separator-margin-block: var(--sys-space-xs);
@@ -6613,7 +6614,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-hover-bg: var(--sys-energy-surface-primary);
   --comp-tree-view-hover-border: var(--sys-energy-border-default);
   --comp-tree-view-hover-shadow: 0 0 0 var(--sys-frame-border-thin) color-mix(in srgb, var(--sys-energy-border-default) 72%, transparent), var(--component-depth-raised-soft);
-  --comp-tree-view-hover-transform: translateX(calc(var(--sys-space-xs) / 2));
+  --comp-tree-view-hover-transform: var(--component-transform-inline-nudge);
   --comp-tree-view-expanded-text: var(--sys-color-text);
   --comp-tree-view-motion-duration: var(--component-duration-medium);
   --comp-tree-view-motion-ease: var(--component-ease-move);

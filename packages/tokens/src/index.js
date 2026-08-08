@@ -656,6 +656,10 @@ export const systemTokens = {
       mid: "var(--sys-momentum-progress-translate-mid)",
       end: "var(--sys-momentum-progress-translate-end)",
     },
+    translate: {
+      rest: "var(--sys-momentum-translate-rest)",
+      inlineNudge: "var(--sys-momentum-translate-inline-nudge)",
+    },
     cueTransform: {
       idle: "var(--sys-momentum-cue-transform-idle)",
       enter: "var(--sys-momentum-cue-transform-enter)",

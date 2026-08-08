@@ -29,6 +29,10 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (rawPanelMinInline) {
     add("errors", packageCssFile, lineNumber(text, rawPanelMinInline.index), "Menu panel min inline size must flow through Frame menu content roles instead of local rem values.");
   }
+  const rawHoverNudge = text.match(/--comp-menu-item-hover-transform:\s*translateX\([^;]*[0-9]/);
+  if (rawHoverNudge) {
+    add("errors", packageCssFile, lineNumber(text, rawHoverNudge.index), "Menu hover nudge must flow through component Momentum transform roles instead of local translate values.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -40,6 +44,7 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-menu-panel-depth: var(--component-depth-popover)",
       "--comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-md)",
       "--comp-menu-item-font-size: var(--component-font-size-label)",
+      "--comp-menu-item-hover-transform: var(--component-transform-inline-nudge)",
       "--comp-menu-enter-ease: var(--component-ease-enter)",
       "--comp-menu-item-transition:",
     ],
