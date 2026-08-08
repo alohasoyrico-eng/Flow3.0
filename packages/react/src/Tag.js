@@ -34,7 +34,8 @@ export const Tag = forwardRef(function Tag({
   const resolvedVariant = normalizeVariant(variant);
   const resolvedTone = normalizeTone(tone);
   const resolvedState = normalizeState({ disabled, state });
-  const isInteractive = Boolean(interactive) || resolvedVariant === "link";
+  const canInteract = Boolean(rest.onClick || type === "submit" || type === "reset");
+  const isInteractive = (Boolean(interactive) || resolvedVariant === "link") && canInteract;
   const element = isInteractive ? "button" : "span";
 
   if (!label) return null;

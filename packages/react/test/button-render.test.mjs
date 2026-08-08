@@ -1325,6 +1325,7 @@ const tagMarkup = renderToStaticMarkup(React.createElement(Tag, {
   tone: "info",
   state: "focus",
   icon: "verified",
+  onClick: () => {},
 }));
 assert.match(tagMarkup, /^<button/);
 assert.match(tagMarkup, /class="tag"/);
@@ -1342,6 +1343,14 @@ const staticTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
 }));
 assert.match(staticTagMarkup, /^<span/);
 assert.match(staticTagMarkup, /data-variant="platform"/);
+
+const inertLinkTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
+  label: "Docs",
+  variant: "link",
+}));
+assert.match(inertLinkTagMarkup, /^<span/);
+assert.match(inertLinkTagMarkup, /data-variant="link"/);
+assert.doesNotMatch(inertLinkTagMarkup, /data-interactive/);
 
 const skeletonMarkup = renderToStaticMarkup(React.createElement(Skeleton, {
   label: "Table loading",
@@ -1637,6 +1646,7 @@ const disabledTagMarkup = renderToStaticMarkup(React.createElement(Tag, {
   label: "Disabled",
   variant: "link",
   state: "disabled",
+  onClick: () => {},
 }));
 assert.match(disabledTagMarkup, /disabled=""/);
 assert.match(disabledTagMarkup, /data-state="disabled"/);

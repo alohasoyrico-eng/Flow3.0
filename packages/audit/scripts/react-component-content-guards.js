@@ -241,6 +241,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Badge" && /ariaLabel\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "Badge must not hide missing dot accessible labels behind an empty ariaLabel default.");
   if (name === "Tag" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "Tag must require visible label text before rendering.");
   if (name === "Tag" && /label \? React\.createElement\("span", \{ className: "tag__label"/.test(source)) add("errors", sourceFile, 1, "Tag must not render its required label conditionally after the runtime guard.");
+  if (name === "Tag" && !source.includes("const canInteract = Boolean(rest.onClick || type === \"submit\" || type === \"reset\");")) add("errors", sourceFile, 1, "Tag must only expose button semantics when an executable action exists.");
+  if (name === "Tag" && !source.includes("const isInteractive = (Boolean(interactive) || resolvedVariant === \"link\") && canInteract;")) add("errors", sourceFile, 1, "Tag link/interactive variants must remain static without an executable action.");
   if (name === "IconButton" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "IconButton must not render without an accessible label.");
   if (name === "IconButton" && /"aria-label":\s*resolvedLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "IconButton must use the resolved accessible label directly after the runtime guard.");
   if (name === "IconButton" && /ariaLabel\s*\?\?\s*label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "IconButton must not synthesize empty accessible labels before its runtime guard.");

@@ -13,6 +13,7 @@ export interface TagProps extends Omit<HTMLAttributes<HTMLSpanElement> & ButtonH
   icon?: string;
   interactive?: boolean;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export interface TagComponent extends ForwardRefExoticComponent<TagProps & RefAttributes<HTMLSpanElement | HTMLButtonElement>> {
