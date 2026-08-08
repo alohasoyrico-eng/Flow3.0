@@ -569,7 +569,7 @@ try {
     locale: "es-MX",
     min: "2026-07-01",
     max: "2026-07-31",
-    onValueChange: (value) => dateValues.push(value),
+    onValueChange: (value, event) => dateValues.push({ value, eventType: event.type }),
     onOpenChange: (open) => dateOpenChanges.push(open),
   }));
 
@@ -581,7 +581,7 @@ try {
 
   fireEvent.click(getDateRole("gridcell", { name: /miércoles, 15 de julio de 2026/i }));
   await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "false"));
-  assert.deepEqual(dateValues, ["2026-07-15"]);
+  assert.deepEqual(dateValues, [{ value: "2026-07-15", eventType: "click" }]);
   assert.deepEqual(dateOpenChanges, [true, false]);
 
   rerenderDatePicker(React.createElement(DatePicker, {
@@ -590,7 +590,7 @@ try {
     locale: "es-MX",
     min: "2026-07-01",
     max: "2026-07-31",
-    onValueChange: (value) => dateValues.push(value),
+    onValueChange: (value, event) => dateValues.push({ value, eventType: event.type }),
     onOpenChange: (open) => dateOpenChanges.push(open),
   }));
   await waitFor(() => assert.equal(dateTrigger.textContent.includes("20 jul 2026"), true));
@@ -602,7 +602,7 @@ try {
     min: "2026-07-01",
     max: "2026-07-31",
     open: true,
-    onValueChange: (value) => dateValues.push(value),
+    onValueChange: (value, event) => dateValues.push({ value, eventType: event.type }),
     onOpenChange: (open) => dateOpenChanges.push(open),
   }));
   await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "true"));
@@ -614,7 +614,7 @@ try {
     min: "2026-07-01",
     max: "2026-07-31",
     open: false,
-    onValueChange: (value) => dateValues.push(value),
+    onValueChange: (value, event) => dateValues.push({ value, eventType: event.type }),
     onOpenChange: (open) => dateOpenChanges.push(open),
   }));
   await waitFor(() => assert.equal(dateTrigger.getAttribute("aria-expanded"), "false"));

@@ -124,10 +124,10 @@ export const DatePicker = forwardRef(function DatePicker({
     if (restoreFocus) requestAnimationFrame(() => controlRef.current?.focus());
   };
 
-  const commitValue = (nextValue) => {
+  const commitValue = (nextValue, event) => {
     if (!isValueControlled) setSelectedValue(nextValue);
     setViewDate(clampViewDate(nextValue));
-    onValueChange?.(nextValue);
+    onValueChange?.(nextValue, event);
     setOpen(false, true);
   };
 
@@ -174,13 +174,13 @@ export const DatePicker = forwardRef(function DatePicker({
       "aria-current": isoValue === todayValue ? "date" : undefined,
       "aria-label": formatDateLongLabel(isoValue, locale),
       "aria-pressed": String(isoValue === selectedValue),
-      onClick: () => {
-        if (!isDisabled) commitValue(isoValue);
+      onClick: (event) => {
+        if (!isDisabled) commitValue(isoValue, event);
       },
       onKeyDown: (event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          if (!isDisabled) commitValue(isoValue);
+          if (!isDisabled) commitValue(isoValue, event);
         } else if (event.key === "PageUp" || event.key === "PageDown") {
           event.preventDefault();
           moveMonth(event.key === "PageUp" ? -1 : 1);
@@ -241,7 +241,7 @@ export const DatePicker = forwardRef(function DatePicker({
       "data-date-picker-input": "",
       "aria-hidden": "true",
       onChange: (event) => {
-        if (event.target.value) commitValue(event.target.value);
+        if (event.target.value) commitValue(event.target.value, event);
       },
     }),
     React.createElement(

@@ -1,8 +1,12 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ChangeEvent, ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { datePickerPlatformContract } from "#flow/platforms";
 
 export type DatePickerDensity = "sm" | "md" | "lg";
 export type DatePickerState = "default" | "hover" | "focus" | "selected" | "warning" | "error" | "disabled";
+export type DatePickerValueChangeEvent =
+  | MouseEvent<HTMLButtonElement>
+  | KeyboardEvent<HTMLButtonElement>
+  | ChangeEvent<HTMLInputElement>;
 
 export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -22,7 +26,7 @@ export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   previousMonthLabel?: string;
   nextMonthLabel?: string;
   open?: boolean;
-  onValueChange?: (value: string) => void;
+  onValueChange?: (value: string, event: DatePickerValueChangeEvent) => void;
   onOpenChange?: (open: boolean) => void;
 }
 
