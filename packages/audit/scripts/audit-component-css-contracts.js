@@ -9,6 +9,7 @@ const { checkMenuCssContract } = require("./audit-menu-css-contract.js");
 const { checkPopoverCssContract } = require("./audit-popover-css-contract.js");
 const { checkProgressIndicatorCssContract } = require("./audit-progress-indicator-css-contract.js");
 const { checkSliderCssContract } = require("./audit-slider-css-contract.js");
+const { checkSpinnerCssContract } = require("./audit-spinner-css-contract.js");
 const { checkStepperCssContract } = require("./audit-stepper-css-contract.js");
 const { checkTableCssContract } = require("./audit-table-css-contract.js");
 const { checkTagCssContract } = require("./audit-tag-css-contract.js");
@@ -27,6 +28,7 @@ function checkComponentCssContracts(context) {
   checkPopoverCssContract(context);
   checkProgressIndicatorCssContract(context);
   checkSliderCssContract(context);
+  checkSpinnerCssContract(context);
   checkStepperCssContract(context);
   checkTableCssContract(context);
   checkTagCssContract(context);

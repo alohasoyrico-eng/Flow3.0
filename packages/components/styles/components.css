@@ -953,7 +953,7 @@
 }
 
 .button .spinner {
-  --spinner-tone: currentColor;
+  --comp-spinner-tone: currentColor;
 }
 
 .button--primary {
@@ -2916,6 +2916,9 @@ button.tag:disabled,
   --comp-spinner-rhythm-ease: var(--component-ease-loading-rhythm);
   --comp-spinner-arc-start: 30 100;
   --comp-spinner-arc-end: 74 100;
+  --comp-spinner-subtle-opacity: var(--component-loading-stale-opacity);
+  --comp-spinner-disabled-opacity: var(--component-opacity-disabled);
+  --comp-spinner-disabled-tone: var(--component-disabled-text);
   block-size: var(--comp-spinner-size);
   display: inline-flex;
   flex: none;
@@ -2974,6 +2977,15 @@ button.tag:disabled,
 
 .spinner[data-tone="danger"] {
   --comp-spinner-tone: var(--sys-color-danger);
+}
+
+.spinner[data-state="subtle"] {
+  opacity: var(--comp-spinner-subtle-opacity);
+}
+
+.spinner[data-state="disabled"] {
+  --comp-spinner-tone: var(--comp-spinner-disabled-tone);
+  opacity: var(--comp-spinner-disabled-opacity);
 }
 
 @keyframes spinner-spin {
