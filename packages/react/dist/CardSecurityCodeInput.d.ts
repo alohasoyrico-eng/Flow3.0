@@ -23,6 +23,7 @@ export interface CardSecurityCodeInputProps extends Omit<InputHTMLAttributes<HTM
   hideLabel?: string;
   revealed?: boolean;
   onValueChange?: (digits: string, meta: CardSecurityCodeMeta) => void;
+  onRevealChange?: (revealed: boolean) => void;
 }
 
 export interface CardSecurityCodeInputComponent extends ForwardRefExoticComponent<CardSecurityCodeInputProps & RefAttributes<HTMLInputElement>> {

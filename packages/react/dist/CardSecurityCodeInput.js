@@ -45,6 +45,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   hideLabel,
   revealed,
   onValueChange,
+  onRevealChange,
   className = "",
   id,
   ...rest
@@ -76,6 +77,12 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
   }, [isValueControlled, value]);
 
   if (!label) return null;
+
+  const toggleReveal = () => {
+    const nextRevealed = !isRevealed;
+    if (!isRevealedControlled) setInternalRevealed(nextRevealed);
+    onRevealChange?.(nextRevealed);
+  };
 
   return React.createElement(
     "label",
@@ -136,9 +143,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
             "data-card-security-code-reveal": "",
             "aria-label": isRevealed ? hideLabel : revealLabel,
             "aria-pressed": String(isRevealed),
-            onClick: () => {
-              if (!isRevealedControlled) setInternalRevealed((next) => !next);
-            },
+            onClick: toggleReveal,
           },
           React.createElement("span", { className: "field-action__icon field__icon card-security-code-input__action-icon", "aria-hidden": "true" }, isRevealed ? "visibility_off" : "visibility"),
         )

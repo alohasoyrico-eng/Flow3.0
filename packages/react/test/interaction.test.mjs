@@ -298,6 +298,25 @@ try {
 
   cleanup();
 
+  const revealChanges = [];
+  const { getByLabelText: getControlledSecurityLabel, getByRole: getControlledSecurityRole } = render(React.createElement(CardSecurityCodeInput, {
+    label: "Controlled security code",
+    value: "123",
+    revealed: false,
+    revealLabel: "Reveal controlled CVC",
+    hideLabel: "Conceal controlled CVC",
+    onRevealChange: (revealed) => revealChanges.push(revealed),
+  }));
+
+  const controlledSecurityInput = getControlledSecurityLabel(/controlled security code/i, { selector: "input" });
+  const controlledRevealButton = getControlledSecurityRole("button", { name: /reveal controlled cvc/i });
+  fireEvent.click(controlledRevealButton);
+  assert.deepEqual(revealChanges, [true]);
+  assert.equal(controlledSecurityInput.type, "password");
+  assert.equal(controlledRevealButton.getAttribute("aria-pressed"), "false");
+
+  cleanup();
+
   const checkboxChanges = [];
   const { getByLabelText: getCheckboxLabel, rerender: rerenderCheckbox } = render(React.createElement(Checkbox, {
     label: "Enable fuel card",
