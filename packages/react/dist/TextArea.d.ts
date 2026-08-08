@@ -18,6 +18,7 @@ export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaE
   loading?: boolean;
   density?: TextAreaDensity;
   state?: TextAreaState;
+  onValueChange?: (value: string, meta: TextAreaChangeMeta) => void;
   onChange?: (value: string, meta: TextAreaChangeMeta) => void;
 }
 

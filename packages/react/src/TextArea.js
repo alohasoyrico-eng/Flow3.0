@@ -25,6 +25,7 @@ export const TextArea = forwardRef(function TextArea({
   density,
   state,
   onChange,
+  onValueChange,
   className = "",
   id,
   ...rest
@@ -50,8 +51,10 @@ export const TextArea = forwardRef(function TextArea({
   const handleChange = (event) => {
     if (isDisabled) return;
     const nextValue = event.target.value;
+    const meta = { maxLength: maxLength == null ? undefined : Number(maxLength), length: String(nextValue).length };
     if (!isValueControlled) setCurrentValue(nextValue);
-    onChange?.(nextValue, { maxLength: maxLength == null ? undefined : Number(maxLength), length: String(nextValue).length });
+    onValueChange?.(nextValue, meta);
+    onChange?.(nextValue, meta);
   };
 
   return React.createElement(

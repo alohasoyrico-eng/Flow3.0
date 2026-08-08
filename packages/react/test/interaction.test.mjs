@@ -1903,6 +1903,21 @@ try {
 
   cleanup();
 
+  const textAreaValueChanges = [];
+  const textAreaLegacyChanges = [];
+  const { getByLabelText: getValueTextAreaLabel } = render(React.createElement(TextArea, {
+    label: "Value notes",
+    maxLength: 20,
+    onValueChange: (value, meta) => textAreaValueChanges.push({ value, meta }),
+    onChange: (value, meta) => textAreaLegacyChanges.push({ value, meta }),
+  }));
+
+  fireEvent.change(getValueTextAreaLabel(/value notes/i), { target: { value: "Ready" } });
+  assert.deepEqual(textAreaValueChanges, [{ value: "Ready", meta: { maxLength: 20, length: 5 } }]);
+  assert.deepEqual(textAreaLegacyChanges, textAreaValueChanges);
+
+  cleanup();
+
   const toastActions = [];
   const toastDismissals = [];
   const { getByRole: getToastRole } = render(React.createElement(Toast, {
