@@ -1,9 +1,9 @@
 const { path, read, add, lineNumber } = require("./audit-context.js");
+const { checkCardCssContract } = require("./audit-card-css-contract.js");
 const { checkTokenizedVisualProperties } = require("./audit-tokenized-css-properties.js");
 
 const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css");
 const packageSpinnerFile = path.join(process.cwd(), "packages/react/src/Spinner.js");
-
 function cssBlocks(text) {
   const blocks = [];
   const pattern = /(?<selector>[^{}]+)\{(?<body>[^{}]*)\}/g;
@@ -132,6 +132,7 @@ function checkPackageCssContracts() {
   }
 
   const blocks = cssBlocks(text);
+  checkCardCssContract({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
   const buttonBlock = blocks.find((block) => block.selector === ".button");
   const buttonSmBlock = blocks.find((block) => block.selector === ".button[data-density=\"sm\"]");
   const buttonLgBlock = blocks.find((block) => block.selector === ".button[data-density=\"lg\"]");

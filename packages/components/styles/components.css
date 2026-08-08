@@ -558,8 +558,25 @@
   --comp-card-status-bg: color-mix(in srgb, var(--sys-color-action) 9%, var(--sys-color-surface));
   --comp-card-status-border: color-mix(in srgb, var(--sys-color-action) 20%, var(--sys-color-border));
   --comp-card-status-fg: var(--sys-color-text);
+  --comp-card-status-radius: var(--component-radius-pill);
+  --comp-card-status-size: var(--component-font-size-caption);
+  --comp-card-status-weight: var(--sys-voice-weight-extrabold);
+  --comp-card-status-padding-block: var(--sys-space-xs);
+  --comp-card-status-padding-inline: var(--sys-space-sm);
   --comp-card-icon-bg: color-mix(in srgb, var(--sys-color-action) 10%, var(--sys-color-surface));
   --comp-card-icon-fg: var(--sys-color-action);
+  --comp-card-icon-radius: var(--component-radius-pill);
+  --comp-card-header-gap: var(--sys-space-md);
+  --comp-card-heading-gap: var(--sys-space-sm);
+  --comp-card-detail-fg: var(--comp-card-muted-fg);
+  --comp-card-loading-gap: var(--sys-space-sm);
+  --comp-card-actions-gap: var(--sys-space-sm);
+  --comp-card-actions-justify: flex-end;
+  --comp-card-minimal-icon-size: var(--component-font-size-title-md);
+  --comp-card-minimal-detail-size: var(--component-font-size-small);
+  --comp-card-elevated-detail-size: var(--component-font-size-small);
+  --comp-card-ghost-fg: var(--sys-color-surface);
+  --comp-card-ghost-text-size: var(--component-font-size-small);
   --comp-card-focus-color: var(--sys-color-focus);
   --comp-card-focus-width: var(--component-focus-ring-width);
   --comp-card-focus-offset: var(--component-focus-ring-offset);
@@ -4724,6 +4741,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --card-icon-font-size: var(--comp-card-icon-font-size-md);
   --card-title-size: var(--comp-card-title-size-md);
   --card-value-size: var(--comp-card-value-size-md);
+  --card-header-gap: var(--comp-card-header-gap);
+  --card-heading-gap: var(--comp-card-heading-gap);
+  --card-status-radius: var(--comp-card-status-radius);
+  --card-status-size: var(--comp-card-status-size);
+  --card-status-weight: var(--comp-card-status-weight);
+  --card-status-padding-block: var(--comp-card-status-padding-block);
+  --card-status-padding-inline: var(--comp-card-status-padding-inline);
+  --card-detail-fg: var(--comp-card-detail-fg);
+  --card-loading-gap: var(--comp-card-loading-gap);
+  --card-loading-min-block-size: calc(var(--card-icon-size) + var(--card-loading-gap));
+  --card-actions-gap: var(--comp-card-actions-gap);
+  --card-actions-justify: var(--comp-card-actions-justify);
   background: var(--comp-card-bg);
   border: var(--component-border-width) solid var(--comp-card-border);
   border-radius: var(--comp-card-radius);
@@ -4897,9 +4926,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   align-self: start;
   background: transparent;
   color: var(--sys-color-text-muted);
-  font-size: var(--component-font-size-title-md);
-  inline-size: var(--component-font-size-title-md);
-  min-block-size: var(--component-font-size-title-md);
+  font-size: var(--comp-card-minimal-icon-size);
+  inline-size: var(--comp-card-minimal-icon-size);
+  min-block-size: var(--comp-card-minimal-icon-size);
 }
 
 .card[data-variant="minimal"] .card__title {
@@ -4907,7 +4936,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-variant="minimal"] .card__detail {
-  font-size: var(--component-font-size-small);
+  font-size: var(--comp-card-minimal-detail-size);
   grid-column: 2;
   line-height: var(--sys-voice-line-height-normal);
 }
@@ -4924,7 +4953,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card[data-variant="elevated"] .card__detail {
-  font-size: var(--component-font-size-small);
+  font-size: var(--comp-card-elevated-detail-size);
   line-height: var(--sys-voice-line-height-normal);
 }
 
@@ -4933,14 +4962,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: color-mix(in srgb, var(--sys-color-surface) 40%, transparent);
   border-color: color-mix(in srgb, var(--sys-color-border) 50%, transparent);
   box-shadow: none;
-  color: var(--sys-color-surface);
+  color: var(--comp-card-ghost-fg);
 }
 
 .card[data-variant="ghost"] .card__title,
 .card[data-variant="ghost"] .card__detail {
   color: inherit;
   font-family: var(--sys-font-body);
-  font-size: var(--component-font-size-small);
+  font-size: var(--comp-card-ghost-text-size);
   font-weight: var(--sys-voice-weight-regular);
   line-height: var(--sys-voice-line-height-normal);
 }
@@ -4989,7 +5018,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card__header {
   align-items: start;
   display: flex;
-  gap: var(--sys-space-md);
+  gap: var(--card-header-gap);
   justify-content: space-between;
   min-inline-size: 0;
 }
@@ -4997,14 +5026,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card__heading {
   align-items: center;
   display: flex;
-  gap: var(--sys-space-sm);
+  gap: var(--card-heading-gap);
   min-inline-size: 0;
 }
 
 .card__icon {
   align-items: center;
   background: var(--comp-card-icon-bg);
-  border-radius: var(--component-radius-pill);
+  border-radius: var(--comp-card-icon-radius);
   color: var(--comp-card-icon-fg);
   display: inline-flex;
   flex: 0 0 auto;
@@ -5030,11 +5059,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card__status {
   background: var(--comp-card-status-bg);
   border: var(--component-border-width) solid var(--comp-card-status-border);
-  border-radius: var(--component-radius-pill);
+  border-radius: var(--card-status-radius);
   color: var(--comp-card-status-fg);
-  font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-extrabold);
-  padding: var(--sys-space-xs) var(--sys-space-sm);
+  font-size: var(--card-status-size);
+  font-weight: var(--card-status-weight);
+  padding: var(--card-status-padding-block) var(--card-status-padding-inline);
 }
 
 .card__value {
@@ -5047,7 +5076,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card__detail {
-  color: var(--sys-color-text-muted);
+  color: var(--card-detail-fg);
   margin: 0;
   min-inline-size: 0;
 }
@@ -5055,15 +5084,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card__loading {
   align-items: center;
   display: flex;
-  gap: var(--sys-space-sm);
-  min-block-size: calc(var(--card-icon-size) + var(--sys-space-md));
+  gap: var(--card-loading-gap);
+  min-block-size: var(--card-loading-min-block-size);
 }
 
 .card__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--sys-space-sm);
-  justify-content: flex-end;
+  gap: var(--card-actions-gap);
+  justify-content: var(--card-actions-justify);
 }
 
 .dialog,
