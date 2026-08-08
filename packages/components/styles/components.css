@@ -64,6 +64,12 @@
   --component-min-block-size-auto: auto;
   --component-margin-auto: auto;
   --component-aspect-ratio-auto: auto;
+  --component-cursor-default: default;
+  --component-cursor-grab: grab;
+  --component-cursor-grabbing: grabbing;
+  --component-cursor-not-allowed: not-allowed;
+  --component-cursor-pointer: pointer;
+  --component-cursor-progress: progress;
   --component-content-size-xs: calc(var(--component-control-min-size) * 4);
   --component-content-size-sm: calc(var(--component-control-min-size) * 6);
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
@@ -1019,7 +1025,7 @@
   --comp-button-border-color: var(--component-border-transparent);
   --comp-button-border: var(--component-border-width) solid var(--comp-button-border-color);
   --comp-button-radius: var(--component-radius-pill);
-  --comp-button-cursor: pointer;
+  --comp-button-cursor: var(--component-cursor-pointer);
   --comp-button-display: var(--component-display-inline-flex);
   --comp-button-font-weight: var(--sys-voice-weight-bold);
   --comp-button-gap: var(--sys-space-sm);
@@ -1030,7 +1036,7 @@
   --comp-button-hover-shadow: var(--component-depth-raised);
   --comp-button-hover-transform: var(--component-transform-lift-hover);
   --comp-button-press-transform: var(--component-transform-press);
-  --comp-button-disabled-cursor: not-allowed;
+  --comp-button-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-button-disabled-opacity: var(--sys-disabled-readable-opacity);
   --comp-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
   --comp-button-spinner-tone: currentColor;
@@ -1262,7 +1268,7 @@
   --comp-icon-button-border: var(--component-border-width) solid var(--comp-icon-button-border-color);
   --comp-icon-button-radius: var(--component-radius-pill);
   --comp-icon-button-fg: var(--sys-color-text);
-  --comp-icon-button-cursor: pointer;
+  --comp-icon-button-cursor: var(--component-cursor-pointer);
   --comp-icon-button-display: var(--component-display-inline-flex);
   --comp-icon-button-flex: var(--component-flex-none);
   --comp-icon-button-justify: center;
@@ -1285,7 +1291,7 @@
   --comp-icon-button-icon-fg: currentColor;
   --comp-icon-button-focus-ring: var(--component-focus-ring);
   --comp-icon-button-focus-offset: var(--component-focus-ring-offset);
-  --comp-icon-button-disabled-cursor: not-allowed;
+  --comp-icon-button-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-icon-button-disabled-opacity: var(--sys-disabled-readable-opacity);
   --comp-icon-button-badge-animation: component-pulse var(--component-duration-loop) var(--component-ease-state) infinite;
   --comp-icon-button-badge-bg: var(--sys-color-success);
@@ -2736,7 +2742,7 @@ button.tag:disabled,
   --comp-tabs-tab-border: var(--component-border-none);
   --comp-tabs-tab-radius: var(--component-radius-pill);
   --comp-tabs-tab-fg: var(--sys-color-text-muted);
-  --comp-tabs-tab-cursor: pointer;
+  --comp-tabs-tab-cursor: var(--component-cursor-pointer);
   --comp-tabs-tab-display: var(--component-display-inline-flex);
   --comp-tabs-tab-font: inherit;
   --comp-tabs-tab-font-size: var(--component-font-size-label);
@@ -3717,9 +3723,9 @@ button.tag:disabled,
   --comp-slider-thumb-transform: var(--component-transform-center);
   --comp-slider-thumb-active-transform: var(--component-transform-center-raised);
   --comp-slider-input-bg: var(--component-surface-transparent);
-  --comp-slider-input-cursor: grab;
-  --comp-slider-input-active-cursor: grabbing;
-  --comp-slider-input-disabled-cursor: not-allowed;
+  --comp-slider-input-cursor: var(--component-cursor-grab);
+  --comp-slider-input-active-cursor: var(--component-cursor-grabbing);
+  --comp-slider-input-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-slider-disabled-cursor: var(--component-disabled-cursor);
   --comp-slider-disabled-opacity: var(--sys-disabled-opacity);
   --comp-slider-focus-ring-width: var(--component-focus-ring-width);
@@ -4239,10 +4245,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-list-current-item-min-block: var(--comp-list-item-min-block-md);
   --comp-list-current-item-padding: var(--comp-list-item-padding-md);
   --comp-list-current-meta-size: var(--comp-list-meta-size-md);
-  --comp-list-disabled-cursor: not-allowed;
+  --comp-list-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-list-icon-display: var(--component-display-inline-flex);
   --comp-list-icon-line-height: var(--sys-voice-line-height-none);
-  --comp-list-interactive-cursor: pointer;
+  --comp-list-interactive-cursor: var(--component-cursor-pointer);
   --comp-list-item-border-width: var(--component-border-width-none);
   --comp-list-item-display: var(--component-display-grid);
   --comp-list-item-grid-template: auto 1fr auto;
@@ -4379,7 +4385,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-border-width: var(--component-border-width);
   --comp-kpi-tile-depth: var(--component-depth-panel);
   --comp-kpi-tile-depth-interactive: var(--component-depth-raised-soft);
-  --comp-kpi-tile-disabled-cursor: not-allowed;
+  --comp-kpi-tile-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-kpi-tile-disabled-opacity: var(--sys-disabled-opacity);
   --comp-kpi-tile-disabled-transform: var(--component-transform-none);
   --comp-kpi-tile-fg: var(--sys-color-text);
@@ -4399,7 +4405,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-icon-family: var(--sys-font-icon);
   --comp-kpi-tile-icon-line-height: var(--sys-voice-line-height-none);
   --comp-kpi-tile-icon-size: var(--component-icon-size-md);
-  --comp-kpi-tile-interactive-cursor: pointer;
+  --comp-kpi-tile-interactive-cursor: var(--component-cursor-pointer);
   --comp-kpi-tile-loading-fg: var(--sys-color-text-muted);
   --comp-kpi-tile-min-block-size: calc(var(--component-block-size-lg) - var(--sys-space-xs));
   --comp-kpi-tile-tone: var(--sys-color-text-muted);
@@ -4595,7 +4601,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-md);
   --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-md);
   --comp-floating-action-button-border: var(--component-border-none);
-  --comp-floating-action-button-cursor: pointer;
+  --comp-floating-action-button-cursor: var(--component-cursor-pointer);
   --comp-floating-action-button-display: var(--component-display-inline-flex);
   --comp-floating-action-button-inline-size: var(--component-inline-size-fit-content);
   --comp-floating-action-button-justify: center;
@@ -4603,7 +4609,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-accent-bg-hover: color-mix(in srgb, var(--sys-color-success) 86%, var(--sys-color-text));
   --comp-floating-action-button-active-transform: var(--component-transform-rest-quiet);
   --comp-floating-action-button-collapsed-padding-x: var(--component-frame-space-none);
-  --comp-floating-action-button-disabled-cursor: not-allowed;
+  --comp-floating-action-button-disabled-cursor: var(--component-cursor-not-allowed);
   align-items: var(--comp-floating-action-button-align);
   background: var(--comp-floating-action-button-bg);
   border: var(--comp-floating-action-button-border);
@@ -4842,14 +4848,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-button-border: var(--component-border-none);
   --comp-pagination-button-display: var(--component-display-inline-flex);
   --comp-pagination-button-justify: center;
-  --comp-pagination-current-cursor: default;
+  --comp-pagination-current-cursor: var(--component-cursor-default);
   --comp-pagination-size: var(--component-navigation-target-size-md);
   --comp-pagination-size-sm: var(--component-navigation-target-size-sm);
   --comp-pagination-size-lg: var(--component-navigation-target-size-lg);
   --comp-pagination-gap: var(--sys-space-xs);
   --comp-pagination-radius: var(--component-radius-pill);
-  --comp-pagination-cursor: pointer;
-  --comp-pagination-disabled-cursor: default;
+  --comp-pagination-cursor: var(--component-cursor-pointer);
+  --comp-pagination-disabled-cursor: var(--component-cursor-default);
   --comp-pagination-fg: var(--sys-color-text-subtle);
   --comp-pagination-font-family: var(--component-font-family-mono);
   --comp-pagination-font-size: var(--component-font-size-small);
@@ -7973,7 +7979,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-border: var(--sys-color-border);
   --comp-route-summary-border-width: var(--component-border-width);
   --comp-route-summary-depth: var(--component-depth-panel);
-  --comp-route-summary-disabled-cursor: not-allowed;
+  --comp-route-summary-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-route-summary-disabled-opacity: var(--component-opacity-disabled);
   --comp-route-summary-display: var(--component-display-grid);
   --comp-route-summary-fg: var(--sys-color-text);
@@ -8716,9 +8722,9 @@ body[data-contrast="quiet"] .route-summary__icon {
 .station-pin {
   --comp-station-pin-align: center;
   --comp-station-pin-border-width: var(--component-border-width);
-  --comp-station-pin-cursor: pointer;
+  --comp-station-pin-cursor: var(--component-cursor-pointer);
   --comp-station-pin-depth: var(--component-depth-pill);
-  --comp-station-pin-disabled-cursor: not-allowed;
+  --comp-station-pin-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-station-pin-disabled-opacity: var(--component-opacity-disabled);
   --comp-station-pin-display: var(--component-display-inline-flex);
   --comp-station-pin-font-family: var(--component-font-family-mono);
@@ -10227,7 +10233,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-bg: var(--component-surface-transparent);
   --comp-segmented-control-item-border: var(--component-border-none);
   --comp-segmented-control-item-fg: var(--sys-color-text-muted);
-  --comp-segmented-control-item-cursor: pointer;
+  --comp-segmented-control-item-cursor: var(--component-cursor-pointer);
   --comp-segmented-control-item-display: var(--component-display-inline-flex);
   --comp-segmented-control-item-flex: 1 1 0;
   --comp-segmented-control-item-justify: center;
@@ -10819,12 +10825,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-movement-row-current-min-block-size: var(--comp-movement-row-min-block-size-md);
   --comp-movement-row-current-padding-block: var(--comp-movement-row-padding-block-md);
   --comp-movement-row-current-padding-inline: var(--comp-movement-row-padding-inline);
-  --comp-movement-row-disabled-cursor: not-allowed;
+  --comp-movement-row-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-movement-row-display: var(--component-display-grid);
   --comp-movement-row-grid-template: auto minmax(0, 1fr) auto;
   --comp-movement-row-icon-display: var(--component-display-inline-flex);
   --comp-movement-row-icon-justify: center;
-  --comp-movement-row-interactive-cursor: pointer;
+  --comp-movement-row-interactive-cursor: var(--component-cursor-pointer);
   --comp-movement-row-justify: space-between;
   --comp-movement-row-status-padding: var(--component-frame-space-none);
   --comp-movement-row-text-align: start;
@@ -10977,7 +10983,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .quick-action {
   --comp-quick-action-bg: var(--component-surface-transparent);
   --comp-quick-action-border-width: var(--component-border-width-none);
-  --comp-quick-action-cursor: default;
+  --comp-quick-action-cursor: var(--component-cursor-default);
   --comp-quick-action-display: var(--component-display-inline-grid);
   --comp-quick-action-icon-size: var(--component-action-control-size-md);
   --comp-quick-action-label-width: var(--component-action-label-inline-size-md);
@@ -10986,7 +10992,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-inline-size: var(--component-inline-size-max-content);
   --comp-quick-action-justify-self: start;
   --comp-quick-action-justify-items: center;
-  --comp-quick-action-loading-cursor: progress;
+  --comp-quick-action-loading-cursor: var(--component-cursor-progress);
   --comp-quick-action-max-inline-size: var(--component-inline-size-full);
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
   --comp-quick-action-min-inline-size: var(--component-action-min-inline-size-md);
@@ -10996,7 +11002,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-quick-action-control-bg: var(--sys-color-surface);
   --comp-quick-action-control-border: var(--sys-color-border);
   --comp-quick-action-control-border-width: var(--component-border-width);
-  --comp-quick-action-control-cursor: pointer;
+  --comp-quick-action-control-cursor: var(--component-cursor-pointer);
   --comp-quick-action-control-display: var(--component-display-inline-flex);
   --comp-quick-action-control-justify: center;
   --comp-quick-action-control-radius: var(--component-radius-pill);

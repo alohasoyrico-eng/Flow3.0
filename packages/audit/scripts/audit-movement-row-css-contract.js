@@ -60,7 +60,7 @@ function checkMovementRowCssContract({ text, blocks, packageCssFile, selectorKey
       "--comp-movement-row-current-min-block-size: var(--comp-movement-row-min-block-size-md)",
       "--comp-movement-row-current-padding-block: var(--comp-movement-row-padding-block-md)",
       "--comp-movement-row-current-padding-inline: var(--comp-movement-row-padding-inline)",
-      "--comp-movement-row-interactive-cursor: pointer",
+      "--comp-movement-row-interactive-cursor: var(--component-cursor-pointer)",
       "border: var(--comp-movement-row-border-width)",
       "cursor: var(--comp-movement-row-interactive-cursor)",
       "display: var(--comp-movement-row-display)",

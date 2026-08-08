@@ -214,6 +214,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*display[\w-]*:\s*(?:inline-flex|inline-grid|inline-block|flex|grid|block|none);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component display aliases must consume --component-display-* instead of hardcoding display keywords.");
   for (const match of text.matchAll(/--comp-[\w-]*(?:flex|pointer-events|list-style|decoration|grid)[\w-]*:\s*none;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component none aliases must consume semantic component none aliases instead of hardcoding none.");
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:0|100%|auto);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component geometry aliases must consume semantic component geometry aliases instead of hardcoding 0, 100%, or auto.");
+  for (const match of text.matchAll(/--comp-[\w-]*cursor[\w-]*:\s*(?:pointer|default|not-allowed|grab|grabbing|progress);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component cursor aliases must consume --component-cursor-* instead of hardcoding cursor keywords.");
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });

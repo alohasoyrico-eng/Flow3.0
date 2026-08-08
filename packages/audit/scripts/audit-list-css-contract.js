@@ -51,7 +51,7 @@ function checkListCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-list-current-icon-size: var(--comp-list-icon-size-md)",
       "--comp-list-current-icon-box-size: var(--comp-list-icon-box-size-md)",
       "--comp-list-current-meta-size: var(--comp-list-meta-size-md)",
-      "--comp-list-interactive-cursor: pointer",
+      "--comp-list-interactive-cursor: var(--component-cursor-pointer)",
       "--comp-list-item-border-width: var(--component-border-width-none)",
       "--comp-list-item-inline-size: var(--component-inline-size-full)",
       "border: var(--comp-list-border-width) solid var(--comp-list-border)",

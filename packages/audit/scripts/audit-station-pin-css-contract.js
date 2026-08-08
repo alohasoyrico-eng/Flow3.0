@@ -52,7 +52,7 @@ function checkStationPinCssContract({ text, blocks, packageCssFile, selectorKey,
     snippets: [
       "--comp-station-pin-align: center",
       "--comp-station-pin-border-width: var(--component-border-width)",
-      "--comp-station-pin-cursor: pointer",
+      "--comp-station-pin-cursor: var(--component-cursor-pointer)",
       "--comp-station-pin-depth: var(--component-depth-pill)",
       "--comp-station-pin-display: var(--component-display-inline-flex)",
       "--comp-station-pin-font-family: var(--component-font-family-mono)",
