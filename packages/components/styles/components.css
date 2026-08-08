@@ -193,6 +193,9 @@
   --component-field-icon-action-size-sm: calc(var(--component-control-min-size) - var(--sys-space-xl));
   --component-field-icon-action-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg));
   --component-field-icon-action-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md));
+  --component-country-flag-size: calc(var(--component-inline-size-sm) - var(--component-focus-ring-offset));
+  --component-country-flag-radius: var(--component-radius-pill);
+  --component-country-flag-ring: var(--component-depth-border-ring);
   --comp-input-control-size-sm: var(--component-field-control-size-sm);
   --comp-input-control-size-md: var(--component-field-control-size-md);
   --comp-input-control-size-lg: var(--component-field-control-size-lg);
@@ -245,6 +248,8 @@
   --comp-code-input-slot-font-size-sm: var(--component-font-size-title-md);
   --comp-code-input-slot-font-size-md: var(--component-font-size-title-md);
   --comp-code-input-slot-font-size-lg: var(--component-font-size-icon-md);
+  --comp-code-input-helper-fg: var(--sys-color-text-muted);
+  --comp-code-input-input-font-size: var(--component-font-size-body);
   --comp-code-input-slot-gap-sm: var(--sys-space-xs);
   --comp-code-input-slot-gap-md: var(--sys-space-sm);
   --comp-code-input-bg: var(--sys-color-surface);
@@ -297,6 +302,7 @@
   --comp-phone-input-otp-border: color-mix(in srgb, var(--sys-color-action) 30%, var(--sys-color-border));
   --comp-phone-input-otp-shadow: var(--component-depth-action-halo);
   --comp-phone-input-otp-helper-fg: var(--sys-color-action);
+  --comp-phone-input-helper-fg: var(--sys-color-text-muted);
   --comp-phone-input-readonly-bg: var(--sys-color-surface-raised);
   --comp-phone-input-warning-bg: color-mix(in srgb, var(--sys-color-warning) 9%, var(--sys-color-surface));
   --comp-phone-input-warning-border: color-mix(in srgb, var(--sys-color-warning) 42%, var(--sys-color-border));
@@ -733,8 +739,8 @@
   --component-card-icon-size-lg: calc(var(--component-control-min-size) - var(--sys-space-sm));
   --component-station-pin-pointer-size: calc(var(--sys-space-sm) - var(--sys-frame-space-micro));
   --component-phone-compact-control-size: var(--component-field-control-size-sm);
-  --component-date-picker-control-size-sm: var(--comp-button-size-sm);
-  --component-date-picker-control-size-lg: var(--comp-button-size-lg);
+  --component-date-picker-control-size-sm: var(--sys-space-9);
+  --component-date-picker-control-size-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
   --component-date-picker-day-size-sm: var(--component-field-icon-action-size-md);
   --component-date-picker-day-size-lg: var(--component-list-icon-box-size);
   --comp-icon-button-size-sm: var(--sys-space-9);
@@ -4904,6 +4910,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-button-justify: center;
   --comp-pagination-current-cursor: default;
   --comp-pagination-size: calc(var(--component-control-min-size) - var(--sys-space-sm));
+  --comp-pagination-size-sm: calc(var(--component-control-min-size) - var(--sys-space-md));
+  --comp-pagination-size-lg: var(--component-control-min-size);
   --comp-pagination-gap: var(--sys-space-xs);
   --comp-pagination-radius: var(--component-radius-pill);
   --comp-pagination-cursor: pointer;
@@ -5020,13 +5028,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .pagination[data-density="sm"] {
-  --comp-pagination-size: var(--comp-button-size-sm);
+  --comp-pagination-size: var(--comp-pagination-size-sm);
   --comp-pagination-gap: var(--component-focus-ring-offset);
   --comp-pagination-padding-inline: var(--sys-space-xs);
 }
 
 .pagination[data-density="lg"] {
-  --comp-pagination-size: var(--component-control-min-size);
+  --comp-pagination-size: var(--comp-pagination-size-lg);
   --comp-pagination-gap: var(--sys-space-sm);
   --comp-pagination-padding-inline: var(--sys-space-md);
 }
@@ -6799,7 +6807,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-padding: var(--sys-space-sm);
   --comp-tree-view-indent: var(--sys-space-lg);
   --comp-tree-view-control-min-block: var(--sys-density-control-height);
-  --comp-tree-view-icon-size: var(--comp-button-icon-size);
+  --comp-tree-view-control-min-block-sm: var(--component-field-control-size-sm);
+  --comp-tree-view-control-min-block-lg: var(--component-control-min-size);
+  --comp-tree-view-icon-size-sm: var(--sys-icon-size-sm-plus);
+  --comp-tree-view-icon-size: var(--sys-icon-size-md);
+  --comp-tree-view-icon-size-lg: var(--component-font-size-icon-md);
   --comp-tree-view-selected-bg: transparent;
   --comp-tree-view-selected-text: var(--sys-color-action);
   --comp-tree-view-selected-border: transparent;
@@ -6826,15 +6838,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .tree-view[data-density="sm"] {
   --comp-tree-view-padding: var(--sys-space-xs);
   --comp-tree-view-indent: var(--sys-space-md);
-  --comp-tree-view-control-min-block: var(--comp-button-size-sm);
-  --comp-tree-view-icon-size: var(--comp-button-icon-size-sm);
+  --comp-tree-view-control-min-block: var(--comp-tree-view-control-min-block-sm);
+  --comp-tree-view-icon-size: var(--comp-tree-view-icon-size-sm);
 }
 
 .tree-view[data-density="lg"] {
   --comp-tree-view-padding: var(--sys-space-md);
   --comp-tree-view-indent: var(--sys-space-xl);
-  --comp-tree-view-control-min-block: var(--comp-button-size-lg);
-  --comp-tree-view-icon-size: var(--comp-button-icon-size-lg);
+  --comp-tree-view-control-min-block: var(--comp-tree-view-control-min-block-lg);
+  --comp-tree-view-icon-size: var(--comp-tree-view-icon-size-lg);
 }
 
 body[data-contrast="quiet"] .tree-view {
@@ -7671,10 +7683,21 @@ body[data-contrast="quiet"] .inline-validation {
   border-color: var(--comp-inline-validation-tone);
 }
 
-.code-input small,
+.code-input small {
+  align-items: center;
+  color: var(--comp-code-input-helper-fg);
+  display: flex;
+  gap: var(--sys-space-xs);
+  margin: 0;
+  min-block-size: var(--sys-space-md);
+  font-size: var(--component-font-size-caption);
+  font-weight: var(--sys-voice-weight-medium);
+  line-height: var(--sys-voice-line-height-snug);
+}
+
 .phone-input small {
   align-items: center;
-  color: var(--comp-input-helper-fg);
+  color: var(--comp-phone-input-helper-fg);
   display: flex;
   gap: var(--sys-space-xs);
   margin: 0;
@@ -9096,7 +9119,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   border: 0;
   color: transparent;
   caret-color: transparent;
-  font-size: var(--comp-input-font-size);
+  font-size: var(--comp-code-input-input-font-size);
   inset: 0;
   opacity: 0.01;
   outline: var(--sys-a11y-outline-reset);
@@ -9369,12 +9392,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .country-flag,
 .phone-input__flag {
-  block-size: var(--comp-country-selector-flag-size);
-  border-radius: var(--comp-country-selector-flag-radius);
-  box-shadow: var(--comp-country-selector-flag-ring);
+  block-size: var(--component-country-flag-size);
+  border-radius: var(--component-country-flag-radius);
+  box-shadow: var(--component-country-flag-ring);
   display: inline-grid;
   flex: 0 0 auto;
-  inline-size: var(--comp-country-selector-flag-size);
+  inline-size: var(--component-country-flag-size);
   overflow: hidden;
   place-items: center;
 }
@@ -10303,6 +10326,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-display: inline-flex;
   --comp-segmented-control-gap: 0;
   --comp-segmented-control-position: relative;
+  --comp-segmented-control-item-min-block-sm: var(--sys-space-9);
+  --comp-segmented-control-item-min-block-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
   --comp-segmented-control-item-min-block: var(--component-control-min-size);
   --comp-segmented-control-item-padding-inline: var(--sys-space-md);
   --comp-segmented-control-icon-size: var(--component-icon-size-sm);
@@ -10374,7 +10399,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control[data-variant="toolbar"] {
-  --comp-segmented-control-item-min-block: var(--comp-button-size-sm);
+  --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm);
   --comp-segmented-control-item-padding-inline: var(--sys-space-sm);
   --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
   --comp-segmented-control-bg: color-mix(in srgb, var(--sys-color-surface) 76%, var(--sys-color-border));
@@ -10382,20 +10407,20 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .segmented-control[data-variant="compact"] {
-  --comp-segmented-control-item-min-block: var(--comp-button-size-sm);
+  --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm);
   --comp-segmented-control-item-padding-inline: var(--sys-space-sm);
   --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
   --comp-segmented-control-inline-size: min(100%, var(--component-content-size-md));
 }
 
 .segmented-control[data-density="sm"] {
-  --comp-segmented-control-item-min-block: var(--comp-button-size-sm);
+  --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm);
   --comp-segmented-control-item-padding-inline: var(--sys-space-sm);
   --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
 }
 
 .segmented-control[data-density="lg"] {
-  --comp-segmented-control-item-min-block: var(--comp-button-size-lg);
+  --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-lg);
   --comp-segmented-control-item-padding-inline: var(--sys-space-lg);
   --comp-segmented-control-icon-size: var(--component-font-size-title-md);
 }

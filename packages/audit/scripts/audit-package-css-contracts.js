@@ -2,6 +2,7 @@ const { path, read, add, lineNumber } = require("./audit-context.js");
 const { checkComponentCssContracts } = require("./audit-component-css-contracts.js");
 const { checkTokenizedVisualProperties } = require("./audit-tokenized-css-properties.js");
 const { checkComponentVarFallbacks } = require("./audit-component-var-fallbacks.js");
+const { checkComponentCrossAliases } = require("./audit-component-cross-aliases.js");
 
 const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css");
 const packageSpinnerFile = path.join(process.cwd(), "packages/react/src/Spinner.js");
@@ -123,6 +124,7 @@ function checkPackageCssContracts() {
   }
   checkTokenizedVisualProperties(cssWithoutDefinitions, text);
   checkComponentVarFallbacks(cssWithoutDefinitions, text);
+  checkComponentCrossAliases(cssWithoutDefinitions, text);
   const rawTransformIndex = cssWithoutDefinitions.search(/transform:\s*[^;]*(?:translate[XY]?\([^)]*\d+px|scale\((?:0\.98|0\.985|1\.04)\))/);
   if (rawTransformIndex >= 0) {
     const sourceIndex = text.indexOf(cssWithoutDefinitions.match(/transform:\s*[^;]*(?:translate[XY]?\([^)]*\d+px|scale\((?:0\.98|0\.985|1\.04)\))/)?.[0] ?? "", text.indexOf("}") + 1);

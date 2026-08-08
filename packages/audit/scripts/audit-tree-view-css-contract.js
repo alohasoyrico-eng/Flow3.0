@@ -24,34 +24,36 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
     packageCssFile,
     snippets: [
       "--comp-tree-view-control-min-block: var(--sys-density-control-height)",
-      "--comp-tree-view-icon-size: var(--comp-button-icon-size)",
+      "--comp-tree-view-control-min-block-sm: var(--component-field-control-size-sm)",
+      "--comp-tree-view-control-min-block-lg: var(--component-control-min-size)",
+      "--comp-tree-view-icon-size: var(--sys-icon-size-md)",
       "--comp-tree-view-hover-bg: var(--sys-energy-surface-primary)",
       "--comp-tree-view-hover-border: var(--sys-energy-border-default)",
       "--comp-tree-view-hover-shadow: 0 0 0 var(--sys-frame-border-thin)",
       "--comp-tree-view-hover-transform: translateX(calc(var(--sys-space-xs) / 2))",
       "--comp-tree-view-motion-duration: var(--component-duration-medium)",
     ],
-    message: "TreeView base contract must derive control size from density and compose Button/Energy/Momentum aliases.",
+    message: "TreeView base contract must derive control size from density and compose TreeView/Energy/Momentum aliases.",
   });
   requireIncludes({
     block: treeSmBlock,
     text,
     packageCssFile,
     snippets: [
-      "--comp-tree-view-control-min-block: var(--comp-button-size-sm)",
-      "--comp-tree-view-icon-size: var(--comp-button-icon-size-sm)",
+      "--comp-tree-view-control-min-block: var(--comp-tree-view-control-min-block-sm)",
+      "--comp-tree-view-icon-size: var(--comp-tree-view-icon-size-sm)",
     ],
-    message: "TreeView sm density must override through Button size aliases.",
+    message: "TreeView sm density must override through TreeView size aliases.",
   });
   requireIncludes({
     block: treeLgBlock,
     text,
     packageCssFile,
     snippets: [
-      "--comp-tree-view-control-min-block: var(--comp-button-size-lg)",
-      "--comp-tree-view-icon-size: var(--comp-button-icon-size-lg)",
+      "--comp-tree-view-control-min-block: var(--comp-tree-view-control-min-block-lg)",
+      "--comp-tree-view-icon-size: var(--comp-tree-view-icon-size-lg)",
     ],
-    message: "TreeView lg density must override through Button size aliases.",
+    message: "TreeView lg density must override through TreeView size aliases.",
   });
   requireIncludes({
     block: controlBlock,
@@ -72,7 +74,7 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
       "font-size: var(--comp-tree-view-icon-size)",
       "transform var(--comp-tree-view-motion-duration) var(--comp-tree-view-chevron-ease)",
     ],
-    message: "TreeView icons must inherit the current Button icon size and Momentum aliases.",
+    message: "TreeView icons must inherit the current TreeView icon size and Momentum aliases.",
   });
   requireIncludes({
     block: itemBlock,
