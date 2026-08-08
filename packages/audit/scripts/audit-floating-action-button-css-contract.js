@@ -61,7 +61,7 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
       "--comp-floating-action-button-size: var(--comp-floating-action-button-size-md)",
       "--comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-md)",
       "--comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-md)",
-      "--comp-floating-action-button-border: 0",
+      "--comp-floating-action-button-border: var(--component-border-none)",
       "--comp-floating-action-button-cursor: pointer",
       "--comp-floating-action-button-transition:",
       "--comp-floating-action-button-disabled-cursor: not-allowed",

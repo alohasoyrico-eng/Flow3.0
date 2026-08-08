@@ -53,7 +53,7 @@ function checkMovementRowCssContract({ text, blocks, packageCssFile, selectorKey
     text,
     packageCssFile,
     snippets: [
-      "--comp-movement-row-border-width: 0",
+      "--comp-movement-row-border-width: var(--component-border-width-none)",
       "--comp-movement-row-current-gap: var(--comp-movement-row-gap-md)",
       "--comp-movement-row-current-icon-bg: var(--comp-movement-row-icon-bg)",
       "--comp-movement-row-current-icon-fg: var(--comp-movement-row-icon-fg)",

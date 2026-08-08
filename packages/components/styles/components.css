@@ -5,6 +5,8 @@
   --component-border-width-medium: var(--sys-frame-border-medium);
   --component-border-width-control: var(--sys-frame-border-control);
   --component-border-width-indicator: var(--sys-frame-border-indicator);
+  --component-border-none: 0;
+  --component-border-width-none: 0;
   --component-control-min-size: var(--sys-space-11);
   --component-density-control-height: var(--sys-density-control-height);
   --component-density-control-padding-x: var(--sys-density-control-padding-x);
@@ -24,6 +26,7 @@
   --component-radius-control: calc(var(--sys-radius-md) + var(--sys-radius-sm));
   --component-radius-surface: var(--sys-frame-radius-surface);
   --component-radius-sm: var(--sys-frame-radius-sm);
+  --component-radius-none: 0;
   --component-ratio-half: var(--sys-frame-ratio-half);
   --component-field-gap: var(--sys-frame-gap-element);
   --component-offset-xs: var(--sys-space-1);
@@ -2710,7 +2713,7 @@ button.tag:disabled,
   --comp-tabs-indicator-z: var(--sys-depth-z-base);
   --comp-tabs-tab-align: center;
   --comp-tabs-tab-bg: var(--component-surface-transparent);
-  --comp-tabs-tab-border: 0;
+  --comp-tabs-tab-border: var(--component-border-none);
   --comp-tabs-tab-radius: var(--component-radius-pill);
   --comp-tabs-tab-fg: var(--sys-color-text-muted);
   --comp-tabs-tab-cursor: pointer;
@@ -2735,18 +2738,18 @@ button.tag:disabled,
   --comp-tabs-focus-offset: var(--component-focus-ring-offset);
   --comp-tabs-icon-selected-variation: var(--sys-icon-variation-filled-strong);
   --comp-tabs-underline-bg: var(--component-surface-transparent);
-  --comp-tabs-underline-border: 0;
+  --comp-tabs-underline-border: var(--component-border-none);
   --comp-tabs-underline-border-block-end: var(--comp-tabs-border-width) solid var(--sys-color-border);
-  --comp-tabs-underline-radius: 0;
+  --comp-tabs-underline-radius: var(--component-radius-none);
   --comp-tabs-underline-gap: var(--sys-space-xl);
   --comp-tabs-underline-padding: var(--component-frame-space-none);
   --comp-tabs-underline-indicator-bg: var(--sys-color-action);
-  --comp-tabs-underline-indicator-border: 0;
+  --comp-tabs-underline-indicator-border: var(--component-border-none);
   --comp-tabs-underline-indicator-block-size: calc(var(--comp-tabs-border-width) * 3);
   --comp-tabs-underline-indicator-shadow: var(--component-depth-none);
   --comp-tabs-underline-indicator-inset-block: auto;
   --comp-tabs-underline-indicator-inset-block-end: calc(var(--comp-tabs-border-width) * -1);
-  --comp-tabs-underline-tab-radius: 0;
+  --comp-tabs-underline-tab-radius: var(--component-radius-none);
   --comp-tabs-underline-tab-padding-inline: var(--sys-space-xs);
   align-items: var(--comp-tabs-align);
   background: var(--comp-tabs-bg);
@@ -4220,11 +4223,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-list-icon-display: inline-flex;
   --comp-list-icon-line-height: var(--sys-voice-line-height-none);
   --comp-list-interactive-cursor: pointer;
-  --comp-list-item-border-width: 0;
+  --comp-list-item-border-width: var(--component-border-width-none);
   --comp-list-item-display: grid;
   --comp-list-item-grid-template: auto 1fr auto;
   --comp-list-item-inline-size: var(--component-inline-size-full);
-  --comp-list-item-radius: 0;
+  --comp-list-item-radius: var(--component-radius-none);
   --comp-list-item-text-align: start;
   --comp-list-row-margin: var(--component-frame-space-none);
   --comp-list-value-weight: var(--sys-voice-weight-extrabold);
@@ -4571,7 +4574,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-size: var(--comp-floating-action-button-size-md);
   --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-md);
   --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-md);
-  --comp-floating-action-button-border: 0;
+  --comp-floating-action-button-border: var(--component-border-none);
   --comp-floating-action-button-cursor: pointer;
   --comp-floating-action-button-display: inline-flex;
   --comp-floating-action-button-inline-size: var(--component-inline-size-fit-content);
@@ -4816,7 +4819,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-align: center;
   --comp-pagination-button-align: center;
   --comp-pagination-button-bg: var(--component-surface-transparent);
-  --comp-pagination-button-border: 0;
+  --comp-pagination-button-border: var(--component-border-none);
   --comp-pagination-button-display: inline-flex;
   --comp-pagination-button-justify: center;
   --comp-pagination-current-cursor: default;
@@ -10202,7 +10205,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-item-gap: var(--sys-space-xs);
   --comp-segmented-control-item-align: center;
   --comp-segmented-control-item-bg: var(--component-surface-transparent);
-  --comp-segmented-control-item-border: 0;
+  --comp-segmented-control-item-border: var(--component-border-none);
   --comp-segmented-control-item-fg: var(--sys-color-text-muted);
   --comp-segmented-control-item-cursor: pointer;
   --comp-segmented-control-item-display: inline-flex;
@@ -10787,7 +10790,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .movement-row {
-  --comp-movement-row-border-width: 0;
+  --comp-movement-row-border-width: var(--component-border-width-none);
   --comp-movement-row-content-gap: var(--component-visually-hidden-size);
   --comp-movement-row-content-min-inline-size: 0;
   --comp-movement-row-current-gap: var(--comp-movement-row-gap-md);
@@ -10953,7 +10956,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .quick-action {
   --comp-quick-action-bg: var(--component-surface-transparent);
-  --comp-quick-action-border-width: 0;
+  --comp-quick-action-border-width: var(--component-border-width-none);
   --comp-quick-action-cursor: default;
   --comp-quick-action-display: inline-grid;
   --comp-quick-action-icon-size: var(--component-action-control-size-md);
