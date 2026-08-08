@@ -23,6 +23,7 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Toast" && /dismissible\s*\?\s*React\.createElement\(IconButton/.test(source)) add("errors", sourceFile, 1, "Toast must gate dismiss IconButton on dismissLabel, not dismissible alone.");
   if (name === "FloatingActionButton" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "FloatingActionButton must not render without an accessible label.");
   if (name === "QuickAction" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "QuickAction must not render without an accessible label.");
+  if (name === "Chip" && !source.includes("const canRemove = Boolean(removable && onRemoveLabel);")) add("errors", sourceFile, 1, "Chip must gate removable behavior on onRemoveLabel instead of removable alone.");
 }
 
 module.exports = { checkReactComponentContentGuards };

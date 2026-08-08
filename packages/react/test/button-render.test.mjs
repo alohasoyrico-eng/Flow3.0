@@ -1020,7 +1020,9 @@ const unnamedRemoveChipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   removable: true,
 }));
 assert.doesNotMatch(unnamedRemoveChipMarkup, /Remove Active|Remove chip/);
-assert.doesNotMatch(unnamedRemoveChipMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /aria-label=/);
+assert.match(unnamedRemoveChipMarkup, /^<span/);
+assert.doesNotMatch(unnamedRemoveChipMarkup, /data-chip-remove="true"/);
+assert.doesNotMatch(unnamedRemoveChipMarkup, /class="chip__remove"/);
 
 const staticChipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Suggested",

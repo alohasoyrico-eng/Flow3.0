@@ -42,13 +42,14 @@ export const Chip = forwardRef(function Chip({
   const resolvedTone = normalizeTone(tone);
   const isSelected = Boolean(selected) || state === "selected";
   const resolvedState = normalizeState({ disabled, selected: isSelected, state });
-  const isInteractive = Boolean(interactive) || isSelected || removable || typeof onSelectedChange === "function" || typeof onRemove === "function";
+  const canRemove = Boolean(removable && onRemoveLabel);
+  const isInteractive = Boolean(interactive) || isSelected || canRemove || typeof onSelectedChange === "function";
   const element = isInteractive ? "button" : "span";
 
   function handleClick(event) {
     rest.onClick?.(event);
     if (event.defaultPrevented || resolvedState === "disabled") return;
-    if (removable) {
+    if (canRemove) {
       onRemove?.(label ?? "");
       return;
     }
@@ -66,18 +67,18 @@ export const Chip = forwardRef(function Chip({
       type: isInteractive ? type : undefined,
       disabled: isInteractive ? resolvedState === "disabled" : undefined,
       onClick: isInteractive ? handleClick : rest.onClick,
-      "aria-label": removable ? onRemoveLabel || undefined : rest["aria-label"],
+      "aria-label": canRemove ? onRemoveLabel : rest["aria-label"],
       "aria-pressed": isInteractive ? String(isSelected) : undefined,
       "aria-disabled": !isInteractive && resolvedState === "disabled" ? "true" : undefined,
       ...flowVariantProps(resolvedVariant),
       ...flowToneProps(resolvedTone),
       ...flowStateProps(resolvedState),
       "data-selected": String(isSelected),
-      "data-chip-remove": removable ? "true" : undefined,
+      "data-chip-remove": canRemove ? "true" : undefined,
     },
     icon ? React.createElement("span", { className: "chip__icon", "aria-hidden": "true" }, icon) : null,
     label ? React.createElement("span", { className: "chip__label" }, label) : null,
-    removable ? React.createElement("span", { className: "chip__remove", "data-chip-remove-icon": "true", "aria-hidden": "true" }, "close") : null,
+    canRemove ? React.createElement("span", { className: "chip__remove", "data-chip-remove-icon": "true", "aria-hidden": "true" }, "close") : null,
   );
 });
 
