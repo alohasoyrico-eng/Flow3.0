@@ -36,7 +36,12 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
   if (localActionSize) {
     add("errors", packageCssFile, lineNumber(text, localActionSize.index), "QuickAction layout sizes must flow through shared Frame action roles instead of local control-size calculations.");
   }
+  const localIconSize = /--comp-quick-action-icon-size:\s*var\(--component-(?:control-min-size|inline-size-md|block-size-sm)\)/.exec(text);
+  if (localIconSize) {
+    add("errors", packageCssFile, lineNumber(text, localIconSize.index), "QuickAction control size must flow through shared Frame action control roles instead of generic component size aliases.");
+  }
   for (const snippet of [
+    "--comp-quick-action-icon-size: var(--component-action-control-size-md)",
     "--comp-quick-action-label-width: var(--component-action-label-inline-size-md)",
     "--comp-quick-action-min-block-size: var(--component-action-min-block-size-md)",
     "--comp-quick-action-min-inline-size: var(--component-action-min-inline-size-md)",
@@ -97,6 +102,7 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
     text,
     packageCssFile,
     snippets: [
+      "--comp-quick-action-icon-size: var(--component-action-control-size-sm)",
       "--comp-quick-action-label-width: var(--component-action-label-inline-size-sm)",
       "--comp-quick-action-min-block-size: var(--component-action-min-block-size-md)",
       "--comp-quick-action-min-inline-size: var(--component-action-min-inline-size-sm)",
@@ -108,6 +114,7 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
     text,
     packageCssFile,
     snippets: [
+      "--comp-quick-action-icon-size: var(--component-action-control-size-lg)",
       "--comp-quick-action-label-width: var(--component-action-label-inline-size-lg)",
       "--comp-quick-action-min-block-size: var(--component-action-min-block-size-lg)",
       "--comp-quick-action-min-inline-size: var(--component-action-min-inline-size-lg)",
@@ -119,6 +126,7 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
     text,
     packageCssFile,
     snippets: [
+      "--comp-quick-action-icon-size: var(--component-action-control-size-sm)",
       "--comp-quick-action-label-width: var(--component-action-label-inline-size-sm)",
       "--comp-quick-action-min-block-size: var(--component-action-min-block-size-md)",
       "--comp-quick-action-min-inline-size: var(--component-action-min-inline-size-sm)",

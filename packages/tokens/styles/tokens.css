@@ -530,6 +530,9 @@
   --sys-frame-content-action-label-md: calc(var(--sys-space-11) * 2);
   --sys-frame-content-action-label-lg: calc(var(--sys-space-11) * 2.5);
   --sys-frame-content-action-label-xl: calc(var(--sys-space-11) * 3.25);
+  --sys-frame-content-action-control-sm: var(--sys-space-11);
+  --sys-frame-content-action-control-md: var(--sys-space-9);
+  --sys-frame-content-action-control-lg: calc(var(--sys-space-11) * 1.5);
   --sys-frame-content-action-min-inline-sm: calc(var(--sys-space-11) + var(--sys-space-md));
   --sys-frame-content-action-min-inline-md: calc(var(--sys-space-11) * 2);
   --sys-frame-content-action-min-inline-lg: calc(var(--sys-space-11) * 1.75);
