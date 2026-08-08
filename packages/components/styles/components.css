@@ -6303,34 +6303,34 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table {
-  --table-cell-block-padding: var(--comp-table-cell-padding-block-md);
-  --table-cell-inline-padding: var(--comp-table-cell-padding-inline-md);
-  --table-header-size: var(--comp-table-header-size-md);
-  --table-body-size: var(--comp-table-body-size-md);
-  --table-border-width: var(--comp-table-border-width);
-  --table-border: var(--comp-table-border);
-  --table-header-bg: var(--comp-table-header-bg);
-  --table-header-fg: var(--comp-table-header-fg);
-  --table-header-weight: var(--comp-table-header-weight);
-  --table-header-transform: var(--comp-table-header-transform);
-  --table-row-hover-bg: var(--comp-table-row-hover-bg);
-  --table-row-selected-bg: var(--comp-table-row-selected-bg);
-  --table-row-selected-accent: var(--comp-table-row-selected-accent);
-  --table-row-selected-rail-width: var(--comp-table-row-selected-rail-width);
-  --table-focus-color: var(--comp-table-focus-color);
-  --table-focus-width: var(--comp-table-focus-width);
-  --table-focus-offset: var(--comp-table-focus-offset);
-  --table-sort-gap: var(--comp-table-sort-gap);
-  --table-sort-active-icon-opacity: var(--comp-table-sort-active-icon-opacity);
-  --table-expander-cell-inline-size: calc(var(--comp-table-expander-size) + var(--comp-table-expander-cell-gap));
-  --table-expander-cell-padding-inline-end: var(--comp-table-expander-cell-padding-inline-end);
-  --table-expander-icon-size: var(--comp-table-expander-icon-size);
-  --table-expander-expanded-transform: var(--comp-table-expander-expanded-transform);
-  --table-detail-bg: var(--comp-table-detail-bg);
-  --table-detail-fg: var(--comp-table-detail-fg);
-  --table-detail-padding-block: var(--comp-table-detail-padding-block);
-  --table-detail-padding-inline-start: calc(var(--comp-table-expander-size) + var(--table-cell-inline-padding));
-  --table-row-transition: background-color var(--comp-table-motion-duration) var(--comp-table-motion-ease),
+  --comp-table-current-cell-block-padding: var(--comp-table-cell-padding-block-md);
+  --comp-table-current-cell-inline-padding: var(--comp-table-cell-padding-inline-md);
+  --comp-table-current-header-size: var(--comp-table-header-size-md);
+  --comp-table-current-body-size: var(--comp-table-body-size-md);
+  --comp-table-current-border-width: var(--comp-table-border-width);
+  --comp-table-current-border: var(--comp-table-border);
+  --comp-table-current-header-bg: var(--comp-table-header-bg);
+  --comp-table-current-header-fg: var(--comp-table-header-fg);
+  --comp-table-current-header-weight: var(--comp-table-header-weight);
+  --comp-table-current-header-transform: var(--comp-table-header-transform);
+  --comp-table-current-row-hover-bg: var(--comp-table-row-hover-bg);
+  --comp-table-current-row-selected-bg: var(--comp-table-row-selected-bg);
+  --comp-table-current-row-selected-accent: var(--comp-table-row-selected-accent);
+  --comp-table-current-row-selected-rail-width: var(--comp-table-row-selected-rail-width);
+  --comp-table-current-focus-color: var(--comp-table-focus-color);
+  --comp-table-current-focus-width: var(--comp-table-focus-width);
+  --comp-table-current-focus-offset: var(--comp-table-focus-offset);
+  --comp-table-current-sort-gap: var(--comp-table-sort-gap);
+  --comp-table-current-sort-active-icon-opacity: var(--comp-table-sort-active-icon-opacity);
+  --comp-table-current-expander-cell-inline-size: calc(var(--comp-table-expander-size) + var(--comp-table-expander-cell-gap));
+  --comp-table-current-expander-cell-padding-inline-end: var(--comp-table-expander-cell-padding-inline-end);
+  --comp-table-current-expander-icon-size: var(--comp-table-expander-icon-size);
+  --comp-table-current-expander-expanded-transform: var(--comp-table-expander-expanded-transform);
+  --comp-table-current-detail-bg: var(--comp-table-detail-bg);
+  --comp-table-current-detail-fg: var(--comp-table-detail-fg);
+  --comp-table-current-detail-padding-block: var(--comp-table-detail-padding-block);
+  --comp-table-current-detail-padding-inline-start: calc(var(--comp-table-expander-size) + var(--comp-table-current-cell-inline-padding));
+  --comp-table-current-row-transition: background-color var(--comp-table-motion-duration) var(--comp-table-motion-ease),
     box-shadow var(--comp-table-motion-duration) var(--comp-table-motion-ease);
   -webkit-overflow-scrolling: touch;
   container-type: inline-size;
@@ -6339,17 +6339,17 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table[data-density="sm"],
 .table[data-variant="dense"] {
-  --table-cell-block-padding: var(--comp-table-cell-padding-block-sm);
-  --table-cell-inline-padding: var(--comp-table-cell-padding-inline-sm);
-  --table-header-size: var(--comp-table-header-size-sm);
-  --table-body-size: var(--comp-table-body-size-sm);
+  --comp-table-current-cell-block-padding: var(--comp-table-cell-padding-block-sm);
+  --comp-table-current-cell-inline-padding: var(--comp-table-cell-padding-inline-sm);
+  --comp-table-current-header-size: var(--comp-table-header-size-sm);
+  --comp-table-current-body-size: var(--comp-table-body-size-sm);
 }
 
 .table[data-density="lg"] {
-  --table-cell-block-padding: var(--comp-table-cell-padding-block-lg);
-  --table-cell-inline-padding: var(--comp-table-cell-padding-inline-lg);
-  --table-header-size: var(--comp-table-header-size-lg);
-  --table-body-size: var(--comp-table-body-size-lg);
+  --comp-table-current-cell-block-padding: var(--comp-table-cell-padding-block-lg);
+  --comp-table-current-cell-inline-padding: var(--comp-table-cell-padding-inline-lg);
+  --comp-table-current-header-size: var(--comp-table-header-size-lg);
+  --comp-table-current-body-size: var(--comp-table-body-size-lg);
 }
 
 .table table {
@@ -6360,35 +6360,35 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table th,
 .table td {
-  border-block-end: var(--table-border-width) solid var(--table-border);
-  font-size: var(--table-body-size);
-  padding: var(--table-cell-block-padding) var(--table-cell-inline-padding);
+  border-block-end: var(--comp-table-current-border-width) solid var(--comp-table-current-border);
+  font-size: var(--comp-table-current-body-size);
+  padding: var(--comp-table-current-cell-block-padding) var(--comp-table-current-cell-inline-padding);
   text-align: start;
   white-space: nowrap;
 }
 
 .table th {
-  background: var(--table-header-bg);
-  color: var(--table-header-fg);
-  font-size: var(--table-header-size);
-  font-weight: var(--table-header-weight);
+  background: var(--comp-table-current-header-bg);
+  color: var(--comp-table-current-header-fg);
+  font-size: var(--comp-table-current-header-size);
+  font-weight: var(--comp-table-current-header-weight);
   letter-spacing: 0;
-  text-transform: var(--table-header-transform);
+  text-transform: var(--comp-table-current-header-transform);
 }
 
 .table tbody tr {
-  transition: var(--table-row-transition);
+  transition: var(--comp-table-current-row-transition);
 }
 
 .table tbody tr:hover,
 .table tbody tr[data-state="hover"] {
-  background: var(--table-row-hover-bg);
+  background: var(--comp-table-current-row-hover-bg);
 }
 
 .table tbody tr:focus-visible,
 .table tbody tr[data-state="focus"] {
-  outline: var(--table-focus-width) solid var(--table-focus-color);
-  outline-offset: calc(var(--table-focus-offset) * -1);
+  outline: var(--comp-table-current-focus-width) solid var(--comp-table-current-focus-color);
+  outline-offset: calc(var(--comp-table-current-focus-offset) * -1);
 }
 
 .table [data-align="right"] {
@@ -6400,8 +6400,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table tr[data-selected="true"] {
-  background: var(--table-row-selected-bg);
-  box-shadow: inset var(--table-row-selected-rail-width) 0 0 var(--table-row-selected-accent);
+  background: var(--comp-table-current-row-selected-bg);
+  box-shadow: inset var(--comp-table-current-row-selected-rail-width) 0 0 var(--comp-table-current-row-selected-accent);
 }
 
 .table__sort {
@@ -6412,7 +6412,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   cursor: pointer;
   display: inline-flex;
   font: inherit;
-  gap: var(--table-sort-gap);
+  gap: var(--comp-table-current-sort-gap);
   inline-size: 100%;
   justify-content: inherit;
   letter-spacing: inherit;
@@ -6438,18 +6438,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table__sort[data-active="true"][data-dir="asc"]::after {
   content: "expand_less";
-  opacity: var(--table-sort-active-icon-opacity);
+  opacity: var(--comp-table-current-sort-active-icon-opacity);
 }
 
 .table__sort[data-active="true"][data-dir="desc"]::after {
   content: "expand_more";
-  opacity: var(--table-sort-active-icon-opacity);
+  opacity: var(--comp-table-current-sort-active-icon-opacity);
 }
 
 .table__expander-head,
 .table__expander-cell {
-  inline-size: var(--table-expander-cell-inline-size);
-  padding-inline-end: var(--table-expander-cell-padding-inline-end);
+  inline-size: var(--comp-table-current-expander-cell-inline-size);
+  padding-inline-end: var(--comp-table-current-expander-cell-padding-inline-end);
 }
 
 .table__expander {
@@ -6460,7 +6460,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   cursor: pointer;
   display: inline-flex;
   font-family: var(--sys-font-icon);
-  font-size: var(--table-expander-icon-size);
+  font-size: var(--comp-table-current-expander-icon-size);
   justify-content: center;
   min-block-size: var(--comp-table-expander-size);
   min-inline-size: var(--comp-table-expander-size);
@@ -6472,14 +6472,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table tr[aria-expanded="true"] .table__expander {
   color: var(--comp-table-expander-active-fg);
-  transform: var(--table-expander-expanded-transform);
+  transform: var(--comp-table-current-expander-expanded-transform);
 }
 
 .table__detail {
-  background: var(--table-detail-bg);
-  color: var(--table-detail-fg);
-  padding-block: var(--table-detail-padding-block);
-  padding-inline-start: var(--table-detail-padding-inline-start);
+  background: var(--comp-table-current-detail-bg);
+  color: var(--comp-table-current-detail-fg);
+  padding-block: var(--comp-table-current-detail-padding-block);
+  padding-inline-start: var(--comp-table-current-detail-padding-inline-start);
 }
 
 @container (max-width: 32rem) {
