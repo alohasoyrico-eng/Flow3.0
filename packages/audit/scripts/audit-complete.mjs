@@ -205,6 +205,9 @@ const checks = [
   ["audit registry", auditRegistry],
   ["audit entrypoints", auditEntrypoints],
   ["public prefix", auditPublicPrefix],
+  ...(hasRepoFile("scripts/generate-token-contract.mjs")
+    ? [["token contract freshness", () => run("node", ["scripts/generate-token-contract.mjs", "--check"])]]
+    : []),
   ...(hasRepoFile("scripts/generate-foundation-contracts.mjs")
     ? [["foundation contracts", () => run("node", ["scripts/generate-foundation-contracts.mjs", "--check"])]]
     : []),
@@ -305,8 +308,11 @@ function auditEntrypoints() {
     if (packageJson.scripts?.["audit:complete"] !== "node packages/audit/scripts/audit-complete.mjs") {
       throw new Error("split system package must expose audit:complete through audit-complete.mjs.");
     }
-    if (packageJson.scripts?.["validate:system"] !== "npm run build:react && npm run test:react && npm run audit:complete") {
-      throw new Error("split system package must run build:react, test:react, and audit:complete as the full system gate.");
+    if (packageJson.scripts?.["build:tokens"] !== "node scripts/generate-token-contract.mjs") {
+      throw new Error("split system package must expose build:tokens through generate-token-contract.mjs.");
+    }
+    if (packageJson.scripts?.["validate:system"] !== "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete") {
+      throw new Error("split system package must run build:tokens, build:react, test:react, and audit:complete as the full system gate.");
     }
   }
 

@@ -265,8 +265,11 @@ function checkRepoBoundary() {
     if (scripts["audit:complete"] !== "node packages/audit/scripts/audit-complete.mjs") {
       add("errors", packageJsonFile, 1, "Extracted system repo must expose audit:complete.");
     }
-    if (scripts["validate:system"] !== "npm run build:react && npm run test:react && npm run audit:complete") {
-      add("errors", packageJsonFile, 1, "Extracted system repo must run build:react, test:react, and audit:complete as the full system gate.");
+    if (scripts["build:tokens"] !== "node scripts/generate-token-contract.mjs") {
+      add("errors", packageJsonFile, 1, "Extracted system repo must expose build:tokens.");
+    }
+    if (scripts["validate:system"] !== "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete") {
+      add("errors", packageJsonFile, 1, "Extracted system repo must run build:tokens, build:react, test:react, and audit:complete as the full system gate.");
     }
     return;
   }
