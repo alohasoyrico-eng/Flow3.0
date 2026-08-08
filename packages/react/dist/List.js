@@ -78,7 +78,7 @@ export const List = forwardRef(function List({
               onClick?.(event);
               if (event.defaultPrevented) return;
               if (!isSelectedKeyControlled) setCurrentSelectedKey(key);
-              onSelect?.(key);
+              onSelect?.(key, event);
             } : undefined,
           },
           icon

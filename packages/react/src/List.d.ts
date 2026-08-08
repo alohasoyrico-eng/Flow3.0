@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, ReactNode, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactNode, RefAttributes } from "react";
 import type { listPlatformContract } from "@design-system/components/platforms";
 
 export type ListVariant = "standard" | "compact" | "action" | "status" | "media";
@@ -25,7 +25,7 @@ export interface ListProps extends Omit<HTMLAttributes<HTMLUListElement>, "style
   label?: string;
   selectedKey?: string;
   density?: ListDensity;
-  onSelect?: (key: string) => void;
+  onSelect?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface ListComponent extends ForwardRefExoticComponent<ListProps & RefAttributes<HTMLUListElement>> {

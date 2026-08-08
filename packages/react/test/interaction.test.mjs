@@ -1420,7 +1420,7 @@ try {
       { key: "docs", label: "Documents", meta: "3 pending" },
       { key: "fuel", label: "Fuel card", meta: "Needs review" },
     ],
-    onSelect: (key) => listSelections.push(key),
+    onSelect: (key, event) => listSelections.push({ key, eventType: event.type }),
   }));
 
   const documentsRow = getListRole("button", { name: /documents/i });
@@ -1428,7 +1428,7 @@ try {
   assert.equal(documentsRow.getAttribute("aria-current"), null);
   fireEvent.click(documentsRow);
   await waitFor(() => assert.equal(documentsRow.getAttribute("aria-current"), "true"));
-  assert.deepEqual(listSelections, ["docs"]);
+  assert.deepEqual(listSelections, [{ key: "docs", eventType: "click" }]);
 
   rerenderList(React.createElement(List, {
     label: "Fleet tasks",
@@ -1438,7 +1438,7 @@ try {
       { key: "docs", label: "Documents", meta: "3 pending" },
       { key: "fuel", label: "Fuel card", meta: "Needs review" },
     ],
-    onSelect: (key) => listSelections.push(key),
+    onSelect: (key, event) => listSelections.push({ key, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(fuelRow.getAttribute("aria-current"), "true"));
   assert.equal(documentsRow.getAttribute("aria-current"), null);
