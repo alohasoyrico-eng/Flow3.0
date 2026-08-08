@@ -32,6 +32,7 @@ export const AuditEvent = forwardRef(function AuditEvent({
 }, ref) {
   const resolvedState = normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
+  if (!label) return null;
   const { statusText, statusTone } = statusFor(resolvedState, tone, status);
 
   return React.createElement(
@@ -49,7 +50,7 @@ export const AuditEvent = forwardRef(function AuditEvent({
     React.createElement(
       "div",
       { className: "audit-event__content" },
-      label ? React.createElement("strong", null, label) : null,
+      React.createElement("strong", null, label),
       description ? React.createElement("p", null, description) : null,
       meta || timestamp || statusText
         ? React.createElement(

@@ -526,6 +526,12 @@ const inheritedAuditEventMarkup = renderToStaticMarkup(React.createElement(Audit
   label: "Inherited audit density",
 }));
 assert.doesNotMatch(inheritedAuditEventMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
+const unlabeledAuditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
+  description: "Missing event label",
+  meta: "Ana Sosa",
+  status: "Critical",
+}));
+assert.doesNotMatch(unlabeledAuditEventMarkup, /audit-event|Missing event label|Ana Sosa|Critical/);
 
 const animatedMomentMarkup = renderToStaticMarkup(React.createElement(AnimatedMoment, {
   label: "Action complete",
