@@ -13,7 +13,7 @@ function normalizeState(state, reducedMotion) {
 
 export const MotionBoundary = forwardRef(function MotionBoundary({
   label,
-  description = "",
+  description,
   variant = "fade",
   state = "active",
   icon = "transition_slide",
@@ -28,9 +28,8 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
   const resolvedState = normalizeState(state, reducedMotion);
   const isReducedMotion = Boolean(reducedMotion || resolvedState === "reduced-motion");
   if (!label) return null;
-  const resolvedDescription = description || "";
   const resolvedStateLabel = stateLabel;
-  const describedBy = [resolvedDescription ? `${id}-description` : "", resolvedStateLabel ? `${id}-state` : ""].filter(Boolean).join(" ") || undefined;
+  const describedBy = [description ? `${id}-description` : "", resolvedStateLabel ? `${id}-state` : ""].filter(Boolean).join(" ") || undefined;
 
   return React.createElement(
     "div",
@@ -51,7 +50,7 @@ export const MotionBoundary = forwardRef(function MotionBoundary({
       "div",
       { className: "motion-boundary__content" },
       React.createElement("strong", { id: `${id}-label` }, label),
-      resolvedDescription ? React.createElement("p", { id: `${id}-description` }, resolvedDescription) : null,
+      description ? React.createElement("p", { id: `${id}-description` }, description) : null,
       resolvedStateLabel ? React.createElement("span", { className: "motion-boundary__state", id: `${id}-state`, hidden: true }, resolvedStateLabel) : null,
     ),
     React.createElement("span", { className: "motion-boundary__cue", "data-motion-cue": "", "aria-hidden": "true" }),
