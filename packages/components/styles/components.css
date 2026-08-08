@@ -3720,26 +3720,54 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .avatar {
   --comp-avatar-size: var(--component-inline-size-md);
   --comp-avatar-font-size: calc(var(--comp-avatar-size) * 0.36);
+  --comp-avatar-font-weight: var(--sys-voice-weight-bold);
+  --comp-avatar-letter-spacing: var(--sys-voice-letter-spacing-wide);
   --comp-avatar-bg: var(--sys-color-action);
   --comp-avatar-fg: var(--sys-color-action-text);
+  --comp-avatar-align: center;
+  --comp-avatar-display: inline-flex;
+  --comp-avatar-justify: center;
+  --comp-avatar-radius: var(--component-radius-pill);
+  --comp-avatar-shadow: var(--component-depth-low-medium);
+  --comp-avatar-position: relative;
+  --comp-avatar-motion-duration: var(--component-duration-state);
+  --comp-avatar-motion-press-duration: var(--component-duration-press);
+  --comp-avatar-motion-ease: var(--component-ease-state);
+  --comp-avatar-motion-press-ease: var(--component-ease-press);
+  --comp-avatar-img-radius: inherit;
+  --comp-avatar-img-size: 100%;
+  --comp-avatar-img-fit: cover;
   --comp-avatar-status-bg: var(--sys-color-success);
   --comp-avatar-status-size: max(var(--sys-space-sm), calc(var(--comp-avatar-size) * 0.26));
-  align-items: center;
+  --comp-avatar-status-border-width: var(--sys-frame-border-medium);
+  --comp-avatar-status-border-color: var(--sys-color-surface);
+  --comp-avatar-status-border: var(--comp-avatar-status-border-width) solid var(--comp-avatar-status-border-color);
+  --comp-avatar-status-radius: var(--component-radius-pill);
+  --comp-avatar-status-inset-block-end: 0;
+  --comp-avatar-status-inset-inline-end: 0;
+  --comp-avatar-status-position: absolute;
+  --comp-avatar-status-animation-name: component-pulse;
+  --comp-avatar-status-animation-duration: var(--component-duration-loop);
+  --comp-avatar-status-animation-ease: var(--component-ease-state);
+  --comp-avatar-disabled-bg: var(--component-disabled-border);
+  --comp-avatar-disabled-fg: var(--component-disabled-text);
+  --comp-avatar-disabled-opacity: var(--component-opacity-disabled);
+  align-items: var(--comp-avatar-align);
   background: var(--comp-avatar-bg);
-  border-radius: var(--component-radius-pill);
-  box-shadow: var(--component-depth-low-medium);
+  border-radius: var(--comp-avatar-radius);
+  box-shadow: var(--comp-avatar-shadow);
   color: var(--comp-avatar-fg);
-  display: inline-flex;
+  display: var(--comp-avatar-display);
   font-size: var(--comp-avatar-font-size);
-  font-weight: var(--sys-voice-weight-bold);
+  font-weight: var(--comp-avatar-font-weight);
   inline-size: var(--comp-avatar-size);
-  justify-content: center;
-  letter-spacing: var(--sys-voice-letter-spacing-wide);
+  justify-content: var(--comp-avatar-justify);
+  letter-spacing: var(--comp-avatar-letter-spacing);
   min-block-size: var(--comp-avatar-size);
-  position: relative;
+  position: var(--comp-avatar-position);
   transition:
-    opacity var(--component-duration-state) var(--component-ease-state),
-    transform var(--component-duration-press) var(--component-ease-press);
+    opacity var(--comp-avatar-motion-duration) var(--comp-avatar-motion-ease),
+    transform var(--comp-avatar-motion-press-duration) var(--comp-avatar-motion-press-ease);
 }
 
 .avatar--sm { --comp-avatar-size: var(--component-badge-min-size); }
@@ -3760,21 +3788,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .avatar[data-color-index="5"] { --comp-avatar-bg: var(--ref-energy-teal-500, color-mix(in srgb, var(--sys-color-success) 72%, var(--sys-color-action))); }
 
 .avatar img {
-  border-radius: inherit;
-  block-size: 100%;
-  inline-size: 100%;
-  object-fit: cover;
+  border-radius: var(--comp-avatar-img-radius);
+  block-size: var(--comp-avatar-img-size);
+  inline-size: var(--comp-avatar-img-size);
+  object-fit: var(--comp-avatar-img-fit);
 }
 
 .avatar__status {
   background: var(--comp-avatar-status-bg);
-  border: var(--sys-frame-border-medium) solid var(--sys-color-surface);
-  border-radius: var(--component-radius-pill);
+  border: var(--comp-avatar-status-border);
+  border-radius: var(--comp-avatar-status-radius);
   block-size: var(--comp-avatar-status-size);
   inline-size: var(--comp-avatar-status-size);
-  inset-block-end: 0;
-  inset-inline-end: 0;
-  position: absolute;
+  inset-block-end: var(--comp-avatar-status-inset-block-end);
+  inset-inline-end: var(--comp-avatar-status-inset-inline-end);
+  position: var(--comp-avatar-status-position);
 }
 
 .avatar[data-status="online"] { --comp-avatar-status-bg: var(--sys-color-success); }
@@ -3782,13 +3810,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .avatar[data-status="offline"] { --comp-avatar-status-bg: var(--sys-color-text-muted); }
 
 .avatar[data-state="busy"] .avatar__status {
-  animation: component-pulse var(--component-duration-loop) var(--component-ease-state) infinite;
+  animation: var(--comp-avatar-status-animation-name) var(--comp-avatar-status-animation-duration) var(--comp-avatar-status-animation-ease) infinite;
 }
 
 .avatar[data-state="disabled"] {
-  background: var(--component-disabled-border);
-  color: var(--component-disabled-text);
-  opacity: var(--component-opacity-disabled);
+  background: var(--comp-avatar-disabled-bg);
+  color: var(--comp-avatar-disabled-fg);
+  opacity: var(--comp-avatar-disabled-opacity);
 }
 
 .skeleton {
