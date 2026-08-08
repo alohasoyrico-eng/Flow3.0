@@ -15,6 +15,7 @@
   --component-radius-pill: var(--sys-frame-radius-full);
   --component-radius-control: calc(var(--sys-radius-md) + var(--sys-radius-sm));
   --component-radius-surface: var(--sys-frame-radius-surface);
+  --component-radius-sm: var(--sys-frame-radius-sm);
   --component-field-gap: var(--sys-frame-gap-element);
   --component-offset-xs: var(--sys-space-1);
   --component-min-text-line: var(--sys-space-6);
@@ -454,7 +455,7 @@
   --comp-checkbox-gap-md: var(--sys-space-sm);
   --comp-checkbox-gap-lg: var(--sys-space-md);
   --comp-checkbox-padding-block: var(--sys-space-xs);
-  --comp-checkbox-radius: var(--sys-frame-radius-sm);
+  --comp-checkbox-radius: var(--component-radius-sm);
   --comp-checkbox-bg: var(--sys-color-surface);
   --comp-checkbox-border: var(--sys-color-border);
   --comp-checkbox-checked-bg: var(--sys-color-action);
@@ -1680,7 +1681,7 @@
   --comp-choice-current-padding-block: var(--sys-space-xs);
   --comp-choice-current-mark-bg: var(--sys-color-surface);
   --comp-choice-current-mark-border: var(--sys-color-border);
-  --comp-choice-current-mark-radius: var(--sys-frame-radius-sm);
+  --comp-choice-current-mark-radius: var(--component-radius-sm);
   --comp-choice-current-mark-hover-border: color-mix(in srgb, var(--sys-color-action) 28%, var(--sys-color-border));
   --comp-choice-current-indicator-fg: var(--sys-color-action-text);
   --comp-choice-current-focus-width: var(--component-focus-ring-width);
@@ -2386,7 +2387,7 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
 
 .tag {
   --comp-tag-border-width: var(--component-border-width);
-  --comp-tag-radius: var(--sys-frame-radius-sm);
+  --comp-tag-radius: var(--component-radius-sm);
   --comp-tag-font-size: var(--component-font-size-label);
   --comp-tag-font-weight: var(--sys-voice-weight-bold);
   --comp-tag-gap: var(--sys-space-xs);
@@ -5939,7 +5940,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-radius: var(--sys-radius-md);
   --comp-menu-item-height: var(--component-inline-size-md);
   --comp-menu-item-padding-x: var(--sys-space-xs);
-  --comp-menu-item-radius: var(--sys-frame-radius-sm);
+  --comp-menu-item-radius: var(--component-radius-sm);
   --comp-menu-item-gap: calc(var(--sys-space-xs) / 2);
   --comp-menu-item-font-size: var(--component-font-size-small);
   --comp-menu-item-icon-size: var(--component-icon-size-sm);

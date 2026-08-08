@@ -26,7 +26,7 @@ function checkTagCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "--comp-tag-border-width: var(--component-border-width)",
-      "--comp-tag-radius: var(--sys-frame-radius-sm)",
+      "--comp-tag-radius: var(--component-radius-sm)",
       "--comp-tag-font-size: var(--component-font-size-label)",
       "--comp-tag-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md)",
       "--comp-tag-hover-transform: scale(var(--component-scale-hover))",
