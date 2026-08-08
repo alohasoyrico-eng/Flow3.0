@@ -4794,27 +4794,73 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .audit-event {
+  --comp-audit-event-align: start;
+  --comp-audit-event-bg: var(--sys-color-surface);
+  --comp-audit-event-border: color-mix(in srgb, var(--sys-color-border) 84%, transparent);
+  --comp-audit-event-border-width: var(--component-border-width);
+  --comp-audit-event-content-display: grid;
+  --comp-audit-event-content-gap: var(--sys-space-xs);
+  --comp-audit-event-depth: none;
+  --comp-audit-event-disabled-border: var(--component-disabled-border);
+  --comp-audit-event-disabled-fg: var(--component-disabled-text);
+  --comp-audit-event-disabled-opacity: var(--sys-disabled-opacity);
+  --comp-audit-event-display: grid;
+  --comp-audit-event-fg: var(--sys-color-text);
+  --comp-audit-event-focus-color: var(--sys-color-focus);
+  --comp-audit-event-focus-offset: var(--component-focus-ring-offset);
+  --comp-audit-event-focus-width: var(--component-focus-ring-width);
   --comp-audit-event-tone: var(--sys-color-text-muted);
   --comp-audit-event-foreground: var(--comp-audit-event-tone);
   --comp-audit-event-tone-soft: color-mix(in srgb, var(--comp-audit-event-tone) 10%, var(--sys-color-surface));
   --comp-audit-event-padding-block: var(--sys-space-md);
   --comp-audit-event-padding-inline: var(--sys-space-lg);
   --comp-audit-event-gap: var(--sys-space-md);
+  --comp-audit-event-grid: auto minmax(0, 1fr);
+  --comp-audit-event-hover-bg: color-mix(in srgb, var(--comp-audit-event-tone) 4%, var(--sys-color-surface));
+  --comp-audit-event-hover-border: color-mix(in srgb, var(--comp-audit-event-tone) 22%, var(--sys-color-border));
+  --comp-audit-event-hover-transform: var(--component-transform-lift-sm);
   --comp-audit-event-marker-size: var(--sys-symbol-size-lg-plus);
+  --comp-audit-event-marker-align: center;
+  --comp-audit-event-marker-border: color-mix(in srgb, var(--comp-audit-event-tone) 18%, var(--sys-color-border));
+  --comp-audit-event-marker-display: inline-flex;
   --comp-audit-event-icon-size: var(--sys-icon-size-marker);
+  --comp-audit-event-meta-align: center;
+  --comp-audit-event-meta-display: flex;
+  --comp-audit-event-meta-gap-block: var(--sys-space-xs);
+  --comp-audit-event-meta-gap-inline: var(--sys-space-sm);
+  --comp-audit-event-meta-wrap: wrap;
+  --comp-audit-event-radius: var(--sys-radius-md);
+  --comp-audit-event-status-align: center;
+  --comp-audit-event-status-border: color-mix(in srgb, var(--comp-audit-event-tone) 28%, var(--sys-color-border));
   --comp-audit-event-title-size: var(--component-font-size-body);
+  --comp-audit-event-title-family: var(--sys-font-title);
+  --comp-audit-event-title-weight: var(--sys-voice-weight-extrabold);
+  --comp-audit-event-title-line-height: var(--sys-voice-line-height-balanced);
+  --comp-audit-event-description-size: var(--component-font-size-caption);
+  --comp-audit-event-description-weight: var(--sys-voice-weight-semibold);
+  --comp-audit-event-description-line-height: var(--sys-voice-line-height-reading);
+  --comp-audit-event-muted: var(--sys-color-text-muted);
+  --comp-audit-event-meta-family: var(--component-font-family-mono);
+  --comp-audit-event-meta-size: var(--component-font-size-caption);
+  --comp-audit-event-meta-weight: var(--sys-voice-weight-bold);
+  --comp-audit-event-meta-line-height: var(--sys-voice-line-height-tight);
   --comp-audit-event-status-padding-block: var(--sys-frame-space-micro);
   --comp-audit-event-status-padding-inline: var(--sys-space-sm);
-  align-items: start;
-  background: var(--sys-color-surface);
-  border: var(--component-border-width) solid color-mix(in srgb, var(--sys-color-border) 84%, transparent);
-  border-radius: var(--sys-radius-md);
-  box-shadow: none;
-  color: var(--sys-color-text);
-  display: grid;
+  --comp-audit-event-status-size: var(--component-font-size-caption);
+  --comp-audit-event-status-style: normal;
+  --comp-audit-event-status-weight: var(--sys-voice-weight-extrabold);
+  --comp-audit-event-time-white-space: nowrap;
+  --comp-audit-event-width: min(100%, var(--component-content-size-lg));
+  align-items: var(--comp-audit-event-align);
+  background: var(--comp-audit-event-bg);
+  border: var(--comp-audit-event-border-width) solid var(--comp-audit-event-border);
+  border-radius: var(--comp-audit-event-radius);
+  box-shadow: var(--comp-audit-event-depth);
+  color: var(--comp-audit-event-fg);
+  display: var(--comp-audit-event-display);
   gap: var(--comp-audit-event-gap);
-  grid-template-columns: auto minmax(0, 1fr);
-  inline-size: min(100%, var(--component-content-size-lg));
+  grid-template-columns: var(--comp-audit-event-grid);
+  inline-size: var(--comp-audit-event-width);
   padding: var(--comp-audit-event-padding-block) var(--comp-audit-event-padding-inline);
   position: relative;
   transition:
@@ -4861,30 +4907,30 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .audit-event[data-state="hover"],
 .audit-event:hover {
-  background: color-mix(in srgb, var(--comp-audit-event-tone) 4%, var(--sys-color-surface));
-  border-color: color-mix(in srgb, var(--comp-audit-event-tone) 22%, var(--sys-color-border));
-  transform: var(--component-transform-lift-sm);
+  background: var(--comp-audit-event-hover-bg);
+  border-color: var(--comp-audit-event-hover-border);
+  transform: var(--comp-audit-event-hover-transform);
 }
 
 .audit-event[data-state="focus"],
 .audit-event:focus-visible {
-  outline: var(--component-focus-ring-width) solid var(--sys-color-focus);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-audit-event-focus-width) solid var(--comp-audit-event-focus-color);
+  outline-offset: var(--comp-audit-event-focus-offset);
 }
 
 .audit-event[data-state="disabled"] {
-  border-color: var(--component-disabled-border);
-  color: var(--component-disabled-text);
-  opacity: var(--sys-disabled-opacity);
+  border-color: var(--comp-audit-event-disabled-border);
+  color: var(--comp-audit-event-disabled-fg);
+  opacity: var(--comp-audit-event-disabled-opacity);
 }
 
 .audit-event__icon {
-  align-items: center;
+  align-items: var(--comp-audit-event-marker-align);
   background: var(--comp-audit-event-tone-soft);
-  border: var(--component-border-width) solid color-mix(in srgb, var(--comp-audit-event-tone) 18%, var(--sys-color-border));
+  border: var(--comp-audit-event-border-width) solid var(--comp-audit-event-marker-border);
   border-radius: var(--component-radius-pill);
   color: var(--comp-audit-event-foreground);
-  display: inline-flex;
+  display: var(--comp-audit-event-marker-display);
   font-size: var(--comp-audit-event-icon-size);
   block-size: var(--comp-audit-event-marker-size);
   inline-size: var(--comp-audit-event-marker-size);
@@ -4892,63 +4938,63 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .audit-event__content {
-  display: grid;
-  gap: var(--sys-space-xs);
+  display: var(--comp-audit-event-content-display);
+  gap: var(--comp-audit-event-content-gap);
   min-inline-size: 0;
 }
 
 .audit-event__meta {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sys-space-xs) var(--sys-space-sm);
+  align-items: var(--comp-audit-event-meta-align);
+  display: var(--comp-audit-event-meta-display);
+  flex-wrap: var(--comp-audit-event-meta-wrap);
+  gap: var(--comp-audit-event-meta-gap-block) var(--comp-audit-event-meta-gap-inline);
   min-inline-size: 0;
 }
 
 .audit-event strong {
-  color: var(--sys-color-text);
-  font-family: var(--sys-font-title);
+  color: var(--comp-audit-event-fg);
+  font-family: var(--comp-audit-event-title-family);
   font-size: var(--comp-audit-event-title-size);
-  font-weight: var(--sys-voice-weight-extrabold);
-  line-height: var(--sys-voice-line-height-balanced);
+  font-weight: var(--comp-audit-event-title-weight);
+  line-height: var(--comp-audit-event-title-line-height);
 }
 
 .audit-event p,
 .audit-event small,
 .audit-event__time {
-  color: var(--sys-color-text-muted);
+  color: var(--comp-audit-event-muted);
   margin: 0;
 }
 
 .audit-event p {
-  font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-semibold);
-  line-height: var(--sys-voice-line-height-reading);
+  font-size: var(--comp-audit-event-description-size);
+  font-weight: var(--comp-audit-event-description-weight);
+  line-height: var(--comp-audit-event-description-line-height);
 }
 
 .audit-event small,
 .audit-event__time {
-  font-family: var(--component-font-family-mono);
-  font-size: var(--component-font-size-caption);
-  font-weight: var(--sys-voice-weight-bold);
-  line-height: var(--sys-voice-line-height-tight);
+  font-family: var(--comp-audit-event-meta-family);
+  font-size: var(--comp-audit-event-meta-size);
+  font-weight: var(--comp-audit-event-meta-weight);
+  line-height: var(--comp-audit-event-meta-line-height);
 }
 
 .audit-event__time {
-  white-space: nowrap;
+  white-space: var(--comp-audit-event-time-white-space);
 }
 
 .audit-event em {
-  align-self: center;
+  align-self: var(--comp-audit-event-status-align);
   background: var(--comp-audit-event-tone-soft);
-  border: var(--component-border-width) solid color-mix(in srgb, var(--comp-audit-event-tone) 28%, var(--sys-color-border));
+  border: var(--comp-audit-event-border-width) solid var(--comp-audit-event-status-border);
   border-radius: var(--component-radius-pill);
   color: var(--comp-audit-event-foreground);
-  font-size: var(--component-font-size-caption);
-  font-style: normal;
-  font-weight: var(--sys-voice-weight-extrabold);
+  font-size: var(--comp-audit-event-status-size);
+  font-style: var(--comp-audit-event-status-style);
+  font-weight: var(--comp-audit-event-status-weight);
   padding: var(--comp-audit-event-status-padding-block) var(--comp-audit-event-status-padding-inline);
-  white-space: nowrap;
+  white-space: var(--comp-audit-event-time-white-space);
 }
 
 .error-panel {
