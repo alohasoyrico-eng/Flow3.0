@@ -21,7 +21,7 @@ export const IconButton = forwardRef(function IconButton({
   className = "",
   ...rest
 }, ref) {
-  const resolvedLabel = ariaLabel ?? label ?? "";
+  const resolvedLabel = ariaLabel ?? label;
   if (!resolvedLabel) return null;
 
   return React.createElement(
