@@ -4,6 +4,7 @@ const { checkDomEscapeTypeContract, forbiddenInheritedDomProps } = require("./re
 const { checkDensityContractConsistency, checkReactDensityCascade, checkReactPublicDensityContract, checkStateContractConsistency } = require("./react-density-contract-audit.js");
 const { checkRuntimeDomMutationContract } = require("./react-runtime-dom-mutation-audit.js");
 const { checkReactComponentContentGuards } = require("./react-component-content-guards.js");
+const { checkReactComponentComposition } = require("./react-composition-contract-audit.js");
 const { checkReactEffectContract } = require("./react-effect-contract-audit.js");
 const { checkReactPrimaryInventory } = require("./audit-react-primary-inventory.js");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -23,7 +24,6 @@ const allowedPrimitiveImports = new Set([
   "normalizeCountryCallingCodeOptions",
   "resolveCountryCallingCodeOption",
 ]);
-
 const allowedInlineStyleKeysByComponent = { Avatar: ["--comp-avatar-identity-bg", "--comp-avatar-identity-fg"], ChartPanel: ["--comp-chart-panel-current-series", "--comp-chart-panel-stagger-delay"], Skeleton: ["--comp-skeleton-current-width", "--comp-skeleton-current-height", "--comp-skeleton-current-columns", "--comp-skeleton-bone-current-inline-size", "--comp-skeleton-bone-current-block-size", "--comp-skeleton-bone-current-radius"], Slider: ["--comp-slider-percent"], TreeView: ["--comp-tree-view-level"] };
 
 function checkReactPrimaryContract() {
@@ -204,6 +204,7 @@ function checkReactComponent(file, shared) {
   if (illegalImports.length) {
     add("errors", sourceFile, 1, `${name} React source imports non-primitive implementation helpers from components: ${illegalImports.join(", ")}.`);
   }
+  checkReactComponentComposition({ add, name, sourceFile, source });
 }
 
 function checkRestPropContract({ name, sourceFile, source }) {
@@ -390,7 +391,6 @@ function pascal(value) {
 function lowerFirst(value) {
   return `${value.charAt(0).toLowerCase()}${value.slice(1)}`;
 }
-
 function contractBodyFor(source, contractKey) {
   if (!source) return "";
   const match = source.match(new RegExp(`^\\\\s+${contractKey}:\\\\s*\\\\{([\\\\s\\\\S]*?)(?=^\\\\s+[a-z][A-Za-z0-9]*:\\\\s*\\\\{|\\\\n\\\\};)`, "m"));
