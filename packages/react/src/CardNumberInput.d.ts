@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
 import { cardNumberInputPlatformContract } from "@design-system/components/platforms";
 
 export type CardNumberInputDensity = "sm" | "md" | "lg";
@@ -19,7 +19,7 @@ export interface CardNumberInputProps extends Omit<InputHTMLAttributes<HTMLInput
   state?: CardNumberInputState;
   loading?: boolean;
   validationMessage?: string;
-  onValueChange?: (digits: string, meta: CardNumberMeta) => void;
+  onValueChange?: (digits: string, meta: CardNumberMeta, event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface CardNumberInputComponent extends ForwardRefExoticComponent<CardNumberInputProps & RefAttributes<HTMLInputElement>> {

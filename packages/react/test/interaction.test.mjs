@@ -238,7 +238,7 @@ try {
   const cardNumberChanges = [];
   const { getByLabelText: getCardNumberLabel, rerender: rerenderCardNumber } = render(React.createElement(CardNumberInput, {
     label: "Card number",
-    onValueChange: (digits, meta) => cardNumberChanges.push({ digits, meta }),
+    onValueChange: (digits, meta, event) => cardNumberChanges.push({ digits, meta, eventType: event.type }),
   }));
 
   const cardNumberInput = getCardNumberLabel(/card number/i);
@@ -250,11 +250,12 @@ try {
   assert.equal(cardNumberChanges.at(-1).meta.brand, "Visa");
   assert.equal(cardNumberChanges.at(-1).meta.validity, "valid");
   assert.equal(cardNumberChanges.at(-1).meta.luhnValid, true);
+  assert.equal(cardNumberChanges.at(-1).eventType, "change");
 
   rerenderCardNumber(React.createElement(CardNumberInput, {
     label: "Card number",
     value: "5555555555554444",
-    onValueChange: (digits, meta) => cardNumberChanges.push({ digits, meta }),
+    onValueChange: (digits, meta, event) => cardNumberChanges.push({ digits, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(cardNumberInput.value, "5555 5555 5555 4444"));
 

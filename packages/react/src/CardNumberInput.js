@@ -142,7 +142,7 @@ export const CardNumberInput = forwardRef(function CardNumberInput({
             validity: nextValidity,
             brand: nextBrand,
             luhnValid: nextValidity === "valid",
-          });
+          }, event);
         },
       }),
       React.createElement(
