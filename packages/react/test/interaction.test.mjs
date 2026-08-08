@@ -438,6 +438,50 @@ try {
 
   cleanup();
 
+  const comboboxInputEvents = [];
+  const { getByRole: getNativeComboboxRole } = render(React.createElement(Combobox, {
+    label: "Native driver",
+    options: [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Driver" },
+    ],
+    onFocus: (event) => comboboxInputEvents.push(event.type),
+    onKeyDown: (event) => comboboxInputEvents.push(event.key),
+  }));
+
+  const nativeComboboxInput = getNativeComboboxRole("combobox", { name: /native driver/i });
+  fireEvent.focus(nativeComboboxInput);
+  fireEvent.keyDown(nativeComboboxInput, { key: "Escape" });
+  assert.deepEqual(comboboxInputEvents, ["focus", "Escape"]);
+  assert.equal(nativeComboboxInput.getAttribute("aria-expanded"), "false");
+
+  cleanup();
+
+  const preventedComboboxInputEvents = [];
+  const { getByRole: getPreventedComboboxRole } = render(React.createElement(Combobox, {
+    label: "Prevented driver",
+    options: [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Driver" },
+    ],
+    onFocus: (event) => {
+      preventedComboboxInputEvents.push(event.type);
+      event.preventDefault();
+    },
+    onKeyDown: (event) => {
+      preventedComboboxInputEvents.push(event.key);
+      event.preventDefault();
+    },
+  }));
+
+  const preventedComboboxInput = getPreventedComboboxRole("combobox", { name: /prevented driver/i });
+  fireEvent.focus(preventedComboboxInput);
+  fireEvent.keyDown(preventedComboboxInput, { key: "ArrowDown" });
+  assert.deepEqual(preventedComboboxInputEvents, ["focus", "ArrowDown"]);
+  assert.equal(preventedComboboxInput.getAttribute("aria-expanded"), "false");
+
+  cleanup();
+
   const countryChanges = [];
   const countries = [
     { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },

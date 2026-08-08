@@ -100,6 +100,33 @@ export const Combobox = forwardRef(function Combobox({
     setActiveIndex(0);
     onValueChange?.("", { label: "", meta: "", inputValue: "", cleared: true });
   };
+  const handleInputFocus = (event) => {
+    rest.onFocus?.(event);
+    if (event.defaultPrevented || disabled) return;
+    setOpen(true);
+  };
+  const handleInputKeyDown = (event) => {
+    rest.onKeyDown?.(event);
+    if (event.defaultPrevented) return;
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setOpen(true);
+      setActiveIndex((index) => Math.min(enabledOptions.length - 1, index + 1));
+    }
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setOpen(true);
+      setActiveIndex((index) => Math.max(0, index - 1));
+    }
+    if (event.key === "Enter") {
+      event.preventDefault();
+      commitOption(activeOption);
+    }
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setOpen(false);
+    }
+  };
 
   return React.createElement(
     "label",
@@ -140,7 +167,7 @@ export const Combobox = forwardRef(function Combobox({
         "aria-labelledby": `${comboboxId}-label`,
         "aria-invalid": resolvedState === "error" ? "true" : undefined,
         "aria-activedescendant": isOpen && activeOption ? `${comboboxId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
-        onFocus: () => setOpen(true),
+        onFocus: handleInputFocus,
         onChange: (event) => {
           const nextValue = event.target.value;
           setInputValue(nextValue);
@@ -149,26 +176,7 @@ export const Combobox = forwardRef(function Combobox({
           setActiveIndex(0);
           onValueChange?.(nextValue, { label: nextValue, meta: "", inputValue: nextValue });
         },
-        onKeyDown: (event) => {
-          if (event.key === "ArrowDown") {
-            event.preventDefault();
-            setOpen(true);
-            setActiveIndex((index) => Math.min(enabledOptions.length - 1, index + 1));
-          }
-          if (event.key === "ArrowUp") {
-            event.preventDefault();
-            setOpen(true);
-            setActiveIndex((index) => Math.max(0, index - 1));
-          }
-          if (event.key === "Enter") {
-            event.preventDefault();
-            commitOption(activeOption);
-          }
-          if (event.key === "Escape") {
-            event.preventDefault();
-            setOpen(false);
-          }
-        },
+        onKeyDown: handleInputKeyDown,
       }),
       clearSelectionLabel ? React.createElement(
         "button",
