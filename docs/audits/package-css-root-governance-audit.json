@@ -75,49 +75,57 @@
       "root": "animation-asset",
       "type": "primitive-asset",
       "owner": "packages/components/src/primitives/animation-assets.js",
-      "note": "Reusable animation asset primitive consumed by AnimatedMoment."
+      "note": "Reusable animation asset primitive consumed by AnimatedMoment.",
+      "reactSupport": true
     },
     {
       "root": "docs-package-demo",
       "type": "docs-layout-bridge",
       "owner": "../FlowDocs/apps/docs",
-      "note": "Temporary docs layout hook for package-backed demos; tracked so it cannot multiply silently."
+      "note": "Temporary docs layout hook for package-backed demos; tracked so it cannot multiply silently.",
+      "reactSupport": false
     },
     {
       "root": "field-action",
       "type": "shared-control-primitive",
       "owner": "field",
-      "note": "Shared field action affordance consumed by Input, Combobox, and card field inputs."
+      "note": "Shared field action affordance consumed by Input, Combobox, and card field inputs.",
+      "reactSupport": true
     },
     {
       "root": "field-control",
       "type": "legacy-field-shell",
       "owner": "field",
-      "note": "Legacy-compatible field shell selector covered by the Field CSS contract."
+      "note": "Legacy-compatible field shell selector covered by the Field CSS contract.",
+      "reactSupport": false
     },
     {
       "root": "field-input",
       "type": "legacy-field-input",
       "owner": "field",
-      "note": "Legacy-compatible field input selector covered by the Field CSS contract."
+      "note": "Legacy-compatible field input selector covered by the Field CSS contract.",
+      "reactSupport": false
     },
     {
       "root": "illustration-asset",
       "type": "primitive-asset",
       "owner": "packages/components/src/primitives/illustration-assets.js",
-      "note": "Reusable illustration asset primitive."
+      "note": "Reusable illustration asset primitive.",
+      "reactSupport": true
     },
     {
       "root": "input",
       "type": "shared-control-primitive",
       "owner": "field",
-      "note": "Shared native input surface consumed by field-family React components."
+      "note": "Shared native input surface consumed by field-family React components.",
+      "reactSupport": true
     },
     {
       "root": "material-symbol",
       "type": "iconography-hook",
       "owner": "packages/components/src/primitives/iconography.js",
-      "note": "Material Symbols font hook used by icon-bearing components."
+      "note": "Material Symbols font hook used by icon-bearing components.",
+      "reactSupport": true
     }
   ],
   "unclassifiedRoots": []

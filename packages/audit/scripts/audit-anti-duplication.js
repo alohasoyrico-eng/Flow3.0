@@ -3,6 +3,7 @@ const {
   classRootTokensFromClassExpression,
   classTokensFromClassExpression,
   packageCssClassRoots: packageCssClassRootsForRoot,
+  reactSupportClassRoots,
 } = require("./class-root-governance.js");
 
 const docsAllowedComponentAuthors = new Set([
@@ -93,7 +94,6 @@ const duplicateConceptClassPatterns = [
   },
 ];
 const protectedComponentRoots = new Set(["button", "card", "dialog", "drawer", "menu", "popover"]);
-const reactSupportClassRoots = new Set(["animation-asset", "field-action", "illustration-asset", "input", "material-symbol"]);
 
 function checkAntiDuplicationGovernance() {
   checkDocsDoNotOwnPackageComponentMarkup();
