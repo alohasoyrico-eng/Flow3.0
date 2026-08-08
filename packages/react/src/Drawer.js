@@ -97,7 +97,7 @@ export const Drawer = forwardRef(function Drawer({
   const drawerId = id || `drawer-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = label ? `${drawerId}-title` : undefined;
   const resolvedActions = actions;
-  const hasTrigger = Boolean(triggerLabel || triggerAriaLabel);
+  const hasTrigger = Boolean(triggerLabel);
   const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label) : [];
 
   useEffect(() => {
@@ -143,7 +143,6 @@ export const Drawer = forwardRef(function Drawer({
       density: resolvedDensity,
       className: "drawer__trigger",
       "data-overlay-open": "",
-      "aria-label": triggerLabel ? undefined : triggerAriaLabel,
       "aria-haspopup": "dialog",
       "aria-expanded": String(Boolean(isOpen)),
       "aria-controls": drawerId,

@@ -2317,6 +2317,14 @@ assert.doesNotMatch(unnamedDrawerMarkup, /aria-label="Close drawer"/);
 assert.doesNotMatch(unnamedDrawerMarkup, /class="button button--secondary drawer__trigger"/);
 assert.doesNotMatch(unnamedDrawerMarkup, /class="icon-button icon-button--ghost drawer__close"/);
 
+const ariaOnlyDrawerTriggerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
+  triggerAriaLabel: "Open filters",
+  label: "Route filters",
+}));
+assert.doesNotMatch(ariaOnlyDrawerTriggerMarkup, /data-overlay-open=""/);
+assert.doesNotMatch(ariaOnlyDrawerTriggerMarkup, /aria-label="Open filters"/);
+assert.doesNotMatch(ariaOnlyDrawerTriggerMarkup, /class="button button--secondary drawer__trigger"/);
+
 const comboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
   label: "Vehicle",
   helper: "Search by plate, driver, or fleet",
