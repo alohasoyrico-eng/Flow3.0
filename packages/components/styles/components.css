@@ -287,6 +287,7 @@
   --component-line-height-tight: var(--sys-voice-line-height-tight);
   --component-line-height-tightest: var(--sys-voice-line-height-tightest);
   --component-text-transform-uppercase: var(--sys-voice-transform-uppercase);
+  --component-text-transform-none: var(--sys-voice-transform-none);
   --component-duration-fast: var(--sys-duration-fast);
   --component-duration-snappy: var(--sys-duration-snappy);
   --component-duration-instant: var(--sys-duration-instant);
@@ -1139,7 +1140,7 @@
 .card-summary,
 .movement-row,
 .quick-action {
-  font-family: var(--sys-font-body);
+  font-family: var(--component-font-family-body);
 }
 
 .button {
@@ -1291,13 +1292,13 @@
 .quick-action__icon {
   direction: ltr;
   display: inline-block;
-  font-family: var(--sys-font-icon);
+  font-family: var(--component-font-family-icon);
   font-feature-settings: "liga";
   font-style: normal;
-  font-variation-settings: var(--sys-icon-variation-filled);
-  letter-spacing: var(--sys-voice-letter-spacing-normal);
-  line-height: var(--sys-voice-line-height-none);
-  text-transform: var(--sys-voice-transform-none);
+  font-variation-settings: var(--component-icon-variation-filled);
+  letter-spacing: var(--component-letter-spacing-normal);
+  line-height: var(--component-line-height-none);
+  text-transform: var(--component-text-transform-none);
   white-space: nowrap;
   word-wrap: normal;
   -webkit-font-feature-settings: "liga";
