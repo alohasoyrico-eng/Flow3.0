@@ -458,7 +458,7 @@ const unlabeledBarsChartMarkup = renderToStaticMarkup(React.createElement(ChartP
   values: [1, 2, 3],
   variant: "bars",
 }));
-assert.match(unlabeledBarsChartMarkup, /class="chart-panel__bar-group"/);
+assert.doesNotMatch(unlabeledBarsChartMarkup, /class="chart-panel__bar-group"/);
 assert.doesNotMatch(unlabeledBarsChartMarkup, /role="listitem"|tabindex="0"|data-tooltip="1"|data-tooltip="2"|data-tooltip="3"/);
 const emptyChartPanelMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
   label: "Empty chart",

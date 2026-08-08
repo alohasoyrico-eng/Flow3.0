@@ -15,6 +15,19 @@ function normalizeValues(values = []) {
   return (Array.isArray(values) ? values : []).map((value) => Number(value)).map((value) => (Number.isFinite(value) ? Math.max(0, value) : 0));
 }
 
+function normalizePoints(values = [], labels = []) {
+  const safeValues = normalizeValues(values);
+  const seenLabels = new Set();
+  const points = [];
+  safeValues.forEach((value, index) => {
+    const label = labels[index];
+    if (!label || seenLabels.has(label)) return;
+    seenLabels.add(label);
+    points.push({ key: String(label), label, value, index });
+  });
+  return points;
+}
+
 function hasStableSeriesId(item) {
   return item?.id !== undefined && item?.id !== null && item?.id !== "";
 }
@@ -38,8 +51,9 @@ function pointsFor(values = []) {
   }).join(" ");
 }
 
-function renderLinePlot(values, variant, series = []) {
+function renderLinePlot(values, labels, variant, series = []) {
   const resolvedSeries = series.length ? series.slice(0, 3) : values.length ? [{ id: "primary", values }] : [];
+  const labeledPoints = normalizePoints(values, labels);
   return React.createElement(
     "svg",
     { className: "chart-panel__svg", viewBox: "0 0 160 72", role: "img", "aria-hidden": "true" },
@@ -49,28 +63,29 @@ function renderLinePlot(values, variant, series = []) {
       className: "chart-panel__line",
       points: pointsFor(item.values ?? values),
     })),
-    normalizeValues(values).map((value, index) => React.createElement("circle", {
-      key: `dot-${index}`,
+    labeledPoints.map((point, index) => React.createElement("circle", {
+      key: point.key,
       className: "chart-panel__hit-dot",
-      cx: normalizeValues(values).length === 1 ? 160 : (index / (normalizeValues(values).length - 1)) * 160,
-      cy: 72 - (value / Math.max(...normalizeValues(values), 1)) * 64 - 4,
+      cx: normalizeValues(values).length === 1 ? 160 : (point.index / (normalizeValues(values).length - 1)) * 160,
+      cy: 72 - (point.value / Math.max(...normalizeValues(values), 1)) * 64 - 4,
       r: "5",
-      "data-value": String(value),
+      "data-value": String(point.value),
     })),
   );
 }
 
 function renderBars(values, labels) {
-  const safeValues = normalizeValues(values);
-  const max = Math.max(...safeValues, 1);
-  return safeValues.map((value, index) => {
-    const pointLabel = labels[index];
+  const points = normalizePoints(values, labels);
+  const max = Math.max(...points.map((point) => point.value), 1);
+  return points.map((point) => {
+    const value = point.value;
+    const pointLabel = point.label;
     const text = pointLabel ? `${pointLabel}: ${value}` : undefined;
     const percent = Math.max(8, Math.round((value / max) * 100));
     return React.createElement(
       "span",
       {
-        key: index,
+        key: point.key,
         className: "chart-panel__bar-group",
         role: pointLabel ? "listitem" : undefined,
         tabIndex: pointLabel ? 0 : undefined,
@@ -96,13 +111,14 @@ function renderDonut(values) {
 }
 
 function renderBullet(values, labels) {
-  const safeValues = normalizeValues(values);
-  const max = Math.max(...safeValues, 1);
-  return safeValues.map((value, index) => {
-    const pointLabel = labels[index];
+  const points = normalizePoints(values, labels);
+  const max = Math.max(...points.map((point) => point.value), 1);
+  return points.map((point) => {
+    const value = point.value;
+    const pointLabel = point.label;
     return React.createElement(
       "span",
-      { key: index, className: "chart-panel__bullet", role: pointLabel ? "listitem" : undefined, tabIndex: pointLabel ? 0 : undefined, "data-tooltip": pointLabel ? `${pointLabel}: ${value}` : undefined },
+      { key: point.key, className: "chart-panel__bullet", role: pointLabel ? "listitem" : undefined, tabIndex: pointLabel ? 0 : undefined, "data-tooltip": pointLabel ? `${pointLabel}: ${value}` : undefined },
       pointLabel ? React.createElement("b", null, pointLabel) : null,
       React.createElement("progress", { className: "chart-panel__bullet-meter", max, value, tabIndex: -1, "aria-hidden": "true" }),
       React.createElement("em", null, String(value)),
@@ -112,15 +128,16 @@ function renderBullet(values, labels) {
 
 function renderComparison(comparisons, values, labels) {
   const source = comparisons.length ? comparisons.slice(0, 3) : values.length ? [{ id: "primary", values }] : [];
+  const points = normalizePoints(values, labels);
   const max = Math.max(...source.flatMap((item) => normalizeValues(item.values)), 1);
-  return labels.map((label, index) => React.createElement(
+  return points.map((point) => React.createElement(
     "span",
-    { key: `comparison-point-${index}`, className: "chart-panel__comparison-group", role: "listitem", tabIndex: 0, "data-tooltip": label },
+    { key: point.key, className: "chart-panel__comparison-group", role: "listitem", tabIndex: 0, "data-tooltip": point.label },
     React.createElement(
       "svg",
       { className: "chart-panel__comparison-bars", viewBox: "0 0 24 100", preserveAspectRatio: "none", "aria-hidden": "true" },
       source.map((item, seriesIndex) => {
-        const value = normalizeValues(item.values)[index] ?? 0;
+        const value = normalizeValues(item.values)[point.index] ?? 0;
         const percent = Math.round((value / max) * 100);
         return React.createElement("rect", {
           key: item.id,
@@ -137,13 +154,13 @@ function renderComparison(comparisons, values, labels) {
 }
 
 function renderPareto(values, labels) {
-  const sorted = normalizeValues(values).map((value, index) => ({ value, label: labels[index], pointKey: `pareto-point-${index}` })).filter((item) => item.label).sort((a, b) => b.value - a.value);
+  const sorted = normalizePoints(values, labels).sort((a, b) => b.value - a.value);
   const max = Math.max(...sorted.map((item) => item.value), 1);
   return React.createElement(
     "svg",
     { className: "chart-panel__svg chart-panel__pareto-svg", viewBox: "0 0 160 72", role: "img", "aria-hidden": "true" },
     sorted.map((item, index) => React.createElement("rect", {
-      key: item.pointKey,
+      key: item.key,
       className: "chart-panel__pareto-bar",
       x: 8 + index * 46,
       y: 72 - (item.value / max) * 60,
@@ -160,7 +177,7 @@ function renderPlot(type, values, labels, series, comparisons) {
   if (type === "bullet") return renderBullet(values, labels);
   if (type === "comparison") return renderComparison(comparisons, values, labels);
   if (type === "pareto") return renderPareto(values, labels);
-  return renderLinePlot(values, type, series);
+  return renderLinePlot(values, labels, type, series);
 }
 
 export const ChartPanel = forwardRef(function ChartPanel({
