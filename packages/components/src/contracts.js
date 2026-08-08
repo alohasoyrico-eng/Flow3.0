@@ -1095,6 +1095,7 @@ export const componentContracts = {
     accessibility: [
       "Use alert for errors and status for warnings.",
       "Keep recovery copy visible.",
+      "Require a stable action key before composing the local action.",
       "Use patterns for multi-step recovery processs."
     ]
   },

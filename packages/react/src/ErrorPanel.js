@@ -44,6 +44,8 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
   const resolvedTone = resolveTone(resolvedState, tone);
   const resolvedRole = role ?? (resolvedTone === "warning" || resolvedState === "loading" ? "status" : "alert");
   const actionLabel = action?.label;
+  const actionKey = action?.key;
+  const canRenderAction = Boolean(actionLabel && actionKey !== undefined && actionKey !== null && actionKey !== "");
 
   return React.createElement(
     "section",
@@ -71,7 +73,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
       label ? React.createElement("strong", null, label) : null,
       description ? React.createElement("p", null, description) : null,
     ),
-    actionLabel
+    canRenderAction
       ? React.createElement(Button, {
         ...action,
         label: actionLabel,
@@ -81,7 +83,7 @@ export const ErrorPanel = forwardRef(function ErrorPanel({
         loading: resolvedState === "loading" || action.loading,
         onClick: (event) => {
           action.onClick?.(event);
-          onAction?.(action.key ?? actionLabel);
+          onAction?.(actionKey);
         },
       })
       : null,

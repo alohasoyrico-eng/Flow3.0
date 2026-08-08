@@ -1395,7 +1395,7 @@ const errorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
   state: "warning",
   density: "sm",
   fullWidth: true,
-  action: { label: "Try again", icon: "refresh" },
+  action: { key: "try-again", label: "Try again", icon: "refresh" },
 }));
 assert.match(errorPanelMarkup, /^<section/);
 assert.match(errorPanelMarkup, /class="error-panel error-panel--warning"/);
@@ -1414,7 +1414,7 @@ assert.match(errorPanelMarkup, /class="button button--secondary"/);
 const loadingErrorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
   label: "Loading recovery",
   state: "loading",
-  action: { label: "Wait" },
+  action: { key: "wait", label: "Wait" },
 }));
 assert.match(loadingErrorPanelMarkup, /data-state="loading"/);
 assert.match(loadingErrorPanelMarkup, /role="status"/);
@@ -1424,10 +1424,16 @@ assert.doesNotMatch(loadingErrorPanelMarkup, /Loading error panel/);
 
 const inheritedErrorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
   label: "Inherited error density",
-  action: { label: "Retry" },
+  action: { key: "retry", label: "Retry" },
 }));
 assert.doesNotMatch(inheritedErrorPanelMarkup.match(/^<section[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedErrorPanelMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const unstableErrorPanelActionMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
+  label: "Sync failed",
+  action: { label: "Retry" },
+}));
+assert.doesNotMatch(unstableErrorPanelActionMarkup, /class="button/);
 
 const unnamedErrorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel));
 assert.doesNotMatch(unnamedErrorPanelMarkup, /aria-label="Error panel"/);
