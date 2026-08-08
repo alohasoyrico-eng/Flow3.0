@@ -88,9 +88,9 @@ export const Slider = forwardRef(function Slider({
       ...flowVariantProps(normalizedVariant),
       ...flowStateProps(normalizedState),
       ...flowDensityProps(density),
+      style: { "--comp-slider-percent": `${pct}%` },
       "data-value": String(currentValue),
       "data-unit": unit,
-      "data-pct": String(pct),
       "data-dragging": dragging ? "true" : undefined,
     },
     React.createElement(

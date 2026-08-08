@@ -30,6 +30,9 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (/\.tooltip__trigger:focus-visible,\s*\.slider__input:focus-visible/m.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".slider__input:focus-visible")), "Slider input focus must not live in the shared Tooltip focus block.");
   }
+  if (/\.slider\[data-pct=/.test(text)) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf(".slider[data-pct=")), "Slider percentage must flow through --comp-slider-percent instead of generated data-pct CSS rules.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -92,8 +95,8 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: fillBlock,
     text,
     packageCssFile,
-    snippets: ["background: var(--comp-slider-fill-color)"],
-    message: "Slider fill must consume the Slider fill color alias.",
+    snippets: ["background: var(--comp-slider-fill-color)", "inline-size: var(--comp-slider-percent)"],
+    message: "Slider fill must consume the Slider fill color alias and percentage contract.",
   });
   requireIncludes({
     block: thumbBlock,
@@ -102,10 +105,11 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     snippets: [
       "background: var(--comp-slider-thumb-bg)",
       "box-shadow: var(--comp-slider-thumb-halo), var(--comp-slider-thumb-depth)",
+      "inset-inline-start: var(--comp-slider-percent)",
       "transform: var(--comp-slider-thumb-transform)",
       "transition: var(--comp-slider-thumb-transition)",
     ],
-    message: "Slider thumb must consume Slider surface, depth, transform, and motion aliases.",
+    message: "Slider thumb must consume Slider surface, depth, percentage, transform, and motion aliases.",
   });
   requireIncludes({
     block: inputBlock,

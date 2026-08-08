@@ -24,7 +24,7 @@ const allowedPrimitiveImports = new Set([
   "resolveCountryCallingCodeOption",
 ]);
 
-const allowedInlineStyleKeys = [];
+const allowedInlineStyleKeysByComponent = { Slider: ["--comp-slider-percent"] };
 
 function checkReactPrimaryContract() {
   const reactIndex = read(reactIndexFile);
@@ -231,10 +231,10 @@ function checkInlineStyleContract({ name, sourceFile, source }) {
   if (restStyleIndex >= 0) add("errors", sourceFile, 1, `${name} React source must not merge rest.style into component-owned inline variables; expose Flow props/tokens instead.`);
   for (const match of source.matchAll(/style:\s*\{([\s\S]*?)\}/g)) {
     const body = match[1];
-    const chunk = source.slice(match.index, match.index + 360);
     const inlineKeys = [...body.matchAll(/(?:"([^"]+)"|'([^']+)'|([A-Za-z_$][\w$-]*))\s*:/g)]
       .map((keyMatch) => keyMatch[1] ?? keyMatch[2] ?? keyMatch[3])
       .filter(Boolean);
+    const allowedInlineStyleKeys = allowedInlineStyleKeysByComponent[name] ?? [];
     const illegalKeys = inlineKeys.filter((key) => !allowedInlineStyleKeys.includes(key));
     if (illegalKeys.length) {
       add("errors", sourceFile, 1, `${name} React source must not own inline visual styles (${illegalKeys.join(", ")}); use Flow tokens/classes and reserve style for approved dynamic CSS custom properties.`);

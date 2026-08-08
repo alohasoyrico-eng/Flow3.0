@@ -249,7 +249,7 @@ const components = [
     requiredTokens: ["comp.slider.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.depth.*", "sys.momentum.*", "sys.state.*", "sys.tone.*", "sys.growth.*", "sys.symbol.*", "sys.iconography.*", "sys.accessibility.*"],
     primitives: ["color", "typography", "spacing", "radius", "elevation", "focus", "disabled", "duration", "motion-curves", "measurement"],
     props: ["label", "value", "min", "max", "step", "disabled", "name", "valueLabel", "onValueChange", "formatValue", "variant", "state", "density", "unit"],
-    jsSnippets: ["sliderPlatformContract", "className: [\"slider\"", 'flowVariantProps(normalizedVariant)', 'flowStateProps(normalizedState)', 'flowDensityProps(density)', '"data-pct": String(pct)', "slider__meta", "slider__label", "slider__value", "slider__control", "slider__input", "slider__track", "slider__fill", "slider__thumb", "onValueChange"],
+    jsSnippets: ["sliderPlatformContract", "className: [\"slider\"", 'flowVariantProps(normalizedVariant)', 'flowStateProps(normalizedState)', 'flowDensityProps(density)', '"--comp-slider-percent": `${pct}%`', "slider__meta", "slider__label", "slider__value", "slider__control", "slider__input", "slider__track", "slider__fill", "slider__thumb", "onValueChange"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLInputElement>", "SliderProps", "SliderVariant", "SliderState", "SliderDensity", "sliderPlatformContract"],
     packagePath: "./slider",
     exportName: "Slider",
