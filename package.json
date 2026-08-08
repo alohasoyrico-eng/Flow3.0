@@ -305,6 +305,7 @@
     "build:react": "npm run build --workspace @design-system/react",
     "test:react": "npm run test --workspace @design-system/react",
     "prepare": "npm run build:react",
+    "audit": "node packages/audit/scripts/audit-complete.mjs",
     "audit:system": "node packages/audit/scripts/audit-system-scope.js",
     "audit:complete": "node packages/audit/scripts/audit-complete.mjs",
     "audit:consumer-install": "node packages/audit/scripts/audit-consumer-install.mjs",

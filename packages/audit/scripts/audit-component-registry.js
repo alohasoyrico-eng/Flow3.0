@@ -1,5 +1,6 @@
 const {
   add,
+  docsAppDir,
   path,
   read,
   requiredComponentContracts,
@@ -14,7 +15,7 @@ const removedDocsAdapterFiles = [
   "apps/docs/component-surface-demo-adapter.js",
   "apps/docs/component-table-demo-adapter.js",
 ].map((file) => path.join(root, file));
-const docsRendererFile = path.join(root, "apps/docs/component-demo.js");
+const docsRendererFile = path.join(docsAppDir, "component-demo.js");
 
 const forbiddenPackageRegistryApi = [
   "componentRegistry",

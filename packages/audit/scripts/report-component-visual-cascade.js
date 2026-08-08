@@ -2,6 +2,7 @@
 
 const {
   docsStyleModuleFiles,
+  docsAppDir,
   fs,
   goldComponents,
   add,
@@ -20,7 +21,7 @@ const systemRoot = fs.existsSync(path.join(root, "packages/react/src"))
   : path.join(root, "node_modules/flow");
 const reactDir = path.join(systemRoot, "packages/react/src");
 const componentCssFile = path.join(systemRoot, "packages/components/styles/components.css");
-const docsRendererFile = path.join(root, "apps/docs/component-demo.js");
+const docsRendererFile = path.join(docsAppDir, "component-demo.js");
 
 const componentClassAliases = {
   "button": ["button"],
@@ -275,7 +276,7 @@ function collectDeclarationFindings(rule) {
 function collectDocsFindings(component) {
   const findings = [];
   const suspiciousGrids = [];
-  if (!fs.existsSync(path.join(root, "apps/docs"))) return { legacyDemoSelectors: findings, narrowDemoGrids: suspiciousGrids, audited: false };
+  if (!fs.existsSync(docsAppDir)) return { legacyDemoSelectors: findings, narrowDemoGrids: suspiciousGrids, audited: false };
   const docsFiles = docsStyleModuleFiles.filter((file) => fs.existsSync(file));
   const componentKey = component.replace(/-/g, "[ -]?");
   const componentPattern = new RegExp(componentKey, "i");
