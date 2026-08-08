@@ -96,7 +96,9 @@ export const Drawer = forwardRef(function Drawer({
   const [interactionState, setInteractionState] = useState(initiallyOpen ? initialState : initialState === "default" ? "default" : "closed");
   const drawerId = id || `drawer-${slug(label)}-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const titleId = label ? `${drawerId}-title` : undefined;
-  const resolvedActions = actions;
+  const resolvedActions = Array.isArray(actions)
+    ? actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "")
+    : [];
   const hasTrigger = Boolean(triggerLabel);
   const visibleFields = Array.isArray(fields) ? fields.filter((field) => field?.label) : [];
 
@@ -205,21 +207,21 @@ export const Drawer = forwardRef(function Drawer({
           ? React.createElement(
             "footer",
             null,
-            resolvedActions.filter((action) => action?.label).map((action, index) => {
+            resolvedActions.map((action, index) => {
               const actionLabel = action.label;
               const actionVariant = action.intent === "danger" || action.variant === "danger" ? "primary" : action.variant ?? (index === 0 ? "primary" : "secondary");
               return React.createElement(Button, {
                 ...action,
-                key: action.key ?? actionLabel,
+                key: action.key,
                 label: actionLabel,
                 density: action.density ?? resolvedDensity,
                 variant: actionVariant,
                 intent: action.intent ?? (action.variant === "danger" ? "danger" : undefined),
                 "data-overlay-close": "",
-                "data-key": action.key ?? actionLabel,
+                "data-key": action.key,
                 onClick: (event) => {
                   action.onClick?.(event);
-                  onAction?.(action.key ?? actionLabel);
+                  onAction?.(action.key);
                   closeDrawer();
                 },
               });

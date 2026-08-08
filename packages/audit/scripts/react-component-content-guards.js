@@ -30,6 +30,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Drawer" && /const hasTrigger = Boolean\(triggerLabel \|\| triggerAriaLabel\)/.test(source)) add("errors", sourceFile, 1, "Drawer triggerAriaLabel must not create a Button without visible text.");
   if (name === "Drawer" && /^\s*React\.createElement\(IconButton,\s*\{\n\s*ref:\s*closeRef/m.test(source)) add("errors", sourceFile, 1, "Drawer must not render an unnamed close button; gate close composition on closeLabel.");
   if (name === "Drawer" && /fields\.map\(\(field,\s*index\)\s*=>/.test(source)) add("errors", sourceFile, 1, "Drawer must filter fields without visible labels before composing Input.");
+  if (name === "Drawer" && !source.includes("actions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== \"\")")) add("errors", sourceFile, 1, "Drawer actions must require visible labels and stable keys before rendering controls.");
+  if (name === "Drawer" && /action\.key\s*\?\?\s*actionLabel/.test(source)) add("errors", sourceFile, 1, "Drawer must not synthesize action keys from visible labels.");
   if (name === "Toast" && /dismissible\s*\?\s*React\.createElement\(IconButton/.test(source)) add("errors", sourceFile, 1, "Toast must gate dismiss IconButton on dismissLabel, not dismissible alone.");
   if (name === "FloatingActionButton" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "FloatingActionButton must not render without an accessible label.");
   if (name === "QuickAction" && !source.includes("if (!resolvedLabel) return null;")) add("errors", sourceFile, 1, "QuickAction must not render without an accessible label.");

@@ -2379,6 +2379,12 @@ assert.match(openDrawerMarkup, /class="progress"/);
 assert.match(openDrawerMarkup, /aria-valuenow="75"/);
 assert.match(openDrawerMarkup, /data-overlay-close=""/);
 assert.match(openDrawerMarkup, /data-key="save"/);
+const unstableDrawerActionMarkup = renderToStaticMarkup(React.createElement(Drawer, {
+  label: "Vehicle details",
+  open: true,
+  actions: [{ label: "Guardar" }],
+}));
+assert.doesNotMatch(unstableDrawerActionMarkup, /data-key="Guardar"|class="button/);
 
 const formDrawerMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Filter routes",
