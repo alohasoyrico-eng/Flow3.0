@@ -2723,10 +2723,22 @@ button.tag:disabled,
 }
 
 .toast {
-  --comp-toast-inline-size: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-section)));
-  --comp-toast-padding-block: var(--component-density-control-padding-y);
-  --comp-toast-padding-inline: var(--sys-space-lg);
-  --comp-toast-gap: var(--sys-space-sm);
+  --comp-toast-inline-size-sm: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-page)));
+  --comp-toast-inline-size-md: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-section)));
+  --comp-toast-inline-size-lg: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-component-lg)));
+  --comp-toast-padding-block-sm: var(--sys-space-sm);
+  --comp-toast-padding-block-md: var(--component-density-control-padding-y);
+  --comp-toast-padding-block-lg: var(--sys-space-lg);
+  --comp-toast-padding-inline-sm: var(--sys-frame-padding-control);
+  --comp-toast-padding-inline-md: var(--sys-space-lg);
+  --comp-toast-padding-inline-lg: var(--sys-space-xl);
+  --comp-toast-gap-sm: var(--sys-space-xs);
+  --comp-toast-gap-md: var(--sys-space-sm);
+  --comp-toast-gap-lg: var(--sys-space-md);
+  --comp-toast-inline-size: var(--comp-toast-inline-size-md);
+  --comp-toast-padding-block: var(--comp-toast-padding-block-md);
+  --comp-toast-padding-inline: var(--comp-toast-padding-inline-md);
+  --comp-toast-gap: var(--comp-toast-gap-md);
   --comp-toast-radius: var(--sys-frame-radius-surface);
   --comp-toast-bg: var(--sys-color-text);
   --comp-toast-fg: var(--sys-color-surface);
@@ -2734,10 +2746,27 @@ button.tag:disabled,
   --comp-toast-icon-fg: var(--sys-color-surface);
   --comp-toast-action-fg: var(--sys-color-action);
   --comp-toast-shadow: var(--sys-depth-elevation-3);
-  --comp-toast-transition: opacity var(--component-duration-state) var(--component-ease-press), transform var(--component-duration-state) var(--component-ease-press), box-shadow var(--component-duration-state) var(--component-ease-press);
+  --comp-toast-motion-duration: var(--component-duration-state);
+  --comp-toast-motion-enter-duration: var(--component-duration-enter);
+  --comp-toast-motion-exit-duration: var(--component-duration-exit);
+  --comp-toast-motion-ease: var(--component-ease-press);
+  --comp-toast-motion-enter-ease: var(--component-ease-enter);
+  --comp-toast-motion-exit-ease: var(--component-ease-exit);
+  --comp-toast-transition: opacity var(--comp-toast-motion-duration) var(--comp-toast-motion-ease), transform var(--comp-toast-motion-duration) var(--comp-toast-motion-ease), box-shadow var(--comp-toast-motion-duration) var(--comp-toast-motion-ease);
   --comp-toast-enter-y: var(--sys-space-sm);
+  --comp-toast-enter-scale: var(--component-scale-quiet);
+  --comp-toast-enter-transform: translateY(var(--comp-toast-enter-y)) scale(var(--comp-toast-enter-scale));
+  --comp-toast-rest-transform: var(--component-transform-rest);
+  --comp-toast-action-size: calc(var(--component-control-min-size) - var(--sys-space-md));
+  --comp-toast-action-padding-inline: var(--sys-space-sm);
+  --comp-toast-dismiss-size: var(--component-field-icon-action-size-md);
+  --comp-toast-dismiss-icon-size: var(--sys-icon-size-sm-plus);
+  --comp-toast-dismiss-opacity: var(--sys-state-muted-opacity);
+  --comp-toast-focus-width: var(--component-focus-ring-width);
+  --comp-toast-focus-color: color-mix(in srgb, var(--sys-color-focus) 35%, transparent);
+  --comp-toast-focus-offset: var(--component-focus-ring-offset);
   align-items: center;
-  animation: toast-enter var(--component-duration-enter) var(--component-ease-enter) both;
+  animation: toast-enter var(--comp-toast-motion-enter-duration) var(--comp-toast-motion-enter-ease) both;
   background: var(--comp-toast-bg);
   border-radius: var(--comp-toast-radius);
   box-shadow: var(--comp-toast-shadow);
@@ -2758,17 +2787,17 @@ button.tag:disabled,
 }
 
 .toast[data-density="sm"] {
-  --comp-toast-inline-size: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-page)));
-  --comp-toast-padding-block: var(--sys-space-sm);
-  --comp-toast-padding-inline: var(--sys-frame-padding-control);
-  --comp-toast-gap: var(--sys-space-xs);
+  --comp-toast-inline-size: var(--comp-toast-inline-size-sm);
+  --comp-toast-padding-block: var(--comp-toast-padding-block-sm);
+  --comp-toast-padding-inline: var(--comp-toast-padding-inline-sm);
+  --comp-toast-gap: var(--comp-toast-gap-sm);
 }
 
 .toast[data-density="lg"] {
-  --comp-toast-inline-size: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-component-lg)));
-  --comp-toast-padding-block: var(--sys-space-lg);
-  --comp-toast-padding-inline: var(--sys-space-xl);
-  --comp-toast-gap: var(--sys-space-md);
+  --comp-toast-inline-size: var(--comp-toast-inline-size-lg);
+  --comp-toast-padding-block: var(--comp-toast-padding-block-lg);
+  --comp-toast-padding-inline: var(--comp-toast-padding-inline-lg);
+  --comp-toast-gap: var(--comp-toast-gap-lg);
 }
 
 .toast[data-tone="info"] {
@@ -2833,8 +2862,8 @@ button.tag:disabled,
 }
 
 .toast .toast__action {
-  --button-size-sm: 2rem;
-  --button-padding-sm: var(--sys-space-sm);
+  min-block-size: var(--comp-toast-action-size);
+  padding-inline: var(--comp-toast-action-padding-inline);
   background: transparent;
   border-color: transparent;
   color: var(--comp-toast-action-fg);
@@ -2847,33 +2876,34 @@ button.tag:disabled,
 }
 
 .toast__dismiss {
-  --icon-button-size-md: var(--component-field-icon-action-size-md);
-  --icon-button-icon-size-md: var(--sys-icon-size-sm-plus);
+  block-size: var(--comp-toast-dismiss-size);
   color: var(--comp-toast-fg);
-  opacity: 0.7;
+  font-size: var(--comp-toast-dismiss-icon-size);
+  inline-size: var(--comp-toast-dismiss-size);
+  opacity: var(--comp-toast-dismiss-opacity);
 }
 
 .toast__action:focus-visible {
-  outline: var(--component-focus-ring-width) solid color-mix(in srgb, var(--sys-color-focus) 35%, transparent);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--comp-toast-focus-width) solid var(--comp-toast-focus-color);
+  outline-offset: var(--comp-toast-focus-offset);
 }
 
 @keyframes toast-enter {
   from {
     opacity: 0;
-    transform: translateY(var(--comp-toast-enter-y)) scale(var(--component-scale-quiet));
+    transform: var(--comp-toast-enter-transform);
   }
 
   to {
     opacity: 1;
-    transform: var(--component-transform-rest);
+    transform: var(--comp-toast-rest-transform);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .toast {
     animation: none;
-    transition: opacity var(--component-duration-exit) var(--component-ease-exit);
+    transition: opacity var(--comp-toast-motion-exit-duration) var(--comp-toast-motion-exit-ease);
   }
 }
 

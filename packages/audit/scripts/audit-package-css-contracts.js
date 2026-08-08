@@ -362,7 +362,7 @@ function checkPackageCssContracts() {
 
   const enterAnimationPattern = /animation:\s*[^;]*-enter[^;]*;/g;
   for (const match of text.matchAll(enterAnimationPattern)) {
-    if (match[0].includes("var(--component-ease-enter)") || /var\(--comp-[^)]+motion-enter\)/.test(match[0])) continue;
+    if (match[0].includes("var(--component-ease-enter)") || /var\(--comp-[^)]+motion-enter(?:-ease)?\)/.test(match[0])) continue;
     add("errors", packageCssFile, lineNumber(text, match.index), "Package lifecycle enter animations must use --component-ease-enter.");
   }
 

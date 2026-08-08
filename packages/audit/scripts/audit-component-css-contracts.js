@@ -5,6 +5,7 @@ const { checkChipCssContract } = require("./audit-chip-css-contract.js");
 const { checkTableCssContract } = require("./audit-table-css-contract.js");
 const { checkTagCssContract } = require("./audit-tag-css-contract.js");
 const { checkTooltipCssContract } = require("./audit-tooltip-css-contract.js");
+const { checkToastCssContract } = require("./audit-toast-css-contract.js");
 
 function checkComponentCssContracts(context) {
   checkBadgeCssContract(context);
@@ -14,6 +15,7 @@ function checkComponentCssContracts(context) {
   checkTableCssContract(context);
   checkTagCssContract(context);
   checkTooltipCssContract(context);
+  checkToastCssContract(context);
 }
 
 module.exports = { checkComponentCssContracts };
