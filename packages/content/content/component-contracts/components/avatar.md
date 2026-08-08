@@ -167,7 +167,7 @@ Use the playground to verify identity source, density mapping, status, and disab
 | Control | Type | Default | Options |
 | --- | --- | --- | --- |
 | name | text | Ana Sosa |  |
-| density | select | md | sm, md, lg, xl |
+| density | select | md | sm, md, lg |
 | status | select | online | none, online, busy, offline |
 | state | select | default | default, online, busy, offline, disabled, unknown |
 
@@ -179,7 +179,7 @@ Avatar API exposes name, src, density, status, and state while Design System fou
 | --- | --- | --- | --- |
 | name | string | Yes | Person or actor name. |
 | src | string | No | Image URL. |
-| density | Density | No | Density-aware scale: sm, md, lg, or xl. |
+| density | Density | No | Density-aware scale: sm, md, or lg. |
 | status | AvatarStatus | No | Presence marker. |
 | state | AvatarState | No | Disabled or unknown state when presence is not the state source. |
 

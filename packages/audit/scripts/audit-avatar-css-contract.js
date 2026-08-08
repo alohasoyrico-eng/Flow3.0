@@ -37,6 +37,9 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (/\.avatar\[data-color-index=/.test(text) || source.includes("\"data-color-index\"")) {
     add("errors", packageCssFile, text.includes(".avatar[data-color-index=") ? lineNumber(text, text.indexOf(".avatar[data-color-index=")) : 1, "Avatar identity color must flow through --comp-avatar-identity-* variables instead of enumerated data-color-index CSS rules.");
   }
+  if (/\.avatar--(?:sm|md|lg|xl)\b/.test(text) || source.includes("avatar--") || /\bsize\b/.test(source)) {
+    add("errors", packageCssFile, 1, "Avatar sizing must flow only through density and data-density; do not expose size props or avatar--* size classes.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -68,9 +71,6 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
   });
 
   for (const [selector, message] of [
-    [".avatar--sm", "Avatar small size must route through the Avatar size alias."],
-    [".avatar--lg", "Avatar large size must route through the Avatar size alias."],
-    [".avatar--xl", "Avatar xl size must route through the Avatar size alias."],
     [".avatar[data-density=\"sm\"]", "Avatar small density must route through the Avatar size alias."],
     [".avatar[data-density=\"lg\"]", "Avatar large density must route through the Avatar size alias."],
   ]) {

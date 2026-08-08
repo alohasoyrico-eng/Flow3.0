@@ -29,7 +29,6 @@ export const Menu = forwardRef(function Menu({
   variant = "actions",
   avatarName = "",
   avatarStatus = "none",
-  avatarSize = "md",
   density,
   state = "default",
   align = "start",
@@ -118,7 +117,7 @@ export const Menu = forwardRef(function Menu({
     hasTrigger && resolvedVariant === "icon-trigger"
       ? React.createElement(IconButton, { ...triggerProps, label: triggerLabel, icon: "more_horiz", variant: "ghost", density: resolvedDensity })
       : hasTrigger && resolvedVariant === "avatar-trigger"
-        ? React.createElement("button", { ...triggerProps, type: "button", className: "menu__trigger menu__trigger--avatar", "aria-label": triggerLabel }, React.createElement(Avatar, { name: avatarName, status: avatarStatus, size: avatarSize, density: resolvedDensity }))
+        ? React.createElement("button", { ...triggerProps, type: "button", className: "menu__trigger menu__trigger--avatar", "aria-label": triggerLabel }, React.createElement(Avatar, { name: avatarName, status: avatarStatus, density: resolvedDensity }))
         : hasTrigger ? React.createElement(Button, { ...triggerProps, label: triggerLabel, variant: "secondary", density: resolvedDensity, trailingIcon: isOpen ? "expand_less" : "expand_more" }) : null,
     React.createElement(
       "div",

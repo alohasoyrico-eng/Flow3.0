@@ -1007,10 +1007,12 @@ assert.match(avatarMarkup, /class="avatar__status"/);
 const imageAvatarMarkup = renderToStaticMarkup(React.createElement(Avatar, {
   name: "Luis Vera",
   src: "/avatars/luis.png",
-  size: "lg",
+  density: "lg",
   state: "disabled",
 }));
-assert.match(imageAvatarMarkup, /class="avatar avatar--lg"/);
+assert.match(imageAvatarMarkup, /class="avatar"/);
+assert.match(imageAvatarMarkup, /data-density="lg"/);
+assert.doesNotMatch(imageAvatarMarkup, /avatar--/);
 assert.match(imageAvatarMarkup, /data-state="disabled"/);
 assert.match(imageAvatarMarkup, /src="\/avatars\/luis.png"/);
 assert.match(imageAvatarMarkup, /alt="Luis Vera"/);
@@ -1967,7 +1969,8 @@ const avatarMenuMarkup = renderToStaticMarkup(React.createElement(Menu, {
   items: [{ label: "Profile", key: "profile" }],
 }));
 assert.match(avatarMenuMarkup, /class="menu__trigger menu__trigger--avatar"/);
-assert.match(avatarMenuMarkup, /class="avatar avatar--md"/);
+assert.match(avatarMenuMarkup, /class="avatar"/);
+assert.doesNotMatch(avatarMenuMarkup, /avatar--/);
 
 const inheritedMenuMarkup = renderToStaticMarkup(React.createElement(Menu, {
   triggerLabel: "Actions",

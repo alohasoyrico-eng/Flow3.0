@@ -4221,10 +4221,6 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
     transform var(--comp-avatar-motion-press-duration) var(--comp-avatar-motion-press-ease);
 }
 
-.avatar--sm { --comp-avatar-size: var(--component-badge-min-size); }
-.avatar--lg { --comp-avatar-size: var(--component-inline-size-lg); }
-.avatar--xl { --comp-avatar-size: var(--component-space-16); }
-
 .avatar[data-density="sm"] { --comp-avatar-size: calc(var(--component-density-control-height) - var(--component-space-5)); }
 .avatar[data-density="lg"] { --comp-avatar-size: calc(var(--component-density-control-height) + var(--component-space-4)); }
 

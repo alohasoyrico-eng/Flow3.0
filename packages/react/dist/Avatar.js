@@ -2,7 +2,6 @@ import React, { forwardRef } from "react";
 import { avatarPlatformContract } from "#flow/platforms";
 import { flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 
-const validSizes = new Set(["sm", "md", "lg", "xl"]);
 const validStatuses = new Set(["none", "online", "busy", "offline"]);
 const validStates = new Set(["default", "disabled", "unknown"]);
 
@@ -38,14 +37,12 @@ function identityColorFromName(name) {
 export const Avatar = forwardRef(function Avatar({
   name,
   src = "",
-  size,
   density,
   status = "none",
   state = "default",
   className = "",
   ...rest
 }, ref) {
-  const resolvedSize = validSizes.has(size) ? size : "";
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedStatus = validStatuses.has(status) ? status : "none";
   const resolvedState = state === "disabled" ? "disabled" : resolvedStatus !== "none" ? resolvedStatus : validStates.has(state) ? state : "default";
@@ -59,7 +56,7 @@ export const Avatar = forwardRef(function Avatar({
     {
       ...flowRestProps(rest),
       ref,
-      className: ["avatar", resolvedSize ? `avatar--${resolvedSize}` : "", className].filter(Boolean).join(" "),
+      className: ["avatar", className].filter(Boolean).join(" "),
       "aria-label": sourceName,
       ...flowDensityProps(resolvedDensity),
       "data-status": resolvedStatus,

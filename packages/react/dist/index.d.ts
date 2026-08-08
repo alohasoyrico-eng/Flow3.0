@@ -24,8 +24,8 @@ export type {
 export { Avatar } from "./Avatar.js";
 export type {
   AvatarComponent,
+  AvatarDensity,
   AvatarProps,
-  AvatarSize,
   AvatarState,
   AvatarStatus,
 } from "./Avatar.js";

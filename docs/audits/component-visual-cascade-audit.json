@@ -5785,7 +5785,7 @@
         "aliases": [
           "avatar"
         ],
-        "matchedRules": 14,
+        "matchedRules": 11,
         "tokenAliases": [
           "avatar"
         ],
@@ -5832,7 +5832,6 @@
           "--component-animation-name-pulse",
           "--component-avatar-identity-purple-bg",
           "--component-avatar-identity-teal-bg",
-          "--component-badge-min-size",
           "--component-border-width-medium",
           "--component-color-action",
           "--component-color-action-text",
@@ -5854,7 +5853,6 @@
           "--component-energy-status-warning-foreground",
           "--component-font-family-body",
           "--component-font-weight-bold",
-          "--component-inline-size-lg",
           "--component-inline-size-md",
           "--component-inset-zero",
           "--component-justify-center",
@@ -5866,7 +5864,6 @@
           "--component-radius-inherit",
           "--component-radius-pill",
           "--component-size-full",
-          "--component-space-16",
           "--component-space-4",
           "--component-space-5",
           "--component-space-sm"

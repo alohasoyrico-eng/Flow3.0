@@ -647,7 +647,6 @@ export const componentContracts = {
     props: [
       { name: "name", type: "string", required: true },
       { name: "src", type: "string", required: false },
-      { name: "size", type: "AvatarSize", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "status", type: "AvatarStatus", required: false },
       { name: "state", type: "AvatarState", required: false }
@@ -734,7 +733,6 @@ export const componentContracts = {
       { name: "label", type: "string", required: false },
       { name: "avatarName", type: "string", required: false },
       { name: "avatarStatus", type: "\"none\" | \"online\" | \"busy\" | \"offline\"", required: false },
-      { name: "avatarSize", type: "\"sm\" | \"md\" | \"lg\" | \"xl\"", required: false },
       { name: "disabled", type: "boolean", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false },
       { name: "onSelect", type: "(item: MenuItem) => void", required: false }
