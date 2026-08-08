@@ -99,7 +99,7 @@ export const Slider = forwardRef(function Slider({
     React.createElement(
       "span",
       { className: "slider__meta" },
-      label ? React.createElement("span", { className: "slider__label" }, label) : null,
+      React.createElement("span", { className: "slider__label" }, label),
       React.createElement("output", { className: "slider__value", "data-slider-output": "" }, formattedValue),
     ),
     React.createElement(
