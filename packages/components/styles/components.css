@@ -93,6 +93,7 @@
   --component-text-overflow-ellipsis: ellipsis;
   --component-overflow-wrap-anywhere: anywhere;
   --component-font-style-normal: normal;
+  --component-animation-name-pulse: component-pulse;
   --component-content-size-xs: calc(var(--component-control-min-size) * 4);
   --component-content-size-sm: calc(var(--component-control-min-size) * 6);
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
@@ -3952,7 +3953,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-status-inset-block-end: var(--component-inset-zero);
   --comp-avatar-status-inset-inline-end: var(--component-inset-zero);
   --comp-avatar-status-position: var(--component-position-absolute);
-  --comp-avatar-status-animation-name: component-pulse;
+  --comp-avatar-status-animation-name: var(--component-animation-name-pulse);
   --comp-avatar-status-animation-duration: var(--component-duration-loop);
   --comp-avatar-status-animation-ease: var(--component-ease-state);
   --comp-avatar-disabled-bg: var(--component-disabled-border);

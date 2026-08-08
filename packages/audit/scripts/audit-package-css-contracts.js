@@ -214,6 +214,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]*(?:position|overflow|white-space|isolation)[\w-]*:\s*(?:relative|absolute|hidden|nowrap|isolate);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component layout-state aliases must consume semantic component layout-state aliases instead of hardcoding position, overflow, whitespace, or isolation keywords.");
   for (const match of text.matchAll(/--comp-[\w-]*(?:align|justify|text-align|justify-self|justify-items)[\w-]*:\s*(?:center|start|end|stretch|space-between|flex-end);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component alignment aliases must consume semantic component alignment aliases instead of hardcoding alignment keywords.");
   for (const match of text.matchAll(/--comp-[\w-]+:\s*(?:inherit|cover|wrap|ellipsis|anywhere|normal);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component content behavior aliases must consume semantic component content aliases instead of hardcoding keywords.");
+  for (const match of text.matchAll(/--comp-[\w-]*animation-name[\w-]*:\s*component-[\w-]+;/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component animation-name aliases must consume semantic component animation aliases instead of hardcoding keyframe names.");
 
   const blocks = cssBlocks(text);
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
