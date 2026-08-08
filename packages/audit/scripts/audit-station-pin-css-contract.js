@@ -30,6 +30,20 @@ function checkStationPinCssContract({ text, blocks, packageCssFile, selectorKey,
   if (!source.includes("createMapsPrimitive") || !source.includes("data-map-primitive") || !source.includes("React.createElement(\n    \"button\"")) {
     add("errors", sourceFile, 1, "StationPin must use the maps primitive and real button semantics instead of a fake marker control.");
   }
+  const localMinBlock = /--comp-station-pin-min-block-size:\s*calc\(var\(--component-control-min-size\)\s*[+-][^;]+;/.exec(text);
+  if (localMinBlock) {
+    add("errors", packageCssFile, lineNumber(text, localMinBlock.index), "StationPin block sizing must flow through shared Frame map pin roles instead of local control-size math.");
+  }
+  for (const snippet of [
+    "--comp-station-pin-min-block-size: var(--component-map-pin-min-block-size-md)",
+    "--comp-station-pin-min-block-size: var(--component-map-pin-min-block-size-sm)",
+    "--comp-station-pin-min-block-size: var(--component-map-pin-min-block-size-lg)",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "StationPin density block aliases must be defined from shared Frame map pin roles.");
+      break;
+    }
+  }
 
   requireIncludes({
     block: rootBlock,
