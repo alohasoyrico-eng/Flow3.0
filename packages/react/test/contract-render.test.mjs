@@ -56,7 +56,7 @@ function valueForRequiredProp(name) {
     case "rows":
       return [{ id: "row-1", name: "Row one" }];
     case "steps":
-      return [{ key: "one", label: "One" }, { key: "two", label: "Two" }];
+      return [{ id: "one", label: "One" }, { id: "two", label: "Two" }];
     case "title":
       return "Reference";
     case "triggerLabel":

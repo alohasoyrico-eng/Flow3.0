@@ -506,7 +506,7 @@ const components = [
     primitives: ["color", "typography", "spacing", "radius", "elevation", "focus", "disabled", "duration", "motion-curves", "iconography", "measurement"],
     props: ["steps", "current", "label", "orientation", "density"],
     jsSnippets: ["stepperPlatformContract", "className: [\"stepper\"", '"aria-label": label', '"data-orientation": resolvedOrientation', 'flowDensityProps(resolvedDensity)', '"data-current": String(currentIndex)', "normalizeFlowDensity(density)", "stepper__item", "stepper__marker", "stepper__text", "stepper__connector", "aria-current"],
-    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLOListElement>", "StepperProps", "StepperStep", "StepperOrientation", "StepperDensity", "stepperPlatformContract"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLOListElement>", "StepperProps", "StepperStep", "id: string", "StepperOrientation", "StepperDensity", "stepperPlatformContract"],
     packagePath: "./stepper",
     exportName: "Stepper",
     propsName: "StepperProps",

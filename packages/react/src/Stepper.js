@@ -14,15 +14,14 @@ function normalizeSteps(steps) {
     ...step,
     id: String(step.id),
     label: step.label,
-    ariaLabel: step?.ariaLabel ?? step?.["aria-label"] ?? step.label,
-    description: step?.description ?? "",
+    description: step?.description,
   }));
 }
 
 export const Stepper = forwardRef(function Stepper({
-  steps = [],
+  steps,
   current = 0,
-  label = "",
+  label,
   orientation = "horizontal",
   density,
   className = "",
@@ -33,6 +32,7 @@ export const Stepper = forwardRef(function Stepper({
   const resolvedSteps = useMemo(() => normalizeSteps(steps), [steps]);
   const currentIndex = Math.max(0, Math.min(Number(current) || 0, resolvedSteps.length - 1));
   if (!label) return null;
+  if (!resolvedSteps.length) return null;
 
   return React.createElement(
     "ol",
@@ -40,7 +40,7 @@ export const Stepper = forwardRef(function Stepper({
       ...flowRestProps(rest),
       ref,
       className: ["stepper", className].filter(Boolean).join(" "),
-      "aria-label": label || undefined,
+      "aria-label": label,
       "data-orientation": resolvedOrientation,
       ...flowDensityProps(resolvedDensity),
       "data-current": String(currentIndex),
@@ -54,7 +54,6 @@ export const Stepper = forwardRef(function Stepper({
           className: "stepper__item",
           ...flowStateProps(stepState),
           "aria-current": index === currentIndex ? "step" : undefined,
-          "aria-label": step.label ? undefined : step.ariaLabel,
         },
         React.createElement(
           "span",
@@ -64,7 +63,7 @@ export const Stepper = forwardRef(function Stepper({
         React.createElement(
           "span",
           { className: "stepper__text" },
-          step.label ? React.createElement("strong", null, step.label) : null,
+          React.createElement("strong", null, step.label),
           step.description ? React.createElement("small", null, step.description) : null,
         ),
       );

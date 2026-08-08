@@ -5,7 +5,7 @@ export type StepperOrientation = "horizontal" | "vertical";
 export type StepperDensity = "sm" | "md" | "lg";
 
 export interface StepperStep {
-  id?: string;
+  id: string;
   label: string;
   description?: string;
 }

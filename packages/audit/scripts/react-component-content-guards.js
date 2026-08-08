@@ -83,6 +83,9 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Stepper" && !source.includes("function hasStableStepId(step)")) add("errors", sourceFile, 1, "Stepper must centralize stable step id validation before composing progress items.");
   if (name === "Stepper" && !source.includes("filter((step) => step?.label && hasStableStepId(step))")) add("errors", sourceFile, 1, "Stepper must require visible labels and stable ids before composing progress items.");
   if (name === "Stepper" && /step\.id\s*\?\?\s*step\.label|step\.label\s*\?\?\s*index|connector-\$\{step\.id\s*\?\?/.test(source)) add("errors", sourceFile, 1, "Stepper must not synthesize item or connector keys from labels or indexes.");
+  if (name === "Stepper" && /steps\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "Stepper must not hide a missing required steps contract behind an empty default.");
+  if (name === "Stepper" && !source.includes("if (!resolvedSteps.length) return null;")) add("errors", sourceFile, 1, "Stepper must not render an empty progress shell when no valid steps remain.");
+  if (name === "Stepper" && /step\??\.ariaLabel|step\??\.\["aria-label"\]|"aria-label":\s*step\.label/.test(source)) add("errors", sourceFile, 1, "Stepper must use visible labels as step names instead of parallel aria-only names.");
   if (name === "Breadcrumbs" && /label:\s*item\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Breadcrumbs must not render unlabeled path items; filter items without visible labels before resolving layout.");
   if (name === "Breadcrumbs" && /items\s*=\s*\[\]/.test(source)) add("errors", sourceFile, 1, "Breadcrumbs must not hide a missing required items contract behind an empty default.");
   if (name === "Breadcrumbs" && !source.includes("if (!visibleItems.length) return null;")) add("errors", sourceFile, 1, "Breadcrumbs must not render an empty navigation shell when no valid path items remain.");
