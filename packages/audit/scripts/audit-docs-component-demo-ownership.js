@@ -46,13 +46,46 @@ const forbiddenPatterns = [
 ];
 
 function checkDocsComponentDemoOwnership() {
-  if (!docsDir) {
+  const report = createDocsComponentDemoOwnershipReport();
+  if (!report.docsDir) {
     add("errors", root, 1, "Docs component demo ownership audit requires apps/docs or sibling FlowDocs/apps/docs.");
     return;
   }
+  for (const violation of report.violations) {
+    add("errors", path.join(root, violation.file), violation.line, `${path.basename(violation.file)} ${violation.message}.`);
+  }
+}
 
+function createDocsComponentDemoOwnershipReport() {
+  const regions = [];
+  const violations = [];
+  if (!docsDir) {
+    return {
+      status: "fail",
+      docsDir: null,
+      expected: {
+        fullModules: componentDemoModules.length,
+        functionRegions: Object.values(componentDemoFunctions).flat().length,
+        forbiddenPatterns: forbiddenPatterns.length,
+      },
+      inventory: {
+        fullModules: 0,
+        functionRegions: 0,
+        regions: 0,
+        forbiddenPatterns: forbiddenPatterns.length,
+        violations: 1,
+      },
+      regions,
+      violations: [{
+        file: ".",
+        line: 1,
+        rule: "missing-docs-app",
+        message: "Docs component demo ownership audit requires apps/docs or sibling FlowDocs/apps/docs",
+      }],
+    };
+  }
   for (const fileName of componentDemoModules) {
-    checkSourceRegion(path.join(docsDir, fileName), null);
+    scanSourceRegion(path.join(docsDir, fileName), null, regions, violations);
   }
 
   for (const [fileName, functionNames] of Object.entries(componentDemoFunctions)) {
@@ -61,21 +94,58 @@ function checkDocsComponentDemoOwnership() {
     for (const functionName of functionNames) {
       const block = functionBlock(source, functionName);
       if (!block) {
-        add("errors", file, 1, `${functionName} must exist so docs can register React-owned component demos without owning behavior.`);
+        violations.push({
+          file: relFromRoot(file),
+          line: 1,
+          rule: "missing-demo-registration-function",
+          message: `${functionName} must exist so docs can register React-owned component demos without owning behavior`,
+        });
         continue;
       }
-      checkSourceRegion(file, block);
+      scanSourceRegion(file, block, regions, violations, functionName);
     }
   }
+  return {
+    status: violations.length ? "fail" : "pass",
+    docsDir: relFromRoot(docsDir),
+    expected: {
+      fullModules: componentDemoModules.length,
+      functionRegions: Object.values(componentDemoFunctions).flat().length,
+      forbiddenPatterns: forbiddenPatterns.length,
+    },
+    inventory: {
+      fullModules: componentDemoModules.length,
+      functionRegions: Object.values(componentDemoFunctions).flat().length,
+      regions: regions.length,
+      forbiddenPatterns: forbiddenPatterns.length,
+      violations: violations.length,
+    },
+    regions,
+    violations,
+  };
 }
 
-function checkSourceRegion(file, region) {
+function relFromRoot(file) {
+  return path.relative(root, file);
+}
+
+function scanSourceRegion(file, region, regions, violations, name = null) {
   const source = region?.text ?? read(file);
   const baseOffset = region?.start ?? 0;
+  regions.push({
+    file: relFromRoot(file),
+    region: name ?? "full-module",
+    mode: region ? "function" : "module",
+  });
   for (const [pattern, message] of forbiddenPatterns) {
     const match = source.match(pattern);
     if (!match) continue;
-    add("errors", file, lineNumber(read(file), baseOffset + match.index), `${path.basename(file)} ${message}.`);
+    violations.push({
+      file: relFromRoot(file),
+      line: lineNumber(read(file), baseOffset + match.index),
+      rule: pattern.source,
+      message,
+    });
   }
 }
 
@@ -96,4 +166,4 @@ function functionBlock(source, functionName) {
   return null;
 }
 
-module.exports = { checkDocsComponentDemoOwnership };
+module.exports = { checkDocsComponentDemoOwnership, createDocsComponentDemoOwnershipReport };

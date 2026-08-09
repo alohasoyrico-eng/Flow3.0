@@ -1,0 +1,89 @@
+{
+  "status": "pass",
+  "docsDir": "../FlowDocs/apps/docs",
+  "expected": {
+    "fullModules": 8,
+    "functionRegions": 4,
+    "forbiddenPatterns": 15
+  },
+  "inventory": {
+    "fullModules": 8,
+    "functionRegions": 4,
+    "regions": 12,
+    "forbiddenPatterns": 15,
+    "violations": 0
+  },
+  "regions": [
+    {
+      "file": "../FlowDocs/apps/docs/choice-demo-interactions.js",
+      "region": "full-module",
+      "mode": "module"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/display-demo-interactions.js",
+      "region": "full-module",
+      "mode": "module"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/overlay-demo-interactions.js",
+      "region": "full-module",
+      "mode": "module"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/progress-indicator-demo-interactions.js",
+      "region": "full-module",
+      "mode": "module"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/slider-demo-interactions.js",
+      "region": "full-module",
+      "mode": "module"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/stateful-component-interactions.js",
+      "region": "full-module",
+      "mode": "module"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/toast-demo-interactions.js",
+      "region": "full-module",
+      "mode": "module"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/tooltip-demo-interactions.js",
+      "region": "full-module",
+      "mode": "module"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-demo-interactions.js",
+      "region": "setupTextAreaDemos",
+      "mode": "function"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-demo-interactions.js",
+      "region": "setupIconButtonDemos",
+      "mode": "function"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-demo-interactions.js",
+      "region": "setupCardDemos",
+      "mode": "function"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-demo-interactions.js",
+      "region": "setupSliderDemos",
+      "mode": "function"
+    }
+  ],
+  "violations": [],
+  "baseline": {
+    "inventory": {
+      "fullModules": 8,
+      "functionRegions": 4,
+      "regions": 12,
+      "forbiddenPatterns": 15,
+      "violations": 0
+    },
+    "mismatches": []
+  }
+}
