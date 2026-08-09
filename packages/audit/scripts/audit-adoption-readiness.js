@@ -275,7 +275,7 @@ function checkInstallDocs(rootPackage) {
     const source = read(file);
     for (const snippet of [
       "https://npm.pkg.github.com",
-      "npm:@alohasoyrico-eng/flow@0.3.0-platform-mvp",
+      `npm:@alohasoyrico-eng/flow@${rootPackage.version}`,
       "flow/react",
       "flow/components/styles.css",
       "flow/tokens/styles.css",
