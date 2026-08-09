@@ -12,7 +12,7 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 - Flow dependency present: 1
 - Flow boundary aliases: 18
 - Missing Flow aliases: 0
-- Local Flow import violations: 2
+- Local Flow import violations: 0
 - Docs component token definitions: 0
 - Docs component token definition files: 0
 
@@ -25,7 +25,7 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 | flowDependencyPresent | 1 | 1 |
 | flowBoundaryAliases | 18 | 18 |
 | missingFlowAliases | 0 | 0 |
-| localFlowImportViolations | 2 | 2 |
+| localFlowImportViolations | 0 | 0 |
 | docsComponentTokenDefinitions | 0 | 0 |
 | docsComponentTokenDefinitionFiles | 0 | 0 |
 | generatedComponentCssPresent | 1 | 1 |

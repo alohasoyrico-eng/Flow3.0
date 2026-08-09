@@ -39,7 +39,7 @@ const expectedInventory = {
   flowDependencyPresent: 1,
   flowBoundaryAliases: 18,
   missingFlowAliases: 0,
-  localFlowImportViolations: 2,
+  localFlowImportViolations: 0,
   docsComponentTokenDefinitions: 0,
   docsComponentTokenDefinitionFiles: 0,
   generatedComponentCssPresent: 1,
