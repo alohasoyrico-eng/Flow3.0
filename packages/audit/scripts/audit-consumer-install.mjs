@@ -924,6 +924,7 @@ function auditInstalledPackage(consumerDir) {
   if (Object.keys(installedTokenContract.tokens ?? {}).length < 1000) {
     throw new Error("Installed token JSON contract must include the full token inventory.");
   }
+  assertInstalledContentContracts({ consumerRequire, packageRoot, realPackageRoot });
   const installedCssInventory = packageCssRootInventory(packageRoot);
   const installedCssRoots = installedCssInventory.roots;
   if (installedCssRoots.size !== 66) {
@@ -1022,6 +1023,56 @@ function missingInheritedDomEscapeOmissions(source) {
     }
   }
   return [...missing].sort();
+}
+
+function assertInstalledContentContracts({ consumerRequire, packageRoot, realPackageRoot }) {
+  const shardExports = [
+    ["@alohasoyrico-eng/flow/content/catalog", "packages/content/content", 15],
+    ["@alohasoyrico-eng/flow/content/component-docs", "packages/content/content", 2],
+    ["@alohasoyrico-eng/flow/content/component-copy", "packages/content/content", 180],
+    ["@alohasoyrico-eng/flow/content/foundation-copy", "packages/content/content", 20],
+    ["@alohasoyrico-eng/flow/content/primitive-copy", "packages/content/content", 20],
+    ["@alohasoyrico-eng/flow/specs/system", "packages/specs/specs", 140],
+  ];
+  for (const [specifier, shardRoot, minimumShards] of shardExports) {
+    const file = consumerRequire.resolve(specifier);
+    if (!fs.realpathSync(file).startsWith(realPackageRoot)) {
+      throw new Error(`Installed content export ${specifier} must resolve inside the Flow package.`);
+    }
+    const manifest = JSON.parse(fs.readFileSync(file, "utf8"));
+    const shards = manifest.$systemShards ?? [];
+    if (shards.length < minimumShards) {
+      throw new Error(`Installed content export ${specifier} is missing shard coverage: expected at least ${minimumShards}, got ${shards.length}.`);
+    }
+    const missingShards = shards.filter((shard) => !fs.existsSync(path.join(packageRoot, shardRoot, shard)));
+    if (missingShards.length) {
+      throw new Error(`Installed content export ${specifier} points to missing shards: ${missingShards.slice(0, 20).join(", ")}.`);
+    }
+  }
+
+  for (const specifier of [
+    "@alohasoyrico-eng/flow/content/pattern-copy",
+    "@alohasoyrico-eng/flow/content/reference-copy",
+    "@alohasoyrico-eng/flow/content/template-blueprints",
+    "@alohasoyrico-eng/flow/content/home",
+    "@alohasoyrico-eng/flow/content/i18n-ui",
+  ]) {
+    const file = consumerRequire.resolve(specifier);
+    if (!fs.realpathSync(file).startsWith(realPackageRoot)) {
+      throw new Error(`Installed content export ${specifier} must resolve inside the Flow package.`);
+    }
+    const contract = JSON.parse(fs.readFileSync(file, "utf8"));
+    if (!contract || typeof contract !== "object" || !Object.keys(contract).length) {
+      throw new Error(`Installed content export ${specifier} must contain a non-empty JSON contract.`);
+    }
+  }
+
+  const implementationStatus = JSON.parse(fs.readFileSync(consumerRequire.resolve("@alohasoyrico-eng/flow/content/component-implementation-status"), "utf8"));
+  const statusComponents = Object.values(implementationStatus.components ?? {});
+  const packageComponents = statusComponents.filter((component) => component.status === "package-component");
+  if (statusComponents.length !== 56 || packageComponents.length !== 56) {
+    throw new Error(`Installed implementation status must preserve 56/56 package components; got ${packageComponents.length}/${statusComponents.length}.`);
+  }
 }
 
 function assertReactGovernanceBaselines() {
