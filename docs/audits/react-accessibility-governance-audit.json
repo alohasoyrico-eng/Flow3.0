@@ -10,7 +10,8 @@
     "totalAria": 310,
     "keyboardHandlers": 40,
     "focusCalls": 15,
-    "failures": 0
+    "failures": 0,
+    "interactionFailures": 0
   },
   "components": [
     {
@@ -324,6 +325,15 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onOpenChange",
+          "onValueChange"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 4,
         "aria": 15,
@@ -369,6 +379,15 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onOpenChange",
+          "onValueChange"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 4,
         "aria": 14,
@@ -418,6 +437,15 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onOpenChange",
+          "onValueChange"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 5,
         "aria": 20,
@@ -467,6 +495,15 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onOpenChange",
+          "onValueChange"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 5,
         "aria": 21,
@@ -504,6 +541,16 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onAction",
+          "onClick",
+          "onOpenChange"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 1,
         "aria": 6,
@@ -541,6 +588,16 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onAction",
+          "onClick",
+          "onOpenChange"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 1,
         "aria": 5,
@@ -714,6 +771,15 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onOpenChange",
+          "onSelect"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 3,
         "aria": 7,
@@ -823,6 +889,16 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onAction",
+          "onClick",
+          "onOpenChange"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 1,
         "aria": 4,
@@ -948,6 +1024,15 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onOpenChange",
+          "onValueChange"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 4,
         "aria": 13,
@@ -1161,6 +1246,14 @@
         }
       ],
       "missing": [],
+      "interaction": {
+        "status": "pass",
+        "callbacks": [
+          "onOpenChange"
+        ],
+        "hasInteractionTestPresence": true,
+        "missing": []
+      },
       "signals": {
         "roles": 1,
         "aria": 3,

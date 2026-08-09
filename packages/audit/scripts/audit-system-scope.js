@@ -21,6 +21,7 @@ const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js"
 const { checkDocsComponentDemoOwnership } = require("./audit-docs-component-demo-ownership.js");
 const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
 const { checkComponentVisualCascade } = require("./report-component-visual-cascade.js");
+const { checkReactAccessibilityGovernance } = require("./report-react-accessibility-governance.js");
 const { checkReactInteractionCoverage } = require("./report-react-interaction-coverage.js");
 const { finishAudit } = require("./audit-result.js");
 
@@ -45,6 +46,7 @@ checkAntiDuplicationGovernance();
 checkDocsComponentDemoOwnership();
 checkManualAccessibility();
 checkComponentVisualCascade();
+checkReactAccessibilityGovernance();
 checkReactInteractionCoverage();
 
 finishAudit();

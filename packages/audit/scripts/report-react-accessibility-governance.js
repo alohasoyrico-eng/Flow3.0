@@ -3,10 +3,12 @@
 const {
   fs,
   path,
+  add,
   read,
   rel,
   root,
 } = require("./audit-context.js");
+const { createReport: createInteractionCoverageReport } = require("./report-react-interaction-coverage.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -117,20 +119,37 @@ function countMatches(source, pattern) {
 }
 
 function createReport() {
+  const interactionReport = createInteractionCoverageReport();
+  const interactionCritical = new Map(interactionReport.manualAccessibilityCritical.map((component) => [component.component, component]));
   const components = componentFiles().map((file) => {
     const component = path.basename(file, ".js");
     const source = read(file);
+    const interaction = interactionCritical.get(component);
     const requirements = (criticalRequirements[component] ?? []).map(([label, pattern]) => ({
       label,
       present: pattern.test(source),
     }));
     const missing = requirements.filter((item) => !item.present).map((item) => item.label);
+    const missingInteraction = [];
+    if (criticalRequirements[component]) {
+      if (!interaction?.present) missingInteraction.push("interaction component presence");
+      if (interaction?.status !== "pass") missingInteraction.push("callback interaction coverage");
+      if (!interaction?.hasInteractionTestPresence) missingInteraction.push("manual interaction test presence");
+    }
     return {
       component,
       file: rel(file),
       critical: Boolean(criticalRequirements[component]),
       requirements,
       missing,
+      interaction: interaction
+        ? {
+          status: interaction.status,
+          callbacks: interaction.callbacks,
+          hasInteractionTestPresence: interaction.hasInteractionTestPresence,
+          missing: missingInteraction,
+        }
+        : undefined,
       signals: {
         roles: countMatches(source, /\brole:/g),
         aria: countMatches(source, /"aria-[^"]+"/g),
@@ -139,7 +158,7 @@ function createReport() {
         usesId: /\buseId\b/.test(source),
         focusCalls: countMatches(source, /\.focus\(\)/g),
       },
-      status: missing.length ? "fail" : "pass",
+      status: missing.length || missingInteraction.length ? "fail" : "pass",
     };
   });
   const critical = components.filter((component) => component.critical);
@@ -156,6 +175,7 @@ function createReport() {
       keyboardHandlers: components.reduce((total, component) => total + component.signals.keyboardHandlers, 0),
       focusCalls: components.reduce((total, component) => total + component.signals.focusCalls, 0),
       failures: components.reduce((total, component) => total + component.missing.length, 0),
+      interactionFailures: components.reduce((total, component) => total + (component.interaction?.missing.length ?? 0), 0),
     },
     components,
   };
@@ -164,7 +184,7 @@ function createReport() {
 function toMarkdown(report) {
   const criticalRows = report.components
     .filter((component) => component.critical)
-    .map((component) => `| ${component.component} | ${component.status} | ${component.requirements.filter((item) => item.present).map((item) => item.label).join(", ") || "None"} | ${component.missing.join(", ") || "None"} |`);
+    .map((component) => `| ${component.component} | ${component.status} | ${component.requirements.filter((item) => item.present).map((item) => item.label).join(", ") || "None"} | ${component.missing.join(", ") || "None"} | ${component.interaction?.missing.length ? component.interaction.missing.join(", ") : "pass"} |`);
   const signalRows = report.components
     .filter((component) => component.signals.roles || component.signals.aria || component.signals.keyboardHandlers || component.signals.focusCalls)
     .map((component) => `| ${component.component} | ${component.signals.roles} | ${component.signals.aria} | ${component.signals.keyboardHandlers} | ${component.signals.tabIndex} | ${component.signals.focusCalls} | ${component.signals.usesId ? "yes" : "no"} |`);
@@ -185,11 +205,12 @@ function toMarkdown(report) {
     `- Keyboard handlers: ${report.inventory.keyboardHandlers}`,
     `- Focus calls: ${report.inventory.focusCalls}`,
     `- Failures: ${report.inventory.failures}`,
+    `- Critical interaction failures: ${report.inventory.interactionFailures}`,
     "",
     "## Critical Components",
     "",
-    "| Component | Status | Present requirements | Missing |",
-    "| --- | --- | --- | --- |",
+    "| Component | Status | Present requirements | Missing | Interaction gate |",
+    "| --- | --- | --- | --- | --- |",
     ...criticalRows,
     "",
     "## Signal Inventory",
@@ -205,6 +226,18 @@ function writeReport(report) {
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
   fs.writeFileSync(markdownOutput, `${toMarkdown(report)}\n`);
+}
+
+function checkReactAccessibilityGovernance() {
+  const report = createReport();
+  const failing = report.components.filter((component) => component.status === "fail");
+  for (const component of failing) {
+    const missing = [
+      ...component.missing,
+      ...(component.interaction?.missing ?? []),
+    ];
+    add("errors", path.join(root, component.file), 1, `${component.component} is accessibility-critical and is missing: ${missing.join(", ")}.`);
+  }
 }
 
 function main() {
@@ -236,4 +269,6 @@ function main() {
   if (report.status !== "pass") process.exitCode = 1;
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { checkReactAccessibilityGovernance, createReport };

@@ -14,21 +14,22 @@ React components with accessibility-critical interaction must keep explicit role
 - Keyboard handlers: 40
 - Focus calls: 15
 - Failures: 0
+- Critical interaction failures: 0
 
 ## Critical Components
 
-| Component | Status | Present requirements | Missing |
-| --- | --- | --- | --- |
-| Combobox | pass | role combobox, autocomplete, expanded state, listbox, option, active descendant, keyboard, escape | None |
-| CountrySelector | pass | role combobox, expanded state, listbox, option, active descendant, keyboard, escape | None |
-| DatePicker | pass | dialog trigger, expanded state, role dialog, grid, gridcell, keyboard, escape, focus restoration | None |
-| DateRangePicker | pass | dialog trigger, expanded state, role dialog, grid, gridcell, keyboard, escape, focus restoration | None |
-| Dialog | pass | role dialog, modal, labelledby, escape, focus restoration | None |
-| Drawer | pass | role dialog, modal, labelledby, escape, focus restoration | None |
-| Menu | pass | menu trigger, expanded state, role menu, role menuitem, keyboard, escape, focus management | None |
-| Popover | pass | dialog trigger, expanded state, role dialog, labelledby, keyboard, escape, focus restoration | None |
-| Select | pass | role combobox, expanded state, listbox, option, active descendant, keyboard, escape | None |
-| Tooltip | pass | describedby, role tooltip, keyboard, escape, focus trigger | None |
+| Component | Status | Present requirements | Missing | Interaction gate |
+| --- | --- | --- | --- | --- |
+| Combobox | pass | role combobox, autocomplete, expanded state, listbox, option, active descendant, keyboard, escape | None | pass |
+| CountrySelector | pass | role combobox, expanded state, listbox, option, active descendant, keyboard, escape | None | pass |
+| DatePicker | pass | dialog trigger, expanded state, role dialog, grid, gridcell, keyboard, escape, focus restoration | None | pass |
+| DateRangePicker | pass | dialog trigger, expanded state, role dialog, grid, gridcell, keyboard, escape, focus restoration | None | pass |
+| Dialog | pass | role dialog, modal, labelledby, escape, focus restoration | None | pass |
+| Drawer | pass | role dialog, modal, labelledby, escape, focus restoration | None | pass |
+| Menu | pass | menu trigger, expanded state, role menu, role menuitem, keyboard, escape, focus management | None | pass |
+| Popover | pass | dialog trigger, expanded state, role dialog, labelledby, keyboard, escape, focus restoration | None | pass |
+| Select | pass | role combobox, expanded state, listbox, option, active descendant, keyboard, escape | None | pass |
+| Tooltip | pass | describedby, role tooltip, keyboard, escape, focus trigger | None | pass |
 
 ## Signal Inventory
 
