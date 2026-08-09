@@ -68,20 +68,32 @@ function createReport() {
     to: target,
     reason: item.reasons[target] ?? "",
   })));
+  const unexpectedImports = components.reduce((total, item) => total + item.unexpected.length, 0);
+  const missingImports = components.reduce((total, item) => total + item.missing.length, 0);
+  const missingReasons = components.reduce((total, item) => total + item.missingReasons.length, 0);
+  const duplicateAllowed = components.reduce((total, item) => total + item.duplicateAllowed.length, 0);
+  const unknownAllowed = components.reduce((total, item) => total + item.unknownAllowed.length, 0);
+  const compositionDebt = unexpectedImports
+    + missingImports
+    + missingReasons
+    + duplicateAllowed
+    + unknownAllowed
+    + unknownContractOwners.length;
   return {
-    status: components.some((item) => item.status === "fail") || unknownContractOwners.length ? "fail" : "pass",
+    status: compositionDebt ? "fail" : "pass",
     audit: "react composition governance",
-    principle: "React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently.",
+    principle: "React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently. The actionable debt metric is compositionDebt.",
     inventory: {
       components: components.length,
+      compositionDebt,
       compositionalComponents: compositional.length,
       compositionEdges: edges.length,
       allowedEntries: Object.keys(allowedReactComponentComposition).length,
-      unexpectedImports: components.reduce((total, item) => total + item.unexpected.length, 0),
-      missingImports: components.reduce((total, item) => total + item.missing.length, 0),
-      missingReasons: components.reduce((total, item) => total + item.missingReasons.length, 0),
-      duplicateAllowed: components.reduce((total, item) => total + item.duplicateAllowed.length, 0),
-      unknownAllowed: components.reduce((total, item) => total + item.unknownAllowed.length, 0),
+      unexpectedImports,
+      missingImports,
+      missingReasons,
+      duplicateAllowed,
+      unknownAllowed,
       unknownContractOwners: unknownContractOwners.length,
     },
     knownComponents,
@@ -106,6 +118,7 @@ function toMarkdown(report) {
     "## Inventory",
     "",
     `- React components scanned: ${report.inventory.components}`,
+    `- Composition debt: ${report.inventory.compositionDebt}`,
     `- Components with declared composition: ${report.inventory.compositionalComponents}`,
     `- Composition edges: ${report.inventory.compositionEdges}`,
     `- Allowlist entries: ${report.inventory.allowedEntries}`,
@@ -160,6 +173,7 @@ function main() {
   console.log(JSON.stringify({
     status: report.status,
     components: report.inventory.components,
+    compositionDebt: report.inventory.compositionDebt,
     compositionalComponents: report.inventory.compositionalComponents,
     compositionEdges: report.inventory.compositionEdges,
     unexpectedImports: report.inventory.unexpectedImports,

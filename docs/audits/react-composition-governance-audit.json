@@ -1,9 +1,10 @@
 {
   "status": "pass",
   "audit": "react composition governance",
-  "principle": "React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently.",
+  "principle": "React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently. The actionable debt metric is compositionDebt.",
   "inventory": {
     "components": 56,
+    "compositionDebt": 0,
     "compositionalComponents": 23,
     "compositionEdges": 39,
     "allowedEntries": 23,

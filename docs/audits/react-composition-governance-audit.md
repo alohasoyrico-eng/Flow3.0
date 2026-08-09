@@ -2,11 +2,12 @@
 
 Status: **pass**
 
-React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently.
+React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently. The actionable debt metric is compositionDebt.
 
 ## Inventory
 
 - React components scanned: 56
+- Composition debt: 0
 - Components with declared composition: 23
 - Composition edges: 39
 - Allowlist entries: 23

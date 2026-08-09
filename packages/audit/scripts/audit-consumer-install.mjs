@@ -1236,6 +1236,21 @@ function assertReactGovernanceBaselines() {
     violations: 0,
   }, "React style governance");
 
+  const composition = readAuditReport("docs/audits/react-composition-governance-audit.json");
+  assertReportStatus(composition, "React composition governance");
+  assertInventory(composition, {
+    components: 56,
+    compositionDebt: 0,
+    compositionalComponents: 23,
+    compositionEdges: 39,
+    unexpectedImports: 0,
+    missingImports: 0,
+    missingReasons: 0,
+    duplicateAllowed: 0,
+    unknownAllowed: 0,
+    unknownContractOwners: 0,
+  }, "React composition governance");
+
   const controlled = readAuditReport("docs/audits/react-controlled-governance-audit.json");
   assertReportStatus(controlled, "React controlled governance");
   assertInventory(controlled, {
