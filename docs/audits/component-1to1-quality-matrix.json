@@ -2261,6 +2261,7 @@
     "total": 56,
     "pass": 56,
     "partial": 0,
-    "fail": 0
+    "fail": 0,
+    "qualityDebt": 0
   }
 }

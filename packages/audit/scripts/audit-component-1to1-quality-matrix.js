@@ -113,7 +113,22 @@ function checkComponent1to1QualityMatrix() {
     pass: passCount,
     partial: partialCount,
     fail: failCount,
+    qualityDebt: partialCount + failCount,
   };
+
+  const summary = matrix.summary ?? {};
+  const expectedSummary = {
+    total: (matrix.components ?? []).length,
+    pass: passCount,
+    partial: partialCount,
+    fail: failCount,
+    qualityDebt: partialCount + failCount,
+  };
+  for (const [key, expected] of Object.entries(expectedSummary)) {
+    if (summary[key] !== expected) {
+      add("errors", matrixFile, 1, `Component 1:1 quality matrix summary.${key} must be ${expected}; got ${summary[key]}.`);
+    }
+  }
 
   if (partialCount || failCount) {
     add("warnings", matrixFile, 1, `Component 1:1 quality matrix is not closed: ${partialCount} partial, ${failCount} fail.`);
