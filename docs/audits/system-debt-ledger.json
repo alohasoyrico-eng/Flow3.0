@@ -9,7 +9,9 @@
     "reportsWithDebtMetrics": 20,
     "debtMetrics": 20,
     "categories": 7,
+    "categoryMinimumDebt": 0,
     "categoriesWithDebt": 0,
+    "undercoveredStrategicCategories": 0,
     "uncategorizedReports": 0,
     "unexpectedCategories": 0,
     "missingStrategicCategories": 0,
@@ -27,46 +29,61 @@
   "unexpectedCategories": [],
   "missingStrategicCategories": [],
   "emptyStrategicCategories": [],
+  "undercoveredStrategicCategories": [],
   "categories": [
     {
       "category": "anti-duplication",
       "reports": 1,
+      "minimumReports": 1,
+      "coverageGap": 0,
       "debtMetrics": 1,
       "totalDebt": 0
     },
     {
       "category": "cascade",
       "reports": 4,
+      "minimumReports": 4,
+      "coverageGap": 0,
       "debtMetrics": 4,
       "totalDebt": 0
     },
     {
       "category": "docs-system-boundary",
       "reports": 2,
+      "minimumReports": 2,
+      "coverageGap": 0,
       "debtMetrics": 2,
       "totalDebt": 0
     },
     {
       "category": "foundations-primitives",
       "reports": 1,
+      "minimumReports": 1,
+      "coverageGap": 0,
       "debtMetrics": 1,
       "totalDebt": 0
     },
     {
       "category": "quality",
       "reports": 1,
+      "minimumReports": 1,
+      "coverageGap": 0,
       "debtMetrics": 1,
       "totalDebt": 0
     },
     {
       "category": "react-primary",
       "reports": 10,
+      "minimumReports": 10,
+      "coverageGap": 0,
       "debtMetrics": 10,
       "totalDebt": 0
     },
     {
       "category": "taxonomy",
       "reports": 1,
+      "minimumReports": 1,
+      "coverageGap": 0,
       "debtMetrics": 1,
       "totalDebt": 0
     }

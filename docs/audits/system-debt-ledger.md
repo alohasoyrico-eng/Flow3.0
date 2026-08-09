@@ -12,7 +12,9 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 - Reports with debt metrics: 20
 - Debt metrics: 20
 - Categories: 7
+- Category minimum debt: 0
 - Categories with debt: 0
+- Undercovered strategic categories: 0
 - Uncategorized reports: 0
 - Unexpected categories: 0
 - Missing strategic categories: 0
@@ -25,15 +27,15 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Categories
 
-| Category | Reports | Debt metrics | Total debt |
-| --- | ---: | ---: | ---: |
-| anti-duplication | 1 | 1 | 0 |
-| cascade | 4 | 4 | 0 |
-| docs-system-boundary | 2 | 2 | 0 |
-| foundations-primitives | 1 | 1 | 0 |
-| quality | 1 | 1 | 0 |
-| react-primary | 10 | 10 | 0 |
-| taxonomy | 1 | 1 | 0 |
+| Category | Reports | Minimum reports | Coverage gap | Debt metrics | Total debt |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| anti-duplication | 1 | 1 | 0 | 1 | 0 |
+| cascade | 4 | 4 | 0 | 4 | 0 |
+| docs-system-boundary | 2 | 2 | 0 | 2 | 0 |
+| foundations-primitives | 1 | 1 | 0 | 1 | 0 |
+| quality | 1 | 1 | 0 | 1 | 0 |
+| react-primary | 10 | 10 | 0 | 10 | 0 |
+| taxonomy | 1 | 1 | 0 | 1 | 0 |
 
 ## Uncategorized Reports
 
