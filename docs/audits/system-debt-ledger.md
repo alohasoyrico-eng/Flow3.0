@@ -12,7 +12,10 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 - Reports with debt metrics: 20
 - Debt metrics: 20
 - Categories: 7
+- Category minimums: 7
 - Category minimum debt: 0
+- Categories missing minimums: 0
+- Unexpected category minimums: 0
 - Categories with debt: 0
 - Undercovered strategic categories: 0
 - Uncategorized reports: 0
