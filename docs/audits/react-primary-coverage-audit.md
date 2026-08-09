@@ -25,6 +25,41 @@ Every accepted component must have a real React implementation contract: source,
 - Source type index exports: 56/56
 - Dist index exports: 56/56
 - Dist type index exports: 56/56
+- Inventory baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. React only counts as the primary implementation when every accepted component keeps source, types, dist, refs, density, rest-prop sanitation, package-safe imports, and CSS contracts intact.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| expectedComponents | 56 | 56 |
+| components | 56 | 56 |
+| pass | 56 | 56 |
+| fail | 0 | 0 |
+| missingSources | 0 | 0 |
+| extraSources | 0 | 0 |
+| forwardRef | 56 | 56 |
+| realTypes | 56 | 56 |
+| platformContract | 56 | 56 |
+| densityResolved | 56 | 56 |
+| restSanitized | 56 | 56 |
+| noDocsDependency | 56 | 56 |
+| noDomFactory | 56 | 56 |
+| publishedImports | 56 | 56 |
+| cssContractCoverage | 56 | 56 |
+| directCssContracts | 52 | 52 |
+| familyCssContracts | 4 | 4 |
+| sourceIndexExport | 56 | 56 |
+| sourceTypesIndexExport | 56 | 56 |
+| distIndexExport | 56 | 56 |
+| distTypesIndexExport | 56 | 56 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
 
 ## Components
 

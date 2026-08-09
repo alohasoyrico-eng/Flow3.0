@@ -21,6 +21,30 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-primary-coverage-audit.json");
 const markdownOutput = path.join(outputDir, "react-primary-coverage-audit.md");
 
+const expectedInventory = {
+  expectedComponents: 56,
+  components: 56,
+  pass: 56,
+  fail: 0,
+  missingSources: 0,
+  extraSources: 0,
+  forwardRef: 56,
+  realTypes: 56,
+  platformContract: 56,
+  densityResolved: 56,
+  restSanitized: 56,
+  noDocsDependency: 56,
+  noDomFactory: 56,
+  publishedImports: 56,
+  cssContractCoverage: 56,
+  directCssContracts: 52,
+  familyCssContracts: 4,
+  sourceIndexExport: 56,
+  sourceTypesIndexExport: 56,
+  distIndexExport: 56,
+  distTypesIndexExport: 56,
+};
+
 function kebab(value) {
   return String(value)
     .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
@@ -126,38 +150,60 @@ function createReport() {
   const missingSources = expectedIds.filter((id) => !sourceIds.includes(id));
   const extraSources = sourceIds.filter((id) => !goldComponents.includes(id));
   const fail = components.filter((item) => item.status === "fail");
+  const inventory = {
+    expectedComponents: expectedIds.length,
+    components: components.length,
+    pass: components.filter((item) => item.status === "pass").length,
+    fail: fail.length,
+    missingSources,
+    extraSources,
+    forwardRef: components.filter((item) => item.checks.forwardRef).length,
+    realTypes: components.filter((item) => item.checks.realTypes).length,
+    platformContract: components.filter((item) => item.checks.platformContract).length,
+    densityResolved: components.filter((item) => item.checks.densityResolved).length,
+    restSanitized: components.filter((item) => item.checks.restSanitized).length,
+    noDocsDependency: components.filter((item) => item.checks.noDocsDependency).length,
+    noDomFactory: components.filter((item) => item.checks.noDomFactory).length,
+    publishedImports: components.filter((item) => item.checks.publishedImports).length,
+    cssContractCoverage: components.filter((item) => item.checks.cssContractCoverage).length,
+    directCssContracts: components.filter((item) => item.cssContract.coverage === "direct").length,
+    familyCssContracts: components.filter((item) => item.cssContract.coverage === "family").length,
+    sourceIndexExport: components.filter((item) => item.checks.sourceIndexExport).length,
+    sourceTypesIndexExport: components.filter((item) => item.checks.sourceTypesIndexExport).length,
+    distIndexExport: components.filter((item) => item.checks.distIndexExport).length,
+    distTypesIndexExport: components.filter((item) => item.checks.distTypesIndexExport).length,
+  };
+  const baselineActual = {
+    ...inventory,
+    missingSources: inventory.missingSources.length,
+    extraSources: inventory.extraSources.length,
+  };
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => baselineActual[key] !== expected)
+    .map(([key, expected]) => ({
+      key,
+      expected,
+      actual: baselineActual[key],
+    }));
   return {
-    status: missingSources.length || extraSources.length || fail.length ? "fail" : "pass",
+    status: missingSources.length || extraSources.length || fail.length || baselineMismatches.length ? "fail" : "pass",
     audit: "react primary coverage",
     principle: "Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency.",
-    inventory: {
-      expectedComponents: expectedIds.length,
-      components: components.length,
-      pass: components.filter((item) => item.status === "pass").length,
-      fail: fail.length,
-      missingSources,
-      extraSources,
-      forwardRef: components.filter((item) => item.checks.forwardRef).length,
-      realTypes: components.filter((item) => item.checks.realTypes).length,
-      platformContract: components.filter((item) => item.checks.platformContract).length,
-      densityResolved: components.filter((item) => item.checks.densityResolved).length,
-      restSanitized: components.filter((item) => item.checks.restSanitized).length,
-      noDocsDependency: components.filter((item) => item.checks.noDocsDependency).length,
-      noDomFactory: components.filter((item) => item.checks.noDomFactory).length,
-      publishedImports: components.filter((item) => item.checks.publishedImports).length,
-      cssContractCoverage: components.filter((item) => item.checks.cssContractCoverage).length,
-      directCssContracts: components.filter((item) => item.cssContract.coverage === "direct").length,
-      familyCssContracts: components.filter((item) => item.cssContract.coverage === "family").length,
-      sourceIndexExport: components.filter((item) => item.checks.sourceIndexExport).length,
-      sourceTypesIndexExport: components.filter((item) => item.checks.sourceTypesIndexExport).length,
-      distIndexExport: components.filter((item) => item.checks.distIndexExport).length,
-      distTypesIndexExport: components.filter((item) => item.checks.distTypesIndexExport).length,
+    baseline: {
+      inventory: expectedInventory,
+      actual: baselineActual,
+      mismatches: baselineMismatches,
     },
+    inventory,
     components,
   };
 }
 
 function toMarkdown(report) {
+  const baselineRows = Object.entries(report.baseline.inventory)
+    .map(([key, expected]) => `| ${key} | ${expected} | ${report.baseline.actual[key]} |`);
+  const baselineMismatchRows = report.baseline.mismatches
+    .map((item) => `| ${item.key} | ${item.expected} | ${item.actual} |`);
   const lines = [
     "# React Primary Coverage Audit",
     "",
@@ -186,6 +232,21 @@ function toMarkdown(report) {
     `- Source type index exports: ${report.inventory.sourceTypesIndexExport}/${report.inventory.components}`,
     `- Dist index exports: ${report.inventory.distIndexExport}/${report.inventory.components}`,
     `- Dist type index exports: ${report.inventory.distTypesIndexExport}/${report.inventory.components}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. React only counts as the primary implementation when every accepted component keeps source, types, dist, refs, density, rest-prop sanitation, package-safe imports, and CSS contracts intact.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...(baselineMismatchRows.length ? baselineMismatchRows : ["| None | None | None |"]),
     "",
     "## Components",
     "",
