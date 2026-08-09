@@ -17,6 +17,7 @@ const reactPackageFile = path.join(root, "packages/react/package.json");
 const reactRefTestFile = path.join(root, "packages/react/test/ref.test.mjs");
 const rootPackageFile = path.join(root, "package.json");
 const componentContractsFile = path.join(root, "packages/components/src/contracts.js");
+const reactDataAttributesTypesFile = path.join(reactSrcDir, "internal/props.d.ts");
 const allowedPrimitiveImports = new Set([
   "createChartsPrimitive",
   "createMapsPrimitive",
@@ -53,6 +54,17 @@ function checkReactPrimaryContract() {
       if (!refTest.includes(snippet)) {
         add("errors", reactRefTestFile, 1, `React ref test must derive coverage from contracts and assert runtime refs: ${snippet}.`);
       }
+    }
+  }
+  if (!fs.existsSync(reactDataAttributesTypesFile)) {
+    add("errors", reactDataAttributesTypesFile, 1, "React package must define FlowDataAttributes so product-owned data-* hooks stay typed without reopening style or HTML escape props.");
+  } else {
+    const dataAttributeTypes = read(reactDataAttributesTypesFile);
+    if (!dataAttributeTypes.includes("[key: `data-${string}`]")) {
+      add("errors", reactDataAttributesTypesFile, 1, "FlowDataAttributes must type data-* integration hooks for product code.");
+    }
+    if (dataAttributeTypes.includes("style") || dataAttributeTypes.includes("dangerouslySetInnerHTML")) {
+      add("errors", reactDataAttributesTypesFile, 1, "FlowDataAttributes must not reintroduce Flow-owned style or HTML escape props.");
     }
   }
 
@@ -152,6 +164,14 @@ function checkReactComponent(file, shared) {
   }
   if (!types.includes(`export interface ${propsName}`) && !types.includes(`export type ${propsName}`)) {
     add("errors", typesFile, 1, `${name} React types missing exported props contract: ${propsName}.`);
+  }
+  for (const [artifact, artifactSource] of [[typesFile, types], [distTypesFile, distTypes]]) {
+    if (!artifactSource.includes("FlowDataAttributes")) {
+      add("errors", artifact, 1, `${name} React props must extend FlowDataAttributes so typed product data-* hooks match runtime root forwarding.`);
+    }
+    if (!artifactSource.includes('from "./internal/props.js"')) {
+      add("errors", artifact, 1, `${name} React types must import FlowDataAttributes from the shared internal props contract.`);
+    }
   }
   checkReactPublicDensityContract({ add, name, sourceFile, source, typesFile, types, reactTypesIndex: shared.reactTypesIndex, reactTypesIndexFile });
 
