@@ -2,6 +2,20 @@
   "status": "pass",
   "audit": "react interaction coverage",
   "principle": "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots.",
+  "baseline": {
+    "inventory": {
+      "components": 56,
+      "withCallbacks": 40,
+      "pass": 56,
+      "review": 0,
+      "fail": 0,
+      "missingTestCallbacks": 0,
+      "missingEventParams": 0,
+      "manualAccessibilityCritical": 10,
+      "manualAccessibilityCriticalPass": 10
+    },
+    "mismatches": []
+  },
   "inventory": {
     "components": 56,
     "withCallbacks": 40,

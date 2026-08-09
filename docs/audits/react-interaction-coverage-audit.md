@@ -14,6 +14,29 @@ React components that declare callback props must use them in source and must ha
 - Missing callback test assertions: 0
 - Missing callback event params: 0
 - Manual accessibility critical pass: 10/10
+- Inventory baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. Callback coverage and critical interaction coverage should only change with explicit product/API review.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| components | 56 | 56 |
+| withCallbacks | 40 | 40 |
+| pass | 56 | 56 |
+| review | 0 | 0 |
+| fail | 0 | 0 |
+| missingTestCallbacks | 0 | 0 |
+| missingEventParams | 0 | 0 |
+| manualAccessibilityCritical | 10 | 10 |
+| manualAccessibilityCriticalPass | 10 | 10 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
 
 ## Manual Accessibility Critical Components
 

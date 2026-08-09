@@ -15,6 +15,17 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-interaction-coverage-audit.json");
 const markdownOutput = path.join(outputDir, "react-interaction-coverage-audit.md");
 const checkMode = process.argv.includes("--check");
+const expectedInventory = {
+  components: 56,
+  withCallbacks: 40,
+  pass: 56,
+  review: 0,
+  fail: 0,
+  missingTestCallbacks: 0,
+  missingEventParams: 0,
+  manualAccessibilityCritical: 10,
+  manualAccessibilityCriticalPass: 10,
+};
 const manualAccessibilityCriticalComponents = [
   "Dialog",
   "Drawer",
@@ -109,27 +120,43 @@ function createReport() {
     };
   });
   const criticalMissing = manualAccessibilityCritical.filter((component) => !component.present || component.status !== "pass" || !component.hasInteractionTestPresence);
+  const inventory = {
+    components: components.length,
+    withCallbacks: components.filter((component) => component.callbacks.length).length,
+    pass: components.filter((component) => component.status === "pass").length,
+    review: 0,
+    fail: components.filter((component) => component.status === "fail").length,
+    missingTestCallbacks: components.reduce((total, component) => total + component.missingInTests.length, 0),
+    missingEventParams: components.reduce((total, component) => total + component.missingEventParam.length, 0),
+    manualAccessibilityCritical: manualAccessibilityCritical.length,
+    manualAccessibilityCriticalPass: manualAccessibilityCritical.filter((component) => component.present && component.status === "pass" && component.hasInteractionTestPresence).length,
+  };
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => inventory[key] !== expected)
+    .map(([key, expected]) => ({
+      key,
+      expected,
+      actual: inventory[key],
+    }));
   return {
-    status: components.some((component) => component.status === "fail") || criticalMissing.length ? "fail" : "pass",
+    status: components.some((component) => component.status === "fail") || criticalMissing.length || baselineMismatches.length ? "fail" : "pass",
     audit: "react interaction coverage",
     principle: "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots.",
-    inventory: {
-      components: components.length,
-      withCallbacks: components.filter((component) => component.callbacks.length).length,
-      pass: components.filter((component) => component.status === "pass").length,
-      review: 0,
-      fail: components.filter((component) => component.status === "fail").length,
-      missingTestCallbacks: components.reduce((total, component) => total + component.missingInTests.length, 0),
-      missingEventParams: components.reduce((total, component) => total + component.missingEventParam.length, 0),
-      manualAccessibilityCritical: manualAccessibilityCritical.length,
-      manualAccessibilityCriticalPass: manualAccessibilityCritical.filter((component) => component.present && component.status === "pass" && component.hasInteractionTestPresence).length,
+    baseline: {
+      inventory: expectedInventory,
+      mismatches: baselineMismatches,
     },
+    inventory,
     manualAccessibilityCritical,
     components,
   };
 }
 
 function toMarkdown(report) {
+  const baselineRows = Object.entries(report.baseline.inventory)
+    .map(([key, expected]) => `| ${key} | ${expected} | ${report.inventory[key]} |`);
+  const baselineMismatchRows = report.baseline.mismatches
+    .map((item) => `| ${item.key} | ${item.expected} | ${item.actual} |`);
   const lines = [
     "# React Interaction Coverage Audit",
     "",
@@ -147,6 +174,21 @@ function toMarkdown(report) {
     `- Missing callback test assertions: ${report.inventory.missingTestCallbacks}`,
     `- Missing callback event params: ${report.inventory.missingEventParams}`,
     `- Manual accessibility critical pass: ${report.inventory.manualAccessibilityCriticalPass}/${report.inventory.manualAccessibilityCritical}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. Callback coverage and critical interaction coverage should only change with explicit product/API review.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...(baselineMismatchRows.length ? baselineMismatchRows : ["| None | None | None |"]),
     "",
     "## Manual Accessibility Critical Components",
     "",
