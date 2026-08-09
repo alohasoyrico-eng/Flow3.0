@@ -41,6 +41,8 @@ try {
   run("node", ["screen.mjs"], consumerDir);
   writeConsumerRefRuntime(consumerDir);
   run("node", ["ref-runtime.mjs"], consumerDir);
+  writeConsumerInteractionRuntime(consumerDir);
+  run("node", ["interaction-runtime.mjs"], consumerDir);
   writeConsumerTypes(consumerDir);
   run(path.join(root, "node_modules/.bin/tsc"), ["--project", "tsconfig.json"], consumerDir);
   auditInstalledPackage(consumerDir);
@@ -516,6 +518,164 @@ for (const { componentId, exportName } of reactSubpathAssertions) {
 assert.deepEqual(failures, []);
 `;
   fs.writeFileSync(path.join(consumerDir, "ref-runtime.mjs"), source.trimStart());
+}
+
+function writeConsumerInteractionRuntime(consumerDir) {
+  const jsdomUrl = pathToFileURL(auditRequire.resolve("jsdom")).href;
+  const source = `
+import assert from "node:assert/strict";
+import jsdomModule from ${JSON.stringify(jsdomUrl)};
+import React from "react";
+import { flushSync } from "react-dom";
+import { createRoot } from "react-dom/client";
+import { Button, Card, Checkbox, Select } from "@alohasoyrico-eng/flow/react";
+
+const { JSDOM } = jsdomModule;
+const dom = new JSDOM("<!doctype html><html><body></body></html>", {
+  url: "http://localhost/",
+});
+
+globalThis.window = dom.window;
+globalThis.document = dom.window.document;
+globalThis.HTMLElement = dom.window.HTMLElement;
+globalThis.HTMLInputElement = dom.window.HTMLInputElement;
+globalThis.Node = dom.window.Node;
+globalThis.Event = dom.window.Event;
+globalThis.KeyboardEvent = dom.window.KeyboardEvent;
+globalThis.MouseEvent = dom.window.MouseEvent;
+Object.defineProperty(globalThis, "navigator", {
+  configurable: true,
+  value: dom.window.navigator,
+});
+globalThis.requestAnimationFrame = (callback) => setTimeout(callback, 0);
+globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
+
+function mount(element) {
+  const container = document.createElement("div");
+  document.body.appendChild(container);
+  const root = createRoot(container);
+  flushSync(() => root.render(element));
+  return {
+    container,
+    rerender(nextElement) {
+      flushSync(() => root.render(nextElement));
+    },
+    unmount() {
+      root.unmount();
+      container.remove();
+    },
+  };
+}
+
+function click(element) {
+  element.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+}
+
+function keyDown(element, key) {
+  element.dispatchEvent(new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true }));
+}
+
+const buttonClicks = [];
+const buttonHarness = mount(React.createElement(Button, {
+  label: "Continue",
+  onClick: (event) => buttonClicks.push(event.type),
+}));
+click(buttonHarness.container.querySelector("button"));
+assert.deepEqual(buttonClicks, ["click"]);
+buttonHarness.unmount();
+
+const cardActions = [];
+const cardHarness = mount(React.createElement(Card, {
+  title: "Wallet balance",
+  value: "$8,412.50",
+  interactive: true,
+  actionKey: "wallet-balance",
+  onAction: (key, action, event) => cardActions.push({ key, action, eventType: event.type, eventKey: event.key }),
+}));
+const cardControl = cardHarness.container.querySelector(".card");
+click(cardControl);
+keyDown(cardControl, "Enter");
+assert.deepEqual(cardActions, [
+  { key: "wallet-balance", action: undefined, eventType: "click", eventKey: undefined },
+  { key: "wallet-balance", action: undefined, eventType: "keydown", eventKey: "Enter" },
+]);
+cardHarness.unmount();
+
+const checkboxChanges = [];
+const checkboxHarness = mount(React.createElement(Checkbox, {
+  label: "Accept terms",
+  value: "terms",
+  onCheckedChange: (checked, meta, event) => checkboxChanges.push({ checked, meta, eventType: event.type }),
+}));
+const checkboxInput = checkboxHarness.container.querySelector("input[type='checkbox']");
+click(checkboxInput);
+assert.deepEqual(checkboxChanges.at(-1), {
+  checked: true,
+  meta: { indeterminate: false, value: "terms" },
+  eventType: "change",
+});
+assert.equal(checkboxInput.checked, true);
+checkboxHarness.unmount();
+
+const controlledCheckboxChanges = [];
+let controlledCheckboxChecked = false;
+const controlledCheckboxHarness = mount(React.createElement(Checkbox, {
+  label: "Controlled terms",
+  value: "terms",
+  checked: controlledCheckboxChecked,
+  onCheckedChange: (checked) => controlledCheckboxChanges.push(checked),
+}));
+const controlledCheckboxInput = controlledCheckboxHarness.container.querySelector("input[type='checkbox']");
+click(controlledCheckboxInput);
+assert.deepEqual(controlledCheckboxChanges, [true]);
+assert.equal(controlledCheckboxInput.checked, false);
+controlledCheckboxChecked = true;
+controlledCheckboxHarness.rerender(React.createElement(Checkbox, {
+  label: "Controlled terms",
+  value: "terms",
+  checked: controlledCheckboxChecked,
+  onCheckedChange: (checked) => controlledCheckboxChanges.push(checked),
+}));
+assert.equal(controlledCheckboxHarness.container.querySelector("input[type='checkbox']").checked, true);
+controlledCheckboxHarness.unmount();
+
+const selectOpenChanges = [];
+const selectValueChanges = [];
+let selectedValue = "one";
+let selectOpen = false;
+const selectHarness = mount(React.createElement(Select, {
+  label: "Status",
+  value: selectedValue,
+  open: selectOpen,
+  options: [
+    { label: "One", value: "one", meta: "Current" },
+    { label: "Two", value: "two", meta: "Next" },
+  ],
+  onOpenChange: (open, event) => selectOpenChanges.push({ open, eventType: event?.type }),
+  onValueChange: (value, meta, event) => selectValueChanges.push({ value, meta, eventType: event.type }),
+}));
+const selectTrigger = selectHarness.container.querySelector("[data-select-trigger]");
+click(selectTrigger);
+assert.deepEqual(selectOpenChanges.at(-1), { open: true, eventType: "click" });
+assert.equal(selectTrigger.getAttribute("aria-expanded"), "false");
+selectOpen = true;
+selectHarness.rerender(React.createElement(Select, {
+  label: "Status",
+  value: selectedValue,
+  open: selectOpen,
+  options: [
+    { label: "One", value: "one", meta: "Current" },
+    { label: "Two", value: "two", meta: "Next" },
+  ],
+  onOpenChange: (open, event) => selectOpenChanges.push({ open, eventType: event?.type }),
+  onValueChange: (value, meta, event) => selectValueChanges.push({ value, meta, eventType: event.type }),
+}));
+assert.equal(selectHarness.container.querySelector("[data-select-trigger]").getAttribute("aria-expanded"), "true");
+click(selectHarness.container.querySelector("[data-value='two']"));
+assert.deepEqual(selectValueChanges.at(-1), { value: "two", meta: { label: "Two", meta: "Next" }, eventType: "click" });
+selectHarness.unmount();
+`;
+  fs.writeFileSync(path.join(consumerDir, "interaction-runtime.mjs"), source.trimStart());
 }
 
 function writeConsumerTypes(consumerDir) {
