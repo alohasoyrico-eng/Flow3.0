@@ -1,5 +1,15 @@
 {
   "status": "pass",
+  "inventory": {
+    "total": 56,
+    "cssContractDebt": 0,
+    "direct": 52,
+    "family": 4,
+    "missing": 0,
+    "directRootGaps": 0,
+    "familyRootGaps": 0,
+    "familyUnexpectedRoots": 0
+  },
   "baseline": {
     "inventory": {
       "total": 56,

@@ -1306,6 +1306,19 @@ function assertReactGovernanceBaselines() {
     packageCssRootDebt: 0,
   }, "Package CSS root governance");
 
+  const componentCssContracts = readAuditReport("docs/audits/component-css-contract-coverage.json");
+  assertReportStatus(componentCssContracts, "Component CSS contract coverage");
+  assertInventory(componentCssContracts, {
+    total: 56,
+    cssContractDebt: 0,
+    direct: 52,
+    family: 4,
+    missing: 0,
+    directRootGaps: 0,
+    familyRootGaps: 0,
+    familyUnexpectedRoots: 0,
+  }, "Component CSS contract coverage");
+
   const visualCascade = readAuditReport("docs/audits/component-visual-cascade-audit.json");
   assertReportStatus(visualCascade, "Component visual cascade");
   assertInventory(visualCascade, {

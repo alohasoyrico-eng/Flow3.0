@@ -212,6 +212,7 @@ function main() {
       || familyBaselineMismatches.length
       ? "fail"
       : "pass",
+    inventory: actualInventory,
     baseline: {
       inventory: expectedInventory,
       actual: actualInventory,
