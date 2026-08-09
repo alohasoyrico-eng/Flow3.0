@@ -53,7 +53,7 @@ packages/components
 Run:
 
 ```sh
-npm run validate
+npm run validate:system
 ```
 
 Reject the migration if it places source-of-truth files in `apps/docs`, bypasses package contracts, or cannot pass the Architecture Gate.

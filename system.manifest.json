@@ -115,8 +115,8 @@
     "changelog": "CHANGELOG.md",
     "startGuide": "START.md",
     "migrationGuide": "MIGRATE_PRODUCT_SCREEN.md",
-    "validationCommand": "npm run validate",
-    "testCommand": "npm test"
+    "validationCommand": "npm run validate:system",
+    "testCommand": "npm run test:react"
   },
   "initialPackages": [
     "packages/specs",

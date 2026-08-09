@@ -291,36 +291,30 @@ function checkReleaseAndAdoption() {
   }
   const expectedAuditScripts = {
     "audit:system": "node packages/audit/scripts/audit-system-scope.js",
-    "audit:docs": "node packages/audit/scripts/audit-docs.js",
-    "audit:integration": "node packages/audit/scripts/audit-integration.js",
-    "audit:repo-boundary": "node packages/audit/scripts/audit-repo-boundary-runner.js",
+    "audit:complete": "node packages/audit/scripts/audit-complete.mjs",
+    "audit:consumer-install": "node packages/audit/scripts/audit-consumer-install.mjs",
   };
   for (const [script, command] of Object.entries(expectedAuditScripts)) {
     if (packageJson?.scripts?.[script] !== command) {
-      add("errors", packageJsonFile, 1, `Root package must expose ${script} for split repo validation.`);
+      add("errors", packageJsonFile, 1, `Root package must expose ${script} for Flow package validation.`);
     }
   }
   const expectedSupportScripts = {
+    "build:tokens": "node scripts/generate-token-contract.mjs",
+    "build:react": "npm run build --workspace @design-system/react",
+    "test:react": "npm run test --workspace @design-system/react",
+    prepare: "npm run build:react",
     test: "node packages/components/test/smoke.test.mjs",
-    "build:docs-content": "node scripts/build-docs-content.mjs",
-    "build:docs-assets": "node scripts/build-docs-assets.mjs",
-    "build:docs": "npm run build:docs-content && npm run build:docs-assets",
-    "audit:component-demo-registry": "node packages/audit/scripts/audit-component-demo-registry.mjs",
-    "audit:component-catalog-classification": "node packages/audit/scripts/audit-component-catalog-classification.mjs",
-    "audit:component-demo-interactions": "node packages/audit/scripts/audit-component-demo-interactions.mjs",
   };
   for (const [script, command] of Object.entries(expectedSupportScripts)) {
     if (packageJson?.scripts?.[script] !== command) add("errors", packageJsonFile, 1, `Root package must expose npm run ${script}.`);
   }
   const expectedValidationScripts = {
-    "validate:system": "npm run audit:system && npm test && npm run build:react && npm run test:react && npm run audit:system-split",
-    "validate:docs": "npm run build:docs && npm run audit:docs && npm run audit:docs-runtime && npm run audit:docs-split",
-    "validate:integration": "npm run audit:repo-boundary && npm run audit:integration && npm run audit:component-demo-registry && npm run audit:component-catalog-classification && npm run audit:component-demo-interactions",
-    validate: "npm run audit",
+    "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete",
   };
   for (const [script, command] of Object.entries(expectedValidationScripts)) {
     if (packageJson?.scripts?.[script] !== command) {
-      add("errors", packageJsonFile, 1, `Root package must expose ${script} for Design System/docs repo boundary validation.`);
+      add("errors", packageJsonFile, 1, `Root package must expose ${script} for Flow package validation.`);
     }
   }
 
@@ -328,15 +322,15 @@ function checkReleaseAndAdoption() {
   if (manifest?.release?.version !== packageJson?.version) {
     add("errors", manifestFile, 1, "Manifest release version must match package.json.");
   }
-  if (manifest?.release?.validationCommand !== "npm run validate" || manifest?.release?.testCommand !== "npm test") {
-    add("errors", manifestFile, 1, "Manifest release commands must include npm run validate and npm test.");
+  if (manifest?.release?.validationCommand !== "npm run validate:system" || manifest?.release?.testCommand !== "npm run test:react") {
+    add("errors", manifestFile, 1, "Manifest release commands must include npm run validate:system and npm run test:react.");
   }
   for (const [file, requiredSnippets] of [
-    [readmeFile, ["Design System OS", "npm run validate", "Package Map", "MIGRATE_PRODUCT_SCREEN.md"]],
+    [readmeFile, ["Design System OS", "npm run validate:system", "Package Map", "MIGRATE_PRODUCT_SCREEN.md"]],
     [changelogFile, [`## ${packageJson?.version}`, "packages/tokens", "packages/components"]],
-    [releaseFile, ["npm run audit", "npm test", "npm run validate", "Architecture Gate", "CHANGELOG.md", "MIGRATE_PRODUCT_SCREEN.md", "index.html", "fleet-dashboard.html", "driver-mobile.html"]],
-    [startGuideFile, ["Build a Prototype", "Change Design System", "What To Edit", "MIGRATE_PRODUCT_SCREEN.md", "npm run validate", "npm test", "fixtures/prototyping.json", "examples/prototyping/index.html"]],
-    [migrationGuideFile, ["Migrate A Product Screen Into Design System", "Nothing skips a layer", "packages/specs", "packages/components", "npm run validate"]],
+    [releaseFile, ["npm run audit:complete", "npm run test:react", "npm run validate:system", "Architecture Gate", "CHANGELOG.md", "MIGRATE_PRODUCT_SCREEN.md", "index.html", "fleet-dashboard.html", "driver-mobile.html"]],
+    [startGuideFile, ["Build a Prototype", "Change Design System", "What To Edit", "MIGRATE_PRODUCT_SCREEN.md", "npm run validate:system", "fixtures/prototyping.json", "examples/prototyping/index.html"]],
+    [migrationGuideFile, ["Migrate A Product Screen Into Design System", "Nothing skips a layer", "packages/specs", "packages/components", "npm run validate:system"]],
     [componentSmokeTestFile, ["componentContracts", "components smoke tests passed"]],
   ]) {
     const text = read(file);
