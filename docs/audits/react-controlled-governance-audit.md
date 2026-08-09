@@ -16,6 +16,30 @@ Controlled React props must be explicit in source and covered by external rerend
 - Tested controlled prop edges: 28
 - Total tested controlled edges: 38
 - Failures: 0
+- Inventory baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. Controlled APIs should only grow with explicit source support and rerender tests, and they should not shrink silently.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| components | 56 | 56 |
+| controlledComponents | 29 | 29 |
+| openControlledComponents | 10 | 10 |
+| openSourceCovered | 10 | 10 |
+| openTestCovered | 10 | 10 |
+| controlledPropEdges | 28 | 28 |
+| totalControlledEdges | 38 | 38 |
+| testCoveredEdges | 28 | 28 |
+| totalTestCoveredEdges | 38 | 38 |
+| failures | 0 | 0 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
 
 ## Components
 

@@ -16,6 +16,19 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-controlled-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-controlled-governance-audit.md");
 
+const expectedInventory = {
+  components: 56,
+  controlledComponents: 29,
+  openControlledComponents: 10,
+  openSourceCovered: 10,
+  openTestCovered: 10,
+  controlledPropEdges: 28,
+  totalControlledEdges: 38,
+  testCoveredEdges: 28,
+  totalTestCoveredEdges: 38,
+  failures: 0,
+};
+
 const controlledMarkers = [
   { marker: "isValueControlled", prop: "value" },
   { marker: "isCheckedControlled", prop: "checked" },
@@ -103,23 +116,35 @@ function createReport() {
   const controlledComponents = components.filter((component) => component.openControlled.contractControlled || component.controlledProps.length);
   const openControlledComponents = components.filter((component) => component.openControlled.contractControlled);
   const controlledPropEdges = components.reduce((total, component) => total + component.controlledProps.length, 0);
+  const inventory = {
+    components: components.length,
+    controlledComponents: controlledComponents.length,
+    openControlledComponents: openControlledComponents.length,
+    openSourceCovered: openControlledComponents.filter((component) => component.openControlled.sourceControlled).length,
+    openTestCovered: openControlledComponents.filter((component) => component.openControlled.testCovered).length,
+    controlledPropEdges,
+    totalControlledEdges: controlledPropEdges + openControlledComponents.length,
+    testCoveredEdges: components.reduce((total, component) => total + component.controlledProps.filter((item) => item.testCovered).length, 0),
+    totalTestCoveredEdges: components.reduce((total, component) => total + component.controlledProps.filter((item) => item.testCovered).length, 0)
+      + openControlledComponents.filter((component) => component.openControlled.testCovered).length,
+    failures: components.reduce((total, component) => total + component.failures.length, 0),
+  };
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => inventory[key] !== expected)
+    .map(([key, expected]) => ({
+      key,
+      expected,
+      actual: inventory[key],
+    }));
   return {
-    status: components.some((component) => component.status === "fail") ? "fail" : "pass",
+    status: components.some((component) => component.status === "fail") || baselineMismatches.length ? "fail" : "pass",
     audit: "react controlled governance",
     principle: "Controlled React props must be explicit in source and covered by external rerender tests so product code can own state without hidden uncontrolled drift.",
-    inventory: {
-      components: components.length,
-      controlledComponents: controlledComponents.length,
-      openControlledComponents: openControlledComponents.length,
-      openSourceCovered: openControlledComponents.filter((component) => component.openControlled.sourceControlled).length,
-      openTestCovered: openControlledComponents.filter((component) => component.openControlled.testCovered).length,
-      controlledPropEdges,
-      totalControlledEdges: controlledPropEdges + openControlledComponents.length,
-      testCoveredEdges: components.reduce((total, component) => total + component.controlledProps.filter((item) => item.testCovered).length, 0),
-      totalTestCoveredEdges: components.reduce((total, component) => total + component.controlledProps.filter((item) => item.testCovered).length, 0)
-        + openControlledComponents.filter((component) => component.openControlled.testCovered).length,
-      failures: components.reduce((total, component) => total + component.failures.length, 0),
+    baseline: {
+      inventory: expectedInventory,
+      mismatches: baselineMismatches,
     },
+    inventory,
     components,
   };
 }
@@ -128,6 +153,10 @@ function toMarkdown(report) {
   const componentRows = report.components
     .filter((component) => component.openControlled.contractControlled || component.controlledProps.length || component.failures.length)
     .map((component) => `| ${component.component} | ${component.status} | ${component.openControlled.contractControlled ? "yes" : "no"} | ${component.openControlled.sourceControlled ? "yes" : "no"} | ${component.openControlled.testCovered ? "yes" : "no"} | ${component.controlledProps.map((item) => `${item.prop}:${item.testCovered ? "tested" : "missing"}`).join(", ") || "None"} | ${component.failures.join(", ") || "None"} |`);
+  const baselineRows = Object.entries(report.baseline.inventory)
+    .map(([key, expected]) => `| ${key} | ${expected} | ${report.inventory[key]} |`);
+  const baselineMismatchRows = report.baseline.mismatches
+    .map((item) => `| ${item.key} | ${item.expected} | ${item.actual} |`);
   return [
     "# React Controlled Governance Audit",
     "",
@@ -147,6 +176,21 @@ function toMarkdown(report) {
     `- Tested controlled prop edges: ${report.inventory.testCoveredEdges}`,
     `- Total tested controlled edges: ${report.inventory.totalTestCoveredEdges}`,
     `- Failures: ${report.inventory.failures}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. Controlled APIs should only grow with explicit source support and rerender tests, and they should not shrink silently.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...(baselineMismatchRows.length ? baselineMismatchRows : ["| None | None | None |"]),
     "",
     "## Components",
     "",
