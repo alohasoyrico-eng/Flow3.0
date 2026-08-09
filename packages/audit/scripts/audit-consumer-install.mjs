@@ -849,6 +849,10 @@ function auditInstalledPackage(consumerDir) {
     throw new Error("Installed token JSON contract must include the full token inventory.");
   }
   const installedCssRoots = packageCssRootInventory(packageRoot).roots;
+  const cssCoverage = componentCssContractCoverage();
+  if (cssCoverage.direct !== 52 || cssCoverage.family !== 4 || cssCoverage.missing.length) {
+    throw new Error(`Installed package must preserve the resolved CSS contract baseline: expected 52 direct, 4 family, 0 missing; got ${cssCoverage.direct} direct, ${cssCoverage.family} family, ${cssCoverage.missing.length} missing.`);
+  }
   const missingInstalledCssCoverage = goldComponents
     .map((componentId) => {
       const reactComponentName = pascalCase(componentId);
@@ -868,7 +872,7 @@ function auditInstalledPackage(consumerDir) {
     throw new Error(`Installed component CSS is missing accepted React visual coverage: ${missingInstalledCssCoverage.map((item) => `${item.componentId}->${item.allowedRoots.join("|")}`).join(", ")}`);
   }
   const installedComponentCss = fs.readFileSync(consumerRequire.resolve("@alohasoyrico-eng/flow/components/styles.css"), "utf8");
-  const missingInstalledCssContracts = componentCssContractCoverage().components
+  const missingInstalledCssContracts = cssCoverage.components
     .filter((item) => item.coverage !== "missing")
     .flatMap((item) => {
       const selectorRoots = [item.requiredRoot, ...(item.allowedExtensionRoots ?? [])];
