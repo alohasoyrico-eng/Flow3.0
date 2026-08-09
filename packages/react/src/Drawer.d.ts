@@ -1,5 +1,6 @@
 import type { drawerPlatformContract } from "@design-system/components/platforms";
 import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 
 export type DrawerVariant = "side-sheet" | "filter" | "detail" | "edit" | "review";
 export type DrawerState = "closed" | "default" | "open" | "focus" | "closing";
@@ -41,7 +42,7 @@ export type DrawerContent =
   | { type: "progress"; key: string; label?: string; value?: number; max?: number; showValue?: boolean; tone?: "accent" | "success" | "warning" | "danger" | "ink" }
   | { type: "text"; key: string; label?: string; copy?: string };
 
-export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
   triggerLabel?: string;

@@ -4,6 +4,7 @@ import type {
   MouseEvent,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { quickActionPlatformContract } from "#flow/platforms";
 
 export type QuickActionVariant = "standard" | "destructive" | "compact" | "wide";
@@ -17,7 +18,7 @@ export interface QuickActionMeta {
   state: QuickActionState;
 }
 
-export interface QuickActionProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface QuickActionProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   icon?: string;
   badge?: string;

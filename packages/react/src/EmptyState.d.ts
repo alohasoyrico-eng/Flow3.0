@@ -1,4 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { emptyStatePlatformContract } from "@design-system/components/platforms";
 
 export type EmptyStateVariant = "first-use" | "search-empty" | "permission" | "error" | "maintenance";
@@ -19,7 +20,7 @@ export interface EmptyStateAction {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface EmptyStateProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface EmptyStateProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   title: string;
   description?: string;
   icon?: string;

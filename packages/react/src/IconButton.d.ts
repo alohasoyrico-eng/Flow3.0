@@ -1,5 +1,6 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
 import { iconButtonPlatformContract } from "@design-system/components/platforms";
+import type { FlowDataAttributes } from "./internal/props.js";
 
 export type IconButtonVariant = "ghost" | "tonal" | "primary" | "accent";
 export type IconButtonDensity = "sm" | "md" | "lg";
@@ -9,7 +10,7 @@ export type IconButtonAccessibleName =
   | { ariaLabel: string; label?: string }
   | { ariaLabel?: string; label: string };
 
-export type IconButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> & IconButtonAccessibleName & {
+export type IconButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> & FlowDataAttributes & IconButtonAccessibleName & {
   icon: string;
   variant?: IconButtonVariant;
   density?: IconButtonDensity;

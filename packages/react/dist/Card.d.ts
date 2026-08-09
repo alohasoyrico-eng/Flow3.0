@@ -1,4 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactNode, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { cardPlatformContract } from "#flow/platforms";
 
 export type CardVariant = "default" | "minimal" | "elevated" | "ghost";
@@ -23,7 +24,7 @@ export type CardAction = {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
-export interface CardProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "title" | "onAction" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface CardProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "title" | "onAction" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   title: ReactNode;
   value?: ReactNode;
   unit?: string;

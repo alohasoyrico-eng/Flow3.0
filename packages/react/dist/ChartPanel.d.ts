@@ -3,6 +3,7 @@ import type {
   HTMLAttributes,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { chartPanelPlatformContract } from "#flow/platforms";
 
 export type ChartPanelVariant = "sparkline" | "bars" | "line" | "area" | "donut" | "pareto" | "bullet" | "comparison" | "compact";
@@ -22,7 +23,7 @@ export interface ChartPanelSeries {
   values: number[];
 }
 
-export interface ChartPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface ChartPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   value?: string;
   caption?: string;

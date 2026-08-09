@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { treeViewPlatformContract } from "#flow/platforms";
 
 export type TreeViewDensity = "sm" | "md" | "lg";
@@ -16,7 +17,7 @@ export interface TreeViewNode extends Omit<ButtonHTMLAttributes<HTMLButtonElemen
   icon?: string;
 }
 
-export interface TreeViewProps extends Omit<HTMLAttributes<HTMLUListElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface TreeViewProps extends Omit<HTMLAttributes<HTMLUListElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label?: string;
   nodes: TreeViewNode[];
   state?: TreeViewState;

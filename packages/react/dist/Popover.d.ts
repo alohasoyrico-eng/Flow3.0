@@ -1,4 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { popoverPlatformContract } from "#flow/platforms";
 
 export type PopoverVariant = "information" | "action" | "form" | "metric";
@@ -28,7 +29,7 @@ export interface PopoverField {
   helper?: string;
 }
 
-export interface PopoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface PopoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   triggerLabel: string;
   title: string;
   description?: string;

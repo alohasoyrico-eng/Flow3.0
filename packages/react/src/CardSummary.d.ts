@@ -3,6 +3,7 @@ import type {
   ForwardRefExoticComponent,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { cardSummaryPlatformContract } from "@design-system/components/platforms";
 
 export type CardSummaryVariant = "physical" | "virtual" | "compact" | "limit";
@@ -15,7 +16,7 @@ export interface CardSummaryMetric {
   value: string;
 }
 
-export interface CardSummaryProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface CardSummaryProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   meta?: string;
   number?: string;

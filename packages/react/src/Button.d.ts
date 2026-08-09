@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, ReactNode, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { buttonPlatformContract } from "@design-system/components/platforms";
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary" | "outlined" | "ghost";
@@ -7,7 +8,7 @@ export type ButtonDensity = "sm" | "md" | "lg";
 export type ButtonState = "default" | "hover" | "focus" | "pressed" | "disabled" | "loading";
 export type ButtonType = "button" | "submit" | "reset";
 
-export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "type" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "type" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label?: string;
   children?: ReactNode;
   variant?: ButtonVariant;

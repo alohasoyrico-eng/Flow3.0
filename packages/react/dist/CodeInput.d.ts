@@ -1,4 +1,5 @@
 import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { codeInputPlatformContract } from "#flow/platforms";
 
 export type CodeInputDensity = "sm" | "md" | "lg";
@@ -11,7 +12,7 @@ export interface CodeInputChangeMeta {
   complete: boolean;
 }
 
-export interface CodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface CodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   value?: string;
   length?: number;

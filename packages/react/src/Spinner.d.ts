@@ -1,11 +1,12 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { spinnerPlatformContract } from "@design-system/components/platforms";
 
 export type SpinnerDensity = "sm" | "md" | "lg";
 export type SpinnerTone = "accent" | "ink" | "success" | "warning" | "danger";
 export type SpinnerState = "default" | "loading" | "decorative" | "subtle" | "disabled";
 
-export interface SpinnerProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface SpinnerProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label?: string;
   density?: SpinnerDensity;
   tone?: SpinnerTone;

@@ -1,4 +1,5 @@
 import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { cardSecurityCodeInputPlatformContract } from "@design-system/components/platforms";
 
 export type CardSecurityCodeInputDensity = "sm" | "md" | "lg";
@@ -9,7 +10,7 @@ export type CardSecurityCodeMeta = {
   complete: boolean;
 };
 
-export interface CardSecurityCodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface CardSecurityCodeInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   helper?: string;
   error?: string;

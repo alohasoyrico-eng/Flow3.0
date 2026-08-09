@@ -1,4 +1,5 @@
 import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { cardNumberInputPlatformContract } from "#flow/platforms";
 
 export type CardNumberInputDensity = "sm" | "md" | "lg";
@@ -10,7 +11,7 @@ export type CardNumberMeta = {
   luhnValid: boolean;
 };
 
-export interface CardNumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface CardNumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   helper?: string;
   error?: string;

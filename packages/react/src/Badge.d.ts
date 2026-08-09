@@ -1,4 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { badgePlatformContract } from "@design-system/components/platforms";
 
 export type BadgeTone = "neutral" | "info" | "success" | "warning" | "danger" | "accent";
@@ -6,7 +7,7 @@ export type BadgeVariant = "count" | "dot" | "status" | "icon";
 export type BadgeState = "default" | "hover" | "focus" | "overflow" | "hidden" | "disabled";
 export type BadgeDensity = "sm" | "md" | "lg";
 
-export interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "hidden" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface BadgeProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "hidden" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   tone?: BadgeTone;
   variant?: BadgeVariant;

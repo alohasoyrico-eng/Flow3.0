@@ -1,4 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, ReactNode, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { tablePlatformContract } from "@design-system/components/platforms";
 
 export type TableVariant = "standard" | "dense" | "sortable" | "selectable" | "expandable";
@@ -34,7 +35,7 @@ export interface TableColumn {
   render?: (row: TableRow) => ReactNode;
 }
 
-export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   columns: TableColumn[];
   rows: TableRow[];
   rowKey?: string;

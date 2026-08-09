@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { dialogPlatformContract } from "#flow/platforms";
 
 export type DialogVariant = "confirmation" | "destructive" | "form" | "review" | "success";
@@ -35,7 +36,7 @@ export interface DialogField {
   variant?: "default" | "password" | "search" | "with-prefix" | "with-suffix" | "readonly";
 }
 
-export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
   triggerLabel?: string;

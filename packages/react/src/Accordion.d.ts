@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactNode, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { accordionPlatformContract } from "@design-system/components/platforms";
 
 export type AccordionDensity = "sm" | "md" | "lg";
@@ -14,7 +15,7 @@ export interface AccordionItem extends Omit<ButtonHTMLAttributes<HTMLButtonEleme
   meta?: string;
 }
 
-export interface AccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface AccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   items: AccordionItem[];
   variant?: AccordionVariant;
   multiple?: boolean;

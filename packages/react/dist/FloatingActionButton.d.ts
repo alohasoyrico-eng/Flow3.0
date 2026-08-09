@@ -3,6 +3,7 @@ import type {
   ForwardRefExoticComponent,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { floatingActionButtonPlatformContract } from "#flow/platforms";
 
 export type FloatingActionButtonVariant = "primary" | "accent" | "extended" | "mini";
@@ -10,7 +11,7 @@ export type FloatingActionButtonState = "default" | "hover" | "focus" | "pressed
 export type FloatingActionButtonDensity = "sm" | "md" | "lg";
 export type FloatingActionButtonType = "button" | "submit" | "reset";
 
-export interface FloatingActionButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface FloatingActionButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   icon?: string;
   variant?: FloatingActionButtonVariant;

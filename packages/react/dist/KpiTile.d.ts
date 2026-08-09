@@ -1,4 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { kpiTilePlatformContract } from "#flow/platforms";
 
 export type KpiTileVariant = "standard" | "delta" | "threshold" | "sparkline" | "drill-in";
@@ -16,7 +17,7 @@ export interface KpiTileMeta {
 }
 export type KpiTileSelectEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
 
-export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label?: string;
   value: string;
   delta?: string;

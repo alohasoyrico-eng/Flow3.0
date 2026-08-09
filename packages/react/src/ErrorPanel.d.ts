@@ -1,4 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { errorPanelPlatformContract } from "@design-system/components/platforms";
 
 export type ErrorPanelVariant = "inline" | "panel" | "blocking" | "empty-recovery";
@@ -21,7 +22,7 @@ export interface ErrorPanelAction {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface ErrorPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface ErrorPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
   action?: ErrorPanelAction;

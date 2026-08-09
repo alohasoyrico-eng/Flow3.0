@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ChangeEvent, ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { dateRangePickerPlatformContract } from "#flow/platforms";
 
 export type DateRangePickerDensity = "sm" | "md" | "lg";
@@ -11,7 +12,7 @@ export type DateRangePickerValueChangeEvent =
   | ChangeEvent<HTMLInputElement>;
 export type DateRangePickerOpenChangeEvent = DateRangePickerValueChangeEvent | globalThis.MouseEvent;
 
-export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   value?: DateRangePickerValue;
   from?: string;

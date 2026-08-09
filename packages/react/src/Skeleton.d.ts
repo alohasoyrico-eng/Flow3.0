@@ -1,11 +1,12 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { skeletonPlatformContract } from "@design-system/components/platforms";
 
 export type SkeletonVariant = "text" | "title" | "circle" | "card" | "pill" | "row" | "media" | "chart" | "table";
 export type SkeletonState = "default" | "loading" | "stale" | "paused" | "loaded" | "disabled";
 export type SkeletonDensity = "sm" | "md" | "lg";
 
-export interface SkeletonProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface SkeletonProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   variant?: SkeletonVariant;
   density?: SkeletonDensity;

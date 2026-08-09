@@ -1,4 +1,5 @@
 import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { inputPlatformContract } from "@design-system/components/platforms";
 
 export type InputVariant = "text" | "email" | "password" | "number" | "currency" | "unit" | "search";
@@ -12,7 +13,7 @@ export type InputValueMeta = {
   numericValue?: number | null;
 };
 
-export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   helper?: string;
   helperText?: string;

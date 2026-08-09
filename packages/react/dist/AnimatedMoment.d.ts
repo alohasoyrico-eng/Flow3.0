@@ -3,6 +3,7 @@ import type {
   HTMLAttributes,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { animatedMomentPlatformContract } from "#flow/platforms";
 
 export type AnimatedMomentVariant = "success" | "empty" | "loading" | "celebration";
@@ -17,7 +18,7 @@ export type AnimatedMomentJsonValue =
   | { [key: string]: AnimatedMomentJsonValue };
 export type AnimatedMomentAnimationData = { [key: string]: AnimatedMomentJsonValue };
 
-export interface AnimatedMomentProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface AnimatedMomentProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
   variant?: AnimatedMomentVariant;

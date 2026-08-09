@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { selectPlatformContract } from "#flow/platforms";
 
 export type SelectDensity = "sm" | "md" | "lg";
@@ -21,7 +22,7 @@ export type SelectOpenChangeEvent =
   | KeyboardEvent<HTMLSpanElement>
   | MouseEvent<HTMLSpanElement>;
 
-export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   helper?: string;
   icon?: string;

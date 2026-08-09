@@ -5,6 +5,7 @@ import type {
   MouseEvent,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { countrySelectorPlatformContract } from "@design-system/components/platforms";
 
 export type CountrySelectorDensity = "sm" | "md" | "lg";
@@ -22,7 +23,7 @@ export type CountrySelectorOpenChangeEvent =
   | KeyboardEvent<HTMLSpanElement>
   | KeyboardEvent<HTMLInputElement>;
 
-export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface CountrySelectorProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   value?: string;
   country?: string;

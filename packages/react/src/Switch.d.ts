@@ -1,4 +1,5 @@
 import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { switchPlatformContract } from "@design-system/components/platforms";
 
 export type SwitchState = "off" | "on" | "focus" | "pressed" | "error" | "disabled";
@@ -8,7 +9,7 @@ export interface SwitchValueMeta {
   name: string;
 }
 
-export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "type" | "checked" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "type" | "checked" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
   error?: string;

@@ -4,6 +4,7 @@ import type {
   InputHTMLAttributes,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { sliderPlatformContract } from "#flow/platforms";
 
 export type SliderVariant = "continuous" | "stepped" | "bounded" | "threshold" | "paired-value";
@@ -18,7 +19,7 @@ export interface SliderValueMeta {
   unit?: string;
 }
 
-export interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "type" | "value" | "defaultValue" | "onChange" | "onInput" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "type" | "value" | "defaultValue" | "onChange" | "onInput" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   value?: number;
   min?: number;

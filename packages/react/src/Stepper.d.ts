@@ -1,4 +1,5 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { stepperPlatformContract } from "@design-system/components/platforms";
 
 export type StepperOrientation = "horizontal" | "vertical";
@@ -10,7 +11,7 @@ export interface StepperStep {
   description?: string;
 }
 
-export interface StepperProps extends Omit<HTMLAttributes<HTMLOListElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface StepperProps extends Omit<HTMLAttributes<HTMLOListElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   steps: StepperStep[];
   current?: number;
   label: string;

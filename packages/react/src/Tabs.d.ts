@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { tabsPlatformContract } from "@design-system/components/platforms";
 import type { BadgeState, BadgeTone, BadgeVariant } from "./Badge.js";
 
@@ -25,7 +26,7 @@ export interface TabsItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 
   disabled?: boolean;
 }
 
-export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label?: string;
   items: TabsItem[];
   selectedKey?: string;

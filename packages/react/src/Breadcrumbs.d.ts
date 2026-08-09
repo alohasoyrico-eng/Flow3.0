@@ -4,6 +4,7 @@ import type {
   MouseEvent,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { breadcrumbsPlatformContract } from "@design-system/components/platforms";
 
 export type BreadcrumbsVariant = "standard" | "compact" | "overflow" | "mobile";
@@ -19,7 +20,7 @@ export interface BreadcrumbItem {
   onClick?: (item: BreadcrumbItem, event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
 }
 
-export interface BreadcrumbsProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onClick" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface BreadcrumbsProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onClick" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   items: BreadcrumbItem[];
   label?: string;
   maxItems?: number;

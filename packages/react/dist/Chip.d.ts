@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { chipPlatformContract } from "#flow/platforms";
 
 export type ChipVariant = "filter" | "input" | "suggestion" | "assist";
@@ -6,7 +7,7 @@ export type ChipTone = "default" | "danger" | "warning";
 export type ChipState = "default" | "hover" | "pressed" | "selected" | "focus" | "disabled";
 export type ChipDensity = "sm" | "md" | "lg";
 
-export interface ChipProps extends Omit<HTMLAttributes<HTMLSpanElement> & ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface ChipProps extends Omit<HTMLAttributes<HTMLSpanElement> & ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   variant?: ChipVariant;
   tone?: ChipTone;

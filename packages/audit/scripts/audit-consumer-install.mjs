@@ -372,6 +372,13 @@ function writeConsumerTypes(consumerDir) {
     const variableName = `${componentName.slice(0, 1).toLowerCase()}${componentName.slice(1)}SubpathProps`;
     return `const ${variableName}: Partial<${componentName}SubpathProps> = {};\nvoid ${componentName}Subpath;\nvoid ${variableName};`;
   }).join("\n");
+  const reactSubpathIntegrationTypeAssertions = goldComponents.map((componentId) => {
+    const componentName = pascalCase(componentId);
+    const variableName = `${componentName.slice(0, 1).toLowerCase()}${componentName.slice(1)}IntegrationProps`;
+    const badStyleName = `${componentName.slice(0, 1).toLowerCase()}${componentName.slice(1)}BadStyle`;
+    const badHtmlName = `${componentName.slice(0, 1).toLowerCase()}${componentName.slice(1)}BadHtml`;
+    return `const ${variableName}: Partial<React.ComponentProps<typeof ${componentName}Subpath>> = { ref: React.createRef<never>(), "data-product-hook": "${componentId}" };\n// @ts-expect-error Flow owns visual styling; consumers cannot bypass tokens with inline style.\nconst ${badStyleName}: Partial<React.ComponentProps<typeof ${componentName}Subpath>> = { style: { color: "red" } };\n// @ts-expect-error Flow owns rendered structure; consumers cannot inject HTML.\nconst ${badHtmlName}: Partial<React.ComponentProps<typeof ${componentName}Subpath>> = { dangerouslySetInnerHTML: { __html: "<strong>Bad</strong>" } };\nvoid ${variableName};\nvoid ${badStyleName};\nvoid ${badHtmlName};`;
+  }).join("\n");
   const tsconfig = {
     compilerOptions: {
       module: "NodeNext",
@@ -404,6 +411,7 @@ React.createElement(Input, inputProps);
 React.createElement(Table, tableProps);
 React.createElement(Dialog, dialogProps);
 ${reactSubpathTypeAssertions}
+${reactSubpathIntegrationTypeAssertions}
 
 // @ts-expect-error Flow owns visual styling; consumers cannot bypass tokens with inline style.
 const badButtonStyle: ButtonProps = { label: "Bad", style: { color: "red" } };

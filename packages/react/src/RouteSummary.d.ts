@@ -4,6 +4,7 @@ import type {
   MouseEvent,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { routeSummaryPlatformContract } from "@design-system/components/platforms";
 import type { ButtonIntent, ButtonVariant } from "./Button.js";
 import type { IconButtonVariant } from "./IconButton.js";
@@ -33,7 +34,7 @@ export interface RouteSummaryAction {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface RouteSummaryProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface RouteSummaryProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
   metrics?: RouteMetric[];

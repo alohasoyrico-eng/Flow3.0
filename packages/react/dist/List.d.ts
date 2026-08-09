@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactNode, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { listPlatformContract } from "#flow/platforms";
 
 export type ListVariant = "standard" | "compact" | "action" | "status" | "media";
@@ -17,7 +18,7 @@ export interface ListItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 
   disabled?: boolean;
 }
 
-export interface ListProps extends Omit<HTMLAttributes<HTMLUListElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface ListProps extends Omit<HTMLAttributes<HTMLUListElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   items: ListItem[];
   variant?: ListVariant;
   state?: ListState;

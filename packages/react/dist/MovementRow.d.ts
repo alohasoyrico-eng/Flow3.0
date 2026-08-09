@@ -4,6 +4,7 @@ import type {
   MouseEvent,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { movementRowPlatformContract } from "#flow/platforms";
 
 export type MovementRowVariant = "standard" | "refund" | "declined" | "compact";
@@ -21,7 +22,7 @@ export interface MovementRowMeta {
   state: MovementRowState;
 }
 
-export interface MovementRowProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface MovementRowProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   meta?: string;
   amount?: string;

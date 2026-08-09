@@ -1,4 +1,5 @@
 import type { ChangeEvent, ForwardRefExoticComponent, InputHTMLAttributes, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { phoneInputPlatformContract } from "@design-system/components/platforms";
 import type { CountrySelectorValueChangeEvent } from "./CountrySelector.js";
 
@@ -19,7 +20,7 @@ export type PhoneInputMeta = {
 };
 export type PhoneInputValueChangeEvent = ChangeEvent<HTMLInputElement> | CountrySelectorValueChangeEvent;
 
-export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   value?: string;
   prefix?: string;

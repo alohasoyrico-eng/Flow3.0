@@ -4,13 +4,14 @@ import type {
   MouseEvent,
   RefAttributes,
 } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { biometricPromptPlatformContract } from "#flow/platforms";
 
 export type BiometricPromptVariant = "fingerprint" | "face" | "passcode" | "fallback";
 export type BiometricPromptState = "default" | "focus" | "authenticating" | "success" | "warning" | "error" | "disabled";
 export type BiometricPromptDensity = "sm" | "md" | "lg";
 
-export interface BiometricPromptProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface BiometricPromptProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
   variant?: BiometricPromptVariant;

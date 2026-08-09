@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { stationPinPlatformContract } from "@design-system/components/platforms";
 
 export type StationPinVariant = "fuel" | "ev" | "service" | "cluster";
@@ -12,7 +13,7 @@ export interface StationPinMeta {
   state?: StationPinState;
 }
 
-export interface StationPinProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface StationPinProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   value?: string;
   meta?: string;

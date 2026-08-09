@@ -1,4 +1,5 @@
 import type { ChangeEvent, FocusEvent, ForwardRefExoticComponent, InputHTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { comboboxPlatformContract } from "#flow/platforms";
 
 export type ComboboxDensity = "sm" | "md" | "lg";
@@ -30,7 +31,7 @@ export type ComboboxOpenChangeEvent =
   | MouseEvent<HTMLSpanElement>
   | MouseEvent<HTMLButtonElement>;
 
-export interface ComboboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "onChange" | "value" | "size" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface ComboboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "onChange" | "value" | "size" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   helper?: string;
   icon?: string;

@@ -1,4 +1,5 @@
 import type { FocusEvent, ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { tooltipPlatformContract } from "#flow/platforms";
 
 export type TooltipPlacement = "top" | "right" | "bottom" | "left";
@@ -7,7 +8,7 @@ export type TooltipDensity = "sm" | "md" | "lg";
 export type TooltipState = "default" | "hover" | "focus" | "open" | "disabled" | "dismissed";
 export type TooltipOpenChangeEvent = MouseEvent<HTMLButtonElement> | FocusEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>;
 
-export interface TooltipProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface TooltipProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   triggerLabel: string;
   content: string;
   id?: string;

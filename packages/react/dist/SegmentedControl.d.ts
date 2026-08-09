@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import { segmentedControlPlatformContract } from "#flow/platforms";
 
 export type SegmentedControlDensity = "sm" | "md" | "lg";
@@ -14,7 +15,7 @@ export interface SegmentedControlItem extends Omit<ButtonHTMLAttributes<HTMLButt
   disabled?: boolean;
 }
 
-export interface SegmentedControlProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface SegmentedControlProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   items: SegmentedControlItem[];
   selectedKey?: string;

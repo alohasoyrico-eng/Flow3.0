@@ -1,11 +1,12 @@
 import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { FlowDataAttributes } from "./internal/props.js";
 import type { paginationPlatformContract } from "@design-system/components/platforms";
 
 export type PaginationVariant = "numbered";
 export type PaginationState = "default" | "hover" | "focus" | "selected" | "disabled";
 export type PaginationDensity = "sm" | "md" | "lg";
 
-export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
+export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   page?: number;
   pageCount: number;
   label: string;
