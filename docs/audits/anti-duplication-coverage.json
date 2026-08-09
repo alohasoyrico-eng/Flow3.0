@@ -10,7 +10,8 @@
       "missingOwnerRoots": 0,
       "extensionRoots": 3,
       "protectedComponentRoots": 6,
-      "duplicateConcepts": 2,
+      "blockedConceptRules": 2,
+      "liveDuplicateConceptViolations": 0,
       "docsApps": 1
     },
     "actual": {
@@ -21,7 +22,8 @@
       "missingOwnerRoots": 0,
       "extensionRoots": 3,
       "protectedComponentRoots": 6,
-      "duplicateConcepts": 2,
+      "blockedConceptRules": 2,
+      "liveDuplicateConceptViolations": 0,
       "docsApps": 1
     },
     "extensionRoots": [
@@ -29,7 +31,7 @@
       "country-flag",
       "select-control"
     ],
-    "duplicateConcepts": {
+    "blockedConceptRules": {
       "search": [
         "pattern-topbar-search",
         "topbar-search",
@@ -116,7 +118,7 @@
       "select-control"
     ]
   },
-  "duplicateConcepts": [
+  "blockedConceptRules": [
     {
       "concept": "search",
       "classNames": [
@@ -133,6 +135,7 @@
       ]
     }
   ],
+  "liveDuplicateConceptViolations": [],
   "protectedComponentRoots": [
     "button",
     "card",

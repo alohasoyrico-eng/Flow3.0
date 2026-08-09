@@ -5,6 +5,10 @@ const {
   packageCssClassRoots: packageCssClassRootsForRoot,
   reactSupportClassRoots,
 } = require("./class-root-governance.js");
+const {
+  blockedConceptRules,
+  knownDuplicateConceptViolations: findKnownDuplicateConceptViolations,
+} = require("./anti-duplication-concepts.js");
 
 const docsAllowedComponentAuthors = new Set([
   "apps/docs/component-demo.js",
@@ -29,18 +33,6 @@ const componentClassRoots = new Set(`
   stepper switch table tabs tag text-area toast tooltip tree-view
 `.trim().split(/\s+/));
 
-const duplicateConceptClassPatterns = [
-  {
-    concept: "search",
-    classNames: ["pattern-topbar-search", "topbar-search", "top-search", "pattern-search-results"],
-    message: "Search must use searchSlotMarkup/search-slot as the single visual source; do not keep a parallel topbar search implementation.",
-  },
-  {
-    concept: "account menu",
-    classNames: ["pattern-account-menu"],
-    message: "Account menu must use avatarMenuMarkup as the single visual source; do not keep a parallel account menu implementation.",
-  },
-];
 const protectedComponentRoots = new Set(["button", "card", "dialog", "drawer", "menu", "popover"]);
 
 function checkAntiDuplicationGovernance() {
@@ -54,14 +46,13 @@ function checkAntiDuplicationGovernance() {
 
 function antiDuplicationCoverage() {
   const rootRegistry = componentClassRootRegistryCoverage();
+  const blockedConceptViolations = knownDuplicateConceptViolations();
   return {
     docsApps: docsAppDirs.map((dir) => normalize(path.relative(root, dir))),
     componentClassRoots: [...componentClassRoots].sort(),
     rootRegistry,
-    duplicateConcepts: duplicateConceptClassPatterns.map((item) => ({
-      concept: item.concept,
-      classNames: item.classNames,
-    })),
+    blockedConceptRules: blockedConceptRules(),
+    liveDuplicateConceptViolations: blockedConceptViolations,
     protectedComponentRoots: [...protectedComponentRoots].sort(),
     reactSupportClassRoots: [...reactSupportClassRoots].sort(),
     docsAllowedComponentAuthors: [...docsAllowedComponentAuthors].sort(),
@@ -136,31 +127,13 @@ function checkDocsDoNotOwnPackageComponentMarkup() {
 }
 
 function checkKnownDuplicateConcepts() {
-  const files = [
-    ...walkFiles(path.join(root, "apps"), (candidate) => /\.(?:css|html|js)$/.test(candidate)),
-    ...docsAppDirs.flatMap((dir) => walkFiles(dir, (candidate) => /\.(?:css|html|js)$/.test(candidate))),
-    ...walkFiles(path.join(root, "packages"), (candidate) => /\.(?:css|html|js|mjs|ts|tsx)$/.test(candidate)),
-  ];
-  for (const file of files) {
-    const relativeFile = normalize(path.relative(root, file));
-    if (relativeFile.includes("/generated/") || relativeFile.includes("/dist/") || relativeFile.startsWith("packages/audit/")) continue;
-    const source = read(file);
-    const classStrings = [...source.matchAll(/\bclass(?:Name)?\s*[:=]\s*["'`]([^"'`]+)["'`]/g)];
-    const cssSelectors = [...source.matchAll(/(^|[,{]\s*)\.([a-z0-9_-]+)(?=[\s.#:[,{>+~])/gim)];
-    for (const check of duplicateConceptClassPatterns) {
-      for (const match of classStrings) {
-        const tokens = match[1].split(/\s+/).filter(Boolean);
-        if (tokens.some((token) => check.classNames.includes(token))) {
-          add("errors", file, lineForIndex(source, match.index), `${check.concept}: ${check.message}`);
-        }
-      }
-      for (const match of cssSelectors) {
-        if (check.classNames.includes(match[2])) {
-          add("errors", file, lineForIndex(source, match.index), `${check.concept}: ${check.message}`);
-        }
-      }
-    }
+  for (const violation of knownDuplicateConceptViolations()) {
+    add("errors", violation.file, violation.line, `${violation.concept}: ${violation.message}`);
   }
+}
+
+function knownDuplicateConceptViolations() {
+  return findKnownDuplicateConceptViolations({ docsAppDirs, lineForIndex, normalize, walkFiles });
 }
 
 function checkPrimitiveInteractiveDomFactories() {
@@ -384,6 +357,7 @@ module.exports = {
   classRootsFromClassExpression,
   componentClassRootRegistryCoverage,
   componentClassRoots,
+  knownDuplicateConceptViolations,
   ownerClassRootForReactComponent,
   packageCssClassRoots,
   protectedComponentRoots,

@@ -7,7 +7,8 @@ Status: pass
 - Missing owner roots: 0
 - Extension class roots: 3
 - Protected high-risk roots: button, card, dialog, drawer, menu, popover
-- Duplicate concept rules: 2
+- Blocked concept rules: 2
+- Live duplicate concept violations: 0
 - Docs apps scanned: ../FlowDocs/apps/docs
 - Inventory baseline mismatches: 0
 
@@ -24,7 +25,8 @@ Changing these numbers is a contract decision. Owner roots, extension roots, pro
 | missingOwnerRoots | 0 | 0 |
 | extensionRoots | 3 | 3 |
 | protectedComponentRoots | 6 | 6 |
-| duplicateConcepts | 2 | 2 |
+| blockedConceptRules | 2 | 2 |
+| liveDuplicateConceptViolations | 0 | 0 |
 | docsApps | 1 | 1 |
 
 ## Baseline Mismatches
@@ -56,9 +58,15 @@ Changing these numbers is a contract decision. Owner roots, extension roots, pro
 | country-flag |
 | select-control |
 
-## Duplicate Concepts
+## Blocked Concept Rules
 
 | Concept | Blocked class names |
 | --- | --- |
 | search | pattern-topbar-search, topbar-search, top-search, pattern-search-results |
 | account menu | pattern-account-menu |
+
+## Live Duplicate Concept Violations
+
+| Concept | Class | Source |
+| --- | --- | --- |
+| None | None | None |

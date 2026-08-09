@@ -17,12 +17,13 @@ const expectedInventory = {
   missingOwnerRoots: 0,
   extensionRoots: 3,
   protectedComponentRoots: 6,
-  duplicateConcepts: 2,
+  blockedConceptRules: 2,
+  liveDuplicateConceptViolations: 0,
   docsApps: 1,
 };
 
 const expectedExtensionRoots = ["choice", "country-flag", "select-control"];
-const expectedDuplicateConcepts = {
+const expectedBlockedConceptRules = {
   search: ["pattern-topbar-search", "topbar-search", "top-search", "pattern-search-results"],
   "account menu": ["pattern-account-menu"],
 };
@@ -34,23 +35,23 @@ function sameStrings(actual = [], expected = []) {
     && actualSorted.every((value, index) => value === expectedSorted[index]);
 }
 
-function duplicateConceptMismatches(duplicateConcepts) {
+function blockedConceptRuleMismatches(blockedConceptRules) {
   const mismatches = [];
-  const expectedNames = Object.keys(expectedDuplicateConcepts);
-  const actualNames = duplicateConcepts.map((item) => item.concept);
+  const expectedNames = Object.keys(expectedBlockedConceptRules);
+  const actualNames = blockedConceptRules.map((item) => item.concept);
   if (!sameStrings(actualNames, expectedNames)) {
     mismatches.push({
-      key: "duplicateConcepts.names",
+      key: "blockedConceptRules.names",
       expected: expectedNames,
       actual: actualNames,
     });
   }
-  for (const [concept, classNames] of Object.entries(expectedDuplicateConcepts)) {
-    const actual = duplicateConcepts.find((item) => item.concept === concept);
+  for (const [concept, classNames] of Object.entries(expectedBlockedConceptRules)) {
+    const actual = blockedConceptRules.find((item) => item.concept === concept);
     if (!actual) continue;
     if (!sameStrings(actual.classNames, classNames)) {
       mismatches.push({
-        key: `duplicateConcepts.${concept}`,
+        key: `blockedConceptRules.${concept}`,
         expected: classNames,
         actual: actual.classNames,
       });
@@ -60,8 +61,11 @@ function duplicateConceptMismatches(duplicateConcepts) {
 }
 
 function renderMarkdown(report) {
-  const concepts = report.duplicateConcepts
+  const concepts = report.blockedConceptRules
     .map((item) => `| ${item.concept} | ${item.classNames.join(", ")} |`)
+    .join("\n");
+  const liveViolationRows = report.liveDuplicateConceptViolations
+    .map((item) => `| ${item.concept} | ${item.className} | ${item.source}:${item.line} |`)
     .join("\n");
   const checks = report.checks.map((item) => `- ${item}`).join("\n");
   const missingOwnerRows = report.rootRegistry.missingOwnerRoots
@@ -86,7 +90,8 @@ function renderMarkdown(report) {
     `- Missing owner roots: ${report.rootRegistry.missingOwnerRoots.length}`,
     `- Extension class roots: ${report.rootRegistry.extensionRoots.length}`,
     `- Protected high-risk roots: ${report.protectedComponentRoots.join(", ")}`,
-    `- Duplicate concept rules: ${report.duplicateConcepts.length}`,
+    `- Blocked concept rules: ${report.blockedConceptRules.length}`,
+    `- Live duplicate concept violations: ${report.liveDuplicateConceptViolations.length}`,
     `- Docs apps scanned: ${report.docsApps.join(", ") || "none"}`,
     `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
     "",
@@ -120,11 +125,17 @@ function renderMarkdown(report) {
     "| --- |",
     extensionRootRows || "| None |",
     "",
-    "## Duplicate Concepts",
+    "## Blocked Concept Rules",
     "",
     "| Concept | Blocked class names |",
     "| --- | --- |",
     concepts,
+    "",
+    "## Live Duplicate Concept Violations",
+    "",
+    "| Concept | Class | Source |",
+    "| --- | --- | --- |",
+    liveViolationRows || "| None | None | None |",
     "",
   ].join("\n");
 }
@@ -140,7 +151,8 @@ function main() {
     missingOwnerRoots: coverage.rootRegistry.missingOwnerRoots.length,
     extensionRoots: coverage.rootRegistry.extensionRoots.length,
     protectedComponentRoots: coverage.protectedComponentRoots.length,
-    duplicateConcepts: coverage.duplicateConcepts.length,
+    blockedConceptRules: coverage.blockedConceptRules.length,
+    liveDuplicateConceptViolations: coverage.liveDuplicateConceptViolations.length,
     docsApps: coverage.docsApps.length,
   };
   const baselineMismatches = [
@@ -158,7 +170,7 @@ function main() {
         actual: coverage.rootRegistry.extensionRoots,
       }]
       : []),
-    ...duplicateConceptMismatches(coverage.duplicateConcepts),
+    ...blockedConceptRuleMismatches(coverage.blockedConceptRules),
   ];
   const report = {
     status: result.errors.length || baselineMismatches.length ? "fail" : "pass",
@@ -167,7 +179,7 @@ function main() {
       inventory: expectedInventory,
       actual: actualInventory,
       extensionRoots: expectedExtensionRoots,
-      duplicateConcepts: expectedDuplicateConcepts,
+      blockedConceptRules: expectedBlockedConceptRules,
       mismatches: baselineMismatches,
     },
     ...coverage,
@@ -197,7 +209,8 @@ function main() {
     missingOwnerRoots: report.rootRegistry.missingOwnerRoots.length,
     extensionRoots: report.rootRegistry.extensionRoots.length,
     protectedComponentRoots: report.protectedComponentRoots.length,
-    duplicateConcepts: report.duplicateConcepts.length,
+    blockedConceptRules: report.blockedConceptRules.length,
+    liveDuplicateConceptViolations: report.liveDuplicateConceptViolations.length,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));
