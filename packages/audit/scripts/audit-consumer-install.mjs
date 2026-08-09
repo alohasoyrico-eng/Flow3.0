@@ -118,7 +118,16 @@ function auditPackedTarball(pack) {
     requiredPaths.add(`packages/react/dist/${componentName}.d.ts`);
   }
   for (const target of Object.values(rootPackage.exports ?? {}).flatMap(exportTargets)) {
-    if (target.startsWith("./")) requiredPaths.add(target.replace(/^\.\//, ""));
+    if (!target.startsWith("./")) continue;
+    const fileTarget = target.replace(/^\.\//, "");
+    if (!fileTarget.includes("*")) {
+      requiredPaths.add(fileTarget);
+      continue;
+    }
+    const [prefix, suffix = ""] = fileTarget.split("*");
+    const matches = [...paths].filter((file) => file.startsWith(prefix) && file.endsWith(suffix));
+    if (!matches.length) requiredPaths.add(fileTarget);
+    for (const match of matches) requiredPaths.add(match);
   }
 
   const missing = [...requiredPaths].filter((file) => !paths.has(file));
@@ -1091,6 +1100,8 @@ function assertInstalledExportInventory(installedPackage) {
     "./content/home": "./packages/content/content/home.json",
     "./content/i18n-ui": "./packages/content/content/i18n/ui.json",
     "./specs/system": "./packages/specs/specs/unison.system.json",
+    "./specs/foundations/*": "./packages/specs/specs/unison-system/artifacts/foundations/*.json",
+    "./specs/primitives/*": "./packages/specs/specs/unison-system/artifacts/primitives/*.json",
   };
   const expectedExports = Object.keys(expectedExportMap).sort();
   const actualExports = Object.keys(installedPackage.exports ?? {}).sort();

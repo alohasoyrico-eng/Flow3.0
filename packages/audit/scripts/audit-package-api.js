@@ -17,6 +17,8 @@ const boundaryImports = [
   "#design-system/content/home",
   "#design-system/content/i18n-ui",
   "#design-system/specs/system",
+  "#design-system/specs/foundations/*",
+  "#design-system/specs/primitives/*",
   "#design-system/tokens-json",
   "#design-system/tokens-css",
 ];
@@ -78,6 +80,8 @@ const installExports = [
   "./content/home",
   "./content/i18n-ui",
   "./specs/system",
+  "./specs/foundations/*",
+  "./specs/primitives/*",
 ];
 
 const publishFileAllowlist = [
@@ -118,6 +122,15 @@ function isInternalBoundaryTarget(target) {
     "packages/tokens/styles/",
     "packages/tokens/tokens.json",
   ].some((entry) => file === entry.replace(/\/$/, "") || file.startsWith(entry));
+}
+
+function targetExists(target) {
+  const absoluteTarget = path.join(root, target);
+  if (!target.includes("*")) return fs.existsSync(absoluteTarget);
+  const [prefix, suffix = ""] = absoluteTarget.split("*");
+  const directory = prefix.endsWith(path.sep) ? prefix.slice(0, -1) : path.dirname(prefix);
+  const basenamePrefix = prefix.endsWith(path.sep) ? "" : path.basename(prefix);
+  return fs.existsSync(directory) && fs.readdirSync(directory).some((file) => file.startsWith(basenamePrefix) && file.endsWith(suffix));
 }
 
 function checkPackageApiBoundary() {
@@ -168,7 +181,7 @@ function checkPackageApiBoundary() {
     if (!isInternalBoundaryTarget(importTarget)) {
       add("errors", packageJsonFile, 1, `Root package import ${importPath} points outside governed Flow source boundaries: ${importTarget}.`);
     }
-    if (!fs.existsSync(path.join(root, importTarget))) {
+    if (!targetExists(importTarget)) {
       add("errors", packageJsonFile, 1, `Root package import ${importPath} points to a missing workspace artifact: ${importTarget}.`);
     }
   }
@@ -221,7 +234,7 @@ function checkPackageApiBoundary() {
       if (!isPublishAllowedTarget(target)) {
         add("errors", packageJsonFile, 1, `Root package export ${exportPath} points outside the governed publish allowlist: ${target}.`);
       }
-      if (!fs.existsSync(path.join(root, target))) {
+      if (!targetExists(target)) {
         add("errors", packageJsonFile, 1, `Root package export ${exportPath} points to a missing artifact: ${target}.`);
       }
     }

@@ -1,0 +1,292 @@
+{
+  "status": "pass",
+  "audit": "foundation primitive export contract",
+  "principle": "Foundations and primitives must be exportable as platform-agnostic JSON contracts, not only as CSS variables or documentation views.",
+  "inventory": {
+    "foundations": 11,
+    "primitives": 22,
+    "tokenCount": 1078,
+    "missingFoundationArtifacts": 0,
+    "missingPrimitiveArtifacts": 0,
+    "artifactShapeErrors": 0,
+    "missingPackageExports": 0,
+    "baselineMismatches": 0
+  },
+  "baseline": {
+    "inventory": {
+      "foundations": 11,
+      "primitives": 22,
+      "tokenCount": 1078,
+      "missingFoundationArtifacts": 0,
+      "missingPrimitiveArtifacts": 0,
+      "artifactShapeErrors": 0,
+      "missingPackageExports": 0,
+      "baselineMismatches": 0
+    },
+    "mismatches": []
+  },
+  "requirements": {
+    "tokenFormat": true,
+    "styleDictionaryCompatible": true,
+    "tokenJsonExists": true,
+    "tokenCssExists": true,
+    "packageIncludesSpecs": true,
+    "packageIncludesTokens": true,
+    "publicExportsPresent": true
+  },
+  "requirementFailures": [],
+  "requiredPackageExports": [
+    "./tokens.json",
+    "./tokens/styles.css",
+    "./specs/system",
+    "./specs/foundations/*",
+    "./specs/primitives/*",
+    "./content/foundation-copy",
+    "./content/primitive-copy"
+  ],
+  "missingPackageExports": [],
+  "tokenContract": {
+    "file": "packages/tokens/tokens.json",
+    "format": "flow-token-contract@1",
+    "compatibleWith": [
+      "style-dictionary"
+    ],
+    "tokens": 1078,
+    "tokenShapeErrors": 0
+  },
+  "foundations": [
+    {
+      "id": "energy",
+      "name": "Energy",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/energy.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "voice",
+      "name": "Voice",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "frame",
+      "name": "Frame",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "depth",
+      "name": "Depth",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "momentum",
+      "name": "Momentum",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "state",
+      "name": "State",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "tone",
+      "name": "Tone",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "growth",
+      "name": "Growth",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/growth.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "symbol",
+      "name": "Symbol",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/symbol.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "iconography",
+      "name": "Iconography",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/iconography.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "accessibility",
+      "name": "Accessibility",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json",
+      "exists": true,
+      "shapeErrors": []
+    }
+  ],
+  "primitives": [
+    {
+      "id": "color",
+      "name": "Color",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "typography",
+      "name": "Typography",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "spacing",
+      "name": "Spacing",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "radius",
+      "name": "Radius",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/radius.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "elevation",
+      "name": "Elevation",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/elevation.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "iconography",
+      "name": "Iconography",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "library-sources",
+      "name": "Library Sources",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/library-sources.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "country-flags",
+      "name": "Country Flags",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/country-flags.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "animation-assets",
+      "name": "Animation Assets",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "illustration-assets",
+      "name": "Illustration Assets",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/illustration-assets.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "motion-curves",
+      "name": "Motion Curves",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/motion-curves.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "duration",
+      "name": "Duration",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/duration.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "breakpoints",
+      "name": "Breakpoints",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "density",
+      "name": "Density",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "focus",
+      "name": "Focus",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "loading",
+      "name": "Loading",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "disabled",
+      "name": "Disabled",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "charts",
+      "name": "Charts",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/charts.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "maps",
+      "name": "Maps",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/maps.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "message",
+      "name": "Message",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/message.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "measurement",
+      "name": "Measurement",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/measurement.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "research",
+      "name": "Research",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/research.json",
+      "exists": true,
+      "shapeErrors": []
+    }
+  ]
+}
