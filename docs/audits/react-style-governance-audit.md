@@ -2,11 +2,12 @@
 
 Status: **pass**
 
-React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked.
+React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked. The actionable debt metric is styleEscapeDebt.
 
 ## Inventory
 
 - React components scanned: 56
+- Style escape debt: 0
 - Components with approved inline vars: 6
 - Components with runtime CSS vars: 1
 - Approved inline vars observed: 10
@@ -17,11 +18,12 @@ React visual styling must flow through classes and tokens; inline style is reser
 
 ## Baseline Budget
 
-Changing these numbers is a contract decision. New inline style or runtime CSS-var usage must be reviewed before it becomes part of the public React implementation.
+Changing these numbers is a contract decision. styleEscapeDebt must stay at 0; new inline style or runtime CSS-var usage must be reviewed before it becomes part of the public React implementation.
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | components | 56 | 56 |
+| styleEscapeDebt | 0 | 0 |
 | componentsWithApprovedInlineVars | 6 | 6 |
 | componentsWithRuntimeVars | 1 | 1 |
 | approvedInlineVars | 10 | 10 |

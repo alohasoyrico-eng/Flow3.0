@@ -1,10 +1,11 @@
 {
   "status": "pass",
   "audit": "react style governance",
-  "principle": "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked.",
+  "principle": "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked. The actionable debt metric is styleEscapeDebt.",
   "baseline": {
     "inventory": {
       "components": 56,
+      "styleEscapeDebt": 0,
       "componentsWithApprovedInlineVars": 6,
       "componentsWithRuntimeVars": 1,
       "approvedInlineVars": 10,
@@ -16,6 +17,7 @@
   },
   "inventory": {
     "components": 56,
+    "styleEscapeDebt": 0,
     "componentsWithApprovedInlineVars": 6,
     "componentsWithRuntimeVars": 1,
     "approvedInlineVars": 10,

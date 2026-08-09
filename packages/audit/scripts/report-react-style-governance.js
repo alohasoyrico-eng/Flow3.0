@@ -17,6 +17,7 @@ const markdownOutput = path.join(outputDir, "react-style-governance-audit.md");
 
 const expectedInventory = {
   components: 56,
+  styleEscapeDebt: 0,
   componentsWithApprovedInlineVars: 6,
   componentsWithRuntimeVars: 1,
   approvedInlineVars: 10,
@@ -108,6 +109,7 @@ function createReport() {
   const withRuntimeVars = components.filter((item) => item.setPropertyCalls.length);
   const inventory = {
     components: components.length,
+    styleEscapeDebt: components.reduce((total, item) => total + item.violations.length, 0),
     componentsWithApprovedInlineVars: withApprovedVars.length,
     componentsWithRuntimeVars: withRuntimeVars.length,
     approvedInlineVars: components.reduce((total, item) => total + item.approvedVars.length, 0),
@@ -125,7 +127,7 @@ function createReport() {
   return {
     status: components.some((item) => item.status === "fail") || baselineMismatches.length ? "fail" : "pass",
     audit: "react style governance",
-    principle: "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked.",
+    principle: "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked. The actionable debt metric is styleEscapeDebt.",
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
@@ -154,6 +156,7 @@ function toMarkdown(report) {
     "## Inventory",
     "",
     `- React components scanned: ${report.inventory.components}`,
+    `- Style escape debt: ${report.inventory.styleEscapeDebt}`,
     `- Components with approved inline vars: ${report.inventory.componentsWithApprovedInlineVars}`,
     `- Components with runtime CSS vars: ${report.inventory.componentsWithRuntimeVars}`,
     `- Approved inline vars observed: ${report.inventory.approvedInlineVars}`,
@@ -164,7 +167,7 @@ function toMarkdown(report) {
     "",
     "## Baseline Budget",
     "",
-    "Changing these numbers is a contract decision. New inline style or runtime CSS-var usage must be reviewed before it becomes part of the public React implementation.",
+    "Changing these numbers is a contract decision. styleEscapeDebt must stay at 0; new inline style or runtime CSS-var usage must be reviewed before it becomes part of the public React implementation.",
     "",
     "| Metric | Expected | Actual |",
     "| --- | ---: | ---: |",
@@ -216,6 +219,7 @@ function main() {
   console.log(JSON.stringify({
     status: report.status,
     components: report.inventory.components,
+    styleEscapeDebt: report.inventory.styleEscapeDebt,
     componentsWithApprovedInlineVars: report.inventory.componentsWithApprovedInlineVars,
     approvedInlineVars: report.inventory.approvedInlineVars,
     violations: report.inventory.violations,

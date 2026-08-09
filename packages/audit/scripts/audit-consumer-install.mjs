@@ -1229,6 +1229,7 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(styles, "React style governance");
   assertInventory(styles, {
     components: 56,
+    styleEscapeDebt: 0,
     approvedInlineVars: 10,
     styleProps: 10,
     setPropertyCalls: 2,
