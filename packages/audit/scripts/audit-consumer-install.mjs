@@ -206,11 +206,14 @@ for (const { componentId, exportName } of ${JSON.stringify(platformContractAsser
 }
 for (const { componentId, packagePath, exportName } of reactSubpathAssertions) {
   const module = await import(packagePath);
+  const platformContractName = \`\${contractKeyForComponent(componentId)}PlatformContract\`;
   assert.ok(module[exportName], \`Expected \${packagePath} to export \${exportName}\`);
   assert.ok(
     typeof module[exportName] === "function" || typeof module[exportName] === "object",
     \`Expected \${packagePath} export \${exportName} to be a React component-like value\`,
   );
+  assert.equal(module[exportName].displayName, exportName, \`Expected installed \${componentId} displayName to be \${exportName}\`);
+  assert.equal(module[exportName].platformContract, platformSurface[platformContractName], \`Expected installed \${componentId} to expose \${platformContractName}\`);
   assert.equal(module[exportName], reactBarrel[exportName], \`Expected \${componentId} subpath export to match React barrel export\`);
 }
 
