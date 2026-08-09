@@ -17,15 +17,9 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
   const checkboxSource = fs.existsSync(checkboxSourceFile) ? fs.readFileSync(checkboxSourceFile, "utf8") : "";
   const radioSource = fs.existsSync(radioSourceFile) ? fs.readFileSync(radioSourceFile, "utf8") : "";
   const choiceBlock = blockFor(blocks, selectorKey, ".choice");
-  const checkboxBlock = blockFor(blocks, selectorKey, ".checkbox");
-  const radioBlock = blockFor(blocks, selectorKey, ".radio");
-  const checkboxSmBlock = blockFor(blocks, selectorKey, ".checkbox[data-density=\"sm\"]");
-  const radioSmBlock = blockFor(blocks, selectorKey, ".radio[data-density=\"sm\"]");
   const markBlock = blockFor(blocks, selectorKey, ".choice__mark");
   const indicatorBlock = blockFor(blocks, selectorKey, ".choice__indicator");
   const iconBlock = blockFor(blocks, selectorKey, ".choice__indicator.material-symbol");
-  const checkedCheckboxBlock = blockFor(blocks, selectorKey, ".checkbox .choice__input:checked + .choice__mark");
-  const radioDotBlock = blockFor(blocks, selectorKey, ".radio .choice__mark::after");
   const focusBlock = blockFor(blocks, selectorKey, ".choice__input:focus-visible + .choice__mark,.choice[data-state=\"focus\"] .choice__mark");
   const hoverBlock = blockFor(blocks, selectorKey, ".choice:hover .choice__mark");
   const activeBlock = blockFor(blocks, selectorKey, ".choice:active:not(:has(input:disabled)) .choice__mark");
@@ -47,13 +41,6 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (text.includes("--icon-color")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--icon-color")), "Choice must not create a generic --icon-color hook; use a component-scoped alias.");
   }
-  if (text.includes("--comp-radio-button-indicator-scale: var(--sys-frame-ratio-half);")) {
-    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-radio-button-indicator-scale: var(--sys-frame-ratio-half);")), "RadioButton indicator scale must consume --component-ratio-half instead of reaching into frame ratio directly.");
-  }
-  if (!text.includes("--comp-radio-button-indicator-scale: var(--component-ratio-half);")) {
-    add("errors", packageCssFile, 1, "RadioButton indicator scale must consume --component-ratio-half.");
-  }
-
   requireIncludes({
     block: choiceBlock,
     text,
@@ -69,15 +56,9 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
   });
 
   for (const [block, snippets, message] of [
-    [checkboxBlock, ["--comp-choice-current-mark-size: var(--comp-checkbox-mark-size-md)", "--comp-choice-current-mark-checked-bg: var(--comp-checkbox-checked-bg)", "--comp-choice-current-indicator-fg: var(--comp-checkbox-indicator-fg)"], "Checkbox must map its component tokens into the Choice current aliases."],
-    [radioBlock, ["--comp-choice-current-mark-size: var(--comp-radio-button-mark-size-md)", "--comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size)", "--comp-choice-current-dot-bg: var(--comp-radio-button-dot-bg)"], "RadioButton must map its component tokens into the Choice current aliases."],
-    [checkboxSmBlock, ["--comp-choice-current-mark-size: var(--comp-checkbox-mark-size-sm)", "--comp-choice-current-gap: var(--comp-checkbox-gap-sm)"], "Checkbox small density must set Choice current aliases."],
-    [radioSmBlock, ["--comp-choice-current-mark-size: var(--comp-radio-button-mark-size-sm)", "--comp-choice-current-gap: var(--comp-radio-button-gap-sm)"], "RadioButton small density must set Choice current aliases."],
     [markBlock, ["background: var(--comp-choice-current-mark-bg)", "block-size: var(--comp-choice-current-mark-size)", "inline-size: var(--comp-choice-current-mark-size)"], "Choice mark must consume Choice current aliases."],
     [indicatorBlock, ["color: var(--comp-choice-current-indicator-fg)", "font-size: var(--comp-choice-current-indicator-font-size)"], "Choice indicator must consume Choice current aliases."],
     [iconBlock, ["--comp-choice-current-icon-color: var(--comp-choice-current-indicator-fg)"], "Choice icon hook must stay component-scoped."],
-    [checkedCheckboxBlock, ["background: var(--comp-choice-current-mark-checked-bg)", "border-color: var(--comp-choice-current-mark-checked-border)"], "Checkbox checked mark must consume Choice current aliases."],
-    [radioDotBlock, ["background: var(--comp-choice-current-dot-bg)", "block-size: var(--comp-choice-current-indicator-size)", "inline-size: var(--comp-choice-current-indicator-size)"], "Radio dot must consume Choice current aliases."],
     [focusBlock, ["outline: var(--comp-choice-current-focus-width) solid var(--comp-choice-current-focus-color)"], "Choice focus state must consume Choice current focus aliases."],
     [hoverBlock, ["border-color: var(--comp-choice-current-mark-hover-border", "transform: scale(var(--comp-choice-current-hover-scale"], "Choice hover state must consume Choice current aliases."],
     [activeBlock, ["transform: scale(var(--comp-choice-current-press-scale"], "Choice pressed state must consume Choice current aliases."],

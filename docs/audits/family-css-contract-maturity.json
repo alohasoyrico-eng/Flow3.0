@@ -7,47 +7,10 @@
     "aliasCount": 40
   },
   "inventory": {
-    "familyComponents": 7,
-    "reviewCandidates": 2
+    "familyComponents": 5,
+    "reviewCandidates": 0
   },
-  "reviewCandidates": [
-    {
-      "component": "checkbox",
-      "familyContract": "choice",
-      "requiredRoot": "choice",
-      "extensionRoots": [
-        "checkbox"
-      ],
-      "ownExtensionRoots": [
-        "checkbox"
-      ],
-      "sharedExtensionRoots": [],
-      "selectorCount": 17,
-      "aliasCount": 79,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "component aliases 79 >= 40"
-      ]
-    },
-    {
-      "component": "radio-button",
-      "familyContract": "choice",
-      "requiredRoot": "choice",
-      "extensionRoots": [
-        "radio"
-      ],
-      "ownExtensionRoots": [
-        "radio"
-      ],
-      "sharedExtensionRoots": [],
-      "selectorCount": 14,
-      "aliasCount": 78,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "component aliases 78 >= 40"
-      ]
-    }
-  ],
+  "reviewCandidates": [],
   "familyComponents": [
     {
       "component": "combobox",
@@ -79,42 +42,6 @@
       "aliasCount": 0,
       "recommendation": "keep-family",
       "reasons": []
-    },
-    {
-      "component": "checkbox",
-      "familyContract": "choice",
-      "requiredRoot": "choice",
-      "extensionRoots": [
-        "checkbox"
-      ],
-      "ownExtensionRoots": [
-        "checkbox"
-      ],
-      "sharedExtensionRoots": [],
-      "selectorCount": 17,
-      "aliasCount": 79,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "component aliases 79 >= 40"
-      ]
-    },
-    {
-      "component": "radio-button",
-      "familyContract": "choice",
-      "requiredRoot": "choice",
-      "extensionRoots": [
-        "radio"
-      ],
-      "ownExtensionRoots": [
-        "radio"
-      ],
-      "sharedExtensionRoots": [],
-      "selectorCount": 14,
-      "aliasCount": 78,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "component aliases 78 >= 40"
-      ]
     },
     {
       "component": "card-number-input",

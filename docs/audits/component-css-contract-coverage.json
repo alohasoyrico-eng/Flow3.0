@@ -1,8 +1,8 @@
 {
   "status": "pass",
   "total": 56,
-  "direct": 49,
-  "family": 7,
+  "direct": 51,
+  "family": 5,
   "missing": [],
   "directRootGaps": [],
   "familyRootGaps": [],
@@ -10,20 +10,6 @@
   "familyContractPolicy": {
     "principle": "Family CSS contracts are allowed only when multiple accepted components intentionally share the same visual cascade contract; component-specific roots are explicit extension scopes and cannot multiply silently.",
     "groups": [
-      {
-        "contract": "choice",
-        "components": [
-          "checkbox",
-          "radio-button"
-        ],
-        "requiredRoots": [
-          "choice"
-        ],
-        "allowedExtensionRoots": [
-          "checkbox",
-          "radio"
-        ]
-      },
       {
         "contract": "field",
         "components": [
@@ -131,18 +117,14 @@
     },
     {
       "component": "checkbox",
-      "coverage": "family",
-      "contract": "choice",
-      "requiredRoot": "choice",
-      "allowedExtensionRoots": [
-        "checkbox"
-      ],
+      "coverage": "direct",
+      "contract": "checkbox",
+      "requiredRoot": "checkbox",
       "observedRoots": [
         "checkbox",
         "choice"
       ],
-      "requiredRootObserved": true,
-      "unexpectedRoots": []
+      "requiredRootObserved": true
     },
     {
       "component": "switch",
@@ -156,18 +138,14 @@
     },
     {
       "component": "radio-button",
-      "coverage": "family",
-      "contract": "choice",
-      "requiredRoot": "choice",
-      "allowedExtensionRoots": [
-        "radio"
-      ],
+      "coverage": "direct",
+      "contract": "radio-button",
+      "requiredRoot": "radio",
       "observedRoots": [
         "choice",
         "radio"
       ],
-      "requiredRootObserved": true,
-      "unexpectedRoots": []
+      "requiredRootObserved": true
     },
     {
       "component": "text-area",

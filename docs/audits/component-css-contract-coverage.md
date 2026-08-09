@@ -3,8 +3,8 @@
 Status: pass
 
 - Components: 56
-- Direct contracts: 49
-- Family contracts: 7
+- Direct contracts: 51
+- Family contracts: 5
 - Missing contracts: 0
 - Direct root gaps: 0
 - Family root gaps: 0
@@ -16,7 +16,6 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 
 | Shared contract | Required React root | Allowed extension roots | Components covered |
 | --- | --- | --- | --- |
-| choice | choice | checkbox, radio | checkbox, radio-button |
 | field | field | card-expiry-input, card-number-input, card-security-code-input | input, card-number-input, card-expiry-input, card-security-code-input |
 | select | select-control | combobox, field | combobox |
 
@@ -46,9 +45,9 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | country-selector | direct | country-selector | country-selector | true | n/a | None |
 | card | direct | card | card | true | n/a | None |
 | input | family | field | field | true | n/a | None |
-| checkbox | family | choice | choice | true | checkbox | None |
+| checkbox | direct | checkbox | checkbox | true | n/a | None |
 | switch | direct | switch | switch | true | n/a | None |
-| radio-button | family | choice | choice | true | radio | None |
+| radio-button | direct | radio-button | radio | true | n/a | None |
 | text-area | direct | text-area | text-area | true | n/a | None |
 | icon-button | direct | icon-button | icon-button | true | n/a | None |
 | badge | direct | badge | badge | true | n/a | None |

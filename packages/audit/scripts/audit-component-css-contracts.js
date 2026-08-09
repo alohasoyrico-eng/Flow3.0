@@ -13,6 +13,7 @@ const { checkButtonCssContract } = require("./audit-button-css-contract.js");
 const { checkCardCssContract } = require("./audit-card-css-contract.js");
 const { checkCardSummaryCssContract } = require("./audit-card-summary-css-contract.js");
 const { checkChartPanelCssContract } = require("./audit-chart-panel-css-contract.js");
+const { checkCheckboxCssContract } = require("./audit-checkbox-css-contract.js");
 const { checkChoiceCssContract } = require("./audit-choice-css-contract.js");
 const { checkCodeInputCssContract } = require("./audit-code-input-css-contract.js");
 const { checkChipCssContract } = require("./audit-chip-css-contract.js");
@@ -37,6 +38,7 @@ const { checkPhoneInputCssContract } = require("./audit-phone-input-css-contract
 const { checkPopoverCssContract } = require("./audit-popover-css-contract.js");
 const { checkProgressIndicatorCssContract } = require("./audit-progress-indicator-css-contract.js");
 const { checkQuickActionCssContract } = require("./audit-quick-action-css-contract.js");
+const { checkRadioButtonCssContract } = require("./audit-radio-button-css-contract.js");
 const { checkRouteSummaryCssContract } = require("./audit-route-summary-css-contract.js");
 const { checkSelectCssContract } = require("./audit-select-css-contract.js");
 const { checkSegmentedControlCssContract } = require("./audit-segmented-control-css-contract.js");
@@ -55,8 +57,6 @@ const { checkToastCssContract } = require("./audit-toast-css-contract.js");
 const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js");
 
 const familyCssContracts = {
-  checkbox: { contract: "choice", requiredRoot: "choice", allowedExtensionRoots: ["checkbox"] },
-  "radio-button": { contract: "choice", requiredRoot: "choice", allowedExtensionRoots: ["radio"] },
   input: { contract: "field", requiredRoot: "field", allowedExtensionRoots: [] },
   "card-number-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-number-input"] },
   "card-expiry-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-expiry-input"] },
@@ -67,6 +67,7 @@ const familyCssContracts = {
 const directCssContractRoots = {
   "floating-action-button": "fab",
   "progress-indicator": "progress",
+  "radio-button": "radio",
   select: "select-control",
 };
 
@@ -206,6 +207,7 @@ function checkComponentCssContracts(context) {
   checkCardCssContract(context);
   checkCardSummaryCssContract(context);
   checkChartPanelCssContract(context);
+  checkCheckboxCssContract(context);
   checkChoiceCssContract(context);
   checkChipCssContract(context);
   checkCodeInputCssContract(context);
@@ -230,6 +232,7 @@ function checkComponentCssContracts(context) {
   checkPopoverCssContract(context);
   checkProgressIndicatorCssContract(context);
   checkQuickActionCssContract(context);
+  checkRadioButtonCssContract(context);
   checkRouteSummaryCssContract(context);
   checkSelectCssContract(context);
   checkSegmentedControlCssContract(context);
