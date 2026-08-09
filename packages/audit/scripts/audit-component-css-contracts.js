@@ -49,6 +49,7 @@ const { checkSwitchCssContract } = require("./audit-switch-css-contract.js");
 const { checkTableCssContract } = require("./audit-table-css-contract.js");
 const { checkTabsCssContract } = require("./audit-tabs-css-contract.js");
 const { checkTagCssContract } = require("./audit-tag-css-contract.js");
+const { checkTextAreaCssContract } = require("./audit-text-area-css-contract.js");
 const { checkTooltipCssContract } = require("./audit-tooltip-css-contract.js");
 const { checkToastCssContract } = require("./audit-toast-css-contract.js");
 const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js");
@@ -57,7 +58,6 @@ const familyCssContracts = {
   checkbox: { contract: "choice", requiredRoot: "choice", allowedExtensionRoots: ["checkbox"] },
   "radio-button": { contract: "choice", requiredRoot: "choice", allowedExtensionRoots: ["radio"] },
   input: { contract: "field", requiredRoot: "field", allowedExtensionRoots: [] },
-  "text-area": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["text-area"] },
   "card-number-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-number-input"] },
   "card-expiry-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-expiry-input"] },
   "card-security-code-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-security-code-input"] },
@@ -242,6 +242,7 @@ function checkComponentCssContracts(context) {
   checkTableCssContract(context);
   checkTabsCssContract(context);
   checkTagCssContract(context);
+  checkTextAreaCssContract(context);
   checkTooltipCssContract(context);
   checkToastCssContract(context);
   checkTreeViewCssContract(context);

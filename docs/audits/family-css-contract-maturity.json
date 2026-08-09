@@ -7,8 +7,8 @@
     "aliasCount": 40
   },
   "inventory": {
-    "familyComponents": 8,
-    "reviewCandidates": 3
+    "familyComponents": 7,
+    "reviewCandidates": 2
   },
   "reviewCandidates": [
     {
@@ -45,24 +45,6 @@
       "recommendation": "review-for-direct-contract",
       "reasons": [
         "component aliases 78 >= 40"
-      ]
-    },
-    {
-      "component": "text-area",
-      "familyContract": "field",
-      "requiredRoot": "field",
-      "extensionRoots": [
-        "text-area"
-      ],
-      "ownExtensionRoots": [
-        "text-area"
-      ],
-      "sharedExtensionRoots": [],
-      "selectorCount": 15,
-      "aliasCount": 60,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "component aliases 60 >= 40"
       ]
     }
   ],
@@ -132,24 +114,6 @@
       "recommendation": "review-for-direct-contract",
       "reasons": [
         "component aliases 78 >= 40"
-      ]
-    },
-    {
-      "component": "text-area",
-      "familyContract": "field",
-      "requiredRoot": "field",
-      "extensionRoots": [
-        "text-area"
-      ],
-      "ownExtensionRoots": [
-        "text-area"
-      ],
-      "sharedExtensionRoots": [],
-      "selectorCount": 15,
-      "aliasCount": 60,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "component aliases 60 >= 40"
       ]
     },
     {

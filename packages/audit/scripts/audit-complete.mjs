@@ -140,6 +140,7 @@ const expectedAuditFiles = new Set([
   "audit-tag-css-contract.js",
   "audit-taxonomy-boundaries.js",
   "audit-template-composition.js",
+  "audit-text-area-css-contract.js",
   "audit-toast-css-contract.js",
   "audit-tokenized-css-properties.js",
   "audit-tooltip-css-contract.js",
