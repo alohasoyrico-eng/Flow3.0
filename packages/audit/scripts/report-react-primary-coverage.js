@@ -24,6 +24,7 @@ const markdownOutput = path.join(outputDir, "react-primary-coverage-audit.md");
 const expectedInventory = {
   expectedComponents: 56,
   components: 56,
+  primaryImplementationDebt: 0,
   pass: 56,
   fail: 0,
   missingSources: 0,
@@ -173,6 +174,7 @@ function createReport() {
     distIndexExport: components.filter((item) => item.checks.distIndexExport).length,
     distTypesIndexExport: components.filter((item) => item.checks.distTypesIndexExport).length,
   };
+  inventory.primaryImplementationDebt = missingSources.length + extraSources.length + fail.length;
   const baselineActual = {
     ...inventory,
     missingSources: inventory.missingSources.length,
@@ -186,9 +188,9 @@ function createReport() {
       actual: baselineActual[key],
     }));
   return {
-    status: missingSources.length || extraSources.length || fail.length || baselineMismatches.length ? "fail" : "pass",
+    status: inventory.primaryImplementationDebt || baselineMismatches.length ? "fail" : "pass",
     audit: "react primary coverage",
-    principle: "Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency.",
+    principle: "Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency. The actionable debt metric is primaryImplementationDebt.",
     baseline: {
       inventory: expectedInventory,
       actual: baselineActual,
@@ -215,6 +217,7 @@ function toMarkdown(report) {
     "",
     `- Expected components: ${report.inventory.expectedComponents}`,
     `- React components: ${report.inventory.components}`,
+    `- Primary implementation debt: ${report.inventory.primaryImplementationDebt}`,
     `- Pass: ${report.inventory.pass}`,
     `- Fail: ${report.inventory.fail}`,
     `- Forward ref: ${report.inventory.forwardRef}/${report.inventory.components}`,
@@ -236,7 +239,7 @@ function toMarkdown(report) {
     "",
     "## Baseline Budget",
     "",
-    "Changing these numbers is a contract decision. React only counts as the primary implementation when every accepted component keeps source, types, dist, refs, density, rest-prop sanitation, package-safe imports, and CSS contracts intact.",
+    "Changing these numbers is a contract decision. primaryImplementationDebt must stay at 0; React only counts as the primary implementation when every accepted component keeps source, types, dist, refs, density, rest-prop sanitation, package-safe imports, and CSS contracts intact.",
     "",
     "| Metric | Expected | Actual |",
     "| --- | ---: | ---: |",
@@ -283,6 +286,7 @@ function main() {
   console.log(JSON.stringify({
     status: report.status,
     components: report.inventory.components,
+    primaryImplementationDebt: report.inventory.primaryImplementationDebt,
     pass: report.inventory.pass,
     fail: report.inventory.fail,
     densityResolved: report.inventory.densityResolved,

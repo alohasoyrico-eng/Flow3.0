@@ -1198,6 +1198,7 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(primary, "React primary coverage");
   assertInventory(primary, {
     components: 56,
+    primaryImplementationDebt: 0,
     pass: 56,
     fail: 0,
     forwardRef: 56,

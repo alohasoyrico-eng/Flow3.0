@@ -1,11 +1,12 @@
 {
   "status": "pass",
   "audit": "react primary coverage",
-  "principle": "Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency.",
+  "principle": "Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency. The actionable debt metric is primaryImplementationDebt.",
   "baseline": {
     "inventory": {
       "expectedComponents": 56,
       "components": 56,
+      "primaryImplementationDebt": 0,
       "pass": 56,
       "fail": 0,
       "missingSources": 0,
@@ -47,7 +48,8 @@
       "sourceIndexExport": 56,
       "sourceTypesIndexExport": 56,
       "distIndexExport": 56,
-      "distTypesIndexExport": 56
+      "distTypesIndexExport": 56,
+      "primaryImplementationDebt": 0
     },
     "mismatches": []
   },
@@ -72,7 +74,8 @@
     "sourceIndexExport": 56,
     "sourceTypesIndexExport": 56,
     "distIndexExport": 56,
-    "distTypesIndexExport": 56
+    "distTypesIndexExport": 56,
+    "primaryImplementationDebt": 0
   },
   "components": [
     {

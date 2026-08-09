@@ -2,12 +2,13 @@
 
 Status: **pass**
 
-Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency.
+Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency. The actionable debt metric is primaryImplementationDebt.
 
 ## Inventory
 
 - Expected components: 56
 - React components: 56
+- Primary implementation debt: 0
 - Pass: 56
 - Fail: 0
 - Forward ref: 56/56
@@ -29,12 +30,13 @@ Every accepted component must have a real React implementation contract: source,
 
 ## Baseline Budget
 
-Changing these numbers is a contract decision. React only counts as the primary implementation when every accepted component keeps source, types, dist, refs, density, rest-prop sanitation, package-safe imports, and CSS contracts intact.
+Changing these numbers is a contract decision. primaryImplementationDebt must stay at 0; React only counts as the primary implementation when every accepted component keeps source, types, dist, refs, density, rest-prop sanitation, package-safe imports, and CSS contracts intact.
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | expectedComponents | 56 | 56 |
 | components | 56 | 56 |
+| primaryImplementationDebt | 0 | 0 |
 | pass | 56 | 56 |
 | fail | 0 | 0 |
 | missingSources | 0 | 0 |
