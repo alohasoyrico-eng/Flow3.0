@@ -126,6 +126,7 @@ function writeConsumerPackage(consumerDir, tarball) {
 function writeConsumerScreen(consumerDir) {
   const source = `
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { createRequire } from "node:module";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -146,6 +147,24 @@ const tokenContract = require("@alohasoyrico-eng/flow/tokens.json");
 assert.equal(tokenContract.format, "flow-token-contract@1");
 assert.ok(tokenContract.compatibleWith.includes("style-dictionary"));
 assert.ok(Object.keys(tokenContract.tokens).length >= 1000);
+
+const tokenCss = fs.readFileSync(require.resolve("@alohasoyrico-eng/flow/tokens/styles.css"), "utf8");
+const componentCss = fs.readFileSync(require.resolve("@alohasoyrico-eng/flow/components/styles.css"), "utf8");
+assert.match(tokenCss, /--sys-color-surface:/);
+assert.match(tokenCss, /--sys-density-control-height:/);
+for (const expectedContract of [
+  "--comp-button-bg-primary:",
+  "--comp-card-bg:",
+  "--comp-field-control-size:",
+  "--comp-table-bg:",
+  ".button[data-density=\\"sm\\"]",
+  ".card[data-density=\\"lg\\"]",
+  ".field[data-density=\\"sm\\"]",
+  ".dialog[data-density=\\"lg\\"]",
+  ".table[data-density=\\"sm\\"]",
+]) {
+  assert.ok(componentCss.includes(expectedContract), \`Expected installed component CSS contract: \${expectedContract}\`);
+}
 
 const screen = React.createElement("main", { className: "product-screen", "data-density": "md", "data-theme": "light" },
   React.createElement(Card, {
