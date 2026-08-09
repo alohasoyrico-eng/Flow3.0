@@ -1053,34 +1053,52 @@ function auditInstalledPackage(consumerDir) {
 }
 
 function assertInstalledExportInventory(installedPackage) {
-  const expectedExports = [
-    "./tokens",
-    "./tokens.json",
-    "./tokens/styles.css",
-    "./components",
-    "./components/contracts",
-    "./components/platforms",
-    "./components/styles.css",
-    "./react",
-    ...goldComponents.map((component) => `./react/${component}`),
-    "./content/catalog",
-    "./content/component-docs",
-    "./content/component-copy",
-    "./content/pattern-copy",
-    "./content/component-implementation-status",
-    "./content/foundation-copy",
-    "./content/primitive-copy",
-    "./content/reference-copy",
-    "./content/template-blueprints",
-    "./content/home",
-    "./content/i18n-ui",
-    "./specs/system",
-  ].sort();
+  const expectedExportMap = {
+    "./tokens": "./packages/tokens/src/index.js",
+    "./tokens.json": "./packages/tokens/tokens.json",
+    "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
+    "./components": "./packages/components/src/index.js",
+    "./components/contracts": "./packages/components/src/contracts.js",
+    "./components/platforms": "./packages/components/src/platforms/index.js",
+    "./components/styles.css": "./packages/components/styles/components.css",
+    "./react": {
+      types: "./packages/react/dist/index.d.ts",
+      default: "./packages/react/dist/index.js",
+    },
+    ...Object.fromEntries(goldComponents.map((component) => {
+      const componentName = pascalCase(component);
+      return [`./react/${component}`, {
+        types: `./packages/react/dist/${componentName}.d.ts`,
+        default: `./packages/react/dist/${componentName}.js`,
+      }];
+    })),
+    "./content/catalog": "./packages/content/content/catalog.json",
+    "./content/component-docs": "./packages/content/content/component-docs.json",
+    "./content/component-copy": "./packages/content/content/component-copy.json",
+    "./content/pattern-copy": "./packages/content/content/pattern-copy.json",
+    "./content/component-implementation-status": "./packages/content/content/component-implementation-status.json",
+    "./content/foundation-copy": "./packages/content/content/foundation-copy.json",
+    "./content/primitive-copy": "./packages/content/content/primitive-copy.json",
+    "./content/reference-copy": "./packages/content/content/reference-copy.json",
+    "./content/template-blueprints": "./packages/content/content/template-blueprints.json",
+    "./content/home": "./packages/content/content/home.json",
+    "./content/i18n-ui": "./packages/content/content/i18n/ui.json",
+    "./specs/system": "./packages/specs/specs/unison.system.json",
+  };
+  const expectedExports = Object.keys(expectedExportMap).sort();
   const actualExports = Object.keys(installedPackage.exports ?? {}).sort();
   const missing = expectedExports.filter((entry) => !actualExports.includes(entry));
   const extra = actualExports.filter((entry) => !expectedExports.includes(entry));
   if (missing.length || extra.length) {
     throw new Error(`Installed package export inventory mismatch: missing ${missing.join(", ") || "none"}; extra ${extra.join(", ") || "none"}.`);
+  }
+  const mistargeted = expectedExports.filter((entry) => {
+    const actual = installedPackage.exports?.[entry];
+    const expected = expectedExportMap[entry];
+    return JSON.stringify(actual) !== JSON.stringify(expected);
+  });
+  if (mistargeted.length) {
+    throw new Error(`Installed package exports point to unexpected targets: ${mistargeted.slice(0, 30).join(", ")}.`);
   }
 }
 
