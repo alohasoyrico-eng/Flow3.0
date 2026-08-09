@@ -130,6 +130,11 @@ function writeConsumerPackage(consumerDir, tarball) {
 }
 
 function writeConsumerScreen(consumerDir) {
+  const reactSubpathAssertions = goldComponents.map((componentId) => ({
+    componentId,
+    packagePath: `@alohasoyrico-eng/flow/react/${componentId}`,
+    exportName: pascalCase(componentId),
+  }));
   const source = `
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -170,6 +175,17 @@ for (const expectedContract of [
   ".table[data-density=\\"sm\\"]",
 ]) {
   assert.ok(componentCss.includes(expectedContract), \`Expected installed component CSS contract: \${expectedContract}\`);
+}
+
+const reactBarrel = await import("@alohasoyrico-eng/flow/react");
+for (const { componentId, packagePath, exportName } of ${JSON.stringify(reactSubpathAssertions, null, 2)}) {
+  const module = await import(packagePath);
+  assert.ok(module[exportName], \`Expected \${packagePath} to export \${exportName}\`);
+  assert.ok(
+    typeof module[exportName] === "function" || typeof module[exportName] === "object",
+    \`Expected \${packagePath} export \${exportName} to be a React component-like value\`,
+  );
+  assert.equal(module[exportName], reactBarrel[exportName], \`Expected \${componentId} subpath export to match React barrel export\`);
 }
 
 const screen = React.createElement("main", { className: "product-screen", "data-density": "md", "data-theme": "light" },
