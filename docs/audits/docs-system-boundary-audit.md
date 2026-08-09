@@ -2,7 +2,7 @@
 
 Status: pass
 
-FlowDocs must consume Flow through package exports and generated assets; any docs-owned component tokens or missing aliases are tracked debt, not invisible system behavior.
+FlowDocs must consume Flow through package exports and generated assets; any docs-owned component tokens or missing aliases are tracked debt, not invisible system behavior. The actionable debt metric is docsSystemBoundaryDebt.
 
 ## Inventory
 
@@ -15,6 +15,7 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 - Local Flow import violations: 0
 - Docs component token definitions: 0
 - Docs component token definition files: 0
+- Docs system boundary debt: 0
 
 ## Baseline Budget
 
@@ -30,6 +31,7 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 | docsComponentTokenDefinitionFiles | 0 | 0 |
 | generatedComponentCssPresent | 1 | 1 |
 | generatedTokenCssPresent | 1 | 1 |
+| docsSystemBoundaryDebt | 0 | 0 |
 
 ## Baseline Mismatches
 

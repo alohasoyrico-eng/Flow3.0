@@ -44,6 +44,7 @@ const expectedInventory = {
   docsComponentTokenDefinitionFiles: 0,
   generatedComponentCssPresent: 1,
   generatedTokenCssPresent: 1,
+  docsSystemBoundaryDebt: 0,
 };
 
 function readJson(file) {
@@ -135,13 +136,20 @@ function createReport() {
     generatedComponentCssPresent: fs.existsSync(path.join(docsAppDir, "generated/components.css")) ? 1 : 0,
     generatedTokenCssPresent: fs.existsSync(path.join(docsAppDir, "generated/tokens.css")) ? 1 : 0,
   };
+  inventory.docsSystemBoundaryDebt = inventory.missingFlowAliases
+    + inventory.localFlowImportViolations
+    + inventory.docsComponentTokenDefinitions
+    + (inventory.flowDependencyPresent ? 0 : 1)
+    + (inventory.generatedComponentCssPresent ? 0 : 1)
+    + (inventory.generatedTokenCssPresent ? 0 : 1);
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({ key, expected, actual: inventory[key] }));
+  inventory.docsSystemBoundaryDebt += baselineMismatches.length;
   return {
-    status: baselineMismatches.length ? "fail" : "pass",
+    status: inventory.docsSystemBoundaryDebt ? "fail" : "pass",
     audit: "docs system boundary",
-    principle: "FlowDocs must consume Flow through package exports and generated assets; any docs-owned component tokens or missing aliases are tracked debt, not invisible system behavior.",
+    principle: "FlowDocs must consume Flow through package exports and generated assets; any docs-owned component tokens or missing aliases are tracked debt, not invisible system behavior. The actionable debt metric is docsSystemBoundaryDebt.",
     docsRoot: relative(docsRoot),
     inventory,
     baseline: {
@@ -182,6 +190,7 @@ function toMarkdown(report) {
     `- Local Flow import violations: ${report.inventory.localFlowImportViolations}`,
     `- Docs component token definitions: ${report.inventory.docsComponentTokenDefinitions}`,
     `- Docs component token definition files: ${report.inventory.docsComponentTokenDefinitionFiles}`,
+    `- Docs system boundary debt: ${report.inventory.docsSystemBoundaryDebt}`,
     "",
     "## Baseline Budget",
     "",
@@ -233,7 +242,9 @@ function main() {
     sourceFilesScanned: report.inventory.sourceFilesScanned,
     generatedFiles: report.inventory.generatedFiles,
     missingFlowAliases: report.inventory.missingFlowAliases,
+    localFlowImportViolations: report.inventory.localFlowImportViolations,
     docsComponentTokenDefinitions: report.inventory.docsComponentTokenDefinitions,
+    docsSystemBoundaryDebt: report.inventory.docsSystemBoundaryDebt,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

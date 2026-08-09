@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "audit": "docs system boundary",
-  "principle": "FlowDocs must consume Flow through package exports and generated assets; any docs-owned component tokens or missing aliases are tracked debt, not invisible system behavior.",
+  "principle": "FlowDocs must consume Flow through package exports and generated assets; any docs-owned component tokens or missing aliases are tracked debt, not invisible system behavior. The actionable debt metric is docsSystemBoundaryDebt.",
   "docsRoot": "../FlowDocs",
   "inventory": {
     "sourceFilesScanned": 203,
@@ -13,7 +13,8 @@
     "docsComponentTokenDefinitions": 0,
     "docsComponentTokenDefinitionFiles": 0,
     "generatedComponentCssPresent": 1,
-    "generatedTokenCssPresent": 1
+    "generatedTokenCssPresent": 1,
+    "docsSystemBoundaryDebt": 0
   },
   "baseline": {
     "inventory": {
@@ -26,7 +27,8 @@
       "docsComponentTokenDefinitions": 0,
       "docsComponentTokenDefinitionFiles": 0,
       "generatedComponentCssPresent": 1,
-      "generatedTokenCssPresent": 1
+      "generatedTokenCssPresent": 1,
+      "docsSystemBoundaryDebt": 0
     },
     "mismatches": []
   },
