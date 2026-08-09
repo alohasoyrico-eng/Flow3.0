@@ -241,6 +241,15 @@ console.log(markup.length);
 }
 
 function writeConsumerTypes(consumerDir) {
+  const reactSubpathTypeImports = goldComponents.map((componentId) => {
+    const componentName = pascalCase(componentId);
+    return `import { ${componentName} as ${componentName}Subpath } from "@alohasoyrico-eng/flow/react/${componentId}";\nimport type { ${componentName}Props as ${componentName}SubpathProps } from "@alohasoyrico-eng/flow/react/${componentId}";`;
+  }).join("\n");
+  const reactSubpathTypeAssertions = goldComponents.map((componentId) => {
+    const componentName = pascalCase(componentId);
+    const variableName = `${componentName.slice(0, 1).toLowerCase()}${componentName.slice(1)}SubpathProps`;
+    return `const ${variableName}: Partial<${componentName}SubpathProps> = {};\nvoid ${componentName}Subpath;\nvoid ${variableName};`;
+  }).join("\n");
   const tsconfig = {
     compilerOptions: {
       module: "NodeNext",
@@ -258,6 +267,7 @@ import React from "react";
 import type { ButtonProps, CardProps, DialogProps, InputProps, TableProps } from "@alohasoyrico-eng/flow/react";
 import { Button, Card, Input, Table } from "@alohasoyrico-eng/flow/react";
 import { Dialog } from "@alohasoyrico-eng/flow/react/dialog";
+${reactSubpathTypeImports}
 
 const buttonRef = React.createRef<HTMLButtonElement>();
 const button = React.createElement(Button, { ref: buttonRef, label: "Continue", variant: "primary", onClick: (event) => event.currentTarget.focus() });
@@ -271,6 +281,7 @@ React.createElement(Card, cardProps);
 React.createElement(Input, inputProps);
 React.createElement(Table, tableProps);
 React.createElement(Dialog, dialogProps);
+${reactSubpathTypeAssertions}
 
 // @ts-expect-error Flow owns visual styling; consumers cannot bypass tokens with inline style.
 const badButtonStyle: ButtonProps = { label: "Bad", style: { color: "red" } };
