@@ -6,15 +6,65 @@
     "reports": 20,
     "reportsWithDebtMetrics": 20,
     "debtMetrics": 20,
+    "categories": 7,
+    "categoriesWithDebt": 0,
+    "uncategorizedReports": 0,
     "nonNumericDebtMetrics": 0,
     "totalDebt": 0,
+    "categoryDebt": 0,
     "systemDebt": 0
   },
   "missingDebtReports": [],
   "nonNumericDebtEntries": [],
+  "uncategorizedReports": [],
+  "categories": [
+    {
+      "category": "anti-duplication",
+      "reports": 1,
+      "debtMetrics": 1,
+      "totalDebt": 0
+    },
+    {
+      "category": "cascade",
+      "reports": 4,
+      "debtMetrics": 4,
+      "totalDebt": 0
+    },
+    {
+      "category": "docs-system-boundary",
+      "reports": 2,
+      "debtMetrics": 2,
+      "totalDebt": 0
+    },
+    {
+      "category": "foundations-primitives",
+      "reports": 1,
+      "debtMetrics": 1,
+      "totalDebt": 0
+    },
+    {
+      "category": "quality",
+      "reports": 1,
+      "debtMetrics": 1,
+      "totalDebt": 0
+    },
+    {
+      "category": "react-primary",
+      "reports": 10,
+      "debtMetrics": 10,
+      "totalDebt": 0
+    },
+    {
+      "category": "taxonomy",
+      "reports": 1,
+      "debtMetrics": 1,
+      "totalDebt": 0
+    }
+  ],
   "reports": [
     {
       "file": "anti-duplication-coverage.json",
+      "category": "anti-duplication",
       "status": "pass",
       "debtEntries": [
         {
@@ -28,6 +78,7 @@
     },
     {
       "file": "component-1to1-quality-matrix.json",
+      "category": "quality",
       "status": "pass",
       "debtEntries": [
         {
@@ -41,6 +92,7 @@
     },
     {
       "file": "component-css-contract-coverage.json",
+      "category": "cascade",
       "status": "pass",
       "debtEntries": [
         {
@@ -54,6 +106,7 @@
     },
     {
       "file": "component-visual-cascade-audit.json",
+      "category": "cascade",
       "status": "pass",
       "debtEntries": [
         {
@@ -67,6 +120,7 @@
     },
     {
       "file": "docs-component-demo-ownership.json",
+      "category": "docs-system-boundary",
       "status": "pass",
       "debtEntries": [
         {
@@ -80,6 +134,7 @@
     },
     {
       "file": "docs-system-boundary-audit.json",
+      "category": "docs-system-boundary",
       "status": "pass",
       "debtEntries": [
         {
@@ -93,6 +148,7 @@
     },
     {
       "file": "family-css-contract-maturity.json",
+      "category": "cascade",
       "status": "pass",
       "debtEntries": [
         {
@@ -106,6 +162,7 @@
     },
     {
       "file": "foundation-primitive-export-contract-audit.json",
+      "category": "foundations-primitives",
       "status": "pass",
       "debtEntries": [
         {
@@ -119,6 +176,7 @@
     },
     {
       "file": "legacy-dom-source-governance-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -132,6 +190,7 @@
     },
     {
       "file": "package-css-root-governance-audit.json",
+      "category": "cascade",
       "status": "pass",
       "debtEntries": [
         {
@@ -145,6 +204,7 @@
     },
     {
       "file": "react-accessibility-governance-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -158,6 +218,7 @@
     },
     {
       "file": "react-class-ownership-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -171,6 +232,7 @@
     },
     {
       "file": "react-composition-governance-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -184,6 +246,7 @@
     },
     {
       "file": "react-contract-prop-alignment-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -197,6 +260,7 @@
     },
     {
       "file": "react-controlled-governance-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -210,6 +274,7 @@
     },
     {
       "file": "react-default-governance-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -223,6 +288,7 @@
     },
     {
       "file": "react-interaction-coverage-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -236,6 +302,7 @@
     },
     {
       "file": "react-primary-coverage-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -249,6 +316,7 @@
     },
     {
       "file": "react-style-governance-audit.json",
+      "category": "react-primary",
       "status": "pass",
       "debtEntries": [
         {
@@ -262,6 +330,7 @@
     },
     {
       "file": "taxonomy-boundaries-audit.json",
+      "category": "taxonomy",
       "status": "pass",
       "debtEntries": [
         {

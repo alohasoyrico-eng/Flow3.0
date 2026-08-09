@@ -1360,8 +1360,12 @@ function assertReactGovernanceBaselines() {
     reports: 20,
     reportsWithDebtMetrics: 20,
     debtMetrics: 20,
+    categories: 7,
+    categoriesWithDebt: 0,
+    uncategorizedReports: 0,
     nonNumericDebtMetrics: 0,
     totalDebt: 0,
+    categoryDebt: 0,
     systemDebt: 0,
   }, "System debt ledger");
 

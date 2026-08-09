@@ -13,6 +13,29 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "system-debt-ledger.json");
 const markdownOutput = path.join(outputDir, "system-debt-ledger.md");
 
+const reportCategories = {
+  "anti-duplication-coverage.json": "anti-duplication",
+  "component-1to1-quality-matrix.json": "quality",
+  "component-css-contract-coverage.json": "cascade",
+  "component-visual-cascade-audit.json": "cascade",
+  "docs-component-demo-ownership.json": "docs-system-boundary",
+  "docs-system-boundary-audit.json": "docs-system-boundary",
+  "family-css-contract-maturity.json": "cascade",
+  "foundation-primitive-export-contract-audit.json": "foundations-primitives",
+  "legacy-dom-source-governance-audit.json": "react-primary",
+  "package-css-root-governance-audit.json": "cascade",
+  "react-accessibility-governance-audit.json": "react-primary",
+  "react-class-ownership-audit.json": "react-primary",
+  "react-composition-governance-audit.json": "react-primary",
+  "react-contract-prop-alignment-audit.json": "react-primary",
+  "react-controlled-governance-audit.json": "react-primary",
+  "react-default-governance-audit.json": "react-primary",
+  "react-interaction-coverage-audit.json": "react-primary",
+  "react-primary-coverage-audit.json": "react-primary",
+  "react-style-governance-audit.json": "react-primary",
+  "taxonomy-boundaries-audit.json": "taxonomy",
+};
+
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
@@ -52,6 +75,7 @@ function createReport() {
     const debtEntries = debtEntriesForReport(file, report);
     return {
       file,
+      category: reportCategories[file] ?? "uncategorized",
       status: report.status ?? "unknown",
       debtEntries,
     };
@@ -68,28 +92,52 @@ function createReport() {
     })));
   const debtEntries = reports.flatMap((report) => report.debtEntries);
   const totalDebt = debtEntries.reduce((total, entry) => total + (entry.numericValue ?? 0), 0);
+  const categoryNames = [...new Set(Object.values(reportCategories))].sort();
+  const categories = categoryNames.map((category) => {
+    const categoryReports = reports.filter((report) => report.category === category);
+    const categoryDebtMetrics = categoryReports.flatMap((report) => report.debtEntries);
+    const totalCategoryDebt = categoryDebtMetrics.reduce((total, entry) => total + (entry.numericValue ?? 0), 0);
+    return {
+      category,
+      reports: categoryReports.length,
+      debtMetrics: categoryDebtMetrics.length,
+      totalDebt: totalCategoryDebt,
+    };
+  });
+  const uncategorizedReports = reports
+    .filter((report) => report.category === "uncategorized")
+    .map((report) => report.file);
+  const categoryDebt = categories.reduce((total, category) => total + category.totalDebt, 0);
   return {
-    status: totalDebt || missingDebtReports.length || nonNumericDebtEntries.length ? "fail" : "pass",
+    status: totalDebt || missingDebtReports.length || nonNumericDebtEntries.length || uncategorizedReports.length ? "fail" : "pass",
     audit: "system debt ledger",
     principle: "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
     inventory: {
       reports: reports.length,
       reportsWithDebtMetrics: reports.length - missingDebtReports.length,
       debtMetrics: debtEntries.length,
+      categories: categories.length,
+      categoriesWithDebt: categories.filter((category) => category.totalDebt > 0).length,
+      uncategorizedReports: uncategorizedReports.length,
       nonNumericDebtMetrics: nonNumericDebtEntries.length,
       totalDebt,
-      systemDebt: totalDebt + missingDebtReports.length + nonNumericDebtEntries.length,
+      categoryDebt,
+      systemDebt: totalDebt + missingDebtReports.length + nonNumericDebtEntries.length + uncategorizedReports.length,
     },
     missingDebtReports,
     nonNumericDebtEntries,
+    uncategorizedReports,
+    categories,
     reports,
   };
 }
 
 function toMarkdown(report) {
-  const reportRows = report.reports.map((item) => `| ${item.file} | ${item.status} | ${item.debtEntries.map((entry) => `${entry.metric}: ${entry.value}`).join("<br>") || "None"} |`);
+  const categoryRows = report.categories.map((item) => `| ${item.category} | ${item.reports} | ${item.debtMetrics} | ${item.totalDebt} |`);
+  const reportRows = report.reports.map((item) => `| ${item.file} | ${item.category} | ${item.status} | ${item.debtEntries.map((entry) => `${entry.metric}: ${entry.value}`).join("<br>") || "None"} |`);
   const missingRows = report.missingDebtReports.map((file) => `| ${file} |`);
   const nonNumericRows = report.nonNumericDebtEntries.map((entry) => `| ${entry.report} | ${entry.metric} | ${JSON.stringify(entry.value)} |`);
+  const uncategorizedRows = report.uncategorizedReports.map((file) => `| ${file} |`);
   return [
     "# System Debt Ledger",
     "",
@@ -102,9 +150,25 @@ function toMarkdown(report) {
     `- Reports scanned: ${report.inventory.reports}`,
     `- Reports with debt metrics: ${report.inventory.reportsWithDebtMetrics}`,
     `- Debt metrics: ${report.inventory.debtMetrics}`,
+    `- Categories: ${report.inventory.categories}`,
+    `- Categories with debt: ${report.inventory.categoriesWithDebt}`,
+    `- Uncategorized reports: ${report.inventory.uncategorizedReports}`,
     `- Non-numeric debt metrics: ${report.inventory.nonNumericDebtMetrics}`,
     `- Total numeric debt: ${report.inventory.totalDebt}`,
+    `- Category debt: ${report.inventory.categoryDebt}`,
     `- System debt: ${report.inventory.systemDebt}`,
+    "",
+    "## Categories",
+    "",
+    "| Category | Reports | Debt metrics | Total debt |",
+    "| --- | ---: | ---: | ---: |",
+    ...categoryRows,
+    "",
+    "## Uncategorized Reports",
+    "",
+    "| Report |",
+    "| --- |",
+    ...(uncategorizedRows.length ? uncategorizedRows : ["| None |"]),
     "",
     "## Missing Debt Reports",
     "",
@@ -120,8 +184,8 @@ function toMarkdown(report) {
     "",
     "## Reports",
     "",
-    "| Report | Status | Debt metrics |",
-    "| --- | --- | --- |",
+    "| Report | Category | Status | Debt metrics |",
+    "| --- | --- | --- | --- |",
     ...reportRows,
     "",
   ].join("\n");
@@ -153,6 +217,7 @@ function main() {
     status: report.status,
     reports: report.inventory.reports,
     debtMetrics: report.inventory.debtMetrics,
+    categories: report.inventory.categories,
     totalDebt: report.inventory.totalDebt,
     systemDebt: report.inventory.systemDebt,
     json: rel(jsonOutput),
