@@ -260,6 +260,9 @@ function auditInstalledPackage(consumerDir) {
     consumerRequire.resolve(packagePath);
     if (!value?.types || !value?.default) throw new Error(`React export ${key} must publish types and default targets.`);
   }
+  for (const componentId of goldComponents) {
+    consumerRequire.resolve(`@alohasoyrico-eng/flow/react/${componentId}`);
+  }
   for (const forbiddenPath of ["apps/docs", "repo-split-output", "node_modules"]) {
     if (fs.existsSync(path.join(packageRoot, forbiddenPath))) {
       throw new Error(`Installed package must not include ${forbiddenPath}.`);
