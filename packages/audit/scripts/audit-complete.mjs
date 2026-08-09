@@ -232,6 +232,7 @@ const primitiveCascadeChecks = [
 const checks = [
   ["audit registry", auditRegistry],
   ["audit entrypoints", auditEntrypoints],
+  ["audit debt metrics", auditDebtMetrics],
   ["public prefix", auditPublicPrefix],
   ...(hasRepoFile("scripts/generate-token-contract.mjs")
     ? [["token contract freshness", () => run("node", ["scripts/generate-token-contract.mjs", "--check"])]]
@@ -372,6 +373,26 @@ function auditEntrypoints() {
     if (duplicates.length) {
       throw new Error(`${file} invokes duplicate checks: ${[...new Set(duplicates)].join(", ")}.`);
     }
+  }
+}
+
+function auditDebtMetrics() {
+  const auditsDir = path.join(root, "docs/audits");
+  if (!fs.existsSync(auditsDir)) return;
+  const missing = fs.readdirSync(auditsDir)
+    .filter((file) => file.endsWith(".json"))
+    .sort()
+    .filter((file) => {
+      const report = JSON.parse(fs.readFileSync(path.join(auditsDir, file), "utf8"));
+      const keys = [
+        ...Object.keys(report),
+        ...Object.keys(report.inventory ?? {}),
+        ...Object.keys(report.summary ?? {}),
+      ];
+      return !keys.some((key) => /debt/i.test(key));
+    });
+  if (missing.length) {
+    throw new Error(`Audit reports must expose an actionable debt metric: ${missing.join(", ")}.`);
   }
 }
 
