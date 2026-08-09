@@ -39,6 +39,23 @@ const contentExports = [
   "./fixtures/prototyping",
 ];
 
+const componentPackageExports = {
+  ".": "./src/index.js",
+  "./contracts": "./src/contracts.js",
+  "./platforms": "./src/platforms/index.js",
+  "./styles.css": "./styles/components.css",
+};
+
+const tokenPackageExports = {
+  ".": "./src/index.js",
+  "./tokens.json": "./tokens.json",
+  "./styles.css": "./styles/tokens.css",
+};
+
+const specsPackageExports = {
+  "./system": "./specs/unison.system.json",
+};
+
 const installExports = [
   "./tokens",
   "./tokens.json",
@@ -105,13 +122,17 @@ function isInternalBoundaryTarget(target) {
 
 function checkPackageApiBoundary() {
   const packageJsonFile = path.join(root, "package.json");
+  const componentsPackageJsonFile = path.join(root, "packages/components/package.json");
   const contentPackageJsonFile = path.join(root, "packages/content/package.json");
+  const specsPackageJsonFile = path.join(root, "packages/specs/package.json");
   const tokenPackageJsonFile = path.join(root, "packages/tokens/package.json");
   const tokenContractFile = path.join(root, "packages/tokens/tokens.json");
   const rootImports = readJson(packageJsonFile)?.imports ?? {};
   const rootPackage = readJson(packageJsonFile) ?? {};
   const rootExports = rootPackage.exports ?? {};
+  const exportedComponents = readJson(componentsPackageJsonFile)?.exports ?? {};
   const exportedContent = readJson(contentPackageJsonFile)?.exports ?? {};
+  const exportedSpecs = readJson(specsPackageJsonFile)?.exports ?? {};
   const exportedTokens = readJson(tokenPackageJsonFile)?.exports ?? {};
   const tokenContract = readJson(tokenContractFile);
 
@@ -151,6 +172,34 @@ function checkPackageApiBoundary() {
   for (const requiredExport of contentExports) {
     if (!exportedContent[requiredExport]) add("errors", contentPackageJsonFile, 1, `@design-system/content export missing: ${requiredExport}.`);
   }
+  checkExactPackageExports({
+    packageFile: componentsPackageJsonFile,
+    packageName: "@design-system/components",
+    exportsMap: exportedComponents,
+    expectedExports: componentPackageExports,
+  });
+  checkExactPackageExports({
+    packageFile: contentPackageJsonFile,
+    packageName: "@design-system/content",
+    exportsMap: exportedContent,
+    expectedExports: Object.fromEntries(contentExports.map((entry) => [entry, `./content/${entry.replace(/^\.\//, "")}.json`])),
+    targetOverrides: {
+      "./fixtures/prototyping": "./content/fixtures/prototyping.json",
+      "./i18n/ui": "./content/i18n/ui.json",
+    },
+  });
+  checkExactPackageExports({
+    packageFile: specsPackageJsonFile,
+    packageName: "@design-system/specs",
+    exportsMap: exportedSpecs,
+    expectedExports: specsPackageExports,
+  });
+  checkExactPackageExports({
+    packageFile: tokenPackageJsonFile,
+    packageName: "@design-system/tokens",
+    exportsMap: exportedTokens,
+    expectedExports: tokenPackageExports,
+  });
   for (const requiredExport of installExports) {
     if (!rootExports[requiredExport]) add("errors", packageJsonFile, 1, `Root package exports missing install surface: ${requiredExport}.`);
   }
@@ -185,6 +234,26 @@ function checkPackageApiBoundary() {
   }
   if (Object.keys(tokenContract?.tokens ?? {}).length < 1000) {
     add("errors", tokenContractFile, 1, "Token JSON contract must expose the full CSS token inventory.");
+  }
+}
+
+function checkExactPackageExports({ packageFile, packageName, exportsMap, expectedExports, targetOverrides = {} }) {
+  const expected = { ...expectedExports, ...targetOverrides };
+  const actualKeys = Object.keys(exportsMap).sort();
+  const expectedKeys = Object.keys(expected).sort();
+  const missing = expectedKeys.filter((entry) => !actualKeys.includes(entry));
+  const extra = actualKeys.filter((entry) => !expectedKeys.includes(entry));
+  if (missing.length) add("errors", packageFile, 1, `${packageName} exports missing governed subpaths: ${missing.join(", ")}.`);
+  if (extra.length) add("errors", packageFile, 1, `${packageName} exports include ungoverned public subpaths: ${extra.join(", ")}.`);
+  for (const [exportPath, expectedTarget] of Object.entries(expected)) {
+    const actualTarget = exportsMap[exportPath];
+    if (actualTarget !== expectedTarget) {
+      add("errors", packageFile, 1, `${packageName} export ${exportPath} must target ${expectedTarget}.`);
+      continue;
+    }
+    if (!fs.existsSync(path.join(path.dirname(packageFile), expectedTarget))) {
+      add("errors", packageFile, 1, `${packageName} export ${exportPath} points to a missing artifact: ${expectedTarget}.`);
+    }
   }
 }
 
