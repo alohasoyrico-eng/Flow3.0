@@ -181,6 +181,7 @@ function checkPrimitiveInteractiveDomFactories() {
 
 function checkReactOnlyComponentBoundaries() {
   const contractsFile = path.join(root, "packages/components/src/contracts.js");
+  const componentsIndexFile = path.join(root, "packages/components/src/index.js");
   const smokeFile = path.join(root, "packages/components/test/smoke.test.mjs");
   const componentsDir = path.join(root, "packages/components/src/components");
   const platformsDir = path.join(root, "packages/components/src/platforms");
@@ -207,6 +208,17 @@ function checkReactOnlyComponentBoundaries() {
   const internalFactoryMatch = /internalFactory\s*:/.exec(contractsSource);
   if (internalFactoryMatch) {
     add("errors", contractsFile, lineForIndex(contractsSource, internalFactoryMatch.index), "Component contracts must not expose internalFactory; React package exports are the implementation contract.");
+  }
+  const componentsIndexSource = fs.existsSync(componentsIndexFile) ? read(componentsIndexFile) : "";
+  for (const match of componentsIndexSource.matchAll(/\b(?:create|hydrate)([A-Z][A-Za-z0-9]*)\b/g)) {
+    const componentId = kebab(match[1]);
+    if (!goldComponents.includes(componentId)) continue;
+    add(
+      "errors",
+      componentsIndexFile,
+      lineForIndex(componentsIndexSource, match.index),
+      `Package components index must not export ${match[0]}; React owns ${componentId} implementation.`
+    );
   }
 
   if (fs.existsSync(platformsDir)) {
