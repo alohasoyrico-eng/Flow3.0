@@ -2,7 +2,7 @@
 
 Status: **pass**
 
-React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition.
+React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition. The actionable debt metric is classOwnershipDebt.
 
 ## Inventory
 
@@ -15,6 +15,7 @@ React components may only author their own visual class roots or explicit family
 - Observed root assignments: 72
 - Observed support root assignments: 20
 - Violations: 0
+- Class ownership debt: 0
 
 ## Components
 

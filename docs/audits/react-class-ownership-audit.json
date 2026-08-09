@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "audit": "react class ownership",
-  "principle": "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition.",
+  "principle": "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition. The actionable debt metric is classOwnershipDebt.",
   "inventory": {
     "components": 56,
     "componentClassRoots": 59,
@@ -11,7 +11,8 @@
     "componentsWithFamilyRoots": 13,
     "observedRootAssignments": 72,
     "observedSupportRootAssignments": 20,
-    "violations": 0
+    "violations": 0,
+    "classOwnershipDebt": 0
   },
   "protectedComponentRoots": [
     "button",

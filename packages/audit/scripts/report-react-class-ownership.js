@@ -80,10 +80,12 @@ function createReport() {
       status: violations.length ? "fail" : "pass",
     };
   });
+  const violations = components.reduce((total, item) => total + item.violations.length, 0);
+  const classOwnershipDebt = violations;
   return {
-    status: components.some((item) => item.status === "fail") ? "fail" : "pass",
+    status: classOwnershipDebt ? "fail" : "pass",
     audit: "react class ownership",
-    principle: "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition.",
+    principle: "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition. The actionable debt metric is classOwnershipDebt.",
     inventory: {
       components: components.length,
       componentClassRoots: componentClassRoots.size,
@@ -93,7 +95,8 @@ function createReport() {
       componentsWithFamilyRoots: components.filter((item) => item.allowedRoots.length > 1).length,
       observedRootAssignments: components.reduce((total, item) => total + item.observedRoots.length, 0),
       observedSupportRootAssignments: components.reduce((total, item) => total + item.observedSupportRoots.length, 0),
-      violations: components.reduce((total, item) => total + item.violations.length, 0),
+      violations,
+      classOwnershipDebt,
     },
     protectedComponentRoots: [...protectedComponentRoots].sort(),
     reactSupportClassRoots: [...reactSupportClassRoots].sort(),
@@ -123,6 +126,7 @@ function toMarkdown(report) {
     `- Observed root assignments: ${report.inventory.observedRootAssignments}`,
     `- Observed support root assignments: ${report.inventory.observedSupportRootAssignments}`,
     `- Violations: ${report.inventory.violations}`,
+    `- Class ownership debt: ${report.inventory.classOwnershipDebt}`,
     "",
     "## Components",
     "",
@@ -167,6 +171,7 @@ function main() {
     observedRootAssignments: report.inventory.observedRootAssignments,
     observedSupportRootAssignments: report.inventory.observedSupportRootAssignments,
     violations: report.inventory.violations,
+    classOwnershipDebt: report.inventory.classOwnershipDebt,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));
