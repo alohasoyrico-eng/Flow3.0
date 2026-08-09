@@ -2,31 +2,33 @@
 
 Status: **pass**
 
-Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic defaults may exist only as visible contract decisions.
+Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic default decisions may exist only when visible and contract-backed. The actionable debt metric is defaultDebt.
 
 ## Inventory
 
 - React components scanned: 56
+- Default debt: 0
 - Prohibited platform defaults: 0
-- Visible semantic defaults: 112
-- Contract-backed semantic defaults: 112
-- Unbacked semantic defaults: 0
-- Semantic default contract gaps: 0
+- Visible semantic default decisions: 112
+- Contract-backed semantic default decisions: 112
+- Unbacked semantic default decisions: 0
+- Semantic default decision contract gaps: 0
 - Inventory baseline mismatches: 0
 - Rule baseline mismatches: 0
 
 ## Baseline Budget
 
-Changing these numbers is a contract decision. Update the baseline only when the new defaults are intentionally reviewed and contract-backed.
+Changing these numbers is a contract decision. defaultDebt must stay at 0; semantic decision counts may change only when the new defaults are intentionally reviewed and contract-backed.
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | components | 56 | 56 |
+| defaultDebt | 0 | 0 |
 | prohibitedDefaults | 0 | 0 |
-| semanticDefaults | 112 | 112 |
-| contractBackedSemanticDefaults | 112 | 112 |
-| unbackedSemanticDefaults | 0 | 0 |
-| semanticDefaultContractGaps | 0 | 0 |
+| semanticDefaultDecisions | 112 | 112 |
+| contractBackedSemanticDefaultDecisions | 112 | 112 |
+| unbackedSemanticDefaultDecisions | 0 | 0 |
+| semanticDefaultDecisionContractGaps | 0 | 0 |
 
 ## Baseline Mismatches
 
@@ -59,7 +61,7 @@ Changing these numbers is a contract decision. Update the baseline only when the
 | --- | ---: | ---: |
 | None | None | None |
 
-## Semantic Default Summary
+## Semantic Default Decision Summary
 
 | Rule | Count | Contract-backed | Unbacked | Meaning |
 | --- | ---: | ---: | ---: | --- |
@@ -84,13 +86,13 @@ Changing these numbers is a contract decision. Update the baseline only when the
 | --- | --- | --- | --- |
 | None | None | None | None |
 
-## Semantic Default Contract Gaps
+## Semantic Default Decision Contract Gaps
 
 | Component | Prop | Default value | React type values | System contract values | Location |
 | --- | --- | --- | --- | --- | --- |
 | None | None | None | None | None | None |
 
-## Semantic Default Contract Evidence
+## Semantic Default Decision Contract Evidence
 
 | Component | Rule | Prop | Default value | React type | System contract | Contract-backed | Location |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -207,7 +209,7 @@ Changing these numbers is a contract decision. Update the baseline only when the
 | Tooltip | state-default | state | default | pass | pass | Yes | packages/react/src/Tooltip.js:21 |
 | TreeView | state-default | state | expanded | pass | pass | Yes | packages/react/src/TreeView.js:41 |
 
-## Visible Semantic Defaults
+## Visible Semantic Default Decisions
 
 | Component | Rule | Prop | Default value | Location | Source |
 | --- | --- | --- | --- | --- | --- |

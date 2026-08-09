@@ -1,15 +1,16 @@
 {
   "status": "pass",
   "audit": "react default governance",
-  "principle": "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic defaults may exist only as visible contract decisions.",
+  "principle": "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic default decisions may exist only when visible and contract-backed. The actionable debt metric is defaultDebt.",
   "baseline": {
     "inventory": {
       "components": 56,
+      "defaultDebt": 0,
       "prohibitedDefaults": 0,
-      "semanticDefaults": 112,
-      "contractBackedSemanticDefaults": 112,
-      "unbackedSemanticDefaults": 0,
-      "semanticDefaultContractGaps": 0
+      "semanticDefaultDecisions": 112,
+      "contractBackedSemanticDefaultDecisions": 112,
+      "unbackedSemanticDefaultDecisions": 0,
+      "semanticDefaultDecisionContractGaps": 0
     },
     "semanticByRule": {
       "state-default": 43,
@@ -32,11 +33,12 @@
   },
   "inventory": {
     "components": 56,
+    "defaultDebt": 0,
     "prohibitedDefaults": 0,
-    "semanticDefaults": 112,
-    "contractBackedSemanticDefaults": 112,
-    "unbackedSemanticDefaults": 0,
-    "semanticDefaultContractGaps": 0,
+    "semanticDefaultDecisions": 112,
+    "contractBackedSemanticDefaultDecisions": 112,
+    "unbackedSemanticDefaultDecisions": 0,
+    "semanticDefaultDecisionContractGaps": 0,
     "semanticByRule": [
       {
         "rule": "state-default",

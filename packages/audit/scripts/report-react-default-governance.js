@@ -23,11 +23,12 @@ const markdownOutput = path.join(outputDir, "react-default-governance-audit.md")
 
 const expectedInventory = {
   components: 56,
+  defaultDebt: 0,
   prohibitedDefaults: 0,
-  semanticDefaults: 112,
-  contractBackedSemanticDefaults: 112,
-  unbackedSemanticDefaults: 0,
-  semanticDefaultContractGaps: 0,
+  semanticDefaultDecisions: 112,
+  contractBackedSemanticDefaultDecisions: 112,
+  unbackedSemanticDefaultDecisions: 0,
+  semanticDefaultDecisionContractGaps: 0,
 };
 
 const expectedSemanticByRule = {
@@ -251,6 +252,7 @@ function createReport() {
   const semanticDefaultContractGaps = semanticDefaultContractEvidence.filter((match) => match.status === "fail");
   const contractBackedSemanticDefaults = semanticDefaultContractEvidence.filter((match) => match.contractBacked).length;
   const unbackedSemanticDefaults = semanticDefaultContractEvidence.length - contractBackedSemanticDefaults;
+  const defaultDebt = prohibitedDefaults.length + unbackedSemanticDefaults + semanticDefaultContractGaps.length;
   const semanticByRule = semanticRules.map((rule) => ({
     rule: rule.id,
     description: rule.description,
@@ -260,11 +262,12 @@ function createReport() {
   }));
   const inventory = {
     components: files.length,
+    defaultDebt,
     prohibitedDefaults: prohibitedDefaults.length,
-    semanticDefaults: semanticDefaults.length,
-    contractBackedSemanticDefaults,
-    unbackedSemanticDefaults,
-    semanticDefaultContractGaps: semanticDefaultContractGaps.length,
+    semanticDefaultDecisions: semanticDefaults.length,
+    contractBackedSemanticDefaultDecisions: contractBackedSemanticDefaults,
+    unbackedSemanticDefaultDecisions: unbackedSemanticDefaults,
+    semanticDefaultDecisionContractGaps: semanticDefaultContractGaps.length,
     semanticByRule,
   };
   const baselineMismatches = Object.entries(expectedInventory)
@@ -284,7 +287,7 @@ function createReport() {
   return {
     status: prohibitedDefaults.length || semanticDefaultContractGaps.length || baselineMismatches.length || semanticRuleBaselineMismatches.length ? "fail" : "pass",
     audit: "react default governance",
-    principle: "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic defaults may exist only as visible contract decisions.",
+    principle: "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic default decisions may exist only when visible and contract-backed. The actionable debt metric is defaultDebt.",
     baseline: {
       inventory: expectedInventory,
       semanticByRule: expectedSemanticByRule,
@@ -319,17 +322,18 @@ function toMarkdown(report) {
     "## Inventory",
     "",
     `- React components scanned: ${report.inventory.components}`,
+    `- Default debt: ${report.inventory.defaultDebt}`,
     `- Prohibited platform defaults: ${report.inventory.prohibitedDefaults}`,
-    `- Visible semantic defaults: ${report.inventory.semanticDefaults}`,
-    `- Contract-backed semantic defaults: ${report.inventory.contractBackedSemanticDefaults}`,
-    `- Unbacked semantic defaults: ${report.inventory.unbackedSemanticDefaults}`,
-    `- Semantic default contract gaps: ${report.inventory.semanticDefaultContractGaps}`,
+    `- Visible semantic default decisions: ${report.inventory.semanticDefaultDecisions}`,
+    `- Contract-backed semantic default decisions: ${report.inventory.contractBackedSemanticDefaultDecisions}`,
+    `- Unbacked semantic default decisions: ${report.inventory.unbackedSemanticDefaultDecisions}`,
+    `- Semantic default decision contract gaps: ${report.inventory.semanticDefaultDecisionContractGaps}`,
     `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
     `- Rule baseline mismatches: ${report.baseline.semanticRuleMismatches.length}`,
     "",
     "## Baseline Budget",
     "",
-    "Changing these numbers is a contract decision. Update the baseline only when the new defaults are intentionally reviewed and contract-backed.",
+    "Changing these numbers is a contract decision. defaultDebt must stay at 0; semantic decision counts may change only when the new defaults are intentionally reviewed and contract-backed.",
     "",
     "| Metric | Expected | Actual |",
     "| --- | ---: | ---: |",
@@ -353,7 +357,7 @@ function toMarkdown(report) {
     "| --- | ---: | ---: |",
     ...(semanticRuleMismatchRows.length ? semanticRuleMismatchRows : ["| None | None | None |"]),
     "",
-    "## Semantic Default Summary",
+    "## Semantic Default Decision Summary",
     "",
     "| Rule | Count | Contract-backed | Unbacked | Meaning |",
     "| --- | ---: | ---: | ---: | --- |",
@@ -365,19 +369,19 @@ function toMarkdown(report) {
     "| --- | --- | --- | --- |",
     ...(prohibitedRows.length ? prohibitedRows : ["| None | None | None | None |"]),
     "",
-    "## Semantic Default Contract Gaps",
+    "## Semantic Default Decision Contract Gaps",
     "",
     "| Component | Prop | Default value | React type values | System contract values | Location |",
     "| --- | --- | --- | --- | --- | --- |",
     ...(semanticGapRows.length ? semanticGapRows : ["| None | None | None | None | None | None |"]),
     "",
-    "## Semantic Default Contract Evidence",
+    "## Semantic Default Decision Contract Evidence",
     "",
     "| Component | Rule | Prop | Default value | React type | System contract | Contract-backed | Location |",
     "| --- | --- | --- | --- | --- | --- | --- | --- |",
     ...semanticEvidenceRows,
     "",
-    "## Visible Semantic Defaults",
+    "## Visible Semantic Default Decisions",
     "",
     "| Component | Rule | Prop | Default value | Location | Source |",
     "| --- | --- | --- | --- | --- | --- |",
@@ -412,10 +416,11 @@ function main() {
     status: report.status,
     components: report.inventory.components,
     prohibitedDefaults: report.inventory.prohibitedDefaults,
-    semanticDefaults: report.inventory.semanticDefaults,
-    contractBackedSemanticDefaults: report.inventory.contractBackedSemanticDefaults,
-    unbackedSemanticDefaults: report.inventory.unbackedSemanticDefaults,
-    semanticDefaultContractGaps: report.inventory.semanticDefaultContractGaps,
+    defaultDebt: report.inventory.defaultDebt,
+    semanticDefaultDecisions: report.inventory.semanticDefaultDecisions,
+    contractBackedSemanticDefaultDecisions: report.inventory.contractBackedSemanticDefaultDecisions,
+    unbackedSemanticDefaultDecisions: report.inventory.unbackedSemanticDefaultDecisions,
+    semanticDefaultDecisionContractGaps: report.inventory.semanticDefaultDecisionContractGaps,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

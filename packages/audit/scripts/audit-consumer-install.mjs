@@ -1217,11 +1217,12 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(defaults, "React default governance");
   assertInventory(defaults, {
     components: 56,
+    defaultDebt: 0,
     prohibitedDefaults: 0,
-    semanticDefaults: 112,
-    contractBackedSemanticDefaults: 112,
-    unbackedSemanticDefaults: 0,
-    semanticDefaultContractGaps: 0,
+    semanticDefaultDecisions: 112,
+    contractBackedSemanticDefaultDecisions: 112,
+    unbackedSemanticDefaultDecisions: 0,
+    semanticDefaultDecisionContractGaps: 0,
   }, "React default governance");
 
   const styles = readAuditReport("docs/audits/react-style-governance-audit.json");
