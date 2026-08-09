@@ -860,6 +860,7 @@ function auditInstalledPackage(consumerDir) {
   if (cssCoverage.direct !== 52 || cssCoverage.family !== 4 || cssCoverage.missing.length) {
     throw new Error(`Installed package must preserve the resolved CSS contract baseline: expected 52 direct, 4 family, 0 missing; got ${cssCoverage.direct} direct, ${cssCoverage.family} family, ${cssCoverage.missing.length} missing.`);
   }
+  assertReactGovernanceBaselines();
   const missingInstalledCssCoverage = goldComponents
     .map((componentId) => {
       const reactComponentName = pascalCase(componentId);
@@ -945,6 +946,93 @@ function missingInheritedDomEscapeOmissions(source) {
     }
   }
   return [...missing].sort();
+}
+
+function assertReactGovernanceBaselines() {
+  const primary = readAuditReport("docs/audits/react-primary-coverage-audit.json");
+  assertReportStatus(primary, "React primary coverage");
+  assertInventory(primary, {
+    components: 56,
+    pass: 56,
+    fail: 0,
+    forwardRef: 56,
+    realTypes: 56,
+    platformContract: 56,
+    densityResolved: 56,
+    restSanitized: 56,
+    noDocsDependency: 56,
+    noDomFactory: 56,
+    publishedImports: 56,
+    cssContractCoverage: 56,
+    directCssContracts: 52,
+    familyCssContracts: 4,
+  }, "React primary coverage");
+
+  const defaults = readAuditReport("docs/audits/react-default-governance-audit.json");
+  assertReportStatus(defaults, "React default governance");
+  assertInventory(defaults, {
+    components: 56,
+    prohibitedDefaults: 0,
+    semanticDefaults: 112,
+    contractBackedSemanticDefaults: 112,
+    unbackedSemanticDefaults: 0,
+    semanticDefaultContractGaps: 0,
+  }, "React default governance");
+
+  const styles = readAuditReport("docs/audits/react-style-governance-audit.json");
+  assertReportStatus(styles, "React style governance");
+  assertInventory(styles, {
+    components: 56,
+    approvedInlineVars: 10,
+    styleProps: 10,
+    setPropertyCalls: 2,
+    violations: 0,
+  }, "React style governance");
+
+  const controlled = readAuditReport("docs/audits/react-controlled-governance-audit.json");
+  assertReportStatus(controlled, "React controlled governance");
+  assertInventory(controlled, {
+    components: 56,
+    controlledComponents: 29,
+    openControlledComponents: 10,
+    totalControlledEdges: 38,
+    totalTestCoveredEdges: 38,
+    failures: 0,
+  }, "React controlled governance");
+
+  const interactions = readAuditReport("docs/audits/react-interaction-coverage-audit.json");
+  assertReportStatus(interactions, "React interaction coverage");
+  assertInventory(interactions, {
+    components: 56,
+    withCallbacks: 40,
+    pass: 56,
+    review: 0,
+    fail: 0,
+    missingTestCallbacks: 0,
+    missingEventParams: 0,
+    manualAccessibilityCritical: 10,
+    manualAccessibilityCriticalPass: 10,
+  }, "React interaction coverage");
+}
+
+function readAuditReport(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(root, relativePath), "utf8"));
+}
+
+function assertReportStatus(report, label) {
+  if (report.status !== "pass") {
+    throw new Error(`${label} report must pass before package consumer adoption.`);
+  }
+}
+
+function assertInventory(report, expected, label) {
+  const inventory = report.inventory ?? {};
+  const mismatches = Object.entries(expected)
+    .filter(([key, value]) => inventory[key] !== value)
+    .map(([key, value]) => `${key}: expected ${value}, got ${inventory[key]}`);
+  if (mismatches.length) {
+    throw new Error(`${label} inventory baseline changed: ${mismatches.join(", ")}.`);
+  }
 }
 
 function exportTargets(value) {
