@@ -58,6 +58,10 @@ function sameValues(left, right) {
   return leftValues.length === rightValues.length && leftValues.every((value, index) => value === rightValues[index]);
 }
 
+function sourceReferencesProp(source, propName) {
+  return new RegExp(`\\b${propName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(source);
+}
+
 function componentFiles() {
   if (!fs.existsSync(reactSrcDir)) return [];
   return fs.readdirSync(reactSrcDir)
@@ -71,6 +75,7 @@ function createReport() {
   const components = componentFiles().map((sourceFile) => {
     const component = path.basename(sourceFile, ".js");
     const typesFile = path.join(reactSrcDir, `${component}.d.ts`);
+    const source = read(sourceFile);
     const types = fs.existsSync(typesFile) ? read(typesFile) : "";
     const contractKey = lowerFirst(component);
     const contractBody = contractBodyFor(contractsSource, contractKey);
@@ -109,12 +114,15 @@ function createReport() {
         reactValues: reactAllowedValues(types, component, contractProp.name),
       }))
       .filter((item) => item.contractValues.length && item.reactValues.length && !sameValues(item.contractValues, item.reactValues));
+    const publicPropsExpectedInSource = sortedUnique(reactPublicPropNames.concat(semanticInheritedProps));
+    const unreferencedPublicProps = publicPropsExpectedInSource.filter((propName) => !sourceReferencesProp(source, propName));
     const failures = [
       ...extraReactProps.map((prop) => `extra React prop ${prop}`),
       ...semanticInheritedMissingFromContract.map((prop) => `semantic inherited prop missing from contract ${prop}`),
       ...missingReactProps.map((prop) => `contract prop missing from React ${prop}`),
       ...requiredMismatches.map((prop) => `required mismatch ${prop}`),
       ...typeValueMismatches.map((item) => `type values mismatch ${item.prop}`),
+      ...unreferencedPublicProps.map((prop) => `public prop not referenced in implementation ${prop}`),
     ];
     return {
       component,
@@ -130,6 +138,8 @@ function createReport() {
       semanticInheritedMissingFromContract,
       requiredMismatches,
       typeValueMismatches,
+      publicPropsExpectedInSource,
+      unreferencedPublicProps,
       failures,
       status: failures.length ? "fail" : "pass",
     };
@@ -150,13 +160,15 @@ function createReport() {
       missingReactProps: components.reduce((total, component) => total + component.missingReactProps.length, 0),
       requiredMismatches: components.reduce((total, component) => total + component.requiredMismatches.length, 0),
       typeValueMismatches: components.reduce((total, component) => total + component.typeValueMismatches.length, 0),
+      publicPropsExpectedInSource: components.reduce((total, component) => total + component.publicPropsExpectedInSource.length, 0),
+      unreferencedPublicProps: components.reduce((total, component) => total + component.unreferencedPublicProps.length, 0),
     },
     components,
   };
 }
 
 function toMarkdown(report) {
-  const componentRows = report.components.map((component) => `| ${component.component} | ${component.status} | ${component.contractProps.length} | ${component.publicReactProps.length} | ${component.extraReactProps.join(", ") || "None"} | ${component.missingReactProps.join(", ") || "None"} | ${component.requiredMismatches.join(", ") || "None"} | ${component.typeValueMismatches.map((item) => item.prop).join(", ") || "None"} |`);
+  const componentRows = report.components.map((component) => `| ${component.component} | ${component.status} | ${component.contractProps.length} | ${component.publicReactProps.length} | ${component.publicPropsExpectedInSource.length} | ${component.extraReactProps.join(", ") || "None"} | ${component.missingReactProps.join(", ") || "None"} | ${component.requiredMismatches.join(", ") || "None"} | ${component.typeValueMismatches.map((item) => item.prop).join(", ") || "None"} | ${component.unreferencedPublicProps.join(", ") || "None"} |`);
   const failureRows = report.components.flatMap((component) => component.failures.map((failure) => `| ${component.component} | ${failure} |`));
   const typeValueRows = report.components.flatMap((component) => component.typeValueMismatches.map((item) => `| ${component.component} | ${item.prop} | ${item.contractValues.join(", ")} | ${item.reactValues.join(", ")} |`));
   return [
@@ -179,11 +191,13 @@ function toMarkdown(report) {
     `- Missing React props: ${report.inventory.missingReactProps}`,
     `- Required mismatches: ${report.inventory.requiredMismatches}`,
     `- Type value mismatches: ${report.inventory.typeValueMismatches}`,
+    `- Public props expected in source: ${report.inventory.publicPropsExpectedInSource}`,
+    `- Unreferenced public props: ${report.inventory.unreferencedPublicProps}`,
     "",
     "## Components",
     "",
-    "| Component | Status | Contract props | React props | Extra React props | Missing React props | Required mismatches | Type value mismatches |",
-    "| --- | --- | ---: | ---: | --- | --- | --- | --- |",
+    "| Component | Status | Contract props | React props | Source props | Extra React props | Missing React props | Required mismatches | Type value mismatches | Unreferenced public props |",
+    "| --- | --- | ---: | ---: | ---: | --- | --- | --- | --- | --- |",
     ...componentRows,
     "",
     "## Type Value Mismatches",
@@ -232,6 +246,8 @@ function main() {
     missingReactProps: report.inventory.missingReactProps,
     requiredMismatches: report.inventory.requiredMismatches,
     typeValueMismatches: report.inventory.typeValueMismatches,
+    publicPropsExpectedInSource: report.inventory.publicPropsExpectedInSource,
+    unreferencedPublicProps: report.inventory.unreferencedPublicProps,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));
