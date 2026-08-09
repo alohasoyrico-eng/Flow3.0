@@ -20,6 +20,7 @@ const React = await import("react");
 const { cleanup, render } = await import("@testing-library/react");
 const reactComponents = await import("../src/index.js");
 const { componentContracts } = await import("@design-system/components/contracts");
+const platformContracts = await import("@design-system/components/platforms");
 
 function componentNameFromFactory(factory) {
   const slug = String(factory ?? "").split("/").pop();
@@ -95,13 +96,31 @@ function valueForRequiredProp(name) {
   }
 }
 
+function hasClasses(element, classNames) {
+  return classNames.every((className) => element.classList.contains(className));
+}
+
+function contractualRefTarget(element, rootClass) {
+  const rootClasses = String(rootClass).split(/\s+/).filter(Boolean);
+  for (let node = element; node; node = node.parentElement) {
+    if (hasClasses(node, rootClasses)) return node;
+  }
+  return null;
+}
+
 const failures = [];
 
 for (const [id, contract] of Object.entries(componentContracts)) {
   const componentName = componentNameFromFactory(contract.factory);
   const Component = reactComponents[componentName];
+  const platformContract = platformContracts[`${id}PlatformContract`];
+  const rootClass = platformContract?.source?.cssClass;
   if (!Component) {
     failures.push(`${id}: missing React export ${componentName}`);
+    continue;
+  }
+  if (!rootClass) {
+    failures.push(`${id}: missing platform root cssClass`);
     continue;
   }
 
@@ -112,6 +131,7 @@ for (const [id, contract] of Object.entries(componentContracts)) {
       ref,
     }));
     assert.ok(ref.current instanceof HTMLElement, `${componentName} did not forward ref to an HTMLElement`);
+    assert.ok(contractualRefTarget(ref.current, rootClass), `${componentName} forwarded ref outside contractual root .${rootClass}: ${ref.current.className || ref.current.tagName}`);
   } catch (error) {
     failures.push(`${componentName}: ${error.message}`);
   } finally {
