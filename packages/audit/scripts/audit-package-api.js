@@ -154,6 +154,12 @@ function checkPackageApiBoundary() {
   for (const requiredExport of installExports) {
     if (!rootExports[requiredExport]) add("errors", packageJsonFile, 1, `Root package exports missing install surface: ${requiredExport}.`);
   }
+  const rootExportKeys = Object.keys(rootExports).sort();
+  const expectedRootExportKeys = [...installExports].sort();
+  const extraRootExports = rootExportKeys.filter((entry) => !expectedRootExportKeys.includes(entry));
+  if (extraRootExports.length) {
+    add("errors", packageJsonFile, 1, `Root package exports include ungoverned public subpaths: ${extraRootExports.join(", ")}.`);
+  }
   for (const [exportPath, exportValue] of Object.entries(rootExports)) {
     for (const target of exportTargets(exportValue)) {
       if (!target.startsWith("./")) {
