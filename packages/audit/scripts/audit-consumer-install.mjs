@@ -1290,6 +1290,22 @@ function assertReactGovernanceBaselines() {
     classOwnershipDebt: 0,
   }, "React class ownership");
 
+  const antiDuplication = readAuditReport("docs/audits/anti-duplication-coverage.json");
+  assertReportStatus(antiDuplication, "Anti-duplication coverage");
+  assertInventory(antiDuplication, {
+    checks: 6,
+    componentClassRoots: 59,
+    acceptedComponents: 56,
+    ownerRoots: 56,
+    missingOwnerRoots: 0,
+    extensionRoots: 3,
+    protectedComponentRoots: 6,
+    blockedConceptRules: 2,
+    liveDuplicateConceptViolations: 0,
+    docsApps: 1,
+    antiDuplicationDebt: 0,
+  }, "Anti-duplication coverage");
+
   const packageCssRoots = readAuditReport("docs/audits/package-css-root-governance-audit.json");
   assertReportStatus(packageCssRoots, "Package CSS root governance");
   assertInventory(packageCssRoots, {

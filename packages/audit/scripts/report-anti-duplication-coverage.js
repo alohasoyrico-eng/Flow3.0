@@ -20,6 +20,7 @@ const expectedInventory = {
   blockedConceptRules: 2,
   liveDuplicateConceptViolations: 0,
   docsApps: 1,
+  antiDuplicationDebt: 0,
 };
 
 const expectedExtensionRoots = ["choice", "country-flag", "select-control"];
@@ -85,6 +86,8 @@ function renderMarkdown(report) {
     "",
     `Status: ${report.status}`,
     "",
+    report.principle,
+    "",
     `- Component class roots protected: ${report.componentClassRoots.length}`,
     `- Accepted components with owner roots: ${report.rootRegistry.ownerRoots}/${report.rootRegistry.acceptedComponents}`,
     `- Missing owner roots: ${report.rootRegistry.missingOwnerRoots.length}`,
@@ -93,6 +96,7 @@ function renderMarkdown(report) {
     `- Blocked concept rules: ${report.blockedConceptRules.length}`,
     `- Live duplicate concept violations: ${report.liveDuplicateConceptViolations.length}`,
     `- Docs apps scanned: ${report.docsApps.join(", ") || "none"}`,
+    `- Anti-duplication debt: ${report.inventory.antiDuplicationDebt}`,
     `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
     "",
     "## Baseline Budget",
@@ -154,6 +158,7 @@ function main() {
     blockedConceptRules: coverage.blockedConceptRules.length,
     liveDuplicateConceptViolations: coverage.liveDuplicateConceptViolations.length,
     docsApps: coverage.docsApps.length,
+    antiDuplicationDebt: 0,
   };
   const baselineMismatches = [
     ...Object.entries(expectedInventory)
@@ -172,9 +177,15 @@ function main() {
       : []),
     ...blockedConceptRuleMismatches(coverage.blockedConceptRules),
   ];
+  actualInventory.antiDuplicationDebt = result.errors.length
+    + actualInventory.missingOwnerRoots
+    + actualInventory.liveDuplicateConceptViolations
+    + baselineMismatches.length;
   const report = {
-    status: result.errors.length || baselineMismatches.length ? "fail" : "pass",
+    status: actualInventory.antiDuplicationDebt ? "fail" : "pass",
     errors: result.errors,
+    inventory: actualInventory,
+    principle: "Flow must have one visual owner per component concept; owner roots, protected roots, duplicate concept rules, and docs scans cannot drift silently. The actionable debt metric is antiDuplicationDebt.",
     baseline: {
       inventory: expectedInventory,
       actual: actualInventory,
@@ -211,6 +222,7 @@ function main() {
     protectedComponentRoots: report.protectedComponentRoots.length,
     blockedConceptRules: report.blockedConceptRules.length,
     liveDuplicateConceptViolations: report.liveDuplicateConceptViolations.length,
+    antiDuplicationDebt: report.inventory.antiDuplicationDebt,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

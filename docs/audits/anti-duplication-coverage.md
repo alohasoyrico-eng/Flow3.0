@@ -2,6 +2,8 @@
 
 Status: pass
 
+Flow must have one visual owner per component concept; owner roots, protected roots, duplicate concept rules, and docs scans cannot drift silently. The actionable debt metric is antiDuplicationDebt.
+
 - Component class roots protected: 59
 - Accepted components with owner roots: 56/56
 - Missing owner roots: 0
@@ -10,6 +12,7 @@ Status: pass
 - Blocked concept rules: 2
 - Live duplicate concept violations: 0
 - Docs apps scanned: ../FlowDocs/apps/docs
+- Anti-duplication debt: 0
 - Inventory baseline mismatches: 0
 
 ## Baseline Budget
@@ -28,6 +31,7 @@ Changing these numbers is a contract decision. Owner roots, extension roots, pro
 | blockedConceptRules | 2 | 2 |
 | liveDuplicateConceptViolations | 0 | 0 |
 | docsApps | 1 | 1 |
+| antiDuplicationDebt | 0 | 0 |
 
 ## Baseline Mismatches
 

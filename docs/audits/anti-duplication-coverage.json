@@ -1,6 +1,20 @@
 {
   "status": "pass",
   "errors": [],
+  "inventory": {
+    "checks": 6,
+    "componentClassRoots": 59,
+    "acceptedComponents": 56,
+    "ownerRoots": 56,
+    "missingOwnerRoots": 0,
+    "extensionRoots": 3,
+    "protectedComponentRoots": 6,
+    "blockedConceptRules": 2,
+    "liveDuplicateConceptViolations": 0,
+    "docsApps": 1,
+    "antiDuplicationDebt": 0
+  },
+  "principle": "Flow must have one visual owner per component concept; owner roots, protected roots, duplicate concept rules, and docs scans cannot drift silently. The actionable debt metric is antiDuplicationDebt.",
   "baseline": {
     "inventory": {
       "checks": 6,
@@ -12,7 +26,8 @@
       "protectedComponentRoots": 6,
       "blockedConceptRules": 2,
       "liveDuplicateConceptViolations": 0,
-      "docsApps": 1
+      "docsApps": 1,
+      "antiDuplicationDebt": 0
     },
     "actual": {
       "checks": 6,
@@ -24,7 +39,8 @@
       "protectedComponentRoots": 6,
       "blockedConceptRules": 2,
       "liveDuplicateConceptViolations": 0,
-      "docsApps": 1
+      "docsApps": 1,
+      "antiDuplicationDebt": 0
     },
     "extensionRoots": [
       "choice",
