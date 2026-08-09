@@ -9,8 +9,70 @@
     "allowedEntries": 23,
     "unexpectedImports": 0,
     "missingImports": 0,
-    "missingReasons": 0
+    "missingReasons": 0,
+    "duplicateAllowed": 0,
+    "unknownAllowed": 0,
+    "unknownContractOwners": 0
   },
+  "knownComponents": [
+    "Accordion",
+    "AnimatedMoment",
+    "AuditEvent",
+    "Avatar",
+    "Badge",
+    "BiometricPrompt",
+    "Breadcrumbs",
+    "Button",
+    "Card",
+    "CardExpiryInput",
+    "CardNumberInput",
+    "CardSecurityCodeInput",
+    "CardSummary",
+    "ChartPanel",
+    "Checkbox",
+    "Chip",
+    "CodeInput",
+    "Combobox",
+    "CountrySelector",
+    "DatePicker",
+    "DateRangePicker",
+    "Dialog",
+    "Drawer",
+    "EmptyState",
+    "ErrorPanel",
+    "FloatingActionButton",
+    "IconButton",
+    "InlineValidation",
+    "Input",
+    "KpiTile",
+    "List",
+    "Menu",
+    "MotionBoundary",
+    "MovementRow",
+    "Pagination",
+    "PhoneInput",
+    "Popover",
+    "ProgressIndicator",
+    "QuickAction",
+    "RadioButton",
+    "RouteSummary",
+    "SegmentedControl",
+    "Select",
+    "Skeleton",
+    "Slider",
+    "Spinner",
+    "StationPin",
+    "Stepper",
+    "Switch",
+    "Table",
+    "Tabs",
+    "Tag",
+    "TextArea",
+    "Toast",
+    "Tooltip",
+    "TreeView"
+  ],
+  "unknownContractOwners": [],
   "edges": [
     {
       "from": "BiometricPrompt",
@@ -218,6 +280,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -229,6 +293,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -240,6 +306,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -251,6 +319,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -262,6 +332,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -279,6 +351,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -290,6 +364,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -307,6 +383,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -330,6 +408,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -347,6 +427,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -364,6 +446,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -381,6 +465,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -398,6 +484,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -409,6 +497,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -420,6 +510,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -431,6 +523,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -442,6 +536,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -453,6 +549,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -464,6 +562,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -475,6 +575,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -486,6 +588,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -509,6 +613,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -538,6 +644,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -558,6 +666,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -578,6 +688,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -595,6 +707,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -606,6 +720,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -623,6 +739,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -640,6 +758,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -651,6 +771,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -662,6 +784,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -685,6 +809,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -696,6 +822,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -707,6 +835,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -718,6 +848,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -735,6 +867,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -755,6 +889,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -766,6 +902,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -786,6 +924,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -797,6 +937,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -817,6 +959,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -828,6 +972,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -839,6 +985,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -850,6 +998,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -861,6 +1011,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -872,6 +1024,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -883,6 +1037,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -894,6 +1050,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -905,6 +1063,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -922,6 +1082,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -939,6 +1101,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -950,6 +1114,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -961,6 +1127,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -981,6 +1149,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -992,6 +1162,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     },
     {
@@ -1009,6 +1181,8 @@
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
       "status": "pass"
     }
   ]

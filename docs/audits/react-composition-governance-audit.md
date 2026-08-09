@@ -13,34 +13,41 @@ React components may compose other Flow React components only through an explici
 - Unexpected imports: 0
 - Missing expected imports: 0
 - Missing composition reasons: 0
+- Duplicate allowed edges: 0
+- Unknown allowed targets: 0
+- Unknown contract owners: 0
 
 ## Components
 
-| Component | Status | Allowed | Actual | Unexpected | Missing | Missing reasons |
-| --- | --- | --- | --- | --- | --- | --- |
-| BiometricPrompt | pass | Button | Button | None | None | None |
-| Button | pass | Spinner | Spinner | None | None | None |
-| Card | pass | Button, IconButton, Spinner | Button, IconButton, Spinner | None | None | None |
-| CardExpiryInput | pass | Spinner | Spinner | None | None | None |
-| CardNumberInput | pass | Spinner | Spinner | None | None | None |
-| CardSecurityCodeInput | pass | Spinner | Spinner | None | None | None |
-| CardSummary | pass | Badge | Badge | None | None | None |
-| Dialog | pass | Button, IconButton, Input | Button, IconButton, Input | None | None | None |
-| Drawer | pass | Badge, Button, IconButton, Input, ProgressIndicator | Badge, Button, IconButton, Input, ProgressIndicator | None | None | None |
-| EmptyState | pass | Button, Spinner | Button, Spinner | None | None | None |
-| ErrorPanel | pass | Button, Spinner | Button, Spinner | None | None | None |
-| FloatingActionButton | pass | Spinner | Spinner | None | None | None |
-| InlineValidation | pass | Input | Input | None | None | None |
-| Input | pass | Spinner | Spinner | None | None | None |
-| Menu | pass | Avatar, Button, IconButton | Avatar, Button, IconButton | None | None | None |
-| PhoneInput | pass | CountrySelector | CountrySelector | None | None | None |
-| Popover | pass | Button, Input | Button, Input | None | None | None |
-| QuickAction | pass | Badge, Spinner | Badge, Spinner | None | None | None |
-| RouteSummary | pass | Button, IconButton | Button, IconButton | None | None | None |
-| Table | pass | Badge | Badge | None | None | None |
-| Tabs | pass | Badge | Badge | None | None | None |
-| Toast | pass | Button, IconButton | Button, IconButton | None | None | None |
-| TreeView | pass | Button | Button | None | None | None |
+| Component | Status | Allowed | Actual | Unexpected | Missing | Missing reasons | Duplicate allowed | Unknown targets |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| BiometricPrompt | pass | Button | Button | None | None | None | None | None |
+| Button | pass | Spinner | Spinner | None | None | None | None | None |
+| Card | pass | Button, IconButton, Spinner | Button, IconButton, Spinner | None | None | None | None | None |
+| CardExpiryInput | pass | Spinner | Spinner | None | None | None | None | None |
+| CardNumberInput | pass | Spinner | Spinner | None | None | None | None | None |
+| CardSecurityCodeInput | pass | Spinner | Spinner | None | None | None | None | None |
+| CardSummary | pass | Badge | Badge | None | None | None | None | None |
+| Dialog | pass | Button, IconButton, Input | Button, IconButton, Input | None | None | None | None | None |
+| Drawer | pass | Badge, Button, IconButton, Input, ProgressIndicator | Badge, Button, IconButton, Input, ProgressIndicator | None | None | None | None | None |
+| EmptyState | pass | Button, Spinner | Button, Spinner | None | None | None | None | None |
+| ErrorPanel | pass | Button, Spinner | Button, Spinner | None | None | None | None | None |
+| FloatingActionButton | pass | Spinner | Spinner | None | None | None | None | None |
+| InlineValidation | pass | Input | Input | None | None | None | None | None |
+| Input | pass | Spinner | Spinner | None | None | None | None | None |
+| Menu | pass | Avatar, Button, IconButton | Avatar, Button, IconButton | None | None | None | None | None |
+| PhoneInput | pass | CountrySelector | CountrySelector | None | None | None | None | None |
+| Popover | pass | Button, Input | Button, Input | None | None | None | None | None |
+| QuickAction | pass | Badge, Spinner | Badge, Spinner | None | None | None | None | None |
+| RouteSummary | pass | Button, IconButton | Button, IconButton | None | None | None | None | None |
+| Table | pass | Badge | Badge | None | None | None | None | None |
+| Tabs | pass | Badge | Badge | None | None | None | None | None |
+| Toast | pass | Button, IconButton | Button, IconButton | None | None | None | None | None |
+| TreeView | pass | Button | Button | None | None | None | None | None |
+
+## Unknown Contract Owners
+
+- None
 
 ## Edges
 
