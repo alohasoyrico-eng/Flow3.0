@@ -4,10 +4,10 @@
   "principle": "Controlled React props must be explicit in source and covered by external rerender tests so product code can own state without hidden uncontrolled drift.",
   "inventory": {
     "components": 56,
-    "controlledComponents": 28,
+    "controlledComponents": 29,
     "openControlledComponents": 10,
-    "controlledPropEdges": 25,
-    "testCoveredEdges": 25,
+    "controlledPropEdges": 28,
+    "testCoveredEdges": 28,
     "failures": 0
   },
   "components": [
@@ -754,6 +754,12 @@
           "testCovered": true
         },
         {
+          "prop": "sortDir",
+          "marker": "isSortControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        },
+        {
           "prop": "expandedKey",
           "marker": "isExpandedKeyControlled",
           "sourceControlled": true,
@@ -821,7 +827,14 @@
         "sourceControlled": false,
         "testCovered": false
       },
-      "controlledProps": [],
+      "controlledProps": [
+        {
+          "prop": "dismissed",
+          "marker": "isDismissedControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
       "failures": [],
       "status": "pass"
     },
@@ -849,6 +862,12 @@
         {
           "prop": "selectedKey",
           "marker": "isSelectedKeyControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        },
+        {
+          "prop": "expandedKeys",
+          "marker": "isExpandedKeysControlled",
           "sourceControlled": true,
           "testCovered": true
         }

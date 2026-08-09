@@ -21,9 +21,12 @@ const controlledMarkers = [
   { marker: "isCheckedControlled", prop: "checked" },
   { marker: "isSelectedKeyControlled", prop: "selectedKey" },
   { marker: "isSortControlled", prop: "sortKey" },
+  { marker: "isSortControlled", prop: "sortDir" },
   { marker: "isExpandedKeyControlled", prop: "expandedKey" },
+  { marker: "isExpandedKeysControlled", prop: "expandedKeys" },
   { marker: "isExpandedIdsControlled", prop: "expandedIds" },
   { marker: "isPageControlled", prop: "page" },
+  { marker: "isDismissedControlled", prop: "dismissed" },
 ];
 
 function componentFiles() {

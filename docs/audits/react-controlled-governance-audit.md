@@ -7,10 +7,10 @@ Controlled React props must be explicit in source and covered by external rerend
 ## Inventory
 
 - React components scanned: 56
-- Controlled components: 28
+- Controlled components: 29
 - Open-controlled components: 10
-- Controlled prop edges: 25
-- Tested controlled prop edges: 25
+- Controlled prop edges: 28
+- Tested controlled prop edges: 28
 - Failures: 0
 
 ## Components
@@ -40,9 +40,10 @@ Controlled React props must be explicit in source and covered by external rerend
 | Select | pass | yes | yes | yes | value:tested | None |
 | Slider | pass | no | no | no | value:tested | None |
 | Switch | pass | no | no | no | checked:tested | None |
-| Table | pass | no | no | no | selectedKey:tested, sortKey:tested, expandedKey:tested | None |
+| Table | pass | no | no | no | selectedKey:tested, sortKey:tested, sortDir:tested, expandedKey:tested | None |
 | Tabs | pass | no | no | no | selectedKey:tested | None |
 | TextArea | pass | no | no | no | value:tested | None |
+| Toast | pass | no | no | no | dismissed:tested | None |
 | Tooltip | pass | yes | yes | yes | None | None |
-| TreeView | pass | no | no | no | selectedKey:tested | None |
+| TreeView | pass | no | no | no | selectedKey:tested, expandedKeys:tested | None |
 
