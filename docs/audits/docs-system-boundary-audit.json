@@ -10,8 +10,8 @@
     "flowBoundaryAliases": 18,
     "missingFlowAliases": 0,
     "localFlowImportViolations": 2,
-    "docsComponentTokenDefinitions": 39,
-    "docsComponentTokenDefinitionFiles": 2,
+    "docsComponentTokenDefinitions": 0,
+    "docsComponentTokenDefinitionFiles": 0,
     "generatedComponentCssPresent": 1,
     "generatedTokenCssPresent": 1
   },
@@ -23,8 +23,8 @@
       "flowBoundaryAliases": 18,
       "missingFlowAliases": 0,
       "localFlowImportViolations": 2,
-      "docsComponentTokenDefinitions": 39,
-      "docsComponentTokenDefinitionFiles": 2,
+      "docsComponentTokenDefinitions": 0,
+      "docsComponentTokenDefinitionFiles": 0,
       "generatedComponentCssPresent": 1,
       "generatedTokenCssPresent": 1
     },
@@ -44,201 +44,5 @@
       "value": "packages/specs"
     }
   ],
-  "docsComponentTokenDefinitions": [
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 34,
-      "token": "--comp-playground-check-size"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 35,
-      "token": "--comp-playground-check-radius"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 36,
-      "token": "--comp-playground-check-border"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 37,
-      "token": "--comp-playground-check-border-active"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 38,
-      "token": "--comp-playground-check-bg"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 39,
-      "token": "--comp-playground-check-bg-active"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 40,
-      "token": "--comp-playground-check-icon"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 41,
-      "token": "--comp-playground-check-focus"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 42,
-      "token": "--comp-playground-check-offset"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-      "line": 43,
-      "token": "--comp-playground-check-transition"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 2,
-      "token": "--comp-tabs-gap"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 3,
-      "token": "--comp-tabs-padding"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 4,
-      "token": "--comp-tabs-border"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 5,
-      "token": "--comp-tabs-radius"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 6,
-      "token": "--comp-tabs-bg"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 7,
-      "token": "--comp-tabs-tab-height"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 8,
-      "token": "--comp-tabs-tab-padding-x"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 9,
-      "token": "--comp-tabs-tab-radius"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 10,
-      "token": "--comp-tabs-tab-bg"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 11,
-      "token": "--comp-tabs-tab-bg-selected"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 12,
-      "token": "--comp-tabs-tab-text"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 13,
-      "token": "--comp-tabs-tab-text-selected"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 14,
-      "token": "--comp-tabs-underline-color"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 15,
-      "token": "--comp-tabs-underline-border"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 16,
-      "token": "--comp-tabs-font-size"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 17,
-      "token": "--comp-tabs-font-weight"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 18,
-      "token": "--comp-tabs-font-weight-selected"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 19,
-      "token": "--comp-tabs-overflow"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 20,
-      "token": "--comp-tabs-focus-ring"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 21,
-      "token": "--comp-tabs-focus-offset"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 22,
-      "token": "--comp-tabs-badge-gap"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 23,
-      "token": "--comp-tabs-indicator-left"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 24,
-      "token": "--comp-tabs-indicator-width"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 25,
-      "token": "--comp-tabs-indicator-block"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 26,
-      "token": "--comp-tabs-indicator-transition"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 123,
-      "token": "--comp-tabs-indicator-block"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 146,
-      "token": "--comp-tabs-overflow"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 241,
-      "token": "--comp-tabs-tab-padding-x"
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-      "line": 247,
-      "token": "--comp-tabs-indicator-transition"
-    }
-  ]
+  "docsComponentTokenDefinitions": []
 }
