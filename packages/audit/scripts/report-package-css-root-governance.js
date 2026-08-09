@@ -31,6 +31,7 @@ const expectedInventory = {
   unobservedComponentRoots: 0,
   classifiedNonComponentRoots: 8,
   unclassifiedRoots: 0,
+  packageCssRootDebt: 0,
 };
 
 function aliasRootEvidence(cssSource) {
@@ -81,6 +82,7 @@ function createReport() {
     unobservedComponentRoots: unobservedComponentRoots.length,
     classifiedNonComponentRoots: classifiedRoots.length,
     unclassifiedRoots: unclassifiedRoots.length,
+    packageCssRootDebt: 0,
   };
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => reportInventory[key] !== expected)
@@ -89,11 +91,15 @@ function createReport() {
       expected,
       actual: reportInventory[key],
     }));
+  reportInventory.packageCssRootDebt = reportInventory.unknownComponentAliases
+    + reportInventory.unobservedComponentRoots
+    + reportInventory.unclassifiedRoots
+    + baselineMismatches.length;
 
   return {
-    status: unclassifiedRoots.length || unobservedComponentRoots.length || aliasEvidence.unknownAliases.length || baselineMismatches.length ? "fail" : "pass",
+    status: reportInventory.packageCssRootDebt ? "fail" : "pass",
     audit: "package CSS root governance",
-    principle: "Every root class and --comp-* alias in the package stylesheet must map to a known component, observed React root, or explicitly classified shared primitive/bridge; unclassified, unobserved, or unknown aliases indicate accidental visual implementations.",
+    principle: "Every root class and --comp-* alias in the package stylesheet must map to a known component, observed React root, or explicitly classified shared primitive/bridge; unclassified, unobserved, or unknown aliases indicate accidental visual implementations. The actionable debt metric is packageCssRootDebt.",
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
@@ -141,6 +147,7 @@ function toMarkdown(report) {
     `- Component roots not observed by React: ${report.inventory.unobservedComponentRoots}`,
     `- Classified non-component roots: ${report.inventory.classifiedNonComponentRoots}`,
     `- Unclassified roots: ${report.inventory.unclassifiedRoots}`,
+    `- Package CSS root debt: ${report.inventory.packageCssRootDebt}`,
     `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
     "",
     "## Baseline Budget",
@@ -223,6 +230,7 @@ function main() {
     unobservedComponentRoots: report.unobservedComponentRoots,
     classifiedNonComponentRoots: report.inventory.classifiedNonComponentRoots,
     unclassifiedRoots: report.unclassifiedRoots,
+    packageCssRootDebt: report.inventory.packageCssRootDebt,
     json: rel(jsonOutput),
     markdown: rel(markdownOutput),
   }, null, 2));

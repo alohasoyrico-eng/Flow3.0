@@ -2,7 +2,7 @@
 
 Status: **pass**
 
-Every root class and --comp-* alias in the package stylesheet must map to a known component, observed React root, or explicitly classified shared primitive/bridge; unclassified, unobserved, or unknown aliases indicate accidental visual implementations.
+Every root class and --comp-* alias in the package stylesheet must map to a known component, observed React root, or explicitly classified shared primitive/bridge; unclassified, unobserved, or unknown aliases indicate accidental visual implementations. The actionable debt metric is packageCssRootDebt.
 
 ## Inventory
 
@@ -17,6 +17,7 @@ Every root class and --comp-* alias in the package stylesheet must map to a know
 - Component roots not observed by React: 0
 - Classified non-component roots: 8
 - Unclassified roots: 0
+- Package CSS root debt: 0
 - Inventory baseline mismatches: 0
 
 ## Baseline Budget
@@ -35,6 +36,7 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 | unobservedComponentRoots | 0 | 0 |
 | classifiedNonComponentRoots | 8 | 8 |
 | unclassifiedRoots | 0 | 0 |
+| packageCssRootDebt | 0 | 0 |
 
 ## Baseline Mismatches
 

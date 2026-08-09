@@ -1290,6 +1290,22 @@ function assertReactGovernanceBaselines() {
     classOwnershipDebt: 0,
   }, "React class ownership");
 
+  const packageCssRoots = readAuditReport("docs/audits/package-css-root-governance-audit.json");
+  assertReportStatus(packageCssRoots, "Package CSS root governance");
+  assertInventory(packageCssRoots, {
+    selectors: 1169,
+    componentAliases: 3221,
+    componentAliasRoots: 62,
+    unknownComponentAliases: 0,
+    cssRoots: 66,
+    componentRoots: 58,
+    observedComponentRoots: 58,
+    unobservedComponentRoots: 0,
+    classifiedNonComponentRoots: 8,
+    unclassifiedRoots: 0,
+    packageCssRootDebt: 0,
+  }, "Package CSS root governance");
+
   const propAlignment = readAuditReport("docs/audits/react-contract-prop-alignment-audit.json");
   assertReportStatus(propAlignment, "React contract prop alignment");
   assertInventory(propAlignment, {
