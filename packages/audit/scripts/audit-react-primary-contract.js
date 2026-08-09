@@ -163,6 +163,9 @@ function checkReactComponent(file, shared) {
   if (!shared.reactTypesIndex.includes(`${propsName}`)) {
     add("errors", reactTypesIndexFile, 1, `React type index must export ${propsName}.`);
   }
+  if (!shared.reactTypesIndex.includes(`${componentName}`)) {
+    add("errors", reactTypesIndexFile, 1, `React type index must export ${componentName} so consumers can type component references without deep imports.`);
+  }
   const reactExport = shared.reactPackage.exports?.[packagePath];
   if (!reactExport || reactExport.default !== `./dist/${file}` || reactExport.types !== `./dist/${typeFile}`) {
     add("errors", reactPackageFile, 1, `@design-system/react must export ${packagePath} with default and types dist targets.`);
