@@ -283,8 +283,8 @@ function checkReleaseAndAdoption() {
   ];
 
   const packageJson = readJson(packageJsonFile);
-  if (packageJson?.version !== "0.3.0-platform-mvp") {
-    add("errors", packageJsonFile, 1, "Root package version must match the platform MVP release.");
+  if (!packageJson?.version || !/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(packageJson.version)) {
+    add("errors", packageJsonFile, 1, "Root package version must be a SemVer-compatible release string.");
   }
   if (packageJson?.scripts?.audit !== "node packages/audit/scripts/audit-complete.mjs") {
     add("errors", packageJsonFile, 1, "Root package must expose npm run audit as the complete audit entrypoint.");
@@ -333,7 +333,7 @@ function checkReleaseAndAdoption() {
   }
   for (const [file, requiredSnippets] of [
     [readmeFile, ["Design System OS", "npm run validate", "Package Map", "MIGRATE_PRODUCT_SCREEN.md"]],
-    [changelogFile, ["0.3.0-platform-mvp", "packages/tokens", "packages/components"]],
+    [changelogFile, [`## ${packageJson?.version}`, "packages/tokens", "packages/components"]],
     [releaseFile, ["npm run audit", "npm test", "npm run validate", "Architecture Gate", "CHANGELOG.md", "MIGRATE_PRODUCT_SCREEN.md", "index.html", "fleet-dashboard.html", "driver-mobile.html"]],
     [startGuideFile, ["Build a Prototype", "Change Design System", "What To Edit", "MIGRATE_PRODUCT_SCREEN.md", "npm run validate", "npm test", "fixtures/prototyping.json", "examples/prototyping/index.html"]],
     [migrationGuideFile, ["Migrate A Product Screen Into Design System", "Nothing skips a layer", "packages/specs", "packages/components", "npm run validate"]],
