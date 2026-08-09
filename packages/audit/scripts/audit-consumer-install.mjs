@@ -151,6 +151,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Button, Card, Input, Table } from "@alohasoyrico-eng/flow/react";
 import { Dialog } from "@alohasoyrico-eng/flow/react/dialog";
+import { componentContracts } from "@alohasoyrico-eng/flow/components/contracts";
 
 const require = createRequire(import.meta.url);
 for (const exportedPath of [
@@ -188,6 +189,7 @@ for (const expectedContract of [
 const reactBarrel = await import("@alohasoyrico-eng/flow/react");
 const componentsSurface = await import("@alohasoyrico-eng/flow/components");
 const platformSurface = await import("@alohasoyrico-eng/flow/components/platforms");
+const reactSubpathAssertions = ${JSON.stringify(reactSubpathAssertions, null, 2)};
 assert.equal(typeof componentsSurface.createChartsPrimitive, "function");
 assert.equal(typeof componentsSurface.createMapsPrimitive, "function");
 assert.equal(typeof componentsSurface.componentDemoProps, "function");
@@ -197,7 +199,7 @@ for (const exportName of ${JSON.stringify(forbiddenComponentFactories, null, 2)}
 for (const { componentId, exportName } of ${JSON.stringify(platformContractAssertions, null, 2)}) {
   assert.ok(platformSurface[exportName], \`Expected installed platform surface to export \${exportName} for \${componentId}\`);
 }
-for (const { componentId, packagePath, exportName } of ${JSON.stringify(reactSubpathAssertions, null, 2)}) {
+for (const { componentId, packagePath, exportName } of reactSubpathAssertions) {
   const module = await import(packagePath);
   assert.ok(module[exportName], \`Expected \${packagePath} to export \${exportName}\`);
   assert.ok(
@@ -206,6 +208,105 @@ for (const { componentId, packagePath, exportName } of ${JSON.stringify(reactSub
   );
   assert.equal(module[exportName], reactBarrel[exportName], \`Expected \${componentId} subpath export to match React barrel export\`);
 }
+
+function contractKeyForComponent(componentId) {
+  return componentId.replace(/-([a-z])/g, (_match, letter) => letter.toUpperCase());
+}
+
+function fixtureForContract(componentId, contract) {
+  const props = {};
+  for (const prop of contract.props ?? []) {
+    if (!prop.required) continue;
+    props[prop.name] = valueForRequiredProp(prop.name);
+  }
+  if (componentId === "button") props.label = "Reference";
+  if (componentId === "chart-panel") {
+    props.values = [1, 2, 3];
+    props.labels = ["One", "Two", "Three"];
+  }
+  if (componentId === "icon-button") props.ariaLabel = "Reference action";
+  if (["dialog", "drawer", "popover", "tooltip"].includes(componentId)) props.open = true;
+  return props;
+}
+
+function valueForRequiredProp(name) {
+  switch (name) {
+    case "ariaLabel":
+      return "Reference action";
+    case "columns":
+      return [{ key: "name", label: "Name" }];
+    case "fallback":
+      return "Use your passcode";
+    case "getPageLabel":
+      return (page) => \`Reference page \${page}\`;
+    case "icon":
+      return "check";
+    case "items":
+      return [
+        { id: "one", key: "one", label: "One", title: "One", content: "One content", value: "one" },
+        { id: "two", key: "two", label: "Two", title: "Two", content: "Two content", value: "two" },
+      ];
+    case "label":
+      return "Reference";
+    case "name":
+      return "reference";
+    case "nodes":
+      return [{ key: "root", label: "Root", children: [{ key: "child", label: "Child" }] }];
+    case "options":
+      return [{ label: "One", value: "one", meta: "Option" }];
+    case "page":
+      return 1;
+    case "pageCount":
+      return 3;
+    case "previousLabel":
+      return "Previous reference page";
+    case "nextLabel":
+      return "Next reference page";
+    case "rowKey":
+      return "id";
+    case "rows":
+      return [{ id: "row-1", name: "Row one" }];
+    case "steps":
+      return [{ id: "one", label: "One" }, { id: "two", label: "Two" }];
+    case "title":
+      return "Reference";
+    case "triggerLabel":
+      return "Open reference";
+    case "value":
+      return "Reference";
+    default:
+      return "Reference";
+  }
+}
+
+const installedRenderFailures = [];
+for (const { componentId, exportName } of reactSubpathAssertions) {
+  const Component = reactBarrel[exportName];
+  const contract = componentContracts[contractKeyForComponent(componentId)];
+  try {
+    assert.ok(contract, \`Expected installed contract for \${componentId}\`);
+    const installedMarkup = renderToStaticMarkup(React.createElement(Component, {
+      ...fixtureForContract(componentId, contract),
+      className: "flow-consumer-hook",
+      density: "lg",
+      contentEditable: true,
+      dangerouslySetInnerHTML: { __html: "<strong>Injected markup</strong>" },
+      style: { color: "rgb(255, 0, 0)", marginTop: 77 },
+      suppressContentEditableWarning: true,
+      suppressHydrationWarning: true,
+    }));
+    assert.ok(installedMarkup.length > 0, \`\${componentId} rendered empty installed markup\`);
+    assert.equal(installedMarkup.match(/flow-consumer-hook/g)?.length ?? 0, 1, \`\${componentId} must expose className once on the root integration surface\`);
+    const rootTag = installedMarkup.match(/^<[^>]+>/)?.[0] ?? "";
+    assert.match(rootTag, /data-density="lg"/, \`\${componentId} must expose density on the root integration surface\`);
+    assert.doesNotMatch(installedMarkup, /rgb\\(255,\\s*0,\\s*0\\)|margin-top:\\s*77px/i, \`\${componentId} leaked external style prop\`);
+    assert.doesNotMatch(installedMarkup, /Injected markup|contenteditable=/i, \`\${componentId} leaked external DOM escape props\`);
+    assert.doesNotMatch(installedMarkup, /apps\\/docs|docs-demo|gold-/i, \`\${componentId} leaked docs-only markup\`);
+  } catch (error) {
+    installedRenderFailures.push(\`\${componentId}: \${error.message}\`);
+  }
+}
+assert.deepEqual(installedRenderFailures, []);
 
 const screen = React.createElement("main", { className: "product-screen", "data-density": "md", "data-theme": "light" },
   React.createElement(Card, {
