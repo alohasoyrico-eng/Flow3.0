@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "audit": "foundation primitive export contract",
-  "principle": "Foundations and primitives must be exportable as platform-agnostic JSON contracts, not only as CSS variables or documentation views.",
+  "principle": "Foundations and primitives must be exportable as platform-agnostic JSON contracts, not only as CSS variables or documentation views. The actionable debt metric is foundationPrimitiveExportDebt.",
   "inventory": {
     "foundations": 11,
     "primitives": 22,
@@ -10,7 +10,9 @@
     "missingPrimitiveArtifacts": 0,
     "artifactShapeErrors": 0,
     "missingPackageExports": 0,
-    "baselineMismatches": 0
+    "requirementFailures": 0,
+    "baselineMismatches": 0,
+    "foundationPrimitiveExportDebt": 0
   },
   "baseline": {
     "inventory": {
@@ -21,7 +23,9 @@
       "missingPrimitiveArtifacts": 0,
       "artifactShapeErrors": 0,
       "missingPackageExports": 0,
-      "baselineMismatches": 0
+      "requirementFailures": 0,
+      "baselineMismatches": 0,
+      "foundationPrimitiveExportDebt": 0
     },
     "mismatches": []
   },

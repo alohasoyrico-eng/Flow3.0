@@ -20,7 +20,9 @@ const expectedInventory = {
   missingPrimitiveArtifacts: 0,
   artifactShapeErrors: 0,
   missingPackageExports: 0,
+  requirementFailures: 0,
   baselineMismatches: 0,
+  foundationPrimitiveExportDebt: 0,
 };
 
 const requiredPackageExports = [
@@ -87,12 +89,9 @@ function createReport() {
     missingPrimitiveArtifacts: primitiveArtifacts.filter((item) => !item.exists).length,
     artifactShapeErrors: [...foundationArtifacts, ...primitiveArtifacts].filter((item) => item.shapeErrors.length).length + tokenShapeErrors.length,
     missingPackageExports: missingPackageExports.length,
+    requirementFailures: 0,
     baselineMismatches: 0,
   };
-  const baselineMismatches = Object.entries(expectedInventory)
-    .filter(([key, expected]) => key !== "baselineMismatches" && inventory[key] !== expected)
-    .map(([key, expected]) => ({ key, expected, actual: inventory[key] }));
-  inventory.baselineMismatches = baselineMismatches.length;
   const requirements = {
     tokenFormat: tokenContract.format === "flow-token-contract@1",
     styleDictionaryCompatible: Array.isArray(tokenContract.compatibleWith) && tokenContract.compatibleWith.includes("style-dictionary"),
@@ -105,11 +104,22 @@ function createReport() {
   const requirementFailures = Object.entries(requirements)
     .filter(([, passed]) => !passed)
     .map(([key]) => key);
-  const status = baselineMismatches.length || requirementFailures.length ? "fail" : "pass";
+  inventory.requirementFailures = requirementFailures.length;
+  inventory.foundationPrimitiveExportDebt = inventory.missingFoundationArtifacts
+    + inventory.missingPrimitiveArtifacts
+    + inventory.artifactShapeErrors
+    + inventory.missingPackageExports
+    + inventory.requirementFailures;
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => key !== "baselineMismatches" && inventory[key] !== expected)
+    .map(([key, expected]) => ({ key, expected, actual: inventory[key] }));
+  inventory.baselineMismatches = baselineMismatches.length;
+  inventory.foundationPrimitiveExportDebt += inventory.baselineMismatches;
+  const status = inventory.foundationPrimitiveExportDebt ? "fail" : "pass";
   return {
     status,
     audit: "foundation primitive export contract",
-    principle: "Foundations and primitives must be exportable as platform-agnostic JSON contracts, not only as CSS variables or documentation views.",
+    principle: "Foundations and primitives must be exportable as platform-agnostic JSON contracts, not only as CSS variables or documentation views. The actionable debt metric is foundationPrimitiveExportDebt.",
     inventory,
     baseline: {
       inventory: expectedInventory,
@@ -158,7 +168,9 @@ function toMarkdown(report) {
     `- Missing primitive artifacts: ${report.inventory.missingPrimitiveArtifacts}`,
     `- Artifact shape errors: ${report.inventory.artifactShapeErrors}`,
     `- Missing package exports: ${report.inventory.missingPackageExports}`,
+    `- Requirement failures: ${report.inventory.requirementFailures}`,
     `- Baseline mismatches: ${report.inventory.baselineMismatches}`,
+    `- Foundation primitive export debt: ${report.inventory.foundationPrimitiveExportDebt}`,
     "",
     "## Baseline Budget",
     "",
@@ -218,6 +230,8 @@ function main() {
     tokens: report.inventory.tokenCount,
     missingPackageExports: report.inventory.missingPackageExports,
     artifactShapeErrors: report.inventory.artifactShapeErrors,
+    requirementFailures: report.inventory.requirementFailures,
+    foundationPrimitiveExportDebt: report.inventory.foundationPrimitiveExportDebt,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

@@ -2,7 +2,7 @@
 
 Status: pass
 
-Foundations and primitives must be exportable as platform-agnostic JSON contracts, not only as CSS variables or documentation views.
+Foundations and primitives must be exportable as platform-agnostic JSON contracts, not only as CSS variables or documentation views. The actionable debt metric is foundationPrimitiveExportDebt.
 
 ## Inventory
 
@@ -13,7 +13,9 @@ Foundations and primitives must be exportable as platform-agnostic JSON contract
 - Missing primitive artifacts: 0
 - Artifact shape errors: 0
 - Missing package exports: 0
+- Requirement failures: 0
 - Baseline mismatches: 0
+- Foundation primitive export debt: 0
 
 ## Baseline Budget
 
@@ -26,7 +28,9 @@ Foundations and primitives must be exportable as platform-agnostic JSON contract
 | missingPrimitiveArtifacts | 0 | 0 |
 | artifactShapeErrors | 0 | 0 |
 | missingPackageExports | 0 | 0 |
+| requirementFailures | 0 | 0 |
 | baselineMismatches | 0 | 0 |
+| foundationPrimitiveExportDebt | 0 | 0 |
 
 ## Baseline Mismatches
 

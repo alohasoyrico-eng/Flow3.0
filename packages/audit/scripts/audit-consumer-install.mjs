@@ -1222,6 +1222,21 @@ function assertReactGovernanceBaselines() {
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
 
+  const foundationPrimitiveExport = readAuditReport("docs/audits/foundation-primitive-export-contract-audit.json");
+  assertReportStatus(foundationPrimitiveExport, "Foundation primitive export contract");
+  assertInventory(foundationPrimitiveExport, {
+    foundations: 11,
+    primitives: 22,
+    tokenCount: 1078,
+    missingFoundationArtifacts: 0,
+    missingPrimitiveArtifacts: 0,
+    artifactShapeErrors: 0,
+    missingPackageExports: 0,
+    requirementFailures: 0,
+    baselineMismatches: 0,
+    foundationPrimitiveExportDebt: 0,
+  }, "Foundation primitive export contract");
+
   const defaults = readAuditReport("docs/audits/react-default-governance-audit.json");
   assertReportStatus(defaults, "React default governance");
   assertInventory(defaults, {
