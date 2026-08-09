@@ -17,7 +17,7 @@ const {
 const { componentCssContractCoverage } = auditRequire("./audit-component-css-contracts.js");
 const { packageCssRootInventory } = auditRequire("./class-root-governance.js");
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "consumer-install-"));
-const cacheDir = path.join(os.tmpdir(), "ds-npm-cache");
+const cacheDir = path.join(tempRoot, "npm-cache");
 let packedTarball = "";
 const forbiddenInheritedDomProps = [
   "contentEditable",
