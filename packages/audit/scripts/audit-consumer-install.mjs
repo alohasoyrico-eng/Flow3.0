@@ -9,6 +9,11 @@ import { spawnSync } from "node:child_process";
 const root = process.cwd();
 const auditRequire = createRequire(import.meta.url);
 const { goldComponents } = auditRequire("./audit-context.js");
+const {
+  allowedClassRootsForReactComponent,
+  ownerClassRootForReactComponent,
+} = auditRequire("./audit-anti-duplication.js");
+const { packageCssRootInventory } = auditRequire("./class-root-governance.js");
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "consumer-install-"));
 const cacheDir = path.join(os.tmpdir(), "ds-npm-cache");
 let packedTarball = "";
@@ -272,6 +277,25 @@ function auditInstalledPackage(consumerDir) {
   }
   if (Object.keys(installedTokenContract.tokens ?? {}).length < 1000) {
     throw new Error("Installed token JSON contract must include the full token inventory.");
+  }
+  const installedCssRoots = packageCssRootInventory(packageRoot).roots;
+  const missingInstalledCssCoverage = goldComponents
+    .map((componentId) => {
+      const reactComponentName = pascalCase(componentId);
+      const ownerRoot = ownerClassRootForReactComponent(reactComponentName);
+      const allowedRoots = [...allowedClassRootsForReactComponent(reactComponentName)].sort();
+      const installedRoots = allowedRoots.filter((rootToken) => installedCssRoots.has(rootToken));
+      return {
+        componentId,
+        ownerRoot,
+        allowedRoots,
+        installedRoots,
+        coverage: installedRoots.includes(ownerRoot) ? "direct" : installedRoots.length ? "family" : "missing",
+      };
+    })
+    .filter((item) => item.coverage === "missing");
+  if (missingInstalledCssCoverage.length) {
+    throw new Error(`Installed component CSS is missing accepted React visual coverage: ${missingInstalledCssCoverage.map((item) => `${item.componentId}->${item.allowedRoots.join("|")}`).join(", ")}`);
   }
   for (const [key, value] of Object.entries(installedPackage.exports ?? {})) {
     if (!key.startsWith("./react")) continue;
