@@ -17,6 +17,7 @@ const expectedInventory = {
   nonComponentDecisions: 1,
   duplicateIds: 0,
   auditErrors: 0,
+  taxonomyBoundaryDebt: 0,
 };
 
 function layerCounts(decisions) {
@@ -50,6 +51,7 @@ function createReport() {
     duplicateIds: duplicates.length,
     auditErrors: result.errors.length,
   };
+  inventory.taxonomyBoundaryDebt = inventory.duplicateIds + inventory.auditErrors;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -57,10 +59,11 @@ function createReport() {
       expected,
       actual: inventory[key],
     }));
+  inventory.taxonomyBoundaryDebt += baselineMismatches.length;
   return {
-    status: result.errors.length || baselineMismatches.length ? "fail" : "pass",
+    status: inventory.taxonomyBoundaryDebt ? "fail" : "pass",
     audit: "taxonomy boundaries",
-    principle: "Component, primitive, pattern, and template boundaries must stay explicit so orchestration and business surfaces do not re-enter Flow as fake components.",
+    principle: "Component, primitive, pattern, and template boundaries must stay explicit so orchestration and business surfaces do not re-enter Flow as fake components. The actionable debt metric is taxonomyBoundaryDebt.",
     taxonomyFile: path.relative(root, taxonomyFile),
     baseline: {
       inventory: expectedInventory,
@@ -100,6 +103,7 @@ function toMarkdown(report) {
     `- Non-component decisions: ${report.inventory.nonComponentDecisions}`,
     `- Duplicate ids: ${report.inventory.duplicateIds}`,
     `- Audit errors: ${report.inventory.auditErrors}`,
+    `- Taxonomy boundary debt: ${report.inventory.taxonomyBoundaryDebt}`,
     `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
     "",
     "## Baseline Budget",
@@ -155,6 +159,7 @@ function main() {
     patternDecisions: report.inventory.patternDecisions,
     nonComponentDecisions: report.inventory.nonComponentDecisions,
     auditErrors: report.inventory.auditErrors,
+    taxonomyBoundaryDebt: report.inventory.taxonomyBoundaryDebt,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

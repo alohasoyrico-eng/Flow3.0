@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "audit": "taxonomy boundaries",
-  "principle": "Component, primitive, pattern, and template boundaries must stay explicit so orchestration and business surfaces do not re-enter Flow as fake components.",
+  "principle": "Component, primitive, pattern, and template boundaries must stay explicit so orchestration and business surfaces do not re-enter Flow as fake components. The actionable debt metric is taxonomyBoundaryDebt.",
   "taxonomyFile": "packages/content/content/taxonomy-boundaries.json",
   "baseline": {
     "inventory": {
@@ -11,7 +11,8 @@
       "templateDecisions": 0,
       "nonComponentDecisions": 1,
       "duplicateIds": 0,
-      "auditErrors": 0
+      "auditErrors": 0,
+      "taxonomyBoundaryDebt": 0
     },
     "mismatches": []
   },
@@ -22,7 +23,8 @@
     "templateDecisions": 0,
     "nonComponentDecisions": 1,
     "duplicateIds": 0,
-    "auditErrors": 0
+    "auditErrors": 0,
+    "taxonomyBoundaryDebt": 0
   },
   "rules": [
     "Primitive is implementation material, not a user-facing workflow.",

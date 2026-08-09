@@ -2,7 +2,7 @@
 
 Status: pass
 
-Component, primitive, pattern, and template boundaries must stay explicit so orchestration and business surfaces do not re-enter Flow as fake components.
+Component, primitive, pattern, and template boundaries must stay explicit so orchestration and business surfaces do not re-enter Flow as fake components. The actionable debt metric is taxonomyBoundaryDebt.
 
 ## Inventory
 
@@ -14,6 +14,7 @@ Component, primitive, pattern, and template boundaries must stay explicit so orc
 - Non-component decisions: 1
 - Duplicate ids: 0
 - Audit errors: 0
+- Taxonomy boundary debt: 0
 - Inventory baseline mismatches: 0
 
 ## Baseline Budget
@@ -29,6 +30,7 @@ Changing these numbers is a contract decision. Additions or removals must be rev
 | nonComponentDecisions | 1 | 1 |
 | duplicateIds | 0 | 0 |
 | auditErrors | 0 | 0 |
+| taxonomyBoundaryDebt | 0 | 0 |
 
 ## Baseline Mismatches
 
