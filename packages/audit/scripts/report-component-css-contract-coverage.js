@@ -76,11 +76,20 @@ function main() {
     status: coverage.missing.length || coverage.directRootGaps.length || coverage.familyRootGaps.length || coverage.familyUnexpectedRoots.length ? "fail" : "pass",
     ...coverage,
   };
+  const nextJson = `${JSON.stringify(report, null, 2)}\n`;
+  const nextMarkdown = renderMarkdown(report);
 
-  if (!checkMode) {
+  if (checkMode) {
+    const currentJson = fs.existsSync(jsonOutput) ? fs.readFileSync(jsonOutput, "utf8") : "";
+    const currentMarkdown = fs.existsSync(markdownOutput) ? fs.readFileSync(markdownOutput, "utf8") : "";
+    if (currentJson !== nextJson || currentMarkdown !== nextMarkdown) {
+      console.error("Component CSS contract coverage report is stale. Run: node packages/audit/scripts/report-component-css-contract-coverage.js");
+      process.exit(1);
+    }
+  } else {
     fs.mkdirSync(outputDir, { recursive: true });
-    fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
-    fs.writeFileSync(markdownOutput, renderMarkdown(report));
+    fs.writeFileSync(jsonOutput, nextJson);
+    fs.writeFileSync(markdownOutput, nextMarkdown);
   }
 
   console.log(JSON.stringify({
