@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
 import { spawnSync } from "node:child_process";
+import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const auditRequire = createRequire(import.meta.url);
@@ -38,6 +39,8 @@ try {
   });
   writeConsumerScreen(consumerDir);
   run("node", ["screen.mjs"], consumerDir);
+  writeConsumerRefRuntime(consumerDir);
+  run("node", ["ref-runtime.mjs"], consumerDir);
   writeConsumerTypes(consumerDir);
   run(path.join(root, "node_modules/.bin/tsc"), ["--project", "tsconfig.json"], consumerDir);
   auditInstalledPackage(consumerDir);
@@ -360,6 +363,159 @@ assert.doesNotMatch(markup, /apps\\/docs|docs-demo|gold-/);
 console.log(markup.length);
 `;
   fs.writeFileSync(path.join(consumerDir, "screen.mjs"), source.trimStart());
+}
+
+function writeConsumerRefRuntime(consumerDir) {
+  const reactSubpathAssertions = goldComponents.map((componentId) => ({
+    componentId,
+    exportName: pascalCase(componentId),
+  }));
+  const jsdomUrl = pathToFileURL(auditRequire.resolve("jsdom")).href;
+  const source = `
+import assert from "node:assert/strict";
+import jsdomModule from ${JSON.stringify(jsdomUrl)};
+import React from "react";
+import { flushSync } from "react-dom";
+import { createRoot } from "react-dom/client";
+import { componentContracts } from "@alohasoyrico-eng/flow/components/contracts";
+
+const { JSDOM } = jsdomModule;
+const dom = new JSDOM("<!doctype html><html><body></body></html>", {
+  url: "http://localhost/",
+});
+
+globalThis.window = dom.window;
+globalThis.document = dom.window.document;
+globalThis.HTMLElement = dom.window.HTMLElement;
+globalThis.Node = dom.window.Node;
+Object.defineProperty(globalThis, "navigator", {
+  configurable: true,
+  value: dom.window.navigator,
+});
+globalThis.requestAnimationFrame = (callback) => setTimeout(callback, 0);
+globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
+
+const reactBarrel = await import("@alohasoyrico-eng/flow/react");
+const platformSurface = await import("@alohasoyrico-eng/flow/components/platforms");
+const reactSubpathAssertions = ${JSON.stringify(reactSubpathAssertions, null, 2)};
+
+function contractKeyForComponent(componentId) {
+  return componentId.replace(/-([a-z])/g, (_match, letter) => letter.toUpperCase());
+}
+
+function fixtureForContract(componentId, contract) {
+  const props = {};
+  for (const prop of contract.props ?? []) {
+    if (!prop.required) continue;
+    props[prop.name] = valueForRequiredProp(prop.name);
+  }
+  if (componentId === "button") props.label = "Reference";
+  if (componentId === "chart-panel") {
+    props.values = [1, 2, 3];
+    props.labels = ["One", "Two", "Three"];
+  }
+  if (componentId === "icon-button") props.ariaLabel = "Reference action";
+  if (["dialog", "drawer"].includes(componentId)) props.open = true;
+  return props;
+}
+
+function valueForRequiredProp(name) {
+  switch (name) {
+    case "ariaLabel":
+      return "Reference action";
+    case "columns":
+      return [{ key: "name", label: "Name" }];
+    case "fallback":
+      return "Use your passcode";
+    case "getPageLabel":
+      return (page) => \`Reference page \${page}\`;
+    case "icon":
+      return "check";
+    case "items":
+      return [
+        { id: "one", key: "one", label: "One", title: "One", content: "One content", value: "one" },
+        { id: "two", key: "two", label: "Two", title: "Two", content: "Two content", value: "two" },
+      ];
+    case "label":
+      return "Reference";
+    case "name":
+      return "reference";
+    case "nodes":
+      return [{ key: "root", label: "Root", children: [{ key: "child", label: "Child" }] }];
+    case "options":
+      return [{ label: "One", value: "one", meta: "Option" }];
+    case "page":
+      return 1;
+    case "pageCount":
+      return 3;
+    case "previousLabel":
+      return "Previous reference page";
+    case "nextLabel":
+      return "Next reference page";
+    case "rowKey":
+      return "id";
+    case "rows":
+      return [{ id: "row-1", name: "Row one" }];
+    case "steps":
+      return [{ id: "one", label: "One" }, { id: "two", label: "Two" }];
+    case "title":
+      return "Reference";
+    case "triggerLabel":
+      return "Open reference";
+    case "value":
+      return "Reference";
+    default:
+      return "Reference";
+  }
+}
+
+function hasClasses(element, classNames) {
+  return classNames.every((className) => element.classList.contains(className));
+}
+
+function contractualRefTarget(element, rootClass) {
+  const rootClasses = String(rootClass ?? "").split(/\\s+/).filter(Boolean);
+  for (let node = element; node; node = node.parentElement) {
+    if (hasClasses(node, rootClasses)) return node;
+  }
+  return null;
+}
+
+const failures = [];
+for (const { componentId, exportName } of reactSubpathAssertions) {
+  const Component = reactBarrel[exportName];
+  const contractKey = contractKeyForComponent(componentId);
+  const contract = componentContracts[contractKey];
+  const platformContract = platformSurface[\`\${contractKey}PlatformContract\`];
+  const rootClass = platformContract?.source?.cssClass;
+  const ref = React.createRef();
+  const container = document.createElement("div");
+  document.body.appendChild(container);
+  const root = createRoot(container);
+  try {
+    assert.ok(contract, \`Expected installed contract for \${componentId}\`);
+    assert.ok(rootClass, \`Expected installed platform root cssClass for \${componentId}\`);
+    flushSync(() => {
+      root.render(React.createElement(Component, {
+        ...fixtureForContract(componentId, contract),
+        ref,
+      }));
+    });
+    assert.ok(ref.current instanceof HTMLElement, \`\${componentId} did not forward ref to an HTMLElement\`);
+    assert.ok(
+      contractualRefTarget(ref.current, rootClass),
+      \`\${componentId} forwarded ref outside contractual root .\${rootClass}: \${ref.current?.className || ref.current?.tagName}\`,
+    );
+  } catch (error) {
+    failures.push(\`\${componentId}: \${error.message}\`);
+  } finally {
+    root.unmount();
+    container.remove();
+  }
+}
+assert.deepEqual(failures, []);
+`;
+  fs.writeFileSync(path.join(consumerDir, "ref-runtime.mjs"), source.trimStart());
 }
 
 function writeConsumerTypes(consumerDir) {
