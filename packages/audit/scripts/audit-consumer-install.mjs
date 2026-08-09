@@ -1384,6 +1384,7 @@ function assertReactGovernanceBaselines() {
     categoryCoverageDebt: 0,
     systemDebt: 0,
   }, "System debt ledger");
+  assertSystemDebtCategories(systemDebtLedger);
 
   const propAlignment = readAuditReport("docs/audits/react-contract-prop-alignment-audit.json");
   assertReportStatus(propAlignment, "React contract prop alignment");
@@ -1455,6 +1456,87 @@ function assertInventory(report, expected, label) {
     .map(([key, value]) => `${key}: expected ${value}, got ${inventory[key]}`);
   if (mismatches.length) {
     throw new Error(`${label} inventory baseline changed: ${mismatches.join(", ")}.`);
+  }
+}
+
+function assertSystemDebtCategories(report) {
+  const expected = [
+    {
+      category: "anti-duplication",
+      principle: "One visual or conceptual source per system concept.",
+      reports: 1,
+      minimumReports: 1,
+      coverageGap: 0,
+      debtMetrics: 1,
+      totalDebt: 0,
+    },
+    {
+      category: "cascade",
+      principle: "Component styling must cascade from exported system contracts.",
+      reports: 4,
+      minimumReports: 4,
+      coverageGap: 0,
+      debtMetrics: 4,
+      totalDebt: 0,
+    },
+    {
+      category: "docs-system-boundary",
+      principle: "FlowDocs must consume Flow instead of owning system behavior.",
+      reports: 2,
+      minimumReports: 2,
+      coverageGap: 0,
+      debtMetrics: 2,
+      totalDebt: 0,
+    },
+    {
+      category: "foundations-primitives",
+      principle: "Foundations and primitives must be exportable beyond CSS.",
+      reports: 1,
+      minimumReports: 1,
+      coverageGap: 0,
+      debtMetrics: 1,
+      totalDebt: 0,
+    },
+    {
+      category: "quality",
+      principle: "Component coverage must prove production readiness, not just presence.",
+      reports: 1,
+      minimumReports: 1,
+      coverageGap: 0,
+      debtMetrics: 1,
+      totalDebt: 0,
+    },
+    {
+      category: "react-primary",
+      principle: "React must be the primary implementation with real contracts.",
+      reports: 10,
+      minimumReports: 10,
+      coverageGap: 0,
+      debtMetrics: 10,
+      totalDebt: 0,
+    },
+    {
+      category: "taxonomy",
+      principle: "Components, primitives, patterns, and templates must stay separated.",
+      reports: 1,
+      minimumReports: 1,
+      coverageGap: 0,
+      debtMetrics: 1,
+      totalDebt: 0,
+    },
+  ];
+  const categories = report.categories ?? [];
+  const actual = categories.map((category) => ({
+    category: category.category,
+    principle: category.principle,
+    reports: category.reports,
+    minimumReports: category.minimumReports,
+    coverageGap: category.coverageGap,
+    debtMetrics: category.debtMetrics,
+    totalDebt: category.totalDebt,
+  }));
+  if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+    throw new Error("System debt ledger category contract changed.");
   }
 }
 
