@@ -22,6 +22,7 @@ function checkAdoptionReadiness() {
   checkReleasePackageMetadata(rootPackage);
   checkCoreExports(rootPackage, componentsPackage, tokensPackage);
   checkReactExportParity(rootPackage, reactPackage, reactIndex, reactTypesIndex);
+  checkReactWorkspacePublishBoundary(reactPackage);
   checkReactPackageTargets(reactPackage);
   checkDocsSplitConsumerBoundary();
   checkReactDoesNotDependOnDocs();
@@ -75,6 +76,24 @@ function checkReleasePackageMetadata(rootPackage) {
     if (!fs.existsSync(path.join(root, artifact))) {
       add("errors", rootPackageFile, 1, `Flow3.0 package files includes ${artifact}, but the artifact does not exist.`);
     }
+  }
+}
+
+function checkReactWorkspacePublishBoundary(reactPackage) {
+  if (reactPackage.name !== "@design-system/react") {
+    add("errors", reactPackageFile, 1, "React workspace package must keep the internal @design-system/react name; public product installs consume @alohasoyrico-eng/flow/react.");
+  }
+  const internalFileDependencies = Object.entries(reactPackage.dependencies ?? {})
+    .filter(([, value]) => String(value).startsWith("file:"))
+    .map(([name, value]) => `${name}@${value}`);
+  if (internalFileDependencies.length && reactPackage.private !== true) {
+    add("errors", reactPackageFile, 1, `@design-system/react cannot be published standalone while it depends on internal file dependencies: ${internalFileDependencies.join(", ")}.`);
+  }
+  if (reactPackage.private !== true && reactPackage.publishConfig?.registry !== "https://npm.pkg.github.com") {
+    add("errors", reactPackageFile, 1, "A standalone @design-system/react package must declare GitHub Packages as publishConfig.registry.");
+  }
+  if (reactPackage.private === true && reactPackage.publishConfig) {
+    add("errors", reactPackageFile, 1, "Private React workspace package must not carry publishConfig; publish through the root @alohasoyrico-eng/flow package.");
   }
 }
 
