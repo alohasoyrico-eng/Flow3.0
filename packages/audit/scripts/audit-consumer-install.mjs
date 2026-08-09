@@ -604,7 +604,7 @@ import jsdomModule from ${JSON.stringify(jsdomUrl)};
 import React from "react";
 import { flushSync } from "react-dom";
 import { createRoot } from "react-dom/client";
-import { Button, Card, Checkbox, Select } from "@alohasoyrico-eng/flow/react";
+import { Accordion, Button, Card, Checkbox, Input, Select, Switch } from "@alohasoyrico-eng/flow/react";
 
 const { JSDOM } = jsdomModule;
 const dom = new JSDOM("<!doctype html><html><body></body></html>", {
@@ -644,12 +644,35 @@ function mount(element) {
 }
 
 function click(element) {
-  element.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+  flushSync(() => {
+    element.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+  });
 }
 
 function keyDown(element, key) {
-  element.dispatchEvent(new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true }));
+  flushSync(() => {
+    element.dispatchEvent(new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true }));
+  });
 }
+
+const accordionChanges = [];
+const accordionHarness = mount(React.createElement(Accordion, {
+  items: [
+    { id: "overview", title: "Overview", content: "Route overview" },
+    { id: "pricing", title: "Pricing", content: "Route pricing" },
+  ],
+  onExpandedChange: (expandedIds, event) => accordionChanges.push({ expandedIds, eventType: event.type }),
+}));
+const accordionTriggers = accordionHarness.container.querySelectorAll("[data-accordion-trigger]");
+assert.equal(accordionTriggers[0].getAttribute("aria-expanded"), "false");
+click(accordionTriggers[0]);
+assert.equal(accordionTriggers[0].getAttribute("aria-expanded"), "true");
+assert.deepEqual(accordionChanges.at(-1), { expandedIds: ["overview"], eventType: "click" });
+click(accordionTriggers[1]);
+assert.equal(accordionTriggers[0].getAttribute("aria-expanded"), "false");
+assert.equal(accordionTriggers[1].getAttribute("aria-expanded"), "true");
+assert.deepEqual(accordionChanges.at(-1), { expandedIds: ["pricing"], eventType: "click" });
+accordionHarness.unmount();
 
 const buttonClicks = [];
 const buttonHarness = mount(React.createElement(Button, {
@@ -715,6 +738,23 @@ controlledCheckboxHarness.rerender(React.createElement(Checkbox, {
 assert.equal(controlledCheckboxHarness.container.querySelector("input[type='checkbox']").checked, true);
 controlledCheckboxHarness.unmount();
 
+const inputChanges = [];
+const inputHarness = mount(React.createElement(Input, {
+  label: "Password",
+  type: "password",
+  value: "secret",
+  revealable: true,
+  revealLabel: "Show password",
+  hideLabel: "Hide password",
+  onRevealChange: (revealed, event) => inputChanges.push({ revealed, eventType: event.type }),
+}));
+const inputControl = inputHarness.container.querySelector("input");
+assert.equal(inputControl.type, "password");
+click(inputHarness.container.querySelector(".field-action"));
+assert.deepEqual(inputChanges.at(-1), { revealed: true, eventType: "click" });
+assert.equal(inputControl.type, "text");
+inputHarness.unmount();
+
 const selectOpenChanges = [];
 const selectValueChanges = [];
 let selectedValue = "one";
@@ -750,6 +790,42 @@ assert.equal(selectHarness.container.querySelector("[data-select-trigger]").getA
 click(selectHarness.container.querySelector("[data-value='two']"));
 assert.deepEqual(selectValueChanges.at(-1), { value: "two", meta: { label: "Two", meta: "Next" }, eventType: "click" });
 selectHarness.unmount();
+
+const switchChanges = [];
+const switchHarness = mount(React.createElement(Switch, {
+  label: "Active route",
+  name: "active-route",
+  onCheckedChange: (checked, meta, event) => switchChanges.push({ checked, meta, eventType: event.type }),
+}));
+const switchInput = switchHarness.container.querySelector("input[role='switch']");
+click(switchInput);
+assert.deepEqual(switchChanges.at(-1), {
+  checked: true,
+  meta: { name: "active-route" },
+  eventType: "change",
+});
+assert.equal(switchInput.checked, true);
+switchHarness.unmount();
+
+const controlledSwitchChanges = [];
+let controlledSwitchChecked = false;
+const controlledSwitchHarness = mount(React.createElement(Switch, {
+  label: "Controlled route",
+  checked: controlledSwitchChecked,
+  onCheckedChange: (checked) => controlledSwitchChanges.push(checked),
+}));
+const controlledSwitchInput = controlledSwitchHarness.container.querySelector("input[role='switch']");
+click(controlledSwitchInput);
+assert.deepEqual(controlledSwitchChanges, [true]);
+assert.equal(controlledSwitchInput.checked, false);
+controlledSwitchChecked = true;
+controlledSwitchHarness.rerender(React.createElement(Switch, {
+  label: "Controlled route",
+  checked: controlledSwitchChecked,
+  onCheckedChange: (checked) => controlledSwitchChanges.push(checked),
+}));
+assert.equal(controlledSwitchHarness.container.querySelector("input[role='switch']").checked, true);
+controlledSwitchHarness.unmount();
 `;
   fs.writeFileSync(path.join(consumerDir, "interaction-runtime.mjs"), source.trimStart());
 }
