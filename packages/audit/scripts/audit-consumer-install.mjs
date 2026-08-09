@@ -1255,6 +1255,7 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(controlled, "React controlled governance");
   assertInventory(controlled, {
     components: 56,
+    controlledDebt: 0,
     controlledComponents: 29,
     openControlledComponents: 10,
     totalControlledEdges: 38,

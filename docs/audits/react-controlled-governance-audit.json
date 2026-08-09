@@ -1,10 +1,11 @@
 {
   "status": "pass",
   "audit": "react controlled governance",
-  "principle": "Controlled React props must be explicit in source and covered by external rerender tests so product code can own state without hidden uncontrolled drift.",
+  "principle": "Controlled React props must be explicit in source and covered by external rerender tests so product code can own state without hidden uncontrolled drift. The actionable debt metric is controlledDebt.",
   "baseline": {
     "inventory": {
       "components": 56,
+      "controlledDebt": 0,
       "controlledComponents": 29,
       "openControlledComponents": 10,
       "openSourceCovered": 10,
@@ -27,7 +28,8 @@
     "totalControlledEdges": 38,
     "testCoveredEdges": 28,
     "totalTestCoveredEdges": 38,
-    "failures": 0
+    "failures": 0,
+    "controlledDebt": 0
   },
   "components": [
     {

@@ -18,6 +18,7 @@ const markdownOutput = path.join(outputDir, "react-controlled-governance-audit.m
 
 const expectedInventory = {
   components: 56,
+  controlledDebt: 0,
   controlledComponents: 29,
   openControlledComponents: 10,
   openSourceCovered: 10,
@@ -129,6 +130,7 @@ function createReport() {
       + openControlledComponents.filter((component) => component.openControlled.testCovered).length,
     failures: components.reduce((total, component) => total + component.failures.length, 0),
   };
+  inventory.controlledDebt = inventory.failures;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -137,9 +139,9 @@ function createReport() {
       actual: inventory[key],
     }));
   return {
-    status: components.some((component) => component.status === "fail") || baselineMismatches.length ? "fail" : "pass",
+    status: inventory.controlledDebt || baselineMismatches.length ? "fail" : "pass",
     audit: "react controlled governance",
-    principle: "Controlled React props must be explicit in source and covered by external rerender tests so product code can own state without hidden uncontrolled drift.",
+    principle: "Controlled React props must be explicit in source and covered by external rerender tests so product code can own state without hidden uncontrolled drift. The actionable debt metric is controlledDebt.",
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
@@ -167,6 +169,7 @@ function toMarkdown(report) {
     "## Inventory",
     "",
     `- React components scanned: ${report.inventory.components}`,
+    `- Controlled debt: ${report.inventory.controlledDebt}`,
     `- Controlled components: ${report.inventory.controlledComponents}`,
     `- Open-controlled components: ${report.inventory.openControlledComponents}`,
     `- Open source covered: ${report.inventory.openSourceCovered}/${report.inventory.openControlledComponents}`,
@@ -180,7 +183,7 @@ function toMarkdown(report) {
     "",
     "## Baseline Budget",
     "",
-    "Changing these numbers is a contract decision. Controlled APIs should only grow with explicit source support and rerender tests, and they should not shrink silently.",
+    "Changing these numbers is a contract decision. controlledDebt must stay at 0; controlled APIs should only grow with explicit source support and rerender tests, and they should not shrink silently.",
     "",
     "| Metric | Expected | Actual |",
     "| --- | ---: | ---: |",
@@ -226,6 +229,7 @@ function main() {
   console.log(JSON.stringify({
     status: report.status,
     components: report.inventory.components,
+    controlledDebt: report.inventory.controlledDebt,
     controlledComponents: report.inventory.controlledComponents,
     openControlledComponents: report.inventory.openControlledComponents,
     openSourceCovered: report.inventory.openSourceCovered,
