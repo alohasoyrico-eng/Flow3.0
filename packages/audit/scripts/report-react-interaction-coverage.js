@@ -93,7 +93,7 @@ function createReport() {
       missingInSource,
       missingInTests,
       missingEventParam,
-      status: missingInSource.length || missingEventParam.length ? "fail" : missingInTests.length ? "review" : "pass",
+      status: missingInSource.length || missingEventParam.length || missingInTests.length ? "fail" : "pass",
     };
   });
   const byComponent = new Map(components.map((component) => [component.component, component]));
@@ -110,19 +110,14 @@ function createReport() {
   });
   const criticalMissing = manualAccessibilityCritical.filter((component) => !component.present || component.status !== "pass" || !component.hasInteractionTestPresence);
   return {
-    status: components.some((component) => component.status === "fail")
-      || criticalMissing.length
-        ? "fail"
-        : components.some((component) => component.status === "review")
-        ? "review"
-        : "pass",
+    status: components.some((component) => component.status === "fail") || criticalMissing.length ? "fail" : "pass",
     audit: "react interaction coverage",
     principle: "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots.",
     inventory: {
       components: components.length,
       withCallbacks: components.filter((component) => component.callbacks.length).length,
       pass: components.filter((component) => component.status === "pass").length,
-      review: components.filter((component) => component.status === "review").length,
+      review: 0,
       fail: components.filter((component) => component.status === "fail").length,
       missingTestCallbacks: components.reduce((total, component) => total + component.missingInTests.length, 0),
       missingEventParams: components.reduce((total, component) => total + component.missingEventParam.length, 0),
@@ -217,9 +212,9 @@ function checkReactInteractionCoverage() {
   for (const component of missingEventParams) {
     add("errors", path.join(root, component.types), 1, `${component.component} callback props must include an event parameter: ${component.missingEventParam.join(", ")}.`);
   }
-  const review = report.components.filter((component) => component.missingInTests.length);
-  if (review.length) {
-    add("warnings", path.join(root, "packages/react/test/button-render.test.mjs"), 1, `React interaction coverage missing for ${review.length} components; see docs/audits/react-interaction-coverage-audit.md.`);
+  const missingTests = report.components.filter((component) => component.missingInTests.length);
+  if (missingTests.length) {
+    add("errors", path.join(root, "packages/react/test/interaction.test.mjs"), 1, `React interaction coverage missing for ${missingTests.length} components; see docs/audits/react-interaction-coverage-audit.md.`);
   }
   const criticalMissing = report.manualAccessibilityCritical.filter((component) => !component.present || component.status !== "pass" || !component.hasInteractionTestPresence);
   if (criticalMissing.length) {
