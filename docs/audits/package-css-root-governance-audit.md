@@ -2,7 +2,7 @@
 
 Status: **pass**
 
-Every root class in the package stylesheet must be a known component root or an explicitly classified shared primitive/bridge; unclassified roots indicate accidental visual implementations.
+Every root class in the package stylesheet must be a known component root observed by React or an explicitly classified shared primitive/bridge; unclassified or unobserved roots indicate accidental visual implementations.
 
 ## Inventory
 
@@ -10,6 +10,8 @@ Every root class in the package stylesheet must be a known component root or an 
 - Selectors scanned: 1169
 - CSS roots: 66
 - Component roots: 58
+- Component roots observed by React: 58
+- Component roots not observed by React: 0
 - Classified non-component roots: 8
 - Unclassified roots: 0
 
@@ -25,6 +27,12 @@ Every root class in the package stylesheet must be a known component root or an 
 | illustration-asset | primitive-asset | packages/components/src/primitives/illustration-assets.js | yes | Reusable illustration asset primitive. |
 | input | shared-control-primitive | field | yes | Shared native input surface consumed by field-family React components. |
 | material-symbol | iconography-hook | packages/components/src/primitives/iconography.js | yes | Material Symbols font hook used by icon-bearing components. |
+
+## Unobserved Component Roots
+
+| Root |
+| --- |
+| None |
 
 ## Unclassified Roots
 
