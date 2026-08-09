@@ -1217,7 +1217,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 377,
+    filesScanned: 378,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -1354,17 +1354,37 @@ function assertReactGovernanceBaselines() {
     familyCssMaturityDebt: 0,
   }, "Family CSS contract maturity");
 
+  const patternReadiness = readAuditReport("docs/audits/pattern-readiness-audit.json");
+  assertReportStatus(patternReadiness, "Pattern readiness");
+  assertInventory(patternReadiness, {
+    metaPatterns: 51,
+    catalogPatterns: 47,
+    uniqueCatalogPatterns: 47,
+    copyPatterns: 41,
+    markdownContracts: 41,
+    requiredPatternContracts: 23,
+    requiredContractsPresent: 23,
+    requiredCopyPresent: 23,
+    formalArtifacts: 2,
+    duplicateCatalogIds: 0,
+    requiredContractGaps: 0,
+    requiredCopyGaps: 0,
+    staleMarkdownContracts: 0,
+    formalArtifactBacklog: 39,
+    patternReadinessDebt: 0,
+  }, "Pattern readiness");
+
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 20,
-    categoryMappings: 20,
+    reports: 21,
+    categoryMappings: 21,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 20,
-    debtMetrics: 20,
-    categories: 7,
-    categoryMinimums: 7,
-    categoryPrinciples: 7,
+    reportsWithDebtMetrics: 21,
+    debtMetrics: 21,
+    categories: 8,
+    categoryMinimums: 8,
+    categoryPrinciples: 8,
     categoryMinimumDebt: 0,
     statusDebt: 0,
     nonPassReports: 0,
@@ -1491,6 +1511,15 @@ function assertSystemDebtCategories(report) {
     {
       category: "foundations-primitives",
       principle: "Foundations and primitives must be exportable beyond CSS.",
+      reports: 1,
+      minimumReports: 1,
+      coverageGap: 0,
+      debtMetrics: 1,
+      totalDebt: 0,
+    },
+    {
+      category: "patterns",
+      principle: "Patterns must compose components through governed contracts before template promotion.",
       reports: 1,
       minimumReports: 1,
       coverageGap: 0,

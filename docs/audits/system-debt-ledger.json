@@ -3,14 +3,14 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 20,
-    "categoryMappings": 20,
+    "reports": 21,
+    "categoryMappings": 21,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 20,
-    "debtMetrics": 20,
-    "categories": 7,
-    "categoryMinimums": 7,
-    "categoryPrinciples": 7,
+    "reportsWithDebtMetrics": 21,
+    "debtMetrics": 21,
+    "categories": 8,
+    "categoryMinimums": 8,
+    "categoryPrinciples": 8,
     "categoryMinimumDebt": 0,
     "statusDebt": 0,
     "nonPassReports": 0,
@@ -74,6 +74,15 @@
     {
       "category": "foundations-primitives",
       "principle": "Foundations and primitives must be exportable beyond CSS.",
+      "reports": 1,
+      "minimumReports": 1,
+      "coverageGap": 0,
+      "debtMetrics": 1,
+      "totalDebt": 0
+    },
+    {
+      "category": "patterns",
+      "principle": "Patterns must compose components through governed contracts before template promotion.",
       "reports": 1,
       "minimumReports": 1,
       "coverageGap": 0,
@@ -244,6 +253,20 @@
           "report": "package-css-root-governance-audit.json",
           "scope": "inventory",
           "metric": "packageCssRootDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "pattern-readiness-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "pattern-readiness-audit.json",
+          "scope": "inventory",
+          "metric": "patternReadinessDebt",
           "value": 0,
           "numericValue": 0
         }

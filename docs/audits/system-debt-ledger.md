@@ -6,14 +6,14 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 20
-- Category mappings: 20
+- Reports scanned: 21
+- Category mappings: 21
 - Stale category mappings: 0
-- Reports with debt metrics: 20
-- Debt metrics: 20
-- Categories: 7
-- Category minimums: 7
-- Category principles: 7
+- Reports with debt metrics: 21
+- Debt metrics: 21
+- Categories: 8
+- Category minimums: 8
+- Category principles: 8
 - Category minimum debt: 0
 - Status debt: 0
 - Non-pass reports: 0
@@ -41,6 +41,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | cascade | Component styling must cascade from exported system contracts. | 4 | 4 | 0 | 4 | 0 |
 | docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 2 | 2 | 0 | 2 | 0 |
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 1 | 1 | 0 | 1 | 0 |
+| patterns | Patterns must compose components through governed contracts before template promotion. | 1 | 1 | 0 | 1 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 10 | 10 | 0 | 10 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
@@ -95,6 +96,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | foundation-primitive-export-contract-audit.json | foundations-primitives | pass | foundationPrimitiveExportDebt: 0 |
 | legacy-dom-source-governance-audit.json | react-primary | pass | legacyDomSourceDebt: 0 |
 | package-css-root-governance-audit.json | cascade | pass | packageCssRootDebt: 0 |
+| pattern-readiness-audit.json | patterns | pass | patternReadinessDebt: 0 |
 | react-accessibility-governance-audit.json | react-primary | pass | accessibilityDebt: 0 |
 | react-class-ownership-audit.json | react-primary | pass | classOwnershipDebt: 0 |
 | react-composition-governance-audit.json | react-primary | pass | compositionDebt: 0 |
