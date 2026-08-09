@@ -6,8 +6,12 @@
     "components": 56,
     "controlledComponents": 29,
     "openControlledComponents": 10,
+    "openSourceCovered": 10,
+    "openTestCovered": 10,
     "controlledPropEdges": 28,
+    "totalControlledEdges": 38,
     "testCoveredEdges": 28,
+    "totalTestCoveredEdges": 38,
     "failures": 0
   },
   "components": [

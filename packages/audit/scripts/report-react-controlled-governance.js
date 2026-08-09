@@ -101,6 +101,8 @@ function createReport() {
     };
   });
   const controlledComponents = components.filter((component) => component.openControlled.contractControlled || component.controlledProps.length);
+  const openControlledComponents = components.filter((component) => component.openControlled.contractControlled);
+  const controlledPropEdges = components.reduce((total, component) => total + component.controlledProps.length, 0);
   return {
     status: components.some((component) => component.status === "fail") ? "fail" : "pass",
     audit: "react controlled governance",
@@ -108,9 +110,14 @@ function createReport() {
     inventory: {
       components: components.length,
       controlledComponents: controlledComponents.length,
-      openControlledComponents: components.filter((component) => component.openControlled.contractControlled).length,
-      controlledPropEdges: components.reduce((total, component) => total + component.controlledProps.length, 0),
+      openControlledComponents: openControlledComponents.length,
+      openSourceCovered: openControlledComponents.filter((component) => component.openControlled.sourceControlled).length,
+      openTestCovered: openControlledComponents.filter((component) => component.openControlled.testCovered).length,
+      controlledPropEdges,
+      totalControlledEdges: controlledPropEdges + openControlledComponents.length,
       testCoveredEdges: components.reduce((total, component) => total + component.controlledProps.filter((item) => item.testCovered).length, 0),
+      totalTestCoveredEdges: components.reduce((total, component) => total + component.controlledProps.filter((item) => item.testCovered).length, 0)
+        + openControlledComponents.filter((component) => component.openControlled.testCovered).length,
       failures: components.reduce((total, component) => total + component.failures.length, 0),
     },
     components,
@@ -133,8 +140,12 @@ function toMarkdown(report) {
     `- React components scanned: ${report.inventory.components}`,
     `- Controlled components: ${report.inventory.controlledComponents}`,
     `- Open-controlled components: ${report.inventory.openControlledComponents}`,
+    `- Open source covered: ${report.inventory.openSourceCovered}/${report.inventory.openControlledComponents}`,
+    `- Open test covered: ${report.inventory.openTestCovered}/${report.inventory.openControlledComponents}`,
     `- Controlled prop edges: ${report.inventory.controlledPropEdges}`,
+    `- Total controlled edges: ${report.inventory.totalControlledEdges}`,
     `- Tested controlled prop edges: ${report.inventory.testCoveredEdges}`,
+    `- Total tested controlled edges: ${report.inventory.totalTestCoveredEdges}`,
     `- Failures: ${report.inventory.failures}`,
     "",
     "## Components",
@@ -173,7 +184,11 @@ function main() {
     components: report.inventory.components,
     controlledComponents: report.inventory.controlledComponents,
     openControlledComponents: report.inventory.openControlledComponents,
+    openSourceCovered: report.inventory.openSourceCovered,
+    openTestCovered: report.inventory.openTestCovered,
     controlledPropEdges: report.inventory.controlledPropEdges,
+    totalControlledEdges: report.inventory.totalControlledEdges,
+    totalTestCoveredEdges: report.inventory.totalTestCoveredEdges,
     failures: report.inventory.failures,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),

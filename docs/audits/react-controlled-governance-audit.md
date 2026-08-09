@@ -9,8 +9,12 @@ Controlled React props must be explicit in source and covered by external rerend
 - React components scanned: 56
 - Controlled components: 29
 - Open-controlled components: 10
+- Open source covered: 10/10
+- Open test covered: 10/10
 - Controlled prop edges: 28
+- Total controlled edges: 38
 - Tested controlled prop edges: 28
+- Total tested controlled edges: 38
 - Failures: 0
 
 ## Components
