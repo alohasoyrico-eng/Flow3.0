@@ -9,6 +9,56 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "anti-duplication-coverage.json");
 const markdownOutput = path.join(outputDir, "anti-duplication-coverage.md");
 
+const expectedInventory = {
+  checks: 6,
+  componentClassRoots: 59,
+  acceptedComponents: 56,
+  ownerRoots: 56,
+  missingOwnerRoots: 0,
+  extensionRoots: 3,
+  protectedComponentRoots: 6,
+  duplicateConcepts: 2,
+  docsApps: 1,
+};
+
+const expectedExtensionRoots = ["choice", "country-flag", "select-control"];
+const expectedDuplicateConcepts = {
+  search: ["pattern-topbar-search", "topbar-search", "top-search", "pattern-search-results"],
+  "account menu": ["pattern-account-menu"],
+};
+
+function sameStrings(actual = [], expected = []) {
+  const actualSorted = [...actual].sort();
+  const expectedSorted = [...expected].sort();
+  return actualSorted.length === expectedSorted.length
+    && actualSorted.every((value, index) => value === expectedSorted[index]);
+}
+
+function duplicateConceptMismatches(duplicateConcepts) {
+  const mismatches = [];
+  const expectedNames = Object.keys(expectedDuplicateConcepts);
+  const actualNames = duplicateConcepts.map((item) => item.concept);
+  if (!sameStrings(actualNames, expectedNames)) {
+    mismatches.push({
+      key: "duplicateConcepts.names",
+      expected: expectedNames,
+      actual: actualNames,
+    });
+  }
+  for (const [concept, classNames] of Object.entries(expectedDuplicateConcepts)) {
+    const actual = duplicateConcepts.find((item) => item.concept === concept);
+    if (!actual) continue;
+    if (!sameStrings(actual.classNames, classNames)) {
+      mismatches.push({
+        key: `duplicateConcepts.${concept}`,
+        expected: classNames,
+        actual: actual.classNames,
+      });
+    }
+  }
+  return mismatches;
+}
+
 function renderMarkdown(report) {
   const concepts = report.duplicateConcepts
     .map((item) => `| ${item.concept} | ${item.classNames.join(", ")} |`)
@@ -19,6 +69,12 @@ function renderMarkdown(report) {
     .join("\n");
   const extensionRootRows = report.rootRegistry.extensionRoots
     .map((rootToken) => `| ${rootToken} |`)
+    .join("\n");
+  const baselineRows = Object.entries(report.baseline.inventory)
+    .map(([key, expected]) => `| ${key} | ${expected} | ${report.baseline.actual[key]} |`)
+    .join("\n");
+  const baselineMismatchRows = report.baseline.mismatches
+    .map((item) => `| ${item.key} | ${Array.isArray(item.expected) ? item.expected.join(", ") : item.expected} | ${Array.isArray(item.actual) ? item.actual.join(", ") : item.actual} |`)
     .join("\n");
   return [
     "# Anti-Duplication Coverage",
@@ -32,6 +88,21 @@ function renderMarkdown(report) {
     `- Protected high-risk roots: ${report.protectedComponentRoots.join(", ")}`,
     `- Duplicate concept rules: ${report.duplicateConcepts.length}`,
     `- Docs apps scanned: ${report.docsApps.join(", ") || "none"}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. Owner roots, extension roots, protected concepts, and docs apps scanned should not shrink silently.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | --- | --- |",
+    baselineMismatchRows || "| None | None | None |",
     "",
     "## Checks",
     "",
@@ -61,9 +132,44 @@ function renderMarkdown(report) {
 function main() {
   checkAntiDuplicationGovernance();
   const coverage = antiDuplicationCoverage();
+  const actualInventory = {
+    checks: coverage.checks.length,
+    componentClassRoots: coverage.componentClassRoots.length,
+    acceptedComponents: coverage.rootRegistry.acceptedComponents,
+    ownerRoots: coverage.rootRegistry.ownerRoots,
+    missingOwnerRoots: coverage.rootRegistry.missingOwnerRoots.length,
+    extensionRoots: coverage.rootRegistry.extensionRoots.length,
+    protectedComponentRoots: coverage.protectedComponentRoots.length,
+    duplicateConcepts: coverage.duplicateConcepts.length,
+    docsApps: coverage.docsApps.length,
+  };
+  const baselineMismatches = [
+    ...Object.entries(expectedInventory)
+      .filter(([key, expected]) => actualInventory[key] !== expected)
+      .map(([key, expected]) => ({
+        key,
+        expected,
+        actual: actualInventory[key],
+      })),
+    ...(!sameStrings(coverage.rootRegistry.extensionRoots, expectedExtensionRoots)
+      ? [{
+        key: "extensionRoots",
+        expected: expectedExtensionRoots,
+        actual: coverage.rootRegistry.extensionRoots,
+      }]
+      : []),
+    ...duplicateConceptMismatches(coverage.duplicateConcepts),
+  ];
   const report = {
-    status: result.errors.length ? "fail" : "pass",
+    status: result.errors.length || baselineMismatches.length ? "fail" : "pass",
     errors: result.errors,
+    baseline: {
+      inventory: expectedInventory,
+      actual: actualInventory,
+      extensionRoots: expectedExtensionRoots,
+      duplicateConcepts: expectedDuplicateConcepts,
+      mismatches: baselineMismatches,
+    },
     ...coverage,
   };
   const nextJson = `${JSON.stringify(report, null, 2)}\n`;

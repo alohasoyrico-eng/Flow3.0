@@ -9,6 +9,29 @@ Status: pass
 - Protected high-risk roots: button, card, dialog, drawer, menu, popover
 - Duplicate concept rules: 2
 - Docs apps scanned: ../FlowDocs/apps/docs
+- Inventory baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. Owner roots, extension roots, protected concepts, and docs apps scanned should not shrink silently.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| checks | 6 | 6 |
+| componentClassRoots | 59 | 59 |
+| acceptedComponents | 56 | 56 |
+| ownerRoots | 56 | 56 |
+| missingOwnerRoots | 0 | 0 |
+| extensionRoots | 3 | 3 |
+| protectedComponentRoots | 6 | 6 |
+| duplicateConcepts | 2 | 2 |
+| docsApps | 1 | 1 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | --- | --- |
+| None | None | None |
 
 ## Checks
 

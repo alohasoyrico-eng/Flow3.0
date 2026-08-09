@@ -1,6 +1,47 @@
 {
   "status": "pass",
   "errors": [],
+  "baseline": {
+    "inventory": {
+      "checks": 6,
+      "componentClassRoots": 59,
+      "acceptedComponents": 56,
+      "ownerRoots": 56,
+      "missingOwnerRoots": 0,
+      "extensionRoots": 3,
+      "protectedComponentRoots": 6,
+      "duplicateConcepts": 2,
+      "docsApps": 1
+    },
+    "actual": {
+      "checks": 6,
+      "componentClassRoots": 59,
+      "acceptedComponents": 56,
+      "ownerRoots": 56,
+      "missingOwnerRoots": 0,
+      "extensionRoots": 3,
+      "protectedComponentRoots": 6,
+      "duplicateConcepts": 2,
+      "docsApps": 1
+    },
+    "extensionRoots": [
+      "choice",
+      "country-flag",
+      "select-control"
+    ],
+    "duplicateConcepts": {
+      "search": [
+        "pattern-topbar-search",
+        "topbar-search",
+        "top-search",
+        "pattern-search-results"
+      ],
+      "account menu": [
+        "pattern-account-menu"
+      ]
+    },
+    "mismatches": []
+  },
   "docsApps": [
     "../FlowDocs/apps/docs"
   ],
