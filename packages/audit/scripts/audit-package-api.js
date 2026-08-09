@@ -1,3 +1,4 @@
+const fs = require("node:fs");
 const { goldComponents, path, root, readJson, add } = require("./audit-context.js");
 
 const boundaryImports = [
@@ -77,6 +78,17 @@ const publishFileAllowlist = [
   "START.md",
 ];
 
+function exportTargets(value) {
+  if (typeof value === "string") return [value];
+  if (!value || typeof value !== "object") return [];
+  return Object.values(value).flatMap(exportTargets);
+}
+
+function isPublishAllowedTarget(target) {
+  const file = target.replace(/^\.\//, "");
+  return publishFileAllowlist.some((entry) => file === entry || file.startsWith(`${entry}/`));
+}
+
 function checkPackageApiBoundary() {
   const packageJsonFile = path.join(root, "package.json");
   const contentPackageJsonFile = path.join(root, "packages/content/package.json");
@@ -115,6 +127,20 @@ function checkPackageApiBoundary() {
   }
   for (const requiredExport of installExports) {
     if (!rootExports[requiredExport]) add("errors", packageJsonFile, 1, `Root package exports missing install surface: ${requiredExport}.`);
+  }
+  for (const [exportPath, exportValue] of Object.entries(rootExports)) {
+    for (const target of exportTargets(exportValue)) {
+      if (!target.startsWith("./")) {
+        add("errors", packageJsonFile, 1, `Root package export ${exportPath} must use a relative package target.`);
+        continue;
+      }
+      if (!isPublishAllowedTarget(target)) {
+        add("errors", packageJsonFile, 1, `Root package export ${exportPath} points outside the governed publish allowlist: ${target}.`);
+      }
+      if (!fs.existsSync(path.join(root, target))) {
+        add("errors", packageJsonFile, 1, `Root package export ${exportPath} points to a missing artifact: ${target}.`);
+      }
+    }
   }
   if (exportedTokens["./tokens.json"] !== "./tokens.json") {
     add("errors", tokenPackageJsonFile, 1, "@design-system/tokens must export ./tokens.json for platform-neutral token pipelines.");
