@@ -68,11 +68,27 @@ function checkPackageApiBoundary() {
   const tokenPackageJsonFile = path.join(root, "packages/tokens/package.json");
   const tokenContractFile = path.join(root, "packages/tokens/tokens.json");
   const rootImports = readJson(packageJsonFile)?.imports ?? {};
-  const rootExports = readJson(packageJsonFile)?.exports ?? {};
+  const rootPackage = readJson(packageJsonFile) ?? {};
+  const rootExports = rootPackage.exports ?? {};
   const exportedContent = readJson(contentPackageJsonFile)?.exports ?? {};
   const exportedTokens = readJson(tokenPackageJsonFile)?.exports ?? {};
   const tokenContract = readJson(tokenContractFile);
 
+  if (rootPackage.private === true) {
+    add("errors", packageJsonFile, 1, "Root package must be publishable; do not mark Flow as private.");
+  }
+  if (rootPackage.publishConfig?.registry !== "https://npm.pkg.github.com") {
+    add("errors", packageJsonFile, 1, "Root package publishConfig.registry must target GitHub Packages.");
+  }
+  if (rootPackage.publishConfig?.access !== "public") {
+    add("errors", packageJsonFile, 1, "Root package publishConfig.access must be public.");
+  }
+  if (!rootPackage.peerDependencies?.react || !rootPackage.peerDependencies?.["react-dom"]) {
+    add("errors", packageJsonFile, 1, "Root package must publish react and react-dom as peerDependencies.");
+  }
+  if (!Array.isArray(rootPackage.sideEffects) || !rootPackage.sideEffects.includes("**/*.css")) {
+    add("errors", packageJsonFile, 1, "Root package sideEffects must preserve published CSS for bundlers.");
+  }
   for (const requiredImport of boundaryImports) {
     if (!rootImports[requiredImport]) add("errors", packageJsonFile, 1, `Root package imports missing public boundary alias: ${requiredImport}.`);
   }
