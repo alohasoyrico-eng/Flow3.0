@@ -10,16 +10,8 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 }
 
 function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
-  const comboboxBlock = blockFor(blocks, selectorKey, ".combobox");
   const selectBlock = blockFor(blocks, selectorKey, ".select-control");
 
-  requireIncludes({
-    block: comboboxBlock,
-    text,
-    packageCssFile,
-    snippets: ["--comp-combobox-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro))"],
-    message: "Combobox chevron sizing must consume Frame micro offset instead of raw rem values.",
-  });
   requireIncludes({
     block: selectBlock,
     text,
@@ -32,8 +24,8 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
     ],
     message: "Select frame offsets must consume Frame micro aliases instead of raw px/rem values.",
   });
-  if (/--comp-(?:combobox|select)[^:]*:\s*calc\([^;]*(?:2px|0\.125rem)/.test(text)) {
-    add("errors", packageCssFile, 1, "Select and Combobox component aliases must not hardcode 2px or 0.125rem frame offsets.");
+  if (/--comp-select[^:]*:\s*calc\([^;]*(?:2px|0\.125rem)/.test(text)) {
+    add("errors", packageCssFile, 1, "Select component aliases must not hardcode 2px or 0.125rem frame offsets.");
   }
   const rawOptionHeight = text.match(/--comp-select-option-min-size:\s*calc\(var\(--component-control-min-size\)[^;]+/);
   if (rawOptionHeight) {

@@ -3,8 +3,8 @@
 Status: pass
 
 - Components: 56
-- Direct contracts: 51
-- Family contracts: 5
+- Direct contracts: 52
+- Family contracts: 4
 - Missing contracts: 0
 - Direct root gaps: 0
 - Family root gaps: 0
@@ -17,7 +17,6 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | Shared contract | Required React root | Allowed extension roots | Components covered |
 | --- | --- | --- | --- |
 | field | field | card-expiry-input, card-number-input, card-security-code-input | input, card-number-input, card-expiry-input, card-security-code-input |
-| select | select-control | combobox, field | combobox |
 
 ## Direct Root Gaps
 
@@ -41,7 +40,7 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | --- | --- | --- | --- | --- | --- | --- |
 | button | direct | button | button | true | n/a | None |
 | select | direct | select | select-control | true | n/a | None |
-| combobox | family | select | select-control | true | combobox, field | None |
+| combobox | direct | combobox | combobox | true | n/a | None |
 | country-selector | direct | country-selector | country-selector | true | n/a | None |
 | card | direct | card | card | true | n/a | None |
 | input | family | field | field | true | n/a | None |

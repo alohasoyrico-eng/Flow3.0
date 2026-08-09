@@ -8,58 +8,13 @@
   },
   "watchlistRatio": 0.8,
   "inventory": {
-    "familyComponents": 5,
+    "familyComponents": 4,
     "reviewCandidates": 0,
-    "watchlist": 1
+    "watchlist": 0
   },
   "reviewCandidates": [],
-  "watchlist": [
-    {
-      "component": "combobox",
-      "familyContract": "select",
-      "requiredRoot": "select-control",
-      "extensionRoots": [
-        "combobox",
-        "field"
-      ],
-      "ownExtensionRoots": [
-        "combobox"
-      ],
-      "sharedExtensionRoots": [
-        "field"
-      ],
-      "selectorCount": 11,
-      "aliasCount": 35,
-      "recommendation": "keep-family",
-      "reasons": [],
-      "watchlistReasons": [
-        "component aliases 35 is within 80% of 40"
-      ]
-    }
-  ],
+  "watchlist": [],
   "familyComponents": [
-    {
-      "component": "combobox",
-      "familyContract": "select",
-      "requiredRoot": "select-control",
-      "extensionRoots": [
-        "combobox",
-        "field"
-      ],
-      "ownExtensionRoots": [
-        "combobox"
-      ],
-      "sharedExtensionRoots": [
-        "field"
-      ],
-      "selectorCount": 11,
-      "aliasCount": 35,
-      "recommendation": "keep-family",
-      "reasons": [],
-      "watchlistReasons": [
-        "component aliases 35 is within 80% of 40"
-      ]
-    },
     {
       "component": "input",
       "familyContract": "field",

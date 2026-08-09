@@ -44,6 +44,7 @@ const expectedAuditFiles = new Set([
   "audit-chip-css-contract.js",
   "audit-choice-css-contract.js",
   "audit-code-input-css-contract.js",
+  "audit-combobox-css-contract.js",
   "audit-complete.mjs",
   "audit-component-1to1-quality-matrix.js",
   "audit-component-alias-literals.js",
