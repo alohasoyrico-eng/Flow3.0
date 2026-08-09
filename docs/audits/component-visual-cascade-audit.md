@@ -2,7 +2,7 @@
 
 Status: **pass**
 
-Every component must render through the React package, consume Flow visual roles through CSS/tokens, and use docs demos that expose layout/density problems instead of hiding them behind local styling.
+Every component must render through the React package, consume Flow visual roles through CSS/tokens, and use docs demos that expose layout/density problems instead of hiding them behind local styling. The actionable debt metric is visualCascadeDebt.
 
 ## Inventory
 
@@ -10,6 +10,7 @@ Every component must render through the React package, consume Flow visual roles
 - Pass: 56
 - Review: 0
 - Fail: 0
+- Visual cascade debt: 0
 
 ## Blockers
 

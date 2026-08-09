@@ -415,15 +415,18 @@ function createReport() {
 
   const blockers = components.flatMap((component) => component.blockers.map((message) => `${component.id}: ${message}`));
   const reviewItems = components.filter((component) => component.status === "review").length;
+  const failItems = components.filter((component) => component.status === "fail").length;
+  const visualCascadeDebt = reviewItems + failItems;
   const report = {
     status: blockers.length ? "fail" : reviewItems ? "review" : "pass",
     audit: "component visual cascade",
-    principle: "Every component must render through the React package, consume Flow visual roles through CSS/tokens, and use docs demos that expose layout/density problems instead of hiding them behind local styling.",
+    principle: "Every component must render through the React package, consume Flow visual roles through CSS/tokens, and use docs demos that expose layout/density problems instead of hiding them behind local styling. The actionable debt metric is visualCascadeDebt.",
     inventory: {
       components: components.length,
       pass: components.filter((component) => component.status === "pass").length,
       review: reviewItems,
-      fail: components.filter((component) => component.status === "fail").length,
+      fail: failItems,
+      visualCascadeDebt,
     },
     blockers,
     components,
@@ -457,6 +460,7 @@ function toMarkdown(report) {
     `- Pass: ${report.inventory.pass}`,
     `- Review: ${report.inventory.review}`,
     `- Fail: ${report.inventory.fail}`,
+    `- Visual cascade debt: ${report.inventory.visualCascadeDebt}`,
     "",
     "## Blockers",
     "",
@@ -531,6 +535,7 @@ function main() {
     pass: report.inventory.pass,
     review: report.inventory.review,
     fail: report.inventory.fail,
+    visualCascadeDebt: report.inventory.visualCascadeDebt,
     json: rel(jsonOutput),
     markdown: rel(markdownOutput),
   }, null, 2));

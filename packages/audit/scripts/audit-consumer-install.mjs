@@ -1306,6 +1306,16 @@ function assertReactGovernanceBaselines() {
     packageCssRootDebt: 0,
   }, "Package CSS root governance");
 
+  const visualCascade = readAuditReport("docs/audits/component-visual-cascade-audit.json");
+  assertReportStatus(visualCascade, "Component visual cascade");
+  assertInventory(visualCascade, {
+    components: 56,
+    pass: 56,
+    review: 0,
+    fail: 0,
+    visualCascadeDebt: 0,
+  }, "Component visual cascade");
+
   const propAlignment = readAuditReport("docs/audits/react-contract-prop-alignment-audit.json");
   assertReportStatus(propAlignment, "React contract prop alignment");
   assertInventory(propAlignment, {

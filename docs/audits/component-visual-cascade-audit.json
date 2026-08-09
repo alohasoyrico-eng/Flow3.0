@@ -1,12 +1,13 @@
 {
   "status": "pass",
   "audit": "component visual cascade",
-  "principle": "Every component must render through the React package, consume Flow visual roles through CSS/tokens, and use docs demos that expose layout/density problems instead of hiding them behind local styling.",
+  "principle": "Every component must render through the React package, consume Flow visual roles through CSS/tokens, and use docs demos that expose layout/density problems instead of hiding them behind local styling. The actionable debt metric is visualCascadeDebt.",
   "inventory": {
     "components": 56,
     "pass": 56,
     "review": 0,
-    "fail": 0
+    "fail": 0,
+    "visualCascadeDebt": 0
   },
   "blockers": [],
   "components": [
