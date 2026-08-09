@@ -1251,6 +1251,20 @@ function assertReactGovernanceBaselines() {
     unknownContractOwners: 0,
   }, "React composition governance");
 
+  const propAlignment = readAuditReport("docs/audits/react-contract-prop-alignment-audit.json");
+  assertReportStatus(propAlignment, "React contract prop alignment");
+  assertInventory(propAlignment, {
+    components: 56,
+    propAlignmentDebt: 0,
+    pass: 56,
+    fail: 0,
+    extraReactProps: 0,
+    missingReactProps: 0,
+    requiredMismatches: 0,
+    typeValueMismatches: 0,
+    unreferencedPublicProps: 0,
+  }, "React contract prop alignment");
+
   const controlled = readAuditReport("docs/audits/react-controlled-governance-audit.json");
   assertReportStatus(controlled, "React controlled governance");
   assertInventory(controlled, {

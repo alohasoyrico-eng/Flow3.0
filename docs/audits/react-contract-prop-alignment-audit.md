@@ -2,11 +2,12 @@
 
 Status: **pass**
 
-The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract.
+The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract. The actionable debt metric is propAlignmentDebt.
 
 ## Inventory
 
 - React components scanned: 56
+- Prop alignment debt: 0
 - Pass: 56
 - Fail: 0
 - Contract props: 671
@@ -23,11 +24,12 @@ The public React prop surface must stay aligned with componentContracts so produ
 
 ## Baseline Budget
 
-Changing these numbers is a contract decision. Public React props, system contract props, inherited props, and implementation references must move together.
+Changing these numbers is a contract decision. propAlignmentDebt must stay at 0; public React props, system contract props, inherited props, and implementation references must move together.
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | components | 56 | 56 |
+| propAlignmentDebt | 0 | 0 |
 | pass | 56 | 56 |
 | fail | 0 | 0 |
 | contractProps | 671 | 671 |

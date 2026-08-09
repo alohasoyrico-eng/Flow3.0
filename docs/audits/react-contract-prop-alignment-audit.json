@@ -1,10 +1,11 @@
 {
   "status": "pass",
   "audit": "react contract prop alignment",
-  "principle": "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract.",
+  "principle": "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract. The actionable debt metric is propAlignmentDebt.",
   "baseline": {
     "inventory": {
       "components": 56,
+      "propAlignmentDebt": 0,
       "pass": 56,
       "fail": 0,
       "contractProps": 671,
@@ -33,7 +34,8 @@
     "requiredMismatches": 0,
     "typeValueMismatches": 0,
     "publicPropsExpectedInSource": 560,
-    "unreferencedPublicProps": 0
+    "unreferencedPublicProps": 0,
+    "propAlignmentDebt": 0
   },
   "components": [
     {

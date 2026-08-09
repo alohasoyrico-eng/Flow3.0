@@ -26,6 +26,7 @@ const markdownOutput = path.join(outputDir, "react-contract-prop-alignment-audit
 
 const expectedInventory = {
   components: 56,
+  propAlignmentDebt: 0,
   pass: 56,
   fail: 0,
   contractProps: 671,
@@ -175,6 +176,12 @@ function createReport() {
     publicPropsExpectedInSource: components.reduce((total, component) => total + component.publicPropsExpectedInSource.length, 0),
     unreferencedPublicProps: components.reduce((total, component) => total + component.unreferencedPublicProps.length, 0),
   };
+  inventory.propAlignmentDebt = inventory.fail
+    + inventory.extraReactProps
+    + inventory.missingReactProps
+    + inventory.requiredMismatches
+    + inventory.typeValueMismatches
+    + inventory.unreferencedPublicProps;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -183,9 +190,9 @@ function createReport() {
       actual: inventory[key],
     }));
   return {
-    status: components.some((component) => component.status === "fail") || baselineMismatches.length ? "fail" : "pass",
+    status: inventory.propAlignmentDebt || baselineMismatches.length ? "fail" : "pass",
     audit: "react contract prop alignment",
-    principle: "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract.",
+    principle: "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract. The actionable debt metric is propAlignmentDebt.",
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
@@ -213,6 +220,7 @@ function toMarkdown(report) {
     "## Inventory",
     "",
     `- React components scanned: ${report.inventory.components}`,
+    `- Prop alignment debt: ${report.inventory.propAlignmentDebt}`,
     `- Pass: ${report.inventory.pass}`,
     `- Fail: ${report.inventory.fail}`,
     `- Contract props: ${report.inventory.contractProps}`,
@@ -229,7 +237,7 @@ function toMarkdown(report) {
     "",
     "## Baseline Budget",
     "",
-    "Changing these numbers is a contract decision. Public React props, system contract props, inherited props, and implementation references must move together.",
+    "Changing these numbers is a contract decision. propAlignmentDebt must stay at 0; public React props, system contract props, inherited props, and implementation references must move together.",
     "",
     "| Metric | Expected | Actual |",
     "| --- | ---: | ---: |",
@@ -287,6 +295,7 @@ function main() {
   console.log(JSON.stringify({
     status: report.status,
     components: report.inventory.components,
+    propAlignmentDebt: report.inventory.propAlignmentDebt,
     pass: report.inventory.pass,
     fail: report.inventory.fail,
     extraReactProps: report.inventory.extraReactProps,
