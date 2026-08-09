@@ -1,4 +1,4 @@
-const { fs, path, root, add, read } = require("./audit-context.js");
+const { fs, goldComponents, path, root, add, read } = require("./audit-context.js");
 
 const rootPackageFile = path.join(root, "package.json");
 const reactPackageFile = path.join(root, "packages/react/package.json");
@@ -144,6 +144,15 @@ function checkReactExportParity(rootPackage, reactPackage, reactIndex, reactType
     checkTargetExists(rootPackageFile, expectedRootTarget, `Root package export ${rootKey}`);
     if (expectedRootTypes) checkTargetExists(rootPackageFile, expectedRootTypes, `Root package type export ${rootKey}`);
     if (typesTarget) checkTargetExists(reactPackageFile, expectedRootTypes, `React type export ${reactKey}`);
+  }
+
+  for (const componentId of goldComponents) {
+    if (!reactExports[`./${componentId}`]) {
+      add("errors", reactPackageFile, 1, `@design-system/react must export accepted component subpath ./${componentId}.`);
+    }
+    if (!rootExports[`./react/${componentId}`]) {
+      add("errors", rootPackageFile, 1, `Root package must export accepted React component subpath ./react/${componentId}.`);
+    }
   }
 
   const componentFiles = fs.readdirSync(path.join(root, "packages/react/src"))
