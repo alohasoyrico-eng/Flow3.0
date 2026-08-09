@@ -933,6 +933,7 @@ function auditInstalledPackage(consumerDir) {
   if (!Array.isArray(installedPackage.sideEffects) || !installedPackage.sideEffects.includes("**/*.css")) {
     throw new Error("Installed package must preserve CSS sideEffects for consumer bundlers.");
   }
+  assertInstalledExportInventory(installedPackage);
   for (const [exportPath, expectedTarget] of Object.entries({
     "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
     "./components/styles.css": "./packages/components/styles/components.css",
@@ -1048,6 +1049,38 @@ function auditInstalledPackage(consumerDir) {
   }
   if (offenders.length) {
     throw new Error(`Installed package has consumer boundary offenders: ${offenders.slice(0, 20).join(", ")}`);
+  }
+}
+
+function assertInstalledExportInventory(installedPackage) {
+  const expectedExports = [
+    "./tokens",
+    "./tokens.json",
+    "./tokens/styles.css",
+    "./components",
+    "./components/contracts",
+    "./components/platforms",
+    "./components/styles.css",
+    "./react",
+    ...goldComponents.map((component) => `./react/${component}`),
+    "./content/catalog",
+    "./content/component-docs",
+    "./content/component-copy",
+    "./content/pattern-copy",
+    "./content/component-implementation-status",
+    "./content/foundation-copy",
+    "./content/primitive-copy",
+    "./content/reference-copy",
+    "./content/template-blueprints",
+    "./content/home",
+    "./content/i18n-ui",
+    "./specs/system",
+  ].sort();
+  const actualExports = Object.keys(installedPackage.exports ?? {}).sort();
+  const missing = expectedExports.filter((entry) => !actualExports.includes(entry));
+  const extra = actualExports.filter((entry) => !expectedExports.includes(entry));
+  if (missing.length || extra.length) {
+    throw new Error(`Installed package export inventory mismatch: missing ${missing.join(", ") || "none"}; extra ${extra.join(", ") || "none"}.`);
   }
 }
 
