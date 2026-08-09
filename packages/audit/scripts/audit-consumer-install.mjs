@@ -862,6 +862,10 @@ controlledSwitchHarness.unmount();
 }
 
 function writeConsumerTypes(consumerDir) {
+  const reactRootTypeImports = goldComponents.map((componentId) => {
+    const componentName = pascalCase(componentId);
+    return `${componentName}Props as ${componentName}RootProps, ${componentName}Component as ${componentName}RootComponent`;
+  }).join(", ");
   const reactSubpathTypeImports = goldComponents.map((componentId) => {
     const componentName = pascalCase(componentId);
     return `import { ${componentName} as ${componentName}Subpath } from "@alohasoyrico-eng/flow/react/${componentId}";\nimport type { ${componentName}Props as ${componentName}SubpathProps } from "@alohasoyrico-eng/flow/react/${componentId}";`;
@@ -869,7 +873,9 @@ function writeConsumerTypes(consumerDir) {
   const reactSubpathTypeAssertions = goldComponents.map((componentId) => {
     const componentName = pascalCase(componentId);
     const variableName = `${componentName.slice(0, 1).toLowerCase()}${componentName.slice(1)}SubpathProps`;
-    return `const ${variableName}: Partial<${componentName}SubpathProps> = {};\nvoid ${componentName}Subpath;\nvoid ${variableName};`;
+    const rootVariableName = `${componentName.slice(0, 1).toLowerCase()}${componentName.slice(1)}RootProps`;
+    const rootComponentName = `${componentName.slice(0, 1).toLowerCase()}${componentName.slice(1)}RootComponent`;
+    return `const ${variableName}: Partial<${componentName}SubpathProps> = {};\nconst ${rootVariableName}: Partial<${componentName}RootProps> = ${variableName};\nconst ${rootComponentName}: ${componentName}RootComponent = ${componentName}Subpath;\nvoid ${componentName}Subpath;\nvoid ${variableName};\nvoid ${rootVariableName};\nvoid ${rootComponentName};`;
   }).join("\n");
   const reactSubpathIntegrationTypeAssertions = goldComponents.map((componentId) => {
     const componentName = pascalCase(componentId);
@@ -893,6 +899,7 @@ function writeConsumerTypes(consumerDir) {
   const source = `
 import React from "react";
 import type { ButtonProps, CardProps, DialogProps, InputProps, TableProps } from "@alohasoyrico-eng/flow/react";
+import type { ${reactRootTypeImports} } from "@alohasoyrico-eng/flow/react";
 import { Button, Card, Input, Table } from "@alohasoyrico-eng/flow/react";
 import { Dialog } from "@alohasoyrico-eng/flow/react/dialog";
 ${reactSubpathTypeImports}
