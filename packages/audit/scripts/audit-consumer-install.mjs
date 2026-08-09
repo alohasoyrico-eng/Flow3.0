@@ -7,6 +7,8 @@ import { createRequire } from "node:module";
 import { spawnSync } from "node:child_process";
 
 const root = process.cwd();
+const auditRequire = createRequire(import.meta.url);
+const { goldComponents } = auditRequire("./audit-context.js");
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "consumer-install-"));
 const cacheDir = path.join(os.tmpdir(), "ds-npm-cache");
 let packedTarball = "";
@@ -19,8 +21,9 @@ const forbiddenInheritedDomProps = [
 ];
 
 try {
-  const tarball = packFlow();
+  const { tarball, pack } = packFlow();
   packedTarball = tarball;
+  auditPackedTarball(pack);
   const consumerDir = path.join(tempRoot, "consumer");
   fs.mkdirSync(consumerDir, { recursive: true });
   writeConsumerPackage(consumerDir, tarball);
@@ -52,7 +55,57 @@ function packFlow() {
   if (!fs.existsSync(tarball)) {
     throw new Error(`npm pack did not create ${pack.filename}.`);
   }
-  return tarball;
+  return { tarball, pack };
+}
+
+function auditPackedTarball(pack) {
+  const rootPackage = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
+  const paths = new Set((pack.files ?? []).map((file) => file.path));
+  const requiredPaths = new Set([
+    "package.json",
+    "README.md",
+    "RELEASE.md",
+    "START.md",
+    "CHANGELOG.md",
+    "packages/tokens/tokens.json",
+    "packages/tokens/styles/tokens.css",
+    "packages/components/styles/components.css",
+    "packages/components/src/contracts.js",
+    "packages/components/src/platforms/index.js",
+    "packages/react/dist/index.js",
+    "packages/react/dist/index.d.ts",
+  ]);
+  for (const componentId of goldComponents) {
+    const componentName = pascalCase(componentId);
+    requiredPaths.add(`packages/react/dist/${componentName}.js`);
+    requiredPaths.add(`packages/react/dist/${componentName}.d.ts`);
+  }
+  for (const target of Object.values(rootPackage.exports ?? {}).flatMap(exportTargets)) {
+    if (target.startsWith("./")) requiredPaths.add(target.replace(/^\.\//, ""));
+  }
+
+  const missing = [...requiredPaths].filter((file) => !paths.has(file));
+  if (missing.length) {
+    throw new Error(`Packed package is missing required public artifacts: ${missing.slice(0, 30).join(", ")}`);
+  }
+
+  const forbiddenPrefixes = [
+    "apps/",
+    "docs/",
+    "node_modules/",
+    "packages/audit/",
+    "packages/react/src/",
+    "repo-split-output/",
+  ];
+  const forbidden = [...paths].filter((file) => forbiddenPrefixes.some((prefix) => file.startsWith(prefix)));
+  if (forbidden.length) {
+    throw new Error(`Packed package includes internal artifacts: ${forbidden.slice(0, 30).join(", ")}`);
+  }
+
+  const reactSourceFiles = [...paths].filter((file) => file.startsWith("packages/react/") && !file.startsWith("packages/react/dist/"));
+  if (reactSourceFiles.length) {
+    throw new Error(`Packed React package must only include dist artifacts: ${reactSourceFiles.slice(0, 30).join(", ")}`);
+  }
 }
 
 function writeConsumerPackage(consumerDir, tarball) {
@@ -247,6 +300,16 @@ function missingInheritedDomEscapeOmissions(source) {
     }
   }
   return [...missing].sort();
+}
+
+function exportTargets(value) {
+  if (typeof value === "string") return [value];
+  if (!value || typeof value !== "object") return [];
+  return [value.default, value.types].filter(Boolean);
+}
+
+function pascalCase(value) {
+  return value.split("-").map((part) => `${part.slice(0, 1).toUpperCase()}${part.slice(1)}`).join("");
 }
 
 function listFiles(dir) {
