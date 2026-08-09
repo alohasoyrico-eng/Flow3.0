@@ -13,6 +13,27 @@ React visual styling must flow through classes and tokens; inline style is reser
 - Style props observed: 10
 - style.setProperty calls: 2
 - Violations: 0
+- Inventory baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. New inline style or runtime CSS-var usage must be reviewed before it becomes part of the public React implementation.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| components | 56 | 56 |
+| componentsWithApprovedInlineVars | 6 | 6 |
+| componentsWithRuntimeVars | 1 | 1 |
+| approvedInlineVars | 10 | 10 |
+| styleProps | 10 | 10 |
+| setPropertyCalls | 2 | 2 |
+| violations | 0 | 0 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
 
 ## Components
 

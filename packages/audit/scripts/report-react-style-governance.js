@@ -15,6 +15,16 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-style-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-style-governance-audit.md");
 
+const expectedInventory = {
+  components: 56,
+  componentsWithApprovedInlineVars: 6,
+  componentsWithRuntimeVars: 1,
+  approvedInlineVars: 10,
+  styleProps: 10,
+  setPropertyCalls: 2,
+  violations: 0,
+};
+
 const blockedEscapePatterns = [
   { id: "rest-style", label: "rest.style merge", pattern: /\brest\.style\b/g },
   { id: "inner-html", label: "HTML string injection", pattern: /\b(?:innerHTML|insertAdjacentHTML)\b/g },
@@ -96,19 +106,31 @@ function createReport() {
   });
   const withApprovedVars = components.filter((item) => item.approvedVars.length || item.allowedInlineStyleKeys.length);
   const withRuntimeVars = components.filter((item) => item.setPropertyCalls.length);
+  const inventory = {
+    components: components.length,
+    componentsWithApprovedInlineVars: withApprovedVars.length,
+    componentsWithRuntimeVars: withRuntimeVars.length,
+    approvedInlineVars: components.reduce((total, item) => total + item.approvedVars.length, 0),
+    styleProps: components.reduce((total, item) => total + item.styleProps, 0),
+    setPropertyCalls: components.reduce((total, item) => total + item.setPropertyCalls.length, 0),
+    violations: components.reduce((total, item) => total + item.violations.length, 0),
+  };
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => inventory[key] !== expected)
+    .map(([key, expected]) => ({
+      key,
+      expected,
+      actual: inventory[key],
+    }));
   return {
-    status: components.some((item) => item.status === "fail") ? "fail" : "pass",
+    status: components.some((item) => item.status === "fail") || baselineMismatches.length ? "fail" : "pass",
     audit: "react style governance",
     principle: "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked.",
-    inventory: {
-      components: components.length,
-      componentsWithApprovedInlineVars: withApprovedVars.length,
-      componentsWithRuntimeVars: withRuntimeVars.length,
-      approvedInlineVars: components.reduce((total, item) => total + item.approvedVars.length, 0),
-      styleProps: components.reduce((total, item) => total + item.styleProps, 0),
-      setPropertyCalls: components.reduce((total, item) => total + item.setPropertyCalls.length, 0),
-      violations: components.reduce((total, item) => total + item.violations.length, 0),
+    baseline: {
+      inventory: expectedInventory,
+      mismatches: baselineMismatches,
     },
+    inventory,
     components,
   };
 }
@@ -118,6 +140,10 @@ function toMarkdown(report) {
     .filter((item) => item.approvedVars.length || item.allowedInlineStyleKeys.length || item.styleProps || item.setPropertyCalls.length || item.violations.length)
     .map((item) => `| ${item.component} | ${item.status} | ${item.allowedInlineStyleKeys.join(", ") || "None"} | ${item.approvedVars.join(", ") || "None"} | ${item.setPropertyCalls.map((call) => call.property).join(", ") || "None"} | ${item.styleProps} | ${item.violations.length} |`);
   const violationRows = report.components.flatMap((item) => item.violations.map((violation) => `| ${item.component} | ${violation.rule} | ${item.file}:${violation.line} | \`${String(violation.text).replaceAll("|", "\\|")}\` |`));
+  const baselineRows = Object.entries(report.baseline.inventory)
+    .map(([key, expected]) => `| ${key} | ${expected} | ${report.inventory[key]} |`);
+  const baselineMismatchRows = report.baseline.mismatches
+    .map((item) => `| ${item.key} | ${item.expected} | ${item.actual} |`);
   return [
     "# React Style Governance Audit",
     "",
@@ -134,6 +160,21 @@ function toMarkdown(report) {
     `- Style props observed: ${report.inventory.styleProps}`,
     `- style.setProperty calls: ${report.inventory.setPropertyCalls}`,
     `- Violations: ${report.inventory.violations}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. New inline style or runtime CSS-var usage must be reviewed before it becomes part of the public React implementation.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...(baselineMismatchRows.length ? baselineMismatchRows : ["| None | None | None |"]),
     "",
     "## Components",
     "",
