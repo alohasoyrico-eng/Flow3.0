@@ -62,6 +62,21 @@ const installExports = [
   "./specs/system",
 ];
 
+const publishFileAllowlist = [
+  "packages/tokens/src",
+  "packages/tokens/tokens.json",
+  "packages/tokens/styles",
+  "packages/components/src",
+  "packages/components/styles",
+  "packages/react/dist",
+  "packages/content/content",
+  "packages/specs/specs",
+  "README.md",
+  "CHANGELOG.md",
+  "RELEASE.md",
+  "START.md",
+];
+
 function checkPackageApiBoundary() {
   const packageJsonFile = path.join(root, "package.json");
   const contentPackageJsonFile = path.join(root, "packages/content/package.json");
@@ -88,6 +103,9 @@ function checkPackageApiBoundary() {
   }
   if (!Array.isArray(rootPackage.sideEffects) || !rootPackage.sideEffects.includes("**/*.css")) {
     add("errors", packageJsonFile, 1, "Root package sideEffects must preserve published CSS for bundlers.");
+  }
+  if (JSON.stringify(rootPackage.files ?? []) !== JSON.stringify(publishFileAllowlist)) {
+    add("errors", packageJsonFile, 1, `Root package files must stay on the governed publish allowlist: ${publishFileAllowlist.join(", ")}.`);
   }
   for (const requiredImport of boundaryImports) {
     if (!rootImports[requiredImport]) add("errors", packageJsonFile, 1, `Root package imports missing public boundary alias: ${requiredImport}.`);
