@@ -35,10 +35,10 @@ const requiredFlowAliases = [
 
 const expectedInventory = {
   sourceFilesScanned: 203,
-  generatedFiles: 191,
+  generatedFiles: 192,
   flowDependencyPresent: 1,
-  flowBoundaryAliases: 16,
-  missingFlowAliases: 2,
+  flowBoundaryAliases: 18,
+  missingFlowAliases: 0,
   localFlowImportViolations: 2,
   docsComponentTokenDefinitions: 39,
   docsComponentTokenDefinitionFiles: 2,

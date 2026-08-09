@@ -5,10 +5,10 @@
   "docsRoot": "../FlowDocs",
   "inventory": {
     "sourceFilesScanned": 203,
-    "generatedFiles": 191,
+    "generatedFiles": 192,
     "flowDependencyPresent": 1,
-    "flowBoundaryAliases": 16,
-    "missingFlowAliases": 2,
+    "flowBoundaryAliases": 18,
+    "missingFlowAliases": 0,
     "localFlowImportViolations": 2,
     "docsComponentTokenDefinitions": 39,
     "docsComponentTokenDefinitionFiles": 2,
@@ -18,10 +18,10 @@
   "baseline": {
     "inventory": {
       "sourceFilesScanned": 203,
-      "generatedFiles": 191,
+      "generatedFiles": 192,
       "flowDependencyPresent": 1,
-      "flowBoundaryAliases": 16,
-      "missingFlowAliases": 2,
+      "flowBoundaryAliases": 18,
+      "missingFlowAliases": 0,
       "localFlowImportViolations": 2,
       "docsComponentTokenDefinitions": 39,
       "docsComponentTokenDefinitionFiles": 2,
@@ -30,10 +30,7 @@
     },
     "mismatches": []
   },
-  "missingFlowAliases": [
-    "#design-system/specs/foundations/*",
-    "#design-system/specs/primitives/*"
-  ],
+  "missingFlowAliases": [],
   "nonFlowAliases": [],
   "localFlowImportViolations": [
     {
