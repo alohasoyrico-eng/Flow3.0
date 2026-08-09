@@ -18,65 +18,68 @@ Every accepted component must have a real React implementation contract: source,
 - No docs dependency: 56/56
 - No DOM factory dependency: 56/56
 - Published imports stay package-safe: 56/56
+- CSS contract coverage: 56/56
+- Direct CSS contracts: 52
+- Family CSS contracts: 4
 
 ## Components
 
-| Component | Status | Failing checks |
-| --- | --- | --- |
-| Accordion | pass | None |
-| AnimatedMoment | pass | None |
-| AuditEvent | pass | None |
-| Avatar | pass | None |
-| Badge | pass | None |
-| BiometricPrompt | pass | None |
-| Breadcrumbs | pass | None |
-| Button | pass | None |
-| Card | pass | None |
-| CardExpiryInput | pass | None |
-| CardNumberInput | pass | None |
-| CardSecurityCodeInput | pass | None |
-| CardSummary | pass | None |
-| ChartPanel | pass | None |
-| Checkbox | pass | None |
-| Chip | pass | None |
-| CodeInput | pass | None |
-| Combobox | pass | None |
-| CountrySelector | pass | None |
-| DatePicker | pass | None |
-| DateRangePicker | pass | None |
-| Dialog | pass | None |
-| Drawer | pass | None |
-| EmptyState | pass | None |
-| ErrorPanel | pass | None |
-| FloatingActionButton | pass | None |
-| IconButton | pass | None |
-| InlineValidation | pass | None |
-| Input | pass | None |
-| KpiTile | pass | None |
-| List | pass | None |
-| Menu | pass | None |
-| MotionBoundary | pass | None |
-| MovementRow | pass | None |
-| Pagination | pass | None |
-| PhoneInput | pass | None |
-| Popover | pass | None |
-| ProgressIndicator | pass | None |
-| QuickAction | pass | None |
-| RadioButton | pass | None |
-| RouteSummary | pass | None |
-| SegmentedControl | pass | None |
-| Select | pass | None |
-| Skeleton | pass | None |
-| Slider | pass | None |
-| Spinner | pass | None |
-| StationPin | pass | None |
-| Stepper | pass | None |
-| Switch | pass | None |
-| Table | pass | None |
-| Tabs | pass | None |
-| Tag | pass | None |
-| TextArea | pass | None |
-| Toast | pass | None |
-| Tooltip | pass | None |
-| TreeView | pass | None |
+| Component | Status | CSS contract | Failing checks |
+| --- | --- | --- | --- |
+| Accordion | pass | direct:accordion | None |
+| AnimatedMoment | pass | direct:animated-moment | None |
+| AuditEvent | pass | direct:audit-event | None |
+| Avatar | pass | direct:avatar | None |
+| Badge | pass | direct:badge | None |
+| BiometricPrompt | pass | direct:biometric-prompt | None |
+| Breadcrumbs | pass | direct:breadcrumbs | None |
+| Button | pass | direct:button | None |
+| Card | pass | direct:card | None |
+| CardExpiryInput | pass | family:field | None |
+| CardNumberInput | pass | family:field | None |
+| CardSecurityCodeInput | pass | family:field | None |
+| CardSummary | pass | direct:card-summary | None |
+| ChartPanel | pass | direct:chart-panel | None |
+| Checkbox | pass | direct:checkbox | None |
+| Chip | pass | direct:chip | None |
+| CodeInput | pass | direct:code-input | None |
+| Combobox | pass | direct:combobox | None |
+| CountrySelector | pass | direct:country-selector | None |
+| DatePicker | pass | direct:date-picker | None |
+| DateRangePicker | pass | direct:date-range-picker | None |
+| Dialog | pass | direct:dialog | None |
+| Drawer | pass | direct:drawer | None |
+| EmptyState | pass | direct:empty-state | None |
+| ErrorPanel | pass | direct:error-panel | None |
+| FloatingActionButton | pass | direct:floating-action-button | None |
+| IconButton | pass | direct:icon-button | None |
+| InlineValidation | pass | direct:inline-validation | None |
+| Input | pass | family:field | None |
+| KpiTile | pass | direct:kpi-tile | None |
+| List | pass | direct:list | None |
+| Menu | pass | direct:menu | None |
+| MotionBoundary | pass | direct:motion-boundary | None |
+| MovementRow | pass | direct:movement-row | None |
+| Pagination | pass | direct:pagination | None |
+| PhoneInput | pass | direct:phone-input | None |
+| Popover | pass | direct:popover | None |
+| ProgressIndicator | pass | direct:progress-indicator | None |
+| QuickAction | pass | direct:quick-action | None |
+| RadioButton | pass | direct:radio-button | None |
+| RouteSummary | pass | direct:route-summary | None |
+| SegmentedControl | pass | direct:segmented-control | None |
+| Select | pass | direct:select | None |
+| Skeleton | pass | direct:skeleton | None |
+| Slider | pass | direct:slider | None |
+| Spinner | pass | direct:spinner | None |
+| StationPin | pass | direct:station-pin | None |
+| Stepper | pass | direct:stepper | None |
+| Switch | pass | direct:switch | None |
+| Table | pass | direct:table | None |
+| Tabs | pass | direct:tabs | None |
+| Tag | pass | direct:tag | None |
+| TextArea | pass | direct:text-area | None |
+| Toast | pass | direct:toast | None |
+| Tooltip | pass | direct:tooltip | None |
+| TreeView | pass | direct:tree-view | None |
 

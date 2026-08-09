@@ -8,6 +8,7 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { componentCssContractCoverage } = require("./audit-component-css-contracts.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -36,8 +37,10 @@ function componentSourceFiles() {
   return fs.readdirSync(reactSrcDir).filter((file) => /^[A-Z].*\.js$/.test(file)).sort();
 }
 
-function componentReport(file) {
+function componentReport(file, cssCoverageByComponent) {
   const component = path.basename(file, ".js");
+  const componentId = kebab(component);
+  const cssCoverage = cssCoverageByComponent.get(componentId) ?? { coverage: "missing", contract: null };
   const typeFileName = `${component}.d.ts`;
   const sourceFile = path.join(reactSrcDir, file);
   const typesFile = path.join(reactSrcDir, typeFileName);
@@ -70,15 +73,26 @@ function componentReport(file) {
     noDocsDependency: !/(apps\/docs|#design-system\/docs)/.test(source + types + dist + distTypes),
     noDomFactory: !/(createTransitional|create[A-Z][A-Za-z0-9]*Component\(|hydrate[A-Z][A-Za-z0-9]*\(|document\.createElement)/.test(source),
     publishedImports: !/(@design-system\/components|..\/..\/components\/src)/.test(dist + distTypes),
+    cssContractCoverage: cssCoverage.coverage !== "missing"
+      && cssCoverage.requiredRootObserved !== false
+      && !(cssCoverage.unexpectedRoots ?? []).length,
   };
   const failingChecks = Object.entries(checks).filter(([, value]) => !value).map(([key]) => key);
   return {
     component,
-    id: kebab(component),
+    id: componentId,
     source: rel(sourceFile),
     types: rel(typesFile),
     dist: rel(distFile),
     distTypes: rel(distTypesFile),
+    cssContract: {
+      coverage: cssCoverage.coverage,
+      contract: cssCoverage.contract,
+      requiredRoot: cssCoverage.requiredRoot ?? null,
+      requiredRootObserved: cssCoverage.requiredRootObserved ?? null,
+      allowedExtensionRoots: cssCoverage.allowedExtensionRoots ?? [],
+      unexpectedRoots: cssCoverage.unexpectedRoots ?? [],
+    },
     checks,
     status: failingChecks.length ? "fail" : "pass",
     failingChecks,
@@ -86,7 +100,9 @@ function componentReport(file) {
 }
 
 function createReport() {
-  const components = componentSourceFiles().map(componentReport);
+  const cssCoverage = componentCssContractCoverage();
+  const cssCoverageByComponent = new Map(cssCoverage.components.map((item) => [item.component, item]));
+  const components = componentSourceFiles().map((file) => componentReport(file, cssCoverageByComponent));
   const sourceIds = components.map((item) => item.id);
   const expectedIds = [...goldComponents].sort();
   const missingSources = expectedIds.filter((id) => !sourceIds.includes(id));
@@ -111,6 +127,9 @@ function createReport() {
       noDocsDependency: components.filter((item) => item.checks.noDocsDependency).length,
       noDomFactory: components.filter((item) => item.checks.noDomFactory).length,
       publishedImports: components.filter((item) => item.checks.publishedImports).length,
+      cssContractCoverage: components.filter((item) => item.checks.cssContractCoverage).length,
+      directCssContracts: components.filter((item) => item.cssContract.coverage === "direct").length,
+      familyCssContracts: components.filter((item) => item.cssContract.coverage === "family").length,
     },
     components,
   };
@@ -138,12 +157,15 @@ function toMarkdown(report) {
     `- No docs dependency: ${report.inventory.noDocsDependency}/${report.inventory.components}`,
     `- No DOM factory dependency: ${report.inventory.noDomFactory}/${report.inventory.components}`,
     `- Published imports stay package-safe: ${report.inventory.publishedImports}/${report.inventory.components}`,
+    `- CSS contract coverage: ${report.inventory.cssContractCoverage}/${report.inventory.components}`,
+    `- Direct CSS contracts: ${report.inventory.directCssContracts}`,
+    `- Family CSS contracts: ${report.inventory.familyCssContracts}`,
     "",
     "## Components",
     "",
-    "| Component | Status | Failing checks |",
-    "| --- | --- | --- |",
-    ...report.components.map((item) => `| ${item.component} | ${item.status} | ${item.failingChecks.join(", ") || "None"} |`),
+    "| Component | Status | CSS contract | Failing checks |",
+    "| --- | --- | --- | --- |",
+    ...report.components.map((item) => `| ${item.component} | ${item.status} | ${item.cssContract.coverage}:${item.cssContract.contract ?? "missing"} | ${item.failingChecks.join(", ") || "None"} |`),
     "",
   ];
   return `${lines.join("\n")}\n`;
@@ -177,6 +199,7 @@ function main() {
     pass: report.inventory.pass,
     fail: report.inventory.fail,
     densityResolved: report.inventory.densityResolved,
+    cssContractCoverage: report.inventory.cssContractCoverage,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

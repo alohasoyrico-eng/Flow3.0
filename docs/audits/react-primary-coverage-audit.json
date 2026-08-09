@@ -16,7 +16,10 @@
     "restSanitized": 56,
     "noDocsDependency": 56,
     "noDomFactory": 56,
-    "publishedImports": 56
+    "publishedImports": 56,
+    "cssContractCoverage": 56,
+    "directCssContracts": 52,
+    "familyCssContracts": 4
   },
   "components": [
     {
@@ -26,6 +29,14 @@
       "types": "packages/react/src/Accordion.d.ts",
       "dist": "packages/react/dist/Accordion.js",
       "distTypes": "packages/react/dist/Accordion.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "accordion",
+        "requiredRoot": "accordion",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -38,7 +49,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -50,6 +62,14 @@
       "types": "packages/react/src/AnimatedMoment.d.ts",
       "dist": "packages/react/dist/AnimatedMoment.js",
       "distTypes": "packages/react/dist/AnimatedMoment.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "animated-moment",
+        "requiredRoot": "animated-moment",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -62,7 +82,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -74,6 +95,14 @@
       "types": "packages/react/src/AuditEvent.d.ts",
       "dist": "packages/react/dist/AuditEvent.js",
       "distTypes": "packages/react/dist/AuditEvent.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "audit-event",
+        "requiredRoot": "audit-event",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -86,7 +115,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -98,6 +128,14 @@
       "types": "packages/react/src/Avatar.d.ts",
       "dist": "packages/react/dist/Avatar.js",
       "distTypes": "packages/react/dist/Avatar.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "avatar",
+        "requiredRoot": "avatar",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -110,7 +148,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -122,6 +161,14 @@
       "types": "packages/react/src/Badge.d.ts",
       "dist": "packages/react/dist/Badge.js",
       "distTypes": "packages/react/dist/Badge.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "badge",
+        "requiredRoot": "badge",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -134,7 +181,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -146,6 +194,14 @@
       "types": "packages/react/src/BiometricPrompt.d.ts",
       "dist": "packages/react/dist/BiometricPrompt.js",
       "distTypes": "packages/react/dist/BiometricPrompt.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "biometric-prompt",
+        "requiredRoot": "biometric-prompt",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -158,7 +214,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -170,6 +227,14 @@
       "types": "packages/react/src/Breadcrumbs.d.ts",
       "dist": "packages/react/dist/Breadcrumbs.js",
       "distTypes": "packages/react/dist/Breadcrumbs.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "breadcrumbs",
+        "requiredRoot": "breadcrumbs",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -182,7 +247,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -194,6 +260,14 @@
       "types": "packages/react/src/Button.d.ts",
       "dist": "packages/react/dist/Button.js",
       "distTypes": "packages/react/dist/Button.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "button",
+        "requiredRoot": "button",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -206,7 +280,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -218,6 +293,14 @@
       "types": "packages/react/src/Card.d.ts",
       "dist": "packages/react/dist/Card.js",
       "distTypes": "packages/react/dist/Card.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "card",
+        "requiredRoot": "card",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -230,7 +313,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -242,6 +326,16 @@
       "types": "packages/react/src/CardExpiryInput.d.ts",
       "dist": "packages/react/dist/CardExpiryInput.js",
       "distTypes": "packages/react/dist/CardExpiryInput.d.ts",
+      "cssContract": {
+        "coverage": "family",
+        "contract": "field",
+        "requiredRoot": "field",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [
+          "card-expiry-input"
+        ],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -254,7 +348,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -266,6 +361,16 @@
       "types": "packages/react/src/CardNumberInput.d.ts",
       "dist": "packages/react/dist/CardNumberInput.js",
       "distTypes": "packages/react/dist/CardNumberInput.d.ts",
+      "cssContract": {
+        "coverage": "family",
+        "contract": "field",
+        "requiredRoot": "field",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [
+          "card-number-input"
+        ],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -278,7 +383,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -290,6 +396,16 @@
       "types": "packages/react/src/CardSecurityCodeInput.d.ts",
       "dist": "packages/react/dist/CardSecurityCodeInput.js",
       "distTypes": "packages/react/dist/CardSecurityCodeInput.d.ts",
+      "cssContract": {
+        "coverage": "family",
+        "contract": "field",
+        "requiredRoot": "field",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [
+          "card-security-code-input"
+        ],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -302,7 +418,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -314,6 +431,14 @@
       "types": "packages/react/src/CardSummary.d.ts",
       "dist": "packages/react/dist/CardSummary.js",
       "distTypes": "packages/react/dist/CardSummary.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "card-summary",
+        "requiredRoot": "card-summary",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -326,7 +451,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -338,6 +464,14 @@
       "types": "packages/react/src/ChartPanel.d.ts",
       "dist": "packages/react/dist/ChartPanel.js",
       "distTypes": "packages/react/dist/ChartPanel.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "chart-panel",
+        "requiredRoot": "chart-panel",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -350,7 +484,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -362,6 +497,14 @@
       "types": "packages/react/src/Checkbox.d.ts",
       "dist": "packages/react/dist/Checkbox.js",
       "distTypes": "packages/react/dist/Checkbox.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "checkbox",
+        "requiredRoot": "checkbox",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -374,7 +517,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -386,6 +530,14 @@
       "types": "packages/react/src/Chip.d.ts",
       "dist": "packages/react/dist/Chip.js",
       "distTypes": "packages/react/dist/Chip.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "chip",
+        "requiredRoot": "chip",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -398,7 +550,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -410,6 +563,14 @@
       "types": "packages/react/src/CodeInput.d.ts",
       "dist": "packages/react/dist/CodeInput.js",
       "distTypes": "packages/react/dist/CodeInput.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "code-input",
+        "requiredRoot": "code-input",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -422,7 +583,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -434,6 +596,14 @@
       "types": "packages/react/src/Combobox.d.ts",
       "dist": "packages/react/dist/Combobox.js",
       "distTypes": "packages/react/dist/Combobox.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "combobox",
+        "requiredRoot": "combobox",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -446,7 +616,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -458,6 +629,14 @@
       "types": "packages/react/src/CountrySelector.d.ts",
       "dist": "packages/react/dist/CountrySelector.js",
       "distTypes": "packages/react/dist/CountrySelector.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "country-selector",
+        "requiredRoot": "country-selector",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -470,7 +649,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -482,6 +662,14 @@
       "types": "packages/react/src/DatePicker.d.ts",
       "dist": "packages/react/dist/DatePicker.js",
       "distTypes": "packages/react/dist/DatePicker.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "date-picker",
+        "requiredRoot": "date-picker",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -494,7 +682,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -506,6 +695,14 @@
       "types": "packages/react/src/DateRangePicker.d.ts",
       "dist": "packages/react/dist/DateRangePicker.js",
       "distTypes": "packages/react/dist/DateRangePicker.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "date-range-picker",
+        "requiredRoot": "date-range-picker",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -518,7 +715,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -530,6 +728,14 @@
       "types": "packages/react/src/Dialog.d.ts",
       "dist": "packages/react/dist/Dialog.js",
       "distTypes": "packages/react/dist/Dialog.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "dialog",
+        "requiredRoot": "dialog",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -542,7 +748,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -554,6 +761,14 @@
       "types": "packages/react/src/Drawer.d.ts",
       "dist": "packages/react/dist/Drawer.js",
       "distTypes": "packages/react/dist/Drawer.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "drawer",
+        "requiredRoot": "drawer",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -566,7 +781,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -578,6 +794,14 @@
       "types": "packages/react/src/EmptyState.d.ts",
       "dist": "packages/react/dist/EmptyState.js",
       "distTypes": "packages/react/dist/EmptyState.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "empty-state",
+        "requiredRoot": "empty-state",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -590,7 +814,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -602,6 +827,14 @@
       "types": "packages/react/src/ErrorPanel.d.ts",
       "dist": "packages/react/dist/ErrorPanel.js",
       "distTypes": "packages/react/dist/ErrorPanel.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "error-panel",
+        "requiredRoot": "error-panel",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -614,7 +847,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -626,6 +860,14 @@
       "types": "packages/react/src/FloatingActionButton.d.ts",
       "dist": "packages/react/dist/FloatingActionButton.js",
       "distTypes": "packages/react/dist/FloatingActionButton.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "floating-action-button",
+        "requiredRoot": "fab",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -638,7 +880,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -650,6 +893,14 @@
       "types": "packages/react/src/IconButton.d.ts",
       "dist": "packages/react/dist/IconButton.js",
       "distTypes": "packages/react/dist/IconButton.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "icon-button",
+        "requiredRoot": "icon-button",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -662,7 +913,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -674,6 +926,14 @@
       "types": "packages/react/src/InlineValidation.d.ts",
       "dist": "packages/react/dist/InlineValidation.js",
       "distTypes": "packages/react/dist/InlineValidation.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "inline-validation",
+        "requiredRoot": "inline-validation",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -686,7 +946,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -698,6 +959,14 @@
       "types": "packages/react/src/Input.d.ts",
       "dist": "packages/react/dist/Input.js",
       "distTypes": "packages/react/dist/Input.d.ts",
+      "cssContract": {
+        "coverage": "family",
+        "contract": "field",
+        "requiredRoot": "field",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -710,7 +979,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -722,6 +992,14 @@
       "types": "packages/react/src/KpiTile.d.ts",
       "dist": "packages/react/dist/KpiTile.js",
       "distTypes": "packages/react/dist/KpiTile.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "kpi-tile",
+        "requiredRoot": "kpi-tile",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -734,7 +1012,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -746,6 +1025,14 @@
       "types": "packages/react/src/List.d.ts",
       "dist": "packages/react/dist/List.js",
       "distTypes": "packages/react/dist/List.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "list",
+        "requiredRoot": "list",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -758,7 +1045,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -770,6 +1058,14 @@
       "types": "packages/react/src/Menu.d.ts",
       "dist": "packages/react/dist/Menu.js",
       "distTypes": "packages/react/dist/Menu.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "menu",
+        "requiredRoot": "menu",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -782,7 +1078,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -794,6 +1091,14 @@
       "types": "packages/react/src/MotionBoundary.d.ts",
       "dist": "packages/react/dist/MotionBoundary.js",
       "distTypes": "packages/react/dist/MotionBoundary.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "motion-boundary",
+        "requiredRoot": "motion-boundary",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -806,7 +1111,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -818,6 +1124,14 @@
       "types": "packages/react/src/MovementRow.d.ts",
       "dist": "packages/react/dist/MovementRow.js",
       "distTypes": "packages/react/dist/MovementRow.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "movement-row",
+        "requiredRoot": "movement-row",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -830,7 +1144,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -842,6 +1157,14 @@
       "types": "packages/react/src/Pagination.d.ts",
       "dist": "packages/react/dist/Pagination.js",
       "distTypes": "packages/react/dist/Pagination.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "pagination",
+        "requiredRoot": "pagination",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -854,7 +1177,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -866,6 +1190,14 @@
       "types": "packages/react/src/PhoneInput.d.ts",
       "dist": "packages/react/dist/PhoneInput.js",
       "distTypes": "packages/react/dist/PhoneInput.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "phone-input",
+        "requiredRoot": "phone-input",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -878,7 +1210,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -890,6 +1223,14 @@
       "types": "packages/react/src/Popover.d.ts",
       "dist": "packages/react/dist/Popover.js",
       "distTypes": "packages/react/dist/Popover.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "popover",
+        "requiredRoot": "popover",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -902,7 +1243,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -914,6 +1256,14 @@
       "types": "packages/react/src/ProgressIndicator.d.ts",
       "dist": "packages/react/dist/ProgressIndicator.js",
       "distTypes": "packages/react/dist/ProgressIndicator.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "progress-indicator",
+        "requiredRoot": "progress",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -926,7 +1276,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -938,6 +1289,14 @@
       "types": "packages/react/src/QuickAction.d.ts",
       "dist": "packages/react/dist/QuickAction.js",
       "distTypes": "packages/react/dist/QuickAction.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "quick-action",
+        "requiredRoot": "quick-action",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -950,7 +1309,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -962,6 +1322,14 @@
       "types": "packages/react/src/RadioButton.d.ts",
       "dist": "packages/react/dist/RadioButton.js",
       "distTypes": "packages/react/dist/RadioButton.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "radio-button",
+        "requiredRoot": "radio",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -974,7 +1342,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -986,6 +1355,14 @@
       "types": "packages/react/src/RouteSummary.d.ts",
       "dist": "packages/react/dist/RouteSummary.js",
       "distTypes": "packages/react/dist/RouteSummary.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "route-summary",
+        "requiredRoot": "route-summary",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -998,7 +1375,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1010,6 +1388,14 @@
       "types": "packages/react/src/SegmentedControl.d.ts",
       "dist": "packages/react/dist/SegmentedControl.js",
       "distTypes": "packages/react/dist/SegmentedControl.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "segmented-control",
+        "requiredRoot": "segmented-control",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1022,7 +1408,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1034,6 +1421,14 @@
       "types": "packages/react/src/Select.d.ts",
       "dist": "packages/react/dist/Select.js",
       "distTypes": "packages/react/dist/Select.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "select",
+        "requiredRoot": "select-control",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1046,7 +1441,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1058,6 +1454,14 @@
       "types": "packages/react/src/Skeleton.d.ts",
       "dist": "packages/react/dist/Skeleton.js",
       "distTypes": "packages/react/dist/Skeleton.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "skeleton",
+        "requiredRoot": "skeleton",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1070,7 +1474,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1082,6 +1487,14 @@
       "types": "packages/react/src/Slider.d.ts",
       "dist": "packages/react/dist/Slider.js",
       "distTypes": "packages/react/dist/Slider.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "slider",
+        "requiredRoot": "slider",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1094,7 +1507,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1106,6 +1520,14 @@
       "types": "packages/react/src/Spinner.d.ts",
       "dist": "packages/react/dist/Spinner.js",
       "distTypes": "packages/react/dist/Spinner.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "spinner",
+        "requiredRoot": "spinner",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1118,7 +1540,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1130,6 +1553,14 @@
       "types": "packages/react/src/StationPin.d.ts",
       "dist": "packages/react/dist/StationPin.js",
       "distTypes": "packages/react/dist/StationPin.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "station-pin",
+        "requiredRoot": "station-pin",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1142,7 +1573,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1154,6 +1586,14 @@
       "types": "packages/react/src/Stepper.d.ts",
       "dist": "packages/react/dist/Stepper.js",
       "distTypes": "packages/react/dist/Stepper.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "stepper",
+        "requiredRoot": "stepper",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1166,7 +1606,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1178,6 +1619,14 @@
       "types": "packages/react/src/Switch.d.ts",
       "dist": "packages/react/dist/Switch.js",
       "distTypes": "packages/react/dist/Switch.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "switch",
+        "requiredRoot": "switch",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1190,7 +1639,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1202,6 +1652,14 @@
       "types": "packages/react/src/Table.d.ts",
       "dist": "packages/react/dist/Table.js",
       "distTypes": "packages/react/dist/Table.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "table",
+        "requiredRoot": "table",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1214,7 +1672,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1226,6 +1685,14 @@
       "types": "packages/react/src/Tabs.d.ts",
       "dist": "packages/react/dist/Tabs.js",
       "distTypes": "packages/react/dist/Tabs.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "tabs",
+        "requiredRoot": "tabs",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1238,7 +1705,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1250,6 +1718,14 @@
       "types": "packages/react/src/Tag.d.ts",
       "dist": "packages/react/dist/Tag.js",
       "distTypes": "packages/react/dist/Tag.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "tag",
+        "requiredRoot": "tag",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1262,7 +1738,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1274,6 +1751,14 @@
       "types": "packages/react/src/TextArea.d.ts",
       "dist": "packages/react/dist/TextArea.js",
       "distTypes": "packages/react/dist/TextArea.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "text-area",
+        "requiredRoot": "text-area",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1286,7 +1771,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1298,6 +1784,14 @@
       "types": "packages/react/src/Toast.d.ts",
       "dist": "packages/react/dist/Toast.js",
       "distTypes": "packages/react/dist/Toast.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "toast",
+        "requiredRoot": "toast",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1310,7 +1804,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1322,6 +1817,14 @@
       "types": "packages/react/src/Tooltip.d.ts",
       "dist": "packages/react/dist/Tooltip.js",
       "distTypes": "packages/react/dist/Tooltip.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "tooltip",
+        "requiredRoot": "tooltip",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1334,7 +1837,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
@@ -1346,6 +1850,14 @@
       "types": "packages/react/src/TreeView.d.ts",
       "dist": "packages/react/dist/TreeView.js",
       "distTypes": "packages/react/dist/TreeView.d.ts",
+      "cssContract": {
+        "coverage": "direct",
+        "contract": "tree-view",
+        "requiredRoot": "tree-view",
+        "requiredRootObserved": true,
+        "allowedExtensionRoots": [],
+        "unexpectedRoots": []
+      },
       "checks": {
         "source": true,
         "types": true,
@@ -1358,7 +1870,8 @@
         "restSanitized": true,
         "noDocsDependency": true,
         "noDomFactory": true,
-        "publishedImports": true
+        "publishedImports": true,
+        "cssContractCoverage": true
       },
       "status": "pass",
       "failingChecks": []
