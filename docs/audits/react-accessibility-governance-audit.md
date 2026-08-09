@@ -15,6 +15,29 @@ React components with accessibility-critical interaction must keep explicit role
 - Focus calls: 15
 - Failures: 0
 - Critical interaction failures: 0
+- Inventory baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. Role, ARIA, keyboard, and focus signals should not shrink silently in accessibility-critical React components.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| components | 56 | 56 |
+| criticalComponents | 10 | 10 |
+| criticalPassing | 10 | 10 |
+| totalRoles | 68 | 68 |
+| totalAria | 310 | 310 |
+| keyboardHandlers | 40 | 40 |
+| focusCalls | 15 | 15 |
+| failures | 0 | 0 |
+| interactionFailures | 0 | 0 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
 
 ## Critical Components
 

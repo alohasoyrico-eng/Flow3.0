@@ -16,6 +16,18 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-accessibility-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-accessibility-governance-audit.md");
 
+const expectedInventory = {
+  components: 56,
+  criticalComponents: 10,
+  criticalPassing: 10,
+  totalRoles: 68,
+  totalAria: 310,
+  keyboardHandlers: 40,
+  focusCalls: 15,
+  failures: 0,
+  interactionFailures: 0,
+};
+
 const criticalRequirements = {
   Dialog: [
     ["role dialog", /role:\s*"dialog"/],
@@ -162,26 +174,42 @@ function createReport() {
     };
   });
   const critical = components.filter((component) => component.critical);
+  const inventory = {
+    components: components.length,
+    criticalComponents: critical.length,
+    criticalPassing: critical.filter((component) => component.status === "pass").length,
+    totalRoles: components.reduce((total, component) => total + component.signals.roles, 0),
+    totalAria: components.reduce((total, component) => total + component.signals.aria, 0),
+    keyboardHandlers: components.reduce((total, component) => total + component.signals.keyboardHandlers, 0),
+    focusCalls: components.reduce((total, component) => total + component.signals.focusCalls, 0),
+    failures: components.reduce((total, component) => total + component.missing.length, 0),
+    interactionFailures: components.reduce((total, component) => total + (component.interaction?.missing.length ?? 0), 0),
+  };
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => inventory[key] !== expected)
+    .map(([key, expected]) => ({
+      key,
+      expected,
+      actual: inventory[key],
+    }));
   return {
-    status: components.some((component) => component.status === "fail") ? "fail" : "pass",
+    status: components.some((component) => component.status === "fail") || baselineMismatches.length ? "fail" : "pass",
     audit: "react accessibility governance",
     principle: "React components with accessibility-critical interaction must keep explicit role, ARIA, keyboard, and focus contracts visible in source and gated in validation.",
-    inventory: {
-      components: components.length,
-      criticalComponents: critical.length,
-      criticalPassing: critical.filter((component) => component.status === "pass").length,
-      totalRoles: components.reduce((total, component) => total + component.signals.roles, 0),
-      totalAria: components.reduce((total, component) => total + component.signals.aria, 0),
-      keyboardHandlers: components.reduce((total, component) => total + component.signals.keyboardHandlers, 0),
-      focusCalls: components.reduce((total, component) => total + component.signals.focusCalls, 0),
-      failures: components.reduce((total, component) => total + component.missing.length, 0),
-      interactionFailures: components.reduce((total, component) => total + (component.interaction?.missing.length ?? 0), 0),
+    baseline: {
+      inventory: expectedInventory,
+      mismatches: baselineMismatches,
     },
+    inventory,
     components,
   };
 }
 
 function toMarkdown(report) {
+  const baselineRows = Object.entries(report.baseline.inventory)
+    .map(([key, expected]) => `| ${key} | ${expected} | ${report.inventory[key]} |`);
+  const baselineMismatchRows = report.baseline.mismatches
+    .map((item) => `| ${item.key} | ${item.expected} | ${item.actual} |`);
   const criticalRows = report.components
     .filter((component) => component.critical)
     .map((component) => `| ${component.component} | ${component.status} | ${component.requirements.filter((item) => item.present).map((item) => item.label).join(", ") || "None"} | ${component.missing.join(", ") || "None"} | ${component.interaction?.missing.length ? component.interaction.missing.join(", ") : "pass"} |`);
@@ -206,6 +234,21 @@ function toMarkdown(report) {
     `- Focus calls: ${report.inventory.focusCalls}`,
     `- Failures: ${report.inventory.failures}`,
     `- Critical interaction failures: ${report.inventory.interactionFailures}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. Role, ARIA, keyboard, and focus signals should not shrink silently in accessibility-critical React components.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...(baselineMismatchRows.length ? baselineMismatchRows : ["| None | None | None |"]),
     "",
     "## Critical Components",
     "",
