@@ -17,6 +17,30 @@ Every root class and --comp-* alias in the package stylesheet must map to a know
 - Component roots not observed by React: 0
 - Classified non-component roots: 8
 - Unclassified roots: 0
+- Inventory baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. Published CSS roots and --comp-* aliases should not grow, shrink, or lose classification without review.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| selectors | 1169 | 1169 |
+| componentAliases | 3221 | 3221 |
+| componentAliasRoots | 62 | 62 |
+| unknownComponentAliases | 0 | 0 |
+| cssRoots | 66 | 66 |
+| componentRoots | 58 | 58 |
+| observedComponentRoots | 58 | 58 |
+| unobservedComponentRoots | 0 | 0 |
+| classifiedNonComponentRoots | 8 | 8 |
+| unclassifiedRoots | 0 | 0 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
 
 ## Classified Non-Component Roots
 

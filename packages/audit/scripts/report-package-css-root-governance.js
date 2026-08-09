@@ -20,6 +20,19 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "package-css-root-governance-audit.json");
 const markdownOutput = path.join(outputDir, "package-css-root-governance-audit.md");
 
+const expectedInventory = {
+  selectors: 1169,
+  componentAliases: 3221,
+  componentAliasRoots: 62,
+  unknownComponentAliases: 0,
+  cssRoots: 66,
+  componentRoots: 58,
+  observedComponentRoots: 58,
+  unobservedComponentRoots: 0,
+  classifiedNonComponentRoots: 8,
+  unclassifiedRoots: 0,
+};
+
 function aliasRootEvidence(cssSource) {
   const knownRoots = [...new Set([
     ...componentClassRoots,
@@ -56,23 +69,36 @@ function createReport() {
     ...classifiedNonComponentRoots[cssRoot],
   }));
 
+  const reportInventory = {
+    packageCssFile: rel(packageCssFile),
+    selectors: inventory.selectors,
+    componentAliases: aliasEvidence.aliases.length,
+    componentAliasRoots: aliasEvidence.roots.length,
+    unknownComponentAliases: aliasEvidence.unknownAliases.length,
+    cssRoots: roots.length,
+    componentRoots: componentRoots.length,
+    observedComponentRoots: observedComponentRoots.length,
+    unobservedComponentRoots: unobservedComponentRoots.length,
+    classifiedNonComponentRoots: classifiedRoots.length,
+    unclassifiedRoots: unclassifiedRoots.length,
+  };
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => reportInventory[key] !== expected)
+    .map(([key, expected]) => ({
+      key,
+      expected,
+      actual: reportInventory[key],
+    }));
+
   return {
-    status: unclassifiedRoots.length || unobservedComponentRoots.length || aliasEvidence.unknownAliases.length ? "fail" : "pass",
+    status: unclassifiedRoots.length || unobservedComponentRoots.length || aliasEvidence.unknownAliases.length || baselineMismatches.length ? "fail" : "pass",
     audit: "package CSS root governance",
     principle: "Every root class and --comp-* alias in the package stylesheet must map to a known component, observed React root, or explicitly classified shared primitive/bridge; unclassified, unobserved, or unknown aliases indicate accidental visual implementations.",
-    inventory: {
-      packageCssFile: rel(packageCssFile),
-      selectors: inventory.selectors,
-      componentAliases: aliasEvidence.aliases.length,
-      componentAliasRoots: aliasEvidence.roots.length,
-      unknownComponentAliases: aliasEvidence.unknownAliases.length,
-      cssRoots: roots.length,
-      componentRoots: componentRoots.length,
-      observedComponentRoots: observedComponentRoots.length,
-      unobservedComponentRoots: unobservedComponentRoots.length,
-      classifiedNonComponentRoots: classifiedRoots.length,
-      unclassifiedRoots: unclassifiedRoots.length,
+    baseline: {
+      inventory: expectedInventory,
+      mismatches: baselineMismatches,
     },
+    inventory: reportInventory,
     componentRoots,
     observedComponentRoots,
     unobservedComponentRoots,
@@ -84,6 +110,10 @@ function createReport() {
 }
 
 function toMarkdown(report) {
+  const baselineRows = Object.entries(report.baseline.inventory)
+    .map(([key, expected]) => `| ${key} | ${expected} | ${report.inventory[key]} |`);
+  const baselineMismatchRows = report.baseline.mismatches
+    .map((item) => `| ${item.key} | ${item.expected} | ${item.actual} |`);
   const classifiedRows = report.classifiedNonComponentRoots.map((item) => (
     `| ${item.root} | ${item.type} | ${item.owner} | ${item.reactSupport ? "yes" : "no"} | ${item.note} |`
   ));
@@ -111,6 +141,21 @@ function toMarkdown(report) {
     `- Component roots not observed by React: ${report.inventory.unobservedComponentRoots}`,
     `- Classified non-component roots: ${report.inventory.classifiedNonComponentRoots}`,
     `- Unclassified roots: ${report.inventory.unclassifiedRoots}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. Published CSS roots and --comp-* aliases should not grow, shrink, or lose classification without review.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...(baselineMismatchRows.length ? baselineMismatchRows : ["| None | None | None |"]),
     "",
     "## Classified Non-Component Roots",
     "",

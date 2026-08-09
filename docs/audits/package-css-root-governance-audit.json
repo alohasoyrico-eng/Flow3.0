@@ -2,6 +2,21 @@
   "status": "pass",
   "audit": "package CSS root governance",
   "principle": "Every root class and --comp-* alias in the package stylesheet must map to a known component, observed React root, or explicitly classified shared primitive/bridge; unclassified, unobserved, or unknown aliases indicate accidental visual implementations.",
+  "baseline": {
+    "inventory": {
+      "selectors": 1169,
+      "componentAliases": 3221,
+      "componentAliasRoots": 62,
+      "unknownComponentAliases": 0,
+      "cssRoots": 66,
+      "componentRoots": 58,
+      "observedComponentRoots": 58,
+      "unobservedComponentRoots": 0,
+      "classifiedNonComponentRoots": 8,
+      "unclassifiedRoots": 0
+    },
+    "mismatches": []
+  },
   "inventory": {
     "packageCssFile": "packages/components/styles/components.css",
     "selectors": 1169,
