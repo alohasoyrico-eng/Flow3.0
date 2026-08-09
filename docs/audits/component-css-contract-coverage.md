@@ -3,6 +3,7 @@
 Status: pass
 
 - Components: 56
+- CSS contract debt: 0
 - Direct contracts: 52
 - Family contracts: 4
 - Missing contracts: 0
@@ -14,11 +15,12 @@ Status: pass
 
 ## Baseline Budget
 
-Changing these numbers is a contract decision. A new family contract or reduced direct coverage must be reviewed instead of silently widening cascade behavior.
+Changing these numbers is a contract decision. cssContractDebt must stay at 0; a new family contract or reduced direct coverage must be reviewed instead of silently widening cascade behavior.
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | total | 56 | 56 |
+| cssContractDebt | 0 | 0 |
 | direct | 52 | 52 |
 | family | 4 | 4 |
 | missing | 0 | 0 |

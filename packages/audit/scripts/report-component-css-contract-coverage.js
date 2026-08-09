@@ -10,6 +10,7 @@ const markdownOutput = path.join(outputDir, "component-css-contract-coverage.md"
 
 const expectedInventory = {
   total: 56,
+  cssContractDebt: 0,
   direct: 52,
   family: 4,
   missing: 0,
@@ -110,6 +111,7 @@ function renderMarkdown(report) {
     `Status: ${report.status}`,
     "",
     `- Components: ${report.total}`,
+    `- CSS contract debt: ${report.cssContractDebt}`,
     `- Direct contracts: ${report.direct}`,
     `- Family contracts: ${report.family}`,
     `- Missing contracts: ${report.missing.length}`,
@@ -121,7 +123,7 @@ function renderMarkdown(report) {
     "",
     "## Baseline Budget",
     "",
-    "Changing these numbers is a contract decision. A new family contract or reduced direct coverage must be reviewed instead of silently widening cascade behavior.",
+    "Changing these numbers is a contract decision. cssContractDebt must stay at 0; a new family contract or reduced direct coverage must be reviewed instead of silently widening cascade behavior.",
     "",
     "| Metric | Expected | Actual |",
     "| --- | ---: | ---: |",
@@ -182,6 +184,10 @@ function main() {
   const coverage = componentCssContractCoverage();
   const actualInventory = {
     total: coverage.total,
+    cssContractDebt: coverage.missing.length
+      + coverage.directRootGaps.length
+      + coverage.familyRootGaps.length
+      + coverage.familyUnexpectedRoots.length,
     direct: coverage.direct,
     family: coverage.family,
     missing: coverage.missing.length,
@@ -213,6 +219,7 @@ function main() {
       familyContracts: expectedFamilyContracts,
       familyContractMismatches: familyBaselineMismatches,
     },
+    cssContractDebt: actualInventory.cssContractDebt,
     ...coverage,
   };
   const nextJson = `${JSON.stringify(report, null, 2)}\n`;
@@ -240,6 +247,7 @@ function main() {
     directRootGaps: report.directRootGaps,
     familyRootGaps: report.familyRootGaps,
     familyUnexpectedRoots: report.familyUnexpectedRoots,
+    cssContractDebt: report.cssContractDebt,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

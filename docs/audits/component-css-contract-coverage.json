@@ -3,6 +3,7 @@
   "baseline": {
     "inventory": {
       "total": 56,
+      "cssContractDebt": 0,
       "direct": 52,
       "family": 4,
       "missing": 0,
@@ -12,6 +13,7 @@
     },
     "actual": {
       "total": 56,
+      "cssContractDebt": 0,
       "direct": 52,
       "family": 4,
       "missing": 0,
@@ -41,6 +43,7 @@
     ],
     "familyContractMismatches": []
   },
+  "cssContractDebt": 0,
   "total": 56,
   "direct": 52,
   "family": 4,
