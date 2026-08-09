@@ -9,6 +9,7 @@
     "review": 0,
     "fail": 0,
     "missingTestCallbacks": 0,
+    "missingEventParams": 0,
     "manualAccessibilityCritical": 10,
     "manualAccessibilityCriticalPass": 10
   },
@@ -124,6 +125,12 @@
       "callbacks": [
         "onExpandedChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onExpandedChange",
+          "type": "(expandedIds: string[], event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onExpandedChange"
       ],
@@ -132,6 +139,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -139,10 +147,12 @@
       "source": "packages/react/src/AnimatedMoment.js",
       "types": "packages/react/src/AnimatedMoment.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -150,10 +160,12 @@
       "source": "packages/react/src/AuditEvent.js",
       "types": "packages/react/src/AuditEvent.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -161,10 +173,12 @@
       "source": "packages/react/src/Avatar.js",
       "types": "packages/react/src/Avatar.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -172,10 +186,12 @@
       "source": "packages/react/src/Badge.js",
       "types": "packages/react/src/Badge.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -186,6 +202,16 @@
         "onAction",
         "onFallback"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onFallback",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction",
         "onFallback"
@@ -196,6 +222,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -205,6 +232,12 @@
       "callbacks": [
         "onClick"
       ],
+      "callbackContracts": [
+        {
+          "name": "onClick",
+          "type": "(item: BreadcrumbItem, event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onClick"
       ],
@@ -213,6 +246,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -220,10 +254,12 @@
       "source": "packages/react/src/Button.js",
       "types": "packages/react/src/Button.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -234,6 +270,16 @@
         "onAction",
         "onClick"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(key: string, action?: CardAction, event?: MouseEvent<HTMLElement>) => void"
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction",
         "onClick"
@@ -244,6 +290,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -253,6 +300,12 @@
       "callbacks": [
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: CardExpiryMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onValueChange"
       ],
@@ -261,6 +314,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -270,6 +324,12 @@
       "callbacks": [
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onValueChange",
+          "type": "(digits: string, meta: CardNumberMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onValueChange"
       ],
@@ -278,6 +338,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -288,6 +349,16 @@
         "onRevealChange",
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onRevealChange",
+          "type": "(revealed: boolean, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(digits: string, meta: CardSecurityCodeMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onRevealChange",
         "onValueChange"
@@ -298,6 +369,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -305,10 +377,12 @@
       "source": "packages/react/src/CardSummary.js",
       "types": "packages/react/src/CardSummary.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -316,10 +390,12 @@
       "source": "packages/react/src/ChartPanel.js",
       "types": "packages/react/src/ChartPanel.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -329,6 +405,12 @@
       "callbacks": [
         "onCheckedChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onCheckedChange",
+          "type": "(checked: boolean, meta: CheckboxValueMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onCheckedChange"
       ],
@@ -337,6 +419,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -347,6 +430,16 @@
         "onRemove",
         "onSelectedChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onRemove",
+          "type": "(label: string, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onSelectedChange",
+          "type": "(selected: boolean, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onRemove",
         "onSelectedChange"
@@ -357,6 +450,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -367,6 +461,16 @@
         "onComplete",
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onComplete",
+          "type": "(value: string, meta: CodeInputChangeMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: CodeInputChangeMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onComplete",
         "onValueChange"
@@ -377,6 +481,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -387,6 +492,16 @@
         "onOpenChange",
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: ComboboxOpenChangeEvent) => void"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: ComboboxValueMeta, event: ComboboxValueChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onOpenChange",
         "onValueChange"
@@ -397,6 +512,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -407,6 +523,16 @@
         "onOpenChange",
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: CountrySelectorOpenChangeEvent) => void"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(countryCode: string, country: CountrySelectorCountry, event: CountrySelectorValueChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onOpenChange",
         "onValueChange"
@@ -417,6 +543,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -427,6 +554,16 @@
         "onOpenChange",
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: DatePickerOpenChangeEvent) => void"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, event: DatePickerValueChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onOpenChange",
         "onValueChange"
@@ -437,6 +574,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -447,6 +585,16 @@
         "onOpenChange",
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: DateRangePickerOpenChangeEvent) => void"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: DateRangePickerValue, event: DateRangePickerValueChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onOpenChange",
         "onValueChange"
@@ -457,6 +605,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -468,6 +617,20 @@
         "onClick",
         "onOpenChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: DialogOpenChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction",
         "onClick",
@@ -480,6 +643,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -491,6 +655,20 @@
         "onClick",
         "onOpenChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: DrawerOpenChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction",
         "onClick",
@@ -503,6 +681,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -513,6 +692,16 @@
         "onAction",
         "onClick"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction",
         "onClick"
@@ -523,6 +712,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -533,6 +723,16 @@
         "onAction",
         "onClick"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction",
         "onClick"
@@ -543,6 +743,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -550,10 +751,12 @@
       "source": "packages/react/src/FloatingActionButton.js",
       "types": "packages/react/src/FloatingActionButton.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -561,10 +764,12 @@
       "source": "packages/react/src/IconButton.js",
       "types": "packages/react/src/IconButton.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -572,10 +777,12 @@
       "source": "packages/react/src/InlineValidation.js",
       "types": "packages/react/src/InlineValidation.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -586,6 +793,16 @@
         "onRevealChange",
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onRevealChange",
+          "type": "(revealed: boolean, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: InputValueMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onRevealChange",
         "onValueChange"
@@ -596,6 +813,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -605,6 +823,12 @@
       "callbacks": [
         "onSelect"
       ],
+      "callbackContracts": [
+        {
+          "name": "onSelect",
+          "type": "(metric: KpiTileMeta, event: KpiTileSelectEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onSelect"
       ],
@@ -613,6 +837,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -622,6 +847,12 @@
       "callbacks": [
         "onSelect"
       ],
+      "callbackContracts": [
+        {
+          "name": "onSelect",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onSelect"
       ],
@@ -630,6 +861,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -640,6 +872,16 @@
         "onOpenChange",
         "onSelect"
       ],
+      "callbackContracts": [
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: MenuOpenChangeEvent) => void"
+        },
+        {
+          "name": "onSelect",
+          "type": "(item: MenuItem, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onOpenChange",
         "onSelect"
@@ -650,6 +892,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -657,10 +900,12 @@
       "source": "packages/react/src/MotionBoundary.js",
       "types": "packages/react/src/MotionBoundary.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -670,6 +915,12 @@
       "callbacks": [
         "onSelect"
       ],
+      "callbackContracts": [
+        {
+          "name": "onSelect",
+          "type": "(meta: MovementRowMeta, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onSelect"
       ],
@@ -678,6 +929,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -687,6 +939,12 @@
       "callbacks": [
         "onPageChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onPageChange",
+          "type": "(page: number, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onPageChange"
       ],
@@ -695,6 +953,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -704,6 +963,12 @@
       "callbacks": [
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onValueChange",
+          "type": "(nationalNumber: string, meta: PhoneInputMeta, event: PhoneInputValueChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onValueChange"
       ],
@@ -712,6 +977,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -723,6 +989,20 @@
         "onClick",
         "onOpenChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: PopoverOpenChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction",
         "onClick",
@@ -735,6 +1015,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -742,10 +1023,12 @@
       "source": "packages/react/src/ProgressIndicator.js",
       "types": "packages/react/src/ProgressIndicator.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -755,6 +1038,12 @@
       "callbacks": [
         "onAction"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction"
       ],
@@ -763,6 +1052,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -772,6 +1062,12 @@
       "callbacks": [
         "onCheckedChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onCheckedChange",
+          "type": "(checked: boolean, meta: RadioButtonValueMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onCheckedChange"
       ],
@@ -780,6 +1076,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -790,6 +1087,16 @@
         "onAction",
         "onClick"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(key: string, action: RouteSummaryAction, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction",
         "onClick"
@@ -800,6 +1107,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -809,6 +1117,12 @@
       "callbacks": [
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onValueChange",
+          "type": "(key: string, event: SegmentedControlValueChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onValueChange"
       ],
@@ -817,6 +1131,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -827,6 +1142,16 @@
         "onOpenChange",
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: SelectOpenChangeEvent) => void"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: SelectValueMeta, event: SelectValueChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onOpenChange",
         "onValueChange"
@@ -837,6 +1162,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -844,10 +1170,12 @@
       "source": "packages/react/src/Skeleton.js",
       "types": "packages/react/src/Skeleton.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -857,6 +1185,12 @@
       "callbacks": [
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onValueChange",
+          "type": "(value: number, meta: SliderValueMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onValueChange"
       ],
@@ -865,6 +1199,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -872,10 +1207,12 @@
       "source": "packages/react/src/Spinner.js",
       "types": "packages/react/src/Spinner.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -885,6 +1222,12 @@
       "callbacks": [
         "onSelect"
       ],
+      "callbackContracts": [
+        {
+          "name": "onSelect",
+          "type": "(meta: StationPinMeta, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onSelect"
       ],
@@ -893,6 +1236,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -900,10 +1244,12 @@
       "source": "packages/react/src/Stepper.js",
       "types": "packages/react/src/Stepper.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -913,6 +1259,12 @@
       "callbacks": [
         "onCheckedChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onCheckedChange",
+          "type": "(checked: boolean, meta: SwitchValueMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onCheckedChange"
       ],
@@ -921,6 +1273,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -932,6 +1285,20 @@
         "onRowSelect",
         "onSortChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onExpandedChange",
+          "type": "(key: string, event: TableExpandedEvent) => void"
+        },
+        {
+          "name": "onRowSelect",
+          "type": "(key: string, event: TableRowSelectEvent) => void"
+        },
+        {
+          "name": "onSortChange",
+          "type": "(sort: TableSort, event: TableSortEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onExpandedChange",
         "onRowSelect",
@@ -944,6 +1311,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -953,6 +1321,12 @@
       "callbacks": [
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onValueChange",
+          "type": "(key: string, event: TabsValueChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onValueChange"
       ],
@@ -961,6 +1335,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -968,10 +1343,12 @@
       "source": "packages/react/src/Tag.js",
       "types": "packages/react/src/Tag.d.ts",
       "callbacks": [],
+      "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -981,6 +1358,12 @@
       "callbacks": [
         "onValueChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: TextAreaChangeMeta, event: ChangeEvent<HTMLTextAreaElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onValueChange"
       ],
@@ -989,6 +1372,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -1000,6 +1384,20 @@
         "onDismiss",
         "onDismissChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onDismiss",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onDismissChange",
+          "type": "(dismissed: boolean, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onAction",
         "onDismiss",
@@ -1012,6 +1410,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -1021,6 +1420,12 @@
       "callbacks": [
         "onOpenChange"
       ],
+      "callbackContracts": [
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean, event?: TooltipOpenChangeEvent) => void"
+        }
+      ],
       "sourceCovered": [
         "onOpenChange"
       ],
@@ -1029,6 +1434,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     },
     {
@@ -1039,6 +1445,16 @@
         "onExpandedChange",
         "onSelect"
       ],
+      "callbackContracts": [
+        {
+          "name": "onExpandedChange",
+          "type": "(expandedKeys: string[], event: TreeViewExpandedChangeEvent) => void"
+        },
+        {
+          "name": "onSelect",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
       "sourceCovered": [
         "onExpandedChange",
         "onSelect"
@@ -1049,6 +1465,7 @@
       ],
       "missingInSource": [],
       "missingInTests": [],
+      "missingEventParam": [],
       "status": "pass"
     }
   ]

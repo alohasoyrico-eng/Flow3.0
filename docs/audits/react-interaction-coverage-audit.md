@@ -12,6 +12,7 @@ React components that declare callback props must use them in source and must ha
 - Review: 0
 - Fail: 0
 - Missing callback test assertions: 0
+- Missing callback event params: 0
 - Manual accessibility critical pass: 10/10
 
 ## Manual Accessibility Critical Components
@@ -34,5 +35,9 @@ React components that declare callback props must use them in source and must ha
 - None
 
 ## Missing Source Usage
+
+- None
+
+## Missing Callback Event Params
 
 - None

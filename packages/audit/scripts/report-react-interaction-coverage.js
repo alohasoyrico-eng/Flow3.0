@@ -52,9 +52,10 @@ function declaredCallbacks(typeSource) {
   const callbacks = [];
   for (const match of typeSource.matchAll(/^\s+(on[A-Z][A-Za-z0-9_]*)\??:\s*([^;\n]+)/gm)) {
     const [, name, type] = match;
-    if (/\)\s*=>|=>\s*/.test(type)) callbacks.push(name);
+    if (/\)\s*=>|=>\s*/.test(type)) callbacks.push({ name, type: type.trim() });
   }
-  return [...new Set(callbacks)].sort();
+  return [...new Map(callbacks.map((callback) => [callback.name, callback])).values()]
+    .sort((left, right) => left.name.localeCompare(right.name));
 }
 
 function sourceUsesCallback(source, callback) {
@@ -75,18 +76,24 @@ function createReport() {
     const source = readIfExists(sourceFile);
     const types = readIfExists(typesFile);
     const callbacks = declaredCallbacks(types);
-    const missingInSource = callbacks.filter((callback) => !sourceUsesCallback(source, callback));
-    const missingInTests = callbacks.filter((callback) => !testCoversCallback(tests, component, callback));
+    const callbackNames = callbacks.map((callback) => callback.name);
+    const missingEventParam = callbacks
+      .filter((callback) => !/\bevent\??:/.test(callback.type))
+      .map((callback) => callback.name);
+    const missingInSource = callbackNames.filter((callback) => !sourceUsesCallback(source, callback));
+    const missingInTests = callbackNames.filter((callback) => !testCoversCallback(tests, component, callback));
     return {
       component,
       source: rel(sourceFile),
       types: rel(typesFile),
-      callbacks,
-      sourceCovered: callbacks.filter((callback) => !missingInSource.includes(callback)),
-      testCovered: callbacks.filter((callback) => !missingInTests.includes(callback)),
+      callbacks: callbackNames,
+      callbackContracts: callbacks,
+      sourceCovered: callbackNames.filter((callback) => !missingInSource.includes(callback)),
+      testCovered: callbackNames.filter((callback) => !missingInTests.includes(callback)),
       missingInSource,
       missingInTests,
-      status: missingInSource.length ? "fail" : missingInTests.length ? "review" : "pass",
+      missingEventParam,
+      status: missingInSource.length || missingEventParam.length ? "fail" : missingInTests.length ? "review" : "pass",
     };
   });
   const byComponent = new Map(components.map((component) => [component.component, component]));
@@ -118,6 +125,7 @@ function createReport() {
       review: components.filter((component) => component.status === "review").length,
       fail: components.filter((component) => component.status === "fail").length,
       missingTestCallbacks: components.reduce((total, component) => total + component.missingInTests.length, 0),
+      missingEventParams: components.reduce((total, component) => total + component.missingEventParam.length, 0),
       manualAccessibilityCritical: manualAccessibilityCritical.length,
       manualAccessibilityCriticalPass: manualAccessibilityCritical.filter((component) => component.present && component.status === "pass" && component.hasInteractionTestPresence).length,
     },
@@ -142,6 +150,7 @@ function toMarkdown(report) {
     `- Review: ${report.inventory.review}`,
     `- Fail: ${report.inventory.fail}`,
     `- Missing callback test assertions: ${report.inventory.missingTestCallbacks}`,
+    `- Missing callback event params: ${report.inventory.missingEventParams}`,
     `- Manual accessibility critical pass: ${report.inventory.manualAccessibilityCriticalPass}/${report.inventory.manualAccessibilityCritical}`,
     "",
     "## Manual Accessibility Critical Components",
@@ -177,6 +186,18 @@ function toMarkdown(report) {
     }
   }
 
+  const missingEventParams = report.components.filter((component) => component.missingEventParam.length);
+  lines.push("", "## Missing Callback Event Params", "");
+  if (!missingEventParams.length) {
+    lines.push("- None");
+  } else {
+    lines.push("| Component | Callbacks |");
+    lines.push("| --- | --- |");
+    for (const component of missingEventParams) {
+      lines.push(`| ${component.component} | ${component.missingEventParam.join(", ")} |`);
+    }
+  }
+
   return `${lines.join("\n")}\n`;
 }
 
@@ -191,6 +212,10 @@ function checkReactInteractionCoverage() {
   const failing = report.components.filter((component) => component.missingInSource.length);
   for (const component of failing) {
     add("errors", path.join(root, component.types), 1, `${component.component} declares callbacks that are not used in React source: ${component.missingInSource.join(", ")}.`);
+  }
+  const missingEventParams = report.components.filter((component) => component.missingEventParam.length);
+  for (const component of missingEventParams) {
+    add("errors", path.join(root, component.types), 1, `${component.component} callback props must include an event parameter: ${component.missingEventParam.join(", ")}.`);
   }
   const review = report.components.filter((component) => component.missingInTests.length);
   if (review.length) {
@@ -223,6 +248,7 @@ function main() {
     review: report.inventory.review,
     fail: report.inventory.fail,
     missingTestCallbacks: report.inventory.missingTestCallbacks,
+    missingEventParams: report.inventory.missingEventParams,
     json: rel(jsonOutput),
     markdown: rel(markdownOutput),
   }, null, 2));
