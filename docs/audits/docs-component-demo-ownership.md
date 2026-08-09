@@ -2,7 +2,7 @@
 
 Status: pass
 
-FlowDocs may register and frame React-owned component demos, but it must not own component behavior through direct DOM mutation.
+FlowDocs may register and frame React-owned component demos, but it must not own component behavior through direct DOM mutation. The actionable debt metric is docsDemoOwnershipDebt.
 
 ## Inventory
 
@@ -12,6 +12,7 @@ FlowDocs may register and frame React-owned component demos, but it must not own
 - Regions scanned: 12
 - Forbidden patterns: 15
 - Violations: 0
+- Docs demo ownership debt: 0
 - Inventory baseline mismatches: 0
 
 ## Baseline Budget
@@ -25,6 +26,7 @@ Changing these numbers is a contract decision. FlowDocs should not silently stop
 | regions | 12 | 12 |
 | forbiddenPatterns | 15 | 15 |
 | violations | 0 | 0 |
+| docsDemoOwnershipDebt | 0 | 0 |
 
 ## Baseline Mismatches
 

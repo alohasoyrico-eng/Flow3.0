@@ -14,20 +14,27 @@ const expectedInventory = {
   regions: 12,
   forbiddenPatterns: 15,
   violations: 0,
+  docsDemoOwnershipDebt: 0,
 };
 
 function createReport() {
   const report = createDocsComponentDemoOwnershipReport();
+  const inventory = {
+    ...report.inventory,
+    docsDemoOwnershipDebt: report.inventory.violations,
+  };
   const baselineMismatches = Object.entries(expectedInventory)
-    .filter(([key, expected]) => report.inventory[key] !== expected)
+    .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
       key,
       expected,
-      actual: report.inventory[key],
+      actual: inventory[key],
     }));
   return {
     ...report,
-    status: report.status === "pass" && !baselineMismatches.length ? "pass" : "fail",
+    inventory,
+    status: !inventory.docsDemoOwnershipDebt && report.status === "pass" && !baselineMismatches.length ? "pass" : "fail",
+    principle: "FlowDocs may register and frame React-owned component demos, but it must not own component behavior through direct DOM mutation. The actionable debt metric is docsDemoOwnershipDebt.",
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
@@ -49,7 +56,7 @@ function toMarkdown(report) {
     "",
     `Status: ${report.status}`,
     "",
-    "FlowDocs may register and frame React-owned component demos, but it must not own component behavior through direct DOM mutation.",
+    report.principle,
     "",
     "## Inventory",
     "",
@@ -59,6 +66,7 @@ function toMarkdown(report) {
     `- Regions scanned: ${report.inventory.regions}`,
     `- Forbidden patterns: ${report.inventory.forbiddenPatterns}`,
     `- Violations: ${report.inventory.violations}`,
+    `- Docs demo ownership debt: ${report.inventory.docsDemoOwnershipDebt}`,
     `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
     "",
     "## Baseline Budget",
@@ -114,6 +122,7 @@ function main() {
     regions: report.inventory.regions,
     forbiddenPatterns: report.inventory.forbiddenPatterns,
     violations: report.inventory.violations,
+    docsDemoOwnershipDebt: report.inventory.docsDemoOwnershipDebt,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

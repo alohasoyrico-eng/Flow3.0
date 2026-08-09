@@ -11,7 +11,8 @@
     "functionRegions": 4,
     "regions": 12,
     "forbiddenPatterns": 15,
-    "violations": 0
+    "violations": 0,
+    "docsDemoOwnershipDebt": 0
   },
   "regions": [
     {
@@ -76,13 +77,15 @@
     }
   ],
   "violations": [],
+  "principle": "FlowDocs may register and frame React-owned component demos, but it must not own component behavior through direct DOM mutation. The actionable debt metric is docsDemoOwnershipDebt.",
   "baseline": {
     "inventory": {
       "fullModules": 8,
       "functionRegions": 4,
       "regions": 12,
       "forbiddenPatterns": 15,
-      "violations": 0
+      "violations": 0,
+      "docsDemoOwnershipDebt": 0
     },
     "mismatches": []
   }
