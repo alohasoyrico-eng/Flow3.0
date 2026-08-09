@@ -13,6 +13,10 @@ const { componentCssContractCoverage } = require("./audit-component-css-contract
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
+const reactSrcIndexFile = path.join(reactSrcDir, "index.js");
+const reactSrcTypesIndexFile = path.join(reactSrcDir, "index.d.ts");
+const reactDistIndexFile = path.join(reactDistDir, "index.js");
+const reactDistTypesIndexFile = path.join(reactDistDir, "index.d.ts");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-primary-coverage-audit.json");
 const markdownOutput = path.join(outputDir, "react-primary-coverage-audit.md");
@@ -37,7 +41,11 @@ function componentSourceFiles() {
   return fs.readdirSync(reactSrcDir).filter((file) => /^[A-Z].*\.js$/.test(file)).sort();
 }
 
-function componentReport(file, cssCoverageByComponent) {
+function entrypointExports(source, component) {
+  return new RegExp(`export\\s+\\{\\s*${component}\\s*\\}\\s+from\\s+["']\\./${component}\\.js["'];`).test(source);
+}
+
+function componentReport(file, cssCoverageByComponent, entrypoints) {
   const component = path.basename(file, ".js");
   const componentId = kebab(component);
   const cssCoverage = cssCoverageByComponent.get(componentId) ?? { coverage: "missing", contract: null };
@@ -76,6 +84,10 @@ function componentReport(file, cssCoverageByComponent) {
     cssContractCoverage: cssCoverage.coverage !== "missing"
       && cssCoverage.requiredRootObserved !== false
       && !(cssCoverage.unexpectedRoots ?? []).length,
+    sourceIndexExport: entrypointExports(entrypoints.sourceIndex, component),
+    sourceTypesIndexExport: entrypointExports(entrypoints.sourceTypesIndex, component),
+    distIndexExport: entrypointExports(entrypoints.distIndex, component),
+    distTypesIndexExport: entrypointExports(entrypoints.distTypesIndex, component),
   };
   const failingChecks = Object.entries(checks).filter(([, value]) => !value).map(([key]) => key);
   return {
@@ -102,7 +114,13 @@ function componentReport(file, cssCoverageByComponent) {
 function createReport() {
   const cssCoverage = componentCssContractCoverage();
   const cssCoverageByComponent = new Map(cssCoverage.components.map((item) => [item.component, item]));
-  const components = componentSourceFiles().map((file) => componentReport(file, cssCoverageByComponent));
+  const entrypoints = {
+    sourceIndex: readIfExists(reactSrcIndexFile),
+    sourceTypesIndex: readIfExists(reactSrcTypesIndexFile),
+    distIndex: readIfExists(reactDistIndexFile),
+    distTypesIndex: readIfExists(reactDistTypesIndexFile),
+  };
+  const components = componentSourceFiles().map((file) => componentReport(file, cssCoverageByComponent, entrypoints));
   const sourceIds = components.map((item) => item.id);
   const expectedIds = [...goldComponents].sort();
   const missingSources = expectedIds.filter((id) => !sourceIds.includes(id));
@@ -130,6 +148,10 @@ function createReport() {
       cssContractCoverage: components.filter((item) => item.checks.cssContractCoverage).length,
       directCssContracts: components.filter((item) => item.cssContract.coverage === "direct").length,
       familyCssContracts: components.filter((item) => item.cssContract.coverage === "family").length,
+      sourceIndexExport: components.filter((item) => item.checks.sourceIndexExport).length,
+      sourceTypesIndexExport: components.filter((item) => item.checks.sourceTypesIndexExport).length,
+      distIndexExport: components.filter((item) => item.checks.distIndexExport).length,
+      distTypesIndexExport: components.filter((item) => item.checks.distTypesIndexExport).length,
     },
     components,
   };
@@ -160,6 +182,10 @@ function toMarkdown(report) {
     `- CSS contract coverage: ${report.inventory.cssContractCoverage}/${report.inventory.components}`,
     `- Direct CSS contracts: ${report.inventory.directCssContracts}`,
     `- Family CSS contracts: ${report.inventory.familyCssContracts}`,
+    `- Source index exports: ${report.inventory.sourceIndexExport}/${report.inventory.components}`,
+    `- Source type index exports: ${report.inventory.sourceTypesIndexExport}/${report.inventory.components}`,
+    `- Dist index exports: ${report.inventory.distIndexExport}/${report.inventory.components}`,
+    `- Dist type index exports: ${report.inventory.distTypesIndexExport}/${report.inventory.components}`,
     "",
     "## Components",
     "",
@@ -200,6 +226,10 @@ function main() {
     fail: report.inventory.fail,
     densityResolved: report.inventory.densityResolved,
     cssContractCoverage: report.inventory.cssContractCoverage,
+    sourceIndexExport: report.inventory.sourceIndexExport,
+    sourceTypesIndexExport: report.inventory.sourceTypesIndexExport,
+    distIndexExport: report.inventory.distIndexExport,
+    distTypesIndexExport: report.inventory.distTypesIndexExport,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

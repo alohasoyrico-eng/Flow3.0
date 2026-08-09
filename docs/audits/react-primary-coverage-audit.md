@@ -21,6 +21,10 @@ Every accepted component must have a real React implementation contract: source,
 - CSS contract coverage: 56/56
 - Direct CSS contracts: 52
 - Family CSS contracts: 4
+- Source index exports: 56/56
+- Source type index exports: 56/56
+- Dist index exports: 56/56
+- Dist type index exports: 56/56
 
 ## Components
 
