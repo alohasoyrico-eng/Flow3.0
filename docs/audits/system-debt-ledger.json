@@ -12,6 +12,8 @@
     "categoryMinimums": 7,
     "categoryPrinciples": 7,
     "categoryMinimumDebt": 0,
+    "statusDebt": 0,
+    "nonPassReports": 0,
     "categoriesMissingMinimums": 0,
     "unexpectedCategoryMinimums": 0,
     "categoriesMissingPrinciples": 0,
@@ -28,6 +30,7 @@
     "categoryCoverageDebt": 0,
     "systemDebt": 0
   },
+  "nonPassReports": [],
   "missingDebtReports": [],
   "nonNumericDebtEntries": [],
   "uncategorizedReports": [],

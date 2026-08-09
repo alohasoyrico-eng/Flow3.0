@@ -126,6 +126,12 @@ function createReport() {
   const unexpectedCategoryPrinciples = principleCategoryNames
     .filter((category) => !expectedStrategicCategories.includes(category))
     .sort();
+  const nonPassReports = reports
+    .filter((report) => report.status !== "pass")
+    .map((report) => ({
+      report: report.file,
+      status: report.status,
+    }));
   const missingDebtReports = reports
     .filter((report) => !report.debtEntries.length)
     .map((report) => report.file);
@@ -184,8 +190,9 @@ function createReport() {
     + unexpectedCategoryMinimums.length
     + categoriesMissingPrinciples.length
     + unexpectedCategoryPrinciples.length;
+  const statusDebt = nonPassReports.length;
   return {
-    status: totalDebt || missingDebtReports.length || nonNumericDebtEntries.length || categoryCoverageDebt ? "fail" : "pass",
+    status: totalDebt || statusDebt || missingDebtReports.length || nonNumericDebtEntries.length || categoryCoverageDebt ? "fail" : "pass",
     audit: "system debt ledger",
     principle: "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
     inventory: {
@@ -198,6 +205,8 @@ function createReport() {
       categoryMinimums: minimumCategoryNames.length,
       categoryPrinciples: principleCategoryNames.length,
       categoryMinimumDebt,
+      statusDebt,
+      nonPassReports: nonPassReports.length,
       categoriesMissingMinimums: categoriesMissingMinimums.length,
       unexpectedCategoryMinimums: unexpectedCategoryMinimums.length,
       categoriesMissingPrinciples: categoriesMissingPrinciples.length,
@@ -212,8 +221,9 @@ function createReport() {
       totalDebt,
       categoryDebt,
       categoryCoverageDebt,
-      systemDebt: totalDebt + missingDebtReports.length + nonNumericDebtEntries.length + categoryCoverageDebt,
+      systemDebt: totalDebt + statusDebt + missingDebtReports.length + nonNumericDebtEntries.length + categoryCoverageDebt,
     },
+    nonPassReports,
     missingDebtReports,
     nonNumericDebtEntries,
     uncategorizedReports,
@@ -234,6 +244,7 @@ function createReport() {
 function toMarkdown(report) {
   const categoryRows = report.categories.map((item) => `| ${item.category} | ${item.principle} | ${item.reports} | ${item.minimumReports} | ${item.coverageGap} | ${item.debtMetrics} | ${item.totalDebt} |`);
   const reportRows = report.reports.map((item) => `| ${item.file} | ${item.category} | ${item.status} | ${item.debtEntries.map((entry) => `${entry.metric}: ${entry.value}`).join("<br>") || "None"} |`);
+  const nonPassRows = report.nonPassReports.map((item) => `| ${item.report} | ${item.status} |`);
   const missingRows = report.missingDebtReports.map((file) => `| ${file} |`);
   const nonNumericRows = report.nonNumericDebtEntries.map((entry) => `| ${entry.report} | ${entry.metric} | ${JSON.stringify(entry.value)} |`);
   const uncategorizedRows = report.uncategorizedReports.map((file) => `| ${file} |`);
@@ -266,6 +277,8 @@ function toMarkdown(report) {
     `- Category minimums: ${report.inventory.categoryMinimums}`,
     `- Category principles: ${report.inventory.categoryPrinciples}`,
     `- Category minimum debt: ${report.inventory.categoryMinimumDebt}`,
+    `- Status debt: ${report.inventory.statusDebt}`,
+    `- Non-pass reports: ${report.inventory.nonPassReports}`,
     `- Categories missing minimums: ${report.inventory.categoriesMissingMinimums}`,
     `- Unexpected category minimums: ${report.inventory.unexpectedCategoryMinimums}`,
     `- Categories missing principles: ${report.inventory.categoriesMissingPrinciples}`,
@@ -287,6 +300,12 @@ function toMarkdown(report) {
     "| Category | Principle | Reports | Minimum reports | Coverage gap | Debt metrics | Total debt |",
     "| --- | --- | ---: | ---: | ---: | ---: | ---: |",
     ...categoryRows,
+    "",
+    "## Non-Pass Reports",
+    "",
+    "| Report | Status |",
+    "| --- | --- |",
+    ...(nonPassRows.length ? nonPassRows : ["| None | None |"]),
     "",
     "## Uncategorized Reports",
     "",

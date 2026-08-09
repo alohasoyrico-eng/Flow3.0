@@ -15,6 +15,8 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 - Category minimums: 7
 - Category principles: 7
 - Category minimum debt: 0
+- Status debt: 0
+- Non-pass reports: 0
 - Categories missing minimums: 0
 - Unexpected category minimums: 0
 - Categories missing principles: 0
@@ -42,6 +44,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 10 | 10 | 0 | 10 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
+
+## Non-Pass Reports
+
+| Report | Status |
+| --- | --- |
+| None | None |
 
 ## Uncategorized Reports
 

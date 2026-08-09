@@ -1366,6 +1366,8 @@ function assertReactGovernanceBaselines() {
     categoryMinimums: 7,
     categoryPrinciples: 7,
     categoryMinimumDebt: 0,
+    statusDebt: 0,
+    nonPassReports: 0,
     categoriesMissingMinimums: 0,
     unexpectedCategoryMinimums: 0,
     categoriesMissingPrinciples: 0,
