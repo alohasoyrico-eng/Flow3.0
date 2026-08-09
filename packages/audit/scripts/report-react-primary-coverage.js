@@ -110,6 +110,7 @@ function createReport() {
       restSanitized: components.filter((item) => item.checks.restSanitized).length,
       noDocsDependency: components.filter((item) => item.checks.noDocsDependency).length,
       noDomFactory: components.filter((item) => item.checks.noDomFactory).length,
+      publishedImports: components.filter((item) => item.checks.publishedImports).length,
     },
     components,
   };
@@ -136,6 +137,7 @@ function toMarkdown(report) {
     `- Sanitized rest props: ${report.inventory.restSanitized}/${report.inventory.components}`,
     `- No docs dependency: ${report.inventory.noDocsDependency}/${report.inventory.components}`,
     `- No DOM factory dependency: ${report.inventory.noDomFactory}/${report.inventory.components}`,
+    `- Published imports stay package-safe: ${report.inventory.publishedImports}/${report.inventory.components}`,
     "",
     "## Components",
     "",

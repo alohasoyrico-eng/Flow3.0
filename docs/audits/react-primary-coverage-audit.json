@@ -15,7 +15,8 @@
     "densityResolved": 56,
     "restSanitized": 56,
     "noDocsDependency": 56,
-    "noDomFactory": 56
+    "noDomFactory": 56,
+    "publishedImports": 56
   },
   "components": [
     {

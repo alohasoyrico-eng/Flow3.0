@@ -17,6 +17,7 @@ Every accepted component must have a real React implementation contract: source,
 - Sanitized rest props: 56/56
 - No docs dependency: 56/56
 - No DOM factory dependency: 56/56
+- Published imports stay package-safe: 56/56
 
 ## Components
 
