@@ -33,6 +33,18 @@ const forbiddenRegistryPropFallbacks = [
   'density: demo.density || "md"',
   'density: demo.density || "sm"',
 ];
+const allowedComponentIndexExportSources = new Set([
+  "./primitives/animation-assets.js",
+  "./primitives/charts.js",
+  "./primitives/country-flags.js",
+  "./primitives/country-options.js",
+  "./primitives/iconography.js",
+  "./primitives/illustration-assets.js",
+  "./primitives/library-sources.js",
+  "./primitives/maps.js",
+  "./platforms/index.js",
+  "./registry.js",
+]);
 
 function checkComponentRegistry() {
   const registrySource = read(registryFile);
@@ -61,6 +73,20 @@ function checkComponentRegistry() {
 
   if (!indexSource.includes("componentDemoProps")) {
     add("errors", indexFile, 1, "Design System package index must export componentDemoProps.");
+  }
+
+  for (const match of indexSource.matchAll(/export\s+\{([^}]*)\}\s+from\s+["']([^"']+)["']/g)) {
+    const exportSource = match[2].replace(/\?v=\d+$/, "");
+    if (!allowedComponentIndexExportSources.has(exportSource)) {
+      add("errors", indexFile, 1, `Design System package index exports from non-governed source: ${match[2]}.`);
+    }
+    if (exportSource === "./registry.js") {
+      const exportedNames = match[1].split(",").map((name) => name.trim()).filter(Boolean);
+      const unexpected = exportedNames.filter((name) => name !== "componentDemoProps");
+      if (unexpected.length) {
+        add("errors", indexFile, 1, `Package component registry may only export componentDemoProps; found ${unexpected.join(", ")}.`);
+      }
+    }
   }
 
   for (const forbidden of forbiddenPackageRegistryApi) {
