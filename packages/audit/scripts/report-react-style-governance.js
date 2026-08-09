@@ -7,7 +7,7 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
-const { allowedInlineStyleKeysByComponent } = require("./audit-react-primary-contract.js");
+const { allowedDynamicStyleKeysByComponent } = require("./react-style-contracts.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -53,7 +53,7 @@ function createReport() {
   const components = componentFiles().map((file) => {
     const component = path.basename(file, ".js");
     const source = read(file);
-    const allowedKeys = allowedInlineStyleKeysByComponent[component] ?? [];
+    const allowedKeys = allowedDynamicStyleKeysByComponent[component] ?? [];
     const styleProps = stylePropMatches(source);
     const vars = approvedVars(source, allowedKeys);
     const blockedEscapes = blockedEscapePatterns.flatMap((rule) => [...source.matchAll(rule.pattern)].map((match) => ({
@@ -76,7 +76,7 @@ function createReport() {
       property: match[1],
       line: lineForIndex(source, match.index),
     }));
-    const invalidSetPropertyCalls = styleSetPropertyCalls.filter((match) => !match.property.startsWith("--comp-") && !match.property.startsWith("--sys-"));
+    const invalidSetPropertyCalls = styleSetPropertyCalls.filter((match) => !allowedKeys.includes(match.property));
     const violations = [
       ...blockedEscapes,
       ...unapprovedCssVars.map((key) => ({ rule: "unapproved-css-var", label: "Unapproved CSS custom property", line: 1, text: key })),

@@ -8,6 +8,7 @@ const { checkReactComponentComposition } = require("./react-composition-contract
 const { checkControlledReactCoverage } = require("./react-controlled-contract-audit.js");
 const { checkReactEffectContract } = require("./react-effect-contract-audit.js");
 const { checkReactPrimaryInventory } = require("./audit-react-primary-inventory.js");
+const { allowedDynamicStyleKeysByComponent } = require("./react-style-contracts.js");
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
 const reactIndexFile = path.join(reactSrcDir, "index.js");
@@ -24,7 +25,6 @@ const allowedPrimitiveImports = new Set([
   "normalizeCountryCallingCodeOptions",
   "resolveCountryCallingCodeOption",
 ]);
-const allowedInlineStyleKeysByComponent = { Avatar: ["--comp-avatar-identity-bg", "--comp-avatar-identity-fg"], ChartPanel: ["--comp-chart-panel-current-series", "--comp-chart-panel-stagger-delay"], Skeleton: ["--comp-skeleton-current-width", "--comp-skeleton-current-height", "--comp-skeleton-current-columns", "--comp-skeleton-bone-current-inline-size", "--comp-skeleton-bone-current-block-size", "--comp-skeleton-bone-current-radius"], Slider: ["--comp-slider-percent"], TreeView: ["--comp-tree-view-level"] };
 
 function checkReactPrimaryContract() {
   const reactIndex = read(reactIndexFile);
@@ -232,7 +232,7 @@ function checkInlineStyleContract({ name, sourceFile, source }) {
     const inlineKeys = [...body.matchAll(/(?:"([^"]+)"|'([^']+)'|([A-Za-z_$][\w$-]*))\s*:/g)]
       .map((keyMatch) => keyMatch[1] ?? keyMatch[2] ?? keyMatch[3])
       .filter(Boolean);
-    const allowedInlineStyleKeys = allowedInlineStyleKeysByComponent[name] ?? [];
+    const allowedInlineStyleKeys = allowedDynamicStyleKeysByComponent[name] ?? [];
     const illegalKeys = inlineKeys.filter((key) => !allowedInlineStyleKeys.includes(key));
     if (illegalKeys.length) {
       add("errors", sourceFile, 1, `${name} React source must not own inline visual styles (${illegalKeys.join(", ")}); use Flow tokens/classes and reserve style for approved dynamic CSS custom properties.`);
@@ -266,4 +266,4 @@ function contractBodyFor(source, contractKey) {
   const match = source.match(new RegExp(`^\\\\s+${contractKey}:\\\\s*\\\\{([\\\\s\\\\S]*?)(?=^\\\\s+[a-z][A-Za-z0-9]*:\\\\s*\\\\{|\\\\n\\\\};)`, "m"));
   return match?.[1] ?? "";
 }
-module.exports = { allowedInlineStyleKeysByComponent, checkReactPrimaryContract };
+module.exports = { allowedDynamicStyleKeysByComponent, checkReactPrimaryContract };

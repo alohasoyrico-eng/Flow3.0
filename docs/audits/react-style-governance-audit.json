@@ -4,7 +4,7 @@
   "principle": "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked.",
   "inventory": {
     "components": 56,
-    "componentsWithApprovedInlineVars": 5,
+    "componentsWithApprovedInlineVars": 6,
     "componentsWithRuntimeVars": 1,
     "approvedInlineVars": 10,
     "styleProps": 10,
@@ -543,7 +543,10 @@
     {
       "component": "Tabs",
       "file": "packages/react/src/Tabs.js",
-      "allowedInlineStyleKeys": [],
+      "allowedInlineStyleKeys": [
+        "--comp-tabs-indicator-left",
+        "--comp-tabs-indicator-width"
+      ],
       "approvedVars": [],
       "styleProps": 0,
       "setPropertyCalls": [
