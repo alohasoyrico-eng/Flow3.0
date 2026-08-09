@@ -12,6 +12,52 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 - Contract-backed semantic defaults: 112
 - Unbacked semantic defaults: 0
 - Semantic default contract gaps: 0
+- Inventory baseline mismatches: 0
+- Rule baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. Update the baseline only when the new defaults are intentionally reviewed and contract-backed.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| components | 56 | 56 |
+| prohibitedDefaults | 0 | 0 |
+| semanticDefaults | 112 | 112 |
+| contractBackedSemanticDefaults | 112 | 112 |
+| unbackedSemanticDefaults | 0 | 0 |
+| semanticDefaultContractGaps | 0 | 0 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
+
+## Rule Baseline Budget
+
+| Rule | Expected | Actual |
+| --- | ---: | ---: |
+| state-default | 43 | 43 |
+| variant-default | 40 | 40 |
+| tone-default | 14 | 14 |
+| intent-default | 2 | 2 |
+| status-default | 1 | 1 |
+| placement-default | 2 | 2 |
+| side-default | 1 | 1 |
+| align-default | 2 | 2 |
+| orientation-default | 1 | 1 |
+| trend-default | 2 | 2 |
+| composition-default | 1 | 1 |
+| avatar-status-default | 1 | 1 |
+| category-default | 1 | 1 |
+| sort-direction-default | 1 | 1 |
+
+## Rule Baseline Mismatches
+
+| Rule | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
 
 ## Semantic Default Summary
 

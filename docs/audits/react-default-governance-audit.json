@@ -2,6 +2,34 @@
   "status": "pass",
   "audit": "react default governance",
   "principle": "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic defaults may exist only as visible contract decisions.",
+  "baseline": {
+    "inventory": {
+      "components": 56,
+      "prohibitedDefaults": 0,
+      "semanticDefaults": 112,
+      "contractBackedSemanticDefaults": 112,
+      "unbackedSemanticDefaults": 0,
+      "semanticDefaultContractGaps": 0
+    },
+    "semanticByRule": {
+      "state-default": 43,
+      "variant-default": 40,
+      "tone-default": 14,
+      "intent-default": 2,
+      "status-default": 1,
+      "placement-default": 2,
+      "side-default": 1,
+      "align-default": 2,
+      "orientation-default": 1,
+      "trend-default": 2,
+      "composition-default": 1,
+      "avatar-status-default": 1,
+      "category-default": 1,
+      "sort-direction-default": 1
+    },
+    "mismatches": [],
+    "semanticRuleMismatches": []
+  },
   "inventory": {
     "components": 56,
     "prohibitedDefaults": 0,

@@ -21,6 +21,32 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-default-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-default-governance-audit.md");
 
+const expectedInventory = {
+  components: 56,
+  prohibitedDefaults: 0,
+  semanticDefaults: 112,
+  contractBackedSemanticDefaults: 112,
+  unbackedSemanticDefaults: 0,
+  semanticDefaultContractGaps: 0,
+};
+
+const expectedSemanticByRule = {
+  "state-default": 43,
+  "variant-default": 40,
+  "tone-default": 14,
+  "intent-default": 2,
+  "status-default": 1,
+  "placement-default": 2,
+  "side-default": 1,
+  "align-default": 2,
+  "orientation-default": 1,
+  "trend-default": 2,
+  "composition-default": 1,
+  "avatar-status-default": 1,
+  "category-default": 1,
+  "sort-direction-default": 1,
+};
+
 const prohibitedRules = [
   {
     id: "density-prop-default",
@@ -232,19 +258,40 @@ function createReport() {
     contractBacked: semanticDefaultContractEvidence.filter((match) => match.rule === rule.id && match.contractBacked).length,
     unbacked: semanticDefaultContractEvidence.filter((match) => match.rule === rule.id && !match.contractBacked).length,
   }));
+  const inventory = {
+    components: files.length,
+    prohibitedDefaults: prohibitedDefaults.length,
+    semanticDefaults: semanticDefaults.length,
+    contractBackedSemanticDefaults,
+    unbackedSemanticDefaults,
+    semanticDefaultContractGaps: semanticDefaultContractGaps.length,
+    semanticByRule,
+  };
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => inventory[key] !== expected)
+    .map(([key, expected]) => ({
+      key,
+      expected,
+      actual: inventory[key],
+    }));
+  const semanticRuleBaselineMismatches = semanticByRule
+    .filter((item) => item.count !== expectedSemanticByRule[item.rule])
+    .map((item) => ({
+      rule: item.rule,
+      expected: expectedSemanticByRule[item.rule],
+      actual: item.count,
+    }));
   return {
-    status: prohibitedDefaults.length || semanticDefaultContractGaps.length ? "fail" : "pass",
+    status: prohibitedDefaults.length || semanticDefaultContractGaps.length || baselineMismatches.length || semanticRuleBaselineMismatches.length ? "fail" : "pass",
     audit: "react default governance",
     principle: "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic defaults may exist only as visible contract decisions.",
-    inventory: {
-      components: files.length,
-      prohibitedDefaults: prohibitedDefaults.length,
-      semanticDefaults: semanticDefaults.length,
-      contractBackedSemanticDefaults,
-      unbackedSemanticDefaults,
-      semanticDefaultContractGaps: semanticDefaultContractGaps.length,
-      semanticByRule,
+    baseline: {
+      inventory: expectedInventory,
+      semanticByRule: expectedSemanticByRule,
+      mismatches: baselineMismatches,
+      semanticRuleMismatches: semanticRuleBaselineMismatches,
     },
+    inventory,
     prohibitedDefaults,
     semanticDefaults,
     semanticDefaultContractEvidence,
@@ -258,6 +305,10 @@ function toMarkdown(report) {
   const semanticEvidenceRows = report.semanticDefaultContractEvidence.map((match) => `| ${match.component} | ${match.rule} | ${match.prop} | ${match.value} | ${match.publicContractStatus} | ${match.systemContractStatus} | ${match.contractBacked ? "Yes" : "No"} | ${match.file}:${match.line} |`);
   const semanticGapRows = report.semanticDefaultContractGaps.map((match) => `| ${match.component} | ${match.prop} | ${match.value} | ${match.publicAllowedValues.join(", ") || "None"} | ${match.contractAllowedValues.join(", ") || "None"} | ${match.file}:${match.line} |`);
   const semanticSummaryRows = report.inventory.semanticByRule.map((item) => `| ${item.rule} | ${item.count} | ${item.contractBacked} | ${item.unbacked} | ${item.description} |`);
+  const baselineRows = Object.entries(report.baseline.inventory).map(([key, expected]) => `| ${key} | ${expected} | ${report.inventory[key]} |`);
+  const baselineMismatchRows = report.baseline.mismatches.map((item) => `| ${item.key} | ${item.expected} | ${item.actual} |`);
+  const semanticRuleBaselineRows = report.inventory.semanticByRule.map((item) => `| ${item.rule} | ${report.baseline.semanticByRule[item.rule]} | ${item.count} |`);
+  const semanticRuleMismatchRows = report.baseline.semanticRuleMismatches.map((item) => `| ${item.rule} | ${item.expected} | ${item.actual} |`);
   return [
     "# React Default Governance Audit",
     "",
@@ -273,6 +324,34 @@ function toMarkdown(report) {
     `- Contract-backed semantic defaults: ${report.inventory.contractBackedSemanticDefaults}`,
     `- Unbacked semantic defaults: ${report.inventory.unbackedSemanticDefaults}`,
     `- Semantic default contract gaps: ${report.inventory.semanticDefaultContractGaps}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    `- Rule baseline mismatches: ${report.baseline.semanticRuleMismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. Update the baseline only when the new defaults are intentionally reviewed and contract-backed.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...(baselineMismatchRows.length ? baselineMismatchRows : ["| None | None | None |"]),
+    "",
+    "## Rule Baseline Budget",
+    "",
+    "| Rule | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...semanticRuleBaselineRows,
+    "",
+    "## Rule Baseline Mismatches",
+    "",
+    "| Rule | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...(semanticRuleMismatchRows.length ? semanticRuleMismatchRows : ["| None | None | None |"]),
     "",
     "## Semantic Default Summary",
     "",
