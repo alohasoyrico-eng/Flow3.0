@@ -1014,6 +1014,14 @@ function auditInstalledPackage(consumerDir) {
   for (const componentId of goldComponents) {
     consumerRequire.resolve(`@alohasoyrico-eng/flow/react/${componentId}`);
   }
+  for (const forbiddenSpecifier of [
+    "@alohasoyrico-eng/flow/packages/react/dist/Button.js",
+    "@alohasoyrico-eng/flow/packages/components/src/contracts.js",
+    "@alohasoyrico-eng/flow/packages/tokens/tokens.json",
+    "@alohasoyrico-eng/flow/packages/content/content/catalog.json",
+  ]) {
+    assertPackagePathNotExported(consumerRequire, forbiddenSpecifier);
+  }
   for (const forbiddenPath of ["apps/docs", "repo-split-output", "node_modules"]) {
     if (fs.existsSync(path.join(packageRoot, forbiddenPath))) {
       throw new Error(`Installed package must not include ${forbiddenPath}.`);
@@ -1041,6 +1049,16 @@ function auditInstalledPackage(consumerDir) {
   if (offenders.length) {
     throw new Error(`Installed package has consumer boundary offenders: ${offenders.slice(0, 20).join(", ")}`);
   }
+}
+
+function assertPackagePathNotExported(consumerRequire, specifier) {
+  try {
+    consumerRequire.resolve(specifier);
+  } catch (error) {
+    if (error?.code === "ERR_PACKAGE_PATH_NOT_EXPORTED") return;
+    throw error;
+  }
+  throw new Error(`Installed package must not allow deep import outside public exports: ${specifier}.`);
 }
 
 function missingInheritedDomEscapeOmissions(source) {
