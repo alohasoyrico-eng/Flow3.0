@@ -2,12 +2,15 @@
 
 Status: **pass**
 
-Every root class in the package stylesheet must be a known component root observed by React or an explicitly classified shared primitive/bridge; unclassified or unobserved roots indicate accidental visual implementations.
+Every root class and --comp-* alias in the package stylesheet must map to a known component, observed React root, or explicitly classified shared primitive/bridge; unclassified, unobserved, or unknown aliases indicate accidental visual implementations.
 
 ## Inventory
 
 - Package CSS: packages/components/styles/components.css
 - Selectors scanned: 1169
+- Component aliases scanned: 3221
+- Component alias roots: 62
+- Unknown component aliases: 0
 - CSS roots: 66
 - Component roots: 58
 - Component roots observed by React: 58
@@ -27,6 +30,79 @@ Every root class in the package stylesheet must be a known component root observ
 | illustration-asset | primitive-asset | packages/components/src/primitives/illustration-assets.js | yes | Reusable illustration asset primitive. |
 | input | shared-control-primitive | field | yes | Shared native input surface consumed by field-family React components. |
 | material-symbol | iconography-hook | packages/components/src/primitives/iconography.js | yes | Material Symbols font hook used by icon-bearing components. |
+
+## Component Alias Roots
+
+| Root |
+| --- |
+| accordion |
+| animated-moment |
+| animation-asset |
+| audit-event |
+| avatar |
+| badge |
+| biometric-prompt |
+| breadcrumbs |
+| button |
+| card |
+| card-expiry-input |
+| card-number-input |
+| card-security-code-input |
+| card-summary |
+| chart-panel |
+| checkbox |
+| chip |
+| choice |
+| code-input |
+| combobox |
+| country-selector |
+| date-picker |
+| date-range-picker |
+| dialog |
+| drawer |
+| empty-state |
+| error-panel |
+| field |
+| field-control |
+| floating-action-button |
+| icon-button |
+| illustration-asset |
+| inline-validation |
+| input |
+| kpi-tile |
+| list |
+| menu |
+| motion-boundary |
+| movement-row |
+| pagination |
+| phone-input |
+| popover |
+| progress-indicator |
+| quick-action |
+| radio-button |
+| route-summary |
+| segmented-control |
+| select |
+| select-control |
+| skeleton |
+| slider |
+| spinner |
+| station-pin |
+| stepper |
+| switch |
+| table |
+| tabs |
+| tag |
+| text-area |
+| toast |
+| tooltip |
+| tree-view |
+
+## Unknown Component Aliases
+
+| Alias |
+| --- |
+| None |
 
 ## Unobserved Component Roots
 

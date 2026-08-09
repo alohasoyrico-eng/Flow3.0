@@ -2,6 +2,7 @@
 
 const {
   fs,
+  goldComponents,
   path,
   rel,
   root,
@@ -19,8 +20,29 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "package-css-root-governance-audit.json");
 const markdownOutput = path.join(outputDir, "package-css-root-governance-audit.md");
 
+function aliasRootEvidence(cssSource) {
+  const knownRoots = [...new Set([
+    ...componentClassRoots,
+    ...Object.keys(classifiedNonComponentRoots),
+    ...goldComponents,
+  ])].sort((a, b) => b.length - a.length);
+  const aliases = [...cssSource.matchAll(/--comp-([a-z][a-z0-9-]*):/g)].map((match) => match[1]);
+  const evidence = aliases.map((alias) => ({
+    alias,
+    root: knownRoots.find((knownRoot) => alias === knownRoot || alias.startsWith(`${knownRoot}-`)) ?? null,
+  }));
+  return {
+    aliases,
+    evidence,
+    roots: [...new Set(evidence.map((item) => item.root).filter(Boolean))].sort(),
+    unknownAliases: evidence.filter((item) => !item.root),
+  };
+}
+
 function createReport() {
   const inventory = packageCssRootInventory(root);
+  const cssSource = fs.existsSync(packageCssFile) ? fs.readFileSync(packageCssFile, "utf8") : "";
+  const aliasEvidence = aliasRootEvidence(cssSource);
   const cssContractCoverage = componentCssContractCoverage();
   const observedReactRoots = new Set(cssContractCoverage.components.flatMap((item) => item.observedRoots ?? []));
   const roots = [...inventory.roots].sort();
@@ -35,12 +57,15 @@ function createReport() {
   }));
 
   return {
-    status: unclassifiedRoots.length || unobservedComponentRoots.length ? "fail" : "pass",
+    status: unclassifiedRoots.length || unobservedComponentRoots.length || aliasEvidence.unknownAliases.length ? "fail" : "pass",
     audit: "package CSS root governance",
-    principle: "Every root class in the package stylesheet must be a known component root observed by React or an explicitly classified shared primitive/bridge; unclassified or unobserved roots indicate accidental visual implementations.",
+    principle: "Every root class and --comp-* alias in the package stylesheet must map to a known component, observed React root, or explicitly classified shared primitive/bridge; unclassified, unobserved, or unknown aliases indicate accidental visual implementations.",
     inventory: {
       packageCssFile: rel(packageCssFile),
       selectors: inventory.selectors,
+      componentAliases: aliasEvidence.aliases.length,
+      componentAliasRoots: aliasEvidence.roots.length,
+      unknownComponentAliases: aliasEvidence.unknownAliases.length,
       cssRoots: roots.length,
       componentRoots: componentRoots.length,
       observedComponentRoots: observedComponentRoots.length,
@@ -51,6 +76,8 @@ function createReport() {
     componentRoots,
     observedComponentRoots,
     unobservedComponentRoots,
+    componentAliasRoots: aliasEvidence.roots,
+    unknownComponentAliases: aliasEvidence.unknownAliases,
     classifiedNonComponentRoots: classified,
     unclassifiedRoots,
   };
@@ -60,6 +87,8 @@ function toMarkdown(report) {
   const classifiedRows = report.classifiedNonComponentRoots.map((item) => (
     `| ${item.root} | ${item.type} | ${item.owner} | ${item.reactSupport ? "yes" : "no"} | ${item.note} |`
   ));
+  const aliasRootRows = report.componentAliasRoots.map((cssRoot) => `| ${cssRoot} |`);
+  const unknownAliasRows = report.unknownComponentAliases.map((item) => `| ${item.alias} |`);
   const unobservedRows = report.unobservedComponentRoots.map((cssRoot) => `| ${cssRoot} |`);
   const unclassifiedRows = report.unclassifiedRoots.map((cssRoot) => `| ${cssRoot} |`);
   return [
@@ -73,6 +102,9 @@ function toMarkdown(report) {
     "",
     `- Package CSS: ${report.inventory.packageCssFile}`,
     `- Selectors scanned: ${report.inventory.selectors}`,
+    `- Component aliases scanned: ${report.inventory.componentAliases}`,
+    `- Component alias roots: ${report.inventory.componentAliasRoots}`,
+    `- Unknown component aliases: ${report.inventory.unknownComponentAliases}`,
     `- CSS roots: ${report.inventory.cssRoots}`,
     `- Component roots: ${report.inventory.componentRoots}`,
     `- Component roots observed by React: ${report.inventory.observedComponentRoots}`,
@@ -85,6 +117,18 @@ function toMarkdown(report) {
     "| Root | Type | Owner | React support | Note |",
     "| --- | --- | --- | --- | --- |",
     ...(classifiedRows.length ? classifiedRows : ["| None | None | None | None | None |"]),
+    "",
+    "## Component Alias Roots",
+    "",
+    "| Root |",
+    "| --- |",
+    ...(aliasRootRows.length ? aliasRootRows : ["| None |"]),
+    "",
+    "## Unknown Component Aliases",
+    "",
+    "| Alias |",
+    "| --- |",
+    ...(unknownAliasRows.length ? unknownAliasRows : ["| None |"]),
     "",
     "## Unobserved Component Roots",
     "",
@@ -126,6 +170,9 @@ function main() {
   console.log(JSON.stringify({
     status: report.status,
     cssRoots: report.inventory.cssRoots,
+    componentAliases: report.inventory.componentAliases,
+    componentAliasRoots: report.inventory.componentAliasRoots,
+    unknownComponentAliases: report.unknownComponentAliases,
     componentRoots: report.inventory.componentRoots,
     observedComponentRoots: report.inventory.observedComponentRoots,
     unobservedComponentRoots: report.unobservedComponentRoots,
