@@ -12,9 +12,13 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 - Categories: 7
 - Categories with debt: 0
 - Uncategorized reports: 0
+- Unexpected categories: 0
+- Missing strategic categories: 0
+- Empty strategic categories: 0
 - Non-numeric debt metrics: 0
 - Total numeric debt: 0
 - Category debt: 0
+- Category coverage debt: 0
 - System debt: 0
 
 ## Categories
@@ -34,6 +38,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | Report |
 | --- |
 | None |
+
+## Category Contract Gaps
+
+| Gap | Value |
+| --- | --- |
+| None | None |
 
 ## Missing Debt Reports
 

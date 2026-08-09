@@ -13,6 +13,16 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "system-debt-ledger.json");
 const markdownOutput = path.join(outputDir, "system-debt-ledger.md");
 
+const expectedStrategicCategories = [
+  "anti-duplication",
+  "cascade",
+  "docs-system-boundary",
+  "foundations-primitives",
+  "quality",
+  "react-primary",
+  "taxonomy",
+];
+
 const reportCategories = {
   "anti-duplication-coverage.json": "anti-duplication",
   "component-1to1-quality-matrix.json": "quality",
@@ -92,7 +102,7 @@ function createReport() {
     })));
   const debtEntries = reports.flatMap((report) => report.debtEntries);
   const totalDebt = debtEntries.reduce((total, entry) => total + (entry.numericValue ?? 0), 0);
-  const categoryNames = [...new Set(Object.values(reportCategories))].sort();
+  const categoryNames = [...expectedStrategicCategories].sort();
   const categories = categoryNames.map((category) => {
     const categoryReports = reports.filter((report) => report.category === category);
     const categoryDebtMetrics = categoryReports.flatMap((report) => report.debtEntries);
@@ -107,9 +117,19 @@ function createReport() {
   const uncategorizedReports = reports
     .filter((report) => report.category === "uncategorized")
     .map((report) => report.file);
+  const mappedCategories = [...new Set(reports.map((report) => report.category).filter((category) => category !== "uncategorized"))].sort();
+  const unexpectedCategories = mappedCategories.filter((category) => !expectedStrategicCategories.includes(category));
+  const missingStrategicCategories = expectedStrategicCategories.filter((category) => !mappedCategories.includes(category));
+  const emptyStrategicCategories = categories
+    .filter((category) => category.reports === 0)
+    .map((category) => category.category);
   const categoryDebt = categories.reduce((total, category) => total + category.totalDebt, 0);
+  const categoryCoverageDebt = uncategorizedReports.length
+    + unexpectedCategories.length
+    + missingStrategicCategories.length
+    + emptyStrategicCategories.length;
   return {
-    status: totalDebt || missingDebtReports.length || nonNumericDebtEntries.length || uncategorizedReports.length ? "fail" : "pass",
+    status: totalDebt || missingDebtReports.length || nonNumericDebtEntries.length || categoryCoverageDebt ? "fail" : "pass",
     audit: "system debt ledger",
     principle: "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
     inventory: {
@@ -119,14 +139,21 @@ function createReport() {
       categories: categories.length,
       categoriesWithDebt: categories.filter((category) => category.totalDebt > 0).length,
       uncategorizedReports: uncategorizedReports.length,
+      unexpectedCategories: unexpectedCategories.length,
+      missingStrategicCategories: missingStrategicCategories.length,
+      emptyStrategicCategories: emptyStrategicCategories.length,
       nonNumericDebtMetrics: nonNumericDebtEntries.length,
       totalDebt,
       categoryDebt,
-      systemDebt: totalDebt + missingDebtReports.length + nonNumericDebtEntries.length + uncategorizedReports.length,
+      categoryCoverageDebt,
+      systemDebt: totalDebt + missingDebtReports.length + nonNumericDebtEntries.length + categoryCoverageDebt,
     },
     missingDebtReports,
     nonNumericDebtEntries,
     uncategorizedReports,
+    unexpectedCategories,
+    missingStrategicCategories,
+    emptyStrategicCategories,
     categories,
     reports,
   };
@@ -138,6 +165,11 @@ function toMarkdown(report) {
   const missingRows = report.missingDebtReports.map((file) => `| ${file} |`);
   const nonNumericRows = report.nonNumericDebtEntries.map((entry) => `| ${entry.report} | ${entry.metric} | ${JSON.stringify(entry.value)} |`);
   const uncategorizedRows = report.uncategorizedReports.map((file) => `| ${file} |`);
+  const categoryGapRows = [
+    ...report.unexpectedCategories.map((category) => ["Unexpected category", category]),
+    ...report.missingStrategicCategories.map((category) => ["Missing strategic category", category]),
+    ...report.emptyStrategicCategories.map((category) => ["Empty strategic category", category]),
+  ].map(([gap, value]) => `| ${gap} | ${value} |`);
   return [
     "# System Debt Ledger",
     "",
@@ -153,9 +185,13 @@ function toMarkdown(report) {
     `- Categories: ${report.inventory.categories}`,
     `- Categories with debt: ${report.inventory.categoriesWithDebt}`,
     `- Uncategorized reports: ${report.inventory.uncategorizedReports}`,
+    `- Unexpected categories: ${report.inventory.unexpectedCategories}`,
+    `- Missing strategic categories: ${report.inventory.missingStrategicCategories}`,
+    `- Empty strategic categories: ${report.inventory.emptyStrategicCategories}`,
     `- Non-numeric debt metrics: ${report.inventory.nonNumericDebtMetrics}`,
     `- Total numeric debt: ${report.inventory.totalDebt}`,
     `- Category debt: ${report.inventory.categoryDebt}`,
+    `- Category coverage debt: ${report.inventory.categoryCoverageDebt}`,
     `- System debt: ${report.inventory.systemDebt}`,
     "",
     "## Categories",
@@ -169,6 +205,12 @@ function toMarkdown(report) {
     "| Report |",
     "| --- |",
     ...(uncategorizedRows.length ? uncategorizedRows : ["| None |"]),
+    "",
+    "## Category Contract Gaps",
+    "",
+    "| Gap | Value |",
+    "| --- | --- |",
+    ...(categoryGapRows.length ? categoryGapRows : ["| None | None |"]),
     "",
     "## Missing Debt Reports",
     "",

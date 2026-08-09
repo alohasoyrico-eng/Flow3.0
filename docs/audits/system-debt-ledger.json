@@ -9,14 +9,21 @@
     "categories": 7,
     "categoriesWithDebt": 0,
     "uncategorizedReports": 0,
+    "unexpectedCategories": 0,
+    "missingStrategicCategories": 0,
+    "emptyStrategicCategories": 0,
     "nonNumericDebtMetrics": 0,
     "totalDebt": 0,
     "categoryDebt": 0,
+    "categoryCoverageDebt": 0,
     "systemDebt": 0
   },
   "missingDebtReports": [],
   "nonNumericDebtEntries": [],
   "uncategorizedReports": [],
+  "unexpectedCategories": [],
+  "missingStrategicCategories": [],
+  "emptyStrategicCategories": [],
   "categories": [
     {
       "category": "anti-duplication",
