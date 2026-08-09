@@ -1277,6 +1277,17 @@ function assertReactGovernanceBaselines() {
     manualAccessibilityCritical: 10,
     manualAccessibilityCriticalPass: 10,
   }, "React interaction coverage");
+
+  const accessibility = readAuditReport("docs/audits/react-accessibility-governance-audit.json");
+  assertReportStatus(accessibility, "React accessibility governance");
+  assertInventory(accessibility, {
+    components: 56,
+    accessibilityDebt: 0,
+    criticalComponents: 10,
+    criticalPassing: 10,
+    failures: 0,
+    interactionFailures: 0,
+  }, "React accessibility governance");
 }
 
 function readAuditReport(relativePath) {

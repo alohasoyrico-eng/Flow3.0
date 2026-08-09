@@ -18,6 +18,7 @@ const markdownOutput = path.join(outputDir, "react-accessibility-governance-audi
 
 const expectedInventory = {
   components: 56,
+  accessibilityDebt: 0,
   criticalComponents: 10,
   criticalPassing: 10,
   totalRoles: 68,
@@ -185,6 +186,7 @@ function createReport() {
     failures: components.reduce((total, component) => total + component.missing.length, 0),
     interactionFailures: components.reduce((total, component) => total + (component.interaction?.missing.length ?? 0), 0),
   };
+  inventory.accessibilityDebt = inventory.failures + inventory.interactionFailures + (inventory.criticalComponents - inventory.criticalPassing);
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -193,9 +195,9 @@ function createReport() {
       actual: inventory[key],
     }));
   return {
-    status: components.some((component) => component.status === "fail") || baselineMismatches.length ? "fail" : "pass",
+    status: inventory.accessibilityDebt || baselineMismatches.length ? "fail" : "pass",
     audit: "react accessibility governance",
-    principle: "React components with accessibility-critical interaction must keep explicit role, ARIA, keyboard, and focus contracts visible in source and gated in validation.",
+    principle: "React components with accessibility-critical interaction must keep explicit role, ARIA, keyboard, and focus contracts visible in source and gated in validation. The actionable debt metric is accessibilityDebt.",
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
@@ -226,6 +228,7 @@ function toMarkdown(report) {
     "## Inventory",
     "",
     `- React components scanned: ${report.inventory.components}`,
+    `- Accessibility debt: ${report.inventory.accessibilityDebt}`,
     `- Accessibility-critical components: ${report.inventory.criticalComponents}`,
     `- Critical passing: ${report.inventory.criticalPassing}`,
     `- Role declarations: ${report.inventory.totalRoles}`,
@@ -238,7 +241,7 @@ function toMarkdown(report) {
     "",
     "## Baseline Budget",
     "",
-    "Changing these numbers is a contract decision. Role, ARIA, keyboard, and focus signals should not shrink silently in accessibility-critical React components.",
+    "Changing these numbers is a contract decision. accessibilityDebt must stay at 0; role, ARIA, keyboard, and focus signals should not shrink silently in accessibility-critical React components.",
     "",
     "| Metric | Expected | Actual |",
     "| --- | ---: | ---: |",
@@ -302,6 +305,7 @@ function main() {
   console.log(JSON.stringify({
     status: report.status,
     components: report.inventory.components,
+    accessibilityDebt: report.inventory.accessibilityDebt,
     criticalComponents: report.inventory.criticalComponents,
     criticalPassing: report.inventory.criticalPassing,
     failures: report.inventory.failures,

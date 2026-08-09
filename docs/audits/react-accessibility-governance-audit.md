@@ -2,11 +2,12 @@
 
 Status: **pass**
 
-React components with accessibility-critical interaction must keep explicit role, ARIA, keyboard, and focus contracts visible in source and gated in validation.
+React components with accessibility-critical interaction must keep explicit role, ARIA, keyboard, and focus contracts visible in source and gated in validation. The actionable debt metric is accessibilityDebt.
 
 ## Inventory
 
 - React components scanned: 56
+- Accessibility debt: 0
 - Accessibility-critical components: 10
 - Critical passing: 10
 - Role declarations: 68
@@ -19,11 +20,12 @@ React components with accessibility-critical interaction must keep explicit role
 
 ## Baseline Budget
 
-Changing these numbers is a contract decision. Role, ARIA, keyboard, and focus signals should not shrink silently in accessibility-critical React components.
+Changing these numbers is a contract decision. accessibilityDebt must stay at 0; role, ARIA, keyboard, and focus signals should not shrink silently in accessibility-critical React components.
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | components | 56 | 56 |
+| accessibilityDebt | 0 | 0 |
 | criticalComponents | 10 | 10 |
 | criticalPassing | 10 | 10 |
 | totalRoles | 68 | 68 |
