@@ -7,8 +7,8 @@
     "aliasCount": 40
   },
   "inventory": {
-    "familyComponents": 9,
-    "reviewCandidates": 4
+    "familyComponents": 8,
+    "reviewCandidates": 3
   },
   "reviewCandidates": [
     {
@@ -63,27 +63,6 @@
       "recommendation": "review-for-direct-contract",
       "reasons": [
         "component aliases 60 >= 40"
-      ]
-    },
-    {
-      "component": "date-range-picker",
-      "familyContract": "date-picker",
-      "requiredRoot": "date-picker",
-      "extensionRoots": [
-        "date-range-picker",
-        "field"
-      ],
-      "ownExtensionRoots": [
-        "date-range-picker"
-      ],
-      "sharedExtensionRoots": [
-        "field"
-      ],
-      "selectorCount": 10,
-      "aliasCount": 62,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "component aliases 62 >= 40"
       ]
     }
   ],
@@ -220,27 +199,6 @@
       "aliasCount": 11,
       "recommendation": "keep-family",
       "reasons": []
-    },
-    {
-      "component": "date-range-picker",
-      "familyContract": "date-picker",
-      "requiredRoot": "date-picker",
-      "extensionRoots": [
-        "date-range-picker",
-        "field"
-      ],
-      "ownExtensionRoots": [
-        "date-range-picker"
-      ],
-      "sharedExtensionRoots": [
-        "field"
-      ],
-      "selectorCount": 10,
-      "aliasCount": 62,
-      "recommendation": "review-for-direct-contract",
-      "reasons": [
-        "component aliases 62 >= 40"
-      ]
     }
   ]
 }

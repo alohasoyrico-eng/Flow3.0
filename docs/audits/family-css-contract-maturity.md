@@ -6,8 +6,8 @@ Family CSS contracts are allowed when a component shares a visual cascade; large
 
 ## Inventory
 
-- Family components: 9
-- Review candidates: 4
+- Family components: 8
+- Review candidates: 3
 - Shared extension roots excluded from maturity counts: country-flag, field
 - Selector threshold: 20
 - Alias threshold: 40
@@ -19,7 +19,6 @@ Family CSS contracts are allowed when a component shares a visual cascade; large
 | checkbox | choice | checkbox | 17 | 79 | component aliases 79 >= 40 |
 | radio-button | choice | radio | 14 | 78 | component aliases 78 >= 40 |
 | text-area | field | text-area | 15 | 60 | component aliases 60 >= 40 |
-| date-range-picker | date-picker | date-range-picker | 10 | 62 | component aliases 62 >= 40 |
 
 ## Family Components
 
@@ -33,5 +32,4 @@ Family CSS contracts are allowed when a component shares a visual cascade; large
 | card-number-input | field | field | card-number-input | None | 8 | 14 | keep-family |
 | card-expiry-input | field | field | card-expiry-input | None | 9 | 6 | keep-family |
 | card-security-code-input | field | field | card-security-code-input | None | 12 | 11 | keep-family |
-| date-range-picker | date-picker | date-picker | date-range-picker | field | 10 | 62 | review-for-direct-contract |
 

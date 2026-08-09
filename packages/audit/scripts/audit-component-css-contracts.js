@@ -19,6 +19,7 @@ const { checkChipCssContract } = require("./audit-chip-css-contract.js");
 const { checkCountrySelectorCssContract } = require("./audit-country-selector-css-contract.js");
 const { checkDialogCssContract } = require("./audit-dialog-css-contract.js");
 const { checkDrawerCssContract } = require("./audit-drawer-css-contract.js");
+const { checkDateRangePickerCssContract } = require("./audit-date-range-picker-css-contract.js");
 const { checkDatePickerCssContract } = require("./audit-date-picker-css-contract.js");
 const { checkEmptyStateCssContract } = require("./audit-empty-state-css-contract.js");
 const { checkErrorPanelCssContract } = require("./audit-error-panel-css-contract.js");
@@ -61,7 +62,6 @@ const familyCssContracts = {
   "card-expiry-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-expiry-input"] },
   "card-security-code-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-security-code-input"] },
   combobox: { contract: "select", requiredRoot: "select-control", allowedExtensionRoots: ["combobox", "field"] },
-  "date-range-picker": { contract: "date-picker", requiredRoot: "date-picker", allowedExtensionRoots: ["date-range-picker", "field"] },
 };
 
 const directCssContractRoots = {
@@ -210,6 +210,7 @@ function checkComponentCssContracts(context) {
   checkChipCssContract(context);
   checkCodeInputCssContract(context);
   checkCountrySelectorCssContract(context);
+  checkDateRangePickerCssContract(context);
   checkDatePickerCssContract(context);
   checkDialogCssContract(context);
   checkDrawerCssContract(context);

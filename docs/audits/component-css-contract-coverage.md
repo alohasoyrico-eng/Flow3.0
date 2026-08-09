@@ -3,8 +3,8 @@
 Status: pass
 
 - Components: 56
-- Direct contracts: 47
-- Family contracts: 9
+- Direct contracts: 48
+- Family contracts: 8
 - Missing contracts: 0
 - Direct root gaps: 0
 - Family root gaps: 0
@@ -17,7 +17,6 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | Shared contract | Required React root | Allowed extension roots | Components covered |
 | --- | --- | --- | --- |
 | choice | choice | checkbox, radio | checkbox, radio-button |
-| date-picker | date-picker | date-range-picker, field | date-range-picker |
 | field | field | card-expiry-input, card-number-input, card-security-code-input, text-area | input, text-area, card-number-input, card-expiry-input, card-security-code-input |
 | select | select-control | combobox, field | combobox |
 
@@ -82,7 +81,7 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | card-expiry-input | family | field | field | true | card-expiry-input | None |
 | card-security-code-input | family | field | field | true | card-security-code-input | None |
 | date-picker | direct | date-picker | date-picker | true | n/a | None |
-| date-range-picker | family | date-picker | date-picker | true | date-range-picker, field | None |
+| date-range-picker | direct | date-range-picker | date-range-picker | true | n/a | None |
 | segmented-control | direct | segmented-control | segmented-control | true | n/a | None |
 | popover | direct | popover | popover | true | n/a | None |
 | floating-action-button | direct | floating-action-button | fab | true | n/a | None |

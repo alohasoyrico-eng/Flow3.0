@@ -67,6 +67,7 @@ const expectedAuditFiles = new Set([
   "audit-country-selector-css-contract.js",
   "audit-css-ownership.js",
   "audit-css.js",
+  "audit-date-range-picker-css-contract.js",
   "audit-date-picker-css-contract.js",
   "audit-demo-layout-contracts.js",
   "audit-density-contracts.js",
