@@ -284,6 +284,15 @@ function checkInstallDocs(rootPackage) {
         add("errors", file, 1, `Install documentation must include ${snippet}.`);
       }
     }
+    for (const { command, pattern } of [
+      { command: "npm run validate", pattern: /\bnpm run validate(?!:)/ },
+      { command: "npm run audit", pattern: /\bnpm run audit(?!:)/ },
+      { command: "npm test", pattern: /\bnpm test\b/ },
+    ]) {
+      if (pattern.test(source)) {
+        add("errors", file, 1, `Release/adoption docs must not recommend obsolete root command ${command}; use validate:system, audit:complete, test:react, or audit:consumer-install.`);
+      }
+    }
   }
 }
 

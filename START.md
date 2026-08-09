@@ -105,7 +105,7 @@ http://127.0.0.1:53118/apps/docs/index.html
 
 1. Update the canonical package first.
 2. Update the docs app only as a consumer.
-3. Run `npm run validate`.
+3. Run `npm run validate:system`.
 4. Update `CHANGELOG.md` when behavior, package shape, or public usage changes.
 
 For product-screen migrations, use `MIGRATE_PRODUCT_SCREEN.md`.
@@ -153,7 +153,8 @@ For product-screen migrations, use `MIGRATE_PRODUCT_SCREEN.md`.
 ## Validation
 
 ```sh
-npm run audit
-npm test
-npm run validate
+npm run audit:complete
+npm run test:react
+npm run audit:consumer-install
+npm run validate:system
 ```

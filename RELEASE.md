@@ -12,9 +12,9 @@ Use this checklist before calling a Flow package or docs build ready. A release 
 
 ## Required Gates
 
-- Run `npm run audit`.
-- Run `npm test`.
-- Run `npm run validate`.
+- Run `npm run audit:complete`.
+- Run `npm run test:react`.
+- Run `npm run audit:consumer-install`.
 - Run `npm run validate:system` in the Flow3.0 split repo.
 - Run `npm run validate:docs` in the FlowDocs split repo.
 - Run `npm pack --dry-run` and inspect that only public artifacts are included.

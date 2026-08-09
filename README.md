@@ -6,10 +6,10 @@ The docs app is a consumer. Source of truth lives in packages.
 
 ## Start
 
-Run the Architecture Gate:
+Run the system validation gate:
 
 ```sh
-npm run validate
+npm run validate:system
 ```
 
 Start the local server:
@@ -102,7 +102,7 @@ Public package artifacts are intentionally explicit:
 - `flow/content/*` for catalog, copy, implementation status, templates, and i18n
 - `flow/specs/system` for machine-readable system contracts
 
-Release policy starts on SemVer pre-release discipline: patch for fixes, minor for new public components or tokens, and major only when public API or token semantics break. Run `npm run validate` before any release.
+Release policy starts on SemVer pre-release discipline: patch for fixes, minor for new public components or tokens, and major only when public API or token semantics break. Run `npm run validate:system` before any release.
 
 ## Architecture Boundaries
 
@@ -120,12 +120,13 @@ The audit blocks new monoliths: docs modules, audit modules, style modules, and 
 ## Core Commands
 
 ```sh
-npm run audit
-npm test
-npm run validate
+npm run audit:complete
+npm run test:react
+npm run audit:consumer-install
+npm run validate:system
 ```
 
-`npm run validate` runs both the Architecture Gate and component smoke tests.
+`npm run validate:system` builds tokens and React, runs React tests, and executes the complete system audit including consumer install.
 
 ## Current Status
 
