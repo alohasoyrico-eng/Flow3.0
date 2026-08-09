@@ -1,28 +1,71 @@
-const allowedReactComponentComposition = {
-  BiometricPrompt: ["Button"],
-  Button: ["Spinner"],
-  Card: ["Button", "IconButton", "Spinner"],
-  CardExpiryInput: ["Spinner"],
-  CardNumberInput: ["Spinner"],
-  CardSecurityCodeInput: ["Spinner"],
-  CardSummary: ["Badge"],
-  Dialog: ["Button", "IconButton", "Input"],
-  Drawer: ["Badge", "Button", "IconButton", "Input", "ProgressIndicator"],
-  EmptyState: ["Button", "Spinner"],
-  ErrorPanel: ["Button", "Spinner"],
-  FloatingActionButton: ["Spinner"],
-  InlineValidation: ["Input"],
-  Input: ["Spinner"],
-  Menu: ["Avatar", "Button", "IconButton"],
-  PhoneInput: ["CountrySelector"],
-  Popover: ["Button", "Input"],
-  QuickAction: ["Badge", "Spinner"],
-  RouteSummary: ["Button", "IconButton"],
-  Table: ["Badge"],
-  Tabs: ["Badge"],
-  Toast: ["Button", "IconButton"],
-  TreeView: ["Button"],
+const reactComponentCompositionContracts = {
+  BiometricPrompt: [{ component: "Button", reason: "primary fallback action" }],
+  Button: [{ component: "Spinner", reason: "loading indicator slot" }],
+  Card: [
+    { component: "Button", reason: "declared action slot" },
+    { component: "IconButton", reason: "declared icon action slot" },
+    { component: "Spinner", reason: "loading indicator slot" },
+  ],
+  CardExpiryInput: [{ component: "Spinner", reason: "field loading indicator slot" }],
+  CardNumberInput: [{ component: "Spinner", reason: "field loading indicator slot" }],
+  CardSecurityCodeInput: [{ component: "Spinner", reason: "field loading indicator slot" }],
+  CardSummary: [{ component: "Badge", reason: "status badge slot" }],
+  Dialog: [
+    { component: "Button", reason: "dialog action slot" },
+    { component: "IconButton", reason: "dismiss control" },
+    { component: "Input", reason: "form field slot" },
+  ],
+  Drawer: [
+    { component: "Badge", reason: "status badge slot" },
+    { component: "Button", reason: "drawer action slot" },
+    { component: "IconButton", reason: "dismiss control" },
+    { component: "Input", reason: "form field slot" },
+    { component: "ProgressIndicator", reason: "progress row slot" },
+  ],
+  EmptyState: [
+    { component: "Button", reason: "recovery action slot" },
+    { component: "Spinner", reason: "loading state slot" },
+  ],
+  ErrorPanel: [
+    { component: "Button", reason: "recovery action slot" },
+    { component: "Spinner", reason: "loading state slot" },
+  ],
+  FloatingActionButton: [{ component: "Spinner", reason: "loading indicator slot" }],
+  InlineValidation: [{ component: "Input", reason: "field validation composition" }],
+  Input: [{ component: "Spinner", reason: "field loading indicator slot" }],
+  Menu: [
+    { component: "Avatar", reason: "avatar trigger slot" },
+    { component: "Button", reason: "button trigger slot" },
+    { component: "IconButton", reason: "icon trigger slot" },
+  ],
+  PhoneInput: [{ component: "CountrySelector", reason: "country code selector slot" }],
+  Popover: [
+    { component: "Button", reason: "popover action slot" },
+    { component: "Input", reason: "form field slot" },
+  ],
+  QuickAction: [
+    { component: "Badge", reason: "counter badge slot" },
+    { component: "Spinner", reason: "loading indicator slot" },
+  ],
+  RouteSummary: [
+    { component: "Button", reason: "route action slot" },
+    { component: "IconButton", reason: "compact action slot" },
+  ],
+  Table: [{ component: "Badge", reason: "cell status badge slot" }],
+  Tabs: [{ component: "Badge", reason: "tab badge slot" }],
+  Toast: [
+    { component: "Button", reason: "toast action slot" },
+    { component: "IconButton", reason: "dismiss control" },
+  ],
+  TreeView: [{ component: "Button", reason: "node action slot" }],
 };
+
+const allowedReactComponentComposition = Object.fromEntries(
+  Object.entries(reactComponentCompositionContracts).map(([component, edges]) => [
+    component,
+    edges.map((edge) => edge.component),
+  ]),
+);
 
 function checkReactComponentComposition({ add, name, sourceFile, source }) {
   const allowed = new Set(allowedReactComponentComposition[name] ?? []);
@@ -39,4 +82,4 @@ function checkReactComponentComposition({ add, name, sourceFile, source }) {
   }
 }
 
-module.exports = { allowedReactComponentComposition, checkReactComponentComposition };
+module.exports = { allowedReactComponentComposition, checkReactComponentComposition, reactComponentCompositionContracts };

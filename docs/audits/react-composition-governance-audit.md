@@ -12,76 +12,77 @@ React components may compose other Flow React components only through an explici
 - Allowlist entries: 23
 - Unexpected imports: 0
 - Missing expected imports: 0
+- Missing composition reasons: 0
 
 ## Components
 
-| Component | Status | Allowed | Actual | Unexpected | Missing |
-| --- | --- | --- | --- | --- | --- |
-| BiometricPrompt | pass | Button | Button | None | None |
-| Button | pass | Spinner | Spinner | None | None |
-| Card | pass | Button, IconButton, Spinner | Button, IconButton, Spinner | None | None |
-| CardExpiryInput | pass | Spinner | Spinner | None | None |
-| CardNumberInput | pass | Spinner | Spinner | None | None |
-| CardSecurityCodeInput | pass | Spinner | Spinner | None | None |
-| CardSummary | pass | Badge | Badge | None | None |
-| Dialog | pass | Button, IconButton, Input | Button, IconButton, Input | None | None |
-| Drawer | pass | Badge, Button, IconButton, Input, ProgressIndicator | Badge, Button, IconButton, Input, ProgressIndicator | None | None |
-| EmptyState | pass | Button, Spinner | Button, Spinner | None | None |
-| ErrorPanel | pass | Button, Spinner | Button, Spinner | None | None |
-| FloatingActionButton | pass | Spinner | Spinner | None | None |
-| InlineValidation | pass | Input | Input | None | None |
-| Input | pass | Spinner | Spinner | None | None |
-| Menu | pass | Avatar, Button, IconButton | Avatar, Button, IconButton | None | None |
-| PhoneInput | pass | CountrySelector | CountrySelector | None | None |
-| Popover | pass | Button, Input | Button, Input | None | None |
-| QuickAction | pass | Badge, Spinner | Badge, Spinner | None | None |
-| RouteSummary | pass | Button, IconButton | Button, IconButton | None | None |
-| Table | pass | Badge | Badge | None | None |
-| Tabs | pass | Badge | Badge | None | None |
-| Toast | pass | Button, IconButton | Button, IconButton | None | None |
-| TreeView | pass | Button | Button | None | None |
+| Component | Status | Allowed | Actual | Unexpected | Missing | Missing reasons |
+| --- | --- | --- | --- | --- | --- | --- |
+| BiometricPrompt | pass | Button | Button | None | None | None |
+| Button | pass | Spinner | Spinner | None | None | None |
+| Card | pass | Button, IconButton, Spinner | Button, IconButton, Spinner | None | None | None |
+| CardExpiryInput | pass | Spinner | Spinner | None | None | None |
+| CardNumberInput | pass | Spinner | Spinner | None | None | None |
+| CardSecurityCodeInput | pass | Spinner | Spinner | None | None | None |
+| CardSummary | pass | Badge | Badge | None | None | None |
+| Dialog | pass | Button, IconButton, Input | Button, IconButton, Input | None | None | None |
+| Drawer | pass | Badge, Button, IconButton, Input, ProgressIndicator | Badge, Button, IconButton, Input, ProgressIndicator | None | None | None |
+| EmptyState | pass | Button, Spinner | Button, Spinner | None | None | None |
+| ErrorPanel | pass | Button, Spinner | Button, Spinner | None | None | None |
+| FloatingActionButton | pass | Spinner | Spinner | None | None | None |
+| InlineValidation | pass | Input | Input | None | None | None |
+| Input | pass | Spinner | Spinner | None | None | None |
+| Menu | pass | Avatar, Button, IconButton | Avatar, Button, IconButton | None | None | None |
+| PhoneInput | pass | CountrySelector | CountrySelector | None | None | None |
+| Popover | pass | Button, Input | Button, Input | None | None | None |
+| QuickAction | pass | Badge, Spinner | Badge, Spinner | None | None | None |
+| RouteSummary | pass | Button, IconButton | Button, IconButton | None | None | None |
+| Table | pass | Badge | Badge | None | None | None |
+| Tabs | pass | Badge | Badge | None | None | None |
+| Toast | pass | Button, IconButton | Button, IconButton | None | None | None |
+| TreeView | pass | Button | Button | None | None | None |
 
 ## Edges
 
-| From | To |
-| --- | --- |
-| BiometricPrompt | Button |
-| Button | Spinner |
-| Card | Button |
-| Card | IconButton |
-| Card | Spinner |
-| CardExpiryInput | Spinner |
-| CardNumberInput | Spinner |
-| CardSecurityCodeInput | Spinner |
-| CardSummary | Badge |
-| Dialog | Button |
-| Dialog | IconButton |
-| Dialog | Input |
-| Drawer | Badge |
-| Drawer | Button |
-| Drawer | IconButton |
-| Drawer | Input |
-| Drawer | ProgressIndicator |
-| EmptyState | Button |
-| EmptyState | Spinner |
-| ErrorPanel | Button |
-| ErrorPanel | Spinner |
-| FloatingActionButton | Spinner |
-| InlineValidation | Input |
-| Input | Spinner |
-| Menu | Avatar |
-| Menu | Button |
-| Menu | IconButton |
-| PhoneInput | CountrySelector |
-| Popover | Button |
-| Popover | Input |
-| QuickAction | Badge |
-| QuickAction | Spinner |
-| RouteSummary | Button |
-| RouteSummary | IconButton |
-| Table | Badge |
-| Tabs | Badge |
-| Toast | Button |
-| Toast | IconButton |
-| TreeView | Button |
+| From | To | Reason |
+| --- | --- | --- |
+| BiometricPrompt | Button | primary fallback action |
+| Button | Spinner | loading indicator slot |
+| Card | Button | declared action slot |
+| Card | IconButton | declared icon action slot |
+| Card | Spinner | loading indicator slot |
+| CardExpiryInput | Spinner | field loading indicator slot |
+| CardNumberInput | Spinner | field loading indicator slot |
+| CardSecurityCodeInput | Spinner | field loading indicator slot |
+| CardSummary | Badge | status badge slot |
+| Dialog | Button | dialog action slot |
+| Dialog | IconButton | dismiss control |
+| Dialog | Input | form field slot |
+| Drawer | Badge | status badge slot |
+| Drawer | Button | drawer action slot |
+| Drawer | IconButton | dismiss control |
+| Drawer | Input | form field slot |
+| Drawer | ProgressIndicator | progress row slot |
+| EmptyState | Button | recovery action slot |
+| EmptyState | Spinner | loading state slot |
+| ErrorPanel | Button | recovery action slot |
+| ErrorPanel | Spinner | loading state slot |
+| FloatingActionButton | Spinner | loading indicator slot |
+| InlineValidation | Input | field validation composition |
+| Input | Spinner | field loading indicator slot |
+| Menu | Avatar | avatar trigger slot |
+| Menu | Button | button trigger slot |
+| Menu | IconButton | icon trigger slot |
+| PhoneInput | CountrySelector | country code selector slot |
+| Popover | Button | popover action slot |
+| Popover | Input | form field slot |
+| QuickAction | Badge | counter badge slot |
+| QuickAction | Spinner | loading indicator slot |
+| RouteSummary | Button | route action slot |
+| RouteSummary | IconButton | compact action slot |
+| Table | Badge | cell status badge slot |
+| Tabs | Badge | tab badge slot |
+| Toast | Button | toast action slot |
+| Toast | IconButton | dismiss control |
+| TreeView | Button | node action slot |
 

@@ -8,164 +8,204 @@
     "compositionEdges": 39,
     "allowedEntries": 23,
     "unexpectedImports": 0,
-    "missingImports": 0
+    "missingImports": 0,
+    "missingReasons": 0
   },
   "edges": [
     {
       "from": "BiometricPrompt",
-      "to": "Button"
+      "to": "Button",
+      "reason": "primary fallback action"
     },
     {
       "from": "Button",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "loading indicator slot"
     },
     {
       "from": "Card",
-      "to": "Button"
+      "to": "Button",
+      "reason": "declared action slot"
     },
     {
       "from": "Card",
-      "to": "IconButton"
+      "to": "IconButton",
+      "reason": "declared icon action slot"
     },
     {
       "from": "Card",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "loading indicator slot"
     },
     {
       "from": "CardExpiryInput",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "field loading indicator slot"
     },
     {
       "from": "CardNumberInput",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "field loading indicator slot"
     },
     {
       "from": "CardSecurityCodeInput",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "field loading indicator slot"
     },
     {
       "from": "CardSummary",
-      "to": "Badge"
+      "to": "Badge",
+      "reason": "status badge slot"
     },
     {
       "from": "Dialog",
-      "to": "Button"
+      "to": "Button",
+      "reason": "dialog action slot"
     },
     {
       "from": "Dialog",
-      "to": "IconButton"
+      "to": "IconButton",
+      "reason": "dismiss control"
     },
     {
       "from": "Dialog",
-      "to": "Input"
+      "to": "Input",
+      "reason": "form field slot"
     },
     {
       "from": "Drawer",
-      "to": "Badge"
+      "to": "Badge",
+      "reason": "status badge slot"
     },
     {
       "from": "Drawer",
-      "to": "Button"
+      "to": "Button",
+      "reason": "drawer action slot"
     },
     {
       "from": "Drawer",
-      "to": "IconButton"
+      "to": "IconButton",
+      "reason": "dismiss control"
     },
     {
       "from": "Drawer",
-      "to": "Input"
+      "to": "Input",
+      "reason": "form field slot"
     },
     {
       "from": "Drawer",
-      "to": "ProgressIndicator"
+      "to": "ProgressIndicator",
+      "reason": "progress row slot"
     },
     {
       "from": "EmptyState",
-      "to": "Button"
+      "to": "Button",
+      "reason": "recovery action slot"
     },
     {
       "from": "EmptyState",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "loading state slot"
     },
     {
       "from": "ErrorPanel",
-      "to": "Button"
+      "to": "Button",
+      "reason": "recovery action slot"
     },
     {
       "from": "ErrorPanel",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "loading state slot"
     },
     {
       "from": "FloatingActionButton",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "loading indicator slot"
     },
     {
       "from": "InlineValidation",
-      "to": "Input"
+      "to": "Input",
+      "reason": "field validation composition"
     },
     {
       "from": "Input",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "field loading indicator slot"
     },
     {
       "from": "Menu",
-      "to": "Avatar"
+      "to": "Avatar",
+      "reason": "avatar trigger slot"
     },
     {
       "from": "Menu",
-      "to": "Button"
+      "to": "Button",
+      "reason": "button trigger slot"
     },
     {
       "from": "Menu",
-      "to": "IconButton"
+      "to": "IconButton",
+      "reason": "icon trigger slot"
     },
     {
       "from": "PhoneInput",
-      "to": "CountrySelector"
+      "to": "CountrySelector",
+      "reason": "country code selector slot"
     },
     {
       "from": "Popover",
-      "to": "Button"
+      "to": "Button",
+      "reason": "popover action slot"
     },
     {
       "from": "Popover",
-      "to": "Input"
+      "to": "Input",
+      "reason": "form field slot"
     },
     {
       "from": "QuickAction",
-      "to": "Badge"
+      "to": "Badge",
+      "reason": "counter badge slot"
     },
     {
       "from": "QuickAction",
-      "to": "Spinner"
+      "to": "Spinner",
+      "reason": "loading indicator slot"
     },
     {
       "from": "RouteSummary",
-      "to": "Button"
+      "to": "Button",
+      "reason": "route action slot"
     },
     {
       "from": "RouteSummary",
-      "to": "IconButton"
+      "to": "IconButton",
+      "reason": "compact action slot"
     },
     {
       "from": "Table",
-      "to": "Badge"
+      "to": "Badge",
+      "reason": "cell status badge slot"
     },
     {
       "from": "Tabs",
-      "to": "Badge"
+      "to": "Badge",
+      "reason": "tab badge slot"
     },
     {
       "from": "Toast",
-      "to": "Button"
+      "to": "Button",
+      "reason": "toast action slot"
     },
     {
       "from": "Toast",
-      "to": "IconButton"
+      "to": "IconButton",
+      "reason": "dismiss control"
     },
     {
       "from": "TreeView",
-      "to": "Button"
+      "to": "Button",
+      "reason": "node action slot"
     }
   ],
   "components": [
@@ -174,8 +214,10 @@
       "file": "packages/react/src/Accordion.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -183,8 +225,10 @@
       "file": "packages/react/src/AnimatedMoment.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -192,8 +236,10 @@
       "file": "packages/react/src/AuditEvent.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -201,8 +247,10 @@
       "file": "packages/react/src/Avatar.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -210,8 +258,10 @@
       "file": "packages/react/src/Badge.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -223,8 +273,12 @@
       "allowed": [
         "Button"
       ],
+      "reasons": {
+        "Button": "primary fallback action"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -232,8 +286,10 @@
       "file": "packages/react/src/Breadcrumbs.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -245,8 +301,12 @@
       "allowed": [
         "Spinner"
       ],
+      "reasons": {
+        "Spinner": "loading indicator slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -262,8 +322,14 @@
         "IconButton",
         "Spinner"
       ],
+      "reasons": {
+        "Button": "declared action slot",
+        "IconButton": "declared icon action slot",
+        "Spinner": "loading indicator slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -275,8 +341,12 @@
       "allowed": [
         "Spinner"
       ],
+      "reasons": {
+        "Spinner": "field loading indicator slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -288,8 +358,12 @@
       "allowed": [
         "Spinner"
       ],
+      "reasons": {
+        "Spinner": "field loading indicator slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -301,8 +375,12 @@
       "allowed": [
         "Spinner"
       ],
+      "reasons": {
+        "Spinner": "field loading indicator slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -314,8 +392,12 @@
       "allowed": [
         "Badge"
       ],
+      "reasons": {
+        "Badge": "status badge slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -323,8 +405,10 @@
       "file": "packages/react/src/ChartPanel.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -332,8 +416,10 @@
       "file": "packages/react/src/Checkbox.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -341,8 +427,10 @@
       "file": "packages/react/src/Chip.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -350,8 +438,10 @@
       "file": "packages/react/src/CodeInput.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -359,8 +449,10 @@
       "file": "packages/react/src/Combobox.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -368,8 +460,10 @@
       "file": "packages/react/src/CountrySelector.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -377,8 +471,10 @@
       "file": "packages/react/src/DatePicker.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -386,8 +482,10 @@
       "file": "packages/react/src/DateRangePicker.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -403,8 +501,14 @@
         "IconButton",
         "Input"
       ],
+      "reasons": {
+        "Button": "dialog action slot",
+        "IconButton": "dismiss control",
+        "Input": "form field slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -424,8 +528,16 @@
         "Input",
         "ProgressIndicator"
       ],
+      "reasons": {
+        "Badge": "status badge slot",
+        "Button": "drawer action slot",
+        "IconButton": "dismiss control",
+        "Input": "form field slot",
+        "ProgressIndicator": "progress row slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -439,8 +551,13 @@
         "Button",
         "Spinner"
       ],
+      "reasons": {
+        "Button": "recovery action slot",
+        "Spinner": "loading state slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -454,8 +571,13 @@
         "Button",
         "Spinner"
       ],
+      "reasons": {
+        "Button": "recovery action slot",
+        "Spinner": "loading state slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -467,8 +589,12 @@
       "allowed": [
         "Spinner"
       ],
+      "reasons": {
+        "Spinner": "loading indicator slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -476,8 +602,10 @@
       "file": "packages/react/src/IconButton.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -489,8 +617,12 @@
       "allowed": [
         "Input"
       ],
+      "reasons": {
+        "Input": "field validation composition"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -502,8 +634,12 @@
       "allowed": [
         "Spinner"
       ],
+      "reasons": {
+        "Spinner": "field loading indicator slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -511,8 +647,10 @@
       "file": "packages/react/src/KpiTile.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -520,8 +658,10 @@
       "file": "packages/react/src/List.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -537,8 +677,14 @@
         "Button",
         "IconButton"
       ],
+      "reasons": {
+        "Avatar": "avatar trigger slot",
+        "Button": "button trigger slot",
+        "IconButton": "icon trigger slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -546,8 +692,10 @@
       "file": "packages/react/src/MotionBoundary.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -555,8 +703,10 @@
       "file": "packages/react/src/MovementRow.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -564,8 +714,10 @@
       "file": "packages/react/src/Pagination.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -577,8 +729,12 @@
       "allowed": [
         "CountrySelector"
       ],
+      "reasons": {
+        "CountrySelector": "country code selector slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -592,8 +748,13 @@
         "Button",
         "Input"
       ],
+      "reasons": {
+        "Button": "popover action slot",
+        "Input": "form field slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -601,8 +762,10 @@
       "file": "packages/react/src/ProgressIndicator.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -616,8 +779,13 @@
         "Badge",
         "Spinner"
       ],
+      "reasons": {
+        "Badge": "counter badge slot",
+        "Spinner": "loading indicator slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -625,8 +793,10 @@
       "file": "packages/react/src/RadioButton.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -640,8 +810,13 @@
         "Button",
         "IconButton"
       ],
+      "reasons": {
+        "Button": "route action slot",
+        "IconButton": "compact action slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -649,8 +824,10 @@
       "file": "packages/react/src/SegmentedControl.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -658,8 +835,10 @@
       "file": "packages/react/src/Select.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -667,8 +846,10 @@
       "file": "packages/react/src/Skeleton.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -676,8 +857,10 @@
       "file": "packages/react/src/Slider.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -685,8 +868,10 @@
       "file": "packages/react/src/Spinner.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -694,8 +879,10 @@
       "file": "packages/react/src/StationPin.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -703,8 +890,10 @@
       "file": "packages/react/src/Stepper.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -712,8 +901,10 @@
       "file": "packages/react/src/Switch.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -725,8 +916,12 @@
       "allowed": [
         "Badge"
       ],
+      "reasons": {
+        "Badge": "cell status badge slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -738,8 +933,12 @@
       "allowed": [
         "Badge"
       ],
+      "reasons": {
+        "Badge": "tab badge slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -747,8 +946,10 @@
       "file": "packages/react/src/Tag.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -756,8 +957,10 @@
       "file": "packages/react/src/TextArea.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -771,8 +974,13 @@
         "Button",
         "IconButton"
       ],
+      "reasons": {
+        "Button": "toast action slot",
+        "IconButton": "dismiss control"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -780,8 +988,10 @@
       "file": "packages/react/src/Tooltip.js",
       "actual": [],
       "allowed": [],
+      "reasons": {},
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     },
     {
@@ -793,8 +1003,12 @@
       "allowed": [
         "Button"
       ],
+      "reasons": {
+        "Button": "node action slot"
+      },
       "unexpected": [],
       "missing": [],
+      "missingReasons": [],
       "status": "pass"
     }
   ]

@@ -7,7 +7,7 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
-const { allowedReactComponentComposition } = require("./react-composition-contract-audit.js");
+const { allowedReactComponentComposition, reactComponentCompositionContracts } = require("./react-composition-contract-audit.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -29,28 +29,37 @@ function localComponentImports(source) {
     .sort();
 }
 
+function compositionReasons(component) {
+  return new Map((reactComponentCompositionContracts[component] ?? []).map((edge) => [edge.component, edge.reason]));
+}
+
 function createReport() {
   const components = componentFiles().map((file) => {
     const component = path.basename(file, ".js");
     const source = read(file);
     const actual = localComponentImports(source);
     const allowed = [...(allowedReactComponentComposition[component] ?? [])].sort();
+    const reasons = compositionReasons(component);
     const unexpected = actual.filter((item) => !allowed.includes(item));
     const missing = allowed.filter((item) => !actual.includes(item));
+    const missingReasons = allowed.filter((item) => !reasons.get(item));
     return {
       component,
       file: rel(file),
       actual,
       allowed,
+      reasons: Object.fromEntries([...reasons.entries()].sort()),
       unexpected,
       missing,
-      status: unexpected.length || missing.length ? "fail" : "pass",
+      missingReasons,
+      status: unexpected.length || missing.length || missingReasons.length ? "fail" : "pass",
     };
   });
   const compositional = components.filter((item) => item.actual.length || item.allowed.length);
   const edges = components.flatMap((item) => item.actual.map((target) => ({
     from: item.component,
     to: target,
+    reason: item.reasons[target] ?? "",
   })));
   return {
     status: components.some((item) => item.status === "fail") ? "fail" : "pass",
@@ -63,6 +72,7 @@ function createReport() {
       allowedEntries: Object.keys(allowedReactComponentComposition).length,
       unexpectedImports: components.reduce((total, item) => total + item.unexpected.length, 0),
       missingImports: components.reduce((total, item) => total + item.missing.length, 0),
+      missingReasons: components.reduce((total, item) => total + item.missingReasons.length, 0),
     },
     edges,
     components,
@@ -72,8 +82,8 @@ function createReport() {
 function toMarkdown(report) {
   const componentRows = report.components
     .filter((item) => item.actual.length || item.allowed.length || item.status !== "pass")
-    .map((item) => `| ${item.component} | ${item.status} | ${item.allowed.join(", ") || "None"} | ${item.actual.join(", ") || "None"} | ${item.unexpected.join(", ") || "None"} | ${item.missing.join(", ") || "None"} |`);
-  const edgeRows = report.edges.map((edge) => `| ${edge.from} | ${edge.to} |`);
+    .map((item) => `| ${item.component} | ${item.status} | ${item.allowed.join(", ") || "None"} | ${item.actual.join(", ") || "None"} | ${item.unexpected.join(", ") || "None"} | ${item.missing.join(", ") || "None"} | ${item.missingReasons.join(", ") || "None"} |`);
+  const edgeRows = report.edges.map((edge) => `| ${edge.from} | ${edge.to} | ${edge.reason || "None"} |`);
   return [
     "# React Composition Governance Audit",
     "",
@@ -89,18 +99,19 @@ function toMarkdown(report) {
     `- Allowlist entries: ${report.inventory.allowedEntries}`,
     `- Unexpected imports: ${report.inventory.unexpectedImports}`,
     `- Missing expected imports: ${report.inventory.missingImports}`,
+    `- Missing composition reasons: ${report.inventory.missingReasons}`,
     "",
     "## Components",
     "",
-    "| Component | Status | Allowed | Actual | Unexpected | Missing |",
-    "| --- | --- | --- | --- | --- | --- |",
-    ...(componentRows.length ? componentRows : ["| None | pass | None | None | None | None |"]),
+    "| Component | Status | Allowed | Actual | Unexpected | Missing | Missing reasons |",
+    "| --- | --- | --- | --- | --- | --- | --- |",
+    ...(componentRows.length ? componentRows : ["| None | pass | None | None | None | None | None |"]),
     "",
     "## Edges",
     "",
-    "| From | To |",
-    "| --- | --- |",
-    ...(edgeRows.length ? edgeRows : ["| None | None |"]),
+    "| From | To | Reason |",
+    "| --- | --- | --- |",
+    ...(edgeRows.length ? edgeRows : ["| None | None | None |"]),
     "",
   ].join("\n");
 }
@@ -134,6 +145,7 @@ function main() {
     compositionEdges: report.inventory.compositionEdges,
     unexpectedImports: report.inventory.unexpectedImports,
     missingImports: report.inventory.missingImports,
+    missingReasons: report.inventory.missingReasons,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));
