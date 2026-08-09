@@ -1,4 +1,4 @@
-const { fs, path, root, docsAppDir, read, add } = require("./audit-context.js");
+const { fs, goldComponents, path, root, docsAppDir, read, add } = require("./audit-context.js");
 const {
   classRootTokensFromClassExpression,
   classTokensFromClassExpression,
@@ -19,67 +19,15 @@ const docsAppDirs = [
   path.join(root, "../FlowDocs/apps/docs"),
 ].filter((dir) => fs.existsSync(dir));
 
-const componentClassRoots = new Set([
-  "accordion",
-  "animated-moment",
-  "audit-event",
-  "avatar",
-  "badge",
-  "biometric-prompt",
-  "breadcrumbs",
-  "button",
-  "card",
-  "card-expiry-input",
-  "card-number-input",
-  "card-security-code-input",
-  "card-summary",
-  "chart-panel",
-  "checkbox",
-  "choice",
-  "chip",
-  "code-input",
-  "combobox",
-  "country-flag",
-  "country-selector",
-  "date-picker",
-  "date-range-picker",
-  "dialog",
-  "drawer",
-  "empty-state",
-  "error-panel",
-  "fab",
-  "field",
-  "icon-button",
-  "inline-validation",
-  "kpi-tile",
-  "list",
-  "menu",
-  "motion-boundary",
-  "movement-row",
-  "pagination",
-  "phone-input",
-  "popover",
-  "progress",
-  "quick-action",
-  "radio",
-  "route-summary",
-  "segmented-control",
-  "select",
-  "select-control",
-  "skeleton",
-  "slider",
-  "spinner",
-  "station-pin",
-  "stepper",
-  "switch",
-  "table",
-  "tabs",
-  "tag",
-  "text-area",
-  "toast",
-  "tooltip",
-  "tree-view",
-]);
+const componentClassRoots = new Set(`
+  accordion animated-moment audit-event avatar badge biometric-prompt breadcrumbs button card
+  card-expiry-input card-number-input card-security-code-input card-summary chart-panel checkbox
+  choice chip code-input combobox country-flag country-selector date-picker date-range-picker
+  dialog drawer empty-state error-panel fab field icon-button inline-validation kpi-tile list
+  menu motion-boundary movement-row pagination phone-input popover progress quick-action radio
+  route-summary segmented-control select select-control skeleton slider spinner station-pin
+  stepper switch table tabs tag text-area toast tooltip tree-view
+`.trim().split(/\s+/));
 
 const duplicateConceptClassPatterns = [
   {
@@ -96,6 +44,7 @@ const duplicateConceptClassPatterns = [
 const protectedComponentRoots = new Set(["button", "card", "dialog", "drawer", "menu", "popover"]);
 
 function checkAntiDuplicationGovernance() {
+  checkClassRootRegistryAlignment();
   checkDocsDoNotOwnPackageComponentMarkup();
   checkKnownDuplicateConcepts();
   checkPrimitiveInteractiveDomFactories();
@@ -104,9 +53,11 @@ function checkAntiDuplicationGovernance() {
 }
 
 function antiDuplicationCoverage() {
+  const rootRegistry = componentClassRootRegistryCoverage();
   return {
     docsApps: docsAppDirs.map((dir) => normalize(path.relative(root, dir))),
     componentClassRoots: [...componentClassRoots].sort(),
+    rootRegistry,
     duplicateConcepts: duplicateConceptClassPatterns.map((item) => ({
       concept: item.concept,
       classNames: item.classNames,
@@ -120,12 +71,42 @@ function antiDuplicationCoverage() {
     })),
     checks: [
       "docs package component class ownership",
+      "component class root registry alignment",
       "known duplicate concept classes",
       "primitive interactive DOM factories",
       "React-only component boundaries",
       "React component class ownership",
     ],
   };
+}
+
+function componentClassRootRegistryCoverage() {
+  const ownerRoots = [...goldComponents].sort().map((component) => {
+    const reactComponent = pascalCase(component);
+    return {
+      component,
+      reactComponent,
+      ownerRoot: ownerClassRootForReactComponent(reactComponent),
+    };
+  });
+  const expectedOwnerRoots = new Set(ownerRoots.map((item) => item.ownerRoot));
+  return {
+    acceptedComponents: goldComponents.length,
+    ownerRoots: ownerRoots.length,
+    missingOwnerRoots: ownerRoots.filter((item) => !componentClassRoots.has(item.ownerRoot)),
+    extensionRoots: [...componentClassRoots].filter((rootToken) => !expectedOwnerRoots.has(rootToken)).sort(),
+  };
+}
+
+function checkClassRootRegistryAlignment() {
+  const coverage = componentClassRootRegistryCoverage();
+  if (!coverage.missingOwnerRoots.length) return;
+  add(
+    "errors",
+    path.join(root, "packages/audit/scripts/audit-anti-duplication.js"),
+    1,
+    `Accepted components missing owner class roots in componentClassRoots: ${coverage.missingOwnerRoots.map((item) => `${item.component}->${item.ownerRoot}`).join(", ")}.`
+  );
 }
 
 function checkDocsDoNotOwnPackageComponentMarkup() {
@@ -312,6 +293,7 @@ function allowedClassRootsForReactComponent(componentName) {
 function ownerClassRootForReactComponent(componentName) {
   return {
     FloatingActionButton: "fab",
+    Input: "field",
     ProgressIndicator: "progress",
     RadioButton: "radio",
   }[componentName] ?? kebab(componentName);
@@ -374,6 +356,10 @@ function kebab(value) {
     .toLowerCase();
 }
 
+function pascalCase(value) {
+  return value.split("-").map((part) => `${part.slice(0, 1).toUpperCase()}${part.slice(1)}`).join("");
+}
+
 function lineForIndex(text, index) {
   return text.slice(0, index).split("\n").length;
 }
@@ -384,6 +370,7 @@ module.exports = {
   antiDuplicationCoverage,
   classRootTokensFromClassExpression,
   classRootsFromClassExpression,
+  componentClassRootRegistryCoverage,
   componentClassRoots,
   ownerClassRootForReactComponent,
   packageCssClassRoots,

@@ -65,6 +65,16 @@
     "tooltip",
     "tree-view"
   ],
+  "rootRegistry": {
+    "acceptedComponents": 56,
+    "ownerRoots": 56,
+    "missingOwnerRoots": [],
+    "extensionRoots": [
+      "choice",
+      "country-flag",
+      "select-control"
+    ]
+  },
   "duplicateConcepts": [
     {
       "concept": "search",
@@ -111,6 +121,7 @@
   ],
   "checks": [
     "docs package component class ownership",
+    "component class root registry alignment",
     "known duplicate concept classes",
     "primitive interactive DOM factories",
     "React-only component boundaries",

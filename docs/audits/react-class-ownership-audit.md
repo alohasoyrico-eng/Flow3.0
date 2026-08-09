@@ -48,7 +48,7 @@ React components may only author their own visual class roots or explicit family
 | FloatingActionButton | pass | fab | fab | fab | None | 0 |
 | IconButton | pass | icon-button | icon-button | icon-button | None | 0 |
 | InlineValidation | pass | inline-validation | inline-validation | inline-validation | None | 0 |
-| Input | pass | input | field | field | field-action, input | 0 |
+| Input | pass | field | field | field | field-action, input | 0 |
 | KpiTile | pass | kpi-tile | kpi-tile | kpi-tile | None | 0 |
 | List | pass | list | list | list | material-symbol | 0 |
 | Menu | pass | menu | menu | menu | None | 0 |

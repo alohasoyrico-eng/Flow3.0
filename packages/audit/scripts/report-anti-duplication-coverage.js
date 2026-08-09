@@ -14,12 +14,21 @@ function renderMarkdown(report) {
     .map((item) => `| ${item.concept} | ${item.classNames.join(", ")} |`)
     .join("\n");
   const checks = report.checks.map((item) => `- ${item}`).join("\n");
+  const missingOwnerRows = report.rootRegistry.missingOwnerRoots
+    .map((item) => `| ${item.component} | ${item.reactComponent} | ${item.ownerRoot} |`)
+    .join("\n");
+  const extensionRootRows = report.rootRegistry.extensionRoots
+    .map((rootToken) => `| ${rootToken} |`)
+    .join("\n");
   return [
     "# Anti-Duplication Coverage",
     "",
     `Status: ${report.status}`,
     "",
     `- Component class roots protected: ${report.componentClassRoots.length}`,
+    `- Accepted components with owner roots: ${report.rootRegistry.ownerRoots}/${report.rootRegistry.acceptedComponents}`,
+    `- Missing owner roots: ${report.rootRegistry.missingOwnerRoots.length}`,
+    `- Extension class roots: ${report.rootRegistry.extensionRoots.length}`,
     `- Protected high-risk roots: ${report.protectedComponentRoots.join(", ")}`,
     `- Duplicate concept rules: ${report.duplicateConcepts.length}`,
     `- Docs apps scanned: ${report.docsApps.join(", ") || "none"}`,
@@ -27,6 +36,18 @@ function renderMarkdown(report) {
     "## Checks",
     "",
     checks,
+    "",
+    "## Root Registry Alignment",
+    "",
+    "| Component | React component | Missing owner root |",
+    "| --- | --- | --- |",
+    missingOwnerRows || "| None | None | None |",
+    "",
+    "## Extension Roots",
+    "",
+    "| Root |",
+    "| --- |",
+    extensionRootRows || "| None |",
     "",
     "## Duplicate Concepts",
     "",
@@ -56,6 +77,10 @@ function main() {
     status: report.status,
     checks: report.checks.length,
     componentClassRoots: report.componentClassRoots.length,
+    acceptedComponents: report.rootRegistry.acceptedComponents,
+    ownerRoots: report.rootRegistry.ownerRoots,
+    missingOwnerRoots: report.rootRegistry.missingOwnerRoots.length,
+    extensionRoots: report.rootRegistry.extensionRoots.length,
     protectedComponentRoots: report.protectedComponentRoots.length,
     duplicateConcepts: report.duplicateConcepts.length,
     json: path.relative(root, jsonOutput),

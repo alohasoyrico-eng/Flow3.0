@@ -573,7 +573,7 @@
     {
       "component": "Input",
       "file": "packages/react/src/Input.js",
-      "ownerRoot": "input",
+      "ownerRoot": "field",
       "allowedRoots": [
         "field"
       ],
