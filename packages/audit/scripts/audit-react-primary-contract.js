@@ -1,4 +1,4 @@
-const { fs, path, root, read, readJson, add } = require("./audit-context.js");
+const { fs, goldComponents, path, root, read, readJson, add } = require("./audit-context.js");
 const { checkReactPropContracts } = require("./react-prop-contract-audit.js");
 const { checkDomEscapeTypeContract, forbiddenInheritedDomProps } = require("./react-dom-escape-contract.js");
 const { checkDensityContractConsistency, checkReactDensityCascade, checkReactPublicDensityContract, checkStateContractConsistency } = require("./react-density-contract-audit.js");
@@ -42,6 +42,7 @@ function checkReactPrimaryContract() {
     return;
   }
   checkReactPrimaryInventory(componentFiles);
+  checkReactPackageExportInventory(reactPackage);
 
   if (!reactPackage?.scripts?.test?.includes("test/ref.test.mjs")) {
     add("errors", reactPackageFile, 1, "React package test script must run test/ref.test.mjs so ForwardRefExoticComponent is verified at runtime.");
@@ -84,6 +85,19 @@ function checkReactPrimaryContract() {
   checkStateContractConsistency({ add, contractsSource: componentContractsSource, componentContractsFile });
   checkControlledReactCoverage({ add, componentFiles, contractsSource: componentContractsSource });
   checkDensityContractConsistency({ add, contractsSource: componentContractsSource, componentContractsFile });
+}
+
+function checkReactPackageExportInventory(reactPackage) {
+  const actualExports = Object.keys(reactPackage?.exports ?? {}).sort();
+  const expectedExports = [".", ...goldComponents.map((component) => `./${component}`)].sort();
+  const missingExports = expectedExports.filter((entry) => !actualExports.includes(entry));
+  const extraExports = actualExports.filter((entry) => !expectedExports.includes(entry));
+  if (missingExports.length) {
+    add("errors", reactPackageFile, 1, `@design-system/react exports missing governed component subpaths: ${missingExports.join(", ")}.`);
+  }
+  if (extraExports.length) {
+    add("errors", reactPackageFile, 1, `@design-system/react exports include ungoverned public subpaths: ${extraExports.join(", ")}.`);
+  }
 }
 
 function checkOpenChangeContractConsistency(contractsSource) {
