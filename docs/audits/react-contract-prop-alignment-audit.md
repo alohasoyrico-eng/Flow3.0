@@ -19,6 +19,33 @@ The public React prop surface must stay aligned with componentContracts so produ
 - Type value mismatches: 0
 - Public props expected in source: 560
 - Unreferenced public props: 0
+- Inventory baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. Public React props, system contract props, inherited props, and implementation references must move together.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| components | 56 | 56 |
+| pass | 56 | 56 |
+| fail | 0 | 0 |
+| contractProps | 671 | 671 |
+| publicReactProps | 559 | 559 |
+| semanticInheritedProps | 1 | 1 |
+| inheritedContractProps | 24 | 24 |
+| extraReactProps | 0 | 0 |
+| missingReactProps | 0 | 0 |
+| requiredMismatches | 0 | 0 |
+| typeValueMismatches | 0 | 0 |
+| publicPropsExpectedInSource | 560 | 560 |
+| unreferencedPublicProps | 0 | 0 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
 
 ## Components
 

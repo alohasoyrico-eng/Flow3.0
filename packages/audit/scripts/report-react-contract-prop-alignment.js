@@ -24,6 +24,22 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-contract-prop-alignment-audit.json");
 const markdownOutput = path.join(outputDir, "react-contract-prop-alignment-audit.md");
 
+const expectedInventory = {
+  components: 56,
+  pass: 56,
+  fail: 0,
+  contractProps: 671,
+  publicReactProps: 559,
+  semanticInheritedProps: 1,
+  inheritedContractProps: 24,
+  extraReactProps: 0,
+  missingReactProps: 0,
+  requiredMismatches: 0,
+  typeValueMismatches: 0,
+  publicPropsExpectedInSource: 560,
+  unreferencedPublicProps: 0,
+};
+
 function contractPropsFor(contractBody) {
   return [...contractBody.matchAll(/\{ name: "([^"]+)", type: "((?:\\.|[^"])*)", required: (true|false) \}/g)]
     .map((match) => ({ name: match[1], type: match[2], required: match[3] === "true" }));
@@ -144,30 +160,46 @@ function createReport() {
       status: failures.length ? "fail" : "pass",
     };
   });
+  const inventory = {
+    components: components.length,
+    pass: components.filter((component) => component.status === "pass").length,
+    fail: components.filter((component) => component.status === "fail").length,
+    contractProps: components.reduce((total, component) => total + component.contractProps.length, 0),
+    publicReactProps: components.reduce((total, component) => total + component.publicReactProps.length, 0),
+    semanticInheritedProps: components.reduce((total, component) => total + component.semanticInheritedProps.length, 0),
+    inheritedContractProps: components.reduce((total, component) => total + component.inheritedContractProps.length, 0),
+    extraReactProps: components.reduce((total, component) => total + component.extraReactProps.length, 0),
+    missingReactProps: components.reduce((total, component) => total + component.missingReactProps.length, 0),
+    requiredMismatches: components.reduce((total, component) => total + component.requiredMismatches.length, 0),
+    typeValueMismatches: components.reduce((total, component) => total + component.typeValueMismatches.length, 0),
+    publicPropsExpectedInSource: components.reduce((total, component) => total + component.publicPropsExpectedInSource.length, 0),
+    unreferencedPublicProps: components.reduce((total, component) => total + component.unreferencedPublicProps.length, 0),
+  };
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => inventory[key] !== expected)
+    .map(([key, expected]) => ({
+      key,
+      expected,
+      actual: inventory[key],
+    }));
   return {
-    status: components.some((component) => component.status === "fail") ? "fail" : "pass",
+    status: components.some((component) => component.status === "fail") || baselineMismatches.length ? "fail" : "pass",
     audit: "react contract prop alignment",
     principle: "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract.",
-    inventory: {
-      components: components.length,
-      pass: components.filter((component) => component.status === "pass").length,
-      fail: components.filter((component) => component.status === "fail").length,
-      contractProps: components.reduce((total, component) => total + component.contractProps.length, 0),
-      publicReactProps: components.reduce((total, component) => total + component.publicReactProps.length, 0),
-      semanticInheritedProps: components.reduce((total, component) => total + component.semanticInheritedProps.length, 0),
-      inheritedContractProps: components.reduce((total, component) => total + component.inheritedContractProps.length, 0),
-      extraReactProps: components.reduce((total, component) => total + component.extraReactProps.length, 0),
-      missingReactProps: components.reduce((total, component) => total + component.missingReactProps.length, 0),
-      requiredMismatches: components.reduce((total, component) => total + component.requiredMismatches.length, 0),
-      typeValueMismatches: components.reduce((total, component) => total + component.typeValueMismatches.length, 0),
-      publicPropsExpectedInSource: components.reduce((total, component) => total + component.publicPropsExpectedInSource.length, 0),
-      unreferencedPublicProps: components.reduce((total, component) => total + component.unreferencedPublicProps.length, 0),
+    baseline: {
+      inventory: expectedInventory,
+      mismatches: baselineMismatches,
     },
+    inventory,
     components,
   };
 }
 
 function toMarkdown(report) {
+  const baselineRows = Object.entries(report.baseline.inventory)
+    .map(([key, expected]) => `| ${key} | ${expected} | ${report.inventory[key]} |`);
+  const baselineMismatchRows = report.baseline.mismatches
+    .map((item) => `| ${item.key} | ${item.expected} | ${item.actual} |`);
   const componentRows = report.components.map((component) => `| ${component.component} | ${component.status} | ${component.contractProps.length} | ${component.publicReactProps.length} | ${component.publicPropsExpectedInSource.length} | ${component.extraReactProps.join(", ") || "None"} | ${component.missingReactProps.join(", ") || "None"} | ${component.requiredMismatches.join(", ") || "None"} | ${component.typeValueMismatches.map((item) => item.prop).join(", ") || "None"} | ${component.unreferencedPublicProps.join(", ") || "None"} |`);
   const failureRows = report.components.flatMap((component) => component.failures.map((failure) => `| ${component.component} | ${failure} |`));
   const typeValueRows = report.components.flatMap((component) => component.typeValueMismatches.map((item) => `| ${component.component} | ${item.prop} | ${item.contractValues.join(", ")} | ${item.reactValues.join(", ")} |`));
@@ -193,6 +225,21 @@ function toMarkdown(report) {
     `- Type value mismatches: ${report.inventory.typeValueMismatches}`,
     `- Public props expected in source: ${report.inventory.publicPropsExpectedInSource}`,
     `- Unreferenced public props: ${report.inventory.unreferencedPublicProps}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. Public React props, system contract props, inherited props, and implementation references must move together.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    ...(baselineMismatchRows.length ? baselineMismatchRows : ["| None | None | None |"]),
     "",
     "## Components",
     "",
