@@ -14,6 +14,8 @@ const thresholds = {
   aliasCount: 40,
 };
 
+const watchlistRatio = 0.8;
+
 const sharedExtensionRoots = new Set([
   "country-flag",
   "field",
@@ -38,6 +40,20 @@ function maturityReason(item) {
   }
   if (item.aliasCount >= thresholds.aliasCount) {
     reasons.push(`component aliases ${item.aliasCount} >= ${thresholds.aliasCount}`);
+  }
+  return reasons;
+}
+
+function watchlistReason(item) {
+  if (item.recommendation !== "keep-family") return [];
+  const reasons = [];
+  const selectorWatch = Math.floor(thresholds.selectorCount * watchlistRatio);
+  const aliasWatch = Math.floor(thresholds.aliasCount * watchlistRatio);
+  if (item.selectorCount >= selectorWatch) {
+    reasons.push(`selector surface ${item.selectorCount} is within ${Math.round(watchlistRatio * 100)}% of ${thresholds.selectorCount}`);
+  }
+  if (item.aliasCount >= aliasWatch) {
+    reasons.push(`component aliases ${item.aliasCount} is within ${Math.round(watchlistRatio * 100)}% of ${thresholds.aliasCount}`);
   }
   return reasons;
 }
@@ -67,25 +83,31 @@ function createReport() {
       };
       maturity.reasons = maturityReason(maturity);
       if (maturity.reasons.length) maturity.recommendation = "review-for-direct-contract";
+      maturity.watchlistReasons = watchlistReason(maturity);
       return maturity;
     });
   const reviewCandidates = familyComponents.filter((item) => item.recommendation === "review-for-direct-contract");
+  const watchlist = familyComponents.filter((item) => item.watchlistReasons.length);
   return {
     status: "pass",
     audit: "family CSS contract maturity",
     principle: "Family CSS contracts are allowed when a component shares a visual cascade; large component-specific selector or alias surface should be visible as a graduation candidate before it becomes accidental duplication.",
     thresholds,
+    watchlistRatio,
     inventory: {
       familyComponents: familyComponents.length,
       reviewCandidates: reviewCandidates.length,
+      watchlist: watchlist.length,
     },
     reviewCandidates,
+    watchlist,
     familyComponents,
   };
 }
 
 function toMarkdown(report) {
   const candidateRows = report.reviewCandidates.map((item) => `| ${item.component} | ${item.familyContract} | ${item.ownExtensionRoots.join(", ") || "None"} | ${item.selectorCount} | ${item.aliasCount} | ${item.reasons.join("; ")} |`);
+  const watchlistRows = report.watchlist.map((item) => `| ${item.component} | ${item.familyContract} | ${item.ownExtensionRoots.join(", ") || "None"} | ${item.selectorCount} | ${item.aliasCount} | ${item.watchlistReasons.join("; ")} |`);
   const rows = report.familyComponents.map((item) => `| ${item.component} | ${item.familyContract} | ${item.requiredRoot} | ${item.ownExtensionRoots.join(", ") || "None"} | ${item.sharedExtensionRoots.join(", ") || "None"} | ${item.selectorCount} | ${item.aliasCount} | ${item.recommendation} |`);
   return [
     "# Family CSS Contract Maturity",
@@ -98,15 +120,23 @@ function toMarkdown(report) {
     "",
     `- Family components: ${report.inventory.familyComponents}`,
     `- Review candidates: ${report.inventory.reviewCandidates}`,
+    `- Watchlist: ${report.inventory.watchlist}`,
     `- Shared extension roots excluded from maturity counts: ${[...sharedExtensionRoots].join(", ")}`,
     `- Selector threshold: ${report.thresholds.selectorCount}`,
     `- Alias threshold: ${report.thresholds.aliasCount}`,
+    `- Watchlist starts at: ${Math.round(report.watchlistRatio * 100)}% of each threshold`,
     "",
     "## Review Candidates",
     "",
     "| Component | Family contract | Own extension roots | Selectors | Aliases | Reason |",
     "| --- | --- | --- | ---: | ---: | --- |",
     ...(candidateRows.length ? candidateRows : ["| None | None | None | 0 | 0 | None |"]),
+    "",
+    "## Watchlist",
+    "",
+    "| Component | Family contract | Own extension roots | Selectors | Aliases | Reason |",
+    "| --- | --- | --- | ---: | ---: | --- |",
+    ...(watchlistRows.length ? watchlistRows : ["| None | None | None | 0 | 0 | None |"]),
     "",
     "## Family Components",
     "",
@@ -143,7 +173,9 @@ function main() {
     status: report.status,
     familyComponents: report.inventory.familyComponents,
     reviewCandidates: report.inventory.reviewCandidates,
+    watchlist: report.inventory.watchlist,
     candidates: report.reviewCandidates.map((item) => item.component),
+    watchlistComponents: report.watchlist.map((item) => item.component),
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

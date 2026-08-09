@@ -6,11 +6,37 @@
     "selectorCount": 20,
     "aliasCount": 40
   },
+  "watchlistRatio": 0.8,
   "inventory": {
     "familyComponents": 5,
-    "reviewCandidates": 0
+    "reviewCandidates": 0,
+    "watchlist": 1
   },
   "reviewCandidates": [],
+  "watchlist": [
+    {
+      "component": "combobox",
+      "familyContract": "select",
+      "requiredRoot": "select-control",
+      "extensionRoots": [
+        "combobox",
+        "field"
+      ],
+      "ownExtensionRoots": [
+        "combobox"
+      ],
+      "sharedExtensionRoots": [
+        "field"
+      ],
+      "selectorCount": 11,
+      "aliasCount": 35,
+      "recommendation": "keep-family",
+      "reasons": [],
+      "watchlistReasons": [
+        "component aliases 35 is within 80% of 40"
+      ]
+    }
+  ],
   "familyComponents": [
     {
       "component": "combobox",
@@ -29,7 +55,10 @@
       "selectorCount": 11,
       "aliasCount": 35,
       "recommendation": "keep-family",
-      "reasons": []
+      "reasons": [],
+      "watchlistReasons": [
+        "component aliases 35 is within 80% of 40"
+      ]
     },
     {
       "component": "input",
@@ -41,7 +70,8 @@
       "selectorCount": 0,
       "aliasCount": 0,
       "recommendation": "keep-family",
-      "reasons": []
+      "reasons": [],
+      "watchlistReasons": []
     },
     {
       "component": "card-number-input",
@@ -57,7 +87,8 @@
       "selectorCount": 8,
       "aliasCount": 14,
       "recommendation": "keep-family",
-      "reasons": []
+      "reasons": [],
+      "watchlistReasons": []
     },
     {
       "component": "card-expiry-input",
@@ -73,7 +104,8 @@
       "selectorCount": 9,
       "aliasCount": 6,
       "recommendation": "keep-family",
-      "reasons": []
+      "reasons": [],
+      "watchlistReasons": []
     },
     {
       "component": "card-security-code-input",
@@ -89,7 +121,8 @@
       "selectorCount": 12,
       "aliasCount": 11,
       "recommendation": "keep-family",
-      "reasons": []
+      "reasons": [],
+      "watchlistReasons": []
     }
   ]
 }

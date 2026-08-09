@@ -8,15 +8,23 @@ Family CSS contracts are allowed when a component shares a visual cascade; large
 
 - Family components: 5
 - Review candidates: 0
+- Watchlist: 1
 - Shared extension roots excluded from maturity counts: country-flag, field
 - Selector threshold: 20
 - Alias threshold: 40
+- Watchlist starts at: 80% of each threshold
 
 ## Review Candidates
 
 | Component | Family contract | Own extension roots | Selectors | Aliases | Reason |
 | --- | --- | --- | ---: | ---: | --- |
 | None | None | None | 0 | 0 | None |
+
+## Watchlist
+
+| Component | Family contract | Own extension roots | Selectors | Aliases | Reason |
+| --- | --- | --- | ---: | ---: | --- |
+| combobox | select | combobox | 11 | 35 | component aliases 35 is within 80% of 40 |
 
 ## Family Components
 
