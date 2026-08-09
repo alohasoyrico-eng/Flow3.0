@@ -158,6 +158,7 @@ const expectedAuditFiles = new Set([
   "report-component-css-contract-coverage.js",
   "report-family-css-contract-maturity.js",
   "report-component-visual-cascade.js",
+  "report-system-debt-ledger.js",
   "report-docs-component-demo-ownership.js",
   "report-docs-system-boundary.js",
   "report-taxonomy-boundaries.js",
@@ -296,6 +297,7 @@ const checks = [
   ["family css contract maturity report", () => run("node", ["packages/audit/scripts/report-family-css-contract-maturity.js", "--check"])],
   ["package css root governance report", () => run("node", ["packages/audit/scripts/report-package-css-root-governance.js", "--check"])],
   ["component visual cascade report", () => run("node", ["packages/audit/scripts/report-component-visual-cascade.js", "--check"])],
+  ["system debt ledger", () => run("node", ["packages/audit/scripts/report-system-debt-ledger.js", "--check"])],
 ];
 
 const summary = {

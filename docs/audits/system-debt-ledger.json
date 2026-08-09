@@ -1,0 +1,277 @@
+{
+  "status": "pass",
+  "audit": "system debt ledger",
+  "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
+  "inventory": {
+    "reports": 20,
+    "reportsWithDebtMetrics": 20,
+    "debtMetrics": 20,
+    "nonNumericDebtMetrics": 0,
+    "totalDebt": 0,
+    "systemDebt": 0
+  },
+  "missingDebtReports": [],
+  "nonNumericDebtEntries": [],
+  "reports": [
+    {
+      "file": "anti-duplication-coverage.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "anti-duplication-coverage.json",
+          "scope": "inventory",
+          "metric": "antiDuplicationDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "component-1to1-quality-matrix.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "component-1to1-quality-matrix.json",
+          "scope": "summary",
+          "metric": "qualityDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "component-css-contract-coverage.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "component-css-contract-coverage.json",
+          "scope": "topLevel",
+          "metric": "cssContractDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "component-visual-cascade-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "component-visual-cascade-audit.json",
+          "scope": "inventory",
+          "metric": "visualCascadeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "docs-component-demo-ownership.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "docs-component-demo-ownership.json",
+          "scope": "inventory",
+          "metric": "docsDemoOwnershipDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "docs-system-boundary-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "docs-system-boundary-audit.json",
+          "scope": "inventory",
+          "metric": "docsSystemBoundaryDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "family-css-contract-maturity.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "family-css-contract-maturity.json",
+          "scope": "inventory",
+          "metric": "familyCssMaturityDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-primitive-export-contract-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-primitive-export-contract-audit.json",
+          "scope": "inventory",
+          "metric": "foundationPrimitiveExportDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "legacy-dom-source-governance-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "legacy-dom-source-governance-audit.json",
+          "scope": "inventory",
+          "metric": "legacyDomSourceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "package-css-root-governance-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "package-css-root-governance-audit.json",
+          "scope": "inventory",
+          "metric": "packageCssRootDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-accessibility-governance-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-accessibility-governance-audit.json",
+          "scope": "inventory",
+          "metric": "accessibilityDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-class-ownership-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-class-ownership-audit.json",
+          "scope": "inventory",
+          "metric": "classOwnershipDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-composition-governance-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-composition-governance-audit.json",
+          "scope": "inventory",
+          "metric": "compositionDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-contract-prop-alignment-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-contract-prop-alignment-audit.json",
+          "scope": "inventory",
+          "metric": "propAlignmentDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-controlled-governance-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-controlled-governance-audit.json",
+          "scope": "inventory",
+          "metric": "controlledDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-default-governance-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-default-governance-audit.json",
+          "scope": "inventory",
+          "metric": "defaultDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-interaction-coverage-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-interaction-coverage-audit.json",
+          "scope": "inventory",
+          "metric": "interactionDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-primary-coverage-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-primary-coverage-audit.json",
+          "scope": "inventory",
+          "metric": "primaryImplementationDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-style-governance-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-style-governance-audit.json",
+          "scope": "inventory",
+          "metric": "styleEscapeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "taxonomy-boundaries-audit.json",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "taxonomy-boundaries-audit.json",
+          "scope": "inventory",
+          "metric": "taxonomyBoundaryDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    }
+  ]
+}
