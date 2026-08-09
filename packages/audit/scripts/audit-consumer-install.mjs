@@ -1214,6 +1214,14 @@ function assertReactGovernanceBaselines() {
     familyCssContracts: 4,
   }, "React primary coverage");
 
+  const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
+  assertReportStatus(legacyDomSource, "Legacy DOM source governance");
+  assertInventory(legacyDomSource, {
+    filesScanned: 376,
+    violations: 0,
+    legacyDomSourceDebt: 0,
+  }, "Legacy DOM source governance");
+
   const defaults = readAuditReport("docs/audits/react-default-governance-audit.json");
   assertReportStatus(defaults, "React default governance");
   assertInventory(defaults, {

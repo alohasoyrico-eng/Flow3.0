@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "audit": "legacy DOM source governance",
-  "principle": "Executable audits and package sources must target Flow React/system contracts, not the retired DOM component implementation paths.",
+  "principle": "Executable audits and package sources must target Flow React/system contracts, not the retired DOM component implementation paths. The actionable debt metric is legacyDomSourceDebt.",
   "inventory": {
     "scanRoots": [
       "packages/audit/scripts",
@@ -9,7 +9,8 @@
       "packages/components/src"
     ],
     "filesScanned": 376,
-    "violations": 0
+    "violations": 0,
+    "legacyDomSourceDebt": 0
   },
   "forbiddenRules": [
     {

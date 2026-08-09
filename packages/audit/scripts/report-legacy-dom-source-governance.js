@@ -80,14 +80,16 @@ function createReport() {
     })));
   });
 
+  const legacyDomSourceDebt = violations.length;
   return {
-    status: violations.length ? "fail" : "pass",
+    status: legacyDomSourceDebt ? "fail" : "pass",
     audit: "legacy DOM source governance",
-    principle: "Executable audits and package sources must target Flow React/system contracts, not the retired DOM component implementation paths.",
+    principle: "Executable audits and package sources must target Flow React/system contracts, not the retired DOM component implementation paths. The actionable debt metric is legacyDomSourceDebt.",
     inventory: {
       scanRoots: scanRoots.map((target) => rel(target)),
       filesScanned: files.length,
       violations: violations.length,
+      legacyDomSourceDebt,
     },
     forbiddenRules: forbiddenRules.map((rule) => ({
       id: rule.id,
@@ -114,6 +116,7 @@ function toMarkdown(report) {
     `- Scan roots: ${report.inventory.scanRoots.join(", ")}`,
     `- Files scanned: ${report.inventory.filesScanned}`,
     `- Violations: ${report.inventory.violations}`,
+    `- Legacy DOM source debt: ${report.inventory.legacyDomSourceDebt}`,
     "",
     "## Violations",
     "",
@@ -150,6 +153,7 @@ function main() {
     status: report.status,
     filesScanned: report.inventory.filesScanned,
     violations: report.inventory.violations,
+    legacyDomSourceDebt: report.inventory.legacyDomSourceDebt,
     json: rel(jsonOutput),
     markdown: rel(markdownOutput),
   }, null, 2));
