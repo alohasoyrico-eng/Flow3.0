@@ -1,4 +1,4 @@
-const { path, root, readJson, add } = require("./audit-context.js");
+const { goldComponents, path, root, readJson, add } = require("./audit-context.js");
 
 const boundaryImports = [
   "#design-system/components",
@@ -47,10 +47,7 @@ const installExports = [
   "./components/platforms",
   "./components/styles.css",
   "./react",
-  "./react/button",
-  "./react/icon-button",
-  "./react/input",
-  "./react/select",
+  ...goldComponents.map((component) => `./react/${component}`),
   "./content/catalog",
   "./content/component-docs",
   "./content/component-copy",
