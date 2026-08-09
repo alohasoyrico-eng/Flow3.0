@@ -39,6 +39,8 @@ try {
   });
   writeConsumerScreen(consumerDir);
   run("node", ["screen.mjs"], consumerDir);
+  writeConsumerCssEntrypoint(consumerDir);
+  run("node", ["css-entrypoint.mjs"], consumerDir);
   writeConsumerRefRuntime(consumerDir);
   run("node", ["ref-runtime.mjs"], consumerDir);
   writeConsumerInteractionRuntime(consumerDir);
@@ -368,6 +370,77 @@ assert.doesNotMatch(markup, /apps\\/docs|docs-demo|gold-/);
 console.log(markup.length);
 `;
   fs.writeFileSync(path.join(consumerDir, "screen.mjs"), source.trimStart());
+}
+
+function writeConsumerCssEntrypoint(consumerDir) {
+  const source = `
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+const cssExports = [
+  {
+    specifier: "@alohasoyrico-eng/flow/tokens/styles.css",
+    marker: "--sys-color-surface:",
+  },
+  {
+    specifier: "@alohasoyrico-eng/flow/components/styles.css",
+    marker: "--comp-button-bg-primary:",
+  },
+];
+const resolved = cssExports.map((item) => ({ ...item, file: require.resolve(item.specifier) }));
+for (const item of resolved) {
+  assert.match(
+    item.file,
+    /node_modules\\/@alohasoyrico-eng\\/flow\\//,
+    \`Expected \${item.specifier} to resolve from the installed Flow package.\`,
+  );
+  const css = fs.readFileSync(item.file, "utf8");
+  assert.ok(css.includes(item.marker), \`Expected \${item.specifier} to include \${item.marker}\`);
+  assert.doesNotMatch(css, /apps\\/docs|docs-demo|sourceMappingURL|@design-system\\/components/);
+  for (const importMatch of css.matchAll(/@import\\s+"([^"]+)"/g)) {
+    const importPath = importMatch[1].replace(/\\?.*$/, "");
+    const resolvedImport = importPath.startsWith(".")
+      ? new URL(importPath, \`file://\${item.file}\`).pathname
+      : require.resolve(importPath);
+    assert.match(
+      resolvedImport,
+      /node_modules\\/@alohasoyrico-eng\\/flow\\//,
+      \`Expected CSS import \${importMatch[1]} from \${item.specifier} to resolve inside Flow.\`,
+    );
+  }
+}
+
+const entrypoint = [
+  '@import "@alohasoyrico-eng/flow/tokens/styles.css";',
+  '@import "@alohasoyrico-eng/flow/components/styles.css";',
+  ".product-screen {",
+  "  color: var(--sys-color-text);",
+  "  background: var(--sys-color-surface);",
+  "}",
+].join("\\n");
+fs.writeFileSync("consumer-flow.css", \`\${entrypoint}\\n\`);
+const importedSpecifiers = [...entrypoint.matchAll(/@import\\s+"([^"]+)"/g)].map((match) => match[1]);
+assert.deepEqual(importedSpecifiers, cssExports.map((item) => item.specifier));
+
+const combinedCss = importedSpecifiers
+  .map((specifier) => fs.readFileSync(require.resolve(specifier), "utf8"))
+  .join("\\n");
+assert.ok(
+  combinedCss.indexOf("--sys-color-surface:") < combinedCss.indexOf("--comp-button-bg-primary:"),
+  "Expected product CSS entrypoints to load tokens before component aliases.",
+);
+for (const expectedCascadeHook of [
+  '.button[data-density="sm"]',
+  '.card[data-density="lg"]',
+  '.field[data-density="sm"]',
+  '.table[data-density="sm"]',
+]) {
+  assert.ok(combinedCss.includes(expectedCascadeHook), \`Expected consumer CSS entrypoint to preserve \${expectedCascadeHook}\`);
+}
+`;
+  fs.writeFileSync(path.join(consumerDir, "css-entrypoint.mjs"), source.trimStart());
 }
 
 function writeConsumerRefRuntime(consumerDir) {
@@ -746,9 +819,29 @@ void badButtonHtml;
 
 function auditInstalledPackage(consumerDir) {
   const packageRoot = path.join(consumerDir, "node_modules/@alohasoyrico-eng/flow");
+  const realPackageRoot = fs.realpathSync(packageRoot);
   const consumerRequire = createRequire(path.join(consumerDir, "package.json"));
   const installedPackage = JSON.parse(fs.readFileSync(path.join(packageRoot, "package.json"), "utf8"));
   const installedTokenContract = JSON.parse(fs.readFileSync(path.join(packageRoot, "packages/tokens/tokens.json"), "utf8"));
+  if (!Array.isArray(installedPackage.sideEffects) || !installedPackage.sideEffects.includes("**/*.css")) {
+    throw new Error("Installed package must preserve CSS sideEffects for consumer bundlers.");
+  }
+  for (const [exportPath, expectedTarget] of Object.entries({
+    "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
+    "./components/styles.css": "./packages/components/styles/components.css",
+  })) {
+    if (installedPackage.exports?.[exportPath] !== expectedTarget) {
+      throw new Error(`Installed package must publish ${exportPath} as ${expectedTarget}.`);
+    }
+    const packageSpecifier = `@alohasoyrico-eng/flow/${exportPath.slice(2)}`;
+    const resolved = consumerRequire.resolve(packageSpecifier);
+    if (!fs.realpathSync(resolved).startsWith(realPackageRoot)) {
+      throw new Error(`Installed CSS export ${packageSpecifier} must resolve inside the Flow package.`);
+    }
+    if (fs.readFileSync(resolved, "utf8").trim().length < 1000) {
+      throw new Error(`Installed CSS export ${packageSpecifier} is unexpectedly small.`);
+    }
+  }
   if (installedTokenContract.format !== "flow-token-contract@1" || !installedTokenContract.compatibleWith?.includes("style-dictionary")) {
     throw new Error("Installed package must include the platform-neutral token JSON contract.");
   }
