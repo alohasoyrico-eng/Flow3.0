@@ -6,7 +6,7 @@ import {
 } from "#flow/components";
 import { phoneInputPlatformContract } from "#flow/platforms";
 import { CountrySelector } from "./CountrySelector.js";
-import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["country-code", "compact", "otp-handoff", "readonly"]);
 const validStates = new Set(["default", "hover", "focus", "valid", "warning", "error", "disabled"]);
@@ -110,6 +110,7 @@ export const PhoneInput = forwardRef(function PhoneInput({
     "label",
     {
       className: ["field", "phone-input", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       ...flowVariantProps(resolvedVariant),

@@ -1,6 +1,6 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
 import { comboboxPlatformContract } from "@design-system/components/platforms";
-import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 function optionValue(option) {
   return option.value ?? "";
@@ -139,6 +139,7 @@ export const Combobox = forwardRef(function Combobox({
     "label",
     {
       className: ["field", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
     },

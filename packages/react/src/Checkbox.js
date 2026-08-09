@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { checkboxPlatformContract } from "@design-system/components/platforms";
-import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["default", "descriptive", "select-all", "compact"]);
 
@@ -69,6 +69,7 @@ export const Checkbox = forwardRef(function Checkbox({
     "label",
     {
       className: ["choice checkbox", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       "data-checked": String(currentChecked),
       "data-indeterminate": String(currentIndeterminate),
       ...flowVariantProps(resolvedVariant),

@@ -289,6 +289,7 @@ for (const { componentId, exportName } of reactSubpathAssertions) {
       ...fixtureForContract(componentId, contract),
       className: "flow-consumer-hook",
       density: "lg",
+      "data-installed-render": componentId,
       contentEditable: true,
       dangerouslySetInnerHTML: { __html: "<strong>Injected markup</strong>" },
       style: { color: "rgb(255, 0, 0)", marginTop: 77 },
@@ -299,6 +300,7 @@ for (const { componentId, exportName } of reactSubpathAssertions) {
     assert.equal(installedMarkup.match(/flow-consumer-hook/g)?.length ?? 0, 1, \`\${componentId} must expose className once on the root integration surface\`);
     const rootTag = installedMarkup.match(/^<[^>]+>/)?.[0] ?? "";
     assert.match(rootTag, /data-density="lg"/, \`\${componentId} must expose density on the root integration surface\`);
+    assert.match(rootTag, new RegExp(\`data-installed-render="\${componentId}"\`), \`\${componentId} must expose consumer data attributes on the root integration surface\`);
     assert.doesNotMatch(installedMarkup, /rgb\\(255,\\s*0,\\s*0\\)|margin-top:\\s*77px/i, \`\${componentId} leaked external style prop\`);
     assert.doesNotMatch(installedMarkup, /Injected markup|contenteditable=/i, \`\${componentId} leaked external DOM escape props\`);
     assert.doesNotMatch(installedMarkup, /apps\\/docs|docs-demo|gold-/i, \`\${componentId} leaked docs-only markup\`);

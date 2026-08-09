@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo, useRef, useState } from "react";
 import { sliderPlatformContract } from "@design-system/components/platforms";
-import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 const allowedVariants = new Set(["continuous", "stepped", "bounded", "threshold", "paired-value"]);
 const allowedStates = new Set(["default", "focus", "dragging", "disabled", "error", "complete"]);
@@ -86,6 +86,7 @@ export const Slider = forwardRef(function Slider({
     "label",
     {
       className: ["slider", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       ...flowVariantProps(normalizedVariant),
       ...flowStateProps(normalizedState),
       ...flowDensityProps(resolvedDensity),

@@ -1,6 +1,6 @@
 import React, { forwardRef, useId, useState } from "react";
 import { selectPlatformContract } from "#flow/platforms";
-import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 function selectedOptionFor(options, value) {
   if (!value) return null;
@@ -86,6 +86,7 @@ export const Select = forwardRef(function Select({
     "span",
     {
       className: ["field", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       role: "group",

@@ -1,7 +1,7 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
 import { cardExpiryInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 function normalizeCardExpiry(value) {
   return String(value ?? "").replace(/\D/g, "").slice(0, 4);
@@ -89,6 +89,7 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({
     "label",
     {
       className: ["field card-expiry-input", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-mono": "true",

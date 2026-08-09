@@ -1,6 +1,6 @@
 import React, { forwardRef, useId, useState } from "react";
 import { codeInputPlatformContract } from "#flow/platforms";
-import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["sms", "otp", "approval", "masked", "compact"]);
 const validStates = new Set(["default", "hover", "focus", "complete", "warning", "error", "disabled"]);
@@ -63,6 +63,7 @@ export const CodeInput = forwardRef(function CodeInput({
     "label",
     {
       className: ["field code-input", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       ...flowVariantProps(resolvedVariant),

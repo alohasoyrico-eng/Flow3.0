@@ -102,6 +102,7 @@ for (const [id, contract] of Object.entries(componentContracts)) {
       className: "flow-external-hook",
       density: "lg",
       "data-contract-render": id,
+      "data-product-hook": componentName,
       contentEditable: true,
       dangerouslySetInnerHTML: { __html: "<strong>Injected markup</strong>" },
       style: { color: "rgb(255, 0, 0)", marginTop: 77 },
@@ -112,6 +113,7 @@ for (const [id, contract] of Object.entries(componentContracts)) {
     assert.equal(markup.match(/flow-external-hook/g)?.length ?? 0, 1, `${componentName} must expose className once on the root integration surface`);
     const rootTag = markup.match(/^<[^>]+>/)?.[0] ?? "";
     assert.match(rootTag, /data-density="lg"/, `${componentName} must expose density on the root integration surface`);
+    assert.match(rootTag, new RegExp(`data-product-hook="${componentName}"`), `${componentName} must expose consumer data attributes on the root integration surface`);
     assert.doesNotMatch(markup, /rgb\(255,\s*0,\s*0\)|margin-top:\s*77px/i, `${componentName} leaked external style prop`);
     assert.doesNotMatch(markup, /Injected markup|contenteditable=/i, `${componentName} leaked external DOM escape props`);
     assert.doesNotMatch(markup, /apps\/docs|docs-demo|gold-/i, `${componentName} leaked docs-only markup`);

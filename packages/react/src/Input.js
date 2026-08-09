@@ -1,7 +1,7 @@
 import React, { forwardRef, useId, useState } from "react";
 import { inputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["text", "email", "password", "number", "currency", "unit", "search"]);
 const numericVariants = new Set(["number", "currency", "unit"]);
@@ -131,6 +131,7 @@ export const Input = forwardRef(function Input({
     "label",
     {
       className: ["field", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       ...flowVariantProps(resolvedVariant),

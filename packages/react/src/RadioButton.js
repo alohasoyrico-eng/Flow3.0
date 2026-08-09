@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import { radioButtonPlatformContract } from "@design-system/components/platforms";
-import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validVariants = new Set(["default", "descriptive", "compact", "critical"]);
 
@@ -53,6 +53,7 @@ export const RadioButton = forwardRef(function RadioButton({
     "label",
     {
       className: ["choice radio", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       "data-checked": String(currentChecked),
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(normalizedState),

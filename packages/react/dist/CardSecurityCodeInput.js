@@ -1,7 +1,7 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
 import { cardSecurityCodeInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 const validStates = new Set(["default", "filled", "valid", "loading", "error", "disabled"]);
 
@@ -86,6 +86,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
     "label",
     {
       className: ["field card-security-code-input", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-mono": "true",

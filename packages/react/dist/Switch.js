@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import { switchPlatformContract } from "#flow/platforms";
-import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 function normalizeState({ checked, disabled, state, error }) {
   if (disabled) return "disabled";
@@ -43,6 +43,7 @@ export const Switch = forwardRef(function Switch({
     "label",
     {
       className: ["switch", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
       ...flowStateProps(normalizedState),
       ...flowDensityProps(resolvedDensity),
       "data-checked": String(currentChecked),
