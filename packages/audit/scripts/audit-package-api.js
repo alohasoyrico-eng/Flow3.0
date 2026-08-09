@@ -139,6 +139,9 @@ function checkPackageApiBoundary() {
   if (rootPackage.private === true) {
     add("errors", packageJsonFile, 1, "Root package must be publishable; do not mark Flow as private.");
   }
+  if (!rootPackage.description || !rootPackage.description.includes("React components") || !rootPackage.description.includes("tokens")) {
+    add("errors", packageJsonFile, 1, "Root package must publish a product-readable description covering tokens and React components.");
+  }
   if (rootPackage.publishConfig?.registry !== "https://npm.pkg.github.com") {
     add("errors", packageJsonFile, 1, "Root package publishConfig.registry must target GitHub Packages.");
   }

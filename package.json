@@ -1,6 +1,7 @@
 {
   "name": "@alohasoyrico-eng/flow",
   "version": "0.3.0-platform-mvp",
+  "description": "Flow design system package with tokens, CSS contracts, React components, content, and machine-readable specs.",
   "type": "module",
   "sideEffects": [
     "**/*.css"
