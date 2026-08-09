@@ -10,9 +10,12 @@
     "debtMetrics": 20,
     "categories": 7,
     "categoryMinimums": 7,
+    "categoryPrinciples": 7,
     "categoryMinimumDebt": 0,
     "categoriesMissingMinimums": 0,
     "unexpectedCategoryMinimums": 0,
+    "categoriesMissingPrinciples": 0,
+    "unexpectedCategoryPrinciples": 0,
     "categoriesWithDebt": 0,
     "undercoveredStrategicCategories": 0,
     "uncategorizedReports": 0,
@@ -31,6 +34,8 @@
   "staleCategoryMappings": [],
   "categoriesMissingMinimums": [],
   "unexpectedCategoryMinimums": [],
+  "categoriesMissingPrinciples": [],
+  "unexpectedCategoryPrinciples": [],
   "unexpectedCategories": [],
   "missingStrategicCategories": [],
   "emptyStrategicCategories": [],
@@ -38,6 +43,7 @@
   "categories": [
     {
       "category": "anti-duplication",
+      "principle": "One visual or conceptual source per system concept.",
       "reports": 1,
       "minimumReports": 1,
       "coverageGap": 0,
@@ -46,6 +52,7 @@
     },
     {
       "category": "cascade",
+      "principle": "Component styling must cascade from exported system contracts.",
       "reports": 4,
       "minimumReports": 4,
       "coverageGap": 0,
@@ -54,6 +61,7 @@
     },
     {
       "category": "docs-system-boundary",
+      "principle": "FlowDocs must consume Flow instead of owning system behavior.",
       "reports": 2,
       "minimumReports": 2,
       "coverageGap": 0,
@@ -62,6 +70,7 @@
     },
     {
       "category": "foundations-primitives",
+      "principle": "Foundations and primitives must be exportable beyond CSS.",
       "reports": 1,
       "minimumReports": 1,
       "coverageGap": 0,
@@ -70,6 +79,7 @@
     },
     {
       "category": "quality",
+      "principle": "Component coverage must prove production readiness, not just presence.",
       "reports": 1,
       "minimumReports": 1,
       "coverageGap": 0,
@@ -78,6 +88,7 @@
     },
     {
       "category": "react-primary",
+      "principle": "React must be the primary implementation with real contracts.",
       "reports": 10,
       "minimumReports": 10,
       "coverageGap": 0,
@@ -86,6 +97,7 @@
     },
     {
       "category": "taxonomy",
+      "principle": "Components, primitives, patterns, and templates must stay separated.",
       "reports": 1,
       "minimumReports": 1,
       "coverageGap": 0,

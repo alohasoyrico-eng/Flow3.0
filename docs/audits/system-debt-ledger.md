@@ -13,9 +13,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 - Debt metrics: 20
 - Categories: 7
 - Category minimums: 7
+- Category principles: 7
 - Category minimum debt: 0
 - Categories missing minimums: 0
 - Unexpected category minimums: 0
+- Categories missing principles: 0
+- Unexpected category principles: 0
 - Categories with debt: 0
 - Undercovered strategic categories: 0
 - Uncategorized reports: 0
@@ -30,15 +33,15 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Categories
 
-| Category | Reports | Minimum reports | Coverage gap | Debt metrics | Total debt |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| anti-duplication | 1 | 1 | 0 | 1 | 0 |
-| cascade | 4 | 4 | 0 | 4 | 0 |
-| docs-system-boundary | 2 | 2 | 0 | 2 | 0 |
-| foundations-primitives | 1 | 1 | 0 | 1 | 0 |
-| quality | 1 | 1 | 0 | 1 | 0 |
-| react-primary | 10 | 10 | 0 | 10 | 0 |
-| taxonomy | 1 | 1 | 0 | 1 | 0 |
+| Category | Principle | Reports | Minimum reports | Coverage gap | Debt metrics | Total debt |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| anti-duplication | One visual or conceptual source per system concept. | 1 | 1 | 0 | 1 | 0 |
+| cascade | Component styling must cascade from exported system contracts. | 4 | 4 | 0 | 4 | 0 |
+| docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 2 | 2 | 0 | 2 | 0 |
+| foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 1 | 1 | 0 | 1 | 0 |
+| quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
+| react-primary | React must be the primary implementation with real contracts. | 10 | 10 | 0 | 10 | 0 |
+| taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 
 ## Uncategorized Reports
 
