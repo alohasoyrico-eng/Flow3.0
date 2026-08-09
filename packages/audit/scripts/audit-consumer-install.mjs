@@ -13,6 +13,7 @@ const {
   allowedClassRootsForReactComponent,
   ownerClassRootForReactComponent,
 } = auditRequire("./audit-anti-duplication.js");
+const { componentCssContractCoverage } = auditRequire("./audit-component-css-contracts.js");
 const { packageCssRootInventory } = auditRequire("./class-root-governance.js");
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "consumer-install-"));
 const cacheDir = path.join(os.tmpdir(), "ds-npm-cache");
@@ -297,6 +298,24 @@ function auditInstalledPackage(consumerDir) {
   if (missingInstalledCssCoverage.length) {
     throw new Error(`Installed component CSS is missing accepted React visual coverage: ${missingInstalledCssCoverage.map((item) => `${item.componentId}->${item.allowedRoots.join("|")}`).join(", ")}`);
   }
+  const installedComponentCss = fs.readFileSync(consumerRequire.resolve("@alohasoyrico-eng/flow/components/styles.css"), "utf8");
+  const missingInstalledCssContracts = componentCssContractCoverage().components
+    .filter((item) => item.coverage !== "missing")
+    .flatMap((item) => {
+      const selectorRoots = [item.requiredRoot, ...(item.allowedExtensionRoots ?? [])];
+      const aliasPrefixes = [item.contract, ...(item.allowedExtensionRoots ?? [])];
+      return [
+        ...selectorRoots
+          .filter((rootToken) => !cssSelectorRootObserved(installedComponentCss, rootToken))
+          .map((rootToken) => `${item.componentId ?? item.component}: selector .${rootToken}`),
+        ...aliasPrefixes
+          .filter((prefix) => !installedComponentCss.includes(`--comp-${prefix}-`))
+          .map((prefix) => `${item.componentId ?? item.component}: alias --comp-${prefix}-*`),
+      ];
+    });
+  if (missingInstalledCssContracts.length) {
+    throw new Error(`Installed component CSS is missing cascade contract selectors or aliases: ${missingInstalledCssContracts.slice(0, 30).join(", ")}`);
+  }
   for (const [key, value] of Object.entries(installedPackage.exports ?? {})) {
     if (!key.startsWith("./react")) continue;
     const packagePath = key === "./react" ? "@alohasoyrico-eng/flow/react" : `@alohasoyrico-eng/flow/${key.slice(2)}`;
@@ -356,6 +375,14 @@ function exportTargets(value) {
 
 function pascalCase(value) {
   return value.split("-").map((part) => `${part.slice(0, 1).toUpperCase()}${part.slice(1)}`).join("");
+}
+
+function cssSelectorRootObserved(css, rootToken) {
+  return new RegExp(`\\.${escapeRegExp(rootToken)}(?:\\b|__|\\[|[\\s:{.#>+~])`).test(css);
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function listFiles(dir) {
