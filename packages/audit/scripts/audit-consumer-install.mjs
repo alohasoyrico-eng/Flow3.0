@@ -1267,6 +1267,7 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(interactions, "React interaction coverage");
   assertInventory(interactions, {
     components: 56,
+    interactionDebt: 0,
     withCallbacks: 40,
     pass: 56,
     review: 0,

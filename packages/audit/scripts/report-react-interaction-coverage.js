@@ -17,6 +17,7 @@ const markdownOutput = path.join(outputDir, "react-interaction-coverage-audit.md
 const checkMode = process.argv.includes("--check");
 const expectedInventory = {
   components: 56,
+  interactionDebt: 0,
   withCallbacks: 40,
   pass: 56,
   review: 0,
@@ -131,6 +132,10 @@ function createReport() {
     manualAccessibilityCritical: manualAccessibilityCritical.length,
     manualAccessibilityCriticalPass: manualAccessibilityCritical.filter((component) => component.present && component.status === "pass" && component.hasInteractionTestPresence).length,
   };
+  inventory.interactionDebt = inventory.fail
+    + inventory.missingTestCallbacks
+    + inventory.missingEventParams
+    + (inventory.manualAccessibilityCritical - inventory.manualAccessibilityCriticalPass);
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -139,9 +144,9 @@ function createReport() {
       actual: inventory[key],
     }));
   return {
-    status: components.some((component) => component.status === "fail") || criticalMissing.length || baselineMismatches.length ? "fail" : "pass",
+    status: inventory.interactionDebt || baselineMismatches.length ? "fail" : "pass",
     audit: "react interaction coverage",
-    principle: "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots.",
+    principle: "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots. The actionable debt metric is interactionDebt.",
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
@@ -167,6 +172,7 @@ function toMarkdown(report) {
     "## Inventory",
     "",
     `- Components audited: ${report.inventory.components}`,
+    `- Interaction debt: ${report.inventory.interactionDebt}`,
     `- Components with callbacks: ${report.inventory.withCallbacks}`,
     `- Pass: ${report.inventory.pass}`,
     `- Review: ${report.inventory.review}`,
@@ -178,7 +184,7 @@ function toMarkdown(report) {
     "",
     "## Baseline Budget",
     "",
-    "Changing these numbers is a contract decision. Callback coverage and critical interaction coverage should only change with explicit product/API review.",
+    "Changing these numbers is a contract decision. interactionDebt must stay at 0; callback coverage and critical interaction coverage should only change with explicit product/API review.",
     "",
     "| Metric | Expected | Actual |",
     "| --- | ---: | ---: |",
@@ -281,6 +287,7 @@ function main() {
   console.log(JSON.stringify({
     status: report.status,
     components: report.inventory.components,
+    interactionDebt: report.inventory.interactionDebt,
     withCallbacks: report.inventory.withCallbacks,
     review: report.inventory.review,
     fail: report.inventory.fail,

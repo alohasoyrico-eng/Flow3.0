@@ -1,10 +1,11 @@
 {
   "status": "pass",
   "audit": "react interaction coverage",
-  "principle": "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots.",
+  "principle": "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots. The actionable debt metric is interactionDebt.",
   "baseline": {
     "inventory": {
       "components": 56,
+      "interactionDebt": 0,
       "withCallbacks": 40,
       "pass": 56,
       "review": 0,
@@ -25,7 +26,8 @@
     "missingTestCallbacks": 0,
     "missingEventParams": 0,
     "manualAccessibilityCritical": 10,
-    "manualAccessibilityCriticalPass": 10
+    "manualAccessibilityCriticalPass": 10,
+    "interactionDebt": 0
   },
   "manualAccessibilityCritical": [
     {

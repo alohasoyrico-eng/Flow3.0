@@ -2,11 +2,12 @@
 
 Status: **pass**
 
-React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots.
+React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots. The actionable debt metric is interactionDebt.
 
 ## Inventory
 
 - Components audited: 56
+- Interaction debt: 0
 - Components with callbacks: 40
 - Pass: 56
 - Review: 0
@@ -18,11 +19,12 @@ React components that declare callback props must use them in source and must ha
 
 ## Baseline Budget
 
-Changing these numbers is a contract decision. Callback coverage and critical interaction coverage should only change with explicit product/API review.
+Changing these numbers is a contract decision. interactionDebt must stay at 0; callback coverage and critical interaction coverage should only change with explicit product/API review.
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | components | 56 | 56 |
+| interactionDebt | 0 | 0 |
 | withCallbacks | 40 | 40 |
 | pass | 56 | 56 |
 | review | 0 | 0 |
