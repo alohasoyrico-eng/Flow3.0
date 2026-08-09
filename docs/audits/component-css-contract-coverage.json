@@ -1,5 +1,46 @@
 {
   "status": "pass",
+  "baseline": {
+    "inventory": {
+      "total": 56,
+      "direct": 52,
+      "family": 4,
+      "missing": 0,
+      "directRootGaps": 0,
+      "familyRootGaps": 0,
+      "familyUnexpectedRoots": 0
+    },
+    "actual": {
+      "total": 56,
+      "direct": 52,
+      "family": 4,
+      "missing": 0,
+      "directRootGaps": 0,
+      "familyRootGaps": 0,
+      "familyUnexpectedRoots": 0
+    },
+    "mismatches": [],
+    "familyContracts": [
+      {
+        "contract": "field",
+        "components": [
+          "input",
+          "card-number-input",
+          "card-expiry-input",
+          "card-security-code-input"
+        ],
+        "requiredRoots": [
+          "field"
+        ],
+        "allowedExtensionRoots": [
+          "card-expiry-input",
+          "card-number-input",
+          "card-security-code-input"
+        ]
+      }
+    ],
+    "familyContractMismatches": []
+  },
   "total": 56,
   "direct": 52,
   "family": 4,

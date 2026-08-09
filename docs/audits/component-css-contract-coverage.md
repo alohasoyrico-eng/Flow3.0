@@ -9,6 +9,40 @@ Status: pass
 - Direct root gaps: 0
 - Family root gaps: 0
 - Undeclared family extension roots: 0
+- Inventory baseline mismatches: 0
+- Family baseline mismatches: 0
+
+## Baseline Budget
+
+Changing these numbers is a contract decision. A new family contract or reduced direct coverage must be reviewed instead of silently widening cascade behavior.
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| total | 56 | 56 |
+| direct | 52 | 52 |
+| family | 4 | 4 |
+| missing | 0 | 0 |
+| directRootGaps | 0 | 0 |
+| familyRootGaps | 0 | 0 |
+| familyUnexpectedRoots | 0 | 0 |
+
+## Baseline Mismatches
+
+| Metric | Expected | Actual |
+| --- | ---: | ---: |
+| None | None | None |
+
+## Family Contract Baseline
+
+| Shared contract | Required React root | Allowed extension roots | Components covered |
+| --- | --- | --- | --- |
+| field | field | card-expiry-input, card-number-input, card-security-code-input | input, card-number-input, card-expiry-input, card-security-code-input |
+
+## Family Contract Baseline Mismatches
+
+| Contract | Field | Expected | Actual |
+| --- | --- | --- | --- |
+| None | None | None | None |
 
 ## Family Contract Policy
 

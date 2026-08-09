@@ -8,6 +8,74 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "component-css-contract-coverage.json");
 const markdownOutput = path.join(outputDir, "component-css-contract-coverage.md");
 
+const expectedInventory = {
+  total: 56,
+  direct: 52,
+  family: 4,
+  missing: 0,
+  directRootGaps: 0,
+  familyRootGaps: 0,
+  familyUnexpectedRoots: 0,
+};
+
+const expectedFamilyContracts = [
+  {
+    contract: "field",
+    components: ["input", "card-number-input", "card-expiry-input", "card-security-code-input"],
+    requiredRoots: ["field"],
+    allowedExtensionRoots: ["card-expiry-input", "card-number-input", "card-security-code-input"],
+  },
+];
+
+function compareStringArrays(actual = [], expected = []) {
+  const actualSorted = [...actual].sort();
+  const expectedSorted = [...expected].sort();
+  return actualSorted.length === expectedSorted.length
+    && actualSorted.every((value, index) => value === expectedSorted[index]);
+}
+
+function familyContractMismatches(groups = []) {
+  const mismatches = [];
+  if (groups.length !== expectedFamilyContracts.length) {
+    mismatches.push({
+      contract: "family-contract-count",
+      expected: expectedFamilyContracts.length,
+      actual: groups.length,
+    });
+  }
+  for (const expected of expectedFamilyContracts) {
+    const actual = groups.find((group) => group.contract === expected.contract);
+    if (!actual) {
+      mismatches.push({
+        contract: expected.contract,
+        expected: "present",
+        actual: "missing",
+      });
+      continue;
+    }
+    for (const key of ["components", "requiredRoots", "allowedExtensionRoots"]) {
+      if (!compareStringArrays(actual[key], expected[key])) {
+        mismatches.push({
+          contract: expected.contract,
+          key,
+          expected: expected[key],
+          actual: actual[key] ?? [],
+        });
+      }
+    }
+  }
+  for (const actual of groups) {
+    if (!expectedFamilyContracts.some((expected) => expected.contract === actual.contract)) {
+      mismatches.push({
+        contract: actual.contract,
+        expected: "not present",
+        actual: "present",
+      });
+    }
+  }
+  return mismatches;
+}
+
 function renderMarkdown(report) {
   const rows = report.components
     .map((item) => `| ${item.component} | ${item.coverage} | ${item.contract ?? "missing"} | ${item.requiredRoot ?? "n/a"} | ${item.requiredRootObserved == null ? "n/a" : String(item.requiredRootObserved)} | ${(item.allowedExtensionRoots ?? []).join(", ") || "n/a"} | ${(item.unexpectedRoots ?? []).join(", ") || "None"} |`)
@@ -24,6 +92,18 @@ function renderMarkdown(report) {
   const familyUnexpectedRootRows = report.familyUnexpectedRoots
     .map((item) => `| ${item.component} | ${item.contract} | ${item.requiredRoot} | ${item.allowedExtensionRoots.join(", ") || "None"} | ${item.observedRoots.join(", ") || "None"} | ${item.unexpectedRoots.join(", ") || "None"} |`)
     .join("\n");
+  const baselineRows = Object.entries(report.baseline.inventory)
+    .map(([key, expected]) => `| ${key} | ${expected} | ${report.baseline.actual[key]} |`)
+    .join("\n");
+  const baselineMismatchRows = report.baseline.mismatches
+    .map((item) => `| ${item.key} | ${item.expected} | ${item.actual} |`)
+    .join("\n");
+  const familyBaselineRows = report.baseline.familyContracts
+    .map((item) => `| ${item.contract} | ${item.requiredRoots.join(", ")} | ${item.allowedExtensionRoots.join(", ") || "None"} | ${item.components.join(", ")} |`)
+    .join("\n");
+  const familyMismatchRows = report.baseline.familyContractMismatches
+    .map((item) => `| ${item.contract} | ${item.key ?? "contract"} | ${Array.isArray(item.expected) ? item.expected.join(", ") : item.expected} | ${Array.isArray(item.actual) ? item.actual.join(", ") : item.actual} |`)
+    .join("\n");
   return [
     "# Component CSS Contract Coverage",
     "",
@@ -36,6 +116,34 @@ function renderMarkdown(report) {
     `- Direct root gaps: ${report.directRootGaps.length}`,
     `- Family root gaps: ${report.familyRootGaps.length}`,
     `- Undeclared family extension roots: ${report.familyUnexpectedRoots.length}`,
+    `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    `- Family baseline mismatches: ${report.baseline.familyContractMismatches.length}`,
+    "",
+    "## Baseline Budget",
+    "",
+    "Changing these numbers is a contract decision. A new family contract or reduced direct coverage must be reviewed instead of silently widening cascade behavior.",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    baselineRows,
+    "",
+    "## Baseline Mismatches",
+    "",
+    "| Metric | Expected | Actual |",
+    "| --- | ---: | ---: |",
+    baselineMismatchRows || "| None | None | None |",
+    "",
+    "## Family Contract Baseline",
+    "",
+    "| Shared contract | Required React root | Allowed extension roots | Components covered |",
+    "| --- | --- | --- | --- |",
+    familyBaselineRows || "| None | None | None | None |",
+    "",
+    "## Family Contract Baseline Mismatches",
+    "",
+    "| Contract | Field | Expected | Actual |",
+    "| --- | --- | --- | --- |",
+    familyMismatchRows || "| None | None | None | None |",
     "",
     "## Family Contract Policy",
     "",
@@ -72,8 +180,39 @@ function renderMarkdown(report) {
 
 function main() {
   const coverage = componentCssContractCoverage();
+  const actualInventory = {
+    total: coverage.total,
+    direct: coverage.direct,
+    family: coverage.family,
+    missing: coverage.missing.length,
+    directRootGaps: coverage.directRootGaps.length,
+    familyRootGaps: coverage.familyRootGaps.length,
+    familyUnexpectedRoots: coverage.familyUnexpectedRoots.length,
+  };
+  const baselineMismatches = Object.entries(expectedInventory)
+    .filter(([key, expected]) => actualInventory[key] !== expected)
+    .map(([key, expected]) => ({
+      key,
+      expected,
+      actual: actualInventory[key],
+    }));
+  const familyBaselineMismatches = familyContractMismatches(coverage.familyContractPolicy.groups);
   const report = {
-    status: coverage.missing.length || coverage.directRootGaps.length || coverage.familyRootGaps.length || coverage.familyUnexpectedRoots.length ? "fail" : "pass",
+    status: coverage.missing.length
+      || coverage.directRootGaps.length
+      || coverage.familyRootGaps.length
+      || coverage.familyUnexpectedRoots.length
+      || baselineMismatches.length
+      || familyBaselineMismatches.length
+      ? "fail"
+      : "pass",
+    baseline: {
+      inventory: expectedInventory,
+      actual: actualInventory,
+      mismatches: baselineMismatches,
+      familyContracts: expectedFamilyContracts,
+      familyContractMismatches: familyBaselineMismatches,
+    },
     ...coverage,
   };
   const nextJson = `${JSON.stringify(report, null, 2)}\n`;
