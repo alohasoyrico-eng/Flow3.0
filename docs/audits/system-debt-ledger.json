@@ -4,6 +4,8 @@
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
     "reports": 20,
+    "categoryMappings": 20,
+    "staleCategoryMappings": 0,
     "reportsWithDebtMetrics": 20,
     "debtMetrics": 20,
     "categories": 7,
@@ -21,6 +23,7 @@
   "missingDebtReports": [],
   "nonNumericDebtEntries": [],
   "uncategorizedReports": [],
+  "staleCategoryMappings": [],
   "unexpectedCategories": [],
   "missingStrategicCategories": [],
   "emptyStrategicCategories": [],

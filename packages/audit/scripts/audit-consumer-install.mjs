@@ -1358,6 +1358,8 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
     reports: 20,
+    categoryMappings: 20,
+    staleCategoryMappings: 0,
     reportsWithDebtMetrics: 20,
     debtMetrics: 20,
     categories: 7,

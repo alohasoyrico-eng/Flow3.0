@@ -7,6 +7,8 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 ## Inventory
 
 - Reports scanned: 20
+- Category mappings: 20
+- Stale category mappings: 0
 - Reports with debt metrics: 20
 - Debt metrics: 20
 - Categories: 7
@@ -34,6 +36,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | taxonomy | 1 | 1 | 0 |
 
 ## Uncategorized Reports
+
+| Report |
+| --- |
+| None |
+
+## Stale Category Mappings
 
 | Report |
 | --- |
