@@ -74,6 +74,30 @@ function packFlow() {
 function auditPackedTarball(pack) {
   const rootPackage = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
   const paths = new Set((pack.files ?? []).map((file) => file.path));
+  if (pack.name !== rootPackage.name) {
+    throw new Error(`Packed package name mismatch: expected ${rootPackage.name}, received ${pack.name}`);
+  }
+  if (pack.version !== rootPackage.version) {
+    throw new Error(`Packed package version mismatch: expected ${rootPackage.version}, received ${pack.version}`);
+  }
+  const publicFileAllowlist = rootPackage.files ?? [];
+  const publicPackageReadmeAllowlist = new Set(
+    publicFileAllowlist
+      .filter((entry) => entry.startsWith("packages/"))
+      .map((entry) => entry.split("/").slice(0, 2).join("/"))
+      .map((entry) => `${entry}/README.md`),
+  );
+  const undeclaredFiles = [...paths].filter(
+    (file) =>
+      file !== "package.json" &&
+      !publicPackageReadmeAllowlist.has(file) &&
+      !publicFileAllowlist.some((entry) => file === entry || file.startsWith(`${entry}/`)),
+  );
+  if (undeclaredFiles.length) {
+    throw new Error(
+      `Packed package includes files outside package.json files allowlist: ${undeclaredFiles.slice(0, 30).join(", ")}`,
+    );
+  }
   const requiredPaths = new Set([
     "package.json",
     "README.md",
@@ -100,6 +124,13 @@ function auditPackedTarball(pack) {
   const missing = [...requiredPaths].filter((file) => !paths.has(file));
   if (missing.length) {
     throw new Error(`Packed package is missing required public artifacts: ${missing.slice(0, 30).join(", ")}`);
+  }
+  const filesByPath = new Map((pack.files ?? []).map((file) => [file.path, file]));
+  const undersizedDocs = ["README.md", "RELEASE.md", "START.md", "CHANGELOG.md"].filter(
+    (file) => (filesByPath.get(file)?.size ?? 0) < 1000,
+  );
+  if (undersizedDocs.length) {
+    throw new Error(`Packed package includes public docs that look incomplete: ${undersizedDocs.join(", ")}`);
   }
 
   const forbiddenPrefixes = [
