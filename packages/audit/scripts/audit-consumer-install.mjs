@@ -1316,6 +1316,15 @@ function assertReactGovernanceBaselines() {
     visualCascadeDebt: 0,
   }, "Component visual cascade");
 
+  const familyCssMaturity = readAuditReport("docs/audits/family-css-contract-maturity.json");
+  assertReportStatus(familyCssMaturity, "Family CSS contract maturity");
+  assertInventory(familyCssMaturity, {
+    familyComponents: 4,
+    reviewCandidates: 0,
+    watchlist: 0,
+    familyCssMaturityDebt: 0,
+  }, "Family CSS contract maturity");
+
   const propAlignment = readAuditReport("docs/audits/react-contract-prop-alignment-audit.json");
   assertReportStatus(propAlignment, "React contract prop alignment");
   assertInventory(propAlignment, {

@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "audit": "family CSS contract maturity",
-  "principle": "Family CSS contracts are allowed when a component shares a visual cascade; large component-specific selector or alias surface should be visible as a graduation candidate before it becomes accidental duplication.",
+  "principle": "Family CSS contracts are allowed when a component shares a visual cascade; large component-specific selector or alias surface should be visible as a graduation candidate before it becomes accidental duplication. The actionable debt metric is familyCssMaturityDebt.",
   "thresholds": {
     "selectorCount": 20,
     "aliasCount": 40
@@ -10,7 +10,8 @@
   "inventory": {
     "familyComponents": 4,
     "reviewCandidates": 0,
-    "watchlist": 0
+    "watchlist": 0,
+    "familyCssMaturityDebt": 0
   },
   "reviewCandidates": [],
   "watchlist": [],

@@ -88,16 +88,18 @@ function createReport() {
     });
   const reviewCandidates = familyComponents.filter((item) => item.recommendation === "review-for-direct-contract");
   const watchlist = familyComponents.filter((item) => item.watchlistReasons.length);
+  const familyCssMaturityDebt = reviewCandidates.length + watchlist.length;
   return {
-    status: "pass",
+    status: familyCssMaturityDebt ? "review" : "pass",
     audit: "family CSS contract maturity",
-    principle: "Family CSS contracts are allowed when a component shares a visual cascade; large component-specific selector or alias surface should be visible as a graduation candidate before it becomes accidental duplication.",
+    principle: "Family CSS contracts are allowed when a component shares a visual cascade; large component-specific selector or alias surface should be visible as a graduation candidate before it becomes accidental duplication. The actionable debt metric is familyCssMaturityDebt.",
     thresholds,
     watchlistRatio,
     inventory: {
       familyComponents: familyComponents.length,
       reviewCandidates: reviewCandidates.length,
       watchlist: watchlist.length,
+      familyCssMaturityDebt,
     },
     reviewCandidates,
     watchlist,
@@ -121,6 +123,7 @@ function toMarkdown(report) {
     `- Family components: ${report.inventory.familyComponents}`,
     `- Review candidates: ${report.inventory.reviewCandidates}`,
     `- Watchlist: ${report.inventory.watchlist}`,
+    `- Family CSS maturity debt: ${report.inventory.familyCssMaturityDebt}`,
     `- Shared extension roots excluded from maturity counts: ${[...sharedExtensionRoots].join(", ")}`,
     `- Selector threshold: ${report.thresholds.selectorCount}`,
     `- Alias threshold: ${report.thresholds.aliasCount}`,
@@ -174,6 +177,7 @@ function main() {
     familyComponents: report.inventory.familyComponents,
     reviewCandidates: report.inventory.reviewCandidates,
     watchlist: report.inventory.watchlist,
+    familyCssMaturityDebt: report.inventory.familyCssMaturityDebt,
     candidates: report.reviewCandidates.map((item) => item.component),
     watchlistComponents: report.watchlist.map((item) => item.component),
     json: path.relative(root, jsonOutput),

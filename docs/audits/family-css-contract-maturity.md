@@ -2,13 +2,14 @@
 
 Status: **pass**
 
-Family CSS contracts are allowed when a component shares a visual cascade; large component-specific selector or alias surface should be visible as a graduation candidate before it becomes accidental duplication.
+Family CSS contracts are allowed when a component shares a visual cascade; large component-specific selector or alias surface should be visible as a graduation candidate before it becomes accidental duplication. The actionable debt metric is familyCssMaturityDebt.
 
 ## Inventory
 
 - Family components: 4
 - Review candidates: 0
 - Watchlist: 0
+- Family CSS maturity debt: 0
 - Shared extension roots excluded from maturity counts: country-flag, field
 - Selector threshold: 20
 - Alias threshold: 40
