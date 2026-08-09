@@ -1354,6 +1354,17 @@ function assertReactGovernanceBaselines() {
     familyCssMaturityDebt: 0,
   }, "Family CSS contract maturity");
 
+  const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
+  assertReportStatus(systemDebtLedger, "System debt ledger");
+  assertInventory(systemDebtLedger, {
+    reports: 20,
+    reportsWithDebtMetrics: 20,
+    debtMetrics: 20,
+    nonNumericDebtMetrics: 0,
+    totalDebt: 0,
+    systemDebt: 0,
+  }, "System debt ledger");
+
   const propAlignment = readAuditReport("docs/audits/react-contract-prop-alignment-audit.json");
   assertReportStatus(propAlignment, "React contract prop alignment");
   assertInventory(propAlignment, {

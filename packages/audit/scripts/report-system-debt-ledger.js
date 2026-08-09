@@ -25,7 +25,7 @@ function debtEntriesForReport(file, report) {
   ];
   const seen = new Set();
   return containers.flatMap(([scope, container]) => Object.entries(container)
-    .filter(([key]) => /debt/i.test(key))
+    .filter(([key]) => /(?:debt|debtMetrics)$/i.test(key))
     .map(([key, value]) => {
       const id = `${file}:${key}`;
       if (seen.has(id)) return null;

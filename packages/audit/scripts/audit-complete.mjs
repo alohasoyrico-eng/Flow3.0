@@ -381,20 +381,25 @@ function auditEntrypoints() {
 function auditDebtMetrics() {
   const auditsDir = path.join(root, "docs/audits");
   if (!fs.existsSync(auditsDir)) return;
-  const missing = fs.readdirSync(auditsDir)
-    .filter((file) => file.endsWith(".json"))
-    .sort()
-    .filter((file) => {
-      const report = JSON.parse(fs.readFileSync(path.join(auditsDir, file), "utf8"));
-      const keys = [
-        ...Object.keys(report),
-        ...Object.keys(report.inventory ?? {}),
-        ...Object.keys(report.summary ?? {}),
-      ];
-      return !keys.some((key) => /debt/i.test(key));
-    });
+  const missing = [];
+  const nonNumeric = [];
+  for (const file of fs.readdirSync(auditsDir).filter((item) => item.endsWith(".json")).sort()) {
+    const report = JSON.parse(fs.readFileSync(path.join(auditsDir, file), "utf8"));
+    const entries = [
+      ...Object.entries(report),
+      ...Object.entries(report.inventory ?? {}),
+      ...Object.entries(report.summary ?? {}),
+    ].filter(([key]) => /(?:debt|debtMetrics)$/i.test(key));
+    if (!entries.length) missing.push(file);
+    nonNumeric.push(...entries
+      .filter(([, value]) => typeof value !== "number")
+      .map(([key]) => `${file}:${key}`));
+  }
   if (missing.length) {
     throw new Error(`Audit reports must expose an actionable debt metric: ${missing.join(", ")}.`);
+  }
+  if (nonNumeric.length) {
+    throw new Error(`Audit debt metrics must be numeric: ${nonNumeric.join(", ")}.`);
   }
 }
 
