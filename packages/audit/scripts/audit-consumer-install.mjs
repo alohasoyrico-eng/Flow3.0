@@ -135,6 +135,14 @@ function writeConsumerScreen(consumerDir) {
     packagePath: `@alohasoyrico-eng/flow/react/${componentId}`,
     exportName: pascalCase(componentId),
   }));
+  const platformContractAssertions = goldComponents.map((componentId) => ({
+    componentId,
+    exportName: `${camelCase(componentId)}PlatformContract`,
+  }));
+  const forbiddenComponentFactories = goldComponents.flatMap((componentId) => {
+    const componentName = pascalCase(componentId);
+    return [`create${componentName}`, `hydrate${componentName}`];
+  });
   const source = `
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -178,6 +186,17 @@ for (const expectedContract of [
 }
 
 const reactBarrel = await import("@alohasoyrico-eng/flow/react");
+const componentsSurface = await import("@alohasoyrico-eng/flow/components");
+const platformSurface = await import("@alohasoyrico-eng/flow/components/platforms");
+assert.equal(typeof componentsSurface.createChartsPrimitive, "function");
+assert.equal(typeof componentsSurface.createMapsPrimitive, "function");
+assert.equal(typeof componentsSurface.componentDemoProps, "function");
+for (const exportName of ${JSON.stringify(forbiddenComponentFactories, null, 2)}) {
+  assert.equal(componentsSurface[exportName], undefined, \`Installed components surface must not expose product component factory \${exportName}\`);
+}
+for (const { componentId, exportName } of ${JSON.stringify(platformContractAssertions, null, 2)}) {
+  assert.ok(platformSurface[exportName], \`Expected installed platform surface to export \${exportName} for \${componentId}\`);
+}
 for (const { componentId, packagePath, exportName } of ${JSON.stringify(reactSubpathAssertions, null, 2)}) {
   const module = await import(packagePath);
   assert.ok(module[exportName], \`Expected \${packagePath} to export \${exportName}\`);
@@ -402,6 +421,11 @@ function exportTargets(value) {
 
 function pascalCase(value) {
   return value.split("-").map((part) => `${part.slice(0, 1).toUpperCase()}${part.slice(1)}`).join("");
+}
+
+function camelCase(value) {
+  const pascal = pascalCase(value);
+  return `${pascal.slice(0, 1).toLowerCase()}${pascal.slice(1)}`;
 }
 
 function cssSelectorRootObserved(css, rootToken) {
