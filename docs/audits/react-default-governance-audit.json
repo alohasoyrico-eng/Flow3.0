@@ -6,77 +6,107 @@
     "components": 56,
     "prohibitedDefaults": 0,
     "semanticDefaults": 112,
+    "contractBackedSemanticDefaults": 112,
+    "unbackedSemanticDefaults": 0,
     "semanticDefaultContractGaps": 0,
     "semanticByRule": [
       {
         "rule": "state-default",
         "description": "Component behavior default; allowed when normalized through component state.",
-        "count": 43
+        "count": 43,
+        "contractBacked": 43,
+        "unbacked": 0
       },
       {
         "rule": "variant-default",
         "description": "Component composition default; allowed when constrained by the component contract.",
-        "count": 40
+        "count": 40,
+        "contractBacked": 40,
+        "unbacked": 0
       },
       {
         "rule": "tone-default",
         "description": "Component tone fallback; allowed when constrained by the component contract.",
-        "count": 14
+        "count": 14,
+        "contractBacked": 14,
+        "unbacked": 0
       },
       {
         "rule": "intent-default",
         "description": "Action intent fallback; allowed when constrained by the component contract.",
-        "count": 2
+        "count": 2,
+        "contractBacked": 2,
+        "unbacked": 0
       },
       {
         "rule": "status-default",
         "description": "Component status fallback; allowed when constrained by the component contract.",
-        "count": 1
+        "count": 1,
+        "contractBacked": 1,
+        "unbacked": 0
       },
       {
         "rule": "placement-default",
         "description": "Overlay placement fallback; allowed when constrained by the component contract.",
-        "count": 2
+        "count": 2,
+        "contractBacked": 2,
+        "unbacked": 0
       },
       {
         "rule": "side-default",
         "description": "Surface side fallback; allowed when constrained by the component contract.",
-        "count": 1
+        "count": 1,
+        "contractBacked": 1,
+        "unbacked": 0
       },
       {
         "rule": "align-default",
         "description": "Alignment fallback; allowed when constrained by the component contract.",
-        "count": 2
+        "count": 2,
+        "contractBacked": 2,
+        "unbacked": 0
       },
       {
         "rule": "orientation-default",
         "description": "Layout orientation fallback; allowed when constrained by the component contract.",
-        "count": 1
+        "count": 1,
+        "contractBacked": 1,
+        "unbacked": 0
       },
       {
         "rule": "trend-default",
         "description": "Trend fallback; allowed when constrained by the component contract.",
-        "count": 2
+        "count": 2,
+        "contractBacked": 2,
+        "unbacked": 0
       },
       {
         "rule": "composition-default",
         "description": "Composition fallback; allowed when constrained by the component contract.",
-        "count": 1
+        "count": 1,
+        "contractBacked": 1,
+        "unbacked": 0
       },
       {
         "rule": "avatar-status-default",
         "description": "Avatar status fallback; allowed when constrained by the component contract.",
-        "count": 1
+        "count": 1,
+        "contractBacked": 1,
+        "unbacked": 0
       },
       {
         "rule": "category-default",
         "description": "Category fallback; allowed when constrained by the component contract.",
-        "count": 1
+        "count": 1,
+        "contractBacked": 1,
+        "unbacked": 0
       },
       {
         "rule": "sort-direction-default",
         "description": "Sort direction fallback; allowed when constrained by the component contract.",
-        "count": 1
+        "count": 1,
+        "contractBacked": 1,
+        "unbacked": 0
       }
     ]
   },
@@ -1201,6 +1231,3118 @@
       "value": "expanded",
       "description": "Component behavior default; allowed when normalized through component state.",
       "text": "state = \"expanded\","
+    }
+  ],
+  "semanticDefaultContractEvidence": [
+    {
+      "component": "AnimatedMoment",
+      "file": "packages/react/src/AnimatedMoment.js",
+      "line": 21,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "success",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"success\",",
+      "publicAllowedValues": [
+        "success",
+        "empty",
+        "loading",
+        "celebration"
+      ],
+      "contractAllowedValues": [
+        "success",
+        "empty",
+        "loading",
+        "celebration"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "AnimatedMoment",
+      "file": "packages/react/src/AnimatedMoment.js",
+      "line": 22,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "playing",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"playing\",",
+      "publicAllowedValues": [
+        "idle",
+        "playing",
+        "paused",
+        "complete",
+        "reduced-motion",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "idle",
+        "playing",
+        "paused",
+        "complete",
+        "reduced-motion",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "AuditEvent",
+      "file": "packages/react/src/AuditEvent.js",
+      "line": 25,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger",
+        "action"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger",
+        "action"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "AuditEvent",
+      "file": "packages/react/src/AuditEvent.js",
+      "line": 26,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "verified",
+        "warning",
+        "critical",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "verified",
+        "warning",
+        "critical",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Avatar",
+      "file": "packages/react/src/Avatar.js",
+      "line": 41,
+      "rule": "status-default",
+      "prop": "status",
+      "value": "none",
+      "description": "Component status fallback; allowed when constrained by the component contract.",
+      "text": "status = \"none\",",
+      "publicAllowedValues": [
+        "none",
+        "online",
+        "busy",
+        "offline"
+      ],
+      "contractAllowedValues": [
+        "none",
+        "online",
+        "busy",
+        "offline"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Avatar",
+      "file": "packages/react/src/Avatar.js",
+      "line": 42,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "online",
+        "busy",
+        "offline",
+        "disabled",
+        "unknown"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "online",
+        "busy",
+        "offline",
+        "disabled",
+        "unknown"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "line": 17,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "function normalizeState({ hidden = false, state = \"default\" } = {}) {",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "overflow",
+        "hidden",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "overflow",
+        "hidden",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "line": 24,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger",
+        "accent"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger",
+        "accent"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "line": 25,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "status",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"status\",",
+      "publicAllowedValues": [
+        "count",
+        "dot",
+        "status",
+        "icon"
+      ],
+      "contractAllowedValues": [
+        "count",
+        "dot",
+        "status",
+        "icon"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Badge",
+      "file": "packages/react/src/Badge.js",
+      "line": 26,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "overflow",
+        "hidden",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "overflow",
+        "hidden",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "BiometricPrompt",
+      "file": "packages/react/src/BiometricPrompt.js",
+      "line": 26,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "fingerprint",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"fingerprint\",",
+      "publicAllowedValues": [
+        "fingerprint",
+        "face",
+        "passcode",
+        "fallback"
+      ],
+      "contractAllowedValues": [
+        "fingerprint",
+        "face",
+        "passcode",
+        "fallback"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "BiometricPrompt",
+      "file": "packages/react/src/BiometricPrompt.js",
+      "line": 27,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "focus",
+        "authenticating",
+        "success",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "focus",
+        "authenticating",
+        "success",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Breadcrumbs",
+      "file": "packages/react/src/Breadcrumbs.js",
+      "line": 45,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "standard",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\",",
+      "publicAllowedValues": [
+        "standard",
+        "compact",
+        "overflow",
+        "mobile"
+      ],
+      "contractAllowedValues": [
+        "standard",
+        "compact",
+        "overflow",
+        "mobile"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Breadcrumbs",
+      "file": "packages/react/src/Breadcrumbs.js",
+      "line": 46,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "collapsed",
+        "current",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "collapsed",
+        "current",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 8,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "primary",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "function buttonClassName({ variant = \"primary\", intent = \"default\", className = \"\" } = {}) {",
+      "publicAllowedValues": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
+      ],
+      "contractAllowedValues": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 8,
+      "rule": "intent-default",
+      "prop": "intent",
+      "value": "default",
+      "description": "Action intent fallback; allowed when constrained by the component contract.",
+      "text": "function buttonClassName({ variant = \"primary\", intent = \"default\", className = \"\" } = {}) {",
+      "publicAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 20,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "primary",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"primary\",",
+      "publicAllowedValues": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
+      ],
+      "contractAllowedValues": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 21,
+      "rule": "intent-default",
+      "prop": "intent",
+      "value": "default",
+      "description": "Action intent fallback; allowed when constrained by the component contract.",
+      "text": "intent = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Button",
+      "file": "packages/react/src/Button.js",
+      "line": 23,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "disabled",
+        "loading"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "disabled",
+        "loading"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "line": 59,
+      "rule": "trend-default",
+      "prop": "trend",
+      "value": "neutral",
+      "description": "Trend fallback; allowed when constrained by the component contract.",
+      "text": "trend = \"neutral\",",
+      "publicAllowedValues": [
+        "up",
+        "down",
+        "neutral"
+      ],
+      "contractAllowedValues": [
+        "up",
+        "down",
+        "neutral"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "line": 63,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "minimal",
+        "elevated",
+        "ghost"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "minimal",
+        "elevated",
+        "ghost"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "line": 64,
+      "rule": "composition-default",
+      "prop": "composition",
+      "value": "standard",
+      "description": "Composition fallback; allowed when constrained by the component contract.",
+      "text": "composition = \"standard\",",
+      "publicAllowedValues": [
+        "standard",
+        "compact",
+        "media",
+        "stats"
+      ],
+      "contractAllowedValues": [
+        "standard",
+        "compact",
+        "media",
+        "stats"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Card",
+      "file": "packages/react/src/Card.js",
+      "line": 65,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "loading",
+        "error",
+        "disabled",
+        "muted",
+        "interactive"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "loading",
+        "error",
+        "disabled",
+        "muted",
+        "interactive"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "CardSummary",
+      "file": "packages/react/src/CardSummary.js",
+      "line": 23,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "physical",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"physical\",",
+      "publicAllowedValues": [
+        "physical",
+        "virtual",
+        "compact",
+        "limit"
+      ],
+      "contractAllowedValues": [
+        "physical",
+        "virtual",
+        "compact",
+        "limit"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "CardSummary",
+      "file": "packages/react/src/CardSummary.js",
+      "line": 24,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "warning",
+        "frozen",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "warning",
+        "frozen",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "line": 220,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "sparkline",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"sparkline\",",
+      "publicAllowedValues": [
+        "sparkline",
+        "bars",
+        "line",
+        "area",
+        "donut",
+        "pareto",
+        "bullet",
+        "comparison",
+        "compact"
+      ],
+      "contractAllowedValues": [
+        "sparkline",
+        "bars",
+        "line",
+        "area",
+        "donut",
+        "pareto",
+        "bullet",
+        "comparison",
+        "compact"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "line": 221,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "focus",
+        "hover",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "focus",
+        "hover",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ChartPanel",
+      "file": "packages/react/src/ChartPanel.js",
+      "line": 222,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "warning",
+        "danger"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "warning",
+        "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Checkbox",
+      "file": "packages/react/src/Checkbox.js",
+      "line": 20,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "descriptive",
+        "select-all",
+        "compact"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "descriptive",
+        "select-all",
+        "compact"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Checkbox",
+      "file": "packages/react/src/Checkbox.js",
+      "line": 21,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "unchecked",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"unchecked\",",
+      "publicAllowedValues": [
+        "unchecked",
+        "checked",
+        "indeterminate",
+        "focus",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "unchecked",
+        "checked",
+        "indeterminate",
+        "focus",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "line": 18,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "function normalizeState({ disabled = false, selected = false, state = \"default\" } = {}) {",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "pressed",
+        "selected",
+        "focus",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "pressed",
+        "selected",
+        "focus",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "line": 27,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "filter",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"filter\",",
+      "publicAllowedValues": [
+        "filter",
+        "input",
+        "suggestion",
+        "assist"
+      ],
+      "contractAllowedValues": [
+        "filter",
+        "input",
+        "suggestion",
+        "assist"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "line": 28,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "default",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Chip",
+      "file": "packages/react/src/Chip.js",
+      "line": 29,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "pressed",
+        "selected",
+        "focus",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "pressed",
+        "selected",
+        "focus",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "CodeInput",
+      "file": "packages/react/src/CodeInput.js",
+      "line": 31,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "sms",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"sms\",",
+      "publicAllowedValues": [
+        "sms",
+        "otp",
+        "approval",
+        "masked",
+        "compact"
+      ],
+      "contractAllowedValues": [
+        "sms",
+        "otp",
+        "approval",
+        "masked",
+        "compact"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "line": 34,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "danger"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "line": 35,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "confirmation",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"confirmation\",",
+      "publicAllowedValues": [
+        "confirmation",
+        "destructive",
+        "form",
+        "review",
+        "success"
+      ],
+      "contractAllowedValues": [
+        "confirmation",
+        "destructive",
+        "form",
+        "review",
+        "success"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Dialog",
+      "file": "packages/react/src/Dialog.js",
+      "line": 36,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "closed",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"closed\",",
+      "publicAllowedValues": [
+        "open",
+        "focus",
+        "closing",
+        "default",
+        "closed"
+      ],
+      "contractAllowedValues": [
+        "open",
+        "focus",
+        "closing",
+        "default",
+        "closed"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "line": 76,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "side-sheet",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"side-sheet\",",
+      "publicAllowedValues": [
+        "side-sheet",
+        "filter",
+        "detail",
+        "edit",
+        "review"
+      ],
+      "contractAllowedValues": [
+        "side-sheet",
+        "filter",
+        "detail",
+        "edit",
+        "review"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "line": 77,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "closed",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"closed\",",
+      "publicAllowedValues": [
+        "closed",
+        "default",
+        "open",
+        "focus",
+        "closing"
+      ],
+      "contractAllowedValues": [
+        "closed",
+        "default",
+        "open",
+        "focus",
+        "closing"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "line": 78,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "danger"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Drawer",
+      "file": "packages/react/src/Drawer.js",
+      "line": 80,
+      "rule": "side-default",
+      "prop": "side",
+      "value": "right",
+      "description": "Surface side fallback; allowed when constrained by the component contract.",
+      "text": "side = \"right\",",
+      "publicAllowedValues": [
+        "left",
+        "right"
+      ],
+      "contractAllowedValues": [
+        "left",
+        "right"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "EmptyState",
+      "file": "packages/react/src/EmptyState.js",
+      "line": 23,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "first-use",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"first-use\",",
+      "publicAllowedValues": [
+        "first-use",
+        "search-empty",
+        "permission",
+        "error",
+        "maintenance"
+      ],
+      "contractAllowedValues": [
+        "first-use",
+        "search-empty",
+        "permission",
+        "error",
+        "maintenance"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "EmptyState",
+      "file": "packages/react/src/EmptyState.js",
+      "line": 24,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "action",
+        "search-empty",
+        "permission",
+        "loading",
+        "error"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "action",
+        "search-empty",
+        "permission",
+        "loading",
+        "error"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "line": 30,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "error",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"error\",",
+      "publicAllowedValues": [
+        "warning",
+        "error",
+        "critical"
+      ],
+      "contractAllowedValues": [
+        "warning",
+        "error",
+        "critical"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "line": 31,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "panel",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"panel\",",
+      "publicAllowedValues": [
+        "inline",
+        "panel",
+        "blocking",
+        "empty-recovery"
+      ],
+      "contractAllowedValues": [
+        "inline",
+        "panel",
+        "blocking",
+        "empty-recovery"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ErrorPanel",
+      "file": "packages/react/src/ErrorPanel.js",
+      "line": 32,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "error",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"error\",",
+      "publicAllowedValues": [
+        "default",
+        "warning",
+        "error",
+        "critical",
+        "loading",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "warning",
+        "error",
+        "critical",
+        "loading",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.js",
+      "line": 13,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "primary",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"primary\",",
+      "publicAllowedValues": [
+        "primary",
+        "accent",
+        "extended",
+        "mini"
+      ],
+      "contractAllowedValues": [
+        "primary",
+        "accent",
+        "extended",
+        "mini"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.js",
+      "line": 14,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "loading",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "loading",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.js",
+      "line": 7,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "ghost",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "function iconButtonClassName({ variant = \"ghost\", className = \"\" } = {}) {",
+      "publicAllowedValues": [
+        "ghost",
+        "tonal",
+        "primary",
+        "accent"
+      ],
+      "contractAllowedValues": [
+        "ghost",
+        "tonal",
+        "primary",
+        "accent"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.js",
+      "line": 15,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "ghost",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"ghost\",",
+      "publicAllowedValues": [
+        "ghost",
+        "tonal",
+        "primary",
+        "accent"
+      ],
+      "contractAllowedValues": [
+        "ghost",
+        "tonal",
+        "primary",
+        "accent"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "InlineValidation",
+      "file": "packages/react/src/InlineValidation.js",
+      "line": 20,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "info",
+        "success",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "info",
+        "success",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Input",
+      "file": "packages/react/src/Input.js",
+      "line": 76,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "text",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"text\",",
+      "publicAllowedValues": [
+        "text",
+        "email",
+        "password",
+        "number",
+        "currency",
+        "unit",
+        "search"
+      ],
+      "contractAllowedValues": [
+        "text",
+        "email",
+        "password",
+        "number",
+        "currency",
+        "unit",
+        "search"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Input",
+      "file": "packages/react/src/Input.js",
+      "line": 84,
+      "rule": "align-default",
+      "prop": "align",
+      "value": "start",
+      "description": "Alignment fallback; allowed when constrained by the component contract.",
+      "text": "align = \"start\",",
+      "publicAllowedValues": [
+        "start",
+        "end"
+      ],
+      "contractAllowedValues": [
+        "start",
+        "end"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "line": 26,
+      "rule": "trend-default",
+      "prop": "trend",
+      "value": "flat",
+      "description": "Trend fallback; allowed when constrained by the component contract.",
+      "text": "trend = \"flat\",",
+      "publicAllowedValues": [
+        "up",
+        "down",
+        "flat"
+      ],
+      "contractAllowedValues": [
+        "up",
+        "down",
+        "flat"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "line": 27,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "line": 29,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "standard",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\",",
+      "publicAllowedValues": [
+        "standard",
+        "delta",
+        "threshold",
+        "sparkline",
+        "drill-in"
+      ],
+      "contractAllowedValues": [
+        "standard",
+        "delta",
+        "threshold",
+        "sparkline",
+        "drill-in"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "KpiTile",
+      "file": "packages/react/src/KpiTile.js",
+      "line": 30,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "loading",
+        "risk",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "loading",
+        "risk",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "List",
+      "file": "packages/react/src/List.js",
+      "line": 13,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "standard",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\",",
+      "publicAllowedValues": [
+        "standard",
+        "compact",
+        "action",
+        "status",
+        "media"
+      ],
+      "contractAllowedValues": [
+        "standard",
+        "compact",
+        "action",
+        "status",
+        "media"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "List",
+      "file": "packages/react/src/List.js",
+      "line": 14,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "selected",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "selected",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "line": 29,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "actions",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"actions\",",
+      "publicAllowedValues": [
+        "actions",
+        "grouped",
+        "selection",
+        "danger",
+        "icon-trigger",
+        "avatar-trigger"
+      ],
+      "contractAllowedValues": [
+        "actions",
+        "grouped",
+        "selection",
+        "danger",
+        "icon-trigger",
+        "avatar-trigger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "line": 31,
+      "rule": "avatar-status-default",
+      "prop": "avatarStatus",
+      "value": "none",
+      "description": "Avatar status fallback; allowed when constrained by the component contract.",
+      "text": "avatarStatus = \"none\",",
+      "publicAllowedValues": [
+        "none",
+        "online",
+        "busy",
+        "offline"
+      ],
+      "contractAllowedValues": [
+        "none",
+        "online",
+        "busy",
+        "offline"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "line": 33,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "closed",
+        "open",
+        "focus",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "closed",
+        "open",
+        "focus",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Menu",
+      "file": "packages/react/src/Menu.js",
+      "line": 34,
+      "rule": "align-default",
+      "prop": "align",
+      "value": "start",
+      "description": "Alignment fallback; allowed when constrained by the component contract.",
+      "text": "align = \"start\",",
+      "publicAllowedValues": [
+        "start",
+        "end"
+      ],
+      "contractAllowedValues": [
+        "start",
+        "end"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "MotionBoundary",
+      "file": "packages/react/src/MotionBoundary.js",
+      "line": 17,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "fade",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"fade\",",
+      "publicAllowedValues": [
+        "fade",
+        "slide",
+        "collapse",
+        "route"
+      ],
+      "contractAllowedValues": [
+        "fade",
+        "slide",
+        "collapse",
+        "route"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "MotionBoundary",
+      "file": "packages/react/src/MotionBoundary.js",
+      "line": 18,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "active",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"active\",",
+      "publicAllowedValues": [
+        "idle",
+        "entering",
+        "active",
+        "exiting",
+        "reduced-motion",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "idle",
+        "entering",
+        "active",
+        "exiting",
+        "reduced-motion",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "line": 22,
+      "rule": "category-default",
+      "prop": "category",
+      "value": "transfer",
+      "description": "Category fallback; allowed when constrained by the component contract.",
+      "text": "category = \"transfer\",",
+      "publicAllowedValues": [
+        "fuel",
+        "charge",
+        "toll",
+        "food",
+        "transfer",
+        "income"
+      ],
+      "contractAllowedValues": [
+        "fuel",
+        "charge",
+        "toll",
+        "food",
+        "transfer",
+        "income"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "line": 23,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "standard",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\",",
+      "publicAllowedValues": [
+        "standard",
+        "refund",
+        "declined",
+        "compact"
+      ],
+      "contractAllowedValues": [
+        "standard",
+        "refund",
+        "declined",
+        "compact"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "MovementRow",
+      "file": "packages/react/src/MovementRow.js",
+      "line": 24,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pending",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pending",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Pagination",
+      "file": "packages/react/src/Pagination.js",
+      "line": 53,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "numbered",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"numbered\",",
+      "publicAllowedValues": [
+        "numbered"
+      ],
+      "contractAllowedValues": [
+        "numbered"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Pagination",
+      "file": "packages/react/src/Pagination.js",
+      "line": 54,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "PhoneInput",
+      "file": "packages/react/src/PhoneInput.js",
+      "line": 56,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "country-code",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"country-code\",",
+      "publicAllowedValues": [
+        "country-code",
+        "compact",
+        "otp-handoff",
+        "readonly"
+      ],
+      "contractAllowedValues": [
+        "country-code",
+        "compact",
+        "otp-handoff",
+        "readonly"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "line": 21,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "information",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"information\",",
+      "publicAllowedValues": [
+        "information",
+        "action",
+        "form",
+        "metric"
+      ],
+      "contractAllowedValues": [
+        "information",
+        "action",
+        "form",
+        "metric"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "line": 22,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "closed",
+        "open",
+        "hover",
+        "focus",
+        "warning",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "closed",
+        "open",
+        "hover",
+        "focus",
+        "warning",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Popover",
+      "file": "packages/react/src/Popover.js",
+      "line": 23,
+      "rule": "placement-default",
+      "prop": "placement",
+      "value": "bottom",
+      "description": "Overlay placement fallback; allowed when constrained by the component contract.",
+      "text": "placement = \"bottom\",",
+      "publicAllowedValues": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "contractAllowedValues": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ProgressIndicator",
+      "file": "packages/react/src/ProgressIndicator.js",
+      "line": 18,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "active",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "function progressMeta({ value = 0, max = 100, state = \"active\", indeterminate = false } = {}) {",
+      "publicAllowedValues": [
+        "default",
+        "active",
+        "indeterminate",
+        "paused",
+        "complete",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "active",
+        "indeterminate",
+        "paused",
+        "complete",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ProgressIndicator",
+      "file": "packages/react/src/ProgressIndicator.js",
+      "line": 34,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "accent",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"accent\",",
+      "publicAllowedValues": [
+        "accent",
+        "success",
+        "warning",
+        "danger",
+        "ink"
+      ],
+      "contractAllowedValues": [
+        "accent",
+        "success",
+        "warning",
+        "danger",
+        "ink"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ProgressIndicator",
+      "file": "packages/react/src/ProgressIndicator.js",
+      "line": 35,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "active",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"active\",",
+      "publicAllowedValues": [
+        "default",
+        "active",
+        "indeterminate",
+        "paused",
+        "complete",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "active",
+        "indeterminate",
+        "paused",
+        "complete",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "QuickAction",
+      "file": "packages/react/src/QuickAction.js",
+      "line": 16,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "loading",
+        "warning",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "loading",
+        "warning",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "QuickAction",
+      "file": "packages/react/src/QuickAction.js",
+      "line": 19,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "danger"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "RadioButton",
+      "file": "packages/react/src/RadioButton.js",
+      "line": 19,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "descriptive",
+        "compact",
+        "critical"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "descriptive",
+        "compact",
+        "critical"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "RadioButton",
+      "file": "packages/react/src/RadioButton.js",
+      "line": 20,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "unselected",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"unselected\",",
+      "publicAllowedValues": [
+        "unselected",
+        "selected",
+        "focus",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "unselected",
+        "selected",
+        "focus",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "line": 57,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "standard",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\",",
+      "publicAllowedValues": [
+        "standard",
+        "compact",
+        "compare",
+        "policy"
+      ],
+      "contractAllowedValues": [
+        "standard",
+        "compact",
+        "compare",
+        "policy"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "line": 58,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "warning",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "warning",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "RouteSummary",
+      "file": "packages/react/src/RouteSummary.js",
+      "line": 60,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "warning"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "warning"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "SegmentedControl",
+      "file": "packages/react/src/SegmentedControl.js",
+      "line": 42,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "outlined",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"outlined\",",
+      "publicAllowedValues": [
+        "outlined",
+        "toolbar",
+        "compact",
+        "icon-only"
+      ],
+      "contractAllowedValues": [
+        "outlined",
+        "toolbar",
+        "compact",
+        "icon-only"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Select",
+      "file": "packages/react/src/Select.js",
+      "line": 26,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "inline"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "inline"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Select",
+      "file": "packages/react/src/Select.js",
+      "line": 27,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "open",
+        "focus",
+        "filled",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "open",
+        "focus",
+        "filled",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Skeleton",
+      "file": "packages/react/src/Skeleton.js",
+      "line": 79,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "text",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"text\",",
+      "publicAllowedValues": [
+        "text",
+        "title",
+        "circle",
+        "card",
+        "pill",
+        "row",
+        "media",
+        "chart",
+        "table"
+      ],
+      "contractAllowedValues": [
+        "text",
+        "title",
+        "circle",
+        "card",
+        "pill",
+        "row",
+        "media",
+        "chart",
+        "table"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Slider",
+      "file": "packages/react/src/Slider.js",
+      "line": 38,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "continuous",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"continuous\",",
+      "publicAllowedValues": [
+        "continuous",
+        "stepped",
+        "bounded",
+        "threshold",
+        "paired-value"
+      ],
+      "contractAllowedValues": [
+        "continuous",
+        "stepped",
+        "bounded",
+        "threshold",
+        "paired-value"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Slider",
+      "file": "packages/react/src/Slider.js",
+      "line": 39,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "focus",
+        "dragging",
+        "disabled",
+        "error",
+        "complete"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "focus",
+        "dragging",
+        "disabled",
+        "error",
+        "complete"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Spinner",
+      "file": "packages/react/src/Spinner.js",
+      "line": 20,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "accent",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"accent\",",
+      "publicAllowedValues": [
+        "accent",
+        "ink",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "contractAllowedValues": [
+        "accent",
+        "ink",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Spinner",
+      "file": "packages/react/src/Spinner.js",
+      "line": 21,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "loading",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"loading\",",
+      "publicAllowedValues": [
+        "default",
+        "loading",
+        "decorative",
+        "subtle",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "loading",
+        "decorative",
+        "subtle",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "StationPin",
+      "file": "packages/react/src/StationPin.js",
+      "line": 15,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "fuel",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"fuel\",",
+      "publicAllowedValues": [
+        "fuel",
+        "ev",
+        "service",
+        "cluster"
+      ],
+      "contractAllowedValues": [
+        "fuel",
+        "ev",
+        "service",
+        "cluster"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "StationPin",
+      "file": "packages/react/src/StationPin.js",
+      "line": 16,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "unavailable",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "unavailable",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Stepper",
+      "file": "packages/react/src/Stepper.js",
+      "line": 25,
+      "rule": "orientation-default",
+      "prop": "orientation",
+      "value": "horizontal",
+      "description": "Layout orientation fallback; allowed when constrained by the component contract.",
+      "text": "orientation = \"horizontal\",",
+      "publicAllowedValues": [
+        "horizontal",
+        "vertical"
+      ],
+      "contractAllowedValues": [
+        "horizontal",
+        "vertical"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Switch",
+      "file": "packages/react/src/Switch.js",
+      "line": 17,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "off",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"off\",",
+      "publicAllowedValues": [
+        "off",
+        "on",
+        "focus",
+        "pressed",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "off",
+        "on",
+        "focus",
+        "pressed",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "line": 36,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "standard",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"standard\",",
+      "publicAllowedValues": [
+        "standard",
+        "dense",
+        "sortable",
+        "selectable",
+        "expandable"
+      ],
+      "contractAllowedValues": [
+        "standard",
+        "dense",
+        "sortable",
+        "selectable",
+        "expandable"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "line": 37,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "sorted",
+        "expanded"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "sorted",
+        "expanded"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Table",
+      "file": "packages/react/src/Table.js",
+      "line": 41,
+      "rule": "sort-direction-default",
+      "prop": "sortDir",
+      "value": "ascending",
+      "description": "Sort direction fallback; allowed when constrained by the component contract.",
+      "text": "sortDir = \"ascending\",",
+      "publicAllowedValues": [
+        "ascending",
+        "descending"
+      ],
+      "contractAllowedValues": [
+        "ascending",
+        "descending"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Tabs",
+      "file": "packages/react/src/Tabs.js",
+      "line": 36,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "underline"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "underline"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "line": 18,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "function normalizeState({ disabled = false, state = \"default\" } = {}) {",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "pressed",
+        "focus",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "pressed",
+        "focus",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "line": 25,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "metadata",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"metadata\",",
+      "publicAllowedValues": [
+        "metadata",
+        "status",
+        "platform",
+        "link"
+      ],
+      "contractAllowedValues": [
+        "metadata",
+        "status",
+        "platform",
+        "link"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "line": 26,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Tag",
+      "file": "packages/react/src/Tag.js",
+      "line": 27,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "pressed",
+        "focus",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "pressed",
+        "focus",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "line": 22,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "line": 23,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "status",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"status\",",
+      "publicAllowedValues": [
+        "status",
+        "progress",
+        "warning",
+        "recovery",
+        "undo"
+      ],
+      "contractAllowedValues": [
+        "status",
+        "progress",
+        "warning",
+        "recovery",
+        "undo"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Toast",
+      "file": "packages/react/src/Toast.js",
+      "line": 24,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "visible",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"visible\",",
+      "publicAllowedValues": [
+        "default",
+        "visible",
+        "action",
+        "stacked",
+        "exiting"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "visible",
+        "action",
+        "stacked",
+        "exiting"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "line": 18,
+      "rule": "placement-default",
+      "prop": "placement",
+      "value": "top",
+      "description": "Overlay placement fallback; allowed when constrained by the component contract.",
+      "text": "placement = \"top\",",
+      "publicAllowedValues": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "contractAllowedValues": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "line": 19,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "default",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "icon-help",
+        "metric",
+        "disabled-help"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "icon-help",
+        "metric",
+        "disabled-help"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "Tooltip",
+      "file": "packages/react/src/Tooltip.js",
+      "line": 21,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "open",
+        "disabled",
+        "dismissed"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "open",
+        "disabled",
+        "dismissed"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "TreeView",
+      "file": "packages/react/src/TreeView.js",
+      "line": 41,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "expanded",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"expanded\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "expanded",
+        "selected",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "expanded",
+        "selected",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
     }
   ],
   "semanticDefaultContractGaps": []

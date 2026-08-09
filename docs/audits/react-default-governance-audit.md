@@ -9,26 +9,28 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 - React components scanned: 56
 - Prohibited platform defaults: 0
 - Visible semantic defaults: 112
+- Contract-backed semantic defaults: 112
+- Unbacked semantic defaults: 0
 - Semantic default contract gaps: 0
 
 ## Semantic Default Summary
 
-| Rule | Count | Meaning |
-| --- | ---: | --- |
-| state-default | 43 | Component behavior default; allowed when normalized through component state. |
-| variant-default | 40 | Component composition default; allowed when constrained by the component contract. |
-| tone-default | 14 | Component tone fallback; allowed when constrained by the component contract. |
-| intent-default | 2 | Action intent fallback; allowed when constrained by the component contract. |
-| status-default | 1 | Component status fallback; allowed when constrained by the component contract. |
-| placement-default | 2 | Overlay placement fallback; allowed when constrained by the component contract. |
-| side-default | 1 | Surface side fallback; allowed when constrained by the component contract. |
-| align-default | 2 | Alignment fallback; allowed when constrained by the component contract. |
-| orientation-default | 1 | Layout orientation fallback; allowed when constrained by the component contract. |
-| trend-default | 2 | Trend fallback; allowed when constrained by the component contract. |
-| composition-default | 1 | Composition fallback; allowed when constrained by the component contract. |
-| avatar-status-default | 1 | Avatar status fallback; allowed when constrained by the component contract. |
-| category-default | 1 | Category fallback; allowed when constrained by the component contract. |
-| sort-direction-default | 1 | Sort direction fallback; allowed when constrained by the component contract. |
+| Rule | Count | Contract-backed | Unbacked | Meaning |
+| --- | ---: | ---: | ---: | --- |
+| state-default | 43 | 43 | 0 | Component behavior default; allowed when normalized through component state. |
+| variant-default | 40 | 40 | 0 | Component composition default; allowed when constrained by the component contract. |
+| tone-default | 14 | 14 | 0 | Component tone fallback; allowed when constrained by the component contract. |
+| intent-default | 2 | 2 | 0 | Action intent fallback; allowed when constrained by the component contract. |
+| status-default | 1 | 1 | 0 | Component status fallback; allowed when constrained by the component contract. |
+| placement-default | 2 | 2 | 0 | Overlay placement fallback; allowed when constrained by the component contract. |
+| side-default | 1 | 1 | 0 | Surface side fallback; allowed when constrained by the component contract. |
+| align-default | 2 | 2 | 0 | Alignment fallback; allowed when constrained by the component contract. |
+| orientation-default | 1 | 1 | 0 | Layout orientation fallback; allowed when constrained by the component contract. |
+| trend-default | 2 | 2 | 0 | Trend fallback; allowed when constrained by the component contract. |
+| composition-default | 1 | 1 | 0 | Composition fallback; allowed when constrained by the component contract. |
+| avatar-status-default | 1 | 1 | 0 | Avatar status fallback; allowed when constrained by the component contract. |
+| category-default | 1 | 1 | 0 | Category fallback; allowed when constrained by the component contract. |
+| sort-direction-default | 1 | 1 | 0 | Sort direction fallback; allowed when constrained by the component contract. |
 
 ## Prohibited Defaults
 
@@ -41,6 +43,123 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 | Component | Prop | Default value | React type values | System contract values | Location |
 | --- | --- | --- | --- | --- | --- |
 | None | None | None | None | None | None |
+
+## Semantic Default Contract Evidence
+
+| Component | Rule | Prop | Default value | React type | System contract | Contract-backed | Location |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| AnimatedMoment | variant-default | variant | success | pass | pass | Yes | packages/react/src/AnimatedMoment.js:21 |
+| AnimatedMoment | state-default | state | playing | pass | pass | Yes | packages/react/src/AnimatedMoment.js:22 |
+| AuditEvent | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/AuditEvent.js:25 |
+| AuditEvent | state-default | state | default | pass | pass | Yes | packages/react/src/AuditEvent.js:26 |
+| Avatar | status-default | status | none | pass | pass | Yes | packages/react/src/Avatar.js:41 |
+| Avatar | state-default | state | default | pass | pass | Yes | packages/react/src/Avatar.js:42 |
+| Badge | state-default | state | default | pass | pass | Yes | packages/react/src/Badge.js:17 |
+| Badge | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Badge.js:24 |
+| Badge | variant-default | variant | status | pass | pass | Yes | packages/react/src/Badge.js:25 |
+| Badge | state-default | state | default | pass | pass | Yes | packages/react/src/Badge.js:26 |
+| BiometricPrompt | variant-default | variant | fingerprint | pass | pass | Yes | packages/react/src/BiometricPrompt.js:26 |
+| BiometricPrompt | state-default | state | default | pass | pass | Yes | packages/react/src/BiometricPrompt.js:27 |
+| Breadcrumbs | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Breadcrumbs.js:45 |
+| Breadcrumbs | state-default | state | default | pass | pass | Yes | packages/react/src/Breadcrumbs.js:46 |
+| Button | variant-default | variant | primary | pass | pass | Yes | packages/react/src/Button.js:8 |
+| Button | intent-default | intent | default | pass | pass | Yes | packages/react/src/Button.js:8 |
+| Button | variant-default | variant | primary | pass | pass | Yes | packages/react/src/Button.js:20 |
+| Button | intent-default | intent | default | pass | pass | Yes | packages/react/src/Button.js:21 |
+| Button | state-default | state | default | pass | pass | Yes | packages/react/src/Button.js:23 |
+| Card | trend-default | trend | neutral | pass | pass | Yes | packages/react/src/Card.js:59 |
+| Card | variant-default | variant | default | pass | pass | Yes | packages/react/src/Card.js:63 |
+| Card | composition-default | composition | standard | pass | pass | Yes | packages/react/src/Card.js:64 |
+| Card | state-default | state | default | pass | pass | Yes | packages/react/src/Card.js:65 |
+| CardSummary | variant-default | variant | physical | pass | pass | Yes | packages/react/src/CardSummary.js:23 |
+| CardSummary | state-default | state | default | pass | pass | Yes | packages/react/src/CardSummary.js:24 |
+| ChartPanel | variant-default | variant | sparkline | pass | pass | Yes | packages/react/src/ChartPanel.js:220 |
+| ChartPanel | state-default | state | default | pass | pass | Yes | packages/react/src/ChartPanel.js:221 |
+| ChartPanel | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChartPanel.js:222 |
+| Checkbox | variant-default | variant | default | pass | pass | Yes | packages/react/src/Checkbox.js:20 |
+| Checkbox | state-default | state | unchecked | pass | pass | Yes | packages/react/src/Checkbox.js:21 |
+| Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.js:18 |
+| Chip | variant-default | variant | filter | pass | pass | Yes | packages/react/src/Chip.js:27 |
+| Chip | tone-default | tone | default | pass | pass | Yes | packages/react/src/Chip.js:28 |
+| Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.js:29 |
+| CodeInput | variant-default | variant | sms | pass | pass | Yes | packages/react/src/CodeInput.js:31 |
+| Dialog | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Dialog.js:34 |
+| Dialog | variant-default | variant | confirmation | pass | pass | Yes | packages/react/src/Dialog.js:35 |
+| Dialog | state-default | state | closed | pass | pass | Yes | packages/react/src/Dialog.js:36 |
+| Drawer | variant-default | variant | side-sheet | pass | pass | Yes | packages/react/src/Drawer.js:76 |
+| Drawer | state-default | state | closed | pass | pass | Yes | packages/react/src/Drawer.js:77 |
+| Drawer | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Drawer.js:78 |
+| Drawer | side-default | side | right | pass | pass | Yes | packages/react/src/Drawer.js:80 |
+| EmptyState | variant-default | variant | first-use | pass | pass | Yes | packages/react/src/EmptyState.js:23 |
+| EmptyState | state-default | state | default | pass | pass | Yes | packages/react/src/EmptyState.js:24 |
+| ErrorPanel | tone-default | tone | error | pass | pass | Yes | packages/react/src/ErrorPanel.js:30 |
+| ErrorPanel | variant-default | variant | panel | pass | pass | Yes | packages/react/src/ErrorPanel.js:31 |
+| ErrorPanel | state-default | state | error | pass | pass | Yes | packages/react/src/ErrorPanel.js:32 |
+| FloatingActionButton | variant-default | variant | primary | pass | pass | Yes | packages/react/src/FloatingActionButton.js:13 |
+| FloatingActionButton | state-default | state | default | pass | pass | Yes | packages/react/src/FloatingActionButton.js:14 |
+| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.js:7 |
+| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.js:15 |
+| InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.js:20 |
+| Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.js:76 |
+| Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.js:84 |
+| KpiTile | trend-default | trend | flat | pass | pass | Yes | packages/react/src/KpiTile.js:26 |
+| KpiTile | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/KpiTile.js:27 |
+| KpiTile | variant-default | variant | standard | pass | pass | Yes | packages/react/src/KpiTile.js:29 |
+| KpiTile | state-default | state | default | pass | pass | Yes | packages/react/src/KpiTile.js:30 |
+| List | variant-default | variant | standard | pass | pass | Yes | packages/react/src/List.js:13 |
+| List | state-default | state | default | pass | pass | Yes | packages/react/src/List.js:14 |
+| Menu | variant-default | variant | actions | pass | pass | Yes | packages/react/src/Menu.js:29 |
+| Menu | avatar-status-default | avatarStatus | none | pass | pass | Yes | packages/react/src/Menu.js:31 |
+| Menu | state-default | state | default | pass | pass | Yes | packages/react/src/Menu.js:33 |
+| Menu | align-default | align | start | pass | pass | Yes | packages/react/src/Menu.js:34 |
+| MotionBoundary | variant-default | variant | fade | pass | pass | Yes | packages/react/src/MotionBoundary.js:17 |
+| MotionBoundary | state-default | state | active | pass | pass | Yes | packages/react/src/MotionBoundary.js:18 |
+| MovementRow | category-default | category | transfer | pass | pass | Yes | packages/react/src/MovementRow.js:22 |
+| MovementRow | variant-default | variant | standard | pass | pass | Yes | packages/react/src/MovementRow.js:23 |
+| MovementRow | state-default | state | default | pass | pass | Yes | packages/react/src/MovementRow.js:24 |
+| Pagination | variant-default | variant | numbered | pass | pass | Yes | packages/react/src/Pagination.js:53 |
+| Pagination | state-default | state | default | pass | pass | Yes | packages/react/src/Pagination.js:54 |
+| PhoneInput | variant-default | variant | country-code | pass | pass | Yes | packages/react/src/PhoneInput.js:56 |
+| Popover | variant-default | variant | information | pass | pass | Yes | packages/react/src/Popover.js:21 |
+| Popover | state-default | state | default | pass | pass | Yes | packages/react/src/Popover.js:22 |
+| Popover | placement-default | placement | bottom | pass | pass | Yes | packages/react/src/Popover.js:23 |
+| ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.js:18 |
+| ProgressIndicator | tone-default | tone | accent | pass | pass | Yes | packages/react/src/ProgressIndicator.js:34 |
+| ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.js:35 |
+| QuickAction | state-default | state | default | pass | pass | Yes | packages/react/src/QuickAction.js:16 |
+| QuickAction | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/QuickAction.js:19 |
+| RadioButton | variant-default | variant | default | pass | pass | Yes | packages/react/src/RadioButton.js:19 |
+| RadioButton | state-default | state | unselected | pass | pass | Yes | packages/react/src/RadioButton.js:20 |
+| RouteSummary | variant-default | variant | standard | pass | pass | Yes | packages/react/src/RouteSummary.js:57 |
+| RouteSummary | state-default | state | default | pass | pass | Yes | packages/react/src/RouteSummary.js:58 |
+| RouteSummary | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/RouteSummary.js:60 |
+| SegmentedControl | variant-default | variant | outlined | pass | pass | Yes | packages/react/src/SegmentedControl.js:42 |
+| Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.js:26 |
+| Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.js:27 |
+| Skeleton | variant-default | variant | text | pass | pass | Yes | packages/react/src/Skeleton.js:79 |
+| Slider | variant-default | variant | continuous | pass | pass | Yes | packages/react/src/Slider.js:38 |
+| Slider | state-default | state | default | pass | pass | Yes | packages/react/src/Slider.js:39 |
+| Spinner | tone-default | tone | accent | pass | pass | Yes | packages/react/src/Spinner.js:20 |
+| Spinner | state-default | state | loading | pass | pass | Yes | packages/react/src/Spinner.js:21 |
+| StationPin | variant-default | variant | fuel | pass | pass | Yes | packages/react/src/StationPin.js:15 |
+| StationPin | state-default | state | default | pass | pass | Yes | packages/react/src/StationPin.js:16 |
+| Stepper | orientation-default | orientation | horizontal | pass | pass | Yes | packages/react/src/Stepper.js:25 |
+| Switch | state-default | state | off | pass | pass | Yes | packages/react/src/Switch.js:17 |
+| Table | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Table.js:36 |
+| Table | state-default | state | default | pass | pass | Yes | packages/react/src/Table.js:37 |
+| Table | sort-direction-default | sortDir | ascending | pass | pass | Yes | packages/react/src/Table.js:41 |
+| Tabs | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tabs.js:36 |
+| Tag | state-default | state | default | pass | pass | Yes | packages/react/src/Tag.js:18 |
+| Tag | variant-default | variant | metadata | pass | pass | Yes | packages/react/src/Tag.js:25 |
+| Tag | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Tag.js:26 |
+| Tag | state-default | state | default | pass | pass | Yes | packages/react/src/Tag.js:27 |
+| Toast | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Toast.js:22 |
+| Toast | variant-default | variant | status | pass | pass | Yes | packages/react/src/Toast.js:23 |
+| Toast | state-default | state | visible | pass | pass | Yes | packages/react/src/Toast.js:24 |
+| Tooltip | placement-default | placement | top | pass | pass | Yes | packages/react/src/Tooltip.js:18 |
+| Tooltip | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tooltip.js:19 |
+| Tooltip | state-default | state | default | pass | pass | Yes | packages/react/src/Tooltip.js:21 |
+| TreeView | state-default | state | expanded | pass | pass | Yes | packages/react/src/TreeView.js:41 |
 
 ## Visible Semantic Defaults
 

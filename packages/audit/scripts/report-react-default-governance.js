@@ -198,23 +198,22 @@ function contractAllowedValues(contractsSource, component, propName) {
   return propValues.length ? propValues : contractNamedValues(contractsSource, component, propName);
 }
 
-function semanticContractGaps(semanticDefaults, contractsSource) {
-  return semanticDefaults
-    .map((match) => {
-      const publicAllowedValues = publicPropAllowedValues(match.component, match.prop);
-      const contractAllowedValuesForProp = contractAllowedValues(contractsSource, match.component, match.prop);
-      const publicContractStatus = publicAllowedValues.includes(match.value) ? "pass" : "fail";
-      const systemContractStatus = contractAllowedValuesForProp.includes(match.value) ? "pass" : "fail";
-      return {
-        ...match,
-        publicAllowedValues,
-        contractAllowedValues: contractAllowedValuesForProp,
-        publicContractStatus,
-        systemContractStatus,
-        status: publicContractStatus === "pass" && systemContractStatus === "pass" ? "pass" : "fail",
-      };
-    })
-    .filter((match) => match.status === "fail");
+function semanticContractEvidence(semanticDefaults, contractsSource) {
+  return semanticDefaults.map((match) => {
+    const publicAllowedValues = publicPropAllowedValues(match.component, match.prop);
+    const contractAllowedValuesForProp = contractAllowedValues(contractsSource, match.component, match.prop);
+    const publicContractStatus = publicAllowedValues.includes(match.value) ? "pass" : "fail";
+    const systemContractStatus = contractAllowedValuesForProp.includes(match.value) ? "pass" : "fail";
+    return {
+      ...match,
+      publicAllowedValues,
+      contractAllowedValues: contractAllowedValuesForProp,
+      publicContractStatus,
+      systemContractStatus,
+      contractBacked: publicContractStatus === "pass" && systemContractStatus === "pass",
+      status: publicContractStatus === "pass" && systemContractStatus === "pass" ? "pass" : "fail",
+    };
+  });
 }
 
 function createReport() {
@@ -222,11 +221,16 @@ function createReport() {
   const contractsSource = fs.existsSync(contractsFile) ? read(contractsFile) : "";
   const prohibitedDefaults = files.flatMap((file) => lineMatches(file, prohibitedRules));
   const semanticDefaults = files.flatMap((file) => lineMatches(file, semanticRules));
-  const semanticDefaultContractGaps = semanticContractGaps(semanticDefaults, contractsSource);
+  const semanticDefaultContractEvidence = semanticContractEvidence(semanticDefaults, contractsSource);
+  const semanticDefaultContractGaps = semanticDefaultContractEvidence.filter((match) => match.status === "fail");
+  const contractBackedSemanticDefaults = semanticDefaultContractEvidence.filter((match) => match.contractBacked).length;
+  const unbackedSemanticDefaults = semanticDefaultContractEvidence.length - contractBackedSemanticDefaults;
   const semanticByRule = semanticRules.map((rule) => ({
     rule: rule.id,
     description: rule.description,
     count: semanticDefaults.filter((match) => match.rule === rule.id).length,
+    contractBacked: semanticDefaultContractEvidence.filter((match) => match.rule === rule.id && match.contractBacked).length,
+    unbacked: semanticDefaultContractEvidence.filter((match) => match.rule === rule.id && !match.contractBacked).length,
   }));
   return {
     status: prohibitedDefaults.length || semanticDefaultContractGaps.length ? "fail" : "pass",
@@ -236,11 +240,14 @@ function createReport() {
       components: files.length,
       prohibitedDefaults: prohibitedDefaults.length,
       semanticDefaults: semanticDefaults.length,
+      contractBackedSemanticDefaults,
+      unbackedSemanticDefaults,
       semanticDefaultContractGaps: semanticDefaultContractGaps.length,
       semanticByRule,
     },
     prohibitedDefaults,
     semanticDefaults,
+    semanticDefaultContractEvidence,
     semanticDefaultContractGaps,
   };
 }
@@ -248,8 +255,9 @@ function createReport() {
 function toMarkdown(report) {
   const prohibitedRows = report.prohibitedDefaults.map((match) => `| ${match.component} | ${match.rule} | ${match.file}:${match.line} | \`${match.text.replaceAll("|", "\\|")}\` |`);
   const semanticRows = report.semanticDefaults.map((match) => `| ${match.component} | ${match.rule} | ${match.prop} | ${match.value} | ${match.file}:${match.line} | \`${match.text.replaceAll("|", "\\|")}\` |`);
+  const semanticEvidenceRows = report.semanticDefaultContractEvidence.map((match) => `| ${match.component} | ${match.rule} | ${match.prop} | ${match.value} | ${match.publicContractStatus} | ${match.systemContractStatus} | ${match.contractBacked ? "Yes" : "No"} | ${match.file}:${match.line} |`);
   const semanticGapRows = report.semanticDefaultContractGaps.map((match) => `| ${match.component} | ${match.prop} | ${match.value} | ${match.publicAllowedValues.join(", ") || "None"} | ${match.contractAllowedValues.join(", ") || "None"} | ${match.file}:${match.line} |`);
-  const semanticSummaryRows = report.inventory.semanticByRule.map((item) => `| ${item.rule} | ${item.count} | ${item.description} |`);
+  const semanticSummaryRows = report.inventory.semanticByRule.map((item) => `| ${item.rule} | ${item.count} | ${item.contractBacked} | ${item.unbacked} | ${item.description} |`);
   return [
     "# React Default Governance Audit",
     "",
@@ -262,12 +270,14 @@ function toMarkdown(report) {
     `- React components scanned: ${report.inventory.components}`,
     `- Prohibited platform defaults: ${report.inventory.prohibitedDefaults}`,
     `- Visible semantic defaults: ${report.inventory.semanticDefaults}`,
+    `- Contract-backed semantic defaults: ${report.inventory.contractBackedSemanticDefaults}`,
+    `- Unbacked semantic defaults: ${report.inventory.unbackedSemanticDefaults}`,
     `- Semantic default contract gaps: ${report.inventory.semanticDefaultContractGaps}`,
     "",
     "## Semantic Default Summary",
     "",
-    "| Rule | Count | Meaning |",
-    "| --- | ---: | --- |",
+    "| Rule | Count | Contract-backed | Unbacked | Meaning |",
+    "| --- | ---: | ---: | ---: | --- |",
     ...semanticSummaryRows,
     "",
     "## Prohibited Defaults",
@@ -281,6 +291,12 @@ function toMarkdown(report) {
     "| Component | Prop | Default value | React type values | System contract values | Location |",
     "| --- | --- | --- | --- | --- | --- |",
     ...(semanticGapRows.length ? semanticGapRows : ["| None | None | None | None | None | None |"]),
+    "",
+    "## Semantic Default Contract Evidence",
+    "",
+    "| Component | Rule | Prop | Default value | React type | System contract | Contract-backed | Location |",
+    "| --- | --- | --- | --- | --- | --- | --- | --- |",
+    ...semanticEvidenceRows,
     "",
     "## Visible Semantic Defaults",
     "",
@@ -318,6 +334,8 @@ function main() {
     components: report.inventory.components,
     prohibitedDefaults: report.inventory.prohibitedDefaults,
     semanticDefaults: report.inventory.semanticDefaults,
+    contractBackedSemanticDefaults: report.inventory.contractBackedSemanticDefaults,
+    unbackedSemanticDefaults: report.inventory.unbackedSemanticDefaults,
     semanticDefaultContractGaps: report.inventory.semanticDefaultContractGaps,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
