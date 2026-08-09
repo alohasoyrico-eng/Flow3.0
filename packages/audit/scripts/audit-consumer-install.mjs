@@ -848,7 +848,14 @@ function auditInstalledPackage(consumerDir) {
   if (Object.keys(installedTokenContract.tokens ?? {}).length < 1000) {
     throw new Error("Installed token JSON contract must include the full token inventory.");
   }
-  const installedCssRoots = packageCssRootInventory(packageRoot).roots;
+  const installedCssInventory = packageCssRootInventory(packageRoot);
+  const installedCssRoots = installedCssInventory.roots;
+  if (installedCssRoots.size !== 66) {
+    throw new Error(`Installed component CSS must preserve the governed root baseline: expected 66 roots, got ${installedCssRoots.size}.`);
+  }
+  if (installedCssInventory.selectors < 1100) {
+    throw new Error(`Installed component CSS selector inventory is unexpectedly small: expected at least 1100 selectors, got ${installedCssInventory.selectors}.`);
+  }
   const cssCoverage = componentCssContractCoverage();
   if (cssCoverage.direct !== 52 || cssCoverage.family !== 4 || cssCoverage.missing.length) {
     throw new Error(`Installed package must preserve the resolved CSS contract baseline: expected 52 direct, 4 family, 0 missing; got ${cssCoverage.direct} direct, ${cssCoverage.family} family, ${cssCoverage.missing.length} missing.`);
