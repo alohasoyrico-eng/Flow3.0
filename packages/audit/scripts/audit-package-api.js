@@ -89,6 +89,20 @@ function isPublishAllowedTarget(target) {
   return publishFileAllowlist.some((entry) => file === entry || file.startsWith(`${entry}/`));
 }
 
+function isInternalBoundaryTarget(target) {
+  const file = target.replace(/^\.\//, "");
+  return [
+    "packages/components/src/",
+    "packages/components/styles/",
+    "packages/content/content/",
+    "packages/react/src/",
+    "packages/specs/specs/",
+    "packages/tokens/src/",
+    "packages/tokens/styles/",
+    "packages/tokens/tokens.json",
+  ].some((entry) => file === entry.replace(/\/$/, "") || file.startsWith(entry));
+}
+
 function checkPackageApiBoundary() {
   const packageJsonFile = path.join(root, "package.json");
   const contentPackageJsonFile = path.join(root, "packages/content/package.json");
@@ -121,6 +135,18 @@ function checkPackageApiBoundary() {
   }
   for (const requiredImport of boundaryImports) {
     if (!rootImports[requiredImport]) add("errors", packageJsonFile, 1, `Root package imports missing public boundary alias: ${requiredImport}.`);
+  }
+  for (const [importPath, importTarget] of Object.entries(rootImports)) {
+    if (typeof importTarget !== "string" || !importTarget.startsWith("./")) {
+      add("errors", packageJsonFile, 1, `Root package import ${importPath} must use a relative workspace target.`);
+      continue;
+    }
+    if (!isInternalBoundaryTarget(importTarget)) {
+      add("errors", packageJsonFile, 1, `Root package import ${importPath} points outside governed Flow source boundaries: ${importTarget}.`);
+    }
+    if (!fs.existsSync(path.join(root, importTarget))) {
+      add("errors", packageJsonFile, 1, `Root package import ${importPath} points to a missing workspace artifact: ${importTarget}.`);
+    }
   }
   for (const requiredExport of contentExports) {
     if (!exportedContent[requiredExport]) add("errors", contentPackageJsonFile, 1, `@design-system/content export missing: ${requiredExport}.`);
