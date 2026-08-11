@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import { Accordion } from "../Accordion.js";
 import { Badge } from "../Badge.js";
 import { Breadcrumbs } from "../Breadcrumbs.js";
+import { Button } from "../Button.js";
 import { Drawer } from "../Drawer.js";
 import { IconButton } from "../IconButton.js";
 import { Surface } from "../Surface.js";
@@ -33,22 +34,25 @@ function resolveState({ disabled, loading, permissionFiltered, mobileDrawer, col
 function routeNodes(routes, { density, activeKey, disabled, onRouteSelect }) {
   return routes.map((route) => {
     const key = String(route.key ?? route.id ?? route.label);
-    const isActive = activeKey === key || route.active;
+    const isActive = activeKey != null ? activeKey === key : route.active;
     return React.createElement(
       "div",
       {
         key,
         "data-sidebar-route": key,
         "data-active": String(Boolean(isActive)),
+        className: "sidebar-route",
       },
-      React.createElement(IconButton, {
+      React.createElement(Button, {
         icon: route.icon ?? "circle",
         label: route.label,
-        ariaLabel: route.label,
         density,
         variant: isActive ? "primary" : "ghost",
-        selected: isActive,
+        fullWidth: true,
+        className: "sidebar-route__control",
         disabled: disabled || route.disabled,
+        "aria-current": isActive ? "page" : undefined,
+        "aria-pressed": isActive ? "true" : undefined,
         onClick: (event) => onRouteSelect?.(key, route, event),
       }),
       route.badge
@@ -98,7 +102,7 @@ export const Sidebar = forwardRef(function Sidebar({
     "div",
     {
       ref,
-      className,
+      className: ["pattern-sidebar", className].filter(Boolean).join(" "),
       role: "navigation",
       "aria-label": label,
       "aria-busy": resolvedState === "loading" ? "true" : undefined,
@@ -150,6 +154,7 @@ export const Sidebar = forwardRef(function Sidebar({
       Surface,
       {
         surfaceRole: "section",
+        className: "pattern-sidebar__groups",
         density,
         state: isDisabled ? "disabled" : collapsed ? "sunken" : "default",
         "data-flow-slot": "groups",
