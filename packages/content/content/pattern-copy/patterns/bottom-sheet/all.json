@@ -1,0 +1,99 @@
+{
+  "patterns": {
+    "bottom-sheet": {
+      "title": "Bottom Sheet",
+      "purpose": "Preserve mobile screen context while revealing contextual detail, actions, filters, or confirmation with focus, dismissal, safe-area, and motion rules.",
+      "useWhen": [
+        "A touch workflow needs temporary contextual content anchored to the bottom edge.",
+        "Users must keep origin context while reviewing details, filters, or short actions.",
+        "The sheet behavior must compose Dialog/Drawer ownership instead of inventing a custom overlay."
+      ],
+      "doNotUseWithoutReview": [
+        "The flow is long, multi-step, or requires a full page.",
+        "The surface needs desktop-first menu behavior.",
+        "Dismissal, focus containment, destructive action, or safe-area behavior is unclear."
+      ],
+      "foundations": [
+        ["Accessibility", "Focus containment, labelling, dismissal, inert background, and focus return must be explicit."],
+        ["Depth", "The sheet overlays origin context without becoming a floating Card."],
+        ["Energy", "Open, closed, dragging, loading, invalid, destructive, and disabled states cascade to child components."],
+        ["Frame", "Safe-area, max height, touch targets, scroll boundaries, and responsive width stay token-driven."],
+        ["Growth", "Content sizing, preview density, and item measurement inherit from composed components."],
+        ["Iconography", "Close and action symbols remain owned by Icon Button and child components."],
+        ["Momentum", "Reveal, dismiss, drag, and reduced-motion behavior use motion primitives."],
+        ["State", "Open, closed, loading, invalid, destructive, permission-blocked, and disabled states remain explicit."],
+        ["Symbol", "Icons can aid scan value but never replace labels."],
+        ["Tone", "Danger, blocked, invalid, and neutral tones stay contract-bound."],
+        ["Voice", "Title, description, action, cancel, validation, and recovery copy stay visible."]
+      ],
+      "slots": [
+        ["trigger", "Button | List row | Icon Button", "conditional", "Object-specific entry point owned by the parent workflow."],
+        ["sheetBoundary", "Dialog | Drawer", "required", "Focus, modality, labelling, dismissal, overlay, and focus return owner."],
+        ["header", "Text | Icon Button", "conditional", "Title, description, close action, or drag handle."],
+        ["sheetBody", "List | Form Section | Pattern", "required", "Sheet body owned by Flow components or patterns without taking over structural surface ownership."],
+        ["actions", "Button[]", "conditional", "Primary, secondary, cancel, or destructive actions."],
+        ["validation", "Inline Validation", "conditional", "Explains unavailable, invalid, or blocked sheet state."]
+      ],
+      "componentsUsed": [
+        "Button",
+        "Icon Button",
+        "List",
+        "Inline Validation"
+      ],
+      "patternDependencies": [
+        "Drawer Adapter"
+      ],
+      "variants": [
+        ["Context detail", "Default", "Short object details with optional actions."],
+        ["Filter sheet", "Conditional", "Filter controls remain owned by form/filter patterns."],
+        ["Action sheet bridge", "Conditional", "Use Action Sheet when the body is primarily contextual actions."],
+        ["Confirmation", "Review", "Escalate to Confirmation Dialog for high-risk destructive decisions."]
+      ],
+      "motion": [
+        ["Reveal", "Sheet enters from the bottom edge and respects reduced motion."],
+        ["Dismiss", "Cancel, close, backdrop, Escape/back, and drag-down policies are explicit."],
+        ["Scroll boundary", "Internal scroll remains stable and does not steal page scroll unexpectedly."]
+      ],
+      "accessibility": [
+        "Use Dialog or Drawer semantics for focus containment and focus return.",
+        "Expose an accessible title.",
+        "Keep close/cancel reachable.",
+        "Do not rely on drag gestures as the only dismissal path.",
+        "Respect safe-area and keyboard overlap on mobile."
+      ],
+      "implementationChecklist": [
+        "Compose Dialog or Drawer through Drawer Adapter when modality/placement is needed.",
+        "Use Surface semantics from the primitive cascade, not Card.",
+        "Keep action rows as Button/List/Menu/Action Sheet owners.",
+        "Forward open, close, cancel, confirm, drag, and validation events.",
+        "Reject raw overlays, custom focus traps, Card wrappers, and docs-only sheet DOM."
+      ],
+      "tests": [
+        "Composes Dialog/Drawer boundary plus Button, Icon Button, List, and Inline Validation.",
+        "Covers closed, open, dragging, loading, invalid, destructive, permission-blocked, and disabled states.",
+        "Focus enters, traps, returns, and closes predictably.",
+        "Safe-area and keyboard overlap do not hide actions.",
+        "No raw overlay, custom focus trap, Card wrapper, or local DOM-only sheet behavior is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Bottom Sheet for temporary mobile contextual content.",
+          "Use Action Sheet when the sheet is only a short action list.",
+          "Use full screen or route navigation when content is long or multi-step."
+        ],
+        "mustAsk": [
+          "Dismissal, destructive policy, safe-area, keyboard behavior, or focus return is unclear.",
+          "The sheet affects access, money, identity, compliance, privacy, or irreversible state.",
+          "The requested content may need a full screen."
+        ],
+        "rejectIf": [
+          "The overlay bypasses Dialog/Drawer semantics.",
+          "The sheet is wrapped in Card instead of Surface.",
+          "Dismissal depends only on drag gesture.",
+          "Focus containment or focus return is missing."
+        ],
+        "handoff": "Confirm trigger, sheet purpose, title, dismissal policy, focus return, safe-area behavior, content owner, action risk, and recovery states."
+      }
+    }
+  }
+}

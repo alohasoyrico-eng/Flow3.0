@@ -60,6 +60,8 @@
           "Badge"
         ],
         "patternDependencies": [
+          "Advanced Filters",
+          "Drawer Adapter",
           "Virtual Data Table",
           "Roles and Permissions",
           "Status Feedback View"
@@ -147,12 +149,28 @@
             "required": "conditional"
           },
           {
+            "name": "pricingFiltersBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Advanced Filters"
+            ],
+            "required": "conditional"
+          },
+          {
             "name": "pricingRulesBoundary",
             "owner": "pattern",
             "uses": [
               "Virtual Data Table"
             ],
             "required": true
+          },
+          {
+            "name": "pricingEditorBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Drawer Adapter"
+            ],
+            "required": "conditional"
           },
           {
             "name": "pricingFeedbackBoundary",

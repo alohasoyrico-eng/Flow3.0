@@ -183,7 +183,7 @@
       ]
     },
     "patterns": {
-      "count": 38,
+      "count": 41,
       "ids": [
         "account-operations",
         "action-sheet",
@@ -193,9 +193,11 @@
         "autocomplete",
         "avatar-group",
         "backoffice-approval",
+        "bottom-sheet",
         "calendar-view",
         "case-management",
         "chart-wrapper",
+        "checkbox-group",
         "column-configurator",
         "command-palette",
         "dense-operational-list",
@@ -213,6 +215,7 @@
         "preference-management",
         "pricing-operations",
         "pull-to-refresh",
+        "radio-group",
         "section-header",
         "select-option-layer",
         "sidebar",
@@ -233,10 +236,10 @@
         "packages/content/content/pattern-contracts/patterns/autocomplete.md",
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
         "packages/content/content/pattern-contracts/patterns/calendar-view.md",
         "packages/content/content/pattern-contracts/patterns/case-management.md",
-        "packages/content/content/pattern-contracts/patterns/chart-wrapper.md",
-        "packages/content/content/pattern-contracts/patterns/column-configurator.md"
+        "packages/content/content/pattern-contracts/patterns/chart-wrapper.md"
       ]
     },
     "templates": {

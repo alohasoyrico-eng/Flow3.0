@@ -8,25 +8,25 @@
     "docs/audits/pattern-foundation-primitive-1to1-audit.json"
   ],
   "inventory": {
-    "patterns": 59,
+    "patterns": 62,
     "patternArchitecturePolicyIssues": 0,
     "runtimePrimitivePatternDependencyPolicy": 5,
     "templateFacingSignalPolicy": 11,
     "migrationWavePolicy": 5,
     "nonNegotiableMigrationRules": 6,
-    "reactSources": 59,
-    "typeSources": 59,
-    "reactContractRows": 59,
-    "forwardRefPatterns": 59,
-    "refAttributePatterns": 59,
-    "densityPropPatterns": 59,
-    "patternsWithSlots": 59,
-    "patternsWithFoundations": 59,
-    "patternsWithPrimitives": 59,
-    "patternsWithComponents": 58,
-    "patternsWithStateModel": 59,
-    "callbackPropsDeclared": 254,
-    "callbackPropsTested": 254,
+    "reactSources": 62,
+    "typeSources": 62,
+    "reactContractRows": 62,
+    "forwardRefPatterns": 62,
+    "refAttributePatterns": 62,
+    "densityPropPatterns": 62,
+    "patternsWithSlots": 62,
+    "patternsWithFoundations": 62,
+    "patternsWithPrimitives": 62,
+    "patternsWithComponents": 61,
+    "patternsWithStateModel": 62,
+    "callbackPropsDeclared": 263,
+    "callbackPropsTested": 263,
     "missingCallbackTests": 0,
     "controlledPairIssues": 0,
     "statesMissingFromTypes": 0,
@@ -42,13 +42,13 @@
     "rawGlobalDomRefs": 0,
     "reactBehaviorDebt": 0,
     "baseFlowComposition": 8,
-    "statefulFlowComposition": 20,
+    "statefulFlowComposition": 23,
     "crossPatternComposition": 9,
     "primitiveRuntimeComposition": 5,
     "templateFacingOrchestrators": 17,
-    "surfaceRequired": 40,
+    "surfaceRequired": 43,
     "primitiveRuntimeRequired": 8,
-    "patternDependencyBoundaries": 81,
+    "patternDependencyBoundaries": 84,
     "templateReferences": 25,
     "patternsWithDependencySlotCoverageFindings": 0,
     "componentDependencySlotCoverageFindings": 0,
@@ -63,11 +63,11 @@
   "globalGates": {
     "architectureDebt": 0,
     "architectureBlockingDebt": 0,
-    "patternsWithDeclaredPrimitives": 59,
+    "patternsWithDeclaredPrimitives": 62,
     "patternsWithOnlyInferredPrimitives": 0,
     "templateDependencyGaps": 0,
-    "surfaceRequiredPatterns": 38,
-    "directSurfaceRuntimeRequired": 24,
+    "surfaceRequiredPatterns": 40,
+    "directSurfaceRuntimeRequired": 26,
     "missingDirectSurfaceRuntime": 0,
     "structuralSurfaceDebt": 0,
     "cardStructuralWrapperViolations": 0,
@@ -93,6 +93,8 @@
       "mode": "stateful Flow composition",
       "label": "Wave 2: stateful Flow compositions",
       "patterns": [
+        "checkbox-group",
+        "radio-group",
         "select-option-layer",
         "snackbar-provider",
         "autocomplete",
@@ -101,6 +103,7 @@
         "file-upload",
         "kpi-card",
         "action-sheet",
+        "bottom-sheet",
         "drag-sortable-list",
         "kanban-board",
         "calendar-view",
@@ -150,13 +153,13 @@
         "fleet-manager-onboarding-desktop",
         "backoffice-approval",
         "preference-management",
-        "pricing-operations",
         "roles-and-permissions",
         "driver-and-vehicle-administration",
         "authentication-login-biometrics-and-otp",
         "ticket-queue",
         "status-feedback-view",
         "case-management",
+        "pricing-operations",
         "dense-operational-list",
         "driver-onboarding-mobile",
         "sidebar",
@@ -227,6 +230,8 @@
       "mode": "stateful Flow composition",
       "label": "Wave 2: stateful Flow compositions",
       "patterns": [
+        "checkbox-group",
+        "radio-group",
         "select-option-layer",
         "snackbar-provider",
         "autocomplete",
@@ -235,6 +240,7 @@
         "file-upload",
         "kpi-card",
         "action-sheet",
+        "bottom-sheet",
         "drag-sortable-list",
         "kanban-board",
         "calendar-view",
@@ -249,19 +255,22 @@
         "advanced-filters"
       ],
       "counts": {
-        "patterns": 20,
-        "surfacePatterns": 15,
+        "patterns": 23,
+        "surfacePatterns": 18,
         "runtimePrimitives": 0,
-        "patternBoundaries": 8,
+        "patternBoundaries": 9,
         "templateRefs": 0,
-        "componentRefs": 34
+        "componentRefs": 35
       },
       "surfacePatterns": [
+        "checkbox-group",
+        "radio-group",
         "snackbar-provider",
         "confirmation-dialog",
         "file-upload",
         "kpi-card",
         "action-sheet",
+        "bottom-sheet",
         "kanban-board",
         "calendar-view",
         "column-configurator",
@@ -277,6 +286,7 @@
       "patternBoundaries": [
         "Action Sheet",
         "Drag Sortable List",
+        "Drawer Adapter",
         "Form Section",
         "Search",
         "Settings",
@@ -311,6 +321,7 @@
         "Motion Boundary",
         "Popover",
         "Progress Indicator",
+        "Radio Button",
         "Select",
         "Skeleton",
         "Stepper",
@@ -473,13 +484,13 @@
         "fleet-manager-onboarding-desktop",
         "backoffice-approval",
         "preference-management",
-        "pricing-operations",
         "roles-and-permissions",
         "driver-and-vehicle-administration",
         "authentication-login-biometrics-and-otp",
         "ticket-queue",
         "status-feedback-view",
         "case-management",
+        "pricing-operations",
         "dense-operational-list",
         "driver-onboarding-mobile",
         "sidebar",
@@ -500,12 +511,12 @@
         "fleet-manager-onboarding-desktop",
         "backoffice-approval",
         "preference-management",
-        "pricing-operations",
         "driver-and-vehicle-administration",
         "authentication-login-biometrics-and-otp",
         "ticket-queue",
         "status-feedback-view",
         "case-management",
+        "pricing-operations",
         "dense-operational-list",
         "driver-onboarding-mobile",
         "sidebar",
@@ -1016,6 +1027,297 @@
     },
     {
       "order": 4,
+      "id": "checkbox-group",
+      "wave": "stateful Flow composition",
+      "score": 12,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Field Action",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "components": [
+        "Button",
+        "Checkbox",
+        "Inline Validation"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "groupSurface",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ],
+          "required": true
+        },
+        {
+          "name": "question",
+          "owner": "primitive",
+          "uses": [
+            "Typography"
+          ],
+          "required": true
+        },
+        {
+          "name": "options",
+          "owner": "component",
+          "uses": [
+            "Checkbox"
+          ],
+          "required": true
+        },
+        {
+          "name": "selectAll",
+          "owner": "component",
+          "uses": [
+            "Checkbox",
+            "Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "validation",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "none-selected",
+        "partial",
+        "all-selected",
+        "invalid",
+        "dirty",
+        "loading",
+        "disabled"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/CheckboxGroup.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/CheckboxGroup.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Button, Checkbox, Inline Validation"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json",
+        "react": "packages/react/src/patterns/CheckboxGroup.js",
+        "types": "packages/react/src/patterns/CheckboxGroup.d.ts"
+      }
+    },
+    {
+      "order": 5,
+      "id": "radio-group",
+      "wave": "stateful Flow composition",
+      "score": 12,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Field Action",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "components": [
+        "Button",
+        "Inline Validation",
+        "Radio Button"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "groupSurface",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ],
+          "required": true
+        },
+        {
+          "name": "question",
+          "owner": "primitive",
+          "uses": [
+            "Typography"
+          ],
+          "required": true
+        },
+        {
+          "name": "options",
+          "owner": "component",
+          "uses": [
+            "Radio Button"
+          ],
+          "required": true
+        },
+        {
+          "name": "validation",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "unselected",
+        "selected",
+        "invalid",
+        "dirty",
+        "loading",
+        "permission-blocked",
+        "disabled"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/radio-group.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/RadioGroup.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/RadioGroup.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Button, Inline Validation, Radio Button"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/radio-group.json",
+        "react": "packages/react/src/patterns/RadioGroup.js",
+        "types": "packages/react/src/patterns/RadioGroup.d.ts"
+      }
+    },
+    {
+      "order": 6,
       "id": "select-option-layer",
       "wave": "stateful Flow composition",
       "score": 12,
@@ -1150,7 +1452,7 @@
       }
     },
     {
-      "order": 5,
+      "order": 7,
       "id": "snackbar-provider",
       "wave": "stateful Flow composition",
       "score": 12,
@@ -1280,7 +1582,7 @@
       }
     },
     {
-      "order": 6,
+      "order": 8,
       "id": "swipe-actions",
       "wave": "base Flow composition",
       "score": 12,
@@ -1400,7 +1702,7 @@
       }
     },
     {
-      "order": 7,
+      "order": 9,
       "id": "timeline",
       "wave": "base Flow composition",
       "score": 12,
@@ -1522,7 +1824,7 @@
       }
     },
     {
-      "order": 8,
+      "order": 10,
       "id": "autocomplete",
       "wave": "stateful Flow composition",
       "score": 13,
@@ -1644,7 +1946,7 @@
       }
     },
     {
-      "order": 9,
+      "order": 11,
       "id": "confirmation-dialog",
       "wave": "stateful Flow composition",
       "score": 13,
@@ -1769,7 +2071,7 @@
       }
     },
     {
-      "order": 10,
+      "order": 12,
       "id": "avatar-group",
       "wave": "base Flow composition",
       "score": 14,
@@ -1901,7 +2203,7 @@
       }
     },
     {
-      "order": 11,
+      "order": 13,
       "id": "search",
       "wave": "stateful Flow composition",
       "score": 14,
@@ -2039,7 +2341,7 @@
       }
     },
     {
-      "order": 12,
+      "order": 14,
       "id": "file-upload",
       "wave": "stateful Flow composition",
       "score": 16,
@@ -2176,7 +2478,7 @@
       }
     },
     {
-      "order": 13,
+      "order": 15,
       "id": "quick-actions-grid",
       "wave": "base Flow composition",
       "score": 16,
@@ -2311,7 +2613,7 @@
       }
     },
     {
-      "order": 14,
+      "order": 16,
       "id": "kpi-card",
       "wave": "stateful Flow composition",
       "score": 17,
@@ -2449,7 +2751,7 @@
       }
     },
     {
-      "order": 15,
+      "order": 17,
       "id": "action-sheet",
       "wave": "stateful Flow composition",
       "score": 18,
@@ -2590,7 +2892,167 @@
       }
     },
     {
-      "order": 16,
+      "order": 18,
+      "id": "bottom-sheet",
+      "wave": "stateful Flow composition",
+      "score": 18,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "components": [
+        "Button",
+        "Icon Button",
+        "Inline Validation",
+        "List"
+      ],
+      "patternDependencies": [
+        "Drawer Adapter"
+      ],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "trigger",
+          "owner": "component",
+          "uses": [
+            "Button",
+            "List",
+            "Icon Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "sheetBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Drawer Adapter"
+          ],
+          "required": true
+        },
+        {
+          "name": "header",
+          "owner": "component",
+          "uses": [
+            "Icon Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "sheetBody",
+          "owner": "component",
+          "uses": [
+            "List"
+          ],
+          "required": true
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "validation",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "closed",
+        "open",
+        "dragging",
+        "loading",
+        "invalid",
+        "destructive",
+        "permission-blocked",
+        "disabled"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/BottomSheet.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/BottomSheet.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Button, Icon Button, Inline Validation, List"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "pattern-boundaries",
+          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
+          "evidence": "Drawer Adapter"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json",
+        "react": "packages/react/src/patterns/BottomSheet.js",
+        "types": "packages/react/src/patterns/BottomSheet.d.ts"
+      }
+    },
+    {
+      "order": 19,
       "id": "drag-sortable-list",
       "wave": "stateful Flow composition",
       "score": 18,
@@ -2727,7 +3189,7 @@
       }
     },
     {
-      "order": 17,
+      "order": 20,
       "id": "kanban-board",
       "wave": "stateful Flow composition",
       "score": 18,
@@ -2875,7 +3337,7 @@
       }
     },
     {
-      "order": 18,
+      "order": 21,
       "id": "multi-select",
       "wave": "base Flow composition",
       "score": 18,
@@ -3006,7 +3468,7 @@
       }
     },
     {
-      "order": 19,
+      "order": 22,
       "id": "calendar-view",
       "wave": "stateful Flow composition",
       "score": 19,
@@ -3141,7 +3603,7 @@
       }
     },
     {
-      "order": 20,
+      "order": 23,
       "id": "column-configurator",
       "wave": "stateful Flow composition",
       "score": 19,
@@ -3276,7 +3738,7 @@
       }
     },
     {
-      "order": 21,
+      "order": 24,
       "id": "bulk-actions",
       "wave": "stateful Flow composition",
       "score": 20,
@@ -3418,7 +3880,7 @@
       }
     },
     {
-      "order": 22,
+      "order": 25,
       "id": "settings",
       "wave": "stateful Flow composition",
       "score": 20,
@@ -3564,7 +4026,7 @@
       }
     },
     {
-      "order": 23,
+      "order": 26,
       "id": "form-section",
       "wave": "stateful Flow composition",
       "score": 21,
@@ -3699,7 +4161,7 @@
       }
     },
     {
-      "order": 24,
+      "order": 27,
       "id": "gantt-chart",
       "wave": "primitive-runtime composition",
       "score": 21,
@@ -3860,7 +4322,7 @@
       }
     },
     {
-      "order": 25,
+      "order": 28,
       "id": "notification-panel",
       "wave": "stateful Flow composition",
       "score": 21,
@@ -3998,7 +4460,7 @@
       }
     },
     {
-      "order": 26,
+      "order": 29,
       "id": "payment-form",
       "wave": "stateful Flow composition",
       "score": 21,
@@ -4156,7 +4618,7 @@
       }
     },
     {
-      "order": 27,
+      "order": 30,
       "id": "polar-chart",
       "wave": "primitive-runtime composition",
       "score": 21,
@@ -4317,7 +4779,7 @@
       }
     },
     {
-      "order": 28,
+      "order": 31,
       "id": "toolbar",
       "wave": "cross-pattern composition",
       "score": 21,
@@ -4471,7 +4933,7 @@
       }
     },
     {
-      "order": 29,
+      "order": 32,
       "id": "waterfall-chart",
       "wave": "primitive-runtime composition",
       "score": 21,
@@ -4632,7 +5094,7 @@
       }
     },
     {
-      "order": 30,
+      "order": 33,
       "id": "expandable-detail-table",
       "wave": "cross-pattern composition",
       "score": 22,
@@ -4788,7 +5250,7 @@
       }
     },
     {
-      "order": 31,
+      "order": 34,
       "id": "section-header",
       "wave": "cross-pattern composition",
       "score": 23,
@@ -4934,7 +5396,7 @@
       }
     },
     {
-      "order": 32,
+      "order": 35,
       "id": "transfer-list",
       "wave": "cross-pattern composition",
       "score": 23,
@@ -5087,7 +5549,7 @@
       }
     },
     {
-      "order": 33,
+      "order": 36,
       "id": "fullscreen-sheet",
       "wave": "stateful Flow composition",
       "score": 24,
@@ -5234,7 +5696,7 @@
       }
     },
     {
-      "order": 34,
+      "order": 37,
       "id": "multi-step-form",
       "wave": "stateful Flow composition",
       "score": 24,
@@ -5395,7 +5857,7 @@
       }
     },
     {
-      "order": 35,
+      "order": 38,
       "id": "virtual-data-table",
       "wave": "cross-pattern composition",
       "score": 24,
@@ -5530,7 +5992,7 @@
       }
     },
     {
-      "order": 36,
+      "order": 39,
       "id": "agent-conversation",
       "wave": "template-facing orchestrator",
       "score": 25,
@@ -5678,7 +6140,7 @@
       }
     },
     {
-      "order": 37,
+      "order": 40,
       "id": "pull-to-refresh",
       "wave": "primitive-runtime composition",
       "score": 25,
@@ -5824,7 +6286,7 @@
       }
     },
     {
-      "order": 38,
+      "order": 41,
       "id": "help-center",
       "wave": "cross-pattern composition",
       "score": 26,
@@ -5977,7 +6439,7 @@
       }
     },
     {
-      "order": 39,
+      "order": 42,
       "id": "advanced-filters",
       "wave": "stateful Flow composition",
       "score": 27,
@@ -6130,7 +6592,7 @@
       }
     },
     {
-      "order": 40,
+      "order": 43,
       "id": "command-palette",
       "wave": "cross-pattern composition",
       "score": 27,
@@ -6268,7 +6730,7 @@
       }
     },
     {
-      "order": 41,
+      "order": 44,
       "id": "account-operations",
       "wave": "template-facing orchestrator",
       "score": 28,
@@ -6431,7 +6893,7 @@
       }
     },
     {
-      "order": 42,
+      "order": 45,
       "id": "chart-wrapper",
       "wave": "primitive-runtime composition",
       "score": 28,
@@ -6576,7 +7038,7 @@
       }
     },
     {
-      "order": 43,
+      "order": 46,
       "id": "filterable-editable-table",
       "wave": "cross-pattern composition",
       "score": 28,
@@ -6743,7 +7205,7 @@
       }
     },
     {
-      "order": 44,
+      "order": 47,
       "id": "fleet-manager-onboarding-desktop",
       "wave": "template-facing orchestrator",
       "score": 28,
@@ -6898,7 +7360,7 @@
       }
     },
     {
-      "order": 45,
+      "order": 48,
       "id": "backoffice-approval",
       "wave": "template-facing orchestrator",
       "score": 29,
@@ -7062,7 +7524,7 @@
       }
     },
     {
-      "order": 46,
+      "order": 49,
       "id": "drawer-adapter",
       "wave": "cross-pattern composition",
       "score": 29,
@@ -7240,7 +7702,7 @@
       }
     },
     {
-      "order": 47,
+      "order": 50,
       "id": "preference-management",
       "wave": "template-facing orchestrator",
       "score": 29,
@@ -7396,171 +7858,7 @@
       }
     },
     {
-      "order": 48,
-      "id": "pricing-operations",
-      "wave": "template-facing orchestrator",
-      "score": 29,
-      "requiresSurface": true,
-      "runtimePrimitives": [],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Surface",
-        "Typography"
-      ],
-      "components": [
-        "Badge"
-      ],
-      "patternDependencies": [
-        "Virtual Data Table",
-        "Roles and Permissions",
-        "Status Feedback View"
-      ],
-      "templateRefs": [
-        "Internal Operations Console"
-      ],
-      "slots": [
-        {
-          "name": "pricingOperationsSurface",
-          "owner": "primitive",
-          "uses": [
-            "Surface"
-          ],
-          "required": true
-        },
-        {
-          "name": "pricingSummary",
-          "owner": "component",
-          "uses": [
-            "Badge"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "pricingMetric",
-          "owner": "component",
-          "uses": [
-            "Badge"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "pricingPermissionBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Roles and Permissions"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "pricingRulesBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Virtual Data Table"
-          ],
-          "required": true
-        },
-        {
-          "name": "pricingFeedbackBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Status Feedback View"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "states": [
-        "default",
-        "pending-approval",
-        "rule-selected",
-        "editing",
-        "submitting",
-        "loading",
-        "error",
-        "disabled"
-      ],
-      "reactStatus": "ready",
-      "reactDebts": [],
-      "executionChecklist": [
-        {
-          "id": "formal-artifact",
-          "gate": "Use the formal Pattern artifact as source of truth.",
-          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json"
-        },
-        {
-          "id": "react-primary",
-          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
-          "evidence": "packages/react/src/patterns/PricingOperations.js"
-        },
-        {
-          "id": "types-contract",
-          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
-          "evidence": "packages/react/src/patterns/PricingOperations.d.ts"
-        },
-        {
-          "id": "flow-composition",
-          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
-          "evidence": "Badge"
-        },
-        {
-          "id": "surface-primitive",
-          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
-          "evidence": "Surface required by formal Pattern primitive dependencies."
-        },
-        {
-          "id": "pattern-boundaries",
-          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
-          "evidence": "Virtual Data Table, Roles and Permissions, Status Feedback View"
-        },
-        {
-          "id": "template-boundaries",
-          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
-          "evidence": "Internal Operations Console"
-        },
-        {
-          "id": "docs-system-boundary",
-          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
-          "evidence": "docs-system-boundary-audit.json"
-        },
-        {
-          "id": "verification",
-          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
-          "evidence": "node packages/audit/scripts/audit-complete.mjs"
-        }
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
-        "react": "packages/react/src/patterns/PricingOperations.js",
-        "types": "packages/react/src/patterns/PricingOperations.d.ts"
-      }
-    },
-    {
-      "order": 49,
+      "order": 51,
       "id": "roles-and-permissions",
       "wave": "template-facing orchestrator",
       "score": 30,
@@ -7699,7 +7997,7 @@
       }
     },
     {
-      "order": 50,
+      "order": 52,
       "id": "driver-and-vehicle-administration",
       "wave": "template-facing orchestrator",
       "score": 31,
@@ -7860,7 +8158,7 @@
       }
     },
     {
-      "order": 51,
+      "order": 53,
       "id": "authentication-login-biometrics-and-otp",
       "wave": "template-facing orchestrator",
       "score": 32,
@@ -8016,7 +8314,7 @@
       }
     },
     {
-      "order": 52,
+      "order": 54,
       "id": "ticket-queue",
       "wave": "template-facing orchestrator",
       "score": 32,
@@ -8188,7 +8486,7 @@
       }
     },
     {
-      "order": 53,
+      "order": 55,
       "id": "status-feedback-view",
       "wave": "template-facing orchestrator",
       "score": 34,
@@ -8356,7 +8654,7 @@
       }
     },
     {
-      "order": 54,
+      "order": 56,
       "id": "case-management",
       "wave": "template-facing orchestrator",
       "score": 37,
@@ -8538,7 +8836,189 @@
       }
     },
     {
-      "order": 55,
+      "order": 57,
+      "id": "pricing-operations",
+      "wave": "template-facing orchestrator",
+      "score": 37,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "components": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Advanced Filters",
+        "Drawer Adapter",
+        "Virtual Data Table",
+        "Roles and Permissions",
+        "Status Feedback View"
+      ],
+      "templateRefs": [
+        "Internal Operations Console"
+      ],
+      "slots": [
+        {
+          "name": "pricingOperationsSurface",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ],
+          "required": true
+        },
+        {
+          "name": "pricingSummary",
+          "owner": "component",
+          "uses": [
+            "Badge"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingMetric",
+          "owner": "component",
+          "uses": [
+            "Badge"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingPermissionBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Roles and Permissions"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingFiltersBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Advanced Filters"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingRulesBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Virtual Data Table"
+          ],
+          "required": true
+        },
+        {
+          "name": "pricingEditorBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Drawer Adapter"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingFeedbackBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Status Feedback View"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "default",
+        "pending-approval",
+        "rule-selected",
+        "editing",
+        "submitting",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/PricingOperations.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/PricingOperations.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Badge"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "pattern-boundaries",
+          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
+          "evidence": "Advanced Filters, Drawer Adapter, Virtual Data Table, Roles and Permissions, Status Feedback View"
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Internal Operations Console"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
+        "react": "packages/react/src/patterns/PricingOperations.js",
+        "types": "packages/react/src/patterns/PricingOperations.d.ts"
+      }
+    },
+    {
+      "order": 58,
       "id": "dense-operational-list",
       "wave": "template-facing orchestrator",
       "score": 40,
@@ -8720,7 +9200,7 @@
       }
     },
     {
-      "order": 56,
+      "order": 59,
       "id": "driver-onboarding-mobile",
       "wave": "template-facing orchestrator",
       "score": 44,
@@ -8899,7 +9379,7 @@
       }
     },
     {
-      "order": 57,
+      "order": 60,
       "id": "sidebar",
       "wave": "template-facing orchestrator",
       "score": 45,
@@ -9050,7 +9530,7 @@
       }
     },
     {
-      "order": 58,
+      "order": 61,
       "id": "station-discovery",
       "wave": "template-facing orchestrator",
       "score": 45,
@@ -9250,7 +9730,7 @@
       }
     },
     {
-      "order": 59,
+      "order": 62,
       "id": "topbar",
       "wave": "template-facing orchestrator",
       "score": 75,

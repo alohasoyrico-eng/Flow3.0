@@ -75,6 +75,8 @@
         "Agents"
       ],
       "patternDependencies": [
+        "Advanced Filters",
+        "Drawer Adapter",
         "Virtual Data Table",
         "Roles and Permissions",
         "Status Feedback View"

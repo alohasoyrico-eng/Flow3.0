@@ -288,6 +288,10 @@
       "types": "./dist/patterns/ActionSheet.d.ts",
       "default": "./dist/patterns/ActionSheet.js"
     },
+    "./patterns/bottom-sheet": {
+      "types": "./dist/patterns/BottomSheet.d.ts",
+      "default": "./dist/patterns/BottomSheet.js"
+    },
     "./patterns/account-operations": {
       "types": "./dist/patterns/AccountOperations.d.ts",
       "default": "./dist/patterns/AccountOperations.js"
@@ -339,6 +343,10 @@
     "./patterns/chart-wrapper": {
       "types": "./dist/patterns/ChartWrapper.d.ts",
       "default": "./dist/patterns/ChartWrapper.js"
+    },
+    "./patterns/checkbox-group": {
+      "types": "./dist/patterns/CheckboxGroup.d.ts",
+      "default": "./dist/patterns/CheckboxGroup.js"
     },
     "./patterns/column-configurator": {
       "types": "./dist/patterns/ColumnConfigurator.d.ts",
@@ -451,6 +459,10 @@
     "./patterns/quick-actions-grid": {
       "types": "./dist/patterns/QuickActionsGrid.d.ts",
       "default": "./dist/patterns/QuickActionsGrid.js"
+    },
+    "./patterns/radio-group": {
+      "types": "./dist/patterns/RadioGroup.d.ts",
+      "default": "./dist/patterns/RadioGroup.js"
     },
     "./patterns/roles-and-permissions": {
       "types": "./dist/patterns/RolesAndPermissions.d.ts",

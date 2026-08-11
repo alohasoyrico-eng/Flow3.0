@@ -1,0 +1,73 @@
+{
+  "artifacts": {
+    "patterns": {
+      "radio-group": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": ["Product Designers", "Developers", "Content Designers", "Researchers", "Agents"],
+        "purpose": "Coordinate one exclusive decision with a visible question, Radio Button options, shared name, keyboard movement, validation, and option-set layout rules.",
+        "governingFoundations": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "foundationDependencies": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "primitiveDependencies": ["Breakpoints", "Color", "Density", "Disabled", "Duration", "Field Action", "Focus", "Iconography", "Loading", "Measurement", "Message", "Motion Curves", "Radius", "Spacing", "Surface", "Typography"],
+        "componentDependencies": ["Button", "Inline Validation", "Radio Button"],
+        "patternDependencies": [],
+        "tokenDependencies": ["comp.button.*", "comp.inline-validation.*", "comp.radio-button.*", "sys.accessibility.*", "sys.depth.*", "sys.energy.*", "sys.frame.*", "sys.growth.*", "sys.iconography.*", "sys.momentum.*", "sys.state.*", "sys.symbol.*", "sys.tone.*", "sys.voice.*"],
+        "densityContext": ["smartphones + phablets", "tablets + laptops", "desktops + TV"],
+        "entryConditions": [
+          "Users must choose exactly one option from a small related set.",
+          "The set needs a visible question, helper, default, validation, or recovery copy.",
+          "The parent workflow needs one exclusive-choice contract instead of independent Radio Button instances."
+        ],
+        "decisionTree": [
+          "Use Radio Button for one atomic option inside a Radio Group.",
+          "Use Radio Group when options represent one exclusive decision.",
+          "Use Segmented Control when options are compact view/mode commands rather than form decisions.",
+          "Use Checkbox Group when more than one option can be selected."
+        ],
+        "failureModes": [
+          "Custom radio visuals bypass Radio Button.",
+          "The group is wrapped in Card instead of Surface.",
+          "A risky default is selected without product policy.",
+          "Selection state is managed by Docs or DOM-only code instead of the React pattern contract."
+        ],
+        "successMetrics": [
+          "Users understand the question, available options, current selection, and validation state.",
+          "Density, theme, focus, and state cascade from Surface into Radio Button and Inline Validation.",
+          "Keyboard movement preserves exclusive selection semantics."
+        ],
+        "states": ["unselected", "selected", "invalid", "dirty", "loading", "permission-blocked", "disabled"],
+        "slots": [
+          { "name": "groupSurface", "owner": "primitive", "uses": ["Surface"], "required": true },
+          { "name": "question", "owner": "primitive", "uses": ["Typography"], "required": true },
+          { "name": "options", "owner": "component", "uses": ["Radio Button"], "required": true },
+          { "name": "validation", "owner": "component", "uses": ["Inline Validation"], "required": "conditional" },
+          { "name": "actions", "owner": "component", "uses": ["Button"], "required": "conditional" }
+        ],
+        "accessibility": [
+          "Expose the set with visible and programmatic radio-group labelling.",
+          "Every Radio Button shares one group name.",
+          "Associate helper and validation copy with the group.",
+          "Avoid risky defaults unless product policy confirms them."
+        ],
+        "tests": [
+          "Composes Surface, Radio Button, Inline Validation, and Button.",
+          "Covers unselected, selected, invalid, dirty, loading, permission-blocked, and disabled states.",
+          "Keyboard movement preserves exclusive selection semantics.",
+          "Rejects custom radio visuals, raw inputs, Card wrappers, segmented-control substitution, and docs-only selection state."
+        ],
+        "agentInstructions": [
+          "Do not create custom radio visuals.",
+          "Use Surface for group structure; do not wrap the group in Card.",
+          "Use Radio Button for every option and Inline Validation for shared errors.",
+          "Ask before setting a default that affects money, access, compliance, safety, identity, privacy, or irreversible state."
+        ],
+        "rejectIf": [
+          "More than one option can be selected.",
+          "Options bypass Radio Button.",
+          "The group is wrapped in Card.",
+          "Selected or invalid state is color-only."
+        ]
+      }
+    }
+  }
+}

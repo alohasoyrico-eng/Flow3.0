@@ -5,7 +5,7 @@
   "inventory": {
     "foundations": 11,
     "primitives": 24,
-    "patterns": 59,
+    "patterns": 62,
     "templates": 9,
     "tokenCount": 1078,
     "tokenTypes": 15,
@@ -40,7 +40,7 @@
     "inventory": {
       "foundations": 11,
       "primitives": 24,
-      "patterns": 59,
+      "patterns": 62,
       "templates": 9,
       "tokenCount": 1078,
       "tokenTypes": 15,
@@ -458,6 +458,14 @@
       "errors": []
     },
     {
+      "id": "bottom-sheet",
+      "name": "bottom-sheet",
+      "subpath": "./specs/patterns/bottom-sheet",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json",
+      "valid": true,
+      "errors": []
+    },
+    {
       "id": "bulk-actions",
       "name": "bulk-actions",
       "subpath": "./specs/patterns/bulk-actions",
@@ -486,6 +494,14 @@
       "name": "chart-wrapper",
       "subpath": "./specs/patterns/chart-wrapper",
       "target": "./packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "checkbox-group",
+      "name": "checkbox-group",
+      "subpath": "./specs/patterns/checkbox-group",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json",
       "valid": true,
       "errors": []
     },
@@ -718,6 +734,14 @@
       "name": "quick-actions-grid",
       "subpath": "./specs/patterns/quick-actions-grid",
       "target": "./packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "radio-group",
+      "name": "radio-group",
+      "subpath": "./specs/patterns/radio-group",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/radio-group.json",
       "valid": true,
       "errors": []
     },
@@ -1279,6 +1303,13 @@
       "shapeErrors": []
     },
     {
+      "id": "bottom-sheet",
+      "name": "bottom-sheet",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
       "id": "bulk-actions",
       "name": "bulk-actions",
       "file": "packages/specs/specs/unison-system/artifacts/patterns/bulk-actions.json",
@@ -1303,6 +1334,13 @@
       "id": "chart-wrapper",
       "name": "chart-wrapper",
       "file": "packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "checkbox-group",
+      "name": "checkbox-group",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json",
       "exists": true,
       "shapeErrors": []
     },
@@ -1506,6 +1544,13 @@
       "id": "quick-actions-grid",
       "name": "quick-actions-grid",
       "file": "packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "radio-group",
+      "name": "radio-group",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/radio-group.json",
       "exists": true,
       "shapeErrors": []
     },

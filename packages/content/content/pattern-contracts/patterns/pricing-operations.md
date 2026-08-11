@@ -121,6 +121,8 @@ Coordinate pricing rule queues, editable rule review, approval submission, permi
 
 ### Patterns
 
+- `Advanced Filters`
+- `Drawer Adapter`
 - `Virtual Data Table`
 - `Roles and Permissions`
 - `Status Feedback View`
@@ -148,7 +150,9 @@ Coordinate pricing rule queues, editable rule review, approval submission, permi
 | `pricingSummary` | `component` | `Badge` |
 | `pricingMetric` | `component` | `Badge` |
 | `pricingPermissionBoundary` | `pattern` | `Roles and Permissions` |
+| `pricingFiltersBoundary` | `pattern` | `Advanced Filters` |
 | `pricingRulesBoundary` | `pattern` | `Virtual Data Table` |
+| `pricingEditorBoundary` | `pattern` | `Drawer Adapter` |
 | `pricingFeedbackBoundary` | `pattern` | `Status Feedback View` |
 
 ## Formal Governance
@@ -214,7 +218,9 @@ Coordinate pricing rule queues, editable rule review, approval submission, permi
 | pricingSummary | Badge | conditional | Pricing workflow summary. |
 | pricingMetric | Badge | conditional | Pending approval, draft, or active-rule metrics. |
 | pricingPermissionBoundary | Roles and Permissions | conditional | Access and approval policy boundary. |
-| pricingRulesBoundary | Virtual Data Table | required | Rule queue, filters, editable drawer, approval action, table, and feedback boundary. |
+| pricingFiltersBoundary | Advanced Filters | conditional | Filter controls delegated to the Flow filter pattern. |
+| pricingRulesBoundary | Virtual Data Table | required | Rule queue, row selection, sorting, pagination, and table action boundary. |
+| pricingEditorBoundary | Drawer Adapter | conditional | Editable rule review boundary for drawer placement, focus, and submission actions. |
 | pricingFeedbackBoundary | Status Feedback View | conditional | Submission or recovery feedback. |
 
 ## Components Used

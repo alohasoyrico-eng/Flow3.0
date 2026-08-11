@@ -126,6 +126,9 @@
         "List",
         "Inline Validation"
       ],
+      "patternDependencies": [
+        "Drawer Adapter"
+      ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",

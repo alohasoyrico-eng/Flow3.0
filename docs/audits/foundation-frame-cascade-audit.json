@@ -668,7 +668,7 @@
       ]
     },
     "patterns": {
-      "count": 59,
+      "count": 62,
       "ids": [
         "account-operations",
         "action-sheet",
@@ -679,10 +679,12 @@
         "avatar-group",
         "avatar-menu",
         "backoffice-approval",
+        "bottom-sheet",
         "bulk-actions",
         "calendar-view",
         "case-management",
         "chart-wrapper",
+        "checkbox-group",
         "column-configurator",
         "command-palette",
         "confirmation-dialog",
@@ -712,6 +714,7 @@
         "pricing-operations",
         "pull-to-refresh",
         "quick-actions-grid",
+        "radio-group",
         "roles-and-permissions",
         "search",
         "section-header",
@@ -740,9 +743,9 @@
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
         "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
         "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
-        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
-        "packages/content/content/pattern-contracts/patterns/case-management.md"
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md"
       ]
     },
     "templates": {

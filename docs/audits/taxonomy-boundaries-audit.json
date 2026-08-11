@@ -10,7 +10,7 @@
       "patternDecisions": 10,
       "templateDecisions": 9,
       "nonComponentDecisions": 1,
-      "artifactsScanned": 163,
+      "artifactsScanned": 166,
       "crossLayerArtifactIds": 1,
       "unapprovedCrossLayerArtifactIds": 0,
       "artifactLayerMismatches": 0,
@@ -42,7 +42,7 @@
     "patternDecisions": 10,
     "templateDecisions": 9,
     "nonComponentDecisions": 1,
-    "artifactsScanned": 163,
+    "artifactsScanned": 166,
     "crossLayerArtifactIds": 1,
     "unapprovedCrossLayerArtifactIds": 0,
     "artifactLayerMismatches": 0,
@@ -362,6 +362,15 @@
       "errors": []
     },
     {
+      "id": "bottom-sheet",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
       "id": "breadcrumbs",
       "artifactLayer": "components",
       "expectedLayer": "Component",
@@ -511,6 +520,15 @@
       "expectedLayer": "Component",
       "declaredLayer": "Component",
       "file": "packages/specs/specs/unison-system/artifacts/components/chat-thread.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "checkbox-group",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json",
       "hasNestedRecord": true,
       "errors": []
     },
@@ -1267,6 +1285,15 @@
       "expectedLayer": "Component",
       "declaredLayer": "Component",
       "file": "packages/specs/specs/unison-system/artifacts/components/radio-button.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "radio-group",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/radio-group.json",
       "hasNestedRecord": true,
       "errors": []
     },

@@ -1,0 +1,73 @@
+{
+  "artifacts": {
+    "patterns": {
+      "checkbox-group": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": ["Product Designers", "Developers", "Content Designers", "Researchers", "Agents"],
+        "purpose": "Coordinate related Checkbox options with group labelling, select-all, mixed state, shared validation, and cross-option selection rules.",
+        "governingFoundations": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "foundationDependencies": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "primitiveDependencies": ["Breakpoints", "Color", "Density", "Disabled", "Duration", "Field Action", "Focus", "Iconography", "Loading", "Measurement", "Message", "Motion Curves", "Radius", "Spacing", "Surface", "Typography"],
+        "componentDependencies": ["Button", "Checkbox", "Inline Validation"],
+        "patternDependencies": [],
+        "tokenDependencies": ["comp.button.*", "comp.checkbox.*", "comp.inline-validation.*", "sys.accessibility.*", "sys.depth.*", "sys.energy.*", "sys.frame.*", "sys.growth.*", "sys.iconography.*", "sys.momentum.*", "sys.state.*", "sys.symbol.*", "sys.tone.*", "sys.voice.*"],
+        "densityContext": ["smartphones + phablets", "tablets + laptops", "desktops + TV"],
+        "entryConditions": [
+          "Users can choose more than one option from a related set.",
+          "The set needs a visible question, helper copy, validation, select-all, or mixed state.",
+          "The parent workflow needs one selection contract instead of independent Checkbox instances."
+        ],
+        "decisionTree": [
+          "Use Checkbox for one independent binary option.",
+          "Use Checkbox Group when related Checkbox options share one question, validation, or select-all behavior.",
+          "Use Multi Select when selected values need chips, popover behavior, search, or explicit apply."
+        ],
+        "failureModes": [
+          "Custom checkbox visuals bypass Checkbox.",
+          "The group is wrapped in Card instead of Surface.",
+          "Mixed, invalid, or selected count state is color-only.",
+          "Selection state is managed by Docs or DOM-only code instead of the React pattern contract."
+        ],
+        "successMetrics": [
+          "Users can understand group scope, select multiple options, review mixed state, and recover from validation.",
+          "Density, theme, focus, and state cascade from Surface into Checkbox and Inline Validation.",
+          "Select-all and option callbacks preserve event context."
+        ],
+        "states": ["none-selected", "partial", "all-selected", "invalid", "dirty", "loading", "disabled"],
+        "slots": [
+          { "name": "groupSurface", "owner": "primitive", "uses": ["Surface"], "required": true },
+          { "name": "question", "owner": "primitive", "uses": ["Typography"], "required": true },
+          { "name": "options", "owner": "component", "uses": ["Checkbox"], "required": true },
+          { "name": "selectAll", "owner": "component", "uses": ["Checkbox", "Button"], "required": "conditional" },
+          { "name": "validation", "owner": "component", "uses": ["Inline Validation"], "required": "conditional" },
+          { "name": "actions", "owner": "component", "uses": ["Button"], "required": "conditional" }
+        ],
+        "accessibility": [
+          "Expose the group with visible and programmatic labelling.",
+          "Associate helper and validation copy with the group.",
+          "Represent mixed state programmatically and textually.",
+          "Keep every Checkbox label visible."
+        ],
+        "tests": [
+          "Composes Surface, Checkbox, Inline Validation, and Button.",
+          "Covers none, partial, all, invalid, dirty, loading, and disabled states.",
+          "Select-all updates mixed state and preserves focus.",
+          "Rejects custom checkbox visuals, raw inputs, Card wrappers, and docs-only selection state."
+        ],
+        "agentInstructions": [
+          "Do not create custom checkbox visuals.",
+          "Use Surface for group structure; do not wrap the group in Card.",
+          "Use Checkbox for every option and Inline Validation for shared errors.",
+          "Ask before applying bulk selection to permissions, pricing, compliance, identity, or irreversible operations."
+        ],
+        "rejectIf": [
+          "Only one option can be selected.",
+          "Options bypass Checkbox.",
+          "The group is wrapped in Card.",
+          "Validation or mixed state is color-only."
+        ]
+      }
+    }
+  }
+}

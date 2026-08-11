@@ -5,7 +5,7 @@
   "docsRoot": "../FlowDocs",
   "inventory": {
     "sourceFilesScanned": 203,
-    "generatedFiles": 280,
+    "generatedFiles": 352,
     "flowDependencyPresent": 1,
     "flowBoundaryAliases": 20,
     "missingFlowAliases": 0,
@@ -28,7 +28,7 @@
   "baseline": {
     "inventory": {
       "sourceFilesScanned": 203,
-      "generatedFiles": 280,
+      "generatedFiles": 352,
       "flowDependencyPresent": 1,
       "flowBoundaryAliases": 20,
       "missingFlowAliases": 0,

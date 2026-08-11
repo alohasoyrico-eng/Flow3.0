@@ -2802,6 +2802,10 @@ function assertInstalledExportInventory(installedPackage) {
       types: "./packages/react/dist/patterns/ActionSheet.d.ts",
       default: "./packages/react/dist/patterns/ActionSheet.js",
     },
+    "./react/patterns/bottom-sheet": {
+      types: "./packages/react/dist/patterns/BottomSheet.d.ts",
+      default: "./packages/react/dist/patterns/BottomSheet.js",
+    },
     "./react/patterns/advanced-filters": {
       types: "./packages/react/dist/patterns/AdvancedFilters.d.ts",
       default: "./packages/react/dist/patterns/AdvancedFilters.js",
@@ -2845,6 +2849,10 @@ function assertInstalledExportInventory(installedPackage) {
     "./react/patterns/chart-wrapper": {
       types: "./packages/react/dist/patterns/ChartWrapper.d.ts",
       default: "./packages/react/dist/patterns/ChartWrapper.js",
+    },
+    "./react/patterns/checkbox-group": {
+      types: "./packages/react/dist/patterns/CheckboxGroup.d.ts",
+      default: "./packages/react/dist/patterns/CheckboxGroup.js",
     },
     "./react/patterns/column-configurator": {
       types: "./packages/react/dist/patterns/ColumnConfigurator.d.ts",
@@ -2961,6 +2969,10 @@ function assertInstalledExportInventory(installedPackage) {
     "./react/patterns/quick-actions-grid": {
       types: "./packages/react/dist/patterns/QuickActionsGrid.d.ts",
       default: "./packages/react/dist/patterns/QuickActionsGrid.js",
+    },
+    "./react/patterns/radio-group": {
+      types: "./packages/react/dist/patterns/RadioGroup.d.ts",
+      default: "./packages/react/dist/patterns/RadioGroup.js",
     },
     "./react/patterns/roles-and-permissions": {
       types: "./packages/react/dist/patterns/RolesAndPermissions.d.ts",
@@ -3208,7 +3220,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 565,
+    filesScanned: 571,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3218,7 +3230,7 @@ function assertReactGovernanceBaselines() {
   assertInventory(foundationPrimitiveExport, {
     foundations: 11,
     primitives: 24,
-    patterns: 59,
+    patterns: 62,
     templates: 9,
     tokenCount: 1078,
     missingFoundationArtifacts: 0,
@@ -3248,7 +3260,7 @@ function assertReactGovernanceBaselines() {
     patternDecisions: 10,
     templateDecisions: 9,
     nonComponentDecisions: 1,
-    artifactsScanned: 163,
+    artifactsScanned: 166,
     crossLayerArtifactIds: 1,
     unapprovedCrossLayerArtifactIds: 0,
     artifactLayerMismatches: 0,
@@ -3267,7 +3279,7 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(docsSystemBoundary, "Docs system boundary");
   assertInventory(docsSystemBoundary, {
     sourceFilesScanned: 203,
-    generatedFiles: 280,
+    generatedFiles: 352,
     flowDependencyPresent: 1,
     flowBoundaryAliases: 20,
     missingFlowAliases: 0,
@@ -3412,18 +3424,19 @@ function assertReactGovernanceBaselines() {
     metaPatterns: 58,
     catalogPatterns: 63,
     uniqueCatalogPatterns: 63,
-    copyPatterns: 59,
-    markdownContracts: 59,
+    copyPatterns: 62,
+    markdownContracts: 62,
     requiredPatternContracts: 23,
     requiredContractsPresent: 23,
     requiredCopyPresent: 23,
-    formalArtifacts: 59,
+    formalArtifacts: 62,
     duplicateCatalogIds: 0,
     requiredContractGaps: 0,
     requiredCopyGaps: 0,
     staleMarkdownContracts: 0,
     formalArtifactBacklog: 0,
-    catalogOnlyPatterns: 4,
+    catalogOnlyPatterns: 1,
+    approvedCatalogOnlyPatterns: 1,
     unapprovedCatalogOnlyPatterns: 0,
     formalArtifactsMissingCatalog: 0,
     catalogComponentReferenceErrors: 0,
@@ -3434,15 +3447,15 @@ function assertReactGovernanceBaselines() {
   const patternArchitecture = readAuditReport("docs/audits/pattern-1to1-architecture-audit.json");
   assertReportStatus(patternArchitecture, "Pattern 1:1 architecture");
   assertInventory(patternArchitecture, {
-    patterns: 59,
-    formalArtifacts: 59,
-    markdownContracts: 59,
-    catalogEntries: 59,
-    patternsWithDeclaredPrimitives: 59,
+    patterns: 62,
+    formalArtifacts: 62,
+    markdownContracts: 62,
+    catalogEntries: 62,
+    patternsWithDeclaredPrimitives: 62,
     patternsWithOnlyInferredPrimitives: 0,
     patternsWithUnknownComponents: 0,
     patternsWithComponentArtifactGaps: 0,
-    patternsWithPatternCrossings: 41,
+    patternsWithPatternCrossings: 44,
     patternsReferencedByTemplates: 16,
     templatePatternDependencies: 50,
     templatePatternDependencyGaps: 0,
@@ -3451,7 +3464,7 @@ function assertReactGovernanceBaselines() {
     templateModuleDependencies: 29,
     unknownTemplateModuleDependencies: 0,
     docsAppAvailable: 1,
-    patternsReferencedByDocs: 41,
+    patternsReferencedByDocs: 44,
     formalArtifactBacklog: 0,
     primitiveDeclarationBacklog: 0,
     patternArchitectureBacklog: 0,
@@ -3461,20 +3474,20 @@ function assertReactGovernanceBaselines() {
   const reactPatternBehavior = readAuditReport("docs/audits/react-pattern-behavior-governance-audit.json");
   assertReportStatus(reactPatternBehavior, "React pattern behavior governance");
   assertInventory(reactPatternBehavior, {
-    formalPatternArtifacts: 59,
-    implementedReactPatterns: 59,
-    typedPatternDeclarations: 59,
-    forwardRefPatterns: 59,
-    patternsWithRefAttributes: 59,
-    patternsWithDensityProp: 59,
-    callbackPropsDeclared: 254,
-    callbackPropsTested: 254,
+    formalPatternArtifacts: 62,
+    implementedReactPatterns: 62,
+    typedPatternDeclarations: 62,
+    forwardRefPatterns: 62,
+    patternsWithRefAttributes: 62,
+    patternsWithDensityProp: 62,
+    callbackPropsDeclared: 263,
+    callbackPropsTested: 263,
     missingCallbackTests: 0,
     declaredProps: 210,
     unusedDeclaredProps: 0,
     unusedCallbackProps: 0,
-    formalStates: 448,
-    typedStates: 448,
+    formalStates: 470,
+    typedStates: 470,
     statesMissingFromTypes: 0,
     statesMissingFromArtifact: 0,
     controlledPropPairs: 10,
@@ -3482,12 +3495,12 @@ function assertReactGovernanceBaselines() {
     rawGlobalDomRefs: 0,
     forbiddenPropsDeclared: 0,
     unsafeRestSpreads: 0,
-    structuralSurfaceSlotPatterns: 25,
-    structuralSurfaceSlots: 25,
+    structuralSurfaceSlotPatterns: 27,
+    structuralSurfaceSlots: 27,
     missingStructuralSurfaceUsage: 0,
-    patternsWithAccessibilityContracts: 56,
-    patternsWithDirectAccessibilitySignals: 57,
-    patternsWithDelegatedAccessibility: 45,
+    patternsWithAccessibilityContracts: 59,
+    patternsWithDirectAccessibilitySignals: 60,
+    patternsWithDelegatedAccessibility: 48,
     missingAccessibilityImplementation: 0,
     missingDataFlowPattern: 0,
     patternsWithBehaviorDebt: 0,
@@ -3497,11 +3510,11 @@ function assertReactGovernanceBaselines() {
   const reactPatternComposition = readAuditReport("docs/audits/react-pattern-composition-governance-audit.json");
   assertReportStatus(reactPatternComposition, "React pattern composition governance");
   assertInventory(reactPatternComposition, {
-    formalPatternArtifacts: 59,
-    implementedReactPatterns: 59,
+    formalPatternArtifacts: 62,
+    implementedReactPatterns: 62,
     missingFormalArtifacts: 0,
-    patternsWithDeclaredFoundations: 59,
-    patternsWithDeclaredPrimitives: 59,
+    patternsWithDeclaredFoundations: 62,
+    patternsWithDeclaredPrimitives: 62,
     missingRequiredComponentImports: 0,
     undeclaredComponentImports: 0,
     unknownComponentImports: 0,
@@ -3509,20 +3522,20 @@ function assertReactGovernanceBaselines() {
     docsDependencies: 0,
     workspaceDependencies: 0,
     visualClassLiterals: 0,
-    declaredPatternDependencies: 81,
-    runtimePatternImports: 72,
+    declaredPatternDependencies: 84,
+    runtimePatternImports: 75,
     boundaryOnlyPatternDependencies: 9,
     undocumentedPatternBoundaries: 0,
     undeclaredPatternImports: 0,
-    slotCount: 288,
-    slotUseCount: 443,
+    slotCount: 307,
+    slotUseCount: 465,
     slotIssues: 0,
     slotRenderEvidenceIssues: 0,
-    primitiveSlotUses: 28,
-    primitiveSurfaceSlotUses: 25,
+    primitiveSlotUses: 32,
+    primitiveSurfaceSlotUses: 27,
     primitiveMapsSlotUses: 1,
-    primitiveSlotRuntimeEvidence: 26,
-    tokenDependencies: 761,
+    primitiveSlotRuntimeEvidence: 28,
+    tokenDependencies: 804,
     tokenIssues: 0,
     missingDataFlowPattern: 0,
     reactPatternCompositionDebt: 0,
@@ -3531,19 +3544,19 @@ function assertReactGovernanceBaselines() {
   const patternFoundationPrimitive = readAuditReport("docs/audits/pattern-foundation-primitive-1to1-audit.json");
   assertReportStatus(patternFoundationPrimitive, "Pattern foundation primitive 1:1");
   assertInventory(patternFoundationPrimitive, {
-    formalPatternArtifacts: 59,
+    formalPatternArtifacts: 62,
     primitiveArtifacts: 24,
     foundationArtifacts: 11,
     componentArtifacts: 60,
-    implementedReactPatterns: 59,
-    patternsWithExplicitFoundations: 59,
+    implementedReactPatterns: 62,
+    patternsWithExplicitFoundations: 62,
     patternsMissingExplicitFoundations: 0,
     patternsWithMissingPrimitiveRefs: 0,
     patternsWithMissingInferredPrimitiveArtifacts: 0,
     formalDependencyLayerErrors: 0,
     patternsWithUndeclaredComponentPrimitives: 0,
-    patternsRequiringSurfacePrimitive: 38,
-    patternsRequiringDirectSurfaceRuntime: 24,
+    patternsRequiringSurfacePrimitive: 40,
+    patternsRequiringDirectSurfaceRuntime: 26,
     patternsMissingDirectSurfaceRuntime: 0,
     patternsWithStructuralSurfaceDebt: 0,
     cardStructuralWrapperViolations: 0,
@@ -3553,21 +3566,21 @@ function assertReactGovernanceBaselines() {
     primitiveArtifactsUnreferencedBySystem: 0,
     unusedPrimitiveArtifactsRequiringPattern: 0,
     foundationArtifactsUnusedByPatterns: 0,
-    readyPatterns: 59,
+    readyPatterns: 62,
     blockedPatterns: 0,
   }, "Pattern foundation primitive 1:1");
 
   const patternMigrationPlan = readAuditReport("docs/audits/pattern-react-migration-plan.json");
   assertReportStatus(patternMigrationPlan, "Pattern React migration plan");
   assertInventory(patternMigrationPlan, {
-    patterns: 59,
-    reactSources: 59,
-    typeSources: 59,
-    forwardRefPatterns: 59,
-    densityPropPatterns: 59,
-    callbackPropsDeclared: 254,
-    callbackPropsTested: 254,
-    surfaceRequired: 40,
+    patterns: 62,
+    reactSources: 62,
+    typeSources: 62,
+    forwardRefPatterns: 62,
+    densityPropPatterns: 62,
+    callbackPropsDeclared: 263,
+    callbackPropsTested: 263,
+    surfaceRequired: 43,
     primitiveRuntimeRequired: 8,
     boundaryOnlyPatternDependencies: 9,
     migrationAuditDebt: 0,
@@ -3735,7 +3748,7 @@ function assertReactGovernanceBaselines() {
     missingTypeSnippets: 0,
     missingCssSelectors: 0,
     rawVisualCss: 0,
-    patternSurfaceImports: 34,
+    patternSurfaceImports: 37,
     structuralSurfacePolicyIssues: 0,
     distGaps: 0,
     surfaceCascadeDebt: 0,
@@ -3918,11 +3931,11 @@ function assertPatternMigrationPlanContract(report) {
   const expectedGlobalGates = {
     architectureDebt: 0,
     architectureBlockingDebt: 0,
-    patternsWithDeclaredPrimitives: 59,
+    patternsWithDeclaredPrimitives: 62,
     patternsWithOnlyInferredPrimitives: 0,
     templateDependencyGaps: 0,
-    surfaceRequiredPatterns: 38,
-    directSurfaceRuntimeRequired: 24,
+    surfaceRequiredPatterns: 40,
+    directSurfaceRuntimeRequired: 26,
     missingDirectSurfaceRuntime: 0,
     structuralSurfaceDebt: 0,
     cardStructuralWrapperViolations: 0,
@@ -3931,7 +3944,7 @@ function assertPatternMigrationPlanContract(report) {
   };
   const expectedWaves = [
     ["base Flow composition", { patterns: 8, surfacePatterns: 0, runtimePrimitives: 0, patternBoundaries: 2, templateRefs: 0, componentRefs: 17 }],
-    ["stateful Flow composition", { patterns: 20, surfacePatterns: 15, runtimePrimitives: 0, patternBoundaries: 8, templateRefs: 0, componentRefs: 34 }],
+    ["stateful Flow composition", { patterns: 23, surfacePatterns: 18, runtimePrimitives: 0, patternBoundaries: 9, templateRefs: 0, componentRefs: 35 }],
     ["cross-pattern composition", { patterns: 9, surfacePatterns: 5, runtimePrimitives: 0, patternBoundaries: 12, templateRefs: 0, componentRefs: 19 }],
     ["primitive-runtime composition", { patterns: 5, surfacePatterns: 5, runtimePrimitives: 2, patternBoundaries: 1, templateRefs: 0, componentRefs: 15 }],
     ["template-facing orchestrator", { patterns: 17, surfacePatterns: 15, runtimePrimitives: 3, patternBoundaries: 21, templateRefs: 8, componentRefs: 36 }],
@@ -3965,10 +3978,10 @@ function assertPatternMigrationPlanContract(report) {
   const patternBoundaryChecklist = patterns.filter((pattern) => pattern.executionChecklist?.some((gate) => gate.id === "pattern-boundaries"));
   const templateBoundaryChecklist = patterns.filter((pattern) => pattern.executionChecklist?.some((gate) => gate.id === "template-boundaries"));
   const baseGateIds = ["formal-artifact", "react-primary", "types-contract", "flow-composition", "docs-system-boundary", "verification"];
-  if (patterns.length !== 59) issues.push(`patterns: expected 59, got ${patterns.length}`);
-  if (surfaceChecklist.length !== 40) issues.push(`surface checklist count: expected 40, got ${surfaceChecklist.length}`);
+  if (patterns.length !== 62) issues.push(`patterns: expected 62, got ${patterns.length}`);
+  if (surfaceChecklist.length !== 43) issues.push(`surface checklist count: expected 43, got ${surfaceChecklist.length}`);
   if (runtimeChecklist.length !== 8) issues.push(`runtime checklist count: expected 8, got ${runtimeChecklist.length}`);
-  if (patternBoundaryChecklist.length !== 40) issues.push(`pattern boundary checklist count: expected 40, got ${patternBoundaryChecklist.length}`);
+  if (patternBoundaryChecklist.length !== 41) issues.push(`pattern boundary checklist count: expected 41, got ${patternBoundaryChecklist.length}`);
   if (templateBoundaryChecklist.length !== 16) issues.push(`template boundary checklist count: expected 16, got ${templateBoundaryChecklist.length}`);
   for (const pattern of patterns) {
     const checklistIds = (pattern.executionChecklist ?? []).map((gate) => gate.id);

@@ -28,8 +28,10 @@ const {
   AvatarGroup,
   AvatarMenu,
   BackofficeApproval,
+  BottomSheet,
   CalendarView,
   CaseManagement,
+  CheckboxGroup,
   ChartWrapper,
   ColumnConfigurator,
   CommandPalette,
@@ -58,6 +60,7 @@ const {
   PreferenceManagement,
   PullToRefresh,
   QuickActionsGrid,
+  RadioGroup,
   RolesAndPermissions,
   Search,
   SelectOptionLayer,
@@ -73,7 +76,7 @@ const {
   TransferList,
   VirtualDataTable,
   WaterfallChart,
-} = await import("../src/index.js");
+} = await import("../src/patterns/index.js");
 
 try {
   const actionSheetEvents = [];
@@ -1771,6 +1774,63 @@ try {
     "handoff",
     "feedback",
   ]);
+  cleanup();
+
+  const bottomSheetEvents = [];
+  const bottomSheetView = render(React.createElement(BottomSheet, {
+    label: "Mobile actions",
+    triggerLabel: "Open mobile actions",
+    items: [{ key: "route", label: "Route details" }],
+    actions: [{ key: "confirm", label: "Confirm action" }],
+    onOpenChange: (open, event) => bottomSheetEvents.push(["open", open, event.type]),
+    onAction: (key, event) => bottomSheetEvents.push(["action", key, event.type]),
+    onSelect: (item, event) => bottomSheetEvents.push(["select", item.key, event.type]),
+  }));
+  fireEvent.click(bottomSheetView.getByRole("button", { name: /open mobile actions/i }));
+  fireEvent.click(bottomSheetView.getAllByRole("button", { name: /route details/i }).at(-1));
+  fireEvent.click(bottomSheetView.getAllByRole("button", { name: /confirm action/i }).at(-1));
+  assert.deepEqual(bottomSheetEvents.map((event) => event[0]), ["open", "select", "action"]);
+  cleanup();
+
+  const checkboxGroupEvents = [];
+  const checkboxGroupView = render(React.createElement(CheckboxGroup, {
+    label: "Notification channels",
+    defaultValue: ["email"],
+    selectAllLabel: "Select all channels",
+    clearLabel: "Clear channels",
+    applyAction: { label: "Apply channels" },
+    options: [
+      { value: "email", label: "Email" },
+      { value: "sms", label: "SMS" },
+    ],
+    onValueChange: (value, meta, event) => checkboxGroupEvents.push(["value", value.join(","), meta.value, event.type]),
+    onClear: (event) => checkboxGroupEvents.push(["clear", event.type]),
+    onApply: (value, event) => checkboxGroupEvents.push(["apply", value.join(","), event.type]),
+  }));
+  fireEvent.click(checkboxGroupView.getByRole("checkbox", { name: /^sms$/i }));
+  fireEvent.click(checkboxGroupView.getByRole("button", { name: /apply channels/i }));
+  fireEvent.click(checkboxGroupView.getByRole("button", { name: /clear channels/i }));
+  assert.deepEqual(checkboxGroupEvents.map((event) => event[0]), ["value", "apply", "clear", "value"]);
+  cleanup();
+
+  const radioGroupEvents = [];
+  const radioGroupView = render(React.createElement(RadioGroup, {
+    label: "Default payout",
+    defaultValue: "bank",
+    clearLabel: "Clear payout",
+    applyAction: { label: "Apply payout" },
+    options: [
+      { value: "bank", label: "Bank account" },
+      { value: "card", label: "Card wallet" },
+    ],
+    onValueChange: (value, meta, event) => radioGroupEvents.push(["value", value, meta.value, event.type]),
+    onClear: (event) => radioGroupEvents.push(["clear", event.type]),
+    onApply: (value, event) => radioGroupEvents.push(["apply", value, event.type]),
+  }));
+  fireEvent.click(radioGroupView.getByRole("radio", { name: /card wallet/i }));
+  fireEvent.click(radioGroupView.getByRole("button", { name: /apply payout/i }));
+  fireEvent.click(radioGroupView.getByRole("button", { name: /clear payout/i }));
+  assert.deepEqual(radioGroupEvents.map((event) => event[0]), ["value", "apply", "clear", "value"]);
   cleanup();
 
   console.log("react pattern interaction tests passed");

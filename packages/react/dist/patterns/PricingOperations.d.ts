@@ -1,6 +1,8 @@
 import type { ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
 import type { BadgeDensity, BadgeProps } from "../Badge.js";
 import type { FlowDataAttributes } from "../internal/props.js";
+import type { AdvancedFiltersProps } from "./AdvancedFilters.js";
+import type { DrawerAdapterProps } from "./DrawerAdapter.js";
 import type { RolesAndPermissionsProps } from "./RolesAndPermissions.js";
 import type { StatusFeedbackViewProps } from "./StatusFeedbackView.js";
 import type { VirtualDataTableProps } from "./VirtualDataTable.js";
@@ -33,7 +35,12 @@ export type PricingOperationsSummary = Partial<BadgeProps> & {
   label: string;
 };
 
-export type PricingOperationsQueue = Partial<VirtualDataTableProps>;
+export type PricingOperationsQueue = Partial<VirtualDataTableProps> & {
+  filters?: Partial<AdvancedFiltersProps>;
+  table?: Partial<VirtualDataTableProps>;
+  editor?: Partial<DrawerAdapterProps>;
+};
+export type PricingOperationsEditor = Partial<DrawerAdapterProps>;
 export type PricingOperationsRolePolicy = Partial<RolesAndPermissionsProps>;
 export type PricingOperationsFeedback = Partial<StatusFeedbackViewProps>;
 
@@ -51,6 +58,7 @@ export interface PricingOperationsProps extends FlowDataAttributes {
   summaries?: PricingOperationsSummary[];
   rules?: PricingOperationsRule[];
   queue?: PricingOperationsQueue;
+  editor?: PricingOperationsEditor;
   rolePolicy?: PricingOperationsRolePolicy;
   feedback?: PricingOperationsFeedback;
   className?: string;

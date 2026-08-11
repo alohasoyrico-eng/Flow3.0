@@ -212,7 +212,7 @@
       ]
     },
     "patterns": {
-      "count": 59,
+      "count": 62,
       "ids": [
         "account-operations",
         "action-sheet",
@@ -223,10 +223,12 @@
         "avatar-group",
         "avatar-menu",
         "backoffice-approval",
+        "bottom-sheet",
         "bulk-actions",
         "calendar-view",
         "case-management",
         "chart-wrapper",
+        "checkbox-group",
         "column-configurator",
         "command-palette",
         "confirmation-dialog",
@@ -256,6 +258,7 @@
         "pricing-operations",
         "pull-to-refresh",
         "quick-actions-grid",
+        "radio-group",
         "roles-and-permissions",
         "search",
         "section-header",
@@ -284,20 +287,22 @@
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
         "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
         "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
         "packages/content/content/pattern-contracts/patterns/calendar-view.md",
         "packages/content/content/pattern-contracts/patterns/case-management.md",
         "packages/content/content/pattern-contracts/patterns/chart-wrapper.md",
-        "packages/content/content/pattern-contracts/patterns/column-configurator.md",
-        "packages/content/content/pattern-contracts/patterns/command-palette.md",
-        "packages/content/content/pattern-contracts/patterns/confirmation-dialog.md"
+        "packages/content/content/pattern-contracts/patterns/checkbox-group.md",
+        "packages/content/content/pattern-contracts/patterns/column-configurator.md"
       ]
     },
     "patternCopy": {
-      "count": 18,
+      "count": 21,
       "ids": [
         "authentication-login-biometrics-and-otp",
         "backoffice-approval",
+        "bottom-sheet",
+        "checkbox-group",
         "drawer-adapter",
         "driver-and-vehicle-administration",
         "driver-onboarding-mobile",
@@ -309,6 +314,7 @@
         "multi-step-form",
         "polar-chart",
         "pricing-operations",
+        "radio-group",
         "roles-and-permissions",
         "snackbar-provider",
         "timeline",
@@ -318,6 +324,8 @@
       "sampleFiles": [
         "packages/content/content/pattern-copy/patterns/authentication-login-biometrics-and-otp/all.json",
         "packages/content/content/pattern-copy/patterns/backoffice-approval/all.json",
+        "packages/content/content/pattern-copy/patterns/bottom-sheet/all.json",
+        "packages/content/content/pattern-copy/patterns/checkbox-group/all.json",
         "packages/content/content/pattern-copy/patterns/drawer-adapter/all.json",
         "packages/content/content/pattern-copy/patterns/driver-and-vehicle-administration/all.json",
         "packages/content/content/pattern-copy/patterns/driver-onboarding-mobile/all.json",
@@ -329,9 +337,7 @@
         "packages/content/content/pattern-copy/patterns/multi-step-form/all.json",
         "packages/content/content/pattern-copy/patterns/polar-chart/all.json",
         "packages/content/content/pattern-copy/patterns/pricing-operations/all.json",
-        "packages/content/content/pattern-copy/patterns/roles-and-permissions/all.json",
-        "packages/content/content/pattern-copy/patterns/snackbar-provider/all.json",
-        "packages/content/content/pattern-copy/patterns/timeline/all.json"
+        "packages/content/content/pattern-copy/patterns/radio-group/all.json"
       ]
     },
     "templates": {

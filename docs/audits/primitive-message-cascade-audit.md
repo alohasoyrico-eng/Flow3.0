@@ -13,9 +13,9 @@ Message consumes Tone, Voice, State, and Accessibility, then coordinates Focus, 
 - Token aliases: 16/16
 - Message component coverage: 5/5
 - Component copy refs: 50
-- Pattern refs: 59
+- Pattern refs: 62
 - Template refs: 9
-- Announcement signals: 11
+- Announcement signals: 15
 - Danger/error without recovery: 0
 
 ## Foundation Gate

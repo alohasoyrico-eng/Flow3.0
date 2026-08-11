@@ -3,20 +3,20 @@
   "audit": "pattern 1:1 architecture",
   "principle": "Every pattern needs an explicit 1:1 architecture map across foundations, primitives, components, pattern crossings, template references, and docs evidence before React migration starts.",
   "inventory": {
-    "patterns": 59,
+    "patterns": 62,
     "patternArchitecturePolicyIssues": 0,
     "foundationPrimitiveHintPolicy": 11,
     "complexityWeightPolicy": 8,
-    "formalArtifacts": 59,
-    "markdownContracts": 59,
-    "catalogEntries": 59,
-    "patternsWithDeclaredPrimitives": 59,
+    "formalArtifacts": 62,
+    "markdownContracts": 62,
+    "catalogEntries": 62,
+    "patternsWithDeclaredPrimitives": 62,
     "patternsWithOnlyInferredPrimitives": 0,
     "patternsWithUnknownComponents": 0,
     "patternsWithComponentArtifactGaps": 0,
     "patternContractScopeIssues": 0,
     "patternContractArtifactCoverageIssues": 0,
-    "patternsWithPatternCrossings": 41,
+    "patternsWithPatternCrossings": 44,
     "patternsReferencedByTemplates": 16,
     "templatePatternDependencies": 50,
     "templatePatternDependencyGaps": 0,
@@ -25,7 +25,7 @@
     "templateModuleDependencies": 29,
     "unknownTemplateModuleDependencies": 0,
     "docsAppAvailable": 1,
-    "patternsReferencedByDocs": 41,
+    "patternsReferencedByDocs": 44,
     "docsEvidenceFiles": 41,
     "unknownDocsEvidenceFiles": 0,
     "formalArtifactBacklog": 0,
@@ -36,20 +36,20 @@
   },
   "baseline": {
     "inventory": {
-      "patterns": 59,
+      "patterns": 62,
       "patternArchitecturePolicyIssues": 0,
       "foundationPrimitiveHintPolicy": 11,
       "complexityWeightPolicy": 8,
-      "formalArtifacts": 59,
-      "markdownContracts": 59,
-      "catalogEntries": 59,
-      "patternsWithDeclaredPrimitives": 59,
+      "formalArtifacts": 62,
+      "markdownContracts": 62,
+      "catalogEntries": 62,
+      "patternsWithDeclaredPrimitives": 62,
       "patternsWithOnlyInferredPrimitives": 0,
       "patternsWithUnknownComponents": 0,
       "patternsWithComponentArtifactGaps": 0,
       "patternContractScopeIssues": 0,
       "patternContractArtifactCoverageIssues": 0,
-      "patternsWithPatternCrossings": 41,
+      "patternsWithPatternCrossings": 44,
       "patternsReferencedByTemplates": 16,
       "templatePatternDependencies": 50,
       "templatePatternDependencyGaps": 0,
@@ -58,7 +58,7 @@
       "templateModuleDependencies": 29,
       "unknownTemplateModuleDependencies": 0,
       "docsAppAvailable": 1,
-      "patternsReferencedByDocs": 41,
+      "patternsReferencedByDocs": 44,
       "docsEvidenceFiles": 41,
       "unknownDocsEvidenceFiles": 0,
       "formalArtifactBacklog": 0,
@@ -911,9 +911,9 @@
       "autocomplete",
       "avatar-group",
       "avatar-menu",
-      "bulk-actions",
       "calendar-view",
       "chart-wrapper",
+      "checkbox-group",
       "column-configurator",
       "confirmation-dialog",
       "drag-sortable-list",
@@ -932,6 +932,7 @@
       "payment-form",
       "pull-to-refresh",
       "quick-actions-grid",
+      "radio-group",
       "roles-and-permissions",
       "select-option-layer",
       "settings",
@@ -943,6 +944,8 @@
     ],
     "wave-1-low-risk-composition": [],
     "wave-2-composed-workflows": [
+      "bottom-sheet",
+      "bulk-actions",
       "command-palette",
       "drawer-adapter",
       "expandable-detail-table",
@@ -2992,6 +2995,265 @@
       }
     },
     {
+      "id": "bottom-sheet",
+      "title": "Bottom Sheet",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/bottom-sheet/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
+        "catalog": "packages/content/content/catalog/patterns-02.json",
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json"
+      },
+      "purpose": "Preserve mobile screen context while revealing contextual detail, actions, filters, or confirmation with focus, dismissal, safe-area, and motion rules.",
+      "components": {
+        "declared": [
+          "Button",
+          "Icon Button",
+          "Inline Validation",
+          "List"
+        ],
+        "normalizedIds": [
+          "button",
+          "dialog",
+          "drawer",
+          "icon-button",
+          "inline-validation",
+          "list"
+        ],
+        "known": [
+          "button",
+          "dialog",
+          "drawer",
+          "icon-button",
+          "inline-validation",
+          "list"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "trigger",
+          "type": "Button | List row | Icon Button",
+          "required": "conditional",
+          "notes": "Object-specific entry point owned by the parent workflow.",
+          "componentRefs": [
+            "button",
+            "icon-button",
+            "list"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "sheetBoundary",
+          "type": "Dialog | Drawer",
+          "required": "required",
+          "notes": "Focus, modality, labelling, dismissal, overlay, and focus return owner.",
+          "componentRefs": [
+            "dialog",
+            "drawer"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "header",
+          "type": "Text | Icon Button",
+          "required": "conditional",
+          "notes": "Title, description, close action, or drag handle.",
+          "componentRefs": [
+            "button",
+            "icon-button"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "sheetBody",
+          "type": "List | Form Section | Pattern",
+          "required": "required",
+          "notes": "Sheet body owned by Flow components or patterns without taking over structural surface ownership.",
+          "componentRefs": [
+            "list"
+          ],
+          "patternRefs": [
+            "form-section"
+          ]
+        },
+        {
+          "slot": "actions",
+          "type": "Button[]",
+          "required": "conditional",
+          "notes": "Primary, secondary, cancel, or destructive actions.",
+          "componentRefs": [
+            "button"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "validation",
+          "type": "Inline Validation",
+          "required": "conditional",
+          "notes": "Explains unavailable, invalid, or blocked sheet state.",
+          "componentRefs": [
+            "inline-validation"
+          ],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.icon-button.*",
+          "comp.inline-validation.*",
+          "comp.list.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [
+          "action-sheet",
+          "confirmation-dialog",
+          "drawer-adapter",
+          "form-section"
+        ],
+        "templates": [],
+        "docs": [
+          "../../apps/docs/icon-system.js",
+          "../../apps/docs/pattern-candidate-demos.js",
+          "../../apps/docs/pattern-mobile-demos.js",
+          "../../apps/docs/pattern-mobile-interactions.js",
+          "../../apps/docs/styles.css"
+        ]
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Composes Dialog/Drawer boundary plus Button, Icon Button, List, and Inline Validation.",
+        "Covers closed, open, dragging, loading, invalid, destructive, permission-blocked, and disabled states.",
+        "Focus enters, traps, returns, and closes predictably.",
+        "Safe-area and keyboard overlap do not hide actions.",
+        "No raw overlay, custom focus trap, Card wrapper, or local DOM-only sheet behavior is emitted."
+      ],
+      "accessibility": [
+        "Use Dialog or Drawer semantics for focus containment and focus return.",
+        "Expose an accessible title.",
+        "Keep close/cancel reachable.",
+        "Do not rely on drag gestures as the only dismissal path.",
+        "Respect safe-area and keyboard overlap on mobile."
+      ],
+      "migration": {
+        "complexityScore": 22,
+        "wave": "wave-2-composed-workflows",
+        "blockers": [
+          "high pattern-crossing count"
+        ]
+      }
+    },
+    {
       "id": "bulk-actions",
       "title": "Bulk Actions",
       "source": {
@@ -3101,6 +3363,7 @@
             "menu"
           ],
           "patternRefs": [
+            "bottom-sheet",
             "toolbar"
           ]
         }
@@ -3208,6 +3471,7 @@
       },
       "crossings": {
         "patterns": [
+          "bottom-sheet",
           "toolbar"
         ],
         "templates": [],
@@ -3235,8 +3499,8 @@
         "Destructive actions require confirmation and clear entity naming."
       ],
       "migration": {
-        "complexityScore": 24,
-        "wave": "wave-0-formalized",
+        "complexityScore": 27,
+        "wave": "wave-2-composed-workflows",
         "blockers": []
       }
     },
@@ -3954,6 +4218,240 @@
       ],
       "migration": {
         "complexityScore": 18,
+        "wave": "wave-0-formalized",
+        "blockers": []
+      }
+    },
+    {
+      "id": "checkbox-group",
+      "title": "Checkbox Group",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/checkbox-group/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/checkbox-group.md",
+        "catalog": "packages/content/content/catalog/patterns-01.json",
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json"
+      },
+      "purpose": "Coordinate related Checkbox options with group labelling, select-all, mixed state, shared validation, and cross-option selection rules without turning Checkbox into a layout primitive.",
+      "components": {
+        "declared": [
+          "Button",
+          "Checkbox",
+          "Inline Validation"
+        ],
+        "normalizedIds": [
+          "button",
+          "checkbox",
+          "inline-validation"
+        ],
+        "known": [
+          "button",
+          "checkbox",
+          "inline-validation"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "groupSurface",
+          "type": "Surface",
+          "required": "required",
+          "notes": "Structural group owner for density, state, and spacing.",
+          "componentRefs": [],
+          "patternRefs": []
+        },
+        {
+          "slot": "question",
+          "type": "Typography",
+          "required": "required",
+          "notes": "Visible group question or label owned by the typography primitive cascade.",
+          "componentRefs": [],
+          "patternRefs": []
+        },
+        {
+          "slot": "options",
+          "type": "Checkbox[]",
+          "required": "required",
+          "notes": "Atomic Checkbox options with labels and optional descriptions.",
+          "componentRefs": [
+            "checkbox"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "selectAll",
+          "type": "Checkbox | Button",
+          "required": "conditional",
+          "notes": "Bulk selection control with mixed state when partial.",
+          "componentRefs": [
+            "button",
+            "checkbox"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "validation",
+          "type": "Inline Validation",
+          "required": "conditional",
+          "notes": "Shared group validation and recovery copy.",
+          "componentRefs": [
+            "inline-validation"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "actions",
+          "type": "Button[]",
+          "required": "conditional",
+          "notes": "Apply, clear, or save actions when selection is explicit.",
+          "componentRefs": [
+            "button"
+          ],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.checkbox.*",
+          "comp.inline-validation.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [
+          "multi-select"
+        ],
+        "templates": [],
+        "docs": [
+          "../../apps/docs/icon-system.js"
+        ]
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Composes Surface, Checkbox, Inline Validation, and Button.",
+        "Covers none, partial, all, invalid, dirty, loading, and disabled states.",
+        "Select-all updates mixed state and preserves focus.",
+        "Validation is associated with the group.",
+        "No custom checkbox visuals, raw inputs, Card wrappers, or local DOM-only selection state are emitted."
+      ],
+      "accessibility": [
+        "Expose the group with a visible label and programmatic group semantics.",
+        "Associate helper and validation copy with the group.",
+        "Keep each Checkbox label visible.",
+        "Represent mixed state textually and programmatically.",
+        "Do not communicate validity or selection count by color alone."
+      ],
+      "migration": {
+        "complexityScore": 9,
         "wave": "wave-0-formalized",
         "blockers": []
       }
@@ -9975,10 +10473,12 @@
         ],
         "normalizedIds": [
           "badge",
+          "drawer",
           "table"
         ],
         "known": [
           "badge",
+          "drawer",
           "table"
         ],
         "unknown": [],
@@ -10024,15 +10524,37 @@
           ]
         },
         {
+          "slot": "pricingFiltersBoundary",
+          "type": "Advanced Filters",
+          "required": "conditional",
+          "notes": "Filter controls delegated to the Flow filter pattern.",
+          "componentRefs": [],
+          "patternRefs": [
+            "advanced-filters"
+          ]
+        },
+        {
           "slot": "pricingRulesBoundary",
           "type": "Virtual Data Table",
           "required": "required",
-          "notes": "Rule queue, filters, editable drawer, approval action, table, and feedback boundary.",
+          "notes": "Rule queue, row selection, sorting, pagination, and table action boundary.",
           "componentRefs": [
             "table"
           ],
           "patternRefs": [
             "virtual-data-table"
+          ]
+        },
+        {
+          "slot": "pricingEditorBoundary",
+          "type": "Drawer Adapter",
+          "required": "conditional",
+          "notes": "Editable rule review boundary for drawer placement, focus, and submission actions.",
+          "componentRefs": [
+            "drawer"
+          ],
+          "patternRefs": [
+            "drawer-adapter"
           ]
         },
         {
@@ -10159,6 +10681,8 @@
       },
       "crossings": {
         "patterns": [
+          "advanced-filters",
+          "drawer-adapter",
           "roles-and-permissions",
           "status-feedback-view",
           "virtual-data-table"
@@ -10190,7 +10714,7 @@
         "Do not rely on color-only status."
       ],
       "migration": {
-        "complexityScore": 23,
+        "complexityScore": 32,
         "wave": "wave-3-cross-pattern-orchestration",
         "blockers": [
           "high pattern-crossing count",
@@ -10608,6 +11132,228 @@
       ],
       "migration": {
         "complexityScore": 14,
+        "wave": "wave-0-formalized",
+        "blockers": []
+      }
+    },
+    {
+      "id": "radio-group",
+      "title": "Radio Group",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/radio-group/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/radio-group.md",
+        "catalog": "packages/content/content/catalog/patterns-01.json",
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/radio-group.json"
+      },
+      "purpose": "Coordinate one exclusive decision with a visible question, Radio Button options, shared name, keyboard movement, validation, and option-set layout rules.",
+      "components": {
+        "declared": [
+          "Button",
+          "Inline Validation",
+          "Radio Button"
+        ],
+        "normalizedIds": [
+          "button",
+          "inline-validation",
+          "radio-button"
+        ],
+        "known": [
+          "button",
+          "inline-validation",
+          "radio-button"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "groupSurface",
+          "type": "Surface",
+          "required": "required",
+          "notes": "Structural group owner for density, state, and spacing.",
+          "componentRefs": [],
+          "patternRefs": []
+        },
+        {
+          "slot": "question",
+          "type": "Typography",
+          "required": "required",
+          "notes": "Visible exclusive-choice question owned by the typography primitive cascade.",
+          "componentRefs": [],
+          "patternRefs": []
+        },
+        {
+          "slot": "options",
+          "type": "Radio Button[]",
+          "required": "required",
+          "notes": "Atomic Radio Button options sharing one name.",
+          "componentRefs": [
+            "button",
+            "radio-button"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "validation",
+          "type": "Inline Validation",
+          "required": "conditional",
+          "notes": "Required, unavailable, or risk recovery copy.",
+          "componentRefs": [
+            "inline-validation"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "actions",
+          "type": "Button[]",
+          "required": "conditional",
+          "notes": "Apply, clear, or save actions when selection is explicit.",
+          "componentRefs": [
+            "button"
+          ],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.inline-validation.*",
+          "comp.radio-button.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [],
+        "templates": [],
+        "docs": [
+          "../../apps/docs/icon-system.js"
+        ]
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Composes Surface, Radio Button, Inline Validation, and Button.",
+        "Covers unselected, selected, invalid, dirty, loading, permission-blocked, and disabled states.",
+        "Keyboard movement preserves exclusive selection semantics.",
+        "Validation is associated with the group.",
+        "No custom radio visuals, raw inputs, Card wrappers, or local DOM-only selection state are emitted."
+      ],
+      "accessibility": [
+        "Expose the set with a visible label and programmatic radio-group semantics.",
+        "Every Radio Button shares one group name.",
+        "Associate helper and validation copy with the group.",
+        "Do not rely on color alone for selected or invalid state.",
+        "Avoid risky defaults unless product policy confirms them."
+      ],
+      "migration": {
+        "complexityScore": 5,
         "wave": "wave-0-formalized",
         "blockers": []
       }
@@ -11490,7 +12236,9 @@
         "declarationGap": 0
       },
       "crossings": {
-        "patterns": [],
+        "patterns": [
+          "bottom-sheet"
+        ],
         "templates": [],
         "docs": [
           "../../apps/docs/pattern-candidate-demos.js"
@@ -11513,7 +12261,7 @@
         "Mobile fallback has a close path."
       ],
       "migration": {
-        "complexityScore": 12,
+        "complexityScore": 15,
         "wave": "wave-0-formalized",
         "blockers": []
       }

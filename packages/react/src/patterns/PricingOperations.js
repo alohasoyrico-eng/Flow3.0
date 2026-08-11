@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 import { Badge } from "../Badge.js";
 import { Surface } from "../Surface.js";
+import { AdvancedFilters } from "./AdvancedFilters.js";
+import { DrawerAdapter } from "./DrawerAdapter.js";
 import { RolesAndPermissions } from "./RolesAndPermissions.js";
 import { StatusFeedbackView } from "./StatusFeedbackView.js";
 import { VirtualDataTable } from "./VirtualDataTable.js";
@@ -82,6 +84,7 @@ export const PricingOperations = forwardRef(function PricingOperations({
   summaries = [],
   rules = [],
   queue = {},
+  editor,
   rolePolicy,
   feedback,
   className = "",
@@ -102,6 +105,7 @@ export const PricingOperations = forwardRef(function PricingOperations({
   const normalizedSummaries = normalizeArray(summaries).filter((summary) => summary?.label);
   const pendingCount = normalizedRules.filter((rule) => String(rule.status ?? "").toLowerCase().includes("pending")).length;
   const rows = queue.table?.rows ?? normalizeRuleRows(normalizedRules);
+  const resolvedEditor = editor ?? queue.editor;
   const resolvedState = resolveState({ disabled, loading, error, submitting, selectedRuleKey, editorOpen, pendingCount, state });
   const isDisabled = disabled || resolvedState === "disabled";
   const isLoading = loading || resolvedState === "loading" || submitting;
@@ -173,27 +177,50 @@ export const PricingOperations = forwardRef(function PricingOperations({
         "data-flow-slot": "pricingPermissionBoundary",
       })
       : null,
+    queue.filters
+      ? React.createElement(AdvancedFilters, {
+        ...queue.filters,
+        label: queue.filters.label ?? `${label} filters`,
+        density: queue.filters.density ?? density,
+        disabled: isDisabled || queue.filters.disabled,
+        applying: isLoading || queue.filters.applying,
+        resetAction: queue.filters.resetAction
+          ? {
+            ...queue.filters.resetAction,
+            onClick: (event) => {
+              queue.filters.resetAction?.onClick?.(event);
+              if (event.defaultPrevented) return;
+              onRuleFiltersReset?.(event);
+            },
+          }
+          : queue.filters.resetAction,
+        "data-flow-pattern-boundary": "advanced-filters",
+        "data-flow-slot": "pricingFiltersBoundary",
+      })
+      : null,
     React.createElement(VirtualDataTable, {
       ...queue,
-      label: queue.label ?? `${label} queue`,
-      description: queue.description,
-      density: queue.density ?? density,
-      state: queue.state ?? (editorOpen ? "editing" : selectedRuleKey ? "selected" : resolvedState),
-      disabled: isDisabled || queue.disabled,
-      loading: isLoading || queue.loading,
-      error: queue.error ?? error,
+      ...queue.table,
+      label: queue.table?.label ?? queue.label ?? `${label} queue`,
+      description: queue.table?.description ?? queue.description,
+      density: queue.table?.density ?? queue.density ?? density,
+      state: queue.table?.state ?? queue.state ?? (editorOpen ? "editing" : selectedRuleKey ? "selected" : resolvedState),
+      disabled: isDisabled || queue.disabled || queue.table?.disabled,
+      loading: isLoading || queue.loading || queue.table?.loading,
+      error: queue.table?.error ?? queue.error ?? error,
       columns: queue.table?.columns ?? queue.columns ?? defaultColumns(),
       rows,
       rowKey: queue.table?.rowKey ?? queue.rowKey ?? "id",
-      selectedKey: queue.selectedKey ?? queue.selectedRowKey ?? selectedRuleKey,
-      sortKey: queue.sortKey ?? queue.table?.sortKey,
-      sortDir: queue.sortDir ?? queue.table?.sortDir,
-      page: queue.page ?? queue.table?.page,
-      pageCount: queue.pageCount ?? queue.table?.pageCount,
-      pagination: queue.pagination ?? queue.table?.pagination,
-      empty: queue.empty,
-      selection: queue.selection,
+      selectedKey: queue.table?.selectedKey ?? queue.selectedKey ?? queue.selectedRowKey ?? selectedRuleKey,
+      sortKey: queue.table?.sortKey ?? queue.sortKey,
+      sortDir: queue.table?.sortDir ?? queue.sortDir,
+      page: queue.table?.page ?? queue.page,
+      pageCount: queue.table?.pageCount ?? queue.pageCount,
+      pagination: queue.table?.pagination ?? queue.pagination,
+      empty: queue.table?.empty ?? queue.empty,
+      selection: queue.table?.selection ?? queue.selection ?? { enabled: Boolean(onRuleSelect) || Boolean(selectedRuleKey) },
       bulkActions: queue.table?.bulkActions ?? queue.bulkActions ?? [{ key: "submit-approval", label: "Submit for approval" }],
+      virtualized: queue.table?.virtualized ?? queue.virtualized ?? false,
       onSortChange: (sort, event) => {
         queue.onSortChange?.(sort, event);
         queue.onTableSortChange?.(sort, event);
@@ -222,6 +249,31 @@ export const PricingOperations = forwardRef(function PricingOperations({
       "data-flow-pattern-boundary": "virtual-data-table",
       "data-flow-slot": "pricingRulesBoundary",
     }),
+    resolvedEditor
+      ? React.createElement(DrawerAdapter, {
+        ...resolvedEditor,
+        label: resolvedEditor.label ?? `${label} editor`,
+        density: resolvedEditor.density ?? density,
+        open: resolvedEditor.open ?? editorOpen,
+        state: resolvedEditor.state ?? (editorOpen ? "open" : "closed"),
+        disabled: isDisabled || resolvedEditor.disabled,
+        loading: isLoading || resolvedEditor.loading,
+        error: resolvedEditor.error ?? error,
+        onOpenChange: (open, event) => {
+          resolvedEditor.onOpenChange?.(open, event);
+          if (event.defaultPrevented) return;
+          onEditorOpenChange?.(open, event);
+        },
+        onAction: (key, event) => {
+          resolvedEditor.onAction?.(key, event);
+          if (event.defaultPrevented) return;
+          onEditorAction?.(key, event);
+          if (key === "submit-approval") onRuleSubmitForApproval?.(key, event);
+        },
+        "data-flow-pattern-boundary": "drawer-adapter",
+        "data-flow-slot": "pricingEditorBoundary",
+      })
+      : null,
     feedback
       ? React.createElement(StatusFeedbackView, {
         ...feedback,

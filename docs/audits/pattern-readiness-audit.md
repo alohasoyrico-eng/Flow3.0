@@ -9,15 +9,15 @@ Patterns must have a governed source, portable contract, formal artifact promoti
 - Meta patterns: 58
 - Catalog patterns: 63
 - Unique catalog patterns: 63
-- Pattern copy sources: 59
-- Markdown contracts: 59
+- Pattern copy sources: 62
+- Markdown contracts: 62
 - Required pattern contracts: 23
 - Required contracts present: 23
 - Required copy present: 23
-- Formal artifacts: 59
+- Formal artifacts: 62
 - Formal artifact backlog: 0
-- Catalog-only patterns: 4
-- Approved catalog-only patterns: 4
+- Catalog-only patterns: 1
+- Approved catalog-only patterns: 1
 - Unapproved catalog-only patterns: 0
 - Catalog-only governance issues: 0
 - Formal artifacts missing catalog: 0
@@ -47,19 +47,19 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | metaPatterns | 58 | 58 |
 | catalogPatterns | 63 | 63 |
 | uniqueCatalogPatterns | 63 | 63 |
-| copyPatterns | 59 | 59 |
-| markdownContracts | 59 | 59 |
+| copyPatterns | 62 | 62 |
+| markdownContracts | 62 | 62 |
 | requiredPatternContracts | 23 | 23 |
 | requiredContractsPresent | 23 | 23 |
 | requiredCopyPresent | 23 | 23 |
-| formalArtifacts | 59 | 59 |
+| formalArtifacts | 62 | 62 |
 | duplicateCatalogIds | 0 | 0 |
 | requiredContractGaps | 0 | 0 |
 | requiredCopyGaps | 0 | 0 |
 | staleMarkdownContracts | 0 | 0 |
 | formalArtifactBacklog | 0 | 0 |
-| catalogOnlyPatterns | 4 | 4 |
-| approvedCatalogOnlyPatterns | 4 | 4 |
+| catalogOnlyPatterns | 1 | 1 |
+| approvedCatalogOnlyPatterns | 1 | 1 |
 | unapprovedCatalogOnlyPatterns | 0 | 0 |
 | catalogOnlyGovernanceIssues | 0 | 0 |
 | formalArtifactsMissingCatalog | 0 | 0 |
@@ -100,10 +100,12 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | avatar-group |
 | avatar-menu |
 | backoffice-approval |
+| bottom-sheet |
 | bulk-actions |
 | calendar-view |
 | case-management |
 | chart-wrapper |
+| checkbox-group |
 | column-configurator |
 | command-palette |
 | confirmation-dialog |
@@ -133,6 +135,7 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | pricing-operations |
 | pull-to-refresh |
 | quick-actions-grid |
+| radio-group |
 | roles-and-permissions |
 | search |
 | section-header |
@@ -183,18 +186,12 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 
 | Pattern |
 | --- |
-| bottom-sheet |
 | chart-legend-item |
-| checkbox-group |
-| radio-group |
 
 ## Approved Catalog-Only Patterns
 
 | Pattern | Layer | Replacement | Reason |
 | --- | --- | --- | --- |
-| bottom-sheet | pattern | bottom-sheet | Bottom Sheet is a 100% mobile overlay pattern with focus, dismissal, drag/state, and responsive orchestration beyond a bounded component. |
-| checkbox-group | pattern | checkbox-group | Checkbox remains atomic; group label, select-all, mixed state, shared validation, and analytics are pattern-owned. |
-| radio-group | pattern | radio-group | Radio Button remains atomic; exclusive group question, shared name, arrow navigation, validation, and layout are pattern-owned. |
 | chart-legend-item | pattern | chart-legend-item | Legend items are chart interaction patterns; they must not be promoted as standalone components. |
 
 ## Unapproved Catalog-Only Patterns

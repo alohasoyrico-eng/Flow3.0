@@ -10,10 +10,13 @@
     "pattern-copy/patterns/notification-panel/all.json",
     "pattern-copy/patterns/avatar-menu/all.json",
     "pattern-copy/patterns/confirmation-dialog/all.json",
+    "pattern-copy/patterns/bottom-sheet/all.json",
     "pattern-copy/patterns/action-sheet/all.json",
     "pattern-copy/patterns/search/all.json",
     "pattern-copy/patterns/autocomplete/all.json",
     "pattern-copy/patterns/select-option-layer/all.json",
+    "pattern-copy/patterns/checkbox-group/all.json",
+    "pattern-copy/patterns/radio-group/all.json",
     "pattern-copy/patterns/multi-select/all.json",
     "pattern-copy/patterns/form-section/all.json",
     "pattern-copy/patterns/toolbar/all.json",
@@ -25,6 +28,9 @@
     "pattern-copy/patterns/drawer-adapter/all.json",
     "pattern-copy/patterns/kpi-card/all.json",
     "pattern-copy/patterns/chart-wrapper/all.json",
+    "pattern-copy/patterns/gantt-chart/all.json",
+    "pattern-copy/patterns/waterfall-chart/all.json",
+    "pattern-copy/patterns/polar-chart/all.json",
     "pattern-copy/patterns/virtual-data-table/all.json",
     "pattern-copy/patterns/advanced-filters/all.json",
     "pattern-copy/patterns/column-configurator/all.json",
@@ -40,6 +46,7 @@
     "pattern-copy/patterns/calendar-view/all.json",
     "pattern-copy/patterns/authentication-login-biometrics-and-otp/all.json",
     "pattern-copy/patterns/driver-onboarding-mobile/all.json",
-    "pattern-copy/patterns/fleet-manager-onboarding-desktop/all.json"
+    "pattern-copy/patterns/fleet-manager-onboarding-desktop/all.json",
+    "pattern-copy/patterns/preference-management/all.json"
   ]
 }

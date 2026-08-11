@@ -6,20 +6,20 @@ Every pattern needs an explicit 1:1 architecture map across foundations, primiti
 
 ## Inventory
 
-- Patterns audited: 59
+- Patterns audited: 62
 - Pattern architecture policy issues: 0
 - Foundation primitive hint policy entries: 11
 - Complexity weight policy entries: 8
-- Formal artifacts: 59
-- Markdown contracts: 59
-- Catalog entries: 59
-- Patterns with declared primitives: 59
+- Formal artifacts: 62
+- Markdown contracts: 62
+- Catalog entries: 62
+- Patterns with declared primitives: 62
 - Patterns with only inferred primitives: 0
 - Patterns with unknown component refs: 0
 - Patterns with component artifact gaps: 0
 - Pattern contract scope issues: 0
 - Pattern contract artifact coverage issues: 0
-- Patterns with pattern crossings: 41
+- Patterns with pattern crossings: 44
 - Patterns referenced by templates: 16
 - Template pattern dependencies: 50
 - Template pattern dependency gaps: 0
@@ -28,7 +28,7 @@ Every pattern needs an explicit 1:1 architecture map across foundations, primiti
 - Template module dependencies: 29
 - Unknown template module dependencies: 0
 - Docs app available: 1
-- Patterns referenced by docs: 41
+- Patterns referenced by docs: 44
 - Docs evidence files: 41
 - Unknown docs evidence files: 0
 - Formal artifact backlog: 0
@@ -60,9 +60,9 @@ Every pattern needs an explicit 1:1 architecture map across foundations, primiti
 - autocomplete
 - avatar-group
 - avatar-menu
-- bulk-actions
 - calendar-view
 - chart-wrapper
+- checkbox-group
 - column-configurator
 - confirmation-dialog
 - drag-sortable-list
@@ -81,6 +81,7 @@ Every pattern needs an explicit 1:1 architecture map across foundations, primiti
 - payment-form
 - pull-to-refresh
 - quick-actions-grid
+- radio-group
 - roles-and-permissions
 - select-option-layer
 - settings
@@ -96,6 +97,8 @@ Every pattern needs an explicit 1:1 architecture map across foundations, primiti
 
 ### wave-2-composed-workflows
 
+- bottom-sheet
+- bulk-actions
 - command-palette
 - drawer-adapter
 - expandable-detail-table
@@ -169,10 +172,12 @@ Every pattern needs an explicit 1:1 architecture map across foundations, primiti
 | avatar-group | wave-0-formalized | 12 | avatar, badge, button, inline-validation, list, popover, tooltip | None | None | Accessibility, Depth, Energy, Frame, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |
 | avatar-menu | wave-0-formalized | 12 | avatar, menu | None | None | Accessibility, Depth, Energy, Frame, Momentum, Voice | Breakpoints, Color, Disabled, Duration, Elevation, Focus, Iconography, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Disabled, Duration, Elevation, Focus, Iconography, Motion Curves, Radius, Spacing, Typography | settings | 0 | None | None | None |
 | backoffice-approval | wave-3-cross-pattern-orchestration | 24 | badge, drawer, list | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Motion Curves, Radius, Spacing, Typography | dense-operational-list, drawer-adapter, status-feedback-view | 2 | None | None | high pattern-crossing count<br>referenced by templates; migration needs template-boundary review |
-| bulk-actions | wave-0-formalized | 24 | badge, button, checkbox, dialog, menu, progress-indicator, table, toast | None | None | Accessibility, Depth, Energy, Frame, Momentum, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Message, Motion Curves, Radius, Spacing, Typography | toolbar | 0 | None | None | None |
+| bottom-sheet | wave-2-composed-workflows | 22 | button, dialog, drawer, icon-button, inline-validation, list | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | action-sheet, confirmation-dialog, drawer-adapter, form-section | 0 | None | None | high pattern-crossing count |
+| bulk-actions | wave-2-composed-workflows | 27 | badge, button, checkbox, dialog, menu, progress-indicator, table, toast | None | None | Accessibility, Depth, Energy, Frame, Momentum, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Message, Motion Curves, Radius, Spacing, Typography | bottom-sheet, toolbar | 0 | None | None | None |
 | calendar-view | wave-0-formalized | 17 | badge, button, card, date-range-picker, empty-state, list, popover, skeleton, tooltip | None | None | Accessibility, Depth, Energy, Frame, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |
 | case-management | wave-3-cross-pattern-orchestration | 44 | badge, drawer, list | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Motion Curves, Radius, Spacing, Typography | advanced-filters, bulk-actions, dense-operational-list, drawer-adapter, search, status-feedback-view, timeline, toolbar, virtual-data-table | 2 | None | None | high pattern-crossing count<br>referenced by templates; migration needs template-boundary review |
 | chart-wrapper | wave-0-formalized | 18 | badge, button, chart-panel, empty-state, error-panel, kpi-tile, list, menu, skeleton, table | None | None | Accessibility, Depth, Energy, Frame, State, Voice | Breakpoints, Charts, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |
+| checkbox-group | wave-0-formalized | 9 | button, checkbox, inline-validation | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Message, Motion Curves, Radius, Spacing, Typography | multi-select | 0 | None | None | None |
 | column-configurator | wave-0-formalized | 17 | badge, button, checkbox, dialog, drawer, inline-validation, menu, table, toast | None | None | Accessibility, Depth, Energy, Frame, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Message, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |
 | command-palette | wave-2-composed-workflows | 23 | button, dialog, empty-state, input, menu, toast | None | None | Accessibility, Depth, Energy, Frame, Momentum, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Message, Motion Curves, Radius, Spacing, Typography | search, topbar | 0 | None | None | None |
 | confirmation-dialog | wave-0-formalized | 15 | button, dialog, error-panel, inline-validation, toast | None | None | Accessibility, Depth, Energy, Frame, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |
@@ -199,13 +204,14 @@ Every pattern needs an explicit 1:1 architecture map across foundations, primiti
 | payment-form | wave-0-formalized | 15 | button, card, card-expiry-input, card-number-input, card-security-code-input, code-input, inline-validation, input, input-amount | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | status-feedback-view | 0 | None | None | None |
 | polar-chart | wave-2-composed-workflows | 10 | badge | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Charts, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Color, Density, Disabled, Focus, Iconography, Radius, Spacing, Typography | chart-wrapper, waterfall-chart | 0 | None | None | None |
 | preference-management | wave-3-cross-pattern-orchestration | 23 | badge, dialog | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Measurement, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Motion Curves, Radius, Spacing, Typography | confirmation-dialog, form-section, settings | 2 | None | None | high pattern-crossing count<br>referenced by templates; migration needs template-boundary review |
-| pricing-operations | wave-3-cross-pattern-orchestration | 23 | badge, table | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Motion Curves, Radius, Spacing, Typography | roles-and-permissions, status-feedback-view, virtual-data-table | 2 | None | None | high pattern-crossing count<br>referenced by templates; migration needs template-boundary review |
+| pricing-operations | wave-3-cross-pattern-orchestration | 32 | badge, drawer, table | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Motion Curves, Radius, Spacing, Typography | advanced-filters, drawer-adapter, roles-and-permissions, status-feedback-view, virtual-data-table | 2 | None | None | high pattern-crossing count<br>referenced by templates; migration needs template-boundary review |
 | pull-to-refresh | wave-0-formalized | 16 | animated-moment, button, card, inline-validation, list, progress-indicator, toast | None | None | Accessibility, Energy, Frame, Momentum, State, Voice | Animation Assets, Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Animation Assets, Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |
 | quick-actions-grid | wave-0-formalized | 14 | badge, dialog, quick-action, toast, tooltip | None | None | Accessibility, Energy, Frame, Iconography, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Motion Curves, Radius, Spacing, Typography | search | 0 | None | None | None |
+| radio-group | wave-0-formalized | 5 | button, inline-validation, radio-button | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Message, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |
 | roles-and-permissions | wave-0-formalized | 35 | audit-event, badge, button, checkbox, dialog, inline-validation, switch, table, toast, tooltip | None | None | Accessibility, Depth, Energy, Frame, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Message, Motion Curves, Radius, Spacing, Typography | None | 4 | None | None | referenced by templates; migration needs template-boundary review |
 | search | wave-2-composed-workflows | 22 | button, card, empty-state, inline-validation, input, list, select, toast | None | None | Accessibility, Depth, Energy, Frame, Momentum, State, Voice | Color, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Message, Motion Curves, Radius, Spacing, Typography | settings, toolbar | 0 | None | None | None |
 | section-header | wave-2-composed-workflows | 20 | badge, button, menu, skeleton, tag | None | None | Accessibility, Depth, Energy, Frame, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | form-section, settings, toolbar | 0 | None | None | high pattern-crossing count |
-| select-option-layer | wave-0-formalized | 12 | button, empty-state, inline-validation, popover, select | None | None | Accessibility, Depth, Energy, Frame, Momentum, State, Voice | Color, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |
+| select-option-layer | wave-0-formalized | 15 | button, empty-state, inline-validation, popover, select | None | None | Accessibility, Depth, Energy, Frame, Momentum, State, Voice | Color, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | bottom-sheet | 0 | None | None | None |
 | settings | wave-0-formalized | 20 | button, card, dialog, input, select, switch, toast | None | None | Accessibility, Energy, Frame, State, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Message, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |
 | sidebar | wave-0-formalized | 49 | accordion, badge, breadcrumbs, drawer, icon-button | None | None | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Research, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | topbar | 8 | None | None | referenced by templates; migration needs template-boundary review |
 | snackbar-provider | wave-0-formalized | 10 | badge, button, toast | None | None | Accessibility, Depth, Energy, Frame, State, Voice | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Motion Curves, Radius, Spacing, Typography | None | 0 | None | None | None |

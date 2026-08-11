@@ -216,6 +216,10 @@
       "types": "./packages/react/dist/patterns/ActionSheet.d.ts",
       "default": "./packages/react/dist/patterns/ActionSheet.js"
     },
+    "./react/patterns/bottom-sheet": {
+      "types": "./packages/react/dist/patterns/BottomSheet.d.ts",
+      "default": "./packages/react/dist/patterns/BottomSheet.js"
+    },
     "./react/patterns/advanced-filters": {
       "types": "./packages/react/dist/patterns/AdvancedFilters.d.ts",
       "default": "./packages/react/dist/patterns/AdvancedFilters.js"
@@ -259,6 +263,10 @@
     "./react/patterns/chart-wrapper": {
       "types": "./packages/react/dist/patterns/ChartWrapper.d.ts",
       "default": "./packages/react/dist/patterns/ChartWrapper.js"
+    },
+    "./react/patterns/checkbox-group": {
+      "types": "./packages/react/dist/patterns/CheckboxGroup.d.ts",
+      "default": "./packages/react/dist/patterns/CheckboxGroup.js"
     },
     "./react/patterns/column-configurator": {
       "types": "./packages/react/dist/patterns/ColumnConfigurator.d.ts",
@@ -375,6 +383,10 @@
     "./react/patterns/quick-actions-grid": {
       "types": "./packages/react/dist/patterns/QuickActionsGrid.d.ts",
       "default": "./packages/react/dist/patterns/QuickActionsGrid.js"
+    },
+    "./react/patterns/radio-group": {
+      "types": "./packages/react/dist/patterns/RadioGroup.d.ts",
+      "default": "./packages/react/dist/patterns/RadioGroup.js"
     },
     "./react/patterns/roles-and-permissions": {
       "types": "./packages/react/dist/patterns/RolesAndPermissions.d.ts",

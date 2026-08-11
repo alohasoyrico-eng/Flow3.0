@@ -1,0 +1,77 @@
+{
+  "artifacts": {
+    "patterns": {
+      "bottom-sheet": {
+        "layer": "Pattern",
+        "platform": "Touch-first",
+        "audiences": ["Product Designers", "Developers", "Content Designers", "Researchers", "Agents"],
+        "purpose": "Preserve mobile screen context while revealing contextual detail, actions, filters, or confirmation with focus, dismissal, safe-area, and motion rules.",
+        "governingFoundations": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "foundationDependencies": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "primitiveDependencies": ["Breakpoints", "Color", "Density", "Disabled", "Duration", "Elevation", "Focus", "Iconography", "Loading", "Measurement", "Message", "Motion Curves", "Radius", "Spacing", "Surface", "Typography"],
+        "componentDependencies": ["Button", "Icon Button", "Inline Validation", "List"],
+        "patternDependencies": ["Drawer Adapter"],
+        "tokenDependencies": ["comp.button.*", "comp.icon-button.*", "comp.inline-validation.*", "comp.list.*", "sys.accessibility.*", "sys.depth.*", "sys.energy.*", "sys.frame.*", "sys.growth.*", "sys.iconography.*", "sys.momentum.*", "sys.state.*", "sys.symbol.*", "sys.tone.*", "sys.voice.*"],
+        "densityContext": ["smartphones + phablets", "tablets + laptops", "reduced motion"],
+        "entryConditions": [
+          "A touch workflow needs temporary contextual content anchored to the bottom edge.",
+          "Users must keep origin context while reviewing details, filters, or short actions.",
+          "The surface can compose Dialog or Drawer ownership instead of inventing an overlay."
+        ],
+        "decisionTree": [
+          "Use Menu for compact desktop action lists.",
+          "Use Action Sheet when the body is primarily a short list of contextual actions.",
+          "Use Bottom Sheet when the body needs contextual content, filters, details, or mixed actions in a mobile sheet.",
+          "Use full-screen navigation when the flow is long, multi-step, or page-like."
+        ],
+        "failureModes": [
+          "Overlay bypasses Dialog or Drawer semantics.",
+          "The sheet is wrapped in Card instead of Surface.",
+          "Dismissal depends only on drag gesture.",
+          "Focus containment, focus return, or safe-area behavior is missing.",
+          "A template owns sheet open/close behavior directly."
+        ],
+        "successMetrics": [
+          "Users can open, inspect, act, cancel, and dismiss the sheet without losing origin context.",
+          "Focus, escape/back, drag, close, and focus return are predictable.",
+          "Density, safe-area, keyboard, and reduced-motion behavior cascade from Flow primitives."
+        ],
+        "states": ["closed", "open", "dragging", "loading", "invalid", "destructive", "permission-blocked", "disabled"],
+        "slots": [
+          { "name": "trigger", "owner": "component", "uses": ["Button", "List", "Icon Button"], "required": "conditional" },
+          { "name": "sheetBoundary", "owner": "pattern", "uses": ["Drawer Adapter"], "required": true },
+          { "name": "header", "owner": "component", "uses": ["Icon Button"], "required": "conditional" },
+          { "name": "sheetBody", "owner": "component", "uses": ["List"], "required": true },
+          { "name": "actions", "owner": "component", "uses": ["Button"], "required": "conditional" },
+          { "name": "validation", "owner": "component", "uses": ["Inline Validation"], "required": "conditional" }
+        ],
+        "accessibility": [
+          "Use Dialog or Drawer semantics through Drawer Adapter for focus containment and focus return.",
+          "Expose an accessible title.",
+          "Keep close or cancel reachable.",
+          "Do not rely on drag gestures as the only dismissal path.",
+          "Respect safe-area and keyboard overlap on mobile."
+        ],
+        "tests": [
+          "Composes Drawer Adapter plus Button, Icon Button, List, and Inline Validation.",
+          "Covers closed, open, dragging, loading, invalid, destructive, permission-blocked, and disabled states.",
+          "Focus enters, traps, returns, and closes predictably.",
+          "Safe-area and keyboard overlap do not hide actions.",
+          "Rejects raw overlays, custom focus traps, Card wrappers, and docs-only sheet DOM."
+        ],
+        "agentInstructions": [
+          "Do not implement raw overlays or custom focus traps.",
+          "Use Drawer Adapter for the sheet boundary.",
+          "Use Surface semantics from the primitive cascade; do not wrap the sheet in Card.",
+          "Ask before including destructive, regulated, financial, identity, privacy, compliance, or irreversible actions."
+        ],
+        "rejectIf": [
+          "The overlay bypasses Drawer Adapter, Dialog, or Drawer semantics.",
+          "The sheet is wrapped in Card.",
+          "Dismissal depends only on drag gesture.",
+          "Focus containment, focus return, or safe-area behavior is missing."
+        ]
+      }
+    }
+  }
+}

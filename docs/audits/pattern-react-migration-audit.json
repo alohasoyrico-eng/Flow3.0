@@ -3,25 +3,25 @@
   "audit": "pattern react migration audit",
   "principle": "Pattern React migration must start from formal Flow artifacts, preserve foundation and primitive ownership, and classify composition complexity before implementation work begins.",
   "inventory": {
-    "patterns": 59,
+    "patterns": 62,
     "patternArchitecturePolicyIssues": 0,
     "runtimePrimitivePatternDependencyPolicy": 5,
     "templateFacingSignalPolicy": 11,
     "migrationWavePolicy": 5,
     "nonNegotiableMigrationRules": 6,
-    "reactSources": 59,
-    "typeSources": 59,
-    "reactContractRows": 59,
-    "forwardRefPatterns": 59,
-    "refAttributePatterns": 59,
-    "densityPropPatterns": 59,
-    "patternsWithSlots": 59,
-    "patternsWithFoundations": 59,
-    "patternsWithPrimitives": 59,
-    "patternsWithComponents": 58,
-    "patternsWithStateModel": 59,
-    "callbackPropsDeclared": 254,
-    "callbackPropsTested": 254,
+    "reactSources": 62,
+    "typeSources": 62,
+    "reactContractRows": 62,
+    "forwardRefPatterns": 62,
+    "refAttributePatterns": 62,
+    "densityPropPatterns": 62,
+    "patternsWithSlots": 62,
+    "patternsWithFoundations": 62,
+    "patternsWithPrimitives": 62,
+    "patternsWithComponents": 61,
+    "patternsWithStateModel": 62,
+    "callbackPropsDeclared": 263,
+    "callbackPropsTested": 263,
     "missingCallbackTests": 0,
     "controlledPairIssues": 0,
     "statesMissingFromTypes": 0,
@@ -37,13 +37,13 @@
     "rawGlobalDomRefs": 0,
     "reactBehaviorDebt": 0,
     "baseFlowComposition": 8,
-    "statefulFlowComposition": 20,
+    "statefulFlowComposition": 23,
     "crossPatternComposition": 9,
     "primitiveRuntimeComposition": 5,
     "templateFacingOrchestrators": 17,
-    "surfaceRequired": 40,
+    "surfaceRequired": 43,
     "primitiveRuntimeRequired": 8,
-    "patternDependencyBoundaries": 81,
+    "patternDependencyBoundaries": 84,
     "templateReferences": 25,
     "patternsWithDependencySlotCoverageFindings": 0,
     "componentDependencySlotCoverageFindings": 0,
@@ -54,25 +54,25 @@
   },
   "baseline": {
     "inventory": {
-      "patterns": 59,
+      "patterns": 62,
       "patternArchitecturePolicyIssues": 0,
       "runtimePrimitivePatternDependencyPolicy": 5,
       "templateFacingSignalPolicy": 11,
       "migrationWavePolicy": 5,
       "nonNegotiableMigrationRules": 6,
-      "reactSources": 59,
-      "typeSources": 59,
-      "reactContractRows": 59,
-      "forwardRefPatterns": 59,
-      "refAttributePatterns": 59,
-      "densityPropPatterns": 59,
-      "patternsWithSlots": 59,
-      "patternsWithFoundations": 59,
-      "patternsWithPrimitives": 59,
-      "patternsWithComponents": 58,
-      "patternsWithStateModel": 59,
-      "callbackPropsDeclared": 254,
-      "callbackPropsTested": 254,
+      "reactSources": 62,
+      "typeSources": 62,
+      "reactContractRows": 62,
+      "forwardRefPatterns": 62,
+      "refAttributePatterns": 62,
+      "densityPropPatterns": 62,
+      "patternsWithSlots": 62,
+      "patternsWithFoundations": 62,
+      "patternsWithPrimitives": 62,
+      "patternsWithComponents": 61,
+      "patternsWithStateModel": 62,
+      "callbackPropsDeclared": 263,
+      "callbackPropsTested": 263,
       "missingCallbackTests": 0,
       "controlledPairIssues": 0,
       "statesMissingFromTypes": 0,
@@ -88,13 +88,13 @@
       "rawGlobalDomRefs": 0,
       "reactBehaviorDebt": 0,
       "baseFlowComposition": 8,
-      "statefulFlowComposition": 20,
+      "statefulFlowComposition": 23,
       "crossPatternComposition": 9,
       "primitiveRuntimeComposition": 5,
       "templateFacingOrchestrators": 17,
-      "surfaceRequired": 40,
+      "surfaceRequired": 43,
       "primitiveRuntimeRequired": 8,
-      "patternDependencyBoundaries": 81,
+      "patternDependencyBoundaries": 84,
       "templateReferences": 25,
       "patternsWithDependencySlotCoverageFindings": 0,
       "componentDependencySlotCoverageFindings": 0,
@@ -636,6 +636,329 @@
     },
     {
       "order": 4,
+      "pattern": "checkbox-group",
+      "mode": "stateful Flow composition",
+      "score": 12,
+      "components": [
+        "Button",
+        "Checkbox",
+        "Inline Validation"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Field Action",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "groupSurface",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ],
+          "required": true
+        },
+        {
+          "name": "question",
+          "owner": "primitive",
+          "uses": [
+            "Typography"
+          ],
+          "required": true
+        },
+        {
+          "name": "options",
+          "owner": "component",
+          "uses": [
+            "Checkbox"
+          ],
+          "required": true
+        },
+        {
+          "name": "selectAll",
+          "owner": "component",
+          "uses": [
+            "Checkbox",
+            "Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "validation",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onApply",
+          "onClear",
+          "onValueChange"
+        ],
+        "testedCallbacks": [
+          "onApply",
+          "onClear",
+          "onValueChange"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "all-selected",
+          "dirty",
+          "disabled",
+          "invalid",
+          "loading",
+          "none-selected",
+          "partial"
+        ],
+        "typedStates": [
+          "all-selected",
+          "dirty",
+          "disabled",
+          "invalid",
+          "loading",
+          "none-selected",
+          "partial"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [
+          "groupSurface"
+        ],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "none-selected",
+        "partial",
+        "all-selected",
+        "invalid",
+        "dirty",
+        "loading",
+        "disabled"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json",
+        "react": "packages/react/src/patterns/CheckboxGroup.js",
+        "types": "packages/react/src/patterns/CheckboxGroup.d.ts"
+      }
+    },
+    {
+      "order": 5,
+      "pattern": "radio-group",
+      "mode": "stateful Flow composition",
+      "score": 12,
+      "components": [
+        "Button",
+        "Inline Validation",
+        "Radio Button"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Field Action",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "groupSurface",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ],
+          "required": true
+        },
+        {
+          "name": "question",
+          "owner": "primitive",
+          "uses": [
+            "Typography"
+          ],
+          "required": true
+        },
+        {
+          "name": "options",
+          "owner": "component",
+          "uses": [
+            "Radio Button"
+          ],
+          "required": true
+        },
+        {
+          "name": "validation",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onApply",
+          "onClear",
+          "onValueChange"
+        ],
+        "testedCallbacks": [
+          "onApply",
+          "onClear",
+          "onValueChange"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "dirty",
+          "disabled",
+          "invalid",
+          "loading",
+          "permission-blocked",
+          "selected",
+          "unselected"
+        ],
+        "typedStates": [
+          "dirty",
+          "disabled",
+          "invalid",
+          "loading",
+          "permission-blocked",
+          "selected",
+          "unselected"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [
+          "groupSurface"
+        ],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "unselected",
+        "selected",
+        "invalid",
+        "dirty",
+        "loading",
+        "permission-blocked",
+        "disabled"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/radio-group.json",
+        "react": "packages/react/src/patterns/RadioGroup.js",
+        "types": "packages/react/src/patterns/RadioGroup.d.ts"
+      }
+    },
+    {
+      "order": 6,
       "pattern": "select-option-layer",
       "mode": "stateful Flow composition",
       "score": 12,
@@ -789,7 +1112,7 @@
       }
     },
     {
-      "order": 5,
+      "order": 7,
       "pattern": "snackbar-provider",
       "mode": "stateful Flow composition",
       "score": 12,
@@ -935,7 +1258,7 @@
       }
     },
     {
-      "order": 6,
+      "order": 8,
       "pattern": "swipe-actions",
       "mode": "base Flow composition",
       "score": 12,
@@ -1072,7 +1395,7 @@
       }
     },
     {
-      "order": 7,
+      "order": 9,
       "pattern": "timeline",
       "mode": "base Flow composition",
       "score": 12,
@@ -1211,7 +1534,7 @@
       }
     },
     {
-      "order": 8,
+      "order": 10,
       "pattern": "autocomplete",
       "mode": "stateful Flow composition",
       "score": 13,
@@ -1356,7 +1679,7 @@
       }
     },
     {
-      "order": 9,
+      "order": 11,
       "pattern": "confirmation-dialog",
       "mode": "stateful Flow composition",
       "score": 13,
@@ -1495,7 +1818,7 @@
       }
     },
     {
-      "order": 10,
+      "order": 12,
       "pattern": "avatar-group",
       "mode": "base Flow composition",
       "score": 14,
@@ -1646,7 +1969,7 @@
       }
     },
     {
-      "order": 11,
+      "order": 13,
       "pattern": "search",
       "mode": "stateful Flow composition",
       "score": 14,
@@ -1811,7 +2134,7 @@
       }
     },
     {
-      "order": 12,
+      "order": 14,
       "pattern": "file-upload",
       "mode": "stateful Flow composition",
       "score": 16,
@@ -1966,7 +2289,7 @@
       }
     },
     {
-      "order": 13,
+      "order": 15,
       "pattern": "quick-actions-grid",
       "mode": "base Flow composition",
       "score": 16,
@@ -2111,7 +2434,7 @@
       }
     },
     {
-      "order": 14,
+      "order": 16,
       "pattern": "kpi-card",
       "mode": "stateful Flow composition",
       "score": 17,
@@ -2263,7 +2586,7 @@
       }
     },
     {
-      "order": 15,
+      "order": 17,
       "pattern": "action-sheet",
       "mode": "stateful Flow composition",
       "score": 18,
@@ -2413,7 +2736,178 @@
       }
     },
     {
-      "order": 16,
+      "order": 18,
+      "pattern": "bottom-sheet",
+      "mode": "stateful Flow composition",
+      "score": 18,
+      "components": [
+        "Button",
+        "Icon Button",
+        "Inline Validation",
+        "List"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [
+        "Drawer Adapter"
+      ],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "trigger",
+          "owner": "component",
+          "uses": [
+            "Button",
+            "List",
+            "Icon Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "sheetBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Drawer Adapter"
+          ],
+          "required": true
+        },
+        {
+          "name": "header",
+          "owner": "component",
+          "uses": [
+            "Icon Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "sheetBody",
+          "owner": "component",
+          "uses": [
+            "List"
+          ],
+          "required": true
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "validation",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onAction",
+          "onOpenChange",
+          "onSelect"
+        ],
+        "testedCallbacks": [
+          "onAction",
+          "onOpenChange",
+          "onSelect"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "closed",
+          "destructive",
+          "disabled",
+          "dragging",
+          "invalid",
+          "loading",
+          "open",
+          "permission-blocked"
+        ],
+        "typedStates": [
+          "closed",
+          "destructive",
+          "disabled",
+          "dragging",
+          "invalid",
+          "loading",
+          "open",
+          "permission-blocked"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "closed",
+        "open",
+        "dragging",
+        "loading",
+        "invalid",
+        "destructive",
+        "permission-blocked",
+        "disabled"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json",
+        "react": "packages/react/src/patterns/BottomSheet.js",
+        "types": "packages/react/src/patterns/BottomSheet.d.ts"
+      }
+    },
+    {
+      "order": 19,
       "pattern": "drag-sortable-list",
       "mode": "stateful Flow composition",
       "score": 18,
@@ -2572,7 +3066,7 @@
       }
     },
     {
-      "order": 17,
+      "order": 20,
       "pattern": "kanban-board",
       "mode": "stateful Flow composition",
       "score": 18,
@@ -2731,7 +3225,7 @@
       }
     },
     {
-      "order": 18,
+      "order": 21,
       "pattern": "multi-select",
       "mode": "base Flow composition",
       "score": 18,
@@ -2880,7 +3374,7 @@
       }
     },
     {
-      "order": 19,
+      "order": 22,
       "pattern": "calendar-view",
       "mode": "stateful Flow composition",
       "score": 19,
@@ -3031,7 +3525,7 @@
       }
     },
     {
-      "order": 20,
+      "order": 23,
       "pattern": "column-configurator",
       "mode": "stateful Flow composition",
       "score": 19,
@@ -3184,7 +3678,7 @@
       }
     },
     {
-      "order": 21,
+      "order": 24,
       "pattern": "bulk-actions",
       "mode": "stateful Flow composition",
       "score": 20,
@@ -3334,7 +3828,7 @@
       }
     },
     {
-      "order": 22,
+      "order": 25,
       "pattern": "settings",
       "mode": "stateful Flow composition",
       "score": 20,
@@ -3502,7 +3996,7 @@
       }
     },
     {
-      "order": 23,
+      "order": 26,
       "pattern": "form-section",
       "mode": "stateful Flow composition",
       "score": 21,
@@ -3650,7 +4144,7 @@
       }
     },
     {
-      "order": 24,
+      "order": 27,
       "pattern": "gantt-chart",
       "mode": "primitive-runtime composition",
       "score": 21,
@@ -3813,7 +4307,7 @@
       }
     },
     {
-      "order": 25,
+      "order": 28,
       "pattern": "notification-panel",
       "mode": "stateful Flow composition",
       "score": 21,
@@ -3968,7 +4462,7 @@
       }
     },
     {
-      "order": 26,
+      "order": 29,
       "pattern": "payment-form",
       "mode": "stateful Flow composition",
       "score": 21,
@@ -4143,7 +4637,7 @@
       }
     },
     {
-      "order": 27,
+      "order": 30,
       "pattern": "polar-chart",
       "mode": "primitive-runtime composition",
       "score": 21,
@@ -4306,7 +4800,7 @@
       }
     },
     {
-      "order": 28,
+      "order": 31,
       "pattern": "toolbar",
       "mode": "cross-pattern composition",
       "score": 21,
@@ -4466,7 +4960,7 @@
       }
     },
     {
-      "order": 29,
+      "order": 32,
       "pattern": "waterfall-chart",
       "mode": "primitive-runtime composition",
       "score": 21,
@@ -4629,7 +5123,7 @@
       }
     },
     {
-      "order": 30,
+      "order": 33,
       "pattern": "expandable-detail-table",
       "mode": "cross-pattern composition",
       "score": 22,
@@ -4804,7 +5298,7 @@
       }
     },
     {
-      "order": 31,
+      "order": 34,
       "pattern": "section-header",
       "mode": "cross-pattern composition",
       "score": 23,
@@ -4954,7 +5448,7 @@
       }
     },
     {
-      "order": 32,
+      "order": 35,
       "pattern": "transfer-list",
       "mode": "cross-pattern composition",
       "score": 23,
@@ -5123,7 +5617,7 @@
       }
     },
     {
-      "order": 33,
+      "order": 36,
       "pattern": "fullscreen-sheet",
       "mode": "stateful Flow composition",
       "score": 24,
@@ -5277,7 +5771,7 @@
       }
     },
     {
-      "order": 34,
+      "order": 37,
       "pattern": "multi-step-form",
       "mode": "stateful Flow composition",
       "score": 24,
@@ -5443,7 +5937,7 @@
       }
     },
     {
-      "order": 35,
+      "order": 38,
       "pattern": "virtual-data-table",
       "mode": "cross-pattern composition",
       "score": 24,
@@ -5603,7 +6097,7 @@
       }
     },
     {
-      "order": 36,
+      "order": 39,
       "pattern": "agent-conversation",
       "mode": "template-facing orchestrator",
       "score": 25,
@@ -5765,7 +6259,7 @@
       }
     },
     {
-      "order": 37,
+      "order": 40,
       "pattern": "pull-to-refresh",
       "mode": "primitive-runtime composition",
       "score": 25,
@@ -5920,7 +6414,7 @@
       }
     },
     {
-      "order": 38,
+      "order": 41,
       "pattern": "help-center",
       "mode": "cross-pattern composition",
       "score": 26,
@@ -6088,7 +6582,7 @@
       }
     },
     {
-      "order": 39,
+      "order": 42,
       "pattern": "advanced-filters",
       "mode": "stateful Flow composition",
       "score": 27,
@@ -6244,7 +6738,7 @@
       }
     },
     {
-      "order": 40,
+      "order": 43,
       "pattern": "command-palette",
       "mode": "cross-pattern composition",
       "score": 27,
@@ -6400,7 +6894,7 @@
       }
     },
     {
-      "order": 41,
+      "order": 44,
       "pattern": "account-operations",
       "mode": "template-facing orchestrator",
       "score": 28,
@@ -6589,7 +7083,7 @@
       }
     },
     {
-      "order": 42,
+      "order": 45,
       "pattern": "chart-wrapper",
       "mode": "primitive-runtime composition",
       "score": 28,
@@ -6741,7 +7235,7 @@
       }
     },
     {
-      "order": 43,
+      "order": 46,
       "pattern": "filterable-editable-table",
       "mode": "cross-pattern composition",
       "score": 28,
@@ -6939,7 +7433,7 @@
       }
     },
     {
-      "order": 44,
+      "order": 47,
       "pattern": "fleet-manager-onboarding-desktop",
       "mode": "template-facing orchestrator",
       "score": 28,
@@ -7103,7 +7597,7 @@
       }
     },
     {
-      "order": 45,
+      "order": 48,
       "pattern": "backoffice-approval",
       "mode": "template-facing orchestrator",
       "score": 29,
@@ -7293,7 +7787,7 @@
       }
     },
     {
-      "order": 46,
+      "order": 49,
       "pattern": "drawer-adapter",
       "mode": "cross-pattern composition",
       "score": 29,
@@ -7482,7 +7976,7 @@
       }
     },
     {
-      "order": 47,
+      "order": 50,
       "pattern": "preference-management",
       "mode": "template-facing orchestrator",
       "score": 29,
@@ -7658,195 +8152,7 @@
       }
     },
     {
-      "order": 48,
-      "pattern": "pricing-operations",
-      "mode": "template-facing orchestrator",
-      "score": 29,
-      "components": [
-        "Badge"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Surface",
-        "Typography"
-      ],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "patternDependencies": [
-        "Virtual Data Table",
-        "Roles and Permissions",
-        "Status Feedback View"
-      ],
-      "templateRefs": [
-        "Internal Operations Console"
-      ],
-      "slots": [
-        {
-          "name": "pricingOperationsSurface",
-          "owner": "primitive",
-          "uses": [
-            "Surface"
-          ],
-          "required": true
-        },
-        {
-          "name": "pricingSummary",
-          "owner": "component",
-          "uses": [
-            "Badge"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "pricingMetric",
-          "owner": "component",
-          "uses": [
-            "Badge"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "pricingPermissionBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Roles and Permissions"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "pricingRulesBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Virtual Data Table"
-          ],
-          "required": true
-        },
-        {
-          "name": "pricingFeedbackBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Status Feedback View"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "slotCoverageFindings": {
-        "missingComponentSlots": [],
-        "missingRuntimePatternSlots": [],
-        "boundaryOnlyPatternDependencies": []
-      },
-      "reactContract": {
-        "hasForwardRef": true,
-        "hasRefAttributes": true,
-        "hasDensityProp": true,
-        "callbacks": [
-          "onEditorAction",
-          "onEditorOpenChange",
-          "onFeedbackAction",
-          "onPermissionAction",
-          "onPermissionChange",
-          "onRuleBulkAction",
-          "onRuleFiltersReset",
-          "onRulePageChange",
-          "onRuleSelect",
-          "onRuleSortChange",
-          "onRuleSubmitForApproval"
-        ],
-        "testedCallbacks": [
-          "onEditorAction",
-          "onEditorOpenChange",
-          "onFeedbackAction",
-          "onPermissionAction",
-          "onPermissionChange",
-          "onRuleBulkAction",
-          "onRuleFiltersReset",
-          "onRulePageChange",
-          "onRuleSelect",
-          "onRuleSortChange",
-          "onRuleSubmitForApproval"
-        ],
-        "missingCallbackTests": [],
-        "controlledIssues": [],
-        "formalStates": [
-          "default",
-          "disabled",
-          "editing",
-          "error",
-          "loading",
-          "pending-approval",
-          "rule-selected",
-          "submitting"
-        ],
-        "typedStates": [
-          "default",
-          "disabled",
-          "editing",
-          "error",
-          "loading",
-          "pending-approval",
-          "rule-selected",
-          "submitting"
-        ],
-        "statesMissingFromTypes": [],
-        "statesMissingFromArtifact": [],
-        "densityCascadeIssues": [],
-        "stateCascadeIssues": [],
-        "propContractIssues": [],
-        "literalContractIssues": [],
-        "missingAccessibilityImplementation": false,
-        "structuralSurfaceSlots": [
-          "pricingOperationsSurface"
-        ],
-        "missingSurfaceSlotMarkers": [],
-        "missingStructuralSurfaceUsage": false,
-        "unsafeRestSpread": false,
-        "rawGlobalDomRefs": [],
-        "debts": []
-      },
-      "runtimePrimitives": [],
-      "requiresSurface": true,
-      "states": [
-        "default",
-        "pending-approval",
-        "rule-selected",
-        "editing",
-        "submitting",
-        "loading",
-        "error",
-        "disabled"
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
-        "react": "packages/react/src/patterns/PricingOperations.js",
-        "types": "packages/react/src/patterns/PricingOperations.d.ts"
-      }
-    },
-    {
-      "order": 49,
+      "order": 51,
       "pattern": "roles-and-permissions",
       "mode": "template-facing orchestrator",
       "score": 30,
@@ -7999,7 +8305,7 @@
       }
     },
     {
-      "order": 50,
+      "order": 52,
       "pattern": "driver-and-vehicle-administration",
       "mode": "template-facing orchestrator",
       "score": 31,
@@ -8166,7 +8472,7 @@
       }
     },
     {
-      "order": 51,
+      "order": 53,
       "pattern": "authentication-login-biometrics-and-otp",
       "mode": "template-facing orchestrator",
       "score": 32,
@@ -8328,7 +8634,7 @@
       }
     },
     {
-      "order": 52,
+      "order": 54,
       "pattern": "ticket-queue",
       "mode": "template-facing orchestrator",
       "score": 32,
@@ -8530,7 +8836,7 @@
       }
     },
     {
-      "order": 53,
+      "order": 55,
       "pattern": "status-feedback-view",
       "mode": "template-facing orchestrator",
       "score": 34,
@@ -8726,7 +9032,7 @@
       }
     },
     {
-      "order": 54,
+      "order": 56,
       "pattern": "case-management",
       "mode": "template-facing orchestrator",
       "score": 37,
@@ -8946,7 +9252,213 @@
       }
     },
     {
-      "order": 55,
+      "order": 57,
+      "pattern": "pricing-operations",
+      "mode": "template-facing orchestrator",
+      "score": 37,
+      "components": [
+        "Badge"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [
+        "Advanced Filters",
+        "Drawer Adapter",
+        "Virtual Data Table",
+        "Roles and Permissions",
+        "Status Feedback View"
+      ],
+      "templateRefs": [
+        "Internal Operations Console"
+      ],
+      "slots": [
+        {
+          "name": "pricingOperationsSurface",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ],
+          "required": true
+        },
+        {
+          "name": "pricingSummary",
+          "owner": "component",
+          "uses": [
+            "Badge"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingMetric",
+          "owner": "component",
+          "uses": [
+            "Badge"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingPermissionBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Roles and Permissions"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingFiltersBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Advanced Filters"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingRulesBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Virtual Data Table"
+          ],
+          "required": true
+        },
+        {
+          "name": "pricingEditorBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Drawer Adapter"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "pricingFeedbackBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Status Feedback View"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onEditorAction",
+          "onEditorOpenChange",
+          "onFeedbackAction",
+          "onPermissionAction",
+          "onPermissionChange",
+          "onRuleBulkAction",
+          "onRuleFiltersReset",
+          "onRulePageChange",
+          "onRuleSelect",
+          "onRuleSortChange",
+          "onRuleSubmitForApproval"
+        ],
+        "testedCallbacks": [
+          "onEditorAction",
+          "onEditorOpenChange",
+          "onFeedbackAction",
+          "onPermissionAction",
+          "onPermissionChange",
+          "onRuleBulkAction",
+          "onRuleFiltersReset",
+          "onRulePageChange",
+          "onRuleSelect",
+          "onRuleSortChange",
+          "onRuleSubmitForApproval"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "default",
+          "disabled",
+          "editing",
+          "error",
+          "loading",
+          "pending-approval",
+          "rule-selected",
+          "submitting"
+        ],
+        "typedStates": [
+          "default",
+          "disabled",
+          "editing",
+          "error",
+          "loading",
+          "pending-approval",
+          "rule-selected",
+          "submitting"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [
+          "pricingOperationsSurface"
+        ],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "pending-approval",
+        "rule-selected",
+        "editing",
+        "submitting",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
+        "react": "packages/react/src/patterns/PricingOperations.js",
+        "types": "packages/react/src/patterns/PricingOperations.d.ts"
+      }
+    },
+    {
+      "order": 58,
       "pattern": "dense-operational-list",
       "mode": "template-facing orchestrator",
       "score": 40,
@@ -9146,7 +9658,7 @@
       }
     },
     {
-      "order": 56,
+      "order": 59,
       "pattern": "driver-onboarding-mobile",
       "mode": "template-facing orchestrator",
       "score": 44,
@@ -9322,7 +9834,7 @@
       }
     },
     {
-      "order": 57,
+      "order": 60,
       "pattern": "sidebar",
       "mode": "template-facing orchestrator",
       "score": 45,
@@ -9483,7 +9995,7 @@
       }
     },
     {
-      "order": 58,
+      "order": 61,
       "pattern": "station-discovery",
       "mode": "template-facing orchestrator",
       "score": 45,
@@ -9696,7 +10208,7 @@
       }
     },
     {
-      "order": 59,
+      "order": 62,
       "pattern": "topbar",
       "mode": "template-facing orchestrator",
       "score": 75,

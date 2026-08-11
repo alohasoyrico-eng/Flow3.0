@@ -8,8 +8,8 @@ React patterns must compose governed Flow components, foundations, and primitive
 
 | Metric | Value |
 | --- | ---: |
-| formalPatternArtifacts | 59 |
-| implementedReactPatterns | 59 |
+| formalPatternArtifacts | 62 |
+| implementedReactPatterns | 62 |
 | patternArchitecturePolicyIssues | 0 |
 | patternArchitectureForbiddenVisualTags | 22 |
 | patternArchitectureEmailChannelPatterns | 1 |
@@ -27,33 +27,33 @@ React patterns must compose governed Flow components, foundations, and primitive
 | rawDivWrapperPolicyEntries | 6 |
 | forbiddenPatternImportNeedlePolicy | 4 |
 | missingFormalArtifacts | 0 |
-| patternsWithDeclaredFoundations | 59 |
-| patternsWithDeclaredPrimitives | 59 |
+| patternsWithDeclaredFoundations | 62 |
+| patternsWithDeclaredPrimitives | 62 |
 | missingRequiredComponentImports | 0 |
 | undeclaredComponentImports | 0 |
 | unknownComponentImports | 0 |
 | aliasedFlowImports | 0 |
 | rawDomVisuals | 0 |
-| rawDivWrappers | 47 |
-| qualifiedRawDivWrappers | 47 |
+| rawDivWrappers | 52 |
+| qualifiedRawDivWrappers | 52 |
 | unqualifiedRawDivs | 0 |
 | docsDependencies | 0 |
 | workspaceDependencies | 0 |
 | visualClassLiterals | 0 |
-| declaredPatternDependencies | 81 |
-| runtimePatternImports | 72 |
+| declaredPatternDependencies | 84 |
+| runtimePatternImports | 75 |
 | boundaryOnlyPatternDependencies | 9 |
 | undocumentedPatternBoundaries | 0 |
 | undeclaredPatternImports | 0 |
-| slotCount | 288 |
-| slotUseCount | 443 |
+| slotCount | 307 |
+| slotUseCount | 465 |
 | slotIssues | 0 |
 | slotRenderEvidenceIssues | 0 |
-| primitiveSlotUses | 28 |
-| primitiveSurfaceSlotUses | 25 |
+| primitiveSlotUses | 32 |
+| primitiveSurfaceSlotUses | 27 |
 | primitiveMapsSlotUses | 1 |
-| primitiveSlotRuntimeEvidence | 26 |
-| tokenDependencies | 761 |
+| primitiveSlotRuntimeEvidence | 28 |
+| tokenDependencies | 804 |
 | tokenIssues | 0 |
 | patternCopyComponentIssues | 0 |
 | patternCopyFoundationIssues | 0 |
@@ -91,10 +91,12 @@ React patterns must compose governed Flow components, foundations, and primitive
 | avatar-group | Avatar, Badge, Button, InlineValidation, List, Popover, Tooltip | Avatar, Badge, Button, InlineValidation, List, Popover, Tooltip | None | None | None | None | None | 4/7 | None | None | 13 | None | None | None | None | None | None | None | None | None | None | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |
 | avatar-menu | Avatar, Menu | Avatar, Menu | Settings | None | Settings | None | None | 2/2 | None | None | 8 | None | None | None | None | None | None | None | None | None | None | Breakpoints, Color, Disabled, Duration, Elevation, Focus, Iconography, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Accessibility, Depth, Energy, Frame, Momentum, Voice | None | None | None | None | None |
 | backoffice-approval | Badge | Badge, Surface | DenseOperationalList, DrawerAdapter, StatusFeedbackView | DenseOperationalList, DrawerAdapter, StatusFeedbackView | None | None | None | 6/6 | None | None | 12 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
+| bottom-sheet | Button, IconButton, InlineValidation, List | Button, IconButton, InlineValidation, List, Surface | DrawerAdapter | DrawerAdapter | None | None | None | 6/8 | None | None | 15 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
 | bulk-actions | Badge, Button, Checkbox, Dialog, Menu, ProgressIndicator, Table, Toast | Badge, Button, Checkbox, Dialog, Menu, ProgressIndicator, Table, Toast | Toolbar | Toolbar | None | None | None | 4/9 | None | None | 15 | None | None | None | None | None | None | None | None | None | None | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Accessibility, Depth, Energy, Frame, Momentum, State, Voice | None | None | None | None | None |
 | calendar-view | Badge, Button, Card, DateRangePicker, EmptyState, List, Popover, Skeleton, Tooltip | Badge, Button, Card, DateRangePicker, EmptyState, List, Popover, Skeleton, Surface, Tooltip | None | None | None | None | None | 3/9 | None | None | 15 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |
 | case-management | Badge | Badge, Surface | AdvancedFilters, DenseOperationalList, DrawerAdapter, StatusFeedbackView, Timeline | AdvancedFilters, DenseOperationalList, DrawerAdapter, StatusFeedbackView, Timeline | None | None | None | 8/8 | None | None | 12 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
 | chart-wrapper | Badge, Button, ChartPanel, EmptyState, ErrorPanel, KpiTile, List, Menu, Skeleton, Table | Badge, Button, ChartPanel, EmptyState, ErrorPanel, KpiTile, List, Menu, Skeleton, Surface, Table | None | None | None | None | None | 3/10 | None | None | 16 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Charts, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |
+| checkbox-group | Button, Checkbox, InlineValidation | Button, Checkbox, InlineValidation, Surface | None | None | None | None | None | 6/7 | None | None | 14 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
 | column-configurator | Badge, Button, Checkbox, Dialog, Drawer, InlineValidation, Menu, Table, Toast | Badge, Button, Checkbox, Dialog, Drawer, InlineValidation, Menu, Surface, Table, Toast | None | None | None | None | None | 3/9 | None | None | 15 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |
 | command-palette | Button, Dialog, EmptyState, Input, Menu, Toast | Button, Dialog, EmptyState, Input, Menu, Toast | Search, Topbar | None | Search, Topbar | None | None | 3/6 | None | None | 13 | None | None | None | None | None | None | None | None | None | None | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Momentum, State, Voice | None | None | None | None | None |
 | confirmation-dialog | Button, Dialog, ErrorPanel, InlineValidation, Toast | Button, Dialog, ErrorPanel, InlineValidation, Toast | None | None | None | None | None | 3/5 | None | None | 11 | None | None | None | None | None | None | None | None | None | None | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |
@@ -121,9 +123,10 @@ React patterns must compose governed Flow components, foundations, and primitive
 | payment-form | Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, InlineValidation, InputAmount | Button, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, InlineValidation, InputAmount, Surface | StatusFeedbackView | StatusFeedbackView | None | None | None | 6/8 | None | None | 17 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
 | polar-chart | Badge | Badge, Surface | ChartWrapper | ChartWrapper | None | None | None | 6/6 | None | None | 12 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Charts, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
 | preference-management | Badge | Badge, Surface | ConfirmationDialog, FormSection, Settings | ConfirmationDialog, FormSection, Settings | None | None | None | 5/5 | None | None | 12 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Field Action, Focus, Iconography, Loading, Measurement, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
-| pricing-operations | Badge | Badge, Surface | RolesAndPermissions, StatusFeedbackView, VirtualDataTable | RolesAndPermissions, StatusFeedbackView, VirtualDataTable | None | None | None | 6/6 | None | None | 12 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
+| pricing-operations | Badge | Badge, Surface | AdvancedFilters, DrawerAdapter, RolesAndPermissions, StatusFeedbackView, VirtualDataTable | AdvancedFilters, DrawerAdapter, RolesAndPermissions, StatusFeedbackView, VirtualDataTable | None | None | None | 8/8 | None | None | 12 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
 | pull-to-refresh | AnimatedMoment, Button, Card, InlineValidation, List, ProgressIndicator, Toast | AnimatedMoment, Button, Card, InlineValidation, List, ProgressIndicator, Surface, Toast | None | None | None | None | None | 4/8 | None | None | 13 | None | None | None | None | None | None | None | None | None | Surface | Animation Assets, Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Energy, Frame, Momentum, State, Voice | None | None | None | None | None |
 | quick-actions-grid | Badge, Dialog, QuickAction, Toast, Tooltip | Badge, Dialog, QuickAction, Toast, Tooltip | Search | Search | None | None | None | 4/6 | None | None | 10 | None | None | None | None | None | None | None | None | None | None | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Accessibility, Energy, Frame, Iconography, Voice | None | None | None | None | None |
+| radio-group | Button, InlineValidation, RadioButton | Button, InlineValidation, RadioButton, Surface | None | None | None | None | None | 5/5 | None | None | 14 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
 | roles-and-permissions | AuditEvent, Badge, Button, Checkbox, Dialog, InlineValidation, Switch, Table, Toast, Tooltip | AuditEvent, Badge, Button, Checkbox, Dialog, InlineValidation, Switch, Table, Toast, Tooltip | None | None | None | None | None | 3/10 | None | None | 16 | None | None | None | None | None | None | None | None | None | None | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |
 | search | Button, EmptyState, InlineValidation, Input, List, Select | Button, EmptyState, InlineValidation, Input, List, Select | None | None | None | None | None | 5/6 | None | None | 13 | None | None | None | None | None | None | None | None | None | None | Color, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Energy, Voice, Frame, Depth, Momentum, State, Accessibility | None | None | None | None | None |
 | section-header | Badge, Button, Menu, Skeleton, Tag | Badge, Button, Menu, Skeleton, Tag | FormSection, Settings, Toolbar | FormSection, Settings, Toolbar | None | None | None | 5/8 | None | None | 11 | None | None | None | None | None | None | None | None | None | None | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |

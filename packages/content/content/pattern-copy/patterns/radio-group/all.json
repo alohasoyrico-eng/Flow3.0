@@ -1,0 +1,94 @@
+{
+  "patterns": {
+    "radio-group": {
+      "title": "Radio Group",
+      "purpose": "Coordinate one exclusive decision with a visible question, Radio Button options, shared name, keyboard movement, validation, and option-set layout rules.",
+      "useWhen": [
+        "Users must choose exactly one option from a small related set.",
+        "The decision needs a visible question, helper, default, validation, or recovery copy.",
+        "Exclusive choice must cascade through Radio Button, Inline Validation, Button actions, and parent Surface state."
+      ],
+      "doNotUseWithoutReview": [
+        "Users may select more than one option.",
+        "The choices are navigation tabs, segmented commands, or menu actions.",
+        "A default could create financial, legal, privacy, safety, or compliance risk."
+      ],
+      "foundations": [
+        ["Accessibility", "Group, question, shared name, roving movement, required state, and validation are explicit."],
+        ["Depth", "Surface owns group structure without Card wrapping."],
+        ["Energy", "Selected, unselected, invalid, disabled, and focus states cascade to child Radio Buttons."],
+        ["Frame", "Option spacing, stacked/inline layout, and action placement remain token-driven."],
+        ["Growth", "Option measurement and explicit apply behavior inherit from child component contracts."],
+        ["Iconography", "Radio symbols remain owned by Radio Button."],
+        ["Momentum", "Keyboard movement and selection updates preserve focus and avoid layout shifts."],
+        ["State", "Unselected, selected, invalid, dirty, loading, permission-blocked, and disabled states are named."],
+        ["Symbol", "Radio marks can support selected state but text remains required."],
+        ["Tone", "Invalid, disabled, blocked, and selected tones remain contract-bound."],
+        ["Voice", "Question, option labels, helper, validation, and recovery copy stay visible."]
+      ],
+      "slots": [
+        ["groupSurface", "Surface", "required", "Structural group owner for density, state, and spacing."],
+        ["question", "Typography", "required", "Visible exclusive-choice question owned by the typography primitive cascade."],
+        ["options", "Radio Button[]", "required", "Atomic Radio Button options sharing one name."],
+        ["validation", "Inline Validation", "conditional", "Required, unavailable, or risk recovery copy."],
+        ["actions", "Button[]", "conditional", "Apply, clear, or save actions when selection is explicit."]
+      ],
+      "componentsUsed": [
+        "Radio Button",
+        "Inline Validation",
+        "Button"
+      ],
+      "patternDependencies": [],
+      "variants": [
+        ["Simple group", "Default", "One labelled set with exclusive Radio Button options."],
+        ["Required decision", "State", "Inline Validation appears until one option is selected."],
+        ["Explicit apply", "Conditional", "Selection is reviewed before Button commits the decision."]
+      ],
+      "motion": [
+        ["Keyboard movement", "Arrow movement updates focus/selection according to platform expectations."],
+        ["Validation reveal", "Inline Validation appears in place and respects reduced motion."],
+        ["Explicit apply", "Button feedback does not steal focus from the selected option."]
+      ],
+      "accessibility": [
+        "Expose the set with a visible label and programmatic radio-group semantics.",
+        "Every Radio Button shares one group name.",
+        "Associate helper and validation copy with the group.",
+        "Do not rely on color alone for selected or invalid state.",
+        "Avoid risky defaults unless product policy confirms them."
+      ],
+      "implementationChecklist": [
+        "Compose Surface, Radio Button, Inline Validation, and Button.",
+        "Keep Radio Button atomic; exclusive set state belongs to Radio Group.",
+        "Forward selected value, validation, clear, apply, and focus events.",
+        "Use density/theme from the parent cascade.",
+        "Reject custom radio visuals, raw inputs, Card wrappers, and segmented-control substitution."
+      ],
+      "tests": [
+        "Composes Surface, Radio Button, Inline Validation, and Button.",
+        "Covers unselected, selected, invalid, dirty, loading, permission-blocked, and disabled states.",
+        "Keyboard movement preserves exclusive selection semantics.",
+        "Validation is associated with the group.",
+        "No custom radio visuals, raw inputs, Card wrappers, or local DOM-only selection state are emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Radio Group for one exclusive decision.",
+          "Use Inline Validation when the decision is required or unavailable.",
+          "Use explicit apply when selection has side effects."
+        ],
+        "mustAsk": [
+          "The default selection can affect money, access, compliance, safety, identity, privacy, or irreversible state.",
+          "The user might need multiple selections.",
+          "Persistence, validation, or apply behavior is unclear."
+        ],
+        "rejectIf": [
+          "More than one option can be selected.",
+          "Radio visuals are custom-built instead of using Radio Button.",
+          "The group is wrapped in Card instead of Surface.",
+          "Selected or invalid state is color-only."
+        ],
+        "handoff": "Confirm question, option source, default policy, required state, validation, persistence, and whether changes apply immediately or explicitly."
+      }
+    }
+  }
+}

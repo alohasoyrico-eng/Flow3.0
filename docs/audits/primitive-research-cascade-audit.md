@@ -12,7 +12,7 @@ Research consumes Growth, Tone, Accessibility, Voice, and Measurement so decisio
 - Coordinated primitives: 3/3
 - Token aliases: 11/11
 - Component contract refs: 60
-- Pattern refs: 77
+- Pattern refs: 83
 - Template refs: 9
 - Claims without evidence language: 0
 

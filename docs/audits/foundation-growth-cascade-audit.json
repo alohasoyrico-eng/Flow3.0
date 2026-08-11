@@ -211,7 +211,7 @@
       ]
     },
     "patterns": {
-      "count": 59,
+      "count": 62,
       "ids": [
         "account-operations",
         "action-sheet",
@@ -222,10 +222,12 @@
         "avatar-group",
         "avatar-menu",
         "backoffice-approval",
+        "bottom-sheet",
         "bulk-actions",
         "calendar-view",
         "case-management",
         "chart-wrapper",
+        "checkbox-group",
         "column-configurator",
         "command-palette",
         "confirmation-dialog",
@@ -255,6 +257,7 @@
         "pricing-operations",
         "pull-to-refresh",
         "quick-actions-grid",
+        "radio-group",
         "roles-and-permissions",
         "search",
         "section-header",
@@ -283,20 +286,22 @@
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
         "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
         "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
-        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
-        "packages/content/content/pattern-contracts/patterns/case-management.md"
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md"
       ]
     },
     "patternCopy": {
-      "count": 26,
+      "count": 29,
       "ids": [
         "account-operations",
         "advanced-filters",
         "agent-conversation",
         "backoffice-approval",
+        "bottom-sheet",
         "case-management",
         "chart-wrapper",
+        "checkbox-group",
         "command-palette",
         "dense-operational-list",
         "email-template-layout",
@@ -310,6 +315,7 @@
         "polar-chart",
         "preference-management",
         "pricing-operations",
+        "radio-group",
         "search",
         "sidebar",
         "station-discovery",
@@ -323,14 +329,14 @@
         "packages/content/content/pattern-copy/patterns/advanced-filters/all.json",
         "packages/content/content/pattern-copy/patterns/agent-conversation/all.json",
         "packages/content/content/pattern-copy/patterns/backoffice-approval/all.json",
+        "packages/content/content/pattern-copy/patterns/bottom-sheet/all.json",
         "packages/content/content/pattern-copy/patterns/case-management/all.json",
         "packages/content/content/pattern-copy/patterns/chart-wrapper/all.json",
+        "packages/content/content/pattern-copy/patterns/checkbox-group/all.json",
         "packages/content/content/pattern-copy/patterns/command-palette/all.json",
         "packages/content/content/pattern-copy/patterns/dense-operational-list/all.json",
         "packages/content/content/pattern-copy/patterns/email-template-layout/all.json",
-        "packages/content/content/pattern-copy/patterns/expandable-detail-table/all.json",
-        "packages/content/content/pattern-copy/patterns/filterable-editable-table/all.json",
-        "packages/content/content/pattern-copy/patterns/gantt-chart/all.json"
+        "packages/content/content/pattern-copy/patterns/expandable-detail-table/all.json"
       ]
     },
     "templates": {

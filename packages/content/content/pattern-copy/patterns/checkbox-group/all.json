@@ -1,0 +1,95 @@
+{
+  "patterns": {
+    "checkbox-group": {
+      "title": "Checkbox Group",
+      "purpose": "Coordinate related Checkbox options with group labelling, select-all, mixed state, shared validation, and cross-option selection rules without turning Checkbox into a layout primitive.",
+      "useWhen": [
+        "Users can choose more than one option from a related set.",
+        "The set needs a visible question, helper copy, validation, select-all, or mixed state.",
+        "Selection rules must cascade across Checkbox, Inline Validation, Button actions, and parent Surface state."
+      ],
+      "doNotUseWithoutReview": [
+        "Only one option can be selected.",
+        "The options are independent toggles rather than one labelled group.",
+        "Permission, pricing, legal, or compliance choices need product review before bulk selection."
+      ],
+      "foundations": [
+        ["Accessibility", "Group, label, description, error, mixed state, and keyboard behavior stay explicit."],
+        ["Depth", "Surface owns group structure without Card wrapping."],
+        ["Energy", "Checked, unchecked, mixed, invalid, disabled, and focus states cascade to child Checkboxes."],
+        ["Frame", "Option spacing, columns, stacking, and action placement remain token-driven."],
+        ["Growth", "Selection counts and option measurement inherit from child component contracts."],
+        ["Iconography", "Checkbox symbols remain owned by Checkbox."],
+        ["Momentum", "Select-all and validation updates avoid focus loss and layout jumps."],
+        ["State", "Partial, all-selected, none-selected, invalid, dirty, loading, and disabled states are named."],
+        ["Symbol", "Checkbox marks can support selection state but text remains required."],
+        ["Tone", "Invalid, disabled, loading, and selected tones remain contract-bound."],
+        ["Voice", "Question, option labels, helper, validation, count, and recovery copy stay visible."]
+      ],
+      "slots": [
+        ["groupSurface", "Surface", "required", "Structural group owner for density, state, and spacing."],
+        ["question", "Typography", "required", "Visible group question or label owned by the typography primitive cascade."],
+        ["options", "Checkbox[]", "required", "Atomic Checkbox options with labels and optional descriptions."],
+        ["selectAll", "Checkbox | Button", "conditional", "Bulk selection control with mixed state when partial."],
+        ["validation", "Inline Validation", "conditional", "Shared group validation and recovery copy."],
+        ["actions", "Button[]", "conditional", "Apply, clear, or save actions when selection is explicit."]
+      ],
+      "componentsUsed": [
+        "Checkbox",
+        "Inline Validation",
+        "Button"
+      ],
+      "patternDependencies": [],
+      "variants": [
+        ["Simple group", "Default", "One labelled set with multiple Checkbox options."],
+        ["Select all", "Conditional", "A parent control mirrors none, partial, and all selected states."],
+        ["Validated group", "State", "Shared Inline Validation explains required, minimum, maximum, or unavailable choices."]
+      ],
+      "motion": [
+        ["Selection update", "Checkbox and count state update without moving focus."],
+        ["Mixed state", "Select-all state changes immediately after option toggles."],
+        ["Validation reveal", "Inline Validation appears in place and respects reduced motion."]
+      ],
+      "accessibility": [
+        "Expose the group with a visible label and programmatic group semantics.",
+        "Associate helper and validation copy with the group.",
+        "Keep each Checkbox label visible.",
+        "Represent mixed state textually and programmatically.",
+        "Do not communicate validity or selection count by color alone."
+      ],
+      "implementationChecklist": [
+        "Compose Surface, Checkbox, Inline Validation, and Button.",
+        "Keep Checkbox atomic; group state belongs to Checkbox Group.",
+        "Forward option, select-all, clear, apply, and validation events.",
+        "Use density/theme from the parent cascade.",
+        "Reject custom checkmark visuals, raw inputs, Card wrappers, and Docs-owned group logic."
+      ],
+      "tests": [
+        "Composes Surface, Checkbox, Inline Validation, and Button.",
+        "Covers none, partial, all, invalid, dirty, loading, and disabled states.",
+        "Select-all updates mixed state and preserves focus.",
+        "Validation is associated with the group.",
+        "No custom checkbox visuals, raw inputs, Card wrappers, or local DOM-only selection state are emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Checkbox Group for related multi-selection.",
+          "Use select-all only when the option set has a clear shared scope.",
+          "Use Inline Validation when selection has min, max, required, or unavailable rules."
+        ],
+        "mustAsk": [
+          "Selection affects permissions, pricing, compliance, identity, or irreversible operations.",
+          "Max/min rules, persistence, select-all scope, or apply behavior are unclear.",
+          "The requested behavior is actually exclusive selection."
+        ],
+        "rejectIf": [
+          "Only one option can be selected.",
+          "Checkbox visuals are custom-built instead of using Checkbox.",
+          "The group is wrapped in Card instead of Surface.",
+          "Validation or mixed state is color-only."
+        ],
+        "handoff": "Confirm group question, option source, min/max rules, select-all scope, persistence, validation, and whether changes apply immediately or explicitly."
+      }
+    }
+  }
+}
