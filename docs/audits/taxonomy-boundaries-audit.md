@@ -12,7 +12,7 @@ Component, primitive, pattern, and template boundaries must stay explicit so orc
 - Pattern decisions: 10
 - Template decisions: 9
 - Non-component decisions: 1
-- Artifacts scanned: 166
+- Artifacts scanned: 167
 - Cross-layer artifact ids: 1
 - Unapproved cross-layer artifact ids: 0
 - Artifact layer mismatches: 0
@@ -48,7 +48,7 @@ Changing these numbers is a contract decision. Additions or removals must be rev
 | patternDecisions | 10 | 10 |
 | templateDecisions | 9 | 9 |
 | nonComponentDecisions | 1 | 1 |
-| artifactsScanned | 166 | 166 |
+| artifactsScanned | 167 | 167 |
 | crossLayerArtifactIds | 1 | 1 |
 | unapprovedCrossLayerArtifactIds | 0 | 0 |
 | artifactLayerMismatches | 0 | 0 |

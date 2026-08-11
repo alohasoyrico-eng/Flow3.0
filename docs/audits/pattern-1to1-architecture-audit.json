@@ -3,20 +3,20 @@
   "audit": "pattern 1:1 architecture",
   "principle": "Every pattern needs an explicit 1:1 architecture map across foundations, primitives, components, pattern crossings, template references, and docs evidence before React migration starts.",
   "inventory": {
-    "patterns": 62,
+    "patterns": 63,
     "patternArchitecturePolicyIssues": 0,
     "foundationPrimitiveHintPolicy": 11,
     "complexityWeightPolicy": 8,
-    "formalArtifacts": 62,
-    "markdownContracts": 62,
-    "catalogEntries": 62,
-    "patternsWithDeclaredPrimitives": 62,
+    "formalArtifacts": 63,
+    "markdownContracts": 63,
+    "catalogEntries": 63,
+    "patternsWithDeclaredPrimitives": 63,
     "patternsWithOnlyInferredPrimitives": 0,
     "patternsWithUnknownComponents": 0,
     "patternsWithComponentArtifactGaps": 0,
     "patternContractScopeIssues": 0,
     "patternContractArtifactCoverageIssues": 0,
-    "patternsWithPatternCrossings": 44,
+    "patternsWithPatternCrossings": 45,
     "patternsReferencedByTemplates": 16,
     "templatePatternDependencies": 50,
     "templatePatternDependencyGaps": 0,
@@ -25,7 +25,7 @@
     "templateModuleDependencies": 29,
     "unknownTemplateModuleDependencies": 0,
     "docsAppAvailable": 1,
-    "patternsReferencedByDocs": 44,
+    "patternsReferencedByDocs": 45,
     "docsEvidenceFiles": 41,
     "unknownDocsEvidenceFiles": 0,
     "formalArtifactBacklog": 0,
@@ -36,20 +36,20 @@
   },
   "baseline": {
     "inventory": {
-      "patterns": 62,
+      "patterns": 63,
       "patternArchitecturePolicyIssues": 0,
       "foundationPrimitiveHintPolicy": 11,
       "complexityWeightPolicy": 8,
-      "formalArtifacts": 62,
-      "markdownContracts": 62,
-      "catalogEntries": 62,
-      "patternsWithDeclaredPrimitives": 62,
+      "formalArtifacts": 63,
+      "markdownContracts": 63,
+      "catalogEntries": 63,
+      "patternsWithDeclaredPrimitives": 63,
       "patternsWithOnlyInferredPrimitives": 0,
       "patternsWithUnknownComponents": 0,
       "patternsWithComponentArtifactGaps": 0,
       "patternContractScopeIssues": 0,
       "patternContractArtifactCoverageIssues": 0,
-      "patternsWithPatternCrossings": 44,
+      "patternsWithPatternCrossings": 45,
       "patternsReferencedByTemplates": 16,
       "templatePatternDependencies": 50,
       "templatePatternDependencyGaps": 0,
@@ -58,7 +58,7 @@
       "templateModuleDependencies": 29,
       "unknownTemplateModuleDependencies": 0,
       "docsAppAvailable": 1,
-      "patternsReferencedByDocs": 44,
+      "patternsReferencedByDocs": 45,
       "docsEvidenceFiles": 41,
       "unknownDocsEvidenceFiles": 0,
       "formalArtifactBacklog": 0,
@@ -912,6 +912,7 @@
       "avatar-group",
       "avatar-menu",
       "calendar-view",
+      "chart-legend-item",
       "chart-wrapper",
       "checkbox-group",
       "column-configurator",
@@ -3994,6 +3995,230 @@
           "high pattern-crossing count",
           "referenced by templates; migration needs template-boundary review"
         ]
+      }
+    },
+    {
+      "id": "chart-legend-item",
+      "title": "Chart Legend Item",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/chart-legend-item/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/chart-legend-item.md",
+        "catalog": "packages/content/content/catalog/patterns-06.json",
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json"
+      },
+      "purpose": "Coordinate one chart series label with visibility, value, semantic status, keyboard toggle, and chart/table synchronization without owning chart rendering.",
+      "components": {
+        "declared": [
+          "Badge",
+          "Button",
+          "Checkbox",
+          "Chip",
+          "Tag",
+          "Tooltip"
+        ],
+        "normalizedIds": [
+          "badge",
+          "button",
+          "checkbox",
+          "chip",
+          "tag",
+          "tooltip"
+        ],
+        "known": [
+          "badge",
+          "button",
+          "checkbox",
+          "chip",
+          "tag",
+          "tooltip"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "legendSurface",
+          "type": "Surface",
+          "required": "yes",
+          "notes": "Structural boundary for one legend row or item.",
+          "componentRefs": [],
+          "patternRefs": []
+        },
+        {
+          "slot": "toggle",
+          "type": "Checkbox | Chip | Button",
+          "required": "conditional",
+          "notes": "Series visibility or selected-state control.",
+          "componentRefs": [
+            "button",
+            "checkbox",
+            "chip"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "status",
+          "type": "Badge | Tag",
+          "required": "conditional",
+          "notes": "Semantic metadata for status or threshold.",
+          "componentRefs": [
+            "badge",
+            "tag"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "value",
+          "type": "Typography",
+          "required": "conditional",
+          "notes": "Series value, share, or delta copy.",
+          "componentRefs": [],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Charts",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.checkbox.*",
+          "comp.chip.*",
+          "comp.tag.*",
+          "comp.tooltip.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [
+          "chart-wrapper"
+        ],
+        "templates": [],
+        "docs": [
+          "../../apps/docs/icon-system.js"
+        ]
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Composes Flow controls instead of raw buttons.",
+        "Selected/hidden/disabled states are visible without color-only meaning.",
+        "ChartWrapper / Chart Wrapper remains the boundary host for chart rendering and fallback data; Chart Legend Item only owns series legend interaction."
+      ],
+      "accessibility": [
+        "Legend item has an accessible label and optional value.",
+        "Toggleable variants are keyboard reachable.",
+        "Color is never the only series identifier.",
+        "Hidden series state is announced through text or control state."
+      ],
+      "migration": {
+        "complexityScore": 14,
+        "wave": "wave-0-formalized",
+        "blockers": []
       }
     },
     {

@@ -4,7 +4,7 @@
   "principle": "FlowDocs must consume Flow through package exports and generated assets; any docs-owned component tokens or missing aliases are tracked debt, not invisible system behavior. The actionable debt metric is docsSystemBoundaryDebt.",
   "docsRoot": "../FlowDocs",
   "inventory": {
-    "sourceFilesScanned": 203,
+    "sourceFilesScanned": 205,
     "generatedFiles": 352,
     "flowDependencyPresent": 1,
     "flowBoundaryAliases": 20,
@@ -27,7 +27,7 @@
   },
   "baseline": {
     "inventory": {
-      "sourceFilesScanned": 203,
+      "sourceFilesScanned": 205,
       "generatedFiles": 352,
       "flowDependencyPresent": 1,
       "flowBoundaryAliases": 20,

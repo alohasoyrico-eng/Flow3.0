@@ -307,7 +307,7 @@
       ]
     },
     "patterns": {
-      "count": 61,
+      "count": 62,
       "ids": [
         "account-operations",
         "action-sheet",
@@ -322,6 +322,7 @@
         "bulk-actions",
         "calendar-view",
         "case-management",
+        "chart-legend-item",
         "chart-wrapper",
         "checkbox-group",
         "column-configurator",

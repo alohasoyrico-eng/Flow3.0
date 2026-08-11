@@ -11,7 +11,7 @@ Energy must govern semantic color for actions, status, risk, text, surfaces, bor
 | Token declarations | 108 | packages/tokens/styles/tokens.css |
 | Primitive refs | 11 | animation-assets, charts, color, country-flags, disabled, field-action, iconography, illustration-assets, library-sources, maps, surface |
 | Component refs | 60 | accordion, animated-moment, audit-event, avatar, badge, biometric-prompt, breadcrumbs, button, card, card-expiry-input, card-number-input, card-security-code-input, card-summary, chart-panel, chat-composer, chat-message, chat-thread, checkbox... |
-| Pattern refs | 62 | account-operations, action-sheet, advanced-filters, agent-conversation, authentication-login-biometrics-and-otp, autocomplete, avatar-group, avatar-menu, backoffice-approval, bottom-sheet, bulk-actions, calendar-view, case-management, chart-wrapper, checkbox-group, column-configurator, command-palette, confirmation-dialog... |
+| Pattern refs | 63 | account-operations, action-sheet, advanced-filters, agent-conversation, authentication-login-biometrics-and-otp, autocomplete, avatar-group, avatar-menu, backoffice-approval, bottom-sheet, bulk-actions, calendar-view, case-management, chart-legend-item, chart-wrapper, checkbox-group, column-configurator, command-palette... |
 | Template refs | 6 | configuration-console, driver-card-wallet, driver-mobile-app, fleet-dashboard-suite, fleet-manager-desktop, routes-and-stations |
 | Package CSS direct uses | 853 | packages/components/styles/components.css |
 | Docs CSS direct uses | 912 | apps/docs/styles |

@@ -22,7 +22,7 @@ Pattern contracts and demos must be governed as portable Flow evidence: markdown
 | requiredDemoPolicyGaps | 0 |
 | unusedRequiredDemoExemptions | 0 |
 | requiredDemoComponentAssertions | 105 |
-| markdownContractsScanned | 62 |
+| markdownContractsScanned | 63 |
 | contractsMissingRequiredSections | 0 |
 | missingRequiredSectionEntries | 0 |
 | missingRequiredDemoFunctions | 0 |

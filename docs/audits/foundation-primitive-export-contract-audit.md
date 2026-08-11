@@ -8,7 +8,7 @@ Foundations, primitives, patterns, and templates must be exportable as platform-
 
 - Foundations: 11
 - Primitives: 24
-- Patterns: 62
+- Patterns: 63
 - Templates: 9
 - Tokens: 1078
 - Token types: 15
@@ -45,7 +45,7 @@ Foundations, primitives, patterns, and templates must be exportable as platform-
 | --- | ---: | ---: |
 | foundations | 11 | 11 |
 | primitives | 24 | 24 |
-| patterns | 62 | 62 |
+| patterns | 63 | 63 |
 | templates | 9 | 9 |
 | tokenCount | 1078 | 1078 |
 | tokenTypes | 15 | 15 |
@@ -179,6 +179,7 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | ./specs/patterns/bulk-actions | ./packages/specs/specs/unison-system/artifacts/patterns/bulk-actions.json | pass |
 | ./specs/patterns/calendar-view | ./packages/specs/specs/unison-system/artifacts/patterns/calendar-view.json | pass |
 | ./specs/patterns/case-management | ./packages/specs/specs/unison-system/artifacts/patterns/case-management.json | pass |
+| ./specs/patterns/chart-legend-item | ./packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json | pass |
 | ./specs/patterns/chart-wrapper | ./packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json | pass |
 | ./specs/patterns/checkbox-group | ./packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json | pass |
 | ./specs/patterns/column-configurator | ./packages/specs/specs/unison-system/artifacts/patterns/column-configurator.json | pass |
@@ -290,6 +291,7 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | bulk-actions | bulk-actions | yes | None |
 | calendar-view | calendar-view | yes | None |
 | case-management | case-management | yes | None |
+| chart-legend-item | chart-legend-item | yes | None |
 | chart-wrapper | chart-wrapper | yes | None |
 | checkbox-group | checkbox-group | yes | None |
 | column-configurator | column-configurator | yes | None |

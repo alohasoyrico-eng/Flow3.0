@@ -11,7 +11,7 @@ Frame must govern spacing, grid, density, radius, sizing, borders, and responsiv
 | Token declarations | 261 | packages/tokens/styles/tokens.css |
 | Primitive refs | 15 | animation-assets, breakpoints, country-flags, density, elevation, field-action, focus, iconography, illustration-assets, library-sources, maps, radius, spacing, surface, typography |
 | Component refs | 60 | accordion, animated-moment, audit-event, avatar, badge, biometric-prompt, breadcrumbs, button, card, card-expiry-input, card-number-input, card-security-code-input, card-summary, chart-panel, chat-composer, chat-message, chat-thread, checkbox... |
-| Pattern refs | 62 | account-operations, action-sheet, advanced-filters, agent-conversation, authentication-login-biometrics-and-otp, autocomplete, avatar-group, avatar-menu, backoffice-approval, bottom-sheet, bulk-actions, calendar-view, case-management, chart-wrapper, checkbox-group, column-configurator, command-palette, confirmation-dialog... |
+| Pattern refs | 63 | account-operations, action-sheet, advanced-filters, agent-conversation, authentication-login-biometrics-and-otp, autocomplete, avatar-group, avatar-menu, backoffice-approval, bottom-sheet, bulk-actions, calendar-view, case-management, chart-legend-item, chart-wrapper, checkbox-group, column-configurator, command-palette... |
 | Template refs | 9 | agent-workspace, configuration-console, driver-card-wallet, driver-mobile-app, fleet-dashboard-suite, fleet-manager-desktop, internal-operations-console, routes-and-stations, settings-workspace |
 | Package CSS direct uses | 1452 | packages/components/styles/components.css |
 | Docs CSS direct uses | 1159 | apps/docs/styles |

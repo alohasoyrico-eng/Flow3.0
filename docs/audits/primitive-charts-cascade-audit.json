@@ -141,11 +141,12 @@
       ]
     },
     "patterns": {
-      "count": 20,
+      "count": 21,
       "ids": [
         "advanced-filters",
         "avatar-group",
         "calendar-view",
+        "chart-legend-item",
         "chart-wrapper",
         "column-configurator",
         "drag-sortable-list",
@@ -168,6 +169,7 @@
         "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+        "packages/content/content/pattern-contracts/patterns/chart-legend-item.md",
         "packages/content/content/pattern-contracts/patterns/chart-wrapper.md",
         "packages/content/content/pattern-contracts/patterns/column-configurator.md",
         "packages/content/content/pattern-contracts/patterns/drag-sortable-list.md",
@@ -175,8 +177,7 @@
         "packages/content/content/pattern-contracts/patterns/email-template-layout.md",
         "packages/content/content/pattern-contracts/patterns/fleet-manager-onboarding-desktop.md",
         "packages/content/content/pattern-contracts/patterns/gantt-chart.md",
-        "packages/content/content/pattern-contracts/patterns/kpi-card.md",
-        "packages/content/content/pattern-contracts/patterns/polar-chart.md"
+        "packages/content/content/pattern-contracts/patterns/kpi-card.md"
       ]
     },
     "templates": {

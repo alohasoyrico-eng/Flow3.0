@@ -47,6 +47,21 @@
     "pattern-copy/patterns/authentication-login-biometrics-and-otp/all.json",
     "pattern-copy/patterns/driver-onboarding-mobile/all.json",
     "pattern-copy/patterns/fleet-manager-onboarding-desktop/all.json",
-    "pattern-copy/patterns/preference-management/all.json"
+    "pattern-copy/patterns/preference-management/all.json",
+    "pattern-copy/patterns/station-discovery/all.json",
+    "pattern-copy/patterns/kanban-board/all.json",
+    "pattern-copy/patterns/status-feedback-view/all.json",
+    "pattern-copy/patterns/payment-form/all.json",
+    "pattern-copy/patterns/dense-operational-list/all.json",
+    "pattern-copy/patterns/account-operations/all.json",
+    "pattern-copy/patterns/ticket-queue/all.json",
+    "pattern-copy/patterns/case-management/all.json",
+    "pattern-copy/patterns/filterable-editable-table/all.json",
+    "pattern-copy/patterns/pricing-operations/all.json",
+    "pattern-copy/patterns/backoffice-approval/all.json",
+    "pattern-copy/patterns/email-template-layout/all.json",
+    "pattern-copy/patterns/expandable-detail-table/all.json",
+    "pattern-copy/patterns/agent-conversation/all.json",
+    "pattern-copy/patterns/chart-legend-item/all.json"
   ]
 }

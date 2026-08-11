@@ -32,6 +32,7 @@ const {
   CalendarView,
   CaseManagement,
   CheckboxGroup,
+  ChartLegendItem,
   ChartWrapper,
   ColumnConfigurator,
   CommandPalette,
@@ -1388,6 +1389,20 @@ try {
   }));
   fireEvent.click(chartView.getByRole("button", { name: /inspect chart/i }));
   assert.deepEqual(chartEvents.map((event) => event[0]), ["action"]);
+  cleanup();
+
+  const chartLegendEvents = [];
+  const chartLegendView = render(React.createElement(ChartLegendItem, {
+    label: "Fuel spend",
+    value: "$84.2k",
+    selected: true,
+    action: { key: "pin", label: "Pin series" },
+    onToggle: (checked, meta, event) => chartLegendEvents.push(["toggle", checked, meta.label, event.type]),
+    onAction: (key, event) => chartLegendEvents.push(["action", key, event.type]),
+  }));
+  fireEvent.click(chartLegendView.getByRole("checkbox", { name: /fuel spend/i }));
+  fireEvent.click(chartLegendView.getByRole("button", { name: /pin series/i }));
+  assert.deepEqual(chartLegendEvents.map((event) => event[0]), ["toggle", "action"]);
   cleanup();
 
   const ganttEvents = [];

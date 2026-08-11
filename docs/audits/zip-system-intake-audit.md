@@ -24,7 +24,7 @@ Every ZIP component, guideline, token output, kit, template screen, email, and i
 - flowFoundations: 11
 - flowPrimitives: 24
 - flowComponents: 60
-- flowPatterns: 62
+- flowPatterns: 63
 - flowTemplates: 9
 - zipGuidelineFiles: 15
 - zipTokenFiles: 7

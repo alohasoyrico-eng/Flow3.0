@@ -72,6 +72,7 @@ export { BulkActions } from "./patterns/BulkActions.js";
 export { CalendarView } from "./patterns/CalendarView.js";
 export { CaseManagement } from "./patterns/CaseManagement.js";
 export { CheckboxGroup } from "./patterns/CheckboxGroup.js";
+export { ChartLegendItem } from "./patterns/ChartLegendItem.js";
 export { ChartWrapper } from "./patterns/ChartWrapper.js";
 export { ColumnConfigurator } from "./patterns/ColumnConfigurator.js";
 export { CommandPalette } from "./patterns/CommandPalette.js";

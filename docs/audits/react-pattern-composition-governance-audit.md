@@ -8,8 +8,8 @@ React patterns must compose governed Flow components, foundations, and primitive
 
 | Metric | Value |
 | --- | ---: |
-| formalPatternArtifacts | 62 |
-| implementedReactPatterns | 62 |
+| formalPatternArtifacts | 63 |
+| implementedReactPatterns | 63 |
 | patternArchitecturePolicyIssues | 0 |
 | patternArchitectureForbiddenVisualTags | 22 |
 | patternArchitectureEmailChannelPatterns | 1 |
@@ -27,8 +27,8 @@ React patterns must compose governed Flow components, foundations, and primitive
 | rawDivWrapperPolicyEntries | 6 |
 | forbiddenPatternImportNeedlePolicy | 4 |
 | missingFormalArtifacts | 0 |
-| patternsWithDeclaredFoundations | 62 |
-| patternsWithDeclaredPrimitives | 62 |
+| patternsWithDeclaredFoundations | 63 |
+| patternsWithDeclaredPrimitives | 63 |
 | missingRequiredComponentImports | 0 |
 | undeclaredComponentImports | 0 |
 | unknownComponentImports | 0 |
@@ -40,20 +40,20 @@ React patterns must compose governed Flow components, foundations, and primitive
 | docsDependencies | 0 |
 | workspaceDependencies | 0 |
 | visualClassLiterals | 0 |
-| declaredPatternDependencies | 84 |
+| declaredPatternDependencies | 85 |
 | runtimePatternImports | 75 |
-| boundaryOnlyPatternDependencies | 9 |
+| boundaryOnlyPatternDependencies | 10 |
 | undocumentedPatternBoundaries | 0 |
 | undeclaredPatternImports | 0 |
-| slotCount | 307 |
-| slotUseCount | 465 |
+| slotCount | 311 |
+| slotUseCount | 473 |
 | slotIssues | 0 |
 | slotRenderEvidenceIssues | 0 |
-| primitiveSlotUses | 32 |
-| primitiveSurfaceSlotUses | 27 |
+| primitiveSlotUses | 34 |
+| primitiveSurfaceSlotUses | 28 |
 | primitiveMapsSlotUses | 1 |
-| primitiveSlotRuntimeEvidence | 28 |
-| tokenDependencies | 804 |
+| primitiveSlotRuntimeEvidence | 29 |
+| tokenDependencies | 821 |
 | tokenIssues | 0 |
 | patternCopyComponentIssues | 0 |
 | patternCopyFoundationIssues | 0 |
@@ -95,6 +95,7 @@ React patterns must compose governed Flow components, foundations, and primitive
 | bulk-actions | Badge, Button, Checkbox, Dialog, Menu, ProgressIndicator, Table, Toast | Badge, Button, Checkbox, Dialog, Menu, ProgressIndicator, Table, Toast | Toolbar | Toolbar | None | None | None | 4/9 | None | None | 15 | None | None | None | None | None | None | None | None | None | None | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Typography | Accessibility, Depth, Energy, Frame, Momentum, State, Voice | None | None | None | None | None |
 | calendar-view | Badge, Button, Card, DateRangePicker, EmptyState, List, Popover, Skeleton, Tooltip | Badge, Button, Card, DateRangePicker, EmptyState, List, Popover, Skeleton, Surface, Tooltip | None | None | None | None | None | 3/9 | None | None | 15 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |
 | case-management | Badge | Badge, Surface | AdvancedFilters, DenseOperationalList, DrawerAdapter, StatusFeedbackView, Timeline | AdvancedFilters, DenseOperationalList, DrawerAdapter, StatusFeedbackView, Timeline | None | None | None | 8/8 | None | None | 12 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
+| chart-legend-item | Badge, Button, Checkbox, Chip, Tag, Tooltip | Badge, Button, Checkbox, Chip, Surface, Tag, Tooltip | ChartWrapper | None | ChartWrapper | None | None | 4/8 | None | None | 17 | None | None | None | None | None | None | None | None | None | Surface | Charts, Color, Density, Disabled, Duration, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
 | chart-wrapper | Badge, Button, ChartPanel, EmptyState, ErrorPanel, KpiTile, List, Menu, Skeleton, Table | Badge, Button, ChartPanel, EmptyState, ErrorPanel, KpiTile, List, Menu, Skeleton, Surface, Table | None | None | None | None | None | 3/10 | None | None | 16 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Charts, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |
 | checkbox-group | Button, Checkbox, InlineValidation | Button, Checkbox, InlineValidation, Surface | None | None | None | None | None | 6/7 | None | None | 14 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Field Action, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, Growth, Iconography, Momentum, State, Symbol, Tone, Voice | None | None | None | None | None |
 | column-configurator | Badge, Button, Checkbox, Dialog, Drawer, InlineValidation, Menu, Table, Toast | Badge, Button, Checkbox, Dialog, Drawer, InlineValidation, Menu, Surface, Table, Toast | None | None | None | None | None | 3/9 | None | None | 15 | None | None | None | None | None | None | None | None | None | Surface | Breakpoints, Color, Density, Disabled, Duration, Elevation, Focus, Iconography, Loading, Measurement, Message, Motion Curves, Radius, Spacing, Surface, Typography | Accessibility, Depth, Energy, Frame, State, Voice | None | None | None | None | None |

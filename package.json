@@ -264,6 +264,10 @@
       "types": "./packages/react/dist/patterns/ChartWrapper.d.ts",
       "default": "./packages/react/dist/patterns/ChartWrapper.js"
     },
+    "./react/patterns/chart-legend-item": {
+      "types": "./packages/react/dist/patterns/ChartLegendItem.d.ts",
+      "default": "./packages/react/dist/patterns/ChartLegendItem.js"
+    },
     "./react/patterns/checkbox-group": {
       "types": "./packages/react/dist/patterns/CheckboxGroup.d.ts",
       "default": "./packages/react/dist/patterns/CheckboxGroup.js"

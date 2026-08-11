@@ -212,6 +212,7 @@ import { AvatarMenu } from "@alohasoyrico-eng/flow/react/patterns/avatar-menu";
 import { Autocomplete } from "@alohasoyrico-eng/flow/react/patterns/autocomplete";
 import { BulkActions } from "@alohasoyrico-eng/flow/react/patterns/bulk-actions";
 import { CalendarView } from "@alohasoyrico-eng/flow/react/patterns/calendar-view";
+import { ChartLegendItem } from "@alohasoyrico-eng/flow/react/patterns/chart-legend-item";
 import { ChartWrapper } from "@alohasoyrico-eng/flow/react/patterns/chart-wrapper";
 import { ColumnConfigurator } from "@alohasoyrico-eng/flow/react/patterns/column-configurator";
 import { CommandPalette } from "@alohasoyrico-eng/flow/react/patterns/command-palette";
@@ -277,6 +278,7 @@ for (const exportedPath of [
   "@alohasoyrico-eng/flow/react/patterns/autocomplete",
   "@alohasoyrico-eng/flow/react/patterns/bulk-actions",
   "@alohasoyrico-eng/flow/react/patterns/calendar-view",
+  "@alohasoyrico-eng/flow/react/patterns/chart-legend-item",
   "@alohasoyrico-eng/flow/react/patterns/chart-wrapper",
   "@alohasoyrico-eng/flow/react/patterns/column-configurator",
   "@alohasoyrico-eng/flow/react/patterns/command-palette",
@@ -949,6 +951,15 @@ const screen = React.createElement("main", { className: "product-screen", "data-
     style: { color: "red" },
     dangerouslySetInnerHTML: { __html: "<strong>Bad</strong>" },
   }),
+  React.createElement(ChartLegendItem, {
+    label: "Fuel spend",
+    value: "$84.2k",
+    selected: true,
+    status: { label: "Visible", tone: "info" },
+    "data-installed-pattern": "chart-legend-item",
+    style: { color: "red" },
+    dangerouslySetInnerHTML: { __html: "<strong>Bad</strong>" },
+  }),
   React.createElement(CalendarView, {
     label: "Maintenance calendar",
     density: "sm",
@@ -1317,6 +1328,8 @@ assert.match(markup, /data-flow-pattern="calendar-view"/);
 assert.match(markup, /data-installed-pattern="calendar-view"/);
 assert.match(markup, /data-flow-pattern="chart-wrapper"/);
 assert.match(markup, /data-installed-pattern="chart-wrapper"/);
+assert.match(markup, /data-flow-pattern="chart-legend-item"/);
+assert.match(markup, /data-installed-pattern="chart-legend-item"/);
 assert.match(markup, /data-flow-pattern="column-configurator"/);
 assert.match(markup, /data-installed-pattern="column-configurator"/);
 assert.match(markup, /class="choice checkbox"/);
@@ -2238,7 +2251,7 @@ void ${baseName}BadSelectedProp;`;
   fs.writeFileSync(path.join(consumerDir, "tsconfig.json"), `${JSON.stringify(tsconfig, null, 2)}\n`);
   const source = `
 import React from "react";
-import type { ActionSheetComponent as ActionSheetRootComponent, ActionSheetProps as ActionSheetRootProps, AdvancedFiltersComponent as AdvancedFiltersRootComponent, AdvancedFiltersProps as AdvancedFiltersRootProps, AuthenticationLoginBiometricsAndOtpComponent as AuthenticationLoginBiometricsAndOtpRootComponent, AuthenticationLoginBiometricsAndOtpProps as AuthenticationLoginBiometricsAndOtpRootProps, AvatarGroupComponent as AvatarGroupRootComponent, AvatarGroupProps as AvatarGroupRootProps, AvatarMenuComponent as AvatarMenuRootComponent, AvatarMenuProps as AvatarMenuRootProps, AutocompleteComponent as AutocompleteRootComponent, AutocompleteProps as AutocompleteRootProps, BulkActionsComponent as BulkActionsRootComponent, BulkActionsProps as BulkActionsRootProps, ButtonProps, CalendarViewComponent as CalendarViewRootComponent, CalendarViewProps as CalendarViewRootProps, CardProps, ChartWrapperComponent as ChartWrapperRootComponent, ChartWrapperProps as ChartWrapperRootProps, ColumnConfiguratorComponent as ColumnConfiguratorRootComponent, ColumnConfiguratorProps as ColumnConfiguratorRootProps, CommandPaletteComponent as CommandPaletteRootComponent, CommandPaletteProps as CommandPaletteRootProps, ConfirmationDialogComponent as ConfirmationDialogRootComponent, ConfirmationDialogProps as ConfirmationDialogRootProps, DialogProps, DragSortableListComponent as DragSortableListRootComponent, DragSortableListProps as DragSortableListRootProps, DriverAndVehicleAdministrationComponent as DriverAndVehicleAdministrationRootComponent, DriverAndVehicleAdministrationProps as DriverAndVehicleAdministrationRootProps, DriverOnboardingMobileComponent as DriverOnboardingMobileRootComponent, DriverOnboardingMobileProps as DriverOnboardingMobileRootProps, DrawerAdapterComponent as DrawerAdapterRootComponent, DrawerAdapterProps as DrawerAdapterRootProps, FileUploadComponent as FileUploadRootComponent, FileUploadProps as FileUploadRootProps, FleetManagerOnboardingDesktopComponent as FleetManagerOnboardingDesktopRootComponent, FleetManagerOnboardingDesktopProps as FleetManagerOnboardingDesktopRootProps, FilterChipGroupComponent as FilterChipGroupRootComponent, FilterChipGroupProps as FilterChipGroupRootProps, FormSectionComponent as FormSectionRootComponent, FormSectionProps as FormSectionRootProps, FullscreenSheetComponent as FullscreenSheetRootComponent, FullscreenSheetProps as FullscreenSheetRootProps, HelpCenterComponent as HelpCenterRootComponent, HelpCenterProps as HelpCenterRootProps, InputProps, KpiCardComponent as KpiCardRootComponent, KpiCardProps as KpiCardRootProps, MultiSelectComponent as MultiSelectRootComponent, MultiSelectProps as MultiSelectRootProps, MultiStepFormComponent as MultiStepFormRootComponent, MultiStepFormProps as MultiStepFormRootProps, NotificationPanelComponent as NotificationPanelRootComponent, NotificationPanelProps as NotificationPanelRootProps, PullToRefreshComponent as PullToRefreshRootComponent, PullToRefreshProps as PullToRefreshRootProps, QuickActionsGridComponent as QuickActionsGridRootComponent, QuickActionsGridProps as QuickActionsGridRootProps, RolesAndPermissionsComponent as RolesAndPermissionsRootComponent, RolesAndPermissionsProps as RolesAndPermissionsRootProps, SearchComponent as SearchRootComponent, SearchProps as SearchRootProps, SectionHeaderComponent as SectionHeaderRootComponent, SectionHeaderProps as SectionHeaderRootProps, SelectOptionLayerComponent as SelectOptionLayerRootComponent, SelectOptionLayerProps as SelectOptionLayerRootProps, SettingsComponent as SettingsRootComponent, SettingsProps as SettingsRootProps, SidebarComponent as SidebarRootComponent, SidebarProps as SidebarRootProps, SnackbarProviderComponent as SnackbarProviderRootComponent, SnackbarProviderProps as SnackbarProviderRootProps, StationDiscoveryComponent as StationDiscoveryRootComponent, StationDiscoveryProps as StationDiscoveryRootProps, SwipeActionsComponent as SwipeActionsRootComponent, SwipeActionsProps as SwipeActionsRootProps, TableProps, TimelineComponent as TimelineRootComponent, TimelineProps as TimelineRootProps, ToolbarComponent as ToolbarRootComponent, ToolbarProps as ToolbarRootProps, TopbarComponent as TopbarRootComponent, TopbarProps as TopbarRootProps, TransferListComponent as TransferListRootComponent, TransferListProps as TransferListRootProps, VirtualDataTableComponent as VirtualDataTableRootComponent, VirtualDataTableProps as VirtualDataTableRootProps } from "@alohasoyrico-eng/flow/react";
+import type { ActionSheetComponent as ActionSheetRootComponent, ActionSheetProps as ActionSheetRootProps, AdvancedFiltersComponent as AdvancedFiltersRootComponent, AdvancedFiltersProps as AdvancedFiltersRootProps, AuthenticationLoginBiometricsAndOtpComponent as AuthenticationLoginBiometricsAndOtpRootComponent, AuthenticationLoginBiometricsAndOtpProps as AuthenticationLoginBiometricsAndOtpRootProps, AvatarGroupComponent as AvatarGroupRootComponent, AvatarGroupProps as AvatarGroupRootProps, AvatarMenuComponent as AvatarMenuRootComponent, AvatarMenuProps as AvatarMenuRootProps, AutocompleteComponent as AutocompleteRootComponent, AutocompleteProps as AutocompleteRootProps, BulkActionsComponent as BulkActionsRootComponent, BulkActionsProps as BulkActionsRootProps, ButtonProps, CalendarViewComponent as CalendarViewRootComponent, CalendarViewProps as CalendarViewRootProps, CardProps, ChartLegendItemComponent as ChartLegendItemRootComponent, ChartLegendItemProps as ChartLegendItemRootProps, ChartWrapperComponent as ChartWrapperRootComponent, ChartWrapperProps as ChartWrapperRootProps, ColumnConfiguratorComponent as ColumnConfiguratorRootComponent, ColumnConfiguratorProps as ColumnConfiguratorRootProps, CommandPaletteComponent as CommandPaletteRootComponent, CommandPaletteProps as CommandPaletteRootProps, ConfirmationDialogComponent as ConfirmationDialogRootComponent, ConfirmationDialogProps as ConfirmationDialogRootProps, DialogProps, DragSortableListComponent as DragSortableListRootComponent, DragSortableListProps as DragSortableListRootProps, DriverAndVehicleAdministrationComponent as DriverAndVehicleAdministrationRootComponent, DriverAndVehicleAdministrationProps as DriverAndVehicleAdministrationRootProps, DriverOnboardingMobileComponent as DriverOnboardingMobileRootComponent, DriverOnboardingMobileProps as DriverOnboardingMobileRootProps, DrawerAdapterComponent as DrawerAdapterRootComponent, DrawerAdapterProps as DrawerAdapterRootProps, FileUploadComponent as FileUploadRootComponent, FileUploadProps as FileUploadRootProps, FleetManagerOnboardingDesktopComponent as FleetManagerOnboardingDesktopRootComponent, FleetManagerOnboardingDesktopProps as FleetManagerOnboardingDesktopRootProps, FilterChipGroupComponent as FilterChipGroupRootComponent, FilterChipGroupProps as FilterChipGroupRootProps, FormSectionComponent as FormSectionRootComponent, FormSectionProps as FormSectionRootProps, FullscreenSheetComponent as FullscreenSheetRootComponent, FullscreenSheetProps as FullscreenSheetRootProps, HelpCenterComponent as HelpCenterRootComponent, HelpCenterProps as HelpCenterRootProps, InputProps, KpiCardComponent as KpiCardRootComponent, KpiCardProps as KpiCardRootProps, MultiSelectComponent as MultiSelectRootComponent, MultiSelectProps as MultiSelectRootProps, MultiStepFormComponent as MultiStepFormRootComponent, MultiStepFormProps as MultiStepFormRootProps, NotificationPanelComponent as NotificationPanelRootComponent, NotificationPanelProps as NotificationPanelRootProps, PullToRefreshComponent as PullToRefreshRootComponent, PullToRefreshProps as PullToRefreshRootProps, QuickActionsGridComponent as QuickActionsGridRootComponent, QuickActionsGridProps as QuickActionsGridRootProps, RolesAndPermissionsComponent as RolesAndPermissionsRootComponent, RolesAndPermissionsProps as RolesAndPermissionsRootProps, SearchComponent as SearchRootComponent, SearchProps as SearchRootProps, SectionHeaderComponent as SectionHeaderRootComponent, SectionHeaderProps as SectionHeaderRootProps, SelectOptionLayerComponent as SelectOptionLayerRootComponent, SelectOptionLayerProps as SelectOptionLayerRootProps, SettingsComponent as SettingsRootComponent, SettingsProps as SettingsRootProps, SidebarComponent as SidebarRootComponent, SidebarProps as SidebarRootProps, SnackbarProviderComponent as SnackbarProviderRootComponent, SnackbarProviderProps as SnackbarProviderRootProps, StationDiscoveryComponent as StationDiscoveryRootComponent, StationDiscoveryProps as StationDiscoveryRootProps, SwipeActionsComponent as SwipeActionsRootComponent, SwipeActionsProps as SwipeActionsRootProps, TableProps, TimelineComponent as TimelineRootComponent, TimelineProps as TimelineRootProps, ToolbarComponent as ToolbarRootComponent, ToolbarProps as ToolbarRootProps, TopbarComponent as TopbarRootComponent, TopbarProps as TopbarRootProps, TransferListComponent as TransferListRootComponent, TransferListProps as TransferListRootProps, VirtualDataTableComponent as VirtualDataTableRootComponent, VirtualDataTableProps as VirtualDataTableRootProps } from "@alohasoyrico-eng/flow/react";
 import type { SurfaceComponent as SurfaceRootComponent, SurfaceProps as SurfaceRootProps } from "@alohasoyrico-eng/flow/react";
 import type { ${reactRootTypeImports} } from "@alohasoyrico-eng/flow/react";
 import type { ${templateRootTypeImports} } from "@alohasoyrico-eng/flow/react";
@@ -2262,6 +2275,8 @@ import { BulkActions as BulkActionsSubpath } from "@alohasoyrico-eng/flow/react/
 import type { BulkActionsProps as BulkActionsSubpathProps } from "@alohasoyrico-eng/flow/react/patterns/bulk-actions";
 import { CalendarView as CalendarViewSubpath } from "@alohasoyrico-eng/flow/react/patterns/calendar-view";
 import type { CalendarViewProps as CalendarViewSubpathProps } from "@alohasoyrico-eng/flow/react/patterns/calendar-view";
+import { ChartLegendItem as ChartLegendItemSubpath } from "@alohasoyrico-eng/flow/react/patterns/chart-legend-item";
+import type { ChartLegendItemProps as ChartLegendItemSubpathProps } from "@alohasoyrico-eng/flow/react/patterns/chart-legend-item";
 import { ChartWrapper as ChartWrapperSubpath } from "@alohasoyrico-eng/flow/react/patterns/chart-wrapper";
 import type { ChartWrapperProps as ChartWrapperSubpathProps } from "@alohasoyrico-eng/flow/react/patterns/chart-wrapper";
 import { ColumnConfigurator as ColumnConfiguratorSubpath } from "@alohasoyrico-eng/flow/react/patterns/column-configurator";
@@ -2368,6 +2383,9 @@ const bulkActionsRootComponent: BulkActionsRootComponent = BulkActionsSubpath;
 const calendarViewProps: CalendarViewSubpathProps = { selectedDate: "2026-08-09", events: [{ key: "oil", label: "Oil change" }], dateControl: { label: "Schedule date" }, "data-product-hook": "calendar-view" };
 const calendarViewRootProps: CalendarViewRootProps = calendarViewProps;
 const calendarViewRootComponent: CalendarViewRootComponent = CalendarViewSubpath;
+const chartLegendItemProps: ChartLegendItemSubpathProps = { label: "Fuel spend", value: "$84.2k", selected: true, "data-product-hook": "chart-legend-item" };
+const chartLegendItemRootProps: ChartLegendItemRootProps = chartLegendItemProps;
+const chartLegendItemRootComponent: ChartLegendItemRootComponent = ChartLegendItemSubpath;
 const chartWrapperProps: ChartWrapperSubpathProps = { chart: { values: [1, 2], labels: ["A", "B"] }, table: { columns: [{ key: "period", label: "Period" }], rows: [{ id: "a", period: "A" }] }, "data-product-hook": "chart-wrapper" };
 const chartWrapperRootProps: ChartWrapperRootProps = chartWrapperProps;
 const chartWrapperRootComponent: ChartWrapperRootComponent = ChartWrapperSubpath;
@@ -2846,6 +2864,10 @@ function assertInstalledExportInventory(installedPackage) {
       types: "./packages/react/dist/patterns/CaseManagement.d.ts",
       default: "./packages/react/dist/patterns/CaseManagement.js",
     },
+    "./react/patterns/chart-legend-item": {
+      types: "./packages/react/dist/patterns/ChartLegendItem.d.ts",
+      default: "./packages/react/dist/patterns/ChartLegendItem.js",
+    },
     "./react/patterns/chart-wrapper": {
       types: "./packages/react/dist/patterns/ChartWrapper.d.ts",
       default: "./packages/react/dist/patterns/ChartWrapper.js",
@@ -3220,7 +3242,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 571,
+    filesScanned: 573,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3230,7 +3252,7 @@ function assertReactGovernanceBaselines() {
   assertInventory(foundationPrimitiveExport, {
     foundations: 11,
     primitives: 24,
-    patterns: 62,
+    patterns: 63,
     templates: 9,
     tokenCount: 1078,
     missingFoundationArtifacts: 0,
@@ -3260,7 +3282,7 @@ function assertReactGovernanceBaselines() {
     patternDecisions: 10,
     templateDecisions: 9,
     nonComponentDecisions: 1,
-    artifactsScanned: 166,
+    artifactsScanned: 167,
     crossLayerArtifactIds: 1,
     unapprovedCrossLayerArtifactIds: 0,
     artifactLayerMismatches: 0,
@@ -3278,7 +3300,7 @@ function assertReactGovernanceBaselines() {
   const docsSystemBoundary = readAuditReport("docs/audits/docs-system-boundary-audit.json");
   assertReportStatus(docsSystemBoundary, "Docs system boundary");
   assertInventory(docsSystemBoundary, {
-    sourceFilesScanned: 203,
+    sourceFilesScanned: 205,
     generatedFiles: 352,
     flowDependencyPresent: 1,
     flowBoundaryAliases: 20,
@@ -3424,19 +3446,19 @@ function assertReactGovernanceBaselines() {
     metaPatterns: 58,
     catalogPatterns: 63,
     uniqueCatalogPatterns: 63,
-    copyPatterns: 62,
-    markdownContracts: 62,
+    copyPatterns: 63,
+    markdownContracts: 63,
     requiredPatternContracts: 23,
     requiredContractsPresent: 23,
     requiredCopyPresent: 23,
-    formalArtifacts: 62,
+    formalArtifacts: 63,
     duplicateCatalogIds: 0,
     requiredContractGaps: 0,
     requiredCopyGaps: 0,
     staleMarkdownContracts: 0,
     formalArtifactBacklog: 0,
-    catalogOnlyPatterns: 1,
-    approvedCatalogOnlyPatterns: 1,
+    catalogOnlyPatterns: 0,
+    approvedCatalogOnlyPatterns: 0,
     unapprovedCatalogOnlyPatterns: 0,
     formalArtifactsMissingCatalog: 0,
     catalogComponentReferenceErrors: 0,
@@ -3447,15 +3469,15 @@ function assertReactGovernanceBaselines() {
   const patternArchitecture = readAuditReport("docs/audits/pattern-1to1-architecture-audit.json");
   assertReportStatus(patternArchitecture, "Pattern 1:1 architecture");
   assertInventory(patternArchitecture, {
-    patterns: 62,
-    formalArtifacts: 62,
-    markdownContracts: 62,
-    catalogEntries: 62,
-    patternsWithDeclaredPrimitives: 62,
+    patterns: 63,
+    formalArtifacts: 63,
+    markdownContracts: 63,
+    catalogEntries: 63,
+    patternsWithDeclaredPrimitives: 63,
     patternsWithOnlyInferredPrimitives: 0,
     patternsWithUnknownComponents: 0,
     patternsWithComponentArtifactGaps: 0,
-    patternsWithPatternCrossings: 44,
+    patternsWithPatternCrossings: 45,
     patternsReferencedByTemplates: 16,
     templatePatternDependencies: 50,
     templatePatternDependencyGaps: 0,
@@ -3464,7 +3486,7 @@ function assertReactGovernanceBaselines() {
     templateModuleDependencies: 29,
     unknownTemplateModuleDependencies: 0,
     docsAppAvailable: 1,
-    patternsReferencedByDocs: 44,
+    patternsReferencedByDocs: 45,
     formalArtifactBacklog: 0,
     primitiveDeclarationBacklog: 0,
     patternArchitectureBacklog: 0,
@@ -3474,20 +3496,20 @@ function assertReactGovernanceBaselines() {
   const reactPatternBehavior = readAuditReport("docs/audits/react-pattern-behavior-governance-audit.json");
   assertReportStatus(reactPatternBehavior, "React pattern behavior governance");
   assertInventory(reactPatternBehavior, {
-    formalPatternArtifacts: 62,
-    implementedReactPatterns: 62,
-    typedPatternDeclarations: 62,
-    forwardRefPatterns: 62,
-    patternsWithRefAttributes: 62,
-    patternsWithDensityProp: 62,
-    callbackPropsDeclared: 263,
-    callbackPropsTested: 263,
+    formalPatternArtifacts: 63,
+    implementedReactPatterns: 63,
+    typedPatternDeclarations: 63,
+    forwardRefPatterns: 63,
+    patternsWithRefAttributes: 63,
+    patternsWithDensityProp: 63,
+    callbackPropsDeclared: 265,
+    callbackPropsTested: 265,
     missingCallbackTests: 0,
     declaredProps: 210,
     unusedDeclaredProps: 0,
     unusedCallbackProps: 0,
-    formalStates: 470,
-    typedStates: 470,
+    formalStates: 476,
+    typedStates: 476,
     statesMissingFromTypes: 0,
     statesMissingFromArtifact: 0,
     controlledPropPairs: 10,
@@ -3495,12 +3517,12 @@ function assertReactGovernanceBaselines() {
     rawGlobalDomRefs: 0,
     forbiddenPropsDeclared: 0,
     unsafeRestSpreads: 0,
-    structuralSurfaceSlotPatterns: 27,
-    structuralSurfaceSlots: 27,
+    structuralSurfaceSlotPatterns: 28,
+    structuralSurfaceSlots: 28,
     missingStructuralSurfaceUsage: 0,
-    patternsWithAccessibilityContracts: 59,
-    patternsWithDirectAccessibilitySignals: 60,
-    patternsWithDelegatedAccessibility: 48,
+    patternsWithAccessibilityContracts: 60,
+    patternsWithDirectAccessibilitySignals: 61,
+    patternsWithDelegatedAccessibility: 49,
     missingAccessibilityImplementation: 0,
     missingDataFlowPattern: 0,
     patternsWithBehaviorDebt: 0,
@@ -3510,11 +3532,11 @@ function assertReactGovernanceBaselines() {
   const reactPatternComposition = readAuditReport("docs/audits/react-pattern-composition-governance-audit.json");
   assertReportStatus(reactPatternComposition, "React pattern composition governance");
   assertInventory(reactPatternComposition, {
-    formalPatternArtifacts: 62,
-    implementedReactPatterns: 62,
+    formalPatternArtifacts: 63,
+    implementedReactPatterns: 63,
     missingFormalArtifacts: 0,
-    patternsWithDeclaredFoundations: 62,
-    patternsWithDeclaredPrimitives: 62,
+    patternsWithDeclaredFoundations: 63,
+    patternsWithDeclaredPrimitives: 63,
     missingRequiredComponentImports: 0,
     undeclaredComponentImports: 0,
     unknownComponentImports: 0,
@@ -3522,20 +3544,20 @@ function assertReactGovernanceBaselines() {
     docsDependencies: 0,
     workspaceDependencies: 0,
     visualClassLiterals: 0,
-    declaredPatternDependencies: 84,
+    declaredPatternDependencies: 85,
     runtimePatternImports: 75,
-    boundaryOnlyPatternDependencies: 9,
+    boundaryOnlyPatternDependencies: 10,
     undocumentedPatternBoundaries: 0,
     undeclaredPatternImports: 0,
-    slotCount: 307,
-    slotUseCount: 465,
+    slotCount: 311,
+    slotUseCount: 473,
     slotIssues: 0,
     slotRenderEvidenceIssues: 0,
-    primitiveSlotUses: 32,
-    primitiveSurfaceSlotUses: 27,
+    primitiveSlotUses: 34,
+    primitiveSurfaceSlotUses: 28,
     primitiveMapsSlotUses: 1,
-    primitiveSlotRuntimeEvidence: 28,
-    tokenDependencies: 804,
+    primitiveSlotRuntimeEvidence: 29,
+    tokenDependencies: 821,
     tokenIssues: 0,
     missingDataFlowPattern: 0,
     reactPatternCompositionDebt: 0,
@@ -3544,19 +3566,19 @@ function assertReactGovernanceBaselines() {
   const patternFoundationPrimitive = readAuditReport("docs/audits/pattern-foundation-primitive-1to1-audit.json");
   assertReportStatus(patternFoundationPrimitive, "Pattern foundation primitive 1:1");
   assertInventory(patternFoundationPrimitive, {
-    formalPatternArtifacts: 62,
+    formalPatternArtifacts: 63,
     primitiveArtifacts: 24,
     foundationArtifacts: 11,
     componentArtifacts: 60,
-    implementedReactPatterns: 62,
-    patternsWithExplicitFoundations: 62,
+    implementedReactPatterns: 63,
+    patternsWithExplicitFoundations: 63,
     patternsMissingExplicitFoundations: 0,
     patternsWithMissingPrimitiveRefs: 0,
     patternsWithMissingInferredPrimitiveArtifacts: 0,
     formalDependencyLayerErrors: 0,
     patternsWithUndeclaredComponentPrimitives: 0,
-    patternsRequiringSurfacePrimitive: 40,
-    patternsRequiringDirectSurfaceRuntime: 26,
+    patternsRequiringSurfacePrimitive: 41,
+    patternsRequiringDirectSurfaceRuntime: 27,
     patternsMissingDirectSurfaceRuntime: 0,
     patternsWithStructuralSurfaceDebt: 0,
     cardStructuralWrapperViolations: 0,
@@ -3566,23 +3588,23 @@ function assertReactGovernanceBaselines() {
     primitiveArtifactsUnreferencedBySystem: 0,
     unusedPrimitiveArtifactsRequiringPattern: 0,
     foundationArtifactsUnusedByPatterns: 0,
-    readyPatterns: 62,
+    readyPatterns: 63,
     blockedPatterns: 0,
   }, "Pattern foundation primitive 1:1");
 
   const patternMigrationPlan = readAuditReport("docs/audits/pattern-react-migration-plan.json");
   assertReportStatus(patternMigrationPlan, "Pattern React migration plan");
   assertInventory(patternMigrationPlan, {
-    patterns: 62,
-    reactSources: 62,
-    typeSources: 62,
-    forwardRefPatterns: 62,
-    densityPropPatterns: 62,
-    callbackPropsDeclared: 263,
-    callbackPropsTested: 263,
-    surfaceRequired: 43,
-    primitiveRuntimeRequired: 8,
-    boundaryOnlyPatternDependencies: 9,
+    patterns: 63,
+    reactSources: 63,
+    typeSources: 63,
+    forwardRefPatterns: 63,
+    densityPropPatterns: 63,
+    callbackPropsDeclared: 265,
+    callbackPropsTested: 265,
+    surfaceRequired: 44,
+    primitiveRuntimeRequired: 9,
+    boundaryOnlyPatternDependencies: 10,
     migrationAuditDebt: 0,
     docsReactPatternDemosMigrated: 1,
     docsReactPatternDemoCoverageDebt: 0,
@@ -3748,7 +3770,7 @@ function assertReactGovernanceBaselines() {
     missingTypeSnippets: 0,
     missingCssSelectors: 0,
     rawVisualCss: 0,
-    patternSurfaceImports: 37,
+    patternSurfaceImports: 38,
     structuralSurfacePolicyIssues: 0,
     distGaps: 0,
     surfaceCascadeDebt: 0,
@@ -3931,11 +3953,11 @@ function assertPatternMigrationPlanContract(report) {
   const expectedGlobalGates = {
     architectureDebt: 0,
     architectureBlockingDebt: 0,
-    patternsWithDeclaredPrimitives: 62,
+    patternsWithDeclaredPrimitives: 63,
     patternsWithOnlyInferredPrimitives: 0,
     templateDependencyGaps: 0,
-    surfaceRequiredPatterns: 40,
-    directSurfaceRuntimeRequired: 26,
+    surfaceRequiredPatterns: 41,
+    directSurfaceRuntimeRequired: 27,
     missingDirectSurfaceRuntime: 0,
     structuralSurfaceDebt: 0,
     cardStructuralWrapperViolations: 0,
@@ -3946,7 +3968,7 @@ function assertPatternMigrationPlanContract(report) {
     ["base Flow composition", { patterns: 8, surfacePatterns: 0, runtimePrimitives: 0, patternBoundaries: 2, templateRefs: 0, componentRefs: 17 }],
     ["stateful Flow composition", { patterns: 23, surfacePatterns: 18, runtimePrimitives: 0, patternBoundaries: 9, templateRefs: 0, componentRefs: 35 }],
     ["cross-pattern composition", { patterns: 9, surfacePatterns: 5, runtimePrimitives: 0, patternBoundaries: 12, templateRefs: 0, componentRefs: 19 }],
-    ["primitive-runtime composition", { patterns: 5, surfacePatterns: 5, runtimePrimitives: 2, patternBoundaries: 1, templateRefs: 0, componentRefs: 15 }],
+    ["primitive-runtime composition", { patterns: 6, surfacePatterns: 6, runtimePrimitives: 2, patternBoundaries: 1, templateRefs: 0, componentRefs: 19 }],
     ["template-facing orchestrator", { patterns: 17, surfacePatterns: 15, runtimePrimitives: 3, patternBoundaries: 21, templateRefs: 8, componentRefs: 36 }],
   ];
   const issues = [];
@@ -3978,10 +4000,10 @@ function assertPatternMigrationPlanContract(report) {
   const patternBoundaryChecklist = patterns.filter((pattern) => pattern.executionChecklist?.some((gate) => gate.id === "pattern-boundaries"));
   const templateBoundaryChecklist = patterns.filter((pattern) => pattern.executionChecklist?.some((gate) => gate.id === "template-boundaries"));
   const baseGateIds = ["formal-artifact", "react-primary", "types-contract", "flow-composition", "docs-system-boundary", "verification"];
-  if (patterns.length !== 62) issues.push(`patterns: expected 62, got ${patterns.length}`);
-  if (surfaceChecklist.length !== 43) issues.push(`surface checklist count: expected 43, got ${surfaceChecklist.length}`);
-  if (runtimeChecklist.length !== 8) issues.push(`runtime checklist count: expected 8, got ${runtimeChecklist.length}`);
-  if (patternBoundaryChecklist.length !== 41) issues.push(`pattern boundary checklist count: expected 41, got ${patternBoundaryChecklist.length}`);
+  if (patterns.length !== 63) issues.push(`patterns: expected 63, got ${patterns.length}`);
+  if (surfaceChecklist.length !== 44) issues.push(`surface checklist count: expected 44, got ${surfaceChecklist.length}`);
+  if (runtimeChecklist.length !== 9) issues.push(`runtime checklist count: expected 9, got ${runtimeChecklist.length}`);
+  if (patternBoundaryChecklist.length !== 42) issues.push(`pattern boundary checklist count: expected 42, got ${patternBoundaryChecklist.length}`);
   if (templateBoundaryChecklist.length !== 16) issues.push(`template boundary checklist count: expected 16, got ${templateBoundaryChecklist.length}`);
   for (const pattern of patterns) {
     const checklistIds = (pattern.executionChecklist ?? []).map((gate) => gate.id);
@@ -3996,7 +4018,7 @@ function assertPatternMigrationPlanContract(report) {
     }
   }
   if ((report.validationIssues ?? []).length !== 0) issues.push(`validationIssues: expected 0, got ${report.validationIssues.length}`);
-  if ((report.boundaryOnlyPatternDependencies ?? []).length !== 9) issues.push("boundary-only dependency count changed");
+  if ((report.boundaryOnlyPatternDependencies ?? []).length !== 10) issues.push("boundary-only dependency count changed");
   if ((report.templatePatternDependencies ?? []).length !== 50) issues.push("template dependency count changed");
   if ((report.governedUnusedPrimitives ?? []).length !== 2) issues.push("governed unused primitive count changed");
   const docsCoverage = report.docsReactPatternDemoCoverage ?? [];

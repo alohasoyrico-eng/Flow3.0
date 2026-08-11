@@ -10,7 +10,7 @@
       "patternDecisions": 10,
       "templateDecisions": 9,
       "nonComponentDecisions": 1,
-      "artifactsScanned": 166,
+      "artifactsScanned": 167,
       "crossLayerArtifactIds": 1,
       "unapprovedCrossLayerArtifactIds": 0,
       "artifactLayerMismatches": 0,
@@ -42,7 +42,7 @@
     "patternDecisions": 10,
     "templateDecisions": 9,
     "nonComponentDecisions": 1,
-    "artifactsScanned": 166,
+    "artifactsScanned": 167,
     "crossLayerArtifactIds": 1,
     "unapprovedCrossLayerArtifactIds": 0,
     "artifactLayerMismatches": 0,
@@ -466,6 +466,15 @@
       "expectedLayer": "Pattern",
       "declaredLayer": "Pattern",
       "file": "packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "chart-legend-item",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
       "hasNestedRecord": true,
       "errors": []
     },

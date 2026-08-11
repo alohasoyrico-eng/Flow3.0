@@ -8,25 +8,25 @@
     "docs/audits/pattern-foundation-primitive-1to1-audit.json"
   ],
   "inventory": {
-    "patterns": 62,
+    "patterns": 63,
     "patternArchitecturePolicyIssues": 0,
     "runtimePrimitivePatternDependencyPolicy": 5,
     "templateFacingSignalPolicy": 11,
     "migrationWavePolicy": 5,
     "nonNegotiableMigrationRules": 6,
-    "reactSources": 62,
-    "typeSources": 62,
-    "reactContractRows": 62,
-    "forwardRefPatterns": 62,
-    "refAttributePatterns": 62,
-    "densityPropPatterns": 62,
-    "patternsWithSlots": 62,
-    "patternsWithFoundations": 62,
-    "patternsWithPrimitives": 62,
-    "patternsWithComponents": 61,
-    "patternsWithStateModel": 62,
-    "callbackPropsDeclared": 263,
-    "callbackPropsTested": 263,
+    "reactSources": 63,
+    "typeSources": 63,
+    "reactContractRows": 63,
+    "forwardRefPatterns": 63,
+    "refAttributePatterns": 63,
+    "densityPropPatterns": 63,
+    "patternsWithSlots": 63,
+    "patternsWithFoundations": 63,
+    "patternsWithPrimitives": 63,
+    "patternsWithComponents": 62,
+    "patternsWithStateModel": 63,
+    "callbackPropsDeclared": 265,
+    "callbackPropsTested": 265,
     "missingCallbackTests": 0,
     "controlledPairIssues": 0,
     "statesMissingFromTypes": 0,
@@ -44,17 +44,17 @@
     "baseFlowComposition": 8,
     "statefulFlowComposition": 23,
     "crossPatternComposition": 9,
-    "primitiveRuntimeComposition": 5,
+    "primitiveRuntimeComposition": 6,
     "templateFacingOrchestrators": 17,
-    "surfaceRequired": 43,
-    "primitiveRuntimeRequired": 8,
-    "patternDependencyBoundaries": 84,
+    "surfaceRequired": 44,
+    "primitiveRuntimeRequired": 9,
+    "patternDependencyBoundaries": 85,
     "templateReferences": 25,
     "patternsWithDependencySlotCoverageFindings": 0,
     "componentDependencySlotCoverageFindings": 0,
     "runtimePatternDependencySlotCoverageFindings": 0,
-    "boundaryOnlyPatternDependencyPatterns": 7,
-    "boundaryOnlyPatternDependencies": 9,
+    "boundaryOnlyPatternDependencyPatterns": 8,
+    "boundaryOnlyPatternDependencies": 10,
     "migrationAuditDebt": 0,
     "docsReactPatternDemosMigrated": 1,
     "docsReactPatternDemoCoverageDebt": 0,
@@ -63,11 +63,11 @@
   "globalGates": {
     "architectureDebt": 0,
     "architectureBlockingDebt": 0,
-    "patternsWithDeclaredPrimitives": 62,
+    "patternsWithDeclaredPrimitives": 63,
     "patternsWithOnlyInferredPrimitives": 0,
     "templateDependencyGaps": 0,
-    "surfaceRequiredPatterns": 40,
-    "directSurfaceRuntimeRequired": 26,
+    "surfaceRequiredPatterns": 41,
+    "directSurfaceRuntimeRequired": 27,
     "missingDirectSurfaceRuntime": 0,
     "structuralSurfaceDebt": 0,
     "cardStructuralWrapperViolations": 0,
@@ -140,6 +140,7 @@
         "gantt-chart",
         "polar-chart",
         "waterfall-chart",
+        "chart-legend-item",
         "pull-to-refresh",
         "chart-wrapper"
       ]
@@ -423,21 +424,23 @@
         "gantt-chart",
         "polar-chart",
         "waterfall-chart",
+        "chart-legend-item",
         "pull-to-refresh",
         "chart-wrapper"
       ],
       "counts": {
-        "patterns": 5,
-        "surfacePatterns": 5,
+        "patterns": 6,
+        "surfacePatterns": 6,
         "runtimePrimitives": 2,
         "patternBoundaries": 1,
         "templateRefs": 0,
-        "componentRefs": 15
+        "componentRefs": 19
       },
       "surfacePatterns": [
         "gantt-chart",
         "polar-chart",
         "waterfall-chart",
+        "chart-legend-item",
         "pull-to-refresh",
         "chart-wrapper"
       ],
@@ -455,6 +458,8 @@
         "Button",
         "Card",
         "Chart Panel",
+        "Checkbox",
+        "Chip",
         "Empty State",
         "Error Panel",
         "Inline Validation",
@@ -464,7 +469,9 @@
         "Progress Indicator",
         "Skeleton",
         "Table",
-        "Toast"
+        "Tag",
+        "Toast",
+        "Tooltip"
       ],
       "exitGates": [
         "No React behavior debt in every Pattern in the wave.",
@@ -5251,6 +5258,154 @@
     },
     {
       "order": 34,
+      "id": "chart-legend-item",
+      "wave": "primitive-runtime composition",
+      "score": 23,
+      "requiresSurface": true,
+      "runtimePrimitives": [
+        "Charts"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Charts",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "components": [
+        "Badge",
+        "Button",
+        "Checkbox",
+        "Chip",
+        "Tag",
+        "Tooltip"
+      ],
+      "patternDependencies": [
+        "Chart Wrapper"
+      ],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "legendSurface",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ]
+        },
+        {
+          "name": "toggle",
+          "owner": "component",
+          "uses": [
+            "Checkbox",
+            "Chip",
+            "Button"
+          ]
+        },
+        {
+          "name": "status",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Tag",
+            "Tooltip"
+          ]
+        },
+        {
+          "name": "value",
+          "owner": "primitive",
+          "uses": [
+            "Typography"
+          ]
+        }
+      ],
+      "states": [
+        "default",
+        "selected",
+        "hidden",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/ChartLegendItem.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/ChartLegendItem.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Badge, Button, Checkbox, Chip, Tag, Tooltip"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "runtime-primitives",
+          "gate": "Use runtime primitive exports directly only where the formal Pattern requires them.",
+          "evidence": "Charts"
+        },
+        {
+          "id": "pattern-boundaries",
+          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
+          "evidence": "Chart Wrapper"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
+        "react": "packages/react/src/patterns/ChartLegendItem.js",
+        "types": "packages/react/src/patterns/ChartLegendItem.d.ts"
+      }
+    },
+    {
+      "order": 35,
       "id": "section-header",
       "wave": "cross-pattern composition",
       "score": 23,
@@ -5396,7 +5551,7 @@
       }
     },
     {
-      "order": 35,
+      "order": 36,
       "id": "transfer-list",
       "wave": "cross-pattern composition",
       "score": 23,
@@ -5549,7 +5704,7 @@
       }
     },
     {
-      "order": 36,
+      "order": 37,
       "id": "fullscreen-sheet",
       "wave": "stateful Flow composition",
       "score": 24,
@@ -5696,7 +5851,7 @@
       }
     },
     {
-      "order": 37,
+      "order": 38,
       "id": "multi-step-form",
       "wave": "stateful Flow composition",
       "score": 24,
@@ -5857,7 +6012,7 @@
       }
     },
     {
-      "order": 38,
+      "order": 39,
       "id": "virtual-data-table",
       "wave": "cross-pattern composition",
       "score": 24,
@@ -5992,7 +6147,7 @@
       }
     },
     {
-      "order": 39,
+      "order": 40,
       "id": "agent-conversation",
       "wave": "template-facing orchestrator",
       "score": 25,
@@ -6140,7 +6295,7 @@
       }
     },
     {
-      "order": 40,
+      "order": 41,
       "id": "pull-to-refresh",
       "wave": "primitive-runtime composition",
       "score": 25,
@@ -6286,7 +6441,7 @@
       }
     },
     {
-      "order": 41,
+      "order": 42,
       "id": "help-center",
       "wave": "cross-pattern composition",
       "score": 26,
@@ -6439,7 +6594,7 @@
       }
     },
     {
-      "order": 42,
+      "order": 43,
       "id": "advanced-filters",
       "wave": "stateful Flow composition",
       "score": 27,
@@ -6592,7 +6747,7 @@
       }
     },
     {
-      "order": 43,
+      "order": 44,
       "id": "command-palette",
       "wave": "cross-pattern composition",
       "score": 27,
@@ -6730,7 +6885,7 @@
       }
     },
     {
-      "order": 44,
+      "order": 45,
       "id": "account-operations",
       "wave": "template-facing orchestrator",
       "score": 28,
@@ -6893,7 +7048,7 @@
       }
     },
     {
-      "order": 45,
+      "order": 46,
       "id": "chart-wrapper",
       "wave": "primitive-runtime composition",
       "score": 28,
@@ -7038,7 +7193,7 @@
       }
     },
     {
-      "order": 46,
+      "order": 47,
       "id": "filterable-editable-table",
       "wave": "cross-pattern composition",
       "score": 28,
@@ -7205,7 +7360,7 @@
       }
     },
     {
-      "order": 47,
+      "order": 48,
       "id": "fleet-manager-onboarding-desktop",
       "wave": "template-facing orchestrator",
       "score": 28,
@@ -7360,7 +7515,7 @@
       }
     },
     {
-      "order": 48,
+      "order": 49,
       "id": "backoffice-approval",
       "wave": "template-facing orchestrator",
       "score": 29,
@@ -7524,7 +7679,7 @@
       }
     },
     {
-      "order": 49,
+      "order": 50,
       "id": "drawer-adapter",
       "wave": "cross-pattern composition",
       "score": 29,
@@ -7702,7 +7857,7 @@
       }
     },
     {
-      "order": 50,
+      "order": 51,
       "id": "preference-management",
       "wave": "template-facing orchestrator",
       "score": 29,
@@ -7858,7 +8013,7 @@
       }
     },
     {
-      "order": 51,
+      "order": 52,
       "id": "roles-and-permissions",
       "wave": "template-facing orchestrator",
       "score": 30,
@@ -7997,7 +8152,7 @@
       }
     },
     {
-      "order": 52,
+      "order": 53,
       "id": "driver-and-vehicle-administration",
       "wave": "template-facing orchestrator",
       "score": 31,
@@ -8158,7 +8313,7 @@
       }
     },
     {
-      "order": 53,
+      "order": 54,
       "id": "authentication-login-biometrics-and-otp",
       "wave": "template-facing orchestrator",
       "score": 32,
@@ -8314,7 +8469,7 @@
       }
     },
     {
-      "order": 54,
+      "order": 55,
       "id": "ticket-queue",
       "wave": "template-facing orchestrator",
       "score": 32,
@@ -8486,7 +8641,7 @@
       }
     },
     {
-      "order": 55,
+      "order": 56,
       "id": "status-feedback-view",
       "wave": "template-facing orchestrator",
       "score": 34,
@@ -8654,7 +8809,7 @@
       }
     },
     {
-      "order": 56,
+      "order": 57,
       "id": "case-management",
       "wave": "template-facing orchestrator",
       "score": 37,
@@ -8836,7 +8991,7 @@
       }
     },
     {
-      "order": 57,
+      "order": 58,
       "id": "pricing-operations",
       "wave": "template-facing orchestrator",
       "score": 37,
@@ -9018,7 +9173,7 @@
       }
     },
     {
-      "order": 58,
+      "order": 59,
       "id": "dense-operational-list",
       "wave": "template-facing orchestrator",
       "score": 40,
@@ -9200,7 +9355,7 @@
       }
     },
     {
-      "order": 59,
+      "order": 60,
       "id": "driver-onboarding-mobile",
       "wave": "template-facing orchestrator",
       "score": 44,
@@ -9379,7 +9534,7 @@
       }
     },
     {
-      "order": 60,
+      "order": 61,
       "id": "sidebar",
       "wave": "template-facing orchestrator",
       "score": 45,
@@ -9530,7 +9685,7 @@
       }
     },
     {
-      "order": 61,
+      "order": 62,
       "id": "station-discovery",
       "wave": "template-facing orchestrator",
       "score": 45,
@@ -9730,7 +9885,7 @@
       }
     },
     {
-      "order": 62,
+      "order": 63,
       "id": "topbar",
       "wave": "template-facing orchestrator",
       "score": 75,
@@ -9964,6 +10119,13 @@
       "reason": "notification-panel declares Topbar as a documented boundary, but React does not import it at runtime.",
       "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
       "reactFile": "packages/react/src/patterns/NotificationPanel.js"
+    },
+    {
+      "pattern": "chart-legend-item",
+      "dependency": "Chart Wrapper",
+      "reason": "chart-legend-item declares Chart Wrapper as a documented boundary, but React does not import it at runtime.",
+      "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
+      "reactFile": "packages/react/src/patterns/ChartLegendItem.js"
     },
     {
       "pattern": "virtual-data-table",

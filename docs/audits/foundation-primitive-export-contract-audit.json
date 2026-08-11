@@ -5,7 +5,7 @@
   "inventory": {
     "foundations": 11,
     "primitives": 24,
-    "patterns": 62,
+    "patterns": 63,
     "templates": 9,
     "tokenCount": 1078,
     "tokenTypes": 15,
@@ -40,7 +40,7 @@
     "inventory": {
       "foundations": 11,
       "primitives": 24,
-      "patterns": 62,
+      "patterns": 63,
       "templates": 9,
       "tokenCount": 1078,
       "tokenTypes": 15,
@@ -486,6 +486,14 @@
       "name": "case-management",
       "subpath": "./specs/patterns/case-management",
       "target": "./packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "chart-legend-item",
+      "name": "chart-legend-item",
+      "subpath": "./specs/patterns/chart-legend-item",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
       "valid": true,
       "errors": []
     },
@@ -1327,6 +1335,13 @@
       "id": "case-management",
       "name": "case-management",
       "file": "packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "chart-legend-item",
+      "name": "chart-legend-item",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
       "exists": true,
       "shapeErrors": []
     },

@@ -10,6 +10,7 @@ export { Autocomplete } from "./Autocomplete.js";
 export { BulkActions } from "./BulkActions.js";
 export { CalendarView } from "./CalendarView.js";
 export { CaseManagement } from "./CaseManagement.js";
+export { ChartLegendItem } from "./ChartLegendItem.js";
 export { ChartWrapper } from "./ChartWrapper.js";
 export { ColumnConfigurator } from "./ColumnConfigurator.js";
 export { CommandPalette } from "./CommandPalette.js";

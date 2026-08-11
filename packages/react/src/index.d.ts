@@ -161,6 +161,15 @@ export type {
   ChatThreadProps,
   ChatThreadState,
 } from "./ChatThread.js";
+export { ChartLegendItem } from "./patterns/ChartLegendItem.js";
+export type {
+  ChartLegendItemComponent,
+  ChartLegendItemControl,
+  ChartLegendItemDensity,
+  ChartLegendItemProps,
+  ChartLegendItemState,
+  ChartLegendItemToggleMeta,
+} from "./patterns/ChartLegendItem.js";
 export { ChartWrapper } from "./patterns/ChartWrapper.js";
 export type {
   ChartWrapperAction,

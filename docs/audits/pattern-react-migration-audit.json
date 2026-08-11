@@ -3,25 +3,25 @@
   "audit": "pattern react migration audit",
   "principle": "Pattern React migration must start from formal Flow artifacts, preserve foundation and primitive ownership, and classify composition complexity before implementation work begins.",
   "inventory": {
-    "patterns": 62,
+    "patterns": 63,
     "patternArchitecturePolicyIssues": 0,
     "runtimePrimitivePatternDependencyPolicy": 5,
     "templateFacingSignalPolicy": 11,
     "migrationWavePolicy": 5,
     "nonNegotiableMigrationRules": 6,
-    "reactSources": 62,
-    "typeSources": 62,
-    "reactContractRows": 62,
-    "forwardRefPatterns": 62,
-    "refAttributePatterns": 62,
-    "densityPropPatterns": 62,
-    "patternsWithSlots": 62,
-    "patternsWithFoundations": 62,
-    "patternsWithPrimitives": 62,
-    "patternsWithComponents": 61,
-    "patternsWithStateModel": 62,
-    "callbackPropsDeclared": 263,
-    "callbackPropsTested": 263,
+    "reactSources": 63,
+    "typeSources": 63,
+    "reactContractRows": 63,
+    "forwardRefPatterns": 63,
+    "refAttributePatterns": 63,
+    "densityPropPatterns": 63,
+    "patternsWithSlots": 63,
+    "patternsWithFoundations": 63,
+    "patternsWithPrimitives": 63,
+    "patternsWithComponents": 62,
+    "patternsWithStateModel": 63,
+    "callbackPropsDeclared": 265,
+    "callbackPropsTested": 265,
     "missingCallbackTests": 0,
     "controlledPairIssues": 0,
     "statesMissingFromTypes": 0,
@@ -39,40 +39,40 @@
     "baseFlowComposition": 8,
     "statefulFlowComposition": 23,
     "crossPatternComposition": 9,
-    "primitiveRuntimeComposition": 5,
+    "primitiveRuntimeComposition": 6,
     "templateFacingOrchestrators": 17,
-    "surfaceRequired": 43,
-    "primitiveRuntimeRequired": 8,
-    "patternDependencyBoundaries": 84,
+    "surfaceRequired": 44,
+    "primitiveRuntimeRequired": 9,
+    "patternDependencyBoundaries": 85,
     "templateReferences": 25,
     "patternsWithDependencySlotCoverageFindings": 0,
     "componentDependencySlotCoverageFindings": 0,
     "runtimePatternDependencySlotCoverageFindings": 0,
-    "boundaryOnlyPatternDependencyPatterns": 7,
-    "boundaryOnlyPatternDependencies": 9,
+    "boundaryOnlyPatternDependencyPatterns": 8,
+    "boundaryOnlyPatternDependencies": 10,
     "migrationAuditDebt": 0
   },
   "baseline": {
     "inventory": {
-      "patterns": 62,
+      "patterns": 63,
       "patternArchitecturePolicyIssues": 0,
       "runtimePrimitivePatternDependencyPolicy": 5,
       "templateFacingSignalPolicy": 11,
       "migrationWavePolicy": 5,
       "nonNegotiableMigrationRules": 6,
-      "reactSources": 62,
-      "typeSources": 62,
-      "reactContractRows": 62,
-      "forwardRefPatterns": 62,
-      "refAttributePatterns": 62,
-      "densityPropPatterns": 62,
-      "patternsWithSlots": 62,
-      "patternsWithFoundations": 62,
-      "patternsWithPrimitives": 62,
-      "patternsWithComponents": 61,
-      "patternsWithStateModel": 62,
-      "callbackPropsDeclared": 263,
-      "callbackPropsTested": 263,
+      "reactSources": 63,
+      "typeSources": 63,
+      "reactContractRows": 63,
+      "forwardRefPatterns": 63,
+      "refAttributePatterns": 63,
+      "densityPropPatterns": 63,
+      "patternsWithSlots": 63,
+      "patternsWithFoundations": 63,
+      "patternsWithPrimitives": 63,
+      "patternsWithComponents": 62,
+      "patternsWithStateModel": 63,
+      "callbackPropsDeclared": 265,
+      "callbackPropsTested": 265,
       "missingCallbackTests": 0,
       "controlledPairIssues": 0,
       "statesMissingFromTypes": 0,
@@ -90,17 +90,17 @@
       "baseFlowComposition": 8,
       "statefulFlowComposition": 23,
       "crossPatternComposition": 9,
-      "primitiveRuntimeComposition": 5,
+      "primitiveRuntimeComposition": 6,
       "templateFacingOrchestrators": 17,
-      "surfaceRequired": 43,
-      "primitiveRuntimeRequired": 8,
-      "patternDependencyBoundaries": 84,
+      "surfaceRequired": 44,
+      "primitiveRuntimeRequired": 9,
+      "patternDependencyBoundaries": 85,
       "templateReferences": 25,
       "patternsWithDependencySlotCoverageFindings": 0,
       "componentDependencySlotCoverageFindings": 0,
       "runtimePatternDependencySlotCoverageFindings": 0,
-      "boundaryOnlyPatternDependencyPatterns": 7,
-      "boundaryOnlyPatternDependencies": 9
+      "boundaryOnlyPatternDependencyPatterns": 8,
+      "boundaryOnlyPatternDependencies": 10
     },
     "mismatches": [],
     "unexpectedInventoryMetrics": []
@@ -139,6 +139,13 @@
       "reason": "notification-panel declares Topbar as a documented boundary, but React does not import it at runtime.",
       "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
       "reactFile": "packages/react/src/patterns/NotificationPanel.js"
+    },
+    {
+      "pattern": "chart-legend-item",
+      "dependency": "Chart Wrapper",
+      "reason": "chart-legend-item declares Chart Wrapper as a documented boundary, but React does not import it at runtime.",
+      "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
+      "reactFile": "packages/react/src/patterns/ChartLegendItem.js"
     },
     {
       "pattern": "virtual-data-table",
@@ -5299,6 +5306,158 @@
     },
     {
       "order": 34,
+      "pattern": "chart-legend-item",
+      "mode": "primitive-runtime composition",
+      "score": 23,
+      "components": [
+        "Badge",
+        "Button",
+        "Checkbox",
+        "Chip",
+        "Tag",
+        "Tooltip"
+      ],
+      "primitives": [
+        "Charts",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [
+        "Chart Wrapper"
+      ],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "legendSurface",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ]
+        },
+        {
+          "name": "toggle",
+          "owner": "component",
+          "uses": [
+            "Checkbox",
+            "Chip",
+            "Button"
+          ]
+        },
+        {
+          "name": "status",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Tag",
+            "Tooltip"
+          ]
+        },
+        {
+          "name": "value",
+          "owner": "primitive",
+          "uses": [
+            "Typography"
+          ]
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": [
+          "Chart Wrapper"
+        ]
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onAction",
+          "onToggle"
+        ],
+        "testedCallbacks": [
+          "onAction",
+          "onToggle"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "default",
+          "disabled",
+          "error",
+          "hidden",
+          "loading",
+          "selected"
+        ],
+        "typedStates": [
+          "default",
+          "disabled",
+          "error",
+          "hidden",
+          "loading",
+          "selected"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [
+          "legendSurface"
+        ],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [
+        "Charts"
+      ],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "selected",
+        "hidden",
+        "disabled",
+        "loading",
+        "error"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
+        "react": "packages/react/src/patterns/ChartLegendItem.js",
+        "types": "packages/react/src/patterns/ChartLegendItem.d.ts"
+      }
+    },
+    {
+      "order": 35,
       "pattern": "section-header",
       "mode": "cross-pattern composition",
       "score": 23,
@@ -5448,7 +5607,7 @@
       }
     },
     {
-      "order": 35,
+      "order": 36,
       "pattern": "transfer-list",
       "mode": "cross-pattern composition",
       "score": 23,
@@ -5617,7 +5776,7 @@
       }
     },
     {
-      "order": 36,
+      "order": 37,
       "pattern": "fullscreen-sheet",
       "mode": "stateful Flow composition",
       "score": 24,
@@ -5771,7 +5930,7 @@
       }
     },
     {
-      "order": 37,
+      "order": 38,
       "pattern": "multi-step-form",
       "mode": "stateful Flow composition",
       "score": 24,
@@ -5937,7 +6096,7 @@
       }
     },
     {
-      "order": 38,
+      "order": 39,
       "pattern": "virtual-data-table",
       "mode": "cross-pattern composition",
       "score": 24,
@@ -6097,7 +6256,7 @@
       }
     },
     {
-      "order": 39,
+      "order": 40,
       "pattern": "agent-conversation",
       "mode": "template-facing orchestrator",
       "score": 25,
@@ -6259,7 +6418,7 @@
       }
     },
     {
-      "order": 40,
+      "order": 41,
       "pattern": "pull-to-refresh",
       "mode": "primitive-runtime composition",
       "score": 25,
@@ -6414,7 +6573,7 @@
       }
     },
     {
-      "order": 41,
+      "order": 42,
       "pattern": "help-center",
       "mode": "cross-pattern composition",
       "score": 26,
@@ -6582,7 +6741,7 @@
       }
     },
     {
-      "order": 42,
+      "order": 43,
       "pattern": "advanced-filters",
       "mode": "stateful Flow composition",
       "score": 27,
@@ -6738,7 +6897,7 @@
       }
     },
     {
-      "order": 43,
+      "order": 44,
       "pattern": "command-palette",
       "mode": "cross-pattern composition",
       "score": 27,
@@ -6894,7 +7053,7 @@
       }
     },
     {
-      "order": 44,
+      "order": 45,
       "pattern": "account-operations",
       "mode": "template-facing orchestrator",
       "score": 28,
@@ -7083,7 +7242,7 @@
       }
     },
     {
-      "order": 45,
+      "order": 46,
       "pattern": "chart-wrapper",
       "mode": "primitive-runtime composition",
       "score": 28,
@@ -7235,7 +7394,7 @@
       }
     },
     {
-      "order": 46,
+      "order": 47,
       "pattern": "filterable-editable-table",
       "mode": "cross-pattern composition",
       "score": 28,
@@ -7433,7 +7592,7 @@
       }
     },
     {
-      "order": 47,
+      "order": 48,
       "pattern": "fleet-manager-onboarding-desktop",
       "mode": "template-facing orchestrator",
       "score": 28,
@@ -7597,7 +7756,7 @@
       }
     },
     {
-      "order": 48,
+      "order": 49,
       "pattern": "backoffice-approval",
       "mode": "template-facing orchestrator",
       "score": 29,
@@ -7787,7 +7946,7 @@
       }
     },
     {
-      "order": 49,
+      "order": 50,
       "pattern": "drawer-adapter",
       "mode": "cross-pattern composition",
       "score": 29,
@@ -7976,7 +8135,7 @@
       }
     },
     {
-      "order": 50,
+      "order": 51,
       "pattern": "preference-management",
       "mode": "template-facing orchestrator",
       "score": 29,
@@ -8152,7 +8311,7 @@
       }
     },
     {
-      "order": 51,
+      "order": 52,
       "pattern": "roles-and-permissions",
       "mode": "template-facing orchestrator",
       "score": 30,
@@ -8305,7 +8464,7 @@
       }
     },
     {
-      "order": 52,
+      "order": 53,
       "pattern": "driver-and-vehicle-administration",
       "mode": "template-facing orchestrator",
       "score": 31,
@@ -8472,7 +8631,7 @@
       }
     },
     {
-      "order": 53,
+      "order": 54,
       "pattern": "authentication-login-biometrics-and-otp",
       "mode": "template-facing orchestrator",
       "score": 32,
@@ -8634,7 +8793,7 @@
       }
     },
     {
-      "order": 54,
+      "order": 55,
       "pattern": "ticket-queue",
       "mode": "template-facing orchestrator",
       "score": 32,
@@ -8836,7 +8995,7 @@
       }
     },
     {
-      "order": 55,
+      "order": 56,
       "pattern": "status-feedback-view",
       "mode": "template-facing orchestrator",
       "score": 34,
@@ -9032,7 +9191,7 @@
       }
     },
     {
-      "order": 56,
+      "order": 57,
       "pattern": "case-management",
       "mode": "template-facing orchestrator",
       "score": 37,
@@ -9252,7 +9411,7 @@
       }
     },
     {
-      "order": 57,
+      "order": 58,
       "pattern": "pricing-operations",
       "mode": "template-facing orchestrator",
       "score": 37,
@@ -9458,7 +9617,7 @@
       }
     },
     {
-      "order": 58,
+      "order": 59,
       "pattern": "dense-operational-list",
       "mode": "template-facing orchestrator",
       "score": 40,
@@ -9658,7 +9817,7 @@
       }
     },
     {
-      "order": 59,
+      "order": 60,
       "pattern": "driver-onboarding-mobile",
       "mode": "template-facing orchestrator",
       "score": 44,
@@ -9834,7 +9993,7 @@
       }
     },
     {
-      "order": 60,
+      "order": 61,
       "pattern": "sidebar",
       "mode": "template-facing orchestrator",
       "score": 45,
@@ -9995,7 +10154,7 @@
       }
     },
     {
-      "order": 61,
+      "order": 62,
       "pattern": "station-discovery",
       "mode": "template-facing orchestrator",
       "score": 45,
@@ -10208,7 +10367,7 @@
       }
     },
     {
-      "order": 62,
+      "order": 63,
       "pattern": "topbar",
       "mode": "template-facing orchestrator",
       "score": 75,

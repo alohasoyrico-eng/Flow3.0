@@ -1,0 +1,72 @@
+{
+  "patterns": {
+    "chart-legend-item": {
+      "purpose": "Coordinate one chart series label with visibility, value, semantic status, keyboard toggle, and chart/table synchronization without owning chart rendering.",
+      "useWhen": [
+        "A chart exposes multiple series or segments that users can inspect or toggle.",
+        "Legend items need values, status, or disabled/hidden states.",
+        "The same legend state must stay synchronized with chart and table fallbacks."
+      ],
+      "doNotUseWithoutReview": [
+        "Legend interaction changes regulated financial, risk, or compliance interpretation.",
+        "The chart has no accessible table or list fallback.",
+        "Series color meaning is not defined by the chart primitive and Energy foundation."
+      ],
+      "foundations": [
+        ["Depth", "Keeps legend row elevation and chart/fallback layering aligned with the surrounding chart surface."],
+        ["Energy", "Controls semantic status, selected emphasis, disabled treatment, and non-color cues."],
+        ["Frame", "Sets compact row alignment, wrapping, and responsive legend placement."],
+        ["Growth", "Preserves compact legend density while allowing extra value, status, or tooltip context."],
+        ["Iconography", "Coordinates any optional series icon, toggle affordance, or status glyph with Flow icon semantics."],
+        ["Momentum", "Keeps toggle, tooltip, and selected-state transitions aligned with reduced-motion behavior."],
+        ["State", "Defines visible, hidden, selected, disabled, loading, and error states."],
+        ["Symbol", "Connects semantic status and series meaning to non-color indicators."],
+        ["Tone", "Keeps legend emphasis, warnings, and neutral metadata aligned with chart tone."],
+        ["Voice", "Owns series labels, values, status text, and hidden/disabled copy."],
+        ["Accessibility", "Requires keyboard reachable toggles, visible labels, and non-color meaning."]
+      ],
+      "slots": [
+        ["legendSurface", "Surface", "yes", "Structural boundary for one legend row or item."],
+        ["toggle", "Checkbox | Chip | Button", "conditional", "Series visibility or selected-state control."],
+        ["status", "Badge | Tag", "conditional", "Semantic metadata for status or threshold."],
+        ["value", "Typography", "conditional", "Series value, share, or delta copy."]
+      ],
+      "componentsUsed": ["Badge", "Button", "Checkbox", "Chip", "Tag", "Tooltip"],
+      "variants": [
+        ["Static", "Required", "Label, value, and status are displayed without interaction."],
+        ["Toggleable", "Required", "Users can show or hide a series using a Flow control."],
+        ["Selected", "Candidate", "Selected series is emphasized and synchronized with chart/table focus."]
+      ],
+      "motion": [
+        ["State change", "Legend toggles update instantly and respect reduced-motion chart updates."],
+        ["Tooltip reveal", "Explanatory metadata uses Tooltip/Popover motion, not custom hover shells."]
+      ],
+      "accessibility": [
+        "Legend item has an accessible label and optional value.",
+        "Toggleable variants are keyboard reachable.",
+        "Color is never the only series identifier.",
+        "Hidden series state is announced through text or control state."
+      ],
+      "tests": [
+        "Composes Flow controls instead of raw buttons.",
+        "Selected/hidden/disabled states are visible without color-only meaning.",
+        "ChartWrapper / Chart Wrapper remains the boundary host for chart rendering and fallback data; Chart Legend Item only owns series legend interaction."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Chart Legend Item inside Chart Wrapper when series visibility or focus is reusable.",
+          "Use Badge/Tag for semantic metadata and Checkbox/Chip/Button for interaction."
+        ],
+        "mustAsk": [
+          "Series meaning, value source, threshold policy, or regulated interpretation is unclear."
+        ],
+        "rejectIf": [
+          "Legend uses raw swatches without text.",
+          "Legend state cannot be represented in accessible fallback data.",
+          "Chart Wrapper behavior is duplicated in a parallel legend implementation.",
+          "A template invents local chart legend behavior."
+        ]
+      }
+    }
+  }
+}

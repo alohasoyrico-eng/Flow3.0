@@ -8,7 +8,7 @@ React patterns must be primary Flow implementations with typed refs, wired event
 
 | Metric | Value |
 | --- | ---: |
-| formalPatternArtifacts | 62 |
+| formalPatternArtifacts | 63 |
 | patternArchitecturePolicyIssues | 0 |
 | forbiddenTypePropPolicy | 5 |
 | controlledPropPairPolicy | 10 |
@@ -21,29 +21,29 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | stateCascadeCarrierPropPolicy | 8 |
 | patternRuntimeMarkerPolicy | 3 |
 | patternContractRequiredHeadingPolicy | 4 |
-| implementedReactPatterns | 62 |
-| typedPatternDeclarations | 62 |
-| forwardRefPatterns | 62 |
-| patternsWithRefAttributes | 62 |
-| patternsWithDensityProp | 62 |
-| flowChildElements | 506 |
+| implementedReactPatterns | 63 |
+| typedPatternDeclarations | 63 |
+| forwardRefPatterns | 63 |
+| patternsWithRefAttributes | 63 |
+| patternsWithDensityProp | 63 |
+| flowChildElements | 516 |
 | flowChildDensityCascadeIssues | 0 |
-| statefulFlowChildElements | 502 |
-| directStateCascadeChildren | 478 |
-| boundaryStateCascadeChildren | 24 |
+| statefulFlowChildElements | 512 |
+| directStateCascadeChildren | 485 |
+| boundaryStateCascadeChildren | 27 |
 | stateCascadeIssues | 0 |
-| validatedFlowLiteralProps | 147 |
+| validatedFlowLiteralProps | 149 |
 | flowLiteralContractIssues | 0 |
-| validatedFlowChildProps | 2244 |
+| validatedFlowChildProps | 2261 |
 | flowChildPropContractIssues | 0 |
-| callbackPropsDeclared | 263 |
-| callbackPropsTested | 263 |
+| callbackPropsDeclared | 265 |
+| callbackPropsTested | 265 |
 | missingCallbackTests | 0 |
 | declaredProps | 210 |
 | unusedDeclaredProps | 0 |
 | unusedCallbackProps | 0 |
-| formalStates | 470 |
-| typedStates | 470 |
+| formalStates | 476 |
+| typedStates | 476 |
 | statesMissingFromTypes | 0 |
 | statesMissingFromArtifact | 0 |
 | patternContractStateIssues | 0 |
@@ -53,13 +53,13 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | rawGlobalDomRefs | 0 |
 | forbiddenPropsDeclared | 0 |
 | unsafeRestSpreads | 0 |
-| structuralSurfaceSlotPatterns | 27 |
-| structuralSurfaceSlots | 27 |
+| structuralSurfaceSlotPatterns | 28 |
+| structuralSurfaceSlots | 28 |
 | missingSurfaceSlotMarkers | 0 |
 | missingStructuralSurfaceUsage | 0 |
-| patternsWithAccessibilityContracts | 59 |
-| patternsWithDirectAccessibilitySignals | 60 |
-| patternsWithDelegatedAccessibility | 48 |
+| patternsWithAccessibilityContracts | 60 |
+| patternsWithDirectAccessibilitySignals | 61 |
+| patternsWithDelegatedAccessibility | 49 |
 | missingAccessibilityImplementation | 0 |
 | missingDataFlowPattern | 0 |
 | patternsWithBehaviorDebt | 0 |
@@ -94,6 +94,7 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | bulk-actions | yes | yes | yes | yes | 10 | None | 10 | 7 | 3 | None | 4 | None | None | 0/0 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Checkbox, Dialog, Menu, Table, Toast | None | None | no | None |
 | calendar-view | yes | yes | yes | yes | 11 | None | 11 | 11 | 0 | None | 4 | None | onAction, onDateChange, onEventSelect | 3/3 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, EmptyState, List, Popover, Skeleton, Tooltip | None | None | no | None |
 | case-management | yes | yes | yes | yes | 8 | None | 8 | 8 | 0 | None | 1 | None | onCaseBulkAction, onCaseFilterRemove, onCaseFiltersReset, onCasePageChange, onCaseSearchChange, onCaseSelect, onCaseSortChange, onCaseToolbarOverflowSelect, onDetailAction, onDetailOpenChange, onFeedbackAction, onFilterApply, onFilterDrawerOpenChange, onFilterReset, onSavedFilterSelect, onTimelineClear, onTimelineEventSelect, onTimelineFilterRemove | 18/18 | None | None | None | 8/8 | None | None | None | None | 6 | 4 | None | caseManagementSurface | None | no | None |
+| chart-legend-item | yes | yes | yes | yes | 10 | None | 10 | 7 | 3 | None | 2 | None | onAction, onToggle | 2/2 | None | None | None | 6/6 | None | None | None | None | 3 | 3 | Button, Checkbox, Tooltip | legendSurface | None | no | None |
 | chart-wrapper | yes | yes | yes | yes | 11 | None | 11 | 10 | 1 | None | 1 | None | onAction | 1/1 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, EmptyState, ErrorPanel, List, Menu, Skeleton, Table | None | None | no | None |
 | checkbox-group | yes | yes | yes | yes | 6 | None | 6 | 6 | 0 | None | 2 | None | onApply, onClear, onValueChange | 3/3 | None | None | None | 7/7 | None | None | None | None | 4 | 3 | Button, Checkbox, InlineValidation | groupSurface | None | no | None |
 | column-configurator | yes | yes | yes | yes | 10 | None | 10 | 10 | 0 | None | 4 | None | onAction, onClick, onColumnVisibilityChange, onOpenChange | 4/4 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Checkbox, Dialog, Drawer, InlineValidation, Menu, Table, Toast | None | None | no | None |

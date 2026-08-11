@@ -211,7 +211,7 @@
       ]
     },
     "patterns": {
-      "count": 62,
+      "count": 63,
       "ids": [
         "account-operations",
         "action-sheet",
@@ -226,6 +226,7 @@
         "bulk-actions",
         "calendar-view",
         "case-management",
+        "chart-legend-item",
         "chart-wrapper",
         "checkbox-group",
         "column-configurator",
@@ -292,7 +293,7 @@
       ]
     },
     "patternCopy": {
-      "count": 29,
+      "count": 30,
       "ids": [
         "account-operations",
         "advanced-filters",
@@ -300,6 +301,7 @@
         "backoffice-approval",
         "bottom-sheet",
         "case-management",
+        "chart-legend-item",
         "chart-wrapper",
         "checkbox-group",
         "command-palette",
@@ -331,12 +333,12 @@
         "packages/content/content/pattern-copy/patterns/backoffice-approval/all.json",
         "packages/content/content/pattern-copy/patterns/bottom-sheet/all.json",
         "packages/content/content/pattern-copy/patterns/case-management/all.json",
+        "packages/content/content/pattern-copy/patterns/chart-legend-item/all.json",
         "packages/content/content/pattern-copy/patterns/chart-wrapper/all.json",
         "packages/content/content/pattern-copy/patterns/checkbox-group/all.json",
         "packages/content/content/pattern-copy/patterns/command-palette/all.json",
         "packages/content/content/pattern-copy/patterns/dense-operational-list/all.json",
-        "packages/content/content/pattern-copy/patterns/email-template-layout/all.json",
-        "packages/content/content/pattern-copy/patterns/expandable-detail-table/all.json"
+        "packages/content/content/pattern-copy/patterns/email-template-layout/all.json"
       ]
     },
     "templates": {

@@ -344,6 +344,10 @@
       "types": "./dist/patterns/ChartWrapper.d.ts",
       "default": "./dist/patterns/ChartWrapper.js"
     },
+    "./patterns/chart-legend-item": {
+      "types": "./dist/patterns/ChartLegendItem.d.ts",
+      "default": "./dist/patterns/ChartLegendItem.js"
+    },
     "./patterns/checkbox-group": {
       "types": "./dist/patterns/CheckboxGroup.d.ts",
       "default": "./dist/patterns/CheckboxGroup.js"

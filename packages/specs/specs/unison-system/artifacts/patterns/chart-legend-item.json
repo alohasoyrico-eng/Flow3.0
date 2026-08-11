@@ -1,0 +1,179 @@
+{
+  "artifacts": {
+    "patterns": {
+      "chart-legend-item": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate chart series legend labels, values, visibility, selected state, semantic status, and accessible synchronization with Chart Wrapper data fallbacks.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Charts",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Checkbox",
+          "Chip",
+          "Tag",
+          "Tooltip"
+        ],
+        "patternDependencies": [
+          "Chart Wrapper"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.checkbox.*",
+          "comp.chip.*",
+          "comp.tag.*",
+          "comp.tooltip.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A chart exposes multiple visible, hidden, selected, or status-bearing series.",
+          "Users need to inspect or toggle series without losing table/list fallback meaning.",
+          "Legend meaning must remain accessible beyond color."
+        ],
+        "decisionTree": [
+          "Use static legend items when series are informational only.",
+          "Use Checkbox, Chip, or Button when a series can be toggled or selected.",
+          "Escalate to Chart Wrapper when legend state controls chart, fallback table, and export behavior."
+        ],
+        "failureModes": [
+          "Legend is raw swatches with no text.",
+          "Series toggles are fake buttons outside Flow components.",
+          "Hidden/selected state is color-only.",
+          "Template owns legend synchronization locally."
+        ],
+        "successMetrics": [
+          "Users can identify each series by label and value.",
+          "Toggleable legend state is keyboard reachable.",
+          "Chart and fallback table/list remain synchronized."
+        ],
+        "states": [
+          "default",
+          "selected",
+          "hidden",
+          "disabled",
+          "loading",
+          "error"
+        ],
+        "slots": [
+          {
+            "name": "legendSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ]
+          },
+          {
+            "name": "toggle",
+            "owner": "component",
+            "uses": [
+              "Checkbox",
+              "Chip",
+              "Button"
+            ]
+          },
+          {
+            "name": "status",
+            "owner": "component",
+            "uses": [
+              "Badge",
+              "Tag",
+              "Tooltip"
+            ]
+          },
+          {
+            "name": "value",
+            "owner": "primitive",
+            "uses": [
+              "Typography"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Expose a text label for every series.",
+          "Represent selected, hidden, and disabled states with accessible control state.",
+          "Do not rely on color-only series identification."
+        ],
+        "tests": [
+          "Composes Flow controls and metadata components.",
+          "Synchronizes with Chart Wrapper fallback data.",
+          "Covers selected, hidden, disabled, loading, and error states."
+        ],
+        "agentInstructions": [
+          "Keep chart rendering in Chart Panel or Chart Wrapper.",
+          "Use Chart Legend Item only for series-level label/status/toggle behavior.",
+          "Ask before changing financial, risk, or regulated series interpretation."
+        ],
+        "rejectIf": [
+          "Legend state is visual-only.",
+          "No accessible chart data fallback exists.",
+          "Template code owns series synchronization directly."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

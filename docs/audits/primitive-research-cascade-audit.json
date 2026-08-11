@@ -212,7 +212,7 @@
       ]
     },
     "patterns": {
-      "count": 62,
+      "count": 63,
       "ids": [
         "account-operations",
         "action-sheet",
@@ -227,6 +227,7 @@
         "bulk-actions",
         "calendar-view",
         "case-management",
+        "chart-legend-item",
         "chart-wrapper",
         "checkbox-group",
         "column-configurator",
@@ -291,9 +292,9 @@
         "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
         "packages/content/content/pattern-contracts/patterns/calendar-view.md",
         "packages/content/content/pattern-contracts/patterns/case-management.md",
+        "packages/content/content/pattern-contracts/patterns/chart-legend-item.md",
         "packages/content/content/pattern-contracts/patterns/chart-wrapper.md",
-        "packages/content/content/pattern-contracts/patterns/checkbox-group.md",
-        "packages/content/content/pattern-contracts/patterns/column-configurator.md"
+        "packages/content/content/pattern-contracts/patterns/checkbox-group.md"
       ]
     },
     "patternCopy": {

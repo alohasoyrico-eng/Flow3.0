@@ -128,6 +128,15 @@ export type {
   CaseManagementSummary,
   CaseManagementTimeline,
 } from "./CaseManagement.js";
+export { ChartLegendItem } from "./ChartLegendItem.js";
+export type {
+  ChartLegendItemComponent,
+  ChartLegendItemControl,
+  ChartLegendItemDensity,
+  ChartLegendItemProps,
+  ChartLegendItemState,
+  ChartLegendItemToggleMeta,
+} from "./ChartLegendItem.js";
 export { ChartWrapper } from "./ChartWrapper.js";
 export type {
   ChartWrapperAction,

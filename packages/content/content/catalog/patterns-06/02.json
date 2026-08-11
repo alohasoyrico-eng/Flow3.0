@@ -42,10 +42,15 @@
         "Content Designers",
         "Researchers"
       ],
+      "patternDependencies": [
+        "Chart Wrapper"
+      ],
       "componentsUsed": [
-        "Chart Panel",
+        "Badge",
+        "Button",
         "Checkbox",
-        "Icon Button",
+        "Chip",
+        "Tag",
         "Tooltip"
       ],
       "tokens": [

@@ -7,7 +7,7 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 ## Inventory
 
 - Docs root: ../FlowDocs
-- Source files scanned: 203
+- Source files scanned: 205
 - Generated files: 352
 - Flow dependency present: 1
 - Flow boundary aliases: 20
@@ -31,7 +31,7 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| sourceFilesScanned | 203 | 203 |
+| sourceFilesScanned | 205 | 205 |
 | generatedFiles | 352 | 352 |
 | flowDependencyPresent | 1 | 1 |
 | flowBoundaryAliases | 20 | 20 |

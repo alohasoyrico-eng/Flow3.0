@@ -28,7 +28,7 @@
     "#design-system/specs/templates/*"
   ],
   "expectedInventory": {
-    "sourceFilesScanned": 203,
+    "sourceFilesScanned": 205,
     "generatedFiles": 352,
     "flowDependencyPresent": 1,
     "flowBoundaryAliases": 20,

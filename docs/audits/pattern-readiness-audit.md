@@ -9,15 +9,15 @@ Patterns must have a governed source, portable contract, formal artifact promoti
 - Meta patterns: 58
 - Catalog patterns: 63
 - Unique catalog patterns: 63
-- Pattern copy sources: 62
-- Markdown contracts: 62
+- Pattern copy sources: 63
+- Markdown contracts: 63
 - Required pattern contracts: 23
 - Required contracts present: 23
 - Required copy present: 23
-- Formal artifacts: 62
+- Formal artifacts: 63
 - Formal artifact backlog: 0
-- Catalog-only patterns: 1
-- Approved catalog-only patterns: 1
+- Catalog-only patterns: 0
+- Approved catalog-only patterns: 0
 - Unapproved catalog-only patterns: 0
 - Catalog-only governance issues: 0
 - Formal artifacts missing catalog: 0
@@ -47,19 +47,19 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | metaPatterns | 58 | 58 |
 | catalogPatterns | 63 | 63 |
 | uniqueCatalogPatterns | 63 | 63 |
-| copyPatterns | 62 | 62 |
-| markdownContracts | 62 | 62 |
+| copyPatterns | 63 | 63 |
+| markdownContracts | 63 | 63 |
 | requiredPatternContracts | 23 | 23 |
 | requiredContractsPresent | 23 | 23 |
 | requiredCopyPresent | 23 | 23 |
-| formalArtifacts | 62 | 62 |
+| formalArtifacts | 63 | 63 |
 | duplicateCatalogIds | 0 | 0 |
 | requiredContractGaps | 0 | 0 |
 | requiredCopyGaps | 0 | 0 |
 | staleMarkdownContracts | 0 | 0 |
 | formalArtifactBacklog | 0 | 0 |
-| catalogOnlyPatterns | 1 | 1 |
-| approvedCatalogOnlyPatterns | 1 | 1 |
+| catalogOnlyPatterns | 0 | 0 |
+| approvedCatalogOnlyPatterns | 0 | 0 |
 | unapprovedCatalogOnlyPatterns | 0 | 0 |
 | catalogOnlyGovernanceIssues | 0 | 0 |
 | formalArtifactsMissingCatalog | 0 | 0 |
@@ -104,6 +104,7 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | bulk-actions |
 | calendar-view |
 | case-management |
+| chart-legend-item |
 | chart-wrapper |
 | checkbox-group |
 | column-configurator |
@@ -186,13 +187,13 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 
 | Pattern |
 | --- |
-| chart-legend-item |
+| None |
 
 ## Approved Catalog-Only Patterns
 
 | Pattern | Layer | Replacement | Reason |
 | --- | --- | --- | --- |
-| chart-legend-item | pattern | chart-legend-item | Legend items are chart interaction patterns; they must not be promoted as standalone components. |
+| None | None | None | None |
 
 ## Unapproved Catalog-Only Patterns
 
