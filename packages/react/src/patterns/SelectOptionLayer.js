@@ -39,6 +39,7 @@ export const SelectOptionLayer = forwardRef(function SelectOptionLayer({
   empty,
   validation,
   action,
+  onOpenChange,
   onValueChange,
   onAction,
   className = "",
@@ -70,6 +71,7 @@ export const SelectOptionLayer = forwardRef(function SelectOptionLayer({
         density,
         state: resolvedState === "open" ? "open" : resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
         disabled: disabled || resolvedState === "disabled",
+        onOpenChange,
         onValueChange,
       })
       : React.createElement(EmptyState, {

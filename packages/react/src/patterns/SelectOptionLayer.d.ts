@@ -1,7 +1,7 @@
 import type { ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
 import type { ButtonProps } from "../Button.js";
 import type { EmptyStateAction } from "../EmptyState.js";
-import type { SelectDensity, SelectValueChangeEvent, SelectValueMeta } from "../Select.js";
+import type { SelectDensity, SelectOpenChangeEvent, SelectValueChangeEvent, SelectValueMeta } from "../Select.js";
 
 export type SelectOptionLayerState =
   | "closed"
@@ -56,6 +56,7 @@ export interface SelectOptionLayerProps {
   validation?: SelectOptionLayerValidation;
   action?: ButtonProps & { key?: string };
   className?: string;
+  onOpenChange?: (open: boolean, event?: SelectOpenChangeEvent) => void;
   onValueChange?: (value: string, meta: SelectValueMeta, event: SelectValueChangeEvent) => void;
   onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
   [key: `data-${string}`]: string | number | boolean | undefined;
