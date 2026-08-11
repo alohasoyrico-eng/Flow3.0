@@ -29,9 +29,13 @@ function checkTaxonomyBoundaries() {
   }
 
   const decisions = taxonomy.decisions ?? [];
+  const requiredBoundaryCases = taxonomy.requiredBoundaryCases ?? [];
   if (!decisions.length) {
     add("errors", taxonomyFile, 1, "Taxonomy boundaries must list explicit decisions.");
     return;
+  }
+  if (!requiredBoundaryCases.length) {
+    add("errors", taxonomyFile, 1, "Taxonomy boundaries must list required boundary cases for ambiguous layer names.");
   }
   for (const rule of ["Primitive", "Component", "Pattern", "Template"]) {
     if (!(taxonomy.rules ?? []).some((item) => String(item).includes(rule))) {
@@ -61,6 +65,10 @@ function checkTaxonomyBoundaries() {
     checkForbiddenComponentArtifacts(decision.id);
   }
 
+  for (const boundaryCase of requiredBoundaryCases) {
+    checkRequiredBoundaryCaseShape(boundaryCase);
+  }
+
   checkGoldComponentMapping(decisions.map((decision) => decision.id));
 }
 
@@ -72,6 +80,23 @@ function checkDecisionShape(decision) {
   }
   if (!["pattern", "template", "non-component"].includes(decision.layer)) {
     add("errors", taxonomyFile, 1, `${decision.id} has unsupported taxonomy layer: ${decision.layer}.`);
+  }
+}
+
+function checkRequiredBoundaryCaseShape(boundaryCase) {
+  for (const field of ["id", "layer", "source", "reason"]) {
+    if (typeof boundaryCase[field] !== "string" || !boundaryCase[field].trim()) {
+      add("errors", taxonomyFile, 1, `Required boundary case must include ${field}.`);
+    }
+  }
+  if (!["foundation", "primitive", "component", "pattern", "template", "non-component"].includes(boundaryCase.layer)) {
+    add("errors", taxonomyFile, 1, `${boundaryCase.id} has unsupported required boundary layer: ${boundaryCase.layer}.`);
+  }
+  if (!["artifact", "taxonomy-decision"].includes(boundaryCase.source)) {
+    add("errors", taxonomyFile, 1, `${boundaryCase.id} has unsupported required boundary source: ${boundaryCase.source}.`);
+  }
+  if (boundaryCase.source === "taxonomy-decision" && (typeof boundaryCase.replacement !== "string" || !boundaryCase.replacement.trim())) {
+    add("errors", taxonomyFile, 1, `${boundaryCase.id} taxonomy-decision boundary case must include replacement.`);
   }
 }
 

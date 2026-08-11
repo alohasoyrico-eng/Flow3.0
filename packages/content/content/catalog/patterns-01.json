@@ -13,18 +13,20 @@
         "PMs"
       ],
       "componentsUsed": [
+        "Avatar",
+        "Badge",
+        "Drawer",
         "Icon Button",
         "Input",
-        "Menu",
-        "Badge",
-        "Avatar",
-        "Drawer"
+        "Menu"
       ],
       "patternDependencies": [
-        "Search",
         "Autocomplete",
-        "Notification Panel",
         "Avatar Menu",
+        "Command Palette",
+        "Notification Panel",
+        "Search",
+        "Settings",
         "Sidebar"
       ],
       "tokens": [
@@ -49,9 +51,9 @@
       "componentsUsed": [
         "Accordion",
         "Badge",
-        "Icon Button",
         "Breadcrumbs",
-        "Tooltip"
+        "Drawer",
+        "Icon Button"
       ],
       "tokens": [
         "frame.sidebar",
@@ -59,6 +61,9 @@
         "voice.navigation",
         "motion.reveal",
         "a11y.focus"
+      ],
+      "patternDependencies": [
+        "Topbar"
       ]
     },
     {
@@ -99,9 +104,11 @@
         "Content Designers"
       ],
       "componentsUsed": [
-        "Input",
-        "Skeleton",
-        "Empty State"
+        "Combobox",
+        "Empty State",
+        "Inline Validation",
+        "List",
+        "Skeleton"
       ],
       "tokens": [
         "frame.canvas",
@@ -122,11 +129,11 @@
         "Content Designers"
       ],
       "componentsUsed": [
-        "Menu",
-        "Avatar"
+        "Avatar",
+        "Menu"
       ],
       "patternDependencies": [
-        "Menu"
+        "Settings"
       ],
       "tokens": [
         "frame.canvas",
@@ -149,7 +156,8 @@
       "componentsUsed": [
         "Select",
         "Button",
-        "Inline Validation"
+        "Inline Validation",
+        "Empty State"
       ],
       "tokens": [
         "frame.canvas",
@@ -218,61 +226,22 @@
         "Researchers"
       ],
       "componentsUsed": [
-        "Select",
+        "Badge",
+        "Button",
         "Checkbox",
-        "Inline Validation"
-      ],
-      "tokens": [
-        "frame.canvas",
-        "voice.guidance",
-        "motion.reveal",
-        "a11y.recovery"
-      ]
-    },
-    {
-      "type": "pattern",
-      "id": "date-picker",
-      "title": "Date Picker",
-      "platform": "Cross-platform",
-      "summary": "Choose operational dates with locale, keyboard, disabled days, shortcuts, validation, and audit-friendly formatting.",
-      "audiences": [
-        "Product Designers",
-        "Developers",
-        "Content Designers"
-      ],
-      "componentsUsed": [
-        "Input",
-        "Popover",
-        "Button"
-      ],
-      "tokens": [
-        "frame.canvas",
-        "voice.guidance",
-        "motion.reveal",
-        "a11y.recovery"
-      ]
-    },
-    {
-      "type": "pattern",
-      "id": "phone-input",
-      "title": "Phone Input",
-      "platform": "Cross-platform",
-      "summary": "Capture phone numbers for driver invites, OTP, support, and contact updates with country-aware validation.",
-      "audiences": [
-        "Content Designers",
-        "Developers",
-        "Researchers"
-      ],
-      "componentsUsed": [
-        "Phone Input",
+        "Chip",
+        "Empty State",
         "Inline Validation",
-        "Code Input"
+        "Select"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Search"
       ]
     },
     {
@@ -288,8 +257,11 @@
       ],
       "componentsUsed": [
         "Button",
-        "Progress Bar",
-        "Inline Validation"
+        "Empty State",
+        "Inline Validation",
+        "Progress Indicator",
+        "Tag",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
@@ -310,16 +282,22 @@
         "Developers"
       ],
       "componentsUsed": [
-        "Error Panel",
-        "Toast",
         "Badge",
-        "Table"
+        "Button",
+        "Drawer",
+        "Empty State",
+        "Icon Button",
+        "List",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Topbar"
       ]
     },
     {
@@ -334,9 +312,9 @@
         "Product Designers"
       ],
       "componentsUsed": [
-        "Toast",
+        "Badge",
         "Button",
-        "Inline Validation"
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",

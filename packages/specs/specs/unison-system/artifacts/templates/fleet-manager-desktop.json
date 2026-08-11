@@ -28,6 +28,8 @@
           "Color",
           "Typography",
           "Spacing",
+          "Surface",
+          "Density",
           "Iconography",
           "Focus",
           "Loading",
@@ -36,17 +38,24 @@
           "Charts"
         ],
         "patternDependencies": [
-          "Fleet Dashboard Overview",
-          "Fuel Dashboard",
+          "Topbar",
+          "Sidebar",
           "Roles and Permissions"
+        ],
+        "templateModuleDependencies": [
+          "Fleet Dashboard Overview",
+          "Fuel Dashboard"
         ],
         "tokenDependencies": [
           "sys.energy.*",
           "sys.voice.*",
           "sys.frame.*",
+          "sys.depth.*",
           "sys.state.*",
+          "sys.tone.*",
           "sys.accessibility.*",
           "sys.momentum.*",
+          "surface.*",
           "sys.charts.*"
         ],
         "densityContext": [
@@ -100,7 +109,7 @@
           "Navigation follows fleet-management responsibility: overview first, then operational domains, then configuration."
         ],
         "rejectIf": [
-          "Template invents behavior outside its approved pattern dependencies.",
+          "Template invents behavior outside its approved pattern or module dependencies.",
           "Template modules omit data, permission, state, or recovery ownership.",
           "Template bypasses Design System foundations, primitives, density, or semantic tokens."
         ]

@@ -1,0 +1,130 @@
+{
+  "status": "pass",
+  "title": "React template interaction governance audit",
+  "generatedAt": "2026-08-11T00:45:09.615Z",
+  "summary": "React template interaction contracts pass for all required templates.",
+  "inventory": {
+    "templatesAudited": 9,
+    "sourceFiles": 9,
+    "typeFiles": 9,
+    "interactionTestFiles": 1,
+    "packageTestScriptReferences": 1,
+    "templatesWithPassingInteractionContracts": 9,
+    "uncontrolledSelectionCases": 9,
+    "controlledSelectionCases": 9,
+    "drawerCloseCases": 4,
+    "templatesWithSelectionState": 9,
+    "templatesWithSelectionCallbacks": 9,
+    "templatesWithControlledSelectionGuard": 9,
+    "templatesWithDrawerCallbacks": 4,
+    "templatesWithControlledDrawerGuard": 4,
+    "testSelectorAssertions": 9,
+    "testMutationGuards": 9,
+    "docsRuntimeReferences": 0,
+    "vanillaDomReferences": 0,
+    "interactionContractGaps": 0,
+    "reactTemplateInteractionGovernanceDebt": 0
+  },
+  "templates": [
+    {
+      "id": "settings-workspace",
+      "componentName": "SettingsWorkspace",
+      "selectedProp": "selectedSection",
+      "defaultProp": "defaultSelectedSection",
+      "callbackProp": "onSelectedSectionChange",
+      "selectedAttribute": "data-selected-section",
+      "requiresDrawer": false,
+      "sourceContract": "pass",
+      "issues": []
+    },
+    {
+      "id": "internal-operations-console",
+      "componentName": "InternalOperationsConsole",
+      "selectedProp": "selectedModule",
+      "defaultProp": "defaultSelectedModule",
+      "callbackProp": "onSelectedModuleChange",
+      "selectedAttribute": "data-selected-module",
+      "requiresDrawer": true,
+      "sourceContract": "pass",
+      "issues": []
+    },
+    {
+      "id": "agent-workspace",
+      "componentName": "AgentWorkspace",
+      "selectedProp": "selectedConversation",
+      "defaultProp": "defaultSelectedConversation",
+      "callbackProp": "onSelectedConversationChange",
+      "selectedAttribute": "data-selected-conversation",
+      "requiresDrawer": false,
+      "sourceContract": "pass",
+      "issues": []
+    },
+    {
+      "id": "configuration-console",
+      "componentName": "ConfigurationConsole",
+      "selectedProp": "selectedModule",
+      "defaultProp": "defaultSelectedModule",
+      "callbackProp": "onSelectedModuleChange",
+      "selectedAttribute": "data-selected-module",
+      "requiresDrawer": true,
+      "sourceContract": "pass",
+      "issues": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "componentName": "DriverCardWallet",
+      "selectedProp": "selectedSection",
+      "defaultProp": "defaultSelectedSection",
+      "callbackProp": "onSelectedSectionChange",
+      "selectedAttribute": "data-selected-section",
+      "requiresDrawer": false,
+      "sourceContract": "pass",
+      "issues": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "componentName": "DriverMobileApp",
+      "selectedProp": "selectedTab",
+      "defaultProp": "defaultSelectedTab",
+      "callbackProp": "onSelectedTabChange",
+      "selectedAttribute": "data-selected-tab",
+      "requiresDrawer": false,
+      "sourceContract": "pass",
+      "issues": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "componentName": "FleetDashboardSuite",
+      "selectedProp": "selectedDashboard",
+      "defaultProp": "defaultSelectedDashboard",
+      "callbackProp": "onSelectedDashboardChange",
+      "selectedAttribute": "data-selected-dashboard",
+      "requiresDrawer": true,
+      "sourceContract": "pass",
+      "issues": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "componentName": "FleetManagerDesktop",
+      "selectedProp": "selectedDashboard",
+      "defaultProp": "defaultSelectedDashboard",
+      "callbackProp": "onSelectedDashboardChange",
+      "selectedAttribute": "data-selected-dashboard",
+      "requiresDrawer": true,
+      "sourceContract": "pass",
+      "issues": []
+    },
+    {
+      "id": "routes-and-stations",
+      "componentName": "RoutesAndStations",
+      "selectedProp": "selectedStationKey",
+      "defaultProp": "defaultSelectedStationKey",
+      "callbackProp": "onSelectedStationChange",
+      "selectedAttribute": "data-selected-station",
+      "requiresDrawer": false,
+      "sourceContract": "pass",
+      "issues": []
+    }
+  ],
+  "issues": []
+}

@@ -1,0 +1,156 @@
+{
+  "artifacts": {
+    "patterns": {
+      "swipe-actions": {
+        "layer": "Pattern",
+        "platform": "Touch-first",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate touch reveal actions for list rows with equivalent keyboard, pointer, confirmation, and recovery paths.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "Momentum",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Dialog",
+          "Movement Row",
+          "Quick Action",
+          "Toast"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.dialog.*",
+          "comp.movement-row.*",
+          "comp.quick-action.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "reduced motion"
+        ],
+        "entryConditions": [
+          "A touch list needs fast row-level actions.",
+          "Actions need pointer and keyboard equivalents.",
+          "Risky actions may require confirmation or undo recovery."
+        ],
+        "decisionTree": [
+          "Use Quick Action for visible compact commands.",
+          "Use Swipe Actions when touch reveal is the main row shortcut.",
+          "Use Confirmation Dialog for destructive action confirmation."
+        ],
+        "failureModes": [
+          "Swipe is the only way to access an action.",
+          "Revealed actions recreate Button or Quick Action visuals.",
+          "Destructive actions execute without confirmation or undo.",
+          "Motion ignores reduced motion preferences."
+        ],
+        "successMetrics": [
+          "Users can discover and execute actions by touch, pointer, and keyboard.",
+          "Motion is consistent and respectful of accessibility preferences.",
+          "Risky actions have confirmation or recovery."
+        ],
+        "states": [
+          "closed",
+          "revealed",
+          "threshold",
+          "committed",
+          "confirming",
+          "disabled",
+          "reduced-motion"
+        ],
+        "slots": [
+          {
+            "name": "row",
+            "owner": "component",
+            "uses": [
+              "Movement Row"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Quick Action",
+              "Button"
+            ]
+          },
+          {
+            "name": "recovery",
+            "owner": "component",
+            "uses": [
+              "Dialog",
+              "Toast"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Provide non-swipe access to every action.",
+          "Respect reduced motion.",
+          "Do not execute destructive actions without confirmation or undo."
+        ],
+        "tests": [
+          "Covers touch, keyboard, pointer, reduced-motion, and disabled states.",
+          "Uses Movement Row, Quick Action, Button, Dialog, and Toast.",
+          "Prevents swipe-only access."
+        ],
+        "agentInstructions": [
+          "Compose from Movement Row, Quick Action, Button, Dialog, and Toast.",
+          "Keep business action policy outside the pattern.",
+          "Ask before using swipe for destructive or regulated actions."
+        ],
+        "rejectIf": [
+          "Swipe is the only action path.",
+          "Revealed controls are custom visuals.",
+          "Reduced motion is ignored.",
+          "Destructive actions lack confirmation or undo."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/multi-step-form/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json`
 
 ## Purpose
 
@@ -36,19 +37,181 @@ Guide users through a multi-step task with step ownership, validation timing, pe
 | State | Current, completed, invalid, blocked, saving, submitting, success, and abandoned states are explicit. |
 | Accessibility | Uses aria-current=step, role alert for errors, focus management, and keyboard-safe navigation. |
 
+## Formal Purpose
+
+Coordinate sequenced form progress with validation, navigation, save/submit, recovery, and Form Section boundaries.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `not-started`
+- `active`
+- `dirty`
+- `validating`
+- `invalid`
+- `saving`
+- `complete`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Energy`
+- `Frame`
+- `Momentum`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Button`
+- `Card`
+- `Inline Validation`
+- `Input`
+- `Select`
+- `Stepper`
+- `Toast`
+
+### Patterns
+
+- `Form Section`
+
+### Tokens
+
+- `comp.button.*`
+- `comp.card.*`
+- `comp.inline-validation.*`
+- `comp.input.*`
+- `comp.select.*`
+- `comp.stepper.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.momentum.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `progress` | `component` | `Stepper` |
+| `content` | `primitive` | `Surface` |
+| `stepSummary` | `component` | `Card` |
+| `actions` | `component` | `Button`, `Toast` |
+| `fields` | `component` | `Input`, `Select`, `Inline Validation` |
+| `formBoundary` | `pattern` | `Form Section` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A form needs ordered steps, progress, validation, and navigation.
+- Users may save, resume, submit, or recover from errors.
+- Field grouping belongs to Form Section.
+
+### Decision Tree
+
+- Use Form Section for one grouped set of fields.
+- Use Multi Step Form when step order and progress are core behavior.
+- Use template flows for domain-specific onboarding copy and business logic.
+
+### Failure Modes
+
+- Steps are visual-only.
+- Fields bypass Flow inputs.
+- Form Section behavior is duplicated.
+- Progress and validation state are disconnected.
+
+### Success Metrics
+
+- Users know current step, completion, errors, and next action.
+- Keyboard users can navigate steps and fields predictably.
+- Step structure is reusable without business flow ownership.
+
+### Accessibility
+
+- Expose current step and progress in text.
+- Tie errors to fields and steps.
+- Prevent focus loss on step changes.
+
+### Tests
+
+- Composes Stepper, Card, Input, Select, Inline Validation, Button, and Toast.
+- Covers active, dirty, validating, invalid, saving, complete, and disabled states.
+- Keeps Form Section as field-group boundary.
+
+### Agent Instructions
+
+- Keep domain workflow and copy outside the pattern.
+- Use Form Section for reusable field groups.
+- Ask before submitting identity, payment, or compliance data.
+
+### Reject If
+
+- Step progress is decorative only.
+- Form Section is cloned.
+- Fields bypass Flow components.
+- Errors are not step-associated.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
 | --- | --- | --- | --- |
 | steps | StepDefinition[] | yes | Ordered steps with id, title, required fields, and validation owner. |
 | progress | Stepper \| ProgressIndicator | yes | Visible progress and current step. |
-| body | FormSection | yes | Current step content using Design System fields and validation. |
+| content | Surface \| FormSection | yes | Current step content inside a Surface boundary using Design System fields and validation. |
 | actions | Back \| Continue \| Save \| Submit | yes | Action set changes by step state. |
 | review | SummaryStep | conditional | Required before final submission when data has operational consequence. |
 | persistence | DraftState | conditional | Required when abandonment/resume is allowed. |
 | feedback | InlineValidation \| Toast \| ErrorPanel | yes | Step errors, save result, submit result, and recovery. |
 
-## Components And Primitives Used
+## Components Used
 
 - Stepper
 - Button
@@ -57,6 +220,12 @@ Guide users through a multi-step task with step ownership, validation timing, pe
 - Inline Validation
 - Card
 - Toast
+
+## Primitive Slot Ownership
+
+| Slot | Primitive | Required | Notes |
+| --- | --- | --- | --- |
+| content | Surface | yes | Current step content inside a Surface boundary using Design System fields and validation. |
 
 ## Variants
 
@@ -86,7 +255,7 @@ Guide users through a multi-step task with step ownership, validation timing, pe
 
 - Declare `steps`: Ordered steps with id, title, required fields, and validation owner.
 - Declare `progress`: Visible progress and current step.
-- Declare `body`: Current step content using Design System fields and validation.
+- Declare `content`: Current step content inside a Surface boundary using Design System fields and validation.
 - Declare `actions`: Action set changes by step state.
 - Declare `feedback`: Step errors, save result, submit result, and recovery.
 - Continue validates only the current step.

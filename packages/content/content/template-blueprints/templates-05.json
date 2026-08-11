@@ -1,0 +1,80 @@
+{
+  "templates": {
+    "Settings Workspace": {
+      "nav": [
+        "Profile",
+        "Notifications",
+        "Theme",
+        "Danger zone"
+      ],
+      "metrics": [
+        [
+          "4",
+          "Settings sections"
+        ],
+        [
+          "0",
+          "Local control clones"
+        ]
+      ],
+      "modules": [
+        "Section navigation",
+        "Preference management"
+      ],
+      "moduleDetails": {
+        "Section navigation": {
+          "icon": "tabs",
+          "copy": "Uses Tabs for workspace section selection while preserving controlled and uncontrolled selection state."
+        },
+        "Preference management": {
+          "icon": "tune",
+          "copy": "Delegates settings groups, form sections, validation, save/reset, and danger confirmation to Preference Management."
+        }
+      },
+      "standard": "This template is the full product settings workspace and composes governed preference patterns instead of owning controls directly.",
+      "screenSystem": "The screen system separates settings section navigation from preference content while keeping state, density, and danger confirmation in the Flow cascade.",
+      "informationArchitecture": "Navigation follows settings work: profile, notifications, theme mode, security details, and danger-zone actions.",
+      "primary": "User updates workspace preferences, saves changes, and confirms risky settings actions without leaving the governed Flow surface.",
+      "permissions": [
+        "user",
+        "admin",
+        "workspace owner"
+      ],
+      "data": [
+        "profile preferences",
+        "notification preferences",
+        "theme mode",
+        "danger actions"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "dirty",
+        "saving",
+        "danger-confirming",
+        "permission",
+        "error",
+        "offline",
+        "disabled"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop"
+      ],
+      "telemetry": [
+        "settings section selected",
+        "preference changed",
+        "preferences saved",
+        "danger action opened"
+      ],
+      "qualityGates": [
+        "Section selection keeps Tabs, root state, and preference content synchronized.",
+        "Settings controls are delegated to Preference Management and Settings, not locally rendered by the template.",
+        "Danger-zone behavior is delegated to Confirmation Dialog through Preference Management."
+      ],
+      "patternDetails": {
+        "Preference Management": "Owns settings groups, Form Section blocks, Settings controls, Confirmation Dialog, save/reset, validation, permission, and danger-zone state."
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": "2026-08-09",
+  "principle": "Every accepted React component must have a CSS cascade contract. Family contracts are allowed only when multiple components intentionally share one visual cascade root, and extension roots must be explicit.",
+  "expectedInventory": {
+    "total": 60,
+    "cssContractDebt": 0,
+    "direct": 55,
+    "family": 5,
+    "missing": 0,
+    "directRootGaps": 0,
+    "familyRootGaps": 0,
+    "familyUnexpectedRoots": 0,
+    "componentCssGovernanceIssues": 0
+  },
+  "familyCssContracts": {
+    "input": { "contract": "field", "requiredRoot": "field", "allowedExtensionRoots": [] },
+    "input-amount": { "contract": "field", "requiredRoot": "field", "allowedExtensionRoots": ["input-amount"] },
+    "card-number-input": { "contract": "field", "requiredRoot": "field", "allowedExtensionRoots": ["card-number-input"] },
+    "card-expiry-input": { "contract": "field", "requiredRoot": "field", "allowedExtensionRoots": ["card-expiry-input"] },
+    "card-security-code-input": { "contract": "field", "requiredRoot": "field", "allowedExtensionRoots": ["card-security-code-input"] }
+  },
+  "expectedFamilyContracts": [
+    {
+      "contract": "field",
+      "components": ["input", "input-amount", "card-number-input", "card-expiry-input", "card-security-code-input"],
+      "requiredRoots": ["field"],
+      "allowedExtensionRoots": ["card-expiry-input", "card-number-input", "card-security-code-input", "input-amount"]
+    }
+  ],
+  "packageCssRootExpectedInventory": {
+    "selectors": 1224,
+    "componentAliases": 3250,
+    "componentAliasRoots": 66,
+    "unknownComponentAliases": 0,
+    "cssRoots": 71,
+    "componentRoots": 62,
+    "observedComponentRoots": 62,
+    "unobservedComponentRoots": 0,
+    "classifiedNonComponentRoots": 9,
+    "unclassifiedRoots": 0,
+    "packageCssRootGovernanceIssues": 0,
+    "packageCssRootDebt": 0
+  }
+}

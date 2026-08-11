@@ -2,31 +2,12 @@
 
 const { fs, path, root } = require("./audit-context.js");
 const { componentCssContractCoverage } = require("./audit-component-css-contracts.js");
+const { componentCssGovernance } = require("./component-css-governance-policy.js");
 
 const checkMode = process.argv.includes("--check");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "component-css-contract-coverage.json");
 const markdownOutput = path.join(outputDir, "component-css-contract-coverage.md");
-
-const expectedInventory = {
-  total: 56,
-  cssContractDebt: 0,
-  direct: 52,
-  family: 4,
-  missing: 0,
-  directRootGaps: 0,
-  familyRootGaps: 0,
-  familyUnexpectedRoots: 0,
-};
-
-const expectedFamilyContracts = [
-  {
-    contract: "field",
-    components: ["input", "card-number-input", "card-expiry-input", "card-security-code-input"],
-    requiredRoots: ["field"],
-    allowedExtensionRoots: ["card-expiry-input", "card-number-input", "card-security-code-input"],
-  },
-];
 
 function compareStringArrays(actual = [], expected = []) {
   const actualSorted = [...actual].sort();
@@ -35,7 +16,7 @@ function compareStringArrays(actual = [], expected = []) {
     && actualSorted.every((value, index) => value === expectedSorted[index]);
 }
 
-function familyContractMismatches(groups = []) {
+function familyContractMismatches(groups = [], expectedFamilyContracts = []) {
   const mismatches = [];
   if (groups.length !== expectedFamilyContracts.length) {
     mismatches.push({
@@ -181,6 +162,7 @@ function renderMarkdown(report) {
 }
 
 function main() {
+  const { expectedInventory, expectedFamilyContracts, governance } = componentCssGovernance();
   const coverage = componentCssContractCoverage();
   const actualInventory = {
     total: coverage.total,
@@ -194,7 +176,9 @@ function main() {
     directRootGaps: coverage.directRootGaps.length,
     familyRootGaps: coverage.familyRootGaps.length,
     familyUnexpectedRoots: coverage.familyUnexpectedRoots.length,
+    componentCssGovernanceIssues: governance.issues.length,
   };
+  actualInventory.cssContractDebt += actualInventory.componentCssGovernanceIssues;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => actualInventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -202,12 +186,13 @@ function main() {
       expected,
       actual: actualInventory[key],
     }));
-  const familyBaselineMismatches = familyContractMismatches(coverage.familyContractPolicy.groups);
+  const familyBaselineMismatches = familyContractMismatches(coverage.familyContractPolicy.groups, expectedFamilyContracts);
   const report = {
     status: coverage.missing.length
       || coverage.directRootGaps.length
       || coverage.familyRootGaps.length
       || coverage.familyUnexpectedRoots.length
+      || governance.issues.length
       || baselineMismatches.length
       || familyBaselineMismatches.length
       ? "fail"
@@ -220,6 +205,7 @@ function main() {
       familyContracts: expectedFamilyContracts,
       familyContractMismatches: familyBaselineMismatches,
     },
+    governance,
     cssContractDebt: actualInventory.cssContractDebt,
     ...coverage,
   };

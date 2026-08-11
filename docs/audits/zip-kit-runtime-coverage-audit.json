@@ -1,0 +1,311 @@
+{
+  "status": "pass",
+  "audit": "zip kit runtime coverage",
+  "principle": "ZIP kits may only be considered absorbed when their Flow owners are covered by React runtime, visual, composition, interaction, or explicit separate-channel renderer audits.",
+  "generatedAt": "2026-08-11T00:45:13.822Z",
+  "inventory": {
+    "kits": 16,
+    "productTemplateKits": 10,
+    "patternCoveredKits": 4,
+    "separateChannelKits": 1,
+    "blockedSeparateChannelKits": 1,
+    "templateRuntimeCases": 104,
+    "templateVisualCases": 39,
+    "patternRuntimeRows": 56,
+    "patternCompositionRows": 56,
+    "emailRenderCases": 6,
+    "kitsWithRuntimeCoverage": 16,
+    "runtimeCoverageDebt": 0
+  },
+  "kits": [
+    {
+      "id": "agent-chat",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "topbar",
+        "status-feedback-view"
+      ],
+      "templateIds": [
+        "agent-workspace"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 2,
+      "patternCompositionRows": 2,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "auth",
+      "classification": "covered-by-pattern",
+      "patternIds": [
+        "authentication-login-biometrics-and-otp",
+        "form-section"
+      ],
+      "templateIds": [],
+      "runtimeTemplateCases": 0,
+      "visualTemplateCases": 0,
+      "patternRuntimeRows": 2,
+      "patternCompositionRows": 2,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "auth-otp",
+      "classification": "covered-by-pattern",
+      "patternIds": [
+        "authentication-login-biometrics-and-otp"
+      ],
+      "templateIds": [],
+      "runtimeTemplateCases": 0,
+      "visualTemplateCases": 0,
+      "patternRuntimeRows": 1,
+      "patternCompositionRows": 1,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "config",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "topbar",
+        "sidebar",
+        "roles-and-permissions",
+        "driver-and-vehicle-administration",
+        "authentication-login-biometrics-and-otp"
+      ],
+      "templateIds": [
+        "configuration-console"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 5,
+      "patternCompositionRows": 5,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "dashboards",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "topbar",
+        "sidebar",
+        "advanced-filters",
+        "kpi-card",
+        "chart-wrapper",
+        "virtual-data-table"
+      ],
+      "templateIds": [
+        "fleet-dashboard-suite"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 6,
+      "patternCompositionRows": 6,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "drivers-app",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "driver-onboarding-mobile",
+        "station-discovery",
+        "snackbar-provider"
+      ],
+      "templateIds": [
+        "driver-mobile-app"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 3,
+      "patternCompositionRows": 3,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "fleet-dashboard",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "topbar",
+        "sidebar",
+        "advanced-filters",
+        "kpi-card",
+        "virtual-data-table",
+        "confirmation-dialog",
+        "file-upload",
+        "notification-panel"
+      ],
+      "templateIds": [
+        "fleet-manager-desktop",
+        "fleet-dashboard-suite"
+      ],
+      "runtimeTemplateCases": 16,
+      "visualTemplateCases": 6,
+      "patternRuntimeRows": 8,
+      "patternCompositionRows": 8,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "internal-tools",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "topbar",
+        "sidebar",
+        "case-management",
+        "ticket-queue",
+        "account-operations",
+        "pricing-operations",
+        "backoffice-approval",
+        "dense-operational-list",
+        "status-feedback-view",
+        "timeline"
+      ],
+      "templateIds": [
+        "internal-operations-console"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 10,
+      "patternCompositionRows": 10,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "mailings",
+      "classification": "covered-separate-channel",
+      "patternIds": [
+        "email-template-layout"
+      ],
+      "templateIds": [],
+      "runtimeTemplateCases": 0,
+      "visualTemplateCases": 0,
+      "patternRuntimeRows": 1,
+      "patternCompositionRows": 1,
+      "emailRenderCases": 6,
+      "issues": []
+    },
+    {
+      "id": "ios-frame",
+      "classification": "blocked-separate-channel",
+      "patternIds": [],
+      "templateIds": [],
+      "runtimeTemplateCases": 0,
+      "visualTemplateCases": 0,
+      "patternRuntimeRows": 0,
+      "patternCompositionRows": 0,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "onboarding-driver",
+      "classification": "covered-by-pattern",
+      "patternIds": [
+        "driver-onboarding-mobile",
+        "multi-step-form",
+        "authentication-login-biometrics-and-otp"
+      ],
+      "templateIds": [
+        "driver-mobile-app"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 3,
+      "patternCompositionRows": 3,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "onboarding-fm",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "fleet-manager-onboarding-desktop",
+        "multi-step-form",
+        "roles-and-permissions"
+      ],
+      "templateIds": [
+        "fleet-manager-desktop"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 3,
+      "patternCompositionRows": 3,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "rutas",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "station-discovery",
+        "search",
+        "action-sheet"
+      ],
+      "templateIds": [
+        "routes-and-stations"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 3,
+      "patternCompositionRows": 3,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "settings",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "preference-management",
+        "settings",
+        "form-section",
+        "confirmation-dialog"
+      ],
+      "templateIds": [
+        "settings-workspace"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 4,
+      "patternCompositionRows": 4,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "wallet",
+      "classification": "covered-by-template",
+      "patternIds": [
+        "snackbar-provider",
+        "confirmation-dialog",
+        "action-sheet"
+      ],
+      "templateIds": [
+        "driver-card-wallet"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 3,
+      "patternCompositionRows": 3,
+      "emailRenderCases": 0,
+      "issues": []
+    },
+    {
+      "id": "wizard",
+      "classification": "covered-by-pattern",
+      "patternIds": [
+        "multi-step-form",
+        "form-section"
+      ],
+      "templateIds": [
+        "configuration-console"
+      ],
+      "runtimeTemplateCases": 8,
+      "visualTemplateCases": 3,
+      "patternRuntimeRows": 2,
+      "patternCompositionRows": 2,
+      "emailRenderCases": 0,
+      "issues": []
+    }
+  ],
+  "issues": []
+}

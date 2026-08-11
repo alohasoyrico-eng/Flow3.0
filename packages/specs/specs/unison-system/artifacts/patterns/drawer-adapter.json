@@ -1,0 +1,210 @@
+{
+  "artifacts": {
+    "patterns": {
+      "drawer-adapter": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate responsive drawer behavior between shell, navigation, and task flows while preserving Drawer ownership and avoiding duplicate overlay implementations.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Frame",
+          "Momentum",
+          "State"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Card",
+          "Dialog",
+          "Drawer",
+          "List",
+          "Menu",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Multi Step Form",
+          "Sidebar",
+          "Topbar"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.card.*",
+          "comp.dialog.*",
+          "comp.drawer.*",
+          "comp.list.*",
+          "comp.menu.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.state.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A drawer must adapt between navigation, modal task, and responsive shell contexts.",
+          "Topbar or Sidebar may trigger the drawer, but Drawer owns surface behavior.",
+          "Task flows may embed Multi Step Form without owning drawer mechanics."
+        ],
+        "decisionTree": [
+          "Use Drawer directly for one surface.",
+          "Use Drawer Adapter when a shell or task flow needs governed responsive drawer behavior.",
+          "Use Dialog for modal confirmation rather than navigation/task drawer adaptation."
+        ],
+        "failureModes": [
+          "Topbar or Sidebar clones drawer overlay mechanics.",
+          "Multi Step Form owns shell drawer behavior.",
+          "Focus trap, escape, or focus return diverges by context.",
+          "Responsive behavior bypasses Breakpoints tokens."
+        ],
+        "successMetrics": [
+          "Shell and task drawers behave consistently across viewports.",
+          "Focus, escape, reduced motion, and dismissal remain governed.",
+          "Topbar, Sidebar, and Multi Step Form stay composition boundaries."
+        ],
+        "states": [
+          "closed",
+          "open",
+          "modal",
+          "non-modal",
+          "responsive",
+          "loading",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "surface",
+            "owner": "component",
+            "uses": [
+              "Drawer",
+              "Dialog"
+            ]
+          },
+          {
+            "name": "content",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Toast"
+            ]
+          },
+          {
+            "name": "body",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Card"
+            ]
+          },
+          {
+            "name": "overflowNavigation",
+            "owner": "component",
+            "uses": [
+              "Menu"
+            ],
+            "required": "conditional",
+            "purpose": "Owns drawer-local overflow choices while Drawer keeps overlay behavior and Sidebar/Topbar remain boundaries."
+          },
+          {
+            "name": "multi-step-formBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Multi Step Form"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Multi Step Form runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "sidebarBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Sidebar"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Sidebar runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "topbarBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Topbar"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Topbar runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Preserve Drawer focus behavior for each mode.",
+          "Provide consistent escape/dismissal behavior.",
+          "Avoid responsive changes that hide active focus."
+        ],
+        "tests": [
+          "Composes Drawer, Dialog, List, Card, Menu, Button, and Toast.",
+          "Covers modal, non-modal, responsive, loading, error, and disabled states.",
+          "Keeps Topbar, Sidebar, and Multi Step Form as boundaries."
+        ],
+        "agentInstructions": [
+          "Do not implement custom overlay mechanics.",
+          "Keep shell routing and task state outside this adapter.",
+          "Ask before adapting drawers that contain destructive or regulated flows."
+        ],
+        "rejectIf": [
+          "Drawer overlay is duplicated.",
+          "Responsive behavior uses raw breakpoints.",
+          "Topbar/Sidebar own drawer internals.",
+          "Focus behavior differs by host without contract."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

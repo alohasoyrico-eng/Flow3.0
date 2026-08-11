@@ -113,6 +113,7 @@ function checkMissingFoundationTokenReferences() {
     tokenCssFile,
     docsCssFile,
     path.join(docsAppDir, "generated/tokens.css"),
+    path.join(docsAppDir, "generated/components.css"),
     ...docsStyleModuleFiles,
   ].filter((file) => fs.existsSync(file));
   const defined = new Map();
@@ -166,9 +167,10 @@ function checkCssBalance() {
   const cssFile = docsCssFile;
   const css = readDocsCss();
   const cssIndex = read(cssFile);
-  const imports = [...cssIndex.matchAll(/@import\s+"\.\/styles\/([^"?]+)(?:\?[^"]+)?";/g)].map((match) => `apps/docs/styles/${match[1]}`);
+  const imports = new Set([...cssIndex.matchAll(/@import\s+"\.\/styles\/([^"?]+)(?:\?[^"]+)?";/g)].map((match) => match[1]));
   for (const modulePath of docsStyleModulePaths) {
-    if (!imports.includes(modulePath)) {
+    const moduleName = path.basename(modulePath);
+    if (!imports.has(moduleName)) {
       add("errors", cssFile, 1, `CSS index must import style module: ${modulePath}.`);
     }
   }

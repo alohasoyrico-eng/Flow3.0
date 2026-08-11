@@ -1,0 +1,94 @@
+{
+  "patterns": {
+    "ticket-queue": {
+      "purpose": "Coordinate ticket alerts, queue records, selected-ticket detail, and recovery feedback without creating a parallel support-table, notification-list, or drawer implementation.",
+      "useWhen": [
+        "A support or internal operations workflow needs alert intake plus ticket triage.",
+        "Ticket rows need search, filters, selection, sort, pagination, and bulk actions.",
+        "Selected tickets need governed detail and recovery feedback."
+      ],
+      "doNotUseWithoutReview": [
+        "The flow affects regulated support, safety, compliance, payments, identity, or irreversible status changes.",
+        "The experience is only a static notification list.",
+        "A template wants to replace Notification Panel, Dense Operational List, Drawer Adapter, or Status Feedback View behavior."
+      ],
+      "foundations": [
+        ["Accessibility", "The labelled group, notification drawer, table, detail panel, busy state, and recovery feedback stay announced through formal owners."],
+        ["Depth", "Surface owns structural grouping and focus-within behavior without a Card wrapper."],
+        ["Energy", "Alerts-open, selected, detail-open, loading, error, and disabled states cascade to child patterns."],
+        ["Frame", "Dense queue layout and responsive detail behavior remain token-driven."],
+        ["Growth", "Ticket queue behavior becomes reusable for internal templates without moving it into templates."],
+        ["Iconography", "Icons remain owned by Notification Panel, Toolbar, Dense Operational List, Drawer Adapter, and feedback children."],
+        ["Momentum", "Loading, drawer, notification, and feedback motion remain delegated to child owners."],
+        ["State", "Pattern state maps to alerts, ticket list, detail, and feedback boundaries."],
+        ["Symbol", "SLA, unread, selected, and recovery symbols remain semantic through Badge and child patterns."],
+        ["Tone", "Neutral, selected, warning, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Queue summaries, alert labels, ticket filters, detail actions, and recovery copy stay explicit."]
+      ],
+      "slots": [
+        ["ticketQueueSurface", "Surface", "required", "Structural ticket queue group."],
+        ["queueSummary", "Badge", "conditional", "Queue purpose or status summary."],
+        ["queueMetric", "Badge", "conditional", "Ticket counts, SLA state, or triage status."],
+        ["queueAlertsBoundary", "Notification Panel", "conditional", "Alert drawer, unread state, mark-all, dismiss, and selected-alert behavior."],
+        ["ticketListBoundary", "Dense Operational List", "required", "Ticket records, search, filters, toolbar, selection, bulk actions, table states, and feedback."],
+        ["ticketDetailBoundary", "Drawer Adapter", "conditional", "Selected-ticket detail, review actions, responsive drawer behavior, and modal fallback."],
+        ["queueFeedbackBoundary", "Status Feedback View", "conditional", "Queue recovery, blocking error, toast, inline, notification, or snackbar feedback."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Dense Operational List",
+        "Drawer Adapter",
+        "Notification Panel",
+        "Status Feedback View"
+      ],
+      "variants": [
+        ["Alerts intake", "Conditional", "Notification Panel owns queue alerts and unread state."],
+        ["Operational ticket list", "Required", "Dense Operational List owns ticket rows, filters, actions, and table behavior."],
+        ["Selected ticket", "State", "Selected ticket key cascades selected state into ticket rows."],
+        ["Detail review", "Conditional", "Drawer Adapter owns selected-ticket detail and review actions."],
+        ["Feedback recovery", "Conditional", "Status Feedback View owns queue status and recovery."]
+      ],
+      "motion": [
+        ["Loading", "Surface marks busy while child patterns own loading render."],
+        ["Alerts open", "Notification Panel owns drawer motion."],
+        ["Detail open", "Drawer Adapter owns drawer/dialog motion."],
+        ["Feedback", "Status Feedback View owns queue recovery motion."]
+      ],
+      "accessibility": [
+        "Expose the pattern as a labelled group.",
+        "Delegate alert semantics to Notification Panel.",
+        "Delegate queue row semantics to Dense Operational List and Virtual Data Table.",
+        "Delegate detail panel semantics to Drawer Adapter.",
+        "Delegate recovery and feedback semantics to Status Feedback View."
+      ],
+      "tests": [
+        "Composes Surface plus the required child pattern boundaries.",
+        "Density and state cascade through child patterns.",
+        "Callbacks preserve event context across alerts, tickets, detail, and feedback.",
+        "No Card wrapper, raw ticket table, local notification list, custom drawer, local feedback shell, or docs-only shell is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Ticket Queue for reusable support or internal ticket triage workflows.",
+          "Add Notification Panel when queue alerts or unread intake matter.",
+          "Add Drawer Adapter only when selected tickets need detail or review actions."
+        ],
+        "mustAsk": [
+          "Operations affect regulated support, safety, compliance, payments, identity, or irreversible ticket status.",
+          "A template wants custom row cards or custom notification lists.",
+          "Queue state needs legal audit, retention, or export requirements."
+        ],
+        "rejectIf": [
+          "Alerts are rendered outside Notification Panel.",
+          "Rows are rendered outside Dense Operational List.",
+          "Detail review bypasses Drawer Adapter.",
+          "Feedback bypasses Status Feedback View.",
+          "Card wraps the ticket queue group."
+        ],
+        "handoff": "Confirm alert source, ticket row model, SLA state, permissions, detail actions, feedback states, and regulated risk before shipping Ticket Queue."
+      }
+    }
+  }
+}

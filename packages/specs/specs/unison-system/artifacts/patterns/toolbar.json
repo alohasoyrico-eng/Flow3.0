@@ -1,0 +1,189 @@
+{
+  "artifacts": {
+    "patterns": {
+      "toolbar": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate local page or table actions with search handoff, topbar boundary, status chips, overflow menus, and feedback.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Chip",
+          "Input",
+          "Menu",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Search",
+          "Topbar"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.chip.*",
+          "comp.input.*",
+          "comp.menu.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A local work surface needs grouped actions, filters, search handoff, or overflow commands.",
+          "Actions apply to the current page, table, list, or section.",
+          "Global navigation and account actions remain owned by Topbar."
+        ],
+        "decisionTree": [
+          "Use Button/Menu directly for one isolated action.",
+          "Use Toolbar when multiple local commands share one row or control surface.",
+          "Use Topbar for global shell navigation and account actions."
+        ],
+        "failureModes": [
+          "Toolbar duplicates Topbar global behavior.",
+          "Search is cloned instead of handed off.",
+          "Overflow uses custom menu markup.",
+          "Filter/status chips bypass Chip."
+        ],
+        "successMetrics": [
+          "Users can distinguish local actions from global shell actions.",
+          "Keyboard users can reach actions, search handoff, and overflow.",
+          "Local feedback and disabled states are visible and accessible."
+        ],
+        "states": [
+          "default",
+          "dense",
+          "overflow",
+          "filter-active",
+          "loading",
+          "disabled",
+          "permission-blocked"
+        ],
+        "slots": [
+          {
+            "name": "primaryActions",
+            "owner": "component",
+            "uses": [
+              "Button"
+            ]
+          },
+          {
+            "name": "status",
+            "owner": "component",
+            "uses": [
+              "Badge",
+              "Chip"
+            ]
+          },
+          {
+            "name": "searchField",
+            "owner": "component",
+            "uses": [
+              "Input"
+            ],
+            "required": "conditional",
+            "purpose": "Owns local text entry when Toolbar hosts a lightweight handoff into Search rather than cloning Search internals."
+          },
+          {
+            "name": "overflow",
+            "owner": "component",
+            "uses": [
+              "Menu",
+              "Toast"
+            ]
+          },
+          {
+            "name": "searchBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Search"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Search runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "topbarBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Topbar"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Topbar runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Group toolbar controls with an accessible label.",
+          "Expose disabled and permission reasons in text.",
+          "Keep local search handoff distinct from global search."
+        ],
+        "tests": [
+          "Composes Badge, Button, Chip, Input, Menu, and Toast.",
+          "Covers overflow, filter-active, loading, disabled, and permission states.",
+          "Does not duplicate Topbar or Search internals."
+        ],
+        "agentInstructions": [
+          "Keep Topbar as shell boundary and Search as query boundary.",
+          "Do not invent local button, chip, or menu visuals.",
+          "Ask before adding cross-tenant or destructive bulk actions."
+        ],
+        "rejectIf": [
+          "Global navigation appears in Toolbar.",
+          "Search implementation is cloned.",
+          "Overflow bypasses Menu.",
+          "Controls use raw styling instead of Flow components."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

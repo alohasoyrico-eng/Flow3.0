@@ -138,7 +138,7 @@ export const Input = forwardRef(function Input({
       "data-mono": mono ? "true" : undefined,
       "data-align": resolvedAlign === "end" ? "end" : undefined,
     },
-    React.createElement("span", { className: "field__label", id: `${inputId}-label` }, label),
+    React.createElement("span", { className: "field__label", "data-field-label": "", id: `${inputId}-label` }, label),
     React.createElement(
       "span",
       { className: "field__control" },
@@ -187,7 +187,7 @@ export const Input = forwardRef(function Input({
       loading ? React.createElement(Spinner, { density: resolvedDensity, decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     resolvedHelper
-      ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
+      ? React.createElement("span", { className: "field__helper", "data-field-helper": "", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
       : null,
   );
 });

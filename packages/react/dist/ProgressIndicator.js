@@ -43,6 +43,7 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
   const labelId = id ? `${id}-label` : `progress-label-${generatedId}`;
   const { numericMax, numericValue, percent, resolvedState, isIndeterminate } = progressMeta({ value, max, state, indeterminate });
   const resolvedDensity = normalizeFlowDensity(density);
+  const isBusy = !terminalStates.has(resolvedState) && (isIndeterminate || numericValue < numericMax);
   if (!label) return null;
 
   return React.createElement(
@@ -58,6 +59,7 @@ export const ProgressIndicator = forwardRef(function ProgressIndicator({
       "aria-valuemax": isIndeterminate ? undefined : String(numericMax),
       "aria-valuenow": isIndeterminate ? undefined : String(numericValue),
       "aria-valuetext": ariaValueText,
+      "aria-busy": isBusy ? "true" : undefined,
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
       ...flowToneProps(normalizeTone(tone)),
       ...flowStateProps(resolvedState),

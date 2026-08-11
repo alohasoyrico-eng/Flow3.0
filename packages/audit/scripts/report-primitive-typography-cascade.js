@@ -70,6 +70,10 @@ const requiredComponentAliases = [
   "--component-font-size-display-md",
   "--component-font-family-mono",
   "--component-line-height-snug",
+  "--component-letter-spacing-expanded",
+  "--component-letter-spacing-normal",
+  "--component-letter-spacing-wide",
+  "--component-letter-spacing-widest",
 ];
 
 function walkFiles(dir, predicate = () => true) {
@@ -90,6 +94,10 @@ function rel(file) {
 
 function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
+}
+
+function reportStatus(report) {
+  return report?.status ?? "missing";
 }
 
 function lineNumber(source, index) {
@@ -143,7 +151,7 @@ function findComponentRawTypography(css) {
     const isAllowedZeroSpacing = prop === "letter-spacing" && trimmed === "0";
     const isAllowedIconLine = prop === "line-height" && trimmed === "1";
     const isAllowedCollapsedText = prop === "font-size" && trimmed === "0";
-    const isAllowedToken = /var\(--(?:sys-voice|sys-font|sys-symbol|sys-iconography|component-font|component-icon-family|component-line-height|comp-[a-z0-9-]+|[a-z0-9-]+-[a-z0-9-]+-(?:font|title|body|label|caption|description|size|weight|line-height))/.test(trimmed);
+    const isAllowedToken = /var\(--(?:sys-voice|sys-font|sys-symbol|sys-iconography|component-font|component-icon-family|component-line-height|component-letter-spacing|comp-[a-z0-9-]+|[a-z0-9-]+-[a-z0-9-]+-(?:font|title|body|label|caption|description|size|weight|line-height|letter-spacing))/.test(trimmed);
     const isAllowedInherit = trimmed === "inherit";
     const isAllowedIconCalc = prop === "font-size" && /^calc\(var\(--component-icon-size-/.test(trimmed);
     if (isAllowedZeroSpacing || isAllowedIconLine || isAllowedCollapsedText || isAllowedToken || isAllowedInherit || isAllowedIconCalc) continue;
@@ -221,7 +229,7 @@ function createReport() {
     .map((alias) => ({ alias, status: "fail", reason: "Used Typography component alias is not declared at package root." }));
   const rawComponentTypography = findComponentRawTypography(componentCss);
   const docsDirectRefVoice = findDocsDirectRefVoice(docsCssFiles);
-  const componentTypographyAliasUse = countMatches(componentCss, /var\(--(?:component-font|component-line-height|sys-voice|sys-font)[a-z0-9-]*/g);
+  const componentTypographyAliasUse = countMatches(componentCss, /var\(--(?:component-font|component-line-height|component-letter-spacing|sys-voice|sys-font)[a-z0-9-]*/g);
   const docsTypographyAliasUse = docsCssFiles.reduce((total, file) => total + countMatches(readIfExists(file), /var\(--(?:component-font|density-doc|sys-voice|sys-font|comp-[a-z0-9-]+-(?:font|title|body|label|caption|description|size|weight|line-height)|pattern-[a-z0-9-]+-(?:font|title|body|label|caption|description|size|weight|line-height))[a-z0-9-]*/g), 0);
   const componentRefs = collectArtifactRefs(componentDir, /"Typography"|Typography|typography\.(?:display|heading|numeral|label|paragraph|caption|code)|sys\.voice|Voice/i);
   const patternRefs = collectArtifactRefs(patternDir, /Typography|sys\.voice|Voice|label hierarchy|copy hierarchy|text role/i);
@@ -239,13 +247,13 @@ function createReport() {
   if (rawComponentTypography.length) gaps.push("Component package still contains raw typography declarations.");
   if (docsDirectRefVoice.length) gaps.push("Docs consumers still use ref-voice directly outside the foundation/reference layer.");
   if (!contract.includes("Generated portable primitive contract for Design System.")) gaps.push("Typography Markdown contract is missing or not generated.");
-  if (voiceReport.status !== "pass") gaps.push("Typography cannot pass while the Voice foundation cascade report is not pass.");
-  if (toneReport.status !== "pass") gaps.push("Typography cannot pass while the Tone foundation cascade report is not pass.");
-  if (frameReport.status !== "pass") gaps.push("Typography cannot pass while the Frame foundation cascade report is not pass.");
-  if (accessibilityReport.status !== "pass") gaps.push("Typography cannot pass while the Accessibility foundation cascade report is not pass.");
-  if (breakpointsReport.status !== "pass") gaps.push("Typography cannot pass while the Breakpoints primitive cascade report is not pass.");
-  if (densityReport.status !== "pass") gaps.push("Typography cannot pass while the Density primitive cascade report is not pass.");
-  if (spacingReport.status !== "pass") gaps.push("Typography cannot pass while the Spacing primitive cascade report is not pass.");
+  if (reportStatus(voiceReport) !== "pass") gaps.push("Typography cannot pass while the Voice foundation cascade report is not pass.");
+  if (reportStatus(toneReport) !== "pass") gaps.push("Typography cannot pass while the Tone foundation cascade report is not pass.");
+  if (reportStatus(frameReport) !== "pass") gaps.push("Typography cannot pass while the Frame foundation cascade report is not pass.");
+  if (reportStatus(accessibilityReport) !== "pass") gaps.push("Typography cannot pass while the Accessibility foundation cascade report is not pass.");
+  if (reportStatus(breakpointsReport) !== "pass") gaps.push("Typography cannot pass while the Breakpoints primitive cascade report is not pass.");
+  if (reportStatus(densityReport) !== "pass") gaps.push("Typography cannot pass while the Density primitive cascade report is not pass.");
+  if (reportStatus(spacingReport) !== "pass") gaps.push("Typography cannot pass while the Spacing primitive cascade report is not pass.");
   if (componentTypographyAliasUse < 30) gaps.push("Component package does not show enough Typography/Voice alias usage to prove cascade into components.");
   if (componentRefs.count < 10) gaps.push("Component specs do not show enough Typography primitive coverage.");
 
@@ -289,40 +297,40 @@ function createReport() {
     foundationGate: {
       voice: {
         report: rel(voiceReportFile),
-        status: voiceReport.status,
-        gaps: voiceReport.gaps ?? [],
+        status: reportStatus(voiceReport),
+        gaps: voiceReport?.gaps ?? [],
       },
       tone: {
         report: rel(toneReportFile),
-        status: toneReport.status,
-        gaps: toneReport.gaps ?? [],
+        status: reportStatus(toneReport),
+        gaps: toneReport?.gaps ?? [],
       },
       frame: {
         report: rel(frameReportFile),
-        status: frameReport.status,
-        gaps: frameReport.gaps ?? [],
+        status: reportStatus(frameReport),
+        gaps: frameReport?.gaps ?? [],
       },
       accessibility: {
         report: rel(accessibilityReportFile),
-        status: accessibilityReport.status,
-        gaps: accessibilityReport.gaps ?? [],
+        status: reportStatus(accessibilityReport),
+        gaps: accessibilityReport?.gaps ?? [],
       },
     },
     primitiveGate: {
       breakpoints: {
         report: rel(breakpointsReportFile),
-        status: breakpointsReport.status,
-        gaps: breakpointsReport.gaps ?? [],
+        status: reportStatus(breakpointsReport),
+        gaps: breakpointsReport?.gaps ?? [],
       },
       density: {
         report: rel(densityReportFile),
-        status: densityReport.status,
-        gaps: densityReport.gaps ?? [],
+        status: reportStatus(densityReport),
+        gaps: densityReport?.gaps ?? [],
       },
       spacing: {
         report: rel(spacingReportFile),
-        status: spacingReport.status,
-        gaps: spacingReport.gaps ?? [],
+        status: reportStatus(spacingReport),
+        gaps: spacingReport?.gaps ?? [],
       },
     },
     docsSignal: {

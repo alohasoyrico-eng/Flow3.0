@@ -7,6 +7,7 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
 const {
   contractBodyFor,
   inheritedReactPropNames,
@@ -16,6 +17,7 @@ const {
   semanticInheritedPropsFor,
   unionValues,
 } = require("./react-contract-shared.js");
+const { reactSecondaryExpectedInventory } = require("./react-primary-governance-policy.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -23,23 +25,6 @@ const contractsFile = path.join(root, "packages/components/src/contracts.js");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-contract-prop-alignment-audit.json");
 const markdownOutput = path.join(outputDir, "react-contract-prop-alignment-audit.md");
-
-const expectedInventory = {
-  components: 56,
-  propAlignmentDebt: 0,
-  pass: 56,
-  fail: 0,
-  contractProps: 671,
-  publicReactProps: 559,
-  semanticInheritedProps: 1,
-  inheritedContractProps: 24,
-  extraReactProps: 0,
-  missingReactProps: 0,
-  requiredMismatches: 0,
-  typeValueMismatches: 0,
-  publicPropsExpectedInSource: 560,
-  unreferencedPublicProps: 0,
-};
 
 function contractPropsFor(contractBody) {
   return [...contractBody.matchAll(/\{ name: "([^"]+)", type: "((?:\\.|[^"])*)", required: (true|false) \}/g)]
@@ -83,11 +68,17 @@ function componentFiles() {
   if (!fs.existsSync(reactSrcDir)) return [];
   return fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort()
     .map((file) => path.join(reactSrcDir, file));
 }
 
+function kebab(value) {
+  return String(value).replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+}
+
 function createReport() {
+  const { expectedInventory, governance } = reactSecondaryExpectedInventory("propAlignment");
   const contractsSource = fs.existsSync(contractsFile) ? read(contractsFile) : "";
   const components = componentFiles().map((sourceFile) => {
     const component = path.basename(sourceFile, ".js");
@@ -175,13 +166,15 @@ function createReport() {
     typeValueMismatches: components.reduce((total, component) => total + component.typeValueMismatches.length, 0),
     publicPropsExpectedInSource: components.reduce((total, component) => total + component.publicPropsExpectedInSource.length, 0),
     unreferencedPublicProps: components.reduce((total, component) => total + component.unreferencedPublicProps.length, 0),
+    reactGovernancePolicyIssues: governance.issues.length,
   };
   inventory.propAlignmentDebt = inventory.fail
     + inventory.extraReactProps
     + inventory.missingReactProps
     + inventory.requiredMismatches
     + inventory.typeValueMismatches
-    + inventory.unreferencedPublicProps;
+    + inventory.unreferencedPublicProps
+    + inventory.reactGovernancePolicyIssues;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -197,6 +190,7 @@ function createReport() {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
     },
+    governance,
     inventory,
     components,
   };

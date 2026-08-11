@@ -102,6 +102,66 @@
     },
     {
       "type": "component",
+      "id": "chat-composer",
+      "title": "Chat Composer",
+      "group": "Display",
+      "summary": "Bounded message-entry surface with controlled text, disabled/loading states, and action callbacks for chat patterns.",
+      "platform": "Cross-platform",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "tokens": [
+        "color.semantic",
+        "spacing.relationship",
+        "motion.semantic",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "component",
+      "id": "chat-message",
+      "title": "Chat Message",
+      "group": "Display",
+      "summary": "One governed message row with author metadata, tone/state handling, optional recovery action, and Surface-owned bubble structure.",
+      "platform": "Cross-platform",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "tokens": [
+        "color.semantic",
+        "spacing.relationship",
+        "motion.semantic",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "component",
+      "id": "chat-thread",
+      "title": "Chat Thread",
+      "group": "Display",
+      "summary": "Bounded message log that composes Chat Message and Empty State without owning agent workspace orchestration.",
+      "platform": "Cross-platform",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "tokens": [
+        "color.semantic",
+        "spacing.relationship",
+        "motion.semantic",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "component",
       "id": "table",
       "title": "Table",
       "group": "Display",

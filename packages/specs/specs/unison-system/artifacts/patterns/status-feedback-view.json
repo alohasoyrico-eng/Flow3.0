@@ -1,0 +1,212 @@
+{
+  "artifacts": {
+    "patterns": {
+      "status-feedback-view": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Route product feedback states to the correct Flow feedback component or pattern without introducing a parallel status shell.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Empty State",
+          "Error Panel",
+          "Inline Validation",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Notification Panel",
+          "Snackbar Provider"
+        ],
+        "tokenDependencies": [
+          "comp.empty-state.*",
+          "comp.error-panel.*",
+          "comp.inline-validation.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A product flow needs one feedback contract across empty, error, inline, toast, notification, or queue states.",
+          "The caller needs to preserve feedback semantics while swapping delivery surfaces.",
+          "The state must remain textual and accessible."
+        ],
+        "decisionTree": [
+          "Use Empty State for empty, loading, permission, or maintenance views.",
+          "Use Error Panel for blocking or recoverable error states.",
+          "Use Inline Validation for field-scoped feedback.",
+          "Use Toast for transient feedback.",
+          "Use Notification Panel for notification history.",
+          "Use Snackbar Provider for queued transient messages."
+        ],
+        "failureModes": [
+          "A local feedback shell duplicates Empty State, Error Panel, Toast, Notification Panel, or Snackbar Provider.",
+          "Warnings or limits are color-only.",
+          "A page-level template owns component feedback logic.",
+          "Notifications render as raw lists outside Notification Panel."
+        ],
+        "successMetrics": [
+          "Feedback state maps to one formal Flow owner.",
+          "Callbacks preserve action, dismiss, queue, and selection context.",
+          "Density and state cascade through every child component."
+        ],
+        "states": [
+          "default",
+          "empty",
+          "error",
+          "critical",
+          "warning",
+          "success",
+          "info",
+          "visible",
+          "closed",
+          "open",
+          "loading",
+          "permission",
+          "maintenance",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "emptyView",
+            "owner": "component",
+            "uses": [
+              "Empty State"
+            ],
+            "purpose": "Empty, loading, permission, and maintenance feedback."
+          },
+          {
+            "name": "errorView",
+            "owner": "component",
+            "uses": [
+              "Error Panel"
+            ],
+            "purpose": "Recoverable, warning, error, and critical feedback."
+          },
+          {
+            "name": "inlineFeedback",
+            "owner": "component",
+            "uses": [
+              "Inline Validation"
+            ],
+            "purpose": "Field-scoped status feedback."
+          },
+          {
+            "name": "transientFeedback",
+            "owner": "component",
+            "uses": [
+              "Toast"
+            ],
+            "purpose": "Temporary status, recovery, warning, and action feedback."
+          },
+          {
+            "name": "notificationHistory",
+            "owner": "pattern",
+            "uses": [
+              "Notification Panel"
+            ],
+            "required": "conditional",
+            "purpose": "Notification center and unread history feedback."
+          },
+          {
+            "name": "queuedFeedback",
+            "owner": "pattern",
+            "uses": [
+              "Snackbar Provider"
+            ],
+            "required": "conditional",
+            "purpose": "Queued transient messages."
+          }
+        ],
+        "accessibility": [
+          "Expose a labelled region or group.",
+          "Preserve live-region behavior only for transient feedback.",
+          "Delegate field accessibility to Inline Validation.",
+          "Keep error and warning semantics in Error Panel or Toast."
+        ],
+        "tests": [
+          "Composes Empty State, Error Panel, Inline Validation, Toast, Notification Panel, and Snackbar Provider.",
+          "Covers empty, error, inline, toast, notification, snackbar, loading, permission, and maintenance kinds.",
+          "Callbacks preserve action, dismiss, queue, select, and notification context.",
+          "Reject local status-view or feedback-shell classes."
+        ],
+        "agentInstructions": [
+          "Do not create StatusView, FeedbackShell, feedback-banner, or status-shell components.",
+          "Route feedback by scope: field, view, transient, notification history, or queue.",
+          "Ask when a product flow mixes blocking and transient feedback in the same slot."
+        ],
+        "rejectIf": [
+          "A local shell replaces a Flow feedback owner.",
+          "Feedback is color-only.",
+          "Notifications are raw list markup.",
+          "A template defines feedback behavior that belongs in this pattern."
+        ],
+        "templateDependencies": [
+          "Agent Workspace"
+        ]
+      }
+    }
+  }
+}

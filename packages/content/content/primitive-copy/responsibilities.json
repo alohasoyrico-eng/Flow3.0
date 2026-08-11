@@ -24,6 +24,18 @@
       "Gives components their scale defaults before variant, intent, and state are applied.",
       "Prevents public component size overrides and local compact or comfortable hacks."
     ],
+    "Surface": [
+      "Owns structural backgrounds, section rhythm, panel framing, overlay body structure, and inline grouping.",
+      "Coordinates Color, Spacing, Radius, Elevation, Density, Focus, Breakpoints, Disabled, and State before child components render.",
+      "Lets theme and density cascade into composed components without pattern-local visual class roots.",
+      "Prevents Card from becoming a generic layout wrapper."
+    ],
+    "Field Action": [
+      "Names local field-adjacent actions such as clear, reveal, picker, validate, recover, retry, and resend.",
+      "Defines target field relationship, pressed/loading/disabled state, focus policy, and message policy before choosing Button or Icon Button.",
+      "Coordinates Focus, Message, Disabled, Loading, Iconography, Spacing, Radius, and Measurement for field behavior.",
+      "Prevents fake buttons, raw icons, and duplicated picker or recovery behavior in demos and patterns."
+    ],
     "fallback": [
       "Render {{title}} through semantic foundation roles.",
       "Expose a small API that maps to foundations and token aliases.",

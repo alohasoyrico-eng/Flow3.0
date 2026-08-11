@@ -1,0 +1,1887 @@
+{
+  "status": "pass",
+  "audit": "template cascade governance",
+  "principle": "Templates must prove the full cascade from formal Flow artifacts through foundations, primitives, Surface ownership, pattern dependencies, and React pattern contracts without relying on Docs renderers.",
+  "inventory": {
+    "templates": 9,
+    "templateArtifacts": 9,
+    "catalogTemplates": 9,
+    "templateBlueprints": 9,
+    "templatesWithSurfacePrimitive": 9,
+    "templatesWithDensityPrimitive": 9,
+    "templatePatternDependencies": 25,
+    "uniqueTemplatePatternDependencies": 16,
+    "reactPatternSources": 25,
+    "reactPatternTypes": 25,
+    "reactPatternExports": 25,
+    "patternSurfaceContracts": 18,
+    "patternSurfaceImports": 18,
+    "requiredReactTemplateRuntimes": 9,
+    "templatesWithReactRuntime": 9,
+    "templateReactRuntimeBacklog": 0,
+    "missingRequiredReactTemplateRuntimes": 0,
+    "missingRequiredTemplateSurfaceRoots": 0,
+    "missingRequiredTemplateExports": 0,
+    "requiredTemplateControlledStateGaps": 0,
+    "templateDocsRuntimeReferences": 0,
+    "templateVanillaDomReferences": 0,
+    "missingRequiredSections": 0,
+    "missingFoundationTokens": 0,
+    "missingPrimitiveTokens": 0,
+    "templateCascadeGovernanceDebt": 0
+  },
+  "rows": [
+    {
+      "id": "agent-workspace",
+      "name": "Agent Workspace",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+      "platform": "Desktop",
+      "foundations": [
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        },
+        {
+          "name": "Message",
+          "id": "message",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/message.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "agent-conversation",
+          "name": "Agent Conversation",
+          "source": "packages/react/src/patterns/AgentConversation.js",
+          "types": "packages/react/src/patterns/AgentConversation.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "topbar",
+          "name": "Topbar",
+          "source": "packages/react/src/patterns/Topbar.js",
+          "types": "packages/react/src/patterns/Topbar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "status-feedback-view",
+          "name": "Status Feedback View",
+          "source": "packages/react/src/patterns/StatusFeedbackView.js",
+          "types": "packages/react/src/patterns/StatusFeedbackView.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [
+        "Conversation queue",
+        "Agent Conversation",
+        "Agent state",
+        "Handoff recovery",
+        "Workspace context"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "handoff",
+        "error",
+        "permission",
+        "offline",
+        "disabled"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop"
+      ],
+      "tokenDependencies": [
+        "sys.accessibility.*",
+        "sys.frame.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.voice.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": true,
+        "source": "packages/react/src/templates/AgentWorkspace.js",
+        "types": "packages/react/src/templates/AgentWorkspace.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "configuration-console",
+      "name": "Configuration Console",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+      "platform": "Desktop",
+      "foundations": [
+        {
+          "name": "Energy",
+          "id": "energy",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/energy.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "Momentum",
+          "id": "momentum",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Loading",
+          "id": "loading",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+        },
+        {
+          "name": "Disabled",
+          "id": "disabled",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Charts",
+          "id": "charts",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/charts.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "topbar",
+          "name": "Topbar",
+          "source": "packages/react/src/patterns/Topbar.js",
+          "types": "packages/react/src/patterns/Topbar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "sidebar",
+          "name": "Sidebar",
+          "source": "packages/react/src/patterns/Sidebar.js",
+          "types": "packages/react/src/patterns/Sidebar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "roles-and-permissions",
+          "name": "Roles and Permissions",
+          "source": "packages/react/src/patterns/RolesAndPermissions.js",
+          "types": "packages/react/src/patterns/RolesAndPermissions.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "driver-and-vehicle-administration",
+          "name": "Driver and Vehicle Administration",
+          "source": "packages/react/src/patterns/DriverAndVehicleAdministration.js",
+          "types": "packages/react/src/patterns/DriverAndVehicleAdministration.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "authentication-login-biometrics-and-otp",
+          "name": "Authentication, Login, Biometrics and OTP",
+          "source": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.js",
+          "types": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [
+        "Permission matrix",
+        "Driver lifecycle table",
+        "Vehicle lifecycle table",
+        "Audit trail"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop"
+      ],
+      "tokenDependencies": [
+        "sys.energy.*",
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "sys.momentum.*",
+        "surface.*",
+        "sys.charts.*"
+      ],
+      "runtime": {
+        "required": true,
+        "source": "packages/react/src/templates/ConfigurationConsole.js",
+        "types": "packages/react/src/templates/ConfigurationConsole.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "name": "Driver Card Wallet",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+      "platform": "Mobile",
+      "foundations": [
+        {
+          "name": "Energy",
+          "id": "energy",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/energy.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "Momentum",
+          "id": "momentum",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Loading",
+          "id": "loading",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+        },
+        {
+          "name": "Disabled",
+          "id": "disabled",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        }
+      ],
+      "patterns": [],
+      "modules": [
+        "Card status block",
+        "Quick actions",
+        "Movement receipt detail",
+        "Dispute entry point"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Mobile",
+        "Tablet",
+        "Reduced motion"
+      ],
+      "tokenDependencies": [
+        "sys.energy.*",
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "sys.momentum.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": true,
+        "source": "packages/react/src/templates/DriverCardWallet.js",
+        "types": "packages/react/src/templates/DriverCardWallet.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "name": "Driver Mobile App",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+      "platform": "Mobile",
+      "foundations": [
+        {
+          "name": "Energy",
+          "id": "energy",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/energy.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "Momentum",
+          "id": "momentum",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Loading",
+          "id": "loading",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+        },
+        {
+          "name": "Disabled",
+          "id": "disabled",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Maps",
+          "id": "maps",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/maps.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "driver-onboarding-mobile",
+          "name": "Driver Onboarding Mobile",
+          "source": "packages/react/src/patterns/DriverOnboardingMobile.js",
+          "types": "packages/react/src/patterns/DriverOnboardingMobile.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "station-discovery",
+          "name": "Station Discovery",
+          "source": "packages/react/src/patterns/StationDiscovery.js",
+          "types": "packages/react/src/patterns/StationDiscovery.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [
+        "Card hero with limits",
+        "Recent movement feed",
+        "Nearby station shortcut",
+        "Support and dispute path"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Mobile",
+        "Tablet",
+        "Reduced motion"
+      ],
+      "tokenDependencies": [
+        "sys.energy.*",
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "sys.momentum.*",
+        "surface.*",
+        "sys.maps.*"
+      ],
+      "runtime": {
+        "required": true,
+        "source": "packages/react/src/templates/DriverMobileApp.js",
+        "types": "packages/react/src/templates/DriverMobileApp.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "name": "Fleet Dashboard Suite",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+      "platform": "Desktop",
+      "foundations": [
+        {
+          "name": "Energy",
+          "id": "energy",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/energy.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "Momentum",
+          "id": "momentum",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Loading",
+          "id": "loading",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+        },
+        {
+          "name": "Disabled",
+          "id": "disabled",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Charts",
+          "id": "charts",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/charts.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "topbar",
+          "name": "Topbar",
+          "source": "packages/react/src/patterns/Topbar.js",
+          "types": "packages/react/src/patterns/Topbar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "sidebar",
+          "name": "Sidebar",
+          "source": "packages/react/src/patterns/Sidebar.js",
+          "types": "packages/react/src/patterns/Sidebar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [
+        "Dashboard switcher",
+        "Shared filter bar",
+        "Domain KPI stack",
+        "Drill-down table"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop",
+        "TV"
+      ],
+      "tokenDependencies": [
+        "sys.energy.*",
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "sys.momentum.*",
+        "surface.*",
+        "sys.charts.*"
+      ],
+      "runtime": {
+        "required": true,
+        "source": "packages/react/src/templates/FleetDashboardSuite.js",
+        "types": "packages/react/src/templates/FleetDashboardSuite.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "name": "Fleet Manager Desktop",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+      "platform": "Desktop",
+      "foundations": [
+        {
+          "name": "Energy",
+          "id": "energy",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/energy.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "Momentum",
+          "id": "momentum",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Loading",
+          "id": "loading",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+        },
+        {
+          "name": "Disabled",
+          "id": "disabled",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Charts",
+          "id": "charts",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/charts.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "topbar",
+          "name": "Topbar",
+          "source": "packages/react/src/patterns/Topbar.js",
+          "types": "packages/react/src/patterns/Topbar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "sidebar",
+          "name": "Sidebar",
+          "source": "packages/react/src/patterns/Sidebar.js",
+          "types": "packages/react/src/patterns/Sidebar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "roles-and-permissions",
+          "name": "Roles and Permissions",
+          "source": "packages/react/src/patterns/RolesAndPermissions.js",
+          "types": "packages/react/src/patterns/RolesAndPermissions.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [
+        "Executive KPI band",
+        "Exception inbox",
+        "Fleet activity timeline",
+        "Cost center filter set"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop",
+        "TV"
+      ],
+      "tokenDependencies": [
+        "sys.energy.*",
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "sys.momentum.*",
+        "surface.*",
+        "sys.charts.*"
+      ],
+      "runtime": {
+        "required": true,
+        "source": "packages/react/src/templates/FleetManagerDesktop.js",
+        "types": "packages/react/src/templates/FleetManagerDesktop.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "internal-operations-console",
+      "name": "Internal Operations Console",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+      "platform": "Desktop",
+      "foundations": [
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        },
+        {
+          "name": "Measurement",
+          "id": "measurement",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/measurement.json"
+        },
+        {
+          "name": "Message",
+          "id": "message",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/message.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "topbar",
+          "name": "Topbar",
+          "source": "packages/react/src/patterns/Topbar.js",
+          "types": "packages/react/src/patterns/Topbar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "sidebar",
+          "name": "Sidebar",
+          "source": "packages/react/src/patterns/Sidebar.js",
+          "types": "packages/react/src/patterns/Sidebar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "case-management",
+          "name": "Case Management",
+          "source": "packages/react/src/patterns/CaseManagement.js",
+          "types": "packages/react/src/patterns/CaseManagement.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "ticket-queue",
+          "name": "Ticket Queue",
+          "source": "packages/react/src/patterns/TicketQueue.js",
+          "types": "packages/react/src/patterns/TicketQueue.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "account-operations",
+          "name": "Account Operations",
+          "source": "packages/react/src/patterns/AccountOperations.js",
+          "types": "packages/react/src/patterns/AccountOperations.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "pricing-operations",
+          "name": "Pricing Operations",
+          "source": "packages/react/src/patterns/PricingOperations.js",
+          "types": "packages/react/src/patterns/PricingOperations.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "backoffice-approval",
+          "name": "Backoffice Approval",
+          "source": "packages/react/src/patterns/BackofficeApproval.js",
+          "types": "packages/react/src/patterns/BackofficeApproval.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "dense-operational-list",
+          "name": "Dense Operational List",
+          "source": "packages/react/src/patterns/DenseOperationalList.js",
+          "types": "packages/react/src/patterns/DenseOperationalList.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [
+        "Case operations",
+        "Ticket operations",
+        "Account operations",
+        "Pricing operations",
+        "Backoffice approvals",
+        "Growth operations"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "permission",
+        "error",
+        "offline",
+        "disabled"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop"
+      ],
+      "tokenDependencies": [
+        "sys.accessibility.*",
+        "sys.frame.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.voice.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": true,
+        "source": "packages/react/src/templates/InternalOperationsConsole.js",
+        "types": "packages/react/src/templates/InternalOperationsConsole.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "routes-and-stations",
+      "name": "Routes And Stations",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+      "platform": "Mobile",
+      "foundations": [
+        {
+          "name": "Energy",
+          "id": "energy",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/energy.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "Momentum",
+          "id": "momentum",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Loading",
+          "id": "loading",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+        },
+        {
+          "name": "Disabled",
+          "id": "disabled",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Maps",
+          "id": "maps",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/maps.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "station-discovery",
+          "name": "Station Discovery",
+          "source": "packages/react/src/patterns/StationDiscovery.js",
+          "types": "packages/react/src/patterns/StationDiscovery.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [
+        "Map with station pins",
+        "Fallback station list",
+        "Station services panel",
+        "Route handoff"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Mobile",
+        "Tablet",
+        "Reduced motion"
+      ],
+      "tokenDependencies": [
+        "sys.energy.*",
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "sys.momentum.*",
+        "surface.*",
+        "sys.maps.*"
+      ],
+      "runtime": {
+        "required": true,
+        "source": "packages/react/src/templates/RoutesAndStations.js",
+        "types": "packages/react/src/templates/RoutesAndStations.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "settings-workspace",
+      "name": "Settings Workspace",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+      "platform": "Desktop",
+      "foundations": [
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Field Action",
+          "id": "field-action",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "preference-management",
+          "name": "Preference Management",
+          "source": "packages/react/src/patterns/PreferenceManagement.js",
+          "types": "packages/react/src/patterns/PreferenceManagement.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [
+        "Section navigation",
+        "Preference management"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "dirty",
+        "saving",
+        "danger-confirming",
+        "permission",
+        "error",
+        "offline",
+        "disabled"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop"
+      ],
+      "tokenDependencies": [
+        "sys.accessibility.*",
+        "sys.frame.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.voice.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": true,
+        "source": "packages/react/src/templates/SettingsWorkspace.js",
+        "types": "packages/react/src/templates/SettingsWorkspace.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    }
+  ],
+  "gaps": []
+}

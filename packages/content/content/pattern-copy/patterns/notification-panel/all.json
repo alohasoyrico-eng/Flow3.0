@@ -80,6 +80,7 @@
         "Icon Button",
         "Badge",
         "Button",
+        "Drawer",
         "List",
         "Toast",
         "Empty State"

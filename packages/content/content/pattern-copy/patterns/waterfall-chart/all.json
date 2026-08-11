@@ -1,0 +1,94 @@
+{
+  "patterns": {
+    "waterfall-chart": {
+      "title": "Waterfall Chart",
+      "purpose": "Coordinate step-based contribution charts with deltas, cumulative totals, selected-step review, and accessible data fallback without creating a second chart or table implementation.",
+      "useWhen": [
+        "A workflow needs to explain positive, negative, neutral, and total contribution steps.",
+        "A template needs contribution analysis without owning chart internals.",
+        "The same chart data must be inspectable through a table/list fallback."
+      ],
+      "doNotUseWithoutReview": [
+        "The analysis represents regulated, financial, legal, safety, or irreversible decisions.",
+        "The design requires custom chart rendering that Chart Wrapper cannot represent.",
+        "Increase, decrease, total, or selected-step semantics are color-only."
+      ],
+      "foundations": [
+        ["Accessibility", "The labelled group and Chart Wrapper fallback keep step data inspectable without relying on visual bars alone."],
+        ["Depth", "Surface owns structural grouping while Chart Wrapper owns chart chrome and overlays."],
+        ["Energy", "Selected, loading, empty, error, and disabled states cascade into Chart Wrapper and Badge metrics."],
+        ["Frame", "Density, chart bounds, table fallback, and step list remain token-driven."],
+        ["Growth", "Contribution behavior becomes reusable for templates without moving chart or table logic into templates."],
+        ["Iconography", "Step and status symbols remain owned by Badge, Chart Wrapper, and child components."],
+        ["Momentum", "Loading and chart state transitions remain delegated to Chart Wrapper."],
+        ["State", "Pattern state maps to Chart Wrapper, Chart Panel, Table, List, and Badge boundaries."],
+        ["Symbol", "Increase, decrease, neutral, total, and selected semantics remain explicit through labels and fallback rows."],
+        ["Tone", "Neutral, selected, warning, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Chart label, descriptions, step copy, and fallback rows stay explicit."]
+      ],
+      "slots": [
+        ["waterfallChartSurface", "Surface", "required", "Structural contribution chart group."],
+        ["waterfallSummary", "Badge", "conditional", "Contribution scope or state summary."],
+        ["waterfallMetric", "Badge", "conditional", "Increase, decrease, total, variance, or risk metrics."],
+        ["chartWrapperBoundary", "Chart Wrapper", "required", "Chart state, Chart Panel ownership, status, actions, loading, empty, error, and table fallback."],
+        ["waterfallDataSummary", "Chart Wrapper", "required", "Inspectable contribution rows delegated through Chart Wrapper table fallback."],
+        ["waterfallFeedback", "Badge", "conditional", "Contribution feedback summary or recovery status."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Chart Wrapper"
+      ],
+      "variants": [
+        ["Contribution analysis", "Required", "Steps provide label, value, direction, cumulative value, and note."],
+        ["Totals", "Conditional", "Total steps reset or expose cumulative summary."],
+        ["Selected step", "State", "Selected step cascades selected/focus state into Chart Wrapper and Table."],
+        ["Variance review", "Conditional", "Metrics and feedback summarize risk without replacing chart semantics."]
+      ],
+      "motion": [
+        ["Loading", "Surface marks busy while Chart Wrapper owns loading rendering."],
+        ["Selected step", "Chart Wrapper and Table own focus/selected state without local positioned bars."],
+        ["Fallback swap", "Chart Wrapper preserves dimensions through chart, table, list, empty, and error states."]
+      ],
+      "accessibility": [
+        "Expose the contribution chart as a labelled group.",
+        "Provide step data through Chart Wrapper table fallback.",
+        "Represent increase, decrease, neutral, and total with labels, not only color.",
+        "Do not use color as the only way to communicate contribution direction or selected-step state."
+      ],
+      "implementationChecklist": [
+        "Compose Surface, Badge, and Chart Wrapper.",
+        "Pass contribution values to Chart Wrapper instead of drawing local bars.",
+        "Pass step rows through Chart Wrapper table fallback.",
+        "Expose direction and cumulative values as text.",
+        "Reject Card wrappers, local chart renderers, raw tables, and docs-only shells."
+      ],
+      "tests": [
+        "Composes Surface plus Chart Wrapper boundary.",
+        "Density and state cascade through Chart Wrapper and fallback rows.",
+        "Forwards step selection and primary action callbacks.",
+        "Step selection and primary actions preserve event context.",
+        "No local SVG/canvas/positioned chart, raw table, Card wrapper, or injected markup is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Waterfall Chart for contribution and variance workflows.",
+          "Use Chart Wrapper for the visualization and fallback boundary.",
+          "Use Gantt Chart instead when duration and milestones are the primary object."
+        ],
+        "mustAsk": [
+          "Before exposing regulated, financial, legal, safety, or irreversible analysis.",
+          "Before bypassing Chart Wrapper for custom visualization.",
+          "Before presenting direction or total semantics without textual explanation."
+        ],
+        "rejectIf": [
+          "A local chart renderer replaces Chart Wrapper.",
+          "No accessible table/list fallback exists.",
+          "A Card wraps the contribution chart group."
+        ],
+        "handoff": "Confirm data source, step semantics, increase/decrease/total rules, selected-step behavior, accessible fallback, and empty/error behavior."
+      }
+    }
+  }
+}

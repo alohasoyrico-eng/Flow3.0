@@ -62,6 +62,26 @@
     },
     {
       "type": "component",
+      "id": "input-amount",
+      "title": "Input Amount",
+      "group": "Core",
+      "summary": "Currency and amount entry that extends the shared field contract without owning pricing, payment, or currency policy.",
+      "platform": "Cross-platform",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "tokens": [
+        "color.semantic",
+        "spacing.relationship",
+        "motion.semantic",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "component",
       "id": "card-number-input",
       "title": "Card Number Input",
       "group": "Core",

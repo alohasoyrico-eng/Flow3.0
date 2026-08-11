@@ -1,0 +1,88 @@
+{
+  "patterns": {
+    "kanban-board": {
+      "purpose": "Coordinate work items across process-state columns with visible counts, limits, selection, optional reorder behavior, and Surface-owned column structure.",
+      "useWhen": [
+        "Work progresses through explicit process states.",
+        "Users need to compare columns, counts, status, and limits at once.",
+        "Cards may be selected or reordered while preserving column context."
+      ],
+      "doNotUseWithoutReview": [
+        "A single status group can be represented by List.",
+        "Field comparison is primary and Virtual Data Table would be clearer.",
+        "Reorder affects safety, finance, compliance, or audit policy."
+      ],
+      "foundations": [
+        ["Accessibility", "Board, columns, counts, and card actions remain labelled and keyboard reachable."],
+        ["Depth", "Column structure uses Surface elevation and state, not Card wrappers."],
+        ["Energy", "Selection, limits, disabled, loading, saving, and error states stay visible."],
+        ["Frame", "Column density, counts, and responsive grouping follow system spacing and breakpoints."],
+        ["Growth", "Counts and limits communicate progress without local visual math."],
+        ["Iconography", "Card icons and reorder affordances use Flow icon semantics."],
+        ["Momentum", "Optional movement delegates to Drag Sortable List and its motion boundary."],
+        ["State", "Idle, dragging, saving, loading, error, empty, and disabled states are explicit."],
+        ["Symbol", "Status symbols and item affordances remain recognizable across channels."],
+        ["Tone", "Over-limit, selected, error, and neutral tones inherit the system tone contract."],
+        ["Voice", "Column labels, status copy, locked reasons, and actions are textual, not color-only."]
+      ],
+      "slots": [
+        ["columns", "Surface", "yes", "Structural column panels owned by the Surface primitive."],
+        ["cards", "List | Badge", "yes", "Cards are list records with optional status badges."],
+        ["reorderBoundary", "Drag Sortable List", "conditional", "Sortable columns delegate order behavior and keyboard movement."],
+        ["feedback", "Empty State | Error Panel", "conditional", "Empty and error states use formal Flow feedback components."],
+        ["actions", "Button", "conditional", "Board-level commands use explicit Button composition."]
+      ],
+      "componentsUsed": [
+        "Badge",
+        "Button",
+        "Empty State",
+        "Error Panel",
+        "List"
+      ],
+      "variants": [
+        ["Static board", "Required", "Columns render as Surface + List without reorder controls."],
+        ["Sortable board", "Required", "Columns render Drag Sortable List with keyboard movement."],
+        ["Limited columns", "Required state", "Column limits show textual count and warning tone."],
+        ["Empty board", "Required state", "No columns or forced empty state routes through Empty State."],
+        ["Error board", "Required state", "Unavailable boards route through Error Panel."]
+      ],
+      "motion": [
+        ["Reorder", "Movement is delegated to Drag Sortable List and respects reduced motion."],
+        ["Saving", "Busy state sets aria-busy and disables unsafe commands."],
+        ["Selection", "Selected cards and columns use state tokens rather than local shells."]
+      ],
+      "accessibility": [
+        "The board has an accessible group label.",
+        "Each column keeps a visible and accessible label.",
+        "Counts and limits are textual.",
+        "Sortable cards keep keyboard move controls through Drag Sortable List.",
+        "Locked and disabled cards expose text reasons when provided."
+      ],
+      "tests": [
+        "Render Surface columns with data-flow-slot evidence.",
+        "Render cards through List or Drag Sortable List.",
+        "onCardSelect, onMoveCard, and onColumnAction include column or action context.",
+        "Reject Card, board-column, kanban-card, and local visual shell classes."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Kanban Board when process-state columns are the primary navigation model.",
+          "Use Surface for each structural column.",
+          "Use Drag Sortable List only when order is user-controlled."
+        ],
+        "mustAsk": [
+          "Reordering affects safety, finance, compliance, audit, or external workflow state.",
+          "The board needs cross-column drag and drop beyond the current column-local contract.",
+          "Cards need rich media or object detail that might belong in a template."
+        ],
+        "rejectIf": [
+          "Columns are authored as Card groups.",
+          "Cards are local visual shells instead of List records.",
+          "Sortable behavior lacks keyboard movement.",
+          "Counts, limits, or locked reasons are color-only."
+        ],
+        "handoff": "Confirm process states, card schema, limits, reorder policy, persistence, locked reasons, and whether cross-column movement is in scope."
+      }
+    }
+  }
+}

@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/swipe-actions/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/swipe-actions.json`
 
 ## Purpose
 
@@ -34,6 +35,152 @@ Expose secondary row actions on mobile while preserving a visible, accessible al
 | Momentum | Uses Design System reveal timing without custom physics in documentation demos. |
 | Accessibility | Requires keyboard and button alternatives to any gesture. |
 
+## Formal Purpose
+
+Coordinate touch reveal actions for list rows with equivalent keyboard, pointer, confirmation, and recovery paths.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Touch-first |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `reduced motion` |
+
+## Formal States
+
+- `closed`
+- `revealed`
+- `threshold`
+- `committed`
+- `confirming`
+- `disabled`
+- `reduced-motion`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Energy`
+- `Frame`
+- `Momentum`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Button`
+- `Dialog`
+- `Movement Row`
+- `Quick Action`
+- `Toast`
+
+### Tokens
+
+- `comp.button.*`
+- `comp.dialog.*`
+- `comp.movement-row.*`
+- `comp.quick-action.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.momentum.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `row` | `component` | `Movement Row` |
+| `actions` | `component` | `Quick Action`, `Button` |
+| `recovery` | `component` | `Dialog`, `Toast` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A touch list needs fast row-level actions.
+- Actions need pointer and keyboard equivalents.
+- Risky actions may require confirmation or undo recovery.
+
+### Decision Tree
+
+- Use Quick Action for visible compact commands.
+- Use Swipe Actions when touch reveal is the main row shortcut.
+- Use Confirmation Dialog for destructive action confirmation.
+
+### Failure Modes
+
+- Swipe is the only way to access an action.
+- Revealed actions recreate Button or Quick Action visuals.
+- Destructive actions execute without confirmation or undo.
+- Motion ignores reduced motion preferences.
+
+### Success Metrics
+
+- Users can discover and execute actions by touch, pointer, and keyboard.
+- Motion is consistent and respectful of accessibility preferences.
+- Risky actions have confirmation or recovery.
+
+### Accessibility
+
+- Provide non-swipe access to every action.
+- Respect reduced motion.
+- Do not execute destructive actions without confirmation or undo.
+
+### Tests
+
+- Covers touch, keyboard, pointer, reduced-motion, and disabled states.
+- Uses Movement Row, Quick Action, Button, Dialog, and Toast.
+- Prevents swipe-only access.
+
+### Agent Instructions
+
+- Compose from Movement Row, Quick Action, Button, Dialog, and Toast.
+- Keep business action policy outside the pattern.
+- Ask before using swipe for destructive or regulated actions.
+
+### Reject If
+
+- Swipe is the only action path.
+- Revealed controls are custom visuals.
+- Reduced motion is ignored.
+- Destructive actions lack confirmation or undo.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -44,11 +191,12 @@ Expose secondary row actions on mobile while preserving a visible, accessible al
 | feedback | Toast | conditional | Reports the selected action. |
 | confirmation | Dialog | conditional | Required for high-risk actions. |
 
-## Components And Primitives Used
+## Components Used
 
 - Movement Row
 - Quick Action
 - Button
+- Dialog
 - Toast
 
 ## Variants

@@ -1,0 +1,169 @@
+{
+  "artifacts": {
+    "patterns": {
+      "command-palette": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate keyboard-first command discovery and execution with dialog behavior, query input, grouped commands, empty recovery, topbar boundary, and feedback.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Momentum",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Dialog",
+          "Empty State",
+          "Input",
+          "Menu",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Search",
+          "Topbar"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.dialog.*",
+          "comp.empty-state.*",
+          "comp.input.*",
+          "comp.menu.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Users need fast command discovery or keyboard execution.",
+          "Commands can be grouped, disabled, loading, empty, or permission constrained.",
+          "Topbar may host the trigger, but not the command implementation."
+        ],
+        "decisionTree": [
+          "Use Search for entity lookup.",
+          "Use Command Palette when query results execute commands or navigation.",
+          "Use Menu for short contextual action lists."
+        ],
+        "failureModes": [
+          "Palette is implemented as custom overlay outside Dialog.",
+          "Entity search and command execution are mixed without clear boundary.",
+          "Disabled commands lack reasons.",
+          "Keyboard behavior differs from Dialog/Menu expectations."
+        ],
+        "successMetrics": [
+          "Users can open, search, navigate, and execute commands quickly.",
+          "Keyboard and screen reader users receive command grouping and result state.",
+          "Topbar owns trigger placement only."
+        ],
+        "states": [
+          "closed",
+          "open",
+          "querying",
+          "results",
+          "empty",
+          "loading",
+          "disabled-command",
+          "executing"
+        ],
+        "slots": [
+          {
+            "name": "surface",
+            "owner": "component",
+            "uses": [
+              "Dialog"
+            ]
+          },
+          {
+            "name": "query",
+            "owner": "component",
+            "uses": [
+              "Input"
+            ]
+          },
+          {
+            "name": "commands",
+            "owner": "component",
+            "uses": [
+              "Menu",
+              "Button",
+              "Empty State",
+              "Toast"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Use Dialog focus trap and return.",
+          "Expose command names and disabled reasons.",
+          "Do not treat command execution as entity search."
+        ],
+        "tests": [
+          "Composes Dialog, Input, Menu, Button, Empty State, and Toast.",
+          "Covers open, querying, results, empty, loading, disabled, and executing states.",
+          "Keeps Search and Topbar as boundaries."
+        ],
+        "agentInstructions": [
+          "Do not implement raw modal or menu behavior.",
+          "Keep command registry and authorization outside the pattern.",
+          "Ask before executing destructive or regulated commands."
+        ],
+        "rejectIf": [
+          "Overlay bypasses Dialog.",
+          "Commands are custom rows outside Menu/Button.",
+          "Search is cloned.",
+          "Disabled reasons are missing."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

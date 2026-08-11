@@ -38,15 +38,19 @@ function checkPhoneInputCssContract({ text, blocks, packageCssFile, selectorKey 
     block: phoneInputInputBlock,
     text,
     packageCssFile,
-    snippets: ["flex: 1 1 var(--comp-phone-input-flex-basis)", "min-inline-size: var(--comp-phone-input-min-inline-size)"],
-    message: "Phone Input field must consume the current phone input width aliases.",
+    snippets: [
+      "flex: 1 1 max(var(--comp-phone-input-flex-basis), var(--comp-phone-input-min-inline-size))",
+      "max-inline-size: 100%",
+      "min-inline-size: 0",
+    ],
+    message: "Phone Input field must use width aliases as preferred sizing without forcing mobile template overflow.",
   });
   requireIncludes({
     block: phoneCompactInputBlock,
     text,
     packageCssFile,
-    snippets: ["flex-basis: var(--comp-phone-input-flex-basis-compact)", "min-inline-size: var(--comp-phone-input-min-inline-size-compact)"],
-    message: "Phone Input compact field must consume compact phone input width aliases.",
+    snippets: ["flex-basis: max(var(--comp-phone-input-flex-basis-compact), var(--comp-phone-input-min-inline-size-compact))", "min-inline-size: 0"],
+    message: "Phone Input compact field must use compact width aliases as preferred sizing without forcing mobile template overflow.",
   });
   const rawPhoneInputWidth = text.match(/--comp-phone-input-(?:flex-basis|min-inline-size)(?:-compact)?:\s*calc\(var\(--component-control-min-size\) \* [0-9.]+\)/);
   if (rawPhoneInputWidth) {

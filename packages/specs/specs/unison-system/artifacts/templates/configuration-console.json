@@ -28,6 +28,8 @@
           "Color",
           "Typography",
           "Spacing",
+          "Surface",
+          "Density",
           "Iconography",
           "Focus",
           "Loading",
@@ -36,6 +38,8 @@
           "Charts"
         ],
         "patternDependencies": [
+          "Topbar",
+          "Sidebar",
           "Roles and Permissions",
           "Driver and Vehicle Administration",
           "Authentication, Login, Biometrics and OTP"
@@ -44,9 +48,12 @@
           "sys.energy.*",
           "sys.voice.*",
           "sys.frame.*",
+          "sys.depth.*",
           "sys.state.*",
+          "sys.tone.*",
           "sys.accessibility.*",
           "sys.momentum.*",
+          "surface.*",
           "sys.charts.*"
         ],
         "densityContext": [

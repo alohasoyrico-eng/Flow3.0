@@ -12,6 +12,7 @@
     "regions": 12,
     "forbiddenPatterns": 15,
     "violations": 0,
+    "docsDemoOwnershipPolicyIssues": 0,
     "docsDemoOwnershipDebt": 0
   },
   "regions": [
@@ -85,8 +86,13 @@
       "regions": 12,
       "forbiddenPatterns": 15,
       "violations": 0,
+      "docsDemoOwnershipPolicyIssues": 0,
       "docsDemoOwnershipDebt": 0
     },
     "mismatches": []
+  },
+  "governance": {
+    "file": "packages/content/content/docs-system-boundary.json",
+    "issues": []
   }
 }

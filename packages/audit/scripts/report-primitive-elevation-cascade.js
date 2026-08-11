@@ -146,7 +146,7 @@ function findRawBoxShadow(file, source) {
   while ((match = pattern.exec(source))) {
     const value = match.groups.value.trim();
     const isNone = value === "none" || value === "0";
-    const hasElevationToken = /var\(--(?:sys-depth|sys-elevation|component-depth|[a-z0-9-]+-[a-z0-9-]*(?:depth|shadow|elevation|glow|ring))[a-z0-9-]*/.test(value);
+    const hasElevationToken = /var\(--(?:sys-depth|sys-elevation|component-depth|[a-z0-9-]+-[a-z0-9-]*(?:depth|shadow|elevation|glow|ring|halo))[a-z0-9-]*/.test(value);
     const isStateRing = /\binset\b/.test(value) || /0\s+0\s+0/.test(value);
     if (!isNone && !hasElevationToken && !isStateRing) {
       findings.push({

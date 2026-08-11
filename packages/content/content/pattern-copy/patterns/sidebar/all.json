@@ -69,9 +69,9 @@
         ],
         [
           "groups",
-          "SidebarGroup[]",
+          "Surface",
           "yes",
-          "Parent collections with icon, label, count metadata, and children."
+          "Structural owner for parent collections, density, active state, and children."
         ],
         [
           "items",

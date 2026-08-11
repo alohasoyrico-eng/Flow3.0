@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/roles-and-permissions/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json`
 
 ## Purpose
 
@@ -35,6 +36,166 @@ Let admins grant access safely with dependencies, auditability, templates, revie
 | Depth | Confirmation and policy hints layer above the matrix with Design System overlays. |
 | Accessibility | Permission state, role scope, dependency warnings, and audit trail are text-backed. |
 
+## Formal Purpose
+
+Coordinate role and permission review/editing with tables, toggles, confirmation, audit context, validation, and template-owned authorization policy.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Desktop |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `tablets + laptops`, `desktops + TV` |
+| Template Dependencies | `Fleet Manager Desktop`, `Configuration Console` |
+
+## Formal States
+
+- `read-only`
+- `editing`
+- `dirty`
+- `confirming`
+- `saving`
+- `saved`
+- `permission-blocked`
+- `error`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Audit Event`
+- `Badge`
+- `Button`
+- `Checkbox`
+- `Dialog`
+- `Inline Validation`
+- `Switch`
+- `Table`
+- `Toast`
+- `Tooltip`
+
+### Tokens
+
+- `comp.audit-event.*`
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.checkbox.*`
+- `comp.dialog.*`
+- `comp.inline-validation.*`
+- `comp.switch.*`
+- `comp.table.*`
+- `comp.toast.*`
+- `comp.tooltip.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `matrix` | `component` | `Table`, `Switch`, `Checkbox`, `Tooltip`, `Badge` |
+| `actions` | `component` | `Button`, `Dialog`, `Inline Validation`, `Toast` |
+| `audit` | `component` | `Audit Event` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A product needs reusable role/permission composition.
+- Permissions require review, edit, confirmation, audit context, validation, and disabled reasons.
+- Templates own authorization model, role taxonomy, and policy.
+
+### Decision Tree
+
+- Use Table/Switch/Checkbox for simple permission display.
+- Use this pattern when role editing, audit, confirmation, and validation are coordinated.
+- Use templates for tenant-specific authorization policy.
+
+### Failure Modes
+
+- Authorization rules are embedded in the pattern.
+- Switch/Checkbox visuals are duplicated.
+- Disabled permissions lack reasons.
+- Audit or confirmation bypasses Flow components.
+
+### Success Metrics
+
+- Users can review and change permissions with clear consequence.
+- Permission state and disabled reasons are accessible.
+- Templates can vary policy without changing visual implementation.
+
+### Accessibility
+
+- Expose permission labels and disabled reasons.
+- Confirm risky permission changes.
+- Provide audit context in text.
+
+### Tests
+
+- Composes all listed role/permission components.
+- Covers read-only, editing, dirty, confirming, saving, saved, blocked, and error states.
+- Keeps authorization policy in templates/app code.
+
+### Agent Instructions
+
+- Do not encode tenant authorization policy.
+- Ask before changing access, admin roles, billing, compliance, or identity permissions.
+- Keep templates responsible for role taxonomy.
+
+### Reject If
+
+- Authorization policy is embedded.
+- Controls bypass Switch/Checkbox.
+- Disabled reasons are missing.
+- Audit is custom markup.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -45,7 +206,7 @@ Let admins grant access safely with dependencies, auditability, templates, revie
 | audit | AuditEvent | yes | Evidence of changes and owner. |
 | actions | Button[] | yes | Review, save, cancel, or request approval. |
 
-## Components And Primitives Used
+## Components Used
 
 - Table
 - Checkbox

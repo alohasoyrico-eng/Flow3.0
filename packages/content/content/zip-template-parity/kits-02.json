@@ -1,0 +1,199 @@
+{
+  "kits": [
+    {
+      "id": "config",
+      "zipPaths": [
+        "ui_kits/config/index.html"
+      ],
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Table",
+          "Tree View",
+          "Audit Event",
+          "Button",
+          "Icon Button",
+          "Input",
+          "Badge",
+          "Tabs",
+          "Avatar",
+          "Toast",
+          "Breadcrumbs",
+          "Menu",
+          "Select",
+          "Combobox",
+          "Text Area",
+          "Dialog",
+          "Drawer"
+        ],
+        "patterns": [
+          "Topbar",
+          "Sidebar",
+          "Roles and Permissions",
+          "Driver and Vehicle Administration",
+          "Authentication, Login, Biometrics and OTP"
+        ],
+        "templates": [
+          "Configuration Console"
+        ]
+      },
+      "requiredDecision": "Use Configuration Console as the canonical admin template.",
+      "migrationScope": [
+        "roles",
+        "drivers",
+        "vehicles",
+        "audit"
+      ],
+      "cascadeRisks": [
+        "permission matrix clone",
+        "raw lifecycle table",
+        "custom admin shell"
+      ]
+    },
+    {
+      "id": "dashboards",
+      "zipPaths": [
+        "ui_kits/dashboards/overview.html",
+        "ui_kits/dashboards/combustible.html",
+        "ui_kits/dashboards/mantenimiento.html",
+        "ui_kits/dashboards/electro.html",
+        "ui_kits/dashboards/peaje.html",
+        "ui_kits/dashboards/finanzas.html"
+      ],
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Charts",
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Chart Panel",
+          "KPI Tile",
+          "Table",
+          "Button",
+          "Icon Button",
+          "Badge",
+          "Tabs",
+          "Breadcrumbs",
+          "Avatar",
+          "Tooltip",
+          "Menu",
+          "Progress Indicator",
+          "Date Picker",
+          "Date Range Picker",
+          "Combobox"
+        ],
+        "patterns": [
+          "Topbar",
+          "Sidebar",
+          "Advanced Filters",
+          "KPI Card",
+          "Chart Wrapper",
+          "Virtual Data Table"
+        ],
+        "templates": [
+          "Fleet Dashboard Suite"
+        ]
+      },
+      "requiredDecision": "Use Fleet Dashboard Suite as the canonical multi-dashboard template; dashboard variants are modules, not separate copied templates.",
+      "migrationScope": [
+        "overview",
+        "fuel",
+        "maintenance",
+        "EV",
+        "toll",
+        "finance"
+      ],
+      "cascadeRisks": [
+        "standalone charts",
+        "custom dashboard switcher",
+        "raw table toolbar",
+        "finance visibility outside permissions"
+      ]
+    },
+    {
+      "id": "drivers-app",
+      "zipPaths": [
+        "ui_kits/drivers-app/index.html",
+        "ui_kits/drivers-app/README.md"
+      ],
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Maps",
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Card Summary",
+          "Movement Row",
+          "Route Summary",
+          "Station Pin",
+          "Button",
+          "Icon Button",
+          "Switch",
+          "Badge",
+          "Avatar",
+          "Progress Indicator",
+          "Toast"
+        ],
+        "patterns": [
+          "Driver Onboarding Mobile",
+          "Station Discovery",
+          "Snackbar Provider"
+        ],
+        "templates": [
+          "Driver Mobile App"
+        ]
+      },
+      "requiredDecision": "Use Driver Mobile App as the canonical mobile product template.",
+      "migrationScope": [
+        "home",
+        "card",
+        "routes",
+        "support"
+      ],
+      "cascadeRisks": [
+        "tab bar clone",
+        "card wallet clone",
+        "map/list divergence",
+        "dark theme hardcoding"
+      ]
+    }
+  ]
+}

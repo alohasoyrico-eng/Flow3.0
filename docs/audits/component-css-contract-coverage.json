@@ -1,35 +1,38 @@
 {
   "status": "pass",
   "inventory": {
-    "total": 56,
+    "total": 60,
     "cssContractDebt": 0,
-    "direct": 52,
-    "family": 4,
+    "direct": 55,
+    "family": 5,
     "missing": 0,
     "directRootGaps": 0,
     "familyRootGaps": 0,
-    "familyUnexpectedRoots": 0
+    "familyUnexpectedRoots": 0,
+    "componentCssGovernanceIssues": 0
   },
   "baseline": {
     "inventory": {
-      "total": 56,
+      "total": 60,
       "cssContractDebt": 0,
-      "direct": 52,
-      "family": 4,
+      "direct": 55,
+      "family": 5,
       "missing": 0,
       "directRootGaps": 0,
       "familyRootGaps": 0,
-      "familyUnexpectedRoots": 0
+      "familyUnexpectedRoots": 0,
+      "componentCssGovernanceIssues": 0
     },
     "actual": {
-      "total": 56,
+      "total": 60,
       "cssContractDebt": 0,
-      "direct": 52,
-      "family": 4,
+      "direct": 55,
+      "family": 5,
       "missing": 0,
       "directRootGaps": 0,
       "familyRootGaps": 0,
-      "familyUnexpectedRoots": 0
+      "familyUnexpectedRoots": 0,
+      "componentCssGovernanceIssues": 0
     },
     "mismatches": [],
     "familyContracts": [
@@ -37,6 +40,7 @@
         "contract": "field",
         "components": [
           "input",
+          "input-amount",
           "card-number-input",
           "card-expiry-input",
           "card-security-code-input"
@@ -47,16 +51,21 @@
         "allowedExtensionRoots": [
           "card-expiry-input",
           "card-number-input",
-          "card-security-code-input"
+          "card-security-code-input",
+          "input-amount"
         ]
       }
     ],
     "familyContractMismatches": []
   },
+  "governance": {
+    "file": "packages/content/content/component-css-governance.json",
+    "issues": []
+  },
   "cssContractDebt": 0,
-  "total": 56,
-  "direct": 52,
-  "family": 4,
+  "total": 60,
+  "direct": 55,
+  "family": 5,
   "missing": [],
   "directRootGaps": [],
   "familyRootGaps": [],
@@ -67,10 +76,11 @@
       {
         "contract": "field",
         "components": [
-          "input",
-          "card-number-input",
           "card-expiry-input",
-          "card-security-code-input"
+          "card-number-input",
+          "card-security-code-input",
+          "input",
+          "input-amount"
         ],
         "requiredRoots": [
           "field"
@@ -78,12 +88,83 @@
         "allowedExtensionRoots": [
           "card-expiry-input",
           "card-number-input",
-          "card-security-code-input"
+          "card-security-code-input",
+          "input-amount"
         ]
       }
     ]
   },
   "components": [
+    {
+      "component": "accordion",
+      "coverage": "direct",
+      "contract": "accordion",
+      "requiredRoot": "accordion",
+      "observedRoots": [
+        "accordion"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "animated-moment",
+      "coverage": "direct",
+      "contract": "animated-moment",
+      "requiredRoot": "animated-moment",
+      "observedRoots": [
+        "animated-moment"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "audit-event",
+      "coverage": "direct",
+      "contract": "audit-event",
+      "requiredRoot": "audit-event",
+      "observedRoots": [
+        "audit-event"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "avatar",
+      "coverage": "direct",
+      "contract": "avatar",
+      "requiredRoot": "avatar",
+      "observedRoots": [
+        "avatar"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "badge",
+      "coverage": "direct",
+      "contract": "badge",
+      "requiredRoot": "badge",
+      "observedRoots": [
+        "badge"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "biometric-prompt",
+      "coverage": "direct",
+      "contract": "biometric-prompt",
+      "requiredRoot": "biometric-prompt",
+      "observedRoots": [
+        "biometric-prompt"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "breadcrumbs",
+      "coverage": "direct",
+      "contract": "breadcrumbs",
+      "requiredRoot": "breadcrumbs",
+      "observedRoots": [
+        "breadcrumbs"
+      ],
+      "requiredRootObserved": true
+    },
     {
       "component": "button",
       "coverage": "direct",
@@ -95,13 +176,139 @@
       "requiredRootObserved": true
     },
     {
-      "component": "select",
+      "component": "card",
       "coverage": "direct",
-      "contract": "select",
-      "requiredRoot": "select-control",
+      "contract": "card",
+      "requiredRoot": "card",
       "observedRoots": [
-        "field",
-        "select-control"
+        "card"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "card-expiry-input",
+      "coverage": "family",
+      "contract": "field",
+      "requiredRoot": "field",
+      "allowedExtensionRoots": [
+        "card-expiry-input"
+      ],
+      "observedRoots": [
+        "card-expiry-input",
+        "field"
+      ],
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
+    },
+    {
+      "component": "card-number-input",
+      "coverage": "family",
+      "contract": "field",
+      "requiredRoot": "field",
+      "allowedExtensionRoots": [
+        "card-number-input"
+      ],
+      "observedRoots": [
+        "card-number-input",
+        "field"
+      ],
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
+    },
+    {
+      "component": "card-security-code-input",
+      "coverage": "family",
+      "contract": "field",
+      "requiredRoot": "field",
+      "allowedExtensionRoots": [
+        "card-security-code-input"
+      ],
+      "observedRoots": [
+        "card-security-code-input",
+        "field"
+      ],
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
+    },
+    {
+      "component": "card-summary",
+      "coverage": "direct",
+      "contract": "card-summary",
+      "requiredRoot": "card-summary",
+      "observedRoots": [
+        "card-summary"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "chart-panel",
+      "coverage": "direct",
+      "contract": "chart-panel",
+      "requiredRoot": "chart-panel",
+      "observedRoots": [
+        "chart-panel"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "chat-composer",
+      "coverage": "direct",
+      "contract": "chat-composer",
+      "requiredRoot": "chat-composer",
+      "observedRoots": [
+        "chat-composer"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "chat-message",
+      "coverage": "direct",
+      "contract": "chat-message",
+      "requiredRoot": "chat-message",
+      "observedRoots": [
+        "chat-message"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "chat-thread",
+      "coverage": "direct",
+      "contract": "chat-thread",
+      "requiredRoot": "chat-thread",
+      "observedRoots": [
+        "chat-thread"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "checkbox",
+      "coverage": "direct",
+      "contract": "checkbox",
+      "requiredRoot": "checkbox",
+      "observedRoots": [
+        "checkbox",
+        "choice"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "chip",
+      "coverage": "direct",
+      "contract": "chip",
+      "requiredRoot": "chip",
+      "observedRoots": [
+        "chip"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "code-input",
+      "coverage": "direct",
+      "contract": "code-input",
+      "requiredRoot": "code-input",
+      "observedRoots": [
+        "code-input",
+        "field"
       ],
       "requiredRootObserved": true
     },
@@ -130,388 +337,6 @@
       "requiredRootObserved": true
     },
     {
-      "component": "card",
-      "coverage": "direct",
-      "contract": "card",
-      "requiredRoot": "card",
-      "observedRoots": [
-        "card"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "input",
-      "coverage": "family",
-      "contract": "field",
-      "requiredRoot": "field",
-      "allowedExtensionRoots": [],
-      "observedRoots": [
-        "field"
-      ],
-      "requiredRootObserved": true,
-      "unexpectedRoots": []
-    },
-    {
-      "component": "checkbox",
-      "coverage": "direct",
-      "contract": "checkbox",
-      "requiredRoot": "checkbox",
-      "observedRoots": [
-        "checkbox",
-        "choice"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "switch",
-      "coverage": "direct",
-      "contract": "switch",
-      "requiredRoot": "switch",
-      "observedRoots": [
-        "switch"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "radio-button",
-      "coverage": "direct",
-      "contract": "radio-button",
-      "requiredRoot": "radio",
-      "observedRoots": [
-        "choice",
-        "radio"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "text-area",
-      "coverage": "direct",
-      "contract": "text-area",
-      "requiredRoot": "text-area",
-      "observedRoots": [
-        "field",
-        "text-area"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "icon-button",
-      "coverage": "direct",
-      "contract": "icon-button",
-      "requiredRoot": "icon-button",
-      "observedRoots": [
-        "icon-button"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "badge",
-      "coverage": "direct",
-      "contract": "badge",
-      "requiredRoot": "badge",
-      "observedRoots": [
-        "badge"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "chip",
-      "coverage": "direct",
-      "contract": "chip",
-      "requiredRoot": "chip",
-      "observedRoots": [
-        "chip"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "tag",
-      "coverage": "direct",
-      "contract": "tag",
-      "requiredRoot": "tag",
-      "observedRoots": [
-        "tag"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "tabs",
-      "coverage": "direct",
-      "contract": "tabs",
-      "requiredRoot": "tabs",
-      "observedRoots": [
-        "tabs"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "tooltip",
-      "coverage": "direct",
-      "contract": "tooltip",
-      "requiredRoot": "tooltip",
-      "observedRoots": [
-        "tooltip"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "toast",
-      "coverage": "direct",
-      "contract": "toast",
-      "requiredRoot": "toast",
-      "observedRoots": [
-        "toast"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "inline-validation",
-      "coverage": "direct",
-      "contract": "inline-validation",
-      "requiredRoot": "inline-validation",
-      "observedRoots": [
-        "inline-validation"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "progress-indicator",
-      "coverage": "direct",
-      "contract": "progress-indicator",
-      "requiredRoot": "progress",
-      "observedRoots": [
-        "progress"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "spinner",
-      "coverage": "direct",
-      "contract": "spinner",
-      "requiredRoot": "spinner",
-      "observedRoots": [
-        "spinner"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "skeleton",
-      "coverage": "direct",
-      "contract": "skeleton",
-      "requiredRoot": "skeleton",
-      "observedRoots": [
-        "skeleton"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "dialog",
-      "coverage": "direct",
-      "contract": "dialog",
-      "requiredRoot": "dialog",
-      "observedRoots": [
-        "dialog"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "menu",
-      "coverage": "direct",
-      "contract": "menu",
-      "requiredRoot": "menu",
-      "observedRoots": [
-        "menu"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "drawer",
-      "coverage": "direct",
-      "contract": "drawer",
-      "requiredRoot": "drawer",
-      "observedRoots": [
-        "drawer"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "accordion",
-      "coverage": "direct",
-      "contract": "accordion",
-      "requiredRoot": "accordion",
-      "observedRoots": [
-        "accordion"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "empty-state",
-      "coverage": "direct",
-      "contract": "empty-state",
-      "requiredRoot": "empty-state",
-      "observedRoots": [
-        "empty-state"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "table",
-      "coverage": "direct",
-      "contract": "table",
-      "requiredRoot": "table",
-      "observedRoots": [
-        "table"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "avatar",
-      "coverage": "direct",
-      "contract": "avatar",
-      "requiredRoot": "avatar",
-      "observedRoots": [
-        "avatar"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "slider",
-      "coverage": "direct",
-      "contract": "slider",
-      "requiredRoot": "slider",
-      "observedRoots": [
-        "slider"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "stepper",
-      "coverage": "direct",
-      "contract": "stepper",
-      "requiredRoot": "stepper",
-      "observedRoots": [
-        "stepper"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "list",
-      "coverage": "direct",
-      "contract": "list",
-      "requiredRoot": "list",
-      "observedRoots": [
-        "list"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "kpi-tile",
-      "coverage": "direct",
-      "contract": "kpi-tile",
-      "requiredRoot": "kpi-tile",
-      "observedRoots": [
-        "kpi-tile"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "chart-panel",
-      "coverage": "direct",
-      "contract": "chart-panel",
-      "requiredRoot": "chart-panel",
-      "observedRoots": [
-        "chart-panel"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "station-pin",
-      "coverage": "direct",
-      "contract": "station-pin",
-      "requiredRoot": "station-pin",
-      "observedRoots": [
-        "station-pin"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "route-summary",
-      "coverage": "direct",
-      "contract": "route-summary",
-      "requiredRoot": "route-summary",
-      "observedRoots": [
-        "route-summary"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "code-input",
-      "coverage": "direct",
-      "contract": "code-input",
-      "requiredRoot": "code-input",
-      "observedRoots": [
-        "code-input",
-        "field"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "phone-input",
-      "coverage": "direct",
-      "contract": "phone-input",
-      "requiredRoot": "phone-input",
-      "observedRoots": [
-        "field",
-        "phone-input"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "card-number-input",
-      "coverage": "family",
-      "contract": "field",
-      "requiredRoot": "field",
-      "allowedExtensionRoots": [
-        "card-number-input"
-      ],
-      "observedRoots": [
-        "card-number-input",
-        "field"
-      ],
-      "requiredRootObserved": true,
-      "unexpectedRoots": []
-    },
-    {
-      "component": "card-expiry-input",
-      "coverage": "family",
-      "contract": "field",
-      "requiredRoot": "field",
-      "allowedExtensionRoots": [
-        "card-expiry-input"
-      ],
-      "observedRoots": [
-        "card-expiry-input",
-        "field"
-      ],
-      "requiredRootObserved": true,
-      "unexpectedRoots": []
-    },
-    {
-      "component": "card-security-code-input",
-      "coverage": "family",
-      "contract": "field",
-      "requiredRoot": "field",
-      "allowedExtensionRoots": [
-        "card-security-code-input"
-      ],
-      "observedRoots": [
-        "card-security-code-input",
-        "field"
-      ],
-      "requiredRootObserved": true,
-      "unexpectedRoots": []
-    },
-    {
       "component": "date-picker",
       "coverage": "direct",
       "contract": "date-picker",
@@ -535,102 +360,32 @@
       "requiredRootObserved": true
     },
     {
-      "component": "segmented-control",
+      "component": "dialog",
       "coverage": "direct",
-      "contract": "segmented-control",
-      "requiredRoot": "segmented-control",
+      "contract": "dialog",
+      "requiredRoot": "dialog",
       "observedRoots": [
-        "segmented-control"
+        "dialog"
       ],
       "requiredRootObserved": true
     },
     {
-      "component": "popover",
+      "component": "drawer",
       "coverage": "direct",
-      "contract": "popover",
-      "requiredRoot": "popover",
+      "contract": "drawer",
+      "requiredRoot": "drawer",
       "observedRoots": [
-        "popover"
+        "drawer"
       ],
       "requiredRootObserved": true
     },
     {
-      "component": "floating-action-button",
+      "component": "empty-state",
       "coverage": "direct",
-      "contract": "floating-action-button",
-      "requiredRoot": "fab",
+      "contract": "empty-state",
+      "requiredRoot": "empty-state",
       "observedRoots": [
-        "fab"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "card-summary",
-      "coverage": "direct",
-      "contract": "card-summary",
-      "requiredRoot": "card-summary",
-      "observedRoots": [
-        "card-summary"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "movement-row",
-      "coverage": "direct",
-      "contract": "movement-row",
-      "requiredRoot": "movement-row",
-      "observedRoots": [
-        "movement-row"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "quick-action",
-      "coverage": "direct",
-      "contract": "quick-action",
-      "requiredRoot": "quick-action",
-      "observedRoots": [
-        "quick-action"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "biometric-prompt",
-      "coverage": "direct",
-      "contract": "biometric-prompt",
-      "requiredRoot": "biometric-prompt",
-      "observedRoots": [
-        "biometric-prompt"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "breadcrumbs",
-      "coverage": "direct",
-      "contract": "breadcrumbs",
-      "requiredRoot": "breadcrumbs",
-      "observedRoots": [
-        "breadcrumbs"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "pagination",
-      "coverage": "direct",
-      "contract": "pagination",
-      "requiredRoot": "pagination",
-      "observedRoots": [
-        "pagination"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "audit-event",
-      "coverage": "direct",
-      "contract": "audit-event",
-      "requiredRoot": "audit-event",
-      "observedRoots": [
-        "audit-event"
+        "empty-state"
       ],
       "requiredRootObserved": true
     },
@@ -645,12 +400,89 @@
       "requiredRootObserved": true
     },
     {
-      "component": "tree-view",
+      "component": "floating-action-button",
       "coverage": "direct",
-      "contract": "tree-view",
-      "requiredRoot": "tree-view",
+      "contract": "floating-action-button",
+      "requiredRoot": "fab",
       "observedRoots": [
-        "tree-view"
+        "fab"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "icon-button",
+      "coverage": "direct",
+      "contract": "icon-button",
+      "requiredRoot": "icon-button",
+      "observedRoots": [
+        "icon-button"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "inline-validation",
+      "coverage": "direct",
+      "contract": "inline-validation",
+      "requiredRoot": "inline-validation",
+      "observedRoots": [
+        "inline-validation"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "input",
+      "coverage": "family",
+      "contract": "field",
+      "requiredRoot": "field",
+      "allowedExtensionRoots": [],
+      "observedRoots": [
+        "field"
+      ],
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
+    },
+    {
+      "component": "input-amount",
+      "coverage": "family",
+      "contract": "field",
+      "requiredRoot": "field",
+      "allowedExtensionRoots": [
+        "input-amount"
+      ],
+      "observedRoots": [
+        "field",
+        "input-amount"
+      ],
+      "requiredRootObserved": true,
+      "unexpectedRoots": []
+    },
+    {
+      "component": "kpi-tile",
+      "coverage": "direct",
+      "contract": "kpi-tile",
+      "requiredRoot": "kpi-tile",
+      "observedRoots": [
+        "kpi-tile"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "list",
+      "coverage": "direct",
+      "contract": "list",
+      "requiredRoot": "list",
+      "observedRoots": [
+        "list"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "menu",
+      "coverage": "direct",
+      "contract": "menu",
+      "requiredRoot": "menu",
+      "observedRoots": [
+        "menu"
       ],
       "requiredRootObserved": true
     },
@@ -665,12 +497,236 @@
       "requiredRootObserved": true
     },
     {
-      "component": "animated-moment",
+      "component": "movement-row",
       "coverage": "direct",
-      "contract": "animated-moment",
-      "requiredRoot": "animated-moment",
+      "contract": "movement-row",
+      "requiredRoot": "movement-row",
       "observedRoots": [
-        "animated-moment"
+        "movement-row"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "pagination",
+      "coverage": "direct",
+      "contract": "pagination",
+      "requiredRoot": "pagination",
+      "observedRoots": [
+        "pagination"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "phone-input",
+      "coverage": "direct",
+      "contract": "phone-input",
+      "requiredRoot": "phone-input",
+      "observedRoots": [
+        "field",
+        "phone-input"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "popover",
+      "coverage": "direct",
+      "contract": "popover",
+      "requiredRoot": "popover",
+      "observedRoots": [
+        "popover"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "progress-indicator",
+      "coverage": "direct",
+      "contract": "progress-indicator",
+      "requiredRoot": "progress",
+      "observedRoots": [
+        "progress"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "quick-action",
+      "coverage": "direct",
+      "contract": "quick-action",
+      "requiredRoot": "quick-action",
+      "observedRoots": [
+        "quick-action"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "radio-button",
+      "coverage": "direct",
+      "contract": "radio-button",
+      "requiredRoot": "radio",
+      "observedRoots": [
+        "choice",
+        "radio"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "route-summary",
+      "coverage": "direct",
+      "contract": "route-summary",
+      "requiredRoot": "route-summary",
+      "observedRoots": [
+        "route-summary"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "segmented-control",
+      "coverage": "direct",
+      "contract": "segmented-control",
+      "requiredRoot": "segmented-control",
+      "observedRoots": [
+        "segmented-control"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "select",
+      "coverage": "direct",
+      "contract": "select",
+      "requiredRoot": "select-control",
+      "observedRoots": [
+        "field",
+        "select-control"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "skeleton",
+      "coverage": "direct",
+      "contract": "skeleton",
+      "requiredRoot": "skeleton",
+      "observedRoots": [
+        "skeleton"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "slider",
+      "coverage": "direct",
+      "contract": "slider",
+      "requiredRoot": "slider",
+      "observedRoots": [
+        "slider"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "spinner",
+      "coverage": "direct",
+      "contract": "spinner",
+      "requiredRoot": "spinner",
+      "observedRoots": [
+        "spinner"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "station-pin",
+      "coverage": "direct",
+      "contract": "station-pin",
+      "requiredRoot": "station-pin",
+      "observedRoots": [
+        "station-pin"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "stepper",
+      "coverage": "direct",
+      "contract": "stepper",
+      "requiredRoot": "stepper",
+      "observedRoots": [
+        "stepper"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "switch",
+      "coverage": "direct",
+      "contract": "switch",
+      "requiredRoot": "switch",
+      "observedRoots": [
+        "switch"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "table",
+      "coverage": "direct",
+      "contract": "table",
+      "requiredRoot": "table",
+      "observedRoots": [
+        "table"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "tabs",
+      "coverage": "direct",
+      "contract": "tabs",
+      "requiredRoot": "tabs",
+      "observedRoots": [
+        "tabs"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "tag",
+      "coverage": "direct",
+      "contract": "tag",
+      "requiredRoot": "tag",
+      "observedRoots": [
+        "tag"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "text-area",
+      "coverage": "direct",
+      "contract": "text-area",
+      "requiredRoot": "text-area",
+      "observedRoots": [
+        "field",
+        "text-area"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "toast",
+      "coverage": "direct",
+      "contract": "toast",
+      "requiredRoot": "toast",
+      "observedRoots": [
+        "toast"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "tooltip",
+      "coverage": "direct",
+      "contract": "tooltip",
+      "requiredRoot": "tooltip",
+      "observedRoots": [
+        "tooltip"
+      ],
+      "requiredRootObserved": true
+    },
+    {
+      "component": "tree-view",
+      "coverage": "direct",
+      "contract": "tree-view",
+      "requiredRoot": "tree-view",
+      "observedRoots": [
+        "tree-view"
       ],
       "requiredRootObserved": true
     }

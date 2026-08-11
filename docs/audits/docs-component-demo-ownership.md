@@ -26,6 +26,7 @@ Changing these numbers is a contract decision. FlowDocs should not silently stop
 | regions | 12 | 12 |
 | forbiddenPatterns | 15 | 15 |
 | violations | 0 | 0 |
+| docsDemoOwnershipPolicyIssues | 0 | 0 |
 | docsDemoOwnershipDebt | 0 | 0 |
 
 ## Baseline Mismatches

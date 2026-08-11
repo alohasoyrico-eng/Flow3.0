@@ -163,7 +163,7 @@ function findTypographyDeclarations(file, source, customProperties) {
   while ((match = declarationPattern.exec(source))) {
     const property = match.groups.property;
     const value = match.groups.value.trim();
-    const isFontFaceFile = rel(file) === "apps/docs/styles/00-foundations-01.css";
+    const isFontFaceFile = path.basename(file) === "00-foundations-01.css";
     const isAllowedLiteral = ["inherit", "normal", "0", "0em", "1"].includes(value);
     const isVoiceTokenized = /var\(--(?:ref|sys)-voice-/.test(value);
     const isKnownCascadeAlias = /var\(--(?:comp|component|density|pattern)-/.test(value);

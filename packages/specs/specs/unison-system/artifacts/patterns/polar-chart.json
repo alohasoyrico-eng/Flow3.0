@@ -1,0 +1,190 @@
+{
+  "artifacts": {
+    "patterns": {
+      "polar-chart": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate circular segment comparison with selected-segment review and accessible data fallback without creating a second chart or table implementation.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Charts",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Chart Wrapper"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A comparison needs segment, share, status, or selected-segment context.",
+          "The visualization must preserve Chart Wrapper state handling and accessible fallback.",
+          "Templates need circular comparison behavior without owning chart or table internals."
+        ],
+        "decisionTree": [
+          "Use Chart Wrapper for generic dashboard chart modules.",
+          "Use Waterfall Chart when delta and cumulative contribution steps are primary.",
+          "Use Polar Chart when circular segment comparison and selected-segment review operate as one workflow."
+        ],
+        "failureModes": [
+          "Polar/radar/donut visuals are implemented with local SVG, canvas, or positioned divs.",
+          "The pattern creates its own table instead of delegating fallback rows to Chart Wrapper and Table.",
+          "Segment status relies only on color.",
+          "Templates own segment selection or chart state."
+        ],
+        "successMetrics": [
+          "Users can inspect segment label, value, share, status, and selected segment context.",
+          "Assistive technology users receive equivalent segment rows through Flow-owned components.",
+          "Density and state cascade from Surface into Chart Wrapper, Chart Panel, and Table."
+        ],
+        "states": [
+          "default",
+          "selected",
+          "loading",
+          "empty",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "polarChartSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": true
+          },
+          {
+            "name": "polarSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "polarMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "chartWrapperBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Chart Wrapper"
+            ],
+            "required": true
+          },
+          {
+            "name": "polarDataSummary",
+            "owner": "pattern",
+            "uses": [
+              "Chart Wrapper"
+            ],
+            "required": true
+          },
+          {
+            "name": "polarFeedback",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          }
+        ],
+        "accessibility": [
+          "Expose the segment comparison as a labelled group with busy state.",
+          "Delegate visual chart semantics to Chart Wrapper and Chart Panel.",
+          "Provide equivalent segment rows through Chart Wrapper fallback slots.",
+          "Do not rely on color alone for segment status or selected-segment state."
+        ],
+        "tests": [
+          "Composes Surface, Badge, and Chart Wrapper.",
+          "Covers default, selected, loading, empty, error, and disabled states.",
+          "Forwards segment selection and primary action callbacks.",
+          "Rejects local chart rendering, raw tables, card wrappers, docs-only demos, and injected markup."
+        ],
+        "agentInstructions": [
+          "Do not render polar, radar, or donut visuals with local SVG, canvas, or positioned divs inside the pattern.",
+          "Use Chart Wrapper for chart state, Chart Panel ownership, fallback Table/List, and actions.",
+          "Use Surface for structural grouping; do not wrap the segment comparison in Card.",
+          "Ask before using this pattern for regulated, financial, legal, safety, or irreversible analysis."
+        ],
+        "rejectIf": [
+          "The chart bypasses Chart Wrapper.",
+          "The fallback data bypasses Chart Wrapper/Table/List.",
+          "A Card wraps the segment comparison group.",
+          "A template owns segment selection or share state directly."
+        ]
+      }
+    }
+  }
+}

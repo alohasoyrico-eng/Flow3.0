@@ -1,0 +1,185 @@
+{
+  "artifacts": {
+    "patterns": {
+      "settings": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate editable preferences with grouped controls, save/reset behavior, validation, unsaved state, and confirmation boundaries without becoming a product-specific admin screen.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Card",
+          "Dialog",
+          "Input",
+          "Select",
+          "Switch",
+          "Toast"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.card.*",
+          "comp.dialog.*",
+          "comp.input.*",
+          "comp.select.*",
+          "comp.switch.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Users need to review and edit preferences or configuration.",
+          "Settings can be dirty, saved, reset, disabled, or permission constrained.",
+          "Some changes may need confirmation before applying."
+        ],
+        "decisionTree": [
+          "Use a form section for one localized group of fields.",
+          "Use Settings when grouped preferences share save/reset and unsaved-state behavior.",
+          "Use a template when settings are domain-specific business administration."
+        ],
+        "failureModes": [
+          "Settings becomes a full business admin template.",
+          "Save/reset controls are custom buttons.",
+          "Dirty or permission state is invisible.",
+          "Destructive changes bypass Dialog confirmation."
+        ],
+        "successMetrics": [
+          "Users can identify groups, modify settings, save, reset, and recover.",
+          "Assistive technology users receive dirty, saving, saved, and validation states.",
+          "Preference composition stays reusable outside one product screen."
+        ],
+        "states": [
+          "idle",
+          "dirty",
+          "saving",
+          "saved",
+          "invalid",
+          "resetting",
+          "permission-blocked",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "groups",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ]
+          },
+          {
+            "name": "summaryCard",
+            "owner": "component",
+            "uses": [
+              "Card"
+            ],
+            "required": "conditional",
+            "purpose": "Owns one scannable settings group summary inside a Surface-owned structural group."
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Toast"
+            ]
+          },
+          {
+            "name": "confirmation",
+            "owner": "component",
+            "uses": [
+              "Dialog"
+            ]
+          },
+          {
+            "name": "controls",
+            "owner": "component",
+            "uses": [
+              "Input",
+              "Select",
+              "Switch"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Group related settings with visible labels.",
+          "Expose dirty, saving, saved, invalid, and permission states in text.",
+          "Use Dialog for confirmation and preserve focus return."
+        ],
+        "tests": [
+          "Composes Button, Card, Dialog, Input, Select, Switch, and Toast.",
+          "Covers dirty, saving, saved, invalid, reset, permission, and disabled states.",
+          "Does not include domain-specific admin layout."
+        ],
+        "agentInstructions": [
+          "Keep product policy, role rules, and backend persistence outside this pattern.",
+          "Compose settings groups from Flow inputs and actions.",
+          "Ask before changing security, billing, compliance, or identity settings."
+        ],
+        "rejectIf": [
+          "The pattern owns business-specific admin workflows.",
+          "Controls bypass Flow form components.",
+          "Unsaved state is not visible.",
+          "Confirmation bypasses Dialog."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "templateDependencies": [
+          "Settings Workspace"
+        ]
+      }
+    }
+  }
+}

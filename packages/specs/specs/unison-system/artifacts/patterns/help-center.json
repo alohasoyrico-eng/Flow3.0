@@ -1,0 +1,183 @@
+{
+  "artifacts": {
+    "patterns": {
+      "help-center": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate contextual support content with searchable topics, expandable answers, drawer presentation, empty recovery, and sidebar boundary.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "Growth",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Accordion",
+          "Drawer",
+          "Empty State",
+          "Input",
+          "Tag"
+        ],
+        "patternDependencies": [
+          "Search",
+          "Sidebar"
+        ],
+        "tokenDependencies": [
+          "comp.accordion.*",
+          "comp.drawer.*",
+          "comp.empty-state.*",
+          "comp.input.*",
+          "comp.tag.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Users need contextual help, FAQs, topic browsing, or guided recovery.",
+          "Help content can be searched, empty, filtered, or loaded inside a drawer.",
+          "Sidebar may host navigation, but help content owns support interaction."
+        ],
+        "decisionTree": [
+          "Use Accordion for static FAQ content.",
+          "Use Help Center when support content needs search, topic grouping, or drawer behavior.",
+          "Use Sidebar for app navigation, not support-answer ownership."
+        ],
+        "failureModes": [
+          "Help search clones Search behavior.",
+          "Drawer is recreated manually.",
+          "Topics are custom pills instead of Tag.",
+          "Support content becomes a product template or knowledge base app."
+        ],
+        "successMetrics": [
+          "Users can find support content and recover from empty searches.",
+          "Keyboard and screen reader users can navigate topics and answers.",
+          "Search and Sidebar remain boundaries instead of internal implementations."
+        ],
+        "states": [
+          "closed",
+          "open",
+          "loading",
+          "results",
+          "empty",
+          "topic-selected",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "surface",
+            "owner": "component",
+            "uses": [
+              "Drawer"
+            ]
+          },
+          {
+            "name": "topics",
+            "owner": "component",
+            "uses": [
+              "Accordion",
+              "Tag",
+              "Input"
+            ]
+          },
+          {
+            "name": "recovery",
+            "owner": "component",
+            "uses": [
+              "Empty State"
+            ]
+          },
+          {
+            "name": "searchBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Search"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Search runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "sidebarBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Sidebar"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Sidebar runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Expose topic structure and answer expansion state.",
+          "Keep drawer focus behavior intact.",
+          "Do not rely on search-only access to help topics."
+        ],
+        "tests": [
+          "Composes Accordion, Drawer, Empty State, Input, and Tag.",
+          "Covers open, loading, results, empty, selected topic, error, and disabled states.",
+          "Keeps Search and Sidebar as composition boundaries."
+        ],
+        "agentInstructions": [
+          "Keep support taxonomy/content source outside the pattern.",
+          "Do not duplicate Search or Sidebar internals.",
+          "Ask before surfacing legal, safety, medical, or financial guidance."
+        ],
+        "rejectIf": [
+          "Help search is a second Search implementation.",
+          "Drawer bypasses Drawer.",
+          "Topics bypass Tag/Accordion.",
+          "Sidebar owns support content behavior."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

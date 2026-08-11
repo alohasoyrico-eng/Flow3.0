@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/command-palette/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/command-palette.json`
 
 ## Purpose
 
@@ -36,6 +37,166 @@ Give expert users fast keyboard access to navigation, actions, recent entities, 
 | State | Closed, open, typing, selected, loading, no results, disabled, and executing states are explicit. |
 | Accessibility | Requires dialog semantics, labelled search, active descendant or roving focus, Escape close, and focus restoration. |
 
+## Formal Purpose
+
+Coordinate keyboard-first command discovery and execution with dialog behavior, query input, grouped commands, empty recovery, topbar boundary, and feedback.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `closed`
+- `open`
+- `querying`
+- `results`
+- `empty`
+- `loading`
+- `disabled-command`
+- `executing`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Momentum`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Button`
+- `Dialog`
+- `Empty State`
+- `Input`
+- `Menu`
+- `Toast`
+
+### Patterns
+
+- `Search`
+- `Topbar`
+
+### Tokens
+
+- `comp.button.*`
+- `comp.dialog.*`
+- `comp.empty-state.*`
+- `comp.input.*`
+- `comp.menu.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.momentum.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `surface` | `component` | `Dialog` |
+| `query` | `component` | `Input` |
+| `commands` | `component` | `Menu`, `Button`, `Empty State`, `Toast` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- Users need fast command discovery or keyboard execution.
+- Commands can be grouped, disabled, loading, empty, or permission constrained.
+- Topbar may host the trigger, but not the command implementation.
+
+### Decision Tree
+
+- Use Search for entity lookup.
+- Use Command Palette when query results execute commands or navigation.
+- Use Menu for short contextual action lists.
+
+### Failure Modes
+
+- Palette is implemented as custom overlay outside Dialog.
+- Entity search and command execution are mixed without clear boundary.
+- Disabled commands lack reasons.
+- Keyboard behavior differs from Dialog/Menu expectations.
+
+### Success Metrics
+
+- Users can open, search, navigate, and execute commands quickly.
+- Keyboard and screen reader users receive command grouping and result state.
+- Topbar owns trigger placement only.
+
+### Accessibility
+
+- Use Dialog focus trap and return.
+- Expose command names and disabled reasons.
+- Do not treat command execution as entity search.
+
+### Tests
+
+- Composes Dialog, Input, Menu, Button, Empty State, and Toast.
+- Covers open, querying, results, empty, loading, disabled, and executing states.
+- Keeps Search and Topbar as boundaries.
+
+### Agent Instructions
+
+- Do not implement raw modal or menu behavior.
+- Keep command registry and authorization outside the pattern.
+- Ask before executing destructive or regulated commands.
+
+### Reject If
+
+- Overlay bypasses Dialog.
+- Commands are custom rows outside Menu/Button.
+- Search is cloned.
+- Disabled reasons are missing.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -47,7 +208,7 @@ Give expert users fast keyboard access to navigation, actions, recent entities, 
 | emptyState | EmptyState | yes | Recovery when no command matches. |
 | feedback | Toast \| InlineValidation | conditional | Reports executed command or blocked action. |
 
-## Components And Primitives Used
+## Components Used
 
 - Dialog
 - Input

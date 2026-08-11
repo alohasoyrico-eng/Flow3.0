@@ -8,7 +8,7 @@
   },
   "watchlistRatio": 0.8,
   "inventory": {
-    "familyComponents": 4,
+    "familyComponents": 5,
     "reviewCandidates": 0,
     "watchlist": 0,
     "familyCssMaturityDebt": 0
@@ -17,14 +17,18 @@
   "watchlist": [],
   "familyComponents": [
     {
-      "component": "input",
+      "component": "card-expiry-input",
       "familyContract": "field",
       "requiredRoot": "field",
-      "extensionRoots": [],
-      "ownExtensionRoots": [],
+      "extensionRoots": [
+        "card-expiry-input"
+      ],
+      "ownExtensionRoots": [
+        "card-expiry-input"
+      ],
       "sharedExtensionRoots": [],
-      "selectorCount": 0,
-      "aliasCount": 0,
+      "selectorCount": 9,
+      "aliasCount": 6,
       "recommendation": "keep-family",
       "reasons": [],
       "watchlistReasons": []
@@ -47,23 +51,6 @@
       "watchlistReasons": []
     },
     {
-      "component": "card-expiry-input",
-      "familyContract": "field",
-      "requiredRoot": "field",
-      "extensionRoots": [
-        "card-expiry-input"
-      ],
-      "ownExtensionRoots": [
-        "card-expiry-input"
-      ],
-      "sharedExtensionRoots": [],
-      "selectorCount": 9,
-      "aliasCount": 6,
-      "recommendation": "keep-family",
-      "reasons": [],
-      "watchlistReasons": []
-    },
-    {
       "component": "card-security-code-input",
       "familyContract": "field",
       "requiredRoot": "field",
@@ -76,6 +63,36 @@
       "sharedExtensionRoots": [],
       "selectorCount": 12,
       "aliasCount": 11,
+      "recommendation": "keep-family",
+      "reasons": [],
+      "watchlistReasons": []
+    },
+    {
+      "component": "input",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [],
+      "ownExtensionRoots": [],
+      "sharedExtensionRoots": [],
+      "selectorCount": 0,
+      "aliasCount": 0,
+      "recommendation": "keep-family",
+      "reasons": [],
+      "watchlistReasons": []
+    },
+    {
+      "component": "input-amount",
+      "familyContract": "field",
+      "requiredRoot": "field",
+      "extensionRoots": [
+        "input-amount"
+      ],
+      "ownExtensionRoots": [
+        "input-amount"
+      ],
+      "sharedExtensionRoots": [],
+      "selectorCount": 6,
+      "aliasCount": 12,
       "recommendation": "keep-family",
       "reasons": [],
       "watchlistReasons": []

@@ -1,0 +1,203 @@
+{
+  "artifacts": {
+    "patterns": {
+      "driver-onboarding-mobile": {
+        "layer": "Pattern",
+        "platform": "Mobile",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate mobile driver onboarding through progress, identity capture, OTP/biometric steps, validation, animated feedback, and form-section boundary while templates own policy and sequence.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Frame",
+          "Momentum",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Animation Assets",
+          "Breakpoints",
+          "Color",
+          "Country Flags",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Animated Moment",
+          "Biometric Prompt",
+          "Button",
+          "Card",
+          "Card Summary",
+          "Code Input",
+          "Inline Validation",
+          "Input",
+          "Phone Input",
+          "Stepper",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Form Section"
+        ],
+        "templateDependencies": [
+          "Driver Mobile App"
+        ],
+        "tokenDependencies": [
+          "comp.animated-moment.*",
+          "comp.biometric-prompt.*",
+          "comp.button.*",
+          "comp.card.*",
+          "comp.card-summary.*",
+          "comp.code-input.*",
+          "comp.inline-validation.*",
+          "comp.input.*",
+          "comp.phone-input.*",
+          "comp.stepper.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "reduced motion"
+        ],
+        "entryConditions": [
+          "A mobile app needs a reusable onboarding flow for driver setup.",
+          "The flow needs identity capture, verification, validation, progress, and recovery.",
+          "Templates own business sequence, eligibility, and regulatory copy."
+        ],
+        "decisionTree": [
+          "Use Multi Step Form for generic progress forms.",
+          "Use this pattern for mobile driver onboarding composition.",
+          "Use templates for product-specific onboarding journeys."
+        ],
+        "failureModes": [
+          "The pattern hardcodes template flow order or eligibility policy.",
+          "Animated feedback has no reduced-motion handling.",
+          "OTP/biometric alternatives are missing.",
+          "Form Section is duplicated."
+        ],
+        "successMetrics": [
+          "Drivers can complete setup on mobile with clear progress and recovery.",
+          "Verification and validation are accessible.",
+          "Templates can alter policy without changing Flow composition."
+        ],
+        "states": [
+          "not-started",
+          "in-progress",
+          "verifying",
+          "biometric",
+          "invalid",
+          "blocked",
+          "complete",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "progress",
+            "owner": "component",
+            "uses": [
+              "Stepper",
+              "Card Summary",
+              "Animated Moment"
+            ]
+          },
+          {
+            "name": "stepCard",
+            "owner": "component",
+            "uses": [
+              "Card"
+            ],
+            "required": "conditional",
+            "purpose": "Owns one mobile onboarding step content unit; Surface remains the structural grouping primitive."
+          },
+          {
+            "name": "fields",
+            "owner": "component",
+            "uses": [
+              "Input",
+              "Phone Input",
+              "Code Input",
+              "Inline Validation"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Biometric Prompt",
+              "Toast"
+            ]
+          },
+          {
+            "name": "formBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Form Section"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Form Section runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Provide non-biometric alternatives.",
+          "Respect reduced motion.",
+          "Tie validation to field and step context."
+        ],
+        "tests": [
+          "Composes all listed onboarding components.",
+          "Covers progress, verification, biometric, invalid, blocked, complete, and disabled states.",
+          "Keeps Form Section and templates as boundaries."
+        ],
+        "agentInstructions": [
+          "Do not embed eligibility or compliance policy.",
+          "Do not require biometric-only paths.",
+          "Ask before changing identity, verification, or regulated onboarding requirements."
+        ],
+        "rejectIf": [
+          "Template sequence is hardcoded.",
+          "Reduced motion is ignored.",
+          "Biometric has no alternative.",
+          "Fields bypass Flow components."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

@@ -50,6 +50,12 @@ const classifiedNonComponentRoots = {
     note: "Material Symbols font hook used by icon-bearing components.",
     reactSupport: true,
   },
+  surface: {
+    type: "structural-primitive",
+    owner: "packages/react/src/Surface.js",
+    note: "Surface primitive owns structural backgrounds, depth, and density scope before components render.",
+    reactSupport: true,
+  },
 };
 
 const reactSupportClassRoots = new Set(Object.entries(classifiedNonComponentRoots)

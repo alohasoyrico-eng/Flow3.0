@@ -107,6 +107,72 @@ export function componentDemoProps(component, demo = {}) {
       revealable: Boolean(demo.revealable) || variant === "password",
     };
   }
+  if (component === "input-amount") {
+    return {
+      label: demo.field ?? demo.label ?? "Amount",
+      value: demo.value ?? "",
+      defaultValue: demo.defaultValue ?? "",
+      placeholder: demo.placeholder ?? "",
+      helper: demo.helper ?? "",
+      error: state === "error" ? demo.helper ?? "Enter a valid amount" : "",
+      disabled: state === "disabled",
+      loading: state === "loading",
+      density: demo.density,
+      state,
+      currency: demo.currency ?? "MXN",
+      locale: demo.locale,
+      prefix: demo.prefix ?? "",
+      suffix: demo.suffix ?? "",
+      fullWidth: Boolean(demo.fullWidth),
+    };
+  }
+  if (component === "chat-composer") {
+    return {
+      label: demo.label ?? "Message",
+      helper: demo.helper ?? "",
+      placeholder: demo.placeholder ?? "",
+      value: demo.value,
+      defaultValue: demo.defaultValue ?? demo.body ?? "",
+      disabled: state === "disabled",
+      sending: state === "sending" || Boolean(demo.sending),
+      error: state === "error" ? demo.error ?? "Message could not be sent" : demo.error ?? "",
+      density: demo.density,
+      state,
+      rows: demo.rows ?? 2,
+      sendLabel: demo.sendLabel ?? "Send",
+      attachLabel: demo.attachLabel,
+      fullWidth: Boolean(demo.fullWidth),
+    };
+  }
+  if (component === "chat-message") {
+    return {
+      author: demo.author ?? "agent",
+      authorLabel: demo.authorLabel ?? demo.name ?? "Flow Support",
+      avatar: demo.avatar ?? { name: demo.authorLabel ?? demo.name ?? "Flow Support" },
+      body: demo.body ?? demo.label ?? "I can help review this account update.",
+      timestamp: demo.timestamp ?? "Now",
+      meta: demo.meta ?? "",
+      state,
+      tone: demo.tone ?? (state === "failed" ? "danger" : "neutral"),
+      density: demo.density,
+      action: demo.action,
+      fullWidth: Boolean(demo.fullWidth),
+    };
+  }
+  if (component === "chat-thread") {
+    return {
+      label: demo.label ?? "Conversation",
+      description: demo.description ?? "",
+      density: demo.density,
+      state,
+      messages: demo.messages ?? [
+        { key: "agent", author: "agent", authorLabel: "Flow Support", body: "I can help review this account update.", timestamp: "Now" },
+        { key: "user", author: "user", body: "Show me the latest status.", timestamp: "Now" },
+      ],
+      empty: demo.empty,
+      fullWidth: Boolean(demo.fullWidth),
+    };
+  }
   if (component === "checkbox") return {
     label: demo.label ?? "Enable fuel card",
     description: demo.description ?? "",

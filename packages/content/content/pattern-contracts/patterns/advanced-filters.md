@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/advanced-filters/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json`
 
 ## Purpose
 
@@ -35,20 +36,186 @@ Compose dashboard, audit, and table filters with saved views, active chips, rese
 | Depth | Overflow panels and mobile drawers use Design System overlay depth. |
 | Accessibility | Filter labels, active count, removal, reset, and validation are keyboard accessible. |
 
+## Formal Purpose
+
+Coordinate complex filtering through editable controls, applied chips, validation, drawer/menu surfaces, and toolbar handoff.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `closed`
+- `open`
+- `editing`
+- `dirty`
+- `applying`
+- `applied`
+- `invalid`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `Chip`
+- `Date Range Picker`
+- `Drawer`
+- `Inline Validation`
+- `Input`
+- `Menu`
+- `Select`
+- `Toast`
+
+### Patterns
+
+- `Toolbar`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.chip.*`
+- `comp.date-range-picker.*`
+- `comp.drawer.*`
+- `comp.inline-validation.*`
+- `comp.input.*`
+- `comp.menu.*`
+- `comp.select.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `surface` | `component` | `Drawer`, `Menu` |
+| `fields` | `component` | `Input`, `Select`, `Date Range Picker`, `Inline Validation` |
+| `summary` | `component` | `Chip`, `Badge`, `Button`, `Toast` |
+| `toolbarBoundary` | `pattern` | `Toolbar` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- Users need to combine multiple filter fields or rules.
+- Filters require apply/reset, validation, saved state, or applied summary.
+- Toolbar hosts the entry point but does not own rule editing.
+
+### Decision Tree
+
+- Use Filter Chip Group for viewing/removing already applied filters.
+- Use Toolbar for local action placement.
+- Use Advanced Filters when users edit complex rules before applying them.
+
+### Failure Modes
+
+- Toolbar owns filter editing internals.
+- Filter chips or inputs are custom visuals.
+- Apply/reset state is unclear.
+- Validation is separated from Inline Validation.
+
+### Success Metrics
+
+- Users can edit, apply, reset, and understand filter rules.
+- Applied state is visible and removable.
+- Keyboard and screen reader users can navigate fields and apply actions.
+
+### Accessibility
+
+- Group related filter controls with labels.
+- Expose applied count and validation in text.
+- Keep apply/reset actions keyboard reachable.
+
+### Tests
+
+- Composes Drawer/Menu, Input, Select, Date Range Picker, Chip, Badge, Button, Inline Validation, and Toast.
+- Covers dirty, applying, applied, invalid, and disabled states.
+- Keeps Toolbar as trigger/host boundary.
+
+### Agent Instructions
+
+- Do not clone Toolbar or Filter Chip Group internals.
+- Keep backend query syntax outside the pattern.
+- Ask before filtering regulated or permission-sensitive records.
+
+### Reject If
+
+- Filter editing lives inside Toolbar.
+- Inputs/chips bypass Flow components.
+- Applied state is invisible.
+- Validation bypasses Inline Validation.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
 | --- | --- | --- | --- |
-| controls | Select \| DatePicker \| Input | yes | Filter inputs for entity, status, date, or keyword. |
+| controls | Select \| DateRangePicker \| Input | yes | Filter inputs for entity, status, date, or keyword. |
 | activeFilters | Chip[] \| Badge | yes | Visible active filters with count and removal. |
 | actions | Button[] | yes | Apply, reset, save view, or export actions. |
 | overflow | Menu \| Drawer | conditional | Controls that do not fit in the primary bar. |
 | feedback | InlineValidation \| Toast | conditional | Invalid range, saved view, or applied state feedback. |
 
-## Components And Primitives Used
+## Components Used
 
 - Select
-- Date Picker
+- Date Range Picker
 - Input
 - Chip
 - Badge

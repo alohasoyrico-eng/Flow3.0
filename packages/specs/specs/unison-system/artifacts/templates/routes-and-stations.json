@@ -28,6 +28,8 @@
           "Color",
           "Typography",
           "Spacing",
+          "Surface",
+          "Density",
           "Iconography",
           "Focus",
           "Loading",
@@ -36,6 +38,9 @@
           "Maps"
         ],
         "patternDependencies": [
+          "Station Discovery"
+        ],
+        "templateModuleDependencies": [
           "Routes and Nearby Stations Mobile",
           "Station Detail and Route Guidance"
         ],
@@ -43,9 +48,12 @@
           "sys.energy.*",
           "sys.voice.*",
           "sys.frame.*",
+          "sys.depth.*",
           "sys.state.*",
+          "sys.tone.*",
           "sys.accessibility.*",
           "sys.momentum.*",
+          "surface.*",
           "sys.maps.*"
         ],
         "densityContext": [
@@ -98,7 +106,7 @@
           "Navigation follows travel intent: discover, compare, inspect, and route."
         ],
         "rejectIf": [
-          "Template invents behavior outside its approved pattern dependencies.",
+          "Template invents behavior outside its approved pattern or module dependencies.",
           "Template modules omit data, permission, state, or recovery ownership.",
           "Template bypasses Design System foundations, primitives, density, or semantic tokens."
         ]

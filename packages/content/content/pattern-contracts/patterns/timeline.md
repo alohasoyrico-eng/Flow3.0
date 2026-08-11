@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/timeline/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/timeline.json`
 
 ## Purpose
 
@@ -35,6 +36,155 @@ Show ordered operational, audit, route, support, or maintenance events with grou
 | Depth | Details and filters layer above the timeline without hiding sequence. |
 | Accessibility | Event order, timestamps, status, and grouping are readable without visual position only. |
 
+## Formal Purpose
+
+Coordinate chronological events with audit semantics, status, filters, empty recovery, and accessible ordering.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `default`
+- `loading`
+- `empty`
+- `filtered`
+- `error`
+- `permission-blocked`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Audit Event`
+- `Badge`
+- `Button`
+- `Chip`
+- `Empty State`
+- `List`
+
+### Tokens
+
+- `comp.audit-event.*`
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.chip.*`
+- `comp.empty-state.*`
+- `comp.list.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `events` | `component` | `List`, `Audit Event` |
+| `filters` | `component` | `Chip`, `Badge`, `Button` |
+| `emptyState` | `component` | `Empty State` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A user needs to inspect ordered events or activity history.
+- Events need status, actor, timestamp, or recovery context.
+- The timeline may be empty, filtered, loading, or permission constrained.
+
+### Decision Tree
+
+- Use List for unordered or non-chronological records.
+- Use Timeline when event order and audit context are the interaction.
+- Use Audit Event directly when showing a single event.
+
+### Failure Modes
+
+- Events are custom cards instead of Audit Event/List.
+- Timestamp order is unclear.
+- Status relies only on color.
+- Empty or permission states are missing.
+
+### Success Metrics
+
+- Users can understand what happened, when, and by whom.
+- Assistive technology users receive event order and status.
+- Filtering and recovery do not duplicate component visuals.
+
+### Accessibility
+
+- Expose chronological order and timestamps in text.
+- Keep event status independent from color alone.
+- Provide accessible empty and permission states.
+
+### Tests
+
+- Uses Audit Event and List for event rows.
+- Covers default, loading, empty, filtered, error, and permission states.
+- Does not recreate event cards or status pills.
+
+### Agent Instructions
+
+- Compose from Audit Event, List, Badge, Chip, Button, and Empty State.
+- Keep domain event schemas and retention policy outside the pattern.
+- Ask before exposing sensitive audit history.
+
+### Reject If
+
+- Timeline rows are custom cards.
+- Event order is ambiguous.
+- Status is color-only.
+- Filter chips bypass Chip.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -45,7 +195,7 @@ Show ordered operational, audit, route, support, or maintenance events with grou
 | emptyState | EmptyState | yes | Shown when no events match. |
 | actions | Button[] | conditional | View detail, retry, contact support, or export. |
 
-## Components And Primitives Used
+## Components Used
 
 - Audit Event
 - List

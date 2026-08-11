@@ -1,13 +1,15 @@
-const { fs, goldComponents, path, root, read, readJson, add } = require("./audit-context.js");
+const { fs, goldComponents, patternArtifacts, path, root, read, readJson, add } = require("./audit-context.js");
 const { checkReactPropContracts } = require("./react-prop-contract-audit.js");
 const { checkDomEscapeTypeContract, forbiddenInheritedDomProps } = require("./react-dom-escape-contract.js");
 const { checkDensityContractConsistency, checkReactDensityCascade, checkReactPublicDensityContract, checkStateContractConsistency } = require("./react-density-contract-audit.js");
 const { checkRuntimeDomMutationContract } = require("./react-runtime-dom-mutation-audit.js");
+const { checkReactPrimitiveSources, governedReactPrimitiveExports } = require("./react-primitive-contract-audit.js");
 const { checkReactComponentContentGuards } = require("./react-component-content-guards.js");
 const { checkReactComponentComposition } = require("./react-composition-contract-audit.js");
 const { checkControlledReactCoverage } = require("./react-controlled-contract-audit.js");
 const { checkReactEffectContract } = require("./react-effect-contract-audit.js");
-const { checkReactPrimaryInventory } = require("./audit-react-primary-inventory.js");
+const { checkReactPrimaryInventory, governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
+const { allowedPrimitiveImportsPolicy } = require("./react-primary-governance-policy.js");
 const { allowedDynamicStyleKeysByComponent } = require("./react-style-contracts.js");
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
@@ -18,16 +20,22 @@ const reactRefTestFile = path.join(root, "packages/react/test/ref.test.mjs");
 const rootPackageFile = path.join(root, "package.json");
 const componentContractsFile = path.join(root, "packages/components/src/contracts.js");
 const reactDataAttributesTypesFile = path.join(reactSrcDir, "internal/props.d.ts");
-const allowedPrimitiveImports = new Set([
-  "createChartsPrimitive",
-  "createMapsPrimitive",
-  "countryFlagAssetPath",
-  "countryCallingCodeOptions",
-  "normalizeCountryCallingCodeOptions",
-  "resolveCountryCallingCodeOption",
-]);
+const governedReactPatternExports = ["./patterns", ...patternArtifacts.map((pattern) => `./patterns/${pattern}`)];
+const reactTemplateDir = path.join(reactSrcDir, "templates");
+const implementedReactTemplates = fs.existsSync(reactTemplateDir)
+  ? fs.readdirSync(reactTemplateDir)
+      .filter((file) => /^[A-Z].*\.js$/.test(file))
+      .map((file) => file.replace(/\.js$/, "").replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase())
+      .sort()
+  : [];
+const governedReactTemplateExports = implementedReactTemplates.length ? ["./templates", ...implementedReactTemplates.map((template) => `./templates/${template}`)] : [];
+const primitiveImportPolicy = allowedPrimitiveImportsPolicy();
+const allowedPrimitiveImports = primitiveImportPolicy.imports;
 
 function checkReactPrimaryContract() {
+  for (const issue of primitiveImportPolicy.governance.issues) {
+    add("errors", reactSrcDir, 1, issue);
+  }
   const reactIndex = read(reactIndexFile);
   const reactTypesIndex = read(reactTypesIndexFile);
   const reactPackage = readJson(reactPackageFile);
@@ -35,6 +43,7 @@ function checkReactPrimaryContract() {
   const componentContractsSource = fs.existsSync(componentContractsFile) ? read(componentContractsFile) : "";
   const componentFiles = fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort();
 
   if (!componentFiles.length) {
@@ -43,6 +52,7 @@ function checkReactPrimaryContract() {
   }
   checkReactPrimaryInventory(componentFiles);
   checkReactPackageExportInventory(reactPackage);
+  checkReactPrimitiveSources({ reactIndex, reactTypesIndex, reactPackage, rootPackage });
 
   if (!reactPackage?.scripts?.test?.includes("test/ref.test.mjs")) {
     add("errors", reactPackageFile, 1, "React package test script must run test/ref.test.mjs so ForwardRefExoticComponent is verified at runtime.");
@@ -89,7 +99,7 @@ function checkReactPrimaryContract() {
 
 function checkReactPackageExportInventory(reactPackage) {
   const actualExports = Object.keys(reactPackage?.exports ?? {}).sort();
-  const expectedExports = [".", ...goldComponents.map((component) => `./${component}`)].sort();
+  const expectedExports = [".", ...goldComponents.map((component) => `./${component}`), ...governedReactPrimitiveExports, ...governedReactPatternExports, ...governedReactTemplateExports].sort();
   const missingExports = expectedExports.filter((entry) => !actualExports.includes(entry));
   const extraExports = actualExports.filter((entry) => !expectedExports.includes(entry));
   if (missingExports.length) {
@@ -99,6 +109,7 @@ function checkReactPackageExportInventory(reactPackage) {
     add("errors", reactPackageFile, 1, `@design-system/react exports include ungoverned public subpaths: ${extraExports.join(", ")}.`);
   }
 }
+
 
 function checkOpenChangeContractConsistency(contractsSource) {
   for (const match of contractsSource.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {

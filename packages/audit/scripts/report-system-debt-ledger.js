@@ -12,66 +12,68 @@ const auditsDir = path.join(root, "docs/audits");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "system-debt-ledger.json");
 const markdownOutput = path.join(outputDir, "system-debt-ledger.md");
-
-const expectedStrategicCategories = [
-  "anti-duplication",
-  "cascade",
-  "docs-system-boundary",
-  "foundations-primitives",
-  "patterns",
-  "quality",
-  "react-primary",
-  "taxonomy",
-];
-
-const categoryReportMinimums = {
-  "anti-duplication": 1,
-  cascade: 4,
-  "docs-system-boundary": 2,
-  "foundations-primitives": 1,
-  patterns: 1,
-  quality: 1,
-  "react-primary": 10,
-  taxonomy: 1,
-};
-
-const categoryPrinciples = {
-  "anti-duplication": "One visual or conceptual source per system concept.",
-  cascade: "Component styling must cascade from exported system contracts.",
-  "docs-system-boundary": "FlowDocs must consume Flow instead of owning system behavior.",
-  "foundations-primitives": "Foundations and primitives must be exportable beyond CSS.",
-  patterns: "Patterns must compose components through governed contracts before template promotion.",
-  quality: "Component coverage must prove production readiness, not just presence.",
-  "react-primary": "React must be the primary implementation with real contracts.",
-  taxonomy: "Components, primitives, patterns, and templates must stay separated.",
-};
-
-const reportCategories = {
-  "anti-duplication-coverage.json": "anti-duplication",
-  "component-1to1-quality-matrix.json": "quality",
-  "component-css-contract-coverage.json": "cascade",
-  "component-visual-cascade-audit.json": "cascade",
-  "docs-component-demo-ownership.json": "docs-system-boundary",
-  "docs-system-boundary-audit.json": "docs-system-boundary",
-  "family-css-contract-maturity.json": "cascade",
-  "foundation-primitive-export-contract-audit.json": "foundations-primitives",
-  "legacy-dom-source-governance-audit.json": "react-primary",
-  "package-css-root-governance-audit.json": "cascade",
-  "pattern-readiness-audit.json": "patterns",
-  "react-accessibility-governance-audit.json": "react-primary",
-  "react-class-ownership-audit.json": "react-primary",
-  "react-composition-governance-audit.json": "react-primary",
-  "react-contract-prop-alignment-audit.json": "react-primary",
-  "react-controlled-governance-audit.json": "react-primary",
-  "react-default-governance-audit.json": "react-primary",
-  "react-interaction-coverage-audit.json": "react-primary",
-  "react-primary-coverage-audit.json": "react-primary",
-  "react-style-governance-audit.json": "react-primary",
-  "taxonomy-boundaries-audit.json": "taxonomy",
-};
+const governanceFile = path.join(root, "packages/content/content/system-debt-governance.json");
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
+}
+
+function objectRecord(value) {
+  return value && typeof value === "object" && !Array.isArray(value) ? value : {};
+}
+
+function systemDebtGovernance() {
+  const policy = fs.existsSync(governanceFile) ? readJson(governanceFile) : {};
+  const contractArtifactFiles = Array.isArray(policy.contractArtifactFiles) ? policy.contractArtifactFiles : [];
+  const expectedStrategicCategories = Array.isArray(policy.expectedStrategicCategories) ? policy.expectedStrategicCategories : [];
+  const categoryReportMinimums = objectRecord(policy.categoryReportMinimums);
+  const categoryPrinciples = objectRecord(policy.categoryPrinciples);
+  const reportCategories = objectRecord(policy.reportCategories);
+  const issues = [];
+  if (typeof policy.principle !== "string" || !policy.principle.trim()) {
+    issues.push("system-debt-governance must define a principle.");
+  }
+  if (!expectedStrategicCategories.length) {
+    issues.push("system-debt-governance must define expectedStrategicCategories.");
+  }
+  const duplicateCategories = expectedStrategicCategories
+    .filter((category, index) => expectedStrategicCategories.indexOf(category) !== index);
+  if (duplicateCategories.length) {
+    issues.push(`system-debt-governance has duplicate categories: ${[...new Set(duplicateCategories)].sort().join(", ")}.`);
+  }
+  const invalidCategories = expectedStrategicCategories
+    .filter((category) => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(category));
+  if (invalidCategories.length) {
+    issues.push(`system-debt-governance has invalid category ids: ${invalidCategories.sort().join(", ")}.`);
+  }
+  const minimumCategories = Object.keys(categoryReportMinimums);
+  const principleCategories = Object.keys(categoryPrinciples);
+  const mappedCategories = [...new Set(Object.values(reportCategories))];
+  const missingMinimums = expectedStrategicCategories.filter((category) => !minimumCategories.includes(category));
+  const missingPrinciples = expectedStrategicCategories.filter((category) => !principleCategories.includes(category));
+  const unexpectedMinimums = minimumCategories.filter((category) => !expectedStrategicCategories.includes(category));
+  const unexpectedPrinciples = principleCategories.filter((category) => !expectedStrategicCategories.includes(category));
+  const unexpectedMappedCategories = mappedCategories.filter((category) => !expectedStrategicCategories.includes(category));
+  if (missingMinimums.length) issues.push(`system-debt-governance missing category minimums: ${missingMinimums.sort().join(", ")}.`);
+  if (missingPrinciples.length) issues.push(`system-debt-governance missing category principles: ${missingPrinciples.sort().join(", ")}.`);
+  if (unexpectedMinimums.length) issues.push(`system-debt-governance has unexpected category minimums: ${unexpectedMinimums.sort().join(", ")}.`);
+  if (unexpectedPrinciples.length) issues.push(`system-debt-governance has unexpected category principles: ${unexpectedPrinciples.sort().join(", ")}.`);
+  if (unexpectedMappedCategories.length) issues.push(`system-debt-governance maps reports to unexpected categories: ${unexpectedMappedCategories.sort().join(", ")}.`);
+  const invalidMinimums = Object.entries(categoryReportMinimums)
+    .filter(([, value]) => !Number.isInteger(value) || value < 1)
+    .map(([category]) => category);
+  if (invalidMinimums.length) {
+    issues.push(`system-debt-governance has invalid category minimum values: ${invalidMinimums.sort().join(", ")}.`);
+  }
+  return {
+    principle: policy.principle,
+    contractArtifactFiles: new Set(contractArtifactFiles),
+    expectedStrategicCategories,
+    categoryReportMinimums,
+    categoryPrinciples,
+    reportCategories,
+    issues,
+  };
 }
 
 function debtEntriesForReport(file, report) {
@@ -81,7 +83,7 @@ function debtEntriesForReport(file, report) {
     ["summary", report.summary ?? {}],
   ];
   const seen = new Set();
-  return containers.flatMap(([scope, container]) => Object.entries(container)
+  const entries = containers.flatMap(([scope, container]) => Object.entries(container)
     .filter(([key]) => /(?:debt|debtMetrics)$/i.test(key))
     .map(([key, value]) => {
       const id = `${file}:${key}`;
@@ -96,12 +98,35 @@ function debtEntriesForReport(file, report) {
       };
     })
     .filter(Boolean));
+  if (!seen.has(`${file}:gapsDebt`) && Array.isArray(report.gaps)) {
+    const gapEntry = {
+      report: file,
+      scope: "topLevel",
+      metric: "gapsDebt",
+      value: report.gaps.length,
+      numericValue: report.gaps.length,
+    };
+    return [...entries, gapEntry];
+  }
+  return entries;
+}
+
+function categoryForReport(file, reportCategories) {
+  if (/^foundation-[a-z0-9-]+-cascade-audit\.json$/.test(file)) return "cascade";
+  return reportCategories[file] ?? "uncategorized";
 }
 
 function createReport() {
+  const governance = systemDebtGovernance();
+  const {
+    expectedStrategicCategories,
+    categoryReportMinimums,
+    categoryPrinciples,
+    reportCategories,
+  } = governance;
   const files = fs.existsSync(auditsDir)
     ? fs.readdirSync(auditsDir)
-      .filter((file) => file.endsWith(".json") && file !== path.basename(jsonOutput))
+      .filter((file) => file.endsWith(".json") && file !== path.basename(jsonOutput) && !governance.contractArtifactFiles.has(file))
       .sort()
     : [];
   const reports = files.map((file) => {
@@ -109,7 +134,7 @@ function createReport() {
     const debtEntries = debtEntriesForReport(file, report);
     return {
       file,
-      category: reportCategories[file] ?? "uncategorized",
+      category: categoryForReport(file, reportCategories),
       status: report.status ?? "unknown",
       debtEntries,
     };
@@ -193,15 +218,17 @@ function createReport() {
     + categoriesMissingMinimums.length
     + unexpectedCategoryMinimums.length
     + categoriesMissingPrinciples.length
-    + unexpectedCategoryPrinciples.length;
+    + unexpectedCategoryPrinciples.length
+    + governance.issues.length;
   const statusDebt = nonPassReports.length;
   return {
     status: totalDebt || statusDebt || missingDebtReports.length || nonNumericDebtEntries.length || categoryCoverageDebt ? "fail" : "pass",
     audit: "system debt ledger",
-    principle: "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
+    principle: governance.principle,
     inventory: {
       reports: reports.length,
       categoryMappings: mappedReportFiles.length,
+      systemDebtGovernanceIssues: governance.issues.length,
       staleCategoryMappings: staleCategoryMappings.length,
       reportsWithDebtMetrics: reports.length - missingDebtReports.length,
       debtMetrics: debtEntries.length,
@@ -240,6 +267,7 @@ function createReport() {
     missingStrategicCategories,
     emptyStrategicCategories,
     undercoveredStrategicCategories,
+    systemDebtGovernanceIssues: governance.issues,
     categories,
     reports,
   };
@@ -254,6 +282,7 @@ function toMarkdown(report) {
   const uncategorizedRows = report.uncategorizedReports.map((file) => `| ${file} |`);
   const staleMappingRows = report.staleCategoryMappings.map((file) => `| ${file} |`);
   const categoryGapRows = [
+    ...report.systemDebtGovernanceIssues.map((issue) => ["System debt governance", issue]),
     ...report.categoriesMissingMinimums.map((category) => ["Missing category minimum", category]),
     ...report.unexpectedCategoryMinimums.map((category) => ["Unexpected category minimum", category]),
     ...report.categoriesMissingPrinciples.map((category) => ["Missing category principle", category]),
@@ -274,6 +303,7 @@ function toMarkdown(report) {
     "",
     `- Reports scanned: ${report.inventory.reports}`,
     `- Category mappings: ${report.inventory.categoryMappings}`,
+    `- System debt governance issues: ${report.inventory.systemDebtGovernanceIssues}`,
     `- Stale category mappings: ${report.inventory.staleCategoryMappings}`,
     `- Reports with debt metrics: ${report.inventory.reportsWithDebtMetrics}`,
     `- Debt metrics: ${report.inventory.debtMetrics}`,

@@ -1,0 +1,357 @@
+{
+  "status": "pass",
+  "audit": "react template composition governance",
+  "principle": "React templates must derive runtime composition from formal template artifacts: pattern imports, module markers, Surface primitive ownership, and approved direct component exceptions must stay explicit.",
+  "generatedAt": "2026-08-11T00:45:09.574Z",
+  "inventory": {
+    "templatesAudited": 9,
+    "templatesWithPassingComposition": 9,
+    "formalPatternDependencies": 25,
+    "runtimePatternImports": 25,
+    "missingDeclaredPatternImports": 0,
+    "undeclaredPatternImports": 0,
+    "formalModuleMarkers": 37,
+    "approvedSupportModuleMarkers": 6,
+    "runtimeModuleMarkers": 43,
+    "missingFormalModuleMarkers": 0,
+    "undeclaredRuntimeModuleMarkers": 0,
+    "directComponentImports": 6,
+    "unapprovedDirectComponentImports": 0,
+    "surfacePrimitiveImports": 9,
+    "compositionContractGaps": 0,
+    "reactTemplateCompositionGovernanceDebt": 0
+  },
+  "templates": [
+    {
+      "id": "agent-workspace",
+      "componentName": "AgentWorkspace",
+      "source": "packages/react/src/templates/AgentWorkspace.js",
+      "formalPatterns": [
+        "AgentConversation",
+        "StatusFeedbackView",
+        "Topbar"
+      ],
+      "runtimePatternImports": [
+        "AgentConversation",
+        "StatusFeedbackView",
+        "Topbar"
+      ],
+      "formalModules": [
+        "agent-conversation",
+        "agent-state",
+        "conversation-queue",
+        "handoff-recovery",
+        "workspace-context"
+      ],
+      "approvedSupportModules": [],
+      "runtimeModules": [
+        "agent-conversation",
+        "agent-state",
+        "conversation-queue",
+        "handoff-recovery",
+        "workspace-context"
+      ],
+      "directComponentImports": [
+        "Badge",
+        "Button"
+      ],
+      "approvedDirectComponentImports": [
+        "Badge",
+        "Button",
+        "ChatComposer",
+        "ChatThread"
+      ],
+      "issues": []
+    },
+    {
+      "id": "configuration-console",
+      "componentName": "ConfigurationConsole",
+      "source": "packages/react/src/templates/ConfigurationConsole.js",
+      "formalPatterns": [
+        "AuthenticationLoginBiometricsAndOtp",
+        "DriverAndVehicleAdministration",
+        "RolesAndPermissions",
+        "Sidebar",
+        "Topbar"
+      ],
+      "runtimePatternImports": [
+        "AuthenticationLoginBiometricsAndOtp",
+        "DriverAndVehicleAdministration",
+        "RolesAndPermissions",
+        "Sidebar",
+        "Topbar"
+      ],
+      "formalModules": [
+        "audit-trail",
+        "driver-lifecycle-table",
+        "permission-matrix",
+        "vehicle-lifecycle-table"
+      ],
+      "approvedSupportModules": [
+        {
+          "id": "authentication-gate",
+          "reason": "Authentication, Login, Biometrics and OTP pattern owns the permission recovery gate."
+        }
+      ],
+      "runtimeModules": [
+        "audit-trail",
+        "authentication-gate",
+        "driver-lifecycle-table",
+        "permission-matrix",
+        "vehicle-lifecycle-table"
+      ],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "componentName": "DriverCardWallet",
+      "source": "packages/react/src/templates/DriverCardWallet.js",
+      "formalPatterns": [],
+      "runtimePatternImports": [],
+      "formalModules": [
+        "card-status-block",
+        "dispute-entry-point",
+        "movement-receipt-detail",
+        "quick-actions"
+      ],
+      "approvedSupportModules": [
+        {
+          "id": "wallet-navigation",
+          "reason": "Template shell navigation for module-only wallet sections."
+        }
+      ],
+      "runtimeModules": [
+        "card-status-block",
+        "dispute-entry-point",
+        "movement-receipt-detail",
+        "quick-actions",
+        "wallet-navigation"
+      ],
+      "directComponentImports": [
+        "CardSummary",
+        "MovementRow",
+        "QuickAction"
+      ],
+      "approvedDirectComponentImports": [
+        "CardSummary",
+        "MovementRow",
+        "QuickAction"
+      ],
+      "issues": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "componentName": "DriverMobileApp",
+      "source": "packages/react/src/templates/DriverMobileApp.js",
+      "formalPatterns": [
+        "DriverOnboardingMobile",
+        "StationDiscovery"
+      ],
+      "runtimePatternImports": [
+        "DriverOnboardingMobile",
+        "StationDiscovery"
+      ],
+      "formalModules": [
+        "mobile-card-overview",
+        "recent-movement-feed",
+        "routes-and-nearby-stations-mobile",
+        "support-and-dispute-path"
+      ],
+      "approvedSupportModules": [
+        {
+          "id": "driver-readiness-onboarding",
+          "reason": "Driver Onboarding Mobile pattern owns onboarding readiness."
+        },
+        {
+          "id": "mobile-navigation",
+          "reason": "Template shell navigation for app tabs."
+        }
+      ],
+      "runtimeModules": [
+        "driver-readiness-onboarding",
+        "mobile-card-overview",
+        "mobile-navigation",
+        "recent-movement-feed",
+        "routes-and-nearby-stations-mobile",
+        "support-and-dispute-path"
+      ],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "componentName": "FleetDashboardSuite",
+      "source": "packages/react/src/templates/FleetDashboardSuite.js",
+      "formalPatterns": [
+        "Sidebar",
+        "Topbar"
+      ],
+      "runtimePatternImports": [
+        "Sidebar",
+        "Topbar"
+      ],
+      "formalModules": [
+        "dashboard-switcher",
+        "domain-kpi-stack",
+        "drill-down-table",
+        "shared-filter-bar"
+      ],
+      "approvedSupportModules": [],
+      "runtimeModules": [
+        "dashboard-switcher",
+        "domain-kpi-stack",
+        "drill-down-table",
+        "shared-filter-bar"
+      ],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "componentName": "FleetManagerDesktop",
+      "source": "packages/react/src/templates/FleetManagerDesktop.js",
+      "formalPatterns": [
+        "RolesAndPermissions",
+        "Sidebar",
+        "Topbar"
+      ],
+      "runtimePatternImports": [
+        "RolesAndPermissions",
+        "Sidebar",
+        "Topbar"
+      ],
+      "formalModules": [
+        "cost-center-filter-set",
+        "exception-inbox",
+        "executive-kpi-band",
+        "fleet-activity-timeline"
+      ],
+      "approvedSupportModules": [
+        {
+          "id": "cost-center-scope-permissions",
+          "reason": "Roles and Permissions pattern owns permission-scoped fleet filters."
+        }
+      ],
+      "runtimeModules": [
+        "cost-center-filter-set",
+        "cost-center-scope-permissions",
+        "exception-inbox",
+        "executive-kpi-band",
+        "fleet-activity-timeline"
+      ],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "internal-operations-console",
+      "componentName": "InternalOperationsConsole",
+      "source": "packages/react/src/templates/InternalOperationsConsole.js",
+      "formalPatterns": [
+        "AccountOperations",
+        "BackofficeApproval",
+        "CaseManagement",
+        "DenseOperationalList",
+        "PricingOperations",
+        "Sidebar",
+        "TicketQueue",
+        "Topbar"
+      ],
+      "runtimePatternImports": [
+        "AccountOperations",
+        "BackofficeApproval",
+        "CaseManagement",
+        "DenseOperationalList",
+        "PricingOperations",
+        "Sidebar",
+        "TicketQueue",
+        "Topbar"
+      ],
+      "formalModules": [
+        "account-operations",
+        "backoffice-approvals",
+        "case-operations",
+        "growth-operations",
+        "pricing-operations",
+        "ticket-operations"
+      ],
+      "approvedSupportModules": [],
+      "runtimeModules": [
+        "account-operations",
+        "backoffice-approvals",
+        "case-operations",
+        "growth-operations",
+        "pricing-operations",
+        "ticket-operations"
+      ],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "routes-and-stations",
+      "componentName": "RoutesAndStations",
+      "source": "packages/react/src/templates/RoutesAndStations.js",
+      "formalPatterns": [
+        "StationDiscovery"
+      ],
+      "runtimePatternImports": [
+        "StationDiscovery"
+      ],
+      "formalModules": [
+        "fallback-station-list",
+        "map-with-station-pins",
+        "route-handoff",
+        "station-services-panel"
+      ],
+      "approvedSupportModules": [
+        {
+          "id": "routes-and-nearby-stations-mobile",
+          "reason": "Template shell handoff for Station Discovery context."
+        }
+      ],
+      "runtimeModules": [
+        "fallback-station-list",
+        "map-with-station-pins",
+        "route-handoff",
+        "routes-and-nearby-stations-mobile",
+        "station-services-panel"
+      ],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "settings-workspace",
+      "componentName": "SettingsWorkspace",
+      "source": "packages/react/src/templates/SettingsWorkspace.js",
+      "formalPatterns": [
+        "PreferenceManagement"
+      ],
+      "runtimePatternImports": [
+        "PreferenceManagement"
+      ],
+      "formalModules": [
+        "preference-management",
+        "section-navigation"
+      ],
+      "approvedSupportModules": [],
+      "runtimeModules": [
+        "preference-management",
+        "section-navigation"
+      ],
+      "directComponentImports": [
+        "Tabs"
+      ],
+      "approvedDirectComponentImports": [
+        "Tabs"
+      ],
+      "issues": []
+    }
+  ],
+  "issues": []
+}

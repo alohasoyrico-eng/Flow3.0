@@ -1,0 +1,238 @@
+{
+  "components": {
+    "chat-thread": {
+      "operational-example": {
+        "copy": "Render a governed conversation log from Chat Message records with empty, loading, offline, error, selected-message, and handoff states.",
+        "scenario": {
+          "rationaleTitle": "Why chat-thread",
+          "rationale": [
+            "Keeps component behavior package-owned.",
+            "Preserves foundation and primitive cascade.",
+            "Avoids local visual or workflow duplication."
+          ]
+        }
+      },
+      "anatomy": {
+        "items": [
+          {
+            "part": "Thread surface",
+            "rule": "Composes Surface as the labelled log boundary.",
+            "tokens": [
+              "surface.*",
+              "sys.accessibility.*"
+            ]
+          },
+          {
+            "part": "Message list",
+            "rule": "Renders ordered Chat Message records without raw message shells.",
+            "tokens": [
+              "comp.chat-thread.*",
+              "message.*"
+            ]
+          },
+          {
+            "part": "Unavailable state",
+            "rule": "Composes Empty State for empty, loading, offline, error, or handoff recovery.",
+            "tokens": [
+              "comp.empty-state.*",
+              "sys.state.*"
+            ]
+          },
+          {
+            "part": "Selection marker",
+            "rule": "Uses Focus and State for selected message review.",
+            "tokens": [
+              "focus.*",
+              "sys.state.*"
+            ]
+          }
+        ]
+      },
+      "accessibility": {
+        "statePrecedence": "error > offline > loading > handoff > empty > default",
+        "items": [
+          "Keep visible labels and accessible names aligned.",
+          "Expose machine-readable state through props and data attributes.",
+          "Do not rely on color, symbol, or placeholder text alone.",
+          "Preserve keyboard, focus, disabled, loading, and recovery behavior."
+        ]
+      },
+      "variants": {
+        "copy": "chat-thread variants stay semantic and do not fork visual contracts.",
+        "demos": [
+          {
+            "label": "support",
+            "variant": "support",
+            "state": "default"
+          },
+          {
+            "label": "assistant",
+            "variant": "assistant",
+            "state": "default"
+          },
+          {
+            "label": "audit",
+            "variant": "audit",
+            "state": "default"
+          }
+        ]
+      },
+      "states": {
+        "copy": "Chat Thread states keep the log, empty, loading, offline, error, and handoff boundaries owned by Flow components and primitives.",
+        "demos": [
+          {
+            "label": "Default",
+            "state": "default",
+            "messages": 3
+          },
+          {
+            "label": "Loading",
+            "state": "loading",
+            "messages": 0
+          },
+          {
+            "label": "Empty",
+            "state": "empty",
+            "messages": 0
+          },
+          {
+            "label": "Error",
+            "state": "error",
+            "messages": 0,
+            "recovery": "Try again"
+          },
+          {
+            "label": "Handoff",
+            "state": "handoff",
+            "messages": 2
+          },
+          {
+            "label": "Offline",
+            "state": "offline",
+            "messages": 2,
+            "recovery": "Reconnect"
+          }
+        ]
+      },
+      "api-foundations": {
+        "copy": "chat-thread API exposes semantic props while Flow foundations own state, density, tone, frame, and accessibility.",
+        "props": [
+          {
+            "name": "label",
+            "type": "string",
+            "required": "No",
+            "notes": "Accessible thread label."
+          },
+          {
+            "name": "messages",
+            "type": "ChatThreadMessage[]",
+            "required": "No",
+            "notes": "Governed message records."
+          },
+          {
+            "name": "state",
+            "type": "default | loading | empty | error | handoff | offline",
+            "required": "No",
+            "notes": "Thread availability state."
+          },
+          {
+            "name": "selectedMessageKey",
+            "type": "string",
+            "required": "No",
+            "notes": "Selected message key."
+          },
+          {
+            "name": "onMessageAction",
+            "type": "(key, event) => void",
+            "required": "No",
+            "notes": "Recovery action callback."
+          }
+        ]
+      },
+      "guidelines": {
+        "do": [
+          "Use Chat Thread for a governed conversational log.",
+          "Use when messages, availability state, selected message, and message actions must be explicit.",
+          "Use below a formal conversational pattern/template that owns composer and routing."
+        ],
+        "dont": [
+          "The thread also owns composer, channel routing, or support escalation.",
+          "The log must support regulated audit retention.",
+          "A template tries to render raw message markup directly."
+        ],
+        "items": [
+          "Confirm the component remains atomic.",
+          "Confirm symbols and tone have visible text fallback.",
+          "Confirm patterns/templates compose this component through Flow APIs."
+        ]
+      },
+      "playground": {
+        "copy": "Use the playground to verify chat-thread state, density, labels, and callback behavior.",
+        "controls": [
+          {
+            "name": "label",
+            "label": "label",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "messages",
+            "label": "messages",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "state",
+            "label": "state",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "selectedMessageKey",
+            "label": "selectedMessageKey",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "onMessageAction",
+            "label": "onMessageAction",
+            "type": "text",
+            "value": ""
+          }
+        ]
+      },
+      "tests-rejection-rules": {
+        "mustTest": [
+          "State precedence",
+          "Density cascade",
+          "Accessible label and recovery association",
+          "Controlled/uncontrolled behavior when applicable",
+          "No local visual shell duplication"
+        ],
+        "rejectIf": [
+          "The thread also owns composer, channel routing, or support escalation.",
+          "The log must support regulated audit retention.",
+          "A template tries to render raw message markup directly."
+        ]
+      },
+      "miel": {
+        "copy": "Agents may compose Chat Thread for the log only; composer/routing belongs to a higher conversation owner.",
+        "canDecide": [
+          "Use Chat Thread for a governed conversational log.",
+          "Use when messages, availability state, selected message, and message actions must be explicit.",
+          "Use below a formal conversational pattern/template that owns composer and routing."
+        ],
+        "mustAsk": [
+          "The thread also owns composer, channel routing, or support escalation.",
+          "The log must support regulated audit retention."
+        ],
+        "rejectIf": [
+          "The thread also owns composer, channel routing, or support escalation.",
+          "The log must support regulated audit retention.",
+          "A template tries to render raw message markup directly."
+        ],
+        "handoff": "I am using chat-thread through the Flow component contract and need confirmation for product copy, state ownership, and escalation boundaries."
+      }
+    }
+  }
+}

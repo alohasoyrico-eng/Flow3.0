@@ -1,0 +1,94 @@
+{
+  "patterns": [
+    {
+      "type": "pattern",
+      "id": "dense-operational-list",
+      "title": "Dense Operational List",
+      "platform": "Cross-platform",
+      "summary": "Coordinate dense operational records with search, filter chips, toolbar actions, bulk actions, virtual table behavior, and feedback through Flow-owned boundaries.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "patternDependencies": [
+        "Bulk Actions",
+        "Filter Chip Group",
+        "Search",
+        "Status Feedback View",
+        "Toolbar",
+        "Virtual Data Table"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "account-operations",
+      "title": "Account Operations",
+      "platform": "Cross-platform",
+      "summary": "Coordinate account records, selected-account actions, detail review, and audit history through Flow-owned operational boundaries.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "patternDependencies": [
+        "Dense Operational List",
+        "Drawer Adapter",
+        "Timeline"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "ticket-queue",
+      "title": "Ticket Queue",
+      "platform": "Cross-platform",
+      "summary": "Coordinate ticket alerts, queue records, selected-ticket detail, and recovery feedback through Flow-owned support boundaries.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "patternDependencies": [
+        "Dense Operational List",
+        "Drawer Adapter",
+        "Notification Panel",
+        "Status Feedback View"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    }
+  ]
+}

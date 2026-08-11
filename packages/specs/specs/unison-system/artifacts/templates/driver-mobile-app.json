@@ -28,14 +28,20 @@
           "Color",
           "Typography",
           "Spacing",
+          "Surface",
+          "Density",
           "Iconography",
           "Focus",
           "Loading",
           "Disabled",
-          "Breakpoints"
+          "Breakpoints",
+          "Maps"
         ],
         "patternDependencies": [
           "Driver Onboarding Mobile",
+          "Station Discovery"
+        ],
+        "templateModuleDependencies": [
           "Mobile Card Overview",
           "Routes and Nearby Stations Mobile"
         ],
@@ -43,9 +49,13 @@
           "sys.energy.*",
           "sys.voice.*",
           "sys.frame.*",
+          "sys.depth.*",
           "sys.state.*",
+          "sys.tone.*",
           "sys.accessibility.*",
-          "sys.momentum.*"
+          "sys.momentum.*",
+          "surface.*",
+          "sys.maps.*"
         ],
         "densityContext": [
           "Mobile",
@@ -98,7 +108,7 @@
           "Navigation follows the driver's daily jobs: start, control card, find fuel, and recover through support."
         ],
         "rejectIf": [
-          "Template invents behavior outside its approved pattern dependencies.",
+          "Template invents behavior outside its approved pattern or module dependencies.",
           "Template modules omit data, permission, state, or recovery ownership.",
           "Template bypasses Design System foundations, primitives, density, or semantic tokens."
         ]

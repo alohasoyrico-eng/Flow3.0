@@ -1,0 +1,162 @@
+{
+  "artifacts": {
+    "patterns": {
+      "snackbar-provider": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate transient system feedback across queues, priority, dismissal, status semantics, and recovery actions without each surface inventing its own notification stack.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Toast"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.toast.*",
+          "comp.button.*",
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A product flow needs transient success, warning, error, or informational feedback.",
+          "Multiple events can happen close together and need deterministic queue behavior.",
+          "A toast may include a short recovery action such as undo, retry, or view details."
+        ],
+        "decisionTree": [
+          "Use Toast directly for one isolated message in a controlled component demo.",
+          "Use Snackbar Provider when a screen, shell, or workflow needs a governed notification queue.",
+          "Use Dialog or Inline Validation when the user must resolve the issue before continuing."
+        ],
+        "failureModes": [
+          "Every feature mounts its own notification container.",
+          "Messages overlap or disappear before assistive technology can announce them.",
+          "Action buttons inside feedback recreate Button styles.",
+          "Critical errors are sent only as transient feedback."
+        ],
+        "successMetrics": [
+          "Feedback appears in one predictable region.",
+          "Users can understand message severity and optional recovery.",
+          "Keyboard and screen reader users receive the update without focus being stolen."
+        ],
+        "states": [
+          "idle",
+          "queued",
+          "visible",
+          "dismissed",
+          "actionable",
+          "paused",
+          "error"
+        ],
+        "slots": [
+          {
+            "name": "viewport",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ]
+          },
+          {
+            "name": "action",
+            "owner": "component",
+            "uses": [
+              "Button"
+            ]
+          },
+          {
+            "name": "feedback",
+            "owner": "component",
+            "uses": [
+              "Toast"
+            ]
+          },
+          {
+            "name": "status",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Summarizes queue count, severity, or grouped feedback status without custom count pills."
+          }
+        ],
+        "accessibility": [
+          "Use live-region semantics appropriate to severity.",
+          "Do not move focus to transient feedback unless the action explicitly requires it.",
+          "Pause dismissal while the user hovers, focuses, or interacts with the action."
+        ],
+        "tests": [
+          "Queues multiple messages deterministically.",
+          "Uses Toast, Button, and Badge contracts instead of custom visuals.",
+          "Preserves live-region announcements and focus behavior."
+        ],
+        "agentInstructions": [
+          "Compose the provider from Toast, Button, and optional Badge only.",
+          "Keep long-form recovery, blocking decisions, and destructive confirmations outside this pattern.",
+          "Ask before creating a second feedback stack in a shell or template."
+        ],
+        "rejectIf": [
+          "A feature defines a separate snackbar container.",
+          "Toast visuals are recreated with raw classes.",
+          "Severity relies only on color.",
+          "Dismissal timing bypasses accessibility behavior."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

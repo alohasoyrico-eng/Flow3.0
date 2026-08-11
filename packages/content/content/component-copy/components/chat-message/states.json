@@ -1,0 +1,17 @@
+{
+  "components": {
+    "chat-message": {
+      "states": {
+        "copy": "Chat Message states expose delivery, recovery, and loading meaning through Message, Surface, Tone, Voice, and State instead of raw chat bubble styling.",
+        "demos": [
+          { "label": "Default", "state": "default", "author": "agent", "body": "I can help with that." },
+          { "label": "Sending", "state": "sending", "author": "user", "body": "Checking the transaction." },
+          { "label": "Sent", "state": "sent", "author": "user", "body": "The receipt is attached." },
+          { "label": "Delivered", "state": "delivered", "author": "user", "body": "The card is active again." },
+          { "label": "Failed", "state": "failed", "author": "user", "body": "Retry sending this message.", "action": { "label": "Retry" } },
+          { "label": "Loading", "state": "loading", "author": "assistant", "body": "Preparing response." }
+        ]
+      }
+    }
+  }
+}

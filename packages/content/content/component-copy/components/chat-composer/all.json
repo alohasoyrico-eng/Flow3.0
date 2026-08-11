@@ -1,0 +1,260 @@
+{
+  "components": {
+    "chat-composer": {
+      "operational-example": {
+        "copy": "Collect a support or assistant message with visible label, controlled value, send action, optional attachment, and recoverable validation.",
+        "scenario": {
+          "rationaleTitle": "Why chat-composer",
+          "rationale": [
+            "Keeps component behavior package-owned.",
+            "Preserves foundation and primitive cascade.",
+            "Avoids local visual or workflow duplication."
+          ]
+        }
+      },
+      "anatomy": {
+        "items": [
+          {
+            "part": "Composer surface",
+            "rule": "Composes Surface as the form boundary without creating a Card shell.",
+            "tokens": [
+              "surface.*",
+              "sys.frame.*"
+            ]
+          },
+          {
+            "part": "Message field",
+            "rule": "Composes Text Area and Field Action for multiline input and helper/error copy.",
+            "tokens": [
+              "field-action.*",
+              "message.*",
+              "sys.accessibility.*"
+            ]
+          },
+          {
+            "part": "Send action",
+            "rule": "Composes Button and blocks empty or disabled submission.",
+            "tokens": [
+              "comp.button.*",
+              "sys.state.*"
+            ]
+          },
+          {
+            "part": "Attachment action",
+            "rule": "Optional Icon Button for governed attachment behavior.",
+            "tokens": [
+              "comp.icon-button.*",
+              "sys.iconography.*"
+            ]
+          }
+        ]
+      },
+      "accessibility": {
+        "statePrecedence": "disabled > sending > error > focus > filled > default",
+        "items": [
+          "Keep visible labels and accessible names aligned.",
+          "Expose machine-readable state through props and data attributes.",
+          "Do not rely on color, symbol, or placeholder text alone.",
+          "Preserve keyboard, focus, disabled, loading, and recovery behavior."
+        ]
+      },
+      "variants": {
+        "copy": "chat-composer variants stay semantic and do not fork visual contracts.",
+        "demos": [
+          {
+            "label": "basic",
+            "variant": "basic",
+            "state": "default"
+          },
+          {
+            "label": "with-attachment",
+            "variant": "with-attachment",
+            "state": "default"
+          },
+          {
+            "label": "sending",
+            "variant": "sending",
+            "state": "default"
+          }
+        ]
+      },
+      "states": {
+        "copy": "Chat Composer states preserve the shared Field, Message, Surface, Button, and State cascade while keeping message entry controlled or uncontrolled.",
+        "demos": [
+          {
+            "label": "Default",
+            "state": "default",
+            "value": "",
+            "placeholder": "Write a message"
+          },
+          {
+            "label": "Focus",
+            "state": "focus",
+            "value": "",
+            "placeholder": "Write a message"
+          },
+          {
+            "label": "Filled",
+            "state": "filled",
+            "value": "Can you review this card limit?"
+          },
+          {
+            "label": "Sending",
+            "state": "sending",
+            "value": "Sending update",
+            "sending": true
+          },
+          {
+            "label": "Disabled",
+            "state": "disabled",
+            "value": "",
+            "disabled": true
+          },
+          {
+            "label": "Error",
+            "state": "error",
+            "value": "",
+            "error": "Write a message before sending."
+          }
+        ]
+      },
+      "api-foundations": {
+        "copy": "chat-composer API exposes semantic props while Flow foundations own state, density, tone, frame, and accessibility.",
+        "props": [
+          {
+            "name": "label",
+            "type": "string",
+            "required": "Yes",
+            "notes": "Visible composer label."
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "required": "No",
+            "notes": "Controlled message value."
+          },
+          {
+            "name": "defaultValue",
+            "type": "string",
+            "required": "No",
+            "notes": "Uncontrolled initial value."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": "No",
+            "notes": "Consumer-supplied placeholder; default remains empty."
+          },
+          {
+            "name": "sending",
+            "type": "boolean",
+            "required": "No",
+            "notes": "Locks the composer while submit is in progress."
+          },
+          {
+            "name": "error",
+            "type": "string",
+            "required": "No",
+            "notes": "Visible recovery copy."
+          },
+          {
+            "name": "onValueChange",
+            "type": "(value, meta, event) => void",
+            "required": "No",
+            "notes": "Controlled value callback with metadata and event."
+          },
+          {
+            "name": "onSend",
+            "type": "(value, event) => void",
+            "required": "No",
+            "notes": "Submit callback."
+          }
+        ]
+      },
+      "guidelines": {
+        "do": [
+          "Use Chat Composer for one conversational message entry.",
+          "Use when controlled/uncontrolled value, sending state, and send callback must be explicit.",
+          "Use inside a formal conversational pattern or template, not as a standalone chat workflow."
+        ],
+        "dont": [
+          "The flow needs full thread orchestration, escalation, or channel routing.",
+          "The message contains regulated or irreversible content.",
+          "A custom textarea, fake send button, or local attachment shell is requested."
+        ],
+        "items": [
+          "Confirm the component remains atomic.",
+          "Confirm symbols and tone have visible text fallback.",
+          "Confirm patterns/templates compose this component through Flow APIs."
+        ]
+      },
+      "playground": {
+        "copy": "Use the playground to verify chat-composer state, density, labels, and callback behavior.",
+        "controls": [
+          {
+            "name": "label",
+            "label": "label",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "value",
+            "label": "value",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "defaultValue",
+            "label": "defaultValue",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "placeholder",
+            "label": "placeholder",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "sending",
+            "label": "sending",
+            "type": "boolean",
+            "value": ""
+          }
+        ]
+      },
+      "tests-rejection-rules": {
+        "mustTest": [
+          "State precedence",
+          "Density cascade",
+          "Accessible label and recovery association",
+          "Controlled/uncontrolled behavior when applicable",
+          "No local visual shell duplication"
+        ],
+        "rejectIf": [
+          "The flow needs full thread orchestration, escalation, or channel routing.",
+          "The message contains regulated or irreversible content.",
+          "A custom textarea, fake send button, or local attachment shell is requested."
+        ]
+      },
+      "miel": {
+        "copy": "Agents may compose Chat Composer only as message entry inside a governed conversation owner.",
+        "canDecide": [
+          "Use Chat Composer for one conversational message entry.",
+          "Use when controlled/uncontrolled value, sending state, and send callback must be explicit.",
+          "Use inside a formal conversational pattern or template, not as a standalone chat workflow."
+        ],
+        "mustAsk": [
+          "The flow needs full thread orchestration, escalation, or channel routing.",
+          "The message contains regulated or irreversible content."
+        ],
+        "rejectIf": [
+          "The flow needs full thread orchestration, escalation, or channel routing.",
+          "The message contains regulated or irreversible content.",
+          "A custom textarea, fake send button, or local attachment shell is requested."
+        ],
+        "handoff": "I am using chat-composer through the Flow component contract and need confirmation for product copy, state ownership, and escalation boundaries."
+      }
+    }
+  }
+}

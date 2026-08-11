@@ -28,13 +28,16 @@
           "Color",
           "Typography",
           "Spacing",
+          "Surface",
+          "Density",
           "Iconography",
           "Focus",
           "Loading",
           "Disabled",
           "Breakpoints"
         ],
-        "patternDependencies": [
+        "patternDependencies": [],
+        "templateModuleDependencies": [
           "Mobile Card Overview",
           "Mobile Card Detail and Quick Actions",
           "Mobile Movement Detail"
@@ -43,9 +46,12 @@
           "sys.energy.*",
           "sys.voice.*",
           "sys.frame.*",
+          "sys.depth.*",
           "sys.state.*",
+          "sys.tone.*",
           "sys.accessibility.*",
-          "sys.momentum.*"
+          "sys.momentum.*",
+          "surface.*"
         ],
         "densityContext": [
           "Mobile",
@@ -97,7 +103,7 @@
           "Navigation follows the wallet mental model: card first, movements second, limits third, help always available."
         ],
         "rejectIf": [
-          "Template invents behavior outside its approved pattern dependencies.",
+          "Template invents behavior outside its approved pattern or module dependencies.",
           "Template modules omit data, permission, state, or recovery ownership.",
           "Template bypasses Design System foundations, primitives, density, or semantic tokens."
         ]

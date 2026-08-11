@@ -1,0 +1,494 @@
+{
+  "schemaVersion": "1.0.0",
+  "auditedAt": "1970-01-01T00:00:00.000Z",
+  "primitive": "Typography",
+  "status": "pass",
+  "principle": "Typography converts Voice, Tone, Frame, and Accessibility into implementation-ready text roles so components never choose raw font values or bypass Edenred/Ubuntu role ownership.",
+  "specContract": {
+    "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json",
+    "roles": [
+      "caption",
+      "code",
+      "display",
+      "heading",
+      "label",
+      "numeral",
+      "paragraph"
+    ],
+    "missingRoles": [],
+    "governingFoundations": [
+      "Voice",
+      "Tone",
+      "Frame",
+      "Accessibility"
+    ],
+    "missingFoundations": [],
+    "coordinatesPrimitives": [
+      "Density",
+      "Spacing",
+      "Breakpoints"
+    ],
+    "missingCoordinatedPrimitives": [],
+    "foundationInputs": [
+      "sys.voice.*",
+      "sys.tone.*",
+      "sys.frame.*",
+      "sys.accessibility.*"
+    ],
+    "tokenDependencies": [
+      "ref.voice.*",
+      "sys.voice.*",
+      "sys.tone.*",
+      "sys.frame.*",
+      "sys.accessibility.*",
+      "density.*",
+      "spacing.*",
+      "breakpoint.*",
+      "typography.*",
+      "comp.*.voice aliases"
+    ],
+    "missingTokenDependencies": []
+  },
+  "markdownContract": {
+    "file": "packages/content/content/primitive-contracts/primitives/typography.md",
+    "generated": true
+  },
+  "tokenAliases": {
+    "file": "packages/tokens/styles/tokens.css",
+    "requiredAliases": [
+      {
+        "alias": "--sys-font-body",
+        "expected": "var(--sys-voice-family-body)",
+        "actual": "var(--sys-voice-family-body)"
+      },
+      {
+        "alias": "--sys-font-title",
+        "expected": "var(--sys-voice-family-title)",
+        "actual": "var(--sys-voice-family-title)"
+      },
+      {
+        "alias": "--sys-font-icon",
+        "expected": "var(--sys-icon-family)",
+        "actual": "var(--sys-icon-family)"
+      },
+      {
+        "alias": "--sys-voice-family-body",
+        "expected": "var(--ref-voice-family-sans)",
+        "actual": "var(--ref-voice-family-sans)"
+      },
+      {
+        "alias": "--sys-voice-family-title",
+        "expected": "var(--ref-voice-family-brand)",
+        "actual": "var(--ref-voice-family-brand)"
+      },
+      {
+        "alias": "--sys-voice-numeral-lg-size",
+        "expected": "var(--ref-voice-size-9)",
+        "actual": "var(--ref-voice-size-9)"
+      }
+    ],
+    "gaps": []
+  },
+  "componentBridge": {
+    "file": "packages/components/styles/components.css",
+    "requiredAliases": [
+      {
+        "alias": "--component-font-size-micro",
+        "actual": "var(--sys-voice-overline-size)"
+      },
+      {
+        "alias": "--component-font-size-caption",
+        "actual": "var(--sys-voice-caption-size)"
+      },
+      {
+        "alias": "--component-font-size-small",
+        "actual": "var(--sys-voice-size-4)"
+      },
+      {
+        "alias": "--component-font-size-label",
+        "actual": "var(--sys-voice-label-md-size)"
+      },
+      {
+        "alias": "--component-font-size-body-sm",
+        "actual": "var(--sys-voice-paragraph-sm-size)"
+      },
+      {
+        "alias": "--component-font-size-body",
+        "actual": "var(--sys-voice-paragraph-sm-size)"
+      },
+      {
+        "alias": "--component-font-size-body-md",
+        "actual": "var(--sys-voice-paragraph-md-size)"
+      },
+      {
+        "alias": "--component-font-size-body-lg",
+        "actual": "var(--sys-voice-paragraph-lg-size)"
+      },
+      {
+        "alias": "--component-font-size-title-xs",
+        "actual": "var(--sys-voice-label-sm-size)"
+      },
+      {
+        "alias": "--component-font-size-title-sm",
+        "actual": "var(--sys-voice-heading-sm-size)"
+      },
+      {
+        "alias": "--component-font-size-title-md",
+        "actual": "var(--sys-voice-heading-md-size)"
+      },
+      {
+        "alias": "--component-font-size-title-lg",
+        "actual": "var(--sys-voice-heading-lg-size)"
+      },
+      {
+        "alias": "--component-font-size-data-lg",
+        "actual": "var(--sys-voice-numeral-lg-size)"
+      },
+      {
+        "alias": "--component-font-size-display-sm",
+        "actual": "var(--sys-voice-display-sm-size)"
+      },
+      {
+        "alias": "--component-font-size-display-md",
+        "actual": "var(--sys-voice-display-sm-size)"
+      },
+      {
+        "alias": "--component-font-family-mono",
+        "actual": "var(--sys-voice-family-mono)"
+      },
+      {
+        "alias": "--component-line-height-snug",
+        "actual": "var(--sys-voice-line-height-tight)"
+      },
+      {
+        "alias": "--component-letter-spacing-expanded",
+        "actual": "var(--sys-voice-letter-spacing-expanded)"
+      },
+      {
+        "alias": "--component-letter-spacing-normal",
+        "actual": "var(--sys-voice-letter-spacing-normal)"
+      },
+      {
+        "alias": "--component-letter-spacing-wide",
+        "actual": "var(--sys-voice-letter-spacing-wide)"
+      },
+      {
+        "alias": "--component-letter-spacing-widest",
+        "actual": "var(--sys-voice-letter-spacing-widest)"
+      }
+    ],
+    "gaps": [],
+    "refVoiceBypassGaps": [],
+    "undefinedUses": [],
+    "rawTypography": [],
+    "aliasUseCount": 541
+  },
+  "foundationGate": {
+    "voice": {
+      "report": "docs/audits/foundation-voice-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "tone": {
+      "report": "docs/audits/foundation-tone-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "frame": {
+      "report": "docs/audits/foundation-frame-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "accessibility": {
+      "report": "docs/audits/foundation-accessibility-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    }
+  },
+  "primitiveGate": {
+    "breakpoints": {
+      "report": "docs/audits/primitive-breakpoints-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "density": {
+      "report": "docs/audits/primitive-density-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "spacing": {
+      "report": "docs/audits/primitive-spacing-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    }
+  },
+  "docsSignal": {
+    "scannedFiles": [
+      "../FlowDocs/apps/docs/styles/00-foundations-01.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-02-01.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+      "../FlowDocs/apps/docs/styles/01-shell-01.css",
+      "../FlowDocs/apps/docs/styles/01-shell-02.css",
+      "../FlowDocs/apps/docs/styles/01-shell-hero.css",
+      "../FlowDocs/apps/docs/styles/01-shell-icons.css",
+      "../FlowDocs/apps/docs/styles/02-doc-layout.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-04.css",
+      "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
+      "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
+      "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+      "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
+      "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
+      "../FlowDocs/apps/docs/styles/04a-button-docs-02.css",
+      "../FlowDocs/apps/docs/styles/04a-button-docs-03.css",
+      "../FlowDocs/apps/docs/styles/04a-demo-cell-docs.css",
+      "../FlowDocs/apps/docs/styles/04b-card-docs.css",
+      "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
+      "../FlowDocs/apps/docs/styles/04b-select-docs.css",
+      "../FlowDocs/apps/docs/styles/04c-input-docs.css",
+      "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
+      "../FlowDocs/apps/docs/styles/04e-switch-docs.css",
+      "../FlowDocs/apps/docs/styles/04f-radio-button-docs.css",
+      "../FlowDocs/apps/docs/styles/04g-text-area-docs.css",
+      "../FlowDocs/apps/docs/styles/04h-icon-button-docs.css",
+      "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
+      "../FlowDocs/apps/docs/styles/04j-badge-docs.css",
+      "../FlowDocs/apps/docs/styles/04l-tag-docs.css",
+      "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
+      "../FlowDocs/apps/docs/styles/04n-tooltip-docs.css",
+      "../FlowDocs/apps/docs/styles/04o-toast-docs.css",
+      "../FlowDocs/apps/docs/styles/04t-menu-docs.css",
+      "../FlowDocs/apps/docs/styles/04x-table-docs.css",
+      "../FlowDocs/apps/docs/styles/04y-avatar-docs.css",
+      "../FlowDocs/apps/docs/styles/04z-slider-docs.css",
+      "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
+      "../FlowDocs/apps/docs/styles/05-catalog-and-examples-02.css",
+      "../FlowDocs/apps/docs/styles/05-catalog-and-examples-03.css",
+      "../FlowDocs/apps/docs/styles/05b-list-docs.css",
+      "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
+      "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
+      "../FlowDocs/apps/docs/styles/05h-code-input-docs.css",
+      "../FlowDocs/apps/docs/styles/05i-phone-input-docs.css",
+      "../FlowDocs/apps/docs/styles/06-responsive-01.css",
+      "../FlowDocs/apps/docs/styles/06-responsive-02.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
+    ],
+    "typographyAliasUseCount": 325,
+    "directRefVoiceConsumerUses": [],
+    "note": "Docs consumers must use Typography/Voice system aliases. Direct ref-voice is allowed only in foundation/reference pages that expose the raw scale."
+  },
+  "cascadeCoverage": {
+    "components": {
+      "count": 60,
+      "ids": [
+        "accordion",
+        "animated-moment",
+        "audit-event",
+        "avatar",
+        "badge",
+        "biometric-prompt",
+        "breadcrumbs",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "card-summary",
+        "chart-panel",
+        "chat-composer",
+        "chat-message",
+        "chat-thread",
+        "checkbox",
+        "chip",
+        "code-input",
+        "combobox",
+        "country-selector",
+        "date-picker",
+        "date-range-picker",
+        "dialog",
+        "drawer",
+        "empty-state",
+        "error-panel",
+        "floating-action-button",
+        "icon-button",
+        "inline-validation",
+        "input",
+        "input-amount",
+        "kpi-tile",
+        "list",
+        "menu",
+        "motion-boundary",
+        "movement-row",
+        "pagination",
+        "phone-input",
+        "popover",
+        "progress-indicator",
+        "quick-action",
+        "radio-button",
+        "route-summary",
+        "segmented-control",
+        "select",
+        "skeleton",
+        "slider",
+        "spinner",
+        "station-pin",
+        "stepper",
+        "switch",
+        "table",
+        "tabs",
+        "tag",
+        "text-area",
+        "toast",
+        "tooltip",
+        "tree-view"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/components/accordion.json",
+        "packages/specs/specs/unison-system/artifacts/components/animated-moment.json",
+        "packages/specs/specs/unison-system/artifacts/components/audit-event.json",
+        "packages/specs/specs/unison-system/artifacts/components/avatar.json",
+        "packages/specs/specs/unison-system/artifacts/components/badge.json",
+        "packages/specs/specs/unison-system/artifacts/components/biometric-prompt.json",
+        "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json",
+        "packages/specs/specs/unison-system/artifacts/components/button.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/anatomy.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/foundations.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/primitivedependencies.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/tokendependencies.json"
+      ]
+    },
+    "patterns": {
+      "count": 59,
+      "ids": [
+        "account-operations",
+        "action-sheet",
+        "advanced-filters",
+        "agent-conversation",
+        "authentication-login-biometrics-and-otp",
+        "autocomplete",
+        "avatar-group",
+        "avatar-menu",
+        "backoffice-approval",
+        "bulk-actions",
+        "calendar-view",
+        "case-management",
+        "chart-wrapper",
+        "column-configurator",
+        "command-palette",
+        "confirmation-dialog",
+        "dense-operational-list",
+        "drag-sortable-list",
+        "drawer-adapter",
+        "driver-and-vehicle-administration",
+        "driver-onboarding-mobile",
+        "email-template-layout",
+        "expandable-detail-table",
+        "file-upload",
+        "filter-chip-group",
+        "filterable-editable-table",
+        "fleet-manager-onboarding-desktop",
+        "form-section",
+        "fullscreen-sheet",
+        "gantt-chart",
+        "help-center",
+        "kanban-board",
+        "kpi-card",
+        "multi-select",
+        "multi-step-form",
+        "notification-panel",
+        "payment-form",
+        "polar-chart",
+        "preference-management",
+        "pricing-operations",
+        "pull-to-refresh",
+        "quick-actions-grid",
+        "roles-and-permissions",
+        "search",
+        "section-header",
+        "select-option-layer",
+        "settings",
+        "sidebar",
+        "snackbar-provider",
+        "station-discovery",
+        "status-feedback-view",
+        "swipe-actions",
+        "ticket-queue",
+        "timeline",
+        "toolbar",
+        "topbar",
+        "transfer-list",
+        "virtual-data-table",
+        "waterfall-chart"
+      ],
+      "sampleFiles": [
+        "packages/content/content/pattern-contracts/patterns/account-operations.md",
+        "packages/content/content/pattern-contracts/patterns/action-sheet.md",
+        "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+        "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
+        "packages/content/content/pattern-contracts/patterns/autocomplete.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-group.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
+        "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+        "packages/content/content/pattern-contracts/patterns/case-management.md"
+      ]
+    },
+    "templates": {
+      "count": 9,
+      "ids": [
+        "agent-workspace",
+        "configuration-console",
+        "driver-card-wallet",
+        "driver-mobile-app",
+        "fleet-dashboard-suite",
+        "fleet-manager-desktop",
+        "internal-operations-console",
+        "routes-and-stations",
+        "settings-workspace"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+      ]
+    }
+  },
+  "gaps": [],
+  "nextActions": [
+    "Fix fail-level Typography alias, foundation gate, undefined alias, or raw component typography gaps before moving to Spacing.",
+    "Keep Edenred Black/Ubuntu ownership in Voice; Typography only maps roles and bridges implementation.",
+    "Use ZIP text details as role/density evidence, never as permission to mutate Flow font foundations."
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "artifacts": {
+    "templates": {
+      "internal-operations-console": {
+        "layer": "Template",
+        "platform": "Desktop",
+        "audiences": [
+          "Product Designers",
+          "PMs",
+          "Developers",
+          "Researchers",
+          "Service Designers",
+          "Operations"
+        ],
+        "purpose": "Internal teams triage cases, tickets, accounts, pricing rules, backoffice approvals, and growth operations in one governed desktop console.",
+        "maturityTarget": "measured",
+        "governingFoundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Color",
+          "Density",
+          "Focus",
+          "Iconography",
+          "Measurement",
+          "Message",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "patternDependencies": [
+          "Topbar",
+          "Sidebar",
+          "Case Management",
+          "Ticket Queue",
+          "Account Operations",
+          "Pricing Operations",
+          "Backoffice Approval",
+          "Dense Operational List"
+        ],
+        "templateModuleDependencies": [
+          "Case operations",
+          "Ticket operations",
+          "Account operations",
+          "Pricing operations",
+          "Backoffice approvals",
+          "Growth operations"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Drawer",
+          "Input",
+          "Select",
+          "Table"
+        ],
+        "tokenDependencies": [
+          "sys.accessibility.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.voice.*",
+          "surface.*"
+        ],
+        "densityContext": [
+          "Laptop",
+          "Desktop"
+        ],
+        "modules": [
+          "Case operations",
+          "Ticket operations",
+          "Account operations",
+          "Pricing operations",
+          "Backoffice approvals",
+          "Growth operations"
+        ],
+        "dataSources": [
+          "cases",
+          "tickets",
+          "accounts",
+          "pricing rules",
+          "approval queue",
+          "growth metrics"
+        ],
+        "permissions": [
+          "operator",
+          "approver",
+          "admin",
+          "audit viewer"
+        ],
+        "states": [
+          "loaded",
+          "loading",
+          "empty",
+          "permission",
+          "error",
+          "offline",
+          "disabled"
+        ],
+        "surfaces": [
+          "Laptop",
+          "Desktop"
+        ],
+        "telemetry": [
+          "module selected",
+          "case selected",
+          "ticket selected",
+          "approval decided",
+          "pricing rule submitted"
+        ],
+        "qualityGates": [
+          "Module selection keeps topbar, sidebar, and operations workspace synchronized.",
+          "Every operational table, filter, drawer, timeline, approval, and feedback behavior is delegated to patterns.",
+          "Growth metrics support owner decisions, support recovery, quality guardrails, and validated operational outcomes instead of decorative dashboard copy.",
+          "Growth-brutal and pricing surfaces stay within Surface, density, state, and theme contracts."
+        ],
+        "agentInstructions": [
+          "This template is the governed desktop shell for internal product operations.",
+          "Use existing operations patterns for cases, tickets, accounts, pricing, approvals, and growth lists; never create local tables, filters, drawers, or feedback banners.",
+          "Module selection is the primary controlled/uncontrolled state contract."
+        ],
+        "rejectIf": [
+          "Template renders a raw ticket, case, account, pricing, or approval table outside the owning pattern.",
+          "Template creates local filter controls, drawers, cards, or feedback surfaces instead of composing Flow patterns.",
+          "Template bypasses Surface, density, state, or token ownership.",
+          "Template introduces a separate admin shell that duplicates Configuration Console."
+        ]
+      }
+    }
+  }
+}

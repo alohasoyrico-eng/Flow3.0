@@ -26,6 +26,10 @@
           "Controls focus, selected result, action priority, and status tone."
         ],
         [
+          "Depth",
+          "Separates result panels and suggestions from page content without creating custom overlay depth."
+        ],
+        [
           "State",
           "Idle, typing, results, no results, loading, disabled, and error states are explicit."
         ],

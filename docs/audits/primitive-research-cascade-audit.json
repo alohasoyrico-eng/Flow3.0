@@ -1,0 +1,397 @@
+{
+  "status": "pass",
+  "primitive": "Research",
+  "principle": "Research consumes Growth, Tone, Accessibility, Voice, and Measurement so decisions carry question, hypothesis, evidence, confidence, risk, and follow-up instead of undocumented taste.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "question",
+      "hypothesis",
+      "context",
+      "evidence",
+      "confidence"
+    ],
+    "present": [
+      "question",
+      "hypothesis",
+      "context",
+      "evidence",
+      "confidence"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Growth",
+      "Tone",
+      "Accessibility",
+      "Voice"
+    ],
+    "present": [
+      "Growth",
+      "Tone",
+      "Accessibility",
+      "Voice"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Measurement",
+      "Message",
+      "Charts"
+    ],
+    "present": [
+      "Measurement",
+      "Message",
+      "Charts"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-research-question-font",
+      "--sys-research-question-weight",
+      "--sys-research-hypothesis-color",
+      "--sys-research-context-color",
+      "--sys-research-evidence-color",
+      "--sys-research-confidence-low-color",
+      "--sys-research-confidence-medium-color",
+      "--sys-research-confidence-high-color",
+      "--sys-research-risk-color",
+      "--sys-research-decision-link-color",
+      "--sys-research-readable-line-height"
+    ],
+    "present": [
+      "--sys-research-question-font",
+      "--sys-research-question-weight",
+      "--sys-research-hypothesis-color",
+      "--sys-research-context-color",
+      "--sys-research-evidence-color",
+      "--sys-research-confidence-low-color",
+      "--sys-research-confidence-medium-color",
+      "--sys-research-confidence-high-color",
+      "--sys-research-risk-color",
+      "--sys-research-decision-link-color",
+      "--sys-research-readable-line-height"
+    ],
+    "missing": []
+  },
+  "references": {
+    "componentContracts": {
+      "count": 60,
+      "ids": [
+        "accordion",
+        "animated-moment",
+        "audit-event",
+        "avatar",
+        "badge",
+        "biometric-prompt",
+        "breadcrumbs",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "card-summary",
+        "chart-panel",
+        "chat-composer",
+        "chat-message",
+        "chat-thread",
+        "checkbox",
+        "chip",
+        "code-input",
+        "combobox",
+        "country-selector",
+        "date-picker",
+        "date-range-picker",
+        "dialog",
+        "drawer",
+        "empty-state",
+        "error-panel",
+        "floating-action-button",
+        "icon-button",
+        "inline-validation",
+        "input",
+        "input-amount",
+        "kpi-tile",
+        "list",
+        "menu",
+        "motion-boundary",
+        "movement-row",
+        "pagination",
+        "phone-input",
+        "popover",
+        "progress-indicator",
+        "quick-action",
+        "radio-button",
+        "route-summary",
+        "segmented-control",
+        "select",
+        "skeleton",
+        "slider",
+        "spinner",
+        "station-pin",
+        "stepper",
+        "switch",
+        "table",
+        "tabs",
+        "tag",
+        "text-area",
+        "toast",
+        "tooltip",
+        "tree-view"
+      ],
+      "sampleFiles": [
+        "packages/content/content/component-contracts/components/accordion.md",
+        "packages/content/content/component-contracts/components/animated-moment.md",
+        "packages/content/content/component-contracts/components/audit-event.md",
+        "packages/content/content/component-contracts/components/avatar.md",
+        "packages/content/content/component-contracts/components/badge.md",
+        "packages/content/content/component-contracts/components/biometric-prompt.md",
+        "packages/content/content/component-contracts/components/breadcrumbs.md",
+        "packages/content/content/component-contracts/components/button.md",
+        "packages/content/content/component-contracts/components/card-expiry-input.md",
+        "packages/content/content/component-contracts/components/card-number-input.md",
+        "packages/content/content/component-contracts/components/card-security-code-input.md",
+        "packages/content/content/component-contracts/components/card-summary.md",
+        "packages/content/content/component-contracts/components/card.md",
+        "packages/content/content/component-contracts/components/chart-panel.md",
+        "packages/content/content/component-contracts/components/chat-composer.md",
+        "packages/content/content/component-contracts/components/chat-message.md"
+      ]
+    },
+    "componentCopy": {
+      "count": 27,
+      "ids": [
+        "accordion",
+        "avatar",
+        "breadcrumbs",
+        "button",
+        "card",
+        "card-number-input",
+        "chart-panel",
+        "chip",
+        "date-picker",
+        "dialog",
+        "drawer",
+        "kpi-tile",
+        "motion-boundary",
+        "pagination",
+        "phone-input",
+        "popover",
+        "progress-indicator",
+        "radio-button",
+        "route-summary",
+        "segmented-control",
+        "select",
+        "station-pin",
+        "stepper",
+        "tabs",
+        "toast",
+        "tooltip",
+        "tree-view"
+      ],
+      "sampleFiles": [
+        "packages/content/content/component-copy/components/accordion/all.json",
+        "packages/content/content/component-copy/components/avatar/all.json",
+        "packages/content/content/component-copy/components/breadcrumbs/all.json",
+        "packages/content/content/component-copy/components/button/miel.json",
+        "packages/content/content/component-copy/components/button/operational-example.json",
+        "packages/content/content/component-copy/components/card-number-input/all.json",
+        "packages/content/content/component-copy/components/card/anatomy.json",
+        "packages/content/content/component-copy/components/card/guidelines.json",
+        "packages/content/content/component-copy/components/card/miel.json",
+        "packages/content/content/component-copy/components/card/operational-example.json",
+        "packages/content/content/component-copy/components/card/reference-compositions.json",
+        "packages/content/content/component-copy/components/chart-panel/all.json",
+        "packages/content/content/component-copy/components/chip/all.json",
+        "packages/content/content/component-copy/components/date-picker/all.json",
+        "packages/content/content/component-copy/components/dialog/all.json",
+        "packages/content/content/component-copy/components/drawer/all.json"
+      ]
+    },
+    "patterns": {
+      "count": 59,
+      "ids": [
+        "account-operations",
+        "action-sheet",
+        "advanced-filters",
+        "agent-conversation",
+        "authentication-login-biometrics-and-otp",
+        "autocomplete",
+        "avatar-group",
+        "avatar-menu",
+        "backoffice-approval",
+        "bulk-actions",
+        "calendar-view",
+        "case-management",
+        "chart-wrapper",
+        "column-configurator",
+        "command-palette",
+        "confirmation-dialog",
+        "dense-operational-list",
+        "drag-sortable-list",
+        "drawer-adapter",
+        "driver-and-vehicle-administration",
+        "driver-onboarding-mobile",
+        "email-template-layout",
+        "expandable-detail-table",
+        "file-upload",
+        "filter-chip-group",
+        "filterable-editable-table",
+        "fleet-manager-onboarding-desktop",
+        "form-section",
+        "fullscreen-sheet",
+        "gantt-chart",
+        "help-center",
+        "kanban-board",
+        "kpi-card",
+        "multi-select",
+        "multi-step-form",
+        "notification-panel",
+        "payment-form",
+        "polar-chart",
+        "preference-management",
+        "pricing-operations",
+        "pull-to-refresh",
+        "quick-actions-grid",
+        "roles-and-permissions",
+        "search",
+        "section-header",
+        "select-option-layer",
+        "settings",
+        "sidebar",
+        "snackbar-provider",
+        "station-discovery",
+        "status-feedback-view",
+        "swipe-actions",
+        "ticket-queue",
+        "timeline",
+        "toolbar",
+        "topbar",
+        "transfer-list",
+        "virtual-data-table",
+        "waterfall-chart"
+      ],
+      "sampleFiles": [
+        "packages/content/content/pattern-contracts/patterns/account-operations.md",
+        "packages/content/content/pattern-contracts/patterns/action-sheet.md",
+        "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+        "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
+        "packages/content/content/pattern-contracts/patterns/autocomplete.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-group.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
+        "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+        "packages/content/content/pattern-contracts/patterns/case-management.md",
+        "packages/content/content/pattern-contracts/patterns/chart-wrapper.md",
+        "packages/content/content/pattern-contracts/patterns/column-configurator.md",
+        "packages/content/content/pattern-contracts/patterns/command-palette.md",
+        "packages/content/content/pattern-contracts/patterns/confirmation-dialog.md"
+      ]
+    },
+    "patternCopy": {
+      "count": 18,
+      "ids": [
+        "authentication-login-biometrics-and-otp",
+        "backoffice-approval",
+        "drawer-adapter",
+        "driver-and-vehicle-administration",
+        "driver-onboarding-mobile",
+        "file-upload",
+        "form-section",
+        "fullscreen-sheet",
+        "kanban-board",
+        "kpi-card",
+        "multi-step-form",
+        "polar-chart",
+        "pricing-operations",
+        "roles-and-permissions",
+        "snackbar-provider",
+        "timeline",
+        "virtual-data-table",
+        "waterfall-chart"
+      ],
+      "sampleFiles": [
+        "packages/content/content/pattern-copy/patterns/authentication-login-biometrics-and-otp/all.json",
+        "packages/content/content/pattern-copy/patterns/backoffice-approval/all.json",
+        "packages/content/content/pattern-copy/patterns/drawer-adapter/all.json",
+        "packages/content/content/pattern-copy/patterns/driver-and-vehicle-administration/all.json",
+        "packages/content/content/pattern-copy/patterns/driver-onboarding-mobile/all.json",
+        "packages/content/content/pattern-copy/patterns/file-upload/all.json",
+        "packages/content/content/pattern-copy/patterns/form-section/all.json",
+        "packages/content/content/pattern-copy/patterns/fullscreen-sheet/all.json",
+        "packages/content/content/pattern-copy/patterns/kanban-board/all.json",
+        "packages/content/content/pattern-copy/patterns/kpi-card/all.json",
+        "packages/content/content/pattern-copy/patterns/multi-step-form/all.json",
+        "packages/content/content/pattern-copy/patterns/polar-chart/all.json",
+        "packages/content/content/pattern-copy/patterns/pricing-operations/all.json",
+        "packages/content/content/pattern-copy/patterns/roles-and-permissions/all.json",
+        "packages/content/content/pattern-copy/patterns/snackbar-provider/all.json",
+        "packages/content/content/pattern-copy/patterns/timeline/all.json"
+      ]
+    },
+    "templates": {
+      "count": 9,
+      "ids": [
+        "agent-workspace",
+        "configuration-console",
+        "driver-card-wallet",
+        "driver-mobile-app",
+        "fleet-dashboard-suite",
+        "fleet-manager-desktop",
+        "internal-operations-console",
+        "routes-and-stations",
+        "settings-workspace"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+      ]
+    }
+  },
+  "review": {
+    "claimsWithoutEvidence": []
+  },
+  "foundationGate": {
+    "growth": {
+      "status": "pass"
+    },
+    "tone": {
+      "status": "pass"
+    },
+    "accessibility": {
+      "status": "pass"
+    },
+    "voice": {
+      "status": "pass"
+    }
+  },
+  "primitiveGate": {
+    "measurement": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "message": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "charts": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    }
+  }
+}

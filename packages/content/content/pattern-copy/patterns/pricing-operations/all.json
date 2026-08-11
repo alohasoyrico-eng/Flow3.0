@@ -1,0 +1,94 @@
+{
+  "patterns": {
+    "pricing-operations": {
+      "title": "Pricing Operations",
+      "purpose": "Coordinate pricing rule queues, editable rule review, approval submission, permission boundaries, and operational feedback without becoming an internal-tools template.",
+      "useWhen": [
+        "A workflow manages pricing, commission, surge, or rate rules.",
+        "Rules require editable review and explicit submission to approval.",
+        "Permission boundaries and feedback must remain reusable outside a single internal-tools template."
+      ],
+      "doNotUseWithoutReview": [
+        "Pricing changes affect regulated, financial, legal, safety, or irreversible decisions.",
+        "The workflow only needs a generic editable table.",
+        "Access control is enforced only by a route shell."
+      ],
+      "foundations": [
+        ["Accessibility", "A labelled Surface and delegated table/drawer/feedback boundaries keep pricing changes inspectable and operable."],
+        ["Depth", "Surface owns grouping while Virtual Data Table owns row/editing depth."],
+        ["Energy", "Pending, selected, editing, submitting, error, and disabled states cascade into badges and pattern boundaries."],
+        ["Frame", "Rule tables, editor width, density, and feedback remain token-driven."],
+        ["Growth", "Pricing operations can move into future internal-tools templates without cloning table or drawer behavior."],
+        ["Iconography", "Icons remain owned by child components and patterns."],
+        ["Momentum", "Submitting and loading behavior remain delegated to Flow state contracts."],
+        ["State", "Pricing state maps explicitly to rule queue, permission matrix, editor, and feedback boundaries."],
+        ["Symbol", "Pricing symbols may support scan value, but text remains required for rule status, scope, value, and approval state."],
+        ["Tone", "Pending, approval, success, warning, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Approval labels, rule copy, permission copy, and recovery messages stay explicit."]
+      ],
+      "slots": [
+        ["pricingOperationsSurface", "Surface", "required", "Structural pricing operations group."],
+        ["pricingSummary", "Badge", "conditional", "Pricing workflow summary."],
+        ["pricingMetric", "Badge", "conditional", "Pending approval, draft, or active-rule metrics."],
+        ["pricingPermissionBoundary", "Roles and Permissions", "conditional", "Access and approval policy boundary."],
+        ["pricingRulesBoundary", "Virtual Data Table", "required", "Rule queue, filters, editable drawer, approval action, table, and feedback boundary."],
+        ["pricingFeedbackBoundary", "Status Feedback View", "conditional", "Submission or recovery feedback."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Virtual Data Table",
+        "Roles and Permissions",
+        "Status Feedback View"
+      ],
+      "variants": [
+        ["Rule queue", "Required", "Pricing rules provide ID, name, scope, type, value, status, and owner."],
+        ["Pending approval", "State", "Pending rules and submit actions move the workflow into approval context."],
+        ["Permission policy", "Conditional", "Roles and Permissions represents pricing/admin access without relying only on a shell guard."]
+      ],
+      "motion": [
+        ["Submitting", "Surface marks busy while child patterns own loading and feedback rendering."],
+        ["Editing", "Virtual Data Table owns drawer open/closed transitions."],
+        ["Feedback", "Status Feedback View owns toast/error/empty semantics."]
+      ],
+      "accessibility": [
+        "Expose pricing operations as a labelled group.",
+        "Use Flow table, drawer, permission, and feedback semantics.",
+        "Represent pricing status and approval state with text.",
+        "Do not rely on color-only status."
+      ],
+      "implementationChecklist": [
+        "Compose Surface, Badge, Virtual Data Table, Roles and Permissions, and Status Feedback View.",
+        "Pass rule rows through Virtual Data Table.",
+        "Submit approval through table/editor actions instead of local buttons.",
+        "Expose permission policy when pricing actions are restricted.",
+        "Reject local pricing tables, custom drawers, route-only guards, Card wrappers, and docs-only shells."
+      ],
+      "tests": [
+        "Composes Surface plus pricing rule, permission, and feedback boundaries.",
+        "Density and state cascade through delegated pattern boundaries.",
+        "Forwards rule selection, sort, pagination, approval, editor, permission, and feedback callbacks.",
+        "No local table, local drawer, local toast, route guard, Card wrapper, or injected markup is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Pricing Operations for rule queue plus approval submission workflows.",
+          "Use Virtual Data Table for the editable queue boundary.",
+          "Use Roles and Permissions when access policy must be visible."
+        ],
+        "mustAsk": [
+          "Before applying regulated, financial, legal, safety, or irreversible pricing changes.",
+          "Before bypassing Flow table, drawer, or feedback boundaries.",
+          "Before hiding permission policy inside a template shell."
+        ],
+        "rejectIf": [
+          "A local pricing table replaces Virtual Data Table.",
+          "Approval actions are local fake buttons.",
+          "Permission state is represented only by route/shell code."
+        ],
+        "handoff": "Confirm rule schema, approval states, permission model, editable fields, feedback semantics, and audit requirements."
+      }
+    }
+  }
+}

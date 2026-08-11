@@ -1,0 +1,2276 @@
+{
+  "status": "pass",
+  "audit": "zip owner export matrix",
+  "principle": "Every Flow owner used to absorb ZIP kits must exist as a real spec, runtime, type surface, or governed primitive/foundation contract instead of only a planning label.",
+  "generatedAt": "2026-08-11T00:45:13.865Z",
+  "inventory": {
+    "kits": 16,
+    "foundationOwners": 11,
+    "primitiveOwners": 13,
+    "componentOwners": 45,
+    "patternOwners": 31,
+    "templateOwners": 9,
+    "componentPackageExports": 45,
+    "patternPackageExports": 31,
+    "templatePackageExports": 9,
+    "reactBackedPrimitiveExports": 1,
+    "missingSpecs": 0,
+    "missingReactSources": 0,
+    "missingReactTypes": 0,
+    "missingPackageExports": 0,
+    "zipOwnerExportDebt": 0
+  },
+  "owners": {
+    "foundations": [
+      {
+        "id": "accessibility",
+        "name": "Accessibility",
+        "layer": "foundations",
+        "kits": [
+          "agent-chat",
+          "auth",
+          "auth-otp",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "mailings",
+          "onboarding-driver",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet",
+          "wizard"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "depth",
+        "name": "Depth",
+        "layer": "foundations",
+        "kits": [
+          "mailings",
+          "ios-frame"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "energy",
+        "name": "Energy",
+        "layer": "foundations",
+        "kits": [
+          "auth",
+          "mailings"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "frame",
+        "name": "Frame",
+        "layer": "foundations",
+        "kits": [
+          "agent-chat",
+          "auth",
+          "auth-otp",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "mailings",
+          "ios-frame",
+          "onboarding-driver",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet",
+          "wizard"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "growth",
+        "name": "Growth",
+        "layer": "foundations",
+        "kits": [
+          "mailings"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "iconography",
+        "name": "Iconography",
+        "layer": "foundations",
+        "kits": [
+          "mailings"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "momentum",
+        "name": "Momentum",
+        "layer": "foundations",
+        "kits": [
+          "mailings"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "state",
+        "name": "State",
+        "layer": "foundations",
+        "kits": [
+          "agent-chat",
+          "auth",
+          "auth-otp",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "mailings",
+          "onboarding-driver",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet",
+          "wizard"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "symbol",
+        "name": "Symbol",
+        "layer": "foundations",
+        "kits": [
+          "mailings"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "tone",
+        "name": "Tone",
+        "layer": "foundations",
+        "kits": [
+          "config",
+          "dashboards",
+          "fleet-dashboard",
+          "internal-tools",
+          "mailings"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      },
+      {
+        "id": "voice",
+        "name": "Voice",
+        "layer": "foundations",
+        "kits": [
+          "agent-chat",
+          "auth",
+          "auth-otp",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "mailings",
+          "onboarding-driver",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet",
+          "wizard"
+        ],
+        "checks": {
+          "spec": true
+        },
+        "missing": []
+      }
+    ],
+    "primitives": [
+      {
+        "id": "breakpoints",
+        "name": "Breakpoints",
+        "layer": "primitives",
+        "kits": [
+          "mailings"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "charts",
+        "name": "Charts",
+        "layer": "primitives",
+        "kits": [
+          "agent-chat",
+          "dashboards",
+          "fleet-dashboard"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "color",
+        "name": "Color",
+        "layer": "primitives",
+        "kits": [
+          "mailings"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "density",
+        "name": "Density",
+        "layer": "primitives",
+        "kits": [
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "mailings",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "duration",
+        "name": "Duration",
+        "layer": "primitives",
+        "kits": [
+          "mailings"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "field-action",
+        "name": "Field Action",
+        "layer": "primitives",
+        "kits": [
+          "auth",
+          "auth-otp",
+          "config",
+          "onboarding-driver",
+          "settings",
+          "wizard"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "iconography",
+        "name": "Iconography",
+        "layer": "primitives",
+        "kits": [
+          "auth",
+          "auth-otp",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "mailings",
+          "ios-frame",
+          "onboarding-driver",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet",
+          "wizard"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "maps",
+        "name": "Maps",
+        "layer": "primitives",
+        "kits": [
+          "drivers-app",
+          "rutas"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "message",
+        "name": "Message",
+        "layer": "primitives",
+        "kits": [
+          "agent-chat",
+          "mailings"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "radius",
+        "name": "Radius",
+        "layer": "primitives",
+        "kits": [
+          "mailings",
+          "ios-frame"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "spacing",
+        "name": "Spacing",
+        "layer": "primitives",
+        "kits": [
+          "mailings"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "surface",
+        "name": "Surface",
+        "layer": "primitives",
+        "kits": [
+          "agent-chat",
+          "auth",
+          "auth-otp",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "ios-frame",
+          "onboarding-driver",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet",
+          "wizard"
+        ],
+        "reactBacked": true,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      },
+      {
+        "id": "typography",
+        "name": "Typography",
+        "layer": "primitives",
+        "kits": [
+          "agent-chat",
+          "auth",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "mailings",
+          "onboarding-driver",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet",
+          "wizard"
+        ],
+        "reactBacked": false,
+        "checks": {
+          "spec": true,
+          "contentContract": true,
+          "reactExport": true,
+          "reactSource": true,
+          "reactTypes": true
+        },
+        "missing": []
+      }
+    ],
+    "components": [
+      {
+        "id": "accordion",
+        "name": "Accordion",
+        "layer": "components",
+        "kits": [
+          "fleet-dashboard"
+        ],
+        "fileBase": "Accordion",
+        "exportKey": "./react/accordion",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "audit-event",
+        "name": "Audit Event",
+        "layer": "components",
+        "kits": [
+          "config"
+        ],
+        "fileBase": "AuditEvent",
+        "exportKey": "./react/audit-event",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "avatar",
+        "name": "Avatar",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "settings",
+          "wizard"
+        ],
+        "fileBase": "Avatar",
+        "exportKey": "./react/avatar",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "badge",
+        "name": "Badge",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "auth-otp",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "onboarding-driver",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet",
+          "wizard"
+        ],
+        "fileBase": "Badge",
+        "exportKey": "./react/badge",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "biometric-prompt",
+        "name": "Biometric Prompt",
+        "layer": "components",
+        "kits": [
+          "auth-otp",
+          "onboarding-driver"
+        ],
+        "fileBase": "BiometricPrompt",
+        "exportKey": "./react/biometric-prompt",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "breadcrumbs",
+        "name": "Breadcrumbs",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "config",
+          "dashboards",
+          "fleet-dashboard",
+          "settings",
+          "wizard"
+        ],
+        "fileBase": "Breadcrumbs",
+        "exportKey": "./react/breadcrumbs",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "button",
+        "name": "Button",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "auth",
+          "auth-otp",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "onboarding-driver",
+          "onboarding-fm",
+          "rutas",
+          "settings",
+          "wallet",
+          "wizard"
+        ],
+        "fileBase": "Button",
+        "exportKey": "./react/button",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "card-summary",
+        "name": "Card Summary",
+        "layer": "components",
+        "kits": [
+          "drivers-app",
+          "onboarding-driver",
+          "wallet"
+        ],
+        "fileBase": "CardSummary",
+        "exportKey": "./react/card-summary",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "chart-panel",
+        "name": "Chart Panel",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "dashboards"
+        ],
+        "fileBase": "ChartPanel",
+        "exportKey": "./react/chart-panel",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "chat-composer",
+        "name": "Chat Composer",
+        "layer": "components",
+        "kits": [
+          "agent-chat"
+        ],
+        "fileBase": "ChatComposer",
+        "exportKey": "./react/chat-composer",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "chat-message",
+        "name": "Chat Message",
+        "layer": "components",
+        "kits": [
+          "agent-chat"
+        ],
+        "fileBase": "ChatMessage",
+        "exportKey": "./react/chat-message",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "chat-thread",
+        "name": "Chat Thread",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "internal-tools"
+        ],
+        "fileBase": "ChatThread",
+        "exportKey": "./react/chat-thread",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "checkbox",
+        "name": "Checkbox",
+        "layer": "components",
+        "kits": [
+          "auth",
+          "auth-otp",
+          "onboarding-fm"
+        ],
+        "fileBase": "Checkbox",
+        "exportKey": "./react/checkbox",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "chip",
+        "name": "Chip",
+        "layer": "components",
+        "kits": [
+          "fleet-dashboard",
+          "onboarding-fm",
+          "rutas"
+        ],
+        "fileBase": "Chip",
+        "exportKey": "./react/chip",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "code-input",
+        "name": "Code Input",
+        "layer": "components",
+        "kits": [
+          "auth-otp",
+          "onboarding-driver",
+          "onboarding-fm"
+        ],
+        "fileBase": "CodeInput",
+        "exportKey": "./react/code-input",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "combobox",
+        "name": "Combobox",
+        "layer": "components",
+        "kits": [
+          "config",
+          "dashboards"
+        ],
+        "fileBase": "Combobox",
+        "exportKey": "./react/combobox",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "date-picker",
+        "name": "Date Picker",
+        "layer": "components",
+        "kits": [
+          "dashboards",
+          "fleet-dashboard",
+          "wizard"
+        ],
+        "fileBase": "DatePicker",
+        "exportKey": "./react/date-picker",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "date-range-picker",
+        "name": "Date Range Picker",
+        "layer": "components",
+        "kits": [
+          "dashboards"
+        ],
+        "fileBase": "DateRangePicker",
+        "exportKey": "./react/date-range-picker",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "dialog",
+        "name": "Dialog",
+        "layer": "components",
+        "kits": [
+          "config",
+          "fleet-dashboard",
+          "internal-tools",
+          "settings"
+        ],
+        "fileBase": "Dialog",
+        "exportKey": "./react/dialog",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "drawer",
+        "name": "Drawer",
+        "layer": "components",
+        "kits": [
+          "config",
+          "fleet-dashboard",
+          "internal-tools"
+        ],
+        "fileBase": "Drawer",
+        "exportKey": "./react/drawer",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "empty-state",
+        "name": "Empty State",
+        "layer": "components",
+        "kits": [
+          "fleet-dashboard",
+          "onboarding-fm"
+        ],
+        "fileBase": "EmptyState",
+        "exportKey": "./react/empty-state",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "icon-button",
+        "name": "Icon Button",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "config",
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "rutas",
+          "wallet"
+        ],
+        "fileBase": "IconButton",
+        "exportKey": "./react/icon-button",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "inline-validation",
+        "name": "Inline Validation",
+        "layer": "components",
+        "kits": [
+          "auth",
+          "auth-otp",
+          "settings"
+        ],
+        "fileBase": "InlineValidation",
+        "exportKey": "./react/inline-validation",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "input",
+        "name": "Input",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "auth",
+          "auth-otp",
+          "config",
+          "fleet-dashboard",
+          "internal-tools",
+          "onboarding-driver",
+          "onboarding-fm",
+          "settings",
+          "wizard"
+        ],
+        "fileBase": "Input",
+        "exportKey": "./react/input",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "kpi-tile",
+        "name": "KPI Tile",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "dashboards",
+          "fleet-dashboard",
+          "internal-tools"
+        ],
+        "fileBase": "KpiTile",
+        "exportKey": "./react/kpi-tile",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "menu",
+        "name": "Menu",
+        "layer": "components",
+        "kits": [
+          "config",
+          "dashboards",
+          "fleet-dashboard",
+          "internal-tools"
+        ],
+        "fileBase": "Menu",
+        "exportKey": "./react/menu",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "movement-row",
+        "name": "Movement Row",
+        "layer": "components",
+        "kits": [
+          "drivers-app",
+          "onboarding-driver",
+          "wallet"
+        ],
+        "fileBase": "MovementRow",
+        "exportKey": "./react/movement-row",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "pagination",
+        "name": "Pagination",
+        "layer": "components",
+        "kits": [
+          "fleet-dashboard"
+        ],
+        "fileBase": "Pagination",
+        "exportKey": "./react/pagination",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "progress-indicator",
+        "name": "Progress Indicator",
+        "layer": "components",
+        "kits": [
+          "dashboards",
+          "drivers-app",
+          "fleet-dashboard",
+          "onboarding-driver"
+        ],
+        "fileBase": "ProgressIndicator",
+        "exportKey": "./react/progress-indicator",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "quick-action",
+        "name": "Quick Action",
+        "layer": "components",
+        "kits": [
+          "wallet"
+        ],
+        "fileBase": "QuickAction",
+        "exportKey": "./react/quick-action",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "radio-button",
+        "name": "Radio Button",
+        "layer": "components",
+        "kits": [
+          "wizard"
+        ],
+        "fileBase": "RadioButton",
+        "exportKey": "./react/radio-button",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "route-summary",
+        "name": "Route Summary",
+        "layer": "components",
+        "kits": [
+          "drivers-app",
+          "rutas"
+        ],
+        "fileBase": "RouteSummary",
+        "exportKey": "./react/route-summary",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "segmented-control",
+        "name": "Segmented Control",
+        "layer": "components",
+        "kits": [
+          "wallet"
+        ],
+        "fileBase": "SegmentedControl",
+        "exportKey": "./react/segmented-control",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "select",
+        "name": "Select",
+        "layer": "components",
+        "kits": [
+          "config",
+          "fleet-dashboard",
+          "internal-tools",
+          "onboarding-fm",
+          "settings",
+          "wizard"
+        ],
+        "fileBase": "Select",
+        "exportKey": "./react/select",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "skeleton",
+        "name": "Skeleton",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "fleet-dashboard"
+        ],
+        "fileBase": "Skeleton",
+        "exportKey": "./react/skeleton",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "spinner",
+        "name": "Spinner",
+        "layer": "components",
+        "kits": [
+          "auth",
+          "rutas"
+        ],
+        "fileBase": "Spinner",
+        "exportKey": "./react/spinner",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "station-pin",
+        "name": "Station Pin",
+        "layer": "components",
+        "kits": [
+          "drivers-app",
+          "rutas"
+        ],
+        "fileBase": "StationPin",
+        "exportKey": "./react/station-pin",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "stepper",
+        "name": "Stepper",
+        "layer": "components",
+        "kits": [
+          "onboarding-driver",
+          "onboarding-fm",
+          "wizard"
+        ],
+        "fileBase": "Stepper",
+        "exportKey": "./react/stepper",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "switch",
+        "name": "Switch",
+        "layer": "components",
+        "kits": [
+          "auth",
+          "drivers-app",
+          "onboarding-driver",
+          "settings",
+          "wallet"
+        ],
+        "fileBase": "Switch",
+        "exportKey": "./react/switch",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "table",
+        "name": "Table",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "config",
+          "dashboards",
+          "fleet-dashboard",
+          "internal-tools"
+        ],
+        "fileBase": "Table",
+        "exportKey": "./react/table",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "tabs",
+        "name": "Tabs",
+        "layer": "components",
+        "kits": [
+          "config",
+          "dashboards",
+          "fleet-dashboard",
+          "internal-tools",
+          "settings"
+        ],
+        "fileBase": "Tabs",
+        "exportKey": "./react/tabs",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "text-area",
+        "name": "Text Area",
+        "layer": "components",
+        "kits": [
+          "config"
+        ],
+        "fileBase": "TextArea",
+        "exportKey": "./react/text-area",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "toast",
+        "name": "Toast",
+        "layer": "components",
+        "kits": [
+          "agent-chat",
+          "auth",
+          "auth-otp",
+          "config",
+          "drivers-app",
+          "fleet-dashboard",
+          "internal-tools",
+          "onboarding-driver",
+          "onboarding-fm",
+          "settings",
+          "wizard"
+        ],
+        "fileBase": "Toast",
+        "exportKey": "./react/toast",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "tooltip",
+        "name": "Tooltip",
+        "layer": "components",
+        "kits": [
+          "dashboards",
+          "fleet-dashboard"
+        ],
+        "fileBase": "Tooltip",
+        "exportKey": "./react/tooltip",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "tree-view",
+        "name": "Tree View",
+        "layer": "components",
+        "kits": [
+          "config"
+        ],
+        "fileBase": "TreeView",
+        "exportKey": "./react/tree-view",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      }
+    ],
+    "patterns": [
+      {
+        "id": "account-operations",
+        "name": "Account Operations",
+        "layer": "patterns",
+        "kits": [
+          "internal-tools"
+        ],
+        "fileBase": "AccountOperations",
+        "exportKey": "./react/patterns/account-operations",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "action-sheet",
+        "name": "Action Sheet",
+        "layer": "patterns",
+        "kits": [
+          "rutas",
+          "wallet"
+        ],
+        "fileBase": "ActionSheet",
+        "exportKey": "./react/patterns/action-sheet",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "advanced-filters",
+        "name": "Advanced Filters",
+        "layer": "patterns",
+        "kits": [
+          "dashboards",
+          "fleet-dashboard"
+        ],
+        "fileBase": "AdvancedFilters",
+        "exportKey": "./react/patterns/advanced-filters",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "authentication-login-biometrics-and-otp",
+        "name": "Authentication, Login, Biometrics and OTP",
+        "layer": "patterns",
+        "kits": [
+          "auth",
+          "auth-otp",
+          "config",
+          "onboarding-driver"
+        ],
+        "fileBase": "AuthenticationLoginBiometricsAndOtp",
+        "exportKey": "./react/patterns/authentication-login-biometrics-and-otp",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "backoffice-approval",
+        "name": "Backoffice Approval",
+        "layer": "patterns",
+        "kits": [
+          "internal-tools"
+        ],
+        "fileBase": "BackofficeApproval",
+        "exportKey": "./react/patterns/backoffice-approval",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "case-management",
+        "name": "Case Management",
+        "layer": "patterns",
+        "kits": [
+          "internal-tools"
+        ],
+        "fileBase": "CaseManagement",
+        "exportKey": "./react/patterns/case-management",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "chart-wrapper",
+        "name": "Chart Wrapper",
+        "layer": "patterns",
+        "kits": [
+          "dashboards"
+        ],
+        "fileBase": "ChartWrapper",
+        "exportKey": "./react/patterns/chart-wrapper",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "confirmation-dialog",
+        "name": "Confirmation Dialog",
+        "layer": "patterns",
+        "kits": [
+          "fleet-dashboard",
+          "settings",
+          "wallet"
+        ],
+        "fileBase": "ConfirmationDialog",
+        "exportKey": "./react/patterns/confirmation-dialog",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "dense-operational-list",
+        "name": "Dense Operational List",
+        "layer": "patterns",
+        "kits": [
+          "internal-tools"
+        ],
+        "fileBase": "DenseOperationalList",
+        "exportKey": "./react/patterns/dense-operational-list",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "driver-and-vehicle-administration",
+        "name": "Driver and Vehicle Administration",
+        "layer": "patterns",
+        "kits": [
+          "config"
+        ],
+        "fileBase": "DriverAndVehicleAdministration",
+        "exportKey": "./react/patterns/driver-and-vehicle-administration",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "driver-onboarding-mobile",
+        "name": "Driver Onboarding Mobile",
+        "layer": "patterns",
+        "kits": [
+          "drivers-app",
+          "onboarding-driver"
+        ],
+        "fileBase": "DriverOnboardingMobile",
+        "exportKey": "./react/patterns/driver-onboarding-mobile",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "email-template-layout",
+        "name": "Email Template Layout",
+        "layer": "patterns",
+        "kits": [
+          "mailings"
+        ],
+        "fileBase": "EmailTemplateLayout",
+        "exportKey": "./react/patterns/email-template-layout",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "file-upload",
+        "name": "File Upload",
+        "layer": "patterns",
+        "kits": [
+          "fleet-dashboard"
+        ],
+        "fileBase": "FileUpload",
+        "exportKey": "./react/patterns/file-upload",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "fleet-manager-onboarding-desktop",
+        "name": "Fleet Manager Onboarding Desktop",
+        "layer": "patterns",
+        "kits": [
+          "onboarding-fm"
+        ],
+        "fileBase": "FleetManagerOnboardingDesktop",
+        "exportKey": "./react/patterns/fleet-manager-onboarding-desktop",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "form-section",
+        "name": "Form Section",
+        "layer": "patterns",
+        "kits": [
+          "auth",
+          "settings",
+          "wizard"
+        ],
+        "fileBase": "FormSection",
+        "exportKey": "./react/patterns/form-section",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "kpi-card",
+        "name": "KPI Card",
+        "layer": "patterns",
+        "kits": [
+          "dashboards",
+          "fleet-dashboard"
+        ],
+        "fileBase": "KpiCard",
+        "exportKey": "./react/patterns/kpi-card",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "multi-step-form",
+        "name": "Multi Step Form",
+        "layer": "patterns",
+        "kits": [
+          "onboarding-driver",
+          "onboarding-fm",
+          "wizard"
+        ],
+        "fileBase": "MultiStepForm",
+        "exportKey": "./react/patterns/multi-step-form",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "notification-panel",
+        "name": "Notification Panel",
+        "layer": "patterns",
+        "kits": [
+          "fleet-dashboard"
+        ],
+        "fileBase": "NotificationPanel",
+        "exportKey": "./react/patterns/notification-panel",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "preference-management",
+        "name": "Preference Management",
+        "layer": "patterns",
+        "kits": [
+          "settings"
+        ],
+        "fileBase": "PreferenceManagement",
+        "exportKey": "./react/patterns/preference-management",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "pricing-operations",
+        "name": "Pricing Operations",
+        "layer": "patterns",
+        "kits": [
+          "internal-tools"
+        ],
+        "fileBase": "PricingOperations",
+        "exportKey": "./react/patterns/pricing-operations",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "roles-and-permissions",
+        "name": "Roles and Permissions",
+        "layer": "patterns",
+        "kits": [
+          "config",
+          "onboarding-fm"
+        ],
+        "fileBase": "RolesAndPermissions",
+        "exportKey": "./react/patterns/roles-and-permissions",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "search",
+        "name": "Search",
+        "layer": "patterns",
+        "kits": [
+          "rutas"
+        ],
+        "fileBase": "Search",
+        "exportKey": "./react/patterns/search",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "settings",
+        "name": "Settings",
+        "layer": "patterns",
+        "kits": [
+          "settings"
+        ],
+        "fileBase": "Settings",
+        "exportKey": "./react/patterns/settings",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "sidebar",
+        "name": "Sidebar",
+        "layer": "patterns",
+        "kits": [
+          "config",
+          "dashboards",
+          "fleet-dashboard",
+          "internal-tools"
+        ],
+        "fileBase": "Sidebar",
+        "exportKey": "./react/patterns/sidebar",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "snackbar-provider",
+        "name": "Snackbar Provider",
+        "layer": "patterns",
+        "kits": [
+          "drivers-app",
+          "wallet"
+        ],
+        "fileBase": "SnackbarProvider",
+        "exportKey": "./react/patterns/snackbar-provider",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "station-discovery",
+        "name": "Station Discovery",
+        "layer": "patterns",
+        "kits": [
+          "drivers-app",
+          "rutas"
+        ],
+        "fileBase": "StationDiscovery",
+        "exportKey": "./react/patterns/station-discovery",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "status-feedback-view",
+        "name": "Status Feedback View",
+        "layer": "patterns",
+        "kits": [
+          "agent-chat",
+          "internal-tools"
+        ],
+        "fileBase": "StatusFeedbackView",
+        "exportKey": "./react/patterns/status-feedback-view",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "ticket-queue",
+        "name": "Ticket Queue",
+        "layer": "patterns",
+        "kits": [
+          "internal-tools"
+        ],
+        "fileBase": "TicketQueue",
+        "exportKey": "./react/patterns/ticket-queue",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "timeline",
+        "name": "Timeline",
+        "layer": "patterns",
+        "kits": [
+          "internal-tools"
+        ],
+        "fileBase": "Timeline",
+        "exportKey": "./react/patterns/timeline",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "topbar",
+        "name": "Topbar",
+        "layer": "patterns",
+        "kits": [
+          "agent-chat",
+          "config",
+          "dashboards",
+          "fleet-dashboard",
+          "internal-tools"
+        ],
+        "fileBase": "Topbar",
+        "exportKey": "./react/patterns/topbar",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "virtual-data-table",
+        "name": "Virtual Data Table",
+        "layer": "patterns",
+        "kits": [
+          "dashboards",
+          "fleet-dashboard"
+        ],
+        "fileBase": "VirtualDataTable",
+        "exportKey": "./react/patterns/virtual-data-table",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      }
+    ],
+    "templates": [
+      {
+        "id": "agent-workspace",
+        "name": "Agent Workspace",
+        "layer": "templates",
+        "kits": [
+          "agent-chat"
+        ],
+        "fileBase": "AgentWorkspace",
+        "exportKey": "./react/templates/agent-workspace",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "configuration-console",
+        "name": "Configuration Console",
+        "layer": "templates",
+        "kits": [
+          "config",
+          "wizard"
+        ],
+        "fileBase": "ConfigurationConsole",
+        "exportKey": "./react/templates/configuration-console",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "driver-card-wallet",
+        "name": "Driver Card Wallet",
+        "layer": "templates",
+        "kits": [
+          "wallet"
+        ],
+        "fileBase": "DriverCardWallet",
+        "exportKey": "./react/templates/driver-card-wallet",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "driver-mobile-app",
+        "name": "Driver Mobile App",
+        "layer": "templates",
+        "kits": [
+          "drivers-app",
+          "onboarding-driver"
+        ],
+        "fileBase": "DriverMobileApp",
+        "exportKey": "./react/templates/driver-mobile-app",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "fleet-dashboard-suite",
+        "name": "Fleet Dashboard Suite",
+        "layer": "templates",
+        "kits": [
+          "dashboards",
+          "fleet-dashboard"
+        ],
+        "fileBase": "FleetDashboardSuite",
+        "exportKey": "./react/templates/fleet-dashboard-suite",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "fleet-manager-desktop",
+        "name": "Fleet Manager Desktop",
+        "layer": "templates",
+        "kits": [
+          "fleet-dashboard",
+          "onboarding-fm"
+        ],
+        "fileBase": "FleetManagerDesktop",
+        "exportKey": "./react/templates/fleet-manager-desktop",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "internal-operations-console",
+        "name": "Internal Operations Console",
+        "layer": "templates",
+        "kits": [
+          "internal-tools"
+        ],
+        "fileBase": "InternalOperationsConsole",
+        "exportKey": "./react/templates/internal-operations-console",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "routes-and-stations",
+        "name": "Routes and Stations",
+        "layer": "templates",
+        "kits": [
+          "rutas"
+        ],
+        "fileBase": "RoutesAndStations",
+        "exportKey": "./react/templates/routes-and-stations",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      },
+      {
+        "id": "settings-workspace",
+        "name": "Settings Workspace",
+        "layer": "templates",
+        "kits": [
+          "settings"
+        ],
+        "fileBase": "SettingsWorkspace",
+        "exportKey": "./react/templates/settings-workspace",
+        "checks": {
+          "spec": true,
+          "source": true,
+          "sourceTypes": true,
+          "dist": true,
+          "distTypes": true,
+          "packageExport": true
+        },
+        "missing": []
+      }
+    ]
+  },
+  "issues": []
+}

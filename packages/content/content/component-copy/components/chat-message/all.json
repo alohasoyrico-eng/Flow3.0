@@ -1,0 +1,266 @@
+{
+  "components": {
+    "chat-message": {
+      "operational-example": {
+        "copy": "Render one governed conversational message with author context, delivery state, optional avatar, timestamp, and recovery action.",
+        "scenario": {
+          "rationaleTitle": "Why chat-message",
+          "rationale": [
+            "Keeps component behavior package-owned.",
+            "Preserves foundation and primitive cascade.",
+            "Avoids local visual or workflow duplication."
+          ]
+        }
+      },
+      "anatomy": {
+        "items": [
+          {
+            "part": "Message container",
+            "rule": "Owns author alignment, density, live-region role, and state attributes.",
+            "tokens": [
+              "comp.chat-message.*",
+              "message.*",
+              "sys.state.*"
+            ]
+          },
+          {
+            "part": "Avatar slot",
+            "rule": "Optional Avatar for non-user identity; never required for meaning.",
+            "tokens": [
+              "comp.avatar.*",
+              "sys.symbol.*"
+            ]
+          },
+          {
+            "part": "Bubble surface",
+            "rule": "Uses Surface for shape and tone without Card behavior.",
+            "tokens": [
+              "surface.*",
+              "sys.depth.*"
+            ]
+          },
+          {
+            "part": "Message copy",
+            "rule": "Uses Message, Voice, and Tone for body, metadata, and recovery.",
+            "tokens": [
+              "message.*",
+              "sys.voice.*",
+              "sys.tone.*"
+            ]
+          },
+          {
+            "part": "Recovery action",
+            "rule": "Optional Button for retry or related action.",
+            "tokens": [
+              "comp.button.*",
+              "sys.accessibility.*"
+            ]
+          }
+        ]
+      },
+      "accessibility": {
+        "statePrecedence": "failed > loading > sending > delivered > sent > default",
+        "items": [
+          "Keep visible labels and accessible names aligned.",
+          "Expose machine-readable state through props and data attributes.",
+          "Do not rely on color, symbol, or placeholder text alone.",
+          "Preserve keyboard, focus, disabled, loading, and recovery behavior."
+        ]
+      },
+      "variants": {
+        "copy": "chat-message variants stay semantic and do not fork visual contracts.",
+        "demos": [
+          {
+            "label": "user",
+            "variant": "user",
+            "state": "default"
+          },
+          {
+            "label": "agent",
+            "variant": "agent",
+            "state": "default"
+          },
+          {
+            "label": "system",
+            "variant": "system",
+            "state": "default"
+          },
+          {
+            "label": "assistant",
+            "variant": "assistant",
+            "state": "default"
+          }
+        ]
+      },
+      "states": {
+        "copy": "Chat Message states expose delivery, recovery, and loading meaning through Message, Surface, Tone, Voice, and State instead of raw chat bubble styling.",
+        "demos": [
+          {
+            "label": "Default",
+            "state": "default",
+            "author": "agent",
+            "body": "I can help with that."
+          },
+          {
+            "label": "Sending",
+            "state": "sending",
+            "author": "user",
+            "body": "Checking the transaction."
+          },
+          {
+            "label": "Sent",
+            "state": "sent",
+            "author": "user",
+            "body": "The receipt is attached."
+          },
+          {
+            "label": "Delivered",
+            "state": "delivered",
+            "author": "user",
+            "body": "The card is active again."
+          },
+          {
+            "label": "Failed",
+            "state": "failed",
+            "author": "user",
+            "body": "Retry sending this message.",
+            "action": {
+              "label": "Retry"
+            }
+          },
+          {
+            "label": "Loading",
+            "state": "loading",
+            "author": "assistant",
+            "body": "Preparing response."
+          }
+        ]
+      },
+      "api-foundations": {
+        "copy": "chat-message API exposes semantic props while Flow foundations own state, density, tone, frame, and accessibility.",
+        "props": [
+          {
+            "name": "author",
+            "type": "user | agent | system | assistant",
+            "required": "No",
+            "notes": "Author role."
+          },
+          {
+            "name": "body",
+            "type": "string",
+            "required": "No",
+            "notes": "Visible message body."
+          },
+          {
+            "name": "state",
+            "type": "default | sending | sent | delivered | failed | loading",
+            "required": "No",
+            "notes": "Delivery or loading state."
+          },
+          {
+            "name": "tone",
+            "type": "neutral | info | success | warning | danger",
+            "required": "No",
+            "notes": "Semantic tone."
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "required": "No",
+            "notes": "Visible time metadata."
+          },
+          {
+            "name": "action",
+            "type": "ChatMessageAction",
+            "required": "No",
+            "notes": "Optional recovery action."
+          }
+        ]
+      },
+      "guidelines": {
+        "do": [
+          "Use Chat Message for one rendered message in a formal conversation.",
+          "Use when author, delivery state, and recovery action must remain explicit.",
+          "Use inside Chat Thread or a governed conversational pattern."
+        ],
+        "dont": [
+          "The message becomes a thread, inbox, or support workflow.",
+          "The body includes regulated or irreversible instructions.",
+          "A raw chat bubble, Card shell, or authorless message is requested."
+        ],
+        "items": [
+          "Confirm the component remains atomic.",
+          "Confirm symbols and tone have visible text fallback.",
+          "Confirm patterns/templates compose this component through Flow APIs."
+        ]
+      },
+      "playground": {
+        "copy": "Use the playground to verify chat-message state, density, labels, and callback behavior.",
+        "controls": [
+          {
+            "name": "author",
+            "label": "author",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "body",
+            "label": "body",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "state",
+            "label": "state",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "tone",
+            "label": "tone",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "timestamp",
+            "label": "timestamp",
+            "type": "text",
+            "value": ""
+          }
+        ]
+      },
+      "tests-rejection-rules": {
+        "mustTest": [
+          "State precedence",
+          "Density cascade",
+          "Accessible label and recovery association",
+          "Controlled/uncontrolled behavior when applicable",
+          "No local visual shell duplication"
+        ],
+        "rejectIf": [
+          "The message becomes a thread, inbox, or support workflow.",
+          "The body includes regulated or irreversible instructions.",
+          "A raw chat bubble, Card shell, or authorless message is requested."
+        ]
+      },
+      "miel": {
+        "copy": "Agents may use Chat Message as an atom of a governed conversation; they must not create local chat bubbles.",
+        "canDecide": [
+          "Use Chat Message for one rendered message in a formal conversation.",
+          "Use when author, delivery state, and recovery action must remain explicit.",
+          "Use inside Chat Thread or a governed conversational pattern."
+        ],
+        "mustAsk": [
+          "The message becomes a thread, inbox, or support workflow.",
+          "The body includes regulated or irreversible instructions."
+        ],
+        "rejectIf": [
+          "The message becomes a thread, inbox, or support workflow.",
+          "The body includes regulated or irreversible instructions.",
+          "A raw chat bubble, Card shell, or authorless message is requested."
+        ],
+        "handoff": "I am using chat-message through the Flow component contract and need confirmation for product copy, state ownership, and escalation boundaries."
+      }
+    }
+  }
+}

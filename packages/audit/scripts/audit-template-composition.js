@@ -38,7 +38,7 @@ function checkTemplateComposition() {
     if (!requiredPatterns.includes("Sidebar")) add("errors", templatesFile, 1, `${entry.id} must declare Sidebar as a consumed pattern.`);
 
     for (const pattern of requiredPatterns) {
-      if (!blueprint?.processDetails?.[pattern]) add("errors", templateBlueprintsFile, 1, `${entry.title} missing processDetails for consumed pattern ${pattern}.`);
+      if (!blueprint?.patternDetails?.[pattern]) add("errors", templateBlueprintsFile, 1, `${entry.title} missing patternDetails for consumed pattern ${pattern}.`);
     }
 
     const packageDemoCalls = [
@@ -57,7 +57,7 @@ function checkTemplateComposition() {
       }
     }
     if (rendererSource.includes("template-desktop-demo__module") || rendererSource.includes("template-desktop-demo__audit")) {
-      add("errors", desktopDemoFile, 1, `${entry.id} must not use local card-like template module surfaces; use Design System Card roots.`);
+      add("errors", desktopDemoFile, 1, `${entry.id} must not use local card-like template module surfaces; use Design System Surface primitives.`);
     }
   }
 
@@ -97,13 +97,19 @@ function checkTemplateComposition() {
   if (!businessRendererSource.includes('packageDemo("segmented-control"') || businessRendererSource.includes("<div class=\"segmented")) {
     add("errors", businessRenderersFile, 1, "Configuration Console role switcher must use Design System Segmented Control through packageDemo.");
   }
-  for (const marker of ["data-template-module-card", "template-module-content"]) {
-    if (!businessRendererSource.includes(marker)) add("errors", businessRenderersFile, 1, `Configuration Console module surfaces must use Design System Card roots with marker ${marker}.`);
+  for (const marker of ["data-template-module-surface", "template-module-content"]) {
+    if (!businessRendererSource.includes(marker)) add("errors", businessRenderersFile, 1, `Configuration Console module surfaces must use Design System Surface primitives with marker ${marker}.`);
+  }
+  for (const marker of ['data-flow-primitive": "surface"', 'data-surface-role": "section"', 'class: "surface template-module-surface"']) {
+    if (!businessRendererSource.includes(marker)) add("errors", businessRenderersFile, 1, `Configuration Console module wrappers must instantiate the Surface primitive: ${marker}.`);
   }
   for (const forbidden of ["template-desktop-demo__module", "template-desktop-demo__audit"]) {
-    if (businessRendererSource.includes(forbidden)) add("errors", businessRenderersFile, 1, `Configuration Console must not use local card-like surface ${forbidden}; use Design System Card.`);
+    if (businessRendererSource.includes(forbidden)) add("errors", businessRenderersFile, 1, `Configuration Console must not use local card-like surface ${forbidden}; use Design System Surface.`);
   }
-  for (const component of ["button", "badge", "segmented-control", "card", "table", "checkbox", "switch", "audit-event", "error-panel"]) {
+  for (const forbidden of ['data-template-module-card', 'packageDemo("card"']) {
+    if (demoSource.includes(forbidden) || businessRendererSource.includes(forbidden)) add("errors", businessRenderersFile, 1, `Template module wrappers must not use Card as a structural primitive: ${forbidden}.`);
+  }
+  for (const component of ["button", "badge", "segmented-control", "table", "checkbox", "switch", "audit-event", "error-panel"]) {
     if (!businessRendererSource.includes(`packageDemo("${component}"`)) add("errors", businessRenderersFile, 1, `Business pattern renderers must compose Design System ${component}.`);
   }
   if (/<button(?![^`]*packageDemo)/.test(demoSource)) add("errors", desktopDemoFile, 1, "Desktop template demos must not declare raw custom <button> elements.");

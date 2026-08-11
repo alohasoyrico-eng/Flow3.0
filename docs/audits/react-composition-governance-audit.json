@@ -3,11 +3,11 @@
   "audit": "react composition governance",
   "principle": "React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently. The actionable debt metric is compositionDebt.",
   "inventory": {
-    "components": 56,
+    "components": 60,
     "compositionDebt": 0,
-    "compositionalComponents": 23,
-    "compositionEdges": 39,
-    "allowedEntries": 23,
+    "compositionalComponents": 27,
+    "compositionEdges": 50,
+    "allowedEntries": 27,
     "unexpectedImports": 0,
     "missingImports": 0,
     "missingReasons": 0,
@@ -30,6 +30,9 @@
     "CardSecurityCodeInput",
     "CardSummary",
     "ChartPanel",
+    "ChatComposer",
+    "ChatMessage",
+    "ChatThread",
     "Checkbox",
     "Chip",
     "CodeInput",
@@ -45,6 +48,7 @@
     "IconButton",
     "InlineValidation",
     "Input",
+    "InputAmount",
     "KpiTile",
     "List",
     "Menu",
@@ -121,6 +125,56 @@
       "reason": "status badge slot"
     },
     {
+      "from": "ChatComposer",
+      "to": "Button",
+      "reason": "send action slot"
+    },
+    {
+      "from": "ChatComposer",
+      "to": "IconButton",
+      "reason": "attachment action slot"
+    },
+    {
+      "from": "ChatComposer",
+      "to": "Surface",
+      "reason": "composer structural primitive boundary"
+    },
+    {
+      "from": "ChatComposer",
+      "to": "TextArea",
+      "reason": "message field slot"
+    },
+    {
+      "from": "ChatMessage",
+      "to": "Avatar",
+      "reason": "author identity slot"
+    },
+    {
+      "from": "ChatMessage",
+      "to": "Button",
+      "reason": "recovery action slot"
+    },
+    {
+      "from": "ChatMessage",
+      "to": "Surface",
+      "reason": "message bubble structural primitive boundary"
+    },
+    {
+      "from": "ChatThread",
+      "to": "ChatMessage",
+      "reason": "governed message row slot"
+    },
+    {
+      "from": "ChatThread",
+      "to": "EmptyState",
+      "reason": "unavailable conversation state slot"
+    },
+    {
+      "from": "ChatThread",
+      "to": "Surface",
+      "reason": "thread log structural primitive boundary"
+    },
+    {
       "from": "Dialog",
       "to": "Button",
       "reason": "dialog action slot"
@@ -192,6 +246,11 @@
     },
     {
       "from": "Input",
+      "to": "Spinner",
+      "reason": "field loading indicator slot"
+    },
+    {
+      "from": "InputAmount",
       "to": "Spinner",
       "reason": "field loading indicator slot"
     },
@@ -503,6 +562,84 @@
       "status": "pass"
     },
     {
+      "component": "ChatComposer",
+      "file": "packages/react/src/ChatComposer.js",
+      "actual": [
+        "Button",
+        "IconButton",
+        "Surface",
+        "TextArea"
+      ],
+      "allowed": [
+        "Button",
+        "IconButton",
+        "Surface",
+        "TextArea"
+      ],
+      "reasons": {
+        "Button": "send action slot",
+        "IconButton": "attachment action slot",
+        "Surface": "composer structural primitive boundary",
+        "TextArea": "message field slot"
+      },
+      "unexpected": [],
+      "missing": [],
+      "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatMessage",
+      "file": "packages/react/src/ChatMessage.js",
+      "actual": [
+        "Avatar",
+        "Button",
+        "Surface"
+      ],
+      "allowed": [
+        "Avatar",
+        "Button",
+        "Surface"
+      ],
+      "reasons": {
+        "Avatar": "author identity slot",
+        "Button": "recovery action slot",
+        "Surface": "message bubble structural primitive boundary"
+      },
+      "unexpected": [],
+      "missing": [],
+      "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatThread",
+      "file": "packages/react/src/ChatThread.js",
+      "actual": [
+        "ChatMessage",
+        "EmptyState",
+        "Surface"
+      ],
+      "allowed": [
+        "ChatMessage",
+        "EmptyState",
+        "Surface"
+      ],
+      "reasons": {
+        "ChatMessage": "governed message row slot",
+        "EmptyState": "unavailable conversation state slot",
+        "Surface": "thread log structural primitive boundary"
+      },
+      "unexpected": [],
+      "missing": [],
+      "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
+      "status": "pass"
+    },
+    {
       "component": "Checkbox",
       "file": "packages/react/src/Checkbox.js",
       "actual": [],
@@ -747,6 +884,25 @@
     {
       "component": "Input",
       "file": "packages/react/src/Input.js",
+      "actual": [
+        "Spinner"
+      ],
+      "allowed": [
+        "Spinner"
+      ],
+      "reasons": {
+        "Spinner": "field loading indicator slot"
+      },
+      "unexpected": [],
+      "missing": [],
+      "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
+      "status": "pass"
+    },
+    {
+      "component": "InputAmount",
+      "file": "packages/react/src/InputAmount.js",
       "actual": [
         "Spinner"
       ],

@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/confirmation-dialog/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json`
 
 ## Purpose
 
@@ -35,6 +36,155 @@ Interrupt a user only when an action has meaningful consequence and needs explic
 | State | Closed, open, confirming, loading, success, error, and cancelled states are explicit. |
 | Accessibility | Requires role dialog, labelled title, focus management, Escape, and focus restoration. |
 
+## Formal Purpose
+
+Coordinate confirmation of risky, destructive, or irreversible actions through Dialog, semantic actions, recovery messaging, and focus-safe dismissal.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+| Template Dependencies | `Settings Workspace` |
+
+## Formal States
+
+- `closed`
+- `open`
+- `confirming`
+- `loading`
+- `error`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Button`
+- `Dialog`
+- `Error Panel`
+- `Inline Validation`
+- `Toast`
+
+### Tokens
+
+- `comp.button.*`
+- `comp.dialog.*`
+- `comp.error-panel.*`
+- `comp.inline-validation.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `surface` | `component` | `Dialog` |
+| `actions` | `component` | `Button` |
+| `recovery` | `component` | `Error Panel`, `Inline Validation`, `Toast` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- An action can delete, disable, submit, revoke, overwrite, or otherwise change important state.
+- The user must understand consequence and choose confirm or cancel.
+- The action may fail and needs inline or transient recovery.
+
+### Decision Tree
+
+- Use Dialog for neutral modal content.
+- Use Confirmation Dialog when the modal requires explicit consequence review.
+- Use Inline Validation when the user can resolve the problem in the current form without modal interruption.
+
+### Failure Modes
+
+- A custom overlay recreates Dialog.
+- Confirm and cancel actions are visually inconsistent with Button contracts.
+- Escape, focus trap, or focus return is missing.
+- Destructive meaning relies only on color.
+
+### Success Metrics
+
+- Users understand the consequence before confirming.
+- Keyboard and screen reader users can cancel, confirm, and recover.
+- Destructive and loading states remain component-owned.
+
+### Accessibility
+
+- Use Dialog focus trap and focus return.
+- Keep destructive consequence in text, not color alone.
+- Disable duplicate submission while confirming.
+
+### Tests
+
+- Composes Dialog and Button without custom overlay/action visuals.
+- Covers escape, cancel, confirm, loading, and error recovery.
+- Preserves focus trap and focus return.
+
+### Agent Instructions
+
+- Compose from Dialog, Button, Error Panel, Inline Validation, and Toast.
+- Keep business copy and consequence details configurable.
+- Ask before confirming destructive, financial, compliance, or identity-sensitive actions.
+
+### Reject If
+
+- Overlay behavior is implemented outside Dialog.
+- Actions bypass Button.
+- Focus can escape the modal while open.
+- Destructive state is color-only.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -45,7 +195,7 @@ Interrupt a user only when an action has meaningful consequence and needs explic
 | cancelAction | Button | yes | Returns without side effect. |
 | feedback | Toast \| ErrorPanel \| InlineValidation | yes | Reports result or blocker. |
 
-## Components And Primitives Used
+## Components Used
 
 - Dialog
 - Button

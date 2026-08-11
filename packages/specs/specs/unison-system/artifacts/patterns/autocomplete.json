@@ -1,0 +1,162 @@
+{
+  "artifacts": {
+    "patterns": {
+      "autocomplete": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate typed suggestions, loading, empty recovery, validation, and committed selection for one field without turning the field into global search.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Combobox",
+          "Empty State",
+          "Inline Validation",
+          "List",
+          "Skeleton"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.combobox.*",
+          "comp.empty-state.*",
+          "comp.inline-validation.*",
+          "comp.list.*",
+          "comp.skeleton.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A field can suggest known values while the user types.",
+          "Selection commits a value into a field, form, or filter.",
+          "The suggestion source can be loading, empty, invalid, or disabled."
+        ],
+        "decisionTree": [
+          "Use Combobox alone for a simple suggestion list.",
+          "Use Autocomplete when suggestion state, validation, loading, and empty recovery are part of the field behavior.",
+          "Use Search when query results are primary content rather than field completion.",
+          "Use Command Palette when suggestions execute commands or navigation."
+        ],
+        "failureModes": [
+          "Suggestions are rendered as custom option markup instead of List or Combobox-owned rows.",
+          "Free text, selected value, and submitted value diverge without validation.",
+          "Loading and empty states are visual only.",
+          "Autocomplete owns remote ranking or cross-route command behavior."
+        ],
+        "successMetrics": [
+          "Users understand whether text is tentative or committed.",
+          "Keyboard users can move through suggestions and commit intentionally.",
+          "Empty, loading, and invalid states are communicated consistently."
+        ],
+        "states": [
+          "idle",
+          "typing",
+          "suggesting",
+          "loading",
+          "empty",
+          "invalid",
+          "selected",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "field",
+            "owner": "component",
+            "uses": [
+              "Combobox"
+            ]
+          },
+          {
+            "name": "suggestions",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Skeleton",
+              "Empty State"
+            ]
+          },
+          {
+            "name": "validation",
+            "owner": "component",
+            "uses": [
+              "Inline Validation"
+            ],
+            "required": "conditional",
+            "purpose": "Owns invalid, empty-source, and selected-value feedback without moving validation into Combobox internals."
+          }
+        ],
+        "accessibility": [
+          "Preserve combobox roles and active descendant behavior.",
+          "Announce suggestion count, loading, empty, and invalid states.",
+          "Keep committed selection distinct from typed text."
+        ],
+        "tests": [
+          "Uses Combobox as the primary field implementation.",
+          "Handles loading, empty, invalid, selected, and disabled states.",
+          "Does not import Search or Command Palette behavior."
+        ],
+        "agentInstructions": [
+          "Compose from Combobox, List, Empty State, Inline Validation, and Skeleton.",
+          "Keep global search, command execution, and analytics ranking outside Autocomplete.",
+          "Ask before permitting free text that is not in the suggestion source."
+        ],
+        "rejectIf": [
+          "Suggestion list is hand-rolled outside Combobox/List.",
+          "The pattern acts as page search or command execution.",
+          "Selected value semantics are unclear.",
+          "Raw colors, spacing, radius, elevation, or motion bypass tokens."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

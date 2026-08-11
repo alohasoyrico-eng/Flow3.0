@@ -1,0 +1,286 @@
+{
+  "artifacts": {
+    "components": {
+      "chat-thread": {
+        "id": "chat-thread",
+        "name": "Chat Thread",
+        "layer": "Component",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Design",
+          "Engineering",
+          "Product",
+          "Agents"
+        ],
+        "maturityTarget": 3,
+        "status": "accepted",
+        "purpose": "Render a conversational log from governed Chat Message items, preserving empty, loading, offline, error, selected-message, and handoff states.",
+        "anatomy": [
+          {
+            "part": "thread surface",
+            "rule": "Composes Surface as the structural root and owns log semantics.",
+            "tokens": [
+              "surface.*",
+              "sys.accessibility.*"
+            ]
+          },
+          {
+            "part": "message list",
+            "rule": "Renders ordered Chat Message records without raw message shells.",
+            "tokens": [
+              "comp.chat-thread.*",
+              "message.*"
+            ]
+          },
+          {
+            "part": "empty/error state",
+            "rule": "Composes Empty State for unavailable or first-use states.",
+            "tokens": [
+              "sys.state.*",
+              "message.*"
+            ]
+          },
+          {
+            "part": "selection marker",
+            "rule": "Uses Focus and State for selected message review.",
+            "tokens": [
+              "focus.*",
+              "sys.state.*"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "id": "support",
+            "description": "Human support thread."
+          },
+          {
+            "id": "assistant",
+            "description": "AI assistant thread."
+          },
+          {
+            "id": "audit",
+            "description": "Read-only conversational event review."
+          }
+        ],
+        "states": [
+          "default",
+          "loading",
+          "empty",
+          "error",
+          "handoff",
+          "offline"
+        ],
+        "statePrecedence": "error > offline > loading > handoff > empty > default",
+        "foundations": {
+          "Energy": {
+            "status": "covered",
+            "decision": "Semantic emphasis and risk are inherited from component or pattern tone contracts.",
+            "tokens": "sys.energy.*",
+            "behavior": "Visible state and action meaning without raw color overrides.",
+            "example": "Operational state with success, warning, or danger meaning.",
+            "test": "Verify contrast and non-color-only meaning.",
+            "rejectIf": "Raw semantic color replaces Flow energy tokens."
+          },
+          "Voice": {
+            "status": "covered",
+            "decision": "Labels, helper text, metadata, and recovery copy stay explicit.",
+            "tokens": "sys.voice.*",
+            "behavior": "Users and agents can understand the object without decorative symbols.",
+            "example": "Visible label and recovery message.",
+            "test": "Verify readable labels and assistive names.",
+            "rejectIf": "Meaning is hidden in placeholder, icon, or color only."
+          },
+          "Frame": {
+            "status": "covered",
+            "decision": "Spacing, size, wrapping, and responsive fit follow Flow frame tokens.",
+            "tokens": "sys.frame.*",
+            "behavior": "The component fits dense templates without local layout hacks.",
+            "example": "Mobile and desktop arrangement.",
+            "test": "Verify no overflow at supported densities.",
+            "rejectIf": "Hardcoded frame values bypass component aliases."
+          },
+          "Depth": {
+            "status": "covered",
+            "decision": "Surface ownership stays with Surface or the composing pattern/template.",
+            "tokens": "sys.depth.*",
+            "behavior": "The component does not create a Card-like structural shell.",
+            "example": "Rendered inside a Surface-owned region.",
+            "test": "Verify no local elevation shell.",
+            "rejectIf": "Component wraps itself in Card or local surface chrome."
+          },
+          "Momentum": {
+            "status": "covered",
+            "decision": "Focus, loading, reveal, and transition behavior use shared motion contracts.",
+            "tokens": "sys.momentum.*",
+            "behavior": "State changes remain predictable and reduced-motion friendly.",
+            "example": "Loading or focus transition.",
+            "test": "Verify reduced motion behavior.",
+            "rejectIf": "Custom animation bypasses Momentum."
+          },
+          "State": {
+            "status": "covered",
+            "decision": "State precedence is explicit and data attributes remain machine-readable.",
+            "tokens": "sys.state.*",
+            "behavior": "Disabled, loading, error, focus, and fallback states do not conflict.",
+            "example": "Conflicting disabled/loading/error state.",
+            "test": "Verify precedence and DOM state attributes.",
+            "rejectIf": "State is visual-only or uncontrolled by props."
+          },
+          "Tone": {
+            "status": "covered",
+            "decision": "Tone is expressed through text and semantic props, not decorative color.",
+            "tokens": "sys.tone.*",
+            "behavior": "Risk, success, neutral, and recovery meaning remain understandable.",
+            "example": "Error or warning copy.",
+            "test": "Verify tone maps to visible message.",
+            "rejectIf": "Tone depends on color alone."
+          },
+          "Growth": {
+            "status": "covered",
+            "decision": "Usage remains observable and can escalate to a pattern or template when scope grows.",
+            "tokens": "sys.growth.*",
+            "behavior": "The component stays atomic and does not own workflow behavior.",
+            "example": "Escalation from component to pattern.",
+            "test": "Verify boundaries in consuming patterns/templates.",
+            "rejectIf": "Component owns a multi-step workflow."
+          },
+          "Symbol": {
+            "status": "covered",
+            "decision": "Symbols may support recognition, but text remains required for meaning and fallback.",
+            "tokens": "sys.symbol.*",
+            "behavior": "Visible text remains the source of truth.",
+            "example": "Icon, avatar, currency, or status marker with label.",
+            "test": "Verify fallback/visible meaning.",
+            "rejectIf": "Symbol replaces the accessible or visible label."
+          },
+          "Iconography": {
+            "status": "covered",
+            "decision": "Functional icons are delegated to Iconography or child components.",
+            "tokens": "sys.iconography.*",
+            "behavior": "Affordances stay consistent without local glyph systems.",
+            "example": "Action or status icon.",
+            "test": "Verify approved icon names and labels.",
+            "rejectIf": "Local icon system or decorative icon replaces text."
+          },
+          "Accessibility": {
+            "status": "covered",
+            "decision": "Native semantics, labels, describedby, live regions, focus, and disabled behavior are preserved.",
+            "tokens": "sys.accessibility.*",
+            "behavior": "Assistive tech can operate and recover.",
+            "example": "Keyboard and screen reader path.",
+            "test": "Verify label, focus, state, and recovery association.",
+            "rejectIf": "ARIA or focus behavior is missing."
+          }
+        },
+        "primitiveDependencies": [
+          "Message",
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Density",
+          "Focus",
+          "Loading"
+        ],
+        "tokenDependencies": [
+          "comp.chat-thread.*",
+          "message.*",
+          "surface.*",
+          "sys.state.*",
+          "sys.accessibility.*",
+          "sys.density.*"
+        ],
+        "props": [
+          {
+            "name": "label",
+            "type": "string",
+            "required": false,
+            "description": "Accessible thread label."
+          },
+          {
+            "name": "messages",
+            "type": "ChatThreadMessage[]",
+            "required": false,
+            "description": "Governed message records."
+          },
+          {
+            "name": "state",
+            "type": "ChatThreadState",
+            "required": false,
+            "description": "Thread availability state."
+          },
+          {
+            "name": "selectedMessageKey",
+            "type": "string",
+            "required": false,
+            "description": "Optional selected message."
+          },
+          {
+            "name": "onMessageAction",
+            "type": "(key, event) => void",
+            "required": false,
+            "description": "Recovery action callback."
+          }
+        ],
+        "tests": [
+          "Role log",
+          "Empty state",
+          "Loading state",
+          "Message action",
+          "Density cascade"
+        ],
+        "rejectIf": [
+          "Thread renders raw message markup.",
+          "Thread owns composer behavior.",
+          "Thread uses Card as a grouping shell.",
+          "Unavailable state lacks recovery copy."
+        ],
+        "productExamples": [
+          {
+            "context": "Conversational operations",
+            "example": "Render a governed conversation log from Chat Message records with empty, loading, offline, error, selected-message, and handoff states."
+          },
+          {
+            "context": "Template composition",
+            "example": "Used only through governed Flow patterns/templates."
+          }
+        ],
+        "guidelines": {
+          "do": [
+            "Use Chat Thread for a governed conversational log.",
+            "Use when messages, availability state, selected message, and message actions must be explicit.",
+            "Use below a formal conversational pattern/template that owns composer and routing."
+          ],
+          "dont": [
+            "The thread also owns composer, channel routing, or support escalation.",
+            "The log must support regulated audit retention.",
+            "A template tries to render raw message markup directly."
+          ],
+          "info": [
+            "Keep the component atomic and package-owned."
+          ]
+        },
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "strategy": "Use lg density with stacked controls, visible labels, and touch-safe targets."
+          },
+          {
+            "context": "tablets + laptops",
+            "strategy": "Use md density with balanced control rhythm and responsive grouping."
+          },
+          {
+            "context": "desktops + TV",
+            "strategy": "Use sm density only where scanning and operational throughput require compact rows."
+          }
+        ],
+        "agentInstructions": [
+          "Use Chat Thread for a governed conversational log.",
+          "Use when messages, availability state, selected message, and message actions must be explicit.",
+          "Use below a formal conversational pattern/template that owns composer and routing.",
+          "Do not recreate visual anatomy in docs, patterns, or templates."
+        ]
+      }
+    }
+  }
+}

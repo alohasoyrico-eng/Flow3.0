@@ -6,7 +6,7 @@ React visual styling must flow through classes and tokens; inline style is reser
 
 ## Inventory
 
-- React components scanned: 56
+- React components scanned: 60
 - Style escape debt: 0
 - Components with approved inline vars: 6
 - Components with runtime CSS vars: 1
@@ -22,7 +22,7 @@ Changing these numbers is a contract decision. styleEscapeDebt must stay at 0; n
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 56 | 56 |
+| components | 60 | 60 |
 | styleEscapeDebt | 0 | 0 |
 | componentsWithApprovedInlineVars | 6 | 6 |
 | componentsWithRuntimeVars | 1 | 1 |
@@ -30,6 +30,7 @@ Changing these numbers is a contract decision. styleEscapeDebt must stay at 0; n
 | styleProps | 10 | 10 |
 | setPropertyCalls | 2 | 2 |
 | violations | 0 | 0 |
+| reactGovernancePolicyIssues | 0 | 0 |
 
 ## Baseline Mismatches
 

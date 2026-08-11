@@ -1,0 +1,182 @@
+{
+  "templates": {
+    "Driver Mobile App": {
+      "nav": [
+        "Inicio",
+        "Tarjeta",
+        "Rutas",
+        "Soporte"
+      ],
+      "metrics": [
+        [
+          "$4,280",
+          "Disponible"
+        ],
+        [
+          "3",
+          "Movimientos nuevos"
+        ]
+      ],
+      "modules": [
+        "Card hero with limits",
+        "Recent movement feed",
+        "Nearby station shortcut",
+        "Support and dispute path"
+      ],
+      "moduleDetails": {
+        "Card hero with limits": {
+          "icon": "account_balance_wallet",
+          "copy": "Shows card readiness, available amount, limit context, and blocked-state explanation before any action."
+        },
+        "Recent movement feed": {
+          "icon": "receipt_long",
+          "copy": "Keeps recent authorizations scannable with status, merchant, amount, and route to detail."
+        },
+        "Nearby station shortcut": {
+          "icon": "local_gas_station",
+          "copy": "Starts station discovery while preserving location permission and fallback-list behavior."
+        },
+        "Support and dispute path": {
+          "icon": "support_agent",
+          "copy": "Gives drivers a clear recovery route for blocked cards, suspicious movements, or failed payments."
+        }
+      },
+      "standard": "This template is the driver entry point: it must connect authentication, card readiness, nearby stations, recent activity, and support without making the driver hunt across separate screens.",
+      "screenSystem": "The screen system prioritizes first-use readiness, then repeated driver actions, then recovery. Modules should behave like one mobile product surface rather than disconnected shortcuts.",
+      "informationArchitecture": "Navigation follows the driver's daily jobs: start, control card, find fuel, and recover through support.",
+      "primary": "Driver opens the app at a station and needs to know if the card is ready, where to fuel, and what to do if something fails.",
+      "permissions": [
+        "biometric login",
+        "location",
+        "push notifications"
+      ],
+      "data": [
+        "card status",
+        "limits",
+        "movements",
+        "station distance"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Mobile",
+        "Tablet",
+        "Reduced motion"
+      ],
+      "telemetry": [
+        "card readiness viewed",
+        "nearby station opened",
+        "support path started"
+      ],
+      "qualityGates": [
+        "Card readiness, route access, and support recovery are visible on first load.",
+        "Location denial keeps route and station discovery usable.",
+        "Biometric fallback preserves trust copy and recovery."
+      ],
+      "patternDetails": {
+        "Driver Onboarding Mobile": "Proves identity, consent, first-use guidance, and recovery before the driver reaches card controls.",
+        "Station Discovery": "Owns map permission, manual search, fallback list, selected station, provider readiness, and route handoff so the template does not redefine Maps behavior."
+      },
+      "templateModuleDetails": {
+        "Mobile Card Overview": "Turns card readiness, limit context, blocked states, and recent movements into the first useful screen.",
+        "Routes and Nearby Stations Mobile": "Connects station discovery to location permission, fallback list, selected station, and route handoff."
+      }
+    },
+    "Fleet Manager Desktop": {
+      "nav": [
+        "Overview",
+        "Fuel",
+        "Maintenance",
+        "Fleet",
+        "Config"
+      ],
+      "metrics": [
+        [
+          "93%",
+          "Fleet health"
+        ],
+        [
+          "18",
+          "Open exceptions"
+        ]
+      ],
+      "modules": [
+        "Executive KPI band",
+        "Exception inbox",
+        "Fleet activity timeline",
+        "Cost center filter set"
+      ],
+      "moduleDetails": {
+        "Executive KPI band": {
+          "icon": "monitoring",
+          "copy": "Summarizes health, spend, risk, and trend signals with clear threshold ownership."
+        },
+        "Exception inbox": {
+          "icon": "inbox",
+          "copy": "Prioritizes operational exceptions with owner, severity, age, and next action."
+        },
+        "Fleet activity timeline": {
+          "icon": "timeline",
+          "copy": "Shows recent driver, vehicle, fuel, maintenance, and support events in accountable sequence."
+        },
+        "Cost center filter set": {
+          "icon": "filter_alt",
+          "copy": "Preserves fleet scope, saved views, and reset behavior across dashboard modules."
+        }
+      },
+      "standard": "This template is the manager operating console: it must preserve context while moving from health scan to exception triage to accountable follow-up.",
+      "screenSystem": "The screen system is built around overview, exception handling, activity history, and scope controls so managers can move without losing operational context.",
+      "informationArchitecture": "Navigation follows fleet-management responsibility: overview first, then operational domains, then configuration.",
+      "primary": "Fleet manager scans operational health, isolates exceptions, and assigns follow-up without leaving the dashboard.",
+      "permissions": [
+        "fleet scope",
+        "cost center",
+        "admin role"
+      ],
+      "data": [
+        "vehicle health",
+        "driver status",
+        "alerts",
+        "spend"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop",
+        "TV"
+      ],
+      "telemetry": [
+        "dashboard filtered",
+        "exception opened",
+        "follow-up assigned"
+      ],
+      "qualityGates": [
+        "Filters persist across dashboard modules.",
+        "Exceptions keep owner, severity, and recovery route.",
+        "Permission scope changes visible data and actions."
+      ],
+      "patternDetails": {
+        "Topbar": "Provides global actions, search entry, identity, and workspace affordances without redefining button, input, or avatar behavior.",
+        "Sidebar": "Provides desktop product navigation, hierarchy, active state, and section persistence without owning module content.",
+        "Roles and Permissions": "Controls who can see, change, approve, and audit fleet-management actions."
+      },
+      "templateModuleDetails": {
+        "Fleet Dashboard Overview": "Sets the shared dashboard shell, filter memory, KPI hierarchy, and exception routing.",
+        "Fuel Dashboard": "Tracks spend, authorization anomalies, station usage, and drill-down evidence for fuel operations."
+      }
+    }
+  }
+}

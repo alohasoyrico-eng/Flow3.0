@@ -1,0 +1,310 @@
+{
+  "artifacts": {
+    "components": {
+      "chat-message": {
+        "id": "chat-message",
+        "name": "Chat Message",
+        "layer": "Component",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Design",
+          "Engineering",
+          "Product",
+          "Agents"
+        ],
+        "maturityTarget": 3,
+        "status": "accepted",
+        "purpose": "Render one conversational message with author role, message anatomy, tone, delivery state, timestamp, optional avatar, and recovery action.",
+        "anatomy": [
+          {
+            "part": "container",
+            "rule": "Owns author alignment, live-region role, density, and message state.",
+            "tokens": [
+              "comp.chat-message.*",
+              "message.*",
+              "sys.state.*"
+            ]
+          },
+          {
+            "part": "avatar",
+            "rule": "Optional identity marker for non-user messages; composes Avatar.",
+            "tokens": [
+              "sys.iconography.*",
+              "sys.accessibility.*"
+            ]
+          },
+          {
+            "part": "bubble",
+            "rule": "Uses Surface for structural shape and tone; does not copy Card.",
+            "tokens": [
+              "surface.*",
+              "sys.frame.*",
+              "sys.depth.*"
+            ]
+          },
+          {
+            "part": "copy",
+            "rule": "Uses Message, Voice, and Tone for body, consequence, and recovery.",
+            "tokens": [
+              "message.*",
+              "sys.voice.*",
+              "sys.tone.*"
+            ]
+          },
+          {
+            "part": "action",
+            "rule": "Optional recovery button composes Button.",
+            "tokens": [
+              "sys.accessibility.*",
+              "sys.state.*"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "id": "user",
+            "description": "Message authored by the signed-in user."
+          },
+          {
+            "id": "agent",
+            "description": "Message authored by support, assistant, or automation."
+          },
+          {
+            "id": "system",
+            "description": "System announcement or status update."
+          },
+          {
+            "id": "assistant",
+            "description": "AI assistant response with neutral or assistive tone."
+          }
+        ],
+        "states": [
+          "default",
+          "sending",
+          "sent",
+          "delivered",
+          "failed",
+          "loading"
+        ],
+        "statePrecedence": "failed > loading > sending > delivered > sent > default",
+        "foundations": {
+          "Energy": {
+            "status": "covered",
+            "decision": "Semantic emphasis and risk are inherited from component or pattern tone contracts.",
+            "tokens": "sys.energy.*",
+            "behavior": "Visible state and action meaning without raw color overrides.",
+            "example": "Operational state with success, warning, or danger meaning.",
+            "test": "Verify contrast and non-color-only meaning.",
+            "rejectIf": "Raw semantic color replaces Flow energy tokens."
+          },
+          "Voice": {
+            "status": "covered",
+            "decision": "Labels, helper text, metadata, and recovery copy stay explicit.",
+            "tokens": "sys.voice.*",
+            "behavior": "Users and agents can understand the object without decorative symbols.",
+            "example": "Visible label and recovery message.",
+            "test": "Verify readable labels and assistive names.",
+            "rejectIf": "Meaning is hidden in placeholder, icon, or color only."
+          },
+          "Frame": {
+            "status": "covered",
+            "decision": "Spacing, size, wrapping, and responsive fit follow Flow frame tokens.",
+            "tokens": "sys.frame.*",
+            "behavior": "The component fits dense templates without local layout hacks.",
+            "example": "Mobile and desktop arrangement.",
+            "test": "Verify no overflow at supported densities.",
+            "rejectIf": "Hardcoded frame values bypass component aliases."
+          },
+          "Depth": {
+            "status": "covered",
+            "decision": "Surface ownership stays with Surface or the composing pattern/template.",
+            "tokens": "sys.depth.*",
+            "behavior": "The component does not create a Card-like structural shell.",
+            "example": "Rendered inside a Surface-owned region.",
+            "test": "Verify no local elevation shell.",
+            "rejectIf": "Component wraps itself in Card or local surface chrome."
+          },
+          "Momentum": {
+            "status": "covered",
+            "decision": "Focus, loading, reveal, and transition behavior use shared motion contracts.",
+            "tokens": "sys.momentum.*",
+            "behavior": "State changes remain predictable and reduced-motion friendly.",
+            "example": "Loading or focus transition.",
+            "test": "Verify reduced motion behavior.",
+            "rejectIf": "Custom animation bypasses Momentum."
+          },
+          "State": {
+            "status": "covered",
+            "decision": "State precedence is explicit and data attributes remain machine-readable.",
+            "tokens": "sys.state.*",
+            "behavior": "Disabled, loading, error, focus, and fallback states do not conflict.",
+            "example": "Conflicting disabled/loading/error state.",
+            "test": "Verify precedence and DOM state attributes.",
+            "rejectIf": "State is visual-only or uncontrolled by props."
+          },
+          "Tone": {
+            "status": "covered",
+            "decision": "Tone is expressed through text and semantic props, not decorative color.",
+            "tokens": "sys.tone.*",
+            "behavior": "Risk, success, neutral, and recovery meaning remain understandable.",
+            "example": "Error or warning copy.",
+            "test": "Verify tone maps to visible message.",
+            "rejectIf": "Tone depends on color alone."
+          },
+          "Growth": {
+            "status": "covered",
+            "decision": "Usage remains observable and can escalate to a pattern or template when scope grows.",
+            "tokens": "sys.growth.*",
+            "behavior": "The component stays atomic and does not own workflow behavior.",
+            "example": "Escalation from component to pattern.",
+            "test": "Verify boundaries in consuming patterns/templates.",
+            "rejectIf": "Component owns a multi-step workflow."
+          },
+          "Symbol": {
+            "status": "covered",
+            "decision": "Symbols may support recognition, but text remains required for meaning and fallback.",
+            "tokens": "sys.symbol.*",
+            "behavior": "Visible text remains the source of truth.",
+            "example": "Icon, avatar, currency, or status marker with label.",
+            "test": "Verify fallback/visible meaning.",
+            "rejectIf": "Symbol replaces the accessible or visible label."
+          },
+          "Iconography": {
+            "status": "covered",
+            "decision": "Functional icons are delegated to Iconography or child components.",
+            "tokens": "sys.iconography.*",
+            "behavior": "Affordances stay consistent without local glyph systems.",
+            "example": "Action or status icon.",
+            "test": "Verify approved icon names and labels.",
+            "rejectIf": "Local icon system or decorative icon replaces text."
+          },
+          "Accessibility": {
+            "status": "covered",
+            "decision": "Native semantics, labels, describedby, live regions, focus, and disabled behavior are preserved.",
+            "tokens": "sys.accessibility.*",
+            "behavior": "Assistive tech can operate and recover.",
+            "example": "Keyboard and screen reader path.",
+            "test": "Verify label, focus, state, and recovery association.",
+            "rejectIf": "ARIA or focus behavior is missing."
+          }
+        },
+        "primitiveDependencies": [
+          "Message",
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Radius",
+          "Density",
+          "Focus",
+          "Iconography"
+        ],
+        "tokenDependencies": [
+          "comp.chat-message.*",
+          "message.*",
+          "surface.*",
+          "sys.voice.*",
+          "sys.tone.*",
+          "sys.state.*",
+          "sys.accessibility.*",
+          "sys.density.*"
+        ],
+        "props": [
+          {
+            "name": "author",
+            "type": "\"user\" | \"agent\" | \"system\" | \"assistant\"",
+            "required": false,
+            "description": "Message author role."
+          },
+          {
+            "name": "body",
+            "type": "string",
+            "required": false,
+            "description": "Message body."
+          },
+          {
+            "name": "state",
+            "type": "ChatMessageState",
+            "required": false,
+            "description": "Delivery or loading state."
+          },
+          {
+            "name": "tone",
+            "type": "ChatMessageTone",
+            "required": false,
+            "description": "Message semantic tone."
+          },
+          {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false,
+            "description": "Density cascade."
+          },
+          {
+            "name": "action",
+            "type": "ChatMessageAction",
+            "required": false,
+            "description": "Optional recovery action."
+          }
+        ],
+        "tests": [
+          "Live-region semantics",
+          "Author alignment",
+          "Recovery action",
+          "Density cascade",
+          "Message wrapping"
+        ],
+        "rejectIf": [
+          "Message bubble is authored with Card.",
+          "Message lacks author context.",
+          "Failed state has no accessible announcement.",
+          "Raw DOM chat bubble appears in pattern or template."
+        ],
+        "productExamples": [
+          {
+            "context": "Conversational operations",
+            "example": "Render one governed conversational message with author context, delivery state, optional avatar, timestamp, and recovery action."
+          },
+          {
+            "context": "Template composition",
+            "example": "Used only through governed Flow patterns/templates."
+          }
+        ],
+        "guidelines": {
+          "do": [
+            "Use Chat Message for one rendered message in a formal conversation.",
+            "Use when author, delivery state, and recovery action must remain explicit.",
+            "Use inside Chat Thread or a governed conversational pattern."
+          ],
+          "dont": [
+            "The message becomes a thread, inbox, or support workflow.",
+            "The body includes regulated or irreversible instructions.",
+            "A raw chat bubble, Card shell, or authorless message is requested."
+          ],
+          "info": [
+            "Keep the component atomic and package-owned."
+          ]
+        },
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "strategy": "Use lg density with stacked controls, visible labels, and touch-safe targets."
+          },
+          {
+            "context": "tablets + laptops",
+            "strategy": "Use md density with balanced control rhythm and responsive grouping."
+          },
+          {
+            "context": "desktops + TV",
+            "strategy": "Use sm density only where scanning and operational throughput require compact rows."
+          }
+        ],
+        "agentInstructions": [
+          "Use Chat Message for one rendered message in a formal conversation.",
+          "Use when author, delivery state, and recovery action must remain explicit.",
+          "Use inside Chat Thread or a governed conversational pattern.",
+          "Do not recreate visual anatomy in docs, patterns, or templates."
+        ]
+      }
+    }
+  }
+}

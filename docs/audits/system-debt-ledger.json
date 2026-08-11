@@ -3,11 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 21,
-    "categoryMappings": 21,
+    "reports": 78,
+    "categoryMappings": 68,
+    "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 21,
-    "debtMetrics": 21,
+    "reportsWithDebtMetrics": 78,
+    "debtMetrics": 94,
     "categories": 8,
     "categoryMinimums": 8,
     "categoryPrinciples": 8,
@@ -43,23 +44,24 @@
   "missingStrategicCategories": [],
   "emptyStrategicCategories": [],
   "undercoveredStrategicCategories": [],
+  "systemDebtGovernanceIssues": [],
   "categories": [
     {
       "category": "anti-duplication",
       "principle": "One visual or conceptual source per system concept.",
-      "reports": 1,
+      "reports": 4,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 1,
+      "debtMetrics": 4,
       "totalDebt": 0
     },
     {
       "category": "cascade",
       "principle": "Component styling must cascade from exported system contracts.",
-      "reports": 4,
+      "reports": 15,
       "minimumReports": 4,
       "coverageGap": 0,
-      "debtMetrics": 4,
+      "debtMetrics": 16,
       "totalDebt": 0
     },
     {
@@ -74,19 +76,19 @@
     {
       "category": "foundations-primitives",
       "principle": "Foundations and primitives must be exportable beyond CSS.",
-      "reports": 1,
+      "reports": 27,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 1,
+      "debtMetrics": 28,
       "totalDebt": 0
     },
     {
       "category": "patterns",
       "principle": "Patterns must compose components through governed contracts before template promotion.",
-      "reports": 1,
+      "reports": 14,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 1,
+      "debtMetrics": 26,
       "totalDebt": 0
     },
     {
@@ -101,10 +103,10 @@
     {
       "category": "react-primary",
       "principle": "React must be the primary implementation with real contracts.",
-      "reports": 10,
+      "reports": 14,
       "minimumReports": 10,
       "coverageGap": 0,
-      "debtMetrics": 10,
+      "debtMetrics": 16,
       "totalDebt": 0
     },
     {
@@ -203,6 +205,34 @@
       ]
     },
     {
+      "file": "email-channel-governance-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "email-channel-governance-audit.json",
+          "scope": "inventory",
+          "metric": "emailChannelDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "email-channel-renderer-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "email-channel-renderer-audit.json",
+          "scope": "inventory",
+          "metric": "emailRendererDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "family-css-contract-maturity.json",
       "category": "cascade",
       "status": "pass",
@@ -217,6 +247,111 @@
       ]
     },
     {
+      "file": "foundation-accessibility-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-accessibility-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-depth-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-depth-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-energy-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-energy-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-frame-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-frame-cascade-audit.json",
+          "scope": "inventory",
+          "metric": "frameCascadeDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "foundation-frame-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-growth-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-growth-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-iconography-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-iconography-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-momentum-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-momentum-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "foundation-primitive-export-contract-audit.json",
       "category": "foundations-primitives",
       "status": "pass",
@@ -225,6 +360,62 @@
           "report": "foundation-primitive-export-contract-audit.json",
           "scope": "inventory",
           "metric": "foundationPrimitiveExportDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-state-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-state-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-symbol-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-symbol-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-tone-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-tone-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-voice-cascade-audit.json",
+      "category": "cascade",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-voice-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -259,6 +450,132 @@
       ]
     },
     {
+      "file": "pattern-1to1-architecture-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "pattern-1to1-architecture-audit.json",
+          "scope": "inventory",
+          "metric": "patternArchitectureDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "pattern-1to1-architecture-audit.json",
+          "scope": "inventory",
+          "metric": "patternArchitectureBlockingDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "pattern-contract-governance-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "pattern-contract-governance-audit.json",
+          "scope": "inventory",
+          "metric": "patternContractGovernanceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "pattern-foundation-primitive-1to1-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "pattern-foundation-primitive-1to1-audit.json",
+          "scope": "topLevel",
+          "metric": "debt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "pattern-foundation-primitive-1to1-audit.json",
+          "scope": "inventory",
+          "metric": "patternsWithStructuralSurfaceDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "pattern-foundation-primitive-1to1-audit.json",
+          "scope": "inventory",
+          "metric": "implementedReactPatternsWithArchitectureDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "pattern-foundation-primitive-1to1-audit.json",
+          "scope": "inventory",
+          "metric": "foundationPrimitiveBlockingDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "pattern-react-migration-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "pattern-react-migration-audit.json",
+          "scope": "inventory",
+          "metric": "reactBehaviorDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "pattern-react-migration-audit.json",
+          "scope": "inventory",
+          "metric": "migrationAuditDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "pattern-react-migration-plan.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "pattern-react-migration-plan.json",
+          "scope": "inventory",
+          "metric": "reactBehaviorDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "pattern-react-migration-plan.json",
+          "scope": "inventory",
+          "metric": "migrationAuditDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "pattern-react-migration-plan.json",
+          "scope": "inventory",
+          "metric": "docsReactPatternDemoCoverageDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "pattern-react-migration-plan.json",
+          "scope": "inventory",
+          "metric": "migrationPlanValidationDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "pattern-readiness-audit.json",
       "category": "patterns",
       "status": "pass",
@@ -267,6 +584,363 @@
           "report": "pattern-readiness-audit.json",
           "scope": "inventory",
           "metric": "patternReadinessDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-animation-assets-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-animation-assets-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-breakpoints-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-breakpoints-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-cascade-activation-plan.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-cascade-activation-plan.json",
+          "scope": "inventory",
+          "metric": "primitiveCascadeActivationPlanDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-cascade-governance-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-cascade-governance-audit.json",
+          "scope": "inventory",
+          "metric": "primitiveCascadeGovernanceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-charts-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-charts-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-color-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-color-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-country-flags-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-country-flags-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-density-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-density-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-disabled-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-disabled-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-duration-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-duration-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-elevation-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-elevation-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-focus-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-focus-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-iconography-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-iconography-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-illustration-assets-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-illustration-assets-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-library-sources-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-library-sources-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-loading-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-loading-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-maps-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-maps-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-measurement-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-measurement-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-message-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-message-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-motion-curves-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-motion-curves-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-radius-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-radius-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-research-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-research-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-spacing-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-spacing-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-surface-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-surface-cascade-audit.json",
+          "scope": "inventory",
+          "metric": "surfaceCascadeDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "primitive-surface-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-typography-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-typography-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -371,6 +1045,41 @@
       ]
     },
     {
+      "file": "react-pattern-behavior-governance-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-pattern-behavior-governance-audit.json",
+          "scope": "inventory",
+          "metric": "patternsWithBehaviorDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "react-pattern-behavior-governance-audit.json",
+          "scope": "inventory",
+          "metric": "reactPatternBehaviorDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-pattern-composition-governance-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-pattern-composition-governance-audit.json",
+          "scope": "inventory",
+          "metric": "reactPatternCompositionDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "react-primary-coverage-audit.json",
       "category": "react-primary",
       "status": "pass",
@@ -399,6 +1108,76 @@
       ]
     },
     {
+      "file": "react-template-composition-governance-audit.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-template-composition-governance-audit.json",
+          "scope": "inventory",
+          "metric": "reactTemplateCompositionGovernanceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-template-interaction-governance-audit.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-template-interaction-governance-audit.json",
+          "scope": "inventory",
+          "metric": "reactTemplateInteractionGovernanceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-template-runtime-governance-audit.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-template-runtime-governance-audit.json",
+          "scope": "inventory",
+          "metric": "reactTemplateRuntimeGovernanceDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "react-template-runtime-governance-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-template-visual-governance-audit.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-template-visual-governance-audit.json",
+          "scope": "inventory",
+          "metric": "reactTemplateVisualGovernanceDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "react-template-visual-governance-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "taxonomy-boundaries-audit.json",
       "category": "taxonomy",
       "status": "pass",
@@ -407,6 +1186,139 @@
           "report": "taxonomy-boundaries-audit.json",
           "scope": "inventory",
           "metric": "taxonomyBoundaryDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "template-cascade-governance-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "template-cascade-governance-audit.json",
+          "scope": "inventory",
+          "metric": "templateCascadeGovernanceDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "template-cascade-governance-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "zip-flow-gap-audit.json",
+      "category": "anti-duplication",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "zip-flow-gap-audit.json",
+          "scope": "inventory",
+          "metric": "auditDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "zip-foundation-primitive-validation-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "zip-foundation-primitive-validation-audit.json",
+          "scope": "inventory",
+          "metric": "zipFoundationPrimitiveValidationDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "zip-kit-cascade-matrix-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "zip-kit-cascade-matrix-audit.json",
+          "scope": "inventory",
+          "metric": "layerCoverageDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "zip-kit-cascade-matrix-audit.json",
+          "scope": "inventory",
+          "metric": "signalMappingDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "zip-kit-cascade-matrix-audit.json",
+          "scope": "inventory",
+          "metric": "zipKitCascadeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "zip-kit-runtime-coverage-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "zip-kit-runtime-coverage-audit.json",
+          "scope": "inventory",
+          "metric": "runtimeCoverageDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "zip-owner-export-matrix-audit.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "zip-owner-export-matrix-audit.json",
+          "scope": "inventory",
+          "metric": "zipOwnerExportDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "zip-system-intake-audit.json",
+      "category": "anti-duplication",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "zip-system-intake-audit.json",
+          "scope": "inventory",
+          "metric": "intakeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "zip-template-parity-audit.json",
+      "category": "anti-duplication",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "zip-template-parity-audit.json",
+          "scope": "inventory",
+          "metric": "parityGovernanceDebt",
           "value": 0,
           "numericValue": 0
         }

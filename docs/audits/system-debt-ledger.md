@@ -6,11 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 21
-- Category mappings: 21
+- Reports scanned: 78
+- Category mappings: 68
+- System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 21
-- Debt metrics: 21
+- Reports with debt metrics: 78
+- Debt metrics: 94
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -37,13 +38,13 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 | Category | Principle | Reports | Minimum reports | Coverage gap | Debt metrics | Total debt |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| anti-duplication | One visual or conceptual source per system concept. | 1 | 1 | 0 | 1 | 0 |
-| cascade | Component styling must cascade from exported system contracts. | 4 | 4 | 0 | 4 | 0 |
+| anti-duplication | One visual or conceptual source per system concept. | 4 | 1 | 0 | 4 | 0 |
+| cascade | Component styling must cascade from exported system contracts. | 15 | 4 | 0 | 16 | 0 |
 | docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 2 | 2 | 0 | 2 | 0 |
-| foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 1 | 1 | 0 | 1 | 0 |
-| patterns | Patterns must compose components through governed contracts before template promotion. | 1 | 1 | 0 | 1 | 0 |
+| foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 27 | 1 | 0 | 28 | 0 |
+| patterns | Patterns must compose components through governed contracts before template promotion. | 14 | 1 | 0 | 26 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
-| react-primary | React must be the primary implementation with real contracts. | 10 | 10 | 0 | 10 | 0 |
+| react-primary | React must be the primary implementation with real contracts. | 14 | 10 | 0 | 16 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 
 ## Non-Pass Reports
@@ -92,11 +93,54 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | component-visual-cascade-audit.json | cascade | pass | visualCascadeDebt: 0 |
 | docs-component-demo-ownership.json | docs-system-boundary | pass | docsDemoOwnershipDebt: 0 |
 | docs-system-boundary-audit.json | docs-system-boundary | pass | docsSystemBoundaryDebt: 0 |
+| email-channel-governance-audit.json | patterns | pass | emailChannelDebt: 0 |
+| email-channel-renderer-audit.json | patterns | pass | emailRendererDebt: 0 |
 | family-css-contract-maturity.json | cascade | pass | familyCssMaturityDebt: 0 |
+| foundation-accessibility-cascade-audit.json | cascade | pass | gapsDebt: 0 |
+| foundation-depth-cascade-audit.json | cascade | pass | gapsDebt: 0 |
+| foundation-energy-cascade-audit.json | cascade | pass | gapsDebt: 0 |
+| foundation-frame-cascade-audit.json | cascade | pass | frameCascadeDebt: 0<br>gapsDebt: 0 |
+| foundation-growth-cascade-audit.json | cascade | pass | gapsDebt: 0 |
+| foundation-iconography-cascade-audit.json | cascade | pass | gapsDebt: 0 |
+| foundation-momentum-cascade-audit.json | cascade | pass | gapsDebt: 0 |
 | foundation-primitive-export-contract-audit.json | foundations-primitives | pass | foundationPrimitiveExportDebt: 0 |
+| foundation-state-cascade-audit.json | cascade | pass | gapsDebt: 0 |
+| foundation-symbol-cascade-audit.json | cascade | pass | gapsDebt: 0 |
+| foundation-tone-cascade-audit.json | cascade | pass | gapsDebt: 0 |
+| foundation-voice-cascade-audit.json | cascade | pass | gapsDebt: 0 |
 | legacy-dom-source-governance-audit.json | react-primary | pass | legacyDomSourceDebt: 0 |
 | package-css-root-governance-audit.json | cascade | pass | packageCssRootDebt: 0 |
+| pattern-1to1-architecture-audit.json | patterns | pass | patternArchitectureDebt: 0<br>patternArchitectureBlockingDebt: 0 |
+| pattern-contract-governance-audit.json | patterns | pass | patternContractGovernanceDebt: 0 |
+| pattern-foundation-primitive-1to1-audit.json | patterns | pass | debt: 0<br>patternsWithStructuralSurfaceDebt: 0<br>implementedReactPatternsWithArchitectureDebt: 0<br>foundationPrimitiveBlockingDebt: 0 |
+| pattern-react-migration-audit.json | patterns | pass | reactBehaviorDebt: 0<br>migrationAuditDebt: 0 |
+| pattern-react-migration-plan.json | patterns | pass | reactBehaviorDebt: 0<br>migrationAuditDebt: 0<br>docsReactPatternDemoCoverageDebt: 0<br>migrationPlanValidationDebt: 0 |
 | pattern-readiness-audit.json | patterns | pass | patternReadinessDebt: 0 |
+| primitive-animation-assets-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-breakpoints-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-cascade-activation-plan.json | foundations-primitives | pass | primitiveCascadeActivationPlanDebt: 0 |
+| primitive-cascade-governance-audit.json | foundations-primitives | pass | primitiveCascadeGovernanceDebt: 0 |
+| primitive-charts-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-color-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-country-flags-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-density-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-disabled-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-duration-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-elevation-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-focus-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-iconography-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-illustration-assets-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-library-sources-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-loading-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-maps-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-measurement-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-message-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-motion-curves-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-radius-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-research-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-spacing-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-surface-cascade-audit.json | foundations-primitives | pass | surfaceCascadeDebt: 0<br>gapsDebt: 0 |
+| primitive-typography-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
 | react-accessibility-governance-audit.json | react-primary | pass | accessibilityDebt: 0 |
 | react-class-ownership-audit.json | react-primary | pass | classOwnershipDebt: 0 |
 | react-composition-governance-audit.json | react-primary | pass | compositionDebt: 0 |
@@ -104,7 +148,21 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | react-controlled-governance-audit.json | react-primary | pass | controlledDebt: 0 |
 | react-default-governance-audit.json | react-primary | pass | defaultDebt: 0 |
 | react-interaction-coverage-audit.json | react-primary | pass | interactionDebt: 0 |
+| react-pattern-behavior-governance-audit.json | patterns | pass | patternsWithBehaviorDebt: 0<br>reactPatternBehaviorDebt: 0 |
+| react-pattern-composition-governance-audit.json | patterns | pass | reactPatternCompositionDebt: 0 |
 | react-primary-coverage-audit.json | react-primary | pass | primaryImplementationDebt: 0 |
 | react-style-governance-audit.json | react-primary | pass | styleEscapeDebt: 0 |
+| react-template-composition-governance-audit.json | react-primary | pass | reactTemplateCompositionGovernanceDebt: 0 |
+| react-template-interaction-governance-audit.json | react-primary | pass | reactTemplateInteractionGovernanceDebt: 0 |
+| react-template-runtime-governance-audit.json | react-primary | pass | reactTemplateRuntimeGovernanceDebt: 0<br>gapsDebt: 0 |
+| react-template-visual-governance-audit.json | react-primary | pass | reactTemplateVisualGovernanceDebt: 0<br>gapsDebt: 0 |
 | taxonomy-boundaries-audit.json | taxonomy | pass | taxonomyBoundaryDebt: 0 |
+| template-cascade-governance-audit.json | patterns | pass | templateCascadeGovernanceDebt: 0<br>gapsDebt: 0 |
+| zip-flow-gap-audit.json | anti-duplication | pass | auditDebt: 0 |
+| zip-foundation-primitive-validation-audit.json | foundations-primitives | pass | zipFoundationPrimitiveValidationDebt: 0 |
+| zip-kit-cascade-matrix-audit.json | patterns | pass | layerCoverageDebt: 0<br>signalMappingDebt: 0<br>zipKitCascadeDebt: 0 |
+| zip-kit-runtime-coverage-audit.json | patterns | pass | runtimeCoverageDebt: 0 |
+| zip-owner-export-matrix-audit.json | patterns | pass | zipOwnerExportDebt: 0 |
+| zip-system-intake-audit.json | anti-duplication | pass | intakeDebt: 0 |
+| zip-template-parity-audit.json | anti-duplication | pass | parityGovernanceDebt: 0 |
 

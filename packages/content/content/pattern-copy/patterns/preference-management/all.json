@@ -1,0 +1,87 @@
+{
+  "patterns": {
+    "preference-management": {
+      "purpose": "Coordinate preference groups, editable sections, and danger-zone confirmation as one reusable settings flow without creating a settings workspace template.",
+      "useWhen": [
+        "A template needs reusable preference behavior.",
+        "Settings, editable form sections, and destructive confirmation must share density and state.",
+        "The product needs preference groups and danger-zone actions but not full settings navigation."
+      ],
+      "doNotUseWithoutReview": [
+        "The experience is a single standalone field.",
+        "The flow includes destructive identity, billing, security, tenant, legal, or compliance operations.",
+        "A template is trying to redefine Settings, Form Section, or Confirmation Dialog behavior."
+      ],
+      "foundations": [
+        ["Accessibility", "Group, field, validation, disabled, busy, permission, and confirmation semantics stay with formal owners."],
+        ["Depth", "Surface owns structural grouping without Card wrapping."],
+        ["Energy", "Dirty, saving, invalid, permission-blocked, and danger-confirming states cascade to child patterns."],
+        ["Frame", "Responsive grouping and section rhythm remain token-driven."],
+        ["Growth", "Settings Workspace templates can extend the flow without moving behavior into templates."],
+        ["Iconography", "Status and destructive icons remain owned by Badge, Button, and Confirmation Dialog descendants."],
+        ["Momentum", "Saving, confirming, and recovery motion remain delegated to child owners and motion primitives."],
+        ["State", "Pattern state maps to Settings, Form Section, and Confirmation Dialog state."],
+        ["Symbol", "Danger and permission states remain semantic, not decorative."],
+        ["Tone", "Preference, warning, danger, success, and blocked tones stay in Flow contracts."],
+        ["Voice", "Labels, descriptions, validation, confirmation, recovery, and action copy remain explicit."]
+      ],
+      "slots": [
+        ["preferenceSurface", "Surface", "required", "Structural preference group."],
+        ["preferenceSummary", "Badge", "conditional", "Status summary without summary-card invention."],
+        ["settingsBoundary", "Settings", "conditional", "Grouped preference controls, save/reset, and validation."],
+        ["preferenceBlocks", "Form Section", "conditional", "Editable preference blocks and field-level behavior."],
+        ["dangerConfirmation", "Confirmation Dialog", "conditional", "Destructive confirmation, cancel, recovery, and danger tone."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Settings",
+        "Form Section",
+        "Confirmation Dialog"
+      ],
+      "variants": [
+        ["Settings only", "Conditional", "Uses Settings for grouped preferences."],
+        ["Editable sections", "Conditional", "Adds Form Section for local editable preference blocks."],
+        ["Danger zone", "Conditional", "Adds Confirmation Dialog for destructive actions."],
+        ["Permission blocked", "State", "Disables child owners while preserving status and copy."]
+      ],
+      "motion": [
+        ["Saving", "Surface marks busy while Settings or Form Section own action loading."],
+        ["Danger confirming", "Surface marks selected while Confirmation Dialog owns destructive dialog behavior."],
+        ["Permission blocked", "Surface and child owners use disabled state."]
+      ],
+      "accessibility": [
+        "Expose the whole flow as a labelled group.",
+        "Delegate grouped controls to Settings.",
+        "Delegate field semantics to Form Section.",
+        "Delegate destructive confirmation semantics to Confirmation Dialog."
+      ],
+      "tests": [
+        "Composes Surface, Badge, Settings, Form Section, and Confirmation Dialog.",
+        "Density and state cascade through child owners.",
+        "Callbacks preserve event context.",
+        "No Card wrapper, raw dialog, fake form field, local preference group, or Docs-owned settings behavior is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Preference Management for reusable settings flows.",
+          "Omit Settings, sections, or danger zone when the flow does not need that slot.",
+          "Keep multi-page settings navigation outside this pattern."
+        ],
+        "mustAsk": [
+          "The action is destructive for identity, security, billing, tenant, legal, compliance, or regulated data.",
+          "A template wants custom settings controls instead of Settings or Form Section.",
+          "The flow needs full settings navigation, audit history, or admin modules."
+        ],
+        "rejectIf": [
+          "Preference controls bypass Settings or Form Section.",
+          "Danger-zone confirmation bypasses Confirmation Dialog.",
+          "Card wraps the preference group.",
+          "Density or state stops cascading to the child pattern owners."
+        ],
+        "handoff": "Confirm preference scope, persistence policy, permission boundaries, destructive action risk, recovery copy, save/reset behavior, and whether the flow should graduate into a Settings Workspace template."
+      }
+    }
+  }
+}

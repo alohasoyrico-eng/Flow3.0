@@ -13,6 +13,7 @@ const {
   classifiedNonComponentRoots,
   packageCssRootInventory,
 } = require("./class-root-governance.js");
+const { packageCssRootGovernance } = require("./component-css-governance-policy.js");
 
 const checkMode = process.argv.includes("--check");
 const packageCssFile = path.join(root, "packages/components/styles/components.css");
@@ -20,23 +21,9 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "package-css-root-governance-audit.json");
 const markdownOutput = path.join(outputDir, "package-css-root-governance-audit.md");
 
-const expectedInventory = {
-  selectors: 1169,
-  componentAliases: 3221,
-  componentAliasRoots: 62,
-  unknownComponentAliases: 0,
-  cssRoots: 66,
-  componentRoots: 58,
-  observedComponentRoots: 58,
-  unobservedComponentRoots: 0,
-  classifiedNonComponentRoots: 8,
-  unclassifiedRoots: 0,
-  packageCssRootDebt: 0,
-};
-
 function aliasRootEvidence(cssSource) {
   const knownRoots = [...new Set([
-    ...componentClassRoots,
+    ...componentClassRoots(),
     ...Object.keys(classifiedNonComponentRoots),
     ...goldComponents,
   ])].sort((a, b) => b.length - a.length);
@@ -54,17 +41,19 @@ function aliasRootEvidence(cssSource) {
 }
 
 function createReport() {
+  const { expectedInventory, governance } = packageCssRootGovernance();
   const inventory = packageCssRootInventory(root);
+  const componentRootsContract = componentClassRoots();
   const cssSource = fs.existsSync(packageCssFile) ? fs.readFileSync(packageCssFile, "utf8") : "";
   const aliasEvidence = aliasRootEvidence(cssSource);
   const cssContractCoverage = componentCssContractCoverage();
   const observedReactRoots = new Set(cssContractCoverage.components.flatMap((item) => item.observedRoots ?? []));
   const roots = [...inventory.roots].sort();
-  const componentRoots = roots.filter((cssRoot) => componentClassRoots.has(cssRoot));
+  const componentRoots = roots.filter((cssRoot) => componentRootsContract.has(cssRoot));
   const observedComponentRoots = componentRoots.filter((cssRoot) => observedReactRoots.has(cssRoot));
   const unobservedComponentRoots = componentRoots.filter((cssRoot) => !observedReactRoots.has(cssRoot));
-  const classifiedRoots = roots.filter((cssRoot) => !componentClassRoots.has(cssRoot) && classifiedNonComponentRoots[cssRoot]);
-  const unclassifiedRoots = roots.filter((cssRoot) => !componentClassRoots.has(cssRoot) && !classifiedNonComponentRoots[cssRoot]);
+  const classifiedRoots = roots.filter((cssRoot) => !componentRootsContract.has(cssRoot) && classifiedNonComponentRoots[cssRoot]);
+  const unclassifiedRoots = roots.filter((cssRoot) => !componentRootsContract.has(cssRoot) && !classifiedNonComponentRoots[cssRoot]);
   const classified = classifiedRoots.map((cssRoot) => ({
     root: cssRoot,
     ...classifiedNonComponentRoots[cssRoot],
@@ -82,6 +71,7 @@ function createReport() {
     unobservedComponentRoots: unobservedComponentRoots.length,
     classifiedNonComponentRoots: classifiedRoots.length,
     unclassifiedRoots: unclassifiedRoots.length,
+    packageCssRootGovernanceIssues: governance.issues.length,
     packageCssRootDebt: 0,
   };
   const baselineMismatches = Object.entries(expectedInventory)
@@ -94,6 +84,7 @@ function createReport() {
   reportInventory.packageCssRootDebt = reportInventory.unknownComponentAliases
     + reportInventory.unobservedComponentRoots
     + reportInventory.unclassifiedRoots
+    + reportInventory.packageCssRootGovernanceIssues
     + baselineMismatches.length;
 
   return {
@@ -104,6 +95,7 @@ function createReport() {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
     },
+    governance,
     inventory: reportInventory,
     componentRoots,
     observedComponentRoots,

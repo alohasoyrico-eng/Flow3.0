@@ -1,0 +1,175 @@
+{
+  "templates": {
+    "Driver Card Wallet": {
+      "nav": [
+        "Card",
+        "Movements",
+        "Limits",
+        "Help"
+      ],
+      "metrics": [
+        [
+          "Active",
+          "Card status"
+        ],
+        [
+          "$820",
+          "Today spent"
+        ]
+      ],
+      "modules": [
+        "Card status block",
+        "Quick actions",
+        "Movement receipt detail",
+        "Dispute entry point"
+      ],
+      "moduleDetails": {
+        "Card status block": {
+          "icon": "account_balance_wallet",
+          "copy": "Keeps status, limit, risk, and usable balance visible before card-level actions."
+        },
+        "Quick actions": {
+          "icon": "bolt",
+          "copy": "Groups frequent controls while preserving confirmation, disabled reasons, and support routing."
+        },
+        "Movement receipt detail": {
+          "icon": "receipt_long",
+          "copy": "Explains a movement with merchant, amount, authorization, timestamp, card, and support evidence."
+        },
+        "Dispute entry point": {
+          "icon": "support_agent",
+          "copy": "Starts recovery with eligibility, required evidence, expected timing, and audit trail."
+        }
+      },
+      "standard": "This template is the card-control workspace: it must keep status, limits, movements, quick actions, and dispute recovery in one accountable system.",
+      "screenSystem": "The screen system separates card state, actions, movement evidence, and support entry so each module can fail or recover without hiding the card context.",
+      "informationArchitecture": "Navigation follows the wallet mental model: card first, movements second, limits third, help always available.",
+      "primary": "Driver needs fast control over a payment card while understanding risk, limits, support, and movement history.",
+      "permissions": [
+        "card ownership",
+        "support access"
+      ],
+      "data": [
+        "card status",
+        "movement detail",
+        "merchant",
+        "authorization code"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Mobile",
+        "Tablet",
+        "Reduced motion"
+      ],
+      "telemetry": [
+        "quick action started",
+        "movement detail opened",
+        "dispute entry opened"
+      ],
+      "qualityGates": [
+        "Card status and limits remain visible before quick actions.",
+        "Movement detail includes merchant, amount, authorization, and support route.",
+        "Blocked or risky states explain the next safe action."
+      ],
+      "patternDetails": {},
+      "templateModuleDetails": {
+        "Mobile Card Overview": "Keeps status, limit, movement summary, blocked states, and next useful action visible.",
+        "Mobile Card Detail and Quick Actions": "Lets drivers control a card while preserving confirmation, disabled reasons, and support handoff.",
+        "Mobile Movement Detail": "Turns each movement into receipt-like evidence with recovery, dispute, and audit context."
+      }
+    },
+    "Routes and Stations": {
+      "nav": [
+        "Map",
+        "List",
+        "Station",
+        "Route"
+      ],
+      "metrics": [
+        [
+          "1.2 km",
+          "Nearest station"
+        ],
+        [
+          "8 min",
+          "ETA"
+        ]
+      ],
+      "modules": [
+        "Map with station pins",
+        "Fallback station list",
+        "Station services panel",
+        "Route handoff"
+      ],
+      "moduleDetails": {
+        "Map with station pins": {
+          "icon": "map",
+          "copy": "Shows nearby stations with permission, loading, cluster, and selected-pin states."
+        },
+        "Fallback station list": {
+          "icon": "list_alt",
+          "copy": "Keeps station discovery usable when map, GPS, or network context is unavailable."
+        },
+        "Station services panel": {
+          "icon": "local_gas_station",
+          "copy": "Compares service availability, distance, fuel types, schedule, and restrictions."
+        },
+        "Route handoff": {
+          "icon": "near_me",
+          "copy": "Transfers station context to navigation while preserving ETA, destination, and recovery copy."
+        }
+      },
+      "standard": "This template is the station-discovery workspace: map, list, station detail, and route handoff must stay equivalent, especially when location or network context fails.",
+      "screenSystem": "The screen system keeps map and list as parallel paths, with station detail and navigation handoff as explicit decisions.",
+      "informationArchitecture": "Navigation follows travel intent: discover, compare, inspect, and route.",
+      "primary": "Driver searches nearby stations, compares useful station information, and starts navigation with graceful location fallback.",
+      "permissions": [
+        "location",
+        "external navigation handoff"
+      ],
+      "data": [
+        "station services",
+        "distance",
+        "fuel types",
+        "route ETA"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Mobile",
+        "Tablet",
+        "Reduced motion"
+      ],
+      "telemetry": [
+        "station selected",
+        "route handoff started",
+        "fallback list opened"
+      ],
+      "qualityGates": [
+        "Map and list remain equivalent paths.",
+        "Location denial shows fallback list and manual station search.",
+        "Route handoff preserves station context and recovery copy."
+      ],
+      "patternDetails": {
+        "Station Discovery": "Owns map pins, fallback list equivalence, permission recovery, selected station state, provider readiness, and route handoff for the route workspace."
+      },
+      "templateModuleDetails": {
+        "Routes and Nearby Stations Mobile": "Keeps map, list, permissions, distance, and selected station in the same decision path.",
+        "Station Detail and Route Guidance": "Moves from station comparison to external navigation with ETA, service restrictions, and recovery."
+      }
+    }
+  }
+}

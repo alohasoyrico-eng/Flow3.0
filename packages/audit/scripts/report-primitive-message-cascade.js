@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const {
+  docsAppDir,
   fs,
   path,
   read,
@@ -30,7 +31,6 @@ const componentContractDir = path.join(root, "packages/content/content/component
 const componentCopyDir = path.join(root, "packages/content/content/component-copy/components");
 const patternDir = path.join(root, "packages/content/content/pattern-contracts/patterns");
 const templateDir = path.join(root, "packages/specs/specs/unison-system/artifacts/templates");
-const docsAppDir = path.join(root, "apps/docs");
 
 const requiredRoles = ["intent", "severity", "anatomy", "announcement", "localization"];
 const requiredFoundations = ["Tone", "Voice", "State", "Accessibility"];
@@ -145,6 +145,14 @@ function foundationStatus(file) {
   return report?.status ?? "missing";
 }
 
+function reportStatus(file) {
+  const report = fs.existsSync(file) ? readJson(file) : null;
+  return {
+    status: report?.status ?? "missing",
+    gaps: report?.gaps ?? [],
+  };
+}
+
 const tokenCss = readIfExists(tokenCssFile);
 const tokenDeclarations = collectDeclarations(tokenCss);
 const specWrapper = readJson(messageSpecFile);
@@ -192,11 +200,11 @@ const foundationGate = {
   accessibility: { status: foundationStatus(accessibilityReportFile) },
 };
 const primitiveGate = {
-  focus: { status: foundationStatus(focusReportFile) },
-  loading: { status: foundationStatus(loadingReportFile) },
-  disabled: { status: foundationStatus(disabledReportFile) },
-  iconography: { status: foundationStatus(iconographyReportFile) },
-  measurement: { status: foundationStatus(measurementReportFile) },
+  focus: reportStatus(focusReportFile),
+  loading: reportStatus(loadingReportFile),
+  disabled: reportStatus(disabledReportFile),
+  iconography: reportStatus(iconographyReportFile),
+  measurement: reportStatus(measurementReportFile),
 };
 
 const gaps = [];
@@ -226,7 +234,11 @@ if (review.dangerWithoutRecovery.length) {
 for (const [name, gate] of Object.entries(foundationGate)) {
   if (gate.status !== "pass") gaps.push(`Foundation gate is not pass: ${name} is ${gate.status}.`);
 }
-for (const [name, gate] of Object.entries(primitiveGate)) {
+for (const [name, gate] of Object.entries({
+  focus: primitiveGate.focus,
+  loading: primitiveGate.loading,
+  disabled: primitiveGate.disabled,
+})) {
   if (gate.status !== "pass") gaps.push(`Primitive dependency gate is not pass: ${name} is ${gate.status}.`);
 }
 
@@ -248,7 +260,13 @@ const report = {
   accessibility,
   review,
   foundationGate,
-  primitiveGate,
+  primitiveGate: {
+    focus: { ...primitiveGate.focus, relationship: "upstream-interaction" },
+    loading: { ...primitiveGate.loading, relationship: "upstream-runtime" },
+    disabled: { ...primitiveGate.disabled, relationship: "upstream-state" },
+    iconography: { ...primitiveGate.iconography, relationship: "lateral-coordination" },
+    measurement: { ...primitiveGate.measurement, relationship: "lateral-coordination" },
+  },
 };
 
 function writeReport() {

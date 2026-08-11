@@ -1,0 +1,405 @@
+{
+  "status": "pass",
+  "audit": "pattern contract governance",
+  "principle": "Pattern contracts and demos must be governed as portable Flow evidence: markdown carries the formal contract, and demos compose package-backed Flow components instead of local visuals.",
+  "inventory": {
+    "patternContractGovernanceIssues": 0,
+    "requiredPatternContracts": 23,
+    "requiredPatternContractGaps": 0,
+    "requiredMarkdownSections": 19,
+    "readinessExpectedInventoryMetrics": 24,
+    "requiredDemos": 21,
+    "requiredDemoExemptions": 2,
+    "demoSharedHelperPolicy": 3,
+    "demoLocalControlRulePolicy": 2,
+    "demoSpecificRulePolicy": 4,
+    "demoLocalControlPatternCoverage": 8,
+    "requiredDemoPolicyGaps": 0,
+    "unusedRequiredDemoExemptions": 0,
+    "requiredDemoComponentAssertions": 105,
+    "markdownContractsScanned": 59,
+    "contractsMissingRequiredSections": 0,
+    "missingRequiredSectionEntries": 0,
+    "missingRequiredDemoFunctions": 0,
+    "missingRequiredDemoComponentAssertions": 0,
+    "patternContractGovernanceDebt": 0
+  },
+  "baseline": {
+    "inventory": {
+      "patternContractGovernanceIssues": 0,
+      "requiredPatternContracts": 23,
+      "requiredPatternContractGaps": 0,
+      "requiredMarkdownSections": 19,
+      "readinessExpectedInventoryMetrics": 24,
+      "requiredDemos": 21,
+      "requiredDemoExemptions": 2,
+      "demoSharedHelperPolicy": 3,
+      "demoLocalControlRulePolicy": 2,
+      "demoSpecificRulePolicy": 4,
+      "demoLocalControlPatternCoverage": 8,
+      "requiredDemoPolicyGaps": 0,
+      "unusedRequiredDemoExemptions": 0,
+      "requiredDemoComponentAssertions": 105,
+      "markdownContractsScanned": 59,
+      "contractsMissingRequiredSections": 0,
+      "missingRequiredSectionEntries": 0,
+      "missingRequiredDemoFunctions": 0,
+      "missingRequiredDemoComponentAssertions": 0,
+      "patternContractGovernanceDebt": 0
+    },
+    "mismatches": [],
+    "unexpectedInventoryMetrics": []
+  },
+  "contractPolicyIssues": [],
+  "requiredPatternContractGaps": [],
+  "requiredDemoPolicyGaps": [],
+  "requiredDemoExemptions": {
+    "sidebar": "Shell navigation pattern: verify through governed shell/template composition instead of an isolated demo panel.",
+    "topbar": "Shell navigation pattern: verify through governed shell/template composition instead of an isolated demo panel."
+  },
+  "demoCompositionPolicy": {
+    "sharedHelperNames": [
+      "searchSlotMarkup",
+      "notificationPanelMarkup",
+      "avatarMenuMarkup"
+    ],
+    "localControlRules": [
+      {
+        "ids": [
+          "form-section",
+          "toolbar",
+          "filter-chip-group",
+          "file-upload"
+        ],
+        "tags": [
+          "button",
+          "input",
+          "select",
+          "textarea"
+        ],
+        "file": "candidate",
+        "message": "Pattern demo must not create local controls; compose Design System controls through packageDemo."
+      },
+      {
+        "ids": [
+          "fullscreen-sheet",
+          "swipe-actions",
+          "quick-actions-grid",
+          "drawer-adapter"
+        ],
+        "tags": [
+          "button",
+          "input",
+          "select",
+          "textarea",
+          "progress"
+        ],
+        "file": "mobile",
+        "message": "Mobile pattern demo must not create local controls; compose Design System controls through packageDemo."
+      }
+    ],
+    "specificRules": [
+      {
+        "id": "select-option-layer",
+        "file": "candidate",
+        "pattern": "<article\\s+data-select-layer-option|<strong>Standard policy|<span>Default card controls",
+        "message": "Select Option Layer demo must not create local option cards; compose Design System Card/Badge/Button instead."
+      },
+      {
+        "id": "multi-select",
+        "file": "candidate",
+        "pattern": "<span\\s+data-multi-select-count",
+        "message": "Multi Select count must use a Design System status component, not loose text."
+      },
+      {
+        "id": "file-upload",
+        "file": "candidate",
+        "pattern": "<progress\\b|type=\"file\"",
+        "message": "File Upload demo must not use local file/progress controls in docs; compose Design System Button and Progress Indicator."
+      },
+      {
+        "id": "swipe-actions",
+        "file": "mobile",
+        "pattern": "touchstart|pointermove|translateX",
+        "message": "Swipe Actions demo must expose explicit controls and avoid custom gesture physics."
+      }
+    ]
+  },
+  "unusedRequiredDemoExemptions": [],
+  "contractsMissingRequiredSections": [],
+  "demoRows": [
+    {
+      "pattern": "action-sheet",
+      "function": "actionSheetDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "button",
+        "menu",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "autocomplete",
+      "function": "autocompleteDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "combobox",
+        "skeleton",
+        "empty-state",
+        "inline-validation"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "avatar-menu",
+      "function": "avatarMenuDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "menu",
+        "avatar"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "bulk-actions",
+      "function": "bulkActionsDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "button",
+        "checkbox",
+        "table",
+        "dialog",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "command-palette",
+      "function": "commandPaletteDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "dialog",
+        "input",
+        "menu",
+        "button",
+        "empty-state",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "confirmation-dialog",
+      "function": "confirmationDialogDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "dialog",
+        "button",
+        "inline-validation",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "drawer-adapter",
+      "function": "drawerAdapterDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "drawer",
+        "menu",
+        "button",
+        "dialog",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "file-upload",
+      "function": "fileUploadDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "button",
+        "progress-indicator",
+        "inline-validation",
+        "tag",
+        "empty-state",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "filter-chip-group",
+      "function": "filterChipGroupDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "chip",
+        "badge",
+        "button",
+        "empty-state",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "form-section",
+      "function": "formSectionDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "input",
+        "select",
+        "checkbox",
+        "switch",
+        "radio-button",
+        "text-area",
+        "button",
+        "icon-button"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "fullscreen-sheet",
+      "function": "fullscreenSheetDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "stepper",
+        "input",
+        "button",
+        "inline-validation",
+        "card-summary",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "help-center",
+      "function": "helpCenterDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "input",
+        "button",
+        "card",
+        "empty-state"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "multi-select",
+      "function": "multiSelectDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "checkbox",
+        "chip",
+        "badge",
+        "button",
+        "inline-validation",
+        "empty-state"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "multi-step-form",
+      "function": "multiStepFormDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "stepper",
+        "input",
+        "button",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "notification-panel",
+      "function": "notificationPanelDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "icon-button",
+        "badge",
+        "button",
+        "list",
+        "toast",
+        "empty-state"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "quick-actions-grid",
+      "function": "quickActionsGridDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "quick-action",
+        "tooltip",
+        "dialog",
+        "toast",
+        "badge"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "search",
+      "function": "searchDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "input",
+        "select",
+        "list",
+        "empty-state",
+        "inline-validation",
+        "button"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "select-option-layer",
+      "function": "selectOptionLayerDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "select",
+        "card",
+        "inline-validation",
+        "button",
+        "badge"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "settings",
+      "function": "settingsDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "switch",
+        "select",
+        "button",
+        "dialog",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "swipe-actions",
+      "function": "swipeActionsDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "movement-row",
+        "quick-action",
+        "button",
+        "toast"
+      ],
+      "missingComponents": []
+    },
+    {
+      "pattern": "toolbar",
+      "function": "toolbarDemoPanel",
+      "present": true,
+      "requiredComponents": [
+        "input",
+        "button",
+        "menu",
+        "badge",
+        "chip",
+        "toast"
+      ],
+      "missingComponents": []
+    }
+  ]
+}

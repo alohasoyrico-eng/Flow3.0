@@ -33,29 +33,18 @@ Before building or changing this component, confirm:
 
 Foundations required: `Energy`, `Voice`, `Frame`, `Depth`, `Momentum`, `State`, `Tone`, `Growth`, `Symbol`, `Iconography`, `Accessibility`
 
-Primitive dependencies: `Color`, `Typography`, `Spacing`, `Radius`, `Elevation`, `Iconography`, `Motion Curves`, `Duration`, `Density`, `Focus`, `Loading`, `Disabled`
+Primitive dependencies: `Color`, `Typography`, `Spacing`, `Radius`, `Elevation`, `Iconography`, `Motion Curves`, `Duration`, `Breakpoints`, `Focus`, `Loading`, `Disabled`
 
 Component dependencies: `None declared`
 
-Token dependencies: `comp.button.*`, `sys.energy.*`, `sys.voice.*`, `sys.frame.*`, `sys.state.*`, `sys.momentum.*`, `sys.accessibility.*`, `sys.symbol.*`, `sys.growth.*`
-
-Reference translation: Adapt - Use the reference Button documentation model: spec, live demos, anatomy, accessibility, playground, API, guidelines, and tests. Do not copy vendor prefixes, Storybook dependency, generic examples, or unrelated naming.
+Token dependencies: `comp.button.*`, `sys.energy.*`, `sys.frame.*`, `sys.voice.*`, `sys.state.*`, `sys.tone.*`, `sys.accessibility.*`
 
 Gaps or review gates:
 
-- No visible label or accessible name.
-- More than one primary action in the same decision group without rationale.
-- Danger or warning action lacks clear consequence copy nearby.
-- Loading state looks identical to disabled.
-- Icon replaces the label.
-- Raw hex, px, ms, shadow, or icon glyph appears in the public contract.
-- Growth metadata changes the visual appearance of the button.
-- Any foundation coverage is partial, missing, or token-only.
-- Viewport adaptation relies on breakpoints without density/context rules.
-- Button exposes public size as an independent scale decision.
-- Icon color diverges from label color in filled danger or warning states.
-- Secondary and outlined are visually indistinguishable.
-- Primary Button does not use action-primary, or secondary/outlined Button uses filled blue action color.
+- No accessible label
+- Icon-only action
+- Raw color, spacing, radius, or motion
+- Workflow orchestration hidden inside Button
 - Ask before build: The consequence, recovery path, analytics event, or permission rule is unknown.
 - Ask before build: The action is destructive, financial, irreversible, or changes access.
 - Ask before build: The request needs a new system, confirmation pattern, service behavior, variant, or token.

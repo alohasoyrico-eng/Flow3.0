@@ -1,0 +1,89 @@
+{
+  "patterns": {
+    "expandable-detail-table": {
+      "title": "Expandable Detail Table",
+      "purpose": "Coordinate virtualized table rows with selected-row detail review without creating expandable row markup, local drawers, or custom table cards.",
+      "useWhen": [
+        "A table row needs governed detail review.",
+        "The table must keep Virtual Data Table semantics.",
+        "A template needs row-detail behavior without owning drawer internals."
+      ],
+      "doNotUseWithoutReview": [
+        "The workflow exposes regulated, financial, legal, safety, or irreversible data.",
+        "Rows need a tree structure rather than selected detail review.",
+        "The detail flow deserves a specialized domain pattern."
+      ],
+      "foundations": [
+        ["Accessibility", "The labelled group, virtual table, detail drawer, and feedback remain announced through formal owners."],
+        ["Depth", "Surface owns structural grouping and focus-within behavior without a Card wrapper."],
+        ["Energy", "Expanded, detail-open, loading, empty, error, and disabled states cascade into child boundaries."],
+        ["Frame", "Table density and responsive detail placement remain token-driven."],
+        ["Growth", "Row-detail behavior becomes reusable for templates without moving behavior into templates."],
+        ["Iconography", "Table, detail, and feedback symbols remain owned by child patterns."],
+        ["Momentum", "Loading, drawer, and feedback motion remain delegated to child owners."],
+        ["State", "Pattern state maps to table, detail, and feedback boundaries."],
+        ["Symbol", "Expanded, selected, and recovery symbols remain semantic through Badge and child patterns."],
+        ["Tone", "Neutral, selected, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Summaries, table labels, detail actions, and recovery copy stay explicit."]
+      ],
+      "slots": [
+        ["expandableDetailTableSurface", "Surface", "required", "Structural table-detail group."],
+        ["detailTableSummary", "Badge", "conditional", "Table-detail purpose or state summary."],
+        ["detailTableMetric", "Badge", "conditional", "Selected, expanded, or detail metrics."],
+        ["tableBoundary", "Virtual Data Table", "required", "Rows, selection, sort, pagination, virtualization, loading, empty, and error states."],
+        ["detailBoundary", "Drawer Adapter", "conditional", "Selected-row detail review, responsive drawer behavior, and actions."],
+        ["feedbackBoundary", "Status Feedback View", "conditional", "Table-detail recovery, toast, inline, notification, or snackbar feedback."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Drawer Adapter",
+        "Status Feedback View",
+        "Virtual Data Table"
+      ],
+      "variants": [
+        ["Virtual table", "Required", "Virtual Data Table owns table semantics, rows, selection, sort, and pagination."],
+        ["Expanded row", "State", "Expanded row key cascades selected state into the table."],
+        ["Detail review", "Conditional", "Drawer Adapter owns detail review and actions."],
+        ["Feedback recovery", "Conditional", "Status Feedback View owns error and action recovery."]
+      ],
+      "motion": [
+        ["Loading", "Surface marks busy while Virtual Data Table owns loading render."],
+        ["Detail open", "Drawer Adapter owns drawer/dialog motion."],
+        ["Feedback", "Status Feedback View owns recovery motion."]
+      ],
+      "accessibility": [
+        "Expose the pattern as a labelled group.",
+        "Delegate table semantics to Virtual Data Table and Table.",
+        "Delegate detail panel semantics to Drawer Adapter.",
+        "Delegate recovery and feedback semantics to Status Feedback View."
+      ],
+      "implementationChecklist": [
+        "Compose Surface, Badge, Virtual Data Table, Drawer Adapter, and Status Feedback View.",
+        "Forward table, detail, and feedback callbacks.",
+        "Keep expandable detail out of raw row DOM.",
+        "Expose density and state cascade through child patterns.",
+        "Reject local tables, local drawers, card wrappers, and docs-only demos."
+      ],
+      "tests": [
+        "Composes Surface plus the required child pattern boundaries.",
+        "Density and state cascade through table, detail, and feedback.",
+        "Callbacks preserve event context across table rows, detail actions, and feedback.",
+        "No Card wrapper, raw expandable row, custom drawer, local feedback shell, or docs-only shell is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Expandable Detail Table for reusable row-detail workflows.",
+          "Open Drawer Adapter for selected-row detail review.",
+          "Use Status Feedback View for row-detail recovery."
+        ],
+        "mustAsk": [
+          "Before exposing regulated, financial, legal, safety, or irreversible data.",
+          "Before replacing the detail drawer with custom row markup.",
+          "Before bypassing Virtual Data Table semantics."
+        ]
+      }
+    }
+  }
+}

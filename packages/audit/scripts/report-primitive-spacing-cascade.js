@@ -107,6 +107,10 @@ function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
 }
 
+function reportStatus(report) {
+  return report?.status ?? "missing";
+}
+
 function lineNumber(source, index) {
   return source.slice(0, index).split("\n").length;
 }
@@ -290,12 +294,10 @@ function createReport() {
   if (componentDirectRefFrame.length) gaps.push("Component package still consumes ref-frame-space directly instead of the Spacing primitive.");
   if (docsDirectRefFrame.length) gaps.push("Docs consumers still use ref-frame-space directly outside the foundation/reference layer.");
   if (!contract.includes("Generated portable primitive contract for Design System.")) gaps.push("Spacing Markdown contract is missing or not generated.");
-  if (frameReport.status !== "pass") gaps.push("Spacing cannot pass while the Frame foundation cascade report is not pass.");
-  if (depthReport.status !== "pass") gaps.push("Spacing cannot pass while the Depth foundation cascade report is not pass.");
-  if (stateReport.status !== "pass") gaps.push("Spacing cannot pass while the State foundation cascade report is not pass.");
-  if (accessibilityReport.status !== "pass") gaps.push("Spacing cannot pass while the Accessibility foundation cascade report is not pass.");
-  if (breakpointsReport.status !== "pass") gaps.push("Spacing cannot pass while the Breakpoints primitive cascade report is not pass.");
-  if (densityReport.status !== "pass") gaps.push("Spacing cannot pass while the Density primitive cascade report is not pass.");
+  if (reportStatus(frameReport) !== "pass") gaps.push("Spacing cannot pass while the Frame foundation cascade report is not pass.");
+  if (reportStatus(depthReport) !== "pass") gaps.push("Spacing cannot pass while the Depth foundation cascade report is not pass.");
+  if (reportStatus(stateReport) !== "pass") gaps.push("Spacing cannot pass while the State foundation cascade report is not pass.");
+  if (reportStatus(accessibilityReport) !== "pass") gaps.push("Spacing cannot pass while the Accessibility foundation cascade report is not pass.");
   if (componentSpacingAliasUseCount < 40) gaps.push("Component package does not show enough Spacing/Frame alias usage to prove cascade into components.");
   if (componentRefs.count < 10) gaps.push("Component specs do not show enough Spacing primitive coverage.");
 
@@ -337,34 +339,34 @@ function createReport() {
     foundationGate: {
       frame: {
         report: rel(frameReportFile),
-        status: frameReport.status,
+        status: reportStatus(frameReport),
         gaps: frameReport.gaps ?? [],
       },
       depth: {
         report: rel(depthReportFile),
-        status: depthReport.status,
+        status: reportStatus(depthReport),
         gaps: depthReport.gaps ?? [],
       },
       state: {
         report: rel(stateReportFile),
-        status: stateReport.status,
+        status: reportStatus(stateReport),
         gaps: stateReport.gaps ?? [],
       },
       accessibility: {
         report: rel(accessibilityReportFile),
-        status: accessibilityReport.status,
+        status: reportStatus(accessibilityReport),
         gaps: accessibilityReport.gaps ?? [],
       },
     },
     primitiveGate: {
       breakpoints: {
         report: rel(breakpointsReportFile),
-        status: breakpointsReport.status,
+        status: reportStatus(breakpointsReport),
         gaps: breakpointsReport.gaps ?? [],
       },
       density: {
         report: rel(densityReportFile),
-        status: densityReport.status,
+        status: reportStatus(densityReport),
         gaps: densityReport.gaps ?? [],
       },
     },

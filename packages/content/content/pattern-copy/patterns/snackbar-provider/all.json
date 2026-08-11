@@ -40,10 +40,10 @@
       ],
       "slots": [
         [
-          "region",
-          "SnackbarRegion",
+          "viewport",
+          "Surface",
           "yes",
-          "Shared feedback area owned by the shell or route."
+          "Shared feedback viewport owned by the shell or route."
         ],
         [
           "items",

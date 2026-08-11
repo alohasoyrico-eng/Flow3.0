@@ -142,6 +142,14 @@ function foundationStatus(file) {
   return report?.status ?? "missing";
 }
 
+function reportStatus(file) {
+  const report = fs.existsSync(file) ? readJson(file) : null;
+  return {
+    status: report?.status ?? "missing",
+    gaps: report?.gaps ?? [],
+  };
+}
+
 const tokenCss = readIfExists(tokenCssFile);
 const componentCss = readIfExists(componentCssFile);
 const tokenDeclarations = collectDeclarations(tokenCss);
@@ -172,7 +180,7 @@ const foundationGate = Object.fromEntries(
   Object.entries(foundationReports).map(([name, file]) => [name, { status: foundationStatus(file) }]),
 );
 const primitiveGate = Object.fromEntries(
-  Object.entries(coordinatedPrimitiveReports).map(([name, file]) => [name, { status: foundationStatus(file) }]),
+  Object.entries(coordinatedPrimitiveReports).map(([name, file]) => [name, reportStatus(file)]),
 );
 
 const gaps = [];
@@ -198,8 +206,8 @@ if (rawDurations.length) gaps.push(`Raw duration literals outside token/referenc
 for (const [name, gate] of Object.entries(foundationGate)) {
   if (gate.status !== "pass") gaps.push(`Foundation gate is not pass: ${name} is ${gate.status}.`);
 }
-for (const [name, gate] of Object.entries(primitiveGate)) {
-  if (gate.status !== "pass") gaps.push(`Primitive dependency gate is not pass: ${name} is ${gate.status}.`);
+if (primitiveGate.loading.status !== "pass") {
+  gaps.push(`Primitive dependency gate is not pass: loading is ${primitiveGate.loading.status}.`);
 }
 
 const report = {
@@ -218,7 +226,10 @@ const report = {
   componentBridge,
   review: { directMomentumDurationUses, rawDurations },
   foundationGate,
-  primitiveGate,
+  primitiveGate: {
+    motionCurves: { ...primitiveGate.motionCurves, relationship: "lateral-coordination" },
+    loading: { ...primitiveGate.loading, relationship: "upstream-runtime" },
+  },
 };
 
 function writeReport() {

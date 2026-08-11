@@ -1,0 +1,88 @@
+{
+  "patterns": {
+    "status-feedback-view": {
+      "purpose": "Route product feedback states to the correct Flow feedback component or pattern without introducing a parallel status shell.",
+      "useWhen": [
+        "A flow needs one feedback contract across empty, error, inline, toast, notification, or queue states.",
+        "The caller needs to swap feedback delivery while preserving accessibility and state semantics.",
+        "Templates need feedback behavior without owning local feedback styles."
+      ],
+      "doNotUseWithoutReview": [
+        "The feedback is purely decorative.",
+        "The state mixes blocking and transient feedback in one slot.",
+        "The product needs a new feedback owner rather than routing to existing Flow owners."
+      ],
+      "foundations": [
+        ["Accessibility", "Feedback regions, alerts, live updates, and field descriptions keep their formal owner semantics."],
+        ["Depth", "Notification queues and transient feedback inherit structural depth through their owning patterns."],
+        ["Energy", "Info, success, warning, danger, and disabled feedback use component tone contracts."],
+        ["Frame", "Spacing and responsive behavior are inherited from the child owner, not a local shell."],
+        ["Growth", "Feedback state, recovery, and measurement remain observable through the owning components and patterns."],
+        ["Iconography", "Feedback icons come from Empty State, Error Panel, Toast, and related owners."],
+        ["Momentum", "Transient feedback delegates motion and queue behavior to Toast or Snackbar Provider."],
+        ["State", "Empty, error, critical, warning, success, visible, loading, permission, maintenance, and disabled states are explicit."],
+        ["Symbol", "Status symbols remain recognizable through the owning component, while text remains required as fallback for feedback meaning and recovery."],
+        ["Tone", "Semantic tone maps to the component or pattern responsible for the feedback scope."],
+        ["Voice", "Feedback copy stays textual, concise, and recoverable."]
+      ],
+      "slots": [
+        ["emptyView", "Empty State", "conditional", "Empty, loading, permission, and maintenance feedback."],
+        ["errorView", "Error Panel", "conditional", "Recoverable, warning, error, and critical feedback."],
+        ["inlineFeedback", "Inline Validation", "conditional", "Field-scoped feedback."],
+        ["transientFeedback", "Toast", "conditional", "Temporary status, recovery, warning, and action feedback."],
+        ["notificationHistory", "Notification Panel", "conditional", "Notification center and unread history."],
+        ["queuedFeedback", "Snackbar Provider", "conditional", "Queued transient feedback messages."]
+      ],
+      "componentsUsed": [
+        "Empty State",
+        "Error Panel",
+        "Inline Validation",
+        "Toast"
+      ],
+      "variants": [
+        ["Empty view", "Required", "Renders Empty State."],
+        ["Error view", "Required", "Renders Error Panel."],
+        ["Inline feedback", "Required", "Renders Inline Validation."],
+        ["Toast feedback", "Required", "Renders Toast."],
+        ["Notification history", "Required boundary", "Delegates to Notification Panel."],
+        ["Queued feedback", "Required boundary", "Delegates to Snackbar Provider."]
+      ],
+      "motion": [
+        ["Transient", "Toast and Snackbar Provider own visible, exiting, and queued motion."],
+        ["Loading", "Empty State owns loading affordance through Spinner."],
+        ["Blocking", "Error Panel remains stable and avoids decorative movement."]
+      ],
+      "accessibility": [
+        "Expose a labelled region or group.",
+        "Use live regions only for transient or status updates.",
+        "Delegate field semantics to Inline Validation.",
+        "Delegate notification history semantics to Notification Panel."
+      ],
+      "tests": [
+        "Each kind routes to its formal Flow owner.",
+        "Density and state cascade to child components.",
+        "Actions, dismissals, queue actions, and selection callbacks fire with context.",
+        "No status-view, feedback-shell, feedback-banner, or local status class is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Route feedback by scope: field, view, transient, notification history, or queue.",
+          "Use existing Flow feedback components and patterns.",
+          "Keep templates from defining feedback behavior directly."
+        ],
+        "mustAsk": [
+          "Blocking and transient feedback compete in the same slot.",
+          "Feedback has compliance, safety, finance, or destructive-action consequences.",
+          "A product asks for a new feedback visual owner."
+        ],
+        "rejectIf": [
+          "A local shell replaces Empty State, Error Panel, Inline Validation, Toast, Notification Panel, or Snackbar Provider.",
+          "Feedback is color-only.",
+          "Notifications render as raw list markup.",
+          "A template owns feedback behavior that belongs in this pattern."
+        ],
+        "handoff": "Confirm feedback scope, state priority, tone, live-region behavior, recovery action, dismiss policy, and whether notification history or transient queue behavior is required."
+      }
+    }
+  }
+}

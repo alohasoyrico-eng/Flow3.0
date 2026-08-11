@@ -1,0 +1,205 @@
+{
+  "status": "pass",
+  "primitive": "Maps",
+  "principle": "Maps governs geolocation, permission, pins, routes, fallback lists, MapLibre runtime boundaries, and accessible equivalents before components or templates draw map UI.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "permission",
+      "stationPin",
+      "routeLine",
+      "cluster",
+      "fallbackList",
+      "runtime"
+    ],
+    "present": [
+      "permission",
+      "stationPin",
+      "routeLine",
+      "cluster",
+      "fallbackList",
+      "runtime"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Energy",
+      "Accessibility",
+      "Frame",
+      "Voice",
+      "Momentum",
+      "Depth",
+      "State"
+    ],
+    "present": [
+      "Energy",
+      "Accessibility",
+      "Frame",
+      "Voice",
+      "Momentum",
+      "Depth",
+      "State"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Library Sources",
+      "Measurement",
+      "Message",
+      "Iconography",
+      "Breakpoints",
+      "Loading"
+    ],
+    "present": [
+      "Library Sources",
+      "Measurement",
+      "Message",
+      "Iconography",
+      "Breakpoints",
+      "Loading"
+    ],
+    "missing": []
+  },
+  "tokenDependencies": {
+    "required": [
+      "map.*",
+      "library.*",
+      "sys.energy.*",
+      "sys.frame.*",
+      "sys.voice.*",
+      "sys.momentum.*",
+      "sys.depth.*",
+      "sys.accessibility.*"
+    ],
+    "present": [
+      "map.*",
+      "library.*",
+      "sys.energy.*",
+      "sys.frame.*",
+      "sys.voice.*",
+      "sys.momentum.*",
+      "sys.depth.*",
+      "sys.accessibility.*"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-map-permission-granted-color",
+      "--sys-map-permission-denied-color",
+      "--sys-map-permission-prompt-color",
+      "--sys-map-pin-background",
+      "--sys-map-pin-foreground",
+      "--sys-map-pin-border",
+      "--sys-map-pin-action-color",
+      "--sys-map-pin-selected-background",
+      "--sys-map-pin-selected-foreground",
+      "--sys-map-pin-cluster-background",
+      "--sys-map-pin-cluster-foreground",
+      "--sys-map-route-line-color",
+      "--sys-map-route-line-muted-color",
+      "--sys-map-fallback-surface",
+      "--sys-map-fallback-text-color",
+      "--sys-map-depth-pin",
+      "--sys-map-depth-selected",
+      "--sys-map-focus-ring"
+    ],
+    "present": [
+      "--sys-map-permission-granted-color",
+      "--sys-map-permission-denied-color",
+      "--sys-map-permission-prompt-color",
+      "--sys-map-pin-background",
+      "--sys-map-pin-foreground",
+      "--sys-map-pin-border",
+      "--sys-map-pin-action-color",
+      "--sys-map-pin-selected-background",
+      "--sys-map-pin-selected-foreground",
+      "--sys-map-pin-cluster-background",
+      "--sys-map-pin-cluster-foreground",
+      "--sys-map-route-line-color",
+      "--sys-map-route-line-muted-color",
+      "--sys-map-fallback-surface",
+      "--sys-map-fallback-text-color",
+      "--sys-map-depth-pin",
+      "--sys-map-depth-selected",
+      "--sys-map-focus-ring"
+    ],
+    "missing": []
+  },
+  "implementation": {
+    "packageDependency": "5.24.0",
+    "docsLoadsLocalRuntime": true,
+    "vendorRuntimePresent": true,
+    "vendorCssPresent": true,
+    "vendorLicensePresent": true,
+    "exportsFactory": true,
+    "publicIndexExport": true,
+    "resolvesMapLibreRuntime": true,
+    "createsRuntimeModel": true,
+    "gatesProviderReadiness": true,
+    "requiresFallbackWithRuntime": true,
+    "normalizesPermission": true,
+    "normalizesPinAccessibleLabel": true,
+    "createsFallbackList": true,
+    "createsRouteSummary": true,
+    "outputsMapLayerModel": true,
+    "outputsStationListModel": true,
+    "stationPinConsumesPrimitive": true,
+    "stationPinUsesPrimitiveLabel": true,
+    "stationPinCssUsesMapTokens": 11,
+    "tokenIndexExportsMap": true
+  },
+  "references": {
+    "stationPinContract": true,
+    "routeSummaryContract": true,
+    "templates": [
+      "driver-mobile-app",
+      "routes-and-stations"
+    ]
+  },
+  "foundationGate": {
+    "energy": "pass",
+    "accessibility": "pass",
+    "frame": "pass",
+    "voice": "pass",
+    "momentum": "pass",
+    "depth": "pass",
+    "state": "pass"
+  },
+  "primitiveGate": {
+    "librarySources": "pass",
+    "measurement": "pass",
+    "message": "pass",
+    "iconography": "pass",
+    "breakpoints": "pass",
+    "loading": "pass"
+  },
+  "librarySources": {
+    "row": {
+      "id": "maps",
+      "library": "maplibre-gl",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": "5.24.0",
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": true,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Energy",
+        "Accessibility",
+        "Frame",
+        "Voice",
+        "Momentum",
+        "Depth",
+        "State"
+      ]
+    }
+  }
+}

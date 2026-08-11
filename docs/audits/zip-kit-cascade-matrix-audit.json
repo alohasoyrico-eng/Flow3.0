@@ -1,0 +1,2527 @@
+{
+  "status": "pass",
+  "audit": "zip kit cascade matrix",
+  "principle": "Every ZIP kit must resolve detected UI references into Flow foundations, primitives, components, patterns, templates, or an explicit separate channel without creating a parallel cascade.",
+  "generatedAt": "2026-08-11T00:45:13.788Z",
+  "inventory": {
+    "kits": 16,
+    "zipPaths": 40,
+    "zipComponentReferences": 329,
+    "uniqueZipComponentReferences": 58,
+    "foundationOwnerLinks": 74,
+    "primitiveOwnerLinks": 73,
+    "componentOwnerLinks": 165,
+    "patternOwnerLinks": 56,
+    "templateOwnerLinks": 13,
+    "kitsWithLayerCoverage": 16,
+    "unresolvedZipReferences": 0,
+    "layerCoverageDebt": 0,
+    "signalMappingDebt": 0,
+    "zipKitCascadeDebt": 0
+  },
+  "kits": [
+    {
+      "id": "agent-chat",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 4,
+        "primitives": 4,
+        "components": 14,
+        "patterns": 2,
+        "templates": 1
+      },
+      "signals": {
+        "form": false,
+        "table": true,
+        "chart": true,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": true,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 11,
+      "uniqueZipReferenceCount": 11,
+      "references": [
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Bars",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Breadcrumb",
+          "acceptedOwners": [
+            "breadcrumbs"
+          ],
+          "resolvedOwners": [
+            "breadcrumbs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ChatComposer",
+          "acceptedOwners": [
+            "chat-composer"
+          ],
+          "resolvedOwners": [
+            "chat-composer"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ChatThread",
+          "acceptedOwners": [
+            "chat-thread"
+          ],
+          "resolvedOwners": [
+            "chat-thread"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "EmptyState",
+          "acceptedOwners": [
+            "empty-state",
+            "status-feedback-view"
+          ],
+          "resolvedOwners": [
+            "status-feedback-view"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "IconButton",
+          "acceptedOwners": [
+            "icon-button"
+          ],
+          "resolvedOwners": [
+            "icon-button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "StatTile",
+          "acceptedOwners": [
+            "kpi-tile",
+            "kpi-card"
+          ],
+          "resolvedOwners": [
+            "kpi-tile"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Table",
+          "acceptedOwners": [
+            "table",
+            "virtual-data-table"
+          ],
+          "resolvedOwners": [
+            "table"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "auth",
+      "classification": "covered-by-pattern",
+      "ownerCounts": {
+        "foundations": 5,
+        "primitives": 4,
+        "components": 7,
+        "patterns": 2,
+        "templates": 0
+      },
+      "signals": {
+        "form": true,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": false,
+        "jsxRuntime": false,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 6,
+      "uniqueZipReferenceCount": 6,
+      "references": [
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Checkbox",
+          "acceptedOwners": [
+            "checkbox"
+          ],
+          "resolvedOwners": [
+            "checkbox"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Field",
+          "acceptedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolvedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Input",
+          "acceptedOwners": [
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Toast",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ToastStack",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "auth-otp",
+      "classification": "covered-by-pattern",
+      "ownerCounts": {
+        "foundations": 4,
+        "primitives": 3,
+        "components": 8,
+        "patterns": 1,
+        "templates": 0
+      },
+      "signals": {
+        "form": true,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": false,
+        "jsxRuntime": true,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 10,
+      "uniqueZipReferenceCount": 10,
+      "references": [
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "BiometricPrompt",
+          "acceptedOwners": [
+            "biometric-prompt"
+          ],
+          "resolvedOwners": [
+            "biometric-prompt"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Checkbox",
+          "acceptedOwners": [
+            "checkbox"
+          ],
+          "resolvedOwners": [
+            "checkbox"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Field",
+          "acceptedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolvedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Input",
+          "acceptedOwners": [
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "OTPInput",
+          "acceptedOwners": [
+            "code-input"
+          ],
+          "resolvedOwners": [
+            "code-input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "PasscodeKeypad",
+          "acceptedOwners": [
+            "authentication-login-biometrics-and-otp"
+          ],
+          "resolvedOwners": [
+            "authentication-login-biometrics-and-otp"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Toast",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ToastStack",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "config",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 5,
+        "primitives": 5,
+        "components": 17,
+        "patterns": 5,
+        "templates": 1
+      },
+      "signals": {
+        "form": true,
+        "table": true,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": true,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 18,
+      "uniqueZipReferenceCount": 18,
+      "references": [
+        {
+          "ref": "Avatar",
+          "acceptedOwners": [
+            "avatar"
+          ],
+          "resolvedOwners": [
+            "avatar"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Breadcrumb",
+          "acceptedOwners": [
+            "breadcrumbs"
+          ],
+          "resolvedOwners": [
+            "breadcrumbs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Combobox",
+          "acceptedOwners": [
+            "combobox",
+            "autocomplete"
+          ],
+          "resolvedOwners": [
+            "combobox"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Dialog",
+          "acceptedOwners": [
+            "dialog",
+            "confirmation-dialog"
+          ],
+          "resolvedOwners": [
+            "dialog"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Field",
+          "acceptedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolvedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "IconButton",
+          "acceptedOwners": [
+            "icon-button"
+          ],
+          "resolvedOwners": [
+            "icon-button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Input",
+          "acceptedOwners": [
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Menu",
+          "acceptedOwners": [
+            "menu"
+          ],
+          "resolvedOwners": [
+            "menu"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "RoleMatrix",
+          "acceptedOwners": [
+            "roles-and-permissions"
+          ],
+          "resolvedOwners": [
+            "roles-and-permissions"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Select",
+          "acceptedOwners": [
+            "select"
+          ],
+          "resolvedOwners": [
+            "select"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Table",
+          "acceptedOwners": [
+            "table",
+            "virtual-data-table"
+          ],
+          "resolvedOwners": [
+            "table"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Tabs",
+          "acceptedOwners": [
+            "tabs"
+          ],
+          "resolvedOwners": [
+            "tabs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Textarea",
+          "acceptedOwners": [
+            "text-area"
+          ],
+          "resolvedOwners": [
+            "text-area"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Toast",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ToastStack",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "dashboards",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 5,
+        "primitives": 5,
+        "components": 15,
+        "patterns": 6,
+        "templates": 1
+      },
+      "signals": {
+        "form": false,
+        "table": true,
+        "chart": true,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": true,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 120,
+      "uniqueZipReferenceCount": 25,
+      "references": [
+        {
+          "ref": "Avatar",
+          "acceptedOwners": [
+            "avatar"
+          ],
+          "resolvedOwners": [
+            "avatar"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Bars",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Breadcrumb",
+          "acceptedOwners": [
+            "breadcrumbs"
+          ],
+          "resolvedOwners": [
+            "breadcrumbs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "BulletChart",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Combobox",
+          "acceptedOwners": [
+            "combobox",
+            "autocomplete"
+          ],
+          "resolvedOwners": [
+            "combobox"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "DatePicker",
+          "acceptedOwners": [
+            "date-picker"
+          ],
+          "resolvedOwners": [
+            "date-picker"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "DateRangePicker",
+          "acceptedOwners": [
+            "date-range-picker"
+          ],
+          "resolvedOwners": [
+            "date-range-picker"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Donut",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "IconButton",
+          "acceptedOwners": [
+            "icon-button"
+          ],
+          "resolvedOwners": [
+            "icon-button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "LineChart",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Menu",
+          "acceptedOwners": [
+            "menu"
+          ],
+          "resolvedOwners": [
+            "menu"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ParetoChart",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Progress",
+          "acceptedOwners": [
+            "progress-indicator"
+          ],
+          "resolvedOwners": [
+            "progress-indicator"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ScatterPlot",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "SmallMultiples",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Sparkline",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "StackedBars100",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "StatTile",
+          "acceptedOwners": [
+            "kpi-tile",
+            "kpi-card"
+          ],
+          "resolvedOwners": [
+            "kpi-tile",
+            "kpi-card"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Table",
+          "acceptedOwners": [
+            "table",
+            "virtual-data-table"
+          ],
+          "resolvedOwners": [
+            "table",
+            "virtual-data-table"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Tabs",
+          "acceptedOwners": [
+            "tabs"
+          ],
+          "resolvedOwners": [
+            "tabs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Tooltip",
+          "acceptedOwners": [
+            "tooltip"
+          ],
+          "resolvedOwners": [
+            "tooltip"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Treemap",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "drivers-app",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 4,
+        "primitives": 5,
+        "components": 11,
+        "patterns": 3,
+        "templates": 1
+      },
+      "signals": {
+        "form": false,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": false,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 10,
+      "uniqueZipReferenceCount": 10,
+      "references": [
+        {
+          "ref": "Avatar",
+          "acceptedOwners": [
+            "avatar"
+          ],
+          "resolvedOwners": [
+            "avatar"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface",
+            "card-summary"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "IconButton",
+          "acceptedOwners": [
+            "icon-button"
+          ],
+          "resolvedOwners": [
+            "icon-button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Progress",
+          "acceptedOwners": [
+            "progress-indicator"
+          ],
+          "resolvedOwners": [
+            "progress-indicator"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Switch",
+          "acceptedOwners": [
+            "switch"
+          ],
+          "resolvedOwners": [
+            "switch"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "TabBar",
+          "acceptedOwners": [
+            "tabs",
+            "driver-mobile-app"
+          ],
+          "resolvedOwners": [
+            "driver-mobile-app"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Toast",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ToastStack",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "fleet-dashboard",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 5,
+        "primitives": 5,
+        "components": 22,
+        "patterns": 8,
+        "templates": 2
+      },
+      "signals": {
+        "form": false,
+        "table": true,
+        "chart": true,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": false,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 27,
+      "uniqueZipReferenceCount": 27,
+      "references": [
+        {
+          "ref": "Accordion",
+          "acceptedOwners": [
+            "accordion"
+          ],
+          "resolvedOwners": [
+            "accordion"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Avatar",
+          "acceptedOwners": [
+            "avatar"
+          ],
+          "resolvedOwners": [
+            "avatar"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Bars",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Breadcrumb",
+          "acceptedOwners": [
+            "breadcrumbs"
+          ],
+          "resolvedOwners": [
+            "breadcrumbs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Chip",
+          "acceptedOwners": [
+            "chip",
+            "filter-chip-group"
+          ],
+          "resolvedOwners": [
+            "chip"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "DatePicker",
+          "acceptedOwners": [
+            "date-picker"
+          ],
+          "resolvedOwners": [
+            "date-picker"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Dialog",
+          "acceptedOwners": [
+            "dialog",
+            "confirmation-dialog"
+          ],
+          "resolvedOwners": [
+            "dialog",
+            "confirmation-dialog"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Drawer",
+          "acceptedOwners": [
+            "drawer",
+            "drawer-adapter",
+            "fullscreen-sheet"
+          ],
+          "resolvedOwners": [
+            "drawer"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "EmptyState",
+          "acceptedOwners": [
+            "empty-state",
+            "status-feedback-view"
+          ],
+          "resolvedOwners": [
+            "empty-state"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "FileUpload",
+          "acceptedOwners": [
+            "file-upload"
+          ],
+          "resolvedOwners": [
+            "file-upload"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "IconButton",
+          "acceptedOwners": [
+            "icon-button"
+          ],
+          "resolvedOwners": [
+            "icon-button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Input",
+          "acceptedOwners": [
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Menu",
+          "acceptedOwners": [
+            "menu"
+          ],
+          "resolvedOwners": [
+            "menu"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "NotificationCenter",
+          "acceptedOwners": [
+            "notification-panel"
+          ],
+          "resolvedOwners": [
+            "notification-panel"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Pagination",
+          "acceptedOwners": [
+            "pagination"
+          ],
+          "resolvedOwners": [
+            "pagination"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Progress",
+          "acceptedOwners": [
+            "progress-indicator"
+          ],
+          "resolvedOwners": [
+            "progress-indicator"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Select",
+          "acceptedOwners": [
+            "select"
+          ],
+          "resolvedOwners": [
+            "select"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Skeleton",
+          "acceptedOwners": [
+            "skeleton"
+          ],
+          "resolvedOwners": [
+            "skeleton"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Sparkline",
+          "acceptedOwners": [
+            "charts",
+            "chart-panel",
+            "chart-wrapper"
+          ],
+          "resolvedOwners": [
+            "charts"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Table",
+          "acceptedOwners": [
+            "table",
+            "virtual-data-table"
+          ],
+          "resolvedOwners": [
+            "table",
+            "virtual-data-table"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Tabs",
+          "acceptedOwners": [
+            "tabs"
+          ],
+          "resolvedOwners": [
+            "tabs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Toast",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ToastStack",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Tooltip",
+          "acceptedOwners": [
+            "tooltip"
+          ],
+          "resolvedOwners": [
+            "tooltip"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "internal-tools",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 5,
+        "primitives": 4,
+        "components": 14,
+        "patterns": 10,
+        "templates": 1
+      },
+      "signals": {
+        "form": true,
+        "table": true,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": true,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 61,
+      "uniqueZipReferenceCount": 18,
+      "references": [
+        {
+          "ref": "Avatar",
+          "acceptedOwners": [
+            "avatar"
+          ],
+          "resolvedOwners": [
+            "avatar"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ChatThread",
+          "acceptedOwners": [
+            "chat-thread"
+          ],
+          "resolvedOwners": [
+            "chat-thread"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Drawer",
+          "acceptedOwners": [
+            "drawer",
+            "drawer-adapter",
+            "fullscreen-sheet"
+          ],
+          "resolvedOwners": [
+            "drawer"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Field",
+          "acceptedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "IconButton",
+          "acceptedOwners": [
+            "icon-button"
+          ],
+          "resolvedOwners": [
+            "icon-button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Input",
+          "acceptedOwners": [
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Menu",
+          "acceptedOwners": [
+            "menu"
+          ],
+          "resolvedOwners": [
+            "menu"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Select",
+          "acceptedOwners": [
+            "select"
+          ],
+          "resolvedOwners": [
+            "select"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "StatTile",
+          "acceptedOwners": [
+            "kpi-tile",
+            "kpi-card"
+          ],
+          "resolvedOwners": [
+            "kpi-tile"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "StatusView",
+          "acceptedOwners": [
+            "status-feedback-view"
+          ],
+          "resolvedOwners": [
+            "status-feedback-view"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Table",
+          "acceptedOwners": [
+            "table",
+            "virtual-data-table"
+          ],
+          "resolvedOwners": [
+            "table"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Tabs",
+          "acceptedOwners": [
+            "tabs"
+          ],
+          "resolvedOwners": [
+            "tabs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Timeline",
+          "acceptedOwners": [
+            "timeline"
+          ],
+          "resolvedOwners": [
+            "timeline"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Toast",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ToastStack",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "mailings",
+      "classification": "covered-separate-channel",
+      "ownerCounts": {
+        "foundations": 11,
+        "primitives": 9,
+        "components": 0,
+        "patterns": 1,
+        "templates": 0
+      },
+      "signals": {
+        "form": false,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": false,
+        "jsxRuntime": false,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 0,
+      "uniqueZipReferenceCount": 0,
+      "references": [],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "ios-frame",
+      "classification": "blocked-separate-channel",
+      "ownerCounts": {
+        "foundations": 2,
+        "primitives": 3,
+        "components": 0,
+        "patterns": 0,
+        "templates": 0
+      },
+      "signals": {
+        "form": false,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": false,
+        "jsxRuntime": false,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 0,
+      "uniqueZipReferenceCount": 0,
+      "references": [],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "onboarding-driver",
+      "classification": "covered-by-pattern",
+      "ownerCounts": {
+        "foundations": 4,
+        "primitives": 4,
+        "components": 11,
+        "patterns": 3,
+        "templates": 1
+      },
+      "signals": {
+        "form": true,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": true,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 12,
+      "uniqueZipReferenceCount": 12,
+      "references": [
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "BiometricPrompt",
+          "acceptedOwners": [
+            "biometric-prompt"
+          ],
+          "resolvedOwners": [
+            "biometric-prompt"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface",
+            "card-summary"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Field",
+          "acceptedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolvedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Input",
+          "acceptedOwners": [
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "OTPInput",
+          "acceptedOwners": [
+            "code-input"
+          ],
+          "resolvedOwners": [
+            "code-input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "PasscodeKeypad",
+          "acceptedOwners": [
+            "authentication-login-biometrics-and-otp"
+          ],
+          "resolvedOwners": [
+            "authentication-login-biometrics-and-otp"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "PaymentCard",
+          "acceptedOwners": [
+            "card-summary",
+            "driver-card-wallet"
+          ],
+          "resolvedOwners": [
+            "card-summary"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Progress",
+          "acceptedOwners": [
+            "progress-indicator"
+          ],
+          "resolvedOwners": [
+            "progress-indicator"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Switch",
+          "acceptedOwners": [
+            "switch"
+          ],
+          "resolvedOwners": [
+            "switch"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "TransactionRow",
+          "acceptedOwners": [
+            "movement-row"
+          ],
+          "resolvedOwners": [
+            "movement-row"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "onboarding-fm",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 4,
+        "primitives": 4,
+        "components": 10,
+        "patterns": 3,
+        "templates": 1
+      },
+      "signals": {
+        "form": true,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": true,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 12,
+      "uniqueZipReferenceCount": 12,
+      "references": [
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Chip",
+          "acceptedOwners": [
+            "chip",
+            "filter-chip-group"
+          ],
+          "resolvedOwners": [
+            "chip"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "EmptyState",
+          "acceptedOwners": [
+            "empty-state",
+            "status-feedback-view"
+          ],
+          "resolvedOwners": [
+            "empty-state"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Field",
+          "acceptedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Input",
+          "acceptedOwners": [
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "OTPInput",
+          "acceptedOwners": [
+            "code-input"
+          ],
+          "resolvedOwners": [
+            "code-input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Select",
+          "acceptedOwners": [
+            "select"
+          ],
+          "resolvedOwners": [
+            "select"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Stepper",
+          "acceptedOwners": [
+            "stepper"
+          ],
+          "resolvedOwners": [
+            "stepper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Toast",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ToastStack",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "rutas",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 4,
+        "primitives": 5,
+        "components": 7,
+        "patterns": 3,
+        "templates": 1
+      },
+      "signals": {
+        "form": false,
+        "table": false,
+        "chart": false,
+        "map": true,
+        "bottomSheet": true,
+        "cardShell": true,
+        "jsxRuntime": true,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 7,
+      "uniqueZipReferenceCount": 7,
+      "references": [
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "BottomSheet",
+          "acceptedOwners": [
+            "action-sheet",
+            "fullscreen-sheet",
+            "drawer"
+          ],
+          "resolvedOwners": [
+            "action-sheet"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Chip",
+          "acceptedOwners": [
+            "chip",
+            "filter-chip-group"
+          ],
+          "resolvedOwners": [
+            "chip"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "IconButton",
+          "acceptedOwners": [
+            "icon-button"
+          ],
+          "resolvedOwners": [
+            "icon-button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "MapCanvas",
+          "acceptedOwners": [
+            "maps",
+            "station-discovery"
+          ],
+          "resolvedOwners": [
+            "maps",
+            "station-discovery"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "settings",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 4,
+        "primitives": 5,
+        "components": 11,
+        "patterns": 4,
+        "templates": 1
+      },
+      "signals": {
+        "form": true,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": false,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 13,
+      "uniqueZipReferenceCount": 13,
+      "references": [
+        {
+          "ref": "Avatar",
+          "acceptedOwners": [
+            "avatar"
+          ],
+          "resolvedOwners": [
+            "avatar"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Breadcrumb",
+          "acceptedOwners": [
+            "breadcrumbs"
+          ],
+          "resolvedOwners": [
+            "breadcrumbs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Dialog",
+          "acceptedOwners": [
+            "dialog",
+            "confirmation-dialog"
+          ],
+          "resolvedOwners": [
+            "dialog",
+            "confirmation-dialog"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Field",
+          "acceptedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolvedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Input",
+          "acceptedOwners": [
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Select",
+          "acceptedOwners": [
+            "select"
+          ],
+          "resolvedOwners": [
+            "select"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Switch",
+          "acceptedOwners": [
+            "switch"
+          ],
+          "resolvedOwners": [
+            "switch"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Tabs",
+          "acceptedOwners": [
+            "tabs"
+          ],
+          "resolvedOwners": [
+            "tabs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Toast",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ToastStack",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "wallet",
+      "classification": "covered-by-template",
+      "ownerCounts": {
+        "foundations": 4,
+        "primitives": 4,
+        "components": 8,
+        "patterns": 3,
+        "templates": 1
+      },
+      "signals": {
+        "form": false,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": true,
+        "cardShell": true,
+        "jsxRuntime": true,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 9,
+      "uniqueZipReferenceCount": 9,
+      "references": [
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "BottomSheet",
+          "acceptedOwners": [
+            "action-sheet",
+            "fullscreen-sheet",
+            "drawer"
+          ],
+          "resolvedOwners": [
+            "action-sheet"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface",
+            "card-summary"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "IconButton",
+          "acceptedOwners": [
+            "icon-button"
+          ],
+          "resolvedOwners": [
+            "icon-button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "PaymentCard",
+          "acceptedOwners": [
+            "card-summary",
+            "driver-card-wallet"
+          ],
+          "resolvedOwners": [
+            "card-summary",
+            "driver-card-wallet"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "SegmentedControl",
+          "acceptedOwners": [
+            "segmented-control"
+          ],
+          "resolvedOwners": [
+            "segmented-control"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Switch",
+          "acceptedOwners": [
+            "switch"
+          ],
+          "resolvedOwners": [
+            "switch"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "TransactionRow",
+          "acceptedOwners": [
+            "movement-row"
+          ],
+          "resolvedOwners": [
+            "movement-row"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    },
+    {
+      "id": "wizard",
+      "classification": "covered-by-pattern",
+      "ownerCounts": {
+        "foundations": 4,
+        "primitives": 4,
+        "components": 10,
+        "patterns": 2,
+        "templates": 1
+      },
+      "signals": {
+        "form": true,
+        "table": false,
+        "chart": false,
+        "map": false,
+        "bottomSheet": false,
+        "cardShell": true,
+        "jsxRuntime": false,
+        "inlineTheme": true
+      },
+      "zipReferenceCount": 13,
+      "uniqueZipReferenceCount": 13,
+      "references": [
+        {
+          "ref": "Avatar",
+          "acceptedOwners": [
+            "avatar"
+          ],
+          "resolvedOwners": [
+            "avatar"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Badge",
+          "acceptedOwners": [
+            "badge"
+          ],
+          "resolvedOwners": [
+            "badge"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Breadcrumb",
+          "acceptedOwners": [
+            "breadcrumbs"
+          ],
+          "resolvedOwners": [
+            "breadcrumbs"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Button",
+          "acceptedOwners": [
+            "button"
+          ],
+          "resolvedOwners": [
+            "button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Card",
+          "acceptedOwners": [
+            "surface",
+            "card",
+            "card-summary"
+          ],
+          "resolvedOwners": [
+            "surface"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "DatePicker",
+          "acceptedOwners": [
+            "date-picker"
+          ],
+          "resolvedOwners": [
+            "date-picker"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Field",
+          "acceptedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolvedOwners": [
+            "field-action",
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Input",
+          "acceptedOwners": [
+            "input"
+          ],
+          "resolvedOwners": [
+            "input"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Radio",
+          "acceptedOwners": [
+            "radio-button"
+          ],
+          "resolvedOwners": [
+            "radio-button"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Select",
+          "acceptedOwners": [
+            "select"
+          ],
+          "resolvedOwners": [
+            "select"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Stepper",
+          "acceptedOwners": [
+            "stepper"
+          ],
+          "resolvedOwners": [
+            "stepper"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "Toast",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        },
+        {
+          "ref": "ToastStack",
+          "acceptedOwners": [
+            "toast",
+            "snackbar-provider"
+          ],
+          "resolvedOwners": [
+            "toast"
+          ],
+          "resolved": true
+        }
+      ],
+      "layerIssues": [],
+      "signalIssues": [],
+      "issues": []
+    }
+  ],
+  "issues": []
+}

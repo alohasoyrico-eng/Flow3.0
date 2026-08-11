@@ -27,10 +27,30 @@
       "patternRisk": false,
       "notes": "Factory and contract exist in @design-system/components."
     },
+    "chat-composer": {
+      "status": "package-component",
+      "patternRisk": true,
+      "notes": "Factory and contract exist in @design-system/components for one message-entry surface; conversation routing, agent policy, attachment workflows, and transcript orchestration remain pattern/template work."
+    },
+    "chat-message": {
+      "status": "package-component",
+      "patternRisk": true,
+      "notes": "Factory and contract exist in @design-system/components for one message row; thread state, agent handoff, retry policy, and chat orchestration remain pattern/template work."
+    },
+    "chat-thread": {
+      "status": "package-component",
+      "patternRisk": true,
+      "notes": "Factory and contract exist in @design-system/components for one bounded message log; complete agent workspace behavior remains pattern/template work."
+    },
     "input": {
       "status": "package-component",
       "patternRisk": false,
       "notes": "Factory and contract exist in @design-system/components."
+    },
+    "input-amount": {
+      "status": "package-component",
+      "patternRisk": false,
+      "notes": "Factory and contract exist in @design-system/components as a field-family extension for amount entry; pricing, payment submission, and currency policy remain pattern work."
     },
     "checkbox": {
       "status": "package-component",

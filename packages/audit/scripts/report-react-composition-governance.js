@@ -7,6 +7,7 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
 const { allowedReactComponentComposition, reactComponentCompositionContracts } = require("./react-composition-contract-audit.js");
 
 const checkMode = process.argv.includes("--check");
@@ -14,13 +15,22 @@ const reactSrcDir = path.join(root, "packages/react/src");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-composition-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-composition-governance-audit.md");
+const reactPrimaryGovernance = JSON.parse(fs.readFileSync(path.join(root, "packages/content/content/react-primary-governance.json"), "utf8"));
+const governedReactPrimitiveNames = new Set((reactPrimaryGovernance.governedReactPrimitives ?? [])
+  .map((primitive) => primitive.name)
+  .filter(Boolean));
 
 function componentFiles() {
   if (!fs.existsSync(reactSrcDir)) return [];
   return fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort()
     .map((file) => path.join(reactSrcDir, file));
+}
+
+function kebab(value) {
+  return String(value).replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
 function localComponentImports(source) {
@@ -36,6 +46,7 @@ function compositionReasons(component) {
 function createReport() {
   const knownComponents = componentFiles().map((file) => path.basename(file, ".js")).sort();
   const knownComponentSet = new Set(knownComponents);
+  const knownCompositionTargets = new Set([...knownComponentSet, ...governedReactPrimitiveNames]);
   const components = componentFiles().map((file) => {
     const component = path.basename(file, ".js");
     const source = read(file);
@@ -46,7 +57,7 @@ function createReport() {
     const missing = allowed.filter((item) => !actual.includes(item));
     const missingReasons = allowed.filter((item) => !reasons.get(item));
     const duplicateAllowed = allowed.filter((item, index) => allowed.indexOf(item) !== index);
-    const unknownAllowed = allowed.filter((item) => !knownComponentSet.has(item));
+    const unknownAllowed = allowed.filter((item) => !knownCompositionTargets.has(item));
     return {
       component,
       file: rel(file),

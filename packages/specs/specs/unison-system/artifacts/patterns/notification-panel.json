@@ -1,0 +1,168 @@
+{
+  "artifacts": {
+    "patterns": {
+      "notification-panel": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate notification lists opened from a shell boundary with unread status, empty recovery, actions, drawer behavior, and transient feedback.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Drawer",
+          "Empty State",
+          "Icon Button",
+          "List",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Topbar"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.drawer.*",
+          "comp.empty-state.*",
+          "comp.icon-button.*",
+          "comp.list.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Users need to inspect notifications or alerts from a shell trigger.",
+          "Unread count, empty state, action, or mark-read behavior is required.",
+          "The shell trigger remains owned by Topbar."
+        ],
+        "decisionTree": [
+          "Use Badge/Icon Button for a simple count trigger.",
+          "Use Notification Panel when notifications need list inspection and actions.",
+          "Use Snackbar Provider for transient feedback rather than historical notification lists."
+        ],
+        "failureModes": [
+          "Panel duplicates Topbar trigger implementation.",
+          "Notification rows are custom cards instead of List.",
+          "Unread status is color-only.",
+          "Drawer behavior is hand-rolled."
+        ],
+        "successMetrics": [
+          "Users can inspect unread/read notifications and act on them.",
+          "Keyboard and screen reader users can open, navigate, dismiss, and mark items.",
+          "Topbar owns trigger placement while the panel owns list behavior."
+        ],
+        "states": [
+          "closed",
+          "open",
+          "loading",
+          "empty",
+          "unread",
+          "all-read",
+          "error",
+          "permission-blocked"
+        ],
+        "slots": [
+          {
+            "name": "surface",
+            "owner": "component",
+            "uses": [
+              "Drawer"
+            ]
+          },
+          {
+            "name": "items",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Badge",
+              "Button",
+              "Icon Button"
+            ]
+          },
+          {
+            "name": "feedback",
+            "owner": "component",
+            "uses": [
+              "Empty State",
+              "Toast"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Announce unread count in text.",
+          "Use Drawer focus behavior when open.",
+          "Do not rely on color-only read/unread state."
+        ],
+        "tests": [
+          "Composes Drawer, List, Badge, Button, Icon Button, Empty State, and Toast.",
+          "Covers open, loading, empty, unread, all-read, error, and permission states.",
+          "Keeps Topbar as trigger boundary only."
+        ],
+        "agentInstructions": [
+          "Do not implement shell trigger or navigation here.",
+          "Keep notification transport and retention policy outside the pattern.",
+          "Ask before exposing sensitive alerts."
+        ],
+        "rejectIf": [
+          "Drawer is recreated manually.",
+          "Notification rows bypass List.",
+          "Unread state is color-only.",
+          "Topbar code is duplicated."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

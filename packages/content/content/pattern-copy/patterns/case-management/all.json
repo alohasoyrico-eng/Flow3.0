@@ -1,0 +1,100 @@
+{
+  "patterns": {
+    "case-management": {
+      "purpose": "Coordinate case filters, case records, selected-case detail, activity timeline, and recovery feedback without creating a parallel cases table, filter shell, detail drawer, or activity feed.",
+      "useWhen": [
+        "An internal operations workflow needs filtered case triage.",
+        "Case rows need search, filters, selection, sort, pagination, and bulk actions.",
+        "Selected cases need governed detail and chronological activity."
+      ],
+      "doNotUseWithoutReview": [
+        "The flow affects regulated support, safety, compliance, legal, payments, identity, or irreversible status changes.",
+        "The experience is only a static case list.",
+        "A template wants to replace Advanced Filters, Dense Operational List, Drawer Adapter, Timeline, or Status Feedback View behavior."
+      ],
+      "foundations": [
+        ["Accessibility", "The labelled group, filter drawer, table, detail panel, timeline, busy state, and recovery feedback stay announced through formal owners."],
+        ["Depth", "Surface owns structural grouping and focus-within behavior without a Card wrapper."],
+        ["Energy", "Filters-open, selected, detail-open, activity-filtered, loading, error, and disabled states cascade to child patterns."],
+        ["Frame", "Dense case layout and responsive detail behavior remain token-driven."],
+        ["Growth", "Case management behavior becomes reusable for internal templates without moving it into templates."],
+        ["Iconography", "Icons remain owned by Advanced Filters, Toolbar, Dense Operational List, Drawer Adapter, Timeline, and feedback children."],
+        ["Momentum", "Loading, drawer, timeline, and feedback motion remain delegated to child owners."],
+        ["State", "Pattern state maps to filters, case list, detail, timeline, and feedback boundaries."],
+        ["Symbol", "SLA, selected, timeline, risk, and recovery symbols remain semantic through Badge and child patterns."],
+        ["Tone", "Neutral, selected, warning, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Case summaries, filters, detail actions, timeline events, and recovery copy stay explicit."]
+      ],
+      "slots": [
+        ["caseManagementSurface", "Surface", "required", "Structural case management group."],
+        ["caseSummary", "Badge", "conditional", "Case workflow purpose or status summary."],
+        ["caseMetric", "Badge", "conditional", "Case counts, SLA state, or review status."],
+        ["caseFiltersBoundary", "Advanced Filters", "conditional", "Case filters, saved views, drawer, apply, reset, validation, and filter feedback."],
+        ["caseListBoundary", "Dense Operational List", "required", "Case records, search, filters, toolbar, selection, bulk actions, table states, and feedback."],
+        ["caseDetailBoundary", "Drawer Adapter", "conditional", "Selected-case detail, review actions, responsive drawer behavior, and modal fallback."],
+        ["caseTimelineBoundary", "Timeline", "conditional", "Activity events, timeline filters, event selection, clear, and recovery."],
+        ["caseFeedbackBoundary", "Status Feedback View", "conditional", "Case recovery, blocking error, toast, inline, notification, or snackbar feedback."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Advanced Filters",
+        "Dense Operational List",
+        "Drawer Adapter",
+        "Status Feedback View",
+        "Timeline"
+      ],
+      "variants": [
+        ["Filtered cases", "Conditional", "Advanced Filters owns filter fields, saved views, apply, reset, and validation."],
+        ["Operational case list", "Required", "Dense Operational List owns case rows, filters, actions, and table behavior."],
+        ["Selected case", "State", "Selected case key cascades selected state into case rows."],
+        ["Detail review", "Conditional", "Drawer Adapter owns selected-case detail and review actions."],
+        ["Activity timeline", "Conditional", "Timeline owns activity filters, events, empty, loading, and recovery."],
+        ["Feedback recovery", "Conditional", "Status Feedback View owns case status and recovery."]
+      ],
+      "motion": [
+        ["Loading", "Surface marks busy while child patterns own loading render."],
+        ["Filters open", "Advanced Filters owns drawer/filter interactions."],
+        ["Detail open", "Drawer Adapter owns drawer/dialog motion."],
+        ["Activity filtered", "Timeline owns filter and clear feedback."],
+        ["Feedback", "Status Feedback View owns recovery motion."]
+      ],
+      "accessibility": [
+        "Expose the pattern as a labelled group.",
+        "Delegate filter semantics to Advanced Filters.",
+        "Delegate queue row semantics to Dense Operational List and Virtual Data Table.",
+        "Delegate detail panel semantics to Drawer Adapter.",
+        "Delegate chronological activity semantics to Timeline.",
+        "Delegate recovery and feedback semantics to Status Feedback View."
+      ],
+      "tests": [
+        "Composes Surface plus the required child pattern boundaries.",
+        "Density and state cascade through child patterns.",
+        "Callbacks preserve event context across filters, cases, detail, timeline, and feedback.",
+        "No Card wrapper, raw case table, custom filter shell, custom drawer, local activity feed, local feedback shell, or docs-only shell is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Case Management for reusable internal case triage workflows.",
+          "Add Advanced Filters when saved views or richer filter criteria matter.",
+          "Add Timeline when selected-case activity is part of the workflow."
+        ],
+        "mustAsk": [
+          "Operations affect regulated support, safety, compliance, legal, payments, identity, or irreversible case status.",
+          "A template wants custom row cards or custom activity feeds.",
+          "Case history needs legal audit, retention, export, or escalation requirements."
+        ],
+        "rejectIf": [
+          "Filters are rendered outside Advanced Filters.",
+          "Rows are rendered outside Dense Operational List.",
+          "Detail review bypasses Drawer Adapter.",
+          "Activity history bypasses Timeline.",
+          "Feedback bypasses Status Feedback View.",
+          "Card wraps the case management group."
+        ],
+        "handoff": "Confirm filter model, case row model, permissions, SLA state, detail actions, activity source, feedback states, and regulated risk before shipping Case Management."
+      }
+    }
+  }
+}

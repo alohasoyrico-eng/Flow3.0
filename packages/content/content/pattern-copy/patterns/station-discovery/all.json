@@ -1,0 +1,185 @@
+{
+  "patterns": {
+    "station-discovery": {
+      "purpose": "Let drivers find stations through map pins, manual search, fallback lists, selected station detail, and route handoff while keeping location denial and map provider failure recoverable.",
+      "useWhen": [
+        "A route, fuel, EV, toll, or service task needs nearby station discovery.",
+        "Map and fallback list must stay equivalent.",
+        "Location permission, provider readiness, offline recovery, or route handoff is part of the experience."
+      ],
+      "doNotUseWithoutReview": [
+        "The station source, provider, or permission policy is unclear.",
+        "The experience cannot provide a non-map fallback list.",
+        "The map is decorative and does not support station selection or route handoff."
+      ],
+      "foundations": [
+        [
+          "Accessibility",
+          "Requires list equivalence, text-backed pins, route summary copy, keyboard selection, and no map-only meaning."
+        ],
+        [
+          "Frame",
+          "Defines map/list balance, selected station placement, route handoff position, and responsive stacking."
+        ],
+        [
+          "Voice",
+          "Owns permission recovery, station labels, fallback reasons, ETA copy, provider missing copy, and route action language."
+        ],
+        [
+          "State",
+          "Nearby, selected, route, denied, offline, error, runtime unavailable, provider missing, loading, empty, and disabled states are explicit."
+        ],
+        [
+          "Depth",
+          "Uses Surface to own structural grouping and map/list layering instead of Card."
+        ],
+        [
+          "Momentum",
+          "Preserves focus and selected station context when switching between map, list, and route."
+        ],
+        [
+          "Energy",
+          "Controls station selection, route handoff priority, warning emphasis, and recovery action hierarchy."
+        ],
+        [
+          "Tone",
+          "Keeps provider, permission, offline, selected, and route recovery messages aligned to system severity."
+        ]
+      ],
+      "slots": [
+        [
+          "surface",
+          "Surface",
+          "yes",
+          "Structural owner for background, density cascade, and station-discovery state."
+        ],
+        [
+          "mapLayer",
+          "Maps",
+          "yes",
+          "Permission, runtime, selected station, pins, clusters, route, and fallback-list model."
+        ],
+        [
+          "search",
+          "Search",
+          "dependency",
+          "Manual station lookup and permission/provider recovery path."
+        ],
+        [
+          "stationPins",
+          "Station Pin",
+          "yes",
+          "Station markers generated from the Maps primitive model."
+        ],
+        [
+          "fallbackList",
+          "List",
+          "yes",
+          "Equivalent station rows when map interaction is unavailable or secondary."
+        ],
+        [
+          "routeSummary",
+          "Route Summary",
+          "conditional",
+          "Selected station ETA, distance, and route handoff."
+        ],
+        [
+          "state",
+          "Skeleton | Empty State | Error Panel | Inline Validation",
+          "yes",
+          "Loading, denied, provider missing, runtime unavailable, empty, offline, and error recovery."
+        ],
+        [
+          "actions",
+          "Button",
+          "conditional",
+          "Retry, refresh, manual search, or route handoff command."
+        ]
+      ],
+      "componentsUsed": [
+        "Button",
+        "Empty State",
+        "Error Panel",
+        "Inline Validation",
+        "List",
+        "Route Summary",
+        "Skeleton",
+        "Station Pin"
+      ],
+      "variants": [
+        [
+          "Nearby",
+          "Required",
+          "Map/list station discovery with granted or prompt permission."
+        ],
+        [
+          "Permission denied",
+          "Required state",
+          "Manual search and fallback list continue the task without location."
+        ],
+        [
+          "Provider missing",
+          "Required state",
+          "The Maps primitive reports provider readiness while list fallback remains usable."
+        ],
+        [
+          "Selected station",
+          "Required",
+          "Selected pin/list row and route summary share station context."
+        ],
+        [
+          "Route handoff",
+          "Candidate",
+          "Selected station produces ETA, distance, action, and recovery copy."
+        ]
+      ],
+      "motion": [
+        [
+          "Selection",
+          "Pin/list selection updates context without moving focus unexpectedly."
+        ],
+        [
+          "Fallback transition",
+          "Denied or provider-missing state reveals search/list recovery without decorative motion."
+        ],
+        [
+          "Route handoff",
+          "Route summary appears in place and respects reduced motion."
+        ]
+      ],
+      "accessibility": [
+        "Every station pin has an accessible label matching fallback list content.",
+        "Fallback list remains present for denied, unavailable, provider missing, and runtime unavailable states.",
+        "Permission and provider failures are text-backed and actionable.",
+        "Route summary includes station, ETA, distance, and action meaning without relying on the map.",
+        "Keyboard users can search, select a station, and start route handoff."
+      ],
+      "tests": [
+        "Denied location renders manual search and fallback list.",
+        "Provider missing keeps fallback list visible.",
+        "Selecting a pin or list row calls the same station select callback.",
+        "Route handoff preserves selected station context.",
+        "No Card wrapper is used for structural grouping.",
+        "Map runtime is only accessed through the Maps primitive."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Station Discovery for nearby station, route, fuel, EV, toll, or service discovery.",
+          "Choose default copy from permission, provider, offline, and route states.",
+          "Use fallback list whenever map state is degraded."
+        ],
+        "mustAsk": [
+          "Provider, tile source, geolocation permissions, routing service, telemetry, or station data ownership is unclear.",
+          "Station results cross tenant, region, policy, or regulated data boundaries."
+        ],
+        "rejectIf": [
+          "There is no fallback list.",
+          "Permission denial blocks discovery.",
+          "The map is mounted directly outside the Maps primitive.",
+          "Card is used as the structural wrapper."
+        ],
+        "handoff": "Confirm station source, map provider, permission policy, fallback list, selected station model, route handoff, offline behavior, and telemetry boundaries."
+      }
+    }
+  }
+}

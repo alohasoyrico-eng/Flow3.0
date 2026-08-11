@@ -1,64 +1,70 @@
 #!/usr/bin/env node
 
-const { fs, path, root } = require("./audit-context.js");
+const crypto = require("crypto");
+const { fs, path, readJson, root } = require("./audit-context.js");
 const { antiDuplicationCoverage, checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
 const { result } = require("./audit-context.js");
 
 const checkMode = process.argv.includes("--check");
+const governanceFile = path.join(root, "packages/content/content/anti-duplication-concepts.json");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "anti-duplication-coverage.json");
 const markdownOutput = path.join(outputDir, "anti-duplication-coverage.md");
 
-const expectedInventory = {
-  checks: 6,
-  componentClassRoots: 59,
-  acceptedComponents: 56,
-  ownerRoots: 56,
-  missingOwnerRoots: 0,
-  extensionRoots: 3,
-  protectedComponentRoots: 6,
-  blockedConceptRules: 2,
-  liveDuplicateConceptViolations: 0,
-  docsApps: 1,
-  antiDuplicationDebt: 0,
-};
+const governance = readJson(governanceFile) ?? {};
+const expectedInventory = governance.expectedInventory && typeof governance.expectedInventory === "object"
+  ? governance.expectedInventory
+  : {};
 
-const expectedExtensionRoots = ["choice", "country-flag", "select-control"];
-const expectedBlockedConceptRules = {
-  search: ["pattern-topbar-search", "topbar-search", "top-search", "pattern-search-results"],
-  "account menu": ["pattern-account-menu"],
-};
-
-function sameStrings(actual = [], expected = []) {
-  const actualSorted = [...actual].sort();
-  const expectedSorted = [...expected].sort();
-  return actualSorted.length === expectedSorted.length
-    && actualSorted.every((value, index) => value === expectedSorted[index]);
-}
-
-function blockedConceptRuleMismatches(blockedConceptRules) {
-  const mismatches = [];
-  const expectedNames = Object.keys(expectedBlockedConceptRules);
-  const actualNames = blockedConceptRules.map((item) => item.concept);
-  if (!sameStrings(actualNames, expectedNames)) {
-    mismatches.push({
-      key: "blockedConceptRules.names",
-      expected: expectedNames,
-      actual: actualNames,
-    });
+function antiDuplicationPolicyIssues() {
+  const issues = [];
+  if (!governance.expectedInventory || typeof governance.expectedInventory !== "object") {
+    issues.push("expectedInventory must be an object");
   }
-  for (const [concept, classNames] of Object.entries(expectedBlockedConceptRules)) {
-    const actual = blockedConceptRules.find((item) => item.concept === concept);
-    if (!actual) continue;
-    if (!sameStrings(actual.classNames, classNames)) {
-      mismatches.push({
-        key: `blockedConceptRules.${concept}`,
-        expected: classNames,
-        actual: actual.classNames,
-      });
+  for (const [key, expected] of Object.entries(expectedInventory)) {
+    if (!/^[a-z][a-zA-Z0-9]*$/.test(key)) {
+      issues.push(`invalid expectedInventory key: ${key}`);
+    }
+    if (!(Number.isInteger(expected) && expected >= 0) && typeof expected !== "string") {
+      issues.push(`invalid expectedInventory value: ${key}`);
     }
   }
-  return mismatches;
+  return issues;
+}
+
+function blockedConceptClassNameCount(blockedConceptRules) {
+  return blockedConceptRules.reduce((sum, rule) => sum + rule.classNames.length, 0);
+}
+
+function blockedConceptContractFingerprint(blockedConceptRules) {
+  const canonical = JSON.stringify(blockedConceptRules
+    .map((rule) => ({
+      concept: rule.concept,
+      classNames: [...rule.classNames].sort(),
+      message: rule.message,
+    }))
+    .sort((a, b) => a.concept.localeCompare(b.concept)));
+  return crypto.createHash("sha256").update(canonical).digest("hex");
+}
+
+function classRootPolicyFingerprint(policy) {
+  const canonical = JSON.stringify({
+    extensionRoots: [...policy.extensionRoots].sort(),
+    protectedComponentRoots: [...policy.protectedComponentRoots].sort(),
+    reason: policy.reason,
+  });
+  return crypto.createHash("sha256").update(canonical).digest("hex");
+}
+
+function docsAllowedPackageClassTokenFingerprint(entries) {
+  const canonical = JSON.stringify(entries
+    .map((entry) => ({
+      file: entry.file,
+      tokens: [...entry.tokens].sort(),
+      reason: entry.reason,
+    }))
+    .sort((a, b) => a.file.localeCompare(b.file)));
+  return crypto.createHash("sha256").update(canonical).digest("hex");
 }
 
 function renderMarkdown(report) {
@@ -81,6 +87,9 @@ function renderMarkdown(report) {
   const baselineMismatchRows = report.baseline.mismatches
     .map((item) => `| ${item.key} | ${Array.isArray(item.expected) ? item.expected.join(", ") : item.expected} | ${Array.isArray(item.actual) ? item.actual.join(", ") : item.actual} |`)
     .join("\n");
+  const unexpectedMetricRows = report.baseline.unexpectedInventoryMetrics
+    .map((item) => `| ${item.key} | ${item.actual} |`)
+    .join("\n");
   return [
     "# Anti-Duplication Coverage",
     "",
@@ -93,11 +102,18 @@ function renderMarkdown(report) {
     `- Missing owner roots: ${report.rootRegistry.missingOwnerRoots.length}`,
     `- Extension class roots: ${report.rootRegistry.extensionRoots.length}`,
     `- Protected high-risk roots: ${report.protectedComponentRoots.join(", ")}`,
+    `- Class root policy fingerprint: ${report.inventory.classRootPolicyFingerprint}`,
     `- Blocked concept rules: ${report.blockedConceptRules.length}`,
+    `- Blocked concept class names: ${report.inventory.blockedConceptClassNames}`,
+    `- Blocked concept contract fingerprint: ${report.inventory.blockedConceptContractFingerprint}`,
     `- Live duplicate concept violations: ${report.liveDuplicateConceptViolations.length}`,
     `- Docs apps scanned: ${report.docsApps.join(", ") || "none"}`,
+    `- Docs component author file exemptions: ${report.docsAllowedComponentAuthors.length}`,
+    `- Docs exact package class token allowlists: ${report.docsAllowedPackageClassTokens.length}`,
+    `- Docs package class token allowlist fingerprint: ${report.inventory.docsAllowedPackageClassTokenFingerprint}`,
     `- Anti-duplication debt: ${report.inventory.antiDuplicationDebt}`,
     `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
+    `- Unexpected inventory metrics: ${report.baseline.unexpectedInventoryMetrics.length}`,
     "",
     "## Baseline Budget",
     "",
@@ -112,6 +128,12 @@ function renderMarkdown(report) {
     "| Metric | Expected | Actual |",
     "| --- | --- | --- |",
     baselineMismatchRows || "| None | None | None |",
+    "",
+    "## Unexpected Inventory Metrics",
+    "",
+    "| Metric | Actual |",
+    "| --- | ---: |",
+    unexpectedMetricRows || "| None | None |",
     "",
     "## Checks",
     "",
@@ -147,6 +169,7 @@ function renderMarkdown(report) {
 function main() {
   checkAntiDuplicationGovernance();
   const coverage = antiDuplicationCoverage();
+  const policyIssues = antiDuplicationPolicyIssues();
   const actualInventory = {
     checks: coverage.checks.length,
     componentClassRoots: coverage.componentClassRoots.length,
@@ -155,9 +178,16 @@ function main() {
     missingOwnerRoots: coverage.rootRegistry.missingOwnerRoots.length,
     extensionRoots: coverage.rootRegistry.extensionRoots.length,
     protectedComponentRoots: coverage.protectedComponentRoots.length,
+    classRootPolicyFingerprint: classRootPolicyFingerprint(coverage.classRootPolicy),
     blockedConceptRules: coverage.blockedConceptRules.length,
+    blockedConceptClassNames: blockedConceptClassNameCount(coverage.blockedConceptRules),
+    blockedConceptContractFingerprint: blockedConceptContractFingerprint(coverage.blockedConceptRules),
     liveDuplicateConceptViolations: coverage.liveDuplicateConceptViolations.length,
     docsApps: coverage.docsApps.length,
+    docsAllowedComponentAuthors: coverage.docsAllowedComponentAuthors.length,
+    docsAllowedPackageClassTokenFiles: coverage.docsAllowedPackageClassTokens.length,
+    docsAllowedPackageClassTokenFingerprint: docsAllowedPackageClassTokenFingerprint(coverage.docsAllowedPackageClassTokens),
+    antiDuplicationPolicyIssues: policyIssues.length,
     antiDuplicationDebt: 0,
   };
   const baselineMismatches = [
@@ -168,30 +198,31 @@ function main() {
         expected,
         actual: actualInventory[key],
       })),
-    ...(!sameStrings(coverage.rootRegistry.extensionRoots, expectedExtensionRoots)
-      ? [{
-        key: "extensionRoots",
-        expected: expectedExtensionRoots,
-        actual: coverage.rootRegistry.extensionRoots,
-      }]
-      : []),
-    ...blockedConceptRuleMismatches(coverage.blockedConceptRules),
   ];
+  const unexpectedInventoryMetrics = Object.keys(actualInventory)
+    .filter((key) => expectedInventory[key] === undefined)
+    .sort()
+    .map((key) => ({ key, actual: actualInventory[key] }));
   actualInventory.antiDuplicationDebt = result.errors.length
     + actualInventory.missingOwnerRoots
     + actualInventory.liveDuplicateConceptViolations
-    + baselineMismatches.length;
+    + actualInventory.antiDuplicationPolicyIssues
+    + baselineMismatches.length
+    + unexpectedInventoryMetrics.length;
   const report = {
     status: actualInventory.antiDuplicationDebt ? "fail" : "pass",
     errors: result.errors,
     inventory: actualInventory,
     principle: "Flow must have one visual owner per component concept; owner roots, protected roots, duplicate concept rules, and docs scans cannot drift silently. The actionable debt metric is antiDuplicationDebt.",
+    governance: {
+      file: path.relative(root, governanceFile),
+      issues: policyIssues,
+    },
     baseline: {
       inventory: expectedInventory,
       actual: actualInventory,
-      extensionRoots: expectedExtensionRoots,
-      blockedConceptRules: expectedBlockedConceptRules,
       mismatches: baselineMismatches,
+      unexpectedInventoryMetrics,
     },
     ...coverage,
   };
@@ -220,8 +251,14 @@ function main() {
     missingOwnerRoots: report.rootRegistry.missingOwnerRoots.length,
     extensionRoots: report.rootRegistry.extensionRoots.length,
     protectedComponentRoots: report.protectedComponentRoots.length,
+    classRootPolicyFingerprint: report.inventory.classRootPolicyFingerprint,
     blockedConceptRules: report.blockedConceptRules.length,
+    blockedConceptClassNames: report.inventory.blockedConceptClassNames,
+    blockedConceptContractFingerprint: report.inventory.blockedConceptContractFingerprint,
     liveDuplicateConceptViolations: report.liveDuplicateConceptViolations.length,
+    docsAllowedComponentAuthors: report.docsAllowedComponentAuthors.length,
+    docsAllowedPackageClassTokenFiles: report.docsAllowedPackageClassTokens.length,
+    docsAllowedPackageClassTokenFingerprint: report.inventory.docsAllowedPackageClassTokenFingerprint,
     antiDuplicationDebt: report.inventory.antiDuplicationDebt,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),

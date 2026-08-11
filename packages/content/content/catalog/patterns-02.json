@@ -12,9 +12,13 @@
         "Researchers"
       ],
       "componentsUsed": [
+        "Badge",
+        "Button",
+        "Empty State",
+        "Error Panel",
         "KPI Tile",
-        "Tooltip",
-        "Chart Panel"
+        "Skeleton",
+        "Tag"
       ],
       "tokens": [
         "frame.canvas",
@@ -38,10 +42,10 @@
         "Avatar",
         "Badge",
         "Button",
-        "Popover",
-        "Tooltip",
+        "Inline Validation",
         "List",
-        "Inline Validation"
+        "Popover",
+        "Tooltip"
       ],
       "tokens": [
         "frame.canvas",
@@ -62,9 +66,11 @@
         "Service Designers"
       ],
       "componentsUsed": [
-        "Dialog",
         "Button",
-        "Inline Validation"
+        "Dialog",
+        "Error Panel",
+        "Inline Validation",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
@@ -85,15 +91,22 @@
         "Researchers"
       ],
       "componentsUsed": [
+        "Button",
+        "Dialog",
+        "Empty State",
         "Input",
         "Menu",
-        "Breadcrumbs"
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Search",
+        "Topbar"
       ]
     },
     {
@@ -133,13 +146,19 @@
       ],
       "componentsUsed": [
         "Button",
-        "Menu"
+        "Dialog",
+        "List",
+        "Menu",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Search"
       ]
     },
     {
@@ -154,14 +173,22 @@
         "Service Designers"
       ],
       "componentsUsed": [
+        "Button",
+        "Card Summary",
+        "Inline Validation",
+        "Input",
+        "Select",
         "Stepper",
-        "Button"
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Action Sheet"
       ]
     },
     {
@@ -176,15 +203,20 @@
         "Developers"
       ],
       "componentsUsed": [
+        "Button",
+        "Inline Validation",
         "Input",
         "Text Area",
-        "Inline Validation"
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Search"
       ]
     },
     {
@@ -199,16 +231,22 @@
         "PMs"
       ],
       "componentsUsed": [
+        "Badge",
         "Button",
+        "Chip",
+        "Input",
         "Menu",
-        "Select",
-        "Date Picker"
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Search",
+        "Topbar"
       ]
     },
     {
@@ -223,6 +261,8 @@
         "Researchers"
       ],
       "componentsUsed": [
+        "Button",
+        "Dialog",
         "Movement Row",
         "Quick Action",
         "Toast"
@@ -246,15 +286,20 @@
         "Developers"
       ],
       "componentsUsed": [
+        "Badge",
+        "Dialog",
         "Quick Action",
-        "Tooltip",
-        "Dialog"
+        "Toast",
+        "Tooltip"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Search"
       ]
     },
     {
@@ -269,15 +314,24 @@
         "Researchers"
       ],
       "componentsUsed": [
-        "Menu",
+        "Button",
+        "Card",
         "Dialog",
-        "Button"
+        "Drawer",
+        "List",
+        "Menu",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Multi Step Form",
+        "Sidebar",
+        "Topbar"
       ]
     },
     {
@@ -292,38 +346,24 @@
         "Researchers"
       ],
       "componentsUsed": [
-        "Table",
-        "Skeleton",
-        "Pagination"
-      ],
-      "tokens": [
-        "frame.canvas",
-        "voice.guidance",
-        "motion.reveal",
-        "a11y.recovery"
-      ]
-    },
-    {
-      "type": "pattern",
-      "id": "transfer-list",
-      "title": "Transfer List",
-      "platform": "Desktop",
-      "summary": "Move users, vehicles, roles, or permissions between available and selected sets with search and review.",
-      "audiences": [
-        "Service Designers",
-        "Developers",
-        "Product Designers"
-      ],
-      "componentsUsed": [
-        "Table",
+        "Badge",
+        "Button",
         "Checkbox",
-        "Button"
+        "Empty State",
+        "Error Panel",
+        "Pagination",
+        "Skeleton",
+        "Table"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Search",
+        "Toolbar"
       ]
     }
   ]

@@ -54,6 +54,21 @@ export {
   chartPanelPlatformProps,
 } from "./chart-panel.js";
 export {
+  chatComposerPlatformAdapters,
+  chatComposerPlatformContract,
+  chatComposerPlatformProps,
+} from "./chat-composer.js";
+export {
+  chatMessagePlatformAdapters,
+  chatMessagePlatformContract,
+  chatMessagePlatformProps,
+} from "./chat-message.js";
+export {
+  chatThreadPlatformAdapters,
+  chatThreadPlatformContract,
+  chatThreadPlatformProps,
+} from "./chat-thread.js";
+export {
   chipPlatformAdapters,
   chipPlatformContract,
   chipPlatformProps,
@@ -118,6 +133,11 @@ export {
   inputPlatformContract,
   inputPlatformProps,
 } from "./input.js";
+export {
+  inputAmountPlatformAdapters,
+  inputAmountPlatformContract,
+  inputAmountPlatformProps,
+} from "./input-amount.js";
 export {
   comboboxPlatformAdapters,
   comboboxPlatformContract,

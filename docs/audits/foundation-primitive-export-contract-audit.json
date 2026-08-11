@@ -1,33 +1,78 @@
 {
   "status": "pass",
   "audit": "foundation primitive export contract",
-  "principle": "Foundations and primitives must be exportable as platform-agnostic JSON contracts, not only as CSS variables or documentation views. The actionable debt metric is foundationPrimitiveExportDebt.",
+  "principle": "Foundations, primitives, patterns, and templates must be exportable as platform-agnostic JSON contracts, not only as CSS variables, internal files, or documentation views. The actionable debt metric is foundationPrimitiveExportDebt.",
   "inventory": {
     "foundations": 11,
-    "primitives": 22,
+    "primitives": 24,
+    "patterns": 59,
+    "templates": 9,
     "tokenCount": 1078,
+    "tokenTypes": 15,
+    "tokenScopes": 3,
+    "tokensWithScope": 1078,
+    "tokensWithCssVariable": 1078,
+    "tokensWithCssReference": 620,
+    "unknownTokenTypes": 0,
+    "invalidTokenTransformFields": 0,
+    "invalidTokenTypeValues": 0,
     "missingFoundationArtifacts": 0,
     "missingPrimitiveArtifacts": 0,
+    "missingPatternArtifacts": 0,
+    "missingTemplateArtifacts": 0,
+    "missingFoundationSubpathExports": 0,
+    "missingPrimitiveSubpathExports": 0,
+    "missingPatternSubpathExports": 0,
+    "missingTemplateSubpathExports": 0,
+    "invalidFoundationSubpathExports": 0,
+    "invalidPrimitiveSubpathExports": 0,
+    "invalidPatternSubpathExports": 0,
+    "invalidTemplateSubpathExports": 0,
     "artifactShapeErrors": 0,
     "missingPackageExports": 0,
     "requirementFailures": 0,
     "baselineMismatches": 0,
+    "unexpectedInventoryMetrics": 0,
+    "exportGovernanceIssues": 0,
     "foundationPrimitiveExportDebt": 0
   },
   "baseline": {
     "inventory": {
       "foundations": 11,
-      "primitives": 22,
+      "primitives": 24,
+      "patterns": 59,
+      "templates": 9,
       "tokenCount": 1078,
+      "tokenTypes": 15,
+      "tokenScopes": 3,
+      "tokensWithScope": 1078,
+      "tokensWithCssVariable": 1078,
+      "tokensWithCssReference": 620,
+      "unknownTokenTypes": 0,
+      "invalidTokenTransformFields": 0,
+      "invalidTokenTypeValues": 0,
       "missingFoundationArtifacts": 0,
       "missingPrimitiveArtifacts": 0,
+      "missingPatternArtifacts": 0,
+      "missingTemplateArtifacts": 0,
+      "missingFoundationSubpathExports": 0,
+      "missingPrimitiveSubpathExports": 0,
+      "missingPatternSubpathExports": 0,
+      "missingTemplateSubpathExports": 0,
+      "invalidFoundationSubpathExports": 0,
+      "invalidPrimitiveSubpathExports": 0,
+      "invalidPatternSubpathExports": 0,
+      "invalidTemplateSubpathExports": 0,
       "artifactShapeErrors": 0,
       "missingPackageExports": 0,
       "requirementFailures": 0,
+      "exportGovernanceIssues": 0,
       "baselineMismatches": 0,
+      "unexpectedInventoryMetrics": 0,
       "foundationPrimitiveExportDebt": 0
     },
-    "mismatches": []
+    "mismatches": [],
+    "unexpectedInventoryMetrics": []
   },
   "requirements": {
     "tokenFormat": true,
@@ -39,16 +84,854 @@
     "publicExportsPresent": true
   },
   "requirementFailures": [],
+  "exportGovernance": {
+    "file": "packages/content/content/foundation-primitive-export-governance.json",
+    "issues": []
+  },
   "requiredPackageExports": [
     "./tokens.json",
     "./tokens/styles.css",
     "./specs/system",
     "./specs/foundations/*",
     "./specs/primitives/*",
+    "./specs/patterns/*",
+    "./specs/templates/*",
     "./content/foundation-copy",
     "./content/primitive-copy"
   ],
   "missingPackageExports": [],
+  "foundationSubpathExports": [
+    {
+      "id": "energy",
+      "name": "Energy",
+      "subpath": "./specs/foundations/energy",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/energy.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "voice",
+      "name": "Voice",
+      "subpath": "./specs/foundations/voice",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/voice.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "frame",
+      "name": "Frame",
+      "subpath": "./specs/foundations/frame",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/frame.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "depth",
+      "name": "Depth",
+      "subpath": "./specs/foundations/depth",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/depth.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "momentum",
+      "name": "Momentum",
+      "subpath": "./specs/foundations/momentum",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/momentum.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "state",
+      "name": "State",
+      "subpath": "./specs/foundations/state",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/state.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "tone",
+      "name": "Tone",
+      "subpath": "./specs/foundations/tone",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/tone.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "growth",
+      "name": "Growth",
+      "subpath": "./specs/foundations/growth",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/growth.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "symbol",
+      "name": "Symbol",
+      "subpath": "./specs/foundations/symbol",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/symbol.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "iconography",
+      "name": "Iconography",
+      "subpath": "./specs/foundations/iconography",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/iconography.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "accessibility",
+      "name": "Accessibility",
+      "subpath": "./specs/foundations/accessibility",
+      "target": "./packages/specs/specs/unison-system/artifacts/foundations/accessibility.json",
+      "valid": true,
+      "errors": []
+    }
+  ],
+  "primitiveSubpathExports": [
+    {
+      "id": "color",
+      "name": "Color",
+      "subpath": "./specs/primitives/color",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/color.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "typography",
+      "name": "Typography",
+      "subpath": "./specs/primitives/typography",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/typography.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "spacing",
+      "name": "Spacing",
+      "subpath": "./specs/primitives/spacing",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/spacing.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "radius",
+      "name": "Radius",
+      "subpath": "./specs/primitives/radius",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/radius.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "elevation",
+      "name": "Elevation",
+      "subpath": "./specs/primitives/elevation",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/elevation.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "iconography",
+      "name": "Iconography",
+      "subpath": "./specs/primitives/iconography",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/iconography.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "library-sources",
+      "name": "Library Sources",
+      "subpath": "./specs/primitives/library-sources",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/library-sources.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "country-flags",
+      "name": "Country Flags",
+      "subpath": "./specs/primitives/country-flags",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/country-flags.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "animation-assets",
+      "name": "Animation Assets",
+      "subpath": "./specs/primitives/animation-assets",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "illustration-assets",
+      "name": "Illustration Assets",
+      "subpath": "./specs/primitives/illustration-assets",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/illustration-assets.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "motion-curves",
+      "name": "Motion Curves",
+      "subpath": "./specs/primitives/motion-curves",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/motion-curves.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "duration",
+      "name": "Duration",
+      "subpath": "./specs/primitives/duration",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/duration.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "breakpoints",
+      "name": "Breakpoints",
+      "subpath": "./specs/primitives/breakpoints",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "density",
+      "name": "Density",
+      "subpath": "./specs/primitives/density",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/density.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "focus",
+      "name": "Focus",
+      "subpath": "./specs/primitives/focus",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/focus.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "loading",
+      "name": "Loading",
+      "subpath": "./specs/primitives/loading",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/loading.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "disabled",
+      "name": "Disabled",
+      "subpath": "./specs/primitives/disabled",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/disabled.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "charts",
+      "name": "Charts",
+      "subpath": "./specs/primitives/charts",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/charts.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "maps",
+      "name": "Maps",
+      "subpath": "./specs/primitives/maps",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/maps.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "message",
+      "name": "Message",
+      "subpath": "./specs/primitives/message",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/message.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "measurement",
+      "name": "Measurement",
+      "subpath": "./specs/primitives/measurement",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/measurement.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "research",
+      "name": "Research",
+      "subpath": "./specs/primitives/research",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/research.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "surface",
+      "name": "Surface",
+      "subpath": "./specs/primitives/surface",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/surface.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "field-action",
+      "name": "Field Action",
+      "subpath": "./specs/primitives/field-action",
+      "target": "./packages/specs/specs/unison-system/artifacts/primitives/field-action.json",
+      "valid": true,
+      "errors": []
+    }
+  ],
+  "patternSubpathExports": [
+    {
+      "id": "account-operations",
+      "name": "account-operations",
+      "subpath": "./specs/patterns/account-operations",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/account-operations.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "action-sheet",
+      "name": "action-sheet",
+      "subpath": "./specs/patterns/action-sheet",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "advanced-filters",
+      "name": "advanced-filters",
+      "subpath": "./specs/patterns/advanced-filters",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "agent-conversation",
+      "name": "agent-conversation",
+      "subpath": "./specs/patterns/agent-conversation",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/agent-conversation.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "authentication-login-biometrics-and-otp",
+      "name": "authentication-login-biometrics-and-otp",
+      "subpath": "./specs/patterns/authentication-login-biometrics-and-otp",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "autocomplete",
+      "name": "autocomplete",
+      "subpath": "./specs/patterns/autocomplete",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/autocomplete.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "avatar-group",
+      "name": "avatar-group",
+      "subpath": "./specs/patterns/avatar-group",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/avatar-group.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "avatar-menu",
+      "name": "avatar-menu",
+      "subpath": "./specs/patterns/avatar-menu",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/avatar-menu.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "backoffice-approval",
+      "name": "backoffice-approval",
+      "subpath": "./specs/patterns/backoffice-approval",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/backoffice-approval.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "bulk-actions",
+      "name": "bulk-actions",
+      "subpath": "./specs/patterns/bulk-actions",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/bulk-actions.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "calendar-view",
+      "name": "calendar-view",
+      "subpath": "./specs/patterns/calendar-view",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/calendar-view.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "case-management",
+      "name": "case-management",
+      "subpath": "./specs/patterns/case-management",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "chart-wrapper",
+      "name": "chart-wrapper",
+      "subpath": "./specs/patterns/chart-wrapper",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "column-configurator",
+      "name": "column-configurator",
+      "subpath": "./specs/patterns/column-configurator",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/column-configurator.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "command-palette",
+      "name": "command-palette",
+      "subpath": "./specs/patterns/command-palette",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "confirmation-dialog",
+      "name": "confirmation-dialog",
+      "subpath": "./specs/patterns/confirmation-dialog",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "dense-operational-list",
+      "name": "dense-operational-list",
+      "subpath": "./specs/patterns/dense-operational-list",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "drag-sortable-list",
+      "name": "drag-sortable-list",
+      "subpath": "./specs/patterns/drag-sortable-list",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/drag-sortable-list.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "drawer-adapter",
+      "name": "drawer-adapter",
+      "subpath": "./specs/patterns/drawer-adapter",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/drawer-adapter.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "driver-and-vehicle-administration",
+      "name": "driver-and-vehicle-administration",
+      "subpath": "./specs/patterns/driver-and-vehicle-administration",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "driver-onboarding-mobile",
+      "name": "driver-onboarding-mobile",
+      "subpath": "./specs/patterns/driver-onboarding-mobile",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "email-template-layout",
+      "name": "email-template-layout",
+      "subpath": "./specs/patterns/email-template-layout",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/email-template-layout.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "expandable-detail-table",
+      "name": "expandable-detail-table",
+      "subpath": "./specs/patterns/expandable-detail-table",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/expandable-detail-table.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "file-upload",
+      "name": "file-upload",
+      "subpath": "./specs/patterns/file-upload",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/file-upload.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "filter-chip-group",
+      "name": "filter-chip-group",
+      "subpath": "./specs/patterns/filter-chip-group",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/filter-chip-group.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "filterable-editable-table",
+      "name": "filterable-editable-table",
+      "subpath": "./specs/patterns/filterable-editable-table",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/filterable-editable-table.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "fleet-manager-onboarding-desktop",
+      "name": "fleet-manager-onboarding-desktop",
+      "subpath": "./specs/patterns/fleet-manager-onboarding-desktop",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "form-section",
+      "name": "form-section",
+      "subpath": "./specs/patterns/form-section",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "fullscreen-sheet",
+      "name": "fullscreen-sheet",
+      "subpath": "./specs/patterns/fullscreen-sheet",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "gantt-chart",
+      "name": "gantt-chart",
+      "subpath": "./specs/patterns/gantt-chart",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/gantt-chart.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "help-center",
+      "name": "help-center",
+      "subpath": "./specs/patterns/help-center",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/help-center.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "kanban-board",
+      "name": "kanban-board",
+      "subpath": "./specs/patterns/kanban-board",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/kanban-board.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "kpi-card",
+      "name": "kpi-card",
+      "subpath": "./specs/patterns/kpi-card",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/kpi-card.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "multi-select",
+      "name": "multi-select",
+      "subpath": "./specs/patterns/multi-select",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/multi-select.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "multi-step-form",
+      "name": "multi-step-form",
+      "subpath": "./specs/patterns/multi-step-form",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "notification-panel",
+      "name": "notification-panel",
+      "subpath": "./specs/patterns/notification-panel",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "payment-form",
+      "name": "payment-form",
+      "subpath": "./specs/patterns/payment-form",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/payment-form.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "polar-chart",
+      "name": "polar-chart",
+      "subpath": "./specs/patterns/polar-chart",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/polar-chart.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "preference-management",
+      "name": "preference-management",
+      "subpath": "./specs/patterns/preference-management",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/preference-management.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "pricing-operations",
+      "name": "pricing-operations",
+      "subpath": "./specs/patterns/pricing-operations",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "pull-to-refresh",
+      "name": "pull-to-refresh",
+      "subpath": "./specs/patterns/pull-to-refresh",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/pull-to-refresh.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "quick-actions-grid",
+      "name": "quick-actions-grid",
+      "subpath": "./specs/patterns/quick-actions-grid",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "roles-and-permissions",
+      "name": "roles-and-permissions",
+      "subpath": "./specs/patterns/roles-and-permissions",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "search",
+      "name": "search",
+      "subpath": "./specs/patterns/search",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/search.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "section-header",
+      "name": "section-header",
+      "subpath": "./specs/patterns/section-header",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "select-option-layer",
+      "name": "select-option-layer",
+      "subpath": "./specs/patterns/select-option-layer",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "settings",
+      "name": "settings",
+      "subpath": "./specs/patterns/settings",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/settings.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "sidebar",
+      "name": "sidebar",
+      "subpath": "./specs/patterns/sidebar",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "snackbar-provider",
+      "name": "snackbar-provider",
+      "subpath": "./specs/patterns/snackbar-provider",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "station-discovery",
+      "name": "station-discovery",
+      "subpath": "./specs/patterns/station-discovery",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "status-feedback-view",
+      "name": "status-feedback-view",
+      "subpath": "./specs/patterns/status-feedback-view",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/status-feedback-view.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "swipe-actions",
+      "name": "swipe-actions",
+      "subpath": "./specs/patterns/swipe-actions",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/swipe-actions.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "ticket-queue",
+      "name": "ticket-queue",
+      "subpath": "./specs/patterns/ticket-queue",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/ticket-queue.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "timeline",
+      "name": "timeline",
+      "subpath": "./specs/patterns/timeline",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/timeline.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "toolbar",
+      "name": "toolbar",
+      "subpath": "./specs/patterns/toolbar",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "topbar",
+      "name": "topbar",
+      "subpath": "./specs/patterns/topbar",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "transfer-list",
+      "name": "transfer-list",
+      "subpath": "./specs/patterns/transfer-list",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/transfer-list.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "virtual-data-table",
+      "name": "virtual-data-table",
+      "subpath": "./specs/patterns/virtual-data-table",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "waterfall-chart",
+      "name": "waterfall-chart",
+      "subpath": "./specs/patterns/waterfall-chart",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/waterfall-chart.json",
+      "valid": true,
+      "errors": []
+    }
+  ],
+  "templateSubpathExports": [
+    {
+      "id": "agent-workspace",
+      "name": "agent-workspace",
+      "subpath": "./specs/templates/agent-workspace",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "configuration-console",
+      "name": "configuration-console",
+      "subpath": "./specs/templates/configuration-console",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "name": "driver-card-wallet",
+      "subpath": "./specs/templates/driver-card-wallet",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "name": "driver-mobile-app",
+      "subpath": "./specs/templates/driver-mobile-app",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "name": "fleet-dashboard-suite",
+      "subpath": "./specs/templates/fleet-dashboard-suite",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "name": "fleet-manager-desktop",
+      "subpath": "./specs/templates/fleet-manager-desktop",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "internal-operations-console",
+      "name": "internal-operations-console",
+      "subpath": "./specs/templates/internal-operations-console",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "routes-and-stations",
+      "name": "routes-and-stations",
+      "subpath": "./specs/templates/routes-and-stations",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "settings-workspace",
+      "name": "settings-workspace",
+      "subpath": "./specs/templates/settings-workspace",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+      "valid": true,
+      "errors": []
+    }
+  ],
   "tokenContract": {
     "file": "packages/tokens/tokens.json",
     "format": "flow-token-contract@1",
@@ -56,7 +939,31 @@
       "style-dictionary"
     ],
     "tokens": 1078,
-    "tokenShapeErrors": 0
+    "types": [
+      "border",
+      "color",
+      "content",
+      "cubicBezier",
+      "dimension",
+      "duration",
+      "fontFamily",
+      "fontVariationSettings",
+      "fontWeight",
+      "number",
+      "opacity",
+      "shadow",
+      "textTransform",
+      "transform",
+      "zIndex"
+    ],
+    "scopes": [
+      "density",
+      "ref",
+      "sys"
+    ],
+    "tokenShapeErrors": 0,
+    "invalidTransformFields": [],
+    "invalidTypeValues": []
   },
   "foundations": [
     {
@@ -289,6 +1196,500 @@
       "id": "research",
       "name": "Research",
       "file": "packages/specs/specs/unison-system/artifacts/primitives/research.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "surface",
+      "name": "Surface",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "field-action",
+      "name": "Field Action",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json",
+      "exists": true,
+      "shapeErrors": []
+    }
+  ],
+  "patterns": [
+    {
+      "id": "account-operations",
+      "name": "account-operations",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/account-operations.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "action-sheet",
+      "name": "action-sheet",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "advanced-filters",
+      "name": "advanced-filters",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "agent-conversation",
+      "name": "agent-conversation",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/agent-conversation.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "authentication-login-biometrics-and-otp",
+      "name": "authentication-login-biometrics-and-otp",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "autocomplete",
+      "name": "autocomplete",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/autocomplete.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "avatar-group",
+      "name": "avatar-group",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/avatar-group.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "avatar-menu",
+      "name": "avatar-menu",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/avatar-menu.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "backoffice-approval",
+      "name": "backoffice-approval",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/backoffice-approval.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "bulk-actions",
+      "name": "bulk-actions",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/bulk-actions.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "calendar-view",
+      "name": "calendar-view",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/calendar-view.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "case-management",
+      "name": "case-management",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "chart-wrapper",
+      "name": "chart-wrapper",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "column-configurator",
+      "name": "column-configurator",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/column-configurator.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "command-palette",
+      "name": "command-palette",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "confirmation-dialog",
+      "name": "confirmation-dialog",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "dense-operational-list",
+      "name": "dense-operational-list",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "drag-sortable-list",
+      "name": "drag-sortable-list",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/drag-sortable-list.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "drawer-adapter",
+      "name": "drawer-adapter",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/drawer-adapter.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "driver-and-vehicle-administration",
+      "name": "driver-and-vehicle-administration",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "driver-onboarding-mobile",
+      "name": "driver-onboarding-mobile",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "email-template-layout",
+      "name": "email-template-layout",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/email-template-layout.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "expandable-detail-table",
+      "name": "expandable-detail-table",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/expandable-detail-table.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "file-upload",
+      "name": "file-upload",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/file-upload.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "filter-chip-group",
+      "name": "filter-chip-group",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/filter-chip-group.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "filterable-editable-table",
+      "name": "filterable-editable-table",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/filterable-editable-table.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "fleet-manager-onboarding-desktop",
+      "name": "fleet-manager-onboarding-desktop",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "form-section",
+      "name": "form-section",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "fullscreen-sheet",
+      "name": "fullscreen-sheet",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "gantt-chart",
+      "name": "gantt-chart",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/gantt-chart.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "help-center",
+      "name": "help-center",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/help-center.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "kanban-board",
+      "name": "kanban-board",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/kanban-board.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "kpi-card",
+      "name": "kpi-card",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/kpi-card.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "multi-select",
+      "name": "multi-select",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/multi-select.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "multi-step-form",
+      "name": "multi-step-form",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "notification-panel",
+      "name": "notification-panel",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "payment-form",
+      "name": "payment-form",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/payment-form.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "polar-chart",
+      "name": "polar-chart",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/polar-chart.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "preference-management",
+      "name": "preference-management",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/preference-management.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "pricing-operations",
+      "name": "pricing-operations",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "pull-to-refresh",
+      "name": "pull-to-refresh",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/pull-to-refresh.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "quick-actions-grid",
+      "name": "quick-actions-grid",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "roles-and-permissions",
+      "name": "roles-and-permissions",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "search",
+      "name": "search",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "section-header",
+      "name": "section-header",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "select-option-layer",
+      "name": "select-option-layer",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "settings",
+      "name": "settings",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/settings.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "sidebar",
+      "name": "sidebar",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "snackbar-provider",
+      "name": "snackbar-provider",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "station-discovery",
+      "name": "station-discovery",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "status-feedback-view",
+      "name": "status-feedback-view",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/status-feedback-view.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "swipe-actions",
+      "name": "swipe-actions",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/swipe-actions.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "ticket-queue",
+      "name": "ticket-queue",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/ticket-queue.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "timeline",
+      "name": "timeline",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/timeline.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "toolbar",
+      "name": "toolbar",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "topbar",
+      "name": "topbar",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "transfer-list",
+      "name": "transfer-list",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/transfer-list.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "virtual-data-table",
+      "name": "virtual-data-table",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "waterfall-chart",
+      "name": "waterfall-chart",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/waterfall-chart.json",
+      "exists": true,
+      "shapeErrors": []
+    }
+  ],
+  "templates": [
+    {
+      "id": "agent-workspace",
+      "name": "agent-workspace",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "configuration-console",
+      "name": "configuration-console",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "name": "driver-card-wallet",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "name": "driver-mobile-app",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "name": "fleet-dashboard-suite",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "name": "fleet-manager-desktop",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "internal-operations-console",
+      "name": "internal-operations-console",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "routes-and-stations",
+      "name": "routes-and-stations",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "settings-workspace",
+      "name": "settings-workspace",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
       "exists": true,
       "shapeErrors": []
     }

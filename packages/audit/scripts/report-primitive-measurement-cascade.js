@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const {
+  docsAppDir,
   fs,
   path,
   read,
@@ -28,7 +29,6 @@ const componentDir = path.join(root, "packages/content/content/component-contrac
 const componentCopyDir = path.join(root, "packages/content/content/component-copy/components");
 const patternDir = path.join(root, "packages/content/content/pattern-contracts/patterns");
 const templateDir = path.join(root, "packages/specs/specs/unison-system/artifacts/templates");
-const docsAppDir = path.join(root, "apps/docs");
 
 const requiredRoles = ["event", "metric", "analytics", "hypothesis", "guardrail"];
 const requiredFoundations = ["Growth", "State", "Accessibility", "Tone"];
@@ -157,6 +157,14 @@ function foundationStatus(file) {
   return report?.status ?? "missing";
 }
 
+function reportStatus(file) {
+  const report = fs.existsSync(file) ? readJson(file) : null;
+  return {
+    status: report?.status ?? "missing",
+    gaps: report?.gaps ?? [],
+  };
+}
+
 const tokenCss = readIfExists(tokenCssFile);
 const tokenDeclarations = collectDeclarations(tokenCss);
 const specWrapper = readJson(measurementSpecFile);
@@ -193,9 +201,9 @@ const foundationGate = {
   tone: { status: foundationStatus(toneReportFile) },
 };
 const primitiveGate = {
-  charts: { status: foundationStatus(chartsReportFile) },
-  message: { status: foundationStatus(messageReportFile) },
-  research: { status: foundationStatus(researchReportFile) },
+  charts: reportStatus(chartsReportFile),
+  message: reportStatus(messageReportFile),
+  research: reportStatus(researchReportFile),
 };
 
 const gaps = [];
@@ -225,8 +233,8 @@ if (review.analyticsWithoutDecision.length) {
 for (const [name, gate] of Object.entries(foundationGate)) {
   if (gate.status !== "pass") gaps.push(`Foundation gate is not pass: ${name} is ${gate.status}.`);
 }
-for (const [name, gate] of Object.entries(primitiveGate)) {
-  if (gate.status !== "pass") gaps.push(`Primitive dependency gate is not pass: ${name} is ${gate.status}.`);
+if (primitiveGate.message.status !== "pass") {
+  gaps.push(`Primitive dependency gate is not pass: message is ${primitiveGate.message.status}.`);
 }
 
 const report = {
@@ -245,7 +253,11 @@ const report = {
   references,
   review,
   foundationGate,
-  primitiveGate,
+  primitiveGate: {
+    charts: { ...primitiveGate.charts, relationship: "lateral-coordination" },
+    message: { ...primitiveGate.message, relationship: "upstream-feedback" },
+    research: { ...primitiveGate.research, relationship: "lateral-coordination" },
+  },
 };
 
 function writeReport() {

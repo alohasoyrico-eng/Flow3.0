@@ -1,0 +1,94 @@
+{
+  "patterns": {
+    "gantt-chart": {
+      "title": "Gantt Chart",
+      "purpose": "Coordinate task schedules, milestones, dependencies, selected-task review, and accessible data fallback without creating a second chart, table, or timeline implementation.",
+      "useWhen": [
+        "A workflow needs task duration, milestones, and dependency context.",
+        "A planning template needs schedule state without owning chart internals.",
+        "The same chart data must be inspectable through a table/list fallback."
+      ],
+      "doNotUseWithoutReview": [
+        "The schedule represents regulated, financial, legal, safety, or irreversible planning.",
+        "The design requires custom chart rendering that Chart Wrapper cannot represent.",
+        "Dependency semantics or milestone status are color-only."
+      ],
+      "foundations": [
+        ["Accessibility", "The labelled schedule group and Chart Wrapper fallback keep task data inspectable without relying on visual bars alone."],
+        ["Depth", "Surface owns structural grouping while Chart Wrapper owns chart chrome and overlays."],
+        ["Energy", "Selected, loading, empty, error, and disabled states cascade into Chart Wrapper and Badge metrics."],
+        ["Frame", "Density, chart bounds, table fallback, and milestone list remain token-driven."],
+        ["Growth", "Schedule behavior becomes reusable for templates without moving chart or table logic into templates."],
+        ["Iconography", "Milestone and status symbols remain owned by Badge, Chart Wrapper, and child components."],
+        ["Momentum", "Loading and chart state transitions remain delegated to Chart Wrapper."],
+        ["State", "Pattern state maps to Chart Wrapper, Chart Panel, Table, List, and Badge boundaries."],
+        ["Symbol", "Task, milestone, and dependency semantics remain explicit through labels and fallback rows."],
+        ["Tone", "Neutral, selected, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Schedule label, descriptions, milestone copy, and fallback rows stay explicit."]
+      ],
+      "slots": [
+        ["ganttChartSurface", "Surface", "required", "Structural schedule group."],
+        ["ganttSummary", "Badge", "conditional", "Schedule scope or state summary."],
+        ["ganttMetric", "Badge", "conditional", "Task, milestone, risk, or dependency metrics."],
+        ["chartWrapperBoundary", "Chart Wrapper", "required", "Chart state, Chart Panel ownership, status, actions, loading, empty, error, table fallback, and milestone list."],
+        ["ganttDataSummary", "Chart Wrapper", "required", "Inspectable task rows delegated through Chart Wrapper table fallback."],
+        ["ganttFeedback", "Badge", "conditional", "Schedule feedback summary or recovery status."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Chart Wrapper"
+      ],
+      "variants": [
+        ["Task schedule", "Required", "Tasks provide label, owner, start, end, progress, and status."],
+        ["Milestones", "Conditional", "Milestones are exposed as list fallback through Chart Wrapper."],
+        ["Dependencies", "Conditional", "Dependency count and relationship semantics remain textual, not color-only."],
+        ["Selected task", "State", "Selected task cascades selected/focus state into Chart Wrapper and Table."]
+      ],
+      "motion": [
+        ["Loading", "Surface marks busy while Chart Wrapper owns loading rendering."],
+        ["Selected task", "Chart Wrapper and Table own focus/selected state without local positioned bars."],
+        ["Fallback swap", "Chart Wrapper preserves dimensions through chart, table, list, empty, and error states."]
+      ],
+      "accessibility": [
+        "Expose the schedule as a labelled group.",
+        "Provide task data through Chart Wrapper table fallback.",
+        "Provide milestones through Chart Wrapper list fallback.",
+        "Do not use color as the only way to communicate task status, milestones, or dependencies."
+      ],
+      "implementationChecklist": [
+        "Compose Surface, Badge, and Chart Wrapper.",
+        "Pass schedule values to Chart Wrapper instead of drawing local bars.",
+        "Pass task rows through Chart Wrapper table fallback.",
+        "Expose milestones through Chart Wrapper list fallback.",
+        "Reject Card wrappers, local chart renderers, raw tables, and docs-only shells."
+      ],
+      "tests": [
+        "Composes Surface plus Chart Wrapper boundary.",
+        "Density and state cascade through Chart Wrapper and fallback rows.",
+        "Forwards task selection and primary action callbacks.",
+        "Task selection and primary actions preserve event context.",
+        "No local SVG/canvas/positioned chart, raw table, Card wrapper, or injected markup is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Gantt Chart for task-duration schedule workflows.",
+          "Use Chart Wrapper for the visualization and fallback boundary.",
+          "Use Timeline instead when events, not task duration, are the primary object."
+        ],
+        "mustAsk": [
+          "Before exposing regulated, financial, legal, safety, or irreversible planning.",
+          "Before bypassing Chart Wrapper for custom visualization.",
+          "Before presenting dependencies without textual explanation."
+        ],
+        "rejectIf": [
+          "A local chart renderer replaces Chart Wrapper.",
+          "No accessible table/list fallback exists.",
+          "A Card wraps the schedule group."
+        ],
+        "handoff": "Confirm task source, date range, milestone semantics, dependency semantics, selected-task behavior, accessible fallback, and empty/error behavior."
+      }
+    }
+  }
+}

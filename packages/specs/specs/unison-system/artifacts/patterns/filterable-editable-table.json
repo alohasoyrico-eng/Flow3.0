@@ -1,0 +1,207 @@
+{
+  "artifacts": {
+    "patterns": {
+      "filterable-editable-table": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate advanced filters, virtualized table rows, selected-row editing, and recovery feedback without creating a parallel filter shell, table, or inline editor.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Advanced Filters",
+          "Drawer Adapter",
+          "Status Feedback View",
+          "Virtual Data Table"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A dataset needs advanced filters and virtual table semantics.",
+          "Selected rows need governed edit actions without inline custom controls.",
+          "A template needs one reusable editable table workflow rather than composing a local table stack."
+        ],
+        "decisionTree": [
+          "Use Virtual Data Table when rows only need scan, select, sort, and page behavior.",
+          "Use Advanced Filters when a screen only needs filter construction.",
+          "Use Filterable Editable Table when filtering, row selection, edit review, and feedback need to operate as one workflow."
+        ],
+        "failureModes": [
+          "Filters bypass Advanced Filters.",
+          "Rows bypass Virtual Data Table or Table semantics.",
+          "Editing is implemented as raw inputs inside table cells.",
+          "Edit review uses a local drawer, modal, or card stack.",
+          "Recovery feedback bypasses Status Feedback View."
+        ],
+        "successMetrics": [
+          "Users can filter, sort, select, page, edit, and recover without leaving Flow-owned boundaries.",
+          "Density and state cascade from Surface into filters, table, editor, and feedback.",
+          "Templates can reuse editable table behavior without redefining table or editor internals."
+        ],
+        "states": [
+          "default",
+          "filters-open",
+          "filtered",
+          "selected",
+          "editing",
+          "loading",
+          "empty",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "filterableEditableTableSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": true
+          },
+          {
+            "name": "tableSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "tableMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "filtersBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Advanced Filters"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "tableBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Virtual Data Table"
+            ],
+            "required": true
+          },
+          {
+            "name": "editorBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Drawer Adapter"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "feedbackBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Status Feedback View"
+            ],
+            "required": "conditional"
+          }
+        ],
+        "accessibility": [
+          "Expose the editable table workflow as a labelled group with busy state.",
+          "Delegate filter controls and validation to Advanced Filters.",
+          "Delegate table semantics, selection, sort, pagination, loading, empty, and error states to Virtual Data Table.",
+          "Delegate edit review semantics to Drawer Adapter.",
+          "Delegate recovery feedback semantics to Status Feedback View."
+        ],
+        "tests": [
+          "Composes Surface, Badge, Advanced Filters, Virtual Data Table, Drawer Adapter, and Status Feedback View.",
+          "Covers default, filters-open, filtered, selected, editing, loading, empty, error, and disabled states.",
+          "Forwards filter, table, editor, and feedback callbacks.",
+          "Rejects raw editable rows, custom filter shells, local drawers, card wrappers, docs-only demos, and injected markup."
+        ],
+        "agentInstructions": [
+          "Do not create a local table implementation.",
+          "Do not place raw editable controls inside rows.",
+          "Use Drawer Adapter for edit review and action confirmation.",
+          "Use Surface for structural grouping; do not wrap this pattern in Card.",
+          "Ask before using this pattern for regulated, financial, legal, safety, or irreversible operations."
+        ],
+        "rejectIf": [
+          "Filters bypass Advanced Filters.",
+          "Rows bypass Virtual Data Table.",
+          "Edit actions bypass Drawer Adapter.",
+          "Feedback bypasses Status Feedback View.",
+          "Card wraps the editable table group."
+        ]
+      }
+    }
+  }
+}

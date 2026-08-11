@@ -1,0 +1,147 @@
+{
+  "artifacts": {
+    "primitives": {
+      "surface": {
+        "layer": "Primitive",
+        "platform": "System",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "requiredSections": [
+          "purpose",
+          "foundationInputs",
+          "roles",
+          "productExamples",
+          "api",
+          "tokens",
+          "states",
+          "agentInstructions",
+          "rejectIf"
+        ],
+        "maturityTarget": 3,
+        "name": "Surface",
+        "purpose": "Turn Frame, Depth, Energy, State, and Accessibility foundation roles into implementation-ready ownership for structural backgrounds, panels, sheets, overlays, sections, and grouped content without misusing Card as layout.",
+        "governingFoundations": [
+          "Frame",
+          "Depth",
+          "Energy",
+          "State",
+          "Accessibility"
+        ],
+        "coordinatesPrimitives": [
+          "Color",
+          "Spacing",
+          "Radius",
+          "Elevation",
+          "Density",
+          "Focus",
+          "Breakpoints",
+          "Disabled"
+        ],
+        "foundationInputs": [
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.state.*",
+          "sys.accessibility.*"
+        ],
+        "roles": [
+          {
+            "id": "canvas",
+            "token": "surface.canvas",
+            "use": "Base page or app background that receives sections, navigation, and overlays."
+          },
+          {
+            "id": "section",
+            "token": "surface.section",
+            "use": "Semantic grouping that owns spacing and background without becoming an object card."
+          },
+          {
+            "id": "panel",
+            "token": "surface.panel",
+            "use": "Bounded work area, settings group, inspector, or temporary content region."
+          },
+          {
+            "id": "overlay",
+            "token": "surface.overlay",
+            "use": "Temporary focused layer such as dialog body, drawer body, sheet body, or popover body."
+          },
+          {
+            "id": "inline",
+            "token": "surface.inline",
+            "use": "Local grouped surface inside a field, toolbar, row, or compact control cluster."
+          }
+        ],
+        "productExamples": [
+          {
+            "context": "Settings group",
+            "example": "Surface owns the grouped background, padding, radius, and density while Switch/Input remain components inside it."
+          },
+          {
+            "context": "File upload drop zone",
+            "example": "Surface owns the bounded drop region and drag state; Card is used only if the region is one scannable content object."
+          },
+          {
+            "context": "Bottom sheet",
+            "example": "Surface owns overlay body, depth, safe-area padding, focus containment, and responsive density."
+          }
+        ],
+        "api": {
+          "props": [
+            "role",
+            "density",
+            "elevation",
+            "tone",
+            "state",
+            "focusMode",
+            "breakpoint"
+          ],
+          "outputs": [
+            "surfaceRole",
+            "cssCustomProperties",
+            "layerPolicy",
+            "densityScope",
+            "focusBoundary"
+          ]
+        },
+        "tokenDependencies": [
+          "sys.energy.surface.*",
+          "sys.color.surface*",
+          "sys.frame.padding.surface",
+          "sys.frame.radius.surface",
+          "sys.radius.surface",
+          "sys.depth.*",
+          "sys.density.surface.*",
+          "sys.accessibility.contrast.surface",
+          "surface.*"
+        ],
+        "states": [
+          "default",
+          "raised",
+          "sunken",
+          "overlay",
+          "selected",
+          "dragging",
+          "disabled",
+          "focused"
+        ],
+        "agentInstructions": [
+          "Use Surface for structural ownership before choosing Card.",
+          "Do not wrap arbitrary component groups in Card to obtain padding, radius, or background.",
+          "Let density and theme cascade from Surface to child components.",
+          "Escalate to Dialog, Drawer, Popover, Menu, or Tooltip only when the component owns interaction semantics."
+        ],
+        "rejectIf": [
+          "Card is used as a generic layout container.",
+          "Pattern CSS invents background, radius, shadow, padding, or z-index outside Surface tokens.",
+          "Nested decorative cards are used to create hierarchy.",
+          "A structural surface owns no density, focus, or accessibility boundary."
+        ]
+      }
+    }
+  }
+}

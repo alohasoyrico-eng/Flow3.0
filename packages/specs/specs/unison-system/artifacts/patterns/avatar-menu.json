@@ -1,0 +1,142 @@
+{
+  "artifacts": {
+    "patterns": {
+      "avatar-menu": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate identity-triggered account actions through Avatar and Menu while keeping account settings and profile management as separate host flows.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Momentum",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Avatar",
+          "Menu"
+        ],
+        "patternDependencies": [
+          "Settings"
+        ],
+        "tokenDependencies": [
+          "comp.avatar.*",
+          "comp.menu.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A signed-in identity needs a compact trigger for account, profile, status, or sign-out actions.",
+          "The menu must expose identity context without owning settings screens.",
+          "Actions are short menu commands, not a full admin surface."
+        ],
+        "decisionTree": [
+          "Use Avatar alone for identity display.",
+          "Use Avatar Menu when the avatar opens account actions.",
+          "Use Settings when users edit preferences or account configuration."
+        ],
+        "failureModes": [
+          "Avatar becomes a custom menu button.",
+          "Menu items navigate to settings while also owning settings UI.",
+          "Sign-out or destructive actions lack confirmation policy.",
+          "Identity data is exposed without permission review."
+        ],
+        "successMetrics": [
+          "Users can identify the account and open actions predictably.",
+          "Keyboard and screen reader users can operate the menu.",
+          "Settings remains a boundary, not duplicated markup."
+        ],
+        "states": [
+          "closed",
+          "open",
+          "loading",
+          "permission-blocked",
+          "disabled",
+          "signing-out"
+        ],
+        "slots": [
+          {
+            "name": "trigger",
+            "owner": "component",
+            "uses": [
+              "Avatar"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Menu"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Expose the avatar trigger as an account menu control.",
+          "Preserve Menu keyboard behavior.",
+          "Do not expose hidden identity data in visual-only content."
+        ],
+        "tests": [
+          "Composes Avatar and Menu only.",
+          "Keeps Settings as route/host boundary.",
+          "Covers open, disabled, loading, permission, and sign-out states."
+        ],
+        "agentInstructions": [
+          "Do not create custom dropdown markup.",
+          "Keep preference editing in Settings.",
+          "Ask before exposing identity, tenant, role, or sign-out behavior."
+        ],
+        "rejectIf": [
+          "Avatar trigger bypasses Avatar.",
+          "Dropdown bypasses Menu.",
+          "Settings UI is duplicated inside the menu.",
+          "Keyboard navigation differs from Menu."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

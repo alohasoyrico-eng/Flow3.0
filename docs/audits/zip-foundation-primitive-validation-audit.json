@@ -1,0 +1,440 @@
+{
+  "status": "pass",
+  "audit": "zip foundation primitive validation",
+  "principle": "ZIP guidelines, CSS token outputs, and platform token exports must resolve to Flow foundations/primitives before UI promotion.",
+  "generatedAt": "2026-08-11T00:45:13.703Z",
+  "inventory": {
+    "zipGuidelineFiles": 15,
+    "mappedGuidelineFiles": 15,
+    "zipTokenCssFiles": 7,
+    "mappedTokenCssFiles": 7,
+    "zipCssCustomProperties": 112,
+    "zipW3cTokens": 97,
+    "zipW3cTokenTypes": 5,
+    "angularTokenVariables": 85,
+    "flutterColorConstants": 31,
+    "flowTokenContractTokens": 1078,
+    "flowFoundations": 11,
+    "flowPrimitives": 24,
+    "mappedFlowFoundations": 11,
+    "mappedFlowPrimitives": 16,
+    "missingMappedFoundations": 0,
+    "missingMappedPrimitives": 0,
+    "platformOutputs": 3,
+    "platformOutputGaps": 0,
+    "zipFoundationPrimitiveValidationDebt": 0
+  },
+  "guidelines": [
+    {
+      "file": "guidelines/a11y-focus.html",
+      "foundations": [
+        "Accessibility",
+        "State"
+      ],
+      "primitives": [
+        "Focus"
+      ],
+      "sourceSignals": {
+        "customProperties": 1,
+        "hasColor": false,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/brand-logo.html",
+      "foundations": [
+        "Symbol",
+        "Voice"
+      ],
+      "primitives": [
+        "Illustration Assets"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": true,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/colors-brand.html",
+      "foundations": [
+        "Tone"
+      ],
+      "primitives": [
+        "Color"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": true,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/colors-dark.html",
+      "foundations": [
+        "Tone",
+        "State"
+      ],
+      "primitives": [
+        "Color",
+        "Surface"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": true,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/colors-neutrals.html",
+      "foundations": [
+        "Tone"
+      ],
+      "primitives": [
+        "Color",
+        "Surface"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": true,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/colors-status.html",
+      "foundations": [
+        "Tone",
+        "State"
+      ],
+      "primitives": [
+        "Color",
+        "Message"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": true,
+        "hasMotion": true,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/elevation.html",
+      "foundations": [
+        "Depth"
+      ],
+      "primitives": [
+        "Elevation",
+        "Surface"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": true,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/icons.html",
+      "foundations": [
+        "Iconography",
+        "Symbol"
+      ],
+      "primitives": [
+        "Iconography"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": false,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/motion.html",
+      "foundations": [
+        "Momentum",
+        "Energy"
+      ],
+      "primitives": [
+        "Motion Curves",
+        "Duration",
+        "Animation Assets"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": false,
+        "hasMotion": true,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/shape-radii.html",
+      "foundations": [
+        "Frame"
+      ],
+      "primitives": [
+        "Radius"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": true,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/spacing-scale.html",
+      "foundations": [
+        "Frame"
+      ],
+      "primitives": [
+        "Spacing",
+        "Measurement"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": false,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/spacing-use.html",
+      "foundations": [
+        "Frame",
+        "Growth"
+      ],
+      "primitives": [
+        "Spacing",
+        "Density"
+      ],
+      "sourceSignals": {
+        "customProperties": 2,
+        "hasColor": false,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/type-body.html",
+      "foundations": [
+        "Voice"
+      ],
+      "primitives": [
+        "Typography"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": false,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/type-data.html",
+      "foundations": [
+        "Voice"
+      ],
+      "primitives": [
+        "Typography",
+        "Measurement"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": false,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "guidelines/type-display.html",
+      "foundations": [
+        "Voice",
+        "Energy"
+      ],
+      "primitives": [
+        "Typography"
+      ],
+      "sourceSignals": {
+        "customProperties": 0,
+        "hasColor": false,
+        "hasMotion": false,
+        "hasType": true
+      },
+      "missingFoundations": [],
+      "missingPrimitives": []
+    }
+  ],
+  "tokenCss": [
+    {
+      "file": "tokens/colors.css",
+      "customProperties": 56,
+      "fontAssetSource": false,
+      "foundations": [
+        "Tone"
+      ],
+      "primitives": [
+        "Color",
+        "Surface",
+        "Message"
+      ],
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "tokens/elevation.css",
+      "customProperties": 5,
+      "fontAssetSource": false,
+      "foundations": [
+        "Depth"
+      ],
+      "primitives": [
+        "Elevation"
+      ],
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "tokens/fonts.css",
+      "customProperties": 0,
+      "fontAssetSource": true,
+      "foundations": [
+        "Voice",
+        "Iconography"
+      ],
+      "primitives": [
+        "Typography",
+        "Iconography",
+        "Library Sources"
+      ],
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "tokens/motion.css",
+      "customProperties": 10,
+      "fontAssetSource": false,
+      "foundations": [
+        "Momentum"
+      ],
+      "primitives": [
+        "Motion Curves",
+        "Duration"
+      ],
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "tokens/shape.css",
+      "customProperties": 8,
+      "fontAssetSource": false,
+      "foundations": [
+        "Frame"
+      ],
+      "primitives": [
+        "Radius"
+      ],
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "tokens/spacing.css",
+      "customProperties": 17,
+      "fontAssetSource": false,
+      "foundations": [
+        "Frame"
+      ],
+      "primitives": [
+        "Spacing",
+        "Density"
+      ],
+      "missingFoundations": [],
+      "missingPrimitives": []
+    },
+    {
+      "file": "tokens/typography.css",
+      "customProperties": 16,
+      "fontAssetSource": false,
+      "foundations": [
+        "Voice"
+      ],
+      "primitives": [
+        "Typography"
+      ],
+      "missingFoundations": [],
+      "missingPrimitives": []
+    }
+  ],
+  "platform": {
+    "w3cSource": {
+      "file": "platforms/flow.tokens.json",
+      "exists": true,
+      "tokens": 97,
+      "tokenTypes": [
+        "color",
+        "cubicBezier",
+        "dimension",
+        "duration",
+        "fontFamily"
+      ],
+      "hasSchema": true,
+      "hasFlowRoot": true
+    },
+    "buildPipeline": {
+      "file": "platforms/build-tokens.mjs",
+      "exists": true,
+      "readsW3cSource": true,
+      "writesAngular": true,
+      "writesFlutter": true,
+      "dependencyFree": true
+    },
+    "angular": {
+      "file": "platforms/angular/_flow-tokens.scss",
+      "exists": true,
+      "generatedMarker": true,
+      "variables": 85,
+      "exposesDarkTheme": true
+    },
+    "flutter": {
+      "file": "platforms/flutter/flow_tokens.dart",
+      "exists": true,
+      "generatedMarker": true,
+      "colorConstants": 31,
+      "exposesScheme": true
+    }
+  },
+  "issues": []
+}

@@ -26,6 +26,8 @@
     "primitive-copy/demos/message.json",
     "primitive-copy/demos/measurement.json",
     "primitive-copy/demos/research.json",
+    "primitive-copy/demos/surface.json",
+    "primitive-copy/demos/field-action.json",
     "primitive-copy/demos/fallback.json"
   ]
 }

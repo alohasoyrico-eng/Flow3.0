@@ -1,14 +1,19 @@
 const {
   fs,
+  path,
+  docsAppDir,
   docsAppFile,
   docsContentSourcesFile,
   foundationCopyFile,
   primitiveCopyFile,
+  catalogFile,
   referenceCopyFile,
   homeFile,
   foundations,
+  primitiveNames,
   read,
   readJson,
+  slug,
   add,
   lineNumber,
 } = require("./audit-context.js");
@@ -104,6 +109,7 @@ function checkFoundationCopyOwnership() {
 function checkPrimitiveCopyOwnership() {
   const app = read(docsAppFile);
   const copy = readJson(primitiveCopyFile);
+  const catalog = readJson(catalogFile);
   if (!copy) {
     add("errors", primitiveCopyFile, 1, "Primitive copy must live in packages/content/content/primitive-copy.json.");
     return;
@@ -117,6 +123,7 @@ function checkPrimitiveCopyOwnership() {
   for (const field of ["Typography", "Spacing", "Iconography", "Density", "fallback"]) {
     if (!copy.responsibilities?.[field]) add("errors", primitiveCopyFile, 1, `Primitive responsibilities missing field: ${field}.`);
   }
+  checkPrimitiveCatalogCoverage(catalog);
   const contentSources = fs.existsSync(docsContentSourcesFile) ? read(docsContentSourcesFile) : "";
   if (!contentSources.includes("generated/docs-content.bundle.json") || !app.includes("primitiveCopy")) {
     add("errors", docsAppFile, 1, "Docs app must consume primitive copy from the generated docs content bundle.");
@@ -133,6 +140,25 @@ function checkPrimitiveCopyOwnership() {
     "Does the manager understand the consequence?",
   ]) {
     if (app.includes(forbidden)) add("errors", docsAppFile, 1, `Primitive editorial copy must not live in app.js: ${forbidden}`);
+  }
+}
+
+function checkPrimitiveCatalogCoverage(catalog) {
+  const expectedPrimitiveIds = primitiveNames.map((name) => slug(name));
+  const sourcePrimitiveIds = new Set(catalog?.primitives?.map((primitive) => primitive.id) ?? []);
+  for (const primitiveId of expectedPrimitiveIds) {
+    if (!sourcePrimitiveIds.has(primitiveId)) {
+      add("errors", catalogFile, 1, `Primitive catalog missing system primitive: ${primitiveId}.`);
+    }
+  }
+
+  const generatedBundleFile = path.join(docsAppDir, "generated/docs-content.bundle.json");
+  const generatedBundle = readJson(generatedBundleFile);
+  const generatedPrimitiveIds = new Set(generatedBundle?.catalog?.primitives?.map((primitive) => primitive.id) ?? []);
+  for (const primitiveId of expectedPrimitiveIds) {
+    if (!generatedPrimitiveIds.has(primitiveId)) {
+      add("errors", generatedBundleFile, 1, `Generated docs content bundle missing system primitive catalog entry: ${primitiveId}. Run npm run build:docs-content in FlowDocs.`);
+    }
   }
 }
 

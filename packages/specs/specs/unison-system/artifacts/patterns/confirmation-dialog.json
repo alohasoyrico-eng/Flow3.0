@@ -1,0 +1,161 @@
+{
+  "artifacts": {
+    "patterns": {
+      "confirmation-dialog": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate confirmation of risky, destructive, or irreversible actions through Dialog, semantic actions, recovery messaging, and focus-safe dismissal.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Dialog",
+          "Error Panel",
+          "Inline Validation",
+          "Toast"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.dialog.*",
+          "comp.error-panel.*",
+          "comp.inline-validation.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "An action can delete, disable, submit, revoke, overwrite, or otherwise change important state.",
+          "The user must understand consequence and choose confirm or cancel.",
+          "The action may fail and needs inline or transient recovery."
+        ],
+        "decisionTree": [
+          "Use Dialog for neutral modal content.",
+          "Use Confirmation Dialog when the modal requires explicit consequence review.",
+          "Use Inline Validation when the user can resolve the problem in the current form without modal interruption."
+        ],
+        "failureModes": [
+          "A custom overlay recreates Dialog.",
+          "Confirm and cancel actions are visually inconsistent with Button contracts.",
+          "Escape, focus trap, or focus return is missing.",
+          "Destructive meaning relies only on color."
+        ],
+        "successMetrics": [
+          "Users understand the consequence before confirming.",
+          "Keyboard and screen reader users can cancel, confirm, and recover.",
+          "Destructive and loading states remain component-owned."
+        ],
+        "states": [
+          "closed",
+          "open",
+          "confirming",
+          "loading",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "surface",
+            "owner": "component",
+            "uses": [
+              "Dialog"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button"
+            ]
+          },
+          {
+            "name": "recovery",
+            "owner": "component",
+            "uses": [
+              "Error Panel",
+              "Inline Validation",
+              "Toast"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Use Dialog focus trap and focus return.",
+          "Keep destructive consequence in text, not color alone.",
+          "Disable duplicate submission while confirming."
+        ],
+        "tests": [
+          "Composes Dialog and Button without custom overlay/action visuals.",
+          "Covers escape, cancel, confirm, loading, and error recovery.",
+          "Preserves focus trap and focus return."
+        ],
+        "agentInstructions": [
+          "Compose from Dialog, Button, Error Panel, Inline Validation, and Toast.",
+          "Keep business copy and consequence details configurable.",
+          "Ask before confirming destructive, financial, compliance, or identity-sensitive actions."
+        ],
+        "rejectIf": [
+          "Overlay behavior is implemented outside Dialog.",
+          "Actions bypass Button.",
+          "Focus can escape the modal while open.",
+          "Destructive state is color-only."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "templateDependencies": [
+          "Settings Workspace"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "status": "pass",
+  "primitive": "Iconography",
+  "principle": "Iconography consumes the Iconography, Symbol, Accessibility, State, and Energy foundations, then coordinates Density, Focus, and Disabled before exposing a narrow sys-icon/component-icon API for components, patterns, templates, and docs.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "action",
+      "navigation",
+      "status",
+      "object",
+      "decorative"
+    ],
+    "present": [
+      "action",
+      "navigation",
+      "status",
+      "object",
+      "decorative"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Iconography",
+      "Symbol",
+      "Accessibility",
+      "State",
+      "Energy"
+    ],
+    "present": [
+      "Iconography",
+      "Symbol",
+      "Accessibility",
+      "State",
+      "Energy"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Library Sources",
+      "Density",
+      "Focus",
+      "Disabled"
+    ],
+    "present": [
+      "Library Sources",
+      "Density",
+      "Focus",
+      "Disabled"
+    ],
+    "missing": []
+  },
+  "tokenDependencies": {
+    "required": [
+      "ref.symbol.*",
+      "sys.iconography.*",
+      "sys.symbol.*",
+      "sys.accessibility.*",
+      "sys.state.*",
+      "sys.energy.*",
+      "library.*",
+      "density.*",
+      "focus.*",
+      "disabled.*",
+      "icon.*",
+      "Material Symbols Rounded"
+    ],
+    "present": [
+      "ref.symbol.*",
+      "sys.iconography.*",
+      "sys.symbol.*",
+      "sys.accessibility.*",
+      "sys.state.*",
+      "sys.energy.*",
+      "library.*",
+      "density.*",
+      "focus.*",
+      "disabled.*",
+      "icon.*",
+      "Material Symbols Rounded"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-icon-family",
+      "--sys-icon-variation-filled",
+      "--sys-icon-variation-filled-strong",
+      "--sys-icon-variation-outline-strong",
+      "--sys-icon-size-sm",
+      "--sys-icon-size-sm-plus",
+      "--sys-icon-size-md",
+      "--sys-icon-size-md-plus",
+      "--sys-icon-size-lg",
+      "--sys-icon-size-lg-plus",
+      "--sys-icon-size-marker",
+      "--sys-icon-size-station",
+      "--sys-icon-size-display-sm",
+      "--sys-icon-size-display-md",
+      "--sys-icon-color-action",
+      "--sys-icon-color-navigation",
+      "--sys-icon-color-status",
+      "--sys-icon-color-warning",
+      "--sys-icon-color-danger",
+      "--sys-icon-color-muted",
+      "--sys-icon-color-disabled",
+      "--sys-icon-touch-target-min",
+      "--sys-icon-focus-ring",
+      "--sys-icon-focus-offset"
+    ],
+    "present": [
+      "--sys-icon-family",
+      "--sys-icon-variation-filled",
+      "--sys-icon-variation-filled-strong",
+      "--sys-icon-variation-outline-strong",
+      "--sys-icon-size-sm",
+      "--sys-icon-size-sm-plus",
+      "--sys-icon-size-md",
+      "--sys-icon-size-md-plus",
+      "--sys-icon-size-lg",
+      "--sys-icon-size-lg-plus",
+      "--sys-icon-size-marker",
+      "--sys-icon-size-station",
+      "--sys-icon-size-display-sm",
+      "--sys-icon-size-display-md",
+      "--sys-icon-color-action",
+      "--sys-icon-color-navigation",
+      "--sys-icon-color-status",
+      "--sys-icon-color-warning",
+      "--sys-icon-color-danger",
+      "--sys-icon-color-muted",
+      "--sys-icon-color-disabled",
+      "--sys-icon-touch-target-min",
+      "--sys-icon-focus-ring",
+      "--sys-icon-focus-offset"
+    ],
+    "missing": []
+  },
+  "componentBridge": {
+    "required": [
+      "--component-icon-family",
+      "--component-icon-variation-filled",
+      "--component-icon-variation-filled-strong",
+      "--component-icon-variation-outline-strong",
+      "--component-icon-size-sm",
+      "--component-icon-size-md",
+      "--component-icon-size-lg",
+      "--component-icon-color-action",
+      "--component-icon-color-navigation",
+      "--component-icon-color-status",
+      "--component-icon-color-warning",
+      "--component-icon-color-danger",
+      "--component-icon-color-muted",
+      "--component-icon-color-disabled"
+    ],
+    "present": [
+      "--component-icon-family",
+      "--component-icon-variation-filled",
+      "--component-icon-variation-filled-strong",
+      "--component-icon-variation-outline-strong",
+      "--component-icon-size-sm",
+      "--component-icon-size-md",
+      "--component-icon-size-lg",
+      "--component-icon-color-action",
+      "--component-icon-color-navigation",
+      "--component-icon-color-status",
+      "--component-icon-color-warning",
+      "--component-icon-color-danger",
+      "--component-icon-color-muted",
+      "--component-icon-color-disabled"
+    ],
+    "missing": [],
+    "primitiveUses": 24,
+    "bridgeUses": 55
+  },
+  "vendorBridge": {
+    "docsUsesLocalMaterialSymbols": true,
+    "docsUsesRemoteMaterialSymbols": false,
+    "cssUsesRemoteFontSource": false,
+    "cssDefinesMaterialSymbols": true,
+    "fontFilesPresent": [
+      "../FlowDocs/apps/docs/vendor/material-symbols/material-symbols-rounded-400.ttf",
+      "../FlowDocs/apps/docs/vendor/material-symbols/material-symbols-rounded-500.ttf",
+      "../FlowDocs/apps/docs/vendor/material-symbols/material-symbols-rounded-600.ttf",
+      "../FlowDocs/apps/docs/vendor/material-symbols/material-symbols-rounded-700.ttf"
+    ],
+    "fontFilesMissing": []
+  },
+  "librarySources": {
+    "row": {
+      "id": "iconography",
+      "library": "material-symbols",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": null,
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": true,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Iconography",
+        "Symbol",
+        "Accessibility",
+        "State",
+        "Energy"
+      ]
+    }
+  },
+  "review": {
+    "directFoundationUses": [],
+    "directGlyphAssignments": []
+  },
+  "foundationGate": {
+    "iconography": {
+      "status": "pass"
+    },
+    "symbol": {
+      "status": "pass"
+    },
+    "accessibility": {
+      "status": "pass"
+    },
+    "state": {
+      "status": "pass"
+    },
+    "energy": {
+      "status": "pass"
+    }
+  },
+  "primitiveGate": {
+    "library-sources": {
+      "status": "pass"
+    },
+    "density": {
+      "status": "pass"
+    },
+    "focus": {
+      "status": "pass"
+    },
+    "disabled": {
+      "status": "pass"
+    }
+  }
+}

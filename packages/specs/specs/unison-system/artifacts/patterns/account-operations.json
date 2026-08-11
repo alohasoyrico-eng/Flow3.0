@@ -1,0 +1,202 @@
+{
+  "artifacts": {
+    "patterns": {
+      "account-operations": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate account records, operational actions, detail review, and audit history without creating a local internal-tools table, drawer, or timeline implementation.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Dense Operational List",
+          "Drawer Adapter",
+          "Timeline"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "An internal operations surface needs to scan account records and act on selected accounts.",
+          "Account details must open through an existing drawer/dialog boundary.",
+          "Account changes need an audit timeline without duplicating timeline rendering."
+        ],
+        "decisionTree": [
+          "Use Dense Operational List when only records, search, filters, and bulk actions are needed.",
+          "Use Account Operations when account records, detail review, and audit history must work as one coordinated flow.",
+          "Use an internal operations template when navigation, shell, module switching, or multi-panel workspace layout is also required."
+        ],
+        "failureModes": [
+          "The account table is rendered outside Dense Operational List or Virtual Data Table.",
+          "Detail review uses a local drawer, modal, card stack, or overlay instead of Drawer Adapter.",
+          "Audit history is cloned as a local list instead of Timeline.",
+          "The internal-tools template owns account behavior rather than composing this pattern."
+        ],
+        "successMetrics": [
+          "Users can search, filter, select, act, open detail, and inspect audit history through Flow-owned child boundaries.",
+          "Density and state cascade from Surface into every child pattern.",
+          "Internal operations templates can reuse account behavior without redefining tables, drawers, or timelines."
+        ],
+        "states": [
+          "default",
+          "account-selected",
+          "detail-open",
+          "audit-filtered",
+          "loading",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "accountOperationsSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": "required",
+            "purpose": "Owns structural grouping, density, state, and focus-within cascade for account operations."
+          },
+          {
+            "name": "operationsSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Announces the account operation description without owning record, detail, or audit behavior."
+          },
+          {
+            "name": "operationsMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Surfaces operational account counts, risk labels, or review status through Badge."
+          },
+          {
+            "name": "accountListBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Dense Operational List"
+            ],
+            "required": "required",
+            "purpose": "Delegates account search, filters, toolbar, selection, bulk actions, rows, pagination, and feedback."
+          },
+          {
+            "name": "accountDetailBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Drawer Adapter"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates account detail, review actions, responsive drawer behavior, and modal fallback."
+          },
+          {
+            "name": "accountAuditBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Timeline"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates account audit history, audit filters, event selection, and recovery."
+          }
+        ],
+        "accessibility": [
+          "Expose account operations as a labelled group with busy state.",
+          "Delegate table semantics to Dense Operational List and Virtual Data Table.",
+          "Delegate detail panel semantics to Drawer Adapter and drawer/dialog components.",
+          "Delegate chronological audit semantics to Timeline."
+        ],
+        "tests": [
+          "Composes Surface, Badge, Dense Operational List, Drawer Adapter, and Timeline.",
+          "Covers default, account-selected, detail-open, audit-filtered, loading, error, and disabled states.",
+          "Forwards account search, filters, sort, row selection, pagination, bulk action, toolbar overflow, detail, and audit callbacks.",
+          "Rejects raw tables, local account cards, custom drawers, custom timelines, and docs-only shells."
+        ],
+        "agentInstructions": [
+          "Do not create a local account table, detail overlay, or audit list.",
+          "Do not wrap the account operations group in Card; use Surface for structural grouping.",
+          "Use templates only to place this pattern in a product shell, not to redefine its behavior.",
+          "Ask before using this pattern for regulated identity, financial, safety, or compliance operations."
+        ],
+        "rejectIf": [
+          "Account rows bypass Dense Operational List or Virtual Data Table.",
+          "Detail review bypasses Drawer Adapter.",
+          "Audit history bypasses Timeline.",
+          "Card wraps the account operations group.",
+          "Density or state stops cascading to child patterns."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "templateDependencies": [
+          "Internal Operations Console"
+        ]
+      }
+    }
+  }
+}

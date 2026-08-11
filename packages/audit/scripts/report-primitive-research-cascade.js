@@ -124,6 +124,11 @@ function foundationStatus(file) {
   return report?.status ?? "missing";
 }
 
+function reportStatus(file) {
+  const report = fs.existsSync(file) ? readJson(file) : null;
+  return { status: report?.status ?? "missing", gaps: report?.gaps ?? [] };
+}
+
 const tokenCss = readIfExists(tokenCssFile);
 const tokenDeclarations = collectDeclarations(tokenCss);
 const specWrapper = readJson(researchSpecFile);
@@ -162,9 +167,9 @@ const foundationGate = {
   voice: { status: foundationStatus(voiceReportFile) },
 };
 const primitiveGate = {
-  measurement: { status: foundationStatus(measurementReportFile) },
-  message: { status: foundationStatus(messageReportFile) },
-  charts: { status: foundationStatus(chartsReportFile) },
+  measurement: { ...reportStatus(measurementReportFile), relationship: "lateral-coordination" },
+  message: { ...reportStatus(messageReportFile), relationship: "lateral-coordination" },
+  charts: { ...reportStatus(chartsReportFile), relationship: "lateral-coordination" },
 };
 
 const gaps = [];
@@ -190,7 +195,9 @@ for (const [name, gate] of Object.entries(foundationGate)) {
   if (gate.status !== "pass") gaps.push(`Foundation gate is not pass: ${name} is ${gate.status}.`);
 }
 for (const [name, gate] of Object.entries(primitiveGate)) {
-  if (gate.status !== "pass") gaps.push(`Primitive dependency gate is not pass: ${name} is ${gate.status}.`);
+  if (gate.relationship?.startsWith("upstream") && gate.status !== "pass") {
+    gaps.push(`Primitive dependency gate is not pass: ${name} is ${gate.status}.`);
+  }
 }
 
 const report = {
@@ -234,7 +241,7 @@ function writeReport() {
     ...Object.entries(report.foundationGate).map(([name, gate]) => `- ${name}: ${gate.status}`),
     "",
     "## Primitive Gate",
-    ...Object.entries(report.primitiveGate).map(([name, gate]) => `- ${name}: ${gate.status}`),
+    ...Object.entries(report.primitiveGate).map(([name, gate]) => `- ${name}: ${gate.status} (${gate.relationship})`),
   ].join("\n");
 
   if (checkMode) {

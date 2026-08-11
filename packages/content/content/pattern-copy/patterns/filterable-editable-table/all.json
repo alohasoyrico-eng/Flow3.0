@@ -1,0 +1,94 @@
+{
+  "patterns": {
+    "filterable-editable-table": {
+      "title": "Filterable Editable Table",
+      "purpose": "Coordinate advanced filters, virtualized table rows, selected-row editing, and recovery feedback without creating a parallel filter shell, table, or inline editor.",
+      "useWhen": [
+        "A dataset needs advanced filtering and stable table semantics.",
+        "Selected rows need governed edit review or save actions.",
+        "A template needs editable table behavior without owning table internals."
+      ],
+      "doNotUseWithoutReview": [
+        "The workflow edits regulated, financial, legal, safety, or irreversible data.",
+        "Rows need custom card layouts instead of table semantics.",
+        "Editing must happen through specialized domain forms that deserve their own pattern."
+      ],
+      "foundations": [
+        ["Accessibility", "The labelled group, filters, virtual table, editor drawer, and feedback remain announced through formal owners."],
+        ["Depth", "Surface owns structural grouping and focus-within behavior without a Card wrapper."],
+        ["Energy", "Filters-open, filtered, selected, editing, loading, empty, error, and disabled states cascade into child boundaries."],
+        ["Frame", "Table density, filter layout, and edit drawer placement remain token-driven."],
+        ["Growth", "Editable table behavior becomes reusable for templates without moving behavior into templates."],
+        ["Iconography", "Filter, table, editor, and feedback symbols remain owned by their child patterns."],
+        ["Momentum", "Loading, drawer, feedback, and table transition behavior remain delegated to child owners."],
+        ["State", "Pattern state maps to filters, table, editor, and feedback boundaries."],
+        ["Symbol", "Selected, filtered, editing, and recovery symbols remain semantic through Badge and child patterns; text remains required as the visible fallback for meaning."],
+        ["Tone", "Neutral, selected, warning, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Metrics, filters, table labels, editor actions, and recovery copy stay explicit."]
+      ],
+      "slots": [
+        ["filterableEditableTableSurface", "Surface", "required", "Structural editable table group."],
+        ["tableSummary", "Badge", "conditional", "Editable table purpose or state summary."],
+        ["tableMetric", "Badge", "conditional", "Filtered, selected, pending, or edited row metrics."],
+        ["filtersBoundary", "Advanced Filters", "conditional", "Advanced filtering, saved views, drawer, apply, reset, validation, and feedback."],
+        ["tableBoundary", "Virtual Data Table", "required", "Rows, selection, sort, pagination, virtualization, loading, empty, and error states."],
+        ["editorBoundary", "Drawer Adapter", "conditional", "Selected-row edit review, save/cancel actions, and responsive drawer behavior."],
+        ["feedbackBoundary", "Status Feedback View", "conditional", "Editable table recovery, toast, inline, notification, or snackbar feedback."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Advanced Filters",
+        "Drawer Adapter",
+        "Status Feedback View",
+        "Virtual Data Table"
+      ],
+      "variants": [
+        ["Filtered rows", "Conditional", "Advanced Filters owns filter fields, saved views, apply, reset, and validation."],
+        ["Virtualized editable table", "Required", "Virtual Data Table owns table semantics, rows, selection, sort, and pagination."],
+        ["Selected row", "State", "Selected row key cascades selected state into the table."],
+        ["Editing row", "Conditional", "Drawer Adapter owns edit review and actions instead of raw inline cell controls."],
+        ["Feedback recovery", "Conditional", "Status Feedback View owns save/error recovery."]
+      ],
+      "motion": [
+        ["Loading", "Surface marks busy while Virtual Data Table owns loading render."],
+        ["Filters open", "Advanced Filters owns filter drawer interactions."],
+        ["Editing open", "Drawer Adapter owns drawer/dialog motion."],
+        ["Feedback", "Status Feedback View owns recovery motion."]
+      ],
+      "accessibility": [
+        "Expose the pattern as a labelled group.",
+        "Delegate filter semantics to Advanced Filters.",
+        "Delegate table semantics to Virtual Data Table and Table.",
+        "Delegate edit panel semantics to Drawer Adapter.",
+        "Delegate recovery and feedback semantics to Status Feedback View."
+      ],
+      "implementationChecklist": [
+        "Compose Surface, Badge, Advanced Filters, Virtual Data Table, Drawer Adapter, and Status Feedback View.",
+        "Forward filter, table, editor, and feedback callbacks.",
+        "Keep row editing out of raw DOM and table cells.",
+        "Expose density and state cascade through child patterns.",
+        "Reject local tables, local filters, local drawers, card wrappers, and docs-only demos."
+      ],
+      "tests": [
+        "Composes Surface plus the required child pattern boundaries.",
+        "Density and state cascade through filters, table, editor, and feedback.",
+        "Callbacks preserve event context across filters, table rows, editor actions, and feedback.",
+        "No Card wrapper, raw editable table, custom filter shell, custom drawer, local feedback shell, inline edit DOM, or docs-only shell is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Filterable Editable Table for reusable editable datasets.",
+          "Add Advanced Filters when richer filter criteria or saved views matter.",
+          "Open Drawer Adapter for selected-row edit review."
+        ],
+        "mustAsk": [
+          "Before editing regulated, financial, legal, safety, or irreversible data.",
+          "Before replacing the editor drawer with inline custom controls.",
+          "Before bypassing Virtual Data Table semantics."
+        ]
+      }
+    }
+  }
+}

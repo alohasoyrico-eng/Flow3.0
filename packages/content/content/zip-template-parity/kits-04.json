@@ -1,0 +1,144 @@
+{
+  "kits": [
+    {
+      "id": "ios-frame",
+      "zipPaths": [
+        "ui_kits/ios-frame.jsx"
+      ],
+      "classification": "blocked-separate-channel",
+      "status": "support-only-platform-frame",
+      "flowOwners": {
+        "foundations": [
+          "Frame",
+          "Depth"
+        ],
+        "primitives": [
+          "Surface",
+          "Radius",
+          "Iconography"
+        ],
+        "components": [],
+        "patterns": [],
+        "templates": []
+      },
+      "requiredDecision": "The iOS frame is a preview/support wrapper, not a Flow product template. Native platform framing must stay outside React product templates unless a governed platform preview primitive is introduced.",
+      "migrationScope": [
+        "device chrome",
+        "safe-area preview",
+        "mobile viewport framing"
+      ],
+      "cascadeRisks": [
+        "device frame copied into templates",
+        "safe-area wrapper bypassing Frame foundation",
+        "preview chrome becoming product UI"
+      ]
+    },
+    {
+      "id": "onboarding-driver",
+      "zipPaths": [
+        "ui_kits/onboarding-driver/index.html"
+      ],
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Stepper",
+          "Input",
+          "Code Input",
+          "Biometric Prompt",
+          "Card Summary",
+          "Movement Row",
+          "Progress Indicator",
+          "Switch",
+          "Button",
+          "Badge",
+          "Toast"
+        ],
+        "patterns": [
+          "Driver Onboarding Mobile",
+          "Multi Step Form",
+          "Authentication, Login, Biometrics and OTP"
+        ],
+        "templates": [
+          "Driver Mobile App"
+        ]
+      },
+      "requiredDecision": "Use Driver Onboarding Mobile for first-use readiness; do not introduce OnboardingCarousel as a component.",
+      "migrationScope": [
+        "driver identity",
+        "consent",
+        "readiness",
+        "recovery"
+      ],
+      "cascadeRisks": [
+        "onboarding carousel clone",
+        "wizard steps outside Stepper/Multi Step Form"
+      ]
+    },
+    {
+      "id": "onboarding-fm",
+      "zipPaths": [
+        "ui_kits/onboarding-fm/index.html"
+      ],
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Stepper",
+          "Button",
+          "Input",
+          "Select",
+          "Code Input",
+          "Checkbox",
+          "Chip",
+          "Badge",
+          "Toast",
+          "Empty State"
+        ],
+        "patterns": [
+          "Fleet Manager Onboarding Desktop",
+          "Multi Step Form",
+          "Roles and Permissions"
+        ],
+        "templates": [
+          "Fleet Manager Desktop"
+        ]
+      },
+      "requiredDecision": "Use Fleet Manager Onboarding Desktop as pattern inside Fleet Manager Desktop template.",
+      "migrationScope": [
+        "workspace setup",
+        "import",
+        "roles",
+        "completion"
+      ],
+      "cascadeRisks": [
+        "desktop onboarding shell clone",
+        "setup checklist outside pattern"
+      ]
+    }
+  ]
+}

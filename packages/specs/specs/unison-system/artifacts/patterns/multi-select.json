@@ -1,0 +1,166 @@
+{
+  "artifacts": {
+    "patterns": {
+      "multi-select": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate selecting multiple values with selected chips, checkbox options, empty recovery, validation, and optional search handoff.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "Momentum",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Checkbox",
+          "Chip",
+          "Empty State",
+          "Inline Validation",
+          "Select"
+        ],
+        "patternDependencies": [
+          "Search"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.checkbox.*",
+          "comp.chip.*",
+          "comp.empty-state.*",
+          "comp.inline-validation.*",
+          "comp.select.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Users need to select more than one option from a known set.",
+          "Selections need visible chips, count, validation, or remove behavior.",
+          "Large option sets may hand off to Search without embedding it."
+        ],
+        "decisionTree": [
+          "Use Select for one value.",
+          "Use Multi Select when multiple committed values must remain visible.",
+          "Use Transfer List when users manage large source/target sets."
+        ],
+        "failureModes": [
+          "Selected values are custom pills instead of Chip.",
+          "Options bypass Checkbox/Select semantics.",
+          "Search behavior is duplicated inside the pattern.",
+          "Count and validation are missing."
+        ],
+        "successMetrics": [
+          "Users can add, inspect, remove, and validate multiple selections.",
+          "Keyboard and screen reader users understand selected count and option state.",
+          "Large sets can escalate without duplicating Search."
+        ],
+        "states": [
+          "closed",
+          "open",
+          "selected",
+          "empty",
+          "loading",
+          "invalid",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "trigger",
+            "owner": "component",
+            "uses": [
+              "Select",
+              "Badge"
+            ]
+          },
+          {
+            "name": "options",
+            "owner": "component",
+            "uses": [
+              "Checkbox",
+              "Empty State"
+            ]
+          },
+          {
+            "name": "selectedValues",
+            "owner": "component",
+            "uses": [
+              "Chip",
+              "Button",
+              "Inline Validation"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Expose multi-select role/selection count.",
+          "Ensure chip removal controls name the selected value.",
+          "Announce invalid and empty states."
+        ],
+        "tests": [
+          "Composes Select, Checkbox, Chip, Badge, Button, Empty State, and Inline Validation.",
+          "Covers selected, empty, loading, invalid, and disabled states.",
+          "Keeps Search as optional boundary only."
+        ],
+        "agentInstructions": [
+          "Do not create custom selected-value chips.",
+          "Keep remote ranking and broad lookup in Search.",
+          "Ask before multi-selecting permission, payment, or identity-sensitive records."
+        ],
+        "rejectIf": [
+          "Selected chips bypass Chip.",
+          "Options are custom checkbox visuals.",
+          "Search is embedded.",
+          "Selection count is inaccessible."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

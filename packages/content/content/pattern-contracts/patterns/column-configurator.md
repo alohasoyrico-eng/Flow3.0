@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/column-configurator/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/column-configurator.json`
 
 ## Purpose
 
@@ -35,6 +36,164 @@ Let users show, hide, reorder, and persist table columns without breaking scanab
 | Depth | Column controls can appear in Menu, Dialog, or Drawer without replacing the Table component. |
 | Accessibility | Column toggles, required columns, order, count, reset, and apply are keyboard reachable. |
 
+## Formal Purpose
+
+Coordinate table column visibility, order, required columns, reset behavior, validation, and persistence using governed table, checkbox, dialog, drawer, and menu composition.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `closed`
+- `open`
+- `dirty`
+- `saving`
+- `saved`
+- `invalid`
+- `resetting`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `Checkbox`
+- `Dialog`
+- `Drawer`
+- `Inline Validation`
+- `Menu`
+- `Table`
+- `Toast`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.checkbox.*`
+- `comp.dialog.*`
+- `comp.drawer.*`
+- `comp.inline-validation.*`
+- `comp.menu.*`
+- `comp.table.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `surface` | `component` | `Dialog`, `Drawer`, `Menu` |
+| `columnList` | `component` | `Checkbox`, `Table`, `Badge` |
+| `actions` | `component` | `Button`, `Inline Validation`, `Toast` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A table has optional columns users can show, hide, or reorder.
+- Required columns need disabled or locked reasons.
+- Changes may be applied, reset, persisted, or discarded.
+
+### Decision Tree
+
+- Use Table props for a fixed column set.
+- Use Column Configurator when column visibility or order is user-configurable.
+- Use Settings when configuration spans multiple unrelated product areas.
+
+### Failure Modes
+
+- Column toggles are custom checkboxes.
+- Required columns disappear without explanation.
+- Dialog and drawer variants diverge.
+- Persistence feedback bypasses Toast.
+
+### Success Metrics
+
+- Users can understand visible, hidden, required, and reordered columns.
+- Keyboard users can toggle and apply changes.
+- Table column configuration stays separate from business data rendering.
+
+### Accessibility
+
+- Expose required and disabled reasons in text.
+- Keep focus within Dialog/Drawer when open.
+- Preserve keyboard access to toggle, apply, reset, and cancel actions.
+
+### Tests
+
+- Composes Checkbox, Table, Dialog, Drawer, Menu, Button, Badge, Inline Validation, and Toast.
+- Covers required, dirty, saving, invalid, reset, and disabled states.
+- Does not recreate table or checkbox visuals.
+
+### Agent Instructions
+
+- Keep table data and column business definitions outside the pattern.
+- Use the pattern only for visibility/order configuration.
+- Ask before persisting user preferences across tenants or roles.
+
+### Reject If
+
+- Column controls bypass Checkbox.
+- A custom overlay replaces Dialog or Drawer.
+- Required columns can be hidden silently.
+- Persistence feedback bypasses Toast.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -45,7 +204,7 @@ Let users show, hide, reorder, and persist table columns without breaking scanab
 | feedback | Badge \| Toast \| InlineValidation | conditional | Dirty count, saved state, or invalid configuration feedback. |
 | surface | Menu \| Dialog \| Drawer | conditional | Where the configuration controls live. |
 
-## Components And Primitives Used
+## Components Used
 
 - Table
 - Checkbox

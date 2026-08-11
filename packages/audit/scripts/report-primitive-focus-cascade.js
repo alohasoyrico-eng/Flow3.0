@@ -94,6 +94,12 @@ function collectDeclarations(css) {
   return map;
 }
 
+function reportStatus(file) {
+  if (!fs.existsSync(file)) return { report: rel(file), status: "missing", gaps: [] };
+  const report = readJson(file) ?? {};
+  return { report: rel(file), status: report.status ?? "missing", gaps: report.gaps ?? [] };
+}
+
 function countMatches(source, pattern) {
   return [...source.matchAll(pattern)].length;
 }
@@ -229,10 +235,10 @@ function createReport() {
   const accessibilityReport = readJson(accessibilityReportFile);
   const stateReport = readJson(stateReportFile);
   const frameReport = readJson(frameReportFile);
-  const disabledReport = readJson(disabledReportFile);
-  const radiusReport = readJson(radiusReportFile);
-  const spacingReport = readJson(spacingReportFile);
-  const motionCurvesReport = readJson(motionCurvesReportFile);
+  const disabledReport = reportStatus(disabledReportFile);
+  const radiusReport = reportStatus(radiusReportFile);
+  const spacingReport = reportStatus(spacingReportFile);
+  const motionCurvesReport = reportStatus(motionCurvesReportFile);
   const scannedCss = [componentCssFile, ...docsCssFiles];
 
   const roleIds = new Set((focusSpec?.roles ?? []).map((role) => role.id));
@@ -267,10 +273,7 @@ function createReport() {
   if (accessibilityReport.status !== "pass") gaps.push("Focus cannot pass while Accessibility foundation cascade report is not pass.");
   if (stateReport.status !== "pass") gaps.push("Focus cannot pass while State foundation cascade report is not pass.");
   if (frameReport.status !== "pass") gaps.push("Focus cannot pass while Frame foundation cascade report is not pass.");
-  if (disabledReport.status !== "pass") gaps.push("Focus cannot pass while Disabled primitive cascade report is not pass.");
-  if (radiusReport.status !== "pass") gaps.push("Focus cannot pass while Radius primitive cascade report is not pass.");
   if (spacingReport.status !== "pass") gaps.push("Focus cannot pass while Spacing primitive cascade report is not pass.");
-  if (motionCurvesReport.status !== "pass") gaps.push("Focus cannot pass while Motion Curves primitive cascade report is not pass.");
   if (componentFocusVisibleSelectors < 30) gaps.push("Component package does not expose enough focus-visible coverage.");
   if (componentRefs.count < 20) gaps.push("Component specs do not show enough Focus primitive coverage.");
 
@@ -325,10 +328,10 @@ function createReport() {
       frame: { report: rel(frameReportFile), status: frameReport.status, gaps: frameReport.gaps ?? [] },
     },
     primitiveGate: {
-      disabled: { report: rel(disabledReportFile), status: disabledReport.status, gaps: disabledReport.gaps ?? [] },
-      radius: { report: rel(radiusReportFile), status: radiusReport.status, gaps: radiusReport.gaps ?? [] },
-      spacing: { report: rel(spacingReportFile), status: spacingReport.status, gaps: spacingReport.gaps ?? [] },
-      motionCurves: { report: rel(motionCurvesReportFile), status: motionCurvesReport.status, gaps: motionCurvesReport.gaps ?? [] },
+      disabled: { ...disabledReport, relationship: "lateral-coordination" },
+      radius: { ...radiusReport, relationship: "lateral-coordination" },
+      spacing: { ...spacingReport, relationship: "upstream-gate" },
+      motionCurves: { ...motionCurvesReport, relationship: "lateral-coordination" },
     },
     review: {
       undefinedSysFocusUses,

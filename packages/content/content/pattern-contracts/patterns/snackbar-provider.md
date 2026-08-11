@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/snackbar-provider/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json`
 
 ## Purpose
 
@@ -35,20 +36,172 @@ Coordinate transient feedback queues, placement, timing, undo, retry, and live-r
 | Depth | Feedback floats above content without blocking required actions. |
 | Accessibility | Live region role, announcement priority, keyboard actions, and focus behavior are required. |
 
+## Formal Purpose
+
+Coordinate transient system feedback across queues, priority, dismissal, status semantics, and recovery actions without each surface inventing its own notification stack.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `idle`
+- `queued`
+- `visible`
+- `dismissed`
+- `actionable`
+- `paused`
+- `error`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `Toast`
+
+### Tokens
+
+- `comp.toast.*`
+- `comp.button.*`
+- `comp.badge.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `viewport` | `primitive` | `Surface` |
+| `action` | `component` | `Button` |
+| `feedback` | `component` | `Toast` |
+| `status` | `component` | `Badge` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A product flow needs transient success, warning, error, or informational feedback.
+- Multiple events can happen close together and need deterministic queue behavior.
+- A toast may include a short recovery action such as undo, retry, or view details.
+
+### Decision Tree
+
+- Use Toast directly for one isolated message in a controlled component demo.
+- Use Snackbar Provider when a screen, shell, or workflow needs a governed notification queue.
+- Use Dialog or Inline Validation when the user must resolve the issue before continuing.
+
+### Failure Modes
+
+- Every feature mounts its own notification container.
+- Messages overlap or disappear before assistive technology can announce them.
+- Action buttons inside feedback recreate Button styles.
+- Critical errors are sent only as transient feedback.
+
+### Success Metrics
+
+- Feedback appears in one predictable region.
+- Users can understand message severity and optional recovery.
+- Keyboard and screen reader users receive the update without focus being stolen.
+
+### Accessibility
+
+- Use live-region semantics appropriate to severity.
+- Do not move focus to transient feedback unless the action explicitly requires it.
+- Pause dismissal while the user hovers, focuses, or interacts with the action.
+
+### Tests
+
+- Queues multiple messages deterministically.
+- Uses Toast, Button, and Badge contracts instead of custom visuals.
+- Preserves live-region announcements and focus behavior.
+
+### Agent Instructions
+
+- Compose the provider from Toast, Button, and optional Badge only.
+- Keep long-form recovery, blocking decisions, and destructive confirmations outside this pattern.
+- Ask before creating a second feedback stack in a shell or template.
+
+### Reject If
+
+- A feature defines a separate snackbar container.
+- Toast visuals are recreated with raw classes.
+- Severity relies only on color.
+- Dismissal timing bypasses accessibility behavior.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
 | --- | --- | --- | --- |
-| region | SnackbarRegion | yes | Shared feedback area owned by the shell or route. |
+| viewport | Surface | yes | Shared feedback viewport owned by the shell or route. |
 | items | Toast[] | yes | Visible queued feedback items. |
 | actions | Button[] | conditional | Undo, retry, view, or dismiss actions. |
 | policy | QueuePolicy | yes | Duration, dedupe, max visible count, and priority rules. |
 
-## Components And Primitives Used
+## Components Used
 
 - Toast
 - Button
 - Badge
+
+## Primitive Slot Ownership
+
+| Slot | Primitive | Required | Notes |
+| --- | --- | --- | --- |
+| viewport | Surface | yes | Shared feedback viewport owned by the shell or route. |
 
 ## Variants
 
@@ -75,7 +228,7 @@ Coordinate transient feedback queues, placement, timing, undo, retry, and live-r
 
 ## Implementation Checklist
 
-- Declare `region`: Shared feedback area owned by the shell or route.
+- Declare `viewport`: Shared feedback viewport owned by the shell or route.
 - Declare `items`: Visible queued feedback items.
 - Declare `policy`: Duration, dedupe, max visible count, and priority rules.
 - Queue shows newest feedback in region.

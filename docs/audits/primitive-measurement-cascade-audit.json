@@ -1,0 +1,182 @@
+{
+  "status": "pass",
+  "primitive": "Measurement",
+  "principle": "Measurement consumes Growth, State, Accessibility, and Tone, then coordinates Charts, Message, and Research so events, metrics, analytics, hypotheses, and guardrails remain product-owned instead of decorative dashboard copy.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "event",
+      "metric",
+      "analytics",
+      "hypothesis",
+      "guardrail"
+    ],
+    "present": [
+      "event",
+      "metric",
+      "analytics",
+      "hypothesis",
+      "guardrail"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Growth",
+      "State",
+      "Accessibility",
+      "Tone"
+    ],
+    "present": [
+      "Growth",
+      "State",
+      "Accessibility",
+      "Tone"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Charts",
+      "Message",
+      "Research"
+    ],
+    "present": [
+      "Charts",
+      "Message",
+      "Research"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-measurement-event-font",
+      "--sys-measurement-event-color",
+      "--sys-measurement-metric-font",
+      "--sys-measurement-metric-weight",
+      "--sys-measurement-metric-color",
+      "--sys-measurement-analytics-color",
+      "--sys-measurement-hypothesis-color",
+      "--sys-measurement-guardrail-color",
+      "--sys-measurement-guardrail-background",
+      "--sys-measurement-privacy-color"
+    ],
+    "present": [
+      "--sys-measurement-event-font",
+      "--sys-measurement-event-color",
+      "--sys-measurement-metric-font",
+      "--sys-measurement-metric-weight",
+      "--sys-measurement-metric-color",
+      "--sys-measurement-analytics-color",
+      "--sys-measurement-hypothesis-color",
+      "--sys-measurement-guardrail-color",
+      "--sys-measurement-guardrail-background",
+      "--sys-measurement-privacy-color"
+    ],
+    "missing": []
+  },
+  "references": {
+    "measurement": {
+      "count": 1,
+      "ids": [
+        "slider"
+      ],
+      "sampleFiles": [
+        "packages/content/content/component-contracts/components/slider.md"
+      ]
+    },
+    "analytics": {
+      "count": 21,
+      "ids": [
+        "button",
+        "card",
+        "card-summary",
+        "chart-panel",
+        "chip",
+        "date-picker",
+        "date-range-picker",
+        "drawer",
+        "empty-state",
+        "inline-validation",
+        "kpi-tile",
+        "popover",
+        "progress-indicator",
+        "radio-button",
+        "route-summary",
+        "segmented-control",
+        "select",
+        "skeleton",
+        "tabs",
+        "toast",
+        "tooltip"
+      ],
+      "sampleFiles": [
+        "packages/content/content/component-copy/components/button/miel.json",
+        "packages/content/content/component-copy/components/button/operational-example.json",
+        "packages/content/content/component-copy/components/button/viewport-organization.json",
+        "packages/content/content/component-copy/components/card-summary/all.json",
+        "packages/content/content/component-copy/components/card/api-foundations.json",
+        "packages/content/content/component-copy/components/card/guidelines.json",
+        "packages/content/content/component-copy/components/card/reference-compositions.json",
+        "packages/content/content/component-copy/components/card/tests-rejection-rules.json",
+        "packages/content/content/component-copy/components/card/variants.json",
+        "packages/content/content/component-copy/components/card/viewport-organization.json",
+        "packages/content/content/component-copy/components/chart-panel/all.json",
+        "packages/content/content/component-copy/components/chip/all.json"
+      ]
+    },
+    "guardrail": {
+      "count": 4,
+      "ids": [
+        "avatar",
+        "card-summary",
+        "table",
+        "text-area"
+      ],
+      "sampleFiles": [
+        "packages/content/content/component-copy/components/avatar/all.json",
+        "packages/content/content/component-copy/components/card-summary/all.json",
+        "packages/content/content/component-copy/components/table/all.json",
+        "packages/content/content/component-copy/components/text-area/anatomy.json",
+        "packages/content/content/component-copy/components/text-area/guidelines.json",
+        "packages/content/content/component-copy/components/text-area/miel.json",
+        "packages/content/content/component-copy/components/text-area/operational-example.json"
+      ]
+    }
+  },
+  "review": {
+    "incompleteAnalyticsEvents": [],
+    "analyticsWithoutDecision": []
+  },
+  "foundationGate": {
+    "growth": {
+      "status": "pass"
+    },
+    "state": {
+      "status": "pass"
+    },
+    "accessibility": {
+      "status": "pass"
+    },
+    "tone": {
+      "status": "pass"
+    }
+  },
+  "primitiveGate": {
+    "charts": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "message": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "upstream-feedback"
+    },
+    "research": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    }
+  }
+}

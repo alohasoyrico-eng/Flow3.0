@@ -297,6 +297,12 @@ function createReport() {
   let status = "pass";
   if (missingRoles.length || missingTokens.length || docsOwnedFrameTokens.length || geometryFailures.length || missingEdges.length) status = "fail";
   else if (geometryReviews.length || patternRefs.count < 1 || templateRefs.count < 1) status = "review";
+  const frameCascadeDebt = missingRoles.length
+    + missingTokens.length
+    + docsOwnedFrameTokens.length
+    + geometryFailures.length
+    + geometryReviews.length
+    + missingEdges.length;
 
   return {
     schemaVersion: "1.0.0",
@@ -304,6 +310,9 @@ function createReport() {
     foundation: "Frame",
     status,
     principle: "Frame must govern spacing, grid, density, radius, sizing, borders, and responsive rhythm before any component, pattern, or template solves layout locally.",
+    inventory: {
+      frameCascadeDebt,
+    },
     tokenOwnership: {
       tokenCss: rel(tokenCssFile),
       declarations: tokenDecls.length,

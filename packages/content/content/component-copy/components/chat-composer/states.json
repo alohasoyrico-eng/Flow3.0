@@ -1,0 +1,17 @@
+{
+  "components": {
+    "chat-composer": {
+      "states": {
+        "copy": "Chat Composer states preserve the shared Field, Message, Surface, Button, and State cascade while keeping message entry controlled or uncontrolled.",
+        "demos": [
+          { "label": "Default", "state": "default", "value": "", "placeholder": "Write a message" },
+          { "label": "Focus", "state": "focus", "value": "", "placeholder": "Write a message" },
+          { "label": "Filled", "state": "filled", "value": "Can you review this card limit?" },
+          { "label": "Sending", "state": "sending", "value": "Sending update", "sending": true },
+          { "label": "Disabled", "state": "disabled", "value": "", "disabled": true },
+          { "label": "Error", "state": "error", "value": "", "error": "Write a message before sending." }
+        ]
+      }
+    }
+  }
+}

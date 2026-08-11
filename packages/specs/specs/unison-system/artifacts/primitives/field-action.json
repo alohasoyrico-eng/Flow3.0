@@ -1,0 +1,152 @@
+{
+  "artifacts": {
+    "primitives": {
+      "field-action": {
+        "layer": "Primitive",
+        "platform": "System",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "requiredSections": [
+          "purpose",
+          "foundationInputs",
+          "roles",
+          "productExamples",
+          "api",
+          "tokens",
+          "states",
+          "agentInstructions",
+          "rejectIf"
+        ],
+        "maturityTarget": 3,
+        "name": "Field Action",
+        "purpose": "Turn field-adjacent actions into implementation-ready primitives for clear, reveal, picker, validation, resend, recovery, and inline command behavior without creating fake buttons inside demos or duplicated field controls.",
+        "governingFoundations": [
+          "Accessibility",
+          "State",
+          "Frame",
+          "Tone",
+          "Energy"
+        ],
+        "coordinatesPrimitives": [
+          "Focus",
+          "Message",
+          "Disabled",
+          "Loading",
+          "Iconography",
+          "Spacing",
+          "Radius",
+          "Measurement"
+        ],
+        "foundationInputs": [
+          "sys.accessibility.*",
+          "sys.state.*",
+          "sys.frame.*",
+          "sys.tone.*",
+          "sys.energy.*"
+        ],
+        "roles": [
+          {
+            "id": "clear",
+            "token": "field-action.clear",
+            "use": "Remove current local value without submitting or changing focus unexpectedly."
+          },
+          {
+            "id": "reveal",
+            "token": "field-action.reveal",
+            "use": "Toggle visibility for sensitive or masked field content."
+          },
+          {
+            "id": "picker",
+            "token": "field-action.picker",
+            "use": "Open a component-owned picker, calendar, country selector, menu, or autocomplete surface."
+          },
+          {
+            "id": "validate",
+            "token": "field-action.validate",
+            "use": "Trigger local validation, availability checks, or parsing without owning submission."
+          },
+          {
+            "id": "recover",
+            "token": "field-action.recover",
+            "use": "Resend, retry, reset, or alternate-path actions tied to one field or field group."
+          }
+        ],
+        "productExamples": [
+          {
+            "context": "Password or security code field",
+            "example": "Reveal is an accessible field action with aria-pressed and state precedence, not a decorative icon."
+          },
+          {
+            "context": "Date range field",
+            "example": "Picker action opens the calendar surface while the Date Range Picker component owns selection semantics."
+          },
+          {
+            "context": "OTP code",
+            "example": "Recover action resends a code, announces loading/result, and keeps validation separate from form submission."
+          }
+        ],
+        "api": {
+          "props": [
+            "action",
+            "label",
+            "targetFieldId",
+            "state",
+            "pressed",
+            "disabled",
+            "loading",
+            "describedBy"
+          ],
+          "outputs": [
+            "buttonProps",
+            "ariaState",
+            "focusPolicy",
+            "messagePolicy",
+            "eventContract"
+          ]
+        },
+        "tokenDependencies": [
+          "component-field-*",
+          "comp.input.*",
+          "comp.icon-button.*",
+          "sys.accessibility.*",
+          "sys.state.*",
+          "sys.frame.*",
+          "sys.energy.*",
+          "sys.tone.*",
+          "focus.*",
+          "message.*",
+          "loading.*",
+          "disabled.*",
+          "field-action.*"
+        ],
+        "states": [
+          "default",
+          "hover",
+          "focus",
+          "pressed",
+          "loading",
+          "success",
+          "error",
+          "disabled"
+        ],
+        "agentInstructions": [
+          "Model a field action before choosing Icon Button, Button, or raw icon markup.",
+          "Keep field action semantics local to one field or field group.",
+          "Use Message for validation and recovery feedback.",
+          "Do not let a field action own form submission, navigation, or a full pattern workflow."
+        ],
+        "rejectIf": [
+          "An icon inside a field has no accessible label or state.",
+          "A demo invents a fake button instead of consuming Button/Icon Button semantics through Field Action.",
+          "Validation, reveal, picker, and recovery actions are styled with local CSS.",
+          "The action changes unrelated field or form state without explicit pattern ownership."
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "patternContractGovernanceGroups": {
+    "Entry Conditions": "entryConditions",
+    "Decision Tree": "decisionTree",
+    "Failure Modes": "failureModes",
+    "Success Metrics": "successMetrics",
+    "Accessibility": "accessibility",
+    "Tests": "tests",
+    "Agent Instructions": "agentInstructions",
+    "Reject If": "rejectIf"
+  },
+  "patternBoundaryArtifactFields": [
+    "entryConditions",
+    "decisionTree",
+    "failureModes",
+    "successMetrics",
+    "tests",
+    "agentInstructions",
+    "rejectIf"
+  ],
+  "patternBoundaryLanguageTerms": [
+    "boundary",
+    "boundaries",
+    "handoff",
+    "host",
+    "hosts",
+    "owner",
+    "owns",
+    "owning",
+    "clone",
+    "cloned",
+    "duplicate",
+    "duplicates",
+    "duplicated",
+    "parallel"
+  ],
+  "patternContractDependencyGroups": {
+    "Foundations": "governingFoundations",
+    "Primitives": "primitiveDependencies",
+    "Components": "componentDependencies",
+    "Patterns": "patternDependencies",
+    "Tokens": "tokenDependencies"
+  },
+  "patternTokenDependencyPolicy": {
+    "componentPrefix": "comp.",
+    "componentSuffix": ".*",
+    "foundationPrefix": "sys.",
+    "foundationSuffix": ".*",
+    "primitiveTokens": {
+      "Maps": "map.*"
+    },
+    "allowedExactTokens": [
+      "map.*"
+    ]
+  }
+}

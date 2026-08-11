@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/driver-onboarding-mobile/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json`
 
 ## Purpose
 
@@ -35,6 +36,178 @@ Guide a driver through mobile identity, verification, consent, and first-use rea
 | Accessibility | Keyboard, screen reader, and reduced-motion flows remain complete. |
 | Depth | Escalation uses sheet/dialog only when the user requests help. |
 
+## Formal Purpose
+
+Coordinate mobile driver onboarding through progress, identity capture, OTP/biometric steps, validation, animated feedback, and form-section boundary while templates own policy and sequence.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Mobile |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `reduced motion` |
+| Template Dependencies | `Driver Mobile App` |
+
+## Formal States
+
+- `not-started`
+- `in-progress`
+- `verifying`
+- `biometric`
+- `invalid`
+- `blocked`
+- `complete`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Frame`
+- `Momentum`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Animation Assets`
+- `Breakpoints`
+- `Color`
+- `Country Flags`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Animated Moment`
+- `Biometric Prompt`
+- `Button`
+- `Card`
+- `Card Summary`
+- `Code Input`
+- `Inline Validation`
+- `Input`
+- `Phone Input`
+- `Stepper`
+- `Toast`
+
+### Patterns
+
+- `Form Section`
+
+### Tokens
+
+- `comp.animated-moment.*`
+- `comp.biometric-prompt.*`
+- `comp.button.*`
+- `comp.card.*`
+- `comp.card-summary.*`
+- `comp.code-input.*`
+- `comp.inline-validation.*`
+- `comp.input.*`
+- `comp.phone-input.*`
+- `comp.stepper.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.frame.*`
+- `sys.momentum.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `progress` | `component` | `Stepper`, `Card Summary`, `Animated Moment` |
+| `stepCard` | `component` | `Card` |
+| `fields` | `component` | `Input`, `Phone Input`, `Code Input`, `Inline Validation` |
+| `actions` | `component` | `Button`, `Biometric Prompt`, `Toast` |
+| `formBoundary` | `pattern` | `Form Section` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A mobile app needs a reusable onboarding flow for driver setup.
+- The flow needs identity capture, verification, validation, progress, and recovery.
+- Templates own business sequence, eligibility, and regulatory copy.
+
+### Decision Tree
+
+- Use Multi Step Form for generic progress forms.
+- Use this pattern for mobile driver onboarding composition.
+- Use templates for product-specific onboarding journeys.
+
+### Failure Modes
+
+- The pattern hardcodes template flow order or eligibility policy.
+- Animated feedback has no reduced-motion handling.
+- OTP/biometric alternatives are missing.
+- Form Section is duplicated.
+
+### Success Metrics
+
+- Drivers can complete setup on mobile with clear progress and recovery.
+- Verification and validation are accessible.
+- Templates can alter policy without changing Flow composition.
+
+### Accessibility
+
+- Provide non-biometric alternatives.
+- Respect reduced motion.
+- Tie validation to field and step context.
+
+### Tests
+
+- Composes all listed onboarding components.
+- Covers progress, verification, biometric, invalid, blocked, complete, and disabled states.
+- Keeps Form Section and templates as boundaries.
+
+### Agent Instructions
+
+- Do not embed eligibility or compliance policy.
+- Do not require biometric-only paths.
+- Ask before changing identity, verification, or regulated onboarding requirements.
+
+### Reject If
+
+- Template sequence is hardcoded.
+- Reduced motion is ignored.
+- Biometric has no alternative.
+- Fields bypass Flow components.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -46,13 +219,15 @@ Guide a driver through mobile identity, verification, consent, and first-use rea
 | validation | Inline Validation | yes | Step-level recovery. |
 | actions | Button[] | yes | Continue, back, skip allowed, finish. |
 
-## Components And Primitives Used
+## Components Used
 
 - Stepper
 - Phone Input
+- Input
 - Code Input
 - Biometric Prompt
 - Animated Moment
+- Card
 - Card Summary
 - Button
 - Inline Validation

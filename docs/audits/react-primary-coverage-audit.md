@@ -6,26 +6,27 @@ Every accepted component must have a real React implementation contract: source,
 
 ## Inventory
 
-- Expected components: 56
-- React components: 56
+- Expected components: 60
+- React components: 60
 - Primary implementation debt: 0
-- Pass: 56
+- Pass: 60
 - Fail: 0
-- Forward ref: 56/56
-- Real types: 56/56
-- Platform contract: 56/56
-- Normalized density: 56/56
-- Sanitized rest props: 56/56
-- No docs dependency: 56/56
-- No DOM factory dependency: 56/56
-- Published imports stay package-safe: 56/56
-- CSS contract coverage: 56/56
-- Direct CSS contracts: 52
-- Family CSS contracts: 4
-- Source index exports: 56/56
-- Source type index exports: 56/56
-- Dist index exports: 56/56
-- Dist type index exports: 56/56
+- Forward ref: 60/60
+- Real types: 60/60
+- Platform contract: 60/60
+- Normalized density: 60/60
+- Sanitized rest props: 60/60
+- No docs dependency: 60/60
+- No DOM factory dependency: 60/60
+- Published imports stay package-safe: 60/60
+- CSS contract coverage: 60/60
+- Direct CSS contracts: 55
+- Family CSS contracts: 5
+- Source index exports: 60/60
+- Source type index exports: 60/60
+- Dist index exports: 60/60
+- Dist type index exports: 60/60
+- React primary governance issues: 0
 - Inventory baseline mismatches: 0
 
 ## Baseline Budget
@@ -34,28 +35,29 @@ Changing these numbers is a contract decision. primaryImplementationDebt must st
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| expectedComponents | 56 | 56 |
-| components | 56 | 56 |
+| expectedComponents | 60 | 60 |
+| components | 60 | 60 |
 | primaryImplementationDebt | 0 | 0 |
-| pass | 56 | 56 |
+| pass | 60 | 60 |
 | fail | 0 | 0 |
 | missingSources | 0 | 0 |
 | extraSources | 0 | 0 |
-| forwardRef | 56 | 56 |
-| realTypes | 56 | 56 |
-| platformContract | 56 | 56 |
-| densityResolved | 56 | 56 |
-| restSanitized | 56 | 56 |
-| noDocsDependency | 56 | 56 |
-| noDomFactory | 56 | 56 |
-| publishedImports | 56 | 56 |
-| cssContractCoverage | 56 | 56 |
-| directCssContracts | 52 | 52 |
-| familyCssContracts | 4 | 4 |
-| sourceIndexExport | 56 | 56 |
-| sourceTypesIndexExport | 56 | 56 |
-| distIndexExport | 56 | 56 |
-| distTypesIndexExport | 56 | 56 |
+| forwardRef | 60 | 60 |
+| realTypes | 60 | 60 |
+| platformContract | 60 | 60 |
+| densityResolved | 60 | 60 |
+| restSanitized | 60 | 60 |
+| noDocsDependency | 60 | 60 |
+| noDomFactory | 60 | 60 |
+| publishedImports | 60 | 60 |
+| cssContractCoverage | 60 | 60 |
+| directCssContracts | 55 | 55 |
+| familyCssContracts | 5 | 5 |
+| sourceIndexExport | 60 | 60 |
+| sourceTypesIndexExport | 60 | 60 |
+| distIndexExport | 60 | 60 |
+| distTypesIndexExport | 60 | 60 |
+| reactPrimaryGovernanceIssues | 0 | 0 |
 
 ## Baseline Mismatches
 
@@ -81,6 +83,9 @@ Changing these numbers is a contract decision. primaryImplementationDebt must st
 | CardSecurityCodeInput | pass | family:field | None |
 | CardSummary | pass | direct:card-summary | None |
 | ChartPanel | pass | direct:chart-panel | None |
+| ChatComposer | pass | direct:chat-composer | None |
+| ChatMessage | pass | direct:chat-message | None |
+| ChatThread | pass | direct:chat-thread | None |
 | Checkbox | pass | direct:checkbox | None |
 | Chip | pass | direct:chip | None |
 | CodeInput | pass | direct:code-input | None |
@@ -96,6 +101,7 @@ Changing these numbers is a contract decision. primaryImplementationDebt must st
 | IconButton | pass | direct:icon-button | None |
 | InlineValidation | pass | direct:inline-validation | None |
 | Input | pass | family:field | None |
+| InputAmount | pass | family:field | None |
 | KpiTile | pass | direct:kpi-tile | None |
 | List | pass | direct:list | None |
 | Menu | pass | direct:menu | None |

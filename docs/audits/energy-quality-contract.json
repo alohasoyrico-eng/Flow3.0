@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "principle": "Energy owns semantic color roles for action, status, text, surfaces, and borders. Contrast decisions must be token-backed and verifiable from the package token CSS.",
+  "requiredTokenRoles": [
+    "--sys-energy-surface-primary",
+    "--sys-energy-surface-secondary",
+    "--sys-energy-surface-tertiary",
+    "--sys-energy-surface-sunken",
+    "--sys-energy-surface-accent",
+    "--sys-energy-text-primary",
+    "--sys-energy-text-secondary",
+    "--sys-energy-text-tertiary",
+    "--sys-energy-text-on-action",
+    "--sys-energy-action-primary",
+    "--sys-energy-action-hover",
+    "--sys-energy-status-success",
+    "--sys-energy-status-info",
+    "--sys-energy-status-warning",
+    "--sys-energy-status-warning-foreground",
+    "--sys-energy-status-error",
+    "--sys-energy-border-default",
+    "--sys-energy-border-strong"
+  ],
+  "requiredContrastPairs": [
+    {
+      "label": "Action filled text",
+      "background": "--sys-energy-action-primary",
+      "foreground": "--sys-energy-text-on-action",
+      "minimum": 4.5
+    },
+    {
+      "label": "Success filled text",
+      "background": "--sys-energy-status-success",
+      "foreground": "--sys-energy-text-on-action",
+      "minimum": 4.5
+    },
+    {
+      "label": "Warning filled text",
+      "background": "--sys-energy-status-warning",
+      "foreground": "--ref-energy-neutral-900",
+      "minimum": 4.5
+    },
+    {
+      "label": "Warning foreground on primary surface",
+      "background": "--sys-energy-surface-primary",
+      "foreground": "--sys-energy-status-warning-foreground",
+      "minimum": 4.5
+    },
+    {
+      "label": "Error filled text",
+      "background": "--sys-energy-status-error",
+      "foreground": "--sys-energy-text-on-action",
+      "minimum": 4.5
+    },
+    {
+      "label": "Primary text on primary surface",
+      "background": "--sys-energy-surface-primary",
+      "foreground": "--sys-energy-text-primary",
+      "minimum": 4.5
+    }
+  ]
+}

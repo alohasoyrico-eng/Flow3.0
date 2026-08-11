@@ -4,37 +4,44 @@
   "principle": "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract. The actionable debt metric is propAlignmentDebt.",
   "baseline": {
     "inventory": {
-      "components": 56,
+      "components": 60,
       "propAlignmentDebt": 0,
-      "pass": 56,
+      "pass": 60,
       "fail": 0,
-      "contractProps": 671,
-      "publicReactProps": 559,
+      "contractProps": 721,
+      "publicReactProps": 602,
       "semanticInheritedProps": 1,
-      "inheritedContractProps": 24,
+      "inheritedContractProps": 28,
       "extraReactProps": 0,
       "missingReactProps": 0,
       "requiredMismatches": 0,
       "typeValueMismatches": 0,
-      "publicPropsExpectedInSource": 560,
-      "unreferencedPublicProps": 0
+      "publicPropsExpectedInSource": 603,
+      "unreferencedPublicProps": 0,
+      "reactGovernancePolicyIssues": 0
     },
     "mismatches": []
   },
+  "governance": {
+    "file": "packages/content/content/react-primary-governance.json",
+    "key": "propAlignment",
+    "issues": []
+  },
   "inventory": {
-    "components": 56,
-    "pass": 56,
+    "components": 60,
+    "pass": 60,
     "fail": 0,
-    "contractProps": 671,
-    "publicReactProps": 559,
+    "contractProps": 721,
+    "publicReactProps": 602,
     "semanticInheritedProps": 1,
-    "inheritedContractProps": 24,
+    "inheritedContractProps": 28,
     "extraReactProps": 0,
     "missingReactProps": 0,
     "requiredMismatches": 0,
     "typeValueMismatches": 0,
-    "publicPropsExpectedInSource": 560,
+    "publicPropsExpectedInSource": 603,
     "unreferencedPublicProps": 0,
+    "reactGovernancePolicyIssues": 0,
     "propAlignmentDebt": 0
   },
   "components": [
@@ -1866,6 +1873,382 @@
         "valueLabels",
         "values",
         "variant"
+      ],
+      "unreferencedPublicProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatComposer",
+      "contractKey": "chatComposer",
+      "source": "packages/react/src/ChatComposer.js",
+      "types": "packages/react/src/ChatComposer.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sending",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"focus\\\" | \\\"filled\\\" | \\\"sending\\\" | \\\"disabled\\\" | \\\"error\\\"",
+          "required": false
+        },
+        {
+          "name": "sendLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "attachLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: TextAreaChangeMeta, event: ChangeEvent<HTMLTextAreaElement>) => void",
+          "required": false
+        },
+        {
+          "name": "onSend",
+          "type": "(value: string, event: MouseEvent<HTMLButtonElement>) => void",
+          "required": false
+        },
+        {
+          "name": "onAttach",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "sending",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "sendLabel",
+          "required": false
+        },
+        {
+          "name": "attachLabel",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        },
+        {
+          "name": "onSend",
+          "required": false
+        },
+        {
+          "name": "onAttach",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "typeValueMismatches": [],
+      "publicPropsExpectedInSource": [
+        "attachLabel",
+        "density",
+        "error",
+        "helper",
+        "label",
+        "onAttach",
+        "onSend",
+        "onValueChange",
+        "sendLabel",
+        "sending",
+        "state"
+      ],
+      "unreferencedPublicProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatMessage",
+      "contractKey": "chatMessage",
+      "source": "packages/react/src/ChatMessage.js",
+      "types": "packages/react/src/ChatMessage.d.ts",
+      "contractProps": [
+        {
+          "name": "author",
+          "type": "\\\"user\\\" | \\\"agent\\\" | \\\"system\\\" | \\\"assistant\\\"",
+          "required": false
+        },
+        {
+          "name": "authorLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "avatar",
+          "type": "Partial<AvatarProps>",
+          "required": false
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "timestamp",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "meta",
+          "type": "ReactNode",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"sending\\\" | \\\"sent\\\" | \\\"delivered\\\" | \\\"failed\\\" | \\\"loading\\\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\\\"neutral\\\" | \\\"info\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"danger\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "action",
+          "type": "ChatMessageAction",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "author",
+          "required": false
+        },
+        {
+          "name": "authorLabel",
+          "required": false
+        },
+        {
+          "name": "avatar",
+          "required": false
+        },
+        {
+          "name": "body",
+          "required": false
+        },
+        {
+          "name": "timestamp",
+          "required": false
+        },
+        {
+          "name": "meta",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "action",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "typeValueMismatches": [],
+      "publicPropsExpectedInSource": [
+        "action",
+        "author",
+        "authorLabel",
+        "avatar",
+        "body",
+        "density",
+        "meta",
+        "state",
+        "timestamp",
+        "tone"
+      ],
+      "unreferencedPublicProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatThread",
+      "contractKey": "chatThread",
+      "source": "packages/react/src/ChatThread.js",
+      "types": "packages/react/src/ChatThread.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "messages",
+          "type": "ChatThreadMessage[]",
+          "required": false
+        },
+        {
+          "name": "empty",
+          "type": "ChatThreadEmptyState",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "ChatThreadEmptyState",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"loading\\\" | \\\"empty\\\" | \\\"error\\\" | \\\"handoff\\\" | \\\"offline\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "selectedMessageKey",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onMessageAction",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "description",
+          "required": false
+        },
+        {
+          "name": "messages",
+          "required": false
+        },
+        {
+          "name": "empty",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "selectedMessageKey",
+          "required": false
+        },
+        {
+          "name": "onMessageAction",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "typeValueMismatches": [],
+      "publicPropsExpectedInSource": [
+        "density",
+        "description",
+        "empty",
+        "error",
+        "label",
+        "messages",
+        "onMessageAction",
+        "selectedMessageKey",
+        "state"
       ],
       "unreferencedPublicProps": [],
       "failures": [],
@@ -4138,6 +4521,188 @@
         "state",
         "suffix",
         "variant"
+      ],
+      "unreferencedPublicProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "InputAmount",
+      "contractKey": "inputAmount",
+      "source": "packages/react/src/InputAmount.js",
+      "types": "packages/react/src/InputAmount.d.ts",
+      "contractProps": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"filled\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "currency",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "type": "string | string[]",
+          "required": false
+        },
+        {
+          "name": "prefix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "suffix",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "validationMessage",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: InputAmountMeta) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": true
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "required": false
+        },
+        {
+          "name": "error",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "currency",
+          "required": false
+        },
+        {
+          "name": "locale",
+          "required": false
+        },
+        {
+          "name": "prefix",
+          "required": false
+        },
+        {
+          "name": "suffix",
+          "required": false
+        },
+        {
+          "name": "validationMessage",
+          "required": false
+        },
+        {
+          "name": "onValueChange",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [
+        "disabled",
+        "required",
+        "name",
+        "placeholder"
+      ],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "typeValueMismatches": [],
+      "publicPropsExpectedInSource": [
+        "currency",
+        "density",
+        "error",
+        "helper",
+        "helperText",
+        "label",
+        "loading",
+        "locale",
+        "onValueChange",
+        "prefix",
+        "state",
+        "suffix",
+        "validationMessage"
       ],
       "unreferencedPublicProps": [],
       "failures": [],

@@ -1,0 +1,196 @@
+{
+  "artifacts": {
+    "patterns": {
+      "pricing-operations": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate pricing rule queues, editable rule review, approval submission, permission boundaries, and operational feedback without becoming an internal-tools template.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Virtual Data Table",
+          "Roles and Permissions",
+          "Status Feedback View"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A workflow manages pricing, commission, surge, or rate rules.",
+          "Rules require editable review and explicit submission to approval.",
+          "Permission boundaries and feedback must remain reusable outside a single internal-tools template."
+        ],
+        "decisionTree": [
+          "Use Virtual Data Table for generic row editing without pricing approval semantics.",
+          "Use Roles and Permissions when the only task is access matrix editing.",
+          "Use Pricing Operations when pricing rule queue, approval submission, permission policy, and feedback operate together."
+        ],
+        "failureModes": [
+          "A template owns pricing rule editing directly.",
+          "Rule submission uses custom table rows, local drawers, fake controls, or local toasts.",
+          "Permission state is only implied by route or shell role.",
+          "Pricing status relies on color alone."
+        ],
+        "successMetrics": [
+          "Operators can inspect pricing rule status, select/edit a rule, and submit it for approval.",
+          "Permission context is explicit and reusable.",
+          "Density, state, disabled, loading, and feedback cascade through Surface into Flow pattern boundaries."
+        ],
+        "states": [
+          "default",
+          "pending-approval",
+          "rule-selected",
+          "editing",
+          "submitting",
+          "loading",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "pricingOperationsSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": true
+          },
+          {
+            "name": "pricingSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "pricingMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "pricingPermissionBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Roles and Permissions"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "pricingRulesBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Virtual Data Table"
+            ],
+            "required": true
+          },
+          {
+            "name": "pricingFeedbackBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Status Feedback View"
+            ],
+            "required": "conditional"
+          }
+        ],
+        "accessibility": [
+          "Expose pricing operations as a labelled group with busy state.",
+          "Delegate tabular editing, drawer controls, and feedback semantics to Flow patterns.",
+          "Represent pricing status and permission state with text, not only tone.",
+          "Do not hide approval submission behind route-only permissions."
+        ],
+        "tests": [
+          "Composes Surface, Badge, Virtual Data Table, Roles and Permissions, and Status Feedback View.",
+          "Covers default, pending-approval, rule-selected, editing, submitting, loading, error, and disabled states.",
+          "Forwards rule selection, sort, pagination, bulk approval, editor, permission, and feedback callbacks.",
+          "Rejects local pricing tables, custom drawers, card wrappers, route guards, docs-only demos, and injected markup."
+        ],
+        "agentInstructions": [
+          "Use this pattern for pricing rule operations only when pricing rule semantics and approval submission are present.",
+          "Do not implement local pricing tables, local drawers, local toasts, or route-shell guards inside templates.",
+          "Use Surface for structural grouping; do not wrap the pricing queue in Card.",
+          "Ask before applying pricing changes to regulated, financial, legal, safety, or irreversible decisions."
+        ],
+        "rejectIf": [
+          "The rule queue bypasses Virtual Data Table.",
+          "The editor bypasses Drawer Adapter through the table boundary.",
+          "Permission state exists only in a template shell.",
+          "A Card wraps the pricing operations group."
+        ],
+        "templateDependencies": [
+          "Internal Operations Console"
+        ]
+      }
+    }
+  }
+}

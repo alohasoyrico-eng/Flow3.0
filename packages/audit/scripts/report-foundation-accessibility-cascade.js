@@ -43,22 +43,22 @@ const requiredTokens = [
 
 const semanticRequirements = {
   button: ["aria-label", "disabled"],
-  select: ["aria-expanded", "aria-controls", ["role=\"listbox\"", "setAttribute(\"role\", \"listbox\")"], ["role=\"option\"", "setAttribute(\"role\", \"option\")"]],
+  select: ["aria-expanded", "aria-controls", ["role=\"listbox\"", "setAttribute(\"role\", \"listbox\")", "role: \"listbox\""], ["role=\"option\"", "setAttribute(\"role\", \"option\")", "role: \"option\""]],
   checkbox: ["aria-checked"],
-  switch: [["role=\"switch\"", "setAttribute(\"role\", \"switch\")"], "aria-checked"],
-  "radio-button": [["type=\"radio\"", "input.type = \"radio\""]],
+  switch: [["role=\"switch\"", "setAttribute(\"role\", \"switch\")", "role: \"switch\""], "aria-checked"],
+  "radio-button": [["type=\"radio\"", "input.type = \"radio\"", "type: \"radio\""]],
   "icon-button": ["aria-label", "aria-pressed"],
   chip: [["data-chip-remove", "dataset.chipRemove"], "aria-label"],
-  tabs: [["role=\"tablist\"", "setAttribute(\"role\", \"tablist\")"], ["role=\"tab\"", "setAttribute(\"role\", \"tab\")"], "aria-selected"],
-  tooltip: [["role=\"tooltip\"", "setAttribute(\"role\", \"tooltip\")"], "aria-describedby"],
-  toast: [["role=\"status\"", "setAttribute(\"role\", role)"], "role === \"alert\""],
-  dialog: [["role=\"dialog\"", "setAttribute(\"role\", \"dialog\")"], ["aria-modal=\"true\"", "setAttribute(\"aria-modal\", \"true\")"], "aria-labelledby"],
-  menu: [["aria-haspopup=\"menu\"", "setAttribute(\"aria-haspopup\", \"menu\")"], ["role=\"menu\"", "setAttribute(\"role\", \"menu\")"], ["role=\"menuitem\"", "setAttribute(\"role\", \"menuitem\")"]],
-  drawer: [["role=\"dialog\"", "setAttribute(\"role\", \"dialog\")"], ["aria-modal=\"true\"", "setAttribute(\"aria-modal\", \"true\")"], "aria-labelledby"],
+  tabs: [["role=\"tablist\"", "setAttribute(\"role\", \"tablist\")", "role: \"tablist\""], ["role=\"tab\"", "setAttribute(\"role\", \"tab\")", "role: \"tab\""], "aria-selected"],
+  tooltip: [["role=\"tooltip\"", "setAttribute(\"role\", \"tooltip\")", "role: \"tooltip\""], "aria-describedby"],
+  toast: [["role=\"status\"", "setAttribute(\"role\", role)", "role: \"status\"", ": \"status\""], ["role === \"alert\"", "role: \"alert\""]],
+  dialog: [["role=\"dialog\"", "setAttribute(\"role\", \"dialog\")", "role: \"dialog\""], ["aria-modal=\"true\"", "setAttribute(\"aria-modal\", \"true\")", "\"aria-modal\": true", "\"aria-modal\": \"true\""], "aria-labelledby"],
+  menu: [["aria-haspopup=\"menu\"", "setAttribute(\"aria-haspopup\", \"menu\")", "\"aria-haspopup\": \"menu\""], ["role=\"menu\"", "setAttribute(\"role\", \"menu\")", "role: \"menu\""], ["role=\"menuitem\"", "setAttribute(\"role\", \"menuitem\")", "role: \"menuitem\""]],
+  drawer: [["role=\"dialog\"", "setAttribute(\"role\", \"dialog\")", "role: \"dialog\""], ["aria-modal=\"true\"", "setAttribute(\"aria-modal\", \"true\")", "\"aria-modal\": true", "\"aria-modal\": \"true\""], "aria-labelledby"],
   accordion: ["aria-expanded", "aria-controls"],
-  table: [["<table", "createElement(\"table\")"], ["scope=\"col\"", ".scope = \"col\""]],
-  slider: [["type=\"range\"", ".type = \"range\""], "aria-label"],
-  stepper: [["aria-current=\"step\"", "setAttribute(\"aria-current\", \"step\")"]],
+  table: [["<table", "createElement(\"table\")", "React.createElement(\"table\"", "\"table\","], ["scope=\"col\"", ".scope = \"col\"", "scope: \"col\""]],
+  slider: [["type=\"range\"", ".type = \"range\"", "type: \"range\""], "aria-label"],
+  stepper: [["aria-current=\"step\"", "setAttribute(\"aria-current\", \"step\")", "\"aria-current\": \"step\"", "? \"step\""]],
 };
 
 const packageCssOwnershipSelectors = {
@@ -224,6 +224,13 @@ function findDocsOwnedAccessibilityTokens(files) {
   return owned;
 }
 
+function reactComponentFileName(component) {
+  return component
+    .split("-")
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join("");
+}
+
 function sourceFor(component) {
   const componentsDir = path.join(root, "packages/components/src/components");
   const componentModuleFiles = fs.existsSync(componentsDir)
@@ -237,6 +244,7 @@ function sourceFor(component) {
     path.join(docsAppDir, "gold-component-core.js"),
     path.join(docsAppDir, "component-demo.js"),
     path.join(root, "packages/components/src/registry.js"),
+    path.join(root, "packages/react/src", `${reactComponentFileName(component)}.js`),
     ...componentModuleFiles,
   ];
   return files.filter((file) => fs.existsSync(file)).map((file) => readIfExists(file)).join("\n");

@@ -1,0 +1,190 @@
+{
+  "artifacts": {
+    "patterns": {
+      "transfer-list": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate moving items between source and target sets with selection, search handoff, validation, and transfer feedback.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Checkbox",
+          "Inline Validation",
+          "Input",
+          "List",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Multi Select",
+          "Search"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.checkbox.*",
+          "comp.inline-validation.*",
+          "comp.input.*",
+          "comp.list.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Users need to move items between available and selected sets.",
+          "Large sets may require search handoff or multi-select semantics.",
+          "Transfer can be invalid, loading, partial, or permission constrained."
+        ],
+        "decisionTree": [
+          "Use Multi Select when users only need a selected set.",
+          "Use Transfer List when source and target sets must be compared and moved.",
+          "Use Search when discovery spans a larger remote source."
+        ],
+        "failureModes": [
+          "Source/target rows are custom list items.",
+          "Checkbox and selection semantics are duplicated.",
+          "Search is embedded instead of handed off.",
+          "Transfer action state is unclear."
+        ],
+        "successMetrics": [
+          "Users can inspect source and target sets and move items intentionally.",
+          "Keyboard and screen reader users understand selection and transfer state.",
+          "Search/Multi Select remain boundaries, not hidden implementations."
+        ],
+        "states": [
+          "idle",
+          "selecting",
+          "transferring",
+          "partial",
+          "invalid",
+          "empty-source",
+          "empty-target",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "source",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Checkbox",
+              "Badge"
+            ]
+          },
+          {
+            "name": "target",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Checkbox",
+              "Badge"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Input",
+              "Inline Validation",
+              "Toast"
+            ]
+          },
+          {
+            "name": "multi-selectBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Multi Select"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Multi Select runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "searchBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Search"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Search runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Expose source and target list labels.",
+          "Announce selected count and transfer result.",
+          "Keep move actions keyboard reachable."
+        ],
+        "tests": [
+          "Composes List, Checkbox, Badge, Button, Input, Inline Validation, and Toast.",
+          "Covers selecting, transferring, partial, invalid, empty, and disabled states.",
+          "Keeps Multi Select and Search as boundaries."
+        ],
+        "agentInstructions": [
+          "Do not duplicate Multi Select internals.",
+          "Keep remote discovery in Search.",
+          "Ask before transferring permissions, roles, money, or identity-sensitive records."
+        ],
+        "rejectIf": [
+          "Rows bypass List/Checkbox.",
+          "Search is cloned.",
+          "Move actions are inaccessible.",
+          "Source and target ownership is unclear."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

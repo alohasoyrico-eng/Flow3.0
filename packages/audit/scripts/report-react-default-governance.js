@@ -7,12 +7,18 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
 const {
   contractBodyFor,
   lowerFirst,
   reactAllowedValues,
   unionValues,
 } = require("./react-contract-shared.js");
+const {
+  defaultGovernanceRulesPolicy,
+  reactSecondaryExpectedInventory,
+  semanticDefaultExpectedByRulePolicy,
+} = require("./react-primary-governance-policy.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -21,159 +27,17 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-default-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-default-governance-audit.md");
 
-const expectedInventory = {
-  components: 56,
-  defaultDebt: 0,
-  prohibitedDefaults: 0,
-  semanticDefaultDecisions: 112,
-  contractBackedSemanticDefaultDecisions: 112,
-  unbackedSemanticDefaultDecisions: 0,
-  semanticDefaultDecisionContractGaps: 0,
-};
-
-const expectedSemanticByRule = {
-  "state-default": 43,
-  "variant-default": 40,
-  "tone-default": 14,
-  "intent-default": 2,
-  "status-default": 1,
-  "placement-default": 2,
-  "side-default": 1,
-  "align-default": 2,
-  "orientation-default": 1,
-  "trend-default": 2,
-  "composition-default": 1,
-  "avatar-status-default": 1,
-  "category-default": 1,
-  "sort-direction-default": 1,
-};
-
-const prohibitedRules = [
-  {
-    id: "density-prop-default",
-    description: "React components must not default density to sm/md/lg; density must cascade through normalizeFlowDensity.",
-    pattern: /\bdensity\s*=\s*["'](?:sm|md|lg)["']/,
-  },
-  {
-    id: "density-normalizer-literal",
-    description: "React components must not normalize a hardcoded density literal.",
-    pattern: /\bnormalizeFlowDensity\(\s*["'](?:sm|md|lg)["']/,
-  },
-  {
-    id: "density-props-literal",
-    description: "React components must not emit flowDensityProps from a hardcoded density literal.",
-    pattern: /\bflowDensityProps\(\s*["'](?:sm|md|lg)["']/,
-  },
-  {
-    id: "size-prop-default",
-    description: "React components must not reintroduce size as a parallel density API.",
-    pattern: /\b(?:size|componentSize)\s*=\s*["'](?:xs|sm|md|lg|xl|small|medium|large)["']/,
-  },
-  {
-    id: "theme-prop-default",
-    description: "React components must not default theme/colorScheme; theme must come from the system cascade.",
-    pattern: /\b(?:theme|colorScheme)\s*=\s*["'](?:light|dark|system)["']/,
-  },
-  {
-    id: "theme-data-literal",
-    description: "React components must not set data-theme to a hardcoded light/dark value.",
-    pattern: /["']data-theme["']\s*:\s*["'](?:light|dark)["']/,
-  },
-];
-
-const semanticRules = [
-  {
-    id: "state-default",
-    prop: "state",
-    description: "Component behavior default; allowed when normalized through component state.",
-    pattern: /\bstate\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "variant-default",
-    prop: "variant",
-    description: "Component composition default; allowed when constrained by the component contract.",
-    pattern: /\bvariant\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "tone-default",
-    prop: "tone",
-    description: "Component tone fallback; allowed when constrained by the component contract.",
-    pattern: /\btone\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "intent-default",
-    prop: "intent",
-    description: "Action intent fallback; allowed when constrained by the component contract.",
-    pattern: /\bintent\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "status-default",
-    prop: "status",
-    description: "Component status fallback; allowed when constrained by the component contract.",
-    pattern: /\bstatus\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "placement-default",
-    prop: "placement",
-    description: "Overlay placement fallback; allowed when constrained by the component contract.",
-    pattern: /\bplacement\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "side-default",
-    prop: "side",
-    description: "Surface side fallback; allowed when constrained by the component contract.",
-    pattern: /\bside\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "align-default",
-    prop: "align",
-    description: "Alignment fallback; allowed when constrained by the component contract.",
-    pattern: /\balign\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "orientation-default",
-    prop: "orientation",
-    description: "Layout orientation fallback; allowed when constrained by the component contract.",
-    pattern: /\borientation\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "trend-default",
-    prop: "trend",
-    description: "Trend fallback; allowed when constrained by the component contract.",
-    pattern: /\btrend\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "composition-default",
-    prop: "composition",
-    description: "Composition fallback; allowed when constrained by the component contract.",
-    pattern: /\bcomposition\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "avatar-status-default",
-    prop: "avatarStatus",
-    description: "Avatar status fallback; allowed when constrained by the component contract.",
-    pattern: /\bavatarStatus\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "category-default",
-    prop: "category",
-    description: "Category fallback; allowed when constrained by the component contract.",
-    pattern: /\bcategory\s*=\s*["']([^"']+)["']/,
-  },
-  {
-    id: "sort-direction-default",
-    prop: "sortDir",
-    description: "Sort direction fallback; allowed when constrained by the component contract.",
-    pattern: /\bsortDir\s*=\s*["']([^"']+)["']/,
-  },
-];
-
 function sourceFiles() {
   if (!fs.existsSync(reactSrcDir)) return [];
   return fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort()
     .map((file) => path.join(reactSrcDir, file));
+}
+
+function kebab(value) {
+  return String(value).replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
 function lineMatches(file, rules) {
@@ -244,6 +108,11 @@ function semanticContractEvidence(semanticDefaults, contractsSource) {
 }
 
 function createReport() {
+  const { expectedInventory, governance } = reactSecondaryExpectedInventory("defaults");
+  const semanticByRulePolicy = semanticDefaultExpectedByRulePolicy();
+  const defaultRulesPolicy = defaultGovernanceRulesPolicy();
+  const { prohibitedRules, semanticRules } = defaultRulesPolicy;
+  const expectedSemanticByRule = semanticByRulePolicy.expectedSemanticByRule;
   const files = sourceFiles();
   const contractsSource = fs.existsSync(contractsFile) ? read(contractsFile) : "";
   const prohibitedDefaults = files.flatMap((file) => lineMatches(file, prohibitedRules));
@@ -268,8 +137,12 @@ function createReport() {
     contractBackedSemanticDefaultDecisions: contractBackedSemanticDefaults,
     unbackedSemanticDefaultDecisions: unbackedSemanticDefaults,
     semanticDefaultDecisionContractGaps: semanticDefaultContractGaps.length,
+    reactGovernancePolicyIssues: governance.issues.length
+      + semanticByRulePolicy.governance.issues.length
+      + defaultRulesPolicy.governance.issues.length,
     semanticByRule,
   };
+  inventory.defaultDebt += inventory.reactGovernancePolicyIssues;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -285,7 +158,7 @@ function createReport() {
       actual: item.count,
     }));
   return {
-    status: prohibitedDefaults.length || semanticDefaultContractGaps.length || baselineMismatches.length || semanticRuleBaselineMismatches.length ? "fail" : "pass",
+    status: inventory.defaultDebt || baselineMismatches.length || semanticRuleBaselineMismatches.length ? "fail" : "pass",
     audit: "react default governance",
     principle: "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic default decisions may exist only when visible and contract-backed. The actionable debt metric is defaultDebt.",
     baseline: {
@@ -293,6 +166,11 @@ function createReport() {
       semanticByRule: expectedSemanticByRule,
       mismatches: baselineMismatches,
       semanticRuleMismatches: semanticRuleBaselineMismatches,
+    },
+    governance: {
+      ...governance,
+      semanticByRulePolicy,
+      defaultRulesPolicy,
     },
     inventory,
     prohibitedDefaults,

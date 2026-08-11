@@ -78,6 +78,7 @@
       ],
       "componentsUsed": [
         "Button",
+        "List",
         "Menu",
         "Toast",
         "Dialog"

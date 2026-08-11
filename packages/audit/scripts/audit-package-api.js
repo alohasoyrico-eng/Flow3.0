@@ -1,5 +1,5 @@
 const fs = require("node:fs");
-const { goldComponents, path, root, readJson, add } = require("./audit-context.js");
+const { goldComponents, patternArtifacts, path, root, readJson, add } = require("./audit-context.js");
 
 const boundaryImports = [
   "#design-system/components",
@@ -19,6 +19,8 @@ const boundaryImports = [
   "#design-system/specs/system",
   "#design-system/specs/foundations/*",
   "#design-system/specs/primitives/*",
+  "#design-system/specs/patterns/*",
+  "#design-system/specs/templates/*",
   "#design-system/tokens-json",
   "#design-system/tokens-css",
 ];
@@ -56,7 +58,19 @@ const tokenPackageExports = {
 
 const specsPackageExports = {
   "./system": "./specs/unison.system.json",
+  "./foundations/*": "./specs/unison-system/artifacts/foundations/*.json",
+  "./primitives/*": "./specs/unison-system/artifacts/primitives/*.json",
+  "./patterns/*": "./specs/unison-system/artifacts/patterns/*.json",
+  "./templates/*": "./specs/unison-system/artifacts/templates/*.json",
 };
+
+const reactTemplateDir = path.join(root, "packages/react/src/templates");
+const implementedReactTemplates = fs.existsSync(reactTemplateDir)
+  ? fs.readdirSync(reactTemplateDir)
+      .filter((file) => /^[A-Z].*\.js$/.test(file))
+      .map((file) => file.replace(/\.js$/, "").replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase())
+      .sort()
+  : [];
 
 const installExports = [
   "./tokens",
@@ -67,7 +81,12 @@ const installExports = [
   "./components/platforms",
   "./components/styles.css",
   "./react",
+  "./react/surface",
   ...goldComponents.map((component) => `./react/${component}`),
+  ...(implementedReactTemplates.length ? ["./react/templates"] : []),
+  ...implementedReactTemplates.map((template) => `./react/templates/${template}`),
+  "./react/patterns",
+  ...patternArtifacts.map((pattern) => `./react/patterns/${pattern}`),
   "./content/catalog",
   "./content/component-docs",
   "./content/component-copy",
@@ -82,6 +101,8 @@ const installExports = [
   "./specs/system",
   "./specs/foundations/*",
   "./specs/primitives/*",
+  "./specs/patterns/*",
+  "./specs/templates/*",
 ];
 
 const publishFileAllowlist = [
@@ -126,6 +147,10 @@ function isInternalBoundaryTarget(target) {
 
 function targetExists(target) {
   const absoluteTarget = path.join(root, target);
+  return targetExistsAt(absoluteTarget, target);
+}
+
+function targetExistsAt(absoluteTarget, target) {
   if (!target.includes("*")) return fs.existsSync(absoluteTarget);
   const [prefix, suffix = ""] = absoluteTarget.split("*");
   const directory = prefix.endsWith(path.sep) ? prefix.slice(0, -1) : path.dirname(prefix);
@@ -267,7 +292,7 @@ function checkExactPackageExports({ packageFile, packageName, exportsMap, expect
       add("errors", packageFile, 1, `${packageName} export ${exportPath} must target ${expectedTarget}.`);
       continue;
     }
-    if (!fs.existsSync(path.join(path.dirname(packageFile), expectedTarget))) {
+    if (!targetExistsAt(path.join(path.dirname(packageFile), expectedTarget), expectedTarget)) {
       add("errors", packageFile, 1, `${packageName} export ${exportPath} points to a missing artifact: ${expectedTarget}.`);
     }
   }

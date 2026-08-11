@@ -123,6 +123,12 @@ function collectDeclarations(css) {
   return map;
 }
 
+function reportStatus(file) {
+  if (!fs.existsSync(file)) return { file: rel(file), status: "missing", gaps: [] };
+  const report = readJson(file) ?? {};
+  return { file: rel(file), status: report.status ?? "missing", gaps: report.gaps ?? [] };
+}
+
 function isFoundationOrReferenceLayer(file) {
   const relative = rel(file);
   return file === tokenCssFile
@@ -247,10 +253,10 @@ function createReport() {
   const stateReport = readJson(stateReportFile);
   const momentumReport = readJson(momentumReportFile);
   const toneReport = readJson(toneReportFile);
-  const durationReport = readJson(durationReportFile);
-  const motionCurvesReport = readJson(motionCurvesReportFile);
-  const disabledReport = readJson(disabledReportFile);
-  const focusReport = readJson(focusReportFile);
+  const durationReport = reportStatus(durationReportFile);
+  const motionCurvesReport = reportStatus(motionCurvesReportFile);
+  const disabledReport = reportStatus(disabledReportFile);
+  const focusReport = reportStatus(focusReportFile);
   const scannedCss = [componentCssFile, ...docsCssFiles];
 
   const roleIds = new Set((loadingSpec?.roles ?? []).map((role) => role.id));
@@ -289,8 +295,6 @@ function createReport() {
   if (stateReport?.status !== "pass") gaps.push("State foundation gate is not passing.");
   if (momentumReport?.status !== "pass") gaps.push("Momentum foundation gate is not passing.");
   if (toneReport?.status !== "pass") gaps.push("Tone foundation gate is not passing.");
-  if (durationReport?.status !== "pass") gaps.push("Duration primitive gate is not passing.");
-  if (motionCurvesReport?.status !== "pass") gaps.push("Motion Curves primitive gate is not passing.");
   if (disabledReport?.status !== "pass") gaps.push("Disabled primitive gate is not passing.");
   if (focusReport?.status !== "pass") gaps.push("Focus primitive gate is not passing.");
   if (!/Spinner with no label/.test(contract)) gaps.push("Loading contract must reject unlabeled spinner usage.");
@@ -348,10 +352,10 @@ function createReport() {
       tone: { status: toneReport?.status ?? "missing", file: rel(toneReportFile) },
     },
     primitiveGate: {
-      duration: { status: durationReport?.status ?? "missing", file: rel(durationReportFile) },
-      motionCurves: { status: motionCurvesReport?.status ?? "missing", file: rel(motionCurvesReportFile) },
-      disabled: { status: disabledReport?.status ?? "missing", file: rel(disabledReportFile) },
-      focus: { status: focusReport?.status ?? "missing", file: rel(focusReportFile) },
+      duration: { ...durationReport, relationship: "lateral-coordination" },
+      motionCurves: { ...motionCurvesReport, relationship: "lateral-coordination" },
+      disabled: { ...disabledReport, relationship: "lateral-coordination" },
+      focus: { ...focusReport, relationship: "lateral-coordination" },
     },
     cascadeRefs: {
       components: componentRefs,

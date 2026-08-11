@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { add, goldComponents, root } = require("./audit-context.js");
 const { classRootsFromClassExpression } = require("./audit-anti-duplication.js");
+const { componentCssGovernance } = require("./component-css-governance-policy.js");
 const { checkAccordionCssContract } = require("./audit-accordion-css-contract.js");
 const { checkAnimatedMomentCssContract } = require("./audit-animated-moment-css-contract.js");
 const { checkAuditEventCssContract } = require("./audit-audit-event-css-contract.js");
@@ -13,6 +14,9 @@ const { checkButtonCssContract } = require("./audit-button-css-contract.js");
 const { checkCardCssContract } = require("./audit-card-css-contract.js");
 const { checkCardSummaryCssContract } = require("./audit-card-summary-css-contract.js");
 const { checkChartPanelCssContract } = require("./audit-chart-panel-css-contract.js");
+const { checkChatComposerCssContract } = require("./audit-chat-composer-css-contract.js");
+const { checkChatMessageCssContract } = require("./audit-chat-message-css-contract.js");
+const { checkChatThreadCssContract } = require("./audit-chat-thread-css-contract.js");
 const { checkCheckboxCssContract } = require("./audit-checkbox-css-contract.js");
 const { checkChoiceCssContract } = require("./audit-choice-css-contract.js");
 const { checkCodeInputCssContract } = require("./audit-code-input-css-contract.js");
@@ -57,12 +61,7 @@ const { checkTooltipCssContract } = require("./audit-tooltip-css-contract.js");
 const { checkToastCssContract } = require("./audit-toast-css-contract.js");
 const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js");
 
-const familyCssContracts = {
-  input: { contract: "field", requiredRoot: "field", allowedExtensionRoots: [] },
-  "card-number-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-number-input"] },
-  "card-expiry-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-expiry-input"] },
-  "card-security-code-input": { contract: "field", requiredRoot: "field", allowedExtensionRoots: ["card-security-code-input"] },
-};
+const { familyCssContracts } = componentCssGovernance();
 
 const directCssContractRoots = {
   "floating-action-button": "fab",
@@ -207,6 +206,9 @@ function checkComponentCssContracts(context) {
   checkCardCssContract(context);
   checkCardSummaryCssContract(context);
   checkChartPanelCssContract(context);
+  checkChatComposerCssContract(context);
+  checkChatMessageCssContract(context);
+  checkChatThreadCssContract(context);
   checkCheckboxCssContract(context);
   checkChoiceCssContract(context);
   checkChipCssContract(context);

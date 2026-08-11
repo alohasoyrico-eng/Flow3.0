@@ -1,0 +1,71 @@
+{
+  "version": "2026-08-09",
+  "docsPatternClassPolicy": {
+    "approvedRootPrefixes": ["pattern-"],
+    "blockedFormalRootStrategy": "pattern-artifact-id",
+    "reason": "FlowDocs may own editorial/demo pattern-* wrapper classes, but formal pattern roots are generated from Flow pattern artifacts and must stay in Flow."
+  },
+  "requiredFlowAliases": [
+    "#design-system/components",
+    "#design-system/react",
+    "#design-system/components-css",
+    "#design-system/tokens-css",
+    "#design-system/content/catalog",
+    "#design-system/content/component-docs",
+    "#design-system/content/component-copy",
+    "#design-system/content/pattern-copy",
+    "#design-system/content/component-implementation-status",
+    "#design-system/content/foundation-copy",
+    "#design-system/content/primitive-copy",
+    "#design-system/content/reference-copy",
+    "#design-system/content/template-blueprints",
+    "#design-system/content/home",
+    "#design-system/content/i18n-ui",
+    "#design-system/specs/system",
+    "#design-system/specs/foundations/*",
+    "#design-system/specs/primitives/*",
+    "#design-system/specs/patterns/*",
+    "#design-system/specs/templates/*"
+  ],
+  "expectedInventory": {
+    "sourceFilesScanned": 203,
+    "generatedFiles": 280,
+    "flowDependencyPresent": 1,
+    "flowBoundaryAliases": 20,
+    "missingFlowAliases": 0,
+    "localFlowImportViolations": 0,
+    "docsComponentTokenDefinitions": 0,
+    "docsComponentTokenDefinitionFiles": 0,
+    "docsProtectedFlowClassRoots": 69,
+    "docsComponentClassDefinitions": 0,
+    "docsComponentClassDefinitionFiles": 0,
+    "docsPatternClassDefinitions": 795,
+    "docsPatternClassRoots": 184,
+    "docsUnapprovedPatternClassRoots": 0,
+    "docsPatternClassPolicyIssues": 0,
+    "docsContractualPatternClassDefinitions": 0,
+    "docsContractualPatternClassDefinitionFiles": 0,
+    "generatedComponentCssPresent": 1,
+    "generatedTokenCssPresent": 1,
+    "docsSystemBoundaryDebt": 0
+  },
+  "docsComponentDemoOwnershipExpectedInventory": {
+    "fullModules": 8,
+    "functionRegions": 4,
+    "regions": 12,
+    "forbiddenPatterns": 15,
+    "violations": 0,
+    "docsDemoOwnershipPolicyIssues": 0,
+    "docsDemoOwnershipDebt": 0
+  },
+  "allowedPackageClassRoots": [
+    {
+      "root": "docs-package-demo",
+      "reason": "FlowDocs bridge class used to mark package-backed demo islands."
+    },
+    {
+      "root": "material-symbol",
+      "reason": "Shared Material Symbols font hook used by Docs shell and Flow iconography primitives."
+    }
+  ]
+}

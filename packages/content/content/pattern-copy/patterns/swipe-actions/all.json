@@ -70,6 +70,7 @@
         "Movement Row",
         "Quick Action",
         "Button",
+        "Dialog",
         "Toast"
       ],
       "variants": [

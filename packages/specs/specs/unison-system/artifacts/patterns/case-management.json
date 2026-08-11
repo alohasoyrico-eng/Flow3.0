@@ -1,0 +1,228 @@
+{
+  "artifacts": {
+    "patterns": {
+      "case-management": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate case filters, case records, selected-case detail, activity timeline, and recovery feedback without creating a local cases table, filter shell, detail drawer, or activity feed.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Advanced Filters",
+          "Dense Operational List",
+          "Drawer Adapter",
+          "Status Feedback View",
+          "Timeline"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "An operations surface needs to filter, scan, select, and act on case records.",
+          "Selected cases need governed detail or review actions.",
+          "Case activity needs a timeline without duplicating audit rendering."
+        ],
+        "decisionTree": [
+          "Use Dense Operational List when only records and operations are needed.",
+          "Use Timeline when only case activity history is needed.",
+          "Use Case Management when filters, records, detail, activity timeline, and feedback must operate as one case workflow.",
+          "Use a product template when navigation, module switching, or workspace shell is also required."
+        ],
+        "failureModes": [
+          "Case filters bypass Advanced Filters.",
+          "Case records bypass Dense Operational List or Virtual Data Table.",
+          "Selected-case detail uses a local drawer or card stack instead of Drawer Adapter.",
+          "Activity history is cloned as a local list instead of Timeline.",
+          "Recovery feedback bypasses Status Feedback View."
+        ],
+        "successMetrics": [
+          "Users can filter, search, select, sort, paginate, inspect detail, review activity, and recover from failure through Flow-owned boundaries.",
+          "Density and state cascade from Surface into every child pattern.",
+          "Internal operations templates can reuse case behavior without redefining filters, tables, drawers, timelines, or feedback."
+        ],
+        "states": [
+          "default",
+          "filters-open",
+          "case-selected",
+          "detail-open",
+          "activity-filtered",
+          "loading",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "caseManagementSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": "required",
+            "purpose": "Owns structural grouping, density, state, and focus-within cascade for case management."
+          },
+          {
+            "name": "caseSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Announces case workflow purpose or status without owning case behavior."
+          },
+          {
+            "name": "caseMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Surfaces case counts, SLA state, or review status through Badge."
+          },
+          {
+            "name": "caseFiltersBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Advanced Filters"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates case filters, saved views, drawer, apply, reset, validation, and filter feedback."
+          },
+          {
+            "name": "caseListBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Dense Operational List"
+            ],
+            "required": "required",
+            "purpose": "Delegates case records, search, chips, toolbar, selection, bulk actions, sort, pagination, and list feedback."
+          },
+          {
+            "name": "caseDetailBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Drawer Adapter"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates selected-case detail, review actions, responsive drawer behavior, and modal fallback."
+          },
+          {
+            "name": "caseTimelineBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Timeline"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates case activity events, timeline filters, event selection, clear, loading, empty, and recovery."
+          },
+          {
+            "name": "caseFeedbackBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Status Feedback View"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates case recovery, blocking error, toast, inline, notification, or snackbar feedback."
+          }
+        ],
+        "accessibility": [
+          "Expose case management as a labelled group with busy state.",
+          "Delegate filter semantics to Advanced Filters.",
+          "Delegate table semantics to Dense Operational List and Virtual Data Table.",
+          "Delegate detail semantics to Drawer Adapter.",
+          "Delegate chronological activity semantics to Timeline.",
+          "Delegate recovery semantics to Status Feedback View."
+        ],
+        "tests": [
+          "Composes Surface, Badge, Advanced Filters, Dense Operational List, Drawer Adapter, Timeline, and Status Feedback View.",
+          "Covers default, filters-open, case-selected, detail-open, activity-filtered, loading, error, and disabled states.",
+          "Forwards filter, case list, detail, timeline, and feedback callbacks.",
+          "Rejects raw case tables, custom filters, custom drawers, local activity feeds, local feedback shells, and docs-only demos."
+        ],
+        "agentInstructions": [
+          "Do not create a local case filter shell, case table, case drawer, activity feed, or feedback shell.",
+          "Use Surface for structural grouping; do not wrap this pattern in Card.",
+          "Use templates only to place this pattern in a product shell, not to redefine case management behavior.",
+          "Ask before using this pattern for regulated support, safety, compliance, legal, or irreversible operations."
+        ],
+        "rejectIf": [
+          "Filters bypass Advanced Filters.",
+          "Case rows bypass Dense Operational List or Virtual Data Table.",
+          "Detail review bypasses Drawer Adapter.",
+          "Activity history bypasses Timeline.",
+          "Feedback bypasses Status Feedback View.",
+          "Card wraps the case management group."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "templateDependencies": [
+          "Internal Operations Console"
+        ]
+      }
+    }
+  }
+}

@@ -6,14 +6,14 @@ React components may only author their own visual class roots or explicit family
 
 ## Inventory
 
-- React components scanned: 56
-- Component class roots known: 59
-- Protected class roots: button, card, dialog, drawer, menu, popover
-- Support class roots: animation-asset, field-action, illustration-asset, input, material-symbol
-- Package CSS roots visible to React governance: 66
-- Components with family roots: 13
-- Observed root assignments: 72
-- Observed support root assignments: 20
+- React components scanned: 60
+- Component class roots known: 63
+- Protected class roots: button, card, dialog, drawer, field, menu, popover
+- Support class roots: animation-asset, field-action, illustration-asset, input, material-symbol, surface
+- Package CSS roots visible to React governance: 71
+- Components with family roots: 14
+- Observed root assignments: 77
+- Observed support root assignments: 21
 - Violations: 0
 - Class ownership debt: 0
 
@@ -35,6 +35,9 @@ React components may only author their own visual class roots or explicit family
 | CardSecurityCodeInput | pass | card-security-code-input | card-security-code-input, field | card-security-code-input, field | field-action, input | 0 |
 | CardSummary | pass | card-summary | card-summary | card-summary | material-symbol | 0 |
 | ChartPanel | pass | chart-panel | chart-panel | chart-panel | None | 0 |
+| ChatComposer | pass | chat-composer | chat-composer | chat-composer | None | 0 |
+| ChatMessage | pass | chat-message | chat-message | chat-message | None | 0 |
+| ChatThread | pass | chat-thread | chat-thread | chat-thread | None | 0 |
 | Checkbox | pass | checkbox | checkbox, choice | checkbox, choice | material-symbol | 0 |
 | Chip | pass | chip | chip | chip | None | 0 |
 | CodeInput | pass | code-input | code-input, field | code-input, field | None | 0 |
@@ -50,6 +53,7 @@ React components may only author their own visual class roots or explicit family
 | IconButton | pass | icon-button | icon-button | icon-button | None | 0 |
 | InlineValidation | pass | inline-validation | inline-validation | inline-validation | None | 0 |
 | Input | pass | field | field | field | field-action, input | 0 |
+| InputAmount | pass | input-amount | field, input-amount | field, input-amount | input | 0 |
 | KpiTile | pass | kpi-tile | kpi-tile | kpi-tile | None | 0 |
 | List | pass | list | list | list | material-symbol | 0 |
 | Menu | pass | menu | menu | menu | None | 0 |

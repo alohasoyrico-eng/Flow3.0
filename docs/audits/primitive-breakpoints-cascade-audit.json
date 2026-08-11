@@ -1,0 +1,304 @@
+{
+  "status": "pass",
+  "primitive": "Breakpoints",
+  "principle": "Breakpoints consumes Frame and Accessibility, coordinates Density and Spacing, exposes named responsive tiers, and governs CSS media-query literals through an approved breakpoint registry because CSS custom properties cannot be used in media conditions.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "mobile",
+      "tablet",
+      "laptop",
+      "desktop"
+    ],
+    "present": [
+      "mobile",
+      "tablet",
+      "laptop",
+      "desktop"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Frame",
+      "Accessibility"
+    ],
+    "present": [
+      "Frame",
+      "Accessibility"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Density",
+      "Spacing"
+    ],
+    "present": [
+      "Density",
+      "Spacing"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-frame-breakpoint-sm",
+      "--sys-frame-breakpoint-shell-sidebar",
+      "--sys-frame-breakpoint-md",
+      "--sys-frame-breakpoint-lg",
+      "--sys-frame-breakpoint-xl",
+      "--sys-breakpoint-mobile",
+      "--sys-breakpoint-tablet",
+      "--sys-breakpoint-laptop",
+      "--sys-breakpoint-desktop",
+      "--sys-breakpoint-wide"
+    ],
+    "present": [
+      "--sys-frame-breakpoint-sm",
+      "--sys-frame-breakpoint-shell-sidebar",
+      "--sys-frame-breakpoint-md",
+      "--sys-frame-breakpoint-lg",
+      "--sys-frame-breakpoint-xl",
+      "--sys-breakpoint-mobile",
+      "--sys-breakpoint-tablet",
+      "--sys-breakpoint-laptop",
+      "--sys-breakpoint-desktop",
+      "--sys-breakpoint-wide"
+    ],
+    "missing": []
+  },
+  "approvedMediaValues": {
+    "420px": "compact handheld breakpoint",
+    "480px": "phone content breakpoint",
+    "520px": "component narrow viewport breakpoint",
+    "575px": "mobile max before tablet",
+    "576px": "tablet min from Frame sm",
+    "620px": "compact content breakpoint",
+    "640px": "pattern compact breakpoint",
+    "720px": "navigation compact breakpoint",
+    "760px": "split review breakpoint",
+    "767px": "tablet max before larger layouts",
+    "840px": "desktop demo narrow breakpoint",
+    "861px": "shell sidebar min breakpoint",
+    "900px": "docs two-column breakpoint",
+    "980px": "pattern overview breakpoint",
+    "992px": "laptop min from Frame md",
+    "1024px": "desktop demo min breakpoint",
+    "1180px": "shell compact breakpoint",
+    "1280px": "spacious viewport breakpoint",
+    "1439px": "wide max before desktop density",
+    "32.5rem": "table narrow breakpoint",
+    "52rem": "choice control stacked breakpoint"
+  },
+  "review": {
+    "mediaQueryCount": 64,
+    "unapproved": [],
+    "sampleMediaQueries": [
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 3707,
+        "query": "(prefers-reduced-motion: reduce)",
+        "values": []
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 3875,
+        "query": "(max-width: 520px)",
+        "values": [
+          "520px"
+        ]
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 6519,
+        "query": "(max-width: 575px)",
+        "values": [
+          "575px"
+        ]
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 6871,
+        "query": "(max-width: 575px)",
+        "values": [
+          "575px"
+        ]
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 7351,
+        "query": "(max-width: 520px)",
+        "values": [
+          "520px"
+        ]
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 7742,
+        "query": "(prefers-color-scheme: dark)",
+        "values": []
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 7957,
+        "query": "(min-width: 760px)",
+        "values": [
+          "760px"
+        ]
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8142,
+        "query": "(prefers-reduced-motion: reduce)",
+        "values": []
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 9630,
+        "query": "(max-width: 480px)",
+        "values": [
+          "480px"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 88,
+        "query": "(min-width: 576px)",
+        "values": [
+          "576px"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 96,
+        "query": "(min-width: 992px)",
+        "values": [
+          "992px"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
+        "line": 285,
+        "query": "(min-width: 576px) and (max-width: 1439px)",
+        "values": [
+          "576px",
+          "1439px"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
+        "line": 316,
+        "query": "(max-width: 575px)",
+        "values": [
+          "575px"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/01-shell-hero.css",
+        "line": 46,
+        "query": "(min-width: 1280px)",
+        "values": [
+          "1280px"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04c-input-docs.css",
+        "line": 17,
+        "query": "(max-width: 767px)",
+        "values": [
+          "767px"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
+        "line": 108,
+        "query": "(max-width: 52rem)",
+        "values": [
+          "52rem"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04e-switch-docs.css",
+        "line": 33,
+        "query": "(max-width: 52rem)",
+        "values": [
+          "52rem"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04f-radio-button-docs.css",
+        "line": 33,
+        "query": "(max-width: 52rem)",
+        "values": [
+          "52rem"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04g-text-area-docs.css",
+        "line": 13,
+        "query": "(max-width: 52rem)",
+        "values": [
+          "52rem"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04h-icon-button-docs.css",
+        "line": 35,
+        "query": "(max-width: 52rem)",
+        "values": [
+          "52rem"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
+        "line": 157,
+        "query": "(prefers-reduced-motion: reduce)",
+        "values": []
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
+        "line": 163,
+        "query": "(max-width: 767px)",
+        "values": [
+          "767px"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
+        "line": 169,
+        "query": "(min-width: 1024px)",
+        "values": [
+          "1024px"
+        ]
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
+        "line": 222,
+        "query": "(max-width: 900px)",
+        "values": [
+          "900px"
+        ]
+      }
+    ]
+  },
+  "componentSignals": {
+    "mediaQueryCount": 9,
+    "containerQueryCount": 2
+  },
+  "foundationGate": {
+    "frame": {
+      "status": "pass"
+    },
+    "accessibility": {
+      "status": "pass"
+    }
+  },
+  "primitiveGate": {
+    "density": {
+      "status": "pass"
+    },
+    "spacing": {
+      "status": "pass"
+    }
+  }
+}

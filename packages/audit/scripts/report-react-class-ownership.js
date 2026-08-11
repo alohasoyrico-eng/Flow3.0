@@ -7,6 +7,7 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
 const {
   allowedClassRootsForReactComponent,
   classRootTokensFromClassExpression,
@@ -28,8 +29,13 @@ function componentFiles() {
   if (!fs.existsSync(reactSrcDir)) return [];
   return fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort()
     .map((file) => path.join(reactSrcDir, file));
+}
+
+function kebab(value) {
+  return String(value).replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
 function lineForIndex(text, index) {
@@ -47,6 +53,8 @@ function sourceClassRoots(source) {
 
 function createReport() {
   const packageRoots = packageCssClassRoots();
+  const componentRoots = componentClassRoots();
+  const protectedRoots = protectedComponentRoots();
   const components = componentFiles().map((file) => {
     const component = path.basename(file, ".js");
     const source = read(file);
@@ -56,14 +64,14 @@ function createReport() {
     const observedRoots = [...new Set(classMatches.flatMap((match) => match.roots))].sort();
     const observedSupportRoots = [...new Set(classMatches.flatMap((match) => match.allRoots.filter((rootToken) => reactSupportClassRoots.has(rootToken))))].sort();
     const violations = classMatches.flatMap((match) => {
-      const protectedCrossRoots = match.roots.filter((rootToken) => protectedComponentRoots.has(rootToken) && rootToken !== ownerRoot);
-      const unknownRoots = match.allRoots.filter((rootToken) => packageRoots.has(rootToken) && !componentClassRoots.has(rootToken) && !reactSupportClassRoots.has(rootToken));
+      const protectedCrossRoots = match.roots.filter((rootToken) => protectedRoots.has(rootToken) && rootToken !== ownerRoot && !allowedRoots.includes(rootToken));
+      const unknownRoots = match.allRoots.filter((rootToken) => packageRoots.has(rootToken) && !componentRoots.has(rootToken) && !reactSupportClassRoots.has(rootToken));
       const illegalRoots = [...new Set(match.roots.filter((rootToken) => !allowedRoots.includes(rootToken)).concat(protectedCrossRoots, unknownRoots))].sort();
       return illegalRoots.map((rootToken) => ({
         root: rootToken,
-        protected: protectedComponentRoots.has(rootToken),
+        protected: protectedRoots.has(rootToken),
         support: reactSupportClassRoots.has(rootToken),
-        unknown: !componentClassRoots.has(rootToken) && !reactSupportClassRoots.has(rootToken),
+        unknown: !componentRoots.has(rootToken) && !reactSupportClassRoots.has(rootToken),
         line: lineForIndex(source, match.index),
         text: match.text,
       }));
@@ -75,7 +83,7 @@ function createReport() {
       allowedRoots,
       observedRoots,
       observedSupportRoots,
-      protectedRootsObserved: observedRoots.filter((rootToken) => protectedComponentRoots.has(rootToken)),
+      protectedRootsObserved: observedRoots.filter((rootToken) => protectedRoots.has(rootToken)),
       violations,
       status: violations.length ? "fail" : "pass",
     };
@@ -88,8 +96,8 @@ function createReport() {
     principle: "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition. The actionable debt metric is classOwnershipDebt.",
     inventory: {
       components: components.length,
-      componentClassRoots: componentClassRoots.size,
-      protectedComponentRoots: protectedComponentRoots.size,
+      componentClassRoots: componentRoots.size,
+      protectedComponentRoots: protectedRoots.size,
       supportClassRoots: reactSupportClassRoots.size,
       packageCssRoots: packageRoots.size,
       componentsWithFamilyRoots: components.filter((item) => item.allowedRoots.length > 1).length,
@@ -98,7 +106,7 @@ function createReport() {
       violations,
       classOwnershipDebt,
     },
-    protectedComponentRoots: [...protectedComponentRoots].sort(),
+    protectedComponentRoots: [...protectedRoots].sort(),
     reactSupportClassRoots: [...reactSupportClassRoots].sort(),
     packageCssRoots: [...packageRoots].sort(),
     components,

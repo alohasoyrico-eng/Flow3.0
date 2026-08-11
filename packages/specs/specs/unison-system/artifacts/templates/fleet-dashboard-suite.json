@@ -28,6 +28,8 @@
           "Color",
           "Typography",
           "Spacing",
+          "Surface",
+          "Density",
           "Iconography",
           "Focus",
           "Loading",
@@ -36,6 +38,10 @@
           "Charts"
         ],
         "patternDependencies": [
+          "Topbar",
+          "Sidebar"
+        ],
+        "templateModuleDependencies": [
           "Fleet Dashboard Overview",
           "Fuel Dashboard",
           "Maintenance Dashboard",
@@ -48,9 +54,12 @@
           "sys.energy.*",
           "sys.voice.*",
           "sys.frame.*",
+          "sys.depth.*",
           "sys.state.*",
+          "sys.tone.*",
           "sys.accessibility.*",
           "sys.momentum.*",
+          "surface.*",
           "sys.charts.*"
         ],
         "densityContext": [
@@ -106,7 +115,7 @@
           "Navigation follows domain accountability: overview, fuel, maintenance, EV, toll, fleet, and finance."
         ],
         "rejectIf": [
-          "Template invents behavior outside its approved pattern dependencies.",
+          "Template invents behavior outside its approved pattern or module dependencies.",
           "Template modules omit data, permission, state, or recovery ownership.",
           "Template bypasses Design System foundations, primitives, density, or semantic tokens."
         ]

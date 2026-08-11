@@ -1,0 +1,146 @@
+{
+  "status": "pass",
+  "primitive": "Illustration Assets",
+  "principle": "Illustration Assets converts approved free sources into Flow-owned image behavior so illustrations never bypass source, license, accessibility, theme, frame, or fallback rules.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "source",
+      "format",
+      "purpose",
+      "theme",
+      "fallback"
+    ],
+    "present": [
+      "source",
+      "format",
+      "purpose",
+      "theme",
+      "fallback"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Symbol",
+      "Accessibility",
+      "Energy",
+      "Frame",
+      "Voice"
+    ],
+    "present": [
+      "Symbol",
+      "Accessibility",
+      "Energy",
+      "Frame",
+      "Voice"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Library Sources",
+      "Animation Assets",
+      "Iconography",
+      "Density",
+      "Breakpoints"
+    ],
+    "present": [
+      "Library Sources",
+      "Animation Assets",
+      "Iconography",
+      "Density",
+      "Breakpoints"
+    ],
+    "missing": []
+  },
+  "tokenDependencies": {
+    "required": [
+      "illustration.*",
+      "library.*",
+      "sys.symbol.*",
+      "sys.energy.*",
+      "sys.frame.*",
+      "sys.voice.*",
+      "sys.accessibility.*"
+    ],
+    "present": [
+      "illustration.*",
+      "library.*",
+      "sys.symbol.*",
+      "sys.energy.*",
+      "sys.frame.*",
+      "sys.voice.*",
+      "sys.accessibility.*"
+    ],
+    "missing": []
+  },
+  "implementation": {
+    "vendorManifestPresent": true,
+    "vendorLicensePresent": true,
+    "sourceRegistry": true,
+    "exportsPrimitiveApi": true,
+    "createsImageAsset": true,
+    "supportsDarkAsset": true,
+    "supportsDocsThemeToggle": true,
+    "enforcesPurposeAlt": true,
+    "supportsFallback": true,
+    "gatesSourceAndFormat": true,
+    "avoidsHandDrawnSvg": true,
+    "avoidsFixedDensityDefault": true,
+    "cssTargetsAsset": true,
+    "cssUsesComponentNamespace": true,
+    "cssUsesComponentSizeAliases": true,
+    "cssAvoidsDirectFrameInCompAlias": true,
+    "cssUsesFoundations": true,
+    "docsHeroUsesIllustrationSlot": true,
+    "docsHydratesHeroThroughPrimitive": true
+  },
+  "source": {
+    "approved": "open-doodles",
+    "license": "CC0",
+    "formats": [
+      "svg",
+      "png",
+      "gif"
+    ]
+  },
+  "foundationGate": {
+    "symbol": "pass",
+    "accessibility": "pass",
+    "energy": "pass",
+    "frame": "pass",
+    "voice": "pass"
+  },
+  "primitiveGate": {
+    "librarySources": "pass",
+    "animationAssets": "pass",
+    "iconography": "pass",
+    "density": "pass",
+    "breakpoints": "pass"
+  },
+  "librarySources": {
+    "row": {
+      "id": "illustration-assets",
+      "library": "open-doodles",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": null,
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": true,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Symbol",
+        "Accessibility",
+        "Energy",
+        "Frame",
+        "Voice"
+      ]
+    }
+  }
+}

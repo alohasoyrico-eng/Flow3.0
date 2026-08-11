@@ -1,0 +1,173 @@
+{
+  "status": "pass",
+  "principle": "Library primitives are the only boundary where third-party visual/runtime sources enter Flow; components, patterns, templates, and Docs must consume the primitive API instead of duplicating vendors or drawing assets ad hoc.",
+  "gaps": [],
+  "self": {
+    "id": "library-sources",
+    "spec": true,
+    "contract": true,
+    "primitive": true,
+    "exported": true,
+    "indexed": true,
+    "governingFoundations": [
+      "Symbol",
+      "Iconography",
+      "Accessibility",
+      "Momentum",
+      "Energy",
+      "Frame"
+    ],
+    "coordinatedPrimitives": [
+      "Iconography",
+      "Country Flags",
+      "Animation Assets",
+      "Illustration Assets",
+      "Charts",
+      "Maps"
+    ],
+    "records": [
+      "iconography",
+      "country-flags",
+      "animation-assets",
+      "illustration-assets",
+      "charts",
+      "maps"
+    ]
+  },
+  "rows": [
+    {
+      "id": "iconography",
+      "library": "material-symbols",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": null,
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": true,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Iconography",
+        "Symbol",
+        "Accessibility",
+        "State",
+        "Energy"
+      ]
+    },
+    {
+      "id": "country-flags",
+      "library": "country-flag-icons",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": "^1.6.20",
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": false,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Iconography",
+        "Symbol",
+        "Accessibility",
+        "Energy",
+        "Frame"
+      ]
+    },
+    {
+      "id": "animation-assets",
+      "library": "lottie-web",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": "^5.13.0",
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": false,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Momentum",
+        "Accessibility",
+        "Symbol",
+        "Energy",
+        "Frame"
+      ]
+    },
+    {
+      "id": "illustration-assets",
+      "library": "open-doodles",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": null,
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": true,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Symbol",
+        "Accessibility",
+        "Energy",
+        "Frame",
+        "Voice"
+      ]
+    },
+    {
+      "id": "charts",
+      "library": "echarts",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": "^6.1.0",
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": true,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Energy",
+        "Accessibility",
+        "Momentum",
+        "Voice",
+        "State"
+      ]
+    },
+    {
+      "id": "maps",
+      "library": "maplibre-gl",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": "5.24.0",
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": true,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Energy",
+        "Accessibility",
+        "Frame",
+        "Voice",
+        "Momentum",
+        "Depth",
+        "State"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "status": "pass",
+  "primitive": "Duration",
+  "principle": "Duration consumes Momentum, State, and Accessibility, coordinates Motion Curves and Loading, then exposes sys-duration/component-duration aliases so component timing is semantic and not hardcoded.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "instant",
+      "touch",
+      "base",
+      "fast",
+      "slow",
+      "cycle"
+    ],
+    "present": [
+      "instant",
+      "touch",
+      "base",
+      "fast",
+      "slow",
+      "cycle"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Momentum",
+      "State",
+      "Accessibility"
+    ],
+    "present": [
+      "Momentum",
+      "State",
+      "Accessibility"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Motion Curves",
+      "Loading"
+    ],
+    "present": [
+      "Motion Curves",
+      "Loading"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-duration-instant",
+      "--sys-duration-touch",
+      "--sys-duration-base",
+      "--sys-duration-fast",
+      "--sys-duration-snappy",
+      "--sys-duration-slow",
+      "--sys-duration-press",
+      "--sys-duration-enter",
+      "--sys-duration-overlay",
+      "--sys-duration-sheet",
+      "--sys-duration-reveal",
+      "--sys-duration-medium",
+      "--sys-duration-cycle",
+      "--sys-duration-loading-spin",
+      "--sys-duration-loading-cycle",
+      "--sys-duration-progress",
+      "--sys-duration-pulse"
+    ],
+    "present": [
+      "--sys-duration-instant",
+      "--sys-duration-touch",
+      "--sys-duration-base",
+      "--sys-duration-fast",
+      "--sys-duration-snappy",
+      "--sys-duration-slow",
+      "--sys-duration-press",
+      "--sys-duration-enter",
+      "--sys-duration-overlay",
+      "--sys-duration-sheet",
+      "--sys-duration-reveal",
+      "--sys-duration-medium",
+      "--sys-duration-cycle",
+      "--sys-duration-loading-spin",
+      "--sys-duration-loading-cycle",
+      "--sys-duration-progress",
+      "--sys-duration-pulse"
+    ],
+    "missing": []
+  },
+  "componentBridge": {
+    "required": [
+      "--component-duration-fast",
+      "--component-duration-snappy",
+      "--component-duration-instant",
+      "--component-duration-enter",
+      "--component-duration-exit",
+      "--component-duration-state",
+      "--component-duration-overlay",
+      "--component-duration-sheet",
+      "--component-duration-reveal",
+      "--component-duration-slow",
+      "--component-duration-press",
+      "--component-duration-medium",
+      "--component-duration-loop",
+      "--component-duration-loading-spin",
+      "--component-duration-loading-cycle",
+      "--component-duration-progress",
+      "--component-duration-shimmer",
+      "--component-duration-pulse"
+    ],
+    "present": [
+      "--component-duration-fast",
+      "--component-duration-snappy",
+      "--component-duration-instant",
+      "--component-duration-enter",
+      "--component-duration-exit",
+      "--component-duration-state",
+      "--component-duration-overlay",
+      "--component-duration-sheet",
+      "--component-duration-reveal",
+      "--component-duration-slow",
+      "--component-duration-press",
+      "--component-duration-medium",
+      "--component-duration-loop",
+      "--component-duration-loading-spin",
+      "--component-duration-loading-cycle",
+      "--component-duration-progress",
+      "--component-duration-shimmer",
+      "--component-duration-pulse"
+    ],
+    "missing": [],
+    "primitiveUses": 12,
+    "bridgeUses": 185
+  },
+  "review": {
+    "directMomentumDurationUses": [],
+    "rawDurations": []
+  },
+  "foundationGate": {
+    "momentum": {
+      "status": "pass"
+    },
+    "state": {
+      "status": "pass"
+    },
+    "accessibility": {
+      "status": "pass"
+    }
+  },
+  "primitiveGate": {
+    "motionCurves": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "loading": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "upstream-runtime"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "artifacts": {
+    "templates": {
+      "agent-workspace": {
+        "layer": "Template",
+        "platform": "Desktop",
+        "audiences": [
+          "Product Designers",
+          "PMs",
+          "Developers",
+          "Researchers",
+          "Service Designers",
+          "Agents"
+        ],
+        "purpose": "Agent resolves driver conversations with chat history, composer, context evidence, handoff states, and recovery feedback.",
+        "maturityTarget": "measured",
+        "governingFoundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Color",
+          "Density",
+          "Focus",
+          "Iconography",
+          "Message",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "patternDependencies": [
+          "Agent Conversation",
+          "Topbar",
+          "Status Feedback View"
+        ],
+        "templateModuleDependencies": [
+          "Conversation queue",
+          "Agent Conversation",
+          "Agent state",
+          "Handoff recovery",
+          "Workspace context"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Chat Composer",
+          "Chat Message",
+          "Chat Thread"
+        ],
+        "tokenDependencies": [
+          "sys.accessibility.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.voice.*",
+          "surface.*"
+        ],
+        "densityContext": [
+          "Laptop",
+          "Desktop"
+        ],
+        "modules": [
+          "Conversation queue",
+          "Agent Conversation",
+          "Agent state",
+          "Handoff recovery",
+          "Workspace context"
+        ],
+        "dataSources": [
+          "conversations",
+          "messages",
+          "driver context",
+          "case evidence",
+          "handoff status"
+        ],
+        "permissions": [
+          "agent",
+          "supervisor",
+          "support escalation"
+        ],
+        "states": [
+          "loaded",
+          "loading",
+          "empty",
+          "handoff",
+          "error",
+          "permission",
+          "offline",
+          "disabled"
+        ],
+        "surfaces": [
+          "Laptop",
+          "Desktop"
+        ],
+        "telemetry": [
+          "conversation selected",
+          "reply sent",
+          "handoff started",
+          "evidence attached"
+        ],
+        "qualityGates": [
+          "Conversation selection keeps thread, composer, and context panel synchronized.",
+          "Composer states are controlled by template state and never bypass Chat Composer behavior.",
+          "Handoff, offline, permission, and error states use Status Feedback View instead of custom banners."
+        ],
+        "agentInstructions": [
+          "This template is the agent conversational workspace: queue, thread, composer, and evidence context must stay connected.",
+          "The template composes governed chat components and feedback patterns; it must not create local chat bubbles, local composer fields, or custom recovery banners.",
+          "Conversation selection is the primary controlled/uncontrolled state contract."
+        ],
+        "rejectIf": [
+          "Template renders chat messages without Chat Thread and Chat Message.",
+          "Template renders a reply field without Chat Composer.",
+          "Template handles recovery with custom overlays instead of Status Feedback View.",
+          "Template bypasses Surface, density, state, or token ownership."
+        ]
+      }
+    }
+  }
+}

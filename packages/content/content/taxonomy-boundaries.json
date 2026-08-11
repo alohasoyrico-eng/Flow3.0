@@ -7,6 +7,36 @@
     "Template proves one or more patterns in a complete product shell or domain surface.",
     "Docs may demonstrate taxonomy decisions but must not promote a forbidden component artifact."
   ],
+  "approvedCrossLayerArtifactIds": ["iconography"],
+  "expectedInventory": {
+    "rules": 5,
+    "decisions": 20,
+    "patternDecisions": 10,
+    "templateDecisions": 9,
+    "nonComponentDecisions": 1,
+    "artifactsScanned": 163,
+    "crossLayerArtifactIds": 1,
+    "unapprovedCrossLayerArtifactIds": 0,
+    "artifactLayerMismatches": 0,
+    "missingNestedArtifactRecords": 0,
+    "templateArtifactsWithoutDecisions": 0,
+    "templateBlueprintsWithoutArtifacts": 0,
+    "templateArtifactBlueprintMismatches": 0,
+    "templateDependencyReferenceErrors": 0,
+    "templateCatalogSyncErrors": 0,
+    "requiredBoundaryCases": 59,
+    "requiredBoundaryCaseViolations": 0,
+    "foundationBoundaryCases": 7,
+    "primitiveBoundaryCases": 14,
+    "componentBoundaryCases": 10,
+    "patternBoundaryCases": 21,
+    "templateBoundaryCases": 6,
+    "nonComponentBoundaryCases": 1,
+    "duplicateIds": 0,
+    "auditErrors": 0,
+    "taxonomyPolicyIssues": 0,
+    "taxonomyBoundaryDebt": 0
+  },
   "decisions": [
     {
       "id": "alert-strip",
@@ -73,6 +103,121 @@
       "layer": "pattern",
       "replacement": "chart-legend-item",
       "reason": "Legend items are chart interaction patterns; they must not be promoted as standalone components."
+    },
+    {
+      "id": "configuration-console",
+      "layer": "template",
+      "replacement": "configuration-console",
+      "reason": "Configuration Console is an administrative product surface that composes Topbar, Sidebar, Roles and Permissions, Driver and Vehicle Administration, and Authentication patterns with data, permissions, audit, and recovery ownership."
+    },
+    {
+      "id": "driver-card-wallet",
+      "layer": "template",
+      "replacement": "driver-card-wallet",
+      "reason": "Driver Card Wallet is a focused product surface for card status, movement evidence, limits, quick actions, and support recovery; it must compose modules and patterns rather than becoming a component."
+    },
+    {
+      "id": "driver-mobile-app",
+      "layer": "template",
+      "replacement": "driver-mobile-app",
+      "reason": "Driver Mobile App is a complete mobile product shell that proves onboarding, card readiness, nearby stations, and support recovery across mobile states and permissions."
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "layer": "template",
+      "replacement": "fleet-dashboard-suite",
+      "reason": "Fleet Dashboard Suite is a multi-domain dashboard product surface that preserves shared filters, navigation, thresholds, drill-downs, and accountability across operational domains."
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "layer": "template",
+      "replacement": "fleet-manager-desktop",
+      "reason": "Fleet Manager Desktop is a desktop operating console that coordinates overview, exceptions, activity, filters, permissions, and follow-up across multiple patterns."
+    },
+    {
+      "id": "routes-and-stations",
+      "layer": "template",
+      "replacement": "routes-and-stations",
+      "reason": "Routes and Stations is a mobile workspace that proves map/list station discovery, selected station detail, permissions, fallback, and route handoff through approved pattern and primitive dependencies."
+    },
+    {
+      "id": "agent-workspace",
+      "layer": "template",
+      "replacement": "agent-workspace",
+      "reason": "Agent Workspace is a complete service workspace template that coordinates queue, thread, composer, context evidence, handoff, and recovery through governed chat components and feedback patterns."
+    },
+    {
+      "id": "internal-operations-console",
+      "layer": "template",
+      "replacement": "internal-operations-console",
+      "reason": "Internal Operations Console is a desktop operations shell that proves case, ticket, account, pricing, approval, and growth workflows across governed patterns."
+    },
+    {
+      "id": "settings-workspace",
+      "layer": "template",
+      "replacement": "settings-workspace",
+      "reason": "Settings Workspace is a complete product settings surface that coordinates sections, preferences, validation, theme, and danger-zone confirmation through governed patterns."
     }
+  ],
+  "requiredBoundaryCases": [
+    { "id": "accessibility", "layer": "foundation", "source": "artifact", "reason": "Accessibility is a governing foundation, not a component prop bundle." },
+    { "id": "state", "layer": "foundation", "source": "artifact", "reason": "State defines semantic behavior across components and patterns." },
+    { "id": "tone", "layer": "foundation", "source": "artifact", "reason": "Tone governs feedback language before primitives render it." },
+    { "id": "depth", "layer": "foundation", "source": "artifact", "reason": "Depth is a foundation for hierarchy and elevation semantics." },
+    { "id": "frame", "layer": "foundation", "source": "artifact", "reason": "Frame governs composition and layout rhythm." },
+    { "id": "voice", "layer": "foundation", "source": "artifact", "reason": "Voice governs content decisions across UI layers." },
+    { "id": "momentum", "layer": "foundation", "source": "artifact", "reason": "Momentum governs motion intent before primitive curves implement it." },
+    { "id": "surface", "layer": "primitive", "source": "artifact", "reason": "Surface is the grouping primitive; Card must not become the default wrapper for pattern groups." },
+    { "id": "spacing", "layer": "primitive", "source": "artifact", "reason": "Spacing is a primitive consumed by components and patterns through cascade." },
+    { "id": "radius", "layer": "primitive", "source": "artifact", "reason": "Radius is a primitive token contract, not per-demo styling." },
+    { "id": "typography", "layer": "primitive", "source": "artifact", "reason": "Typography is a primitive contract for text rendering." },
+    { "id": "color", "layer": "primitive", "source": "artifact", "reason": "Color is a primitive token contract." },
+    { "id": "density", "layer": "primitive", "source": "artifact", "reason": "Density must cascade through Flow primitives before pattern layout adapts." },
+    { "id": "elevation", "layer": "primitive", "source": "artifact", "reason": "Elevation implements depth decisions as a primitive." },
+    { "id": "focus", "layer": "primitive", "source": "artifact", "reason": "Focus is a primitive interaction affordance shared by components and patterns." },
+    { "id": "loading", "layer": "primitive", "source": "artifact", "reason": "Loading is a primitive state vocabulary, not a one-off pattern style." },
+    { "id": "disabled", "layer": "primitive", "source": "artifact", "reason": "Disabled is a primitive state vocabulary." },
+    { "id": "field-action", "layer": "primitive", "source": "artifact", "reason": "Field action is the primitive affordance inside field-like components and patterns." },
+    { "id": "maps", "layer": "primitive", "source": "artifact", "reason": "Maps are primitive infrastructure for station and route patterns." },
+    { "id": "charts", "layer": "primitive", "source": "artifact", "reason": "Charts are primitive visualization infrastructure for chart patterns and templates." },
+    { "id": "breakpoints", "layer": "primitive", "source": "artifact", "reason": "Breakpoints are responsive primitives, not docs CSS behavior." },
+    { "id": "card", "layer": "component", "source": "artifact", "reason": "Card remains a bounded component, not a generic pattern container." },
+    { "id": "table", "layer": "component", "source": "artifact", "reason": "Table remains the base component; remote state and tools belong to patterns." },
+    { "id": "dialog", "layer": "component", "source": "artifact", "reason": "Dialog owns the modal primitive behavior that overlay patterns compose." },
+    { "id": "drawer", "layer": "component", "source": "artifact", "reason": "Drawer owns base panel behavior; adapters and sheets remain patterns." },
+    { "id": "popover", "layer": "component", "source": "artifact", "reason": "Popover owns anchored overlay behavior." },
+    { "id": "menu", "layer": "component", "source": "artifact", "reason": "Menu owns command list behavior used by pattern menus." },
+    { "id": "toast", "layer": "component", "source": "artifact", "reason": "Toast is a bounded feedback component; providers and panels are patterns." },
+    { "id": "checkbox", "layer": "component", "source": "artifact", "reason": "Checkbox remains atomic; group semantics are pattern-owned." },
+    { "id": "radio-button", "layer": "component", "source": "artifact", "reason": "Radio Button remains atomic; group semantics are pattern-owned." },
+    { "id": "avatar", "layer": "component", "source": "artifact", "reason": "Avatar remains atomic; disclosure and overflow are pattern-owned." },
+    { "id": "search", "layer": "pattern", "source": "artifact", "reason": "Search coordinates input, results, empty states, shortcuts, and async behavior." },
+    { "id": "topbar", "layer": "pattern", "source": "artifact", "reason": "Topbar coordinates navigation, search, account menu, notifications, and responsive shell state." },
+    { "id": "toolbar", "layer": "pattern", "source": "artifact", "reason": "Toolbar coordinates command groups, filters, selection, and layout priority." },
+    { "id": "avatar-menu", "layer": "pattern", "source": "artifact", "reason": "Avatar menu composes Avatar, Menu, permissions, and account actions." },
+    { "id": "notification-panel", "layer": "pattern", "source": "artifact", "reason": "Notification panel orchestrates feedback components and persistent alert state." },
+    { "id": "action-sheet", "layer": "pattern", "source": "artifact", "reason": "Action sheet is a mobile interaction pattern over overlay components." },
+    { "id": "fullscreen-sheet", "layer": "pattern", "source": "artifact", "reason": "Fullscreen sheet is responsive overlay orchestration." },
+    { "id": "roles-and-permissions", "layer": "pattern", "source": "artifact", "reason": "Roles and permissions is business/state orchestration, not a table component." },
+    { "id": "virtual-data-table", "layer": "pattern", "source": "artifact", "reason": "Virtual data table owns remote data, virtualization, selection, and table tooling." },
+    { "id": "snackbar-provider", "layer": "pattern", "source": "artifact", "reason": "Provider behavior belongs above Toast as a pattern." },
+    { "id": "drawer-adapter", "layer": "pattern", "source": "artifact", "reason": "Drawer adapter maps responsive workflow behavior onto Drawer." },
+    { "id": "confirmation-dialog", "layer": "pattern", "source": "artifact", "reason": "Confirmation dialog composes Dialog with destructive action workflow." },
+    { "id": "autocomplete", "layer": "pattern", "source": "artifact", "reason": "Autocomplete coordinates async suggestions, filtering, and input behavior." },
+    { "id": "multi-select", "layer": "pattern", "source": "artifact", "reason": "Multi-select coordinates selection state across components." },
+    { "id": "filter-chip-group", "layer": "pattern", "source": "artifact", "reason": "Filter chip group coordinates query state and removable filters." },
+    { "id": "configuration-console", "layer": "template", "source": "artifact", "reason": "Configuration Console is a product surface template." },
+    { "id": "driver-card-wallet", "layer": "template", "source": "artifact", "reason": "Driver Card Wallet is a product surface template." },
+    { "id": "driver-mobile-app", "layer": "template", "source": "artifact", "reason": "Driver Mobile App is a product surface template." },
+    { "id": "fleet-dashboard-suite", "layer": "template", "source": "artifact", "reason": "Fleet Dashboard Suite is a product surface template." },
+    { "id": "fleet-manager-desktop", "layer": "template", "source": "artifact", "reason": "Fleet Manager Desktop is a product surface template." },
+    { "id": "routes-and-stations", "layer": "template", "source": "artifact", "reason": "Routes and Stations is a product surface template." },
+    { "id": "alert-strip", "layer": "non-component", "source": "taxonomy-decision", "replacement": "notification-panel", "reason": "Alert strip must resolve to feedback orchestration instead of becoming another component." },
+    { "id": "checkbox-group", "layer": "pattern", "source": "taxonomy-decision", "replacement": "checkbox-group", "reason": "Checkbox group is pattern state around atomic Checkbox." },
+    { "id": "radio-group", "layer": "pattern", "source": "taxonomy-decision", "replacement": "radio-group", "reason": "Radio group is pattern state around atomic Radio Button." },
+    { "id": "bottom-sheet", "layer": "pattern", "source": "taxonomy-decision", "replacement": "bottom-sheet", "reason": "Bottom sheet remains mobile overlay orchestration." },
+    { "id": "data-table", "layer": "pattern", "source": "taxonomy-decision", "replacement": "virtual-data-table", "reason": "Data table resolves to the Virtual Data Table pattern, not Table component inflation." },
+    { "id": "sort-control", "layer": "pattern", "source": "taxonomy-decision", "replacement": "toolbar", "reason": "Sort control belongs to toolbar/list state orchestration." },
+    { "id": "chart-legend-item", "layer": "pattern", "source": "taxonomy-decision", "replacement": "chart-legend-item", "reason": "Chart legend item remains chart interaction pattern." }
   ]
 }

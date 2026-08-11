@@ -13,6 +13,7 @@ function checkCodeInputCssContract({ text, blocks, packageCssFile, selectorKey }
   const baseBlock = blockFor(blocks, selectorKey, ".code-input");
   const slotsBlock = blockFor(blocks, selectorKey, ".code-input .code-input__slots");
   const slotBlock = blockFor(blocks, selectorKey, ".code-input .code-input__slot");
+  const controlBlock = blockFor(blocks, selectorKey, ".code-input .code-input__control");
   const smBlock = blockFor(blocks, selectorKey, ".code-input[data-density=\"sm\"]");
   const compactBlock = blockFor(blocks, selectorKey, ".code-input[data-variant=\"compact\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".code-input[data-density=\"lg\"]");
@@ -47,15 +48,23 @@ function checkCodeInputCssContract({ text, blocks, packageCssFile, selectorKey }
       "--comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-md)",
       "--comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-md)",
       "--comp-code-input-current-slot-inline-size: var(--comp-code-input-slot-inline-size-md)",
+      "grid-template-columns: minmax(0, 1fr)",
     ],
-    message: "Code Input base must expose component-scoped current aliases for slot size, font, gap, and inline size.",
+    message: "Code Input base must expose component-scoped current aliases and a shrinkable grid track for mobile template containers.",
+  });
+  requireIncludes({
+    block: controlBlock,
+    text,
+    packageCssFile,
+    snippets: ["grid-template-columns: minmax(0, 1fr)", "inline-size: 100%", "max-inline-size: 100%"],
+    message: "Code Input control must stay inside mobile template containers.",
   });
   requireIncludes({
     block: slotsBlock,
     text,
     packageCssFile,
-    snippets: ["gap: var(--comp-code-input-current-slot-gap)"],
-    message: "Code Input slots container must consume the component-scoped current gap alias.",
+    snippets: ["gap: var(--comp-code-input-current-slot-gap)", "inline-size: 100%", "max-inline-size: 100%"],
+    message: "Code Input slots container must consume the component-scoped current gap alias and stay inside its control.",
   });
   requireIncludes({
     block: slotBlock,
@@ -64,11 +73,12 @@ function checkCodeInputCssContract({ text, blocks, packageCssFile, selectorKey }
     snippets: [
       "font-size: var(--comp-code-input-current-slot-font-size)",
       "block-size: var(--comp-code-input-current-slot-block-size)",
+      "flex: 1 1 var(--comp-code-input-current-slot-inline-size)",
       "inline-size: var(--comp-code-input-current-slot-inline-size)",
       "min-block-size: var(--comp-code-input-current-slot-block-size)",
-      "min-inline-size: var(--comp-code-input-current-slot-inline-size)",
+      "min-inline-size: 0",
     ],
-    message: "Code Input slot geometry and voice must consume component-scoped current slot aliases.",
+    message: "Code Input slot geometry and voice must consume component-scoped current slot aliases without forcing mobile template overflow.",
   });
 
   const densityContracts = [

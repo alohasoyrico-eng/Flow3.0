@@ -1,0 +1,338 @@
+{
+  "primitive": "loading",
+  "status": "pass",
+  "principle": "Loading consumes State, Momentum, Tone, and Accessibility, then exposes a narrow API for skeleton, stale, sync, progress, and busy behavior without duplicating spinner or progress semantics.",
+  "sourceOfTruth": {
+    "spec": "packages/specs/specs/unison-system/artifacts/primitives/loading.json",
+    "contract": "packages/content/content/primitive-contracts/primitives/loading.md"
+  },
+  "roles": {
+    "required": [
+      "skeleton",
+      "stale",
+      "sync",
+      "progress",
+      "busy"
+    ],
+    "present": [
+      "busy",
+      "progress",
+      "skeleton",
+      "stale",
+      "sync"
+    ],
+    "missing": []
+  },
+  "foundations": {
+    "required": [
+      "State",
+      "Momentum",
+      "Tone",
+      "Accessibility"
+    ],
+    "present": [
+      "State",
+      "Momentum",
+      "Tone",
+      "Accessibility"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Duration",
+      "Motion Curves",
+      "Disabled",
+      "Focus"
+    ],
+    "present": [
+      "Duration",
+      "Motion Curves",
+      "Disabled",
+      "Focus"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-loading-spin-duration",
+      "--sys-loading-cycle-duration",
+      "--sys-loading-progress-duration",
+      "--sys-loading-pulse-duration",
+      "--sys-loading-easing-rhythm",
+      "--sys-loading-easing-linear",
+      "--sys-loading-skeleton-surface",
+      "--sys-loading-skeleton-highlight",
+      "--sys-loading-spinner-track",
+      "--sys-loading-spinner-tone",
+      "--sys-loading-progress-track",
+      "--sys-loading-progress-fill",
+      "--sys-loading-stale-opacity",
+      "--sys-loading-busy-cursor"
+    ],
+    "present": [
+      "--sys-loading-spin-duration",
+      "--sys-loading-cycle-duration",
+      "--sys-loading-progress-duration",
+      "--sys-loading-pulse-duration",
+      "--sys-loading-easing-rhythm",
+      "--sys-loading-easing-linear",
+      "--sys-loading-skeleton-surface",
+      "--sys-loading-skeleton-highlight",
+      "--sys-loading-spinner-track",
+      "--sys-loading-spinner-tone",
+      "--sys-loading-progress-track",
+      "--sys-loading-progress-fill",
+      "--sys-loading-stale-opacity",
+      "--sys-loading-busy-cursor"
+    ],
+    "missing": []
+  },
+  "componentBridge": {
+    "required": [
+      "--component-loading-spin-duration",
+      "--component-loading-cycle-duration",
+      "--component-loading-progress-duration",
+      "--component-loading-pulse-duration",
+      "--component-loading-easing-rhythm",
+      "--component-loading-easing-linear",
+      "--component-loading-skeleton-surface",
+      "--component-loading-skeleton-highlight",
+      "--component-loading-spinner-track",
+      "--component-loading-spinner-tone",
+      "--component-loading-progress-track",
+      "--component-loading-progress-fill",
+      "--component-loading-stale-opacity",
+      "--component-loading-busy-cursor"
+    ],
+    "present": [
+      "--component-loading-spin-duration",
+      "--component-loading-cycle-duration",
+      "--component-loading-progress-duration",
+      "--component-loading-pulse-duration",
+      "--component-loading-easing-rhythm",
+      "--component-loading-easing-linear",
+      "--component-loading-skeleton-surface",
+      "--component-loading-skeleton-highlight",
+      "--component-loading-spinner-track",
+      "--component-loading-spinner-tone",
+      "--component-loading-progress-track",
+      "--component-loading-progress-fill",
+      "--component-loading-stale-opacity",
+      "--component-loading-busy-cursor"
+    ],
+    "missing": [],
+    "loadingTokenUses": 39
+  },
+  "docsSignal": {
+    "loadingTokenUses": 0
+  },
+  "accessibility": {
+    "ariaBusyUses": 3,
+    "statusRoleUses": 1,
+    "progressbarRoleUses": 1
+  },
+  "review": {
+    "directFoundationLoadingUses": [],
+    "rawLoadingDurations": []
+  },
+  "foundationGate": {
+    "accessibility": {
+      "status": "pass",
+      "file": "docs/audits/foundation-accessibility-cascade-audit.json"
+    },
+    "state": {
+      "status": "pass",
+      "file": "docs/audits/foundation-state-cascade-audit.json"
+    },
+    "momentum": {
+      "status": "pass",
+      "file": "docs/audits/foundation-momentum-cascade-audit.json"
+    },
+    "tone": {
+      "status": "pass",
+      "file": "docs/audits/foundation-tone-cascade-audit.json"
+    }
+  },
+  "primitiveGate": {
+    "duration": {
+      "file": "docs/audits/primitive-duration-cascade-audit.json",
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "motionCurves": {
+      "file": "docs/audits/primitive-motion-curves-cascade-audit.json",
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "disabled": {
+      "file": "docs/audits/primitive-disabled-cascade-audit.json",
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "focus": {
+      "file": "docs/audits/primitive-focus-cascade-audit.json",
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    }
+  },
+  "cascadeRefs": {
+    "components": {
+      "count": 31,
+      "ids": [
+        "animated-moment",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "card-summary",
+        "chat-composer",
+        "chat-message",
+        "chat-thread",
+        "combobox",
+        "date-range-picker",
+        "drawer",
+        "empty-state",
+        "error-panel",
+        "floating-action-button",
+        "icon-button",
+        "input",
+        "input-amount",
+        "kpi-tile",
+        "list",
+        "movement-row",
+        "pagination",
+        "progress-indicator",
+        "quick-action",
+        "select",
+        "skeleton",
+        "spinner",
+        "stepper",
+        "text-area",
+        "toast"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/components/animated-moment.json",
+        "packages/specs/specs/unison-system/artifacts/components/button.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/agentinstructions.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/anatomy.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/contextdensitystrategy.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/foundations.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/guidelines.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/primitivedependencies.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/productexamples.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/props.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/rejectif.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/stateprecedence.json"
+      ]
+    },
+    "patterns": {
+      "count": 58,
+      "ids": [
+        "account-operations",
+        "action-sheet",
+        "advanced-filters",
+        "agent-conversation",
+        "authentication-login-biometrics-and-otp",
+        "autocomplete",
+        "avatar-group",
+        "avatar-menu",
+        "backoffice-approval",
+        "bulk-actions",
+        "calendar-view",
+        "case-management",
+        "chart-wrapper",
+        "column-configurator",
+        "command-palette",
+        "confirmation-dialog",
+        "dense-operational-list",
+        "drag-sortable-list",
+        "drawer-adapter",
+        "driver-and-vehicle-administration",
+        "driver-onboarding-mobile",
+        "expandable-detail-table",
+        "file-upload",
+        "filter-chip-group",
+        "filterable-editable-table",
+        "fleet-manager-onboarding-desktop",
+        "form-section",
+        "fullscreen-sheet",
+        "gantt-chart",
+        "help-center",
+        "kanban-board",
+        "kpi-card",
+        "multi-select",
+        "multi-step-form",
+        "notification-panel",
+        "payment-form",
+        "polar-chart",
+        "preference-management",
+        "pricing-operations",
+        "pull-to-refresh",
+        "quick-actions-grid",
+        "roles-and-permissions",
+        "search",
+        "section-header",
+        "select-option-layer",
+        "settings",
+        "sidebar",
+        "snackbar-provider",
+        "station-discovery",
+        "status-feedback-view",
+        "swipe-actions",
+        "ticket-queue",
+        "timeline",
+        "toolbar",
+        "topbar",
+        "transfer-list",
+        "virtual-data-table",
+        "waterfall-chart"
+      ],
+      "sampleFiles": [
+        "packages/content/content/pattern-contracts/patterns/account-operations.md",
+        "packages/content/content/pattern-contracts/patterns/action-sheet.md",
+        "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+        "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
+        "packages/content/content/pattern-contracts/patterns/autocomplete.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-group.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
+        "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+        "packages/content/content/pattern-contracts/patterns/case-management.md"
+      ]
+    },
+    "templates": {
+      "count": 9,
+      "ids": [
+        "agent-workspace",
+        "configuration-console",
+        "driver-card-wallet",
+        "driver-mobile-app",
+        "fleet-dashboard-suite",
+        "fleet-manager-desktop",
+        "internal-operations-console",
+        "routes-and-stations",
+        "settings-workspace"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+      ]
+    }
+  },
+  "gaps": []
+}

@@ -1,0 +1,111 @@
+{
+  "principle": "Email is a separate Flow channel: it may be authored from package-owned React contracts, but the shipped output must be static HTML-email markup with table-safe layout, inline values, text-backed state, and no web runtime dependency.",
+  "patternId": "email-template-layout",
+  "zipKitId": "mailings",
+  "expectedVariants": [
+    "base",
+    "transactional",
+    "operational-summary",
+    "security-alert",
+    "team-invite",
+    "welcome"
+  ],
+  "zipVariantFiles": {
+    "base": "ui_kits/mailings/base-layout.html",
+    "transactional": "ui_kits/mailings/transaccional-recibo.html",
+    "operational-summary": "ui_kits/mailings/resumen-semanal.html",
+    "security-alert": "ui_kits/mailings/alerta-seguridad.html",
+    "team-invite": "ui_kits/mailings/invitacion-equipo.html",
+    "welcome": "ui_kits/mailings/bienvenida.html"
+  },
+  "requiredHtmlSignals": [
+    "doctype",
+    "htmlLang",
+    "head",
+    "title",
+    "viewport",
+    "body",
+    "hiddenPreheader",
+    "presentationTable",
+    "container600",
+    "contentCard",
+    "footer"
+  ],
+  "conditionalVariantSignals": {
+    "transactional": ["dataRows", "cta"],
+    "operational-summary": ["metricsGrid", "cta"],
+    "security-alert": ["otpBlock", "securityCopy"],
+    "team-invite": ["cta", "expiryCopy"],
+    "welcome": ["steps", "cta"]
+  },
+  "forbiddenHtmlSignals": [
+    "script",
+    "cssCustomProperties",
+    "flexbox",
+    "grid",
+    "flowWebComponents",
+    "dangerousHtml",
+    "formControls",
+    "reactMount"
+  ],
+  "allowedHtmlTags": [
+    "a",
+    "body",
+    "br",
+    "div",
+    "head",
+    "html",
+    "meta",
+    "noscript",
+    "o:officedocumentsettings",
+    "o:pixelsperinch",
+    "span",
+    "strong",
+    "style",
+    "table",
+    "tbody",
+    "td",
+    "title",
+    "tr",
+    "xml"
+  ],
+  "rendererRequiredSignals": [
+    "forwardRef",
+    "dataFlowPattern",
+    "dataFlowChannel",
+    "variantDefaults",
+    "sanitizeRestProps",
+    "presentationTables",
+    "anchorCta",
+    "hiddenPreheader",
+    "noComponentImports"
+  ],
+  "expectedInventory": {
+    "zipEmailVariants": 6,
+    "zipEmailReadmes": 1,
+    "declaredVariants": 6,
+    "artifactSlots": 11,
+    "channelSlots": 9,
+    "primitiveSlots": 2,
+    "rendererVariants": 6,
+    "rendererForbiddenImports": 0,
+    "zipForbiddenSignals": 0,
+    "emailChannelDebt": 0
+  },
+  "rendererExpectedInventory": {
+    "renderCases": 6,
+    "passingRenderCases": 6,
+    "renderedDoctypes": 6,
+    "htmlRoots": 6,
+    "headBlocks": 6,
+    "bodyBlocks": 6,
+    "hiddenPreheaders": 6,
+    "presentationTableCases": 6,
+    "container600Cases": 6,
+    "contentCardCases": 6,
+    "footerCases": 6,
+    "conditionalSignalGaps": 0,
+    "forbiddenRenderedSignals": 0,
+    "emailRendererDebt": 0
+  }
+}

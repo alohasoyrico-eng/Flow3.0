@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/quick-actions-grid/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid.json`
 
 ## Purpose
 
@@ -34,6 +35,157 @@ Group frequent mobile actions into a scannable grid with labels, permission stat
 | Iconography | Uses icons only as reinforcement; text remains required. |
 | Accessibility | Requires labels, focus order, and non-color-only status. |
 
+## Formal Purpose
+
+Coordinate a compact set of high-frequency actions with status, tooltip explanation, optional confirmation, and search-adjacent discovery boundaries.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `default`
+- `loading`
+- `disabled`
+- `permission-blocked`
+- `confirming`
+- `completed`
+- `error`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Energy`
+- `Frame`
+- `Iconography`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Dialog`
+- `Quick Action`
+- `Toast`
+- `Tooltip`
+
+### Patterns
+
+- `Search`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.dialog.*`
+- `comp.quick-action.*`
+- `comp.toast.*`
+- `comp.tooltip.*`
+- `sys.accessibility.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.iconography.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `actions` | `component` | `Quick Action`, `Badge`, `Tooltip` |
+| `confirmation` | `component` | `Dialog` |
+| `feedback` | `component` | `Toast` |
+| `searchBoundary` | `pattern` | `Search` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A surface needs a small set of repeatable actions.
+- Actions need compact labels, icons, status, or short explanation.
+- Search may reveal action targets but must not own the action grid.
+
+### Decision Tree
+
+- Use Quick Action for a single compact command.
+- Use Quick Actions Grid when multiple quick commands need layout, grouping, or status.
+- Use Command Palette when actions are discovered through a global command query.
+
+### Failure Modes
+
+- Actions are hand-built buttons instead of Quick Action.
+- Tooltip is the only source of required meaning.
+- Search owns action execution.
+- Risky actions bypass Dialog or Toast recovery.
+
+### Success Metrics
+
+- Users can scan and trigger common actions quickly.
+- Every icon action has a durable accessible name.
+- Risk, status, and recovery stay component-owned.
+
+### Accessibility
+
+- Do not rely on icon-only meaning.
+- Keep tooltip supplemental, not required.
+- Expose disabled and permission reasons in text.
+
+### Tests
+
+- Composes Quick Action, Badge, Tooltip, Dialog, and Toast.
+- Covers disabled, permission, confirming, completed, and error states.
+- Keeps Search as discovery boundary only.
+
+### Agent Instructions
+
+- Do not recreate Button or Quick Action visuals.
+- Keep product-specific action policies outside the pattern.
+- Ask before exposing destructive or regulated actions.
+
+### Reject If
+
+- Actions are custom buttons.
+- Icon meaning is tooltip-only.
+- Search implementation is embedded.
+- Raw tokens bypass Flow components.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -44,7 +196,7 @@ Group frequent mobile actions into a scannable grid with labels, permission stat
 | status | Badge | conditional | Small state count or availability marker. |
 | feedback | Toast | conditional | Reports selected action result. |
 
-## Components And Primitives Used
+## Components Used
 
 - Quick Action
 - Tooltip

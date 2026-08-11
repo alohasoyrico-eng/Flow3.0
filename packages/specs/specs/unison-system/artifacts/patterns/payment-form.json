@@ -1,0 +1,36 @@
+{
+  "artifacts": {
+    "patterns": {
+      "payment-form": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": ["Product Designers", "Developers", "Content Designers", "Researchers", "Agents"],
+        "purpose": "Coordinate card-number, expiry, security-code, amount, validation, feedback, and payment actions without creating a parallel Field or Card shell.",
+        "governingFoundations": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "foundationDependencies": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "primitiveDependencies": ["Breakpoints", "Color", "Density", "Disabled", "Duration", "Elevation", "Field Action", "Focus", "Iconography", "Loading", "Measurement", "Message", "Motion Curves", "Radius", "Spacing", "Surface", "Typography"],
+        "componentDependencies": ["Button", "Card Number Input", "Card Expiry Input", "Card Security Code Input", "Inline Validation", "Input Amount"],
+        "patternDependencies": ["Status Feedback View"],
+        "tokenDependencies": ["comp.button.*", "comp.card-number-input.*", "comp.card-expiry-input.*", "comp.card-security-code-input.*", "comp.inline-validation.*", "comp.input-amount.*", "sys.accessibility.*", "sys.depth.*", "sys.energy.*", "sys.frame.*", "sys.growth.*", "sys.iconography.*", "sys.momentum.*", "sys.state.*", "sys.symbol.*", "sys.tone.*", "sys.voice.*"],
+        "densityContext": ["smartphones + phablets", "tablets + laptops", "desktops + TV"],
+        "entryConditions": ["A flow must collect or review payment-card details.", "Card number, expiry, security code, and optional amount must share one validation and submit contract.", "Payment feedback must route to a formal Flow feedback owner."],
+        "decisionTree": ["Use card input components for card number, expiry, and security code.", "Use Input Amount only when the payment task includes an amount or limit.", "Use Inline Validation for grouped recoverable guidance.", "Use Status Feedback View for blocking, transient, or post-submit payment feedback.", "Use a template when payment is only one module inside a larger card workspace."],
+        "failureModes": ["A local Field wrapper reimplements card input behavior.", "The payment group is wrapped in Card instead of Surface.", "Security-code reveal behavior is recreated outside Card Security Code Input.", "Payment errors are color-only or bypass Status Feedback View."],
+        "successMetrics": ["Every field preserves its component-owned label, helper, validation, density, and state behavior.", "Callbacks return field-specific metadata for card number, expiry, security code, and amount.", "Submit and secondary actions stay explicit Button commands.", "Payment feedback cascades through Status Feedback View."],
+        "states": ["default", "review", "success", "loading", "error", "disabled"],
+        "slots": [
+          { "name": "paymentSurface", "owner": "primitive", "uses": ["Surface"], "purpose": "Structural payment grouping without Card-owned object semantics." },
+          { "name": "cardFields", "owner": "component", "uses": ["Card Number Input", "Card Expiry Input", "Card Security Code Input"], "purpose": "Card credentials keep their component-owned field contracts." },
+          { "name": "amountFields", "owner": "component", "uses": ["Input Amount"], "required": "conditional", "purpose": "Optional amount, limit, or authorization value." },
+          { "name": "validation", "owner": "component", "uses": ["Inline Validation"], "required": "conditional", "purpose": "Grouped guidance that does not replace field-level validation." },
+          { "name": "statusFeedback", "owner": "pattern", "uses": ["Status Feedback View"], "required": "conditional", "purpose": "Blocking, transient, or submit-result feedback." },
+          { "name": "actions", "owner": "component", "uses": ["Button"], "purpose": "Submit, cancel, or secondary payment commands." }
+        ],
+        "accessibility": ["Expose the payment form as a labelled group.", "Delegate field labels, autocomplete, input modes, describedby, invalid state, and reveal controls to field components.", "Keep grouped validation visible and optionally live.", "Keep submit and secondary actions as Button controls."],
+        "tests": ["Composes Surface, card inputs, Input Amount, Inline Validation, Button, and Status Feedback View.", "Covers default, review, success, loading, error, and disabled states.", "Field callbacks preserve metadata and event context.", "Reject Card wrappers, raw inputs, raw buttons, or local field shells."],
+        "agentInstructions": ["Do not create PaymentField, CardInputGroup, or Card-wrapped payment shells.", "Keep Field behavior in the existing card and amount components.", "Use Surface for structure and Status Feedback View for payment status.", "Ask before collecting regulated or stored payment credentials."],
+        "rejectIf": ["Payment fields are raw inputs.", "Card wraps the field group.", "Field behavior is reimplemented in the pattern.", "Security-code reveal is rebuilt locally.", "Submit feedback bypasses Status Feedback View."]
+      }
+    }
+  }
+}

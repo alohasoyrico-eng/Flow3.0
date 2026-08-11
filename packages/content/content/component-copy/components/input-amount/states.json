@@ -1,0 +1,16 @@
+{
+  "components": {
+    "input-amount": {
+      "states": {
+        "copy": "Input Amount states remain inside the shared field cascade: currency context is visible, recovery copy is textual, and Surface ownership stays outside the field.",
+        "demos": [
+          { "label": "Default", "state": "default", "value": "", "currency": "MXN" },
+          { "label": "Filled", "state": "filled", "value": "1250.00", "currency": "MXN" },
+          { "label": "Loading", "state": "loading", "value": "1250.00", "currency": "MXN", "loading": true },
+          { "label": "Error", "state": "error", "value": "99999.00", "currency": "MXN", "error": "Amount exceeds the approved limit." },
+          { "label": "Disabled", "state": "disabled", "value": "500.00", "currency": "MXN", "disabled": true }
+        ]
+      }
+    }
+  }
+}

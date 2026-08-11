@@ -1,0 +1,88 @@
+{
+  "patterns": {
+    "backoffice-approval": {
+      "title": "Backoffice Approval",
+      "purpose": "Coordinate operational document approval queues, document detail review, approve/reject decisions, and feedback without becoming an internal-tools template.",
+      "useWhen": [
+        "A workflow manages submitted documents, KYC evidence, licenses, insurance, or fleet onboarding files.",
+        "Operators need queue selection, detail review, approve/reject decisions, and completion feedback.",
+        "The approval behavior must be reusable across internal operations templates."
+      ],
+      "doNotUseWithoutReview": [
+        "The approval affects regulated, identity, payment, health, legal, safety, or irreversible decisions.",
+        "The workflow only needs a generic queue without document decision behavior.",
+        "Document access is represented only by shell role or route guard."
+      ],
+      "foundations": [
+        ["Accessibility", "A labelled Surface and delegated queue/drawer/feedback boundaries keep document decisions operable."],
+        ["Depth", "Surface owns grouping while Dense Operational List and Drawer Adapter own queue/detail depth."],
+        ["Energy", "Pending, selected, detail-open, deciding, error, and disabled states cascade into badges and pattern boundaries."],
+        ["Frame", "Queue rows, drawer detail, density, and feedback remain token-driven."],
+        ["Growth", "Approval behavior can move into future internal-tools templates without cloning table or drawer behavior."],
+        ["Iconography", "Document and status icons remain owned by child components and patterns."],
+        ["Momentum", "Deciding/loading behavior remains delegated to Flow state contracts."],
+        ["State", "Approval state maps explicitly to queue, drawer, decision, and feedback boundaries."],
+        ["Symbol", "Document symbols may support recognition, but text remains required for status, file, account, submitted time, and decision meaning."],
+        ["Tone", "Pending, approved, rejected, warning, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Decision labels, document copy, and recovery messages stay explicit."]
+      ],
+      "slots": [
+        ["backofficeApprovalSurface", "Surface", "required", "Structural approval operations group."],
+        ["approvalSummary", "Badge", "conditional", "Approval workflow summary."],
+        ["approvalMetric", "Badge", "conditional", "Pending, approved, rejected, or SLA metrics."],
+        ["approvalQueueBoundary", "Dense Operational List", "required", "Document queue, filters, table, pagination, bulk decisions, and selection."],
+        ["approvalDetailBoundary", "Drawer Adapter", "conditional", "Selected document detail and decision actions."],
+        ["approvalFeedbackBoundary", "Status Feedback View", "conditional", "Decision or recovery feedback."]
+      ],
+      "componentsUsed": ["Badge"],
+      "patternDependencies": ["Dense Operational List", "Drawer Adapter", "Status Feedback View"],
+      "variants": [
+        ["Document queue", "Required", "Documents provide ID, account, document type, submitted time, status, and file."],
+        ["Detail decision", "Conditional", "Drawer Adapter owns approve/reject actions for selected documents."],
+        ["Decision feedback", "Conditional", "Status Feedback View owns success/error/recovery messaging."]
+      ],
+      "motion": [
+        ["Deciding", "Surface marks busy while child patterns own loading and feedback rendering."],
+        ["Detail review", "Drawer Adapter owns open/closed transitions."],
+        ["Feedback", "Status Feedback View owns toast/error/empty semantics."]
+      ],
+      "accessibility": [
+        "Expose approval operations as a labelled group.",
+        "Use Flow queue, drawer, and feedback semantics.",
+        "Represent document status and decision state with text.",
+        "Keep approve/reject decisions explicit."
+      ],
+      "implementationChecklist": [
+        "Compose Surface, Badge, Dense Operational List, Drawer Adapter, and Status Feedback View.",
+        "Pass document rows through Dense Operational List.",
+        "Pass selected document review through Drawer Adapter.",
+        "Expose approve and reject via queue/detail actions.",
+        "Reject local document cards, custom drawers, fake approvals, Card wrappers, and docs-only shells."
+      ],
+      "tests": [
+        "Composes Surface plus approval queue, detail, and feedback boundaries.",
+        "Density and state cascade through delegated pattern boundaries.",
+        "Forwards document selection, sort, pagination, bulk approval/rejection, detail, and feedback callbacks.",
+        "No local document card, custom drawer, local toast, route guard, Card wrapper, or injected markup is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Backoffice Approval for document approval queues.",
+          "Use Dense Operational List for the queue boundary.",
+          "Use Drawer Adapter for selected document review."
+        ],
+        "mustAsk": [
+          "Before approving regulated, identity, payment, health, legal, safety, or irreversible documents.",
+          "Before bypassing Flow queue, drawer, or feedback boundaries.",
+          "Before hiding document access inside a template shell."
+        ],
+        "rejectIf": [
+          "A local document card replaces Flow detail boundaries.",
+          "Approval actions are local fake buttons.",
+          "Document status is color-only."
+        ],
+        "handoff": "Confirm document schema, decision states, approve/reject rules, detail content, feedback semantics, and audit requirements."
+      }
+    }
+  }
+}

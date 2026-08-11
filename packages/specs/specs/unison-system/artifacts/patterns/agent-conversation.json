@@ -1,0 +1,188 @@
+{
+  "artifacts": {
+    "patterns": {
+      "agent-conversation": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate a governed conversational workspace from Chat Thread, Chat Composer, and handoff feedback without creating a parallel chat shell in templates.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Chat Composer",
+          "Chat Thread"
+        ],
+        "patternDependencies": [
+          "Status Feedback View"
+        ],
+        "templateDependencies": [
+          "Agent Workspace"
+        ],
+        "tokenDependencies": [
+          "comp.chat-composer.*",
+          "comp.chat-thread.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "mobile",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A product surface needs a reusable conversational workflow.",
+          "Thread, compose, send, attach, offline, error, and handoff states must move together.",
+          "The product template must not own chat bubbles, composer fields, or handoff feedback."
+        ],
+        "decisionTree": [
+          "Use Chat Thread when only a read-only message log is needed.",
+          "Use Chat Composer when only a message input is needed.",
+          "Use Agent Conversation when thread, composer, and handoff/feedback need one coordinated contract.",
+          "Use a product template only after navigation, workspace modules, or agent tooling extend beyond the conversation pattern."
+        ],
+        "failureModes": [
+          "Templates render custom message bubbles or textarea shells.",
+          "Handoff status appears as local copy instead of Status Feedback View.",
+          "Composer send/attach callbacks bypass Chat Composer.",
+          "Thread state and composer state diverge during sending, offline, or disabled flows."
+        ],
+        "successMetrics": [
+          "Users can read messages, recover failed message actions, compose, send, attach, and understand handoff state from one predictable flow.",
+          "Density and state cascade from Surface to thread, feedback, and composer.",
+          "Agent Workspace templates can reuse the pattern without redefining conversation behavior."
+        ],
+        "states": [
+          "default",
+          "active",
+          "composing",
+          "sending",
+          "handoff",
+          "offline",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "conversationSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": "required",
+            "purpose": "Owns structural grouping, density, state, and focus-within cascade for the conversation."
+          },
+          {
+            "name": "thread",
+            "owner": "component",
+            "uses": [
+              "Chat Thread"
+            ],
+            "required": "required",
+            "purpose": "Delegates message log semantics, empty/offline/error state, selected message, and message actions."
+          },
+          {
+            "name": "handoffFeedback",
+            "owner": "pattern",
+            "uses": [
+              "Status Feedback View"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates handoff, offline, recovery, or status feedback."
+          },
+          {
+            "name": "composer",
+            "owner": "component",
+            "uses": [
+              "Chat Composer"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates message entry, controlled/uncontrolled value, send, attach, disabled, error, and sending state."
+          }
+        ],
+        "accessibility": [
+          "Expose the conversation as a labelled group with busy state.",
+          "Delegate log semantics to Chat Thread.",
+          "Delegate form semantics to Chat Composer.",
+          "Keep handoff and recovery feedback in Status Feedback View."
+        ],
+        "tests": [
+          "Composes Surface, Chat Thread, Chat Composer, and Status Feedback View.",
+          "Covers default, active, composing, sending, handoff, offline, error, and disabled states.",
+          "Forwards message action, composer change, send, attach, handoff action, and feedback action callbacks.",
+          "Rejects local chat bubbles, local composers, card wrappers, raw message shells, and Docs-owned chat UI."
+        ],
+        "agentInstructions": [
+          "Do not create custom message bubble visuals.",
+          "Do not create custom composer inputs.",
+          "Use Surface for structural grouping; do not wrap this pattern in Card to create chat panels.",
+          "Ask before using agent handoff for regulated financial, identity, health, legal, or safety operations."
+        ],
+        "rejectIf": [
+          "Messages bypass Chat Thread or Chat Message.",
+          "Composer bypasses Chat Composer.",
+          "Handoff feedback bypasses Status Feedback View.",
+          "Card wraps the conversation group.",
+          "Density or state stops cascading to the thread, feedback, or composer."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

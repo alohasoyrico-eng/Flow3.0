@@ -96,6 +96,41 @@ export const componentContracts = {
       "Preserve native input keyboard behavior."
     ]
   },
+  inputAmount: {
+    factory: "@design-system/react/input-amount",
+    element: "label",
+    purpose: "Capture one monetary amount with visible currency context, decimal keyboard, helper or recovery copy, and the shared Flow field cascade.",
+    variants: ["default"],
+    intents: ["default"],
+    states: ["default", "filled", "loading", "error", "disabled"],
+    props: [
+      { name: "label", type: "string", required: true },
+      { name: "value", type: "string", required: false },
+      { name: "helper", type: "string", required: false },
+      { name: "helperText", type: "string", required: false },
+      { name: "error", type: "string", required: false },
+      { name: "disabled", type: "boolean", required: false },
+      { name: "loading", type: "boolean", required: false },
+      { name: "required", type: "boolean", required: false },
+      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+      { name: "state", type: "\"default\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"", required: false },
+      { name: "name", type: "string", required: false },
+      { name: "placeholder", type: "string", required: false },
+      { name: "currency", type: "string", required: false },
+      { name: "locale", type: "string | string[]", required: false },
+      { name: "prefix", type: "string", required: false },
+      { name: "suffix", type: "string", required: false },
+      { name: "validationMessage", type: "string", required: false },
+      { name: "onValueChange", type: "(value: string, meta: InputAmountMeta) => void", required: false }
+    ],
+    accessibility: [
+      "Keep the visible label associated with the amount input.",
+      "Use inputmode decimal and preserve native paste and correction.",
+      "Expose currency context visually while keeping the field label as the accessible name.",
+      "Associate helper or error copy with aria-describedby.",
+      "Do not own payment orchestration, wallet flow, or card shell behavior."
+    ]
+  },
   cardNumberInput: {
     factory: "@design-system/react/card-number-input",
     element: "label",
@@ -1550,6 +1585,86 @@ export const componentContracts = {
       "Expose the row as a button only when it opens local detail.",
       "Keep amount and status visible as text.",
       "Use movement detail patterns for receipts, disputes, and support."
+    ]
+  },
+  chatMessage: {
+    factory: "@design-system/react/chat-message",
+    element: "article",
+    purpose: "Render one conversational message with author role, tone, delivery state, timestamp, optional avatar, and recovery action.",
+    variants: ["user", "agent", "system", "assistant"],
+    intents: ["message"],
+    states: ["default", "sending", "sent", "delivered", "failed", "loading"],
+    props: [
+      { name: "author", type: "\"user\" | \"agent\" | \"system\" | \"assistant\"", required: false },
+      { name: "authorLabel", type: "string", required: false },
+      { name: "avatar", type: "Partial<AvatarProps>", required: false },
+      { name: "body", type: "string", required: false },
+      { name: "timestamp", type: "ReactNode", required: false },
+      { name: "meta", type: "ReactNode", required: false },
+      { name: "state", type: "\"default\" | \"sending\" | \"sent\" | \"delivered\" | \"failed\" | \"loading\"", required: false },
+      { name: "tone", type: "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"", required: false },
+      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+      { name: "action", type: "ChatMessageAction", required: false }
+    ],
+    accessibility: [
+      "Use article semantics for each message.",
+      "Announce failed and loading states through alert/status live regions.",
+      "Preserve visible author context for non-user messages.",
+      "Route recovery actions through Button."
+    ]
+  },
+  chatThread: {
+    factory: "@design-system/react/chat-thread",
+    element: "div",
+    purpose: "Render a conversational log from governed Chat Message items with empty, loading, offline, error, selected-message, and handoff states.",
+    variants: ["message-list", "empty", "error", "handoff", "offline"],
+    intents: ["conversation"],
+    states: ["default", "loading", "empty", "error", "handoff", "offline"],
+    props: [
+      { name: "label", type: "string", required: false },
+      { name: "description", type: "string", required: false },
+      { name: "messages", type: "ChatThreadMessage[]", required: false },
+      { name: "empty", type: "ChatThreadEmptyState", required: false },
+      { name: "error", type: "ChatThreadEmptyState", required: false },
+      { name: "state", type: "\"default\" | \"loading\" | \"empty\" | \"error\" | \"handoff\" | \"offline\"", required: false },
+      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+      { name: "selectedMessageKey", type: "string", required: false },
+      { name: "onMessageAction", type: "(key: string, event: MouseEvent<HTMLButtonElement>) => void", required: false }
+    ],
+    accessibility: [
+      "Expose the root as role=log with polite announcements.",
+      "Use aria-busy during loading.",
+      "Render unavailable states through EmptyState.",
+      "Preserve selected message focus indication."
+    ]
+  },
+  chatComposer: {
+    factory: "@design-system/react/chat-composer",
+    element: "div",
+    purpose: "Collect one conversational message with controlled/uncontrolled value, sending state, disabled state, validation, optional attachment action, and submit callback.",
+    variants: ["basic", "with-attachment", "sending"],
+    intents: ["message-entry"],
+    states: ["default", "focus", "filled", "sending", "disabled", "error"],
+    props: [
+      { name: "label", type: "string", required: false },
+      { name: "value", type: "string", required: false },
+      { name: "defaultValue", type: "string", required: false },
+      { name: "helper", type: "string", required: false },
+      { name: "sending", type: "boolean", required: false },
+      { name: "error", type: "string", required: false },
+      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+      { name: "state", type: "\"default\" | \"focus\" | \"filled\" | \"sending\" | \"disabled\" | \"error\"", required: false },
+      { name: "sendLabel", type: "string", required: false },
+      { name: "attachLabel", type: "string", required: false },
+      { name: "onValueChange", type: "(value: string, meta: TextAreaChangeMeta, event: ChangeEvent<HTMLTextAreaElement>) => void", required: false },
+      { name: "onSend", type: "(value: string, event: MouseEvent<HTMLButtonElement>) => void", required: false },
+      { name: "onAttach", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false }
+    ],
+    accessibility: [
+      "Expose form role with a labelled textarea.",
+      "Disable empty or sending submissions.",
+      "Connect error/helper text to the Field/TextArea contract.",
+      "Route attachment and send actions through Button/Icon Button semantics."
     ]
   },
   quickAction: {

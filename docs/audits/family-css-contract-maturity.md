@@ -6,7 +6,7 @@ Family CSS contracts are allowed when a component shares a visual cascade; large
 
 ## Inventory
 
-- Family components: 4
+- Family components: 5
 - Review candidates: 0
 - Watchlist: 0
 - Family CSS maturity debt: 0
@@ -31,8 +31,9 @@ Family CSS contracts are allowed when a component shares a visual cascade; large
 
 | Component | Family contract | Required root | Own extension roots | Shared extension roots | Selectors | Aliases | Recommendation |
 | --- | --- | --- | --- | --- | ---: | ---: | --- |
-| input | field | field | None | None | 0 | 0 | keep-family |
-| card-number-input | field | field | card-number-input | None | 8 | 14 | keep-family |
 | card-expiry-input | field | field | card-expiry-input | None | 9 | 6 | keep-family |
+| card-number-input | field | field | card-number-input | None | 8 | 14 | keep-family |
 | card-security-code-input | field | field | card-security-code-input | None | 12 | 11 | keep-family |
+| input | field | field | None | None | 0 | 0 | keep-family |
+| input-amount | field | field | input-amount | None | 6 | 12 | keep-family |
 

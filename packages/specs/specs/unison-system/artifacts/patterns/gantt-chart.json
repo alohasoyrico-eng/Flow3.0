@@ -1,0 +1,190 @@
+{
+  "artifacts": {
+    "patterns": {
+      "gantt-chart": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate task schedules, milestones, dependencies, selected-task review, and accessible data fallback without creating a second chart, table, or timeline implementation.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Charts",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Chart Wrapper"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A schedule needs task duration, milestone, dependency, or selected-task context.",
+          "The visualization must preserve Chart Wrapper state handling and accessible fallback.",
+          "Templates need planning/schedule behavior without owning chart or table internals."
+        ],
+        "decisionTree": [
+          "Use Chart Wrapper for generic dashboard chart modules.",
+          "Use Timeline when chronological events are the primary object.",
+          "Use Gantt Chart when task duration, milestones, dependencies, and fallback rows operate as one schedule workflow."
+        ],
+        "failureModes": [
+          "Gantt bars are implemented with local SVG, canvas, or positioned divs.",
+          "The pattern creates its own table instead of delegating fallback rows to Chart Wrapper and Table.",
+          "Milestone or dependency semantics rely only on color.",
+          "Templates own schedule selection or chart state."
+        ],
+        "successMetrics": [
+          "Users can inspect task duration, milestones, dependencies, and selected task context.",
+          "Assistive technology users receive an equivalent table/list summary through Flow-owned components.",
+          "Density and state cascade from Surface into Chart Wrapper, Chart Panel, Table, and List."
+        ],
+        "states": [
+          "default",
+          "selected",
+          "loading",
+          "empty",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "ganttChartSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": true
+          },
+          {
+            "name": "ganttSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "ganttMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "chartWrapperBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Chart Wrapper"
+            ],
+            "required": true
+          },
+          {
+            "name": "ganttDataSummary",
+            "owner": "pattern",
+            "uses": [
+              "Chart Wrapper"
+            ],
+            "required": true
+          },
+          {
+            "name": "ganttFeedback",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          }
+        ],
+        "accessibility": [
+          "Expose the schedule as a labelled group with busy state.",
+          "Delegate visual chart semantics to Chart Wrapper and Chart Panel.",
+          "Provide equivalent task rows and milestone list through Chart Wrapper fallback slots.",
+          "Do not rely on color alone for dependency, milestone, or selected-task state."
+        ],
+        "tests": [
+          "Composes Surface, Badge, and Chart Wrapper.",
+          "Covers default, selected, loading, empty, error, and disabled states.",
+          "Forwards task selection and primary action callbacks.",
+          "Rejects local chart rendering, raw tables, card wrappers, docs-only demos, and injected markup."
+        ],
+        "agentInstructions": [
+          "Do not render Gantt bars with local SVG, canvas, or positioned divs inside the pattern.",
+          "Use Chart Wrapper for chart state, Chart Panel ownership, fallback Table/List, and actions.",
+          "Use Surface for structural grouping; do not wrap the schedule in Card.",
+          "Ask before using this pattern for regulated, financial, legal, safety, or irreversible planning."
+        ],
+        "rejectIf": [
+          "The chart bypasses Chart Wrapper.",
+          "The fallback data bypasses Chart Wrapper/Table/List.",
+          "A Card wraps the schedule group.",
+          "A template owns task selection, milestone, or dependency state directly."
+        ]
+      }
+    }
+  }
+}

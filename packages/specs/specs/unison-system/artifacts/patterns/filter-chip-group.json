@@ -1,0 +1,171 @@
+{
+  "artifacts": {
+    "patterns": {
+      "filter-chip-group": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate active filters as removable chips with count feedback, empty recovery, reset behavior, and accessible state changes.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Chip",
+          "Empty State",
+          "Toast"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.chip.*",
+          "comp.empty-state.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Users need to see, remove, or reset active filters outside the filter editor.",
+          "The filtered result set needs count, empty, or recovery feedback.",
+          "Filters can be applied from multiple controls but need one governed summary."
+        ],
+        "decisionTree": [
+          "Use Chip alone for a static label or simple token.",
+          "Use Filter Chip Group when chips represent applied query constraints.",
+          "Use Advanced Filters when users need to edit complex rules before applying them."
+        ],
+        "failureModes": [
+          "A chip looks removable but does not update results.",
+          "Reset behavior is hidden or implemented as a custom button.",
+          "Filter state is duplicated between toolbar, table, and chips.",
+          "Empty recovery is shown as ad hoc copy instead of Empty State."
+        ],
+        "successMetrics": [
+          "Users can understand the active filter set at a glance.",
+          "Removing or resetting filters updates results predictably.",
+          "Assistive technology users receive clear state changes."
+        ],
+        "states": [
+          "empty",
+          "active",
+          "overflow",
+          "removing",
+          "resetting",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "filters",
+            "owner": "component",
+            "uses": [
+              "Chip"
+            ]
+          },
+          {
+            "name": "summary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ]
+          },
+          {
+            "name": "reset",
+            "owner": "component",
+            "uses": [
+              "Button"
+            ]
+          },
+          {
+            "name": "emptyState",
+            "owner": "component",
+            "uses": [
+              "Empty State"
+            ],
+            "required": true,
+            "purpose": "Owns empty filter recovery when no applied filters are present."
+          },
+          {
+            "name": "feedback",
+            "owner": "component",
+            "uses": [
+              "Toast"
+            ],
+            "required": "conditional",
+            "purpose": "Reports filter removal, reset, or result-count feedback without creating a second notification visual."
+          }
+        ],
+        "accessibility": [
+          "Expose each chip remove control with the filter name.",
+          "Announce result count or empty state after filter changes.",
+          "Keep focus predictable after removing the focused chip."
+        ],
+        "tests": [
+          "Removes individual chips without custom button visuals.",
+          "Resets all filters through Button.",
+          "Shows Empty State and Toast through Flow components."
+        ],
+        "agentInstructions": [
+          "Compose from Chip, Button, Badge, Empty State, and Toast.",
+          "Keep filter editing controls in Advanced Filters, Toolbar, Search, or product forms.",
+          "Do not invent local chip, badge, or reset-button classes."
+        ],
+        "rejectIf": [
+          "Filter summary and filter editor are the same component.",
+          "Chips are decorative and do not reflect real query state.",
+          "A second chip visual style appears outside Chip.",
+          "Raw spacing, radius, color, or motion bypasses tokens."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

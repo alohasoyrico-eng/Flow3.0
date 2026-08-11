@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const {
+  docsAppDir,
   fs,
   path,
   read,
@@ -21,8 +22,8 @@ const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "
 const reactCountrySelectorFile = path.join(root, "packages/react/src/CountrySelector.js");
 const specFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/country-flags.json");
 const contractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/country-flags.md");
-const vendorDir = path.join(root, "apps/docs/vendor/country-flag-icons/3x2");
-const vendorLicenseFile = path.join(root, "apps/docs/vendor/country-flag-icons/LICENSE");
+const vendorDir = path.join(docsAppDir, "vendor/country-flag-icons/3x2");
+const vendorLicenseFile = path.join(docsAppDir, "vendor/country-flag-icons/LICENSE");
 const primitiveReports = {
   "library-sources": path.join(root, "docs/audits/primitive-library-sources-cascade-audit.json"),
   iconography: path.join(root, "docs/audits/primitive-iconography-cascade-audit.json"),

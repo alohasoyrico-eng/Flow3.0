@@ -1,0 +1,95 @@
+{
+  "patterns": {
+    "dense-operational-list": {
+      "purpose": "Coordinate dense operational records with search, filters, toolbar actions, bulk actions, virtual table behavior, and feedback without creating a parallel table or card-list implementation.",
+      "useWhen": [
+        "A template needs a reusable operational records workspace.",
+        "Search, filter chips, local actions, selection, and pagination must act as one flow.",
+        "Virtual Data Table is necessary but not sufficient because the workflow also owns operational controls."
+      ],
+      "doNotUseWithoutReview": [
+        "The experience is a lightweight static list.",
+        "The flow includes regulated identity, finance, safety, or compliance changes.",
+        "A product template is trying to redefine Search, Toolbar, Filter Chip Group, Bulk Actions, or Virtual Data Table behavior."
+      ],
+      "foundations": [
+        ["Accessibility", "The group, search, filter counts, selection count, table semantics, and feedback stay announced through formal owners."],
+        ["Depth", "Surface owns structure and focus-within grouping without Card wrapping."],
+        ["Energy", "Filtered, selected, loading, error, disabled, and recovery states cascade to child patterns."],
+        ["Frame", "Dense spacing and responsive operational layout stay token-driven."],
+        ["Growth", "Operational state remains observable for templates without moving behavior into the template layer."],
+        ["Iconography", "Icons remain owned by Toolbar, Search, and child components."],
+        ["Momentum", "Loading and busy states use existing child pattern motion."],
+        ["State", "Pattern state maps to every dependent child pattern."],
+        ["Symbol", "Status and action symbols remain semantic through child owners."],
+        ["Tone", "Error, warning, selected, filtered, and neutral tones stay in Flow contracts."],
+        ["Voice", "Result counts, filter labels, empty states, and feedback remain explicit and recoverable."]
+      ],
+      "slots": [
+        ["listSurface", "Surface", "required", "Structural operational list group."],
+        ["searchBoundary", "Search", "conditional", "Query entry and result count."],
+        ["summary", "Badge", "conditional", "Description or status summary."],
+        ["filterSummary", "Filter Chip Group", "required", "Active filters, reset, and count."],
+        ["toolbarBoundary", "Toolbar", "conditional", "Local actions and overflow."],
+        ["bulkActionsBoundary", "Bulk Actions", "conditional", "Selected-record operations."],
+        ["tableBoundary", "Virtual Data Table", "required", "Rows, selection, sort, pagination, and table states."],
+        ["statusFeedback", "Status Feedback View", "conditional", "Recovery or operation feedback."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Bulk Actions",
+        "Filter Chip Group",
+        "Search",
+        "Status Feedback View",
+        "Toolbar",
+        "Virtual Data Table"
+      ],
+      "variants": [
+        ["Searchable", "Conditional", "Includes Search when query entry is part of the operational flow."],
+        ["Filtered", "Required boundary", "Filter Chip Group owns active filters even when empty."],
+        ["Actionable", "Conditional", "Toolbar owns dense local actions and overflow."],
+        ["Selectable", "Conditional", "Bulk Actions owns selected-count and operation state."],
+        ["Virtualized", "Default", "Virtual Data Table owns large row rendering and pagination."]
+      ],
+      "motion": [
+        ["Loading", "Surface marks busy while Virtual Data Table and child patterns own loading render."],
+        ["Filtered or selected", "Surface marks selected structure while chips and table own semantic details."],
+        ["Feedback", "Status Feedback View owns operation feedback motion."]
+      ],
+      "accessibility": [
+        "Expose the whole list as a labelled group.",
+        "Delegate search semantics to Search.",
+        "Delegate row and column semantics to Virtual Data Table.",
+        "Keep selected and filter counts visible and announced.",
+        "Keep recovery feedback in Status Feedback View."
+      ],
+      "tests": [
+        "Composes Surface plus the required child pattern boundaries.",
+        "Density and state cascade through child patterns.",
+        "Callbacks preserve event context.",
+        "No Card wrapper, raw table shell, local filter chip, local toolbar, or local status shell is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Dense Operational List for reusable operational record flows.",
+          "Add Bulk Actions only when selected rows can trigger operations.",
+          "Keep product-specific row data and permissions outside the pattern."
+        ],
+        "mustAsk": [
+          "Operations affect money, identity, compliance, safety, or destructive records.",
+          "A template wants custom row cards instead of table semantics.",
+          "The flow needs inline editing or expandable detail behavior."
+        ],
+        "rejectIf": [
+          "Rows are rendered outside Virtual Data Table.",
+          "Card wraps the operational list group.",
+          "Search, Toolbar, Filter Chip Group, or Bulk Actions are copied locally.",
+          "Feedback bypasses Status Feedback View."
+        ],
+        "handoff": "Confirm row model, filter source, selection rules, local actions, bulk operation policy, pagination, feedback type, and regulatory risk before shipping Dense Operational List."
+      }
+    }
+  }
+}

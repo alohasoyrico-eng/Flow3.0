@@ -12,8 +12,10 @@
         "Researchers"
       ],
       "componentsUsed": [
-        "Motion Boundary",
+        "Badge",
         "Button",
+        "List",
+        "Motion Boundary",
         "Toast"
       ],
       "tokens": [
@@ -21,6 +23,9 @@
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Settings"
       ]
     },
     {
@@ -35,16 +40,25 @@
         "Researchers"
       ],
       "componentsUsed": [
-        "Select",
-        "Date Picker",
+        "Badge",
         "Button",
-        "Date Range Picker"
+        "Chip",
+        "Date Range Picker",
+        "Drawer",
+        "Inline Validation",
+        "Input",
+        "Menu",
+        "Select",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Toolbar"
       ]
     },
     {
@@ -59,9 +73,15 @@
         "PMs"
       ],
       "componentsUsed": [
-        "Table",
+        "Badge",
+        "Button",
         "Checkbox",
-        "Dialog"
+        "Dialog",
+        "Drawer",
+        "Inline Validation",
+        "Menu",
+        "Table",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
@@ -82,9 +102,15 @@
         "Developers"
       ],
       "componentsUsed": [
-        "Date Picker",
-        "Tooltip",
-        "Popover"
+        "Badge",
+        "Button",
+        "Card",
+        "Date Range Picker",
+        "Empty State",
+        "List",
+        "Popover",
+        "Skeleton",
+        "Tooltip"
       ],
       "tokens": [
         "frame.canvas",
@@ -105,15 +131,103 @@
         "Researchers"
       ],
       "componentsUsed": [
+        "Badge",
+        "Button",
         "Chart Panel",
+        "Empty State",
+        "Error Panel",
+        "KPI Tile",
+        "List",
+        "Menu",
         "Skeleton",
-        "Empty State"
+        "Table"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "gantt-chart",
+      "title": "Gantt Chart",
+      "platform": "Cross-platform",
+      "summary": "Coordinate task schedules, milestones, dependencies, selected-task state, and accessible chart fallback through Chart Wrapper.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ],
+      "patternDependencies": [
+        "Chart Wrapper"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "waterfall-chart",
+      "title": "Waterfall Chart",
+      "platform": "Cross-platform",
+      "summary": "Coordinate contribution steps, cumulative totals, selected-step state, and accessible chart fallback through Chart Wrapper.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ],
+      "patternDependencies": [
+        "Chart Wrapper"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "polar-chart",
+      "title": "Polar Chart",
+      "platform": "Cross-platform",
+      "summary": "Coordinate segment comparison, share/status context, selected-segment state, and accessible chart fallback through Chart Wrapper.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ],
+      "patternDependencies": [
+        "Chart Wrapper"
       ]
     },
     {
@@ -128,15 +242,51 @@
         "Researchers"
       ],
       "componentsUsed": [
-        "Code Input",
         "Biometric Prompt",
-        "Error Panel"
+        "Button",
+        "Code Input",
+        "Error Panel",
+        "Inline Validation",
+        "Input",
+        "Phone Input",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "transfer-list",
+      "title": "Transfer List",
+      "platform": "Desktop",
+      "summary": "Move users, vehicles, roles, or permissions between available and selected sets with search and review.",
+      "audiences": [
+        "Service Designers",
+        "Developers",
+        "Product Designers"
+      ],
+      "componentsUsed": [
+        "Badge",
+        "Button",
+        "Checkbox",
+        "Inline Validation",
+        "Input",
+        "List",
+        "Toast"
+      ],
+      "tokens": [
+        "frame.canvas",
+        "voice.guidance",
+        "motion.reveal",
+        "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Multi Select",
+        "Search"
       ]
     }
   ]

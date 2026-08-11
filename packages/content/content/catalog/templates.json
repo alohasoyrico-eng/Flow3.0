@@ -15,14 +15,17 @@
       ],
       "patternsUsed": [
         "Driver Onboarding Mobile",
-        "Mobile Card Overview",
-        "Routes and Nearby Stations Mobile"
+        "Station Discovery"
       ],
       "tokens": [
         "typography.edenred-title",
         "typography.ubuntu-body",
         "density.md",
         "chart.semantic"
+      ],
+      "templateModulesUsed": [
+        "Mobile Card Overview",
+        "Routes and Nearby Stations Mobile"
       ]
     },
     {
@@ -41,14 +44,17 @@
       "patternsUsed": [
         "Topbar",
         "Sidebar",
-        "Fleet Dashboard Overview",
-        "Fuel Dashboard"
+        "Roles and Permissions"
       ],
       "tokens": [
         "typography.edenred-title",
         "typography.ubuntu-body",
         "density.md",
         "chart.semantic"
+      ],
+      "templateModulesUsed": [
+        "Fleet Dashboard Overview",
+        "Fuel Dashboard"
       ]
     },
     {
@@ -64,16 +70,17 @@
         "Researchers",
         "Service Designers"
       ],
-      "patternsUsed": [
-        "Mobile Card Overview",
-        "Mobile Card Detail and Quick Actions",
-        "Mobile Movement Detail"
-      ],
+      "patternsUsed": [],
       "tokens": [
         "typography.edenred-title",
         "typography.ubuntu-body",
         "density.md",
         "chart.semantic"
+      ],
+      "templateModulesUsed": [
+        "Mobile Card Overview",
+        "Mobile Card Detail and Quick Actions",
+        "Mobile Movement Detail"
       ]
     },
     {
@@ -90,14 +97,17 @@
         "Service Designers"
       ],
       "patternsUsed": [
-        "Routes and Nearby Stations Mobile",
-        "Station Detail and Route Guidance"
+        "Station Discovery"
       ],
       "tokens": [
         "typography.edenred-title",
         "typography.ubuntu-body",
         "density.md",
         "chart.semantic"
+      ],
+      "templateModulesUsed": [
+        "Routes and Nearby Stations Mobile",
+        "Station Detail and Route Guidance"
       ]
     },
     {
@@ -115,7 +125,15 @@
       ],
       "patternsUsed": [
         "Topbar",
-        "Sidebar",
+        "Sidebar"
+      ],
+      "tokens": [
+        "typography.edenred-title",
+        "typography.ubuntu-body",
+        "density.md",
+        "chart.semantic"
+      ],
+      "templateModulesUsed": [
         "Fleet Dashboard Overview",
         "Fuel Dashboard",
         "Maintenance Dashboard",
@@ -123,12 +141,6 @@
         "Toll Dashboard",
         "Fleet Dashboard",
         "Finance Dashboard"
-      ],
-      "tokens": [
-        "typography.edenred-title",
-        "typography.ubuntu-body",
-        "density.md",
-        "chart.semantic"
       ]
     },
     {
@@ -147,6 +159,7 @@
       "patternsUsed": [
         "Topbar",
         "Sidebar",
+        "Roles and Permissions",
         "Driver and Vehicle Administration",
         "Authentication, Login, Biometrics and OTP"
       ],
@@ -155,6 +168,105 @@
         "typography.ubuntu-body",
         "density.md",
         "chart.semantic"
+      ]
+    },
+    {
+      "type": "template",
+      "id": "agent-workspace",
+      "title": "Agent Workspace",
+      "platform": "Desktop",
+      "summary": "Conversational workspace for agents: queue, chat thread, composer, context evidence, handoff, and recovery states.",
+      "audiences": [
+        "Product Designers",
+        "PMs",
+        "Developers",
+        "Researchers",
+        "Service Designers",
+        "Agents"
+      ],
+      "patternsUsed": [
+        "Agent Conversation",
+        "Topbar",
+        "Status Feedback View"
+      ],
+      "tokens": [
+        "typography.edenred-title",
+        "typography.ubuntu-body",
+        "density.md",
+        "surface.semantic"
+      ],
+      "templateModulesUsed": [
+        "Conversation queue",
+        "Agent Conversation",
+        "Agent state",
+        "Handoff recovery",
+        "Workspace context"
+      ]
+    },
+    {
+      "type": "template",
+      "id": "internal-operations-console",
+      "title": "Internal Operations Console",
+      "platform": "Desktop",
+      "summary": "Desktop operations console for cases, tickets, accounts, pricing, approvals, and growth workflows using governed Flow patterns.",
+      "audiences": [
+        "Product Designers",
+        "PMs",
+        "Developers",
+        "Researchers",
+        "Service Designers",
+        "Operations"
+      ],
+      "patternsUsed": [
+        "Topbar",
+        "Sidebar",
+        "Case Management",
+        "Ticket Queue",
+        "Account Operations",
+        "Pricing Operations",
+        "Backoffice Approval",
+        "Dense Operational List"
+      ],
+      "tokens": [
+        "typography.edenred-title",
+        "typography.ubuntu-body",
+        "density.sm",
+        "surface.semantic"
+      ],
+      "templateModulesUsed": [
+        "Case operations",
+        "Ticket operations",
+        "Account operations",
+        "Pricing operations",
+        "Backoffice approvals",
+        "Growth operations"
+      ]
+    },
+    {
+      "type": "template",
+      "id": "settings-workspace",
+      "title": "Settings Workspace",
+      "platform": "Desktop",
+      "summary": "Full product settings workspace for preferences, form sections, theme mode, validation, and danger-zone confirmation.",
+      "audiences": [
+        "Product Designers",
+        "PMs",
+        "Developers",
+        "Researchers",
+        "Service Designers"
+      ],
+      "patternsUsed": [
+        "Preference Management"
+      ],
+      "tokens": [
+        "typography.edenred-title",
+        "typography.ubuntu-body",
+        "density.md",
+        "surface.semantic"
+      ],
+      "templateModulesUsed": [
+        "Section navigation",
+        "Preference management"
       ]
     }
   ]

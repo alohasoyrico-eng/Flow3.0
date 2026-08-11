@@ -1,0 +1,94 @@
+{
+  "patterns": [
+    {
+      "type": "pattern",
+      "id": "case-management",
+      "title": "Case Management",
+      "platform": "Cross-platform",
+      "summary": "Coordinate case filters, records, selected-case detail, activity timeline, and recovery feedback through Flow-owned operational boundaries.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "patternDependencies": [
+        "Advanced Filters",
+        "Dense Operational List",
+        "Drawer Adapter",
+        "Status Feedback View",
+        "Timeline"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "filterable-editable-table",
+      "title": "Filterable Editable Table",
+      "platform": "Cross-platform",
+      "summary": "Coordinate advanced filters, virtualized table rows, selected-row editing, and recovery feedback through Flow-owned table boundaries.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "patternDependencies": [
+        "Advanced Filters",
+        "Drawer Adapter",
+        "Status Feedback View",
+        "Virtual Data Table"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "pricing-operations",
+      "title": "Pricing Operations",
+      "platform": "Cross-platform",
+      "summary": "Coordinate pricing rule queues, editable rule review, approval submission, permission boundaries, and operational feedback.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "patternDependencies": [
+        "Virtual Data Table",
+        "Roles and Permissions",
+        "Status Feedback View"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    }
+  ]
+}

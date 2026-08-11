@@ -217,6 +217,25 @@ function collectComponentStateContracts() {
   return [...contracts.values()].sort((a, b) => a.id.localeCompare(b.id));
 }
 
+function mergeComponentCopyShards() {
+  const manifest = readJson(componentCopyFile);
+  const components = { ...(manifest?.components ?? {}) };
+  const shards = Array.isArray(manifest?.$systemShards) ? manifest.$systemShards : [];
+  for (const shard of shards) {
+    if (!/^component-copy\/components\/.+\.json$/.test(shard)) continue;
+    const file = path.join(root, "packages/content/content", shard);
+    if (!fs.existsSync(file)) continue;
+    const shardComponents = readJson(file)?.components ?? {};
+    for (const [id, sections] of Object.entries(shardComponents)) {
+      components[id] = {
+        ...(components[id] ?? {}),
+        ...sections,
+      };
+    }
+  }
+  return components;
+}
+
 function checkComponentStateContract(contract, copy) {
   const findings = [];
   const { id, states, precedence } = contract;
@@ -367,7 +386,7 @@ function createReport() {
   const templateRefs = collectArtifactRefs(templateDir, stateRefPattern);
   const docsCssUse = docsCssFiles.reduce((total, file) => total + countMatches(readIfExists(file), tokenUsePattern), 0);
   const packageCssUse = countMatches(componentCss, tokenUsePattern);
-  const componentCopy = readJson(componentCopyFile)?.components ?? {};
+  const componentCopy = mergeComponentCopyShards();
   const componentStateContracts = collectComponentStateContracts();
   const componentStateFindings = componentStateContracts.flatMap((contract) => checkComponentStateContract(contract, componentCopy));
   const stateCssFindings = cssFiles.flatMap((file) => findStateCssDeclarations(file, readIfExists(file), customProperties));

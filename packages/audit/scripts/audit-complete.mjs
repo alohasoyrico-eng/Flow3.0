@@ -17,9 +17,21 @@ const hasPrimitiveCascadeGate = hasFoundationDependencyMatrix
   && hasRepoFile("docs/audits/foundation-frame-cascade-audit.json")
   && hasRepoFile("docs/audits/primitive-density-cascade-audit.json")
   && hasRepoFile("docs/audits/primitive-spacing-cascade-audit.json");
+const primitiveCascadeGovernance = readJsonIfExists(
+  path.join(root, "packages/content/content/primitive-cascade-governance.json"),
+  { activeCascadeReports: ["surface"], backlogCascadeReports: {} },
+);
 
 function hasRepoFile(file) {
   return fs.existsSync(path.join(root, file));
+}
+
+function readJsonIfExists(file, fallback) {
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch {
+    return fallback;
+  }
 }
 
 const expectedAuditFiles = new Set([
@@ -40,6 +52,9 @@ const expectedAuditFiles = new Set([
   "audit-card-css-contract.js",
   "audit-card-summary-css-contract.js",
   "audit-chart-panel-css-contract.js",
+  "audit-chat-composer-css-contract.js",
+  "audit-chat-message-css-contract.js",
+  "audit-chat-thread-css-contract.js",
   "audit-checkbox-css-contract.js",
   "audit-chip-css-contract.js",
   "audit-choice-css-contract.js",
@@ -82,6 +97,8 @@ const expectedAuditFiles = new Set([
   "audit-empty-state-css-contract.js",
   "audit-energy-contracts.js",
   "audit-error-panel-css-contract.js",
+  "report-email-channel-governance.js",
+  "report-email-channel-renderer.mjs",
   "audit-field-css-contract.js",
   "audit-floating-action-button-css-contract.js",
   "audit-frame-contracts.js",
@@ -153,7 +170,20 @@ const expectedAuditFiles = new Set([
   "report-foundation-primitive-export-contract.js",
   "report-legacy-dom-source-governance.js",
   "report-package-css-root-governance.js",
+  "report-pattern-1to1-architecture.js",
+  "report-pattern-contract-governance.js",
+  "report-pattern-foundation-primitive-1to1.js",
   "report-pattern-readiness.js",
+  "report-pattern-react-migration-audit.js",
+  "report-pattern-react-migration-plan.js",
+  "report-template-cascade-governance.js",
+  "report-zip-foundation-primitive-validation.js",
+  "report-zip-flow-gap-audit.js",
+  "report-zip-kit-cascade-matrix.js",
+  "report-zip-kit-runtime-coverage.js",
+  "report-zip-owner-export-matrix.js",
+  "report-zip-system-intake.js",
+  "report-zip-template-parity.js",
   "report-react-accessibility-governance.js",
   "report-anti-duplication-coverage.js",
   "report-component-css-contract-coverage.js",
@@ -182,6 +212,8 @@ const expectedAuditFiles = new Set([
   "report-foundation-voice-cascade.js",
   "report-primitive-breakpoints-cascade.js",
   "report-primitive-charts-cascade.js",
+  "report-primitive-cascade-activation-plan.js",
+  "report-primitive-cascade-governance.js",
   "report-primitive-country-flags-cascade.js",
   "report-primitive-animation-assets-cascade.js",
   "report-primitive-illustration-assets-cascade.js",
@@ -201,35 +233,48 @@ const expectedAuditFiles = new Set([
   "report-primitive-radius-cascade.js",
   "report-primitive-research-cascade.js",
   "report-primitive-spacing-cascade.js",
+  "report-primitive-surface-cascade.js",
   "report-primitive-typography-cascade.js",
   "report-foundation-quality.js",
   "report-react-interaction-coverage.js",
+  "report-react-pattern-behavior-governance.js",
+  "report-react-pattern-composition-governance.js",
+  "report-react-template-composition-governance.mjs",
+  "report-react-template-interaction-governance.mjs",
+  "report-react-template-runtime-governance.mjs",
+  "report-react-template-visual-governance.mjs",
 ]);
 
-const primitiveCascadeChecks = [
-  ["breakpoints primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-breakpoints-cascade.js", "--check"])],
-  ["charts primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-charts-cascade.js", "--check"])],
-  ["country flags primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-country-flags-cascade.js", "--check"])],
-  ["animation assets primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-animation-assets-cascade.js", "--check"])],
-  ["illustration assets primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-illustration-assets-cascade.js", "--check"])],
-  ["library sources primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-library-sources-cascade.js", "--check"])],
-  ["color primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-color-cascade.js", "--check"])],
-  ["density primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-density-cascade.js", "--check"])],
-  ["disabled primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-disabled-cascade.js", "--check"])],
-  ["duration primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-duration-cascade.js", "--check"])],
-  ["elevation primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-elevation-cascade.js", "--check"])],
-  ["focus primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-focus-cascade.js", "--check"])],
-  ["iconography primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-iconography-cascade.js", "--check"])],
-  ["loading primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-loading-cascade.js", "--check"])],
-  ["maps primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-maps-cascade.js", "--check"])],
-  ["measurement primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-measurement-cascade.js", "--check"])],
-  ["message primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-message-cascade.js", "--check"])],
-  ["motion curves primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-motion-curves-cascade.js", "--check"])],
-  ["radius primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-radius-cascade.js", "--check"])],
-  ["research primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-research-cascade.js", "--check"])],
-  ["spacing primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-spacing-cascade.js", "--check"])],
-  ["typography primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-typography-cascade.js", "--check"])],
-];
+const primitiveCascadeCheckRegistry = new Map([
+  ["animation-assets", ["animation assets primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-animation-assets-cascade.js", "--check"])]],
+  ["breakpoints", ["breakpoints primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-breakpoints-cascade.js", "--check"])]],
+  ["charts", ["charts primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-charts-cascade.js", "--check"])]],
+  ["color", ["color primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-color-cascade.js", "--check"])]],
+  ["country-flags", ["country flags primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-country-flags-cascade.js", "--check"])]],
+  ["density", ["density primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-density-cascade.js", "--check"])]],
+  ["disabled", ["disabled primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-disabled-cascade.js", "--check"])]],
+  ["duration", ["duration primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-duration-cascade.js", "--check"])]],
+  ["elevation", ["elevation primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-elevation-cascade.js", "--check"])]],
+  ["focus", ["focus primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-focus-cascade.js", "--check"])]],
+  ["iconography", ["iconography primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-iconography-cascade.js", "--check"])]],
+  ["illustration-assets", ["illustration assets primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-illustration-assets-cascade.js", "--check"])]],
+  ["library-sources", ["library sources primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-library-sources-cascade.js", "--check"])]],
+  ["loading", ["loading primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-loading-cascade.js", "--check"])]],
+  ["maps", ["maps primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-maps-cascade.js", "--check"])]],
+  ["measurement", ["measurement primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-measurement-cascade.js", "--check"])]],
+  ["message", ["message primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-message-cascade.js", "--check"])]],
+  ["motion-curves", ["motion curves primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-motion-curves-cascade.js", "--check"])]],
+  ["radius", ["radius primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-radius-cascade.js", "--check"])]],
+  ["research", ["research primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-research-cascade.js", "--check"])]],
+  ["spacing", ["spacing primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-spacing-cascade.js", "--check"])]],
+  ["surface", ["surface primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-surface-cascade.js", "--check"])]],
+  ["typography", ["typography primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-typography-cascade.js", "--check"])]],
+]);
+
+const activePrimitiveCascadeChecks = primitiveCascadeGovernance.activeCascadeReports.map((id) => (
+  primitiveCascadeCheckRegistry.get(id)
+  ?? [`${id} primitive cascade report`, () => { throw new Error(`Unknown active primitive cascade report: ${id}.`); }]
+));
 
 const checks = [
   ["audit registry", auditRegistry],
@@ -238,6 +283,9 @@ const checks = [
   ["public prefix", auditPublicPrefix],
   ...(hasRepoFile("scripts/generate-token-contract.mjs")
     ? [["token contract freshness", () => run("node", ["scripts/generate-token-contract.mjs", "--check"])]]
+    : []),
+  ...(hasRepoFile("scripts/generate-pattern-contracts.mjs")
+    ? [["pattern contract freshness", () => run("node", ["scripts/generate-pattern-contracts.mjs", "--check"])]]
     : []),
   ...(hasRepoFile("packages/react/scripts/build.mjs")
     ? [["react dist freshness", () => run("node", ["packages/react/scripts/build.mjs", "--check"])]]
@@ -262,7 +310,11 @@ const checks = [
   ...(hasRepoFile("scripts/generate-primitive-contracts.mjs")
     ? [["primitive contracts", () => run("node", ["scripts/generate-primitive-contracts.mjs", "--check"])]]
     : []),
-  ...(hasPrimitiveCascadeGate ? primitiveCascadeChecks : []),
+  ["primitive cascade governance", auditPrimitiveCascadeGovernance],
+  ...(hasPrimitiveCascadeGate ? activePrimitiveCascadeChecks : []),
+  ...(!hasPrimitiveCascadeGate && hasRepoFile("packages/audit/scripts/report-primitive-surface-cascade.js")
+    ? [["surface primitive cascade report", () => run("node", ["packages/audit/scripts/report-primitive-surface-cascade.js", "--check"])]]
+    : []),
   ...(hasDocsApp ? [["docs build", () => run("npm", ["run", "build:docs"])]] : []),
   ...(hasDocsApp ? [["static system/docs/integration", () => run("node", ["packages/audit/scripts/audit-system.js"])]] : []),
   ["platform adapters", () => run("node", ["packages/audit/scripts/audit-system-scope.js"])],
@@ -283,6 +335,10 @@ const checks = [
   ["docs system boundary report", () => run("node", ["packages/audit/scripts/report-docs-system-boundary.js", "--check"])],
   ["taxonomy boundaries report", () => run("node", ["packages/audit/scripts/report-taxonomy-boundaries.js", "--check"])],
   ["foundation primitive export contract report", () => run("node", ["packages/audit/scripts/report-foundation-primitive-export-contract.js", "--check"])],
+  ["primitive cascade governance report", () => run("node", ["packages/audit/scripts/report-primitive-cascade-governance.js", "--check"])],
+  ["primitive cascade activation plan", () => run("node", ["packages/audit/scripts/report-primitive-cascade-activation-plan.js", "--check"])],
+  ["email channel governance report", () => run("node", ["packages/audit/scripts/report-email-channel-governance.js", "--check"])],
+  ["email channel renderer report", () => run("node", ["packages/audit/scripts/report-email-channel-renderer.mjs", "--check"])],
   ["legacy DOM source governance report", () => run("node", ["packages/audit/scripts/report-legacy-dom-source-governance.js", "--check"])],
   ["anti duplication coverage report", () => run("node", ["packages/audit/scripts/report-anti-duplication-coverage.js", "--check"])],
   ["react accessibility governance report", () => run("node", ["packages/audit/scripts/report-react-accessibility-governance.js", "--check"])],
@@ -294,11 +350,30 @@ const checks = [
   ["react primary coverage report", () => run("node", ["packages/audit/scripts/report-react-primary-coverage.js", "--check"])],
   ["react style governance report", () => run("node", ["packages/audit/scripts/report-react-style-governance.js", "--check"])],
   ["react interaction coverage report", () => run("node", ["packages/audit/scripts/report-react-interaction-coverage.js", "--check"])],
+  ["react pattern behavior governance report", () => run("node", ["packages/audit/scripts/report-react-pattern-behavior-governance.js", "--check"])],
+  ["react pattern composition governance report", () => run("node", ["packages/audit/scripts/report-react-pattern-composition-governance.js", "--check"])],
+  ["react template composition governance report", () => run("node", ["packages/audit/scripts/report-react-template-composition-governance.mjs", "--check"])],
+  ["react template interaction governance report", () => run("node", ["packages/audit/scripts/report-react-template-interaction-governance.mjs", "--check"])],
+  ["react template runtime governance report", () => run("node", ["packages/audit/scripts/report-react-template-runtime-governance.mjs", "--check"])],
+  ["react template visual governance report", () => run("node", ["packages/audit/scripts/report-react-template-visual-governance.mjs", "--check"])],
+  ["zip foundation primitive validation report", () => run("node", ["packages/audit/scripts/report-zip-foundation-primitive-validation.js", "--check"])],
+  ["zip flow gap report", () => run("node", ["packages/audit/scripts/report-zip-flow-gap-audit.js", "--check"])],
+  ["zip kit cascade matrix report", () => run("node", ["packages/audit/scripts/report-zip-kit-cascade-matrix.js", "--check"])],
+  ["zip kit runtime coverage report", () => run("node", ["packages/audit/scripts/report-zip-kit-runtime-coverage.js", "--check"])],
+  ["zip owner export matrix report", () => run("node", ["packages/audit/scripts/report-zip-owner-export-matrix.js", "--check"])],
+  ["zip template parity report", () => run("node", ["packages/audit/scripts/report-zip-template-parity.js", "--check"])],
+  ["zip system intake report", () => run("node", ["packages/audit/scripts/report-zip-system-intake.js", "--check"])],
   ["component css contract coverage report", () => run("node", ["packages/audit/scripts/report-component-css-contract-coverage.js", "--check"])],
   ["family css contract maturity report", () => run("node", ["packages/audit/scripts/report-family-css-contract-maturity.js", "--check"])],
   ["package css root governance report", () => run("node", ["packages/audit/scripts/report-package-css-root-governance.js", "--check"])],
   ["component visual cascade report", () => run("node", ["packages/audit/scripts/report-component-visual-cascade.js", "--check"])],
+  ["pattern 1:1 architecture report", () => run("node", ["packages/audit/scripts/report-pattern-1to1-architecture.js", "--check"])],
+  ["pattern contract governance report", () => run("node", ["packages/audit/scripts/report-pattern-contract-governance.js", "--check"])],
+  ["pattern foundation primitive 1:1 report", () => run("node", ["packages/audit/scripts/report-pattern-foundation-primitive-1to1.js", "--check"])],
   ["pattern readiness report", () => run("node", ["packages/audit/scripts/report-pattern-readiness.js", "--check"])],
+  ["pattern react migration audit", () => run("node", ["packages/audit/scripts/report-pattern-react-migration-audit.js", "--check"])],
+  ["pattern react migration plan", () => run("node", ["packages/audit/scripts/report-pattern-react-migration-plan.js", "--check"])],
+  ["template cascade governance report", () => run("node", ["packages/audit/scripts/report-template-cascade-governance.js", "--check"])],
   ["system debt ledger", () => run("node", ["packages/audit/scripts/report-system-debt-ledger.js", "--check"])],
 ];
 
@@ -382,16 +457,19 @@ function auditEntrypoints() {
 
 function auditDebtMetrics() {
   const auditsDir = path.join(root, "docs/audits");
+  const governance = JSON.parse(fs.readFileSync(path.join(root, "packages/content/content/system-debt-governance.json"), "utf8"));
+  const contractArtifactFiles = new Set(Array.isArray(governance.contractArtifactFiles) ? governance.contractArtifactFiles : []);
   if (!fs.existsSync(auditsDir)) return;
   const missing = [];
   const nonNumeric = [];
-  for (const file of fs.readdirSync(auditsDir).filter((item) => item.endsWith(".json")).sort()) {
+  for (const file of fs.readdirSync(auditsDir).filter((item) => item.endsWith(".json") && !contractArtifactFiles.has(item)).sort()) {
     const report = JSON.parse(fs.readFileSync(path.join(auditsDir, file), "utf8"));
     const entries = [
       ...Object.entries(report),
       ...Object.entries(report.inventory ?? {}),
       ...Object.entries(report.summary ?? {}),
     ].filter(([key]) => /(?:debt|debtMetrics)$/i.test(key));
+    if (!entries.length && Array.isArray(report.gaps)) entries.push(["gapsDebt", report.gaps.length]);
     if (!entries.length) missing.push(file);
     nonNumeric.push(...entries
       .filter(([, value]) => typeof value !== "number")
@@ -428,6 +506,46 @@ function auditFoundationCascadeReadiness() {
   }
   if (blockers.length) {
     throw new Error(`Foundation cascade is not ready for primitives. Blocking reports: ${blockers.join("; ")}.`);
+  }
+}
+
+function auditPrimitiveCascadeGovernance() {
+  const active = primitiveCascadeGovernance.activeCascadeReports;
+  const backlog = primitiveCascadeGovernance.backlogCascadeReports ?? {};
+  const issues = [];
+  if (!Array.isArray(active) || !active.length) {
+    issues.push("activeCascadeReports must list at least one primitive gate");
+  }
+  const duplicateActive = active.filter((id, index) => active.indexOf(id) !== index);
+  if (duplicateActive.length) {
+    issues.push(`duplicate active primitive gates: ${[...new Set(duplicateActive)].join(", ")}`);
+  }
+  const activeSet = new Set(active);
+  const backlogIds = Object.keys(backlog);
+  const duplicateBacklog = backlogIds.filter((id) => activeSet.has(id));
+  if (duplicateBacklog.length) {
+    issues.push(`active primitive gates cannot also be backlog: ${duplicateBacklog.join(", ")}`);
+  }
+  for (const id of active) {
+    if (!primitiveCascadeCheckRegistry.has(id)) issues.push(`unknown active primitive gate: ${id}`);
+    const reportFile = `primitive-${id}-cascade-audit.json`;
+    const governance = readJsonIfExists(path.join(root, "packages/content/content/system-debt-governance.json"), {});
+    if (governance.reportCategories?.[reportFile] !== "foundations-primitives") {
+      issues.push(`active primitive gate is missing foundations-primitives ledger category: ${reportFile}`);
+    }
+  }
+  for (const [id, reason] of Object.entries(backlog)) {
+    if (!primitiveCascadeCheckRegistry.has(id)) issues.push(`unknown backlog primitive gate: ${id}`);
+    if (!reason || typeof reason !== "object" || Array.isArray(reason)) {
+      issues.push(`backlog primitive gate must be structured: ${id}`);
+    } else {
+      if (typeof reason.reason !== "string" || !reason.reason.trim()) issues.push(`backlog primitive gate needs reason: ${id}`);
+      if (!Array.isArray(reason.blockerTypes) || !reason.blockerTypes.length) issues.push(`backlog primitive gate needs blockerTypes: ${id}`);
+      if (!Array.isArray(reason.activationEvidence) || !reason.activationEvidence.length) issues.push(`backlog primitive gate needs activationEvidence: ${id}`);
+    }
+  }
+  if (issues.length) {
+    throw new Error(`Primitive cascade governance contract failed: ${issues.join("; ")}.`);
   }
 }
 

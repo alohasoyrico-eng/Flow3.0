@@ -7,7 +7,12 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
 const { allowedDynamicStyleKeysByComponent } = require("./react-style-contracts.js");
+const {
+  reactSecondaryExpectedInventory,
+  styleBlockedEscapePatternsPolicy,
+} = require("./react-primary-governance-policy.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -15,31 +20,17 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-style-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-style-governance-audit.md");
 
-const expectedInventory = {
-  components: 56,
-  styleEscapeDebt: 0,
-  componentsWithApprovedInlineVars: 6,
-  componentsWithRuntimeVars: 1,
-  approvedInlineVars: 10,
-  styleProps: 10,
-  setPropertyCalls: 2,
-  violations: 0,
-};
-
-const blockedEscapePatterns = [
-  { id: "rest-style", label: "rest.style merge", pattern: /\brest\.style\b/g },
-  { id: "inner-html", label: "HTML string injection", pattern: /\b(?:innerHTML|insertAdjacentHTML)\b/g },
-  { id: "dom-style-mutation", label: "DOM style mutation", pattern: /\.style\.(?!setProperty\()/g },
-  { id: "dom-dataset-mutation", label: "DOM dataset mutation", pattern: /\.dataset\./g },
-  { id: "dom-classlist-mutation", label: "DOM classList mutation", pattern: /\.classList\./g },
-];
-
 function componentFiles() {
   if (!fs.existsSync(reactSrcDir)) return [];
   return fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort()
     .map((file) => path.join(reactSrcDir, file));
+}
+
+function kebab(value) {
+  return String(value).replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
 function lineForIndex(text, index) {
@@ -61,6 +52,9 @@ function stylePropMatches(source) {
 }
 
 function createReport() {
+  const { expectedInventory, governance } = reactSecondaryExpectedInventory("style");
+  const escapePolicy = styleBlockedEscapePatternsPolicy();
+  const blockedEscapePatterns = escapePolicy.blockedEscapePatterns;
   const components = componentFiles().map((file) => {
     const component = path.basename(file, ".js");
     const source = read(file);
@@ -116,7 +110,9 @@ function createReport() {
     styleProps: components.reduce((total, item) => total + item.styleProps, 0),
     setPropertyCalls: components.reduce((total, item) => total + item.setPropertyCalls.length, 0),
     violations: components.reduce((total, item) => total + item.violations.length, 0),
+    reactGovernancePolicyIssues: governance.issues.length + escapePolicy.governance.issues.length,
   };
+  inventory.styleEscapeDebt += inventory.reactGovernancePolicyIssues;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -131,6 +127,10 @@ function createReport() {
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
+    },
+    governance: {
+      ...governance,
+      escapePolicy,
     },
     inventory,
     components,

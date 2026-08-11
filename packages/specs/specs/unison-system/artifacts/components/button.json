@@ -1,0 +1,381 @@
+{
+  "artifacts": {
+    "components": {
+      "button": {
+        "id": "button",
+        "name": "Button",
+        "layer": "Component",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Design",
+          "Engineering",
+          "Product",
+          "Agents"
+        ],
+        "maturityTarget": 3,
+        "status": "gold-standard",
+        "purpose": "Trigger a clear action with semantic emphasis, intent, state, density, optional icon support, and native button semantics.",
+        "anatomy": [
+          {
+            "part": "Root",
+            "rule": "Native button element with Flow density, state, variant, and intent attributes.",
+            "tokens": [
+              "comp.button.*",
+              "sys.frame.*",
+              "sys.state.*"
+            ]
+          },
+          {
+            "part": "Label",
+            "rule": "Visible action text remains the primary accessible name.",
+            "tokens": [
+              "sys.voice.*",
+              "sys.typography.*"
+            ]
+          },
+          {
+            "part": "Leading or trailing icon",
+            "rule": "Icon supports the label and never replaces required action meaning.",
+            "tokens": [
+              "sys.iconography.*",
+              "sys.symbol.*"
+            ]
+          },
+          {
+            "part": "Loading indicator",
+            "rule": "Spinner replaces optional icon while aria-busy blocks duplicate activation.",
+            "tokens": [
+              "sys.loading.*",
+              "sys.motion.*"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "id": "primary",
+            "description": "Main action."
+          },
+          {
+            "id": "secondary",
+            "description": "Secondary action."
+          },
+          {
+            "id": "tertiary",
+            "description": "Low-emphasis action."
+          },
+          {
+            "id": "outlined",
+            "description": "Bordered action."
+          },
+          {
+            "id": "ghost",
+            "description": "Minimal surface action."
+          }
+        ],
+        "intents": [
+          {
+            "id": "default",
+            "description": "Standard action."
+          },
+          {
+            "id": "danger",
+            "description": "Destructive or risk-bearing action."
+          },
+          {
+            "id": "warning",
+            "description": "Cautionary action."
+          }
+        ],
+        "states": [
+          "default",
+          "disabled",
+          "loading",
+          "hover",
+          "focus",
+          "pressed"
+        ],
+        "statePrecedence": "disabled > loading > pressed > focus > hover > default",
+        "foundations": {
+          "Energy": {
+            "status": "covered",
+            "decision": "Use semantic emphasis and intent tokens for action priority.",
+            "tokens": [
+              "comp.button.*",
+              "sys.energy.*"
+            ],
+            "behavior": "The primary action is visually clear without raw colors.",
+            "example": "Continue route.",
+            "test": "Verify contrast for each variant and intent.",
+            "rejectIf": "Raw colors define action priority."
+          },
+          "Voice": {
+            "status": "covered",
+            "decision": "Use concise verb-led labels.",
+            "tokens": [
+              "sys.voice.*"
+            ],
+            "behavior": "The action outcome is understandable before activation.",
+            "example": "Save changes.",
+            "test": "Verify label describes the outcome.",
+            "rejectIf": "Label is vague or icon-only."
+          },
+          "Frame": {
+            "status": "covered",
+            "decision": "Use density-driven height, padding, radius, and gap.",
+            "tokens": [
+              "comp.button.*",
+              "sys.frame.*"
+            ],
+            "behavior": "Targets stay stable across compact and touch contexts.",
+            "example": "Toolbar action.",
+            "test": "Verify target size and text fit.",
+            "rejectIf": "Button resizes unpredictably."
+          },
+          "Depth": {
+            "status": "covered",
+            "decision": "Avoid decorative elevation; use surface state only when the variant requires it.",
+            "tokens": [
+              "sys.depth.*"
+            ],
+            "behavior": "Button does not become a floating card.",
+            "example": "Primary CTA on a panel.",
+            "test": "Verify no ad hoc shadow.",
+            "rejectIf": "Button uses decorative depth."
+          },
+          "Momentum": {
+            "status": "covered",
+            "decision": "Use Flow state transitions and loading motion.",
+            "tokens": [
+              "sys.momentum.*"
+            ],
+            "behavior": "Feedback is responsive and respects reduced motion.",
+            "example": "Loading submit button.",
+            "test": "Verify reduced-motion fallback.",
+            "rejectIf": "Raw timing or easing is used."
+          },
+          "State": {
+            "status": "covered",
+            "decision": "Resolve loading and disabled before interactive states.",
+            "tokens": [
+              "sys.state.*"
+            ],
+            "behavior": "Unavailable or in-flight actions cannot be activated.",
+            "example": "Submitting form.",
+            "test": "Verify disabled and loading block clicks.",
+            "rejectIf": "Loading action can be double-submitted."
+          },
+          "Tone": {
+            "status": "covered",
+            "decision": "Use danger and warning only with visible consequence copy.",
+            "tokens": [
+              "sys.tone.*"
+            ],
+            "behavior": "Risk is semantic, not decorative.",
+            "example": "Delete vehicle.",
+            "test": "Verify tone matches action risk.",
+            "rejectIf": "Danger tone is used for styling."
+          },
+          "Growth": {
+            "status": "covered",
+            "decision": "Escalate grouped action logic to patterns such as Toolbar, Bulk Actions, or Action Sheet.",
+            "tokens": [
+              "sys.growth.*"
+            ],
+            "behavior": "Button remains atomic.",
+            "example": "Bulk action toolbar composes Button.",
+            "test": "Verify orchestration is outside Button.",
+            "rejectIf": "Button owns workflow state."
+          },
+          "Symbol": {
+            "status": "covered",
+            "decision": "Use symbols only to support visible labels.",
+            "tokens": [
+              "sys.symbol.*"
+            ],
+            "behavior": "Meaning remains text-backed.",
+            "example": "Save icon with label.",
+            "test": "Verify icon is aria-hidden when decorative.",
+            "rejectIf": "Icon carries the only meaning."
+          },
+          "Iconography": {
+            "status": "covered",
+            "decision": "Use shared icon size, alignment, and gap.",
+            "tokens": [
+              "sys.iconography.*"
+            ],
+            "behavior": "Icons align with text and density.",
+            "example": "Trailing arrow.",
+            "test": "Verify icon alignment across densities.",
+            "rejectIf": "Custom icon sizing shifts the label."
+          },
+          "Accessibility": {
+            "status": "covered",
+            "decision": "Preserve native button semantics, focus, disabled behavior, and busy state.",
+            "tokens": [
+              "sys.accessibility.*"
+            ],
+            "behavior": "Keyboard and assistive technology users can operate the action.",
+            "example": "Submit form.",
+            "test": "Verify focus ring, disabled state, and aria-busy.",
+            "rejectIf": "Button is recreated with non-button semantics."
+          }
+        },
+        "primitiveDependencies": [
+          "Color",
+          "Typography",
+          "Spacing",
+          "Radius",
+          "Elevation",
+          "Iconography",
+          "Motion Curves",
+          "Duration",
+          "Breakpoints",
+          "Focus",
+          "Loading",
+          "Disabled"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.voice.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.accessibility.*"
+        ],
+        "props": [
+          {
+            "name": "label",
+            "type": "string",
+            "required": false,
+            "notes": "Visible action label when children are not provided."
+          },
+          {
+            "name": "variant",
+            "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"",
+            "required": false,
+            "notes": "Visual emphasis."
+          },
+          {
+            "name": "intent",
+            "type": "\"default\" | \"danger\" | \"warning\"",
+            "required": false,
+            "notes": "Semantic action intent."
+          },
+          {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false,
+            "notes": "Density-aware control scale."
+          },
+          {
+            "name": "state",
+            "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"disabled\" | \"loading\"",
+            "required": false,
+            "notes": "Visual state."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false,
+            "notes": "Blocks activation."
+          },
+          {
+            "name": "loading",
+            "type": "boolean",
+            "required": false,
+            "notes": "Shows progress and blocks duplicate activation."
+          },
+          {
+            "name": "icon",
+            "type": "string",
+            "required": false,
+            "notes": "Optional leading Material Symbol name."
+          },
+          {
+            "name": "trailingIcon",
+            "type": "string",
+            "required": false,
+            "notes": "Optional trailing Material Symbol name."
+          },
+          {
+            "name": "type",
+            "type": "\"button\" | \"submit\" | \"reset\"",
+            "required": false,
+            "notes": "Native button type."
+          }
+        ],
+        "productExamples": [
+          {
+            "context": "Form submit",
+            "example": "Save settings."
+          },
+          {
+            "context": "Dialog action",
+            "example": "Confirm or cancel."
+          },
+          {
+            "context": "Toolbar",
+            "example": "Apply filters."
+          }
+        ],
+        "guidelines": {
+          "do": [
+            "Use clear verb-led labels.",
+            "Choose the lowest emphasis that still communicates priority.",
+            "Use loading for in-flight irreversible or duplicate-sensitive actions."
+          ],
+          "dont": [
+            "Do not use icon-only buttons; use Icon Button instead.",
+            "Do not use danger tone without consequence copy.",
+            "Do not place workflow state inside Button."
+          ],
+          "info": [
+            "Use Toolbar, Bulk Actions, Action Sheet, or Dialog patterns for orchestration."
+          ]
+        },
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "touch-safe full or stacked action"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "standard form or dialog action"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "compact toolbar or data action"
+          }
+        ],
+        "tests": [
+          "Native button semantics",
+          "Accessible label",
+          "Variant and intent contrast",
+          "Density target size",
+          "Disabled blocks activation",
+          "Loading exposes aria-busy",
+          "No raw visual values"
+        ],
+        "agentInstructions": [
+          "Use Button for labelled actions.",
+          "Use Icon Button for icon-only utilities.",
+          "Ask before destructive, financial, regulated, or irreversible actions.",
+          "Escalate groups of actions to a pattern contract."
+        ],
+        "rejectIf": [
+          "No accessible label",
+          "Icon-only action",
+          "Raw color, spacing, radius, or motion",
+          "Workflow orchestration hidden inside Button"
+        ]
+      }
+    }
+  }
+}

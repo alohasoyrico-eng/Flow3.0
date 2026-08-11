@@ -6,24 +6,63 @@
   "baseline": {
     "inventory": {
       "rules": 5,
-      "decisions": 11,
+      "decisions": 20,
       "patternDecisions": 10,
-      "templateDecisions": 0,
+      "templateDecisions": 9,
       "nonComponentDecisions": 1,
+      "artifactsScanned": 163,
+      "crossLayerArtifactIds": 1,
+      "unapprovedCrossLayerArtifactIds": 0,
+      "artifactLayerMismatches": 0,
+      "missingNestedArtifactRecords": 0,
+      "templateArtifactsWithoutDecisions": 0,
+      "templateBlueprintsWithoutArtifacts": 0,
+      "templateArtifactBlueprintMismatches": 0,
+      "templateDependencyReferenceErrors": 0,
+      "templateCatalogSyncErrors": 0,
+      "requiredBoundaryCases": 59,
+      "requiredBoundaryCaseViolations": 0,
+      "foundationBoundaryCases": 7,
+      "primitiveBoundaryCases": 14,
+      "componentBoundaryCases": 10,
+      "patternBoundaryCases": 21,
+      "templateBoundaryCases": 6,
+      "nonComponentBoundaryCases": 1,
       "duplicateIds": 0,
       "auditErrors": 0,
+      "taxonomyPolicyIssues": 0,
       "taxonomyBoundaryDebt": 0
     },
-    "mismatches": []
+    "mismatches": [],
+    "unexpectedInventoryMetrics": []
   },
   "inventory": {
     "rules": 5,
-    "decisions": 11,
+    "decisions": 20,
     "patternDecisions": 10,
-    "templateDecisions": 0,
+    "templateDecisions": 9,
     "nonComponentDecisions": 1,
+    "artifactsScanned": 163,
+    "crossLayerArtifactIds": 1,
+    "unapprovedCrossLayerArtifactIds": 0,
+    "artifactLayerMismatches": 0,
+    "missingNestedArtifactRecords": 0,
+    "templateArtifactsWithoutDecisions": 0,
+    "templateBlueprintsWithoutArtifacts": 0,
+    "templateArtifactBlueprintMismatches": 0,
+    "templateDependencyReferenceErrors": 0,
+    "templateCatalogSyncErrors": 0,
+    "requiredBoundaryCases": 59,
+    "requiredBoundaryCaseViolations": 0,
+    "foundationBoundaryCases": 7,
+    "primitiveBoundaryCases": 14,
+    "componentBoundaryCases": 10,
+    "patternBoundaryCases": 21,
+    "templateBoundaryCases": 6,
+    "nonComponentBoundaryCases": 1,
     "duplicateIds": 0,
     "auditErrors": 0,
+    "taxonomyPolicyIssues": 0,
     "taxonomyBoundaryDebt": 0
   },
   "rules": [
@@ -99,8 +138,2687 @@
       "layer": "pattern",
       "replacement": "chart-legend-item",
       "reason": "Legend items are chart interaction patterns; they must not be promoted as standalone components."
+    },
+    {
+      "id": "configuration-console",
+      "layer": "template",
+      "replacement": "configuration-console",
+      "reason": "Configuration Console is an administrative product surface that composes Topbar, Sidebar, Roles and Permissions, Driver and Vehicle Administration, and Authentication patterns with data, permissions, audit, and recovery ownership."
+    },
+    {
+      "id": "driver-card-wallet",
+      "layer": "template",
+      "replacement": "driver-card-wallet",
+      "reason": "Driver Card Wallet is a focused product surface for card status, movement evidence, limits, quick actions, and support recovery; it must compose modules and patterns rather than becoming a component."
+    },
+    {
+      "id": "driver-mobile-app",
+      "layer": "template",
+      "replacement": "driver-mobile-app",
+      "reason": "Driver Mobile App is a complete mobile product shell that proves onboarding, card readiness, nearby stations, and support recovery across mobile states and permissions."
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "layer": "template",
+      "replacement": "fleet-dashboard-suite",
+      "reason": "Fleet Dashboard Suite is a multi-domain dashboard product surface that preserves shared filters, navigation, thresholds, drill-downs, and accountability across operational domains."
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "layer": "template",
+      "replacement": "fleet-manager-desktop",
+      "reason": "Fleet Manager Desktop is a desktop operating console that coordinates overview, exceptions, activity, filters, permissions, and follow-up across multiple patterns."
+    },
+    {
+      "id": "routes-and-stations",
+      "layer": "template",
+      "replacement": "routes-and-stations",
+      "reason": "Routes and Stations is a mobile workspace that proves map/list station discovery, selected station detail, permissions, fallback, and route handoff through approved pattern and primitive dependencies."
+    },
+    {
+      "id": "agent-workspace",
+      "layer": "template",
+      "replacement": "agent-workspace",
+      "reason": "Agent Workspace is a complete service workspace template that coordinates queue, thread, composer, context evidence, handoff, and recovery through governed chat components and feedback patterns."
+    },
+    {
+      "id": "internal-operations-console",
+      "layer": "template",
+      "replacement": "internal-operations-console",
+      "reason": "Internal Operations Console is a desktop operations shell that proves case, ticket, account, pricing, approval, and growth workflows across governed patterns."
+    },
+    {
+      "id": "settings-workspace",
+      "layer": "template",
+      "replacement": "settings-workspace",
+      "reason": "Settings Workspace is a complete product settings surface that coordinates sections, preferences, validation, theme, and danger-zone confirmation through governed patterns."
     }
   ],
+  "approvedCrossLayerArtifactIds": [
+    "iconography"
+  ],
+  "taxonomyPolicyIssues": [],
+  "artifacts": [
+    {
+      "id": "accessibility",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "accordion",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/accordion.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "account-operations",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/account-operations.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "action-sheet",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "advanced-filters",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "agent-conversation",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/agent-conversation.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "agent-workspace",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "animated-moment",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/animated-moment.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "animation-assets",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "audit-event",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/audit-event.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "authentication-login-biometrics-and-otp",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "autocomplete",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/autocomplete.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "avatar-group",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/avatar-group.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "avatar-menu",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/avatar-menu.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "avatar",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/avatar.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "backoffice-approval",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/backoffice-approval.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "badge",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/badge.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "biometric-prompt",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/biometric-prompt.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "breadcrumbs",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "breakpoints",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "bulk-actions",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/bulk-actions.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "button",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/button.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "calendar-view",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/calendar-view.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "card-expiry-input",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/card-expiry-input.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "card-number-input",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/card-number-input.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "card-security-code-input",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/card-security-code-input.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "card-summary",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/card-summary.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "card",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/card.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "case-management",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "chart-panel",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/chart-panel.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "chart-wrapper",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "charts",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/charts.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "chat-composer",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/chat-composer.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "chat-message",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/chat-message.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "chat-thread",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/chat-thread.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "checkbox",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/checkbox.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "chip",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/chip.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "code-input",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/code-input.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "color",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "column-configurator",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/column-configurator.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "combobox",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/combobox.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "command-palette",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "configuration-console",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "confirmation-dialog",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "country-flags",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/country-flags.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "country-selector",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/country-selector.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "date-picker",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/date-picker.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "date-range-picker",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/date-range-picker.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "dense-operational-list",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "density",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "depth",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "dialog",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/dialog.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "disabled",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "drag-sortable-list",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/drag-sortable-list.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "drawer-adapter",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/drawer-adapter.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "drawer",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/drawer.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "driver-and-vehicle-administration",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "driver-onboarding-mobile",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "duration",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/duration.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "elevation",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/elevation.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "email-template-layout",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/email-template-layout.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "empty-state",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/empty-state.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "energy",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/energy.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "error-panel",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/error-panel.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "expandable-detail-table",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/expandable-detail-table.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "field-action",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "file-upload",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/file-upload.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "filter-chip-group",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/filter-chip-group.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "filterable-editable-table",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/filterable-editable-table.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "fleet-manager-onboarding-desktop",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "floating-action-button",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/floating-action-button.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "focus",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "form-section",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "frame",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "fullscreen-sheet",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "gantt-chart",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/gantt-chart.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "growth",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/growth.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "help-center",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/help-center.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "icon-button",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/icon-button.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "iconography",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/iconography.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "iconography",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "illustration-assets",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/illustration-assets.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "inline-validation",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/inline-validation.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "input-amount",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/input-amount.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "input",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/input.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "internal-operations-console",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "kanban-board",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/kanban-board.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "kpi-card",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/kpi-card.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "kpi-tile",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/kpi-tile.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "library-sources",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/library-sources.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "list",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/list.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "loading",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "maps",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/maps.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "measurement",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/measurement.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "menu",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/menu.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "message",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/message.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "momentum",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "motion-boundary",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/motion-boundary.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "motion-curves",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/motion-curves.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "movement-row",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/movement-row.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "multi-select",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/multi-select.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "multi-step-form",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "notification-panel",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "pagination",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/pagination.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "payment-form",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/payment-form.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "phone-input",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/phone-input.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "polar-chart",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/polar-chart.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "popover",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/popover.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "preference-management",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/preference-management.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "pricing-operations",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "progress-indicator",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/progress-indicator.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "pull-to-refresh",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/pull-to-refresh.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "quick-action",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/quick-action.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "quick-actions-grid",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "radio-button",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/radio-button.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "radius",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/radius.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "research",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/research.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "roles-and-permissions",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "route-summary",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/route-summary.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "routes-and-stations",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "search",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "section-header",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "segmented-control",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/segmented-control.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "select-option-layer",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "select",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/select.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "settings-workspace",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "settings",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/settings.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "sidebar",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "skeleton",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/skeleton.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "slider",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/slider.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "snackbar-provider",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "spacing",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "spinner",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/spinner.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "state",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "station-discovery",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "station-pin",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/station-pin.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "status-feedback-view",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/status-feedback-view.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "stepper",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/stepper.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "surface",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "swipe-actions",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/swipe-actions.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "switch",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/switch.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "symbol",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/symbol.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "table",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/table.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "tabs",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/tabs.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "tag",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/tag.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "text-area",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/text-area.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "ticket-queue",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/ticket-queue.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "timeline",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/timeline.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "toast",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/toast.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "tone",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "toolbar",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "tooltip",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/tooltip.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "topbar",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "transfer-list",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/transfer-list.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "tree-view",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/tree-view.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "typography",
+      "artifactLayer": "primitives",
+      "expectedLayer": "Primitive",
+      "declaredLayer": "Primitive",
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "virtual-data-table",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "voice",
+      "artifactLayer": "foundations",
+      "expectedLayer": "Foundation",
+      "declaredLayer": "Foundation",
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "waterfall-chart",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/waterfall-chart.json",
+      "hasNestedRecord": true,
+      "errors": []
+    }
+  ],
+  "crossLayerArtifacts": [
+    {
+      "id": "iconography",
+      "layers": [
+        "foundations",
+        "primitives"
+      ],
+      "approved": true
+    }
+  ],
+  "templates": [
+    {
+      "id": "agent-workspace",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Agent Conversation",
+        "Topbar",
+        "Status Feedback View"
+      ],
+      "primitiveDependencies": [
+        "Color",
+        "Density",
+        "Focus",
+        "Iconography",
+        "Message",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundationDependencies": [
+        "Accessibility",
+        "Frame",
+        "State",
+        "Tone",
+        "Voice"
+      ],
+      "templateModuleDependencies": [
+        "Conversation queue",
+        "Agent Conversation",
+        "Agent state",
+        "Handoff recovery",
+        "Workspace context"
+      ],
+      "catalogPatterns": [
+        "Agent Conversation",
+        "Topbar",
+        "Status Feedback View"
+      ],
+      "catalogTemplateModules": [
+        "Conversation queue",
+        "Agent Conversation",
+        "Agent state",
+        "Handoff recovery",
+        "Workspace context"
+      ],
+      "blueprintPatterns": [
+        "Agent Conversation",
+        "Topbar",
+        "Status Feedback View"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "configuration-console",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Topbar",
+        "Sidebar",
+        "Roles and Permissions",
+        "Driver and Vehicle Administration",
+        "Authentication, Login, Biometrics and OTP"
+      ],
+      "primitiveDependencies": [
+        "Color",
+        "Typography",
+        "Spacing",
+        "Surface",
+        "Density",
+        "Iconography",
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Breakpoints",
+        "Charts"
+      ],
+      "foundationDependencies": [
+        "Energy",
+        "Voice",
+        "Frame",
+        "Depth",
+        "Momentum",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [],
+      "catalogPatterns": [
+        "Topbar",
+        "Sidebar",
+        "Roles and Permissions",
+        "Driver and Vehicle Administration",
+        "Authentication, Login, Biometrics and OTP"
+      ],
+      "catalogTemplateModules": null,
+      "blueprintPatterns": [
+        "Topbar",
+        "Sidebar",
+        "Roles and Permissions",
+        "Driver and Vehicle Administration",
+        "Authentication, Login, Biometrics and OTP"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [],
+      "primitiveDependencies": [
+        "Color",
+        "Typography",
+        "Spacing",
+        "Surface",
+        "Density",
+        "Iconography",
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Breakpoints"
+      ],
+      "foundationDependencies": [
+        "Energy",
+        "Voice",
+        "Frame",
+        "Depth",
+        "Momentum",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [
+        "Mobile Card Overview",
+        "Mobile Card Detail and Quick Actions",
+        "Mobile Movement Detail"
+      ],
+      "catalogPatterns": [],
+      "catalogTemplateModules": [
+        "Mobile Card Overview",
+        "Mobile Card Detail and Quick Actions",
+        "Mobile Movement Detail"
+      ],
+      "blueprintPatterns": [],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Driver Onboarding Mobile",
+        "Station Discovery"
+      ],
+      "primitiveDependencies": [
+        "Color",
+        "Typography",
+        "Spacing",
+        "Surface",
+        "Density",
+        "Iconography",
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Breakpoints",
+        "Maps"
+      ],
+      "foundationDependencies": [
+        "Energy",
+        "Voice",
+        "Frame",
+        "Depth",
+        "Momentum",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [
+        "Mobile Card Overview",
+        "Routes and Nearby Stations Mobile"
+      ],
+      "catalogPatterns": [
+        "Driver Onboarding Mobile",
+        "Station Discovery"
+      ],
+      "catalogTemplateModules": [
+        "Mobile Card Overview",
+        "Routes and Nearby Stations Mobile"
+      ],
+      "blueprintPatterns": [
+        "Driver Onboarding Mobile",
+        "Station Discovery"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Topbar",
+        "Sidebar"
+      ],
+      "primitiveDependencies": [
+        "Color",
+        "Typography",
+        "Spacing",
+        "Surface",
+        "Density",
+        "Iconography",
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Breakpoints",
+        "Charts"
+      ],
+      "foundationDependencies": [
+        "Energy",
+        "Voice",
+        "Frame",
+        "Depth",
+        "Momentum",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [
+        "Fleet Dashboard Overview",
+        "Fuel Dashboard",
+        "Maintenance Dashboard",
+        "Electromobility Dashboard",
+        "Toll Dashboard",
+        "Fleet Dashboard",
+        "Finance Dashboard"
+      ],
+      "catalogPatterns": [
+        "Topbar",
+        "Sidebar"
+      ],
+      "catalogTemplateModules": [
+        "Fleet Dashboard Overview",
+        "Fuel Dashboard",
+        "Maintenance Dashboard",
+        "Electromobility Dashboard",
+        "Toll Dashboard",
+        "Fleet Dashboard",
+        "Finance Dashboard"
+      ],
+      "blueprintPatterns": [
+        "Topbar",
+        "Sidebar"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Topbar",
+        "Sidebar",
+        "Roles and Permissions"
+      ],
+      "primitiveDependencies": [
+        "Color",
+        "Typography",
+        "Spacing",
+        "Surface",
+        "Density",
+        "Iconography",
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Breakpoints",
+        "Charts"
+      ],
+      "foundationDependencies": [
+        "Energy",
+        "Voice",
+        "Frame",
+        "Depth",
+        "Momentum",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [
+        "Fleet Dashboard Overview",
+        "Fuel Dashboard"
+      ],
+      "catalogPatterns": [
+        "Topbar",
+        "Sidebar",
+        "Roles and Permissions"
+      ],
+      "catalogTemplateModules": [
+        "Fleet Dashboard Overview",
+        "Fuel Dashboard"
+      ],
+      "blueprintPatterns": [
+        "Topbar",
+        "Sidebar",
+        "Roles and Permissions"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "internal-operations-console",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Topbar",
+        "Sidebar",
+        "Case Management",
+        "Ticket Queue",
+        "Account Operations",
+        "Pricing Operations",
+        "Backoffice Approval",
+        "Dense Operational List"
+      ],
+      "primitiveDependencies": [
+        "Color",
+        "Density",
+        "Focus",
+        "Iconography",
+        "Measurement",
+        "Message",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundationDependencies": [
+        "Accessibility",
+        "Frame",
+        "State",
+        "Tone",
+        "Voice"
+      ],
+      "templateModuleDependencies": [
+        "Case operations",
+        "Ticket operations",
+        "Account operations",
+        "Pricing operations",
+        "Backoffice approvals",
+        "Growth operations"
+      ],
+      "catalogPatterns": [
+        "Topbar",
+        "Sidebar",
+        "Case Management",
+        "Ticket Queue",
+        "Account Operations",
+        "Pricing Operations",
+        "Backoffice Approval",
+        "Dense Operational List"
+      ],
+      "catalogTemplateModules": [
+        "Case operations",
+        "Ticket operations",
+        "Account operations",
+        "Pricing operations",
+        "Backoffice approvals",
+        "Growth operations"
+      ],
+      "blueprintPatterns": [
+        "Topbar",
+        "Sidebar",
+        "Case Management",
+        "Ticket Queue",
+        "Account Operations",
+        "Pricing Operations",
+        "Backoffice Approval",
+        "Dense Operational List"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "routes-and-stations",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Station Discovery"
+      ],
+      "primitiveDependencies": [
+        "Color",
+        "Typography",
+        "Spacing",
+        "Surface",
+        "Density",
+        "Iconography",
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Breakpoints",
+        "Maps"
+      ],
+      "foundationDependencies": [
+        "Energy",
+        "Voice",
+        "Frame",
+        "Depth",
+        "Momentum",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [
+        "Routes and Nearby Stations Mobile",
+        "Station Detail and Route Guidance"
+      ],
+      "catalogPatterns": [
+        "Station Discovery"
+      ],
+      "catalogTemplateModules": [
+        "Routes and Nearby Stations Mobile",
+        "Station Detail and Route Guidance"
+      ],
+      "blueprintPatterns": [
+        "Station Discovery"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "settings-workspace",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Preference Management"
+      ],
+      "primitiveDependencies": [
+        "Color",
+        "Density",
+        "Field Action",
+        "Focus",
+        "Iconography",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundationDependencies": [
+        "Accessibility",
+        "Frame",
+        "State",
+        "Tone",
+        "Voice"
+      ],
+      "templateModuleDependencies": [
+        "Section navigation",
+        "Preference management"
+      ],
+      "catalogPatterns": [
+        "Preference Management"
+      ],
+      "catalogTemplateModules": [
+        "Section navigation",
+        "Preference management"
+      ],
+      "blueprintPatterns": [
+        "Preference Management"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    }
+  ],
+  "templateBlueprintsWithoutArtifacts": [],
+  "requiredBoundaryCases": [
+    {
+      "id": "avatar",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Avatar remains atomic; disclosure and overflow are pattern-owned.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/avatar.json",
+      "errors": []
+    },
+    {
+      "id": "card",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Card remains a bounded component, not a generic pattern container.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/card.json",
+      "errors": []
+    },
+    {
+      "id": "checkbox",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Checkbox remains atomic; group semantics are pattern-owned.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/checkbox.json",
+      "errors": []
+    },
+    {
+      "id": "dialog",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Dialog owns the modal primitive behavior that overlay patterns compose.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/dialog.json",
+      "errors": []
+    },
+    {
+      "id": "drawer",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Drawer owns base panel behavior; adapters and sheets remain patterns.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/drawer.json",
+      "errors": []
+    },
+    {
+      "id": "menu",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Menu owns command list behavior used by pattern menus.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/menu.json",
+      "errors": []
+    },
+    {
+      "id": "popover",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Popover owns anchored overlay behavior.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/popover.json",
+      "errors": []
+    },
+    {
+      "id": "radio-button",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Radio Button remains atomic; group semantics are pattern-owned.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/radio-button.json",
+      "errors": []
+    },
+    {
+      "id": "table",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Table remains the base component; remote state and tools belong to patterns.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/table.json",
+      "errors": []
+    },
+    {
+      "id": "toast",
+      "layer": "component",
+      "source": "artifact",
+      "reason": "Toast is a bounded feedback component; providers and panels are patterns.",
+      "actualLayer": "component",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/components/toast.json",
+      "errors": []
+    },
+    {
+      "id": "accessibility",
+      "layer": "foundation",
+      "source": "artifact",
+      "reason": "Accessibility is a governing foundation, not a component prop bundle.",
+      "actualLayer": "foundation",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json",
+      "errors": []
+    },
+    {
+      "id": "depth",
+      "layer": "foundation",
+      "source": "artifact",
+      "reason": "Depth is a foundation for hierarchy and elevation semantics.",
+      "actualLayer": "foundation",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json",
+      "errors": []
+    },
+    {
+      "id": "frame",
+      "layer": "foundation",
+      "source": "artifact",
+      "reason": "Frame governs composition and layout rhythm.",
+      "actualLayer": "foundation",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json",
+      "errors": []
+    },
+    {
+      "id": "momentum",
+      "layer": "foundation",
+      "source": "artifact",
+      "reason": "Momentum governs motion intent before primitive curves implement it.",
+      "actualLayer": "foundation",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json",
+      "errors": []
+    },
+    {
+      "id": "state",
+      "layer": "foundation",
+      "source": "artifact",
+      "reason": "State defines semantic behavior across components and patterns.",
+      "actualLayer": "foundation",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json",
+      "errors": []
+    },
+    {
+      "id": "tone",
+      "layer": "foundation",
+      "source": "artifact",
+      "reason": "Tone governs feedback language before primitives render it.",
+      "actualLayer": "foundation",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json",
+      "errors": []
+    },
+    {
+      "id": "voice",
+      "layer": "foundation",
+      "source": "artifact",
+      "reason": "Voice governs content decisions across UI layers.",
+      "actualLayer": "foundation",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json",
+      "errors": []
+    },
+    {
+      "id": "alert-strip",
+      "layer": "non-component",
+      "source": "taxonomy-decision",
+      "replacement": "notification-panel",
+      "reason": "Alert strip must resolve to feedback orchestration instead of becoming another component.",
+      "actualLayer": "non-component",
+      "actualSource": "taxonomy-decision",
+      "actualReplacement": "notification-panel",
+      "file": "packages/content/content/taxonomy-boundaries.json",
+      "errors": []
+    },
+    {
+      "id": "action-sheet",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Action sheet is a mobile interaction pattern over overlay components.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json",
+      "errors": []
+    },
+    {
+      "id": "autocomplete",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Autocomplete coordinates async suggestions, filtering, and input behavior.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/autocomplete.json",
+      "errors": []
+    },
+    {
+      "id": "avatar-menu",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Avatar menu composes Avatar, Menu, permissions, and account actions.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/avatar-menu.json",
+      "errors": []
+    },
+    {
+      "id": "bottom-sheet",
+      "layer": "pattern",
+      "source": "taxonomy-decision",
+      "replacement": "bottom-sheet",
+      "reason": "Bottom sheet remains mobile overlay orchestration.",
+      "actualLayer": "pattern",
+      "actualSource": "taxonomy-decision",
+      "actualReplacement": "bottom-sheet",
+      "file": "packages/content/content/taxonomy-boundaries.json",
+      "errors": []
+    },
+    {
+      "id": "chart-legend-item",
+      "layer": "pattern",
+      "source": "taxonomy-decision",
+      "replacement": "chart-legend-item",
+      "reason": "Chart legend item remains chart interaction pattern.",
+      "actualLayer": "pattern",
+      "actualSource": "taxonomy-decision",
+      "actualReplacement": "chart-legend-item",
+      "file": "packages/content/content/taxonomy-boundaries.json",
+      "errors": []
+    },
+    {
+      "id": "checkbox-group",
+      "layer": "pattern",
+      "source": "taxonomy-decision",
+      "replacement": "checkbox-group",
+      "reason": "Checkbox group is pattern state around atomic Checkbox.",
+      "actualLayer": "pattern",
+      "actualSource": "taxonomy-decision",
+      "actualReplacement": "checkbox-group",
+      "file": "packages/content/content/taxonomy-boundaries.json",
+      "errors": []
+    },
+    {
+      "id": "confirmation-dialog",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Confirmation dialog composes Dialog with destructive action workflow.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+      "errors": []
+    },
+    {
+      "id": "data-table",
+      "layer": "pattern",
+      "source": "taxonomy-decision",
+      "replacement": "virtual-data-table",
+      "reason": "Data table resolves to the Virtual Data Table pattern, not Table component inflation.",
+      "actualLayer": "pattern",
+      "actualSource": "taxonomy-decision",
+      "actualReplacement": "virtual-data-table",
+      "file": "packages/content/content/taxonomy-boundaries.json",
+      "errors": []
+    },
+    {
+      "id": "drawer-adapter",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Drawer adapter maps responsive workflow behavior onto Drawer.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/drawer-adapter.json",
+      "errors": []
+    },
+    {
+      "id": "filter-chip-group",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Filter chip group coordinates query state and removable filters.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/filter-chip-group.json",
+      "errors": []
+    },
+    {
+      "id": "fullscreen-sheet",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Fullscreen sheet is responsive overlay orchestration.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet.json",
+      "errors": []
+    },
+    {
+      "id": "multi-select",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Multi-select coordinates selection state across components.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/multi-select.json",
+      "errors": []
+    },
+    {
+      "id": "notification-panel",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Notification panel orchestrates feedback components and persistent alert state.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+      "errors": []
+    },
+    {
+      "id": "radio-group",
+      "layer": "pattern",
+      "source": "taxonomy-decision",
+      "replacement": "radio-group",
+      "reason": "Radio group is pattern state around atomic Radio Button.",
+      "actualLayer": "pattern",
+      "actualSource": "taxonomy-decision",
+      "actualReplacement": "radio-group",
+      "file": "packages/content/content/taxonomy-boundaries.json",
+      "errors": []
+    },
+    {
+      "id": "roles-and-permissions",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Roles and permissions is business/state orchestration, not a table component.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json",
+      "errors": []
+    },
+    {
+      "id": "search",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Search coordinates input, results, empty states, shortcuts, and async behavior.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
+      "errors": []
+    },
+    {
+      "id": "snackbar-provider",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Provider behavior belongs above Toast as a pattern.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json",
+      "errors": []
+    },
+    {
+      "id": "sort-control",
+      "layer": "pattern",
+      "source": "taxonomy-decision",
+      "replacement": "toolbar",
+      "reason": "Sort control belongs to toolbar/list state orchestration.",
+      "actualLayer": "pattern",
+      "actualSource": "taxonomy-decision",
+      "actualReplacement": "toolbar",
+      "file": "packages/content/content/taxonomy-boundaries.json",
+      "errors": []
+    },
+    {
+      "id": "toolbar",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Toolbar coordinates command groups, filters, selection, and layout priority.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
+      "errors": []
+    },
+    {
+      "id": "topbar",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Topbar coordinates navigation, search, account menu, notifications, and responsive shell state.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+      "errors": []
+    },
+    {
+      "id": "virtual-data-table",
+      "layer": "pattern",
+      "source": "artifact",
+      "reason": "Virtual data table owns remote data, virtualization, selection, and table tooling.",
+      "actualLayer": "pattern",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
+      "errors": []
+    },
+    {
+      "id": "breakpoints",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Breakpoints are responsive primitives, not docs CSS behavior.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json",
+      "errors": []
+    },
+    {
+      "id": "charts",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Charts are primitive visualization infrastructure for chart patterns and templates.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/charts.json",
+      "errors": []
+    },
+    {
+      "id": "color",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Color is a primitive token contract.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json",
+      "errors": []
+    },
+    {
+      "id": "density",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Density must cascade through Flow primitives before pattern layout adapts.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json",
+      "errors": []
+    },
+    {
+      "id": "disabled",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Disabled is a primitive state vocabulary.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json",
+      "errors": []
+    },
+    {
+      "id": "elevation",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Elevation implements depth decisions as a primitive.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/elevation.json",
+      "errors": []
+    },
+    {
+      "id": "field-action",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Field action is the primitive affordance inside field-like components and patterns.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json",
+      "errors": []
+    },
+    {
+      "id": "focus",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Focus is a primitive interaction affordance shared by components and patterns.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json",
+      "errors": []
+    },
+    {
+      "id": "loading",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Loading is a primitive state vocabulary, not a one-off pattern style.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json",
+      "errors": []
+    },
+    {
+      "id": "maps",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Maps are primitive infrastructure for station and route patterns.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/maps.json",
+      "errors": []
+    },
+    {
+      "id": "radius",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Radius is a primitive token contract, not per-demo styling.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/radius.json",
+      "errors": []
+    },
+    {
+      "id": "spacing",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Spacing is a primitive consumed by components and patterns through cascade.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json",
+      "errors": []
+    },
+    {
+      "id": "surface",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Surface is the grouping primitive; Card must not become the default wrapper for pattern groups.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json",
+      "errors": []
+    },
+    {
+      "id": "typography",
+      "layer": "primitive",
+      "source": "artifact",
+      "reason": "Typography is a primitive contract for text rendering.",
+      "actualLayer": "primitive",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json",
+      "errors": []
+    },
+    {
+      "id": "configuration-console",
+      "layer": "template",
+      "source": "artifact",
+      "reason": "Configuration Console is a product surface template.",
+      "actualLayer": "template",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+      "errors": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "layer": "template",
+      "source": "artifact",
+      "reason": "Driver Card Wallet is a product surface template.",
+      "actualLayer": "template",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+      "errors": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "layer": "template",
+      "source": "artifact",
+      "reason": "Driver Mobile App is a product surface template.",
+      "actualLayer": "template",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+      "errors": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "layer": "template",
+      "source": "artifact",
+      "reason": "Fleet Dashboard Suite is a product surface template.",
+      "actualLayer": "template",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+      "errors": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "layer": "template",
+      "source": "artifact",
+      "reason": "Fleet Manager Desktop is a product surface template.",
+      "actualLayer": "template",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+      "errors": []
+    },
+    {
+      "id": "routes-and-stations",
+      "layer": "template",
+      "source": "artifact",
+      "reason": "Routes and Stations is a product surface template.",
+      "actualLayer": "template",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+      "errors": []
+    }
+  ],
+  "artifactLayerMismatches": [],
+  "missingNestedArtifactRecords": [],
   "duplicateIds": [],
   "errors": []
 }

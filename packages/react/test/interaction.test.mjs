@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, ChatComposer, ChatMessage, ChatThread, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, InputAmount, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../src/index.js");
 
 try {
   const expandedChanges = [];
@@ -1160,6 +1160,35 @@ try {
     onValueChange: (value, meta, event) => inputChanges.push({ value, meta, eventType: event.type }),
   }));
   await waitFor(() => assert.equal(amountInput.value, "10.00"));
+
+  cleanup();
+
+  const inputAmountChanges = [];
+  const { getByLabelText: getInputAmountLabel, rerender: rerenderInputAmount } = render(React.createElement(InputAmount, {
+    label: "Limit amount",
+    currency: "USD",
+    locale: "en-US",
+    onValueChange: (value, meta, event) => inputAmountChanges.push({ value, meta, eventType: event.type }),
+  }));
+
+  const limitAmountInput = getInputAmountLabel(/limit amount/i);
+  fireEvent.input(limitAmountInput, { target: { value: "$2,450.75" } });
+  assert.equal(inputAmountChanges.at(-1).value, "2450.75");
+  assert.equal(inputAmountChanges.at(-1).meta.numericValue, 2450.75);
+  assert.equal(inputAmountChanges.at(-1).meta.currency, "USD");
+  assert.equal(inputAmountChanges.at(-1).meta.formatted, "$2,450.75");
+  assert.equal(inputAmountChanges.at(-1).eventType, "change");
+
+  rerenderInputAmount(React.createElement(InputAmount, {
+    label: "Limit amount",
+    currency: "MXN",
+    value: "3000",
+    onValueChange: (value, meta, event) => inputAmountChanges.push({ value, meta, eventType: event.type }),
+  }));
+  await waitFor(() => assert.equal(limitAmountInput.value, "3000"));
+  fireEvent.input(limitAmountInput, { target: { value: "50" } });
+  assert.equal(inputAmountChanges.at(-1).value, "50");
+  await waitFor(() => assert.equal(limitAmountInput.value, "3000"));
 
   cleanup();
 
@@ -2613,6 +2642,76 @@ try {
   assert.equal(preventedTreeItem.getAttribute("aria-expanded"), "false");
   assert.deepEqual(preventedTreeSelections, []);
   assert.deepEqual(preventedTreeExpandedChanges, []);
+
+  cleanup();
+
+  const chatComposerEvents = [];
+  const { getByRole: getChatComposerRole, rerender: rerenderChatComposer } = render(React.createElement(ChatComposer, {
+    label: "Reply",
+    value: "Draft",
+    attachLabel: "Attach file",
+    onValueChange: (value, meta, event) => chatComposerEvents.push(["onValueChange", value, meta.length, event.type]),
+    onSend: (value, event) => chatComposerEvents.push(["onSend", value, event.type]),
+    onAttach: (event) => chatComposerEvents.push(["onAttach", event.type]),
+  }));
+
+  const replyTextArea = getChatComposerRole("textbox", { name: /reply/i });
+  assert.equal(replyTextArea.value, "Draft");
+  fireEvent.change(replyTextArea, { target: { value: "Next draft" } });
+  assert.deepEqual(chatComposerEvents.at(-1), ["onValueChange", "Next draft", 10, "change"]);
+  assert.equal(replyTextArea.value, "Draft");
+  fireEvent.click(getChatComposerRole("button", { name: /send/i }));
+  assert.deepEqual(chatComposerEvents.at(-1), ["onSend", "Draft", "click"]);
+  fireEvent.click(getChatComposerRole("button", { name: /attach file/i }));
+  assert.deepEqual(chatComposerEvents.at(-1), ["onAttach", "click"]);
+  rerenderChatComposer(React.createElement(ChatComposer, {
+    label: "Reply",
+    value: "Next draft",
+    attachLabel: "Attach file",
+    onValueChange: (value, meta, event) => chatComposerEvents.push(["onValueChange", value, meta.length, event.type]),
+    onSend: (value, event) => chatComposerEvents.push(["onSend", value, event.type]),
+    onAttach: (event) => chatComposerEvents.push(["onAttach", event.type]),
+  }));
+  await waitFor(() => assert.equal(replyTextArea.value, "Next draft"));
+
+  cleanup();
+
+  const chatMessageActions = [];
+  const { getByRole: getChatMessageRole } = render(React.createElement(ChatMessage, {
+    author: "agent",
+    body: "Message failed",
+    state: "failed",
+    action: {
+      label: "Retry message",
+      onClick: (event) => chatMessageActions.push(["onClick", event.type]),
+    },
+  }));
+
+  fireEvent.click(getChatMessageRole("button", { name: /retry message/i }));
+  assert.deepEqual(chatMessageActions, [["onClick", "click"]]);
+
+  cleanup();
+
+  const chatThreadActions = [];
+  const { getByRole: getChatThreadRole } = render(React.createElement(ChatThread, {
+    label: "Support thread",
+    messages: [
+      {
+        id: "failed-message",
+        author: "agent",
+        body: "Message failed",
+        state: "failed",
+        action: {
+          label: "Retry message",
+          onClick: (event) => chatThreadActions.push(["onAction", event.type]),
+        },
+      },
+    ],
+    onMessageAction: (key, event) => chatThreadActions.push(["onMessageAction", key, event.type]),
+  }));
+
+  fireEvent.click(getChatThreadRole("button", { name: /retry message/i }));
+  assert.deepEqual(chatThreadActions, [["onAction", "click"], ["onMessageAction", "failed-message", "click"]]);
 } finally {
   cleanup();
   dom.window.close();

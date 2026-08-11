@@ -7,6 +7,11 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
+const {
+  controlledMarkersPolicy,
+  reactSecondaryExpectedInventory,
+} = require("./react-primary-governance-policy.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -16,39 +21,17 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-controlled-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-controlled-governance-audit.md");
 
-const expectedInventory = {
-  components: 56,
-  controlledDebt: 0,
-  controlledComponents: 29,
-  openControlledComponents: 10,
-  openSourceCovered: 10,
-  openTestCovered: 10,
-  controlledPropEdges: 28,
-  totalControlledEdges: 38,
-  testCoveredEdges: 28,
-  totalTestCoveredEdges: 38,
-  failures: 0,
-};
-
-const controlledMarkers = [
-  { marker: "isValueControlled", prop: "value" },
-  { marker: "isCheckedControlled", prop: "checked" },
-  { marker: "isSelectedKeyControlled", prop: "selectedKey" },
-  { marker: "isSortControlled", prop: "sortKey" },
-  { marker: "isSortControlled", prop: "sortDir" },
-  { marker: "isExpandedKeyControlled", prop: "expandedKey" },
-  { marker: "isExpandedKeysControlled", prop: "expandedKeys" },
-  { marker: "isExpandedIdsControlled", prop: "expandedIds" },
-  { marker: "isPageControlled", prop: "page" },
-  { marker: "isDismissedControlled", prop: "dismissed" },
-];
-
 function componentFiles() {
   if (!fs.existsSync(reactSrcDir)) return [];
   return fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort()
     .map((file) => path.join(reactSrcDir, file));
+}
+
+function kebab(value) {
+  return String(value).replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
 function pascal(value) {
@@ -79,6 +62,9 @@ function testHasPropCoverage(tests, component, prop) {
 }
 
 function createReport() {
+  const { expectedInventory, governance } = reactSecondaryExpectedInventory("controlled");
+  const markerPolicy = controlledMarkersPolicy();
+  const controlledMarkers = markerPolicy.controlledMarkers;
   const tests = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
   const openContracts = openContractComponents();
   const components = componentFiles().map((file) => {
@@ -129,8 +115,9 @@ function createReport() {
     totalTestCoveredEdges: components.reduce((total, component) => total + component.controlledProps.filter((item) => item.testCovered).length, 0)
       + openControlledComponents.filter((component) => component.openControlled.testCovered).length,
     failures: components.reduce((total, component) => total + component.failures.length, 0),
+    reactGovernancePolicyIssues: governance.issues.length + markerPolicy.governance.issues.length,
   };
-  inventory.controlledDebt = inventory.failures;
+  inventory.controlledDebt = inventory.failures + inventory.reactGovernancePolicyIssues;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -145,6 +132,10 @@ function createReport() {
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
+    },
+    governance: {
+      ...governance,
+      markerPolicy,
     },
     inventory,
     components,

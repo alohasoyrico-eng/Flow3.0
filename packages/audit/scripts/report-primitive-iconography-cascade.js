@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const {
+  docsAppDir,
   docsStyleModuleFiles,
   fs,
   path,
@@ -18,14 +19,14 @@ const markdownOutput = path.join(outputDir, "primitive-iconography-cascade-audit
 const tokenCssFile = resolveBoundaryPath("#design-system/tokens-css", "packages/tokens/styles/tokens.css");
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const componentSourceDir = path.join(root, "packages/components/src");
-const docsIndexFile = path.join(root, "apps/docs/index.html");
-const materialSymbolsCssFile = path.join(root, "apps/docs/vendor/material-symbols/material-symbols-rounded.css");
+const docsIndexFile = path.join(docsAppDir, "index.html");
+const materialSymbolsCssFile = path.join(docsAppDir, "vendor/material-symbols/material-symbols-rounded.css");
 const materialSymbolsFontFiles = [
   "material-symbols-rounded-400.ttf",
   "material-symbols-rounded-500.ttf",
   "material-symbols-rounded-600.ttf",
   "material-symbols-rounded-700.ttf",
-].map((file) => path.join(root, "apps/docs/vendor/material-symbols", file));
+].map((file) => path.join(docsAppDir, "vendor/material-symbols", file));
 const iconographySpecFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/iconography.json");
 const iconographyContractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/iconography.md");
 const foundationReports = {

@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/toolbar/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/toolbar.json`
 
 ## Purpose
 
@@ -34,6 +35,163 @@ Group page or table actions with search, filters, export, overflow, selection co
 | State | Default, filtered, selected, loading, disabled, and overflow states are explicit. |
 | Accessibility | Requires labelled controls, keyboard order, and non-color-only status. |
 
+## Formal Purpose
+
+Coordinate local page or table actions with search handoff, topbar boundary, status chips, overflow menus, and feedback.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `default`
+- `dense`
+- `overflow`
+- `filter-active`
+- `loading`
+- `disabled`
+- `permission-blocked`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `Chip`
+- `Input`
+- `Menu`
+- `Toast`
+
+### Patterns
+
+- `Search`
+- `Topbar`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.chip.*`
+- `comp.input.*`
+- `comp.menu.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `primaryActions` | `component` | `Button` |
+| `status` | `component` | `Badge`, `Chip` |
+| `searchField` | `component` | `Input` |
+| `overflow` | `component` | `Menu`, `Toast` |
+| `searchBoundary` | `pattern` | `Search` |
+| `topbarBoundary` | `pattern` | `Topbar` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A local work surface needs grouped actions, filters, search handoff, or overflow commands.
+- Actions apply to the current page, table, list, or section.
+- Global navigation and account actions remain owned by Topbar.
+
+### Decision Tree
+
+- Use Button/Menu directly for one isolated action.
+- Use Toolbar when multiple local commands share one row or control surface.
+- Use Topbar for global shell navigation and account actions.
+
+### Failure Modes
+
+- Toolbar duplicates Topbar global behavior.
+- Search is cloned instead of handed off.
+- Overflow uses custom menu markup.
+- Filter/status chips bypass Chip.
+
+### Success Metrics
+
+- Users can distinguish local actions from global shell actions.
+- Keyboard users can reach actions, search handoff, and overflow.
+- Local feedback and disabled states are visible and accessible.
+
+### Accessibility
+
+- Group toolbar controls with an accessible label.
+- Expose disabled and permission reasons in text.
+- Keep local search handoff distinct from global search.
+
+### Tests
+
+- Composes Badge, Button, Chip, Input, Menu, and Toast.
+- Covers overflow, filter-active, loading, disabled, and permission states.
+- Does not duplicate Topbar or Search internals.
+
+### Agent Instructions
+
+- Keep Topbar as shell boundary and Search as query boundary.
+- Do not invent local button, chip, or menu visuals.
+- Ask before adding cross-tenant or destructive bulk actions.
+
+### Reject If
+
+- Global navigation appears in Toolbar.
+- Search implementation is cloned.
+- Overflow bypasses Menu.
+- Controls use raw styling instead of Flow components.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -44,7 +202,7 @@ Group page or table actions with search, filters, export, overflow, selection co
 | status | Badge \| Chip | conditional | Selection or filter count. |
 | feedback | Toast | conditional | Reports action result. |
 
-## Components And Primitives Used
+## Components Used
 
 - Input
 - Button

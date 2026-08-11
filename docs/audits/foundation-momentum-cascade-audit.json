@@ -1,0 +1,582 @@
+{
+  "schemaVersion": "1.0.0",
+  "auditedAt": "1970-01-01T00:00:00.000Z",
+  "foundation": "Momentum",
+  "status": "pass",
+  "principle": "Momentum must govern timing, easing, transforms, loops, enter/exit, and reduced-motion behavior so movement communicates cause instead of decoration.",
+  "tokenOwnership": {
+    "tokenCss": "packages/tokens/styles/tokens.css",
+    "declarations": 88,
+    "requiredTokens": [
+      "--ref-momentum-duration-instant",
+      "--ref-momentum-duration-fast",
+      "--ref-momentum-duration-normal",
+      "--ref-momentum-duration-slow",
+      "--ref-momentum-duration-cycle",
+      "--ref-momentum-easing-touch",
+      "--ref-momentum-easing-enter",
+      "--ref-momentum-easing-move",
+      "--ref-momentum-easing-exit",
+      "--sys-momentum-duration-fast",
+      "--sys-momentum-duration-default",
+      "--sys-momentum-duration-slow",
+      "--sys-momentum-duration-critical",
+      "--sys-momentum-easing-touch",
+      "--sys-momentum-easing-enter",
+      "--sys-momentum-easing-move",
+      "--sys-momentum-easing-exit",
+      "--sys-momentum-transition-fast",
+      "--sys-momentum-transition-default",
+      "--sys-momentum-transition-slow"
+    ],
+    "missingTokens": [],
+    "docsOwnedMomentumTokens": []
+  },
+  "specContract": {
+    "file": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json",
+    "roles": [
+      "continuous",
+      "default",
+      "fast",
+      "instant",
+      "reduced",
+      "slow"
+    ],
+    "missingRoles": [],
+    "tokenDependencies": [
+      "ref.momentum.*",
+      "sys.momentum.*",
+      "sys.state.*",
+      "comp.*.momentum aliases"
+    ],
+    "primitiveDependencies": [
+      "Motion Curves",
+      "Duration",
+      "Loading",
+      "Disabled"
+    ],
+    "componentDependencies": [
+      "Button",
+      "Tabs",
+      "Skeleton",
+      "Progress Bar",
+      "Motion Boundary",
+      "Animated Moment"
+    ]
+  },
+  "dependencyEdges": [
+    {
+      "from": "Accessibility",
+      "to": "Momentum",
+      "status": "active",
+      "reason": "Accessible motion duration delegates to Momentum so reduced-motion and timing rules share one source."
+    }
+  ],
+  "cascadeCoverage": {
+    "primitives": {
+      "count": 15,
+      "ids": [
+        "animation-assets",
+        "charts",
+        "color",
+        "density",
+        "disabled",
+        "duration",
+        "elevation",
+        "field-action",
+        "focus",
+        "illustration-assets",
+        "library-sources",
+        "loading",
+        "maps",
+        "message",
+        "motion-curves"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/charts.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/color.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/density.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/disabled.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/duration.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/elevation.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/field-action.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/focus.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/illustration-assets.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/library-sources.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+      ]
+    },
+    "components": {
+      "count": 60,
+      "ids": [
+        "accordion",
+        "animated-moment",
+        "audit-event",
+        "avatar",
+        "badge",
+        "biometric-prompt",
+        "breadcrumbs",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "card-summary",
+        "chart-panel",
+        "chat-composer",
+        "chat-message",
+        "chat-thread",
+        "checkbox",
+        "chip",
+        "code-input",
+        "combobox",
+        "country-selector",
+        "date-picker",
+        "date-range-picker",
+        "dialog",
+        "drawer",
+        "empty-state",
+        "error-panel",
+        "floating-action-button",
+        "icon-button",
+        "inline-validation",
+        "input",
+        "input-amount",
+        "kpi-tile",
+        "list",
+        "menu",
+        "motion-boundary",
+        "movement-row",
+        "pagination",
+        "phone-input",
+        "popover",
+        "progress-indicator",
+        "quick-action",
+        "radio-button",
+        "route-summary",
+        "segmented-control",
+        "select",
+        "skeleton",
+        "slider",
+        "spinner",
+        "station-pin",
+        "stepper",
+        "switch",
+        "table",
+        "tabs",
+        "tag",
+        "text-area",
+        "toast",
+        "tooltip",
+        "tree-view"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/components/accordion.json",
+        "packages/specs/specs/unison-system/artifacts/components/animated-moment.json",
+        "packages/specs/specs/unison-system/artifacts/components/audit-event.json",
+        "packages/specs/specs/unison-system/artifacts/components/avatar.json",
+        "packages/specs/specs/unison-system/artifacts/components/badge.json",
+        "packages/specs/specs/unison-system/artifacts/components/biometric-prompt.json",
+        "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json",
+        "packages/specs/specs/unison-system/artifacts/components/button.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/agentinstructions.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/anatomy.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/contextdensitystrategy.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/foundations.json"
+      ]
+    },
+    "patterns": {
+      "count": 59,
+      "ids": [
+        "account-operations",
+        "action-sheet",
+        "advanced-filters",
+        "agent-conversation",
+        "authentication-login-biometrics-and-otp",
+        "autocomplete",
+        "avatar-group",
+        "avatar-menu",
+        "backoffice-approval",
+        "bulk-actions",
+        "calendar-view",
+        "case-management",
+        "chart-wrapper",
+        "column-configurator",
+        "command-palette",
+        "confirmation-dialog",
+        "dense-operational-list",
+        "drag-sortable-list",
+        "drawer-adapter",
+        "driver-and-vehicle-administration",
+        "driver-onboarding-mobile",
+        "email-template-layout",
+        "expandable-detail-table",
+        "file-upload",
+        "filter-chip-group",
+        "filterable-editable-table",
+        "fleet-manager-onboarding-desktop",
+        "form-section",
+        "fullscreen-sheet",
+        "gantt-chart",
+        "help-center",
+        "kanban-board",
+        "kpi-card",
+        "multi-select",
+        "multi-step-form",
+        "notification-panel",
+        "payment-form",
+        "polar-chart",
+        "preference-management",
+        "pricing-operations",
+        "pull-to-refresh",
+        "quick-actions-grid",
+        "roles-and-permissions",
+        "search",
+        "section-header",
+        "select-option-layer",
+        "settings",
+        "sidebar",
+        "snackbar-provider",
+        "station-discovery",
+        "status-feedback-view",
+        "swipe-actions",
+        "ticket-queue",
+        "timeline",
+        "toolbar",
+        "topbar",
+        "transfer-list",
+        "virtual-data-table",
+        "waterfall-chart"
+      ],
+      "sampleFiles": [
+        "packages/content/content/pattern-contracts/patterns/account-operations.md",
+        "packages/content/content/pattern-contracts/patterns/action-sheet.md",
+        "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+        "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
+        "packages/content/content/pattern-contracts/patterns/autocomplete.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-group.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
+        "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+        "packages/content/content/pattern-contracts/patterns/case-management.md"
+      ]
+    },
+    "templates": {
+      "count": 9,
+      "ids": [
+        "agent-workspace",
+        "configuration-console",
+        "driver-card-wallet",
+        "driver-mobile-app",
+        "fleet-dashboard-suite",
+        "fleet-manager-desktop",
+        "internal-operations-console",
+        "routes-and-stations",
+        "settings-workspace"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+      ]
+    },
+    "packageCssDirectUses": 867,
+    "docsCssDirectUses": 80
+  },
+  "motionDeclarations": {
+    "scannedFiles": [
+      "packages/components/styles/components.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-01.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-02-01.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+      "../FlowDocs/apps/docs/styles/01-shell-01.css",
+      "../FlowDocs/apps/docs/styles/01-shell-02.css",
+      "../FlowDocs/apps/docs/styles/01-shell-hero.css",
+      "../FlowDocs/apps/docs/styles/01-shell-icons.css",
+      "../FlowDocs/apps/docs/styles/02-doc-layout.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-04.css",
+      "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
+      "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
+      "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+      "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
+      "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
+      "../FlowDocs/apps/docs/styles/04a-button-docs-02.css",
+      "../FlowDocs/apps/docs/styles/04a-button-docs-03.css",
+      "../FlowDocs/apps/docs/styles/04a-demo-cell-docs.css",
+      "../FlowDocs/apps/docs/styles/04b-card-docs.css",
+      "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
+      "../FlowDocs/apps/docs/styles/04b-select-docs.css",
+      "../FlowDocs/apps/docs/styles/04c-input-docs.css",
+      "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
+      "../FlowDocs/apps/docs/styles/04e-switch-docs.css",
+      "../FlowDocs/apps/docs/styles/04f-radio-button-docs.css",
+      "../FlowDocs/apps/docs/styles/04g-text-area-docs.css",
+      "../FlowDocs/apps/docs/styles/04h-icon-button-docs.css",
+      "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
+      "../FlowDocs/apps/docs/styles/04j-badge-docs.css",
+      "../FlowDocs/apps/docs/styles/04l-tag-docs.css",
+      "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
+      "../FlowDocs/apps/docs/styles/04n-tooltip-docs.css",
+      "../FlowDocs/apps/docs/styles/04o-toast-docs.css",
+      "../FlowDocs/apps/docs/styles/04t-menu-docs.css",
+      "../FlowDocs/apps/docs/styles/04x-table-docs.css",
+      "../FlowDocs/apps/docs/styles/04y-avatar-docs.css",
+      "../FlowDocs/apps/docs/styles/04z-slider-docs.css",
+      "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
+      "../FlowDocs/apps/docs/styles/05-catalog-and-examples-02.css",
+      "../FlowDocs/apps/docs/styles/05-catalog-and-examples-03.css",
+      "../FlowDocs/apps/docs/styles/05b-list-docs.css",
+      "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
+      "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
+      "../FlowDocs/apps/docs/styles/05h-code-input-docs.css",
+      "../FlowDocs/apps/docs/styles/05i-phone-input-docs.css",
+      "../FlowDocs/apps/docs/styles/06-responsive-01.css",
+      "../FlowDocs/apps/docs/styles/06-responsive-02.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
+    ],
+    "totalFindings": 543,
+    "failures": [],
+    "reviews": [],
+    "passCount": 543
+  },
+  "animationCoverage": {
+    "keyframes": [
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 2486,
+        "name": "choice-indicator-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 2502,
+        "name": "choice-dot-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 2827,
+        "name": "badge-live-dot"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 3695,
+        "name": "toast-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 3974,
+        "name": "spinner-spin"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 3979,
+        "name": "spinner-arc-breathe"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 5592,
+        "name": "pagination-current-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 7529,
+        "name": "tree-view-item-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 7941,
+        "name": "animated-moment-icon-breathe"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 7979,
+        "name": "component-pulse"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 7986,
+        "name": "progress-indeterminate"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8000,
+        "name": "skeleton-shimmer"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8010,
+        "name": "dialog-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8022,
+        "name": "dialog-exit"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8034,
+        "name": "menu-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8046,
+        "name": "drawer-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8058,
+        "name": "drawer-enter-left"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8070,
+        "name": "drawer-exit"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8082,
+        "name": "drawer-exit-left"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8094,
+        "name": "chart-bar-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8106,
+        "name": "chart-line-draw"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8118,
+        "name": "chart-dot-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8130,
+        "name": "popover-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8519,
+        "name": "stepper-current-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8531,
+        "name": "stepper-connector-fill"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8540,
+        "name": "stepper-check-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 9841,
+        "name": "code-digit-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 9853,
+        "name": "code-invalid"
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+        "line": 199,
+        "name": "motion-fill"
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+        "line": 204,
+        "name": "motion-slide"
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+        "line": 209,
+        "name": "motion-enter-card"
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
+        "line": 27,
+        "name": "token-move"
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
+        "line": 88,
+        "name": "shimmer"
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
+        "line": 114,
+        "name": "checkbox-indicator-in"
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+        "line": 80,
+        "name": "pattern-sidebar-enter"
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+        "line": 91,
+        "name": "pattern-content-enter"
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+        "line": 102,
+        "name": "pattern-sidebar-reveal"
+      }
+    ],
+    "animatedFiles": [
+      "packages/components/styles/components.css",
+      "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+      "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
+      "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
+      "../FlowDocs/apps/docs/styles/06-responsive-01.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar.css"
+    ],
+    "globalReducedMotion": true,
+    "reducedMotionGaps": []
+  },
+  "gaps": [],
+  "nextActions": [
+    "Fix fail-level raw duration/easing/transform and reduced-motion gaps before touching the next foundation.",
+    "Replace component duration/ease literals with sys-momentum aliases where they are product UI behavior.",
+    "When a component is audited 1:1, verify enter, exit, loop continuity, reduced motion, and user-triggered state timing against this report."
+  ]
+}

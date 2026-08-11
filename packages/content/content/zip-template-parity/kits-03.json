@@ -1,0 +1,215 @@
+{
+  "kits": [
+    {
+      "id": "fleet-dashboard",
+      "zipPaths": [
+        "ui_kits/fleet-dashboard/index.html",
+        "ui_kits/fleet-dashboard/README.md"
+      ],
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Charts",
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "KPI Tile",
+          "Table",
+          "Button",
+          "Icon Button",
+          "Input",
+          "Select",
+          "Tabs",
+          "Badge",
+          "Chip",
+          "Avatar",
+          "Toast",
+          "Breadcrumbs",
+          "Empty State",
+          "Tooltip",
+          "Progress Indicator",
+          "Menu",
+          "Accordion",
+          "Pagination",
+          "Date Picker",
+          "Skeleton",
+          "Dialog",
+          "Drawer"
+        ],
+        "patterns": [
+          "Topbar",
+          "Sidebar",
+          "Advanced Filters",
+          "KPI Card",
+          "Virtual Data Table",
+          "Confirmation Dialog",
+          "File Upload",
+          "Notification Panel"
+        ],
+        "templates": [
+          "Fleet Manager Desktop",
+          "Fleet Dashboard Suite"
+        ]
+      },
+      "requiredDecision": "Keep Fleet Manager Desktop for operating-console flow and Fleet Dashboard Suite for multi-domain dashboards.",
+      "migrationScope": [
+        "dashboard shell",
+        "CRUD list/detail",
+        "filters",
+        "confirmation"
+      ],
+      "cascadeRisks": [
+        "custom sidebar/topbar",
+        "raw CRUD table",
+        "details drawer outside Drawer"
+      ]
+    },
+    {
+      "id": "internal-tools",
+      "zipPaths": [
+        "ui_kits/internal-tools/index.html",
+        "ui_kits/internal-tools/accounts.html",
+        "ui_kits/internal-tools/backoffice.html",
+        "ui_kits/internal-tools/cases.html",
+        "ui_kits/internal-tools/growth.html",
+        "ui_kits/internal-tools/growth-brutal.html",
+        "ui_kits/internal-tools/pricing.html",
+        "ui_kits/internal-tools/tickets.html",
+        "ui_kits/internal-tools/shell.jsx"
+      ],
+      "classification": "covered-by-template",
+      "candidateName": "Internal Operations Console",
+      "status": "covered-by-internal-operations-console",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "KPI Tile",
+          "Table",
+          "Badge",
+          "Avatar",
+          "Button",
+          "Icon Button",
+          "Input",
+          "Select",
+          "Tabs",
+          "Chat Thread",
+          "Toast",
+          "Menu",
+          "Dialog",
+          "Drawer"
+        ],
+        "patterns": [
+          "Topbar",
+          "Sidebar",
+          "Case Management",
+          "Ticket Queue",
+          "Account Operations",
+          "Pricing Operations",
+          "Backoffice Approval",
+          "Dense Operational List",
+          "Status Feedback View",
+          "Timeline"
+        ],
+        "templates": [
+          "Internal Operations Console"
+        ]
+      },
+      "requiredDecision": "Internal Operations Console covers accounts, tickets, cases, pricing, growth, and backoffice ZIP screens; Configuration Console remains the admin/lifecycle template.",
+      "migrationScope": [
+        "accounts",
+        "tickets",
+        "cases",
+        "pricing",
+        "growth",
+        "backoffice"
+      ],
+      "cascadeRisks": [
+        "admin shell duplication with Configuration Console",
+        "raw operations table outside owning pattern",
+        "growth-brutal theme escaping theme contract",
+        "pricing cards outside Surface ownership"
+      ]
+    },
+    {
+      "id": "mailings",
+      "zipPaths": [
+        "ui_kits/mailings/base-layout.html",
+        "ui_kits/mailings/transaccional-recibo.html",
+        "ui_kits/mailings/resumen-semanal.html",
+        "ui_kits/mailings/alerta-seguridad.html",
+        "ui_kits/mailings/invitacion-equipo.html",
+        "ui_kits/mailings/bienvenida.html",
+        "ui_kits/mailings/README.md"
+      ],
+      "classification": "covered-separate-channel",
+      "status": "covered-by-email-template-layout",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Duration",
+          "Iconography",
+          "Message",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "components": [],
+        "patterns": [
+          "Email Template Layout"
+        ],
+        "templates": []
+      },
+      "requiredDecision": "Email remains a separate channel with inline table layout constraints. Email Template Layout owns the base shell and transactional, summary, security, invite, and welcome variants; product React must not absorb these files as app templates.",
+      "migrationScope": [
+        "transactional receipt",
+        "weekly summary",
+        "security alert",
+        "team invite",
+        "welcome"
+      ],
+      "cascadeRisks": [
+        "email table layout copied into product React",
+        "hex tokens bypassing token contract",
+        "email card/footer becoming app components"
+      ]
+    }
+  ]
+}

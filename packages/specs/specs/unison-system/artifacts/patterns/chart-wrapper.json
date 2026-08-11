@@ -1,0 +1,176 @@
+{
+  "artifacts": {
+    "patterns": {
+      "chart-wrapper": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate chart presentation with title, metric context, legend, loading, empty, error, table fallback, and drill-in actions while chart rendering remains component-owned.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Charts",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Chart Panel",
+          "Empty State",
+          "Error Panel",
+          "KPI Tile",
+          "List",
+          "Menu",
+          "Skeleton",
+          "Table"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.chart-panel.*",
+          "comp.empty-state.*",
+          "comp.error-panel.*",
+          "comp.kpi-tile.*",
+          "comp.list.*",
+          "comp.menu.*",
+          "comp.skeleton.*",
+          "comp.table.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A data visualization needs title, status, fallback, or drill-in behavior.",
+          "The chart can be loading, empty, errored, filtered, or permission constrained.",
+          "Users may need table or list access to the same data."
+        ],
+        "decisionTree": [
+          "Use Chart Panel for base chart rendering.",
+          "Use Chart Wrapper when chart context, actions, and fallbacks are part of the reusable composition.",
+          "Use KPI Card when a single metric is the primary content."
+        ],
+        "failureModes": [
+          "Chart chrome is custom card markup.",
+          "Legend or status relies only on color.",
+          "No table/list fallback exists for inspectable data.",
+          "Loading and error states are visual-only."
+        ],
+        "successMetrics": [
+          "Users can read chart title, data scope, status, and fallback.",
+          "Assistive technology users can access equivalent tabular/list data.",
+          "Chart composition stays reusable across templates."
+        ],
+        "states": [
+          "default",
+          "loading",
+          "empty",
+          "error",
+          "filtered",
+          "permission-blocked",
+          "interactive",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "chart",
+            "owner": "component",
+            "uses": [
+              "Chart Panel"
+            ]
+          },
+          {
+            "name": "summary",
+            "owner": "component",
+            "uses": [
+              "KPI Tile",
+              "Badge",
+              "Menu",
+              "Button"
+            ]
+          },
+          {
+            "name": "fallback",
+            "owner": "component",
+            "uses": [
+              "Table",
+              "List",
+              "Skeleton",
+              "Empty State",
+              "Error Panel"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Expose chart title, scope, and data summary in text.",
+          "Provide table or list fallback for inspectable data.",
+          "Do not use color as the only series or status distinction."
+        ],
+        "tests": [
+          "Composes Chart Panel, KPI Tile, Table/List fallback, Button, Menu, Skeleton, Empty State, and Error Panel.",
+          "Covers loading, empty, error, filtered, permission, and interactive states.",
+          "Does not own business chart thresholds or dashboard layout."
+        ],
+        "agentInstructions": [
+          "Keep data queries, business thresholds, and chart library internals outside the pattern.",
+          "Use Flow components for chart chrome, actions, and fallbacks.",
+          "Ask before visualizing regulated, financial, safety, or identity-sensitive data."
+        ],
+        "rejectIf": [
+          "A custom chart card replaces Chart Panel.",
+          "Equivalent data fallback is impossible.",
+          "Series/status semantics are color-only.",
+          "Template dashboard layout leaks into the pattern."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

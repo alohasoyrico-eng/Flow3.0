@@ -1,0 +1,368 @@
+{
+  "version": "2026-08-09",
+  "structuralSlotNames": [
+    "container",
+    "content",
+    "frame",
+    "groups",
+    "layout",
+    "panel",
+    "section",
+    "surface",
+    "viewport"
+  ],
+  "structuralSurfacePrimitive": "Surface",
+  "componentSurfaceOwners": [
+    "Dialog",
+    "Drawer",
+    "Menu",
+    "Popover",
+    "Tooltip"
+  ],
+  "componentObjectSurfaces": [
+    "Card",
+    "Card Summary",
+    "Chart Panel",
+    "KPI Tile",
+    "Route Summary"
+  ],
+  "structuralSurfaceExemptComponents": [
+    "Empty State"
+  ],
+  "structuralSurfaceForbiddenCopyComponents": [
+    "Card",
+    "List"
+  ],
+  "allowedPatternDomRoots": [
+    "div",
+    "h",
+    "p"
+  ],
+  "knownAliasNames": {
+    "Date Picker": "Date Range Picker",
+    "KPI Tile": "Kpi Tile"
+  },
+  "primitiveRuntimeExports": [
+    "animation-assets",
+    "charts",
+    "country-flags",
+    "country-options",
+    "iconography",
+    "illustration-assets",
+    "library-sources",
+    "maps"
+  ],
+  "primitiveTemplateNeedles": {
+    "illustration-assets": [
+      "illustration",
+      "hero-art",
+      "onboarding-art",
+      "empty-state-art"
+    ],
+    "maps": [
+      "map",
+      "maps",
+      "station",
+      "route",
+      "nearby-stations"
+    ]
+  },
+  "taxonomySignals": [
+    "administration",
+    "desktop",
+    "driver",
+    "fleet-manager",
+    "mobile",
+    "onboarding",
+    "roles-and-permissions",
+    "template"
+  ],
+  "taxonomyRequiredLayerChecks": {
+    "Surface": "primitive",
+    "Card": "component"
+  },
+  "approvedCrossLayerArtifactIds": [
+    "iconography"
+  ],
+  "forbiddenVisualTags": [
+    "article",
+    "aside",
+    "button",
+    "footer",
+    "header",
+    "input",
+    "label",
+    "li",
+    "nav",
+    "ol",
+    "option",
+    "section",
+    "select",
+    "span",
+    "table",
+    "tbody",
+    "td",
+    "textarea",
+    "th",
+    "thead",
+    "tr",
+    "ul"
+  ],
+  "emailChannelPatternIds": [
+    "email-template-layout"
+  ],
+  "emailChannelAllowedTags": [
+    "a",
+    "body",
+    "div",
+    "head",
+    "html",
+    "meta",
+    "style",
+    "table",
+    "tbody",
+    "td",
+    "title",
+    "tr"
+  ],
+  "primitiveReactImports": {
+    "Surface": "Surface"
+  },
+  "foundationPrimitiveHints": {
+    "Accessibility": [
+      "Focus",
+      "Disabled"
+    ],
+    "Depth": [
+      "Elevation"
+    ],
+    "Energy": [
+      "Color"
+    ],
+    "Frame": [
+      "Spacing",
+      "Radius",
+      "Breakpoints"
+    ],
+    "Growth": [
+      "Measurement",
+      "Research"
+    ],
+    "Iconography": [
+      "Iconography"
+    ],
+    "Momentum": [
+      "Motion Curves",
+      "Duration"
+    ],
+    "State": [
+      "Color",
+      "Focus",
+      "Loading",
+      "Disabled"
+    ],
+    "Symbol": [
+      "Iconography"
+    ],
+    "Tone": [
+      "Color",
+      "Message"
+    ],
+    "Voice": [
+      "Typography",
+      "Message"
+    ]
+  },
+  "complexityWeights": {
+    "component": 1,
+    "unknownComponent": 3,
+    "requiredSlot": 2,
+    "conditionalSlot": 1,
+    "patternCrossing": 3,
+    "templateReference": 4,
+    "missingFormalArtifact": 8,
+    "missingPrimitiveDeclaration": 5
+  },
+  "foundationPrimitiveDebtWeights": {
+    "missingPrimitive": 4,
+    "missingInferredPrimitiveArtifact": 4,
+    "missingComponent": 4,
+    "missingExplicitFoundation": 1,
+    "missingInferredFoundationArtifact": 3,
+    "undeclaredComponentPrimitive": 2,
+    "undeclaredComponentFoundation": 1,
+    "primitiveMaturityGap": 1,
+    "foundationMaturityGap": 1,
+    "structuralSlotDebt": 5,
+    "formalDependencyLayerError": 8,
+    "reactDebt": 5
+  },
+  "architectureExpectedInventory": {
+    "patterns": 59,
+    "patternArchitecturePolicyIssues": 0,
+    "foundationPrimitiveHintPolicy": 11,
+    "complexityWeightPolicy": 8,
+    "formalArtifacts": 59,
+    "markdownContracts": 59,
+    "catalogEntries": 59,
+    "patternsWithDeclaredPrimitives": 59,
+    "patternsWithOnlyInferredPrimitives": 0,
+    "patternsWithUnknownComponents": 0,
+    "patternsWithComponentArtifactGaps": 0,
+    "patternContractScopeIssues": 0,
+    "patternContractArtifactCoverageIssues": 0,
+    "patternsWithPatternCrossings": 41,
+    "patternsReferencedByTemplates": 16,
+    "templatePatternDependencies": 50,
+    "templatePatternDependencyGaps": 0,
+    "templateModuleDependencyMismatches": 0,
+    "missingFormalTemplatePatternDependencies": 0,
+    "templateModuleDependencies": 29,
+    "unknownTemplateModuleDependencies": 0,
+    "docsAppAvailable": 1,
+    "patternsReferencedByDocs": 41,
+    "docsEvidenceFiles": 41,
+    "unknownDocsEvidenceFiles": 0,
+    "formalArtifactBacklog": 0,
+    "primitiveDeclarationBacklog": 0,
+    "patternArchitectureBacklog": 0,
+    "patternArchitectureDebt": 0,
+    "patternArchitectureBlockingDebt": 0
+  },
+  "foundationPrimitiveExpectedInventory": {
+    "formalPatternArtifacts": 59,
+    "primitiveArtifacts": 24,
+    "foundationArtifacts": 11,
+    "componentArtifacts": 60,
+    "patternArchitecturePolicyIssues": 0,
+    "patternArchitectureStructuralSlotNames": 9,
+    "patternArchitectureSurfaceOwnerComponents": 5,
+    "patternArchitectureObjectSurfaceComponents": 5,
+    "patternArchitectureStructuralSurfaceExemptComponents": 1,
+    "patternArchitectureAllowedDomRoots": 3,
+    "patternArchitectureEmailChannelPatterns": 1,
+    "patternArchitectureEmailChannelAllowedTags": 12,
+    "patternArchitectureRuntimePrimitiveExports": 8,
+    "patternArchitectureApprovedCrossLayerArtifacts": 1,
+    "patternArchitectureTaxonomyLayerChecks": 2,
+    "patternArchitectureTaxonomyLayerIssues": 0,
+    "patternArchitectureUnusedPrimitiveClassifications": 3,
+    "foundationPrimitiveDebtWeightPolicy": 12,
+    "implementedReactPatterns": 59,
+    "patternsWithExplicitFoundations": 59,
+    "patternsMissingExplicitFoundations": 0,
+    "patternsWithMissingPrimitiveRefs": 0,
+    "patternsWithMissingInferredPrimitiveArtifacts": 0,
+    "formalDependencyLayerErrors": 0,
+    "patternsWithUndeclaredComponentPrimitives": 0,
+    "patternsRequiringSurfacePrimitive": 38,
+    "patternsRequiringDirectSurfaceRuntime": 24,
+    "patternsMissingDirectSurfaceRuntime": 0,
+    "patternsWithStructuralSurfaceDebt": 0,
+    "cardStructuralWrapperViolations": 0,
+    "implementedReactPatternsWithArchitectureDebt": 0,
+    "patternsWithTaxonomyWarnings": 0,
+    "primitiveArtifactsUnusedByPatterns": 2,
+    "governedPrimitiveArtifactsUnusedByPatterns": 2,
+    "unclassifiedPrimitiveArtifactsUnusedByPatterns": 0,
+    "primitiveArtifactsUnreferencedBySystem": 0,
+    "primitiveArtifactsMissingGoverningFoundations": 0,
+    "unusedPrimitiveArtifactsRequiringPattern": 0,
+    "foundationArtifactsUnusedByPatterns": 0,
+    "readyPatterns": 59,
+    "blockedPatterns": 0,
+    "foundationPrimitiveBlockingDebt": 0
+  },
+  "runtimePrimitivePatternDependencies": [
+    "Animation Assets",
+    "Charts",
+    "Country Flags",
+    "Illustration Assets",
+    "Maps"
+  ],
+  "templateFacingSignals": [
+    "administration",
+    "authentication",
+    "biometrics",
+    "driver",
+    "fleet",
+    "login",
+    "permissions",
+    "roles",
+    "sidebar",
+    "station",
+    "topbar"
+  ],
+  "migrationWaveLabels": {
+    "base Flow composition": "Wave 1: base Flow compositions",
+    "stateful Flow composition": "Wave 2: stateful Flow compositions",
+    "cross-pattern composition": "Wave 3: cross-pattern compositions",
+    "primitive-runtime composition": "Wave 4: primitive runtime compositions",
+    "template-facing orchestrator": "Wave 5: template-facing orchestrators"
+  },
+  "architectureWavePolicy": {
+    "waves": [
+      {
+        "id": "wave-0-formalized",
+        "label": "Wave 0: formalized and low crossing",
+        "formalized": true,
+        "maxPatternCrossings": 1,
+        "requiresKnownComponents": true
+      },
+      {
+        "id": "wave-1-low-risk-composition",
+        "label": "Wave 1: low-risk composition",
+        "maxScore": 20,
+        "maxPatternCrossings": 1,
+        "maxTemplateRefs": 0
+      },
+      {
+        "id": "wave-2-composed-workflows",
+        "label": "Wave 2: composed workflows",
+        "maxScore": 38,
+        "maxTemplateRefs": 1
+      },
+      {
+        "id": "wave-3-cross-pattern-orchestration",
+        "label": "Wave 3: cross-pattern orchestration",
+        "maxScore": 60
+      },
+      {
+        "id": "wave-4-template-adjacent",
+        "label": "Wave 4: template-adjacent",
+        "maxScore": null
+      }
+    ]
+  },
+  "nonNegotiableMigrationRules": [
+    "A pattern React implementation must compose existing Flow React components; it must not recreate Button, Dialog, Drawer, Input, Menu, Search, Table, Toast, Tooltip, or related visuals internally.",
+    "Structural grouping, background, density cascade, elevation/radius coordination, and non-product surface state resolve through the Surface primitive. Card is allowed only when the formal component contract calls for a card-like content unit; Card must not become a generic group wrapper.",
+    "A pattern must declare foundations and primitives explicitly before implementation. Inferred dependencies are planning evidence, not a contract.",
+    "A pattern that crosses another pattern must expose a composition boundary or runtime slot according to the audit. Boundary-only dependencies must remain documented handoffs unless React actually imports and composes the dependency.",
+    "A template-facing pattern may be consumed by templates, but template-specific layout, copy, and business policy stay in templates. Reusable interaction structure stays in Flow patterns.",
+    "FlowDocs remains a consumer. Pattern behavior, CSS roots, props, accessibility, state contracts, and cascade rules live in Flow artifacts and React package code."
+  ],
+  "unusedPrimitiveClassifications": {
+    "library-sources": {
+      "classification": "system-governance-primitive",
+      "directPatternRequired": false,
+      "reason": "Library Sources governs vendor/runtime intake for other primitives; direct pattern usage would be expected only for a source-management workflow.",
+      "migrationAction": "Keep as primitive governance; require consuming primitives to declare it before introducing vendors."
+    },
+    "maps": {
+      "classificationWithTemplateMentions": "template-adjacent-primitive",
+      "classificationWithoutTemplateMentions": "runtime-primitive-without-pattern",
+      "directPatternRequiredWhenTemplateMentioned": true,
+      "reason": "Maps has route/station template demand and must remain covered by a formal map/station-discovery pattern.",
+      "migrationAction": "Restore or declare a Station Discovery-style pattern before route/station templates own map, fallback-list, or route-handoff behavior."
+    },
+    "illustration-assets": {
+      "classificationWithTemplateMentions": "template-adjacent-asset-primitive",
+      "classificationWithoutTemplateMentions": "asset-governance-primitive",
+      "directPatternRequiredWhenTemplateMentioned": false,
+      "reason": "Illustration Assets governs approved image sources; current formal patterns do not render illustration slots directly.",
+      "migrationAction": "Keep as asset primitive; add direct pattern declaration only when an onboarding/empty/hero pattern owns illustration slots."
+    }
+  },
+  "reason": "Pattern architecture policy keeps structural ownership explicit: Surface owns generic grouping, object components own only their formal content units, and React patterns may render only thin structural/text DOM around Flow primitives and components."
+}

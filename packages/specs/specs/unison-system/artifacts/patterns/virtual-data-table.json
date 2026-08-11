@@ -1,0 +1,171 @@
+{
+  "artifacts": {
+    "patterns": {
+      "virtual-data-table": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate large tabular datasets with virtualization boundaries, selection, pagination, search/toolbar handoff, loading, empty, and error recovery.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Checkbox",
+          "Empty State",
+          "Error Panel",
+          "Pagination",
+          "Skeleton",
+          "Table"
+        ],
+        "patternDependencies": [
+          "Search",
+          "Toolbar"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.checkbox.*",
+          "comp.empty-state.*",
+          "comp.error-panel.*",
+          "comp.pagination.*",
+          "comp.skeleton.*",
+          "comp.table.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A table needs to render many rows efficiently.",
+          "Users need selection, paging, empty/error/loading states, or local actions.",
+          "Search and Toolbar host query/actions without owning table rendering."
+        ],
+        "decisionTree": [
+          "Use Table for ordinary tabular data.",
+          "Use Virtual Data Table when large row counts need virtualization or controlled paging.",
+          "Use Transfer List when users move items between sets."
+        ],
+        "failureModes": [
+          "Rows are custom cards instead of Table rows.",
+          "Virtualization breaks keyboard or screen reader context.",
+          "Search/Toolbar internals are cloned.",
+          "Empty/error states bypass Flow components."
+        ],
+        "successMetrics": [
+          "Users can scan, select, page, and recover from data states.",
+          "Assistive tech receives stable row/column context.",
+          "Performance concerns do not create a second table implementation."
+        ],
+        "states": [
+          "default",
+          "loading",
+          "empty",
+          "error",
+          "selected",
+          "paginated",
+          "virtualized",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "table",
+            "owner": "component",
+            "uses": [
+              "Table",
+              "Checkbox"
+            ]
+          },
+          {
+            "name": "status",
+            "owner": "component",
+            "uses": [
+              "Skeleton",
+              "Empty State",
+              "Error Panel",
+              "Badge"
+            ]
+          },
+          {
+            "name": "navigation",
+            "owner": "component",
+            "uses": [
+              "Pagination",
+              "Button"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Preserve table semantics under virtualization.",
+          "Expose selected count and pagination state.",
+          "Keep empty/error/loading states announced in text."
+        ],
+        "tests": [
+          "Composes Table, Checkbox, Pagination, Skeleton, Empty State, Error Panel, Badge, and Button.",
+          "Covers virtualized, paginated, selected, loading, empty, error, and disabled states.",
+          "Keeps Search and Toolbar as boundaries."
+        ],
+        "agentInstructions": [
+          "Do not create custom row/card visuals.",
+          "Keep data fetching and row model outside the pattern.",
+          "Ask before virtualizing regulated, financial, or safety-critical data."
+        ],
+        "rejectIf": [
+          "Table semantics are lost.",
+          "Search/Toolbar are cloned.",
+          "Empty/error states bypass components.",
+          "Selection state is inaccessible."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

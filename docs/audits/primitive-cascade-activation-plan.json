@@ -1,0 +1,68 @@
+{
+  "status": "pass",
+  "audit": "primitive cascade activation plan",
+  "principle": "Primitive cascade backlog must have an activation order derived from blocker types and required evidence so active gates grow systematically without reintroducing dependency cycles.",
+  "inventory": {
+    "backlogPrimitiveCascadeReports": 0,
+    "activationWaves": 4,
+    "emptyActivationWaves": 4,
+    "backlogWithoutActivationEvidence": 0,
+    "backlogWithoutActivationWave": 0,
+    "unknownBlockerTypes": 0,
+    "uncoveredBlockerTypes": 0,
+    "activationCandidates": 0,
+    "blockedActivationCandidates": 0,
+    "primitiveCascadeActivationPlanDebt": 0
+  },
+  "waves": [
+    {
+      "id": "normalize-lateral-policy",
+      "label": "Normalize Lateral Policy",
+      "blockerTypes": [
+        "lateral-policy",
+        "dependency-cycle"
+      ],
+      "principle": "Break primitive dependency cycles by marking lateral coordination separately from upstream blockers.",
+      "primitives": [],
+      "primitiveCount": 0,
+      "evidenceCount": 0
+    },
+    {
+      "id": "vendor-source-evidence",
+      "label": "Vendor Source Evidence",
+      "blockerTypes": [
+        "vendor-source-evidence"
+      ],
+      "principle": "Add local source manifests, generated bridges, CSS/license evidence, and vendor ownership before activating vendor-backed primitives.",
+      "primitives": [],
+      "primitiveCount": 0,
+      "evidenceCount": 0
+    },
+    {
+      "id": "docs-runtime-evidence",
+      "label": "Docs Runtime Evidence",
+      "blockerTypes": [
+        "docs-runtime-evidence"
+      ],
+      "principle": "Prove FlowDocs consumes local Flow runtime/semantic evidence instead of owning behavior.",
+      "primitives": [],
+      "primitiveCount": 0,
+      "evidenceCount": 0
+    },
+    {
+      "id": "local-consumption-evidence",
+      "label": "Local Consumption Evidence",
+      "blockerTypes": [
+        "local-consumption-evidence"
+      ],
+      "principle": "Prove primitives are consumed by components, patterns, templates, or exported contracts before activation.",
+      "primitives": [],
+      "primitiveCount": 0,
+      "evidenceCount": 0
+    }
+  ],
+  "dependencySignals": {},
+  "activationCandidates": [],
+  "blockedActivationCandidates": [],
+  "issues": []
+}

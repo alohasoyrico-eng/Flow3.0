@@ -1,0 +1,11 @@
+{
+  "$systemShards": [
+    "zip-template-parity/meta.json",
+    "zip-template-parity/kits-01.json",
+    "zip-template-parity/kits-02.json",
+    "zip-template-parity/kits-03.json",
+    "zip-template-parity/kits-04.json",
+    "zip-template-parity/kits-05.json",
+    "zip-template-parity/kits-06.json"
+  ]
+}

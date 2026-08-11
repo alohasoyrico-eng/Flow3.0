@@ -4,26 +4,67 @@
   "principle": "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked. The actionable debt metric is styleEscapeDebt.",
   "baseline": {
     "inventory": {
-      "components": 56,
+      "components": 60,
       "styleEscapeDebt": 0,
       "componentsWithApprovedInlineVars": 6,
       "componentsWithRuntimeVars": 1,
       "approvedInlineVars": 10,
       "styleProps": 10,
       "setPropertyCalls": 2,
-      "violations": 0
+      "violations": 0,
+      "reactGovernancePolicyIssues": 0
     },
     "mismatches": []
   },
+  "governance": {
+    "file": "packages/content/content/react-primary-governance.json",
+    "key": "style",
+    "issues": [],
+    "escapePolicy": {
+      "blockedEscapePatterns": [
+        {
+          "id": "rest-style",
+          "label": "rest.style merge",
+          "pattern": {}
+        },
+        {
+          "id": "inner-html",
+          "label": "HTML string injection",
+          "pattern": {}
+        },
+        {
+          "id": "dom-style-mutation",
+          "label": "DOM style mutation",
+          "pattern": {}
+        },
+        {
+          "id": "dom-dataset-mutation",
+          "label": "DOM dataset mutation",
+          "pattern": {}
+        },
+        {
+          "id": "dom-classlist-mutation",
+          "label": "DOM classList mutation",
+          "pattern": {}
+        }
+      ],
+      "governance": {
+        "file": "packages/content/content/react-primary-governance.json",
+        "key": "styleBlockedEscapePatterns",
+        "issues": []
+      }
+    }
+  },
   "inventory": {
-    "components": 56,
+    "components": 60,
     "styleEscapeDebt": 0,
     "componentsWithApprovedInlineVars": 6,
     "componentsWithRuntimeVars": 1,
     "approvedInlineVars": 10,
     "styleProps": 10,
     "setPropertyCalls": 2,
-    "violations": 0
+    "violations": 0,
+    "reactGovernancePolicyIssues": 0
   },
   "components": [
     {
@@ -179,6 +220,36 @@
       "status": "pass"
     },
     {
+      "component": "ChatComposer",
+      "file": "packages/react/src/ChatComposer.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatMessage",
+      "file": "packages/react/src/ChatMessage.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatThread",
+      "file": "packages/react/src/ChatThread.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
       "component": "Checkbox",
       "file": "packages/react/src/Checkbox.js",
       "allowedInlineStyleKeys": [],
@@ -321,6 +392,16 @@
     {
       "component": "Input",
       "file": "packages/react/src/Input.js",
+      "allowedInlineStyleKeys": [],
+      "approvedVars": [],
+      "styleProps": 0,
+      "setPropertyCalls": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "InputAmount",
+      "file": "packages/react/src/InputAmount.js",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

@@ -91,6 +91,7 @@
         "Table",
         "Checkbox",
         "Button",
+        "Menu",
         "Dialog",
         "Toast",
         "Badge",

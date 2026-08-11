@@ -1,0 +1,255 @@
+{
+  "components": {
+    "input-amount": {
+      "operational-example": {
+        "copy": "Capture one monetary amount with visible currency context, native input semantics, helper or recovery copy, and the shared Flow field cascade.",
+        "scenario": {
+          "rationaleTitle": "Why input-amount",
+          "rationale": [
+            "Keeps component behavior package-owned.",
+            "Preserves foundation and primitive cascade.",
+            "Avoids local visual or workflow duplication."
+          ]
+        }
+      },
+      "anatomy": {
+        "items": [
+          {
+            "part": "Field root",
+            "rule": "Uses the shared field CSS contract and input-amount extension root.",
+            "tokens": [
+              "component-field-*",
+              "comp.input-amount.*"
+            ]
+          },
+          {
+            "part": "Label",
+            "rule": "Names the monetary value.",
+            "tokens": [
+              "sys.voice.*",
+              "sys.accessibility.*"
+            ]
+          },
+          {
+            "part": "Currency context",
+            "rule": "Shows currency without replacing the label.",
+            "tokens": [
+              "sys.symbol.*",
+              "sys.voice.*"
+            ]
+          },
+          {
+            "part": "Native input",
+            "rule": "Keeps decimal input semantics and paste behavior.",
+            "tokens": [
+              "sys.frame.*",
+              "sys.state.*"
+            ]
+          },
+          {
+            "part": "Helper or error",
+            "rule": "Explains limits, format, or recovery.",
+            "tokens": [
+              "sys.tone.*",
+              "sys.voice.*"
+            ]
+          }
+        ]
+      },
+      "accessibility": {
+        "statePrecedence": "disabled > loading > error > filled > default",
+        "items": [
+          "Keep visible labels and accessible names aligned.",
+          "Expose machine-readable state through props and data attributes.",
+          "Do not rely on color, symbol, or placeholder text alone.",
+          "Preserve keyboard, focus, disabled, loading, and recovery behavior."
+        ]
+      },
+      "variants": {
+        "copy": "input-amount variants stay semantic and do not fork visual contracts.",
+        "demos": [
+          {
+            "label": "default",
+            "variant": "default",
+            "state": "default"
+          }
+        ]
+      },
+      "states": {
+        "copy": "Input Amount states remain inside the shared field cascade: currency context is visible, recovery copy is textual, and Surface ownership stays outside the field.",
+        "demos": [
+          {
+            "label": "Default",
+            "state": "default",
+            "value": "",
+            "currency": "MXN"
+          },
+          {
+            "label": "Filled",
+            "state": "filled",
+            "value": "1250.00",
+            "currency": "MXN"
+          },
+          {
+            "label": "Loading",
+            "state": "loading",
+            "value": "1250.00",
+            "currency": "MXN",
+            "loading": true
+          },
+          {
+            "label": "Error",
+            "state": "error",
+            "value": "99999.00",
+            "currency": "MXN",
+            "error": "Amount exceeds the approved limit."
+          },
+          {
+            "label": "Disabled",
+            "state": "disabled",
+            "value": "500.00",
+            "currency": "MXN",
+            "disabled": true
+          }
+        ]
+      },
+      "api-foundations": {
+        "copy": "input-amount API exposes semantic props while Flow foundations own state, density, tone, frame, and accessibility.",
+        "props": [
+          {
+            "name": "label",
+            "type": "string",
+            "required": "Yes",
+            "notes": "Visible amount label."
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "required": "No",
+            "notes": "Controlled amount value."
+          },
+          {
+            "name": "defaultValue",
+            "type": "string",
+            "required": "No",
+            "notes": "Uncontrolled initial value."
+          },
+          {
+            "name": "currency",
+            "type": "string",
+            "required": "No",
+            "notes": "Visible currency code."
+          },
+          {
+            "name": "locale",
+            "type": "string | string[]",
+            "required": "No",
+            "notes": "Consumer-supplied formatting locale."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": "No",
+            "notes": "Consumer-supplied format mask."
+          },
+          {
+            "name": "error",
+            "type": "string",
+            "required": "No",
+            "notes": "Visible recovery copy."
+          },
+          {
+            "name": "onValueChange",
+            "type": "(value, meta, event) => void",
+            "required": "No",
+            "notes": "Value callback with amount metadata."
+          }
+        ]
+      },
+      "guidelines": {
+        "do": [
+          "Use Input Amount for one monetary entry.",
+          "Use inside Form Section, Payment Form, wallet, or operational templates.",
+          "Use when currency context and validation must remain visible."
+        ],
+        "dont": [
+          "The flow collects full payment credentials or multiple financial fields.",
+          "The amount changes regulated, irreversible, or safety-critical outcomes.",
+          "A custom field shell or Card wrapper is requested."
+        ],
+        "items": [
+          "Confirm the component remains atomic.",
+          "Confirm symbols and tone have visible text fallback.",
+          "Confirm patterns/templates compose this component through Flow APIs."
+        ]
+      },
+      "playground": {
+        "copy": "Use the playground to verify input-amount state, density, labels, and callback behavior.",
+        "controls": [
+          {
+            "name": "label",
+            "label": "label",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "value",
+            "label": "value",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "defaultValue",
+            "label": "defaultValue",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "currency",
+            "label": "currency",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "locale",
+            "label": "locale",
+            "type": "text",
+            "value": ""
+          }
+        ]
+      },
+      "tests-rejection-rules": {
+        "mustTest": [
+          "State precedence",
+          "Density cascade",
+          "Accessible label and recovery association",
+          "Controlled/uncontrolled behavior when applicable",
+          "No local visual shell duplication"
+        ],
+        "rejectIf": [
+          "The flow collects full payment credentials or multiple financial fields.",
+          "The amount changes regulated, irreversible, or safety-critical outcomes.",
+          "A custom field shell or Card wrapper is requested."
+        ]
+      },
+      "miel": {
+        "copy": "Agents may use Input Amount for one monetary entry and must escalate grouped payment behavior to a pattern.",
+        "canDecide": [
+          "Use Input Amount for one monetary entry.",
+          "Use inside Form Section, Payment Form, wallet, or operational templates.",
+          "Use when currency context and validation must remain visible."
+        ],
+        "mustAsk": [
+          "The flow collects full payment credentials or multiple financial fields.",
+          "The amount changes regulated, irreversible, or safety-critical outcomes."
+        ],
+        "rejectIf": [
+          "The flow collects full payment credentials or multiple financial fields.",
+          "The amount changes regulated, irreversible, or safety-critical outcomes.",
+          "A custom field shell or Card wrapper is requested."
+        ],
+        "handoff": "I am using input-amount through the Flow component contract and need confirmation for product copy, state ownership, and escalation boundaries."
+      }
+    }
+  }
+}

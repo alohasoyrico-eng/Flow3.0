@@ -6,16 +6,16 @@ Controlled React props must be explicit in source and covered by external rerend
 
 ## Inventory
 
-- React components scanned: 56
+- React components scanned: 60
 - Controlled debt: 0
-- Controlled components: 29
+- Controlled components: 31
 - Open-controlled components: 10
 - Open source covered: 10/10
 - Open test covered: 10/10
-- Controlled prop edges: 28
-- Total controlled edges: 38
-- Tested controlled prop edges: 28
-- Total tested controlled edges: 38
+- Controlled prop edges: 30
+- Total controlled edges: 40
+- Tested controlled prop edges: 30
+- Total tested controlled edges: 40
 - Failures: 0
 - Inventory baseline mismatches: 0
 
@@ -25,17 +25,18 @@ Changing these numbers is a contract decision. controlledDebt must stay at 0; co
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 56 | 56 |
+| components | 60 | 60 |
 | controlledDebt | 0 | 0 |
-| controlledComponents | 29 | 29 |
+| controlledComponents | 31 | 31 |
 | openControlledComponents | 10 | 10 |
 | openSourceCovered | 10 | 10 |
 | openTestCovered | 10 | 10 |
-| controlledPropEdges | 28 | 28 |
-| totalControlledEdges | 38 | 38 |
-| testCoveredEdges | 28 | 28 |
-| totalTestCoveredEdges | 38 | 38 |
+| controlledPropEdges | 30 | 30 |
+| totalControlledEdges | 40 | 40 |
+| testCoveredEdges | 30 | 30 |
+| totalTestCoveredEdges | 40 | 40 |
 | failures | 0 | 0 |
+| reactGovernancePolicyIssues | 0 | 0 |
 
 ## Baseline Mismatches
 
@@ -51,6 +52,7 @@ Changing these numbers is a contract decision. controlledDebt must stay at 0; co
 | CardExpiryInput | pass | no | no | no | value:tested | None |
 | CardNumberInput | pass | no | no | no | value:tested | None |
 | CardSecurityCodeInput | pass | no | no | no | value:tested | None |
+| ChatComposer | pass | no | no | no | value:tested | None |
 | Checkbox | pass | no | no | no | checked:tested | None |
 | CodeInput | pass | no | no | no | value:tested | None |
 | Combobox | pass | yes | yes | yes | value:tested | None |
@@ -60,6 +62,7 @@ Changing these numbers is a contract decision. controlledDebt must stay at 0; co
 | Dialog | pass | yes | yes | yes | None | None |
 | Drawer | pass | yes | yes | yes | None | None |
 | Input | pass | no | no | no | value:tested | None |
+| InputAmount | pass | no | no | no | value:tested | None |
 | List | pass | no | no | no | selectedKey:tested | None |
 | Menu | pass | yes | yes | yes | None | None |
 | Pagination | pass | no | no | no | page:tested | None |

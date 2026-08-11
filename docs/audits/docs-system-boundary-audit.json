@@ -5,13 +5,22 @@
   "docsRoot": "../FlowDocs",
   "inventory": {
     "sourceFilesScanned": 203,
-    "generatedFiles": 192,
+    "generatedFiles": 280,
     "flowDependencyPresent": 1,
-    "flowBoundaryAliases": 18,
+    "flowBoundaryAliases": 20,
     "missingFlowAliases": 0,
     "localFlowImportViolations": 0,
     "docsComponentTokenDefinitions": 0,
     "docsComponentTokenDefinitionFiles": 0,
+    "docsProtectedFlowClassRoots": 69,
+    "docsComponentClassDefinitions": 0,
+    "docsComponentClassDefinitionFiles": 0,
+    "docsPatternClassDefinitions": 795,
+    "docsPatternClassRoots": 184,
+    "docsUnapprovedPatternClassRoots": 0,
+    "docsPatternClassPolicyIssues": 0,
+    "docsContractualPatternClassDefinitions": 0,
+    "docsContractualPatternClassDefinitionFiles": 0,
     "generatedComponentCssPresent": 1,
     "generatedTokenCssPresent": 1,
     "docsSystemBoundaryDebt": 0
@@ -19,21 +28,4887 @@
   "baseline": {
     "inventory": {
       "sourceFilesScanned": 203,
-      "generatedFiles": 192,
+      "generatedFiles": 280,
       "flowDependencyPresent": 1,
-      "flowBoundaryAliases": 18,
+      "flowBoundaryAliases": 20,
       "missingFlowAliases": 0,
       "localFlowImportViolations": 0,
       "docsComponentTokenDefinitions": 0,
       "docsComponentTokenDefinitionFiles": 0,
+      "docsProtectedFlowClassRoots": 69,
+      "docsComponentClassDefinitions": 0,
+      "docsComponentClassDefinitionFiles": 0,
+      "docsPatternClassDefinitions": 795,
+      "docsPatternClassRoots": 184,
+      "docsUnapprovedPatternClassRoots": 0,
+      "docsPatternClassPolicyIssues": 0,
+      "docsContractualPatternClassDefinitions": 0,
+      "docsContractualPatternClassDefinitionFiles": 0,
       "generatedComponentCssPresent": 1,
       "generatedTokenCssPresent": 1,
       "docsSystemBoundaryDebt": 0
     },
-    "mismatches": []
+    "mismatches": [],
+    "unexpectedInventoryMetrics": []
   },
   "missingFlowAliases": [],
   "nonFlowAliases": [],
   "localFlowImportViolations": [],
-  "docsComponentTokenDefinitions": []
+  "protectedFlowClassRoots": [
+    "accordion",
+    "animated-moment",
+    "animation-asset",
+    "audit-event",
+    "avatar",
+    "badge",
+    "biometric-prompt",
+    "breadcrumbs",
+    "button",
+    "card",
+    "card-expiry-input",
+    "card-number-input",
+    "card-security-code-input",
+    "card-summary",
+    "chart-panel",
+    "chat-composer",
+    "chat-message",
+    "chat-thread",
+    "checkbox",
+    "chip",
+    "choice",
+    "code-input",
+    "combobox",
+    "country-flag",
+    "country-selector",
+    "date-picker",
+    "date-range-picker",
+    "dialog",
+    "drawer",
+    "empty-state",
+    "error-panel",
+    "fab",
+    "field",
+    "field-action",
+    "field-control",
+    "field-input",
+    "icon-button",
+    "illustration-asset",
+    "inline-validation",
+    "input",
+    "input-amount",
+    "kpi-tile",
+    "list",
+    "menu",
+    "motion-boundary",
+    "movement-row",
+    "pagination",
+    "phone-input",
+    "popover",
+    "progress",
+    "quick-action",
+    "radio",
+    "route-summary",
+    "segmented-control",
+    "select-control",
+    "skeleton",
+    "slider",
+    "spinner",
+    "station-pin",
+    "stepper",
+    "surface",
+    "switch",
+    "table",
+    "tabs",
+    "tag",
+    "text-area",
+    "toast",
+    "tooltip",
+    "tree-view"
+  ],
+  "docsPatternClassPolicy": {
+    "file": "packages/content/content/docs-system-boundary.json",
+    "approvedRootPrefixes": [
+      "pattern-"
+    ],
+    "blockedFormalRootStrategy": "pattern-artifact-id",
+    "reason": "FlowDocs may own editorial/demo pattern-* wrapper classes, but formal pattern roots are generated from Flow pattern artifacts and must stay in Flow.",
+    "issues": [],
+    "boundaryIssues": []
+  },
+  "docsComponentTokenDefinitions": [],
+  "docsComponentClassDefinitions": [],
+  "docsPatternClassDefinitions": [
+    {
+      "file": "../FlowDocs/apps/docs/styles/05-catalog-and-examples-02.css",
+      "line": 17,
+      "classRoot": "pattern-case",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/05-catalog-and-examples-02.css",
+      "line": 21,
+      "classRoot": "pattern-case",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/05-catalog-and-examples-02.css",
+      "line": 32,
+      "classRoot": "pattern-case",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/05-catalog-and-examples-03.css",
+      "line": 54,
+      "classRoot": "pattern-visual",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/05-catalog-and-examples-03.css",
+      "line": 58,
+      "classRoot": "pattern-visual",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/05-catalog-and-examples-03.css",
+      "line": 69,
+      "classRoot": "pattern-visual",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
+      "line": 161,
+      "classRoot": "pattern-case",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/06-responsive-02.css",
+      "line": 172,
+      "classRoot": "pattern-case",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 1,
+      "classRoot": "pattern-bulk-demo-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 4,
+      "classRoot": "pattern-bulk-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 11,
+      "classRoot": "pattern-bulk-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 23,
+      "classRoot": "pattern-bulk-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 24,
+      "classRoot": "pattern-bulk-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 25,
+      "classRoot": "pattern-bulk-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 29,
+      "classRoot": "pattern-bulk-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 36,
+      "classRoot": "pattern-bulk-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 41,
+      "classRoot": "pattern-bulk-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 45,
+      "classRoot": "pattern-bulk-demo__selection",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 54,
+      "classRoot": "pattern-bulk-demo__selection-list",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 60,
+      "classRoot": "pattern-bulk-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 64,
+      "classRoot": "pattern-bulk-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 68,
+      "classRoot": "pattern-bulk-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 73,
+      "classRoot": "pattern-bulk-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 74,
+      "classRoot": "pattern-bulk-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 80,
+      "classRoot": "pattern-bulk-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 85,
+      "classRoot": "pattern-bulk-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 86,
+      "classRoot": "pattern-bulk-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "line": 90,
+      "classRoot": "pattern-bulk-demo__selection-list",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 1,
+      "classRoot": "pattern-command-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 1,
+      "classRoot": "pattern-notification-demo-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 2,
+      "classRoot": "pattern-avatar-menu-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 3,
+      "classRoot": "pattern-confirmation-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 4,
+      "classRoot": "pattern-action-sheet-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 8,
+      "classRoot": "pattern-command-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 9,
+      "classRoot": "pattern-notification-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 10,
+      "classRoot": "pattern-avatar-menu-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 11,
+      "classRoot": "pattern-confirmation-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 12,
+      "classRoot": "pattern-action-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 13,
+      "classRoot": "pattern-search-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 14,
+      "classRoot": "pattern-autocomplete-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 15,
+      "classRoot": "pattern-select-layer-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 16,
+      "classRoot": "pattern-multi-select-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 17,
+      "classRoot": "pattern-form-section-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 18,
+      "classRoot": "pattern-toolbar-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 19,
+      "classRoot": "pattern-filter-chip-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 20,
+      "classRoot": "pattern-file-upload-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 31,
+      "classRoot": "pattern-command-demo__surface",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 32,
+      "classRoot": "pattern-notification-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 33,
+      "classRoot": "pattern-action-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 43,
+      "classRoot": "pattern-command-demo__surface",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 44,
+      "classRoot": "pattern-notification-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 45,
+      "classRoot": "pattern-notification-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 46,
+      "classRoot": "pattern-notification-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 47,
+      "classRoot": "pattern-notification-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 48,
+      "classRoot": "pattern-confirmation-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 49,
+      "classRoot": "pattern-confirmation-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 50,
+      "classRoot": "pattern-confirmation-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 51,
+      "classRoot": "pattern-action-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 52,
+      "classRoot": "pattern-action-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 53,
+      "classRoot": "pattern-command-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 54,
+      "classRoot": "pattern-command-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 55,
+      "classRoot": "pattern-search-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 56,
+      "classRoot": "pattern-autocomplete-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 57,
+      "classRoot": "pattern-select-layer-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 58,
+      "classRoot": "pattern-multi-select-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 59,
+      "classRoot": "pattern-form-section-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 60,
+      "classRoot": "pattern-toolbar-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 61,
+      "classRoot": "pattern-filter-chip-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 62,
+      "classRoot": "pattern-file-upload-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 66,
+      "classRoot": "pattern-command-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 71,
+      "classRoot": "pattern-command-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 75,
+      "classRoot": "pattern-command-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 79,
+      "classRoot": "pattern-notification-demo__trigger",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 85,
+      "classRoot": "pattern-notification-demo__trigger-control",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 91,
+      "classRoot": "pattern-notification-demo__trigger-control",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 92,
+      "classRoot": "pattern-action-badge",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 98,
+      "classRoot": "pattern-notification-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 103,
+      "classRoot": "pattern-notification-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 110,
+      "classRoot": "pattern-notification-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 115,
+      "classRoot": "pattern-notification-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 116,
+      "classRoot": "pattern-action-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 121,
+      "classRoot": "pattern-notification-slot",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 131,
+      "classRoot": "pattern-notification-slot",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 132,
+      "classRoot": "pattern-notification-demo__trigger",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 135,
+      "classRoot": "pattern-notification-slot",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 136,
+      "classRoot": "pattern-notification-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 143,
+      "classRoot": "pattern-confirmation-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 147,
+      "classRoot": "pattern-action-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 151,
+      "classRoot": "pattern-search-demo__controls",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 158,
+      "classRoot": "pattern-search-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 168,
+      "classRoot": "pattern-search-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 172,
+      "classRoot": "pattern-search-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 173,
+      "classRoot": "pattern-autocomplete-demo__suggestions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 174,
+      "classRoot": "pattern-multi-select-demo__options",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 175,
+      "classRoot": "pattern-multi-select-demo__chips",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 180,
+      "classRoot": "pattern-search-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 186,
+      "classRoot": "pattern-select-layer-demo__options",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 191,
+      "classRoot": "pattern-select-layer-demo__options",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 200,
+      "classRoot": "pattern-select-layer-demo__options",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 205,
+      "classRoot": "pattern-select-layer-demo__options",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 209,
+      "classRoot": "pattern-multi-select-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 216,
+      "classRoot": "pattern-multi-select-demo__chips",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 220,
+      "classRoot": "pattern-form-section-demo__fields",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 226,
+      "classRoot": "pattern-form-section-demo__header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 233,
+      "classRoot": "pattern-form-section-demo__header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 242,
+      "classRoot": "pattern-form-section-demo__header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 243,
+      "classRoot": "pattern-form-section-demo__validation",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 244,
+      "classRoot": "pattern-form-section-demo__feedback",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 251,
+      "classRoot": "pattern-form-section-demo__header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 255,
+      "classRoot": "pattern-form-section-demo__validation",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 259,
+      "classRoot": "pattern-form-section-demo__feedback",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 263,
+      "classRoot": "pattern-form-section-demo__fields",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 267,
+      "classRoot": "pattern-toolbar-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 272,
+      "classRoot": "pattern-toolbar-demo__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 273,
+      "classRoot": "pattern-toolbar-demo__status",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 274,
+      "classRoot": "pattern-file-upload-demo__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 275,
+      "classRoot": "pattern-filter-chip-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 276,
+      "classRoot": "pattern-form-section-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 283,
+      "classRoot": "pattern-toolbar-demo__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 284,
+      "classRoot": "pattern-filter-chip-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 285,
+      "classRoot": "pattern-form-section-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 289,
+      "classRoot": "pattern-toolbar-demo__status",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 293,
+      "classRoot": "pattern-filter-chip-demo__chips",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 299,
+      "classRoot": "pattern-file-upload-demo__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 305,
+      "classRoot": "pattern-command-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 306,
+      "classRoot": "pattern-notification-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 307,
+      "classRoot": "pattern-confirmation-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 308,
+      "classRoot": "pattern-action-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 309,
+      "classRoot": "pattern-search-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 310,
+      "classRoot": "pattern-autocomplete-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 311,
+      "classRoot": "pattern-select-layer-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 312,
+      "classRoot": "pattern-multi-select-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 313,
+      "classRoot": "pattern-form-section-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 314,
+      "classRoot": "pattern-toolbar-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 315,
+      "classRoot": "pattern-filter-chip-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 316,
+      "classRoot": "pattern-file-upload-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 317,
+      "classRoot": "pattern-command-demo__surface",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 318,
+      "classRoot": "pattern-notification-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 319,
+      "classRoot": "pattern-action-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 323,
+      "classRoot": "pattern-notification-demo__trigger",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 324,
+      "classRoot": "pattern-notification-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 325,
+      "classRoot": "pattern-action-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 326,
+      "classRoot": "pattern-multi-select-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 331,
+      "classRoot": "pattern-search-demo__controls",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 335,
+      "classRoot": "pattern-form-section-demo__fields",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 336,
+      "classRoot": "pattern-toolbar-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 340,
+      "classRoot": "pattern-toolbar-demo__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 341,
+      "classRoot": "pattern-toolbar-demo__status",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 342,
+      "classRoot": "pattern-file-upload-demo__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 343,
+      "classRoot": "pattern-filter-chip-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "line": 344,
+      "classRoot": "pattern-form-section-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 2,
+      "classRoot": "pattern-stage-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 6,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 10,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 15,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 21,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 25,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 26,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 26,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 31,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 36,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 40,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 45,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 46,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 51,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 51,
+      "classRoot": "pattern-doc-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 57,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 57,
+      "classRoot": "pattern-topbar-leading",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 58,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 58,
+      "classRoot": "pattern-doc-brand",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 62,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 62,
+      "classRoot": "pattern-doc-brand",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 68,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 68,
+      "classRoot": "pattern-doc-actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 72,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 72,
+      "classRoot": "pattern-doc-actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 72,
+      "classRoot": "pattern-doc-icon-button",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 76,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 76,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 77,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 81,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 81,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 87,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 87,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 91,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 91,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 95,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 95,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 107,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 107,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 113,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 113,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 117,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 117,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 124,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 124,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 125,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 125,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 126,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 126,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 132,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 132,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 136,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 136,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 145,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 149,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "line": 149,
+      "classRoot": "pattern-doc-sidebar-label",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 1,
+      "classRoot": "pattern-design-lead",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 5,
+      "classRoot": "pattern-design-lead",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 6,
+      "classRoot": "pattern-design-lead",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 7,
+      "classRoot": "pattern-design-lead",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 11,
+      "classRoot": "pattern-design-lead",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 16,
+      "classRoot": "pattern-design-lead",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 23,
+      "classRoot": "pattern-design-lead-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 29,
+      "classRoot": "pattern-design-lead-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 40,
+      "classRoot": "pattern-design-lead-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 44,
+      "classRoot": "pattern-design-lead-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 49,
+      "classRoot": "pattern-design-lead-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 57,
+      "classRoot": "pattern-design-lead-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "line": 63,
+      "classRoot": "pattern-design-lead-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 1,
+      "classRoot": "pattern-desktop-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 10,
+      "classRoot": "pattern-kpi-card-demo__grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 16,
+      "classRoot": "pattern-kpi-card-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 17,
+      "classRoot": "pattern-virtual-table-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 18,
+      "classRoot": "pattern-advanced-filters-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 19,
+      "classRoot": "pattern-chart-wrapper-demo__header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 26,
+      "classRoot": "pattern-chart-wrapper-demo__header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 30,
+      "classRoot": "pattern-chart-wrapper-demo__summary",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 31,
+      "classRoot": "pattern-virtual-table-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 35,
+      "classRoot": "pattern-virtual-table-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 36,
+      "classRoot": "pattern-advanced-filters-demo__controls",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 43,
+      "classRoot": "pattern-virtual-table-demo__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 44,
+      "classRoot": "pattern-virtual-table-demo__filters",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 45,
+      "classRoot": "pattern-virtual-table-demo__bulk",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 52,
+      "classRoot": "pattern-virtual-table-demo__filters",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 57,
+      "classRoot": "pattern-virtual-table-demo__bulk",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 65,
+      "classRoot": "pattern-virtual-table-demo__bulk",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 69,
+      "classRoot": "pattern-advanced-filters-demo__controls",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 73,
+      "classRoot": "pattern-advanced-filters-demo__chips",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 80,
+      "classRoot": "pattern-advanced-filters-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 85,
+      "classRoot": "pattern-column-config-demo__layout",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 92,
+      "classRoot": "pattern-column-config-demo__panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 93,
+      "classRoot": "pattern-roles-demo__controls",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 94,
+      "classRoot": "pattern-admin-demo__summary",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 103,
+      "classRoot": "pattern-column-config-demo__table",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 104,
+      "classRoot": "pattern-roles-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 105,
+      "classRoot": "pattern-admin-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 109,
+      "classRoot": "pattern-roles-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 110,
+      "classRoot": "pattern-admin-demo__switcher",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 111,
+      "classRoot": "pattern-admin-demo__summary",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 119,
+      "classRoot": "pattern-roles-demo__controls",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 120,
+      "classRoot": "pattern-admin-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 124,
+      "classRoot": "pattern-admin-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 128,
+      "classRoot": "pattern-admin-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 132,
+      "classRoot": "pattern-desktop-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 133,
+      "classRoot": "pattern-desktop-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 139,
+      "classRoot": "pattern-kpi-card-demo__grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 140,
+      "classRoot": "pattern-advanced-filters-demo__controls",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 141,
+      "classRoot": "pattern-virtual-table-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 142,
+      "classRoot": "pattern-column-config-demo__layout",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 146,
+      "classRoot": "pattern-kpi-card-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 147,
+      "classRoot": "pattern-virtual-table-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 148,
+      "classRoot": "pattern-advanced-filters-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 149,
+      "classRoot": "pattern-chart-wrapper-demo__header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 150,
+      "classRoot": "pattern-roles-demo__toolbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "line": 151,
+      "classRoot": "pattern-admin-demo__switcher",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 1,
+      "classRoot": "pattern-stage-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 5,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 14,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 15,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 15,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 18,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 25,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 29,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 36,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 42,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 48,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 58,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 63,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 67,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 72,
+      "classRoot": "pattern-doc-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 83,
+      "classRoot": "pattern-doc-brand",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 95,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 96,
+      "classRoot": "pattern-doc-actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 102,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 107,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 121,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 126,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 132,
+      "classRoot": "pattern-doc-search",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 146,
+      "classRoot": "pattern-doc-search",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 154,
+      "classRoot": "pattern-doc-search",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 163,
+      "classRoot": "pattern-doc-actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 167,
+      "classRoot": "pattern-doc-icon-button",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 181,
+      "classRoot": "pattern-doc-icon-button",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 186,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 191,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 202,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 203,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 207,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 219,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 223,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 229,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 233,
+      "classRoot": "pattern-doc-sidebar-label",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 234,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 234,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 240,
+      "classRoot": "pattern-doc-sidebar-label",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 245,
+      "classRoot": "pattern-doc-sidebar-label",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 246,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 253,
+      "classRoot": "pattern-doc-count",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 259,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 263,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 264,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 274,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 279,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 280,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 287,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 288,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 293,
+      "classRoot": "pattern-doc-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 297,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 303,
+      "classRoot": "pattern-doc-search",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 307,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 311,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 315,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 319,
+      "classRoot": "pattern-doc-sidebar-label",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 327,
+      "classRoot": "pattern-doc-count",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 331,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 332,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 333,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 338,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 343,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 349,
+      "classRoot": "pattern-stage",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 353,
+      "classRoot": "pattern-doc-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 357,
+      "classRoot": "pattern-doc-brand",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 361,
+      "classRoot": "pattern-doc-search",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 362,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 366,
+      "classRoot": "pattern-doc-actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 370,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 374,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 382,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 383,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "line": 387,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 1,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 11,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 16,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 21,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 25,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 29,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 40,
+      "classRoot": "pattern-stage--real-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 44,
+      "classRoot": "pattern-stage--real-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 48,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 56,
+      "classRoot": "pattern-design-shell-demo--topbar-standard",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 60,
+      "classRoot": "pattern-design-shell-demo--topbar-standard",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 61,
+      "classRoot": "pattern-design-shell-demo--topbar-standard",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 66,
+      "classRoot": "pattern-design-shell-demo--topbar-with-sections",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 70,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 74,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 78,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 82,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 83,
+      "classRoot": "pattern-notification-button",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 87,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 88,
+      "classRoot": "pattern-action-badge",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 94,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 98,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 110,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 114,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 118,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 124,
+      "classRoot": "pattern-design-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 132,
+      "classRoot": "pattern-design-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 138,
+      "classRoot": "pattern-design-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 144,
+      "classRoot": "pattern-design-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 150,
+      "classRoot": "pattern-design-shell-demo--topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 155,
+      "classRoot": "pattern-design-shell-demo--topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 156,
+      "classRoot": "pattern-design-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 159,
+      "classRoot": "pattern-design-shell-demo--topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 163,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 167,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 168,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 172,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 173,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 178,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 179,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 183,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 184,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 190,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 191,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 197,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 198,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 204,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 205,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 224,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 225,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 229,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 230,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 237,
+      "classRoot": "pattern-design-shell-demo--topbar-compact",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 238,
+      "classRoot": "pattern-design-shell-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 246,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 251,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 255,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 260,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 266,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 267,
+      "classRoot": "pattern-doc-icon-button",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 272,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 276,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 280,
+      "classRoot": "pattern-design-shell-demo--desktop",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 284,
+      "classRoot": "pattern-design-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "line": 289,
+      "classRoot": "pattern-design-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 1,
+      "classRoot": "pattern-design-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 5,
+      "classRoot": "pattern-design-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 11,
+      "classRoot": "pattern-design-demo-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 18,
+      "classRoot": "pattern-design-demo-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 23,
+      "classRoot": "pattern-design-demo-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 27,
+      "classRoot": "pattern-design-demo-grid--topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 31,
+      "classRoot": "pattern-design-demo-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 41,
+      "classRoot": "pattern-design-demo-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 46,
+      "classRoot": "pattern-design-demo-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 51,
+      "classRoot": "pattern-design-demo-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 56,
+      "classRoot": "pattern-variant-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 62,
+      "classRoot": "pattern-variant-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 72,
+      "classRoot": "pattern-variant-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 77,
+      "classRoot": "pattern-variant-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 87,
+      "classRoot": "pattern-variant-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 92,
+      "classRoot": "pattern-variant-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 100,
+      "classRoot": "pattern-design-demo-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "line": 106,
+      "classRoot": "pattern-design-demo-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 1,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 27,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 28,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 36,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 37,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 37,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 38,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 41,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 42,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 42,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 43,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 43,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 44,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 52,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 53,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 56,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 57,
+      "classRoot": "pattern-doc-sidebar-label",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 57,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 58,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 58,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 59,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 65,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 66,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 66,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 67,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 73,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 74,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 74,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 75,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 78,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 79,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 79,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 80,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 80,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 81,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 87,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 88,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 88,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 89,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 89,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 90,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 94,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 95,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 98,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 99,
+      "classRoot": "pattern-doc-count",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 102,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 103,
+      "classRoot": "pattern-doc-count",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 106,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 107,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 110,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 111,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 116,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 123,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "line": 123,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 1,
+      "classRoot": "pattern-journey-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 10,
+      "classRoot": "pattern-journey-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 14,
+      "classRoot": "pattern-auth-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 19,
+      "classRoot": "pattern-auth-demo__identity",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 20,
+      "classRoot": "pattern-auth-demo__otp",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 21,
+      "classRoot": "pattern-auth-demo__biometric",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 22,
+      "classRoot": "pattern-journey-step",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 23,
+      "classRoot": "pattern-fleet-onboarding__aside",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 28,
+      "classRoot": "pattern-journey-actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 35,
+      "classRoot": "pattern-journey-actions--split",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 39,
+      "classRoot": "pattern-fleet-onboarding__layout",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 46,
+      "classRoot": "pattern-fleet-onboarding__metrics",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 52,
+      "classRoot": "pattern-fleet-onboarding__aside",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 59,
+      "classRoot": "pattern-journey-step--summary",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 63,
+      "classRoot": "pattern-journey-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 64,
+      "classRoot": "pattern-journey-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 70,
+      "classRoot": "pattern-auth-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 71,
+      "classRoot": "pattern-fleet-onboarding__layout",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 72,
+      "classRoot": "pattern-fleet-onboarding__metrics",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 76,
+      "classRoot": "pattern-journey-demo--mobile",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "line": 80,
+      "classRoot": "pattern-journey-actions--split",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 1,
+      "classRoot": "pattern-miel-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 6,
+      "classRoot": "pattern-miel-header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 12,
+      "classRoot": "pattern-miel-header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 13,
+      "classRoot": "pattern-miel-header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 14,
+      "classRoot": "pattern-miel-header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 18,
+      "classRoot": "pattern-miel-header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 23,
+      "classRoot": "pattern-miel-header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 24,
+      "classRoot": "pattern-miel-handoff",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 25,
+      "classRoot": "pattern-miel-contract",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 26,
+      "classRoot": "pattern-miel-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 32,
+      "classRoot": "pattern-miel-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 33,
+      "classRoot": "pattern-miel-bottom",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 39,
+      "classRoot": "pattern-miel-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 43,
+      "classRoot": "pattern-miel-bottom",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 47,
+      "classRoot": "pattern-miel-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 48,
+      "classRoot": "pattern-miel-handoff",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 49,
+      "classRoot": "pattern-miel-contract",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 60,
+      "classRoot": "pattern-miel-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 61,
+      "classRoot": "pattern-miel-handoff",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 62,
+      "classRoot": "pattern-miel-contract",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 68,
+      "classRoot": "pattern-miel-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 75,
+      "classRoot": "pattern-miel-contract",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 84,
+      "classRoot": "pattern-miel-contract",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 95,
+      "classRoot": "pattern-miel-contract",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 103,
+      "classRoot": "pattern-miel-contract",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 109,
+      "classRoot": "pattern-miel-grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 110,
+      "classRoot": "pattern-miel-bottom",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 116,
+      "classRoot": "pattern-miel-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 120,
+      "classRoot": "pattern-miel-card",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 121,
+      "classRoot": "pattern-miel-handoff",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "line": 122,
+      "classRoot": "pattern-miel-contract",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 1,
+      "classRoot": "pattern-mobile-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 4,
+      "classRoot": "pattern-mobile-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 15,
+      "classRoot": "pattern-mobile-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 19,
+      "classRoot": "pattern-fullscreen-sheet-demo__sheet",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 20,
+      "classRoot": "pattern-drawer-adapter-demo__drawer",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 31,
+      "classRoot": "pattern-fullscreen-sheet-demo__body",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 32,
+      "classRoot": "pattern-fullscreen-sheet-demo__body",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 33,
+      "classRoot": "pattern-fullscreen-sheet-demo__review",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 34,
+      "classRoot": "pattern-drawer-adapter-demo__drawer",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 39,
+      "classRoot": "pattern-fullscreen-sheet-demo__sheet",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 40,
+      "classRoot": "pattern-swipe-actions-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 47,
+      "classRoot": "pattern-fullscreen-sheet-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 48,
+      "classRoot": "pattern-drawer-adapter-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 52,
+      "classRoot": "pattern-swipe-actions-demo__row",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 59,
+      "classRoot": "pattern-swipe-actions-demo__rail",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 71,
+      "classRoot": "pattern-quick-actions-grid-demo__grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 77,
+      "classRoot": "pattern-quick-actions-grid-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 78,
+      "classRoot": "pattern-quick-actions-grid-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 79,
+      "classRoot": "pattern-drawer-adapter-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 83,
+      "classRoot": "pattern-drawer-adapter-demo__drawer",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 95,
+      "classRoot": "pattern-mobile-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 96,
+      "classRoot": "pattern-fullscreen-sheet-demo__sheet",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 97,
+      "classRoot": "pattern-drawer-adapter-demo__drawer",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 101,
+      "classRoot": "pattern-swipe-actions-demo__row",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 105,
+      "classRoot": "pattern-swipe-actions-demo__rail",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 106,
+      "classRoot": "pattern-quick-actions-grid-demo__grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 110,
+      "classRoot": "pattern-fullscreen-sheet-demo__sheet",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 111,
+      "classRoot": "pattern-drawer-adapter-demo__drawer",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 117,
+      "classRoot": "pattern-mobile-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 123,
+      "classRoot": "pattern-swipe-actions-demo__rail",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "line": 124,
+      "classRoot": "pattern-quick-actions-grid-demo__grid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 1,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 4,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 5,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 8,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 9,
+      "classRoot": "pattern-workspace",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 12,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 13,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 13,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 14,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 14,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 15,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 22,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 23,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 27,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 28,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 31,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 32,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 35,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 36,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 36,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 37,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 37,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 38,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 43,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 44,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 44,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 45,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 45,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 46,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 49,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 50,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 50,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 51,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 51,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 52,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 56,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 57,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 62,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 62,
+      "classRoot": "pattern-doc-sidebar-group",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 63,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 63,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 64,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 64,
+      "classRoot": "pattern-doc-stack-link",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 70,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 71,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 72,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "line": 73,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 1,
+      "classRoot": "pattern-multi-step-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 4,
+      "classRoot": "pattern-multi-step",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 15,
+      "classRoot": "pattern-multi-step__body",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 20,
+      "classRoot": "pattern-multi-step__form",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 26,
+      "classRoot": "pattern-multi-step__form",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 27,
+      "classRoot": "pattern-multi-step__review",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 28,
+      "classRoot": "pattern-multi-step__error",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 29,
+      "classRoot": "pattern-multi-step",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 33,
+      "classRoot": "pattern-multi-step__review",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 39,
+      "classRoot": "pattern-multi-step__review",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 48,
+      "classRoot": "pattern-multi-step__review",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 49,
+      "classRoot": "pattern-multi-step__error",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 55,
+      "classRoot": "pattern-multi-step__review",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 60,
+      "classRoot": "pattern-multi-step__error",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 68,
+      "classRoot": "pattern-multi-step__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 75,
+      "classRoot": "pattern-multi-step__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 84,
+      "classRoot": "pattern-multi-step",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 88,
+      "classRoot": "pattern-multi-step__form",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 89,
+      "classRoot": "pattern-multi-step__review",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 93,
+      "classRoot": "pattern-multi-step__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "line": 94,
+      "classRoot": "pattern-multi-step__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 1,
+      "classRoot": "pattern-settings-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 1,
+      "classRoot": "pattern-help-panel",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 5,
+      "classRoot": "pattern-settings-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 6,
+      "classRoot": "pattern-help-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 17,
+      "classRoot": "pattern-settings-demo__section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 26,
+      "classRoot": "pattern-settings-demo__section--danger",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 30,
+      "classRoot": "pattern-settings-demo__section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 31,
+      "classRoot": "pattern-help-demo__article",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 32,
+      "classRoot": "pattern-help-demo__empty",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 37,
+      "classRoot": "pattern-settings-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 38,
+      "classRoot": "pattern-help-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 44,
+      "classRoot": "pattern-settings-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 45,
+      "classRoot": "pattern-settings-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 46,
+      "classRoot": "pattern-help-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 47,
+      "classRoot": "pattern-help-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 48,
+      "classRoot": "pattern-help-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 54,
+      "classRoot": "pattern-settings-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 61,
+      "classRoot": "pattern-settings-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 66,
+      "classRoot": "pattern-settings-demo__save",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 78,
+      "classRoot": "pattern-settings-demo__save",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 79,
+      "classRoot": "pattern-settings-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 80,
+      "classRoot": "pattern-settings-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 81,
+      "classRoot": "pattern-help-demo__empty",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 85,
+      "classRoot": "pattern-settings-demo__save",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 90,
+      "classRoot": "pattern-help-demo__search",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 97,
+      "classRoot": "pattern-help-demo__layout",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 104,
+      "classRoot": "pattern-help-demo__categories",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 105,
+      "classRoot": "pattern-help-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 110,
+      "classRoot": "pattern-help-demo__categories",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 111,
+      "classRoot": "pattern-help-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 116,
+      "classRoot": "pattern-help-demo__categories",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 117,
+      "classRoot": "pattern-help-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 122,
+      "classRoot": "pattern-help-demo__categories",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 123,
+      "classRoot": "pattern-help-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 128,
+      "classRoot": "pattern-help-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 132,
+      "classRoot": "pattern-help-demo__results",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 138,
+      "classRoot": "pattern-help-demo__article",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 139,
+      "classRoot": "pattern-help-demo__empty",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 148,
+      "classRoot": "pattern-settings-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 149,
+      "classRoot": "pattern-help-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 154,
+      "classRoot": "pattern-settings-demo__save",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 159,
+      "classRoot": "pattern-help-demo__layout",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 163,
+      "classRoot": "pattern-help-demo__categories",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "line": 169,
+      "classRoot": "pattern-help-demo__categories",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "line": 1,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "line": 1,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "line": 5,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "line": 6,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "line": 17,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "line": 17,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "line": 23,
+      "classRoot": "pattern-stage--docs-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "line": 23,
+      "classRoot": "pattern-doc-sidebar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "line": 1,
+      "classRoot": "pattern-design-shell-demo--sidebar-slots",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "line": 7,
+      "classRoot": "pattern-sidebar-brand",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "line": 15,
+      "classRoot": "pattern-sidebar-brand",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "line": 20,
+      "classRoot": "pattern-sidebar-footer",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "line": 31,
+      "classRoot": "pattern-sidebar-footer",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "line": 47,
+      "classRoot": "pattern-sidebar-footer",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "line": 52,
+      "classRoot": "pattern-sidebar-footer",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 1,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 1,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 8,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 9,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 14,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 15,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 26,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 27,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 32,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 33,
+      "classRoot": "pattern-topbar-action",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 33,
+      "classRoot": "pattern-stage--real-shell",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "line": 34,
+      "classRoot": "pattern-topbar-action",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 1,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 1,
+      "classRoot": "pattern-topbar-sections",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 7,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 8,
+      "classRoot": "pattern-topbar-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 11,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 12,
+      "classRoot": "pattern-topbar-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 24,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 25,
+      "classRoot": "pattern-topbar-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 28,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 29,
+      "classRoot": "pattern-topbar-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 34,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 35,
+      "classRoot": "pattern-topbar-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 38,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 39,
+      "classRoot": "pattern-topbar-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 53,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 54,
+      "classRoot": "pattern-topbar-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 57,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 58,
+      "classRoot": "pattern-topbar-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 66,
+      "classRoot": "pattern-design-shell-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "line": 67,
+      "classRoot": "pattern-topbar-section",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 1,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 18,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 19,
+      "classRoot": "pattern-doc-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 28,
+      "classRoot": "pattern-topbar-leading",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 29,
+      "classRoot": "pattern-doc-actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 36,
+      "classRoot": "pattern-doc-brand",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 41,
+      "classRoot": "pattern-brand-mark",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 51,
+      "classRoot": "pattern-brand-partner",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 59,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 60,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 60,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 61,
+      "classRoot": "pattern-doc-icon-button",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 69,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 70,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 74,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 75,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 75,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 76,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 82,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 83,
+      "classRoot": "pattern-doc-icon-button",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 92,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 98,
+      "classRoot": "pattern-doc-actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 102,
+      "classRoot": "pattern-notification-button",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 106,
+      "classRoot": "pattern-action-badge",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 113,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 120,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 125,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 129,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 130,
+      "classRoot": "pattern-workgrid",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 135,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 135,
+      "classRoot": "pattern-doc-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 139,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 139,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 140,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 146,
+      "classRoot": "pattern-brand-partner",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 147,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 147,
+      "classRoot": "pattern-doc-topnav",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 148,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 148,
+      "classRoot": "pattern-doc-actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 148,
+      "classRoot": "pattern-doc-icon-button",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 152,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 152,
+      "classRoot": "pattern-doc-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 159,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 160,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 161,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "line": 162,
+      "classRoot": "pattern-stage--docs-topbar",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 1,
+      "classRoot": "pattern-utility-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 10,
+      "classRoot": "pattern-date-range-demo__fields",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 11,
+      "classRoot": "pattern-section-header-demo__header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 18,
+      "classRoot": "pattern-date-range-demo__summary",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 19,
+      "classRoot": "pattern-snackbar-demo__actions",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 20,
+      "classRoot": "pattern-timeline-demo__filters",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 21,
+      "classRoot": "pattern-section-header-demo__meta",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 22,
+      "classRoot": "pattern-date-range-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 29,
+      "classRoot": "pattern-date-range-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 30,
+      "classRoot": "pattern-section-header-demo__meta",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 34,
+      "classRoot": "pattern-snackbar-demo__region",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 35,
+      "classRoot": "pattern-timeline-demo__events",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 40,
+      "classRoot": "pattern-snackbar-demo__region",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 48,
+      "classRoot": "pattern-avatar-group-demo__stack",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 49,
+      "classRoot": "pattern-transfer-list-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 56,
+      "classRoot": "pattern-transfer-list-demo__panes",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 62,
+      "classRoot": "pattern-transfer-list-demo__panes",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 63,
+      "classRoot": "pattern-calendar-demo__events",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 64,
+      "classRoot": "pattern-sortable-demo__list",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 73,
+      "classRoot": "pattern-transfer-list-demo__panes",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 78,
+      "classRoot": "pattern-sortable-demo__list",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 83,
+      "classRoot": "pattern-sortable-demo__list",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 90,
+      "classRoot": "pattern-utility-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 91,
+      "classRoot": "pattern-utility-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 97,
+      "classRoot": "pattern-date-range-demo__fields",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 98,
+      "classRoot": "pattern-section-header-demo__header",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 99,
+      "classRoot": "pattern-transfer-list-demo__panes",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 103,
+      "classRoot": "pattern-date-range-demo",
+      "contractualRoot": ""
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "line": 104,
+      "classRoot": "pattern-section-header-demo__meta",
+      "contractualRoot": ""
+    }
+  ],
+  "docsUnapprovedPatternClassRoots": [],
+  "docsContractualPatternClassDefinitions": []
 }

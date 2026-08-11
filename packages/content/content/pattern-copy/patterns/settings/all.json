@@ -41,16 +41,22 @@
       ],
       "slots": [
         [
-          "sections",
-          "SettingsSection[]",
+          "groups",
+          "Surface",
           "yes",
-          "Titled groups with optional description."
+          "Structural owner for titled settings groups, density, and local state."
         ],
         [
           "rows",
           "SettingsRow[]",
           "yes",
           "Label, description, control, state, and feedback."
+        ],
+        [
+          "controls",
+          "Input | Select | Switch",
+          "yes",
+          "Design System controls for each settings row."
         ],
         [
           "saveModel",

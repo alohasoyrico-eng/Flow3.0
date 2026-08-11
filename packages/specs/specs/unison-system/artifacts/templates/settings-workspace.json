@@ -1,0 +1,115 @@
+{
+  "artifacts": {
+    "templates": {
+      "settings-workspace": {
+        "layer": "Template",
+        "platform": "Desktop",
+        "audiences": [
+          "Product Designers",
+          "PMs",
+          "Developers",
+          "Researchers",
+          "Service Designers"
+        ],
+        "purpose": "Product users manage profile, notification, theme, security, and danger-zone preferences as one governed workspace.",
+        "maturityTarget": "measured",
+        "governingFoundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Color",
+          "Density",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "patternDependencies": [
+          "Preference Management"
+        ],
+        "templateModuleDependencies": [
+          "Section navigation",
+          "Preference management"
+        ],
+        "componentDependencies": [
+          "Tabs",
+          "Switch",
+          "Select",
+          "Button",
+          "Dialog",
+          "Inline Validation"
+        ],
+        "tokenDependencies": [
+          "sys.accessibility.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.voice.*",
+          "surface.*"
+        ],
+        "densityContext": [
+          "Laptop",
+          "Desktop"
+        ],
+        "modules": [
+          "Section navigation",
+          "Preference management"
+        ],
+        "dataSources": [
+          "profile preferences",
+          "notification preferences",
+          "theme mode",
+          "danger actions"
+        ],
+        "permissions": [
+          "user",
+          "admin",
+          "workspace owner"
+        ],
+        "states": [
+          "loaded",
+          "loading",
+          "dirty",
+          "saving",
+          "danger-confirming",
+          "permission",
+          "error",
+          "offline",
+          "disabled"
+        ],
+        "surfaces": [
+          "Laptop",
+          "Desktop"
+        ],
+        "telemetry": [
+          "settings section selected",
+          "preference changed",
+          "preferences saved",
+          "danger action opened"
+        ],
+        "qualityGates": [
+          "Section selection keeps Tabs, root state, and preference content synchronized.",
+          "Settings controls are delegated to Preference Management and Settings, not locally rendered by the template.",
+          "Danger-zone behavior is delegated to Confirmation Dialog through Preference Management."
+        ],
+        "agentInstructions": [
+          "This template is the full product settings workspace.",
+          "Use Tabs only for workspace section navigation; preference controls, form blocks, validation, and danger confirmation belong to Preference Management and its child patterns.",
+          "Section selection is the primary controlled/uncontrolled state contract."
+        ],
+        "rejectIf": [
+          "Template renders switches, selects, inputs, validation, or confirmation dialogs directly outside Preference Management.",
+          "Template mutates theme root or density outside Flow contracts.",
+          "Template wraps settings groups in Card instead of Surface/Preference Management ownership.",
+          "Template bypasses Surface, density, state, or token ownership."
+        ]
+      }
+    }
+  }
+}

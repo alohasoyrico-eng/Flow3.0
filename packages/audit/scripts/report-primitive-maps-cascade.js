@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const {
+  docsAppDir,
   fs,
   path,
   read,
@@ -39,10 +40,10 @@ const iconographyReportFile = path.join(root, "docs/audits/primitive-iconography
 const breakpointsReportFile = path.join(root, "docs/audits/primitive-breakpoints-cascade-audit.json");
 const loadingReportFile = path.join(root, "docs/audits/primitive-loading-cascade-audit.json");
 const packageJsonFile = path.join(root, "packages/components/package.json");
-const docsIndexFile = path.join(root, "apps/docs/index.html");
-const vendorRuntimeFile = path.join(root, "apps/docs/vendor/maplibre-gl/maplibre-gl.js");
-const vendorCssFile = path.join(root, "apps/docs/vendor/maplibre-gl/maplibre-gl.css");
-const vendorLicenseFile = path.join(root, "apps/docs/vendor/maplibre-gl/LICENSE.txt");
+const docsIndexFile = path.join(docsAppDir, "index.html");
+const vendorRuntimeFile = path.join(docsAppDir, "vendor/maplibre-gl/maplibre-gl.js");
+const vendorCssFile = path.join(docsAppDir, "vendor/maplibre-gl/maplibre-gl.css");
+const vendorLicenseFile = path.join(docsAppDir, "vendor/maplibre-gl/LICENSE.txt");
 
 const requiredRoles = ["permission", "stationPin", "routeLine", "cluster", "fallbackList", "runtime"];
 const requiredFoundations = ["Energy", "Accessibility", "Frame", "Voice", "Momentum", "Depth", "State"];

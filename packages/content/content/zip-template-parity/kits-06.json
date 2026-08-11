@@ -1,0 +1,58 @@
+{
+  "kits": [
+    {
+      "id": "wizard",
+      "zipPaths": [
+        "ui_kits/wizard/index.html",
+        "ui_kits/wizard/README.md"
+      ],
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Stepper",
+          "Input",
+          "Select",
+          "Radio Button",
+          "Date Picker",
+          "Button",
+          "Badge",
+          "Avatar",
+          "Breadcrumbs",
+          "Toast"
+        ],
+        "patterns": [
+          "Multi Step Form",
+          "Form Section"
+        ],
+        "templates": [
+          "Configuration Console"
+        ]
+      },
+      "requiredDecision": "Keep vehicle/unit onboarding as Multi Step Form pattern unless it becomes a full admin template module.",
+      "migrationScope": [
+        "vehicle data",
+        "driver assignment",
+        "review",
+        "success toast"
+      ],
+      "cascadeRisks": [
+        "wizard clone",
+        "raw radio group",
+        "summary card outside Surface"
+      ]
+    }
+  ]
+}

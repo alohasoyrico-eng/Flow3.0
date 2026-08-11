@@ -1,0 +1,34 @@
+{
+  "patterns": [
+    {
+      "type": "pattern",
+      "id": "agent-conversation",
+      "title": "Agent Conversation",
+      "platform": "Cross-platform",
+      "summary": "Coordinate Chat Thread, Chat Composer, and handoff/status feedback as one reusable conversational workflow through Flow-owned boundaries.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "patternDependencies": [
+        "Status Feedback View"
+      ],
+      "componentsUsed": [
+        "Chat Composer",
+        "Chat Thread"
+      ],
+      "tokens": [
+        "surface.*",
+        "message.*",
+        "field-action.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    }
+  ]
+}

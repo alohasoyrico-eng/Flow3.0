@@ -1,0 +1,10 @@
+{
+  "version": "2026-08-09",
+  "reason": "Pattern React runtime policy defines the non-negotiable implementation contract for Flow patterns: real React refs, typed states, cascade carriers, sanitized extension props, structural Surface ownership, and portable runtime markers.",
+  "$systemShards": [
+    "pattern-react-runtime-policy/01-foundation.json",
+    "pattern-react-runtime-policy/02-contract-boundaries.json",
+    "pattern-react-runtime-policy/03-runtime-markers.json",
+    "pattern-react-runtime-policy/04-literal-state-policy.json"
+  ]
+}

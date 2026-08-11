@@ -1,0 +1,191 @@
+{
+  "artifacts": {
+    "patterns": {
+      "driver-and-vehicle-administration": {
+        "layer": "Pattern",
+        "platform": "Desktop",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate reusable administration of drivers and vehicles through table review, quick actions, audit context, pagination, empty states, and toolbar boundary while templates own domain policy.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Audit Event",
+          "Avatar",
+          "Badge",
+          "Button",
+          "Card Summary",
+          "Dialog",
+          "Empty State",
+          "Pagination",
+          "Quick Action",
+          "Table",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Toolbar"
+        ],
+        "templateDependencies": [
+          "Configuration Console"
+        ],
+        "tokenDependencies": [
+          "comp.audit-event.*",
+          "comp.avatar.*",
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.card-summary.*",
+          "comp.dialog.*",
+          "comp.empty-state.*",
+          "comp.pagination.*",
+          "comp.quick-action.*",
+          "comp.table.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A product needs a reusable driver/vehicle admin composition.",
+          "Records need table scanning, quick actions, pagination, audit context, or empty recovery.",
+          "Templates own domain-specific columns, permissions, and business workflows."
+        ],
+        "decisionTree": [
+          "Use Table for generic records.",
+          "Use this pattern for reusable driver/vehicle administration composition.",
+          "Use templates for complete configuration screens and business policy."
+        ],
+        "failureModes": [
+          "The pattern hardcodes domain authorization or template layout.",
+          "Toolbar internals are duplicated.",
+          "Quick actions bypass Quick Action/Dialog.",
+          "Audit context is custom markup."
+        ],
+        "successMetrics": [
+          "Users can review, act on, and recover admin records.",
+          "Permission and audit state remain accessible.",
+          "Templates can vary business rules without visual duplication."
+        ],
+        "states": [
+          "loading",
+          "empty",
+          "ready",
+          "selected",
+          "action-running",
+          "permission-blocked",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "summary",
+            "owner": "component",
+            "uses": [
+              "Card Summary",
+              "Badge"
+            ]
+          },
+          {
+            "name": "records",
+            "owner": "component",
+            "uses": [
+              "Table",
+              "Avatar",
+              "Pagination",
+              "Empty State"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Quick Action",
+              "Dialog",
+              "Button",
+              "Toast",
+              "Audit Event"
+            ]
+          },
+          {
+            "name": "toolbarBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Toolbar"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Toolbar runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Expose row identity and action consequence.",
+          "Tie permission reasons to disabled actions.",
+          "Provide audit context in text."
+        ],
+        "tests": [
+          "Composes all listed admin components.",
+          "Covers loading, empty, ready, selected, running, permission, and error states.",
+          "Keeps Toolbar and templates as boundaries."
+        ],
+        "agentInstructions": [
+          "Do not encode domain authorization or route policy here.",
+          "Do not clone Toolbar.",
+          "Ask before modifying driver, vehicle, compliance, or safety records."
+        ],
+        "rejectIf": [
+          "Template business workflow is embedded.",
+          "Actions bypass Quick Action/Dialog.",
+          "Audit context is custom visuals.",
+          "Permissions are hidden."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

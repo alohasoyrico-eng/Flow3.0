@@ -1,0 +1,215 @@
+{
+  "artifacts": {
+    "patterns": {
+      "ticket-queue": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate ticket alerts, queue records, selected-ticket detail, and recovery feedback without creating a local support-table, notification-list, or drawer implementation.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Dense Operational List",
+          "Drawer Adapter",
+          "Notification Panel",
+          "Status Feedback View"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A support or operations surface needs alert intake and queue triage.",
+          "Ticket records require search, filters, selection, sort, pagination, and bulk actions.",
+          "Selected tickets need governed detail or recovery feedback without template-owned behavior."
+        ],
+        "decisionTree": [
+          "Use Notification Panel when only notification intake is needed.",
+          "Use Dense Operational List when only queue records are needed.",
+          "Use Ticket Queue when alerts, queue records, selected-ticket detail, and recovery feedback must operate as one flow.",
+          "Use a product template when shell navigation or multi-module workspace layout is also required."
+        ],
+        "failureModes": [
+          "Ticket alerts are rendered as a local list instead of Notification Panel.",
+          "Ticket records bypass Dense Operational List or Virtual Data Table.",
+          "Selected-ticket detail uses a local drawer, modal, or card stack instead of Drawer Adapter.",
+          "Recovery feedback bypasses Status Feedback View."
+        ],
+        "successMetrics": [
+          "Users can review alerts, search/filter tickets, select rows, act in bulk, inspect detail, and recover from failure from one predictable Flow contract.",
+          "Density and state cascade from Surface into every child pattern.",
+          "Internal operations templates can reuse ticket behavior without redefining notification, table, drawer, or feedback logic."
+        ],
+        "states": [
+          "default",
+          "alerts-open",
+          "ticket-selected",
+          "detail-open",
+          "loading",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "ticketQueueSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": "required",
+            "purpose": "Owns structural grouping, density, state, and focus-within cascade for ticket queue operations."
+          },
+          {
+            "name": "queueSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Announces queue purpose or status without owning ticket behavior."
+          },
+          {
+            "name": "queueMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Surfaces queue counts, SLA state, or triage status through Badge."
+          },
+          {
+            "name": "queueAlertsBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Notification Panel"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates alert drawer, unread state, mark-all, dismiss, and selected-alert behavior."
+          },
+          {
+            "name": "ticketListBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Dense Operational List"
+            ],
+            "required": "required",
+            "purpose": "Delegates ticket search, filters, toolbar, selection, bulk actions, rows, pagination, and feedback."
+          },
+          {
+            "name": "ticketDetailBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Drawer Adapter"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates selected-ticket detail, review actions, responsive drawer behavior, and modal fallback."
+          },
+          {
+            "name": "queueFeedbackBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Status Feedback View"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates queue recovery, inline status, blocking error, toast, or notification feedback."
+          }
+        ],
+        "accessibility": [
+          "Expose ticket queue as a labelled group with busy state.",
+          "Delegate alert semantics to Notification Panel.",
+          "Delegate table semantics to Dense Operational List and Virtual Data Table.",
+          "Delegate detail semantics to Drawer Adapter.",
+          "Delegate recovery and feedback semantics to Status Feedback View."
+        ],
+        "tests": [
+          "Composes Surface, Badge, Notification Panel, Dense Operational List, Drawer Adapter, and Status Feedback View.",
+          "Covers default, alerts-open, ticket-selected, detail-open, loading, error, and disabled states.",
+          "Forwards alert, ticket list, detail, and feedback callbacks.",
+          "Rejects raw ticket tables, local notification lists, custom drawers, local feedback shells, and docs-only demos."
+        ],
+        "agentInstructions": [
+          "Do not create a local notification list, ticket table, ticket drawer, or support feedback shell.",
+          "Use Surface for structural grouping; do not wrap this pattern in Card.",
+          "Use templates only to place this pattern in a product shell, not to redefine ticket queue behavior.",
+          "Ask before using this pattern for regulated support, safety, compliance, or irreversible operations."
+        ],
+        "rejectIf": [
+          "Alerts bypass Notification Panel.",
+          "Ticket rows bypass Dense Operational List or Virtual Data Table.",
+          "Detail review bypasses Drawer Adapter.",
+          "Feedback bypasses Status Feedback View.",
+          "Card wraps the ticket queue group.",
+          "Density or state stops cascading to child patterns."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "templateDependencies": [
+          "Internal Operations Console"
+        ]
+      }
+    }
+  }
+}

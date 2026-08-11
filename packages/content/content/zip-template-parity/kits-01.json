@@ -1,0 +1,162 @@
+{
+  "kits": [
+    {
+      "id": "agent-chat",
+      "zipPaths": [
+        "ui_kits/agent-chat/index.html"
+      ],
+      "classification": "covered-by-template",
+      "candidateName": "Agent Workspace",
+      "status": "covered-by-agent-workspace",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Charts",
+          "Message",
+          "Surface",
+          "Typography"
+        ],
+        "components": [
+          "Chat Message",
+          "Chat Thread",
+          "Chat Composer",
+          "KPI Tile",
+          "Table",
+          "Chart Panel",
+          "Button",
+          "Icon Button",
+          "Input",
+          "Breadcrumbs",
+          "Avatar",
+          "Badge",
+          "Skeleton",
+          "Toast"
+        ],
+        "patterns": [
+          "Topbar",
+          "Status Feedback View"
+        ],
+        "templates": [
+          "Agent Workspace"
+        ]
+      },
+      "requiredDecision": "Agent Workspace covers the agent-chat ZIP kit as a product template. ChatThread, ChatMessage, and ChatComposer remain component owners; no standalone chat shell should be copied from the ZIP.",
+      "migrationScope": [
+        "chat thread",
+        "message bubble list",
+        "composer",
+        "agent state",
+        "handoff/retry states"
+      ],
+      "cascadeRisks": [
+        "parallel message shell",
+        "raw composer field",
+        "local status/loading states",
+        "assistant/user theming outside Message primitive",
+        "custom recovery banner outside Status Feedback View"
+      ]
+    },
+    {
+      "id": "auth",
+      "zipPaths": [
+        "ui_kits/auth/index.html",
+        "ui_kits/auth/README.md"
+      ],
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Button",
+          "Input",
+          "Checkbox",
+          "Switch",
+          "Inline Validation",
+          "Spinner",
+          "Toast"
+        ],
+        "patterns": [
+          "Authentication, Login, Biometrics and OTP",
+          "Form Section"
+        ],
+        "templates": []
+      },
+      "requiredDecision": "Do not introduce an auth page template unless product needs a full branded login surface; keep current OTP/biometric behavior in the governed authentication pattern.",
+      "migrationScope": [
+        "login form",
+        "register toggle",
+        "loading state",
+        "validation state"
+      ],
+      "cascadeRisks": [
+        "brand panel becoming a copied shell",
+        "raw form field wrapper",
+        "theme toggle bypassing density/theme cascade"
+      ]
+    },
+    {
+      "id": "auth-otp",
+      "zipPaths": [
+        "ui_kits/auth-otp/index.html"
+      ],
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Field Action",
+          "Iconography"
+        ],
+        "components": [
+          "Biometric Prompt",
+          "Code Input",
+          "Input",
+          "Button",
+          "Checkbox",
+          "Badge",
+          "Inline Validation",
+          "Toast"
+        ],
+        "patterns": [
+          "Authentication, Login, Biometrics and OTP"
+        ],
+        "templates": []
+      },
+      "requiredDecision": "Keep OTP as authentication pattern behavior; only a product auth template should orchestrate broader brand/page layout.",
+      "migrationScope": [
+        "OTP entry",
+        "biometric fallback",
+        "error/retry",
+        "dark theme"
+      ],
+      "cascadeRisks": [
+        "local passcode keypad",
+        "raw OTP slots",
+        "auth sheet outside Dialog/Drawer/Surface"
+      ]
+    }
+  ]
+}

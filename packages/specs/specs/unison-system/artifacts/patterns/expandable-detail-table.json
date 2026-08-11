@@ -1,0 +1,192 @@
+{
+  "artifacts": {
+    "patterns": {
+      "expandable-detail-table": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate virtualized table rows with selected-row detail review without creating expandable row markup, local drawers, or custom table cards.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Drawer Adapter",
+          "Status Feedback View",
+          "Virtual Data Table"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A table row needs governed detail review.",
+          "The table must preserve Virtual Data Table semantics.",
+          "The detail surface should behave responsively without local drawer code."
+        ],
+        "decisionTree": [
+          "Use Virtual Data Table when rows only need selection, sort, or pagination.",
+          "Use Drawer Adapter when a standalone detail panel is needed.",
+          "Use Expandable Detail Table when selected rows and governed detail must operate as one workflow."
+        ],
+        "failureModes": [
+          "Expandable rows are implemented with custom div/card markup.",
+          "Rows bypass Virtual Data Table or Table semantics.",
+          "Detail bypasses Drawer Adapter.",
+          "Recovery feedback bypasses Status Feedback View."
+        ],
+        "successMetrics": [
+          "Users can select, sort, page, inspect detail, and recover through Flow-owned boundaries.",
+          "Density and state cascade from Surface into table, detail, and feedback.",
+          "Templates can reuse row-detail behavior without redefining table or drawer internals."
+        ],
+        "states": [
+          "default",
+          "expanded",
+          "detail-open",
+          "loading",
+          "empty",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "expandableDetailTableSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": true
+          },
+          {
+            "name": "detailTableSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "detailTableMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "tableBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Virtual Data Table"
+            ],
+            "required": true
+          },
+          {
+            "name": "detailBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Drawer Adapter"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "feedbackBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Status Feedback View"
+            ],
+            "required": "conditional"
+          }
+        ],
+        "accessibility": [
+          "Expose the table-detail workflow as a labelled group with busy state.",
+          "Delegate table semantics, selection, sort, pagination, loading, empty, and error states to Virtual Data Table.",
+          "Delegate detail semantics to Drawer Adapter.",
+          "Delegate recovery feedback semantics to Status Feedback View."
+        ],
+        "tests": [
+          "Composes Surface, Badge, Virtual Data Table, Drawer Adapter, and Status Feedback View.",
+          "Covers default, expanded, detail-open, loading, empty, error, and disabled states.",
+          "Forwards table, detail, and feedback callbacks.",
+          "Rejects raw expandable rows, local drawers, card wrappers, docs-only demos, and injected markup."
+        ],
+        "agentInstructions": [
+          "Do not create local expandable row markup.",
+          "Do not wrap detail groups in Card.",
+          "Use Surface for structural grouping and Drawer Adapter for detail review.",
+          "Ask before using this pattern for regulated, financial, legal, safety, or irreversible operations."
+        ],
+        "rejectIf": [
+          "Rows bypass Virtual Data Table.",
+          "Detail bypasses Drawer Adapter.",
+          "Feedback bypasses Status Feedback View.",
+          "Card wraps the table-detail group."
+        ]
+      }
+    }
+  }
+}

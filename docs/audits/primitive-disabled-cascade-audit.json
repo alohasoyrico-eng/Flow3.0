@@ -1,0 +1,334 @@
+{
+  "primitive": "disabled",
+  "status": "pass",
+  "principle": "Disabled consumes State, Tone, Accessibility, and Energy, then exposes a narrow disabled API so components explain unavailable behavior without relying on opacity alone.",
+  "sourceOfTruth": {
+    "spec": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json",
+    "contract": "packages/content/content/primitive-contracts/primitives/disabled.md"
+  },
+  "roles": {
+    "required": [
+      "unavailable",
+      "permission",
+      "offline",
+      "risk",
+      "future"
+    ],
+    "present": [
+      "future",
+      "offline",
+      "permission",
+      "risk",
+      "unavailable"
+    ],
+    "missing": []
+  },
+  "foundations": {
+    "required": [
+      "State",
+      "Tone",
+      "Accessibility",
+      "Energy"
+    ],
+    "present": [
+      "State",
+      "Tone",
+      "Accessibility",
+      "Energy"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Focus",
+      "Loading",
+      "Iconography"
+    ],
+    "present": [
+      "Focus",
+      "Loading",
+      "Iconography"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-disabled-opacity",
+      "--sys-disabled-readable-opacity",
+      "--sys-disabled-surface-opacity",
+      "--sys-disabled-text-color",
+      "--sys-disabled-icon-color",
+      "--sys-disabled-border-color",
+      "--sys-disabled-cursor",
+      "--sys-disabled-pointer-events"
+    ],
+    "present": [
+      "--sys-disabled-opacity",
+      "--sys-disabled-readable-opacity",
+      "--sys-disabled-surface-opacity",
+      "--sys-disabled-text-color",
+      "--sys-disabled-icon-color",
+      "--sys-disabled-border-color",
+      "--sys-disabled-cursor",
+      "--sys-disabled-pointer-events"
+    ],
+    "missing": []
+  },
+  "componentBridge": {
+    "required": [
+      "--component-disabled-opacity",
+      "--component-disabled-readable-opacity",
+      "--component-disabled-surface-opacity",
+      "--component-disabled-text",
+      "--component-disabled-icon",
+      "--component-disabled-border",
+      "--component-disabled-cursor",
+      "--component-disabled-pointer-events",
+      "--component-opacity-disabled"
+    ],
+    "present": [
+      "--component-disabled-opacity",
+      "--component-disabled-readable-opacity",
+      "--component-disabled-surface-opacity",
+      "--component-disabled-text",
+      "--component-disabled-icon",
+      "--component-disabled-border",
+      "--component-disabled-cursor",
+      "--component-disabled-pointer-events",
+      "--component-opacity-disabled"
+    ],
+    "missing": [],
+    "disabledSelectors": 105,
+    "disabledTokenUses": 71
+  },
+  "docsSignal": {
+    "disabledTokenUses": 5
+  },
+  "review": {
+    "directStateDisabledUses": [],
+    "rawDisabledOpacity": [],
+    "opacityOnlyRules": []
+  },
+  "foundationGate": {
+    "accessibility": {
+      "status": "pass",
+      "file": "docs/audits/foundation-accessibility-cascade-audit.json"
+    },
+    "state": {
+      "status": "pass",
+      "file": "docs/audits/foundation-state-cascade-audit.json"
+    },
+    "tone": {
+      "status": "pass",
+      "file": "docs/audits/foundation-tone-cascade-audit.json"
+    },
+    "energy": {
+      "status": "pass",
+      "file": "docs/audits/foundation-energy-cascade-audit.json"
+    }
+  },
+  "primitiveGate": {
+    "focus": {
+      "file": "docs/audits/primitive-focus-cascade-audit.json",
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "loading": {
+      "file": "docs/audits/primitive-loading-cascade-audit.json",
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "iconography": {
+      "file": "docs/audits/primitive-iconography-cascade-audit.json",
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    }
+  },
+  "cascadeRefs": {
+    "components": {
+      "count": 60,
+      "ids": [
+        "accordion",
+        "animated-moment",
+        "audit-event",
+        "avatar",
+        "badge",
+        "biometric-prompt",
+        "breadcrumbs",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "card-summary",
+        "chart-panel",
+        "chat-composer",
+        "chat-message",
+        "chat-thread",
+        "checkbox",
+        "chip",
+        "code-input",
+        "combobox",
+        "country-selector",
+        "date-picker",
+        "date-range-picker",
+        "dialog",
+        "drawer",
+        "empty-state",
+        "error-panel",
+        "floating-action-button",
+        "icon-button",
+        "inline-validation",
+        "input",
+        "input-amount",
+        "kpi-tile",
+        "list",
+        "menu",
+        "motion-boundary",
+        "movement-row",
+        "pagination",
+        "phone-input",
+        "popover",
+        "progress-indicator",
+        "quick-action",
+        "radio-button",
+        "route-summary",
+        "segmented-control",
+        "select",
+        "skeleton",
+        "slider",
+        "spinner",
+        "station-pin",
+        "stepper",
+        "switch",
+        "table",
+        "tabs",
+        "tag",
+        "text-area",
+        "toast",
+        "tooltip",
+        "tree-view"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/components/accordion.json",
+        "packages/specs/specs/unison-system/artifacts/components/animated-moment.json",
+        "packages/specs/specs/unison-system/artifacts/components/audit-event.json",
+        "packages/specs/specs/unison-system/artifacts/components/avatar.json",
+        "packages/specs/specs/unison-system/artifacts/components/badge.json",
+        "packages/specs/specs/unison-system/artifacts/components/biometric-prompt.json",
+        "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json",
+        "packages/specs/specs/unison-system/artifacts/components/button.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/agentinstructions.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/anatomy.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/contextdensitystrategy.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/foundations.json"
+      ]
+    },
+    "patterns": {
+      "count": 58,
+      "ids": [
+        "account-operations",
+        "action-sheet",
+        "advanced-filters",
+        "agent-conversation",
+        "authentication-login-biometrics-and-otp",
+        "autocomplete",
+        "avatar-group",
+        "avatar-menu",
+        "backoffice-approval",
+        "bulk-actions",
+        "calendar-view",
+        "case-management",
+        "chart-wrapper",
+        "column-configurator",
+        "command-palette",
+        "confirmation-dialog",
+        "dense-operational-list",
+        "drag-sortable-list",
+        "drawer-adapter",
+        "driver-and-vehicle-administration",
+        "driver-onboarding-mobile",
+        "expandable-detail-table",
+        "file-upload",
+        "filter-chip-group",
+        "filterable-editable-table",
+        "fleet-manager-onboarding-desktop",
+        "form-section",
+        "fullscreen-sheet",
+        "gantt-chart",
+        "help-center",
+        "kanban-board",
+        "kpi-card",
+        "multi-select",
+        "multi-step-form",
+        "notification-panel",
+        "payment-form",
+        "polar-chart",
+        "preference-management",
+        "pricing-operations",
+        "pull-to-refresh",
+        "quick-actions-grid",
+        "roles-and-permissions",
+        "search",
+        "section-header",
+        "select-option-layer",
+        "settings",
+        "sidebar",
+        "snackbar-provider",
+        "station-discovery",
+        "status-feedback-view",
+        "swipe-actions",
+        "ticket-queue",
+        "timeline",
+        "toolbar",
+        "topbar",
+        "transfer-list",
+        "virtual-data-table",
+        "waterfall-chart"
+      ],
+      "sampleFiles": [
+        "packages/content/content/pattern-contracts/patterns/account-operations.md",
+        "packages/content/content/pattern-contracts/patterns/action-sheet.md",
+        "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+        "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
+        "packages/content/content/pattern-contracts/patterns/autocomplete.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-group.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
+        "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+        "packages/content/content/pattern-contracts/patterns/case-management.md"
+      ]
+    },
+    "templates": {
+      "count": 9,
+      "ids": [
+        "agent-workspace",
+        "configuration-console",
+        "driver-card-wallet",
+        "driver-mobile-app",
+        "fleet-dashboard-suite",
+        "fleet-manager-desktop",
+        "internal-operations-console",
+        "routes-and-stations",
+        "settings-workspace"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+      ]
+    }
+  },
+  "gaps": []
+}

@@ -6,11 +6,11 @@ React components may compose other Flow React components only through an explici
 
 ## Inventory
 
-- React components scanned: 56
+- React components scanned: 60
 - Composition debt: 0
-- Components with declared composition: 23
-- Composition edges: 39
-- Allowlist entries: 23
+- Components with declared composition: 27
+- Composition edges: 50
+- Allowlist entries: 27
 - Unexpected imports: 0
 - Missing expected imports: 0
 - Missing composition reasons: 0
@@ -29,6 +29,9 @@ React components may compose other Flow React components only through an explici
 | CardNumberInput | pass | Spinner | Spinner | None | None | None | None | None |
 | CardSecurityCodeInput | pass | Spinner | Spinner | None | None | None | None | None |
 | CardSummary | pass | Badge | Badge | None | None | None | None | None |
+| ChatComposer | pass | Button, IconButton, Surface, TextArea | Button, IconButton, Surface, TextArea | None | None | None | None | None |
+| ChatMessage | pass | Avatar, Button, Surface | Avatar, Button, Surface | None | None | None | None | None |
+| ChatThread | pass | ChatMessage, EmptyState, Surface | ChatMessage, EmptyState, Surface | None | None | None | None | None |
 | Dialog | pass | Button, IconButton, Input | Button, IconButton, Input | None | None | None | None | None |
 | Drawer | pass | Badge, Button, IconButton, Input, ProgressIndicator | Badge, Button, IconButton, Input, ProgressIndicator | None | None | None | None | None |
 | EmptyState | pass | Button, Spinner | Button, Spinner | None | None | None | None | None |
@@ -36,6 +39,7 @@ React components may compose other Flow React components only through an explici
 | FloatingActionButton | pass | Spinner | Spinner | None | None | None | None | None |
 | InlineValidation | pass | Input | Input | None | None | None | None | None |
 | Input | pass | Spinner | Spinner | None | None | None | None | None |
+| InputAmount | pass | Spinner | Spinner | None | None | None | None | None |
 | Menu | pass | Avatar, Button, IconButton | Avatar, Button, IconButton | None | None | None | None | None |
 | PhoneInput | pass | CountrySelector | CountrySelector | None | None | None | None | None |
 | Popover | pass | Button, Input | Button, Input | None | None | None | None | None |
@@ -63,6 +67,16 @@ React components may compose other Flow React components only through an explici
 | CardNumberInput | Spinner | field loading indicator slot |
 | CardSecurityCodeInput | Spinner | field loading indicator slot |
 | CardSummary | Badge | status badge slot |
+| ChatComposer | Button | send action slot |
+| ChatComposer | IconButton | attachment action slot |
+| ChatComposer | Surface | composer structural primitive boundary |
+| ChatComposer | TextArea | message field slot |
+| ChatMessage | Avatar | author identity slot |
+| ChatMessage | Button | recovery action slot |
+| ChatMessage | Surface | message bubble structural primitive boundary |
+| ChatThread | ChatMessage | governed message row slot |
+| ChatThread | EmptyState | unavailable conversation state slot |
+| ChatThread | Surface | thread log structural primitive boundary |
 | Dialog | Button | dialog action slot |
 | Dialog | IconButton | dismiss control |
 | Dialog | Input | form field slot |
@@ -78,6 +92,7 @@ React components may compose other Flow React components only through an explici
 | FloatingActionButton | Spinner | loading indicator slot |
 | InlineValidation | Input | field validation composition |
 | Input | Spinner | field loading indicator slot |
+| InputAmount | Spinner | field loading indicator slot |
 | Menu | Avatar | avatar trigger slot |
 | Menu | Button | button trigger slot |
 | Menu | IconButton | icon trigger slot |

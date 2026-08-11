@@ -1,0 +1,185 @@
+{
+  "artifacts": {
+    "patterns": {
+      "sidebar": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate app navigation rails, responsive drawer navigation, route grouping, breadcrumbs handoff, and topbar boundary while templates own product route sets.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Accordion",
+          "Badge",
+          "Breadcrumbs",
+          "Drawer",
+          "Icon Button"
+        ],
+        "patternDependencies": [
+          "Topbar"
+        ],
+        "templateDependencies": [
+          "Fleet Manager Desktop",
+          "Fleet Dashboard Suite",
+          "Configuration Console",
+          "Internal Operations Console"
+        ],
+        "tokenDependencies": [
+          "comp.accordion.*",
+          "comp.badge.*",
+          "comp.breadcrumbs.*",
+          "comp.drawer.*",
+          "comp.icon-button.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A shell needs persistent or responsive navigation.",
+          "Routes need grouping, active state, badges, or collapse behavior.",
+          "Templates provide product route inventory and authorization rules."
+        ],
+        "decisionTree": [
+          "Use Breadcrumbs for local hierarchy.",
+          "Use Sidebar for app-level navigation regions.",
+          "Use Topbar for global shell controls and account/search triggers."
+        ],
+        "failureModes": [
+          "Route lists are hardcoded into the pattern.",
+          "Topbar and Sidebar both own the same drawer trigger.",
+          "Navigation groups bypass Accordion.",
+          "Active state is color-only."
+        ],
+        "successMetrics": [
+          "Users can navigate route groups and identify current location.",
+          "Responsive navigation preserves focus and active state.",
+          "Templates can change route sets without changing Sidebar behavior."
+        ],
+        "states": [
+          "expanded",
+          "collapsed",
+          "mobile-drawer",
+          "active",
+          "loading",
+          "permission-filtered",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "groups",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ]
+          },
+          {
+            "name": "responsiveSurface",
+            "owner": "component",
+            "uses": [
+              "Drawer"
+            ]
+          },
+          {
+            "name": "location",
+            "owner": "component",
+            "uses": [
+              "Breadcrumbs"
+            ]
+          },
+          {
+            "name": "navigation",
+            "owner": "component",
+            "uses": [
+              "Accordion",
+              "Badge",
+              "Icon Button"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Expose nav region and active route.",
+          "Preserve focus on collapse and responsive drawer transitions.",
+          "Do not hide permission-filtered routes without a template policy."
+        ],
+        "tests": [
+          "Composes Accordion, Badge, Breadcrumbs, Drawer, and Icon Button.",
+          "Covers expanded, collapsed, mobile, active, loading, and permission-filtered states.",
+          "Keeps Topbar and templates as boundaries."
+        ],
+        "agentInstructions": [
+          "Do not hardcode product routes.",
+          "Do not duplicate Topbar drawer triggers.",
+          "Ask before exposing permission-filtered navigation."
+        ],
+        "rejectIf": [
+          "Template route inventory lives in Sidebar.",
+          "Topbar behavior is cloned.",
+          "Navigation groups bypass Accordion.",
+          "Active state is color-only."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

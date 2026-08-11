@@ -6,19 +6,19 @@ The public React prop surface must stay aligned with componentContracts so produ
 
 ## Inventory
 
-- React components scanned: 56
+- React components scanned: 60
 - Prop alignment debt: 0
-- Pass: 56
+- Pass: 60
 - Fail: 0
-- Contract props: 671
-- Public React props: 559
+- Contract props: 721
+- Public React props: 602
 - Semantic inherited props: 1
-- Contract props satisfied by React DOM inheritance: 24
+- Contract props satisfied by React DOM inheritance: 28
 - Extra React props: 0
 - Missing React props: 0
 - Required mismatches: 0
 - Type value mismatches: 0
-- Public props expected in source: 560
+- Public props expected in source: 603
 - Unreferenced public props: 0
 - Inventory baseline mismatches: 0
 
@@ -28,20 +28,21 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 56 | 56 |
+| components | 60 | 60 |
 | propAlignmentDebt | 0 | 0 |
-| pass | 56 | 56 |
+| pass | 60 | 60 |
 | fail | 0 | 0 |
-| contractProps | 671 | 671 |
-| publicReactProps | 559 | 559 |
+| contractProps | 721 | 721 |
+| publicReactProps | 602 | 602 |
 | semanticInheritedProps | 1 | 1 |
-| inheritedContractProps | 24 | 24 |
+| inheritedContractProps | 28 | 28 |
 | extraReactProps | 0 | 0 |
 | missingReactProps | 0 | 0 |
 | requiredMismatches | 0 | 0 |
 | typeValueMismatches | 0 | 0 |
-| publicPropsExpectedInSource | 560 | 560 |
+| publicPropsExpectedInSource | 603 | 603 |
 | unreferencedPublicProps | 0 | 0 |
+| reactGovernancePolicyIssues | 0 | 0 |
 
 ## Baseline Mismatches
 
@@ -67,6 +68,9 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | CardSecurityCodeInput | pass | 18 | 13 | 13 | None | None | None | None | None |
 | CardSummary | pass | 12 | 11 | 11 | None | None | None | None | None |
 | ChartPanel | pass | 14 | 13 | 13 | None | None | None | None | None |
+| ChatComposer | pass | 13 | 11 | 11 | None | None | None | None | None |
+| ChatMessage | pass | 10 | 10 | 10 | None | None | None | None | None |
+| ChatThread | pass | 9 | 9 | 9 | None | None | None | None | None |
 | Checkbox | pass | 13 | 8 | 8 | None | None | None | None | None |
 | Chip | pass | 13 | 12 | 12 | None | None | None | None | None |
 | CodeInput | pass | 12 | 10 | 10 | None | None | None | None | None |
@@ -82,6 +86,7 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | IconButton | pass | 9 | 5 | 5 | None | None | None | None | None |
 | InlineValidation | pass | 9 | 7 | 7 | None | None | None | None | None |
 | Input | pass | 28 | 21 | 21 | None | None | None | None | None |
+| InputAmount | pass | 18 | 13 | 13 | None | None | None | None | None |
 | KpiTile | pass | 15 | 12 | 12 | None | None | None | None | None |
 | List | pass | 8 | 8 | 8 | None | None | None | None | None |
 | Menu | pass | 13 | 12 | 12 | None | None | None | None | None |

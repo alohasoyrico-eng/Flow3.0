@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const {
+  docsAppDir,
   fs,
   path,
   read,
@@ -19,11 +20,11 @@ const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const specFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/illustration-assets.json");
 const contractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/illustration-assets.md");
-const docsAppFile = path.join(root, "apps/docs/app.js");
-const docsHomeIllustrationsFile = path.join(root, "apps/docs/home-illustrations.js");
-const docsHomeFile = path.join(root, "apps/docs/home-stack-renderers.js");
-const vendorManifestFile = path.join(root, "apps/docs/vendor/open-doodles/manifest.json");
-const vendorLicenseFile = path.join(root, "apps/docs/vendor/open-doodles/LICENSE.md");
+const docsAppFile = path.join(docsAppDir, "app.js");
+const docsHomeIllustrationsFile = path.join(docsAppDir, "home-illustrations.js");
+const docsHomeFile = path.join(docsAppDir, "home-stack-renderers.js");
+const vendorManifestFile = path.join(docsAppDir, "vendor/open-doodles/manifest.json");
+const vendorLicenseFile = path.join(docsAppDir, "vendor/open-doodles/LICENSE.md");
 const coordinatedPrimitiveReports = {
   librarySources: path.join(root, "docs/audits/primitive-library-sources-cascade-audit.json"),
   animationAssets: path.join(root, "docs/audits/primitive-animation-assets-cascade-audit.json"),

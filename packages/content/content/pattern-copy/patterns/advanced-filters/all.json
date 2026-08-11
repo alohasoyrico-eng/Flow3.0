@@ -41,7 +41,7 @@
       "slots": [
         [
           "controls",
-          "Select | DatePicker | Input",
+          "Select | DateRangePicker | Input",
           "yes",
           "Filter inputs for entity, status, date, or keyword."
         ],
@@ -72,7 +72,7 @@
       ],
       "componentsUsed": [
         "Select",
-        "Date Picker",
+        "Date Range Picker",
         "Input",
         "Chip",
         "Badge",

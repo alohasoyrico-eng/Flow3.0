@@ -1,0 +1,136 @@
+{
+  "status": "pass",
+  "primitive": "Country Flags",
+  "principle": "Country Flags converts a free library into Flow-owned country identity assets so Phone Input and Country Selector never draw or duplicate flags.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "asset",
+      "mask",
+      "identity",
+      "fallback"
+    ],
+    "present": [
+      "asset",
+      "mask",
+      "identity",
+      "fallback"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Iconography",
+      "Symbol",
+      "Accessibility",
+      "Energy",
+      "Frame"
+    ],
+    "present": [
+      "Iconography",
+      "Symbol",
+      "Accessibility",
+      "Energy",
+      "Frame"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Library Sources",
+      "Iconography",
+      "Radius",
+      "Spacing"
+    ],
+    "present": [
+      "Library Sources",
+      "Iconography",
+      "Radius",
+      "Spacing"
+    ],
+    "missing": []
+  },
+  "tokenDependencies": {
+    "required": [
+      "countryFlag.*",
+      "library.*",
+      "sys.iconography.*",
+      "sys.symbol.*",
+      "sys.accessibility.*",
+      "sys.energy.*",
+      "sys.frame.*",
+      "icon.*",
+      "radius.*",
+      "spacing.*",
+      "country-flag-icons"
+    ],
+    "present": [
+      "countryFlag.*",
+      "library.*",
+      "sys.iconography.*",
+      "sys.symbol.*",
+      "sys.accessibility.*",
+      "sys.energy.*",
+      "sys.frame.*",
+      "icon.*",
+      "radius.*",
+      "spacing.*",
+      "country-flag-icons"
+    ],
+    "missing": []
+  },
+  "implementation": {
+    "packageDependency": "^1.6.20",
+    "vendorFlagCount": 265,
+    "vendorLicensePresent": true,
+    "exportsPrimitiveApi": true,
+    "usesLibraryBridge": true,
+    "createsImageAsset": true,
+    "supportsFallback": true,
+    "avoidsHandDrawnSvg": true,
+    "cssTargetsAsset": true,
+    "cssTargetsFallback": true,
+    "cssUsesCircularMask": true,
+    "cssAssetFillsMask": true,
+    "cssAssetAvoidsOwnBorder": true,
+    "cssNoSvgTarget": true,
+    "countrySelectorConsumesPrimitive": true
+  },
+  "foundationGate": {
+    "iconography": "pass",
+    "symbol": "pass",
+    "accessibility": "pass",
+    "energy": "pass",
+    "frame": "pass"
+  },
+  "primitiveGate": {
+    "library-sources": "pass",
+    "iconography": "pass",
+    "radius": "pass",
+    "spacing": "pass"
+  },
+  "librarySources": {
+    "row": {
+      "id": "country-flags",
+      "library": "country-flag-icons",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": "^1.6.20",
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": false,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Iconography",
+        "Symbol",
+        "Accessibility",
+        "Energy",
+        "Frame"
+      ]
+    }
+  }
+}

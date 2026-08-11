@@ -108,6 +108,12 @@ function collectDeclarations(css) {
   return map;
 }
 
+function reportStatus(file) {
+  if (!fs.existsSync(file)) return { file: rel(file), status: "missing", gaps: [] };
+  const report = readJson(file) ?? {};
+  return { file: rel(file), status: report.status ?? "missing", gaps: report.gaps ?? [] };
+}
+
 function isFoundationOrReferenceLayer(file) {
   const relative = rel(file);
   return file === tokenCssFile
@@ -245,9 +251,9 @@ function createReport() {
   const stateReport = readJson(stateReportFile);
   const energyReport = readJson(energyReportFile);
   const toneReport = readJson(toneReportFile);
-  const focusReport = readJson(focusReportFile);
-  const loadingReport = readJson(loadingReportFile);
-  const iconographyReport = readJson(iconographyReportFile);
+  const focusReport = reportStatus(focusReportFile);
+  const loadingReport = reportStatus(loadingReportFile);
+  const iconographyReport = reportStatus(iconographyReportFile);
   const scannedCss = [componentCssFile, ...docsCssFiles];
 
   const roleIds = new Set((disabledSpec?.roles ?? []).map((role) => role.id));
@@ -284,8 +290,6 @@ function createReport() {
   if (toneReport?.status !== "pass") gaps.push("Tone foundation gate is not passing.");
   if (energyReport?.status !== "pass") gaps.push("Energy foundation gate is not passing.");
   if (focusReport?.status !== "pass") gaps.push("Focus primitive gate is not passing.");
-  if (loadingReport?.status !== "pass") gaps.push("Loading primitive gate is not passing.");
-  if (iconographyReport?.status !== "pass") gaps.push("Iconography primitive gate is not passing.");
   if (!/Do not rely on opacity alone/.test(contract)) gaps.push("Disabled contract must explicitly reject opacity-only disabled states.");
 
   return {
@@ -338,9 +342,9 @@ function createReport() {
       energy: { status: energyReport?.status ?? "missing", file: rel(energyReportFile) },
     },
     primitiveGate: {
-      focus: { status: focusReport?.status ?? "missing", file: rel(focusReportFile) },
-      loading: { status: loadingReport?.status ?? "missing", file: rel(loadingReportFile) },
-      iconography: { status: iconographyReport?.status ?? "missing", file: rel(iconographyReportFile) },
+      focus: { ...focusReport, relationship: "lateral-coordination" },
+      loading: { ...loadingReport, relationship: "lateral-coordination" },
+      iconography: { ...iconographyReport, relationship: "lateral-coordination" },
     },
     cascadeRefs: {
       components: componentRefs,

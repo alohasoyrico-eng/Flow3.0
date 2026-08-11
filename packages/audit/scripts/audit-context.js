@@ -94,6 +94,19 @@ function slug(value) {
     .replace(/(^-|-$)/g, "");
 }
 
+function readJsonIfExists(file) {
+  return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : {};
+}
+
+function listJsonIds(dir) {
+  return fs.existsSync(dir)
+    ? fs.readdirSync(dir)
+      .filter((file) => file.endsWith(".json"))
+      .map((file) => file.replace(/\.json$/, ""))
+      .sort()
+    : [];
+}
+
 const files = [
   "apps/docs/app.js",
   "apps/docs/button-playground-interactions.js",
@@ -202,49 +215,28 @@ const files = [
   .map((file) => path.join(root, file))
   .filter((file) => fs.existsSync(file));
 
-const foundations = [
-  "Energy",
-  "Voice",
-  "Frame",
-  "Depth",
-  "Momentum",
-  "State",
-  "Tone",
-  "Growth",
-  "Symbol",
-  "Iconography",
-  "Accessibility",
-];
-const primitiveNames = [
-  "Color",
-  "Typography",
-  "Spacing",
-  "Radius",
-  "Elevation",
-  "Iconography",
-  "Library Sources",
-  "Country Flags",
-  "Animation Assets",
-  "Illustration Assets",
-  "Motion Curves",
-  "Duration",
-  "Breakpoints",
-  "Density",
-  "Focus",
-  "Loading",
-  "Disabled",
-  "Charts",
-  "Maps",
-  "Message",
-  "Measurement",
-  "Research",
-];
+const foundations = readJsonIfExists(path.join(root, "packages/specs/specs/unison-system/meta/foundations.json")).foundations ?? [];
+const primitiveNames = readJsonIfExists(path.join(root, "packages/specs/specs/unison-system/meta/primitivefamilies.json")).primitiveFamilies ?? [];
 const foundationIds = foundations.map((name) => slug(name));
-const goldComponents = ["button", "select", "combobox", "country-selector", "card", "input", "checkbox", "switch", "radio-button", "text-area", "icon-button", "badge", "chip", "tag", "tabs", "tooltip", "toast", "inline-validation", "progress-indicator", "spinner", "skeleton", "dialog", "menu", "drawer", "accordion", "empty-state", "table", "avatar", "slider", "stepper", "list", "kpi-tile", "chart-panel", "station-pin", "route-summary", "code-input", "phone-input", "card-number-input", "card-expiry-input", "card-security-code-input", "date-picker", "date-range-picker", "segmented-control", "popover", "floating-action-button", "card-summary", "movement-row", "quick-action", "biometric-prompt", "breadcrumbs", "pagination", "audit-event", "error-panel", "tree-view", "motion-boundary", "animated-moment"];
+const primitiveArtifacts = listJsonIds(path.join(root, "packages/specs/specs/unison-system/artifacts/primitives"));
+const goldComponents = listJsonIds(path.join(root, "packages/specs/specs/unison-system/artifacts/components"));
+const patternArtifacts = listJsonIds(path.join(root, "packages/specs/specs/unison-system/artifacts/patterns"));
+const templateArtifacts = listJsonIds(path.join(root, "packages/specs/specs/unison-system/artifacts/templates"));
 const requiredFoundationContracts = foundations.map((name) => slug(name));
 const requiredPrimitiveContracts = primitiveNames.map((name) => slug(name));
 const requiredComponentContracts = [...goldComponents];
-const requiredPatternContracts = ["action-sheet", "autocomplete", "avatar-menu", "bulk-actions", "command-palette", "confirmation-dialog", "drawer-adapter", "file-upload", "filter-chip-group", "form-section", "fullscreen-sheet", "help-center", "multi-select", "multi-step-form", "notification-panel", "quick-actions-grid", "search", "select-option-layer", "settings", "sidebar", "swipe-actions", "toolbar", "topbar"];
+const requiredPatternContracts = (() => {
+  const governanceFile = path.join(root, "packages/content/content/pattern-contract-governance.json");
+  if (!fs.existsSync(governanceFile)) return [];
+  try {
+    const contracts = JSON.parse(fs.readFileSync(governanceFile, "utf8")).requiredPatternContracts;
+    return Array.isArray(contracts) && contracts.length
+      ? [...new Set(contracts.filter((id) => typeof id === "string" && id.trim()))].sort()
+      : [];
+  } catch {
+    return [];
+  }
+})();
 const cssFile = docsCssFile;
 
 const result = {
@@ -361,7 +353,10 @@ module.exports = {
   foundations,
   foundationIds,
   primitiveNames,
+  primitiveArtifacts,
   goldComponents,
+  patternArtifacts,
+  templateArtifacts,
   requiredFoundationContracts,
   requiredPrimitiveContracts,
   requiredComponentContracts,

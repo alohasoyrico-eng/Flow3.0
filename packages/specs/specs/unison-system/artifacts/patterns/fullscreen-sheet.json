@@ -1,0 +1,178 @@
+{
+  "artifacts": {
+    "patterns": {
+      "fullscreen-sheet": {
+        "layer": "Pattern",
+        "platform": "Touch-first",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate mobile full-screen task surfaces with step context, form fields, validation, action-sheet handoff, and dismiss recovery.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Momentum",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Card Summary",
+          "Inline Validation",
+          "Input",
+          "Select",
+          "Stepper",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Action Sheet"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.card-summary.*",
+          "comp.inline-validation.*",
+          "comp.input.*",
+          "comp.select.*",
+          "comp.stepper.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "reduced motion"
+        ],
+        "entryConditions": [
+          "A mobile task needs more space than a compact dialog or action sheet.",
+          "The task can include fields, progress, validation, or unsaved changes.",
+          "Secondary contextual actions may hand off to Action Sheet."
+        ],
+        "decisionTree": [
+          "Use Action Sheet for short contextual command lists.",
+          "Use Fullscreen Sheet for focused mobile tasks.",
+          "Use Multi Step Form when step navigation is the core cross-platform workflow."
+        ],
+        "failureModes": [
+          "Fullscreen surface is custom overlay behavior.",
+          "Action Sheet behavior is duplicated.",
+          "Unsaved changes dismiss silently.",
+          "Validation and progress are visual-only."
+        ],
+        "successMetrics": [
+          "Users can complete or dismiss the task predictably.",
+          "Focus, escape/back, and reduced-motion behavior are governed.",
+          "Secondary actions remain a boundary to Action Sheet."
+        ],
+        "states": [
+          "closed",
+          "open",
+          "dirty",
+          "validating",
+          "saving",
+          "error",
+          "dismiss-confirming",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "summary",
+            "owner": "component",
+            "uses": [
+              "Card Summary",
+              "Stepper"
+            ]
+          },
+          {
+            "name": "fields",
+            "owner": "component",
+            "uses": [
+              "Input",
+              "Select",
+              "Inline Validation"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Toast"
+            ]
+          },
+          {
+            "name": "action-sheetBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Action Sheet"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Action Sheet runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Trap focus while open.",
+          "Confirm or preserve dirty state on dismiss.",
+          "Provide a non-gesture close path."
+        ],
+        "tests": [
+          "Composes Button, Card Summary, Stepper, Input, Select, Inline Validation, and Toast.",
+          "Covers dirty, validating, saving, error, dismiss-confirming, and disabled states.",
+          "Keeps Action Sheet as secondary-action boundary."
+        ],
+        "agentInstructions": [
+          "Do not implement raw fullscreen overlay mechanics.",
+          "Keep product task schema outside the pattern.",
+          "Ask before using for financial, identity, or compliance-critical submission."
+        ],
+        "rejectIf": [
+          "Dismiss loses unsaved changes silently.",
+          "Action Sheet is cloned inside.",
+          "Fields bypass Flow inputs.",
+          "Focus behavior is unmanaged."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

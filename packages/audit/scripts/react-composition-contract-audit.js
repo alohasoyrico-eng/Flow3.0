@@ -10,6 +10,22 @@ const reactComponentCompositionContracts = {
   CardNumberInput: [{ component: "Spinner", reason: "field loading indicator slot" }],
   CardSecurityCodeInput: [{ component: "Spinner", reason: "field loading indicator slot" }],
   CardSummary: [{ component: "Badge", reason: "status badge slot" }],
+  ChatComposer: [
+    { component: "Button", reason: "send action slot" },
+    { component: "IconButton", reason: "attachment action slot" },
+    { component: "TextArea", reason: "message field slot" },
+    { component: "Surface", reason: "composer structural primitive boundary" },
+  ],
+  ChatMessage: [
+    { component: "Avatar", reason: "author identity slot" },
+    { component: "Button", reason: "recovery action slot" },
+    { component: "Surface", reason: "message bubble structural primitive boundary" },
+  ],
+  ChatThread: [
+    { component: "ChatMessage", reason: "governed message row slot" },
+    { component: "EmptyState", reason: "unavailable conversation state slot" },
+    { component: "Surface", reason: "thread log structural primitive boundary" },
+  ],
   Dialog: [
     { component: "Button", reason: "dialog action slot" },
     { component: "IconButton", reason: "dismiss control" },
@@ -33,6 +49,7 @@ const reactComponentCompositionContracts = {
   FloatingActionButton: [{ component: "Spinner", reason: "loading indicator slot" }],
   InlineValidation: [{ component: "Input", reason: "field validation composition" }],
   Input: [{ component: "Spinner", reason: "field loading indicator slot" }],
+  InputAmount: [{ component: "Spinner", reason: "field loading indicator slot" }],
   Menu: [
     { component: "Avatar", reason: "avatar trigger slot" },
     { component: "Button", reason: "button trigger slot" },

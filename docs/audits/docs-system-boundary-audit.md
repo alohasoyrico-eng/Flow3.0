@@ -8,27 +8,46 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 
 - Docs root: ../FlowDocs
 - Source files scanned: 203
-- Generated files: 192
+- Generated files: 280
 - Flow dependency present: 1
-- Flow boundary aliases: 18
+- Flow boundary aliases: 20
 - Missing Flow aliases: 0
 - Local Flow import violations: 0
 - Docs component token definitions: 0
 - Docs component token definition files: 0
+- Docs protected Flow class roots: 69
+- Docs component class definitions: 0
+- Docs component class definition files: 0
+- Docs pattern class definitions: 795
+- Docs pattern class roots: 184
+- Docs unapproved pattern class roots: 0
+- Docs pattern class policy issues: 0
+- Docs contractual pattern class definitions: 0
+- Docs contractual pattern class definition files: 0
 - Docs system boundary debt: 0
+- Unexpected inventory metrics: 0
 
 ## Baseline Budget
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | sourceFilesScanned | 203 | 203 |
-| generatedFiles | 192 | 192 |
+| generatedFiles | 280 | 280 |
 | flowDependencyPresent | 1 | 1 |
-| flowBoundaryAliases | 18 | 18 |
+| flowBoundaryAliases | 20 | 20 |
 | missingFlowAliases | 0 | 0 |
 | localFlowImportViolations | 0 | 0 |
 | docsComponentTokenDefinitions | 0 | 0 |
 | docsComponentTokenDefinitionFiles | 0 | 0 |
+| docsProtectedFlowClassRoots | 69 | 69 |
+| docsComponentClassDefinitions | 0 | 0 |
+| docsComponentClassDefinitionFiles | 0 | 0 |
+| docsPatternClassDefinitions | 795 | 795 |
+| docsPatternClassRoots | 184 | 184 |
+| docsUnapprovedPatternClassRoots | 0 | 0 |
+| docsPatternClassPolicyIssues | 0 | 0 |
+| docsContractualPatternClassDefinitions | 0 | 0 |
+| docsContractualPatternClassDefinitionFiles | 0 | 0 |
 | generatedComponentCssPresent | 1 | 1 |
 | generatedTokenCssPresent | 1 | 1 |
 | docsSystemBoundaryDebt | 0 | 0 |
@@ -38,6 +57,12 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | None | None | None |
+
+## Unexpected Inventory Metrics
+
+| Metric | Actual |
+| --- | ---: |
+| None | None |
 
 ## Missing Flow Aliases
 
@@ -50,4 +75,28 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 | Location | Token |
 | --- | --- |
 | None | None |
+
+## Docs Component Class Definitions
+
+| Location | Class Root |
+| --- | --- |
+| None | None |
+
+## Docs Unapproved Pattern Class Roots
+
+Policy file: packages/content/content/docs-system-boundary.json. Approved prefixes: pattern-. Formal root strategy: pattern-artifact-id.
+
+Docs may use editorial/demo `.pattern-*` roots under the approved namespace. Formal pattern roots generated from Flow artifacts remain blocked so FlowDocs cannot grow a second pattern implementation surface by accident.
+
+| Class Root |
+| --- |
+| None |
+
+## Docs Contractual Pattern Class Definitions
+
+Docs may own demo/editorial `.pattern-*` wrappers, but must not define a formal Pattern root such as `.pattern-search` or `.pattern-search__item`.
+
+| Location | Class Root | Formal Pattern Root |
+| --- | --- | --- |
+| None | None | None |
 

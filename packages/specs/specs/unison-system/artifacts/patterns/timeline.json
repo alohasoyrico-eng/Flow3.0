@@ -1,0 +1,162 @@
+{
+  "artifacts": {
+    "patterns": {
+      "timeline": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate chronological events with audit semantics, status, filters, empty recovery, and accessible ordering.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Audit Event",
+          "Badge",
+          "Button",
+          "Chip",
+          "Empty State",
+          "List"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.audit-event.*",
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.chip.*",
+          "comp.empty-state.*",
+          "comp.list.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A user needs to inspect ordered events or activity history.",
+          "Events need status, actor, timestamp, or recovery context.",
+          "The timeline may be empty, filtered, loading, or permission constrained."
+        ],
+        "decisionTree": [
+          "Use List for unordered or non-chronological records.",
+          "Use Timeline when event order and audit context are the interaction.",
+          "Use Audit Event directly when showing a single event."
+        ],
+        "failureModes": [
+          "Events are custom cards instead of Audit Event/List.",
+          "Timestamp order is unclear.",
+          "Status relies only on color.",
+          "Empty or permission states are missing."
+        ],
+        "successMetrics": [
+          "Users can understand what happened, when, and by whom.",
+          "Assistive technology users receive event order and status.",
+          "Filtering and recovery do not duplicate component visuals."
+        ],
+        "states": [
+          "default",
+          "loading",
+          "empty",
+          "filtered",
+          "error",
+          "permission-blocked"
+        ],
+        "slots": [
+          {
+            "name": "events",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Audit Event"
+            ]
+          },
+          {
+            "name": "filters",
+            "owner": "component",
+            "uses": [
+              "Chip",
+              "Badge",
+              "Button"
+            ]
+          },
+          {
+            "name": "emptyState",
+            "owner": "component",
+            "uses": [
+              "Empty State"
+            ],
+            "required": true,
+            "purpose": "Owns empty, filtered-empty, permission-blocked, and recovery messaging for the event sequence."
+          }
+        ],
+        "accessibility": [
+          "Expose chronological order and timestamps in text.",
+          "Keep event status independent from color alone.",
+          "Provide accessible empty and permission states."
+        ],
+        "tests": [
+          "Uses Audit Event and List for event rows.",
+          "Covers default, loading, empty, filtered, error, and permission states.",
+          "Does not recreate event cards or status pills."
+        ],
+        "agentInstructions": [
+          "Compose from Audit Event, List, Badge, Chip, Button, and Empty State.",
+          "Keep domain event schemas and retention policy outside the pattern.",
+          "Ask before exposing sensitive audit history."
+        ],
+        "rejectIf": [
+          "Timeline rows are custom cards.",
+          "Event order is ambiguous.",
+          "Status is color-only.",
+          "Filter chips bypass Chip."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

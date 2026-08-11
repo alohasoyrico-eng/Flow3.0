@@ -41,7 +41,7 @@
       "slots": [
         [
           "dateControl",
-          "DatePicker",
+          "DateRangePicker",
           "yes",
           "Selected date or period anchor."
         ],
@@ -71,7 +71,7 @@
         ]
       ],
       "componentsUsed": [
-        "Date Picker",
+        "Date Range Picker",
         "List",
         "Card",
         "Popover",
@@ -127,7 +127,7 @@
       "miel": {
         "canDecide": [
           "Use Calendar View for scheduled operational events.",
-          "Use Date Picker for date anchor and List/Card for events.",
+          "Use Date Range Picker for visible range/date anchor and List/Card for events.",
           "Use Empty State for no scheduled items."
         ],
         "mustAsk": [

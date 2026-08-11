@@ -71,6 +71,7 @@
         ]
       ],
       "componentsUsed": [
+        "Select",
         "Checkbox",
         "Chip",
         "Badge",

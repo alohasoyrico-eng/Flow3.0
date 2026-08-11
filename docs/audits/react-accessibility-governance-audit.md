@@ -6,12 +6,12 @@ React components with accessibility-critical interaction must keep explicit role
 
 ## Inventory
 
-- React components scanned: 56
+- React components scanned: 60
 - Accessibility debt: 0
 - Accessibility-critical components: 10
 - Critical passing: 10
-- Role declarations: 68
-- ARIA declarations: 310
+- Role declarations: 71
+- ARIA declarations: 323
 - Keyboard handlers: 40
 - Focus calls: 15
 - Failures: 0
@@ -24,16 +24,17 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 56 | 56 |
+| components | 60 | 60 |
 | accessibilityDebt | 0 | 0 |
 | criticalComponents | 10 | 10 |
 | criticalPassing | 10 | 10 |
-| totalRoles | 68 | 68 |
-| totalAria | 310 | 310 |
+| totalRoles | 71 | 71 |
+| totalAria | 323 | 323 |
 | keyboardHandlers | 40 | 40 |
 | focusCalls | 15 | 15 |
 | failures | 0 | 0 |
 | interactionFailures | 0 | 0 |
+| reactGovernancePolicyIssues | 0 | 0 |
 
 ## Baseline Mismatches
 
@@ -74,6 +75,9 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | CardSecurityCodeInput | 1 | 7 | 0 | 0 | 0 | yes |
 | CardSummary | 0 | 4 | 0 | 2 | 0 | no |
 | ChartPanel | 9 | 9 | 0 | 4 | 0 | no |
+| ChatComposer | 1 | 1 | 0 | 0 | 0 | yes |
+| ChatMessage | 0 | 2 | 0 | 0 | 0 | no |
+| ChatThread | 1 | 3 | 0 | 0 | 0 | no |
 | Checkbox | 0 | 3 | 0 | 0 | 0 | no |
 | Chip | 0 | 6 | 0 | 0 | 0 | no |
 | CodeInput | 1 | 4 | 0 | 0 | 0 | yes |
@@ -89,6 +93,7 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | IconButton | 0 | 4 | 0 | 0 | 0 | no |
 | InlineValidation | 1 | 4 | 0 | 0 | 0 | yes |
 | Input | 1 | 11 | 0 | 0 | 0 | yes |
+| InputAmount | 1 | 5 | 0 | 0 | 0 | yes |
 | KpiTile | 1 | 8 | 2 | 1 | 0 | no |
 | List | 1 | 5 | 0 | 0 | 0 | no |
 | Menu | 3 | 7 | 2 | 1 | 5 | yes |
@@ -97,7 +102,7 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | Pagination | 0 | 6 | 0 | 0 | 0 | no |
 | PhoneInput | 1 | 3 | 0 | 0 | 0 | yes |
 | Popover | 1 | 4 | 2 | 0 | 1 | yes |
-| ProgressIndicator | 1 | 7 | 0 | 1 | 0 | yes |
+| ProgressIndicator | 1 | 8 | 0 | 1 | 0 | yes |
 | QuickAction | 0 | 3 | 0 | 0 | 0 | no |
 | RadioButton | 0 | 2 | 0 | 0 | 0 | no |
 | RouteSummary | 0 | 3 | 0 | 2 | 0 | no |
@@ -105,7 +110,7 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | Select | 4 | 13 | 3 | 1 | 0 | yes |
 | Skeleton | 1 | 5 | 0 | 0 | 0 | no |
 | Slider | 0 | 6 | 0 | 0 | 0 | no |
-| Spinner | 1 | 3 | 0 | 0 | 0 | no |
+| Spinner | 1 | 4 | 0 | 0 | 0 | no |
 | StationPin | 0 | 3 | 0 | 0 | 0 | no |
 | Stepper | 0 | 4 | 0 | 0 | 0 | no |
 | Switch | 1 | 3 | 0 | 0 | 0 | no |

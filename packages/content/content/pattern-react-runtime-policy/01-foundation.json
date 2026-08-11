@@ -1,0 +1,129 @@
+{
+  "version": "2026-08-09",
+  "forbiddenTypeProps": [
+    "style",
+    "dangerouslySetInnerHTML",
+    "contentEditable",
+    "suppressHydrationWarning",
+    "suppressContentEditableWarning"
+  ],
+  "controlledPropPairs": {
+    "fields": [
+      "onFieldValueChange"
+    ],
+    "open": [
+      "onOpenChange"
+    ],
+    "page": [
+      "onPageChange"
+    ],
+    "query": [
+      "onQueryChange"
+    ],
+    "selectedKey": [
+      "onSelect",
+      "onRowSelect",
+      "onResultSelect",
+      "onStationSelect",
+      "onSuggestionSelect"
+    ],
+    "selectedKeys": [
+      "onSelectionChange",
+      "onRowSelect"
+    ],
+    "sortDir": [
+      "onSortChange"
+    ],
+    "sortKey": [
+      "onSortChange"
+    ],
+    "value": [
+      "onValueChange"
+    ],
+    "values": [
+      "onPermissionChange"
+    ]
+  },
+  "displayOnlyProps": {
+    "KpiCard": [
+      "value"
+    ]
+  },
+  "inheritedDomProps": [
+    "accept",
+    "alt",
+    "autoComplete",
+    "autoFocus",
+    "checked",
+    "children",
+    "className",
+    "cols",
+    "colSpan",
+    "defaultChecked",
+    "defaultValue",
+    "disabled",
+    "download",
+    "form",
+    "height",
+    "href",
+    "htmlFor",
+    "id",
+    "inputMode",
+    "key",
+    "max",
+    "maxLength",
+    "method",
+    "min",
+    "minLength",
+    "multiple",
+    "name",
+    "pattern",
+    "placeholder",
+    "readOnly",
+    "ref",
+    "rel",
+    "required",
+    "role",
+    "rows",
+    "rowSpan",
+    "spellCheck",
+    "src",
+    "step",
+    "tabIndex",
+    "target",
+    "title",
+    "type",
+    "value",
+    "width"
+  ],
+  "inheritedDomPropPrefixes": [
+    "aria-",
+    "data-",
+    "on"
+  ],
+  "accessibilityDelegatingComponents": [
+    "Accordion",
+    "Avatar",
+    "Button",
+    "Checkbox",
+    "Dialog",
+    "Drawer",
+    "EmptyState",
+    "ErrorPanel",
+    "IconButton",
+    "InlineValidation",
+    "Input",
+    "List",
+    "Menu",
+    "Pagination",
+    "Popover",
+    "RadioButton",
+    "Select",
+    "Skeleton",
+    "Switch",
+    "Table",
+    "TextArea",
+    "Toast",
+    "Tooltip"
+  ]
+}

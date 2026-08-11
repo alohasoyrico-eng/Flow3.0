@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/topbar/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/topbar.json`
 
 ## Purpose
 
@@ -42,6 +43,187 @@ Keep product or documentation identity, navigation entry, search, utility action
 | Iconography | Utility icons use system sizing and optical alignment; brand slot can swap logo safely. |
 | Accessibility | Landmarks, role search, aria-current, aria-haspopup, aria-expanded, focus ring, Escape, and reduced motion are required. |
 
+## Formal Purpose
+
+Coordinate global shell actions, search/command/account/notification triggers, responsive drawer entry, and sidebar boundary while templates own product route inventory and shell placement.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+| Template Dependencies | `Fleet Manager Desktop`, `Fleet Dashboard Suite`, `Configuration Console`, `Agent Workspace`, `Internal Operations Console` |
+
+## Formal States
+
+- `default`
+- `dense`
+- `mobile`
+- `search-active`
+- `notifications-unread`
+- `account-open`
+- `loading`
+- `permission-filtered`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Research`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Avatar`
+- `Badge`
+- `Drawer`
+- `Icon Button`
+- `Input`
+- `Menu`
+
+### Patterns
+
+- `Autocomplete`
+- `Avatar Menu`
+- `Command Palette`
+- `Notification Panel`
+- `Search`
+- `Settings`
+- `Sidebar`
+
+### Tokens
+
+- `comp.avatar.*`
+- `comp.badge.*`
+- `comp.drawer.*`
+- `comp.icon-button.*`
+- `comp.input.*`
+- `comp.menu.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.growth.*`
+- `sys.iconography.*`
+- `sys.momentum.*`
+- `sys.state.*`
+- `sys.symbol.*`
+- `sys.tone.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `globalTriggers` | `component` | `Icon Button`, `Badge`, `Input` |
+| `account` | `component` | `Avatar`, `Menu` |
+| `responsiveNavigation` | `component` | `Drawer`, `Icon Button` |
+| `autocompleteBoundary` | `pattern` | `Autocomplete` |
+| `avatar-menuBoundary` | `pattern` | `Avatar Menu` |
+| `command-paletteBoundary` | `pattern` | `Command Palette` |
+| `notificationBoundary` | `pattern` | `Notification Panel` |
+| `searchBoundary` | `pattern` | `Search` |
+| `settingsBoundary` | `pattern` | `Settings` |
+| `sidebarBoundary` | `pattern` | `Sidebar` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A shell needs global actions, account access, search/command triggers, notification entry, or responsive navigation trigger.
+- Template owns shell placement, route set, and product-specific actions.
+- Topbar coordinates boundaries without owning their internal behavior.
+
+### Decision Tree
+
+- Use Toolbar for local page actions.
+- Use Topbar for global shell actions and triggers.
+- Use Sidebar for navigation region behavior and route grouping.
+
+### Failure Modes
+
+- Topbar implements Search, Command Palette, Avatar Menu, Notification Panel, Settings, or Sidebar internals.
+- Template route inventory is hardcoded.
+- Responsive drawer trigger conflicts with Sidebar.
+- Global and local actions are mixed.
+
+### Success Metrics
+
+- Users can distinguish global shell actions from local page actions.
+- Triggers route to owned patterns without duplicated visuals.
+- Templates can alter shell composition without changing Flow behavior.
+
+### Accessibility
+
+- Expose shell region and trigger labels.
+- Preserve focus when opening delegated patterns.
+- Do not hide global actions behind unlabeled icons.
+
+### Tests
+
+- Composes Avatar, Badge, Drawer, Icon Button, Input, and Menu.
+- Covers dense, mobile, active search, unread notifications, account, loading, and permission-filtered states.
+- Keeps delegated patterns and templates as boundaries.
+
+### Agent Instructions
+
+- Do not implement delegated pattern internals.
+- Do not hardcode product routes or tenant policy.
+- Ask before adding global actions that affect billing, security, identity, or regulated data.
+
+### Reject If
+
+- Search/command/account/notification/sidebar internals are cloned.
+- Template shell policy is embedded.
+- Global icons are unlabeled.
+- Toolbar local actions are mixed into Topbar.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -55,7 +237,7 @@ Keep product or documentation identity, navigation entry, search, utility action
 | account | AvatarMenuSlot | optional | Consumes Avatar Menu for profile, settings, workspace, and sign out. |
 | responsiveMode | full \| compact \| mobile | yes | Defines which slots stay visible, compress, or move to sidebar/drawer. |
 
-## Components And Primitives Used
+## Components Used
 
 - Icon Button
 - Input

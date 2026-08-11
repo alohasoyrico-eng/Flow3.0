@@ -37,10 +37,16 @@
       ],
       "slots": [
         [
-          "header",
-          "Card | Text",
+          "container",
+          "Surface",
           "yes",
-          "Names the section and explains purpose."
+          "Structural owner for the section background, density, and validation state."
+        ],
+        [
+          "header",
+          "Text",
+          "yes",
+          "Names the section and explains purpose without using Card as a wrapper."
         ],
         [
           "fields",
@@ -68,7 +74,6 @@
         ]
       ],
       "componentsUsed": [
-        "Card",
         "Input",
         "Text Area",
         "Inline Validation",

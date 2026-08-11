@@ -1,27 +1,40 @@
 #!/usr/bin/env node
 
-const { fs, path, root } = require("./audit-context.js");
+const { fs, path, readJson, root } = require("./audit-context.js");
 const { createDocsComponentDemoOwnershipReport } = require("./audit-docs-component-demo-ownership.js");
 
 const checkMode = process.argv.includes("--check");
+const docsBoundaryFile = path.join(root, "packages/content/content/docs-system-boundary.json");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "docs-component-demo-ownership.json");
 const markdownOutput = path.join(outputDir, "docs-component-demo-ownership.md");
 
-const expectedInventory = {
-  fullModules: 8,
-  functionRegions: 4,
-  regions: 12,
-  forbiddenPatterns: 15,
-  violations: 0,
-  docsDemoOwnershipDebt: 0,
-};
+const docsBoundaryPolicy = readJson(docsBoundaryFile) ?? {};
+const expectedInventory = docsBoundaryPolicy.docsComponentDemoOwnershipExpectedInventory
+  && typeof docsBoundaryPolicy.docsComponentDemoOwnershipExpectedInventory === "object"
+  ? docsBoundaryPolicy.docsComponentDemoOwnershipExpectedInventory
+  : {};
+
+function docsDemoOwnershipPolicyIssues() {
+  const issues = [];
+  if (!docsBoundaryPolicy.docsComponentDemoOwnershipExpectedInventory || typeof docsBoundaryPolicy.docsComponentDemoOwnershipExpectedInventory !== "object") {
+    issues.push("docsComponentDemoOwnershipExpectedInventory must be an object");
+  }
+  for (const [key, expected] of Object.entries(expectedInventory)) {
+    if (!/^[a-z][a-zA-Z0-9]*$/.test(key) || !Number.isInteger(expected) || expected < 0) {
+      issues.push(`invalid docsComponentDemoOwnershipExpectedInventory entry: ${key}`);
+    }
+  }
+  return issues;
+}
 
 function createReport() {
   const report = createDocsComponentDemoOwnershipReport();
+  const policyIssues = docsDemoOwnershipPolicyIssues();
   const inventory = {
     ...report.inventory,
-    docsDemoOwnershipDebt: report.inventory.violations,
+    docsDemoOwnershipPolicyIssues: policyIssues.length,
+    docsDemoOwnershipDebt: report.inventory.violations + policyIssues.length,
   };
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
@@ -38,6 +51,10 @@ function createReport() {
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
+    },
+    governance: {
+      file: path.relative(root, docsBoundaryFile),
+      issues: policyIssues,
     },
   };
 }

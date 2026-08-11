@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/drag-sortable-list/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/drag-sortable-list.json`
 
 ## Purpose
 
@@ -35,6 +36,161 @@ Reorder dashboard modules, route stops, rules, or settings with keyboard alterna
 | Momentum | Movement is meaningful, bounded, and respects reduced motion. |
 | Accessibility | Keyboard reorder and position announcements are required. |
 
+## Formal Purpose
+
+Coordinate reorderable lists with drag, keyboard movement, motion boundaries, disabled items, persistence feedback, and settings-bound configuration.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `idle`
+- `dragging`
+- `keyboard-moving`
+- `dirty`
+- `saving`
+- `saved`
+- `error`
+- `disabled`
+- `reduced-motion`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Energy`
+- `Frame`
+- `Momentum`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `List`
+- `Motion Boundary`
+- `Toast`
+
+### Patterns
+
+- `Settings`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.list.*`
+- `comp.motion-boundary.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.momentum.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `items` | `component` | `List`, `Badge` |
+| `motion` | `component` | `Motion Boundary` |
+| `actions` | `component` | `Button`, `Toast` |
+| `settingsBoundary` | `pattern` | `Settings` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- Users need to reorder a finite list and persist the order.
+- The list needs drag and keyboard equivalent movement.
+- Some items may be locked, disabled, or moved through a settings surface.
+
+### Decision Tree
+
+- Use List for static ordering.
+- Use Drag Sortable List when item order is user-controlled.
+- Use Settings only to host preference-level ordering, not to own reorder mechanics.
+
+### Failure Modes
+
+- Drag is the only reorder path.
+- Motion ignores reduced-motion preferences.
+- Disabled or locked items can move without reason.
+- Persistence feedback bypasses Toast.
+
+### Success Metrics
+
+- Users can reorder by pointer and keyboard.
+- Locked and disabled items have visible reasons.
+- Order persistence and failure states are clear.
+
+### Accessibility
+
+- Provide keyboard controls for moving items.
+- Announce position changes.
+- Respect reduced motion and expose locked reasons.
+
+### Tests
+
+- Composes List, Motion Boundary, Badge, Button, and Toast.
+- Covers pointer drag, keyboard movement, saving, error, disabled, and reduced-motion states.
+- Does not let Settings own reorder mechanics.
+
+### Agent Instructions
+
+- Keep persistence policy and product-specific item schema outside the pattern.
+- Treat Settings as a host boundary, not an implementation dependency.
+- Ask before reordering safety, finance, or compliance priority lists.
+
+### Reject If
+
+- Drag has no keyboard equivalent.
+- Motion bypasses Motion Boundary.
+- Locked item reasons are missing.
+- Settings duplicates the reorder implementation.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -44,7 +200,7 @@ Reorder dashboard modules, route stops, rules, or settings with keyboard alterna
 | boundary | MotionBoundary | conditional | Reduced-motion and local motion control. |
 | feedback | Toast \| Badge | conditional | Saved, dirty, or undo state. |
 
-## Components And Primitives Used
+## Components Used
 
 - List
 - Button

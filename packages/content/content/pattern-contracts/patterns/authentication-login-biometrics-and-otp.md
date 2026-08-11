@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/authentication-login-biometrics-and-otp/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json`
 
 ## Purpose
 
@@ -35,10 +36,171 @@ Coordinate phone login, OTP verification, biometric step-up, fallback, validatio
 | Frame | Phone and OTP fields stay readable on compact mobile viewports. |
 | Energy | Validation and success states use semantic Design System tones only. |
 
+## Formal Purpose
+
+Coordinate authentication entry, phone or credential capture, OTP verification, biometric prompt handoff, validation, error recovery, and secure feedback while templates own policy, routing, copy, and identity provider configuration.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+| Template Dependencies | `Configuration Console` |
+
+## Formal States
+
+- `idle`
+- `submitting`
+- `otp-sent`
+- `otp-invalid`
+- `biometric-prompt`
+- `locked`
+- `rate-limited`
+- `recovered`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Energy`
+- `Frame`
+- `Momentum`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Country Flags`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Biometric Prompt`
+- `Button`
+- `Code Input`
+- `Error Panel`
+- `Inline Validation`
+- `Input`
+- `Phone Input`
+- `Toast`
+
+### Tokens
+
+- `comp.biometric-prompt.*`
+- `comp.button.*`
+- `comp.code-input.*`
+- `comp.error-panel.*`
+- `comp.inline-validation.*`
+- `comp.input.*`
+- `comp.phone-input.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.momentum.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `surface` | `primitive` | `Surface` |
+| `identity` | `component` | `Input`, `Phone Input`, `Inline Validation` |
+| `verification` | `component` | `Code Input`, `Biometric Prompt`, `Button` |
+| `recovery` | `component` | `Error Panel`, `Toast` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A product needs a reusable authentication step or recovery flow.
+- OTP, biometric, credential, or phone capture states must remain consistent.
+- The template owns authentication policy, provider wiring, rate limits, and security copy.
+
+### Decision Tree
+
+- Use Phone Input or Code Input directly for simple forms.
+- Use this pattern when login, OTP, biometric prompt, and recovery are coordinated.
+- Use templates for complete auth screens, provider policy, and regulated security flows.
+
+### Failure Modes
+
+- The pattern hardcodes provider policy or template routing.
+- OTP and biometric flows are separate custom implementations.
+- Errors expose sensitive auth state.
+- Rate limit or resend behavior is visual-only.
+
+### Success Metrics
+
+- Users can authenticate, recover, and understand blocked states securely.
+- Keyboard and screen reader users can complete OTP and biometric alternatives.
+- Templates can vary policy without changing component composition.
+
+### Accessibility
+
+- Expose OTP length and error state in text.
+- Provide non-biometric alternatives.
+- Avoid leaking sensitive security details through announcements.
+
+### Tests
+
+- Composes all auth field/recovery components.
+- Covers submitting, OTP, biometric, locked, rate-limited, and recovered states.
+- Keeps provider policy and template routing outside the pattern.
+
+### Agent Instructions
+
+- Do not implement identity-provider logic here.
+- Keep security policy and copy in templates or app code.
+- Ask before changing authentication, recovery, MFA, biometric, or rate-limit behavior.
+
+### Reject If
+
+- Provider policy is embedded.
+- Biometric has no alternative.
+- Sensitive failure reason is exposed.
+- Fields bypass Flow components.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
 | --- | --- | --- | --- |
+| surface | Surface | yes | Structural owner for auth grouping, density cascade, and blocked/recovered state. |
 | identity | Phone Input | yes | Primary identifier and recovery contact. |
 | otp | Code Input | conditional | Shown after the user requests a code. |
 | biometric | Biometric Prompt | conditional | Step-up or returning-user authentication. |
@@ -46,15 +208,22 @@ Coordinate phone login, OTP verification, biometric step-up, fallback, validatio
 | feedback | Toast | conditional | Non-blocking success or retry feedback. |
 | actions | Button[] | yes | Send, verify, fallback, and recovery actions. |
 
-## Components And Primitives Used
+## Components Used
 
 - Phone Input
+- Input
 - Code Input
 - Biometric Prompt
 - Button
 - Inline Validation
 - Error Panel
 - Toast
+
+## Primitive Slot Ownership
+
+| Slot | Primitive | Required | Notes |
+| --- | --- | --- | --- |
+| surface | Surface | yes | Structural owner for auth grouping, density cascade, and blocked/recovered state. |
 
 ## Variants
 
@@ -83,6 +252,7 @@ Coordinate phone login, OTP verification, biometric step-up, fallback, validatio
 
 ## Implementation Checklist
 
+- Declare `surface`: Structural owner for auth grouping, density cascade, and blocked/recovered state.
 - Declare `identity`: Primary identifier and recovery contact.
 - Declare `validation`: Recoverable field and policy errors.
 - Declare `actions`: Send, verify, fallback, and recovery actions.

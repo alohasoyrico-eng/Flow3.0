@@ -1,0 +1,90 @@
+{
+  "patterns": {
+    "account-operations": {
+      "purpose": "Coordinate account records, operational actions, detail review, and audit history without creating a parallel internal-tools table, drawer, or timeline implementation.",
+      "useWhen": [
+        "An internal operations workflow needs searchable account records plus selected-account actions.",
+        "Account detail must open in a governed drawer or responsive modal boundary.",
+        "Audit history must stay visible through a reusable Timeline contract."
+      ],
+      "doNotUseWithoutReview": [
+        "The flow changes regulated identity, money movement, compliance, safety, or destructive account state.",
+        "A product template needs only static account copy.",
+        "The workspace wants to replace Dense Operational List, Drawer Adapter, or Timeline behavior."
+      ],
+      "foundations": [
+        ["Accessibility", "The labelled group, table, detail panel, audit timeline, busy state, and action events stay announced through formal owners."],
+        ["Depth", "Surface owns structural grouping and focus-within behavior without a Card wrapper."],
+        ["Energy", "Selected, detail-open, audit-filtered, loading, error, and disabled states cascade to child patterns."],
+        ["Frame", "Dense operational spacing and responsive detail behavior remain token-driven."],
+        ["Growth", "Account operations become reusable for internal templates without moving account behavior into templates."],
+        ["Iconography", "Icons remain owned by Toolbar, Dense Operational List, Drawer Adapter, and Timeline children."],
+        ["Momentum", "Loading, drawer, and feedback motion remain delegated to child owners."],
+        ["State", "Pattern state maps to accounts, detail, and audit boundaries."],
+        ["Symbol", "Risk, status, and audit symbols remain semantic through Badge and child patterns."],
+        ["Tone", "Neutral, selected, warning, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Account labels, summaries, filters, details, audit events, and recovery copy stay explicit."]
+      ],
+      "slots": [
+        ["accountOperationsSurface", "Surface", "required", "Structural account operations group."],
+        ["operationsSummary", "Badge", "conditional", "Description or account operation status."],
+        ["operationsMetric", "Badge", "conditional", "Account counts, risk labels, or review status."],
+        ["accountListBoundary", "Dense Operational List", "required", "Account records, search, filters, toolbar, selection, bulk actions, table states, and feedback."],
+        ["accountDetailBoundary", "Drawer Adapter", "conditional", "Selected-account detail, review actions, responsive drawer behavior, and modal fallback."],
+        ["accountAuditBoundary", "Timeline", "conditional", "Audit events, audit filters, event selection, and recovery."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Dense Operational List",
+        "Drawer Adapter",
+        "Timeline"
+      ],
+      "variants": [
+        ["Records only", "Required boundary", "Dense Operational List owns the account records workspace."],
+        ["Selected account", "State", "Selected account key cascades selected state into account rows."],
+        ["Detail review", "Conditional", "Drawer Adapter owns selected-account details and actions."],
+        ["Audit history", "Conditional", "Timeline owns audit filters, events, empty, loading, and recovery states."],
+        ["Operational metrics", "Conditional", "Badge owns compact account counts or risk summaries."]
+      ],
+      "motion": [
+        ["Loading", "Surface marks busy while Dense Operational List and Timeline own loading render."],
+        ["Detail open", "Drawer Adapter owns drawer/dialog motion."],
+        ["Audit filtered", "Timeline and Badge own audit-filtered feedback."]
+      ],
+      "accessibility": [
+        "Expose the pattern as a labelled group.",
+        "Delegate record semantics to Dense Operational List and Virtual Data Table.",
+        "Delegate panel semantics to Drawer Adapter.",
+        "Delegate chronology and audit status semantics to Timeline."
+      ],
+      "tests": [
+        "Composes Surface plus the required child pattern boundaries.",
+        "Density and state cascade through child patterns.",
+        "Callbacks preserve event context across accounts, detail, and audit.",
+        "No Card wrapper, raw account table, custom drawer, local timeline, or docs-only shell is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Account Operations for reusable internal account workflows.",
+          "Add Drawer Adapter only when selected accounts need details or review actions.",
+          "Add Timeline only when account history or audit trail is part of the workflow."
+        ],
+        "mustAsk": [
+          "Operations affect regulated identity, billing, compliance, safety, or irreversible account status.",
+          "A template wants custom row cards or custom overlays.",
+          "Audit history needs legal retention or export requirements."
+        ],
+        "rejectIf": [
+          "Rows are rendered outside Dense Operational List.",
+          "Detail review bypasses Drawer Adapter.",
+          "Audit history bypasses Timeline.",
+          "Card wraps the account operations group.",
+          "The internal-tools template reimplements account behavior."
+        ],
+        "handoff": "Confirm row model, account permissions, detail actions, audit event source, filter model, selected-account behavior, and regulated risk before shipping Account Operations."
+      }
+    }
+  }
+}

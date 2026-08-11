@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const {
+  docsAppDir,
   fs,
   path,
   read,
@@ -15,15 +16,15 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "primitive-animation-assets-cascade-audit.json");
 const markdownOutput = path.join(outputDir, "primitive-animation-assets-cascade-audit.md");
 const componentPackageFile = path.join(root, "packages/components/package.json");
-const docsIndexFile = path.join(root, "apps/docs/index.html");
+const docsIndexFile = path.join(docsAppDir, "index.html");
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const primitiveFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/primitives/animation-assets.js");
 const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/index.js");
 const animatedMomentReactFile = path.join(root, "packages/react/src/AnimatedMoment.js");
 const specFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json");
 const contractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/animation-assets.md");
-const vendorRuntimeFile = path.join(root, "apps/docs/vendor/lottie-web/lottie.min.js");
-const vendorLicenseFile = path.join(root, "apps/docs/vendor/lottie-web/LICENSE.md");
+const vendorRuntimeFile = path.join(docsAppDir, "vendor/lottie-web/lottie.min.js");
+const vendorLicenseFile = path.join(docsAppDir, "vendor/lottie-web/LICENSE.md");
 const librarySourcesReportFile = path.join(root, "docs/audits/primitive-library-sources-cascade-audit.json");
 const durationReportFile = path.join(root, "docs/audits/primitive-duration-cascade-audit.json");
 const motionCurvesReportFile = path.join(root, "docs/audits/primitive-motion-curves-cascade-audit.json");

@@ -53,10 +53,10 @@
           "Visible progress and current step."
         ],
         [
-          "body",
-          "FormSection",
+          "content",
+          "Surface | FormSection",
           "yes",
-          "Current step content using Design System fields and validation."
+          "Current step content inside a Surface boundary using Design System fields and validation."
         ],
         [
           "actions",

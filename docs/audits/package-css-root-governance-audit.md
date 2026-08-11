@@ -7,15 +7,15 @@ Every root class and --comp-* alias in the package stylesheet must map to a know
 ## Inventory
 
 - Package CSS: packages/components/styles/components.css
-- Selectors scanned: 1169
-- Component aliases scanned: 3221
-- Component alias roots: 62
+- Selectors scanned: 1224
+- Component aliases scanned: 3250
+- Component alias roots: 66
 - Unknown component aliases: 0
-- CSS roots: 66
-- Component roots: 58
-- Component roots observed by React: 58
+- CSS roots: 71
+- Component roots: 62
+- Component roots observed by React: 62
 - Component roots not observed by React: 0
-- Classified non-component roots: 8
+- Classified non-component roots: 9
 - Unclassified roots: 0
 - Package CSS root debt: 0
 - Inventory baseline mismatches: 0
@@ -26,16 +26,17 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| selectors | 1169 | 1169 |
-| componentAliases | 3221 | 3221 |
-| componentAliasRoots | 62 | 62 |
+| selectors | 1224 | 1224 |
+| componentAliases | 3250 | 3250 |
+| componentAliasRoots | 66 | 66 |
 | unknownComponentAliases | 0 | 0 |
-| cssRoots | 66 | 66 |
-| componentRoots | 58 | 58 |
-| observedComponentRoots | 58 | 58 |
+| cssRoots | 71 | 71 |
+| componentRoots | 62 | 62 |
+| observedComponentRoots | 62 | 62 |
 | unobservedComponentRoots | 0 | 0 |
-| classifiedNonComponentRoots | 8 | 8 |
+| classifiedNonComponentRoots | 9 | 9 |
 | unclassifiedRoots | 0 | 0 |
+| packageCssRootGovernanceIssues | 0 | 0 |
 | packageCssRootDebt | 0 | 0 |
 
 ## Baseline Mismatches
@@ -56,6 +57,7 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 | illustration-asset | primitive-asset | packages/components/src/primitives/illustration-assets.js | yes | Reusable illustration asset primitive. |
 | input | shared-control-primitive | field | yes | Shared native input surface consumed by field-family React components. |
 | material-symbol | iconography-hook | packages/components/src/primitives/iconography.js | yes | Material Symbols font hook used by icon-bearing components. |
+| surface | structural-primitive | packages/react/src/Surface.js | yes | Surface primitive owns structural backgrounds, depth, and density scope before components render. |
 
 ## Component Alias Roots
 
@@ -76,6 +78,9 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 | card-security-code-input |
 | card-summary |
 | chart-panel |
+| chat-composer |
+| chat-message |
+| chat-thread |
 | checkbox |
 | chip |
 | choice |
@@ -95,6 +100,7 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 | illustration-asset |
 | inline-validation |
 | input |
+| input-amount |
 | kpi-tile |
 | list |
 | menu |

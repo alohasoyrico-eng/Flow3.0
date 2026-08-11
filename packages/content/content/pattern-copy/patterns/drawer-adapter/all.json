@@ -49,9 +49,15 @@
         ],
         [
           "content",
+          "Surface",
+          "yes",
+          "Structural owner for adapted drawer content, density, and state cascade."
+        ],
+        [
+          "body",
           "Menu | List | Card",
           "yes",
-          "Adapted navigation or inspector content."
+          "Adapted navigation or inspector content inside the Surface boundary."
         ],
         [
           "decision",
@@ -69,6 +75,8 @@
       "componentsUsed": [
         "Drawer",
         "Menu",
+        "List",
+        "Card",
         "Button",
         "Dialog",
         "Toast"

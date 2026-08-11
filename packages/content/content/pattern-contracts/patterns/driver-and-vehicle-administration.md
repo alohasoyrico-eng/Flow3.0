@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/driver-and-vehicle-administration/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration.json`
 
 ## Purpose
 
@@ -35,6 +36,174 @@ Support alta, baja, editing, assignment, suspension, recovery, and audit for dri
 | Depth | Edit, assignment, and confirmation surfaces use Design System overlays without becoming table components. |
 | Accessibility | Identity, status, actions, pagination, and audit feedback are keyboard reachable and text-backed. |
 
+## Formal Purpose
+
+Coordinate reusable administration of drivers and vehicles through table review, quick actions, audit context, pagination, empty states, and toolbar boundary while templates own domain policy.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Desktop |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `tablets + laptops`, `desktops + TV` |
+| Template Dependencies | `Configuration Console` |
+
+## Formal States
+
+- `loading`
+- `empty`
+- `ready`
+- `selected`
+- `action-running`
+- `permission-blocked`
+- `error`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Audit Event`
+- `Avatar`
+- `Badge`
+- `Button`
+- `Card Summary`
+- `Dialog`
+- `Empty State`
+- `Pagination`
+- `Quick Action`
+- `Table`
+- `Toast`
+
+### Patterns
+
+- `Toolbar`
+
+### Tokens
+
+- `comp.audit-event.*`
+- `comp.avatar.*`
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.card-summary.*`
+- `comp.dialog.*`
+- `comp.empty-state.*`
+- `comp.pagination.*`
+- `comp.quick-action.*`
+- `comp.table.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `summary` | `component` | `Card Summary`, `Badge` |
+| `records` | `component` | `Table`, `Avatar`, `Pagination`, `Empty State` |
+| `actions` | `component` | `Quick Action`, `Dialog`, `Button`, `Toast`, `Audit Event` |
+| `toolbarBoundary` | `pattern` | `Toolbar` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A product needs a reusable driver/vehicle admin composition.
+- Records need table scanning, quick actions, pagination, audit context, or empty recovery.
+- Templates own domain-specific columns, permissions, and business workflows.
+
+### Decision Tree
+
+- Use Table for generic records.
+- Use this pattern for reusable driver/vehicle administration composition.
+- Use templates for complete configuration screens and business policy.
+
+### Failure Modes
+
+- The pattern hardcodes domain authorization or template layout.
+- Toolbar internals are duplicated.
+- Quick actions bypass Quick Action/Dialog.
+- Audit context is custom markup.
+
+### Success Metrics
+
+- Users can review, act on, and recover admin records.
+- Permission and audit state remain accessible.
+- Templates can vary business rules without visual duplication.
+
+### Accessibility
+
+- Expose row identity and action consequence.
+- Tie permission reasons to disabled actions.
+- Provide audit context in text.
+
+### Tests
+
+- Composes all listed admin components.
+- Covers loading, empty, ready, selected, running, permission, and error states.
+- Keeps Toolbar and templates as boundaries.
+
+### Agent Instructions
+
+- Do not encode domain authorization or route policy here.
+- Do not clone Toolbar.
+- Ask before modifying driver, vehicle, compliance, or safety records.
+
+### Reject If
+
+- Template business workflow is embedded.
+- Actions bypass Quick Action/Dialog.
+- Audit context is custom visuals.
+- Permissions are hidden.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -46,7 +215,7 @@ Support alta, baja, editing, assignment, suspension, recovery, and audit for dri
 | actions | QuickAction \| Button[] | yes | Invite, edit, assign, suspend, recover, or export. |
 | pagination | Pagination | conditional | Paged datasets and remote result sets. |
 
-## Components And Primitives Used
+## Components Used
 
 - Table
 - Avatar

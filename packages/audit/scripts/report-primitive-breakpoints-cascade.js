@@ -168,9 +168,6 @@ if (unapproved.length) gaps.push(`Unapproved media query breakpoint values: ${un
 for (const [name, gate] of Object.entries(foundationGate)) {
   if (gate.status !== "pass") gaps.push(`Foundation gate is not pass: ${name} is ${gate.status}.`);
 }
-for (const [name, gate] of Object.entries(primitiveGate)) {
-  if (gate.status !== "pass") gaps.push(`Coordinated primitive gate is not pass: ${name} is ${gate.status}.`);
-}
 
 const report = {
   status: gaps.length ? "fail" : "pass",

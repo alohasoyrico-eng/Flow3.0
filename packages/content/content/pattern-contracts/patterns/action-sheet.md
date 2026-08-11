@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/action-sheet/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json`
 
 ## Purpose
 
@@ -35,6 +36,160 @@ Present contextual mobile actions with hierarchy, destructive treatment, cancel,
 | Momentum | Uses sheet entrance/exit motion and reduced-motion fallback. |
 | Accessibility | Requires labelled sheet, touch targets, Escape/back close, and focus containment. |
 
+## Formal Purpose
+
+Coordinate mobile-first contextual actions through Dialog/Menu/List composition, with cancel, destructive, loading, search handoff, and recovery behavior.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Touch-first |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `reduced motion` |
+
+## Formal States
+
+- `closed`
+- `open`
+- `loading`
+- `disabled`
+- `destructive`
+- `permission-blocked`
+- `error`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Momentum`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Button`
+- `Dialog`
+- `List`
+- `Menu`
+- `Toast`
+
+### Patterns
+
+- `Search`
+
+### Tokens
+
+- `comp.button.*`
+- `comp.dialog.*`
+- `comp.list.*`
+- `comp.menu.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.momentum.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `surface` | `component` | `Dialog` |
+| `actions` | `component` | `Menu`, `List`, `Button` |
+| `feedback` | `component` | `Toast` |
+| `searchBoundary` | `pattern` | `Search` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A touch surface needs contextual actions in a sheet-like presentation.
+- Actions may include cancel, destructive, disabled, or loading states.
+- Search can provide target discovery but must not own the sheet action list.
+
+### Decision Tree
+
+- Use Menu for compact desktop action lists.
+- Use Action Sheet when mobile or touch ergonomics need a larger modal action surface.
+- Use Confirmation Dialog when a single risky action requires explicit consequence review.
+
+### Failure Modes
+
+- Sheet surface is a custom overlay outside Dialog.
+- Action rows are custom buttons instead of Menu/List/Button.
+- Cancel and destructive actions are not semantically distinct.
+- Search implementation is embedded inside the sheet.
+
+### Success Metrics
+
+- Users can inspect, cancel, and trigger contextual actions by touch and keyboard.
+- Focus trap, escape, and focus return are preserved.
+- Risk and recovery states remain component-owned.
+
+### Accessibility
+
+- Use Dialog focus trap and focus return.
+- Keep destructive meaning in text and semantics.
+- Ensure cancel remains reachable and predictable.
+
+### Tests
+
+- Composes Dialog, Menu/List, Button, and Toast.
+- Covers open, loading, disabled, destructive, permission, and error states.
+- Keeps Search as handoff boundary only.
+
+### Agent Instructions
+
+- Do not implement a custom sheet overlay.
+- Keep action execution policy outside the pattern.
+- Ask before including destructive, regulated, or identity-sensitive actions.
+
+### Reject If
+
+- Overlay bypasses Dialog.
+- Action rows bypass Menu/List/Button.
+- Cancel is missing.
+- Search behavior is cloned.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -46,9 +201,10 @@ Present contextual mobile actions with hierarchy, destructive treatment, cancel,
 | confirmation | Dialog \| InlineConfirm | conditional | Required for destructive actions. |
 | feedback | Toast | conditional | Reports selected action result. |
 
-## Components And Primitives Used
+## Components Used
 
 - Button
+- List
 - Menu
 - Toast
 - Dialog

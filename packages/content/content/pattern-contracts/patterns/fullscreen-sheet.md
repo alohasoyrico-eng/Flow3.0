@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/fullscreen-sheet/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet.json`
 
 ## Purpose
 
@@ -35,6 +36,166 @@ Run a focused mobile task in a near-fullscreen sheet while preserving route cont
 | Momentum | Uses sheet reveal, step transition, and reduced-motion fallback. |
 | Accessibility | Requires labelled surface, focus containment, Escape/back close, and restored focus. |
 
+## Formal Purpose
+
+Coordinate mobile full-screen task surfaces with step context, form fields, validation, action-sheet handoff, and dismiss recovery.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Touch-first |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `reduced motion` |
+
+## Formal States
+
+- `closed`
+- `open`
+- `dirty`
+- `validating`
+- `saving`
+- `error`
+- `dismiss-confirming`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Momentum`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Button`
+- `Card Summary`
+- `Inline Validation`
+- `Input`
+- `Select`
+- `Stepper`
+- `Toast`
+
+### Patterns
+
+- `Action Sheet`
+
+### Tokens
+
+- `comp.button.*`
+- `comp.card-summary.*`
+- `comp.inline-validation.*`
+- `comp.input.*`
+- `comp.select.*`
+- `comp.stepper.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.momentum.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `summary` | `component` | `Card Summary`, `Stepper` |
+| `fields` | `component` | `Input`, `Select`, `Inline Validation` |
+| `actions` | `component` | `Button`, `Toast` |
+| `action-sheetBoundary` | `pattern` | `Action Sheet` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A mobile task needs more space than a compact dialog or action sheet.
+- The task can include fields, progress, validation, or unsaved changes.
+- Secondary contextual actions may hand off to Action Sheet.
+
+### Decision Tree
+
+- Use Action Sheet for short contextual command lists.
+- Use Fullscreen Sheet for focused mobile tasks.
+- Use Multi Step Form when step navigation is the core cross-platform workflow.
+
+### Failure Modes
+
+- Fullscreen surface is custom overlay behavior.
+- Action Sheet behavior is duplicated.
+- Unsaved changes dismiss silently.
+- Validation and progress are visual-only.
+
+### Success Metrics
+
+- Users can complete or dismiss the task predictably.
+- Focus, escape/back, and reduced-motion behavior are governed.
+- Secondary actions remain a boundary to Action Sheet.
+
+### Accessibility
+
+- Trap focus while open.
+- Confirm or preserve dirty state on dismiss.
+- Provide a non-gesture close path.
+
+### Tests
+
+- Composes Button, Card Summary, Stepper, Input, Select, Inline Validation, and Toast.
+- Covers dirty, validating, saving, error, dismiss-confirming, and disabled states.
+- Keeps Action Sheet as secondary-action boundary.
+
+### Agent Instructions
+
+- Do not implement raw fullscreen overlay mechanics.
+- Keep product task schema outside the pattern.
+- Ask before using for financial, identity, or compliance-critical submission.
+
+### Reject If
+
+- Dismiss loses unsaved changes silently.
+- Action Sheet is cloned inside.
+- Fields bypass Flow inputs.
+- Focus behavior is unmanaged.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -47,10 +208,11 @@ Run a focused mobile task in a near-fullscreen sheet while preserving route cont
 | actions | Button[] | yes | Back, continue, submit, and cancel actions. |
 | feedback | Toast | conditional | Confirms completion without replacing navigation. |
 
-## Components And Primitives Used
+## Components Used
 
 - Stepper
 - Input
+- Select
 - Button
 - Inline Validation
 - Card Summary

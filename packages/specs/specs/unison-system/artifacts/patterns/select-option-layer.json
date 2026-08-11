@@ -23,15 +23,18 @@
         ],
         "primitiveDependencies": [
           "Color",
-          "Typography",
-          "Spacing",
-          "Elevation",
-          "Iconography",
-          "Motion Curves",
+          "Disabled",
           "Duration",
+          "Elevation",
           "Focus",
+          "Iconography",
           "Loading",
-          "Disabled"
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
         ],
         "componentDependencies": [
           "Select",
@@ -39,8 +42,12 @@
           "Inline Validation",
           "Empty State"
         ],
+        "patternDependencies": [],
         "tokenDependencies": [
           "comp.select.*",
+          "comp.button.*",
+          "comp.inline-validation.*",
+          "comp.empty-state.*",
           "sys.energy.*",
           "sys.voice.*",
           "sys.frame.*",
@@ -80,6 +87,53 @@
           "stale",
           "disabled"
         ],
+        "slots": [
+          {
+            "name": "field",
+            "owner": "component",
+            "uses": [
+              "Select"
+            ],
+            "required": true,
+            "purpose": "Owns selected value, trigger, labelled field semantics, and value cascade."
+          },
+          {
+            "name": "choices",
+            "owner": "component",
+            "uses": [
+              "Select"
+            ],
+            "required": "conditional",
+            "purpose": "Groups related choices without moving option behavior into docs or templates."
+          },
+          {
+            "name": "optionActions",
+            "owner": "component",
+            "uses": [
+              "Button"
+            ],
+            "required": "conditional",
+            "purpose": "Provides confirm, clear, retry, or recovery actions when option selection has consequence."
+          },
+          {
+            "name": "validation",
+            "owner": "component",
+            "uses": [
+              "Inline Validation"
+            ],
+            "required": "conditional",
+            "purpose": "Explains required, stale, permission-blocked, or invalid option state."
+          },
+          {
+            "name": "fallback",
+            "owner": "component",
+            "uses": [
+              "Empty State"
+            ],
+            "required": "conditional",
+            "purpose": "Owns empty, permission-blocked, or unavailable-option recovery without inventing a parallel overlay."
+          }
+        ],
         "densityContext": [
           "smartphones + phablets",
           "tablets + laptops",
@@ -88,13 +142,26 @@
         "agentInstructions": [
           "Keep Select as the base component and move grouped option sequencing into this pattern.",
           "Document option source, stale/loading/error states, disabled reasons, focus return, and mobile sheet behavior.",
-          "Ask before adding search, multi-select, product process, or analytics behavior beyond option selection."
+          "Ask before adding search, multi-select, product process, or measurement behavior beyond option selection."
         ],
         "rejectIf": [
           "Grouped option behavior is hidden inside the base Select component.",
           "Unavailable options lack a visible reason.",
           "Mobile keeps a cramped desktop popover for long or grouped options.",
           "Raw colors, spacing, radius, shadows, or motion bypass Design System tokens."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
         ]
       }
     }

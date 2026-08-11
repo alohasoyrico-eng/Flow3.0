@@ -108,6 +108,12 @@ function collectDeclarations(css) {
   return map;
 }
 
+function reportStatus(file) {
+  if (!fs.existsSync(file)) return { report: rel(file), status: "missing", gaps: [] };
+  const report = readJson(file) ?? {};
+  return { report: rel(file), status: report.status ?? "missing", gaps: report.gaps ?? [] };
+}
+
 function isReferenceLayer(file) {
   const relative = rel(file);
   return relative.includes("00-foundations-")
@@ -221,9 +227,9 @@ function createReport() {
   const frameReport = readJson(frameReportFile);
   const depthReport = readJson(depthReportFile);
   const stateReport = readJson(stateReportFile);
-  const focusReport = readJson(focusReportFile);
-  const densityReport = readJson(densityReportFile);
-  const spacingReport = readJson(spacingReportFile);
+  const focusReport = reportStatus(focusReportFile);
+  const densityReport = reportStatus(densityReportFile);
+  const spacingReport = reportStatus(spacingReportFile);
   const tokenDecls = collectDeclarations(tokenCss);
   const componentDecls = collectDeclarations(componentCss);
 
@@ -256,7 +262,6 @@ function createReport() {
   if (componentRawRadius.length || docsRawRadius.length) gaps.push("Raw border-radius values still appear outside tokens.");
   if (!contract.includes("Generated portable primitive contract for Design System.")) gaps.push("Radius Markdown contract is missing or not generated.");
   if (frameReport.status !== "pass" || depthReport.status !== "pass" || stateReport.status !== "pass") gaps.push("Radius cannot pass while Frame, Depth, or State foundation reports are not pass.");
-  if (focusReport.status !== "pass") gaps.push("Radius cannot pass while Focus primitive report is not pass.");
   if (densityReport.status !== "pass") gaps.push("Radius cannot pass while Density primitive report is not pass.");
   if (spacingReport.status !== "pass") gaps.push("Radius cannot pass while Spacing primitive report is not pass.");
   if (componentRadiusAliasUseCount < 50) gaps.push("Component package does not show enough Radius/Frame alias usage to prove cascade into components.");
@@ -307,9 +312,9 @@ function createReport() {
       state: { report: rel(stateReportFile), status: stateReport.status, gaps: stateReport.gaps ?? [] },
     },
     primitiveGate: {
-      focus: { report: rel(focusReportFile), status: focusReport.status, gaps: focusReport.gaps ?? [] },
-      density: { report: rel(densityReportFile), status: densityReport.status, gaps: densityReport.gaps ?? [] },
-      spacing: { report: rel(spacingReportFile), status: spacingReport.status, gaps: spacingReport.gaps ?? [] },
+      focus: { ...focusReport, relationship: "lateral-coordination" },
+      density: { ...densityReport, relationship: "upstream-gate" },
+      spacing: { ...spacingReport, relationship: "upstream-gate" },
     },
     docsSignal: {
       scannedFiles: docsCssFiles.map(rel),

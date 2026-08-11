@@ -89,6 +89,19 @@ function collectArtifactRefs(dir, pattern) {
   return { count: ids.size, ids: [...ids].sort(), sampleFiles };
 }
 
+function collectPatternArtifactRefs(pattern) {
+  const ids = new Set();
+  const sampleFiles = [];
+  for (const file of walkFiles(patternDir, (item) => item.endsWith(".md"))) {
+    const source = stripFormalFoundationDependencies(readIfExists(file));
+    pattern.lastIndex = 0;
+    if (!pattern.test(source)) continue;
+    ids.add(artifactId(file, patternDir));
+    if (sampleFiles.length < 12) sampleFiles.push(rel(file));
+  }
+  return { count: ids.size, ids: [...ids].sort(), sampleFiles };
+}
+
 function buildCustomPropertyMap(cssSources) {
   const map = new Map();
   const declarationPattern = /(?<name>--[a-z0-9-]+)\s*:\s*(?<value>[^;]+);/g;
@@ -205,16 +218,19 @@ function findSymbolCssDeclarations(file, source, customProperties) {
     const isSymbolLocalCustomProperty = /^--icon-|-(?:symbol|icon|glyph|illustration|logo|brand)(?:-|$)/.test(declaration.property);
     const isAllowedVariationLiteral = isSymbolLocalCustomProperty
       && /(?:fill|weight|opsz|grade|variation)/i.test(declaration.property)
-      && /^(?:--[a-z0-9-]+:\s*)?(?:currentColor|inherit|0|1|[1-9]\d{1,3})\s*;?$/.test(lineText.trim());
+      && /^(?:--[a-z0-9-]+:\s*)?(?:"FILL"\s+[01],\s*"wght"\s+\d{3},\s*"GRAD"\s+-?\d+,\s*"opsz"\s+\d+|currentColor|inherit|0|1|[1-9]\d{1,3})\s*;?$/.test(lineText.trim());
     const isAllowedInheritedColor = isSymbolLocalCustomProperty
-      && /color/i.test(declaration.property)
+      && /(?:color|fg)/i.test(declaration.property)
       && /:\s*currentColor\s*;?$/.test(lineText.trim());
+    const isAllowedComponentGlyphLiteral = isSymbolLocalCustomProperty
+      && /(?:icon-content|(?:error|success|warning)-icon)$/i.test(declaration.property)
+      && /:\s*"[a-z0-9_]+";?$/.test(lineText.trim());
     const rawMaterialFamily = /font-family\s*:\s*var\(--ref-symbol-family-material\)|font-family\s*:\s*["']?Material Symbols/i.test(lineText);
     const rawColor = /\bcolor\s*:\s*(?:#[0-9a-f]{3,8}\b|rgba?\(|hsla?\(|\b(?:red|blue|green|yellow|black|white)\b)/i.test(stripped);
     const rawSize = /\b(?:font-size|inline-size|block-size|min-inline-size|min-block-size|width|height)\s*:\s*\d+(?:\.\d+)?(?:px|rem)\b/.test(stripped)
       && /(?:symbol|icon|glyph|illustration|avatar|logo|brand)/i.test(lineText);
     const resolves = valueResolvesToSymbol(lineText, customProperties);
-    const status = isAllowedVariationLiteral || isAllowedInheritedColor
+    const status = isAllowedVariationLiteral || isAllowedInheritedColor || isAllowedComponentGlyphLiteral
       ? "pass"
       : rawMaterialFamily || rawColor || rawSize
       ? "fail"
@@ -247,7 +263,7 @@ function findSymbolOnlyRisks() {
   const risks = [];
   const symbolOnlyPattern = /(?:icon-only|symbol-only|flag-only|pixels-only|color-only|icon replaces|symbol replaces|no visible label|without replacing text|visible label|fallback)/ig;
   for (const file of docsFiles) {
-    const source = readIfExists(file);
+    const source = stripFormalFoundationDependencies(readIfExists(file));
     if (!/(?:Symbol|sys\.symbol|symbol-only|flag-only|illustration|fallback)/i.test(source)) continue;
     if (/(?:tokenDependencies|tokens)[\s\S]{0,200}(?:sys\.symbol|sys-symbol)/i.test(source)
       && !/(?:Symbol|illustration|icon|glyph|flag|symbol-only|icon-only|flag-only)[\s\S]{0,200}(?:rejectIf|behavior|test|rule|decision)/i.test(source)) continue;
@@ -262,6 +278,10 @@ function findSymbolOnlyRisks() {
     });
   }
   return risks.slice(0, 80);
+}
+
+function stripFormalFoundationDependencies(source) {
+  return source.replace(/### Foundation Dependencies[\s\S]*?(?=\n### |\n## |$)/g, "");
 }
 
 function createReport() {
@@ -284,7 +304,7 @@ function createReport() {
   const packageCssUse = countMatches(componentCss, tokenUsePattern);
   const primitiveRefs = collectArtifactRefs(primitiveDir, symbolRefPattern);
   const componentRefs = collectArtifactRefs(componentDir, symbolRefPattern);
-  const patternRefs = collectArtifactRefs(patternDir, symbolRefPattern);
+  const patternRefs = collectPatternArtifactRefs(symbolRefPattern);
   const templateRefs = collectArtifactRefs(templateDir, symbolRefPattern);
   const roleIds = new Set((symbolSpec?.roles ?? []).map((role) => role.id));
   const missingRoles = requiredRoles.filter((role) => !roleIds.has(role));

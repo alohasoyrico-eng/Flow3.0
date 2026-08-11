@@ -34,6 +34,7 @@ export const Spinner = forwardRef(function Spinner({
       ref,
       className: ["spinner", className].filter(Boolean).join(" "),
       role: isDecorative ? undefined : "status",
+      "aria-busy": isDecorative ? undefined : "true",
       "aria-hidden": isDecorative ? "true" : undefined,
       "aria-label": !isDecorative && label ? label : undefined,
       ...flowDensityProps(resolvedDensity),

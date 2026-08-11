@@ -4,31 +4,87 @@
   "principle": "Controlled React props must be explicit in source and covered by external rerender tests so product code can own state without hidden uncontrolled drift. The actionable debt metric is controlledDebt.",
   "baseline": {
     "inventory": {
-      "components": 56,
+      "components": 60,
       "controlledDebt": 0,
-      "controlledComponents": 29,
+      "controlledComponents": 31,
       "openControlledComponents": 10,
       "openSourceCovered": 10,
       "openTestCovered": 10,
-      "controlledPropEdges": 28,
-      "totalControlledEdges": 38,
-      "testCoveredEdges": 28,
-      "totalTestCoveredEdges": 38,
-      "failures": 0
+      "controlledPropEdges": 30,
+      "totalControlledEdges": 40,
+      "testCoveredEdges": 30,
+      "totalTestCoveredEdges": 40,
+      "failures": 0,
+      "reactGovernancePolicyIssues": 0
     },
     "mismatches": []
   },
+  "governance": {
+    "file": "packages/content/content/react-primary-governance.json",
+    "key": "controlled",
+    "issues": [],
+    "markerPolicy": {
+      "controlledMarkers": [
+        {
+          "marker": "isValueControlled",
+          "prop": "value"
+        },
+        {
+          "marker": "isCheckedControlled",
+          "prop": "checked"
+        },
+        {
+          "marker": "isSelectedKeyControlled",
+          "prop": "selectedKey"
+        },
+        {
+          "marker": "isSortControlled",
+          "prop": "sortKey"
+        },
+        {
+          "marker": "isSortControlled",
+          "prop": "sortDir"
+        },
+        {
+          "marker": "isExpandedKeyControlled",
+          "prop": "expandedKey"
+        },
+        {
+          "marker": "isExpandedKeysControlled",
+          "prop": "expandedKeys"
+        },
+        {
+          "marker": "isExpandedIdsControlled",
+          "prop": "expandedIds"
+        },
+        {
+          "marker": "isPageControlled",
+          "prop": "page"
+        },
+        {
+          "marker": "isDismissedControlled",
+          "prop": "dismissed"
+        }
+      ],
+      "governance": {
+        "file": "packages/content/content/react-primary-governance.json",
+        "key": "controlledMarkers",
+        "issues": []
+      }
+    }
+  },
   "inventory": {
-    "components": 56,
-    "controlledComponents": 29,
+    "components": 60,
+    "controlledComponents": 31,
     "openControlledComponents": 10,
     "openSourceCovered": 10,
     "openTestCovered": 10,
-    "controlledPropEdges": 28,
-    "totalControlledEdges": 38,
-    "testCoveredEdges": 28,
-    "totalTestCoveredEdges": 38,
+    "controlledPropEdges": 30,
+    "totalControlledEdges": 40,
+    "testCoveredEdges": 30,
+    "totalTestCoveredEdges": 40,
     "failures": 0,
+    "reactGovernancePolicyIssues": 0,
     "controlledDebt": 0
   },
   "components": [
@@ -219,6 +275,49 @@
     {
       "component": "ChartPanel",
       "file": "packages/react/src/ChartPanel.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatComposer",
+      "file": "packages/react/src/ChatComposer.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatMessage",
+      "file": "packages/react/src/ChatMessage.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatThread",
+      "file": "packages/react/src/ChatThread.js",
       "openControlled": {
         "contractControlled": false,
         "sourceControlled": false,
@@ -441,6 +540,25 @@
     {
       "component": "Input",
       "file": "packages/react/src/Input.js",
+      "openControlled": {
+        "contractControlled": false,
+        "sourceControlled": false,
+        "testCovered": false
+      },
+      "controlledProps": [
+        {
+          "prop": "value",
+          "marker": "isValueControlled",
+          "sourceControlled": true,
+          "testCovered": true
+        }
+      ],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "InputAmount",
+      "file": "packages/react/src/InputAmount.js",
       "openControlled": {
         "contractControlled": false,
         "sourceControlled": false,

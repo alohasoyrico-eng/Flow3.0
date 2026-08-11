@@ -23,16 +23,18 @@
         ],
         "primitiveDependencies": [
           "Color",
-          "Typography",
-          "Spacing",
-          "Radius",
-          "Elevation",
-          "Iconography",
-          "Motion Curves",
+          "Disabled",
           "Duration",
+          "Elevation",
           "Focus",
+          "Iconography",
           "Loading",
-          "Disabled"
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
         ],
         "componentDependencies": [
           "Input",
@@ -42,10 +44,14 @@
           "Inline Validation",
           "Button"
         ],
+        "patternDependencies": [],
         "tokenDependencies": [
           "comp.input.*",
           "comp.select.*",
           "comp.list.*",
+          "comp.empty-state.*",
+          "comp.inline-validation.*",
+          "comp.button.*",
           "sys.energy.*",
           "sys.voice.*",
           "sys.frame.*",
@@ -87,6 +93,54 @@
           "disabled",
           "selected"
         ],
+        "slots": [
+          {
+            "name": "input",
+            "owner": "component",
+            "uses": [
+              "Input"
+            ],
+            "required": true,
+            "purpose": "Owns the typed query, label, placeholder, native input behavior, and value cascade."
+          },
+          {
+            "name": "scope",
+            "owner": "component",
+            "uses": [
+              "Select"
+            ],
+            "required": "conditional",
+            "purpose": "Narrows result domain when more than one searchable source exists."
+          },
+          {
+            "name": "results",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Button"
+            ],
+            "required": true,
+            "purpose": "Renders selectable results with label, metadata, keyboard access, and intentional action."
+          },
+          {
+            "name": "emptyState",
+            "owner": "component",
+            "uses": [
+              "Empty State"
+            ],
+            "required": true,
+            "purpose": "Owns no-result recovery and broader-scope guidance without custom visual cards."
+          },
+          {
+            "name": "feedback",
+            "owner": "component",
+            "uses": [
+              "Inline Validation"
+            ],
+            "required": "conditional",
+            "purpose": "Reports invalid query, loading recovery, or selected result feedback through Flow validation semantics."
+          }
+        ],
         "densityContext": [
           "smartphones + phablets",
           "tablets + laptops",
@@ -102,6 +156,19 @@
           "Results are hardcoded visual cards instead of package components.",
           "No-result, invalid, loading, or selected states are missing.",
           "Raw colors, spacing, radius, shadows, or motion bypass Design System tokens."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
         ]
       }
     }

@@ -1,0 +1,172 @@
+{
+  "artifacts": {
+    "patterns": {
+      "calendar-view": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate date-based records across visible range, selected day, event density, loading, empty, and drill-in behavior without creating a bespoke calendar surface.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Card",
+          "Date Range Picker",
+          "Empty State",
+          "List",
+          "Popover",
+          "Skeleton",
+          "Tooltip"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.card.*",
+          "comp.date-range-picker.*",
+          "comp.empty-state.*",
+          "comp.list.*",
+          "comp.popover.*",
+          "comp.skeleton.*",
+          "comp.tooltip.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Records are organized by date or visible time range.",
+          "Users need to move between ranges and inspect a date or event.",
+          "The calendar can be empty, loading, dense, or filtered."
+        ],
+        "decisionTree": [
+          "Use Date Range Picker for selecting the visible range or date anchor.",
+          "Use Calendar View when date-based records are primary content.",
+          "Use List or Table when chronological records do not need a grid calendar model."
+        ],
+        "failureModes": [
+          "Calendar cells become custom cards outside Card/List.",
+          "Dense events rely only on color or tiny indicators.",
+          "Keyboard users cannot move range, date, and event focus.",
+          "Empty and loading states are missing."
+        ],
+        "successMetrics": [
+          "Users understand visible range, selected date, and event count.",
+          "Keyboard and screen reader users can navigate dates and inspect events.",
+          "Dense, empty, and loading states remain component-owned."
+        ],
+        "states": [
+          "default",
+          "range-changing",
+          "selected",
+          "dense",
+          "loading",
+          "empty",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "rangeControls",
+            "owner": "component",
+            "uses": [
+              "Date Range Picker",
+              "Button"
+            ]
+          },
+          {
+            "name": "events",
+            "owner": "component",
+            "uses": [
+              "Card",
+              "List",
+              "Badge",
+              "Tooltip",
+              "Popover"
+            ]
+          },
+          {
+            "name": "status",
+            "owner": "component",
+            "uses": [
+              "Skeleton",
+              "Empty State"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Expose visible range and selected date in text.",
+          "Do not use color-only event categories.",
+          "Keep keyboard navigation predictable across dates and event details."
+        ],
+        "tests": [
+          "Composes Date Range Picker, Card, List, Popover, Tooltip, Badge, Skeleton, and Empty State.",
+          "Covers range, selected, dense, loading, empty, error, and disabled states.",
+          "Does not define custom calendar/event visuals outside Flow components."
+        ],
+        "agentInstructions": [
+          "Compose from Flow components; keep scheduling rules and event schemas outside the pattern.",
+          "Use this pattern for date-based content, not simple date input.",
+          "Ask before exposing regulated route, driver, health, or payroll event details."
+        ],
+        "rejectIf": [
+          "The calendar grid recreates component visuals with raw classes.",
+          "Dense state is color-only.",
+          "Date navigation is pointer-only.",
+          "Business scheduling logic lives in the pattern."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,457 @@
+{
+  "status": "pass",
+  "primitive": "Message",
+  "principle": "Message consumes Tone, Voice, State, and Accessibility, then coordinates Focus, Loading, Disabled, Iconography, and Measurement so feedback copy owns intent, consequence, recovery, announcement, localization, and instrumentation before a component chooses visual format.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "intent",
+      "severity",
+      "anatomy",
+      "announcement",
+      "localization"
+    ],
+    "present": [
+      "intent",
+      "severity",
+      "anatomy",
+      "announcement",
+      "localization"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Tone",
+      "Voice",
+      "State",
+      "Accessibility"
+    ],
+    "present": [
+      "Tone",
+      "Voice",
+      "State",
+      "Accessibility"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Focus",
+      "Loading",
+      "Disabled",
+      "Iconography",
+      "Measurement"
+    ],
+    "present": [
+      "Focus",
+      "Loading",
+      "Disabled",
+      "Iconography",
+      "Measurement"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-message-intent-neutral-color",
+      "--sys-message-intent-assistive-color",
+      "--sys-message-intent-success-color",
+      "--sys-message-intent-warning-color",
+      "--sys-message-intent-danger-color",
+      "--sys-message-title-font",
+      "--sys-message-title-weight",
+      "--sys-message-body-font",
+      "--sys-message-body-weight",
+      "--sys-message-action-weight",
+      "--sys-message-recovery-weight",
+      "--sys-message-live-role",
+      "--sys-message-alert-role",
+      "--sys-message-focus-ring",
+      "--sys-message-readable-line-height",
+      "--sys-message-locale-max-inline-size"
+    ],
+    "present": [
+      "--sys-message-intent-neutral-color",
+      "--sys-message-intent-assistive-color",
+      "--sys-message-intent-success-color",
+      "--sys-message-intent-warning-color",
+      "--sys-message-intent-danger-color",
+      "--sys-message-title-font",
+      "--sys-message-title-weight",
+      "--sys-message-body-font",
+      "--sys-message-body-weight",
+      "--sys-message-action-weight",
+      "--sys-message-recovery-weight",
+      "--sys-message-live-role",
+      "--sys-message-alert-role",
+      "--sys-message-focus-ring",
+      "--sys-message-readable-line-height",
+      "--sys-message-locale-max-inline-size"
+    ],
+    "missing": []
+  },
+  "messageComponentCoverage": {
+    "required": [
+      "toast",
+      "inline-validation",
+      "error-panel",
+      "empty-state",
+      "dialog"
+    ],
+    "present": [
+      "toast",
+      "inline-validation",
+      "error-panel",
+      "empty-state",
+      "dialog"
+    ],
+    "missing": []
+  },
+  "references": {
+    "componentContracts": {
+      "count": 50,
+      "ids": [
+        "animated-moment",
+        "audit-event",
+        "badge",
+        "biometric-prompt",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "card-summary",
+        "chart-panel",
+        "chat-composer",
+        "chat-message",
+        "chat-thread",
+        "checkbox",
+        "chip",
+        "code-input",
+        "combobox",
+        "country-selector",
+        "date-picker",
+        "date-range-picker",
+        "dialog",
+        "drawer",
+        "empty-state",
+        "error-panel",
+        "floating-action-button",
+        "inline-validation",
+        "input",
+        "input-amount",
+        "kpi-tile",
+        "list",
+        "menu",
+        "movement-row",
+        "phone-input",
+        "popover",
+        "progress-indicator",
+        "quick-action",
+        "radio-button",
+        "route-summary",
+        "segmented-control",
+        "select",
+        "skeleton",
+        "slider",
+        "spinner",
+        "stepper",
+        "switch",
+        "tag",
+        "text-area",
+        "toast",
+        "tooltip"
+      ],
+      "sampleFiles": [
+        "packages/content/content/component-contracts/components/animated-moment.md",
+        "packages/content/content/component-contracts/components/audit-event.md",
+        "packages/content/content/component-contracts/components/badge.md",
+        "packages/content/content/component-contracts/components/biometric-prompt.md",
+        "packages/content/content/component-contracts/components/button.md",
+        "packages/content/content/component-contracts/components/card-expiry-input.md",
+        "packages/content/content/component-contracts/components/card-number-input.md",
+        "packages/content/content/component-contracts/components/card-security-code-input.md",
+        "packages/content/content/component-contracts/components/card-summary.md",
+        "packages/content/content/component-contracts/components/card.md",
+        "packages/content/content/component-contracts/components/chart-panel.md",
+        "packages/content/content/component-contracts/components/chat-composer.md",
+        "packages/content/content/component-contracts/components/chat-message.md",
+        "packages/content/content/component-contracts/components/chat-thread.md",
+        "packages/content/content/component-contracts/components/checkbox.md",
+        "packages/content/content/component-contracts/components/chip.md"
+      ]
+    },
+    "componentCopy": {
+      "count": 50,
+      "ids": [
+        "animated-moment",
+        "audit-event",
+        "badge",
+        "biometric-prompt",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "card-summary",
+        "chart-panel",
+        "chat-composer",
+        "chat-message",
+        "chat-thread",
+        "checkbox",
+        "chip",
+        "code-input",
+        "combobox",
+        "country-selector",
+        "date-picker",
+        "date-range-picker",
+        "dialog",
+        "drawer",
+        "empty-state",
+        "error-panel",
+        "floating-action-button",
+        "inline-validation",
+        "input",
+        "input-amount",
+        "kpi-tile",
+        "list",
+        "menu",
+        "movement-row",
+        "phone-input",
+        "popover",
+        "progress-indicator",
+        "quick-action",
+        "radio-button",
+        "route-summary",
+        "segmented-control",
+        "select",
+        "skeleton",
+        "slider",
+        "spinner",
+        "stepper",
+        "switch",
+        "tag",
+        "text-area",
+        "toast",
+        "tooltip"
+      ],
+      "sampleFiles": [
+        "packages/content/content/component-copy/components/animated-moment/all.json",
+        "packages/content/content/component-copy/components/audit-event/all.json",
+        "packages/content/content/component-copy/components/badge/all.json",
+        "packages/content/content/component-copy/components/biometric-prompt/all.json",
+        "packages/content/content/component-copy/components/button/full-width.json",
+        "packages/content/content/component-copy/components/button/miel.json",
+        "packages/content/content/component-copy/components/button/operational-example.json",
+        "packages/content/content/component-copy/components/button/playground.json",
+        "packages/content/content/component-copy/components/button/responsive-layout-patterns.json",
+        "packages/content/content/component-copy/components/button/states.json",
+        "packages/content/content/component-copy/components/button/variant-state-behavior.json",
+        "packages/content/content/component-copy/components/button/variants.json",
+        "packages/content/content/component-copy/components/button/viewport-organization.json",
+        "packages/content/content/component-copy/components/card-expiry-input/all.json",
+        "packages/content/content/component-copy/components/card-number-input/all.json",
+        "packages/content/content/component-copy/components/card-security-code-input/all.json"
+      ]
+    },
+    "patterns": {
+      "count": 59,
+      "ids": [
+        "account-operations",
+        "action-sheet",
+        "advanced-filters",
+        "agent-conversation",
+        "authentication-login-biometrics-and-otp",
+        "autocomplete",
+        "avatar-group",
+        "avatar-menu",
+        "backoffice-approval",
+        "bulk-actions",
+        "calendar-view",
+        "case-management",
+        "chart-wrapper",
+        "column-configurator",
+        "command-palette",
+        "confirmation-dialog",
+        "dense-operational-list",
+        "drag-sortable-list",
+        "drawer-adapter",
+        "driver-and-vehicle-administration",
+        "driver-onboarding-mobile",
+        "email-template-layout",
+        "expandable-detail-table",
+        "file-upload",
+        "filter-chip-group",
+        "filterable-editable-table",
+        "fleet-manager-onboarding-desktop",
+        "form-section",
+        "fullscreen-sheet",
+        "gantt-chart",
+        "help-center",
+        "kanban-board",
+        "kpi-card",
+        "multi-select",
+        "multi-step-form",
+        "notification-panel",
+        "payment-form",
+        "polar-chart",
+        "preference-management",
+        "pricing-operations",
+        "pull-to-refresh",
+        "quick-actions-grid",
+        "roles-and-permissions",
+        "search",
+        "section-header",
+        "select-option-layer",
+        "settings",
+        "sidebar",
+        "snackbar-provider",
+        "station-discovery",
+        "status-feedback-view",
+        "swipe-actions",
+        "ticket-queue",
+        "timeline",
+        "toolbar",
+        "topbar",
+        "transfer-list",
+        "virtual-data-table",
+        "waterfall-chart"
+      ],
+      "sampleFiles": [
+        "packages/content/content/pattern-contracts/patterns/account-operations.md",
+        "packages/content/content/pattern-contracts/patterns/action-sheet.md",
+        "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+        "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
+        "packages/content/content/pattern-contracts/patterns/autocomplete.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-group.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
+        "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+        "packages/content/content/pattern-contracts/patterns/case-management.md",
+        "packages/content/content/pattern-contracts/patterns/chart-wrapper.md",
+        "packages/content/content/pattern-contracts/patterns/column-configurator.md",
+        "packages/content/content/pattern-contracts/patterns/command-palette.md",
+        "packages/content/content/pattern-contracts/patterns/confirmation-dialog.md"
+      ]
+    },
+    "templates": {
+      "count": 9,
+      "ids": [
+        "agent-workspace",
+        "configuration-console",
+        "driver-card-wallet",
+        "driver-mobile-app",
+        "fleet-dashboard-suite",
+        "fleet-manager-desktop",
+        "internal-operations-console",
+        "routes-and-stations",
+        "settings-workspace"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+      ]
+    }
+  },
+  "accessibility": {
+    "announcementSignals": [
+      {
+        "file": "../FlowDocs/apps/docs/generated/react/Badge.js",
+        "ariaLive": 2,
+        "alertRole": 0,
+        "statusRole": 0
+      },
+      {
+        "file": "../FlowDocs/apps/docs/generated/react/ChartPanel.js",
+        "ariaLive": 1,
+        "alertRole": 0,
+        "statusRole": 0
+      },
+      {
+        "file": "../FlowDocs/apps/docs/generated/react/Toast.js",
+        "ariaLive": 1,
+        "alertRole": 0,
+        "statusRole": 0
+      },
+      {
+        "file": "../FlowDocs/apps/docs/pattern-candidate-demos.js",
+        "ariaLive": 1,
+        "alertRole": 1,
+        "statusRole": 1
+      },
+      {
+        "file": "../FlowDocs/apps/docs/pattern-contract-tabs.js",
+        "ariaLive": 0,
+        "alertRole": 1,
+        "statusRole": 1
+      },
+      {
+        "file": "../FlowDocs/apps/docs/pattern-focused-design.js",
+        "ariaLive": 1,
+        "alertRole": 0,
+        "statusRole": 0
+      },
+      {
+        "file": "../FlowDocs/apps/docs/pattern-utility-demos.js",
+        "ariaLive": 1,
+        "alertRole": 0,
+        "statusRole": 0
+      }
+    ],
+    "totalSignals": 11
+  },
+  "review": {
+    "dangerWithoutRecovery": []
+  },
+  "foundationGate": {
+    "tone": {
+      "status": "pass"
+    },
+    "voice": {
+      "status": "pass"
+    },
+    "state": {
+      "status": "pass"
+    },
+    "accessibility": {
+      "status": "pass"
+    }
+  },
+  "primitiveGate": {
+    "focus": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "upstream-interaction"
+    },
+    "loading": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "upstream-runtime"
+    },
+    "disabled": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "upstream-state"
+    },
+    "iconography": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    },
+    "measurement": {
+      "status": "pass",
+      "gaps": [],
+      "relationship": "lateral-coordination"
+    }
+  }
+}

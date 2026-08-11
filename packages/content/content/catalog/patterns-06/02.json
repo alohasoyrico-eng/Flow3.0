@@ -1,0 +1,93 @@
+{
+  "patterns": [
+    {
+      "type": "pattern",
+      "id": "section-header",
+      "title": "Section Header",
+      "platform": "Cross-platform",
+      "summary": "Introduce dense sections with title, description, status, actions, and responsive action overflow.",
+      "audiences": [
+        "Product Designers",
+        "Content Designers",
+        "Developers"
+      ],
+      "componentsUsed": [
+        "Badge",
+        "Button",
+        "Menu",
+        "Skeleton",
+        "Tag"
+      ],
+      "tokens": [
+        "frame.canvas",
+        "voice.guidance",
+        "motion.reveal",
+        "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Form Section",
+        "Settings",
+        "Toolbar"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "chart-legend-item",
+      "title": "Chart Legend Item",
+      "platform": "Cross-platform",
+      "summary": "Coordinate chart series labels, visibility toggles, values, color meaning, and chart/table synchronization as part of Chart Panel or chart wrapper composition.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "componentsUsed": [
+        "Chart Panel",
+        "Checkbox",
+        "Icon Button",
+        "Tooltip"
+      ],
+      "tokens": [
+        "frame.canvas",
+        "voice.guidance",
+        "symbol.semantic",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "station-discovery",
+      "title": "Station Discovery",
+      "platform": "Mobile",
+      "summary": "Coordinate map pins, manual search, fallback station list, selected station, route handoff, permission recovery, and provider readiness through Maps and Surface.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "patternDependencies": [
+        "Search"
+      ],
+      "componentsUsed": [
+        "Button",
+        "Empty State",
+        "Error Panel",
+        "Inline Validation",
+        "List",
+        "Route Summary",
+        "Skeleton",
+        "Station Pin"
+      ],
+      "tokens": [
+        "map.*",
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    }
+  ]
+}

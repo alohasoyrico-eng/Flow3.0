@@ -4,32 +4,388 @@
   "principle": "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots. The actionable debt metric is interactionDebt.",
   "baseline": {
     "inventory": {
-      "components": 56,
+      "components": 60,
       "interactionDebt": 0,
-      "withCallbacks": 40,
-      "pass": 56,
+      "withCallbacks": 44,
+      "pass": 60,
       "review": 0,
       "fail": 0,
       "missingTestCallbacks": 0,
       "missingEventParams": 0,
       "manualAccessibilityCritical": 10,
-      "manualAccessibilityCriticalPass": 10
+      "manualAccessibilityCriticalPass": 10,
+      "reactGovernancePolicyIssues": 0
     },
     "mismatches": []
   },
+  "governance": {
+    "file": "packages/content/content/react-primary-governance.json",
+    "key": "interaction",
+    "issues": [],
+    "criticalPolicy": {
+      "criticalRequirements": {
+        "Dialog": [
+          {
+            "label": "role dialog",
+            "pattern": {}
+          },
+          {
+            "label": "modal",
+            "pattern": {}
+          },
+          {
+            "label": "labelledby",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          },
+          {
+            "label": "focus restoration",
+            "pattern": {}
+          }
+        ],
+        "Drawer": [
+          {
+            "label": "role dialog",
+            "pattern": {}
+          },
+          {
+            "label": "modal",
+            "pattern": {}
+          },
+          {
+            "label": "labelledby",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          },
+          {
+            "label": "focus restoration",
+            "pattern": {}
+          }
+        ],
+        "Menu": [
+          {
+            "label": "menu trigger",
+            "pattern": {}
+          },
+          {
+            "label": "expanded state",
+            "pattern": {}
+          },
+          {
+            "label": "role menu",
+            "pattern": {}
+          },
+          {
+            "label": "role menuitem",
+            "pattern": {}
+          },
+          {
+            "label": "keyboard",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          },
+          {
+            "label": "focus management",
+            "pattern": {}
+          }
+        ],
+        "Popover": [
+          {
+            "label": "dialog trigger",
+            "pattern": {}
+          },
+          {
+            "label": "expanded state",
+            "pattern": {}
+          },
+          {
+            "label": "role dialog",
+            "pattern": {}
+          },
+          {
+            "label": "labelledby",
+            "pattern": {}
+          },
+          {
+            "label": "keyboard",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          },
+          {
+            "label": "focus restoration",
+            "pattern": {}
+          }
+        ],
+        "Tooltip": [
+          {
+            "label": "describedby",
+            "pattern": {}
+          },
+          {
+            "label": "role tooltip",
+            "pattern": {}
+          },
+          {
+            "label": "keyboard",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          },
+          {
+            "label": "focus trigger",
+            "pattern": {}
+          }
+        ],
+        "Select": [
+          {
+            "label": "role combobox",
+            "pattern": {}
+          },
+          {
+            "label": "expanded state",
+            "pattern": {}
+          },
+          {
+            "label": "listbox",
+            "pattern": {}
+          },
+          {
+            "label": "option",
+            "pattern": {}
+          },
+          {
+            "label": "active descendant",
+            "pattern": {}
+          },
+          {
+            "label": "keyboard",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          }
+        ],
+        "Combobox": [
+          {
+            "label": "role combobox",
+            "pattern": {}
+          },
+          {
+            "label": "autocomplete",
+            "pattern": {}
+          },
+          {
+            "label": "expanded state",
+            "pattern": {}
+          },
+          {
+            "label": "listbox",
+            "pattern": {}
+          },
+          {
+            "label": "option",
+            "pattern": {}
+          },
+          {
+            "label": "active descendant",
+            "pattern": {}
+          },
+          {
+            "label": "keyboard",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          }
+        ],
+        "CountrySelector": [
+          {
+            "label": "role combobox",
+            "pattern": {}
+          },
+          {
+            "label": "expanded state",
+            "pattern": {}
+          },
+          {
+            "label": "listbox",
+            "pattern": {}
+          },
+          {
+            "label": "option",
+            "pattern": {}
+          },
+          {
+            "label": "active descendant",
+            "pattern": {}
+          },
+          {
+            "label": "keyboard",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          }
+        ],
+        "DatePicker": [
+          {
+            "label": "dialog trigger",
+            "pattern": {}
+          },
+          {
+            "label": "expanded state",
+            "pattern": {}
+          },
+          {
+            "label": "role dialog",
+            "pattern": {}
+          },
+          {
+            "label": "grid",
+            "pattern": {}
+          },
+          {
+            "label": "gridcell",
+            "pattern": {}
+          },
+          {
+            "label": "keyboard",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          },
+          {
+            "label": "focus restoration",
+            "pattern": {}
+          }
+        ],
+        "DateRangePicker": [
+          {
+            "label": "dialog trigger",
+            "pattern": {}
+          },
+          {
+            "label": "expanded state",
+            "pattern": {}
+          },
+          {
+            "label": "role dialog",
+            "pattern": {}
+          },
+          {
+            "label": "grid",
+            "pattern": {}
+          },
+          {
+            "label": "gridcell",
+            "pattern": {}
+          },
+          {
+            "label": "keyboard",
+            "pattern": {}
+          },
+          {
+            "label": "escape",
+            "pattern": {}
+          },
+          {
+            "label": "focus restoration",
+            "pattern": {}
+          }
+        ]
+      },
+      "criticalComponents": [
+        "Combobox",
+        "CountrySelector",
+        "DatePicker",
+        "DateRangePicker",
+        "Dialog",
+        "Drawer",
+        "Menu",
+        "Popover",
+        "Select",
+        "Tooltip"
+      ],
+      "governance": {
+        "file": "packages/content/content/react-primary-governance.json",
+        "key": "accessibilityCriticalRequirements",
+        "issues": []
+      }
+    }
+  },
   "inventory": {
-    "components": 56,
-    "withCallbacks": 40,
-    "pass": 56,
+    "components": 60,
+    "withCallbacks": 44,
+    "pass": 60,
     "review": 0,
     "fail": 0,
     "missingTestCallbacks": 0,
     "missingEventParams": 0,
     "manualAccessibilityCritical": 10,
     "manualAccessibilityCriticalPass": 10,
+    "reactGovernancePolicyIssues": 0,
     "interactionDebt": 0
   },
   "manualAccessibilityCritical": [
+    {
+      "component": "Combobox",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "CountrySelector",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "DatePicker",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
+    {
+      "component": "DateRangePicker",
+      "present": true,
+      "status": "pass",
+      "callbacks": [
+        "onOpenChange",
+        "onValueChange"
+      ],
+      "hasInteractionTestPresence": true
+    },
     {
       "component": "Dialog",
       "present": true,
@@ -74,15 +430,6 @@
       "hasInteractionTestPresence": true
     },
     {
-      "component": "Tooltip",
-      "present": true,
-      "status": "pass",
-      "callbacks": [
-        "onOpenChange"
-      ],
-      "hasInteractionTestPresence": true
-    },
-    {
       "component": "Select",
       "present": true,
       "status": "pass",
@@ -93,42 +440,11 @@
       "hasInteractionTestPresence": true
     },
     {
-      "component": "Combobox",
+      "component": "Tooltip",
       "present": true,
       "status": "pass",
       "callbacks": [
-        "onOpenChange",
-        "onValueChange"
-      ],
-      "hasInteractionTestPresence": true
-    },
-    {
-      "component": "CountrySelector",
-      "present": true,
-      "status": "pass",
-      "callbacks": [
-        "onOpenChange",
-        "onValueChange"
-      ],
-      "hasInteractionTestPresence": true
-    },
-    {
-      "component": "DatePicker",
-      "present": true,
-      "status": "pass",
-      "callbacks": [
-        "onOpenChange",
-        "onValueChange"
-      ],
-      "hasInteractionTestPresence": true
-    },
-    {
-      "component": "DateRangePicker",
-      "present": true,
-      "status": "pass",
-      "callbacks": [
-        "onOpenChange",
-        "onValueChange"
+        "onOpenChange"
       ],
       "hasInteractionTestPresence": true
     }
@@ -409,6 +725,106 @@
       "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "missingEventParam": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatComposer",
+      "source": "packages/react/src/ChatComposer.js",
+      "types": "packages/react/src/ChatComposer.d.ts",
+      "callbacks": [
+        "onAttach",
+        "onSend",
+        "onValueChange"
+      ],
+      "callbackContracts": [
+        {
+          "name": "onAttach",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onSend",
+          "type": "(value: string, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: TextAreaChangeMeta, event: ChangeEvent<HTMLTextAreaElement>) => void"
+        }
+      ],
+      "sourceCovered": [
+        "onAttach",
+        "onSend",
+        "onValueChange"
+      ],
+      "testCovered": [
+        "onAttach",
+        "onSend",
+        "onValueChange"
+      ],
+      "missingInSource": [],
+      "missingInTests": [],
+      "missingEventParam": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatMessage",
+      "source": "packages/react/src/ChatMessage.js",
+      "types": "packages/react/src/ChatMessage.d.ts",
+      "callbacks": [
+        "onClick"
+      ],
+      "callbackContracts": [
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
+      "sourceCovered": [
+        "onClick"
+      ],
+      "testCovered": [
+        "onClick"
+      ],
+      "missingInSource": [],
+      "missingInTests": [],
+      "missingEventParam": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatThread",
+      "source": "packages/react/src/ChatThread.js",
+      "types": "packages/react/src/ChatThread.d.ts",
+      "callbacks": [
+        "onAction",
+        "onClick",
+        "onMessageAction"
+      ],
+      "callbackContracts": [
+        {
+          "name": "onAction",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onClick",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onMessageAction",
+          "type": "(key: string, event: MouseEvent<HTMLButtonElement>) => void"
+        }
+      ],
+      "sourceCovered": [
+        "onAction",
+        "onClick",
+        "onMessageAction"
+      ],
+      "testCovered": [
+        "onAction",
+        "onClick",
+        "onMessageAction"
+      ],
       "missingInSource": [],
       "missingInTests": [],
       "missingEventParam": [],
@@ -825,6 +1241,30 @@
       ],
       "testCovered": [
         "onRevealChange",
+        "onValueChange"
+      ],
+      "missingInSource": [],
+      "missingInTests": [],
+      "missingEventParam": [],
+      "status": "pass"
+    },
+    {
+      "component": "InputAmount",
+      "source": "packages/react/src/InputAmount.js",
+      "types": "packages/react/src/InputAmount.d.ts",
+      "callbacks": [
+        "onValueChange"
+      ],
+      "callbackContracts": [
+        {
+          "name": "onValueChange",
+          "type": "(value: string, meta: InputAmountMeta, event: ChangeEvent<HTMLInputElement>) => void"
+        }
+      ],
+      "sourceCovered": [
+        "onValueChange"
+      ],
+      "testCovered": [
         "onValueChange"
       ],
       "missingInSource": [],

@@ -1,0 +1,190 @@
+{
+  "artifacts": {
+    "patterns": {
+      "waterfall-chart": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate step-based contribution charts with deltas, cumulative totals, selected-step review, and accessible data fallback without creating a second chart or table implementation.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Charts",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Chart Wrapper"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A comparison needs positive, negative, neutral, and total contribution steps.",
+          "The visualization must preserve Chart Wrapper state handling and accessible fallback.",
+          "Templates need contribution analysis without owning chart or table internals."
+        ],
+        "decisionTree": [
+          "Use Chart Wrapper for generic dashboard chart modules.",
+          "Use Gantt Chart when duration and milestones are the primary object.",
+          "Use Waterfall Chart when delta and cumulative contribution steps must be explained as one workflow."
+        ],
+        "failureModes": [
+          "Waterfall bars are implemented with local SVG, canvas, or positioned divs.",
+          "The pattern creates its own table instead of delegating fallback rows to Chart Wrapper and Table.",
+          "Increase/decrease/total semantics rely only on color.",
+          "Templates own contribution selection or chart state."
+        ],
+        "successMetrics": [
+          "Users can inspect each step, direction, value, cumulative total, and selected step context.",
+          "Assistive technology users receive equivalent step rows through Flow-owned components.",
+          "Density and state cascade from Surface into Chart Wrapper, Chart Panel, and Table."
+        ],
+        "states": [
+          "default",
+          "selected",
+          "loading",
+          "empty",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "waterfallChartSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": true
+          },
+          {
+            "name": "waterfallSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "waterfallMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "chartWrapperBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Chart Wrapper"
+            ],
+            "required": true
+          },
+          {
+            "name": "waterfallDataSummary",
+            "owner": "pattern",
+            "uses": [
+              "Chart Wrapper"
+            ],
+            "required": true
+          },
+          {
+            "name": "waterfallFeedback",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          }
+        ],
+        "accessibility": [
+          "Expose the contribution chart as a labelled group with busy state.",
+          "Delegate visual chart semantics to Chart Wrapper and Chart Panel.",
+          "Provide equivalent step rows through Chart Wrapper fallback slots.",
+          "Do not rely on color alone for increase, decrease, neutral, total, or selected-step state."
+        ],
+        "tests": [
+          "Composes Surface, Badge, and Chart Wrapper.",
+          "Covers default, selected, loading, empty, error, and disabled states.",
+          "Forwards step selection and primary action callbacks.",
+          "Rejects local chart rendering, raw tables, card wrappers, docs-only demos, and injected markup."
+        ],
+        "agentInstructions": [
+          "Do not render waterfall bars with local SVG, canvas, or positioned divs inside the pattern.",
+          "Use Chart Wrapper for chart state, Chart Panel ownership, fallback Table/List, and actions.",
+          "Use Surface for structural grouping; do not wrap the contribution chart in Card.",
+          "Ask before using this pattern for regulated, financial, legal, safety, or irreversible analysis."
+        ],
+        "rejectIf": [
+          "The chart bypasses Chart Wrapper.",
+          "The fallback data bypasses Chart Wrapper/Table/List.",
+          "A Card wraps the contribution chart group.",
+          "A template owns step selection or cumulative state directly."
+        ]
+      }
+    }
+  }
+}

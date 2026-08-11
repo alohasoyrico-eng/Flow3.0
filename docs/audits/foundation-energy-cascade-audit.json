@@ -1,0 +1,560 @@
+{
+  "schemaVersion": "1.0.0",
+  "auditedAt": "1970-01-01T00:00:00.000Z",
+  "foundation": "Energy",
+  "status": "pass",
+  "principle": "Energy must govern semantic color for actions, status, risk, text, surfaces, borders, charts, and maps without changing Flow tokens to copy reference visuals.",
+  "tokenOwnership": {
+    "tokenCss": "packages/tokens/styles/tokens.css",
+    "declarations": 108,
+    "requiredTokens": [
+      "--sys-energy-surface-primary",
+      "--sys-energy-surface-secondary",
+      "--sys-energy-surface-tertiary",
+      "--sys-energy-surface-sunken",
+      "--sys-energy-surface-accent",
+      "--sys-energy-text-primary",
+      "--sys-energy-text-secondary",
+      "--sys-energy-text-tertiary",
+      "--sys-energy-text-on-action",
+      "--sys-energy-action-primary",
+      "--sys-energy-action-hover",
+      "--sys-energy-status-success",
+      "--sys-energy-status-info",
+      "--sys-energy-status-warning",
+      "--sys-energy-status-warning-foreground",
+      "--sys-energy-status-error",
+      "--sys-energy-border-default",
+      "--sys-energy-border-strong"
+    ],
+    "missingTokens": [],
+    "docsOwnedEnergyTokens": [
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 106,
+        "token": "--sys-energy-surface-primary",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 107,
+        "token": "--sys-energy-surface-secondary",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 108,
+        "token": "--sys-energy-surface-raised",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 109,
+        "token": "--sys-energy-surface-sunken",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 110,
+        "token": "--sys-energy-text-primary",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 111,
+        "token": "--sys-energy-text-secondary",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 112,
+        "token": "--sys-energy-text-tertiary",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 113,
+        "token": "--sys-energy-text-on-action",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 114,
+        "token": "--sys-energy-border-default",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      },
+      {
+        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+        "line": 115,
+        "token": "--sys-energy-border-strong",
+        "status": "pass",
+        "reason": "Theme context override for light/dark mode."
+      }
+    ]
+  },
+  "specContract": {
+    "file": "packages/specs/specs/unison-system/artifacts/foundations/energy.json",
+    "roles": [
+      "action",
+      "border",
+      "error",
+      "success",
+      "surface",
+      "warning",
+      "warningForeground"
+    ],
+    "missingRoles": [],
+    "tokenDependencies": [
+      "ref.energy.*",
+      "sys.energy.*",
+      "sys.state.*",
+      "sys.tone.*",
+      "comp.*.energy aliases"
+    ],
+    "primitiveDependencies": [
+      "Color",
+      "Focus",
+      "Disabled",
+      "Charts",
+      "Maps"
+    ],
+    "componentDependencies": [
+      "Button",
+      "Select",
+      "KPI Tile",
+      "Table",
+      "Station Pin",
+      "Inline Validation"
+    ],
+    "filledStatusContrast": [
+      {
+        "id": "warning",
+        "ramp": "yellow-400 / yellow-500 / yellow-600",
+        "foreground": "neutral-900",
+        "wcag": "AA 4.5:1 for Button text"
+      },
+      {
+        "id": "danger",
+        "ramp": "red-500 / red-600 / red-700",
+        "foreground": "text-on-action",
+        "wcag": "AA 4.5:1 for Button text"
+      },
+      {
+        "id": "success",
+        "ramp": "green-500 / green-600 / green-700",
+        "foreground": "text-on-action",
+        "wcag": "AA 4.5:1 for filled status text"
+      },
+      {
+        "id": "action",
+        "ramp": "blue-500 / blue-600 / blue-700",
+        "foreground": "text-on-action",
+        "wcag": "AA 4.5:1 for filled action text"
+      }
+    ],
+    "missingFilledStatus": []
+  },
+  "dependencyEdges": [
+    {
+      "from": "State",
+      "to": "Energy",
+      "status": "active",
+      "reason": "Interaction state uses Energy action semantics for focus, hover, pressed, and selected surfaces."
+    },
+    {
+      "from": "Accessibility",
+      "to": "Energy",
+      "status": "active",
+      "reason": "Accessible contrast uses Energy text and surface semantics instead of inventing contrast-only colors."
+    },
+    {
+      "from": "Tone",
+      "to": "Energy",
+      "status": "active",
+      "reason": "Tone color maps semantic language to Energy color decisions."
+    },
+    {
+      "from": "Depth",
+      "to": "Energy",
+      "status": "active",
+      "reason": "Overlay depth uses Energy neutral contrast instead of a separate overlay palette."
+    },
+    {
+      "from": "Growth",
+      "to": "Energy",
+      "status": "active",
+      "reason": "Growth stage colors delegate to Energy so maturity states do not introduce a separate status palette."
+    },
+    {
+      "from": "Iconography",
+      "to": "Energy",
+      "status": "active",
+      "reason": "Iconography uses Energy for disabled glyph availability without changing Symbol color roles."
+    },
+    {
+      "from": "Symbol",
+      "to": "Energy",
+      "status": "active",
+      "reason": "Symbol color roles delegate to Energy so symbolic states do not create a separate color system."
+    }
+  ],
+  "cascadeCoverage": {
+    "primitives": {
+      "count": 11,
+      "ids": [
+        "animation-assets",
+        "charts",
+        "color",
+        "country-flags",
+        "disabled",
+        "field-action",
+        "iconography",
+        "illustration-assets",
+        "library-sources",
+        "maps",
+        "surface"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/charts.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/color.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/country-flags.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/disabled.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/field-action.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/iconography.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/illustration-assets.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/library-sources.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/maps.json",
+        "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+      ]
+    },
+    "components": {
+      "count": 60,
+      "ids": [
+        "accordion",
+        "animated-moment",
+        "audit-event",
+        "avatar",
+        "badge",
+        "biometric-prompt",
+        "breadcrumbs",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "card-summary",
+        "chart-panel",
+        "chat-composer",
+        "chat-message",
+        "chat-thread",
+        "checkbox",
+        "chip",
+        "code-input",
+        "combobox",
+        "country-selector",
+        "date-picker",
+        "date-range-picker",
+        "dialog",
+        "drawer",
+        "empty-state",
+        "error-panel",
+        "floating-action-button",
+        "icon-button",
+        "inline-validation",
+        "input",
+        "input-amount",
+        "kpi-tile",
+        "list",
+        "menu",
+        "motion-boundary",
+        "movement-row",
+        "pagination",
+        "phone-input",
+        "popover",
+        "progress-indicator",
+        "quick-action",
+        "radio-button",
+        "route-summary",
+        "segmented-control",
+        "select",
+        "skeleton",
+        "slider",
+        "spinner",
+        "station-pin",
+        "stepper",
+        "switch",
+        "table",
+        "tabs",
+        "tag",
+        "text-area",
+        "toast",
+        "tooltip",
+        "tree-view"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/components/accordion.json",
+        "packages/specs/specs/unison-system/artifacts/components/animated-moment.json",
+        "packages/specs/specs/unison-system/artifacts/components/audit-event.json",
+        "packages/specs/specs/unison-system/artifacts/components/avatar.json",
+        "packages/specs/specs/unison-system/artifacts/components/badge.json",
+        "packages/specs/specs/unison-system/artifacts/components/biometric-prompt.json",
+        "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json",
+        "packages/specs/specs/unison-system/artifacts/components/button.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/foundations.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/tests.json",
+        "packages/specs/specs/unison-system/artifacts/components/button/tokendependencies.json",
+        "packages/specs/specs/unison-system/artifacts/components/card-expiry-input.json"
+      ]
+    },
+    "patterns": {
+      "count": 59,
+      "ids": [
+        "account-operations",
+        "action-sheet",
+        "advanced-filters",
+        "agent-conversation",
+        "authentication-login-biometrics-and-otp",
+        "autocomplete",
+        "avatar-group",
+        "avatar-menu",
+        "backoffice-approval",
+        "bulk-actions",
+        "calendar-view",
+        "case-management",
+        "chart-wrapper",
+        "column-configurator",
+        "command-palette",
+        "confirmation-dialog",
+        "dense-operational-list",
+        "drag-sortable-list",
+        "drawer-adapter",
+        "driver-and-vehicle-administration",
+        "driver-onboarding-mobile",
+        "email-template-layout",
+        "expandable-detail-table",
+        "file-upload",
+        "filter-chip-group",
+        "filterable-editable-table",
+        "fleet-manager-onboarding-desktop",
+        "form-section",
+        "fullscreen-sheet",
+        "gantt-chart",
+        "help-center",
+        "kanban-board",
+        "kpi-card",
+        "multi-select",
+        "multi-step-form",
+        "notification-panel",
+        "payment-form",
+        "polar-chart",
+        "preference-management",
+        "pricing-operations",
+        "pull-to-refresh",
+        "quick-actions-grid",
+        "roles-and-permissions",
+        "search",
+        "section-header",
+        "select-option-layer",
+        "settings",
+        "sidebar",
+        "snackbar-provider",
+        "station-discovery",
+        "status-feedback-view",
+        "swipe-actions",
+        "ticket-queue",
+        "timeline",
+        "toolbar",
+        "topbar",
+        "transfer-list",
+        "virtual-data-table",
+        "waterfall-chart"
+      ],
+      "sampleFiles": [
+        "packages/content/content/pattern-contracts/patterns/account-operations.md",
+        "packages/content/content/pattern-contracts/patterns/action-sheet.md",
+        "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+        "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
+        "packages/content/content/pattern-contracts/patterns/autocomplete.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-group.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
+        "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+        "packages/content/content/pattern-contracts/patterns/case-management.md"
+      ]
+    },
+    "templates": {
+      "count": 6,
+      "ids": [
+        "configuration-console",
+        "driver-card-wallet",
+        "driver-mobile-app",
+        "fleet-dashboard-suite",
+        "fleet-manager-desktop",
+        "routes-and-stations"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json"
+      ]
+    },
+    "packageCssDirectUses": 853,
+    "docsCssDirectUses": 912
+  },
+  "semanticLocks": {
+    "primaryActionBlue500": true,
+    "warningFilledYellow400": true,
+    "warningForegroundYellow900": true
+  },
+  "contrast": [
+    {
+      "label": "Action filled text",
+      "background": "--sys-energy-action-primary",
+      "foreground": "--sys-energy-text-on-action",
+      "minimum": 4.5,
+      "ratio": 5.37,
+      "status": "pass"
+    },
+    {
+      "label": "Success filled text",
+      "background": "--sys-energy-status-success",
+      "foreground": "--sys-energy-text-on-action",
+      "minimum": 4.5,
+      "ratio": 5.34,
+      "status": "pass"
+    },
+    {
+      "label": "Warning filled text",
+      "background": "--sys-energy-status-warning",
+      "foreground": "--ref-energy-neutral-900",
+      "minimum": 4.5,
+      "ratio": 10.69,
+      "status": "pass"
+    },
+    {
+      "label": "Warning foreground on primary surface",
+      "background": "--sys-energy-surface-primary",
+      "foreground": "--sys-energy-status-warning-foreground",
+      "minimum": 4.5,
+      "ratio": 9.07,
+      "status": "pass"
+    },
+    {
+      "label": "Error filled text",
+      "background": "--sys-energy-status-error",
+      "foreground": "--sys-energy-text-on-action",
+      "minimum": 4.5,
+      "ratio": 5.62,
+      "status": "pass"
+    },
+    {
+      "label": "Primary text on primary surface",
+      "background": "--sys-energy-surface-primary",
+      "foreground": "--sys-energy-text-primary",
+      "minimum": 4.5,
+      "ratio": 14.63,
+      "status": "pass"
+    }
+  ],
+  "colorDeclarations": {
+    "scannedFiles": [
+      "packages/components/styles/components.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-01.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-02-01.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
+      "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+      "../FlowDocs/apps/docs/styles/01-shell-01.css",
+      "../FlowDocs/apps/docs/styles/01-shell-02.css",
+      "../FlowDocs/apps/docs/styles/01-shell-hero.css",
+      "../FlowDocs/apps/docs/styles/01-shell-icons.css",
+      "../FlowDocs/apps/docs/styles/02-doc-layout.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
+      "../FlowDocs/apps/docs/styles/03a-reference-core-04.css",
+      "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
+      "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
+      "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+      "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
+      "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
+      "../FlowDocs/apps/docs/styles/04a-button-docs-02.css",
+      "../FlowDocs/apps/docs/styles/04a-button-docs-03.css",
+      "../FlowDocs/apps/docs/styles/04a-demo-cell-docs.css",
+      "../FlowDocs/apps/docs/styles/04b-card-docs.css",
+      "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
+      "../FlowDocs/apps/docs/styles/04b-select-docs.css",
+      "../FlowDocs/apps/docs/styles/04c-input-docs.css",
+      "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
+      "../FlowDocs/apps/docs/styles/04e-switch-docs.css",
+      "../FlowDocs/apps/docs/styles/04f-radio-button-docs.css",
+      "../FlowDocs/apps/docs/styles/04g-text-area-docs.css",
+      "../FlowDocs/apps/docs/styles/04h-icon-button-docs.css",
+      "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
+      "../FlowDocs/apps/docs/styles/04j-badge-docs.css",
+      "../FlowDocs/apps/docs/styles/04l-tag-docs.css",
+      "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
+      "../FlowDocs/apps/docs/styles/04n-tooltip-docs.css",
+      "../FlowDocs/apps/docs/styles/04o-toast-docs.css",
+      "../FlowDocs/apps/docs/styles/04t-menu-docs.css",
+      "../FlowDocs/apps/docs/styles/04x-table-docs.css",
+      "../FlowDocs/apps/docs/styles/04y-avatar-docs.css",
+      "../FlowDocs/apps/docs/styles/04z-slider-docs.css",
+      "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
+      "../FlowDocs/apps/docs/styles/05-catalog-and-examples-02.css",
+      "../FlowDocs/apps/docs/styles/05-catalog-and-examples-03.css",
+      "../FlowDocs/apps/docs/styles/05b-list-docs.css",
+      "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
+      "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
+      "../FlowDocs/apps/docs/styles/05h-code-input-docs.css",
+      "../FlowDocs/apps/docs/styles/05i-phone-input-docs.css",
+      "../FlowDocs/apps/docs/styles/06-responsive-01.css",
+      "../FlowDocs/apps/docs/styles/06-responsive-02.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+      "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
+      "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
+    ],
+    "totalFindings": 0,
+    "failures": [],
+    "reviews": []
+  },
+  "gaps": [],
+  "nextActions": [
+    "Fix fail-level raw color or direct ref-energy semantic bypasses before touching the next foundation.",
+    "Keep ZIP look and feel as semantic mapping evidence, not as permission to change Energy tokens.",
+    "When a component is audited 1:1, verify action/status/surface roles against this report and rendered contrast."
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "artifacts": {
+    "patterns": {
+      "preference-management": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Service Designers",
+          "Agents"
+        ],
+        "purpose": "Coordinate preference groups, editable form sections, save/reset behavior, permission boundaries, and destructive danger-zone confirmation without becoming a settings workspace template.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Settings",
+          "Form Section",
+          "Confirmation Dialog"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "mobile",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A product surface needs grouped user or workspace preferences.",
+          "Settings, editable sections, and destructive confirmation need one coordinated state contract.",
+          "A template must not clone preference groups, form fields, or danger-zone dialogs."
+        ],
+        "decisionTree": [
+          "Use Settings when grouped preferences share one save/reset boundary.",
+          "Use Form Section when a local editable preference block needs validation or field-level callbacks.",
+          "Use Confirmation Dialog when a danger-zone action requires explicit confirmation.",
+          "Use Preference Management when Settings, Form Section, and danger-zone confirmation must cascade together.",
+          "Use a Settings Workspace template only when navigation, multiple pages, audit logs, or admin modules are part of the experience."
+        ],
+        "failureModes": [
+          "Templates render local preference groups instead of Settings or Form Section.",
+          "Danger-zone actions use a custom modal, overlay, or raw button cluster instead of Confirmation Dialog.",
+          "Card wraps the preference group, breaking Surface ownership.",
+          "Permission-blocked, dirty, invalid, saving, or destructive states do not cascade to child pattern owners.",
+          "Docs define settings behavior that belongs in Flow."
+        ],
+        "successMetrics": [
+          "Users can review preference status, edit grouped controls, save or reset, and confirm destructive actions through one predictable flow.",
+          "Density and state cascade from Surface to Settings, Form Section, and Confirmation Dialog.",
+          "Settings Workspace templates can reuse the pattern without redefining preference or danger-zone behavior."
+        ],
+        "states": [
+          "idle",
+          "dirty",
+          "saving",
+          "saved",
+          "invalid",
+          "danger-confirming",
+          "permission-blocked",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "preferenceSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": "required",
+            "purpose": "Owns structural grouping, density, state, and focus-within cascade for the full preference flow."
+          },
+          {
+            "name": "preferenceSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Shows dirty, saved, invalid, permission, or danger status without creating a custom summary card."
+          },
+          {
+            "name": "settingsBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Settings"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates grouped settings, save/reset behavior, validation, and preference control callbacks."
+          },
+          {
+            "name": "preferenceBlocks",
+            "owner": "pattern",
+            "uses": [
+              "Form Section"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates editable preference sections, validation, feedback, field actions, and local save actions."
+          },
+          {
+            "name": "dangerConfirmation",
+            "owner": "pattern",
+            "uses": [
+              "Confirmation Dialog"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates destructive confirmation, cancel, recovery, loading, validation, and danger tone."
+          }
+        ],
+        "accessibility": [
+          "Expose the preference flow as a labelled group with busy state.",
+          "Delegate grouped controls to Settings.",
+          "Delegate field semantics and validation to Form Section.",
+          "Delegate destructive confirmation semantics to Confirmation Dialog.",
+          "Keep permission-blocked and disabled states announced through child owners."
+        ],
+        "tests": [
+          "Composes Surface, Badge, Settings, Form Section, and Confirmation Dialog.",
+          "Covers idle, dirty, saving, saved, invalid, danger-confirming, permission-blocked, and disabled states.",
+          "Forwards settings control/save/reset, section field/action, and danger confirmation callbacks.",
+          "Rejects local preference groups, fake form fields, Card wrappers, raw dialogs, custom overlays, and Docs-owned settings behavior."
+        ],
+        "agentInstructions": [
+          "Do not create custom preference group visuals.",
+          "Use Surface for structural grouping; do not wrap preference groups in Card.",
+          "Use Settings for grouped preferences and Form Section for editable preference blocks.",
+          "Use Confirmation Dialog for danger-zone confirmation.",
+          "Ask before exposing destructive account, tenant, billing, identity, security, or compliance actions."
+        ],
+        "rejectIf": [
+          "Preference controls bypass Settings or Form Section.",
+          "Danger-zone actions bypass Confirmation Dialog.",
+          "Card wraps the preference-management group.",
+          "Density or state stops cascading to Settings, Form Section, or Confirmation Dialog.",
+          "The pattern becomes a multi-page settings template."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "templateDependencies": [
+          "Settings Workspace"
+        ]
+      }
+    }
+  }
+}

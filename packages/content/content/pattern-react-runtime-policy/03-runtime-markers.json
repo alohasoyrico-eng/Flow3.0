@@ -1,0 +1,44 @@
+{
+  "primitiveSlotRuntimeEvidence": {
+    "Surface": [
+      "data-flow-slot"
+    ],
+    "Maps": [
+      "createMapsPrimitive",
+      "data-map-primitive"
+    ]
+  },
+  "patternRuntimeMarkers": {
+    "pattern": "data-flow-pattern",
+    "slot": "data-flow-slot",
+    "mapPrimitive": "data-map-primitive"
+  },
+  "patternContractRequiredHeadings": {
+    "dependencies": "## Formal Dependencies",
+    "slots": "## Formal Slots",
+    "states": "## Formal States",
+    "governance": "## Formal Governance"
+  },
+  "rawDivWrapperPolicy": {
+    "scanWindow": 500,
+    "qualifierNeedles": [
+      "data-",
+      "role",
+      "aria-"
+    ],
+    "ownedStylingProps": [
+      "className",
+      "style"
+    ]
+  },
+  "forbiddenPatternImportNeedles": {
+    "docs": [
+      "apps/docs",
+      "#design-system/docs"
+    ],
+    "workspace": [
+      "packages/components",
+      "../../components"
+    ]
+  }
+}

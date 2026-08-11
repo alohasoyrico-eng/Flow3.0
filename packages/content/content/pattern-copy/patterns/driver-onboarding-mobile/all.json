@@ -79,9 +79,11 @@
       "componentsUsed": [
         "Stepper",
         "Phone Input",
+        "Input",
         "Code Input",
         "Biometric Prompt",
         "Animated Moment",
+        "Card",
         "Card Summary",
         "Button",
         "Inline Validation",

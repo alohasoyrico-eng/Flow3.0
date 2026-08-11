@@ -1,0 +1,253 @@
+{
+  "artifacts": {
+    "patterns": {
+      "topbar": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate global shell actions, search/command/account/notification triggers, responsive drawer entry, and sidebar boundary while templates own product route inventory and shell placement.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Avatar",
+          "Badge",
+          "Drawer",
+          "Icon Button",
+          "Input",
+          "Menu"
+        ],
+        "patternDependencies": [
+          "Autocomplete",
+          "Avatar Menu",
+          "Command Palette",
+          "Notification Panel",
+          "Search",
+          "Settings",
+          "Sidebar"
+        ],
+        "templateDependencies": [
+          "Fleet Manager Desktop",
+          "Fleet Dashboard Suite",
+          "Configuration Console",
+          "Agent Workspace",
+          "Internal Operations Console"
+        ],
+        "tokenDependencies": [
+          "comp.avatar.*",
+          "comp.badge.*",
+          "comp.drawer.*",
+          "comp.icon-button.*",
+          "comp.input.*",
+          "comp.menu.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A shell needs global actions, account access, search/command triggers, notification entry, or responsive navigation trigger.",
+          "Template owns shell placement, route set, and product-specific actions.",
+          "Topbar coordinates boundaries without owning their internal behavior."
+        ],
+        "decisionTree": [
+          "Use Toolbar for local page actions.",
+          "Use Topbar for global shell actions and triggers.",
+          "Use Sidebar for navigation region behavior and route grouping."
+        ],
+        "failureModes": [
+          "Topbar implements Search, Command Palette, Avatar Menu, Notification Panel, Settings, or Sidebar internals.",
+          "Template route inventory is hardcoded.",
+          "Responsive drawer trigger conflicts with Sidebar.",
+          "Global and local actions are mixed."
+        ],
+        "successMetrics": [
+          "Users can distinguish global shell actions from local page actions.",
+          "Triggers route to owned patterns without duplicated visuals.",
+          "Templates can alter shell composition without changing Flow behavior."
+        ],
+        "states": [
+          "default",
+          "dense",
+          "mobile",
+          "search-active",
+          "notifications-unread",
+          "account-open",
+          "loading",
+          "permission-filtered"
+        ],
+        "slots": [
+          {
+            "name": "globalTriggers",
+            "owner": "component",
+            "uses": [
+              "Icon Button",
+              "Badge",
+              "Input"
+            ]
+          },
+          {
+            "name": "account",
+            "owner": "component",
+            "uses": [
+              "Avatar",
+              "Menu"
+            ]
+          },
+          {
+            "name": "responsiveNavigation",
+            "owner": "component",
+            "uses": [
+              "Drawer",
+              "Icon Button"
+            ]
+          },
+          {
+            "name": "autocompleteBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Autocomplete"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Autocomplete runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "avatar-menuBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Avatar Menu"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Avatar Menu runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "command-paletteBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Command Palette"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Command Palette runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "notificationBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Notification Panel"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Notification Panel runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "searchBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Search"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Search runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "settingsBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Settings"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Settings runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "sidebarBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Sidebar"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Sidebar runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Expose shell region and trigger labels.",
+          "Preserve focus when opening delegated patterns.",
+          "Do not hide global actions behind unlabeled icons."
+        ],
+        "tests": [
+          "Composes Avatar, Badge, Drawer, Icon Button, Input, and Menu.",
+          "Covers dense, mobile, active search, unread notifications, account, loading, and permission-filtered states.",
+          "Keeps delegated patterns and templates as boundaries."
+        ],
+        "agentInstructions": [
+          "Do not implement delegated pattern internals.",
+          "Do not hardcode product routes or tenant policy.",
+          "Ask before adding global actions that affect billing, security, identity, or regulated data."
+        ],
+        "rejectIf": [
+          "Search/command/account/notification/sidebar internals are cloned.",
+          "Template shell policy is embedded.",
+          "Global icons are unlabeled.",
+          "Toolbar local actions are mixed into Topbar."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

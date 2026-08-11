@@ -1,0 +1,134 @@
+{
+  "status": "pass",
+  "primitive": "Animation Assets",
+  "principle": "Animation Assets converts a free runtime into Flow-owned playback, fallback, reduced-motion, and lifecycle behavior so components never own animation runtime logic.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "runtime",
+      "source",
+      "fallback",
+      "lifecycle"
+    ],
+    "present": [
+      "runtime",
+      "source",
+      "fallback",
+      "lifecycle"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Momentum",
+      "Accessibility",
+      "Symbol",
+      "Energy",
+      "Frame"
+    ],
+    "present": [
+      "Momentum",
+      "Accessibility",
+      "Symbol",
+      "Energy",
+      "Frame"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Library Sources",
+      "Duration",
+      "Motion Curves",
+      "Loading"
+    ],
+    "present": [
+      "Library Sources",
+      "Duration",
+      "Motion Curves",
+      "Loading"
+    ],
+    "missing": []
+  },
+  "tokenDependencies": {
+    "required": [
+      "animationAsset.*",
+      "library.*",
+      "duration.*",
+      "motionCurve.*",
+      "loading.*",
+      "sys.momentum.*",
+      "sys.accessibility.*",
+      "sys.symbol.*",
+      "sys.energy.*",
+      "sys.frame.*",
+      "lottie-web"
+    ],
+    "present": [
+      "animationAsset.*",
+      "library.*",
+      "duration.*",
+      "motionCurve.*",
+      "loading.*",
+      "sys.momentum.*",
+      "sys.accessibility.*",
+      "sys.symbol.*",
+      "sys.energy.*",
+      "sys.frame.*",
+      "lottie-web"
+    ],
+    "missing": []
+  },
+  "implementation": {
+    "packageDependency": "^5.13.0",
+    "vendorRuntimePresent": true,
+    "vendorLicensePresent": true,
+    "docsLoadsLocalRuntime": true,
+    "exportsPrimitiveApi": true,
+    "usesLibraryBridge": true,
+    "supportsReducedMotion": true,
+    "supportsFallback": true,
+    "cssTargetsAsset": true,
+    "cssTargetsFallback": true,
+    "animatedMomentConsumesPrimitive": true,
+    "animatedMomentAvoidsRuntimeOwnership": true,
+    "docsAvoidsRemoteRuntime": true
+  },
+  "foundationGate": {
+    "momentum": "pass",
+    "accessibility": "pass",
+    "symbol": "pass",
+    "energy": "pass",
+    "frame": "pass"
+  },
+  "primitiveGate": {
+    "librarySources": "pass",
+    "duration": "pass",
+    "motionCurves": "pass",
+    "loading": "pass"
+  },
+  "librarySources": {
+    "row": {
+      "id": "animation-assets",
+      "library": "lottie-web",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": "^5.13.0",
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": false,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Momentum",
+        "Accessibility",
+        "Symbol",
+        "Energy",
+        "Frame"
+      ]
+    }
+  }
+}

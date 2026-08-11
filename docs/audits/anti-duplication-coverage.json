@@ -2,63 +2,73 @@
   "status": "pass",
   "errors": [],
   "inventory": {
-    "checks": 6,
-    "componentClassRoots": 59,
-    "acceptedComponents": 56,
-    "ownerRoots": 56,
+    "checks": 18,
+    "componentClassRoots": 63,
+    "acceptedComponents": 60,
+    "ownerRoots": 60,
     "missingOwnerRoots": 0,
     "extensionRoots": 3,
-    "protectedComponentRoots": 6,
-    "blockedConceptRules": 2,
+    "protectedComponentRoots": 7,
+    "classRootPolicyFingerprint": "7d73a06efac4a2a51693940a8fa6d583c5418effd7d720e2171f04f80877f0da",
+    "blockedConceptRules": 21,
+    "blockedConceptClassNames": 167,
+    "blockedConceptContractFingerprint": "aa1701261a53bba8bba3d0a85a89bc43d529b2550bc6ff5bbd20150c0f529a5e",
     "liveDuplicateConceptViolations": 0,
     "docsApps": 1,
+    "docsAllowedComponentAuthors": 0,
+    "docsAllowedPackageClassTokenFiles": 1,
+    "docsAllowedPackageClassTokenFingerprint": "26d33bf564e7d232eed995190fa5717691f2bdafc42f9c91be9bc75a92da2ff0",
+    "antiDuplicationPolicyIssues": 0,
     "antiDuplicationDebt": 0
   },
   "principle": "Flow must have one visual owner per component concept; owner roots, protected roots, duplicate concept rules, and docs scans cannot drift silently. The actionable debt metric is antiDuplicationDebt.",
+  "governance": {
+    "file": "packages/content/content/anti-duplication-concepts.json",
+    "issues": []
+  },
   "baseline": {
     "inventory": {
-      "checks": 6,
-      "componentClassRoots": 59,
-      "acceptedComponents": 56,
-      "ownerRoots": 56,
+      "checks": 18,
+      "componentClassRoots": 63,
+      "acceptedComponents": 60,
+      "ownerRoots": 60,
       "missingOwnerRoots": 0,
       "extensionRoots": 3,
-      "protectedComponentRoots": 6,
-      "blockedConceptRules": 2,
+      "protectedComponentRoots": 7,
+      "classRootPolicyFingerprint": "7d73a06efac4a2a51693940a8fa6d583c5418effd7d720e2171f04f80877f0da",
+      "blockedConceptRules": 21,
+      "blockedConceptClassNames": 167,
+      "blockedConceptContractFingerprint": "aa1701261a53bba8bba3d0a85a89bc43d529b2550bc6ff5bbd20150c0f529a5e",
       "liveDuplicateConceptViolations": 0,
       "docsApps": 1,
+      "docsAllowedComponentAuthors": 0,
+      "docsAllowedPackageClassTokenFiles": 1,
+      "docsAllowedPackageClassTokenFingerprint": "26d33bf564e7d232eed995190fa5717691f2bdafc42f9c91be9bc75a92da2ff0",
+      "antiDuplicationPolicyIssues": 0,
       "antiDuplicationDebt": 0
     },
     "actual": {
-      "checks": 6,
-      "componentClassRoots": 59,
-      "acceptedComponents": 56,
-      "ownerRoots": 56,
+      "checks": 18,
+      "componentClassRoots": 63,
+      "acceptedComponents": 60,
+      "ownerRoots": 60,
       "missingOwnerRoots": 0,
       "extensionRoots": 3,
-      "protectedComponentRoots": 6,
-      "blockedConceptRules": 2,
+      "protectedComponentRoots": 7,
+      "classRootPolicyFingerprint": "7d73a06efac4a2a51693940a8fa6d583c5418effd7d720e2171f04f80877f0da",
+      "blockedConceptRules": 21,
+      "blockedConceptClassNames": 167,
+      "blockedConceptContractFingerprint": "aa1701261a53bba8bba3d0a85a89bc43d529b2550bc6ff5bbd20150c0f529a5e",
       "liveDuplicateConceptViolations": 0,
       "docsApps": 1,
+      "docsAllowedComponentAuthors": 0,
+      "docsAllowedPackageClassTokenFiles": 1,
+      "docsAllowedPackageClassTokenFingerprint": "26d33bf564e7d232eed995190fa5717691f2bdafc42f9c91be9bc75a92da2ff0",
+      "antiDuplicationPolicyIssues": 0,
       "antiDuplicationDebt": 0
     },
-    "extensionRoots": [
-      "choice",
-      "country-flag",
-      "select-control"
-    ],
-    "blockedConceptRules": {
-      "search": [
-        "pattern-topbar-search",
-        "topbar-search",
-        "top-search",
-        "pattern-search-results"
-      ],
-      "account menu": [
-        "pattern-account-menu"
-      ]
-    },
-    "mismatches": []
+    "mismatches": [],
+    "unexpectedInventoryMetrics": []
   },
   "docsApps": [
     "../FlowDocs/apps/docs"
@@ -78,6 +88,9 @@
     "card-security-code-input",
     "card-summary",
     "chart-panel",
+    "chat-composer",
+    "chat-message",
+    "chat-thread",
     "checkbox",
     "chip",
     "choice",
@@ -95,6 +108,7 @@
     "field",
     "icon-button",
     "inline-validation",
+    "input-amount",
     "kpi-tile",
     "list",
     "menu",
@@ -125,8 +139,8 @@
     "tree-view"
   ],
   "rootRegistry": {
-    "acceptedComponents": 56,
-    "ownerRoots": 56,
+    "acceptedComponents": 60,
+    "ownerRoots": 60,
     "missingOwnerRoots": [],
     "extensionRoots": [
       "choice",
@@ -142,13 +156,291 @@
         "topbar-search",
         "top-search",
         "pattern-search-results"
-      ]
+      ],
+      "message": "Search must use searchSlotMarkup/search-slot as the single visual source; do not keep a parallel topbar search implementation."
     },
     {
       "concept": "account menu",
       "classNames": [
         "pattern-account-menu"
-      ]
+      ],
+      "message": "Account menu must use avatarMenuMarkup as the single visual source; do not keep a parallel account menu implementation."
+    },
+    {
+      "concept": "overlay",
+      "classNames": [
+        "custom-overlay",
+        "pattern-overlay",
+        "demo-overlay",
+        "local-overlay"
+      ],
+      "message": "Overlays must compose Dialog, Drawer, Popover, Menu, Action Sheet, or Fullscreen Sheet; do not keep a parallel overlay surface."
+    },
+    {
+      "concept": "surface grouping",
+      "classNames": [
+        "pattern-card-group",
+        "pattern-card-wrapper",
+        "card-group-wrapper",
+        "card-layout-wrapper"
+      ],
+      "message": "Structural grouping must use the Surface primitive; Card must not become a generic group wrapper."
+    },
+    {
+      "concept": "bottom sheet",
+      "classNames": [
+        "bottom-sheet",
+        "pattern-bottom-sheet",
+        "mobile-bottom-sheet",
+        "custom-bottom-sheet"
+      ],
+      "message": "Bottom sheet behavior must resolve through Action Sheet or Fullscreen Sheet patterns; do not keep a parallel sheet implementation."
+    },
+    {
+      "concept": "permissions matrix",
+      "classNames": [
+        "permissions-matrix",
+        "roles-table",
+        "pattern-permissions-table",
+        "role-permission-grid"
+      ],
+      "message": "Roles and permissions must compose Roles And Permissions; do not keep a parallel permissions matrix."
+    },
+    {
+      "concept": "alert strip",
+      "classNames": [
+        "alert-strip",
+        "pattern-alert-strip",
+        "status-alert-strip",
+        "inline-alert-strip"
+      ],
+      "message": "Alert and feedback strips must compose Toast, Inline Validation, Badge, or Error Panel according to the formal slot."
+    },
+    {
+      "concept": "topbar navigation",
+      "classNames": [
+        "custom-topbar",
+        "topbar-clone",
+        "pattern-local-topbar",
+        "docs-topbar-implementation"
+      ],
+      "message": "Topbar navigation must compose Topbar or its documented boundary slots; do not keep a parallel shell implementation."
+    },
+    {
+      "concept": "table toolbar",
+      "classNames": [
+        "table-toolbar",
+        "data-table-toolbar",
+        "virtual-table-toolbar",
+        "pattern-table-actions"
+      ],
+      "message": "Table toolbars must compose Toolbar or Virtual Data Table boundaries; do not keep a parallel table action bar."
+    },
+    {
+      "concept": "field shell",
+      "classNames": [
+        "field-wrapper",
+        "field-shell",
+        "custom-field",
+        "pattern-field",
+        "form-field-wrapper"
+      ],
+      "message": "Field shells must use the shared .field contract through Flow field-like React components; do not keep a parallel Field wrapper or raw field implementation."
+    },
+    {
+      "concept": "status feedback shell",
+      "classNames": [
+        "status-view",
+        "feedback-shell",
+        "status-shell",
+        "feedback-banner",
+        "notice-banner",
+        "status-message-wrapper"
+      ],
+      "message": "Status and feedback views must compose EmptyState, ErrorPanel, Inline Validation, Toast, Notification Panel, or Snackbar Provider according to the formal slot."
+    },
+    {
+      "concept": "conversational UI shell",
+      "classNames": [
+        "agent-chat",
+        "assistant-chat",
+        "conversation-thread",
+        "prompt-composer",
+        "chat-shell",
+        "chat-message-clone",
+        "chat-thread-clone",
+        "chat-composer-clone"
+      ],
+      "message": "Conversational UI composition must route through formal Flow component, pattern, or template contracts; do not keep a parallel chat shell copied from ZIP references."
+    },
+    {
+      "concept": "standalone chart visualization",
+      "classNames": [
+        "donut-chart",
+        "heatmap-chart",
+        "treemap-chart",
+        "scatter-plot",
+        "line-chart",
+        "pareto-chart",
+        "bullet-chart",
+        "gantt-chart",
+        "waterfall-chart",
+        "chart-shell"
+      ],
+      "message": "Chart visuals must route through Chart Panel, the Charts primitive, or Chart Wrapper; do not keep standalone copied chart components or local chart shells."
+    },
+    {
+      "concept": "payment wallet shell",
+      "classNames": [
+        "payment-card",
+        "wallet-card",
+        "card-wallet-shell",
+        "card-wallet",
+        "wallet-input",
+        "otp-input",
+        "passcode-keypad",
+        "amount-input-clone",
+        "wallet-amount-shell",
+        "input-date",
+        "input-email",
+        "input-password",
+        "input-phone"
+      ],
+      "message": "Payment and wallet UI must compose Card Summary, Flow field-like components, Code Input, card inputs, or Driver Card Wallet boundaries; do not keep copied ZIP wallet/input shells."
+    },
+    {
+      "concept": "data composite shell",
+      "classNames": [
+        "bulk-actions-table",
+        "filterable-editable-table",
+        "kanban-board",
+        "table-timeline",
+        "table-tree",
+        "transaction-row",
+        "data-composite",
+        "editable-table",
+        "filterable-table",
+        "board-column",
+        "table-tree-row",
+        "transaction-list-row"
+      ],
+      "message": "Data-heavy composites must compose Table, Virtual Data Table, Bulk Actions, Tree View, Timeline, KPI, or template boundaries; do not keep copied ZIP table/board shells."
+    },
+    {
+      "concept": "map runtime shell",
+      "classNames": [
+        "map-canvas",
+        "map-shell",
+        "route-map",
+        "station-map",
+        "fleet-map",
+        "map-runtime",
+        "map-provider",
+        "map-marker-layer",
+        "route-line-layer",
+        "station-pin-layer",
+        "map-fallback-panel"
+      ],
+      "message": "Map and route experiences must route through the Maps primitive, Station Pin, Route Summary, Station Discovery, or route templates; do not keep copied ZIP map canvases or direct runtime shells."
+    },
+    {
+      "concept": "selection date shell",
+      "classNames": [
+        "select-combo",
+        "select-country",
+        "select-multiple",
+        "country-picker",
+        "country-select",
+        "multi-select-shell",
+        "custom-listbox",
+        "local-listbox",
+        "calendar-popover",
+        "calendar-picker",
+        "date-range-shell",
+        "date-filter-shell",
+        "custom-calendar",
+        "range-calendar",
+        "combo-range-shell",
+        "date-selector-shell"
+      ],
+      "message": "Selection and date flows must compose Select, Combobox, Country Selector, Multi Select, Select Option Layer, Date Picker, Date Range Picker, Calendar View, or Advanced Filters; do not keep copied ZIP selector/date shells."
+    },
+    {
+      "concept": "navigation onboarding shell",
+      "classNames": [
+        "navigation-shell",
+        "mobile-nav",
+        "bottom-nav",
+        "tab-bar",
+        "nav-rail",
+        "top-bar",
+        "sidebar-clone",
+        "onboarding-carousel",
+        "wizard-carousel",
+        "stepper-flow",
+        "welcome-carousel",
+        "safe-area-tabbar",
+        "mobile-tabbar"
+      ],
+      "message": "Navigation and onboarding shells must compose Topbar, Sidebar, Tabs, Stepper, Multi Step Form, Drawer Adapter, or governed onboarding templates; do not keep copied ZIP navigation/onboarding wrappers."
+    },
+    {
+      "concept": "feedback auth shell",
+      "classNames": [
+        "notification-center",
+        "toast-stack",
+        "circular-progress",
+        "progress-ring",
+        "loading-screen",
+        "auth-sheet",
+        "permission-sheet",
+        "status-screen",
+        "success-screen",
+        "offline-screen",
+        "service-status-screen",
+        "feedback-modal"
+      ],
+      "message": "Feedback, progress, and authentication surfaces must compose Notification Panel, Snackbar Provider, Toast, Progress Indicator, Spinner, Empty State, Error Panel, Dialog, Drawer, Biometric Prompt, or Authentication Login Biometrics And OTP; do not keep copied ZIP feedback/auth shells."
+    },
+    {
+      "concept": "media divider shell",
+      "classNames": [
+        "card-media",
+        "media-card",
+        "image-card",
+        "media-shell",
+        "hero-card",
+        "cover-card",
+        "illustration-card",
+        "standalone-divider",
+        "content-divider",
+        "timeline-divider",
+        "vertical-divider",
+        "horizontal-divider",
+        "divider-label",
+        "separator-shell"
+      ],
+      "message": "Media and separator helpers must compose Card, Surface, List, Timeline, Menu separators, Breadcrumbs separators, or illustration/animation primitives; do not keep copied ZIP CardMedia or Divider shells."
+    },
+    {
+      "concept": "email messaging shell",
+      "classNames": [
+        "email-layout",
+        "mailing-shell",
+        "transactional-email",
+        "receipt-email",
+        "weekly-summary-email",
+        "team-invite-email",
+        "security-alert-email",
+        "welcome-email",
+        "email-card",
+        "email-footer",
+        "email-preheader",
+        "esp-template",
+        "mailer-template",
+        "email-template"
+      ],
+      "message": "Email and mailing templates require a separate governed channel contract; product React patterns/templates must use Message, Toast, Notification Panel, or a future email template contract instead of copied ZIP mailing shells."
     }
   ],
   "liveDuplicateConceptViolations": [],
@@ -157,26 +449,43 @@
     "card",
     "dialog",
     "drawer",
+    "field",
     "menu",
     "popover"
   ],
+  "classRootPolicy": {
+    "extensionRoots": [
+      "choice",
+      "country-flag",
+      "select-control"
+    ],
+    "protectedComponentRoots": [
+      "button",
+      "card",
+      "dialog",
+      "drawer",
+      "field",
+      "menu",
+      "popover"
+    ],
+    "reason": "Component class roots are derived from accepted React component owner roots plus reviewed extension roots. Protected roots are high-risk visual owners that must be composed, not copied. Field is protected as a shared CSS/primitive contract owned by field-like React components, not as a standalone wrapper."
+  },
   "reactSupportClassRoots": [
     "animation-asset",
     "field-action",
     "illustration-asset",
     "input",
-    "material-symbol"
+    "material-symbol",
+    "surface"
   ],
-  "docsAllowedComponentAuthors": [
-    "apps/docs/component-demo.js",
-    "apps/docs/react-component-islands.js"
-  ],
+  "docsAllowedComponentAuthors": [],
   "docsAllowedPackageClassTokens": [
     {
       "file": "apps/docs/docs-layout.js",
       "tokens": [
         "tag"
-      ]
+      ],
+      "reason": "Docs layout uses Tag as a transitional package-backed navigation marker while component demos remain package-owned."
     }
   ],
   "checks": [
@@ -185,6 +494,18 @@
     "known duplicate concept classes",
     "primitive interactive DOM factories",
     "React-only component boundaries",
-    "React component class ownership"
+    "React component class ownership",
+    "Field contract ownership",
+    "Status feedback contract ownership",
+    "Conversational UI contract ownership",
+    "Chart visualization contract ownership",
+    "Payment wallet contract ownership",
+    "Data composite contract ownership",
+    "Map runtime contract ownership",
+    "Selection and date contract ownership",
+    "Navigation and onboarding contract ownership",
+    "Feedback and auth contract ownership",
+    "Media and divider contract ownership",
+    "Email messaging contract ownership"
   ]
 }

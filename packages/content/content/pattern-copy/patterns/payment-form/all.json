@@ -1,0 +1,88 @@
+{
+  "patterns": {
+    "payment-form": {
+      "purpose": "Coordinate card-number, expiry, security-code, amount, validation, feedback, and payment actions without creating a parallel Field or Card shell.",
+      "useWhen": [
+        "A flow must collect or review payment-card details.",
+        "Card number, expiry, security code, and optional amount need one submit contract.",
+        "Payment feedback must remain owned by Flow feedback components and patterns."
+      ],
+      "doNotUseWithoutReview": [
+        "The flow stores regulated payment credentials.",
+        "Payment is only a summary card with no credential capture.",
+        "A template already owns the broader card workspace and only needs display modules."
+      ],
+      "foundations": [
+        ["Accessibility", "Field labels, input modes, reveal controls, grouped validation, and actions keep formal semantics."],
+        ["Depth", "Surface owns structural grouping without turning the payment group into a Card."],
+        ["Energy", "Validity, disabled, error, and warning states inherit component tone contracts."],
+        ["Frame", "Field spacing, density, and responsive grouping cascade from Surface and field components."],
+        ["Growth", "Payment state and field metadata remain observable without moving behavior into a template."],
+        ["Iconography", "Card and security icons remain owned by their inputs."],
+        ["Momentum", "Loading and focus motion stay tokenized through field and action components."],
+        ["State", "Default, review, success, loading, error, and disabled states cascade to every child."],
+        ["Symbol", "Payment symbols support recognition without replacing labels; text remains required for field, validation, and action meaning."],
+        ["Tone", "Payment feedback maps to validation, error, success, warning, and recovery semantics."],
+        ["Voice", "Field helper, validation, and feedback copy remains visible and recoverable."]
+      ],
+      "slots": [
+        ["paymentSurface", "Surface", "required", "Structural payment grouping."],
+        ["cardFields", "Card Number Input, Card Expiry Input, Card Security Code Input", "required", "Card credential fields."],
+        ["amountFields", "Input Amount", "conditional", "Amount, limit, or authorization value."],
+        ["validation", "Inline Validation", "conditional", "Grouped recoverable guidance."],
+        ["statusFeedback", "Status Feedback View", "conditional", "Blocking, transient, or submit-result feedback."],
+        ["actions", "Button", "required", "Submit and secondary payment commands."]
+      ],
+      "componentsUsed": [
+        "Button",
+        "Card Number Input",
+        "Card Expiry Input",
+        "Card Security Code Input",
+        "Inline Validation",
+        "Input Amount"
+      ],
+      "variants": [
+        ["Card details", "Required", "Card number, expiry, and security code."],
+        ["Amount capture", "Conditional", "Adds Input Amount when payment value is needed."],
+        ["Validation", "Conditional", "Adds Inline Validation for group guidance."],
+        ["Feedback", "Conditional", "Delegates status to Status Feedback View."]
+      ],
+      "motion": [
+        ["Loading", "Field and Button loading states own motion."],
+        ["Review", "Surface raises the group while fields stay editable unless disabled."],
+        ["Feedback", "Status Feedback View owns transient or blocking feedback motion."]
+      ],
+      "accessibility": [
+        "Expose the payment form as a labelled group.",
+        "Delegate field accessibility to the field components.",
+        "Keep grouped validation visible and optionally live.",
+        "Keep submit and secondary commands as Button controls."
+      ],
+      "tests": [
+        "Composes Surface, field components, validation, feedback, and Buttons.",
+        "Density and state cascade through every child.",
+        "Field callbacks preserve metadata and event context.",
+        "No Card wrapper, raw input, raw button, or local Field shell is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Payment Form for card credential capture or review.",
+          "Add Input Amount only when the task needs amount or limit entry.",
+          "Route submit feedback through Status Feedback View."
+        ],
+        "mustAsk": [
+          "Credentials are stored, tokenized, or regulated.",
+          "The flow mixes wallet display, disputes, and payment capture in one screen.",
+          "A product asks for a new payment field not covered by Flow."
+        ],
+        "rejectIf": [
+          "Payment fields are raw inputs.",
+          "Card wraps the field group.",
+          "Field behavior is reimplemented in the pattern.",
+          "Submit feedback bypasses Status Feedback View."
+        ],
+        "handoff": "Confirm credential scope, amount requirements, validation timing, feedback type, submit action, and compliance review before shipping Payment Form."
+      }
+    }
+  }
+}

@@ -1,0 +1,4756 @@
+{
+  "status": "pass",
+  "audit": "zip system intake",
+  "principle": "Every ZIP component, guideline, token output, kit, template screen, email, and iOS preview must have a Flow taxonomy target and promotion path before new implementation work starts.",
+  "generatedAt": "2026-08-11T00:45:13.971Z",
+  "inventory": {
+    "zipComponents": 83,
+    "zipComponentsWithTypes": 63,
+    "zipComponentsWithPrompts": 63,
+    "componentPromotionItems": 0,
+    "componentExactOrAbsorbed": 83,
+    "componentNeedsDecision": 0,
+    "zipUiKitFiles": 40,
+    "declaredUiKitFiles": 40,
+    "undeclaredUiKitFiles": 0,
+    "zipKits": 16,
+    "coveredTemplateKits": 10,
+    "coveredPatternKits": 4,
+    "channelFamilies": 2,
+    "emailChannelFamilies": 1,
+    "iosPreviewFamilies": 1,
+    "flowFoundations": 11,
+    "flowPrimitives": 24,
+    "flowComponents": 60,
+    "flowPatterns": 59,
+    "flowTemplates": 9,
+    "zipGuidelineFiles": 15,
+    "zipTokenFiles": 7,
+    "zipPlatformFiles": 6,
+    "promotionWaves": 5,
+    "intakeDebt": 0
+  },
+  "promotionPlan": [
+    {
+      "wave": 1,
+      "name": "Intake lock",
+      "scope": "Freeze ZIP file coverage, taxonomy decisions, aliases, variants, states, and channel disposition.",
+      "items": 99,
+      "exitGates": [
+        "no undeclared ZIP kit files",
+        "every component has taxonomy target",
+        "every kit has owners or channel contract"
+      ]
+    },
+    {
+      "wave": 2,
+      "name": "Foundation and primitive validation",
+      "scope": "Confirm ZIP guidelines, tokens, platforms, Surface, Field Action, Message, Charts, Maps, and Density coverage before UI promotion.",
+      "items": 28,
+      "exitGates": [
+        "guidelines mapped to foundations",
+        "token outputs mapped to export contract",
+        "runtime primitive gaps explicit"
+      ]
+    },
+    {
+      "wave": 3,
+      "name": "Component and variant closure",
+      "scope": "Promote only true missing component contracts or variants; keep aliases and wrappers absorbed by existing Flow owners.",
+      "items": 0,
+      "exitGates": [
+        "React + types + ref",
+        "CSS contract or governed primitive",
+        "states and callbacks tested"
+      ]
+    },
+    {
+      "wave": 4,
+      "name": "Pattern closure",
+      "scope": "Promote ZIP concepts that are composition behavior into patterns before any template uses them.",
+      "items": 15,
+      "exitGates": [
+        "formal artifact",
+        "Surface where structural",
+        "component and primitive slot coverage",
+        "no Card-as-wrapper"
+      ]
+    },
+    {
+      "wave": 5,
+      "name": "Template and channel promotion",
+      "scope": "Validate covered templates and formalize email/iOS as channel contracts without pretending they share the same React runtime.",
+      "items": 16,
+      "exitGates": [
+        "template cascade audit",
+        "visual/runtime evidence",
+        "email table-safe contract",
+        "iOS adapter contract"
+      ]
+    }
+  ],
+  "componentPromotionItems": [],
+  "channelFamilies": [
+    {
+      "id": "mailings",
+      "classification": "covered-separate-channel",
+      "status": "covered-by-email-template-layout",
+      "zipPaths": [
+        "ui_kits/mailings/base-layout.html",
+        "ui_kits/mailings/transaccional-recibo.html",
+        "ui_kits/mailings/resumen-semanal.html",
+        "ui_kits/mailings/alerta-seguridad.html",
+        "ui_kits/mailings/invitacion-equipo.html",
+        "ui_kits/mailings/bienvenida.html",
+        "ui_kits/mailings/README.md"
+      ],
+      "channels": [
+        "email-html",
+        "web-html"
+      ],
+      "promotionTarget": "Email channel template",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Duration",
+          "Iconography",
+          "Message",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "components": [],
+        "patterns": [
+          "Email Template Layout"
+        ],
+        "templates": []
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": true,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": true,
+        "hasMailMarkup": true,
+        "hasIosFrame": false
+      },
+      "cascadeRisks": [
+        "email table layout copied into product React",
+        "hex tokens bypassing token contract",
+        "email card/footer becoming app components"
+      ],
+      "issues": [],
+      "promotionNeeded": true
+    },
+    {
+      "id": "ios-frame",
+      "classification": "blocked-separate-channel",
+      "status": "support-only-platform-frame",
+      "zipPaths": [
+        "ui_kits/ios-frame.jsx"
+      ],
+      "channels": [
+        "ios-preview",
+        "react-preview"
+      ],
+      "promotionTarget": "iOS preview adapter",
+      "owners": {
+        "foundations": [
+          "Frame",
+          "Depth"
+        ],
+        "primitives": [
+          "Surface",
+          "Radius",
+          "Iconography"
+        ],
+        "components": [],
+        "patterns": [],
+        "templates": []
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": true,
+        "hasInlineToken": true,
+        "hasMailMarkup": false,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "device frame copied into templates",
+        "safe-area wrapper bypassing Frame foundation",
+        "preview chrome becoming product UI"
+      ],
+      "issues": [],
+      "promotionNeeded": true
+    }
+  ],
+  "uiKitFileCoverage": {
+    "zipFiles": [
+      "ui_kits/agent-chat/index.html",
+      "ui_kits/auth-otp/index.html",
+      "ui_kits/auth/README.md",
+      "ui_kits/auth/index.html",
+      "ui_kits/config/index.html",
+      "ui_kits/dashboards/combustible.html",
+      "ui_kits/dashboards/electro.html",
+      "ui_kits/dashboards/finanzas.html",
+      "ui_kits/dashboards/mantenimiento.html",
+      "ui_kits/dashboards/overview.html",
+      "ui_kits/dashboards/peaje.html",
+      "ui_kits/drivers-app/README.md",
+      "ui_kits/drivers-app/index.html",
+      "ui_kits/fleet-dashboard/README.md",
+      "ui_kits/fleet-dashboard/index.html",
+      "ui_kits/internal-tools/accounts.html",
+      "ui_kits/internal-tools/backoffice.html",
+      "ui_kits/internal-tools/cases.html",
+      "ui_kits/internal-tools/growth-brutal.html",
+      "ui_kits/internal-tools/growth.html",
+      "ui_kits/internal-tools/index.html",
+      "ui_kits/internal-tools/pricing.html",
+      "ui_kits/internal-tools/shell.jsx",
+      "ui_kits/internal-tools/tickets.html",
+      "ui_kits/ios-frame.jsx",
+      "ui_kits/mailings/README.md",
+      "ui_kits/mailings/alerta-seguridad.html",
+      "ui_kits/mailings/base-layout.html",
+      "ui_kits/mailings/bienvenida.html",
+      "ui_kits/mailings/invitacion-equipo.html",
+      "ui_kits/mailings/resumen-semanal.html",
+      "ui_kits/mailings/transaccional-recibo.html",
+      "ui_kits/onboarding-driver/index.html",
+      "ui_kits/onboarding-fm/index.html",
+      "ui_kits/rutas/index.html",
+      "ui_kits/settings/README.md",
+      "ui_kits/settings/index.html",
+      "ui_kits/wallet/index.html",
+      "ui_kits/wizard/README.md",
+      "ui_kits/wizard/index.html"
+    ],
+    "declaredFiles": [
+      "ui_kits/agent-chat/index.html",
+      "ui_kits/auth-otp/index.html",
+      "ui_kits/auth/README.md",
+      "ui_kits/auth/index.html",
+      "ui_kits/config/index.html",
+      "ui_kits/dashboards/combustible.html",
+      "ui_kits/dashboards/electro.html",
+      "ui_kits/dashboards/finanzas.html",
+      "ui_kits/dashboards/mantenimiento.html",
+      "ui_kits/dashboards/overview.html",
+      "ui_kits/dashboards/peaje.html",
+      "ui_kits/drivers-app/README.md",
+      "ui_kits/drivers-app/index.html",
+      "ui_kits/fleet-dashboard/README.md",
+      "ui_kits/fleet-dashboard/index.html",
+      "ui_kits/internal-tools/accounts.html",
+      "ui_kits/internal-tools/backoffice.html",
+      "ui_kits/internal-tools/cases.html",
+      "ui_kits/internal-tools/growth-brutal.html",
+      "ui_kits/internal-tools/growth.html",
+      "ui_kits/internal-tools/index.html",
+      "ui_kits/internal-tools/pricing.html",
+      "ui_kits/internal-tools/shell.jsx",
+      "ui_kits/internal-tools/tickets.html",
+      "ui_kits/ios-frame.jsx",
+      "ui_kits/mailings/README.md",
+      "ui_kits/mailings/alerta-seguridad.html",
+      "ui_kits/mailings/base-layout.html",
+      "ui_kits/mailings/bienvenida.html",
+      "ui_kits/mailings/invitacion-equipo.html",
+      "ui_kits/mailings/resumen-semanal.html",
+      "ui_kits/mailings/transaccional-recibo.html",
+      "ui_kits/onboarding-driver/index.html",
+      "ui_kits/onboarding-fm/index.html",
+      "ui_kits/rutas/index.html",
+      "ui_kits/settings/README.md",
+      "ui_kits/settings/index.html",
+      "ui_kits/wallet/index.html",
+      "ui_kits/wizard/README.md",
+      "ui_kits/wizard/index.html"
+    ],
+    "undeclaredFiles": []
+  },
+  "components": [
+    {
+      "name": "Accordion",
+      "zipPath": "components/display/Accordion.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "accordion",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "content",
+          "defaultOpen",
+          "icon",
+          "id",
+          "items",
+          "meta",
+          "multiple",
+          "props",
+          "style",
+          "title"
+        ],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-expanded",
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Avatar",
+      "zipPath": "components/display/Avatar.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "avatar",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "Presence",
+          "name",
+          "props",
+          "size",
+          "src",
+          "status",
+          "style"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "busy",
+          "lg",
+          "md",
+          "offline",
+          "online",
+          "sm",
+          "xl"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Badge",
+      "zipPath": "components/display/Badge.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "badge",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "children",
+          "icon",
+          "live",
+          "props",
+          "style",
+          "tone"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "accent",
+          "danger",
+          "info",
+          "neutral",
+          "success",
+          "warning"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "BiometricPrompt",
+      "zipPath": "components/feedback/BiometricPrompt.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "biometric-prompt",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "card",
+          "description",
+          "fallbackLabel",
+          "method",
+          "onFallback",
+          "onUse",
+          "props",
+          "state",
+          "style",
+          "title"
+        ],
+        "callbackProps": [
+          "onFallback",
+          "onUse"
+        ],
+        "unionValues": [
+          "error",
+          "face",
+          "fingerprint",
+          "idle",
+          "scanning",
+          "success"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "error",
+          "success"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "BottomSheet",
+      "zipPath": "components/feedback/BottomSheet.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "action-sheet",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "children",
+          "fixed",
+          "height",
+          "onClose",
+          "open",
+          "props",
+          "style",
+          "title"
+        ],
+        "callbackProps": [
+          "onClose"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label",
+          "aria-modal"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Breadcrumb",
+      "zipPath": "components/navigation/Breadcrumb.jsx",
+      "category": "navigation",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "breadcrumbs",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "href",
+          "items",
+          "label",
+          "onClick",
+          "props",
+          "style"
+        ],
+        "callbackProps": [
+          "onClick"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-current",
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "BulkActionsTable",
+      "zipPath": "components/display/BulkActionsTable.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "virtual-data-table",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "BulletChart",
+      "zipPath": "components/display/BulletChart.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "chart-wrapper",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "format",
+          "label",
+          "max",
+          "prev",
+          "props",
+          "rows",
+          "style",
+          "target",
+          "value"
+        ],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Button",
+      "zipPath": "components/actions/Button.jsx",
+      "category": "actions",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "button",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "ariaLabel",
+          "children",
+          "disabled",
+          "fullWidth",
+          "icon",
+          "iconTrailing",
+          "loading",
+          "onClick",
+          "props",
+          "size",
+          "style",
+          "type",
+          "variant"
+        ],
+        "callbackProps": [
+          "onClick"
+        ],
+        "unionValues": [
+          "700x320",
+          "Actions",
+          "Botón pill con feedback de resorte — 5 variantes, 3 tamaños",
+          "accent",
+          "button",
+          "danger",
+          "ghost",
+          "lg",
+          "md",
+          "primary",
+          "reset",
+          "secondary",
+          "sm",
+          "submit"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-busy",
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Card",
+      "zipPath": "components/display/Card.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "card",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "children",
+          "interactive",
+          "onClick",
+          "padding",
+          "props",
+          "selected",
+          "style"
+        ],
+        "callbackProps": [
+          "onClick"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "CardMedia",
+      "zipPath": "components/display/CardMedia.jsx",
+      "category": "display",
+      "taxonomyTarget": "Contract",
+      "flowLayer": "contract",
+      "flowOwner": "surface/card media composition",
+      "decision": "do-not-add-component",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Charts",
+      "zipPath": "components/display/Charts.jsx",
+      "category": "display",
+      "taxonomyTarget": "Primitive",
+      "flowLayer": "primitive",
+      "flowOwner": "charts",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "color",
+          "data",
+          "format",
+          "height",
+          "highlightMax",
+          "label",
+          "props",
+          "showDot",
+          "style",
+          "value",
+          "values",
+          "width"
+        ],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "ChatComposer",
+      "zipPath": "components/forms/ChatComposer.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "chat-composer",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "disabled",
+          "onChange",
+          "onSend",
+          "placeholder",
+          "props",
+          "style",
+          "suggestions",
+          "text",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange",
+          "onSend"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "ChatMessage",
+      "zipPath": "components/display/ChatMessage.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "chat-message",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "children",
+          "icon",
+          "label",
+          "props",
+          "role",
+          "status",
+          "streaming",
+          "style",
+          "text",
+          "timestamp",
+          "tool"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "agent",
+          "done",
+          "running",
+          "user"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "ChatThread",
+      "zipPath": "components/display/ChatThread.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "chat-thread",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "content",
+          "emptyState",
+          "icon",
+          "id",
+          "label",
+          "messages",
+          "props",
+          "role",
+          "status",
+          "streaming",
+          "style",
+          "text",
+          "timestamp",
+          "tool"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "agent",
+          "done",
+          "running",
+          "user"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Checkbox",
+      "zipPath": "components/forms/Checkbox.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "checkbox",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "checked",
+          "disabled",
+          "indeterminate",
+          "label",
+          "onChange",
+          "props",
+          "style"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Chip",
+      "zipPath": "components/display/Chip.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "chip",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "disabled",
+          "icon",
+          "label",
+          "onClick",
+          "onRemove",
+          "props",
+          "selected",
+          "style"
+        ],
+        "callbackProps": [
+          "onClick",
+          "onRemove"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label",
+          "aria-pressed"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "CircularProgress",
+      "zipPath": "components/feedback/CircularProgress.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "progress-indicator",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "label",
+          "max",
+          "props",
+          "showValue",
+          "size",
+          "strokeWidth",
+          "style",
+          "tone",
+          "value"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "accent",
+          "ink",
+          "success",
+          "warning"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Combobox",
+      "zipPath": "components/forms/Combobox.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "combobox",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "disabled",
+          "emptyText",
+          "icon",
+          "invalid",
+          "label",
+          "meta",
+          "onChange",
+          "options",
+          "placeholder",
+          "props",
+          "style",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-autocomplete",
+          "aria-expanded",
+          "aria-hidden",
+          "aria-label",
+          "aria-selected"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "DatePicker",
+      "zipPath": "components/forms/DatePicker.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "date-picker",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "disabled",
+          "invalid",
+          "isoDate",
+          "max",
+          "min",
+          "onChange",
+          "placeholder",
+          "props",
+          "style",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": [
+          "2026-07-08"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-expanded",
+          "aria-haspopup",
+          "aria-hidden",
+          "aria-invalid",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "DateRangePicker",
+      "zipPath": "components/forms/DateRangePicker.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "date-range-picker",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "disabled",
+          "from",
+          "onChange",
+          "placeholder",
+          "presets",
+          "props",
+          "range",
+          "style",
+          "to",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-expanded",
+          "aria-haspopup",
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Dialog",
+      "zipPath": "components/feedback/Dialog.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "dialog",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "actions",
+          "children",
+          "description",
+          "onClose",
+          "open",
+          "props",
+          "style",
+          "title",
+          "tone",
+          "width"
+        ],
+        "callbackProps": [
+          "onClose"
+        ],
+        "unionValues": [
+          "danger",
+          "success"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label",
+          "aria-modal"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "warning"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Divider",
+      "zipPath": "components/display/Divider.jsx",
+      "category": "display",
+      "taxonomyTarget": "Contract",
+      "flowLayer": "contract",
+      "flowOwner": "separator composition",
+      "decision": "do-not-add-component",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "label",
+          "orientation",
+          "props",
+          "style"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "horizontal",
+          "vertical"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-label",
+          "aria-orientation"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Donut",
+      "zipPath": "components/display/Donut.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "chart-wrapper",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "centerLabel",
+          "centerValue",
+          "color",
+          "label",
+          "legend",
+          "props",
+          "segments",
+          "size",
+          "style",
+          "thickness",
+          "value"
+        ],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Drawer",
+      "zipPath": "components/feedback/Drawer.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "drawer",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "children",
+          "footer",
+          "onClose",
+          "open",
+          "props",
+          "side",
+          "style",
+          "title",
+          "width"
+        ],
+        "callbackProps": [
+          "onClose"
+        ],
+        "unionValues": [
+          "left",
+          "right"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label",
+          "aria-modal"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "EmptyState",
+      "zipPath": "components/display/EmptyState.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "empty-state",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "action",
+          "description",
+          "icon",
+          "props",
+          "state",
+          "style",
+          "title"
+        ],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Field",
+      "zipPath": "components/forms/Field.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Contract",
+      "flowLayer": "contract",
+      "flowOwner": "field family CSS contract",
+      "decision": "do-not-add-wrapper",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "children",
+          "error",
+          "help",
+          "htmlFor",
+          "label",
+          "props",
+          "required",
+          "style"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "alert"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "error"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "FileUpload",
+      "zipPath": "components/forms/FileUpload.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "file-upload",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "accept",
+          "disabled",
+          "files",
+          "hint",
+          "label",
+          "multiple",
+          "name",
+          "onChange",
+          "props",
+          "size",
+          "style"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": [
+          ".pdf,image/*"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "FilterableEditableTable",
+      "zipPath": "components/display/FilterableEditableTable.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "filterable-editable-table",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "GanttChart",
+      "zipPath": "components/display/GanttChart.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "gantt-chart",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Heatmap",
+      "zipPath": "components/display/Heatmap.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "chart-wrapper",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "cell",
+          "col",
+          "cols",
+          "format",
+          "max",
+          "onCellClick",
+          "props",
+          "row",
+          "rows",
+          "style",
+          "value",
+          "values"
+        ],
+        "callbackProps": [
+          "onCellClick"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "HelpCenter",
+      "zipPath": "components/display/HelpCenter.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "help-center",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "IconButton",
+      "zipPath": "components/actions/IconButton.jsx",
+      "category": "actions",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "icon-button",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "ariaLabel",
+          "badge",
+          "disabled",
+          "icon",
+          "onClick",
+          "props",
+          "selected",
+          "size",
+          "style",
+          "variant"
+        ],
+        "callbackProps": [
+          "onClick"
+        ],
+        "unionValues": [
+          "accent",
+          "ghost",
+          "lg",
+          "md",
+          "primary",
+          "sm",
+          "tonal"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label",
+          "aria-pressed"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Input",
+      "zipPath": "components/forms/Input.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "input",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "disabled",
+          "icon",
+          "id",
+          "invalid",
+          "mono",
+          "onChange",
+          "placeholder",
+          "props",
+          "size",
+          "style",
+          "suffix",
+          "type",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": [
+          "md",
+          "sm"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-invalid"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "InputAmount",
+      "zipPath": "components/forms/InputAmount.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "input-amount",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "InputDate",
+      "zipPath": "components/forms/InputDate.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "date-picker",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "InputEmail",
+      "zipPath": "components/forms/InputEmail.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "input",
+      "decision": "variant",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "InputPassword",
+      "zipPath": "components/forms/InputPassword.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "input",
+      "decision": "variant",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "InputPhone",
+      "zipPath": "components/forms/InputPhone.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "phone-input",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "KanbanBoard",
+      "zipPath": "components/display/KanbanBoard.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "kanban-board",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "LineChart",
+      "zipPath": "components/display/LineChart.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "chart-wrapper",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "color",
+          "format",
+          "height",
+          "label",
+          "labels",
+          "legend",
+          "props",
+          "series",
+          "style",
+          "value",
+          "values"
+        ],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "MapCanvas",
+      "zipPath": "components/display/MapCanvas.jsx",
+      "category": "display",
+      "taxonomyTarget": "Primitive",
+      "flowLayer": "primitive",
+      "flowOwner": "maps",
+      "decision": "covered-by-primitive-runtime",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "ariaLabel",
+          "center",
+          "dark",
+          "height",
+          "icon",
+          "id",
+          "label",
+          "lat",
+          "lng",
+          "onPinClick",
+          "pin",
+          "pins",
+          "props",
+          "route",
+          "selectedId",
+          "style",
+          "width",
+          "zoom"
+        ],
+        "callbackProps": [
+          "onPinClick"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label",
+          "aria-pressed"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Menu",
+      "zipPath": "components/actions/Menu.jsx",
+      "category": "actions",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "menu",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "align",
+          "danger",
+          "disabled",
+          "icon",
+          "items",
+          "label",
+          "onClick",
+          "props",
+          "style",
+          "trigger"
+        ],
+        "callbackProps": [
+          "onClick"
+        ],
+        "unionValues": [
+          "divider",
+          "left",
+          "more_vert",
+          "right"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-expanded",
+          "aria-haspopup",
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "NotificationCenter",
+      "zipPath": "components/feedback/NotificationCenter.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "notification-panel",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "align",
+          "desc",
+          "id",
+          "item",
+          "items",
+          "onItemClick",
+          "onMarkAllRead",
+          "props",
+          "read",
+          "style",
+          "time",
+          "title",
+          "tone"
+        ],
+        "callbackProps": [
+          "onItemClick",
+          "onMarkAllRead"
+        ],
+        "unionValues": [
+          "danger",
+          "info",
+          "left",
+          "right",
+          "success",
+          "warning"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "error",
+          "warning"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "OnboardingCarousel",
+      "zipPath": "components/navigation/OnboardingCarousel.jsx",
+      "category": "navigation",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "driver-onboarding-mobile",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "description",
+          "doneLabel",
+          "icon",
+          "illustration",
+          "index",
+          "onDone",
+          "onIndexChange",
+          "onSkip",
+          "onboarding",
+          "props",
+          "skipLabel",
+          "slides",
+          "style",
+          "title"
+        ],
+        "callbackProps": [
+          "onDone",
+          "onIndexChange",
+          "onSkip"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "OTPInput",
+      "zipPath": "components/forms/OTPInput.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "code-input",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "autoFocus",
+          "code",
+          "disabled",
+          "invalid",
+          "length",
+          "onChange",
+          "onComplete",
+          "props",
+          "style",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange",
+          "onComplete"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Pagination",
+      "zipPath": "components/navigation/Pagination.jsx",
+      "category": "navigation",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "pagination",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "onChange",
+          "page",
+          "pages",
+          "props",
+          "style"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-current",
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "ParetoChart",
+      "zipPath": "components/display/ParetoChart.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "chart-wrapper",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "data",
+          "format",
+          "height",
+          "label",
+          "props",
+          "style",
+          "threshold",
+          "value"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "the few units driving most of the cost"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "PasscodeKeypad",
+      "zipPath": "components/forms/PasscodeKeypad.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "code-input",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "biometricIcon",
+          "invalid",
+          "length",
+          "onBiometric",
+          "onChange",
+          "onComplete",
+          "props",
+          "style",
+          "value"
+        ],
+        "callbackProps": [
+          "onBiometric",
+          "onChange",
+          "onComplete"
+        ],
+        "unionValues": [
+          "ar_on_you",
+          "fingerprint"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "PaymentCard",
+      "zipPath": "components/display/PaymentCard.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "card-summary",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "expires",
+          "frozen",
+          "holder",
+          "label",
+          "last4",
+          "onClick",
+          "props",
+          "style",
+          "variant",
+          "width"
+        ],
+        "callbackProps": [
+          "onClick"
+        ],
+        "unionValues": [
+          "accent",
+          "ink",
+          "sand"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "PolarChart",
+      "zipPath": "components/display/PolarChart.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "polar-chart",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Progress",
+      "zipPath": "components/feedback/Progress.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "progress-indicator",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "label",
+          "max",
+          "props",
+          "showValue",
+          "size",
+          "style",
+          "tone",
+          "value"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "accent",
+          "ink",
+          "md",
+          "sm",
+          "success",
+          "warning"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-label",
+          "aria-valuemax",
+          "aria-valuemin",
+          "aria-valuenow"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Radio",
+      "zipPath": "components/forms/Radio.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "radio-button",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "checked",
+          "description",
+          "disabled",
+          "label",
+          "name",
+          "onChange",
+          "props",
+          "style",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "RoleMatrix",
+      "zipPath": "components/display/RoleMatrix.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "roles-and-permissions",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "group",
+          "id",
+          "label",
+          "locked",
+          "next",
+          "onChange",
+          "permId",
+          "permissions",
+          "props",
+          "roleId",
+          "roles",
+          "style",
+          "values"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": [
+          "values"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label",
+          "aria-pressed"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "ScatterPlot",
+      "zipPath": "components/display/ScatterPlot.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "chart-wrapper",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "color",
+          "format",
+          "height",
+          "id",
+          "label",
+          "onSelect",
+          "point",
+          "points",
+          "props",
+          "selectedId",
+          "size",
+          "style",
+          "width",
+          "xLabel",
+          "xThreshold",
+          "yLabel",
+          "yThreshold"
+        ],
+        "callbackProps": [
+          "onSelect"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "SegmentedControl",
+      "zipPath": "components/navigation/SegmentedControl.jsx",
+      "category": "navigation",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "segmented-control",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "icon",
+          "items",
+          "label",
+          "onChange",
+          "props",
+          "style",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-selected"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Select",
+      "zipPath": "components/forms/Select.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "select",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "disabled",
+          "icon",
+          "id",
+          "invalid",
+          "label",
+          "onChange",
+          "options",
+          "placeholder",
+          "props",
+          "style",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-expanded",
+          "aria-haspopup",
+          "aria-hidden",
+          "aria-invalid",
+          "aria-selected"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "SelectCombo",
+      "zipPath": "components/forms/SelectCombo.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "combobox",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-expanded",
+          "aria-haspopup",
+          "aria-hidden",
+          "aria-invalid",
+          "aria-selected"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "SelectCountry",
+      "zipPath": "components/forms/SelectCountry.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "country-selector",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-expanded",
+          "aria-haspopup",
+          "aria-hidden",
+          "aria-selected"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "SelectMultiple",
+      "zipPath": "components/forms/SelectMultiple.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "multi-select",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-expanded",
+          "aria-haspopup",
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Sidebar",
+      "zipPath": "components/navigation/Sidebar.jsx",
+      "category": "navigation",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "sidebar",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [
+          "icon"
+        ],
+        "stateWords": [],
+        "usesInlineStyle": true,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Skeleton",
+      "zipPath": "components/display/Skeleton.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "skeleton",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "height",
+          "props",
+          "style",
+          "variant",
+          "width"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "card",
+          "circle",
+          "pill",
+          "text",
+          "title"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Slider",
+      "zipPath": "components/forms/Slider.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "slider",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "disabled",
+          "format",
+          "label",
+          "max",
+          "min",
+          "onChange",
+          "props",
+          "step",
+          "style",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": [
+          " km"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "SmallMultiples",
+      "zipPath": "components/display/SmallMultiples.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "chart-wrapper",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "columns",
+          "format",
+          "height",
+          "id",
+          "isOutlier",
+          "item",
+          "items",
+          "label",
+          "onSelect",
+          "props",
+          "selectedId",
+          "style",
+          "values"
+        ],
+        "callbackProps": [
+          "onSelect"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Spinner",
+      "zipPath": "components/feedback/Spinner.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "spinner",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "color",
+          "label",
+          "props",
+          "size",
+          "style"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "Cargando"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "StackedBars100",
+      "zipPath": "components/display/StackedBars100.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "chart-wrapper",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "bars",
+          "colors",
+          "groups",
+          "height",
+          "key",
+          "label",
+          "legend",
+          "props",
+          "segmentKeys",
+          "segments",
+          "style",
+          "value"
+        ],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "StatTile",
+      "zipPath": "components/display/StatTile.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "kpi-tile",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "delta",
+          "icon",
+          "label",
+          "props",
+          "style",
+          "tile",
+          "tone",
+          "trend",
+          "value"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "down",
+          "flat",
+          "up"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "StatusView",
+      "zipPath": "components/feedback/StatusView.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "status-feedback-view",
+      "decision": "covered-by-pattern",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "description",
+          "flows",
+          "fullScreen",
+          "primaryAction",
+          "props",
+          "secondaryAction",
+          "status",
+          "style",
+          "title"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "error",
+          "loading",
+          "offline",
+          "pending",
+          "success"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "error",
+          "loading",
+          "success"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Stepper",
+      "zipPath": "components/navigation/Stepper.jsx",
+      "category": "navigation",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "stepper",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "current",
+          "description",
+          "label",
+          "orientation",
+          "props",
+          "steps",
+          "style"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "horizontal",
+          "vertical"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-current",
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Switch",
+      "zipPath": "components/forms/Switch.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "switch",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "checked",
+          "disabled",
+          "label",
+          "onChange",
+          "props",
+          "style"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "TabBar",
+      "zipPath": "components/navigation/TabBar.jsx",
+      "category": "navigation",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "tabs",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "activeId",
+          "badge",
+          "icon",
+          "id",
+          "items",
+          "label",
+          "onChange",
+          "props",
+          "style"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-current",
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Table",
+      "zipPath": "components/display/Table.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "table",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "align",
+          "columns",
+          "defaultSort",
+          "dense",
+          "dir",
+          "key",
+          "label",
+          "mono",
+          "onRowClick",
+          "props",
+          "render",
+          "row",
+          "rowKey",
+          "rows",
+          "selectedKey",
+          "sort",
+          "sortValue",
+          "sortable",
+          "style",
+          "width"
+        ],
+        "callbackProps": [
+          "onRowClick"
+        ],
+        "unionValues": [
+          "center",
+          "left",
+          "right"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-sort"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "TableTimeline",
+      "zipPath": "components/display/TableTimeline.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "timeline",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "TableTree",
+      "zipPath": "components/display/TableTree.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "tree-view",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Tabs",
+      "zipPath": "components/navigation/Tabs.jsx",
+      "category": "navigation",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "tabs",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "count",
+          "icon",
+          "items",
+          "label",
+          "onChange",
+          "props",
+          "style",
+          "value",
+          "variant"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": [
+          "pill",
+          "underline"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-selected"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Textarea",
+      "zipPath": "components/forms/Textarea.jsx",
+      "category": "forms",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "text-area",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "disabled",
+          "id",
+          "invalid",
+          "maxLength",
+          "onChange",
+          "placeholder",
+          "props",
+          "rows",
+          "style",
+          "value"
+        ],
+        "callbackProps": [
+          "onChange"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-invalid"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Timeline",
+      "zipPath": "components/display/Timeline.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "timeline",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "description",
+          "icon",
+          "id",
+          "items",
+          "props",
+          "status",
+          "style",
+          "timeline",
+          "timestamp",
+          "title"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "active",
+          "done",
+          "error",
+          "pending"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "active"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Toast",
+      "zipPath": "components/feedback/Toast.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "toast",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "actionLabel",
+          "children",
+          "message",
+          "onAction",
+          "onDismiss",
+          "props",
+          "style",
+          "tone"
+        ],
+        "callbackProps": [
+          "onAction",
+          "onDismiss"
+        ],
+        "unionValues": [
+          "danger",
+          "neutral",
+          "success",
+          "warning"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden",
+          "aria-label"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "error",
+          "warning"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Tooltip",
+      "zipPath": "components/feedback/Tooltip.jsx",
+      "category": "feedback",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "tooltip",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "children",
+          "content",
+          "position",
+          "props",
+          "style"
+        ],
+        "callbackProps": [],
+        "unionValues": [
+          "bottom",
+          "left",
+          "right",
+          "top"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "TopBar",
+      "zipPath": "components/navigation/TopBar.jsx",
+      "category": "navigation",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "topbar",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [
+          "icon"
+        ],
+        "stateWords": [],
+        "usesInlineStyle": true,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "TransactionRow",
+      "zipPath": "components/display/TransactionRow.jsx",
+      "category": "display",
+      "taxonomyTarget": "Component",
+      "flowLayer": "component",
+      "flowOwner": "movement-row",
+      "decision": "rename",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "amount",
+          "category",
+          "currency",
+          "onClick",
+          "pending",
+          "props",
+          "row",
+          "style",
+          "subtitle",
+          "title"
+        ],
+        "callbackProps": [
+          "onClick"
+        ],
+        "unionValues": [
+          "charge",
+          "food",
+          "fuel",
+          "income",
+          "toll",
+          "transfer"
+        ]
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [
+          "aria-hidden"
+        ],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "Treemap",
+      "zipPath": "components/display/Treemap.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "chart-wrapper",
+      "decision": "absorbed",
+      "exactOrAbsorbed": true,
+      "hasTypes": true,
+      "hasPrompt": true,
+      "typeSignal": {
+        "props": [
+          "children",
+          "deviation",
+          "format",
+          "height",
+          "id",
+          "label",
+          "node",
+          "nodes",
+          "onDrill",
+          "props",
+          "style",
+          "value",
+          "width"
+        ],
+        "callbackProps": [
+          "onDrill"
+        ],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [
+          "default"
+        ],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    },
+    {
+      "name": "WaterfallChart",
+      "zipPath": "components/display/WaterfallChart.jsx",
+      "category": "display",
+      "taxonomyTarget": "Pattern",
+      "flowLayer": "pattern",
+      "flowOwner": "waterfall-chart",
+      "decision": "exact",
+      "exactOrAbsorbed": true,
+      "hasTypes": false,
+      "hasPrompt": false,
+      "typeSignal": {
+        "props": [],
+        "callbackProps": [],
+        "unionValues": []
+      },
+      "jsxSignal": {
+        "dataAttrs": [],
+        "ariaAttrs": [],
+        "roles": [],
+        "classRoots": [],
+        "stateWords": [],
+        "usesInlineStyle": false,
+        "usesDangerousHtml": false
+      },
+      "promotionNeeded": false
+    }
+  ],
+  "kits": [
+    {
+      "id": "agent-chat",
+      "classification": "covered-by-template",
+      "status": "covered-by-agent-workspace",
+      "candidateName": "Agent Workspace",
+      "zipPaths": [
+        "ui_kits/agent-chat/index.html"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Charts",
+          "Message",
+          "Surface",
+          "Typography"
+        ],
+        "components": [
+          "Chat Message",
+          "Chat Thread",
+          "Chat Composer",
+          "KPI Tile",
+          "Table",
+          "Chart Panel",
+          "Button",
+          "Icon Button",
+          "Input",
+          "Breadcrumbs",
+          "Avatar",
+          "Badge",
+          "Skeleton",
+          "Toast"
+        ],
+        "patterns": [
+          "Topbar",
+          "Status Feedback View"
+        ],
+        "templates": [
+          "Agent Workspace"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": true,
+        "hasMailMarkup": true,
+        "hasIosFrame": false
+      },
+      "cascadeRisks": [
+        "parallel message shell",
+        "raw composer field",
+        "local status/loading states",
+        "assistant/user theming outside Message primitive",
+        "custom recovery banner outside Status Feedback View"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "auth",
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "zipPaths": [
+        "ui_kits/auth/index.html",
+        "ui_kits/auth/README.md"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Pattern validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Button",
+          "Input",
+          "Checkbox",
+          "Switch",
+          "Inline Validation",
+          "Spinner",
+          "Toast"
+        ],
+        "patterns": [
+          "Authentication, Login, Biometrics and OTP",
+          "Form Section"
+        ],
+        "templates": []
+      },
+      "sourceSignals": {
+        "hasForm": true,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": false,
+        "hasMailMarkup": true,
+        "hasIosFrame": false
+      },
+      "cascadeRisks": [
+        "brand panel becoming a copied shell",
+        "raw form field wrapper",
+        "theme toggle bypassing density/theme cascade"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "auth-otp",
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "zipPaths": [
+        "ui_kits/auth-otp/index.html"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Pattern validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Field Action",
+          "Iconography"
+        ],
+        "components": [
+          "Biometric Prompt",
+          "Code Input",
+          "Input",
+          "Button",
+          "Checkbox",
+          "Badge",
+          "Inline Validation",
+          "Toast"
+        ],
+        "patterns": [
+          "Authentication, Login, Biometrics and OTP"
+        ],
+        "templates": []
+      },
+      "sourceSignals": {
+        "hasForm": true,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": true,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "local passcode keypad",
+        "raw OTP slots",
+        "auth sheet outside Dialog/Drawer/Surface"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "config",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/config/index.html"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Table",
+          "Tree View",
+          "Audit Event",
+          "Button",
+          "Icon Button",
+          "Input",
+          "Badge",
+          "Tabs",
+          "Avatar",
+          "Toast",
+          "Breadcrumbs",
+          "Menu",
+          "Select",
+          "Combobox",
+          "Text Area",
+          "Dialog",
+          "Drawer"
+        ],
+        "patterns": [
+          "Topbar",
+          "Sidebar",
+          "Roles and Permissions",
+          "Driver and Vehicle Administration",
+          "Authentication, Login, Biometrics and OTP"
+        ],
+        "templates": [
+          "Configuration Console"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": false,
+        "hasMailMarkup": true,
+        "hasIosFrame": false
+      },
+      "cascadeRisks": [
+        "permission matrix clone",
+        "raw lifecycle table",
+        "custom admin shell"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "dashboards",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/dashboards/overview.html",
+        "ui_kits/dashboards/combustible.html",
+        "ui_kits/dashboards/mantenimiento.html",
+        "ui_kits/dashboards/electro.html",
+        "ui_kits/dashboards/peaje.html",
+        "ui_kits/dashboards/finanzas.html"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Charts",
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Chart Panel",
+          "KPI Tile",
+          "Table",
+          "Button",
+          "Icon Button",
+          "Badge",
+          "Tabs",
+          "Breadcrumbs",
+          "Avatar",
+          "Tooltip",
+          "Menu",
+          "Progress Indicator",
+          "Date Picker",
+          "Date Range Picker",
+          "Combobox"
+        ],
+        "patterns": [
+          "Topbar",
+          "Sidebar",
+          "Advanced Filters",
+          "KPI Card",
+          "Chart Wrapper",
+          "Virtual Data Table"
+        ],
+        "templates": [
+          "Fleet Dashboard Suite"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": true,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": false,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "standalone charts",
+        "custom dashboard switcher",
+        "raw table toolbar",
+        "finance visibility outside permissions"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "drivers-app",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/drivers-app/index.html",
+        "ui_kits/drivers-app/README.md"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Maps",
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Card Summary",
+          "Movement Row",
+          "Route Summary",
+          "Station Pin",
+          "Button",
+          "Icon Button",
+          "Switch",
+          "Badge",
+          "Avatar",
+          "Progress Indicator",
+          "Toast"
+        ],
+        "patterns": [
+          "Driver Onboarding Mobile",
+          "Station Discovery",
+          "Snackbar Provider"
+        ],
+        "templates": [
+          "Driver Mobile App"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": true,
+        "hasMailMarkup": true,
+        "hasIosFrame": false
+      },
+      "cascadeRisks": [
+        "tab bar clone",
+        "card wallet clone",
+        "map/list divergence",
+        "dark theme hardcoding"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "fleet-dashboard",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/fleet-dashboard/index.html",
+        "ui_kits/fleet-dashboard/README.md"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Charts",
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "KPI Tile",
+          "Table",
+          "Button",
+          "Icon Button",
+          "Input",
+          "Select",
+          "Tabs",
+          "Badge",
+          "Chip",
+          "Avatar",
+          "Toast",
+          "Breadcrumbs",
+          "Empty State",
+          "Tooltip",
+          "Progress Indicator",
+          "Menu",
+          "Accordion",
+          "Pagination",
+          "Date Picker",
+          "Skeleton",
+          "Dialog",
+          "Drawer"
+        ],
+        "patterns": [
+          "Topbar",
+          "Sidebar",
+          "Advanced Filters",
+          "KPI Card",
+          "Virtual Data Table",
+          "Confirmation Dialog",
+          "File Upload",
+          "Notification Panel"
+        ],
+        "templates": [
+          "Fleet Manager Desktop",
+          "Fleet Dashboard Suite"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": true,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": false,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "custom sidebar/topbar",
+        "raw CRUD table",
+        "details drawer outside Drawer"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "internal-tools",
+      "classification": "covered-by-template",
+      "status": "covered-by-internal-operations-console",
+      "candidateName": "Internal Operations Console",
+      "zipPaths": [
+        "ui_kits/internal-tools/index.html",
+        "ui_kits/internal-tools/accounts.html",
+        "ui_kits/internal-tools/backoffice.html",
+        "ui_kits/internal-tools/cases.html",
+        "ui_kits/internal-tools/growth.html",
+        "ui_kits/internal-tools/growth-brutal.html",
+        "ui_kits/internal-tools/pricing.html",
+        "ui_kits/internal-tools/tickets.html",
+        "ui_kits/internal-tools/shell.jsx"
+      ],
+      "channels": [
+        "react-preview",
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "KPI Tile",
+          "Table",
+          "Badge",
+          "Avatar",
+          "Button",
+          "Icon Button",
+          "Input",
+          "Select",
+          "Tabs",
+          "Chat Thread",
+          "Toast",
+          "Menu",
+          "Dialog",
+          "Drawer"
+        ],
+        "patterns": [
+          "Topbar",
+          "Sidebar",
+          "Case Management",
+          "Ticket Queue",
+          "Account Operations",
+          "Pricing Operations",
+          "Backoffice Approval",
+          "Dense Operational List",
+          "Status Feedback View",
+          "Timeline"
+        ],
+        "templates": [
+          "Internal Operations Console"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": true,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": true,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "admin shell duplication with Configuration Console",
+        "raw operations table outside owning pattern",
+        "growth-brutal theme escaping theme contract",
+        "pricing cards outside Surface ownership"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "mailings",
+      "classification": "covered-separate-channel",
+      "status": "covered-by-email-template-layout",
+      "zipPaths": [
+        "ui_kits/mailings/base-layout.html",
+        "ui_kits/mailings/transaccional-recibo.html",
+        "ui_kits/mailings/resumen-semanal.html",
+        "ui_kits/mailings/alerta-seguridad.html",
+        "ui_kits/mailings/invitacion-equipo.html",
+        "ui_kits/mailings/bienvenida.html",
+        "ui_kits/mailings/README.md"
+      ],
+      "channels": [
+        "email-html",
+        "web-html"
+      ],
+      "promotionTarget": "Email channel template",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitives": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Duration",
+          "Iconography",
+          "Message",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "components": [],
+        "patterns": [
+          "Email Template Layout"
+        ],
+        "templates": []
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": true,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": true,
+        "hasMailMarkup": true,
+        "hasIosFrame": false
+      },
+      "cascadeRisks": [
+        "email table layout copied into product React",
+        "hex tokens bypassing token contract",
+        "email card/footer becoming app components"
+      ],
+      "issues": [],
+      "promotionNeeded": true
+    },
+    {
+      "id": "ios-frame",
+      "classification": "blocked-separate-channel",
+      "status": "support-only-platform-frame",
+      "zipPaths": [
+        "ui_kits/ios-frame.jsx"
+      ],
+      "channels": [
+        "ios-preview",
+        "react-preview"
+      ],
+      "promotionTarget": "iOS preview adapter",
+      "owners": {
+        "foundations": [
+          "Frame",
+          "Depth"
+        ],
+        "primitives": [
+          "Surface",
+          "Radius",
+          "Iconography"
+        ],
+        "components": [],
+        "patterns": [],
+        "templates": []
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": true,
+        "hasInlineToken": true,
+        "hasMailMarkup": false,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "device frame copied into templates",
+        "safe-area wrapper bypassing Frame foundation",
+        "preview chrome becoming product UI"
+      ],
+      "issues": [],
+      "promotionNeeded": true
+    },
+    {
+      "id": "onboarding-driver",
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "zipPaths": [
+        "ui_kits/onboarding-driver/index.html"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Pattern validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Stepper",
+          "Input",
+          "Code Input",
+          "Biometric Prompt",
+          "Card Summary",
+          "Movement Row",
+          "Progress Indicator",
+          "Switch",
+          "Button",
+          "Badge",
+          "Toast"
+        ],
+        "patterns": [
+          "Driver Onboarding Mobile",
+          "Multi Step Form",
+          "Authentication, Login, Biometrics and OTP"
+        ],
+        "templates": [
+          "Driver Mobile App"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": true,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "onboarding carousel clone",
+        "wizard steps outside Stepper/Multi Step Form"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "onboarding-fm",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/onboarding-fm/index.html"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Stepper",
+          "Button",
+          "Input",
+          "Select",
+          "Code Input",
+          "Checkbox",
+          "Chip",
+          "Badge",
+          "Toast",
+          "Empty State"
+        ],
+        "patterns": [
+          "Fleet Manager Onboarding Desktop",
+          "Multi Step Form",
+          "Roles and Permissions"
+        ],
+        "templates": [
+          "Fleet Manager Desktop"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": false,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "desktop onboarding shell clone",
+        "setup checklist outside pattern"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "rutas",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/rutas/index.html"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Maps",
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Station Pin",
+          "Route Summary",
+          "Button",
+          "Icon Button",
+          "Chip",
+          "Badge",
+          "Spinner"
+        ],
+        "patterns": [
+          "Station Discovery",
+          "Search",
+          "Action Sheet"
+        ],
+        "templates": [
+          "Routes and Stations"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": true,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "map runtime clone",
+        "station card shell",
+        "search outside Search pattern"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "settings",
+      "classification": "covered-by-template",
+      "status": "covered-by-settings-workspace",
+      "candidateName": "Settings Workspace",
+      "zipPaths": [
+        "ui_kits/settings/index.html",
+        "ui_kits/settings/README.md"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Tabs",
+          "Input",
+          "Switch",
+          "Select",
+          "Button",
+          "Badge",
+          "Avatar",
+          "Toast",
+          "Breadcrumbs",
+          "Dialog",
+          "Inline Validation"
+        ],
+        "patterns": [
+          "Preference Management",
+          "Settings",
+          "Form Section",
+          "Confirmation Dialog"
+        ],
+        "templates": [
+          "Settings Workspace"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": false,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "theme toggle mutating root outside theme contract",
+        "danger action outside Confirmation Dialog",
+        "settings controls rendered locally outside Preference Management"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "wallet",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/wallet/index.html"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Template validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Card Summary",
+          "Movement Row",
+          "Quick Action",
+          "Button",
+          "Icon Button",
+          "Segmented Control",
+          "Switch",
+          "Badge"
+        ],
+        "patterns": [
+          "Snackbar Provider",
+          "Confirmation Dialog",
+          "Action Sheet"
+        ],
+        "templates": [
+          "Driver Card Wallet"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": true,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "payment card clone",
+        "transaction row clone",
+        "quick actions outside Quick Action component"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    },
+    {
+      "id": "wizard",
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "zipPaths": [
+        "ui_kits/wizard/index.html",
+        "ui_kits/wizard/README.md"
+      ],
+      "channels": [
+        "web-html"
+      ],
+      "promotionTarget": "Pattern validation",
+      "owners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Stepper",
+          "Input",
+          "Select",
+          "Radio Button",
+          "Date Picker",
+          "Button",
+          "Badge",
+          "Avatar",
+          "Breadcrumbs",
+          "Toast"
+        ],
+        "patterns": [
+          "Multi Step Form",
+          "Form Section"
+        ],
+        "templates": [
+          "Configuration Console"
+        ]
+      },
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineToken": false,
+        "hasMailMarkup": true,
+        "hasIosFrame": true
+      },
+      "cascadeRisks": [
+        "wizard clone",
+        "raw radio group",
+        "summary card outside Surface"
+      ],
+      "issues": [],
+      "promotionNeeded": false
+    }
+  ],
+  "issues": []
+}

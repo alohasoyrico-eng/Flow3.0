@@ -1,0 +1,96 @@
+{
+  "patterns": [
+    {
+      "type": "pattern",
+      "id": "kanban-board",
+      "title": "Kanban Board",
+      "platform": "Cross-platform",
+      "summary": "Coordinate process-state columns with Surface panels, List cards, visible limits, optional reorder behavior, and formal feedback states.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "patternDependencies": [
+        "Drag Sortable List"
+      ],
+      "componentsUsed": [
+        "Badge",
+        "Button",
+        "Empty State",
+        "Error Panel",
+        "List"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "status-feedback-view",
+      "title": "Status Feedback View",
+      "platform": "Cross-platform",
+      "summary": "Route empty, error, inline, toast, notification, and queued feedback to formal Flow feedback owners without local status shells.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "patternDependencies": [
+        "Notification Panel",
+        "Snackbar Provider"
+      ],
+      "componentsUsed": [
+        "Empty State",
+        "Error Panel",
+        "Inline Validation",
+        "Toast"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "payment-form",
+      "title": "Payment Form",
+      "platform": "Cross-platform",
+      "summary": "Coordinate card-number, expiry, security-code, optional amount, validation, feedback, and payment actions without local Field or Card shells.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "patternDependencies": [
+        "Status Feedback View"
+      ],
+      "componentsUsed": [
+        "Button",
+        "Card Number Input",
+        "Card Expiry Input",
+        "Card Security Code Input",
+        "Inline Validation",
+        "Input Amount"
+      ],
+      "tokens": [
+        "surface.*",
+        "component-field-*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    }
+  ]
+}

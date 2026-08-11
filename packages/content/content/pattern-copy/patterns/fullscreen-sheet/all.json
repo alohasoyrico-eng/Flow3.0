@@ -85,6 +85,7 @@
       "componentsUsed": [
         "Stepper",
         "Input",
+        "Select",
         "Button",
         "Inline Validation",
         "Card Summary",

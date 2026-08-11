@@ -1,0 +1,3130 @@
+{
+  "status": "pass",
+  "audit": "zip template parity",
+  "principle": "ZIP ui_kits are product-level references. Each kit must be classified before migration so Flow React templates compose existing foundations, primitives, components, and patterns instead of copying standalone HTML/CSS shells.",
+  "generatedAt": "2026-08-11T00:45:13.912Z",
+  "inventory": {
+    "zipKits": 16,
+    "zipScreens": 34,
+    "flowTemplates": 9,
+    "coveredByTemplate": 10,
+    "coveredByPattern": 4,
+    "coveredSeparateChannel": 1,
+    "blockedSeparateChannel": 1,
+    "templateCandidates": 0,
+    "unclassifiedKits": 0,
+    "undeclaredZipFiles": 0,
+    "parityGovernanceDebt": 0
+  },
+  "kits": [
+    {
+      "id": "agent-chat",
+      "classification": "covered-by-template",
+      "status": "covered-by-agent-workspace",
+      "candidateName": "Agent Workspace",
+      "zipPaths": [
+        "ui_kits/agent-chat/index.html"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": true,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Charts",
+            "id": "charts",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/charts.json"
+          },
+          {
+            "name": "Message",
+            "id": "message",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/message.json"
+          },
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Chat Message",
+            "id": "chat-message",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/chat-message.json"
+          },
+          {
+            "name": "Chat Thread",
+            "id": "chat-thread",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/chat-thread.json"
+          },
+          {
+            "name": "Chat Composer",
+            "id": "chat-composer",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/chat-composer.json"
+          },
+          {
+            "name": "KPI Tile",
+            "id": "kpi-tile",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/kpi-tile.json"
+          },
+          {
+            "name": "Table",
+            "id": "table",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/table.json"
+          },
+          {
+            "name": "Chart Panel",
+            "id": "chart-panel",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/chart-panel.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Icon Button",
+            "id": "icon-button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/icon-button.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Breadcrumbs",
+            "id": "breadcrumbs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json"
+          },
+          {
+            "name": "Avatar",
+            "id": "avatar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/avatar.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Skeleton",
+            "id": "skeleton",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/skeleton.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Topbar",
+            "id": "topbar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+            "runtimeFile": "packages/react/src/patterns/Topbar.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Status Feedback View",
+            "id": "status-feedback-view",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/status-feedback-view.json",
+            "runtimeFile": "packages/react/src/patterns/StatusFeedbackView.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Agent Workspace",
+            "id": "agent-workspace",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+            "runtimeFile": "packages/react/src/templates/AgentWorkspace.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Agent Workspace covers the agent-chat ZIP kit as a product template. ChatThread, ChatMessage, and ChatComposer remain component owners; no standalone chat shell should be copied from the ZIP.",
+      "migrationScope": [
+        "chat thread",
+        "message bubble list",
+        "composer",
+        "agent state",
+        "handoff/retry states"
+      ],
+      "cascadeRisks": [
+        "parallel message shell",
+        "raw composer field",
+        "local status/loading states",
+        "assistant/user theming outside Message primitive",
+        "custom recovery banner outside Status Feedback View"
+      ],
+      "issues": []
+    },
+    {
+      "id": "auth",
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "zipPaths": [
+        "ui_kits/auth/index.html",
+        "ui_kits/auth/README.md"
+      ],
+      "sourceSignals": {
+        "hasForm": true,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": false,
+        "hasReactPreset": false
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Energy",
+            "id": "energy",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/energy.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Field Action",
+            "id": "field-action",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Checkbox",
+            "id": "checkbox",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/checkbox.json"
+          },
+          {
+            "name": "Switch",
+            "id": "switch",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/switch.json"
+          },
+          {
+            "name": "Inline Validation",
+            "id": "inline-validation",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/inline-validation.json"
+          },
+          {
+            "name": "Spinner",
+            "id": "spinner",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/spinner.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Authentication, Login, Biometrics and OTP",
+            "id": "authentication-login-biometrics-and-otp",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+            "runtimeFile": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Form Section",
+            "id": "form-section",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+            "runtimeFile": "packages/react/src/patterns/FormSection.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": []
+      },
+      "requiredDecision": "Do not introduce an auth page template unless product needs a full branded login surface; keep current OTP/biometric behavior in the governed authentication pattern.",
+      "migrationScope": [
+        "login form",
+        "register toggle",
+        "loading state",
+        "validation state"
+      ],
+      "cascadeRisks": [
+        "brand panel becoming a copied shell",
+        "raw form field wrapper",
+        "theme toggle bypassing density/theme cascade"
+      ],
+      "issues": []
+    },
+    {
+      "id": "auth-otp",
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "zipPaths": [
+        "ui_kits/auth-otp/index.html"
+      ],
+      "sourceSignals": {
+        "hasForm": true,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": true,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Field Action",
+            "id": "field-action",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Biometric Prompt",
+            "id": "biometric-prompt",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/biometric-prompt.json"
+          },
+          {
+            "name": "Code Input",
+            "id": "code-input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/code-input.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Checkbox",
+            "id": "checkbox",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/checkbox.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Inline Validation",
+            "id": "inline-validation",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/inline-validation.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Authentication, Login, Biometrics and OTP",
+            "id": "authentication-login-biometrics-and-otp",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+            "runtimeFile": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": []
+      },
+      "requiredDecision": "Keep OTP as authentication pattern behavior; only a product auth template should orchestrate broader brand/page layout.",
+      "migrationScope": [
+        "OTP entry",
+        "biometric fallback",
+        "error/retry",
+        "dark theme"
+      ],
+      "cascadeRisks": [
+        "local passcode keypad",
+        "raw OTP slots",
+        "auth sheet outside Dialog/Drawer/Surface"
+      ],
+      "issues": []
+    },
+    {
+      "id": "config",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/config/index.html"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": false,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Tone",
+            "id": "tone",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Field Action",
+            "id": "field-action",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Table",
+            "id": "table",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/table.json"
+          },
+          {
+            "name": "Tree View",
+            "id": "tree-view",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/tree-view.json"
+          },
+          {
+            "name": "Audit Event",
+            "id": "audit-event",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/audit-event.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Icon Button",
+            "id": "icon-button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/icon-button.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Tabs",
+            "id": "tabs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/tabs.json"
+          },
+          {
+            "name": "Avatar",
+            "id": "avatar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/avatar.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          },
+          {
+            "name": "Breadcrumbs",
+            "id": "breadcrumbs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json"
+          },
+          {
+            "name": "Menu",
+            "id": "menu",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/menu.json"
+          },
+          {
+            "name": "Select",
+            "id": "select",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/select.json"
+          },
+          {
+            "name": "Combobox",
+            "id": "combobox",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/combobox.json"
+          },
+          {
+            "name": "Text Area",
+            "id": "text-area",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/text-area.json"
+          },
+          {
+            "name": "Dialog",
+            "id": "dialog",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/dialog.json"
+          },
+          {
+            "name": "Drawer",
+            "id": "drawer",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/drawer.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Topbar",
+            "id": "topbar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+            "runtimeFile": "packages/react/src/patterns/Topbar.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Sidebar",
+            "id": "sidebar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+            "runtimeFile": "packages/react/src/patterns/Sidebar.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Roles and Permissions",
+            "id": "roles-and-permissions",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json",
+            "runtimeFile": "packages/react/src/patterns/RolesAndPermissions.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Driver and Vehicle Administration",
+            "id": "driver-and-vehicle-administration",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration.json",
+            "runtimeFile": "packages/react/src/patterns/DriverAndVehicleAdministration.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Authentication, Login, Biometrics and OTP",
+            "id": "authentication-login-biometrics-and-otp",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+            "runtimeFile": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Configuration Console",
+            "id": "configuration-console",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+            "runtimeFile": "packages/react/src/templates/ConfigurationConsole.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Use Configuration Console as the canonical admin template.",
+      "migrationScope": [
+        "roles",
+        "drivers",
+        "vehicles",
+        "audit"
+      ],
+      "cascadeRisks": [
+        "permission matrix clone",
+        "raw lifecycle table",
+        "custom admin shell"
+      ],
+      "issues": []
+    },
+    {
+      "id": "dashboards",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/dashboards/overview.html",
+        "ui_kits/dashboards/combustible.html",
+        "ui_kits/dashboards/mantenimiento.html",
+        "ui_kits/dashboards/electro.html",
+        "ui_kits/dashboards/peaje.html",
+        "ui_kits/dashboards/finanzas.html"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": true,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": false,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Tone",
+            "id": "tone",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Charts",
+            "id": "charts",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/charts.json"
+          },
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Chart Panel",
+            "id": "chart-panel",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/chart-panel.json"
+          },
+          {
+            "name": "KPI Tile",
+            "id": "kpi-tile",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/kpi-tile.json"
+          },
+          {
+            "name": "Table",
+            "id": "table",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/table.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Icon Button",
+            "id": "icon-button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/icon-button.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Tabs",
+            "id": "tabs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/tabs.json"
+          },
+          {
+            "name": "Breadcrumbs",
+            "id": "breadcrumbs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json"
+          },
+          {
+            "name": "Avatar",
+            "id": "avatar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/avatar.json"
+          },
+          {
+            "name": "Tooltip",
+            "id": "tooltip",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/tooltip.json"
+          },
+          {
+            "name": "Menu",
+            "id": "menu",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/menu.json"
+          },
+          {
+            "name": "Progress Indicator",
+            "id": "progress-indicator",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/progress-indicator.json"
+          },
+          {
+            "name": "Date Picker",
+            "id": "date-picker",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/date-picker.json"
+          },
+          {
+            "name": "Date Range Picker",
+            "id": "date-range-picker",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/date-range-picker.json"
+          },
+          {
+            "name": "Combobox",
+            "id": "combobox",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/combobox.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Topbar",
+            "id": "topbar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+            "runtimeFile": "packages/react/src/patterns/Topbar.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Sidebar",
+            "id": "sidebar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+            "runtimeFile": "packages/react/src/patterns/Sidebar.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Advanced Filters",
+            "id": "advanced-filters",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json",
+            "runtimeFile": "packages/react/src/patterns/AdvancedFilters.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "KPI Card",
+            "id": "kpi-card",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/kpi-card.json",
+            "runtimeFile": "packages/react/src/patterns/KpiCard.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Chart Wrapper",
+            "id": "chart-wrapper",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json",
+            "runtimeFile": "packages/react/src/patterns/ChartWrapper.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Virtual Data Table",
+            "id": "virtual-data-table",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
+            "runtimeFile": "packages/react/src/patterns/VirtualDataTable.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Fleet Dashboard Suite",
+            "id": "fleet-dashboard-suite",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+            "runtimeFile": "packages/react/src/templates/FleetDashboardSuite.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Use Fleet Dashboard Suite as the canonical multi-dashboard template; dashboard variants are modules, not separate copied templates.",
+      "migrationScope": [
+        "overview",
+        "fuel",
+        "maintenance",
+        "EV",
+        "toll",
+        "finance"
+      ],
+      "cascadeRisks": [
+        "standalone charts",
+        "custom dashboard switcher",
+        "raw table toolbar",
+        "finance visibility outside permissions"
+      ],
+      "issues": []
+    },
+    {
+      "id": "drivers-app",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/drivers-app/index.html",
+        "ui_kits/drivers-app/README.md"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": true,
+        "hasReactPreset": false
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Maps",
+            "id": "maps",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/maps.json"
+          },
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Card Summary",
+            "id": "card-summary",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/card-summary.json"
+          },
+          {
+            "name": "Movement Row",
+            "id": "movement-row",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/movement-row.json"
+          },
+          {
+            "name": "Route Summary",
+            "id": "route-summary",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/route-summary.json"
+          },
+          {
+            "name": "Station Pin",
+            "id": "station-pin",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/station-pin.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Icon Button",
+            "id": "icon-button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/icon-button.json"
+          },
+          {
+            "name": "Switch",
+            "id": "switch",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/switch.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Avatar",
+            "id": "avatar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/avatar.json"
+          },
+          {
+            "name": "Progress Indicator",
+            "id": "progress-indicator",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/progress-indicator.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Driver Onboarding Mobile",
+            "id": "driver-onboarding-mobile",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json",
+            "runtimeFile": "packages/react/src/patterns/DriverOnboardingMobile.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Station Discovery",
+            "id": "station-discovery",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
+            "runtimeFile": "packages/react/src/patterns/StationDiscovery.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Snackbar Provider",
+            "id": "snackbar-provider",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json",
+            "runtimeFile": "packages/react/src/patterns/SnackbarProvider.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Driver Mobile App",
+            "id": "driver-mobile-app",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+            "runtimeFile": "packages/react/src/templates/DriverMobileApp.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Use Driver Mobile App as the canonical mobile product template.",
+      "migrationScope": [
+        "home",
+        "card",
+        "routes",
+        "support"
+      ],
+      "cascadeRisks": [
+        "tab bar clone",
+        "card wallet clone",
+        "map/list divergence",
+        "dark theme hardcoding"
+      ],
+      "issues": []
+    },
+    {
+      "id": "fleet-dashboard",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/fleet-dashboard/index.html",
+        "ui_kits/fleet-dashboard/README.md"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": true,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": false,
+        "hasReactPreset": false
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Tone",
+            "id": "tone",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Charts",
+            "id": "charts",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/charts.json"
+          },
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "KPI Tile",
+            "id": "kpi-tile",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/kpi-tile.json"
+          },
+          {
+            "name": "Table",
+            "id": "table",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/table.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Icon Button",
+            "id": "icon-button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/icon-button.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Select",
+            "id": "select",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/select.json"
+          },
+          {
+            "name": "Tabs",
+            "id": "tabs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/tabs.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Chip",
+            "id": "chip",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/chip.json"
+          },
+          {
+            "name": "Avatar",
+            "id": "avatar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/avatar.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          },
+          {
+            "name": "Breadcrumbs",
+            "id": "breadcrumbs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json"
+          },
+          {
+            "name": "Empty State",
+            "id": "empty-state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/empty-state.json"
+          },
+          {
+            "name": "Tooltip",
+            "id": "tooltip",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/tooltip.json"
+          },
+          {
+            "name": "Progress Indicator",
+            "id": "progress-indicator",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/progress-indicator.json"
+          },
+          {
+            "name": "Menu",
+            "id": "menu",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/menu.json"
+          },
+          {
+            "name": "Accordion",
+            "id": "accordion",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/accordion.json"
+          },
+          {
+            "name": "Pagination",
+            "id": "pagination",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/pagination.json"
+          },
+          {
+            "name": "Date Picker",
+            "id": "date-picker",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/date-picker.json"
+          },
+          {
+            "name": "Skeleton",
+            "id": "skeleton",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/skeleton.json"
+          },
+          {
+            "name": "Dialog",
+            "id": "dialog",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/dialog.json"
+          },
+          {
+            "name": "Drawer",
+            "id": "drawer",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/drawer.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Topbar",
+            "id": "topbar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+            "runtimeFile": "packages/react/src/patterns/Topbar.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Sidebar",
+            "id": "sidebar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+            "runtimeFile": "packages/react/src/patterns/Sidebar.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Advanced Filters",
+            "id": "advanced-filters",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json",
+            "runtimeFile": "packages/react/src/patterns/AdvancedFilters.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "KPI Card",
+            "id": "kpi-card",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/kpi-card.json",
+            "runtimeFile": "packages/react/src/patterns/KpiCard.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Virtual Data Table",
+            "id": "virtual-data-table",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
+            "runtimeFile": "packages/react/src/patterns/VirtualDataTable.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Confirmation Dialog",
+            "id": "confirmation-dialog",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+            "runtimeFile": "packages/react/src/patterns/ConfirmationDialog.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "File Upload",
+            "id": "file-upload",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/file-upload.json",
+            "runtimeFile": "packages/react/src/patterns/FileUpload.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Notification Panel",
+            "id": "notification-panel",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+            "runtimeFile": "packages/react/src/patterns/NotificationPanel.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Fleet Manager Desktop",
+            "id": "fleet-manager-desktop",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+            "runtimeFile": "packages/react/src/templates/FleetManagerDesktop.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Fleet Dashboard Suite",
+            "id": "fleet-dashboard-suite",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+            "runtimeFile": "packages/react/src/templates/FleetDashboardSuite.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Keep Fleet Manager Desktop for operating-console flow and Fleet Dashboard Suite for multi-domain dashboards.",
+      "migrationScope": [
+        "dashboard shell",
+        "CRUD list/detail",
+        "filters",
+        "confirmation"
+      ],
+      "cascadeRisks": [
+        "custom sidebar/topbar",
+        "raw CRUD table",
+        "details drawer outside Drawer"
+      ],
+      "issues": []
+    },
+    {
+      "id": "internal-tools",
+      "classification": "covered-by-template",
+      "status": "covered-by-internal-operations-console",
+      "candidateName": "Internal Operations Console",
+      "zipPaths": [
+        "ui_kits/internal-tools/index.html",
+        "ui_kits/internal-tools/accounts.html",
+        "ui_kits/internal-tools/backoffice.html",
+        "ui_kits/internal-tools/cases.html",
+        "ui_kits/internal-tools/growth.html",
+        "ui_kits/internal-tools/growth-brutal.html",
+        "ui_kits/internal-tools/pricing.html",
+        "ui_kits/internal-tools/tickets.html",
+        "ui_kits/internal-tools/shell.jsx"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": true,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": true,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Tone",
+            "id": "tone",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "KPI Tile",
+            "id": "kpi-tile",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/kpi-tile.json"
+          },
+          {
+            "name": "Table",
+            "id": "table",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/table.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Avatar",
+            "id": "avatar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/avatar.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Icon Button",
+            "id": "icon-button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/icon-button.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Select",
+            "id": "select",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/select.json"
+          },
+          {
+            "name": "Tabs",
+            "id": "tabs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/tabs.json"
+          },
+          {
+            "name": "Chat Thread",
+            "id": "chat-thread",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/chat-thread.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          },
+          {
+            "name": "Menu",
+            "id": "menu",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/menu.json"
+          },
+          {
+            "name": "Dialog",
+            "id": "dialog",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/dialog.json"
+          },
+          {
+            "name": "Drawer",
+            "id": "drawer",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/drawer.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Topbar",
+            "id": "topbar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+            "runtimeFile": "packages/react/src/patterns/Topbar.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Sidebar",
+            "id": "sidebar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+            "runtimeFile": "packages/react/src/patterns/Sidebar.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Case Management",
+            "id": "case-management",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+            "runtimeFile": "packages/react/src/patterns/CaseManagement.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Ticket Queue",
+            "id": "ticket-queue",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/ticket-queue.json",
+            "runtimeFile": "packages/react/src/patterns/TicketQueue.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Account Operations",
+            "id": "account-operations",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/account-operations.json",
+            "runtimeFile": "packages/react/src/patterns/AccountOperations.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Pricing Operations",
+            "id": "pricing-operations",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
+            "runtimeFile": "packages/react/src/patterns/PricingOperations.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Backoffice Approval",
+            "id": "backoffice-approval",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/backoffice-approval.json",
+            "runtimeFile": "packages/react/src/patterns/BackofficeApproval.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Dense Operational List",
+            "id": "dense-operational-list",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json",
+            "runtimeFile": "packages/react/src/patterns/DenseOperationalList.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Status Feedback View",
+            "id": "status-feedback-view",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/status-feedback-view.json",
+            "runtimeFile": "packages/react/src/patterns/StatusFeedbackView.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Timeline",
+            "id": "timeline",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/timeline.json",
+            "runtimeFile": "packages/react/src/patterns/Timeline.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Internal Operations Console",
+            "id": "internal-operations-console",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+            "runtimeFile": "packages/react/src/templates/InternalOperationsConsole.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Internal Operations Console covers accounts, tickets, cases, pricing, growth, and backoffice ZIP screens; Configuration Console remains the admin/lifecycle template.",
+      "migrationScope": [
+        "accounts",
+        "tickets",
+        "cases",
+        "pricing",
+        "growth",
+        "backoffice"
+      ],
+      "cascadeRisks": [
+        "admin shell duplication with Configuration Console",
+        "raw operations table outside owning pattern",
+        "growth-brutal theme escaping theme contract",
+        "pricing cards outside Surface ownership"
+      ],
+      "issues": []
+    },
+    {
+      "id": "mailings",
+      "classification": "covered-separate-channel",
+      "status": "covered-by-email-template-layout",
+      "zipPaths": [
+        "ui_kits/mailings/base-layout.html",
+        "ui_kits/mailings/transaccional-recibo.html",
+        "ui_kits/mailings/resumen-semanal.html",
+        "ui_kits/mailings/alerta-seguridad.html",
+        "ui_kits/mailings/invitacion-equipo.html",
+        "ui_kits/mailings/bienvenida.html",
+        "ui_kits/mailings/README.md"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": true,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": true,
+        "hasReactPreset": false
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Depth",
+            "id": "depth",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+          },
+          {
+            "name": "Energy",
+            "id": "energy",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/energy.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "Growth",
+            "id": "growth",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/growth.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/iconography.json"
+          },
+          {
+            "name": "Momentum",
+            "id": "momentum",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/momentum.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Symbol",
+            "id": "symbol",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/symbol.json"
+          },
+          {
+            "name": "Tone",
+            "id": "tone",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Breakpoints",
+            "id": "breakpoints",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+          },
+          {
+            "name": "Color",
+            "id": "color",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Duration",
+            "id": "duration",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/duration.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Message",
+            "id": "message",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/message.json"
+          },
+          {
+            "name": "Radius",
+            "id": "radius",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/radius.json"
+          },
+          {
+            "name": "Spacing",
+            "id": "spacing",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [],
+        "patterns": [
+          {
+            "name": "Email Template Layout",
+            "id": "email-template-layout",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/email-template-layout.json",
+            "runtimeFile": "packages/react/src/patterns/EmailTemplateLayout.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": []
+      },
+      "requiredDecision": "Email remains a separate channel with inline table layout constraints. Email Template Layout owns the base shell and transactional, summary, security, invite, and welcome variants; product React must not absorb these files as app templates.",
+      "migrationScope": [
+        "transactional receipt",
+        "weekly summary",
+        "security alert",
+        "team invite",
+        "welcome"
+      ],
+      "cascadeRisks": [
+        "email table layout copied into product React",
+        "hex tokens bypassing token contract",
+        "email card/footer becoming app components"
+      ],
+      "issues": []
+    },
+    {
+      "id": "ios-frame",
+      "classification": "blocked-separate-channel",
+      "status": "support-only-platform-frame",
+      "zipPaths": [
+        "ui_kits/ios-frame.jsx"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": true,
+        "hasInlineTheme": true,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "Depth",
+            "id": "depth",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Radius",
+            "id": "radius",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/radius.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          }
+        ],
+        "components": [],
+        "patterns": [],
+        "templates": []
+      },
+      "requiredDecision": "The iOS frame is a preview/support wrapper, not a Flow product template. Native platform framing must stay outside React product templates unless a governed platform preview primitive is introduced.",
+      "migrationScope": [
+        "device chrome",
+        "safe-area preview",
+        "mobile viewport framing"
+      ],
+      "cascadeRisks": [
+        "device frame copied into templates",
+        "safe-area wrapper bypassing Frame foundation",
+        "preview chrome becoming product UI"
+      ],
+      "issues": []
+    },
+    {
+      "id": "onboarding-driver",
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "zipPaths": [
+        "ui_kits/onboarding-driver/index.html"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": true,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Field Action",
+            "id": "field-action",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Stepper",
+            "id": "stepper",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/stepper.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Code Input",
+            "id": "code-input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/code-input.json"
+          },
+          {
+            "name": "Biometric Prompt",
+            "id": "biometric-prompt",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/biometric-prompt.json"
+          },
+          {
+            "name": "Card Summary",
+            "id": "card-summary",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/card-summary.json"
+          },
+          {
+            "name": "Movement Row",
+            "id": "movement-row",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/movement-row.json"
+          },
+          {
+            "name": "Progress Indicator",
+            "id": "progress-indicator",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/progress-indicator.json"
+          },
+          {
+            "name": "Switch",
+            "id": "switch",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/switch.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Driver Onboarding Mobile",
+            "id": "driver-onboarding-mobile",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json",
+            "runtimeFile": "packages/react/src/patterns/DriverOnboardingMobile.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Multi Step Form",
+            "id": "multi-step-form",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+            "runtimeFile": "packages/react/src/patterns/MultiStepForm.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Authentication, Login, Biometrics and OTP",
+            "id": "authentication-login-biometrics-and-otp",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+            "runtimeFile": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Driver Mobile App",
+            "id": "driver-mobile-app",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+            "runtimeFile": "packages/react/src/templates/DriverMobileApp.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Use Driver Onboarding Mobile for first-use readiness; do not introduce OnboardingCarousel as a component.",
+      "migrationScope": [
+        "driver identity",
+        "consent",
+        "readiness",
+        "recovery"
+      ],
+      "cascadeRisks": [
+        "onboarding carousel clone",
+        "wizard steps outside Stepper/Multi Step Form"
+      ],
+      "issues": []
+    },
+    {
+      "id": "onboarding-fm",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/onboarding-fm/index.html"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": false,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Stepper",
+            "id": "stepper",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/stepper.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Select",
+            "id": "select",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/select.json"
+          },
+          {
+            "name": "Code Input",
+            "id": "code-input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/code-input.json"
+          },
+          {
+            "name": "Checkbox",
+            "id": "checkbox",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/checkbox.json"
+          },
+          {
+            "name": "Chip",
+            "id": "chip",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/chip.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          },
+          {
+            "name": "Empty State",
+            "id": "empty-state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/empty-state.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Fleet Manager Onboarding Desktop",
+            "id": "fleet-manager-onboarding-desktop",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop.json",
+            "runtimeFile": "packages/react/src/patterns/FleetManagerOnboardingDesktop.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Multi Step Form",
+            "id": "multi-step-form",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+            "runtimeFile": "packages/react/src/patterns/MultiStepForm.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Roles and Permissions",
+            "id": "roles-and-permissions",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json",
+            "runtimeFile": "packages/react/src/patterns/RolesAndPermissions.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Fleet Manager Desktop",
+            "id": "fleet-manager-desktop",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+            "runtimeFile": "packages/react/src/templates/FleetManagerDesktop.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Use Fleet Manager Onboarding Desktop as pattern inside Fleet Manager Desktop template.",
+      "migrationScope": [
+        "workspace setup",
+        "import",
+        "roles",
+        "completion"
+      ],
+      "cascadeRisks": [
+        "desktop onboarding shell clone",
+        "setup checklist outside pattern"
+      ],
+      "issues": []
+    },
+    {
+      "id": "rutas",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/rutas/index.html"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": true,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Maps",
+            "id": "maps",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/maps.json"
+          },
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Station Pin",
+            "id": "station-pin",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/station-pin.json"
+          },
+          {
+            "name": "Route Summary",
+            "id": "route-summary",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/route-summary.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Icon Button",
+            "id": "icon-button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/icon-button.json"
+          },
+          {
+            "name": "Chip",
+            "id": "chip",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/chip.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Spinner",
+            "id": "spinner",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/spinner.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Station Discovery",
+            "id": "station-discovery",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
+            "runtimeFile": "packages/react/src/patterns/StationDiscovery.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Search",
+            "id": "search",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
+            "runtimeFile": "packages/react/src/patterns/Search.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Action Sheet",
+            "id": "action-sheet",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json",
+            "runtimeFile": "packages/react/src/patterns/ActionSheet.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Routes and Stations",
+            "id": "routes-and-stations",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+            "runtimeFile": "packages/react/src/templates/RoutesAndStations.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Use Routes and Stations as the canonical routes/station template.",
+      "migrationScope": [
+        "map",
+        "fallback list",
+        "station detail",
+        "route handoff"
+      ],
+      "cascadeRisks": [
+        "map runtime clone",
+        "station card shell",
+        "search outside Search pattern"
+      ],
+      "issues": []
+    },
+    {
+      "id": "settings",
+      "classification": "covered-by-template",
+      "status": "covered-by-settings-workspace",
+      "candidateName": "Settings Workspace",
+      "zipPaths": [
+        "ui_kits/settings/index.html",
+        "ui_kits/settings/README.md"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": false,
+        "hasReactPreset": false
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Field Action",
+            "id": "field-action",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Tabs",
+            "id": "tabs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/tabs.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Switch",
+            "id": "switch",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/switch.json"
+          },
+          {
+            "name": "Select",
+            "id": "select",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/select.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Avatar",
+            "id": "avatar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/avatar.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          },
+          {
+            "name": "Breadcrumbs",
+            "id": "breadcrumbs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json"
+          },
+          {
+            "name": "Dialog",
+            "id": "dialog",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/dialog.json"
+          },
+          {
+            "name": "Inline Validation",
+            "id": "inline-validation",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/inline-validation.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Preference Management",
+            "id": "preference-management",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/preference-management.json",
+            "runtimeFile": "packages/react/src/patterns/PreferenceManagement.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Settings",
+            "id": "settings",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/settings.json",
+            "runtimeFile": "packages/react/src/patterns/Settings.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Form Section",
+            "id": "form-section",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+            "runtimeFile": "packages/react/src/patterns/FormSection.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Confirmation Dialog",
+            "id": "confirmation-dialog",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+            "runtimeFile": "packages/react/src/patterns/ConfirmationDialog.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Settings Workspace",
+            "id": "settings-workspace",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+            "runtimeFile": "packages/react/src/templates/SettingsWorkspace.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Settings Workspace covers the settings ZIP page as a product workspace; Preference Management remains the behavior owner for groups, form sections, validation, and danger confirmation.",
+      "migrationScope": [
+        "settings sections",
+        "preference rows",
+        "danger zone",
+        "theme mode"
+      ],
+      "cascadeRisks": [
+        "theme toggle mutating root outside theme contract",
+        "danger action outside Confirmation Dialog",
+        "settings controls rendered locally outside Preference Management"
+      ],
+      "issues": []
+    },
+    {
+      "id": "wallet",
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "zipPaths": [
+        "ui_kits/wallet/index.html"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": true,
+        "hasReactPreset": true
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Density",
+            "id": "density",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Card Summary",
+            "id": "card-summary",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/card-summary.json"
+          },
+          {
+            "name": "Movement Row",
+            "id": "movement-row",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/movement-row.json"
+          },
+          {
+            "name": "Quick Action",
+            "id": "quick-action",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/quick-action.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Icon Button",
+            "id": "icon-button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/icon-button.json"
+          },
+          {
+            "name": "Segmented Control",
+            "id": "segmented-control",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/segmented-control.json"
+          },
+          {
+            "name": "Switch",
+            "id": "switch",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/switch.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Snackbar Provider",
+            "id": "snackbar-provider",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json",
+            "runtimeFile": "packages/react/src/patterns/SnackbarProvider.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Confirmation Dialog",
+            "id": "confirmation-dialog",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+            "runtimeFile": "packages/react/src/patterns/ConfirmationDialog.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Action Sheet",
+            "id": "action-sheet",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json",
+            "runtimeFile": "packages/react/src/patterns/ActionSheet.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Driver Card Wallet",
+            "id": "driver-card-wallet",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+            "runtimeFile": "packages/react/src/templates/DriverCardWallet.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Use Driver Card Wallet as the canonical wallet/card control template.",
+      "migrationScope": [
+        "card status",
+        "quick actions",
+        "movements",
+        "dispute"
+      ],
+      "cascadeRisks": [
+        "payment card clone",
+        "transaction row clone",
+        "quick actions outside Quick Action component"
+      ],
+      "issues": []
+    },
+    {
+      "id": "wizard",
+      "classification": "covered-by-pattern",
+      "status": "absorbed-by-flow",
+      "zipPaths": [
+        "ui_kits/wizard/index.html",
+        "ui_kits/wizard/README.md"
+      ],
+      "sourceSignals": {
+        "hasForm": false,
+        "hasNav": false,
+        "hasTable": false,
+        "hasSvgOrCanvas": false,
+        "hasInlineTheme": false,
+        "hasReactPreset": false
+      },
+      "owners": {
+        "foundations": [
+          {
+            "name": "Accessibility",
+            "id": "accessibility",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+          },
+          {
+            "name": "Frame",
+            "id": "frame",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+          },
+          {
+            "name": "State",
+            "id": "state",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+          },
+          {
+            "name": "Voice",
+            "id": "voice",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+          }
+        ],
+        "primitives": [
+          {
+            "name": "Surface",
+            "id": "surface",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+          },
+          {
+            "name": "Field Action",
+            "id": "field-action",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json"
+          },
+          {
+            "name": "Iconography",
+            "id": "iconography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+          },
+          {
+            "name": "Typography",
+            "id": "typography",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+          }
+        ],
+        "components": [
+          {
+            "name": "Stepper",
+            "id": "stepper",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/stepper.json"
+          },
+          {
+            "name": "Input",
+            "id": "input",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/input.json"
+          },
+          {
+            "name": "Select",
+            "id": "select",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/select.json"
+          },
+          {
+            "name": "Radio Button",
+            "id": "radio-button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/radio-button.json"
+          },
+          {
+            "name": "Date Picker",
+            "id": "date-picker",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/date-picker.json"
+          },
+          {
+            "name": "Button",
+            "id": "button",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/button.json"
+          },
+          {
+            "name": "Badge",
+            "id": "badge",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/badge.json"
+          },
+          {
+            "name": "Avatar",
+            "id": "avatar",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/avatar.json"
+          },
+          {
+            "name": "Breadcrumbs",
+            "id": "breadcrumbs",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/breadcrumbs.json"
+          },
+          {
+            "name": "Toast",
+            "id": "toast",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/components/toast.json"
+          }
+        ],
+        "patterns": [
+          {
+            "name": "Multi Step Form",
+            "id": "multi-step-form",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+            "runtimeFile": "packages/react/src/patterns/MultiStepForm.js",
+            "runtimeFound": true
+          },
+          {
+            "name": "Form Section",
+            "id": "form-section",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+            "runtimeFile": "packages/react/src/patterns/FormSection.js",
+            "runtimeFound": true
+          }
+        ],
+        "templates": [
+          {
+            "name": "Configuration Console",
+            "id": "configuration-console",
+            "artifactFound": true,
+            "artifactFile": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+            "runtimeFile": "packages/react/src/templates/ConfigurationConsole.js",
+            "runtimeFound": true
+          }
+        ]
+      },
+      "requiredDecision": "Keep vehicle/unit onboarding as Multi Step Form pattern unless it becomes a full admin template module.",
+      "migrationScope": [
+        "vehicle data",
+        "driver assignment",
+        "review",
+        "success toast"
+      ],
+      "cascadeRisks": [
+        "wizard clone",
+        "raw radio group",
+        "summary card outside Surface"
+      ],
+      "issues": []
+    }
+  ],
+  "issues": []
+}

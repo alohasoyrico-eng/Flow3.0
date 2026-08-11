@@ -36,6 +36,12 @@
       ],
       "slots": [
         [
+          "surface",
+          "Surface",
+          "yes",
+          "Structural owner for upload state, density, and recovery copy."
+        ],
+        [
           "trigger",
           "Button",
           "yes",
@@ -43,7 +49,7 @@
         ],
         [
           "summary",
-          "Tag | Card",
+          "Tag",
           "conditional",
           "Selected file name or policy summary."
         ],

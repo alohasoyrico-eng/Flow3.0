@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/search/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/search.json`
 
 ## Purpose
 
@@ -31,9 +32,153 @@ Let users find drivers, vehicles, cards, stations, movements, and settings with 
 | Frame | Defines field width, result density, empty state placement, and responsive stacking. |
 | Voice | Owns label, placeholder, result labels, recovery copy, and scope language. |
 | Energy | Controls focus, selected result, action priority, and status tone. |
+| Depth | Separates result panels and suggestions from page content without creating custom overlay depth. |
 | State | Idle, typing, results, no results, loading, disabled, and error states are explicit. |
 | Momentum | Result updates avoid jumpy layout and respect reduced motion. |
 | Accessibility | Requires programmatic label, keyboard access, result count feedback, and no color-only state. |
+
+## Formal Purpose
+
+Coordinate entity lookup across a known result source with scope, result count feedback, recovery, and intentional selection behavior.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `idle`
+- `typing`
+- `results`
+- `empty`
+- `invalid`
+- `loading`
+- `disabled`
+- `selected`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Energy`
+- `Voice`
+- `Frame`
+- `Depth`
+- `Momentum`
+- `State`
+- `Accessibility`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Color`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Input`
+- `Select`
+- `List`
+- `Empty State`
+- `Inline Validation`
+- `Button`
+
+### Tokens
+
+- `comp.input.*`
+- `comp.select.*`
+- `comp.list.*`
+- `comp.empty-state.*`
+- `comp.inline-validation.*`
+- `comp.button.*`
+- `sys.energy.*`
+- `sys.voice.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.depth.*`
+- `sys.momentum.*`
+- `sys.accessibility.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `input` | `component` | `Input` |
+| `scope` | `component` | `Select` |
+| `results` | `component` | `List`, `Button` |
+| `emptyState` | `component` | `Empty State` |
+| `feedback` | `component` | `Inline Validation` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- Users need direct lookup across drivers, vehicles, cards, stations, movements, settings, or another known entity set.
+- Results need scope, count feedback, empty recovery, or explicit selection behavior.
+- Search remains visible in a page, toolbar, shell, or work surface.
+
+### Decision Tree
+
+- Use Input alone when the value is submitted with a larger form and does not return visible results.
+- Use Search when query, scope, result count, empty recovery, or result selection is part of the interaction.
+- Use Autocomplete when suggestions appear while typing and selection completes the field.
+- Use Command Palette when the query executes commands or cross-route actions.
+
+### Failure Modes
+
+- The field looks searchable but does not filter, route, or return results.
+- Scope changes erase the query without confirmation.
+- No-result recovery is missing or only communicated by color.
+- Result count is not announced or visible.
+- Search owns predictive suggestions that belong to Autocomplete.
+
+### Success Metrics
+
+- Users can find known entities without changing context.
+- Users understand scope, result count, and no-result recovery.
+- Keyboard and screen reader users can move from query to results and select intentionally.
+
+### Agent Instructions
+
+- Compose Search from package Input, optional Select scope, List or Button results, Empty State, and Inline Validation.
+- Keep Autocomplete suggestions, command execution, analytics ownership, and remote ranking out of Search unless a higher pattern owns them.
+- Ask before search crosses tenants, permissions, regulated data, financial data, or identity-sensitive records.
+
+### Reject If
+
+- The search field is decorative.
+- Results are hardcoded visual cards instead of package components.
+- No-result, invalid, loading, or selected states are missing.
+- Raw colors, spacing, radius, shadows, or motion bypass Design System tokens.
 
 ## Slot Contract
 
@@ -45,7 +190,7 @@ Let users find drivers, vehicles, cards, stations, movements, and settings with 
 | emptyState | EmptyState | yes | Recovery when no result matches. |
 | feedback | InlineValidation \| Toast | conditional | Reports invalid query or selected result. |
 
-## Components And Primitives Used
+## Components Used
 
 - Input
 - Select

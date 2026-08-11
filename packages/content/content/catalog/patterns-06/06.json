@@ -1,0 +1,85 @@
+{
+  "patterns": [
+    {
+      "type": "pattern",
+      "id": "backoffice-approval",
+      "title": "Backoffice Approval",
+      "platform": "Cross-platform",
+      "summary": "Coordinate operational document approval queues, document detail review, approve/reject decisions, and feedback.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "patternDependencies": [
+        "Dense Operational List",
+        "Drawer Adapter",
+        "Status Feedback View"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "email-template-layout",
+      "title": "Email Template Layout",
+      "platform": "Email channel",
+      "summary": "Render Flow transactional and lifecycle emails as portable HTML-email markup with preheader, shell, CTA, rows, KPI, OTP, invite, welcome, and footer variants.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Lifecycle Marketers",
+        "Agents"
+      ],
+      "patternDependencies": [],
+      "componentsUsed": [],
+      "tokens": [
+        "email-safe.*",
+        "frame.canvas",
+        "voice.guidance",
+        "tone.messaging",
+        "a11y.reading"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "expandable-detail-table",
+      "title": "Expandable Detail Table",
+      "platform": "Cross-platform",
+      "summary": "Coordinate virtualized table rows with selected-row detail review through Flow-owned table and drawer boundaries.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Agents"
+      ],
+      "patternDependencies": [
+        "Drawer Adapter",
+        "Status Feedback View",
+        "Virtual Data Table"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "surface.*",
+        "frame.canvas",
+        "voice.guidance",
+        "state.recovery",
+        "a11y.focus"
+      ]
+    }
+  ]
+}

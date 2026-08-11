@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./system": "./specs/unison.system.json"
+    "./system": "./specs/unison.system.json",
+    "./foundations/*": "./specs/unison-system/artifacts/foundations/*.json",
+    "./primitives/*": "./specs/unison-system/artifacts/primitives/*.json",
+    "./patterns/*": "./specs/unison-system/artifacts/patterns/*.json",
+    "./templates/*": "./specs/unison-system/artifacts/templates/*.json"
   }
 }

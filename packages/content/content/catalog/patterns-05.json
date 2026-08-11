@@ -13,10 +13,12 @@
         "Researchers"
       ],
       "componentsUsed": [
-        "Stepper",
         "Button",
-        "Input",
+        "Card",
         "Inline Validation",
+        "Input",
+        "Select",
+        "Stepper",
         "Toast"
       ],
       "tokens": [
@@ -24,6 +26,9 @@
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Form Section"
       ]
     },
     {
@@ -39,18 +44,23 @@
         "Service Designers"
       ],
       "componentsUsed": [
-        "Table",
-        "Checkbox",
+        "Badge",
         "Button",
+        "Checkbox",
         "Dialog",
-        "Toast",
-        "Badge"
+        "Menu",
+        "Progress Indicator",
+        "Table",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Toolbar"
       ]
     },
     {
@@ -66,17 +76,46 @@
         "Service Designers"
       ],
       "componentsUsed": [
-        "Switch",
-        "Select",
         "Button",
-        "Toast",
-        "Dialog"
+        "Card",
+        "Dialog",
+        "Input",
+        "Select",
+        "Switch",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "preference-management",
+      "title": "Preference Management",
+      "platform": "Cross-platform",
+      "summary": "Coordinate preference groups, editable sections, and danger-zone confirmation without becoming a settings workspace template.",
+      "audiences": [
+        "Product Designers",
+        "Content Designers",
+        "Developers",
+        "Service Designers"
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "tokens": [
+        "frame.canvas",
+        "voice.guidance",
+        "motion.reveal",
+        "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Settings",
+        "Form Section",
+        "Confirmation Dialog"
       ]
     },
     {
@@ -92,18 +131,21 @@
         "Service Designers"
       ],
       "componentsUsed": [
-        "Input",
         "Accordion",
-        "Tag",
+        "Drawer",
         "Empty State",
-        "Button",
-        "Drawer"
+        "Input",
+        "Tag"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Search",
+        "Sidebar"
       ]
     }
   ]

@@ -3,14 +3,14 @@
   "audit": "react class ownership",
   "principle": "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition. The actionable debt metric is classOwnershipDebt.",
   "inventory": {
-    "components": 56,
-    "componentClassRoots": 59,
-    "protectedComponentRoots": 6,
-    "supportClassRoots": 5,
-    "packageCssRoots": 66,
-    "componentsWithFamilyRoots": 13,
-    "observedRootAssignments": 72,
-    "observedSupportRootAssignments": 20,
+    "components": 60,
+    "componentClassRoots": 63,
+    "protectedComponentRoots": 7,
+    "supportClassRoots": 6,
+    "packageCssRoots": 71,
+    "componentsWithFamilyRoots": 14,
+    "observedRootAssignments": 77,
+    "observedSupportRootAssignments": 21,
     "violations": 0,
     "classOwnershipDebt": 0
   },
@@ -19,6 +19,7 @@
     "card",
     "dialog",
     "drawer",
+    "field",
     "menu",
     "popover"
   ],
@@ -27,7 +28,8 @@
     "field-action",
     "illustration-asset",
     "input",
-    "material-symbol"
+    "material-symbol",
+    "surface"
   ],
   "packageCssRoots": [
     "accordion",
@@ -45,6 +47,9 @@
     "card-security-code-input",
     "card-summary",
     "chart-panel",
+    "chat-composer",
+    "chat-message",
+    "chat-thread",
     "checkbox",
     "chip",
     "choice",
@@ -68,6 +73,7 @@
     "illustration-asset",
     "inline-validation",
     "input",
+    "input-amount",
     "kpi-tile",
     "list",
     "material-symbol",
@@ -88,6 +94,7 @@
     "spinner",
     "station-pin",
     "stepper",
+    "surface",
     "switch",
     "table",
     "tabs",
@@ -259,7 +266,9 @@
       "observedSupportRoots": [
         "input"
       ],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -278,7 +287,9 @@
       "observedSupportRoots": [
         "input"
       ],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -298,7 +309,9 @@
         "field-action",
         "input"
       ],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -328,6 +341,51 @@
       ],
       "observedRoots": [
         "chart-panel"
+      ],
+      "observedSupportRoots": [],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatComposer",
+      "file": "packages/react/src/ChatComposer.js",
+      "ownerRoot": "chat-composer",
+      "allowedRoots": [
+        "chat-composer"
+      ],
+      "observedRoots": [
+        "chat-composer"
+      ],
+      "observedSupportRoots": [],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatMessage",
+      "file": "packages/react/src/ChatMessage.js",
+      "ownerRoot": "chat-message",
+      "allowedRoots": [
+        "chat-message"
+      ],
+      "observedRoots": [
+        "chat-message"
+      ],
+      "observedSupportRoots": [],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "ChatThread",
+      "file": "packages/react/src/ChatThread.js",
+      "ownerRoot": "chat-thread",
+      "allowedRoots": [
+        "chat-thread"
+      ],
+      "observedRoots": [
+        "chat-thread"
       ],
       "observedSupportRoots": [],
       "protectedRootsObserved": [],
@@ -381,7 +439,9 @@
         "field"
       ],
       "observedSupportRoots": [],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -403,7 +463,9 @@
         "field-action",
         "input"
       ],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -439,7 +501,9 @@
         "field"
       ],
       "observedSupportRoots": [],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -458,7 +522,9 @@
         "field"
       ],
       "observedSupportRoots": [],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -585,7 +651,30 @@
         "field-action",
         "input"
       ],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "InputAmount",
+      "file": "packages/react/src/InputAmount.js",
+      "ownerRoot": "input-amount",
+      "allowedRoots": [
+        "field",
+        "input-amount"
+      ],
+      "observedRoots": [
+        "field",
+        "input-amount"
+      ],
+      "observedSupportRoots": [
+        "input"
+      ],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -705,7 +794,9 @@
       "observedSupportRoots": [
         "input"
       ],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -818,7 +909,9 @@
         "select-control"
       ],
       "observedSupportRoots": [],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },
@@ -972,7 +1065,9 @@
         "text-area"
       ],
       "observedSupportRoots": [],
-      "protectedRootsObserved": [],
+      "protectedRootsObserved": [
+        "field"
+      ],
       "violations": [],
       "status": "pass"
     },

@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/multi-select/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/multi-select.json`
 
 ## Purpose
 
@@ -35,6 +36,162 @@ Select multiple fleets, vehicles, regions, tags, permissions, or owners with cle
 | Momentum | Selection updates are stable and avoid layout jumps. |
 | Accessibility | Requires checkbox semantics, count text, keyboard access, and removable selection names. |
 
+## Formal Purpose
+
+Coordinate selecting multiple values with selected chips, checkbox options, empty recovery, validation, and optional search handoff.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `closed`
+- `open`
+- `selected`
+- `empty`
+- `loading`
+- `invalid`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Energy`
+- `Frame`
+- `Momentum`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `Checkbox`
+- `Chip`
+- `Empty State`
+- `Inline Validation`
+- `Select`
+
+### Patterns
+
+- `Search`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.checkbox.*`
+- `comp.chip.*`
+- `comp.empty-state.*`
+- `comp.inline-validation.*`
+- `comp.select.*`
+- `sys.accessibility.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.momentum.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `trigger` | `component` | `Select`, `Badge` |
+| `options` | `component` | `Checkbox`, `Empty State` |
+| `selectedValues` | `component` | `Chip`, `Button`, `Inline Validation` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- Users need to select more than one option from a known set.
+- Selections need visible chips, count, validation, or remove behavior.
+- Large option sets may hand off to Search without embedding it.
+
+### Decision Tree
+
+- Use Select for one value.
+- Use Multi Select when multiple committed values must remain visible.
+- Use Transfer List when users manage large source/target sets.
+
+### Failure Modes
+
+- Selected values are custom pills instead of Chip.
+- Options bypass Checkbox/Select semantics.
+- Search behavior is duplicated inside the pattern.
+- Count and validation are missing.
+
+### Success Metrics
+
+- Users can add, inspect, remove, and validate multiple selections.
+- Keyboard and screen reader users understand selected count and option state.
+- Large sets can escalate without duplicating Search.
+
+### Accessibility
+
+- Expose multi-select role/selection count.
+- Ensure chip removal controls name the selected value.
+- Announce invalid and empty states.
+
+### Tests
+
+- Composes Select, Checkbox, Chip, Badge, Button, Empty State, and Inline Validation.
+- Covers selected, empty, loading, invalid, and disabled states.
+- Keeps Search as optional boundary only.
+
+### Agent Instructions
+
+- Do not create custom selected-value chips.
+- Keep remote ranking and broad lookup in Search.
+- Ask before multi-selecting permission, payment, or identity-sensitive records.
+
+### Reject If
+
+- Selected chips bypass Chip.
+- Options are custom checkbox visuals.
+- Search is embedded.
+- Selection count is inaccessible.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -45,8 +202,9 @@ Select multiple fleets, vehicles, regions, tags, permissions, or owners with cle
 | apply | Button | conditional | Commits dirty selection when explicit apply is required. |
 | validation | InlineValidation | conditional | Explains required, max, or unavailable selection. |
 
-## Components And Primitives Used
+## Components Used
 
+- Select
 - Checkbox
 - Chip
 - Badge

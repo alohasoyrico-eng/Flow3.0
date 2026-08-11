@@ -187,6 +187,14 @@
     "component-copy/components/error-panel/all.json",
     "component-copy/components/tree-view/all.json",
     "component-copy/components/motion-boundary/all.json",
-    "component-copy/components/animated-moment/all.json"
+    "component-copy/components/animated-moment/all.json",
+    "component-copy/components/chat-composer/states.json",
+    "component-copy/components/chat-message/states.json",
+    "component-copy/components/chat-thread/states.json",
+    "component-copy/components/input-amount/states.json",
+    "component-copy/components/chat-composer/all.json",
+    "component-copy/components/chat-message/all.json",
+    "component-copy/components/chat-thread/all.json",
+    "component-copy/components/input-amount/all.json"
   ]
 }

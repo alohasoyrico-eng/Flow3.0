@@ -1,0 +1,230 @@
+{
+  "artifacts": {
+    "patterns": {
+      "station-discovery": {
+        "layer": "Pattern",
+        "platform": "Mobile",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate map-based station discovery with manual search, equivalent fallback list, selected station state, route handoff, permission recovery, and provider readiness without letting templates own map behavior.",
+        "governingFoundations": [
+          "Energy",
+          "Accessibility",
+          "Frame",
+          "Voice",
+          "Momentum",
+          "Depth",
+          "State",
+          "Tone"
+        ],
+        "primitiveDependencies": [
+          "Maps",
+          "Surface",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography",
+          "Breakpoints",
+          "Density"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Empty State",
+          "Error Panel",
+          "Inline Validation",
+          "List",
+          "Route Summary",
+          "Skeleton",
+          "Station Pin"
+        ],
+        "patternDependencies": [
+          "Search"
+        ],
+        "templateDependencies": [
+          "Driver Mobile App",
+          "Routes and Stations"
+        ],
+        "tokenDependencies": [
+          "map.*",
+          "comp.station-pin.*",
+          "comp.route-summary.*",
+          "comp.list.*",
+          "comp.empty-state.*",
+          "comp.error-panel.*",
+          "comp.inline-validation.*",
+          "comp.skeleton.*",
+          "comp.button.*",
+          "sys.energy.*",
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.depth.*",
+          "sys.momentum.*",
+          "sys.accessibility.*",
+          "sys.tone.*"
+        ],
+        "entryConditions": [
+          "Users need to discover nearby stations, compare stations, or hand a station into route guidance.",
+          "Location permission, map provider readiness, offline state, or fallback list equivalence is part of the task.",
+          "Station pins, list rows, selected station, and route summary must share the same source model."
+        ],
+        "decisionTree": [
+          "Use Station Discovery when map, fallback list, selected station, and route handoff must stay equivalent.",
+          "Use Search alone when the task only filters a known station list and no map, permission, or route handoff exists.",
+          "Use Route Summary alone when the station has already been chosen and the task is only route comparison.",
+          "Use a template only to arrange Station Discovery with surrounding product modules, never to own map behavior."
+        ],
+        "failureModes": [
+          "Map pins and fallback list disagree on labels, distance, status, or selected station.",
+          "Location denial blocks discovery instead of exposing manual search and fallback list.",
+          "Map runtime or provider setup is mounted directly by a component, demo, or template.",
+          "Route handoff lacks text equivalent, ETA, or selected station context.",
+          "A Card, docs wrapper, or template module owns structural surface behavior instead of Surface."
+        ],
+        "successMetrics": [
+          "Users can choose a station with or without map permission.",
+          "Map and list present equivalent station information.",
+          "Selected station and route action remain clear to keyboard and screen reader users.",
+          "Templates consume the pattern and Maps primitive instead of defining parallel behavior."
+        ],
+        "states": [
+          "nearby",
+          "selected",
+          "route",
+          "denied",
+          "offline",
+          "error",
+          "runtimeUnavailable",
+          "providerMissing",
+          "loading",
+          "empty",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "surface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": true,
+            "purpose": "Owns structural background, density scope, and state cascade for station discovery."
+          },
+          {
+            "name": "mapLayer",
+            "owner": "primitive",
+            "uses": [
+              "Maps"
+            ],
+            "required": true,
+            "purpose": "Provides map permission, runtime, selected station, pin, cluster, route, and fallback-list models."
+          },
+          {
+            "name": "search",
+            "owner": "pattern",
+            "uses": [
+              "Search"
+            ],
+            "required": true,
+            "purpose": "Allows manual station search and recovery when location or provider context is unavailable."
+          },
+          {
+            "name": "stationPins",
+            "owner": "component",
+            "uses": [
+              "Station Pin"
+            ],
+            "required": true,
+            "purpose": "Renders station and cluster markers from the Maps primitive model."
+          },
+          {
+            "name": "fallbackList",
+            "owner": "component",
+            "uses": [
+              "List"
+            ],
+            "required": true,
+            "purpose": "Keeps non-map station discovery equivalent to map pins."
+          },
+          {
+            "name": "routeSummary",
+            "owner": "component",
+            "uses": [
+              "Route Summary"
+            ],
+            "required": "conditional",
+            "purpose": "Shows route ETA, distance, selected station, and handoff action."
+          },
+          {
+            "name": "state",
+            "owner": "component",
+            "uses": [
+              "Skeleton",
+              "Empty State",
+              "Error Panel",
+              "Inline Validation"
+            ],
+            "required": true,
+            "purpose": "Communicates loading, empty, permission, provider, offline, and error states with text equivalents."
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button"
+            ],
+            "required": "conditional",
+            "purpose": "Provides retry, manual search, refresh, or external route handoff."
+          }
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "reduced motion"
+        ],
+        "agentInstructions": [
+          "Compose Station Discovery from Maps primitive, Surface, Search, Station Pin, List, Route Summary, Empty State, Error Panel, Skeleton, Inline Validation, and Button.",
+          "Always provide fallback list data even when map runtime and provider are ready.",
+          "Permission denied, provider missing, and runtime unavailable are first-class states, not blockers.",
+          "Never mount MapLibre, tile providers, or route runtime directly from components, docs, demos, or templates.",
+          "Use Surface for structural grouping; do not use Card as a generic station-discovery wrapper."
+        ],
+        "rejectIf": [
+          "Map has no fallback list.",
+          "Permission denial prevents manual search or station selection.",
+          "Station pin meaning exists only visually.",
+          "Route summary lacks a text equivalent.",
+          "A template or demo duplicates map/list/route behavior outside this pattern.",
+          "Card is used as the structural owner for the group."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

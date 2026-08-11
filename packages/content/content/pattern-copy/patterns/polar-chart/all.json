@@ -1,0 +1,93 @@
+{
+  "patterns": {
+    "polar-chart": {
+      "title": "Polar Chart",
+      "purpose": "Coordinate circular segment comparison with selected-segment review and accessible data fallback without creating a second chart or table implementation.",
+      "useWhen": [
+        "A workflow needs segment value, share, status, and selected-segment context.",
+        "A template needs circular comparison without owning chart internals.",
+        "The same chart data must be inspectable through a table/list fallback."
+      ],
+      "doNotUseWithoutReview": [
+        "The comparison represents regulated, financial, legal, safety, or irreversible decisions.",
+        "The design requires custom chart rendering that Chart Wrapper cannot represent.",
+        "Segment status or selected state is color-only."
+      ],
+      "foundations": [
+        ["Accessibility", "The labelled group and Chart Wrapper fallback keep segment data inspectable without relying on circular visuals alone."],
+        ["Depth", "Surface owns structural grouping while Chart Wrapper owns chart chrome and overlays."],
+        ["Energy", "Selected, loading, empty, error, and disabled states cascade into Chart Wrapper and Badge metrics."],
+        ["Frame", "Density, chart bounds, table fallback, and segment list remain token-driven."],
+        ["Growth", "Segment comparison behavior becomes reusable for templates without moving chart or table logic into templates."],
+        ["Iconography", "Segment and status symbols remain owned by Badge, Chart Wrapper, and child components."],
+        ["Momentum", "Loading and chart state transitions remain delegated to Chart Wrapper."],
+        ["State", "Pattern state maps to Chart Wrapper, Chart Panel, Table, List, and Badge boundaries."],
+        ["Symbol", "Segment, share, status, and selected semantics remain explicit through labels and fallback rows."],
+        ["Tone", "Neutral, selected, warning, danger, and disabled tones remain contract-bound."],
+        ["Voice", "Chart label, descriptions, segment copy, and fallback rows stay explicit."]
+      ],
+      "slots": [
+        ["polarChartSurface", "Surface", "required", "Structural segment comparison group."],
+        ["polarSummary", "Badge", "conditional", "Comparison scope or state summary."],
+        ["polarMetric", "Badge", "conditional", "Segment, share, variance, or risk metrics."],
+        ["chartWrapperBoundary", "Chart Wrapper", "required", "Chart state, Chart Panel ownership, status, actions, loading, empty, error, and table fallback."],
+        ["polarDataSummary", "Chart Wrapper", "required", "Inspectable segment rows delegated through Chart Wrapper table fallback."],
+        ["polarFeedback", "Badge", "conditional", "Segment feedback summary or recovery status."]
+      ],
+      "componentsUsed": [
+        "Badge"
+      ],
+      "patternDependencies": [
+        "Chart Wrapper"
+      ],
+      "variants": [
+        ["Segment comparison", "Required", "Segments provide label, value, share, and status."],
+        ["Selected segment", "State", "Selected segment cascades selected/focus state into Chart Wrapper and Table."],
+        ["Risk/status review", "Conditional", "Metrics and feedback summarize state without replacing chart semantics."]
+      ],
+      "motion": [
+        ["Loading", "Surface marks busy while Chart Wrapper owns loading rendering."],
+        ["Selected segment", "Chart Wrapper and Table own focus/selected state without local radial rendering."],
+        ["Fallback swap", "Chart Wrapper preserves dimensions through chart, table, list, empty, and error states."]
+      ],
+      "accessibility": [
+        "Expose the segment comparison as a labelled group.",
+        "Provide segment data through Chart Wrapper table fallback.",
+        "Represent segment status and selected state with labels, not only color.",
+        "Do not use color as the only way to communicate segment state."
+      ],
+      "implementationChecklist": [
+        "Compose Surface, Badge, and Chart Wrapper.",
+        "Pass segment values to Chart Wrapper instead of drawing local polar/radar visuals.",
+        "Pass segment rows through Chart Wrapper table fallback.",
+        "Expose values, shares, and status as text.",
+        "Reject Card wrappers, local chart renderers, raw tables, and docs-only shells."
+      ],
+      "tests": [
+        "Composes Surface plus Chart Wrapper boundary.",
+        "Density and state cascade through Chart Wrapper and fallback rows.",
+        "Forwards segment selection and primary action callbacks.",
+        "Segment selection and primary actions preserve event context.",
+        "No local SVG/canvas/positioned chart, raw table, Card wrapper, or injected markup is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Polar Chart for circular segment comparison workflows.",
+          "Use Chart Wrapper for the visualization and fallback boundary.",
+          "Use Waterfall Chart instead when deltas and cumulative totals are the primary object."
+        ],
+        "mustAsk": [
+          "Before exposing regulated, financial, legal, safety, or irreversible analysis.",
+          "Before bypassing Chart Wrapper for custom visualization.",
+          "Before presenting segment state without textual explanation."
+        ],
+        "rejectIf": [
+          "A local chart renderer replaces Chart Wrapper.",
+          "No accessible table/list fallback exists.",
+          "A Card wraps the segment comparison group."
+        ],
+        "handoff": "Confirm data source, segment semantics, share/status rules, selected-segment behavior, accessible fallback, and empty/error behavior."
+      }
+    }
+  }
+}

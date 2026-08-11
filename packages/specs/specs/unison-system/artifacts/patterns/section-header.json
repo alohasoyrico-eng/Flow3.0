@@ -1,0 +1,182 @@
+{
+  "artifacts": {
+    "patterns": {
+      "section-header": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate a local section title, status, actions, loading state, and host boundaries to Form Section, Settings, and Toolbar without becoming a page template.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Menu",
+          "Skeleton",
+          "Tag"
+        ],
+        "patternDependencies": [
+          "Form Section",
+          "Settings",
+          "Toolbar"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.menu.*",
+          "comp.skeleton.*",
+          "comp.tag.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A section needs a title, description, status, and local actions.",
+          "The header belongs to a reusable section, not a full business page.",
+          "Actions may hand off to Toolbar, Settings, or Form Section."
+        ],
+        "decisionTree": [
+          "Use text heading alone for static content.",
+          "Use Section Header when local status/actions/loading are part of a reusable section.",
+          "Use Toolbar for dense action rows and Topbar for global shell actions."
+        ],
+        "failureModes": [
+          "Header owns full page layout.",
+          "Actions bypass Button/Menu.",
+          "Status badges are custom tags.",
+          "Skeleton/loading is visual-only."
+        ],
+        "successMetrics": [
+          "Users understand the section, state, and available local actions.",
+          "Keyboard users can reach menus/actions predictably.",
+          "Section ownership does not leak into templates."
+        ],
+        "states": [
+          "default",
+          "loading",
+          "actionable",
+          "disabled",
+          "permission-blocked",
+          "dirty"
+        ],
+        "slots": [
+          {
+            "name": "status",
+            "owner": "component",
+            "uses": [
+              "Badge",
+              "Tag",
+              "Skeleton"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Menu"
+            ]
+          },
+          {
+            "name": "formBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Form Section"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Form Section runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "settingsBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Settings"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Settings runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          },
+          {
+            "name": "toolbarBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Toolbar"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Toolbar runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Use proper heading level supplied by the host.",
+          "Expose status in text.",
+          "Keep action menus keyboard reachable."
+        ],
+        "tests": [
+          "Composes Badge, Button, Menu, Skeleton, and Tag.",
+          "Covers loading, actionable, disabled, permission, and dirty states.",
+          "Keeps Form Section, Settings, and Toolbar as composition boundaries."
+        ],
+        "agentInstructions": [
+          "Do not hardcode page layout or business copy.",
+          "Do not clone Toolbar actions.",
+          "Ask before representing compliance or permission status."
+        ],
+        "rejectIf": [
+          "Header includes full template structure.",
+          "Actions bypass Button/Menu.",
+          "Status is color-only.",
+          "Loading bypasses Skeleton."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

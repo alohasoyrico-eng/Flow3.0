@@ -1,0 +1,128 @@
+{
+  "status": "pass",
+  "audit": "primitive surface cascade",
+  "principle": "Surface owns structural grouping, background, density, elevation, focus, and breakpoint cascade as a primitive so patterns do not use Card or local CSS as layout structure.",
+  "inventory": {
+    "artifactPresent": 1,
+    "roles": 5,
+    "states": 8,
+    "governingFoundations": 5,
+    "coordinatedPrimitives": 8,
+    "apiProps": 7,
+    "reactProps": 9,
+    "missingReactProps": 0,
+    "apiOutputs": 5,
+    "tokenDependencies": 9,
+    "missingTokenDependencies": 0,
+    "missingTypeRoles": 0,
+    "missingTypeStates": 0,
+    "missingRuntimeRoles": 0,
+    "missingRuntimeStates": 0,
+    "missingCssRoleSelectors": 0,
+    "missingCssStateSelectors": 0,
+    "missingSourceSnippets": 0,
+    "missingTypeSnippets": 0,
+    "missingCssSelectors": 0,
+    "rawVisualCss": 0,
+    "patternSurfaceImports": 34,
+    "structuralSurfacePolicyIssues": 0,
+    "distGaps": 0,
+    "surfaceCascadeDebt": 0
+  },
+  "contract": {
+    "artifact": "packages/specs/specs/unison-system/artifacts/primitives/surface.json",
+    "markdown": "packages/content/content/primitive-contracts/primitives/surface.md",
+    "source": "packages/react/src/Surface.js",
+    "types": "packages/react/src/Surface.d.ts",
+    "css": "packages/components/styles/components.css"
+  },
+  "roles": {
+    "required": [
+      "canvas",
+      "inline",
+      "overlay",
+      "panel",
+      "section"
+    ],
+    "typeMembers": [
+      "canvas",
+      "inline",
+      "overlay",
+      "panel",
+      "section"
+    ],
+    "missingTypeRoles": [],
+    "missingRuntimeRoles": [],
+    "missingCssRoleSelectors": []
+  },
+  "states": {
+    "required": [
+      "default",
+      "disabled",
+      "dragging",
+      "focused",
+      "overlay",
+      "raised",
+      "selected",
+      "sunken"
+    ],
+    "typeMembers": [
+      "default",
+      "disabled",
+      "dragging",
+      "focused",
+      "overlay",
+      "raised",
+      "selected",
+      "sunken"
+    ],
+    "missingTypeStates": [],
+    "missingRuntimeStates": [],
+    "missingCssStateSelectors": []
+  },
+  "api": {
+    "requiredProps": [
+      "role",
+      "density",
+      "elevation",
+      "tone",
+      "state",
+      "focusMode",
+      "breakpoint"
+    ],
+    "reactProps": [
+      "breakpoint",
+      "children",
+      "density",
+      "displayName",
+      "elevation",
+      "focusMode",
+      "state",
+      "surfaceRole",
+      "tone"
+    ],
+    "missingReactProps": [],
+    "outputs": [
+      "surfaceRole",
+      "cssCustomProperties",
+      "layerPolicy",
+      "densityScope",
+      "focusBoundary"
+    ]
+  },
+  "tokenDependencies": {
+    "required": [
+      "sys.energy.surface.*",
+      "sys.color.surface*",
+      "sys.frame.padding.surface",
+      "sys.frame.radius.surface",
+      "sys.radius.surface",
+      "sys.depth.*",
+      "sys.density.surface.*",
+      "sys.accessibility.contrast.surface",
+      "surface.*"
+    ],
+    "missing": []
+  },
+  "gaps": []
+}

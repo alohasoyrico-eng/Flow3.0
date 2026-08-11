@@ -1,0 +1,17 @@
+{
+  "components": {
+    "chat-thread": {
+      "states": {
+        "copy": "Chat Thread states keep the log, empty, loading, offline, error, and handoff boundaries owned by Flow components and primitives.",
+        "demos": [
+          { "label": "Default", "state": "default", "messages": 3 },
+          { "label": "Loading", "state": "loading", "messages": 0 },
+          { "label": "Empty", "state": "empty", "messages": 0 },
+          { "label": "Error", "state": "error", "messages": 0, "recovery": "Try again" },
+          { "label": "Handoff", "state": "handoff", "messages": 2 },
+          { "label": "Offline", "state": "offline", "messages": 2, "recovery": "Reconnect" }
+        ]
+      }
+    }
+  }
+}

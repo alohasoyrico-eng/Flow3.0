@@ -1,0 +1,79 @@
+{
+  "artifacts": {
+    "patterns": {
+      "email-template-layout": {
+        "layer": "Pattern",
+        "platform": "Email channel",
+        "audiences": ["Product Designers", "Developers", "Content Designers", "Lifecycle Marketers", "Agents"],
+        "purpose": "Render Flow transactional and lifecycle emails as portable HTML-email markup while preserving Flow foundations through explicit, email-safe inline values.",
+        "governingFoundations": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "foundationDependencies": ["Accessibility", "Depth", "Energy", "Frame", "Growth", "Iconography", "Momentum", "State", "Symbol", "Tone", "Voice"],
+        "primitiveDependencies": ["Breakpoints", "Color", "Density", "Duration", "Iconography", "Message", "Radius", "Spacing", "Typography"],
+        "componentDependencies": [],
+        "patternDependencies": [],
+        "tokenDependencies": ["sys.accessibility.*", "sys.depth.*", "sys.energy.*", "sys.frame.*", "sys.growth.*", "sys.iconography.*", "sys.momentum.*", "sys.state.*", "sys.symbol.*", "sys.tone.*", "sys.voice.*"],
+        "densityContext": ["email clients", "mobile inboxes", "desktop inboxes"],
+        "entryConditions": [
+          "A Flow message must render inside email clients that do not reliably support React runtime, CSS custom properties, flexbox, grid, or JavaScript.",
+          "The message uses Flow brand shell, preheader, primary content card, CTA link, tabular detail, KPI summary, OTP/security block, invitation copy, onboarding steps, or legal footer.",
+          "The content must be generated from Flow React for consistency but emitted as HTML email-safe markup."
+        ],
+        "decisionTree": [
+          "Use web patterns for in-product notification centers, toasts, dialogs, or dashboards.",
+          "Use Email Template Layout for outbound email markup, including receipt, summary, security alert, invite, welcome, and base layout variants.",
+          "Use a downstream ESP template only after this pattern has produced the portable HTML contract."
+        ],
+        "failureModes": [
+          "A product template owns email shell, footer, CTA table, or preheader markup directly.",
+          "Email content uses Flow web components such as Button, Card, Table, Toast, Dialog, Drawer, or Surface.",
+          "Email markup relies on CSS custom properties, flexbox, grid, client-side JavaScript, or web fonts.",
+          "Legal footer, preheader, alt/fallback text, or text-backed security copy is missing."
+        ],
+        "successMetrics": [
+          "Base, transactional, operational-summary, security-alert, team-invite, and welcome variants render as static HTML email-safe markup.",
+          "Foundation decisions are translated into inline color, type, spacing, radius, state, and tone values with no docs or product shell ownership.",
+          "The renderer emits presentation tables, hidden preheader, 600px container, responsive class hooks, CTA anchor table, and legal footer."
+        ],
+        "states": ["default", "draft", "ready", "sent", "error"],
+        "slots": [
+          {"name": "emailDocument", "owner": "channel", "uses": ["HTML Email"], "required": true},
+          {"name": "emailHead", "owner": "channel", "uses": ["Meta", "Media Query"], "required": true},
+          {"name": "emailPreheader", "owner": "primitive", "uses": ["Message"], "required": true},
+          {"name": "emailShell", "owner": "channel", "uses": ["Presentation Table"], "required": true},
+          {"name": "emailContentCard", "owner": "channel", "uses": ["Presentation Table"], "required": true},
+          {"name": "emailCta", "owner": "channel", "uses": ["Anchor Table"], "required": "conditional"},
+          {"name": "emailDataRows", "owner": "channel", "uses": ["Presentation Table"], "required": "conditional"},
+          {"name": "emailMetricsGrid", "owner": "channel", "uses": ["Presentation Table"], "required": "conditional"},
+          {"name": "emailOtpBlock", "owner": "channel", "uses": ["Presentation Table"], "required": "conditional"},
+          {"name": "emailSteps", "owner": "channel", "uses": ["Presentation Table"], "required": "conditional"},
+          {"name": "emailFooter", "owner": "primitive", "uses": ["Message"], "required": true}
+        ],
+        "accessibility": [
+          "Use semantic document language and title.",
+          "Use hidden preheader text for inbox context.",
+          "Use role=presentation tables for layout tables.",
+          "Keep CTA as an anchor with visible text, never a button.",
+          "Represent OTP, warning, transactional, invite, and onboarding copy with text, not icon or color alone."
+        ],
+        "tests": [
+          "Renders base, transactional, operational-summary, security-alert, team-invite, and welcome variants.",
+          "Emits html/head/body, hidden preheader, presentation tables, CTA anchors, responsive class hooks, and footer.",
+          "Rejects Flow web components, local web Button/Card/Table/Toast/Dialog/Drawer/Surface usage, CSS custom properties, flex/grid, JavaScript, and injected markup.",
+          "Confirms no interactive callbacks are required for email channel markup."
+        ],
+        "agentInstructions": [
+          "Use this pattern for outbound email families only.",
+          "Do not compose Flow web components inside email markup; translate foundation decisions into email-safe inline styles.",
+          "Keep all actions as links and assume the ESP/client owns tracking and delivery.",
+          "Ask before adding legal, regulated, financial, security, or unsubscribe copy."
+        ],
+        "rejectIf": [
+          "The email layout uses Flow web components.",
+          "The email uses flex, grid, CSS custom properties, JavaScript, or web fonts.",
+          "The pattern becomes a docs-only preview instead of package-owned renderer.",
+          "A product template clones the email shell or footer."
+        ]
+      }
+    }
+  }
+}

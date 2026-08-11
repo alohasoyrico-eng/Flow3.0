@@ -1,0 +1,174 @@
+{
+  "artifacts": {
+    "patterns": {
+      "pull-to-refresh": {
+        "layer": "Pattern",
+        "platform": "Touch-first",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate touch refresh gestures with explicit button fallback, refresh state, progress feedback, list continuity, and error recovery.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "Momentum",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Animation Assets",
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Animated Moment",
+          "Button",
+          "Card",
+          "Inline Validation",
+          "List",
+          "Progress Indicator",
+          "Toast"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.animated-moment.*",
+          "comp.button.*",
+          "comp.card.*",
+          "comp.inline-validation.*",
+          "comp.list.*",
+          "comp.progress-indicator.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "reduced motion"
+        ],
+        "entryConditions": [
+          "A touch surface displays refreshable content.",
+          "Users need a fast manual refresh without losing list position.",
+          "Refresh can be loading, stale, unavailable, or failed."
+        ],
+        "decisionTree": [
+          "Use Button alone when refresh is a standard toolbar command.",
+          "Use Pull to Refresh when touch gesture refresh is primary.",
+          "Use Toast or Inline Validation for post-refresh feedback and recovery."
+        ],
+        "failureModes": [
+          "Refresh is gesture-only with no explicit control.",
+          "Progress is decorative or unannounced.",
+          "Refreshing jumps scroll position unexpectedly.",
+          "Motion ignores reduced motion preferences."
+        ],
+        "successMetrics": [
+          "Users can refresh by gesture and by explicit control.",
+          "Refresh progress and errors are understandable.",
+          "Content continuity and accessibility preferences are preserved."
+        ],
+        "states": [
+          "idle",
+          "pulling",
+          "threshold",
+          "refreshing",
+          "complete",
+          "error",
+          "disabled",
+          "reduced-motion"
+        ],
+        "slots": [
+          {
+            "name": "content",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ]
+          },
+          {
+            "name": "indicator",
+            "owner": "component",
+            "uses": [
+              "Animated Moment",
+              "Progress Indicator"
+            ]
+          },
+          {
+            "name": "fallback",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Inline Validation",
+              "Toast"
+            ]
+          },
+          {
+            "name": "feed",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Card"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Provide a non-gesture refresh action.",
+          "Announce refresh start, completion, and failure.",
+          "Respect reduced motion."
+        ],
+        "tests": [
+          "Covers gesture and explicit Button fallback.",
+          "Uses Animated Moment and Progress Indicator for refresh feedback.",
+          "Preserves reduced-motion and error recovery behavior."
+        ],
+        "agentInstructions": [
+          "Compose from Animated Moment, Progress Indicator, Button, List, Card, Inline Validation, and Toast.",
+          "Keep fetch policy, cache invalidation, and pagination outside the pattern.",
+          "Ask before auto-refreshing regulated, financial, or safety-critical content."
+        ],
+        "rejectIf": [
+          "Refresh is gesture-only.",
+          "Progress lacks text or live feedback.",
+          "Motion ignores accessibility preferences.",
+          "The pattern owns app data-fetching policy."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

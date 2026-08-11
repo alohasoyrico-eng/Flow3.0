@@ -30,6 +30,10 @@
           "Option layer separates from page content without losing field context."
         ],
         [
+          "Momentum",
+          "Keeps highlighted, selected, and disabled option movement predictable across filtering and reduced motion."
+        ],
+        [
           "State",
           "Closed, open, selected, disabled, loading, stale, and invalid states are explicit."
         ],
@@ -72,10 +76,9 @@
       ],
       "componentsUsed": [
         "Select",
-        "Card",
         "Inline Validation",
         "Button",
-        "Badge"
+        "Empty State"
       ],
       "variants": [
         [

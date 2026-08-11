@@ -1,0 +1,170 @@
+{
+  "artifacts": {
+    "patterns": {
+      "action-sheet": {
+        "layer": "Pattern",
+        "platform": "Touch-first",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate mobile-first contextual actions through Dialog/Menu/List composition, with cancel, destructive, loading, search handoff, and recovery behavior.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Momentum",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Dialog",
+          "List",
+          "Menu",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Search"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.dialog.*",
+          "comp.list.*",
+          "comp.menu.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "reduced motion"
+        ],
+        "entryConditions": [
+          "A touch surface needs contextual actions in a sheet-like presentation.",
+          "Actions may include cancel, destructive, disabled, or loading states.",
+          "Search can provide target discovery but must not own the sheet action list."
+        ],
+        "decisionTree": [
+          "Use Menu for compact desktop action lists.",
+          "Use Action Sheet when mobile or touch ergonomics need a larger modal action surface.",
+          "Use Confirmation Dialog when a single risky action requires explicit consequence review."
+        ],
+        "failureModes": [
+          "Sheet surface is a custom overlay outside Dialog.",
+          "Action rows are custom buttons instead of Menu/List/Button.",
+          "Cancel and destructive actions are not semantically distinct.",
+          "Search implementation is embedded inside the sheet."
+        ],
+        "successMetrics": [
+          "Users can inspect, cancel, and trigger contextual actions by touch and keyboard.",
+          "Focus trap, escape, and focus return are preserved.",
+          "Risk and recovery states remain component-owned."
+        ],
+        "states": [
+          "closed",
+          "open",
+          "loading",
+          "disabled",
+          "destructive",
+          "permission-blocked",
+          "error"
+        ],
+        "slots": [
+          {
+            "name": "surface",
+            "owner": "component",
+            "uses": [
+              "Dialog"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Menu",
+              "List",
+              "Button"
+            ]
+          },
+          {
+            "name": "feedback",
+            "owner": "component",
+            "uses": [
+              "Toast"
+            ]
+          },
+          {
+            "name": "searchBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Search"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Search runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Use Dialog focus trap and focus return.",
+          "Keep destructive meaning in text and semantics.",
+          "Ensure cancel remains reachable and predictable."
+        ],
+        "tests": [
+          "Composes Dialog, Menu/List, Button, and Toast.",
+          "Covers open, loading, disabled, destructive, permission, and error states.",
+          "Keeps Search as handoff boundary only."
+        ],
+        "agentInstructions": [
+          "Do not implement a custom sheet overlay.",
+          "Keep action execution policy outside the pattern.",
+          "Ask before including destructive, regulated, or identity-sensitive actions."
+        ],
+        "rejectIf": [
+          "Overlay bypasses Dialog.",
+          "Action rows bypass Menu/List/Button.",
+          "Cancel is missing.",
+          "Search behavior is cloned."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

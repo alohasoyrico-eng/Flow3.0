@@ -8,7 +8,12 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
 const { createReport: createInteractionCoverageReport } = require("./report-react-interaction-coverage.js");
+const {
+  accessibilityCriticalRequirementsPolicy,
+  reactSecondaryExpectedInventory,
+} = require("./react-primary-governance-policy.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -16,115 +21,17 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-accessibility-governance-audit.json");
 const markdownOutput = path.join(outputDir, "react-accessibility-governance-audit.md");
 
-const expectedInventory = {
-  components: 56,
-  accessibilityDebt: 0,
-  criticalComponents: 10,
-  criticalPassing: 10,
-  totalRoles: 68,
-  totalAria: 310,
-  keyboardHandlers: 40,
-  focusCalls: 15,
-  failures: 0,
-  interactionFailures: 0,
-};
-
-const criticalRequirements = {
-  Dialog: [
-    ["role dialog", /role:\s*"dialog"/],
-    ["modal", /"aria-modal":\s*"true"/],
-    ["labelledby", /"aria-labelledby"/],
-    ["escape", /event\.key\s*!==\s*"Escape"|event\.key\s*===\s*"Escape"/],
-    ["focus restoration", /\.focus\(\)/],
-  ],
-  Drawer: [
-    ["role dialog", /role:\s*"dialog"/],
-    ["modal", /"aria-modal":\s*"true"/],
-    ["labelledby", /"aria-labelledby"/],
-    ["escape", /event\.key\s*!==\s*"Escape"|event\.key\s*===\s*"Escape"/],
-    ["focus restoration", /\.focus\(\)/],
-  ],
-  Menu: [
-    ["menu trigger", /"aria-haspopup":\s*"menu"/],
-    ["expanded state", /"aria-expanded"/],
-    ["role menu", /role:\s*"menu"/],
-    ["role menuitem", /role:\s*"menuitem"/],
-    ["keyboard", /onKeyDown/],
-    ["escape", /event\.key\s*===\s*"Escape"/],
-    ["focus management", /\.focus\(\)/],
-  ],
-  Popover: [
-    ["dialog trigger", /"aria-haspopup":\s*"dialog"/],
-    ["expanded state", /"aria-expanded"/],
-    ["role dialog", /role:\s*"dialog"/],
-    ["labelledby", /"aria-labelledby"/],
-    ["keyboard", /onKeyDown/],
-    ["escape", /event\.key\s*!==\s*"Escape"|event\.key\s*===\s*"Escape"/],
-    ["focus restoration", /\.focus\(\)/],
-  ],
-  Tooltip: [
-    ["describedby", /"aria-describedby"/],
-    ["role tooltip", /role:\s*"tooltip"/],
-    ["keyboard", /onKeyDown/],
-    ["escape", /event\.key\s*!==\s*"Escape"|event\.key\s*===\s*"Escape"/],
-    ["focus trigger", /onFocus/],
-  ],
-  Select: [
-    ["role combobox", /role:\s*"combobox"/],
-    ["expanded state", /"aria-expanded"/],
-    ["listbox", /role:\s*"listbox"/],
-    ["option", /role:\s*"option"/],
-    ["active descendant", /"aria-activedescendant"/],
-    ["keyboard", /onKeyDown/],
-    ["escape", /event\.key\s*===\s*"Escape"/],
-  ],
-  Combobox: [
-    ["role combobox", /role:\s*"combobox"/],
-    ["autocomplete", /"aria-autocomplete":\s*"list"/],
-    ["expanded state", /"aria-expanded"/],
-    ["listbox", /role:\s*"listbox"/],
-    ["option", /role:\s*"option"/],
-    ["active descendant", /"aria-activedescendant"/],
-    ["keyboard", /onKeyDown/],
-    ["escape", /event\.key\s*===\s*"Escape"/],
-  ],
-  CountrySelector: [
-    ["role combobox", /role:\s*"combobox"/],
-    ["expanded state", /"aria-expanded"/],
-    ["listbox", /role:\s*"listbox"/],
-    ["option", /role:\s*"option"/],
-    ["active descendant", /"aria-activedescendant"/],
-    ["keyboard", /onKeyDown/],
-    ["escape", /event\.key\s*===\s*"Escape"/],
-  ],
-  DatePicker: [
-    ["dialog trigger", /"aria-haspopup":\s*"dialog"/],
-    ["expanded state", /"aria-expanded"/],
-    ["role dialog", /role:\s*"dialog"/],
-    ["grid", /role:\s*"grid"/],
-    ["gridcell", /role:\s*"gridcell"/],
-    ["keyboard", /onKeyDown/],
-    ["escape", /event\.key\s*!==\s*"Escape"|event\.key\s*===\s*"Escape"/],
-    ["focus restoration", /\.focus\(\)/],
-  ],
-  DateRangePicker: [
-    ["dialog trigger", /"aria-haspopup":\s*"dialog"/],
-    ["expanded state", /"aria-expanded"/],
-    ["role dialog", /role:\s*"dialog"/],
-    ["grid", /role:\s*"grid"/],
-    ["gridcell", /role:\s*"gridcell"/],
-    ["keyboard", /onKeyDown/],
-    ["escape", /event\.key\s*!==\s*"Escape"|event\.key\s*===\s*"Escape"/],
-    ["focus restoration", /\.focus\(\)/],
-  ],
-};
-
 function componentFiles() {
   if (!fs.existsSync(reactSrcDir)) return [];
   return fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort()
     .map((file) => path.join(reactSrcDir, file));
+}
+
+function kebab(value) {
+  return String(value).replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
 function countMatches(source, pattern) {
@@ -132,13 +39,16 @@ function countMatches(source, pattern) {
 }
 
 function createReport() {
+  const { expectedInventory, governance } = reactSecondaryExpectedInventory("accessibility");
+  const criticalPolicy = accessibilityCriticalRequirementsPolicy();
+  const criticalRequirements = criticalPolicy.criticalRequirements;
   const interactionReport = createInteractionCoverageReport();
   const interactionCritical = new Map(interactionReport.manualAccessibilityCritical.map((component) => [component.component, component]));
   const components = componentFiles().map((file) => {
     const component = path.basename(file, ".js");
     const source = read(file);
     const interaction = interactionCritical.get(component);
-    const requirements = (criticalRequirements[component] ?? []).map(([label, pattern]) => ({
+    const requirements = (criticalRequirements[component] ?? []).map(({ label, pattern }) => ({
       label,
       present: pattern.test(source),
     }));
@@ -185,8 +95,12 @@ function createReport() {
     focusCalls: components.reduce((total, component) => total + component.signals.focusCalls, 0),
     failures: components.reduce((total, component) => total + component.missing.length, 0),
     interactionFailures: components.reduce((total, component) => total + (component.interaction?.missing.length ?? 0), 0),
+    reactGovernancePolicyIssues: governance.issues.length + criticalPolicy.governance.issues.length,
   };
-  inventory.accessibilityDebt = inventory.failures + inventory.interactionFailures + (inventory.criticalComponents - inventory.criticalPassing);
+  inventory.accessibilityDebt = inventory.failures
+    + inventory.interactionFailures
+    + (inventory.criticalComponents - inventory.criticalPassing)
+    + inventory.reactGovernancePolicyIssues;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -201,6 +115,10 @@ function createReport() {
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
+    },
+    governance: {
+      ...governance,
+      criticalPolicy,
     },
     inventory,
     components,

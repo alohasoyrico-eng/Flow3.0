@@ -6,11 +6,11 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 
 ## Inventory
 
-- React components scanned: 56
+- React components scanned: 60
 - Default debt: 0
 - Prohibited platform defaults: 0
-- Visible semantic default decisions: 112
-- Contract-backed semantic default decisions: 112
+- Visible semantic default decisions: 115
+- Contract-backed semantic default decisions: 115
 - Unbacked semantic default decisions: 0
 - Semantic default decision contract gaps: 0
 - Inventory baseline mismatches: 0
@@ -22,13 +22,14 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 56 | 56 |
+| components | 60 | 60 |
 | defaultDebt | 0 | 0 |
 | prohibitedDefaults | 0 | 0 |
-| semanticDefaultDecisions | 112 | 112 |
-| contractBackedSemanticDefaultDecisions | 112 | 112 |
+| semanticDefaultDecisions | 115 | 115 |
+| contractBackedSemanticDefaultDecisions | 115 | 115 |
 | unbackedSemanticDefaultDecisions | 0 | 0 |
 | semanticDefaultDecisionContractGaps | 0 | 0 |
+| reactGovernancePolicyIssues | 0 | 0 |
 
 ## Baseline Mismatches
 
@@ -40,9 +41,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Rule | Expected | Actual |
 | --- | ---: | ---: |
-| state-default | 43 | 43 |
+| state-default | 45 | 45 |
 | variant-default | 40 | 40 |
-| tone-default | 14 | 14 |
+| tone-default | 15 | 15 |
 | intent-default | 2 | 2 |
 | status-default | 1 | 1 |
 | placement-default | 2 | 2 |
@@ -65,9 +66,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Rule | Count | Contract-backed | Unbacked | Meaning |
 | --- | ---: | ---: | ---: | --- |
-| state-default | 43 | 43 | 0 | Component behavior default; allowed when normalized through component state. |
+| state-default | 45 | 45 | 0 | Component behavior default; allowed when normalized through component state. |
 | variant-default | 40 | 40 | 0 | Component composition default; allowed when constrained by the component contract. |
-| tone-default | 14 | 14 | 0 | Component tone fallback; allowed when constrained by the component contract. |
+| tone-default | 15 | 15 | 0 | Component tone fallback; allowed when constrained by the component contract. |
 | intent-default | 2 | 2 | 0 | Action intent fallback; allowed when constrained by the component contract. |
 | status-default | 1 | 1 | 0 | Component status fallback; allowed when constrained by the component contract. |
 | placement-default | 2 | 2 | 0 | Overlay placement fallback; allowed when constrained by the component contract. |
@@ -124,6 +125,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChartPanel | variant-default | variant | sparkline | pass | pass | Yes | packages/react/src/ChartPanel.js:220 |
 | ChartPanel | state-default | state | default | pass | pass | Yes | packages/react/src/ChartPanel.js:221 |
 | ChartPanel | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChartPanel.js:222 |
+| ChatMessage | state-default | state | default | pass | pass | Yes | packages/react/src/ChatMessage.js:26 |
+| ChatMessage | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChatMessage.js:27 |
+| ChatThread | state-default | state | default | pass | pass | Yes | packages/react/src/ChatThread.js:24 |
 | Checkbox | variant-default | variant | default | pass | pass | Yes | packages/react/src/Checkbox.js:20 |
 | Checkbox | state-default | state | unchecked | pass | pass | Yes | packages/react/src/Checkbox.js:21 |
 | Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.js:18 |
@@ -241,6 +245,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChartPanel | variant-default | variant | sparkline | packages/react/src/ChartPanel.js:220 | `variant = "sparkline",` |
 | ChartPanel | state-default | state | default | packages/react/src/ChartPanel.js:221 | `state = "default",` |
 | ChartPanel | tone-default | tone | neutral | packages/react/src/ChartPanel.js:222 | `tone = "neutral",` |
+| ChatMessage | state-default | state | default | packages/react/src/ChatMessage.js:26 | `state = "default",` |
+| ChatMessage | tone-default | tone | neutral | packages/react/src/ChatMessage.js:27 | `tone = "neutral",` |
+| ChatThread | state-default | state | default | packages/react/src/ChatThread.js:24 | `state = "default",` |
 | Checkbox | variant-default | variant | default | packages/react/src/Checkbox.js:20 | `variant = "default",` |
 | Checkbox | state-default | state | unchecked | packages/react/src/Checkbox.js:21 | `state = "unchecked",` |
 | Chip | state-default | state | default | packages/react/src/Chip.js:18 | `function normalizeState({ disabled = false, selected = false, state = "default" } = {}) {` |

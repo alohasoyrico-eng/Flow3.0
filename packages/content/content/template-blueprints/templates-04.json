@@ -1,0 +1,204 @@
+{
+  "templates": {
+    "Agent Workspace": {
+      "nav": [
+        "Queue",
+        "Thread",
+        "Context",
+        "Handoff"
+      ],
+      "metrics": [
+        [
+          "3",
+          "Open conversations"
+        ],
+        [
+          "2",
+          "Unread updates"
+        ]
+      ],
+      "modules": [
+        "Conversation queue",
+        "Agent Conversation",
+        "Agent state",
+        "Handoff recovery",
+        "Workspace context"
+      ],
+      "moduleDetails": {
+        "Conversation queue": {
+          "icon": "forum",
+          "copy": "Keeps conversation selection, unread state, and agent ownership visible without creating a custom list shell."
+        },
+        "Agent Conversation": {
+          "icon": "chat",
+          "copy": "Delegates message history, reply input, attach action, sending, disabled, offline, error, and handoff behavior through Agent Conversation, Chat Thread, Chat Message, and Chat Composer."
+        },
+        "Agent state": {
+          "icon": "support_agent",
+          "copy": "Shows assignment, unread count, and recovery posture while preserving selected conversation context."
+        },
+        "Handoff recovery": {
+          "icon": "published_with_changes",
+          "copy": "Uses Status Feedback View for handoff, permission, offline, and error recovery instead of custom banners."
+        },
+        "Workspace context": {
+          "icon": "fact_check",
+          "copy": "Keeps driver, card, station, and case evidence attached to the active conversation."
+        }
+      },
+      "standard": "This template is the agent conversational workspace: queue, thread, composer, and evidence context must behave as one product surface.",
+      "screenSystem": "The screen system separates queue, conversation, composer, context, and recovery while keeping selected conversation state shared.",
+      "informationArchitecture": "Navigation follows agent work: pick a conversation, inspect history, reply, attach context, and hand off when needed.",
+      "primary": "Agent resolves a driver support conversation while preserving message history, evidence, and recovery state.",
+      "permissions": [
+        "agent",
+        "supervisor",
+        "support escalation"
+      ],
+      "data": [
+        "conversations",
+        "messages",
+        "driver context",
+        "case evidence",
+        "handoff status"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "handoff",
+        "error",
+        "permission",
+        "offline",
+        "disabled"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop"
+      ],
+      "telemetry": [
+        "conversation selected",
+        "reply sent",
+        "handoff started",
+        "evidence attached"
+      ],
+      "qualityGates": [
+        "Conversation selection keeps thread, composer, and context panel synchronized.",
+        "Composer states are controlled by template state and never bypass Chat Composer behavior.",
+        "Handoff, offline, permission, and error states use Status Feedback View instead of custom banners."
+      ],
+      "patternDetails": {
+        "Agent Conversation": "Owns the governed chat composition boundary so the template does not render local chat bubbles, local composer fields, or custom message state.",
+        "Topbar": "Provides global search, workspace actions, account affordance, and shell state without redefining input, button, avatar, or notification behavior.",
+        "Status Feedback View": "Owns handoff, offline, permission, and error feedback so the workspace does not invent local recovery banners."
+      }
+    },
+    "Internal Operations Console": {
+      "nav": [
+        "Cases",
+        "Tickets",
+        "Accounts",
+        "Pricing",
+        "Backoffice",
+        "Growth"
+      ],
+      "metrics": [
+        [
+          "6",
+          "Operations modules"
+        ],
+        [
+          "0",
+          "Custom table clones"
+        ]
+      ],
+      "modules": [
+        "Case operations",
+        "Ticket operations",
+        "Account operations",
+        "Pricing operations",
+        "Backoffice approvals",
+        "Growth operations"
+      ],
+      "moduleDetails": {
+        "Case operations": {
+          "icon": "fact_check",
+          "copy": "Delegates triage, filters, detail drawer, activity timeline, and feedback to Case Management."
+        },
+        "Ticket operations": {
+          "icon": "confirmation_number",
+          "copy": "Delegates ticket queue, alerts, selection, detail drawer, and feedback to Ticket Queue."
+        },
+        "Account operations": {
+          "icon": "manage_accounts",
+          "copy": "Delegates dense account records, detail drawer, and audit timeline to Account Operations."
+        },
+        "Pricing operations": {
+          "icon": "payments",
+          "copy": "Delegates pricing rules, approvals, editable table, and permission policy to Pricing Operations."
+        },
+        "Backoffice approvals": {
+          "icon": "approval",
+          "copy": "Delegates document review, approval decisions, detail drawer, and recovery to Backoffice Approval."
+        },
+        "Growth operations": {
+          "icon": "trending_up",
+          "copy": "Uses Dense Operational List for growth experiments so growth-brutal does not escape Surface or theme contracts."
+        }
+      },
+      "standard": "This template is the governed desktop shell for internal operations; it composes Flow patterns and does not own local tables, drawers, filters, or feedback.",
+      "screenSystem": "The screen system separates global shell, operations navigation, and operations workspace while preserving selected module state.",
+      "informationArchitecture": "Navigation follows product operations: triage cases, resolve tickets, review accounts, manage pricing, decide approvals, and monitor growth.",
+      "primary": "Operator moves between internal operations modules while keeping shell, density, permissions, and recovery behavior consistent.",
+      "permissions": [
+        "operator",
+        "approver",
+        "admin",
+        "audit viewer"
+      ],
+      "data": [
+        "cases",
+        "tickets",
+        "accounts",
+        "pricing rules",
+        "approval queue",
+        "growth metrics"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "permission",
+        "error",
+        "offline",
+        "disabled"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop"
+      ],
+      "telemetry": [
+        "module selected",
+        "case selected",
+        "ticket selected",
+        "approval decided",
+        "pricing rule submitted"
+      ],
+      "qualityGates": [
+        "Module selection keeps topbar, sidebar, and operations workspace synchronized.",
+        "Every operational table, filter, drawer, timeline, approval, and feedback behavior is delegated to patterns.",
+        "Growth-brutal and pricing surfaces stay within Surface, density, state, and theme contracts."
+      ],
+      "patternDetails": {
+        "Topbar": "Owns global actions, search entry, workspace state, and account affordances.",
+        "Sidebar": "Owns desktop navigation, active state, hierarchy, and drawer handoff.",
+        "Case Management": "Owns case filters, dense list, detail drawer, timeline, and feedback.",
+        "Ticket Queue": "Owns ticket alerts, dense list, detail drawer, and recovery feedback.",
+        "Account Operations": "Owns account records, dense list, detail drawer, and audit timeline.",
+        "Pricing Operations": "Owns pricing rules, editable queue, role policy, and feedback.",
+        "Backoffice Approval": "Owns approval queue, decision states, detail drawer, and feedback.",
+        "Dense Operational List": "Owns reusable dense growth operations list without cloning tables."
+      }
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "artifacts": {
+    "patterns": {
+      "quick-actions-grid": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate a compact set of high-frequency actions with status, tooltip explanation, optional confirmation, and search-adjacent discovery boundaries.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "Iconography",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Dialog",
+          "Quick Action",
+          "Toast",
+          "Tooltip"
+        ],
+        "patternDependencies": [
+          "Search"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.dialog.*",
+          "comp.quick-action.*",
+          "comp.toast.*",
+          "comp.tooltip.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.iconography.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A surface needs a small set of repeatable actions.",
+          "Actions need compact labels, icons, status, or short explanation.",
+          "Search may reveal action targets but must not own the action grid."
+        ],
+        "decisionTree": [
+          "Use Quick Action for a single compact command.",
+          "Use Quick Actions Grid when multiple quick commands need layout, grouping, or status.",
+          "Use Command Palette when actions are discovered through a global command query."
+        ],
+        "failureModes": [
+          "Actions are hand-built buttons instead of Quick Action.",
+          "Tooltip is the only source of required meaning.",
+          "Search owns action execution.",
+          "Risky actions bypass Dialog or Toast recovery."
+        ],
+        "successMetrics": [
+          "Users can scan and trigger common actions quickly.",
+          "Every icon action has a durable accessible name.",
+          "Risk, status, and recovery stay component-owned."
+        ],
+        "states": [
+          "default",
+          "loading",
+          "disabled",
+          "permission-blocked",
+          "confirming",
+          "completed",
+          "error"
+        ],
+        "slots": [
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Quick Action",
+              "Badge",
+              "Tooltip"
+            ]
+          },
+          {
+            "name": "confirmation",
+            "owner": "component",
+            "uses": [
+              "Dialog"
+            ]
+          },
+          {
+            "name": "feedback",
+            "owner": "component",
+            "uses": [
+              "Toast"
+            ]
+          },
+          {
+            "name": "searchBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Search"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Search runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Do not rely on icon-only meaning.",
+          "Keep tooltip supplemental, not required.",
+          "Expose disabled and permission reasons in text."
+        ],
+        "tests": [
+          "Composes Quick Action, Badge, Tooltip, Dialog, and Toast.",
+          "Covers disabled, permission, confirming, completed, and error states.",
+          "Keeps Search as discovery boundary only."
+        ],
+        "agentInstructions": [
+          "Do not recreate Button or Quick Action visuals.",
+          "Keep product-specific action policies outside the pattern.",
+          "Ask before exposing destructive or regulated actions."
+        ],
+        "rejectIf": [
+          "Actions are custom buttons.",
+          "Icon meaning is tooltip-only.",
+          "Search implementation is embedded.",
+          "Raw tokens bypass Flow components."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

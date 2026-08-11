@@ -1,0 +1,189 @@
+{
+  "artifacts": {
+    "patterns": {
+      "fleet-manager-onboarding-desktop": {
+        "layer": "Pattern",
+        "platform": "Desktop",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate a reusable fleet-manager onboarding composition with setup tasks, progress, validation, settings handoff, and desktop data review without owning a product template.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Checkbox",
+          "Empty State",
+          "Inline Validation",
+          "Input",
+          "KPI Tile",
+          "Select",
+          "Stepper",
+          "Table",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Settings"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.checkbox.*",
+          "comp.empty-state.*",
+          "comp.inline-validation.*",
+          "comp.input.*",
+          "comp.kpi-tile.*",
+          "comp.select.*",
+          "comp.stepper.*",
+          "comp.table.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A desktop onboarding flow needs reusable setup progress, task completion, validation, and data review.",
+          "Settings owns preference/configuration handoff.",
+          "The product template owns business copy, routing, permissions, and domain-specific task order."
+        ],
+        "decisionTree": [
+          "Use Multi Step Form for generic ordered forms.",
+          "Use Fleet Manager Onboarding Desktop for reusable fleet setup composition.",
+          "Use templates for complete product screens and business-specific onboarding journeys."
+        ],
+        "failureModes": [
+          "The pattern hardcodes product template layout or copy.",
+          "Settings is duplicated instead of handed off.",
+          "Setup tasks are custom checklist visuals.",
+          "Validation and progress are disconnected."
+        ],
+        "successMetrics": [
+          "Users understand onboarding progress, setup status, and recovery.",
+          "Desktop review surfaces stay component-owned.",
+          "Templates can compose the pattern without losing business ownership."
+        ],
+        "states": [
+          "not-started",
+          "in-progress",
+          "blocked",
+          "validating",
+          "complete",
+          "empty",
+          "permission-blocked",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "progress",
+            "owner": "component",
+            "uses": [
+              "Stepper",
+              "Badge",
+              "KPI Tile"
+            ]
+          },
+          {
+            "name": "tasks",
+            "owner": "component",
+            "uses": [
+              "Checkbox",
+              "Button",
+              "Inline Validation",
+              "Toast"
+            ]
+          },
+          {
+            "name": "review",
+            "owner": "component",
+            "uses": [
+              "Input",
+              "Select",
+              "Table",
+              "Empty State"
+            ]
+          },
+          {
+            "name": "settingsBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Settings"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Settings runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Expose progress and blocked reasons in text.",
+          "Tie validation to fields/tasks.",
+          "Do not rely on dashboard layout to communicate completion."
+        ],
+        "tests": [
+          "Composes Badge, Button, Checkbox, Empty State, Inline Validation, Input, KPI Tile, Select, Stepper, Table, and Toast.",
+          "Covers progress, blocked, validating, complete, empty, permission, and disabled states.",
+          "Keeps Settings and templates as boundaries."
+        ],
+        "agentInstructions": [
+          "Keep business-specific onboarding sequence in templates.",
+          "Use Settings only as a handoff boundary.",
+          "Ask before onboarding workflows touch billing, compliance, identity, or fleet safety policy."
+        ],
+        "rejectIf": [
+          "Business template layout is embedded.",
+          "Settings is cloned.",
+          "Task progress is custom markup.",
+          "Validation bypasses Flow components."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

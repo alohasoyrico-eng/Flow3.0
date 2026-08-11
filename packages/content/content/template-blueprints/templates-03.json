@@ -1,0 +1,188 @@
+{
+  "templates": {
+    "Fleet Dashboard Suite": {
+      "nav": [
+        "Overview",
+        "Combustible",
+        "Mantenimiento",
+        "EV",
+        "Peaje",
+        "Finanzas"
+      ],
+      "metrics": [
+        [
+          "$1.8M",
+          "Monthly spend"
+        ],
+        [
+          "7",
+          "Dashboards"
+        ]
+      ],
+      "modules": [
+        "Dashboard switcher",
+        "Shared filter bar",
+        "Domain KPI stack",
+        "Drill-down table"
+      ],
+      "moduleDetails": {
+        "Dashboard switcher": {
+          "icon": "dashboard_customize",
+          "copy": "Moves between operational domains without losing scope, period, or comparison context."
+        },
+        "Shared filter bar": {
+          "icon": "filter_alt",
+          "copy": "Controls fleet segment, time range, cost center, and saved views across dashboards."
+        },
+        "Domain KPI stack": {
+          "icon": "monitoring",
+          "copy": "Pairs each KPI with definition, threshold, trend, and drill-in responsibility."
+        },
+        "Drill-down table": {
+          "icon": "table",
+          "copy": "Supports sorting, filtering, density, export, keyboard use, and audit-ready row detail."
+        }
+      },
+      "standard": "This template is the multi-domain dashboard suite: each dashboard must share filters and navigation while preserving its own KPI definitions, thresholds, and drill-down evidence.",
+      "screenSystem": "The screen system coordinates dashboard switching, shared filters, KPI stacks, and drill-down tables across operational domains.",
+      "informationArchitecture": "Navigation follows domain accountability: overview, fuel, maintenance, EV, toll, fleet, and finance.",
+      "primary": "Fleet team moves across seven operational dashboards while preserving filters, context, thresholds, and accountability.",
+      "permissions": [
+        "dashboard access",
+        "finance visibility",
+        "fleet segment"
+      ],
+      "data": [
+        "fuel",
+        "maintenance",
+        "EV",
+        "toll",
+        "fleet",
+        "finance"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop",
+        "TV"
+      ],
+      "telemetry": [
+        "dashboard switched",
+        "threshold inspected",
+        "drill-down opened"
+      ],
+      "qualityGates": [
+        "Shared filters carry across all dashboards.",
+        "Each KPI includes definition, threshold, trend, and drill-down.",
+        "Finance visibility changes both data and available exports."
+      ],
+      "patternDetails": {
+        "Topbar": "Provides global actions, search entry, identity, and workspace affordances without redefining button, input, or avatar behavior.",
+        "Sidebar": "Provides desktop product navigation, hierarchy, active state, and section persistence without owning module content."
+      },
+      "templateModuleDetails": {
+        "Fleet Dashboard Overview": "Provides the shared shell, filters, health summary, and exception entry point.",
+        "Fuel Dashboard": "Tracks fuel spend, authorization health, station behavior, and anomaly recovery.",
+        "Maintenance Dashboard": "Connects vehicle maintenance status, cost, overdue work, and service follow-up.",
+        "Electromobility Dashboard": "Shows EV utilization, charging behavior, battery context, and operational thresholds.",
+        "Toll Dashboard": "Explains toll spend, route usage, exceptions, and finance reconciliation.",
+        "Fleet Dashboard": "Connects vehicles, drivers, segments, alerts, and operational ownership.",
+        "Finance Dashboard": "Controls spend visibility, exports, reconciliation, and audit-ready drill-down."
+      }
+    },
+    "Configuration Console": {
+      "nav": [
+        "Roles",
+        "Drivers",
+        "Vehicles",
+        "Audit"
+      ],
+      "metrics": [
+        [
+          "24",
+          "Pending changes"
+        ],
+        [
+          "6",
+          "Roles"
+        ]
+      ],
+      "modules": [
+        "Permission matrix",
+        "Driver lifecycle table",
+        "Vehicle lifecycle table",
+        "Audit trail"
+      ],
+      "moduleDetails": {
+        "Permission matrix": {
+          "icon": "admin_panel_settings",
+          "copy": "Shows role capabilities, dependencies, approval needs, and risky changes before save."
+        },
+        "Driver lifecycle table": {
+          "icon": "badge",
+          "copy": "Manages driver creation, suspension, recovery, ownership, and evidence states."
+        },
+        "Vehicle lifecycle table": {
+          "icon": "local_shipping",
+          "copy": "Manages vehicle status, assignment, eligibility, documents, and operational blockers."
+        },
+        "Audit trail": {
+          "icon": "manage_history",
+          "copy": "Explains who changed what, when, why, and what downstream object was affected."
+        }
+      },
+      "standard": "This template is the administrative control surface: permission changes, driver records, vehicle records, and audit evidence must stay connected.",
+      "screenSystem": "The screen system separates permissions, lifecycle tables, and audit history while preserving approval and dependency context.",
+      "informationArchitecture": "Navigation follows admin responsibility: roles, drivers, vehicles, and audit.",
+      "primary": "Admin manages roles, permissions, drivers, and vehicles with dependency warnings and auditability.",
+      "permissions": [
+        "admin",
+        "approver",
+        "audit viewer"
+      ],
+      "data": [
+        "roles",
+        "permissions",
+        "drivers",
+        "vehicles",
+        "audit events"
+      ],
+      "states": [
+        "loaded",
+        "loading",
+        "empty",
+        "error",
+        "permission",
+        "offline"
+      ],
+      "surfaces": [
+        "Laptop",
+        "Desktop"
+      ],
+      "telemetry": [
+        "role changed",
+        "driver lifecycle action submitted",
+        "audit event opened"
+      ],
+      "qualityGates": [
+        "Permission changes expose dependency warnings before save.",
+        "Driver and vehicle lifecycle actions produce audit evidence.",
+        "Approver and audit viewer roles see distinct capabilities."
+      ],
+      "patternDetails": {
+        "Topbar": "Provides global actions, search entry, identity, and workspace affordances without redefining button, input, or avatar behavior.",
+        "Sidebar": "Provides desktop product navigation, hierarchy, active state, and section persistence without owning module content.",
+        "Roles and Permissions": "Defines capability changes, approval gates, dependency warnings, and audit evidence.",
+        "Driver and Vehicle Administration": "Covers creation, update, suspension, reassignment, blocked states, and recovery for operational records.",
+        "Authentication, Login, Biometrics and OTP": "Protects access to admin actions with risk copy, fallback paths, and identity recovery."
+      }
+    }
+  }
+}

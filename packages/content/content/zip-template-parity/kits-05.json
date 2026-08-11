@@ -1,0 +1,167 @@
+{
+  "kits": [
+    {
+      "id": "rutas",
+      "zipPaths": [
+        "ui_kits/rutas/index.html"
+      ],
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Maps",
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Station Pin",
+          "Route Summary",
+          "Button",
+          "Icon Button",
+          "Chip",
+          "Badge",
+          "Spinner"
+        ],
+        "patterns": [
+          "Station Discovery",
+          "Search",
+          "Action Sheet"
+        ],
+        "templates": [
+          "Routes and Stations"
+        ]
+      },
+      "requiredDecision": "Use Routes and Stations as the canonical routes/station template.",
+      "migrationScope": [
+        "map",
+        "fallback list",
+        "station detail",
+        "route handoff"
+      ],
+      "cascadeRisks": [
+        "map runtime clone",
+        "station card shell",
+        "search outside Search pattern"
+      ]
+    },
+    {
+      "id": "settings",
+      "zipPaths": [
+        "ui_kits/settings/index.html",
+        "ui_kits/settings/README.md"
+      ],
+      "classification": "covered-by-template",
+      "candidateName": "Settings Workspace",
+      "status": "covered-by-settings-workspace",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Field Action",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Tabs",
+          "Input",
+          "Switch",
+          "Select",
+          "Button",
+          "Badge",
+          "Avatar",
+          "Toast",
+          "Breadcrumbs",
+          "Dialog",
+          "Inline Validation"
+        ],
+        "patterns": [
+          "Preference Management",
+          "Settings",
+          "Form Section",
+          "Confirmation Dialog"
+        ],
+        "templates": [
+          "Settings Workspace"
+        ]
+      },
+      "requiredDecision": "Settings Workspace covers the settings ZIP page as a product workspace; Preference Management remains the behavior owner for groups, form sections, validation, and danger confirmation.",
+      "migrationScope": [
+        "settings sections",
+        "preference rows",
+        "danger zone",
+        "theme mode"
+      ],
+      "cascadeRisks": [
+        "theme toggle mutating root outside theme contract",
+        "danger action outside Confirmation Dialog",
+        "settings controls rendered locally outside Preference Management"
+      ]
+    },
+    {
+      "id": "wallet",
+      "zipPaths": [
+        "ui_kits/wallet/index.html"
+      ],
+      "classification": "covered-by-template",
+      "status": "implemented",
+      "flowOwners": {
+        "foundations": [
+          "Accessibility",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitives": [
+          "Surface",
+          "Density",
+          "Iconography",
+          "Typography"
+        ],
+        "components": [
+          "Card Summary",
+          "Movement Row",
+          "Quick Action",
+          "Button",
+          "Icon Button",
+          "Segmented Control",
+          "Switch",
+          "Badge"
+        ],
+        "patterns": [
+          "Snackbar Provider",
+          "Confirmation Dialog",
+          "Action Sheet"
+        ],
+        "templates": [
+          "Driver Card Wallet"
+        ]
+      },
+      "requiredDecision": "Use Driver Card Wallet as the canonical wallet/card control template.",
+      "migrationScope": [
+        "card status",
+        "quick actions",
+        "movements",
+        "dispute"
+      ],
+      "cascadeRisks": [
+        "payment card clone",
+        "transaction row clone",
+        "quick actions outside Quick Action component"
+      ]
+    }
+  ]
+}

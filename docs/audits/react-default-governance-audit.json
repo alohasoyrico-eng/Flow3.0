@@ -4,18 +4,19 @@
   "principle": "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic default decisions may exist only when visible and contract-backed. The actionable debt metric is defaultDebt.",
   "baseline": {
     "inventory": {
-      "components": 56,
+      "components": 60,
       "defaultDebt": 0,
       "prohibitedDefaults": 0,
-      "semanticDefaultDecisions": 112,
-      "contractBackedSemanticDefaultDecisions": 112,
+      "semanticDefaultDecisions": 115,
+      "contractBackedSemanticDefaultDecisions": 115,
       "unbackedSemanticDefaultDecisions": 0,
-      "semanticDefaultDecisionContractGaps": 0
+      "semanticDefaultDecisionContractGaps": 0,
+      "reactGovernancePolicyIssues": 0
     },
     "semanticByRule": {
-      "state-default": 43,
+      "state-default": 45,
       "variant-default": 40,
-      "tone-default": 14,
+      "tone-default": 15,
       "intent-default": 2,
       "status-default": 1,
       "placement-default": 2,
@@ -31,20 +32,174 @@
     "mismatches": [],
     "semanticRuleMismatches": []
   },
+  "governance": {
+    "file": "packages/content/content/react-primary-governance.json",
+    "key": "defaults",
+    "issues": [],
+    "semanticByRulePolicy": {
+      "expectedSemanticByRule": {
+        "state-default": 45,
+        "variant-default": 40,
+        "tone-default": 15,
+        "intent-default": 2,
+        "status-default": 1,
+        "placement-default": 2,
+        "side-default": 1,
+        "align-default": 2,
+        "orientation-default": 1,
+        "trend-default": 2,
+        "composition-default": 1,
+        "avatar-status-default": 1,
+        "category-default": 1,
+        "sort-direction-default": 1
+      },
+      "governance": {
+        "file": "packages/content/content/react-primary-governance.json",
+        "key": "semanticDefaultExpectedByRule",
+        "issues": []
+      }
+    },
+    "defaultRulesPolicy": {
+      "prohibitedRules": [
+        {
+          "id": "density-prop-default",
+          "description": "React components must not default density to sm/md/lg; density must cascade through normalizeFlowDensity.",
+          "pattern": {}
+        },
+        {
+          "id": "density-normalizer-literal",
+          "description": "React components must not normalize a hardcoded density literal.",
+          "pattern": {}
+        },
+        {
+          "id": "density-props-literal",
+          "description": "React components must not emit flowDensityProps from a hardcoded density literal.",
+          "pattern": {}
+        },
+        {
+          "id": "size-prop-default",
+          "description": "React components must not reintroduce size as a parallel density API.",
+          "pattern": {}
+        },
+        {
+          "id": "theme-prop-default",
+          "description": "React components must not default theme/colorScheme; theme must come from the system cascade.",
+          "pattern": {}
+        },
+        {
+          "id": "theme-data-literal",
+          "description": "React components must not set data-theme to a hardcoded light/dark value.",
+          "pattern": {}
+        }
+      ],
+      "semanticRules": [
+        {
+          "id": "state-default",
+          "prop": "state",
+          "description": "Component behavior default; allowed when normalized through component state.",
+          "pattern": {}
+        },
+        {
+          "id": "variant-default",
+          "prop": "variant",
+          "description": "Component composition default; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "tone-default",
+          "prop": "tone",
+          "description": "Component tone fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "intent-default",
+          "prop": "intent",
+          "description": "Action intent fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "status-default",
+          "prop": "status",
+          "description": "Component status fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "placement-default",
+          "prop": "placement",
+          "description": "Overlay placement fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "side-default",
+          "prop": "side",
+          "description": "Surface side fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "align-default",
+          "prop": "align",
+          "description": "Alignment fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "orientation-default",
+          "prop": "orientation",
+          "description": "Layout orientation fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "trend-default",
+          "prop": "trend",
+          "description": "Trend fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "composition-default",
+          "prop": "composition",
+          "description": "Composition fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "avatar-status-default",
+          "prop": "avatarStatus",
+          "description": "Avatar status fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "category-default",
+          "prop": "category",
+          "description": "Category fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        },
+        {
+          "id": "sort-direction-default",
+          "prop": "sortDir",
+          "description": "Sort direction fallback; allowed when constrained by the component contract.",
+          "pattern": {}
+        }
+      ],
+      "governance": {
+        "file": "packages/content/content/react-primary-governance.json",
+        "key": "defaultGovernanceRules",
+        "issues": []
+      }
+    }
+  },
   "inventory": {
-    "components": 56,
+    "components": 60,
     "defaultDebt": 0,
     "prohibitedDefaults": 0,
-    "semanticDefaultDecisions": 112,
-    "contractBackedSemanticDefaultDecisions": 112,
+    "semanticDefaultDecisions": 115,
+    "contractBackedSemanticDefaultDecisions": 115,
     "unbackedSemanticDefaultDecisions": 0,
     "semanticDefaultDecisionContractGaps": 0,
+    "reactGovernancePolicyIssues": 0,
     "semanticByRule": [
       {
         "rule": "state-default",
         "description": "Component behavior default; allowed when normalized through component state.",
-        "count": 43,
-        "contractBacked": 43,
+        "count": 45,
+        "contractBacked": 45,
         "unbacked": 0
       },
       {
@@ -57,8 +212,8 @@
       {
         "rule": "tone-default",
         "description": "Component tone fallback; allowed when constrained by the component contract.",
-        "count": 14,
-        "contractBacked": 14,
+        "count": 15,
+        "contractBacked": 15,
         "unbacked": 0
       },
       {
@@ -421,6 +576,36 @@
       "value": "neutral",
       "description": "Component tone fallback; allowed when constrained by the component contract.",
       "text": "tone = \"neutral\","
+    },
+    {
+      "component": "ChatMessage",
+      "file": "packages/react/src/ChatMessage.js",
+      "line": 26,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
+      "component": "ChatMessage",
+      "file": "packages/react/src/ChatMessage.js",
+      "line": 27,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\","
+    },
+    {
+      "component": "ChatThread",
+      "file": "packages/react/src/ChatThread.js",
+      "line": 24,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
     },
     {
       "component": "Checkbox",
@@ -2058,6 +2243,94 @@
         "info",
         "warning",
         "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ChatMessage",
+      "file": "packages/react/src/ChatMessage.js",
+      "line": 26,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "sending",
+        "sent",
+        "delivered",
+        "failed",
+        "loading"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "sending",
+        "sent",
+        "delivered",
+        "failed",
+        "loading"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ChatMessage",
+      "file": "packages/react/src/ChatMessage.js",
+      "line": 27,
+      "rule": "tone-default",
+      "prop": "tone",
+      "value": "neutral",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "text": "tone = \"neutral\",",
+      "publicAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "contractAllowedValues": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "ChatThread",
+      "file": "packages/react/src/ChatThread.js",
+      "line": 24,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "loading",
+        "empty",
+        "error",
+        "handoff",
+        "offline"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "loading",
+        "empty",
+        "error",
+        "handoff",
+        "offline"
       ],
       "publicContractStatus": "pass",
       "systemContractStatus": "pass",

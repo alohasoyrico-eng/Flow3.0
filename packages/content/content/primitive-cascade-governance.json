@@ -1,0 +1,44 @@
+{
+  "principle": "Primitive cascade gates must be activated by contract, not by runner edits. Active gates are upstream-safe and must pass in audit-complete; backlog gates remain visible until their lateral dependencies, vendor sources, or Docs runtime evidence are resolved.",
+    "activeCascadeReports": [
+    "animation-assets",
+    "breakpoints",
+    "charts",
+    "color",
+    "country-flags",
+    "density",
+    "disabled",
+    "duration",
+    "elevation",
+    "focus",
+    "iconography",
+    "illustration-assets",
+    "library-sources",
+    "loading",
+    "maps",
+    "measurement",
+    "message",
+    "motion-curves",
+    "radius",
+    "research",
+    "spacing",
+    "surface",
+    "typography"
+  ],
+  "backlogSchema": {
+    "allowedBlockerTypes": [
+      "dependency-cycle",
+      "docs-runtime-evidence",
+      "lateral-policy",
+      "local-consumption-evidence",
+      "vendor-source-evidence"
+    ],
+    "requiredFields": [
+      "blockerTypes",
+      "reason",
+      "activationEvidence"
+    ]
+  },
+  "backlogCascadeReports": {
+  }
+}

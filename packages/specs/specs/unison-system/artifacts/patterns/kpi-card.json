@@ -1,0 +1,174 @@
+{
+  "artifacts": {
+    "patterns": {
+      "kpi-card": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate a metric summary with trend, status, loading, empty, error, drill-in, and comparison behavior while keeping metric visuals owned by Flow components.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "Empty State",
+          "Error Panel",
+          "KPI Tile",
+          "Skeleton",
+          "Tag"
+        ],
+        "patternDependencies": [],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.empty-state.*",
+          "comp.error-panel.*",
+          "comp.kpi-tile.*",
+          "comp.skeleton.*",
+          "comp.tag.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A surface needs to summarize one metric with context and optional drill-in.",
+          "The metric can be loading, empty, delayed, permission blocked, or errored.",
+          "Trend, status, or comparison needs consistent semantic treatment."
+        ],
+        "decisionTree": [
+          "Use KPI Tile for the base metric visual.",
+          "Use KPI Card when metric context, drill-in, status, or recovery states need composition.",
+          "Use Chart Wrapper when time-series, categorical, or multi-metric visualization is primary."
+        ],
+        "failureModes": [
+          "Metric cards define custom card, badge, or trend visuals.",
+          "Trend relies only on red or green.",
+          "Loading, empty, and error states are missing.",
+          "Business dashboard layout leaks into the reusable pattern."
+        ],
+        "successMetrics": [
+          "Users can understand the metric, status, and recovery path quickly.",
+          "Assistive technology users receive value, unit, trend, and state context.",
+          "Metric presentation remains reusable across dashboards without template coupling."
+        ],
+        "states": [
+          "default",
+          "loading",
+          "empty",
+          "error",
+          "stale",
+          "permission-blocked",
+          "interactive",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "metric",
+            "owner": "component",
+            "uses": [
+              "KPI Tile"
+            ]
+          },
+          {
+            "name": "status",
+            "owner": "component",
+            "uses": [
+              "Badge",
+              "Tag"
+            ]
+          },
+          {
+            "name": "recovery",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Empty State",
+              "Error Panel"
+            ]
+          },
+          {
+            "name": "loading",
+            "owner": "component",
+            "uses": [
+              "Skeleton"
+            ],
+            "required": "conditional",
+            "purpose": "Owns loading treatment for metric value, trend, and status before data resolves."
+          }
+        ],
+        "accessibility": [
+          "Expose metric value, unit, trend, and status in text.",
+          "Do not encode trend by color alone.",
+          "Keep drill-in actions keyboard reachable and labeled by metric context."
+        ],
+        "tests": [
+          "Uses KPI Tile for the metric visual.",
+          "Covers loading, empty, error, stale, permission, and interactive states.",
+          "Avoids template-specific dashboard layout ownership."
+        ],
+        "agentInstructions": [
+          "Compose from KPI Tile, Badge, Tag, Button, Skeleton, Empty State, and Error Panel.",
+          "Keep dashboard grid, business thresholds, and reporting logic in templates or app examples.",
+          "Ask before deriving financial, safety, or compliance status labels."
+        ],
+        "rejectIf": [
+          "A custom metric card recreates Card or KPI Tile visuals.",
+          "Trend is color-only.",
+          "The pattern hardcodes dashboard business layout.",
+          "Raw colors, spacing, radius, elevation, or typography bypass tokens."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

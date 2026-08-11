@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/kpi-card/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/kpi-card.json`
 
 ## Purpose
 
@@ -35,6 +36,161 @@ Summarize one operational metric with value, delta, threshold tone, owner, and a
 | Depth | KPI groups remain flat in dashboard bands; depth appears only for drill-in overlays. |
 | Accessibility | Value, label, delta, and tone are text-backed and readable without color. |
 
+## Formal Purpose
+
+Coordinate a metric summary with trend, status, loading, empty, error, drill-in, and comparison behavior while keeping metric visuals owned by Flow components.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `default`
+- `loading`
+- `empty`
+- `error`
+- `stale`
+- `permission-blocked`
+- `interactive`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `Empty State`
+- `Error Panel`
+- `KPI Tile`
+- `Skeleton`
+- `Tag`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.empty-state.*`
+- `comp.error-panel.*`
+- `comp.kpi-tile.*`
+- `comp.skeleton.*`
+- `comp.tag.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `metric` | `component` | `KPI Tile` |
+| `status` | `component` | `Badge`, `Tag` |
+| `recovery` | `component` | `Button`, `Empty State`, `Error Panel` |
+| `loading` | `component` | `Skeleton` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A surface needs to summarize one metric with context and optional drill-in.
+- The metric can be loading, empty, delayed, permission blocked, or errored.
+- Trend, status, or comparison needs consistent semantic treatment.
+
+### Decision Tree
+
+- Use KPI Tile for the base metric visual.
+- Use KPI Card when metric context, drill-in, status, or recovery states need composition.
+- Use Chart Wrapper when time-series, categorical, or multi-metric visualization is primary.
+
+### Failure Modes
+
+- Metric cards define custom card, badge, or trend visuals.
+- Trend relies only on red or green.
+- Loading, empty, and error states are missing.
+- Business dashboard layout leaks into the reusable pattern.
+
+### Success Metrics
+
+- Users can understand the metric, status, and recovery path quickly.
+- Assistive technology users receive value, unit, trend, and state context.
+- Metric presentation remains reusable across dashboards without template coupling.
+
+### Accessibility
+
+- Expose metric value, unit, trend, and status in text.
+- Do not encode trend by color alone.
+- Keep drill-in actions keyboard reachable and labeled by metric context.
+
+### Tests
+
+- Uses KPI Tile for the metric visual.
+- Covers loading, empty, error, stale, permission, and interactive states.
+- Avoids template-specific dashboard layout ownership.
+
+### Agent Instructions
+
+- Compose from KPI Tile, Badge, Tag, Button, Skeleton, Empty State, and Error Panel.
+- Keep dashboard grid, business thresholds, and reporting logic in templates or app examples.
+- Ask before deriving financial, safety, or compliance status labels.
+
+### Reject If
+
+- A custom metric card recreates Card or KPI Tile visuals.
+- Trend is color-only.
+- The pattern hardcodes dashboard business layout.
+- Raw colors, spacing, radius, elevation, or typography bypass tokens.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -44,7 +200,7 @@ Summarize one operational metric with value, delta, threshold tone, owner, and a
 | action | Button | conditional | Drill-in or investigation action when the KPI is actionable. |
 | state | Skeleton \| EmptyState \| ErrorPanel | yes | Represents loading, empty, or unavailable data. |
 
-## Components And Primitives Used
+## Components Used
 
 - KPI Tile
 - Badge

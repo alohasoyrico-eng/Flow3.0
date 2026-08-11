@@ -12,20 +12,131 @@
         "Content"
       ],
       "componentsUsed": [
-        "Table",
+        "Audit Event",
         "Avatar",
         "Badge",
-        "Quick Action",
-        "Pagination",
-        "Empty State",
+        "Button",
         "Card Summary",
-        "Audit Event"
+        "Dialog",
+        "Empty State",
+        "Pagination",
+        "Quick Action",
+        "Table",
+        "Toast"
       ],
       "tokens": [
         "frame.canvas",
         "voice.guidance",
         "motion.reveal",
         "a11y.recovery"
+      ],
+      "patternDependencies": [
+        "Toolbar"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "driver-onboarding-mobile",
+      "title": "Driver Onboarding Mobile",
+      "platform": "Mobile",
+      "summary": "Guide drivers through identity, OTP, biometric consent, card readiness, first useful action, and recovery without hiding risk or fallback paths.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "componentsUsed": [
+        "Animated Moment",
+        "Biometric Prompt",
+        "Button",
+        "Card",
+        "Card Summary",
+        "Code Input",
+        "Inline Validation",
+        "Input",
+        "Phone Input",
+        "Stepper",
+        "Toast"
+      ],
+      "tokens": [
+        "frame.canvas",
+        "voice.guidance",
+        "motion.reveal",
+        "state.recovery",
+        "a11y.focus"
+      ],
+      "patternDependencies": [
+        "Form Section"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "fleet-manager-onboarding-desktop",
+      "title": "Fleet Manager Onboarding Desktop",
+      "platform": "Desktop",
+      "summary": "Guide fleet managers through setup, company context, drivers, vehicles, policies, review, and dashboard readiness with recoverable progress.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "PMs"
+      ],
+      "componentsUsed": [
+        "Badge",
+        "Button",
+        "Checkbox",
+        "Empty State",
+        "Inline Validation",
+        "Input",
+        "KPI Tile",
+        "Select",
+        "Stepper",
+        "Table",
+        "Toast"
+      ],
+      "tokens": [
+        "frame.canvas",
+        "voice.guidance",
+        "motion.reveal",
+        "state.recovery",
+        "a11y.focus"
+      ],
+      "patternDependencies": [
+        "Settings"
+      ]
+    },
+    {
+      "type": "pattern",
+      "id": "roles-and-permissions",
+      "title": "Roles and Permissions",
+      "platform": "Desktop",
+      "summary": "Coordinate roles, capability matrices, dependency warnings, approval gates, risky changes, audit evidence, and recovery.",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers",
+        "Service Designers"
+      ],
+      "componentsUsed": [
+        "Audit Event",
+        "Badge",
+        "Button",
+        "Checkbox",
+        "Dialog",
+        "Inline Validation",
+        "Switch",
+        "Table",
+        "Toast",
+        "Tooltip"
+      ],
+      "tokens": [
+        "frame.canvas",
+        "voice.guidance",
+        "state.semantic",
+        "state.recovery",
+        "a11y.focus"
       ]
     }
   ]

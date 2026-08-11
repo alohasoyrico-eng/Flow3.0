@@ -1,0 +1,177 @@
+{
+  "artifacts": {
+    "patterns": {
+      "roles-and-permissions": {
+        "layer": "Pattern",
+        "platform": "Desktop",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate role and permission review/editing with tables, toggles, confirmation, audit context, validation, and template-owned authorization policy.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Audit Event",
+          "Badge",
+          "Button",
+          "Checkbox",
+          "Dialog",
+          "Inline Validation",
+          "Switch",
+          "Table",
+          "Toast",
+          "Tooltip"
+        ],
+        "patternDependencies": [],
+        "templateDependencies": [
+          "Fleet Manager Desktop",
+          "Configuration Console"
+        ],
+        "tokenDependencies": [
+          "comp.audit-event.*",
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.checkbox.*",
+          "comp.dialog.*",
+          "comp.inline-validation.*",
+          "comp.switch.*",
+          "comp.table.*",
+          "comp.toast.*",
+          "comp.tooltip.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A product needs reusable role/permission composition.",
+          "Permissions require review, edit, confirmation, audit context, validation, and disabled reasons.",
+          "Templates own authorization model, role taxonomy, and policy."
+        ],
+        "decisionTree": [
+          "Use Table/Switch/Checkbox for simple permission display.",
+          "Use this pattern when role editing, audit, confirmation, and validation are coordinated.",
+          "Use templates for tenant-specific authorization policy."
+        ],
+        "failureModes": [
+          "Authorization rules are embedded in the pattern.",
+          "Switch/Checkbox visuals are duplicated.",
+          "Disabled permissions lack reasons.",
+          "Audit or confirmation bypasses Flow components."
+        ],
+        "successMetrics": [
+          "Users can review and change permissions with clear consequence.",
+          "Permission state and disabled reasons are accessible.",
+          "Templates can vary policy without changing visual implementation."
+        ],
+        "states": [
+          "read-only",
+          "editing",
+          "dirty",
+          "confirming",
+          "saving",
+          "saved",
+          "permission-blocked",
+          "error"
+        ],
+        "slots": [
+          {
+            "name": "matrix",
+            "owner": "component",
+            "uses": [
+              "Table",
+              "Switch",
+              "Checkbox",
+              "Tooltip",
+              "Badge"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Dialog",
+              "Inline Validation",
+              "Toast"
+            ]
+          },
+          {
+            "name": "audit",
+            "owner": "component",
+            "uses": [
+              "Audit Event"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Expose permission labels and disabled reasons.",
+          "Confirm risky permission changes.",
+          "Provide audit context in text."
+        ],
+        "tests": [
+          "Composes all listed role/permission components.",
+          "Covers read-only, editing, dirty, confirming, saving, saved, blocked, and error states.",
+          "Keeps authorization policy in templates/app code."
+        ],
+        "agentInstructions": [
+          "Do not encode tenant authorization policy.",
+          "Ask before changing access, admin roles, billing, compliance, or identity permissions.",
+          "Keep templates responsible for role taxonomy."
+        ],
+        "rejectIf": [
+          "Authorization policy is embedded.",
+          "Controls bypass Switch/Checkbox.",
+          "Disabled reasons are missing.",
+          "Audit is custom markup."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/section-header/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/section-header.json`
 
 ## Purpose
 
@@ -35,6 +36,161 @@ Introduce dense product sections with title, supporting context, status, actions
 | Depth | Overflow menus layer above the section without turning the header into a card. |
 | Accessibility | Heading level, action grouping, status text, and overflow names are required. |
 
+## Formal Purpose
+
+Coordinate a local section title, status, actions, loading state, and host boundaries to Form Section, Settings, and Toolbar without becoming a page template.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `default`
+- `loading`
+- `actionable`
+- `disabled`
+- `permission-blocked`
+- `dirty`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `Menu`
+- `Skeleton`
+- `Tag`
+
+### Patterns
+
+- `Form Section`
+- `Settings`
+- `Toolbar`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.menu.*`
+- `comp.skeleton.*`
+- `comp.tag.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `status` | `component` | `Badge`, `Tag`, `Skeleton` |
+| `actions` | `component` | `Button`, `Menu` |
+| `formBoundary` | `pattern` | `Form Section` |
+| `settingsBoundary` | `pattern` | `Settings` |
+| `toolbarBoundary` | `pattern` | `Toolbar` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A section needs a title, description, status, and local actions.
+- The header belongs to a reusable section, not a full business page.
+- Actions may hand off to Toolbar, Settings, or Form Section.
+
+### Decision Tree
+
+- Use text heading alone for static content.
+- Use Section Header when local status/actions/loading are part of a reusable section.
+- Use Toolbar for dense action rows and Topbar for global shell actions.
+
+### Failure Modes
+
+- Header owns full page layout.
+- Actions bypass Button/Menu.
+- Status badges are custom tags.
+- Skeleton/loading is visual-only.
+
+### Success Metrics
+
+- Users understand the section, state, and available local actions.
+- Keyboard users can reach menus/actions predictably.
+- Section ownership does not leak into templates.
+
+### Accessibility
+
+- Use proper heading level supplied by the host.
+- Expose status in text.
+- Keep action menus keyboard reachable.
+
+### Tests
+
+- Composes Badge, Button, Menu, Skeleton, and Tag.
+- Covers loading, actionable, disabled, permission, and dirty states.
+- Keeps Form Section, Settings, and Toolbar as composition boundaries.
+
+### Agent Instructions
+
+- Do not hardcode page layout or business copy.
+- Do not clone Toolbar actions.
+- Ask before representing compliance or permission status.
+
+### Reject If
+
+- Header includes full template structure.
+- Actions bypass Button/Menu.
+- Status is color-only.
+- Loading bypasses Skeleton.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -45,7 +201,7 @@ Introduce dense product sections with title, supporting context, status, actions
 | actions | Button[] | conditional | Primary and secondary section actions. |
 | overflow | Menu | conditional | Lower-priority actions on constrained viewports. |
 
-## Components And Primitives Used
+## Components Used
 
 - Badge
 - Tag

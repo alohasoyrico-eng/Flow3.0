@@ -1,0 +1,85 @@
+{
+  "patterns": {
+    "agent-conversation": {
+      "purpose": "Coordinate Chat Thread, Chat Composer, and handoff/status feedback as one reusable conversational workflow without creating a parallel chat shell.",
+      "useWhen": [
+        "A template needs reusable conversation behavior.",
+        "Thread, composer, send, attach, handoff, offline, and error states must act as one flow.",
+        "Agent Workspace is necessary but not ready to own product navigation or tooling."
+      ],
+      "doNotUseWithoutReview": [
+        "The experience is a static message transcript.",
+        "The flow includes regulated identity, finance, safety, health, legal, or compliance operations.",
+        "A product template is trying to redefine Chat Thread, Chat Composer, or Status Feedback View behavior."
+      ],
+      "foundations": [
+        ["Accessibility", "The conversation group, log semantics, form semantics, busy state, and feedback stay announced through formal owners."],
+        ["Depth", "Surface owns the conversation structure and focus-within grouping without Card wrapping."],
+        ["Energy", "Composing, sending, handoff, offline, error, disabled, and recovery states cascade to child owners."],
+        ["Frame", "Responsive message rhythm and composer placement remain token-driven."],
+        ["Growth", "Agent handoff stays observable for templates without moving behavior into the template layer."],
+        ["Iconography", "Attach and recovery icons remain owned by Chat Composer and child components."],
+        ["Momentum", "Sending and handoff motion use existing child owners."],
+        ["State", "Pattern state maps to thread, feedback, and composer states."],
+        ["Symbol", "Handoff and recovery symbols remain semantic through feedback owners."],
+        ["Tone", "Assistant, system, error, offline, and handoff tone stay in Flow contracts."],
+        ["Voice", "Message, empty, offline, composer, and handoff copy remains explicit and recoverable."]
+      ],
+      "slots": [
+        ["conversationSurface", "Surface", "required", "Structural conversation group."],
+        ["thread", "Chat Thread", "required", "Message log, selected message, and message actions."],
+        ["handoffFeedback", "Status Feedback View", "conditional", "Handoff, offline, status, or recovery feedback."],
+        ["composer", "Chat Composer", "conditional", "Message entry, send, attach, and sending state."]
+      ],
+      "componentsUsed": [
+        "Chat Composer",
+        "Chat Thread"
+      ],
+      "patternDependencies": [
+        "Status Feedback View"
+      ],
+      "variants": [
+        ["Read/write", "Default", "Includes thread and composer."],
+        ["Read-only", "Conditional", "Omits composer for audit or closed conversations."],
+        ["Handoff", "Conditional", "Uses Status Feedback View for human or agent handoff."],
+        ["Offline", "State", "Delegates unavailable log state to Chat Thread and recovery to feedback."]
+      ],
+      "motion": [
+        ["Sending", "Surface marks busy while Chat Composer owns send loading."],
+        ["Handoff", "Surface marks selected state while Status Feedback View owns handoff feedback."],
+        ["Offline or error", "Thread and feedback own recovery states."]
+      ],
+      "accessibility": [
+        "Expose the whole conversation as a labelled group.",
+        "Delegate log semantics to Chat Thread.",
+        "Delegate message input semantics to Chat Composer.",
+        "Keep handoff and recovery feedback in Status Feedback View."
+      ],
+      "tests": [
+        "Composes Surface plus Chat Thread, Chat Composer, and Status Feedback View.",
+        "Density and state cascade through child owners.",
+        "Callbacks preserve event context.",
+        "No Card wrapper, raw message shell, local composer, fake bubble, or local handoff notice is emitted."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Agent Conversation for reusable chat workflows.",
+          "Omit composer for read-only transcripts.",
+          "Keep product-specific tools and permissions outside the pattern."
+        ],
+        "mustAsk": [
+          "The agent can perform regulated, destructive, identity, finance, legal, health, or safety actions.",
+          "A template wants custom message bubbles instead of Chat Thread semantics.",
+          "The flow needs multi-agent routing, transcript export, or tool execution."
+        ],
+        "rejectIf": [
+          "Messages are rendered outside Chat Thread.",
+          "Composer bypasses Chat Composer.",
+          "Card wraps the conversation group.",
+          "Handoff feedback bypasses Status Feedback View."
+        ],
+        "handoff": "Confirm message source, author model, composer policy, attachment policy, handoff rules, offline behavior, recovery feedback, and regulatory risk before shipping Agent Conversation."
+      }
+    }
+  }
+}

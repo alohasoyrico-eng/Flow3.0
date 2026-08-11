@@ -1,0 +1,256 @@
+{
+  "status": "pass",
+  "primitive": "Charts",
+  "principle": "Charts consumes Energy, Accessibility, Momentum, Voice, State, Library Sources, Measurement, and Message so chart visuals remain semantic, interactive, summarized, and recoverable while ECharts stays the rendering engine.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "series",
+      "threshold",
+      "legend",
+      "summary",
+      "empty"
+    ],
+    "present": [
+      "series",
+      "threshold",
+      "legend",
+      "summary",
+      "empty"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Energy",
+      "Accessibility",
+      "Momentum",
+      "Voice",
+      "State"
+    ],
+    "present": [
+      "Energy",
+      "Accessibility",
+      "Momentum",
+      "Voice",
+      "State"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Library Sources",
+      "Measurement",
+      "Message"
+    ],
+    "present": [
+      "Library Sources",
+      "Measurement",
+      "Message"
+    ],
+    "missing": []
+  },
+  "tokenDependencies": {
+    "required": [
+      "chart.*",
+      "library.*",
+      "sys.energy.*",
+      "sys.momentum.*",
+      "sys.voice.*",
+      "sys.accessibility.*"
+    ],
+    "present": [
+      "chart.*",
+      "library.*",
+      "sys.energy.*",
+      "sys.momentum.*",
+      "sys.voice.*",
+      "sys.accessibility.*"
+    ],
+    "missing": []
+  },
+  "tokenAliases": {
+    "required": [
+      "--sys-chart-series-primary",
+      "--sys-chart-series-secondary",
+      "--sys-chart-series-tertiary",
+      "--sys-chart-series-quaternary",
+      "--sys-chart-threshold-warning",
+      "--sys-chart-threshold-danger",
+      "--sys-chart-axis-color",
+      "--sys-chart-grid-color",
+      "--sys-chart-legend-text-color",
+      "--sys-chart-summary-font",
+      "--sys-chart-summary-line-height",
+      "--sys-chart-empty-color",
+      "--sys-chart-tooltip-background",
+      "--sys-chart-tooltip-foreground",
+      "--sys-chart-focus-ring",
+      "--sys-chart-motion-duration-enter",
+      "--sys-chart-motion-duration-update",
+      "--sys-chart-motion-easing-enter",
+      "--sys-chart-motion-easing-update"
+    ],
+    "present": [
+      "--sys-chart-series-primary",
+      "--sys-chart-series-secondary",
+      "--sys-chart-series-tertiary",
+      "--sys-chart-series-quaternary",
+      "--sys-chart-threshold-warning",
+      "--sys-chart-threshold-danger",
+      "--sys-chart-axis-color",
+      "--sys-chart-grid-color",
+      "--sys-chart-legend-text-color",
+      "--sys-chart-summary-font",
+      "--sys-chart-summary-line-height",
+      "--sys-chart-empty-color",
+      "--sys-chart-tooltip-background",
+      "--sys-chart-tooltip-foreground",
+      "--sys-chart-focus-ring",
+      "--sys-chart-motion-duration-enter",
+      "--sys-chart-motion-duration-update",
+      "--sys-chart-motion-easing-enter",
+      "--sys-chart-motion-easing-update"
+    ],
+    "missing": []
+  },
+  "implementation": {
+    "packageHasEcharts": true,
+    "primitiveExportsFactory": true,
+    "primitiveCreatesEchartsOption": true,
+    "primitiveCreatesTextSummary": true,
+    "primitiveCreatesTableFallback": true,
+    "primitiveCreatesLegendModel": true,
+    "primitiveEnablesAria": true,
+    "primitiveDefinesDataset": true,
+    "primitiveUsesSemanticMotion": true,
+    "panelConsumesPrimitive": true,
+    "panelMarksEngine": true,
+    "panelFigureSummary": true,
+    "panelTooltipLive": true,
+    "componentCssUsesChartTokens": 9
+  },
+  "references": {
+    "componentContracts": {
+      "count": 1,
+      "ids": [
+        "chart-panel"
+      ],
+      "sampleFiles": [
+        "packages/content/content/component-contracts/components/chart-panel.md"
+      ]
+    },
+    "patterns": {
+      "count": 20,
+      "ids": [
+        "advanced-filters",
+        "avatar-group",
+        "calendar-view",
+        "chart-wrapper",
+        "column-configurator",
+        "drag-sortable-list",
+        "driver-onboarding-mobile",
+        "email-template-layout",
+        "fleet-manager-onboarding-desktop",
+        "gantt-chart",
+        "kpi-card",
+        "polar-chart",
+        "pull-to-refresh",
+        "quick-actions-grid",
+        "roles-and-permissions",
+        "section-header",
+        "sidebar",
+        "topbar",
+        "virtual-data-table",
+        "waterfall-chart"
+      ],
+      "sampleFiles": [
+        "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+        "packages/content/content/pattern-contracts/patterns/avatar-group.md",
+        "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+        "packages/content/content/pattern-contracts/patterns/chart-wrapper.md",
+        "packages/content/content/pattern-contracts/patterns/column-configurator.md",
+        "packages/content/content/pattern-contracts/patterns/drag-sortable-list.md",
+        "packages/content/content/pattern-contracts/patterns/driver-onboarding-mobile.md",
+        "packages/content/content/pattern-contracts/patterns/email-template-layout.md",
+        "packages/content/content/pattern-contracts/patterns/fleet-manager-onboarding-desktop.md",
+        "packages/content/content/pattern-contracts/patterns/gantt-chart.md",
+        "packages/content/content/pattern-contracts/patterns/kpi-card.md",
+        "packages/content/content/pattern-contracts/patterns/polar-chart.md"
+      ]
+    },
+    "templates": {
+      "count": 7,
+      "ids": [
+        "agent-workspace",
+        "configuration-console",
+        "driver-card-wallet",
+        "driver-mobile-app",
+        "fleet-dashboard-suite",
+        "fleet-manager-desktop",
+        "internal-operations-console"
+      ],
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
+      ]
+    }
+  },
+  "foundationGate": {
+    "energy": {
+      "status": "pass"
+    },
+    "accessibility": {
+      "status": "pass"
+    },
+    "momentum": {
+      "status": "pass"
+    },
+    "voice": {
+      "status": "pass"
+    },
+    "state": {
+      "status": "pass"
+    }
+  },
+  "primitiveGate": {
+    "librarySources": {
+      "status": "pass"
+    },
+    "measurement": {
+      "status": "pass"
+    },
+    "message": {
+      "status": "pass"
+    }
+  },
+  "librarySources": {
+    "row": {
+      "id": "charts",
+      "library": "echarts",
+      "status": "pass",
+      "spec": true,
+      "contract": true,
+      "primitive": true,
+      "exported": true,
+      "dependency": true,
+      "dependencyVersion": "^6.1.0",
+      "vendor": true,
+      "generatedVendor": true,
+      "consumed": true,
+      "docsLoadsVendor": true,
+      "foundations": [
+        "Energy",
+        "Accessibility",
+        "Momentum",
+        "Voice",
+        "State"
+      ]
+    }
+  }
+}

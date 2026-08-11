@@ -1,0 +1,26 @@
+{
+  "demos": {
+    "Field Action": {
+      "type": "statGrid",
+      "className": "field-action-demo",
+      "rows": [
+        [
+          "Role",
+          "Clear, reveal, picker, validate, recover, retry, and resend actions tied to a field."
+        ],
+        [
+          "Owns",
+          "Local semantics, target field relationship, aria state, focus policy, and message policy."
+        ],
+        [
+          "Composes",
+          "Button or Icon Button only after the field action role and accessibility state are known."
+        ],
+        [
+          "Rejects",
+          "Fake field buttons, raw icons, or duplicated picker/recovery behavior in demos."
+        ]
+      ]
+    }
+  }
+}

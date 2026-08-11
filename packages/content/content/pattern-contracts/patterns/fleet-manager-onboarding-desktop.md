@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/fleet-manager-onboarding-desktop/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop.json`
 
 ## Purpose
 
@@ -35,6 +36,174 @@ Coordinate desktop setup for a fleet manager: workspace profile, fleet import, p
 | Accessibility | Tables, checkboxes, and stepper state are keyboard readable. |
 | Energy | Design System semantic tones communicate progress, warning, and success. |
 
+## Formal Purpose
+
+Coordinate a reusable fleet-manager onboarding composition with setup tasks, progress, validation, settings handoff, and desktop data review without owning a product template.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Desktop |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `not-started`
+- `in-progress`
+- `blocked`
+- `validating`
+- `complete`
+- `empty`
+- `permission-blocked`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Surface`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `Checkbox`
+- `Empty State`
+- `Inline Validation`
+- `Input`
+- `KPI Tile`
+- `Select`
+- `Stepper`
+- `Table`
+- `Toast`
+
+### Patterns
+
+- `Settings`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.checkbox.*`
+- `comp.empty-state.*`
+- `comp.inline-validation.*`
+- `comp.input.*`
+- `comp.kpi-tile.*`
+- `comp.select.*`
+- `comp.stepper.*`
+- `comp.table.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `progress` | `component` | `Stepper`, `Badge`, `KPI Tile` |
+| `tasks` | `component` | `Checkbox`, `Button`, `Inline Validation`, `Toast` |
+| `review` | `component` | `Input`, `Select`, `Table`, `Empty State` |
+| `settingsBoundary` | `pattern` | `Settings` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- A desktop onboarding flow needs reusable setup progress, task completion, validation, and data review.
+- Settings owns preference/configuration handoff.
+- The product template owns business copy, routing, permissions, and domain-specific task order.
+
+### Decision Tree
+
+- Use Multi Step Form for generic ordered forms.
+- Use Fleet Manager Onboarding Desktop for reusable fleet setup composition.
+- Use templates for complete product screens and business-specific onboarding journeys.
+
+### Failure Modes
+
+- The pattern hardcodes product template layout or copy.
+- Settings is duplicated instead of handed off.
+- Setup tasks are custom checklist visuals.
+- Validation and progress are disconnected.
+
+### Success Metrics
+
+- Users understand onboarding progress, setup status, and recovery.
+- Desktop review surfaces stay component-owned.
+- Templates can compose the pattern without losing business ownership.
+
+### Accessibility
+
+- Expose progress and blocked reasons in text.
+- Tie validation to fields/tasks.
+- Do not rely on dashboard layout to communicate completion.
+
+### Tests
+
+- Composes Badge, Button, Checkbox, Empty State, Inline Validation, Input, KPI Tile, Select, Stepper, Table, and Toast.
+- Covers progress, blocked, validating, complete, empty, permission, and disabled states.
+- Keeps Settings and templates as boundaries.
+
+### Agent Instructions
+
+- Keep business-specific onboarding sequence in templates.
+- Use Settings only as a handoff boundary.
+- Ask before onboarding workflows touch billing, compliance, identity, or fleet safety policy.
+
+### Reject If
+
+- Business template layout is embedded.
+- Settings is cloned.
+- Task progress is custom markup.
+- Validation bypasses Flow components.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -46,7 +215,7 @@ Coordinate desktop setup for a fleet manager: workspace profile, fleet import, p
 | permissions | Checkbox \| Badge | conditional | Invite and role configuration. |
 | feedback | Toast \| Inline Validation | yes | Save, import, and review feedback. |
 
-## Components And Primitives Used
+## Components Used
 
 - Stepper
 - Input

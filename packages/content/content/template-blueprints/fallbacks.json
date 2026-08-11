@@ -1,0 +1,24 @@
+{
+  "fallbacks": {
+    "primary": "Template blueprint missing.",
+    "standard": "Template standard missing.",
+    "screenSystem": "Template screen system missing.",
+    "informationArchitecture": "Template information architecture missing.",
+    "processDetail": "Design System detail missing.",
+    "moduleDetail": "Module detail missing.",
+    "dataSources": "Template data sources missing.",
+    "permissions": "Template permissions missing.",
+    "states": "Template states missing.",
+    "telemetry": "Template telemetry missing.",
+    "surfaces": "Template surfaces missing.",
+    "modules": "Template modules missing.",
+    "patternDependencies": "Template pattern dependencies missing.",
+    "stateMatrixCopy": "{{title}} must show how critical states behave across its actual surfaces and roles.",
+    "dataPermissions": [
+      "Every screen declares owner, source, freshness, sync behavior, and stale-data copy.",
+      "Permission checks are visible before irreversible actions.",
+      "Audit events are generated for roles, drivers, vehicles, cards, limits, and finance changes when relevant.",
+      "Sensitive information has privacy, masking, export, and retention rules."
+    ]
+  }
+}

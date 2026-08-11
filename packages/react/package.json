@@ -48,6 +48,10 @@
       "types": "./dist/CardNumberInput.d.ts",
       "default": "./dist/CardNumberInput.js"
     },
+    "./input-amount": {
+      "types": "./dist/InputAmount.d.ts",
+      "default": "./dist/InputAmount.js"
+    },
     "./card-expiry-input": {
       "types": "./dist/CardExpiryInput.d.ts",
       "default": "./dist/CardExpiryInput.js"
@@ -67,6 +71,18 @@
     "./checkbox": {
       "types": "./dist/Checkbox.d.ts",
       "default": "./dist/Checkbox.js"
+    },
+    "./chat-composer": {
+      "types": "./dist/ChatComposer.d.ts",
+      "default": "./dist/ChatComposer.js"
+    },
+    "./chat-message": {
+      "types": "./dist/ChatMessage.d.ts",
+      "default": "./dist/ChatMessage.js"
+    },
+    "./chat-thread": {
+      "types": "./dist/ChatThread.d.ts",
+      "default": "./dist/ChatThread.js"
     },
     "./chip": {
       "types": "./dist/Chip.d.ts",
@@ -196,6 +212,10 @@
       "types": "./dist/Spinner.d.ts",
       "default": "./dist/Spinner.js"
     },
+    "./surface": {
+      "types": "./dist/Surface.d.ts",
+      "default": "./dist/Surface.js"
+    },
     "./stepper": {
       "types": "./dist/Stepper.d.ts",
       "default": "./dist/Stepper.js"
@@ -231,6 +251,286 @@
     "./text-area": {
       "types": "./dist/TextArea.d.ts",
       "default": "./dist/TextArea.js"
+    },
+    "./patterns": {
+      "types": "./dist/patterns/index.d.ts",
+      "default": "./dist/patterns/index.js"
+    },
+    "./templates": {
+      "types": "./dist/templates/index.d.ts",
+      "default": "./dist/templates/index.js"
+    },
+    "./templates/configuration-console": {
+      "types": "./dist/templates/ConfigurationConsole.d.ts",
+      "default": "./dist/templates/ConfigurationConsole.js"
+    },
+    "./templates/driver-card-wallet": {
+      "types": "./dist/templates/DriverCardWallet.d.ts",
+      "default": "./dist/templates/DriverCardWallet.js"
+    },
+    "./templates/driver-mobile-app": {
+      "types": "./dist/templates/DriverMobileApp.d.ts",
+      "default": "./dist/templates/DriverMobileApp.js"
+    },
+    "./templates/fleet-dashboard-suite": {
+      "types": "./dist/templates/FleetDashboardSuite.d.ts",
+      "default": "./dist/templates/FleetDashboardSuite.js"
+    },
+    "./templates/fleet-manager-desktop": {
+      "types": "./dist/templates/FleetManagerDesktop.d.ts",
+      "default": "./dist/templates/FleetManagerDesktop.js"
+    },
+    "./templates/routes-and-stations": {
+      "types": "./dist/templates/RoutesAndStations.d.ts",
+      "default": "./dist/templates/RoutesAndStations.js"
+    },
+    "./patterns/action-sheet": {
+      "types": "./dist/patterns/ActionSheet.d.ts",
+      "default": "./dist/patterns/ActionSheet.js"
+    },
+    "./patterns/account-operations": {
+      "types": "./dist/patterns/AccountOperations.d.ts",
+      "default": "./dist/patterns/AccountOperations.js"
+    },
+    "./patterns/agent-conversation": {
+      "types": "./dist/patterns/AgentConversation.d.ts",
+      "default": "./dist/patterns/AgentConversation.js"
+    },
+    "./patterns/advanced-filters": {
+      "types": "./dist/patterns/AdvancedFilters.d.ts",
+      "default": "./dist/patterns/AdvancedFilters.js"
+    },
+    "./patterns/authentication-login-biometrics-and-otp": {
+      "types": "./dist/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
+      "default": "./dist/patterns/AuthenticationLoginBiometricsAndOtp.js"
+    },
+    "./patterns/avatar-group": {
+      "types": "./dist/patterns/AvatarGroup.d.ts",
+      "default": "./dist/patterns/AvatarGroup.js"
+    },
+    "./patterns/avatar-menu": {
+      "types": "./dist/patterns/AvatarMenu.d.ts",
+      "default": "./dist/patterns/AvatarMenu.js"
+    },
+    "./patterns/backoffice-approval": {
+      "types": "./dist/patterns/BackofficeApproval.d.ts",
+      "default": "./dist/patterns/BackofficeApproval.js"
+    },
+    "./patterns/autocomplete": {
+      "types": "./dist/patterns/Autocomplete.d.ts",
+      "default": "./dist/patterns/Autocomplete.js"
+    },
+    "./patterns/bulk-actions": {
+      "types": "./dist/patterns/BulkActions.d.ts",
+      "default": "./dist/patterns/BulkActions.js"
+    },
+    "./patterns/dense-operational-list": {
+      "types": "./dist/patterns/DenseOperationalList.d.ts",
+      "default": "./dist/patterns/DenseOperationalList.js"
+    },
+    "./patterns/calendar-view": {
+      "types": "./dist/patterns/CalendarView.d.ts",
+      "default": "./dist/patterns/CalendarView.js"
+    },
+    "./patterns/case-management": {
+      "types": "./dist/patterns/CaseManagement.d.ts",
+      "default": "./dist/patterns/CaseManagement.js"
+    },
+    "./patterns/chart-wrapper": {
+      "types": "./dist/patterns/ChartWrapper.d.ts",
+      "default": "./dist/patterns/ChartWrapper.js"
+    },
+    "./patterns/column-configurator": {
+      "types": "./dist/patterns/ColumnConfigurator.d.ts",
+      "default": "./dist/patterns/ColumnConfigurator.js"
+    },
+    "./patterns/command-palette": {
+      "types": "./dist/patterns/CommandPalette.d.ts",
+      "default": "./dist/patterns/CommandPalette.js"
+    },
+    "./patterns/confirmation-dialog": {
+      "types": "./dist/patterns/ConfirmationDialog.d.ts",
+      "default": "./dist/patterns/ConfirmationDialog.js"
+    },
+    "./patterns/drag-sortable-list": {
+      "types": "./dist/patterns/DragSortableList.d.ts",
+      "default": "./dist/patterns/DragSortableList.js"
+    },
+    "./patterns/driver-and-vehicle-administration": {
+      "types": "./dist/patterns/DriverAndVehicleAdministration.d.ts",
+      "default": "./dist/patterns/DriverAndVehicleAdministration.js"
+    },
+    "./patterns/driver-onboarding-mobile": {
+      "types": "./dist/patterns/DriverOnboardingMobile.d.ts",
+      "default": "./dist/patterns/DriverOnboardingMobile.js"
+    },
+    "./patterns/drawer-adapter": {
+      "types": "./dist/patterns/DrawerAdapter.d.ts",
+      "default": "./dist/patterns/DrawerAdapter.js"
+    },
+    "./patterns/email-template-layout": {
+      "types": "./dist/patterns/EmailTemplateLayout.d.ts",
+      "default": "./dist/patterns/EmailTemplateLayout.js"
+    },
+    "./patterns/expandable-detail-table": {
+      "types": "./dist/patterns/ExpandableDetailTable.d.ts",
+      "default": "./dist/patterns/ExpandableDetailTable.js"
+    },
+    "./patterns/file-upload": {
+      "types": "./dist/patterns/FileUpload.d.ts",
+      "default": "./dist/patterns/FileUpload.js"
+    },
+    "./patterns/fleet-manager-onboarding-desktop": {
+      "types": "./dist/patterns/FleetManagerOnboardingDesktop.d.ts",
+      "default": "./dist/patterns/FleetManagerOnboardingDesktop.js"
+    },
+    "./patterns/filter-chip-group": {
+      "types": "./dist/patterns/FilterChipGroup.d.ts",
+      "default": "./dist/patterns/FilterChipGroup.js"
+    },
+    "./patterns/filterable-editable-table": {
+      "types": "./dist/patterns/FilterableEditableTable.d.ts",
+      "default": "./dist/patterns/FilterableEditableTable.js"
+    },
+    "./patterns/form-section": {
+      "types": "./dist/patterns/FormSection.d.ts",
+      "default": "./dist/patterns/FormSection.js"
+    },
+    "./patterns/preference-management": {
+      "types": "./dist/patterns/PreferenceManagement.d.ts",
+      "default": "./dist/patterns/PreferenceManagement.js"
+    },
+    "./patterns/fullscreen-sheet": {
+      "types": "./dist/patterns/FullscreenSheet.d.ts",
+      "default": "./dist/patterns/FullscreenSheet.js"
+    },
+    "./patterns/gantt-chart": {
+      "types": "./dist/patterns/GanttChart.d.ts",
+      "default": "./dist/patterns/GanttChart.js"
+    },
+    "./patterns/help-center": {
+      "types": "./dist/patterns/HelpCenter.d.ts",
+      "default": "./dist/patterns/HelpCenter.js"
+    },
+    "./patterns/kanban-board": {
+      "types": "./dist/patterns/KanbanBoard.d.ts",
+      "default": "./dist/patterns/KanbanBoard.js"
+    },
+    "./patterns/kpi-card": {
+      "types": "./dist/patterns/KpiCard.d.ts",
+      "default": "./dist/patterns/KpiCard.js"
+    },
+    "./patterns/multi-select": {
+      "types": "./dist/patterns/MultiSelect.d.ts",
+      "default": "./dist/patterns/MultiSelect.js"
+    },
+    "./patterns/multi-step-form": {
+      "types": "./dist/patterns/MultiStepForm.d.ts",
+      "default": "./dist/patterns/MultiStepForm.js"
+    },
+    "./patterns/notification-panel": {
+      "types": "./dist/patterns/NotificationPanel.d.ts",
+      "default": "./dist/patterns/NotificationPanel.js"
+    },
+    "./patterns/payment-form": {
+      "types": "./dist/patterns/PaymentForm.d.ts",
+      "default": "./dist/patterns/PaymentForm.js"
+    },
+    "./patterns/polar-chart": {
+      "types": "./dist/patterns/PolarChart.d.ts",
+      "default": "./dist/patterns/PolarChart.js"
+    },
+    "./patterns/pricing-operations": {
+      "types": "./dist/patterns/PricingOperations.d.ts",
+      "default": "./dist/patterns/PricingOperations.js"
+    },
+    "./patterns/pull-to-refresh": {
+      "types": "./dist/patterns/PullToRefresh.d.ts",
+      "default": "./dist/patterns/PullToRefresh.js"
+    },
+    "./patterns/quick-actions-grid": {
+      "types": "./dist/patterns/QuickActionsGrid.d.ts",
+      "default": "./dist/patterns/QuickActionsGrid.js"
+    },
+    "./patterns/roles-and-permissions": {
+      "types": "./dist/patterns/RolesAndPermissions.d.ts",
+      "default": "./dist/patterns/RolesAndPermissions.js"
+    },
+    "./patterns/search": {
+      "types": "./dist/patterns/Search.d.ts",
+      "default": "./dist/patterns/Search.js"
+    },
+    "./patterns/section-header": {
+      "types": "./dist/patterns/SectionHeader.d.ts",
+      "default": "./dist/patterns/SectionHeader.js"
+    },
+    "./patterns/virtual-data-table": {
+      "types": "./dist/patterns/VirtualDataTable.d.ts",
+      "default": "./dist/patterns/VirtualDataTable.js"
+    },
+    "./patterns/waterfall-chart": {
+      "types": "./dist/patterns/WaterfallChart.d.ts",
+      "default": "./dist/patterns/WaterfallChart.js"
+    },
+    "./patterns/select-option-layer": {
+      "types": "./dist/patterns/SelectOptionLayer.d.ts",
+      "default": "./dist/patterns/SelectOptionLayer.js"
+    },
+    "./patterns/settings": {
+      "types": "./dist/patterns/Settings.d.ts",
+      "default": "./dist/patterns/Settings.js"
+    },
+    "./patterns/sidebar": {
+      "types": "./dist/patterns/Sidebar.d.ts",
+      "default": "./dist/patterns/Sidebar.js"
+    },
+    "./patterns/snackbar-provider": {
+      "types": "./dist/patterns/SnackbarProvider.d.ts",
+      "default": "./dist/patterns/SnackbarProvider.js"
+    },
+    "./patterns/station-discovery": {
+      "types": "./dist/patterns/StationDiscovery.d.ts",
+      "default": "./dist/patterns/StationDiscovery.js"
+    },
+    "./patterns/status-feedback-view": {
+      "types": "./dist/patterns/StatusFeedbackView.d.ts",
+      "default": "./dist/patterns/StatusFeedbackView.js"
+    },
+    "./patterns/swipe-actions": {
+      "types": "./dist/patterns/SwipeActions.d.ts",
+      "default": "./dist/patterns/SwipeActions.js"
+    },
+    "./patterns/ticket-queue": {
+      "types": "./dist/patterns/TicketQueue.d.ts",
+      "default": "./dist/patterns/TicketQueue.js"
+    },
+    "./patterns/timeline": {
+      "types": "./dist/patterns/Timeline.d.ts",
+      "default": "./dist/patterns/Timeline.js"
+    },
+    "./patterns/toolbar": {
+      "types": "./dist/patterns/Toolbar.d.ts",
+      "default": "./dist/patterns/Toolbar.js"
+    },
+    "./patterns/topbar": {
+      "types": "./dist/patterns/Topbar.d.ts",
+      "default": "./dist/patterns/Topbar.js"
+    },
+    "./patterns/transfer-list": {
+      "types": "./dist/patterns/TransferList.d.ts",
+      "default": "./dist/patterns/TransferList.js"
+    },
+    "./templates/agent-workspace": {
+      "types": "./dist/templates/AgentWorkspace.d.ts",
+      "default": "./dist/templates/AgentWorkspace.js"
+    },
+    "./templates/internal-operations-console": {
+      "types": "./dist/templates/InternalOperationsConsole.d.ts",
+      "default": "./dist/templates/InternalOperationsConsole.js"
+    },
+    "./templates/settings-workspace": {
+      "types": "./dist/templates/SettingsWorkspace.d.ts",
+      "default": "./dist/templates/SettingsWorkspace.js"
     }
   },
   "imports": {
@@ -240,7 +540,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node test/button-render.test.mjs && node test/contract-render.test.mjs && node test/interaction.test.mjs && node test/ref.test.mjs"
+    "test": "node test/button-render.test.mjs && node test/contract-render.test.mjs && node test/pattern-render.test.mjs && node test/pattern-interaction.test.mjs && node test/template-interaction.test.mjs && node test/interaction.test.mjs && node test/ref.test.mjs"
   },
   "peerDependencies": {
     "react": ">=18"

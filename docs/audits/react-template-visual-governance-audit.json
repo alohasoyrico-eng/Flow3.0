@@ -1,0 +1,3159 @@
+{
+  "status": "pass",
+  "audit": "react template visual governance",
+  "principle": "React templates must render the full Flow cascade in a real browser with package CSS, Surface primitives, density/state propagation, visible slots/modules, and no viewport overflow before Docs can be trusted as evidence.",
+  "scope": {
+    "css": [
+      "packages/tokens/styles/tokens.css",
+      "packages/components/styles/components.css"
+    ],
+    "templates": [
+      "settings-workspace",
+      "internal-operations-console",
+      "agent-workspace",
+      "configuration-console",
+      "fleet-dashboard-suite",
+      "fleet-manager-desktop",
+      "driver-card-wallet",
+      "driver-mobile-app",
+      "routes-and-stations"
+    ],
+    "cases": [
+      "loaded-sm",
+      "loading-md",
+      "permission-lg"
+    ]
+  },
+  "inventory": {
+    "templatesAudited": 9,
+    "visualCases": 27,
+    "passingVisualCases": 27,
+    "screenshotsCaptured": 27,
+    "viewportProfiles": 2,
+    "densityCases": 3,
+    "stateCases": 3,
+    "horizontalOverflowFindings": 0,
+    "blankOrShallowRenderFindings": 0,
+    "zeroSizeFindings": 0,
+    "slotOverlapFindings": 0,
+    "missingSlotOrModuleFindings": 0,
+    "reactTemplateVisualGovernanceDebt": 0
+  },
+  "visualRows": [
+    {
+      "template": "settings-workspace",
+      "case": "loaded-sm",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loaded",
+      "density": "sm",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1503.4375,
+          "width": 1248,
+          "height": 1503.4375
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 86,
+        "surfaceCount": 8,
+        "densityMarkers": 33,
+        "stateMarkers": 1,
+        "visualSignatureCount": 23,
+        "bodyTextLength": 504,
+        "slotRects": [
+          {
+            "slot": "settings-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 147,
+              "width": 1248,
+              "height": 147
+            }
+          },
+          {
+            "slot": "settings-workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 147,
+              "right": 1264,
+              "bottom": 1503.4375,
+              "width": 1248,
+              "height": 1356.4375
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "section-navigation",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 49,
+              "right": 589.984375,
+              "bottom": 98,
+              "width": 524.984375,
+              "height": 49
+            }
+          },
+          {
+            "module": "preference-management",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 196,
+              "right": 1215,
+              "bottom": 1454.4375,
+              "width": 1150,
+              "height": 1258.4375
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "settings-workspace",
+      "case": "loading-md",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loading",
+      "density": "md",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1666.4375,
+          "width": 1248,
+          "height": 1666.4375
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 90,
+        "surfaceCount": 8,
+        "densityMarkers": 34,
+        "stateMarkers": 2,
+        "visualSignatureCount": 27,
+        "bodyTextLength": 504,
+        "slotRects": [
+          {
+            "slot": "settings-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 143,
+              "width": 1248,
+              "height": 143
+            }
+          },
+          {
+            "slot": "settings-workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 143,
+              "right": 1264,
+              "bottom": 1666.4375,
+              "width": 1248,
+              "height": 1523.4375
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "section-navigation",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 49,
+              "right": 691.671875,
+              "bottom": 94,
+              "width": 626.671875,
+              "height": 45
+            }
+          },
+          {
+            "module": "preference-management",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 192,
+              "right": 1215,
+              "bottom": 1617.4375,
+              "width": 1150,
+              "height": 1425.4375
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "settings-workspace",
+      "case": "permission-lg",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "permission",
+      "density": "lg",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1627.4375,
+          "width": 1248,
+          "height": 1627.4375
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 86,
+        "surfaceCount": 8,
+        "densityMarkers": 33,
+        "stateMarkers": 1,
+        "visualSignatureCount": 25,
+        "bodyTextLength": 504,
+        "slotRects": [
+          {
+            "slot": "settings-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 167,
+              "width": 1248,
+              "height": 167
+            }
+          },
+          {
+            "slot": "settings-workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 167,
+              "right": 1264,
+              "bottom": 1627.4375,
+              "width": 1248,
+              "height": 1460.4375
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "section-navigation",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 49,
+              "right": 759.46875,
+              "bottom": 118,
+              "width": 694.46875,
+              "height": 69
+            }
+          },
+          {
+            "module": "preference-management",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 216,
+              "right": 1215,
+              "bottom": 1578.4375,
+              "width": 1150,
+              "height": 1362.4375
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "internal-operations-console",
+      "case": "loaded-sm",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loaded",
+      "density": "sm",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 3101,
+          "width": 1248,
+          "height": 3101
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 158,
+        "surfaceCount": 15,
+        "densityMarkers": 74,
+        "stateMarkers": 1,
+        "visualSignatureCount": 17,
+        "bodyTextLength": 1486,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 440,
+              "width": 1248,
+              "height": 440
+            }
+          },
+          {
+            "slot": "operations-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 440,
+              "right": 1264,
+              "bottom": 942,
+              "width": 1248,
+              "height": 502
+            }
+          },
+          {
+            "slot": "operations-workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 942,
+              "right": 1264,
+              "bottom": 3101,
+              "width": 1248,
+              "height": 2159
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "case-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 991,
+              "right": 1215,
+              "bottom": 1366,
+              "width": 1150,
+              "height": 375
+            }
+          },
+          {
+            "module": "ticket-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1366,
+              "right": 1215,
+              "bottom": 1741,
+              "width": 1150,
+              "height": 375
+            }
+          },
+          {
+            "module": "account-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1741,
+              "right": 1215,
+              "bottom": 2116,
+              "width": 1150,
+              "height": 375
+            }
+          },
+          {
+            "module": "pricing-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2116,
+              "right": 1215,
+              "bottom": 2332,
+              "width": 1150,
+              "height": 216
+            }
+          },
+          {
+            "module": "backoffice-approvals",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2332,
+              "right": 1215,
+              "bottom": 2743,
+              "width": 1150,
+              "height": 411
+            }
+          },
+          {
+            "module": "growth-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2743,
+              "right": 1215,
+              "bottom": 3052,
+              "width": 1150,
+              "height": 309
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "internal-operations-console",
+      "case": "loading-md",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loading",
+      "density": "md",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 4465,
+          "width": 1248,
+          "height": 4465
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 270,
+        "surfaceCount": 15,
+        "densityMarkers": 74,
+        "stateMarkers": 15,
+        "visualSignatureCount": 17,
+        "bodyTextLength": 1174,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 650,
+              "width": 1248,
+              "height": 650
+            }
+          },
+          {
+            "slot": "operations-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 650,
+              "right": 1264,
+              "bottom": 1338,
+              "width": 1248,
+              "height": 688
+            }
+          },
+          {
+            "slot": "operations-workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1338,
+              "right": 1264,
+              "bottom": 4465,
+              "width": 1248,
+              "height": 3127
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "case-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1387,
+              "right": 1215,
+              "bottom": 1924,
+              "width": 1150,
+              "height": 537
+            }
+          },
+          {
+            "module": "ticket-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1924,
+              "right": 1215,
+              "bottom": 2461,
+              "width": 1150,
+              "height": 537
+            }
+          },
+          {
+            "module": "account-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2461,
+              "right": 1215,
+              "bottom": 2998,
+              "width": 1150,
+              "height": 537
+            }
+          },
+          {
+            "module": "pricing-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2998,
+              "right": 1215,
+              "bottom": 3380,
+              "width": 1150,
+              "height": 382
+            }
+          },
+          {
+            "module": "backoffice-approvals",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 3380,
+              "right": 1215,
+              "bottom": 3977,
+              "width": 1150,
+              "height": 597
+            }
+          },
+          {
+            "module": "growth-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 3977,
+              "right": 1215,
+              "bottom": 4416,
+              "width": 1150,
+              "height": 439
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "internal-operations-console",
+      "case": "permission-lg",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "permission",
+      "density": "lg",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 3555,
+          "width": 1248,
+          "height": 3555
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 151,
+        "surfaceCount": 15,
+        "densityMarkers": 71,
+        "stateMarkers": 1,
+        "visualSignatureCount": 21,
+        "bodyTextLength": 1334,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 632,
+              "width": 1248,
+              "height": 632
+            }
+          },
+          {
+            "slot": "operations-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 632,
+              "right": 1264,
+              "bottom": 1310,
+              "width": 1248,
+              "height": 678
+            }
+          },
+          {
+            "slot": "operations-workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1310,
+              "right": 1264,
+              "bottom": 3555,
+              "width": 1248,
+              "height": 2245
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "case-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1359,
+              "right": 1215,
+              "bottom": 1728,
+              "width": 1150,
+              "height": 369
+            }
+          },
+          {
+            "module": "ticket-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1728,
+              "right": 1215,
+              "bottom": 2097,
+              "width": 1150,
+              "height": 369
+            }
+          },
+          {
+            "module": "account-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2097,
+              "right": 1215,
+              "bottom": 2466,
+              "width": 1150,
+              "height": 369
+            }
+          },
+          {
+            "module": "pricing-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2466,
+              "right": 1215,
+              "bottom": 2644,
+              "width": 1150,
+              "height": 178
+            }
+          },
+          {
+            "module": "backoffice-approvals",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2644,
+              "right": 1215,
+              "bottom": 3065,
+              "width": 1150,
+              "height": 421
+            }
+          },
+          {
+            "module": "growth-operations",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 3065,
+              "right": 1215,
+              "bottom": 3506,
+              "width": 1150,
+              "height": 441
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "agent-workspace",
+      "case": "loaded-sm",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loaded",
+      "density": "sm",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1224.90625,
+          "width": 1248,
+          "height": 1224.90625
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 61,
+        "surfaceCount": 10,
+        "densityMarkers": 28,
+        "stateMarkers": 1,
+        "visualSignatureCount": 21,
+        "bodyTextLength": 546,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 140,
+              "width": 1248,
+              "height": 140
+            }
+          },
+          {
+            "slot": "conversation-list",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 190,
+              "right": 1264,
+              "bottom": 324,
+              "width": 1248,
+              "height": 134
+            }
+          },
+          {
+            "slot": "conversation-workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 324,
+              "right": 1264,
+              "bottom": 1014.0625,
+              "width": 1248,
+              "height": 690.0625
+            }
+          },
+          {
+            "slot": "context-panel",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1014.0625,
+              "right": 1264,
+              "bottom": 1224.90625,
+              "width": 1248,
+              "height": 210.84375
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "conversation-queue",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 190,
+              "right": 1264,
+              "bottom": 324,
+              "width": 1248,
+              "height": 134
+            }
+          },
+          {
+            "module": "agent-conversation",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 373,
+              "right": 1215,
+              "bottom": 965.0625,
+              "width": 1150,
+              "height": 592.0625
+            }
+          },
+          {
+            "module": "handoff-recovery",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1063.0625,
+              "right": 1215,
+              "bottom": 1175.90625,
+              "width": 1150,
+              "height": 112.84375
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "agent-workspace",
+      "case": "loading-md",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loading",
+      "density": "md",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1375.03125,
+          "width": 1248,
+          "height": 1375.03125
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 55,
+        "surfaceCount": 8,
+        "densityMarkers": 26,
+        "stateMarkers": 4,
+        "visualSignatureCount": 21,
+        "bodyTextLength": 411,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 206,
+              "width": 1248,
+              "height": 206
+            }
+          },
+          {
+            "slot": "conversation-list",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 256,
+              "right": 1264,
+              "bottom": 414,
+              "width": 1248,
+              "height": 158
+            }
+          },
+          {
+            "slot": "conversation-workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 414,
+              "right": 1264,
+              "bottom": 1164.1875,
+              "width": 1248,
+              "height": 750.1875
+            }
+          },
+          {
+            "slot": "context-panel",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1164.1875,
+              "right": 1264,
+              "bottom": 1375.03125,
+              "width": 1248,
+              "height": 210.84375
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "conversation-queue",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 256,
+              "right": 1264,
+              "bottom": 414,
+              "width": 1248,
+              "height": 158
+            }
+          },
+          {
+            "module": "agent-conversation",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 463,
+              "right": 1215,
+              "bottom": 1115.1875,
+              "width": 1150,
+              "height": 652.1875
+            }
+          },
+          {
+            "module": "handoff-recovery",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1213.1875,
+              "right": 1215,
+              "bottom": 1326.03125,
+              "width": 1150,
+              "height": 112.84375
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "agent-workspace",
+      "case": "permission-lg",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "permission",
+      "density": "lg",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1533.1875,
+          "width": 1248,
+          "height": 1533.1875
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 51,
+        "surfaceCount": 8,
+        "densityMarkers": 25,
+        "stateMarkers": 2,
+        "visualSignatureCount": 22,
+        "bodyTextLength": 448,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 206,
+              "width": 1248,
+              "height": 206
+            }
+          },
+          {
+            "slot": "conversation-list",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 256,
+              "right": 1264,
+              "bottom": 406,
+              "width": 1248,
+              "height": 150
+            }
+          },
+          {
+            "slot": "conversation-workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 406,
+              "right": 1264,
+              "bottom": 1192.1875,
+              "width": 1248,
+              "height": 786.1875
+            }
+          },
+          {
+            "slot": "context-panel",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1192.1875,
+              "right": 1264,
+              "bottom": 1533.1875,
+              "width": 1248,
+              "height": 341
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "conversation-queue",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 256,
+              "right": 1264,
+              "bottom": 406,
+              "width": 1248,
+              "height": 150
+            }
+          },
+          {
+            "module": "agent-conversation",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 455,
+              "right": 1215,
+              "bottom": 1143.1875,
+              "width": 1150,
+              "height": 688.1875
+            }
+          },
+          {
+            "module": "handoff-recovery",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1241.1875,
+              "right": 1215,
+              "bottom": 1484.1875,
+              "width": 1150,
+              "height": 243
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "configuration-console",
+      "case": "loaded-sm",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loaded",
+      "density": "sm",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 2990.59375,
+          "width": 1248,
+          "height": 2990.59375
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 225,
+        "surfaceCount": 8,
+        "densityMarkers": 64,
+        "stateMarkers": 1,
+        "visualSignatureCount": 31,
+        "bodyTextLength": 1059,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 368,
+              "width": 1248,
+              "height": 368
+            }
+          },
+          {
+            "slot": "navigation-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 368,
+              "right": 1264,
+              "bottom": 798,
+              "width": 1248,
+              "height": 430
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 798,
+              "right": 1264,
+              "bottom": 2990.59375,
+              "width": 1248,
+              "height": 2192.59375
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "permission-matrix",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 847,
+              "right": 1215,
+              "bottom": 1029,
+              "width": 1150,
+              "height": 182
+            }
+          },
+          {
+            "module": "driver-lifecycle-table",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1029,
+              "right": 1215,
+              "bottom": 1911.296875,
+              "width": 1150,
+              "height": 882.296875
+            }
+          },
+          {
+            "module": "vehicle-lifecycle-table",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1911.296875,
+              "right": 1215,
+              "bottom": 2793.59375,
+              "width": 1150,
+              "height": 882.296875
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "configuration-console",
+      "case": "loading-md",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loading",
+      "density": "md",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 3431.59375,
+          "width": 1248,
+          "height": 3431.59375
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 187,
+        "surfaceCount": 8,
+        "densityMarkers": 58,
+        "stateMarkers": 9,
+        "visualSignatureCount": 29,
+        "bodyTextLength": 1024,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 530,
+              "width": 1248,
+              "height": 530
+            }
+          },
+          {
+            "slot": "navigation-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 530,
+              "right": 1264,
+              "bottom": 1098,
+              "width": 1248,
+              "height": 568
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1098,
+              "right": 1264,
+              "bottom": 3431.59375,
+              "width": 1248,
+              "height": 2333.59375
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "permission-matrix",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1147,
+              "right": 1215,
+              "bottom": 1361,
+              "width": 1150,
+              "height": 214
+            }
+          },
+          {
+            "module": "driver-lifecycle-table",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1361,
+              "right": 1215,
+              "bottom": 2297.796875,
+              "width": 1150,
+              "height": 936.796875
+            }
+          },
+          {
+            "module": "vehicle-lifecycle-table",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2297.796875,
+              "right": 1215,
+              "bottom": 3234.59375,
+              "width": 1150,
+              "height": 936.796875
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "configuration-console",
+      "case": "permission-lg",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "permission",
+      "density": "lg",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 3597.59375,
+          "width": 1248,
+          "height": 3597.59375
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 193,
+        "surfaceCount": 8,
+        "densityMarkers": 60,
+        "stateMarkers": 3,
+        "visualSignatureCount": 32,
+        "bodyTextLength": 1144,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 528,
+              "width": 1248,
+              "height": 528
+            }
+          },
+          {
+            "slot": "navigation-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 528,
+              "right": 1264,
+              "bottom": 1102,
+              "width": 1248,
+              "height": 574
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1102,
+              "right": 1264,
+              "bottom": 3597.59375,
+              "width": 1248,
+              "height": 2495.59375
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "permission-matrix",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1151,
+              "right": 1215,
+              "bottom": 1399,
+              "width": 1150,
+              "height": 248
+            }
+          },
+          {
+            "module": "driver-lifecycle-table",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1399,
+              "right": 1215,
+              "bottom": 2399.796875,
+              "width": 1150,
+              "height": 1000.796875
+            }
+          },
+          {
+            "module": "vehicle-lifecycle-table",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2399.796875,
+              "right": 1215,
+              "bottom": 3400.59375,
+              "width": 1150,
+              "height": 1000.796875
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "fleet-dashboard-suite",
+      "case": "loaded-sm",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loaded",
+      "density": "sm",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1716,
+          "width": 1248,
+          "height": 1716
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 104,
+        "surfaceCount": 9,
+        "densityMarkers": 41,
+        "stateMarkers": 1,
+        "visualSignatureCount": 15,
+        "bodyTextLength": 738,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 580,
+              "width": 1248,
+              "height": 580
+            }
+          },
+          {
+            "slot": "navigation-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 580,
+              "right": 1264,
+              "bottom": 1118,
+              "width": 1248,
+              "height": 538
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1118,
+              "right": 1264,
+              "bottom": 1716,
+              "width": 1248,
+              "height": 598
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "dashboard-switcher",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1167,
+              "right": 1215,
+              "bottom": 1283,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "shared-filter-bar",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1283,
+              "right": 1215,
+              "bottom": 1399,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "domain-kpi-stack",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1399,
+              "right": 1215,
+              "bottom": 1533,
+              "width": 1150,
+              "height": 134
+            }
+          },
+          {
+            "module": "drill-down-table",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1533,
+              "right": 1215,
+              "bottom": 1667,
+              "width": 1150,
+              "height": 134
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "fleet-dashboard-suite",
+      "case": "loading-md",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loading",
+      "density": "md",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 2178,
+          "width": 1248,
+          "height": 2178
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 104,
+        "surfaceCount": 9,
+        "densityMarkers": 41,
+        "stateMarkers": 3,
+        "visualSignatureCount": 17,
+        "bodyTextLength": 738,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 832,
+              "width": 1248,
+              "height": 832
+            }
+          },
+          {
+            "slot": "navigation-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 832,
+              "right": 1264,
+              "bottom": 1580,
+              "width": 1248,
+              "height": 748
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1580,
+              "right": 1264,
+              "bottom": 2178,
+              "width": 1248,
+              "height": 598
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "dashboard-switcher",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1629,
+              "right": 1215,
+              "bottom": 1745,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "shared-filter-bar",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1745,
+              "right": 1215,
+              "bottom": 1861,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "domain-kpi-stack",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1861,
+              "right": 1215,
+              "bottom": 1995,
+              "width": 1150,
+              "height": 134
+            }
+          },
+          {
+            "module": "drill-down-table",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1995,
+              "right": 1215,
+              "bottom": 2129,
+              "width": 1150,
+              "height": 134
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "fleet-dashboard-suite",
+      "case": "permission-lg",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "permission",
+      "density": "lg",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 2166,
+          "width": 1248,
+          "height": 2166
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 110,
+        "surfaceCount": 9,
+        "densityMarkers": 43,
+        "stateMarkers": 1,
+        "visualSignatureCount": 18,
+        "bodyTextLength": 778,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 838,
+              "width": 1248,
+              "height": 838
+            }
+          },
+          {
+            "slot": "navigation-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 838,
+              "right": 1264,
+              "bottom": 1568,
+              "width": 1248,
+              "height": 730
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1568,
+              "right": 1264,
+              "bottom": 2166,
+              "width": 1248,
+              "height": 598
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "dashboard-switcher",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1617,
+              "right": 1215,
+              "bottom": 1733,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "shared-filter-bar",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1733,
+              "right": 1215,
+              "bottom": 1849,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "domain-kpi-stack",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1849,
+              "right": 1215,
+              "bottom": 1983,
+              "width": 1150,
+              "height": 134
+            }
+          },
+          {
+            "module": "drill-down-table",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1983,
+              "right": 1215,
+              "bottom": 2117,
+              "width": 1150,
+              "height": 134
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "fleet-manager-desktop",
+      "case": "loaded-sm",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loaded",
+      "density": "sm",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1486,
+          "width": 1248,
+          "height": 1486
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 164,
+        "surfaceCount": 7,
+        "densityMarkers": 49,
+        "stateMarkers": 1,
+        "visualSignatureCount": 26,
+        "bodyTextLength": 813,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 508,
+              "width": 1248,
+              "height": 508
+            }
+          },
+          {
+            "slot": "navigation-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 508,
+              "right": 1264,
+              "bottom": 974,
+              "width": 1248,
+              "height": 466
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 974,
+              "right": 1264,
+              "bottom": 1486,
+              "width": 1248,
+              "height": 512
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "executive-kpi-band",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1023,
+              "right": 1215,
+              "bottom": 1139,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "exception-inbox",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1139,
+              "right": 1215,
+              "bottom": 1255,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "cost-center-scope-permissions",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1255,
+              "right": 1215,
+              "bottom": 1437,
+              "width": 1150,
+              "height": 182
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "fleet-manager-desktop",
+      "case": "loading-md",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "loading",
+      "density": "md",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1884,
+          "width": 1248,
+          "height": 1884
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 164,
+        "surfaceCount": 7,
+        "densityMarkers": 49,
+        "stateMarkers": 3,
+        "visualSignatureCount": 28,
+        "bodyTextLength": 813,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 712,
+              "width": 1248,
+              "height": 712
+            }
+          },
+          {
+            "slot": "navigation-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 712,
+              "right": 1264,
+              "bottom": 1340,
+              "width": 1248,
+              "height": 628
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1340,
+              "right": 1264,
+              "bottom": 1884,
+              "width": 1248,
+              "height": 544
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "executive-kpi-band",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1389,
+              "right": 1215,
+              "bottom": 1505,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "exception-inbox",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1505,
+              "right": 1215,
+              "bottom": 1621,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "cost-center-scope-permissions",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1621,
+              "right": 1215,
+              "bottom": 1835,
+              "width": 1150,
+              "height": 214
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "fleet-manager-desktop",
+      "case": "permission-lg",
+      "status": "pass",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 900,
+      "state": "permission",
+      "density": "lg",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 1264,
+          "bottom": 1938,
+          "width": 1248,
+          "height": 1938
+        },
+        "documentScrollWidth": 1280,
+        "viewportWidth": 1280,
+        "visibleElementCount": 170,
+        "surfaceCount": 7,
+        "densityMarkers": 51,
+        "stateMarkers": 1,
+        "visualSignatureCount": 29,
+        "bodyTextLength": 853,
+        "slotRects": [
+          {
+            "slot": "global-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 1264,
+              "bottom": 734,
+              "width": 1248,
+              "height": 734
+            }
+          },
+          {
+            "slot": "navigation-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 734,
+              "right": 1264,
+              "bottom": 1360,
+              "width": 1248,
+              "height": 626
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1360,
+              "right": 1264,
+              "bottom": 1938,
+              "width": 1248,
+              "height": 578
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "executive-kpi-band",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1409,
+              "right": 1215,
+              "bottom": 1525,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "exception-inbox",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1525,
+              "right": 1215,
+              "bottom": 1641,
+              "width": 1150,
+              "height": 116
+            }
+          },
+          {
+            "module": "cost-center-scope-permissions",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1641,
+              "right": 1215,
+              "bottom": 1889,
+              "width": 1150,
+              "height": 248
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "driver-card-wallet",
+      "case": "loaded-sm",
+      "status": "pass",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "loaded",
+      "density": "sm",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 374,
+          "bottom": 1056.890625,
+          "width": 358,
+          "height": 1056.890625
+        },
+        "documentScrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleElementCount": 58,
+        "surfaceCount": 7,
+        "densityMarkers": 14,
+        "stateMarkers": 1,
+        "visualSignatureCount": 22,
+        "bodyTextLength": 382,
+        "slotRects": [
+          {
+            "slot": "wallet-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 119,
+              "right": 374,
+              "bottom": 1056.890625,
+              "width": 358,
+              "height": 937.890625
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "wallet-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "module": "card-status-block",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 168,
+              "right": 325,
+              "bottom": 368.140625,
+              "width": 260,
+              "height": 200.140625
+            }
+          },
+          {
+            "module": "quick-actions",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 368.140625,
+              "right": 325,
+              "bottom": 626.140625,
+              "width": 260,
+              "height": 258
+            }
+          },
+          {
+            "module": "movement-receipt-detail",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 626.140625,
+              "right": 325,
+              "bottom": 837.890625,
+              "width": 260,
+              "height": 211.75
+            }
+          },
+          {
+            "module": "dispute-entry-point",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 837.890625,
+              "right": 325,
+              "bottom": 1007.890625,
+              "width": 260,
+              "height": 170
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "driver-card-wallet",
+      "case": "loading-md",
+      "status": "pass",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "loading",
+      "density": "md",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 374,
+          "bottom": 1155.140625,
+          "width": 358,
+          "height": 1155.140625
+        },
+        "documentScrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleElementCount": 70,
+        "surfaceCount": 7,
+        "densityMarkers": 17,
+        "stateMarkers": 4,
+        "visualSignatureCount": 20,
+        "bodyTextLength": 355,
+        "slotRects": [
+          {
+            "slot": "wallet-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 119,
+              "right": 374,
+              "bottom": 1155.140625,
+              "width": 358,
+              "height": 1036.140625
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "wallet-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "module": "card-status-block",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 168,
+              "right": 325,
+              "bottom": 368.140625,
+              "width": 260,
+              "height": 200.140625
+            }
+          },
+          {
+            "module": "quick-actions",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 368.140625,
+              "right": 325,
+              "bottom": 706.140625,
+              "width": 260,
+              "height": 338
+            }
+          },
+          {
+            "module": "movement-receipt-detail",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 706.140625,
+              "right": 325,
+              "bottom": 936.140625,
+              "width": 260,
+              "height": 230
+            }
+          },
+          {
+            "module": "dispute-entry-point",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 936.140625,
+              "right": 325,
+              "bottom": 1106.140625,
+              "width": 260,
+              "height": 170
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "driver-card-wallet",
+      "case": "permission-lg",
+      "status": "pass",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "permission",
+      "density": "lg",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 374,
+          "bottom": 1289.140625,
+          "width": 358,
+          "height": 1289.140625
+        },
+        "documentScrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleElementCount": 61,
+        "surfaceCount": 7,
+        "densityMarkers": 14,
+        "stateMarkers": 1,
+        "visualSignatureCount": 21,
+        "bodyTextLength": 393,
+        "slotRects": [
+          {
+            "slot": "wallet-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 119,
+              "right": 374,
+              "bottom": 1289.140625,
+              "width": 358,
+              "height": 1170.140625
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "wallet-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "module": "card-status-block",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 168,
+              "right": 325,
+              "bottom": 368.140625,
+              "width": 260,
+              "height": 200.140625
+            }
+          },
+          {
+            "module": "quick-actions",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 368.140625,
+              "right": 325,
+              "bottom": 796.140625,
+              "width": 260,
+              "height": 428
+            }
+          },
+          {
+            "module": "movement-receipt-detail",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 796.140625,
+              "right": 325,
+              "bottom": 1070.140625,
+              "width": 260,
+              "height": 274
+            }
+          },
+          {
+            "module": "dispute-entry-point",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1070.140625,
+              "right": 325,
+              "bottom": 1240.140625,
+              "width": 260,
+              "height": 170
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "driver-mobile-app",
+      "case": "loaded-sm",
+      "status": "pass",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "loaded",
+      "density": "sm",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 374,
+          "bottom": 2066.046875,
+          "width": 358,
+          "height": 2066.046875
+        },
+        "documentScrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleElementCount": 116,
+        "surfaceCount": 9,
+        "densityMarkers": 29,
+        "stateMarkers": 1,
+        "visualSignatureCount": 36,
+        "bodyTextLength": 851,
+        "slotRects": [
+          {
+            "slot": "mobile-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 119,
+              "right": 374,
+              "bottom": 2066.046875,
+              "width": 358,
+              "height": 1947.046875
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "mobile-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "module": "mobile-card-overview",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 168,
+              "right": 325,
+              "bottom": 338,
+              "width": 260,
+              "height": 170
+            }
+          },
+          {
+            "module": "driver-readiness-onboarding",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 338,
+              "right": 325,
+              "bottom": 728,
+              "width": 260,
+              "height": 390
+            }
+          },
+          {
+            "module": "routes-and-nearby-stations-mobile",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 728,
+              "right": 325,
+              "bottom": 1641.046875,
+              "width": 260,
+              "height": 913.046875
+            }
+          },
+          {
+            "module": "recent-movement-feed",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1641.046875,
+              "right": 325,
+              "bottom": 1811.046875,
+              "width": 260,
+              "height": 170
+            }
+          },
+          {
+            "module": "support-and-dispute-path",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1811.046875,
+              "right": 325,
+              "bottom": 2017.046875,
+              "width": 260,
+              "height": 206
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "driver-mobile-app",
+      "case": "loading-md",
+      "status": "pass",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "loading",
+      "density": "md",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 374,
+          "bottom": 2359.546875,
+          "width": 358,
+          "height": 2359.546875
+        },
+        "documentScrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleElementCount": 135,
+        "surfaceCount": 9,
+        "densityMarkers": 32,
+        "stateMarkers": 8,
+        "visualSignatureCount": 40,
+        "bodyTextLength": 875,
+        "slotRects": [
+          {
+            "slot": "mobile-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 119,
+              "right": 374,
+              "bottom": 2359.546875,
+              "width": 358,
+              "height": 2240.546875
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "mobile-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "module": "mobile-card-overview",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 168,
+              "right": 325,
+              "bottom": 338,
+              "width": 260,
+              "height": 170
+            }
+          },
+          {
+            "module": "driver-readiness-onboarding",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 338,
+              "right": 325,
+              "bottom": 839.5,
+              "width": 260,
+              "height": 501.5
+            }
+          },
+          {
+            "module": "routes-and-nearby-stations-mobile",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 839.5,
+              "right": 325,
+              "bottom": 1934.546875,
+              "width": 260,
+              "height": 1095.046875
+            }
+          },
+          {
+            "module": "recent-movement-feed",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1934.546875,
+              "right": 325,
+              "bottom": 2104.546875,
+              "width": 260,
+              "height": 170
+            }
+          },
+          {
+            "module": "support-and-dispute-path",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2104.546875,
+              "right": 325,
+              "bottom": 2310.546875,
+              "width": 260,
+              "height": 206
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "driver-mobile-app",
+      "case": "permission-lg",
+      "status": "pass",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "permission",
+      "density": "lg",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 374,
+          "bottom": 2926.671875,
+          "width": 358,
+          "height": 2926.671875
+        },
+        "documentScrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleElementCount": 127,
+        "surfaceCount": 9,
+        "densityMarkers": 32,
+        "stateMarkers": 2,
+        "visualSignatureCount": 39,
+        "bodyTextLength": 1059,
+        "slotRects": [
+          {
+            "slot": "mobile-shell",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "slot": "workspace",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 119,
+              "right": 374,
+              "bottom": 2926.671875,
+              "width": 358,
+              "height": 2807.671875
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "mobile-navigation",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 119,
+              "width": 358,
+              "height": 119
+            }
+          },
+          {
+            "module": "mobile-card-overview",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 168,
+              "right": 325,
+              "bottom": 338,
+              "width": 260,
+              "height": 170
+            }
+          },
+          {
+            "module": "driver-readiness-onboarding",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 338,
+              "right": 325,
+              "bottom": 1065.28125,
+              "width": 260,
+              "height": 727.28125
+            }
+          },
+          {
+            "module": "routes-and-nearby-stations-mobile",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1065.28125,
+              "right": 325,
+              "bottom": 2501.671875,
+              "width": 260,
+              "height": 1436.390625
+            }
+          },
+          {
+            "module": "recent-movement-feed",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2501.671875,
+              "right": 325,
+              "bottom": 2671.671875,
+              "width": 260,
+              "height": 170
+            }
+          },
+          {
+            "module": "support-and-dispute-path",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2671.671875,
+              "right": 325,
+              "bottom": 2877.671875,
+              "width": 260,
+              "height": 206
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "routes-and-stations",
+      "case": "loaded-sm",
+      "status": "pass",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "loaded",
+      "density": "sm",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 374,
+          "bottom": 1868.890625,
+          "width": 358,
+          "height": 1868.890625
+        },
+        "documentScrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleElementCount": 86,
+        "surfaceCount": 8,
+        "densityMarkers": 20,
+        "stateMarkers": 1,
+        "visualSignatureCount": 26,
+        "bodyTextLength": 889,
+        "slotRects": [
+          {
+            "slot": "discovery-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 1260.890625,
+              "width": 358,
+              "height": 1260.890625
+            }
+          },
+          {
+            "slot": "decision-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1260.890625,
+              "right": 374,
+              "bottom": 1868.890625,
+              "width": 358,
+              "height": 608
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "routes-and-nearby-stations-mobile",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 1260.890625,
+              "width": 358,
+              "height": 1260.890625
+            }
+          },
+          {
+            "module": "map-with-station-pins",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 49,
+              "right": 325,
+              "bottom": 1211.890625,
+              "width": 260,
+              "height": 1162.890625
+            }
+          },
+          {
+            "module": "fallback-station-list",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1309.890625,
+              "right": 325,
+              "bottom": 1515.890625,
+              "width": 260,
+              "height": 206
+            }
+          },
+          {
+            "module": "station-services-panel",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1515.890625,
+              "right": 325,
+              "bottom": 1649.890625,
+              "width": 260,
+              "height": 134
+            }
+          },
+          {
+            "module": "route-handoff",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1649.890625,
+              "right": 325,
+              "bottom": 1819.890625,
+              "width": 260,
+              "height": 170
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "routes-and-stations",
+      "case": "loading-md",
+      "status": "pass",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "loading",
+      "density": "md",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 374,
+          "bottom": 2123.890625,
+          "width": 358,
+          "height": 2123.890625
+        },
+        "documentScrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleElementCount": 90,
+        "surfaceCount": 8,
+        "densityMarkers": 21,
+        "stateMarkers": 8,
+        "visualSignatureCount": 25,
+        "bodyTextLength": 881,
+        "slotRects": [
+          {
+            "slot": "discovery-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 1515.890625,
+              "width": 358,
+              "height": 1515.890625
+            }
+          },
+          {
+            "slot": "decision-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1515.890625,
+              "right": 374,
+              "bottom": 2123.890625,
+              "width": 358,
+              "height": 608
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "routes-and-nearby-stations-mobile",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 1515.890625,
+              "width": 358,
+              "height": 1515.890625
+            }
+          },
+          {
+            "module": "map-with-station-pins",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 49,
+              "right": 325,
+              "bottom": 1466.890625,
+              "width": 260,
+              "height": 1417.890625
+            }
+          },
+          {
+            "module": "fallback-station-list",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1564.890625,
+              "right": 325,
+              "bottom": 1770.890625,
+              "width": 260,
+              "height": 206
+            }
+          },
+          {
+            "module": "station-services-panel",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1770.890625,
+              "right": 325,
+              "bottom": 1904.890625,
+              "width": 260,
+              "height": 134
+            }
+          },
+          {
+            "module": "route-handoff",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1904.890625,
+              "right": 325,
+              "bottom": 2074.890625,
+              "width": 260,
+              "height": 170
+            }
+          }
+        ]
+      },
+      "failures": []
+    },
+    {
+      "template": "routes-and-stations",
+      "case": "permission-lg",
+      "status": "pass",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "state": "permission",
+      "density": "lg",
+      "screenshotCaptured": true,
+      "metrics": {
+        "rootRect": {
+          "left": 16,
+          "top": 0,
+          "right": 374,
+          "bottom": 2531.734375,
+          "width": 358,
+          "height": 2531.734375
+        },
+        "documentScrollWidth": 390,
+        "viewportWidth": 390,
+        "visibleElementCount": 92,
+        "surfaceCount": 8,
+        "densityMarkers": 22,
+        "stateMarkers": 2,
+        "visualSignatureCount": 26,
+        "bodyTextLength": 1019,
+        "slotRects": [
+          {
+            "slot": "discovery-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 1923.734375,
+              "width": 358,
+              "height": 1923.734375
+            }
+          },
+          {
+            "slot": "decision-region",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 1923.734375,
+              "right": 374,
+              "bottom": 2531.734375,
+              "width": 358,
+              "height": 608
+            }
+          }
+        ],
+        "moduleRects": [
+          {
+            "module": "routes-and-nearby-stations-mobile",
+            "exists": true,
+            "rect": {
+              "left": 16,
+              "top": 0,
+              "right": 374,
+              "bottom": 1923.734375,
+              "width": 358,
+              "height": 1923.734375
+            }
+          },
+          {
+            "module": "map-with-station-pins",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 49,
+              "right": 325,
+              "bottom": 1874.734375,
+              "width": 260,
+              "height": 1825.734375
+            }
+          },
+          {
+            "module": "fallback-station-list",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 1972.734375,
+              "right": 325,
+              "bottom": 2178.734375,
+              "width": 260,
+              "height": 206
+            }
+          },
+          {
+            "module": "station-services-panel",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2178.734375,
+              "right": 325,
+              "bottom": 2312.734375,
+              "width": 260,
+              "height": 134
+            }
+          },
+          {
+            "module": "route-handoff",
+            "exists": true,
+            "rect": {
+              "left": 65,
+              "top": 2312.734375,
+              "right": 325,
+              "bottom": 2482.734375,
+              "width": 260,
+              "height": 170
+            }
+          }
+        ]
+      },
+      "failures": []
+    }
+  ],
+  "gaps": []
+}

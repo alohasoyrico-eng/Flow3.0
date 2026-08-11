@@ -1,0 +1,26 @@
+{
+  "demos": {
+    "Surface": {
+      "type": "statGrid",
+      "className": "surface-demo",
+      "rows": [
+        [
+          "Role",
+          "Canvas, section, panel, overlay, or inline structure."
+        ],
+        [
+          "Owns",
+          "Background, padding, radius, elevation, density, focus boundary, and state."
+        ],
+        [
+          "Composes",
+          "Components inside the surface inherit density and theme through cascade."
+        ],
+        [
+          "Rejects",
+          "Card as a generic layout wrapper or pattern-owned visual containers."
+        ]
+      ]
+    }
+  }
+}

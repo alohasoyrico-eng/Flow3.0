@@ -1,0 +1,196 @@
+{
+  "artifacts": {
+    "patterns": {
+      "backoffice-approval": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate operational document approval queues, document detail review, approve/reject decisions, and feedback without becoming an internal-tools template.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Dense Operational List",
+          "Drawer Adapter",
+          "Status Feedback View"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A workflow manages submitted documents, KYC evidence, licenses, insurance, or fleet onboarding files.",
+          "Operators need a queue, selected document detail, approve/reject decisions, and completion feedback.",
+          "The approval behavior must be reusable across internal operations templates."
+        ],
+        "decisionTree": [
+          "Use Dense Operational List for generic dense queues without document decisions.",
+          "Use Driver and Vehicle Administration for driver/unit administration without document approval detail.",
+          "Use Backoffice Approval when submitted documents require approve/reject decisions and feedback."
+        ],
+        "failureModes": [
+          "A template owns document approval state directly.",
+          "Document preview is implemented as a local Card wrapper.",
+          "Approval actions are local fake buttons outside Drawer Adapter or Dense Operational List.",
+          "Decision status relies on color alone."
+        ],
+        "successMetrics": [
+          "Operators can select a submitted document, review detail, approve or reject it, and receive feedback.",
+          "Queue, drawer, and feedback semantics stay owned by Flow patterns.",
+          "Density, disabled, loading, deciding, and decision state cascade through Surface into child boundaries."
+        ],
+        "states": [
+          "default",
+          "pending-review",
+          "document-selected",
+          "detail-open",
+          "deciding",
+          "loading",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "backofficeApprovalSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": true
+          },
+          {
+            "name": "approvalSummary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "approvalMetric",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "approvalQueueBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Dense Operational List"
+            ],
+            "required": true
+          },
+          {
+            "name": "approvalDetailBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Drawer Adapter"
+            ],
+            "required": "conditional"
+          },
+          {
+            "name": "approvalFeedbackBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Status Feedback View"
+            ],
+            "required": "conditional"
+          }
+        ],
+        "accessibility": [
+          "Expose approval operations as a labelled group with busy state.",
+          "Delegate queue, drawer, and feedback semantics to Flow patterns.",
+          "Represent pending, approved, rejected, and deciding states with text.",
+          "Keep approve/reject decisions explicit and keyboard-operable."
+        ],
+        "tests": [
+          "Composes Surface, Badge, Dense Operational List, Drawer Adapter, and Status Feedback View.",
+          "Covers default, pending-review, document-selected, detail-open, deciding, loading, error, and disabled states.",
+          "Forwards document queue, detail, approve, reject, and feedback callbacks.",
+          "Rejects local document cards, custom drawers, fake approvals, route guards, docs-only demos, and injected markup."
+        ],
+        "agentInstructions": [
+          "Use this pattern when document approvals require queue, detail review, decision actions, and feedback.",
+          "Do not implement document preview as a local Card wrapper.",
+          "Use Surface for structural grouping and Drawer Adapter for detail review.",
+          "Ask before handling regulated, identity, payment, health, legal, safety, or irreversible document approvals."
+        ],
+        "rejectIf": [
+          "The document queue bypasses Dense Operational List.",
+          "The detail review bypasses Drawer Adapter.",
+          "Approve/reject actions are local fake buttons.",
+          "A Card wraps the approval group or document detail structure."
+        ],
+        "templateDependencies": [
+          "Internal Operations Console"
+        ]
+      }
+    }
+  }
+}

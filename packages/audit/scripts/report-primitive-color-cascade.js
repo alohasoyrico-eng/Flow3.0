@@ -86,6 +86,10 @@ function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
 }
 
+function reportStatus(report) {
+  return { status: report?.status ?? "missing", gaps: report?.gaps ?? [] };
+}
+
 function lineNumber(source, index) {
   return source.slice(0, index).split("\n").length;
 }
@@ -199,6 +203,19 @@ function createReport() {
   const componentRefs = collectArtifactRefs(componentDir, /"Color"|Color|primitiveDependencies[\s\S]{0,400}Color|color\.(?:action|status|surface|border|text|data)|sys\.energy/i);
   const patternRefs = collectArtifactRefs(patternDir, /Color|sys\.energy|sys\.state|semantic color|contrast|color-only/i);
   const templateRefs = collectArtifactRefs(templateDir, /Color|sys\.energy|semantic color|contrast|color-only/i);
+  const foundationGate = {
+    energy: reportStatus(energyReport),
+    state: reportStatus(stateReport),
+    tone: reportStatus(toneReport),
+    accessibility: reportStatus(accessibilityReport),
+  };
+  const primitiveGate = {
+    charts: { ...reportStatus(chartsReport), relationship: "lateral-data-visualization" },
+    disabled: { ...reportStatus(disabledReport), relationship: "upstream-state" },
+    focus: { ...reportStatus(focusReport), relationship: "upstream-interaction" },
+    iconography: { ...reportStatus(iconographyReport), relationship: "lateral-symbol-rendering" },
+    maps: { ...reportStatus(mapsReport), relationship: "lateral-map-rendering" },
+  };
 
   const gaps = [];
   if (missingRoles.length) gaps.push(`Color primitive spec is missing roles: ${missingRoles.join(", ")}.`);
@@ -207,16 +224,16 @@ function createReport() {
   if (missingTokenDependencies.length) gaps.push(`Color primitive is missing token dependencies: ${missingTokenDependencies.join(", ")}.`);
   if (aliasGaps.length) gaps.push("Token package is missing required Color primitive aliases or maps them incorrectly.");
   if (!contract.includes("Generated portable primitive contract for Design System.")) gaps.push("Color Markdown contract is missing or not generated.");
-  if (energyReport.status !== "pass") gaps.push("Color cannot pass while the Energy foundation cascade report is not pass.");
-  if (stateReport.status !== "pass") gaps.push("Color cannot pass while the State foundation cascade report is not pass.");
-  if (toneReport.status !== "pass") gaps.push("Color cannot pass while the Tone foundation cascade report is not pass.");
-  if (accessibilityReport.status !== "pass") gaps.push("Color cannot pass while the Accessibility foundation cascade report is not pass.");
-  if (chartsReport.status !== "pass") gaps.push("Color cannot pass while the Charts primitive cascade report is not pass.");
-  if (disabledReport.status !== "pass") gaps.push("Color cannot pass while the Disabled primitive cascade report is not pass.");
-  if (focusReport.status !== "pass") gaps.push("Color cannot pass while the Focus primitive cascade report is not pass.");
-  if (iconographyReport.status !== "pass") gaps.push("Color cannot pass while the Iconography primitive cascade report is not pass.");
-  if (mapsReport.status !== "pass") gaps.push("Color cannot pass while the Maps primitive cascade report is not pass.");
-  if ((energyReport.colorDeclarations?.failures ?? []).length) gaps.push("Energy raw color failures block Color primitive readiness.");
+  if (foundationGate.energy.status !== "pass") gaps.push("Color cannot pass while the Energy foundation cascade report is not pass.");
+  if (foundationGate.state.status !== "pass") gaps.push("Color cannot pass while the State foundation cascade report is not pass.");
+  if (foundationGate.tone.status !== "pass") gaps.push("Color cannot pass while the Tone foundation cascade report is not pass.");
+  if (foundationGate.accessibility.status !== "pass") gaps.push("Color cannot pass while the Accessibility foundation cascade report is not pass.");
+  for (const [name, gate] of Object.entries(primitiveGate)) {
+    if (gate.relationship.startsWith("upstream") && gate.status !== "pass") {
+      gaps.push(`Color cannot pass while the ${name} primitive cascade report is not pass.`);
+    }
+  }
+  if ((energyReport?.colorDeclarations?.failures ?? []).length) gaps.push("Energy raw color failures block Color primitive readiness.");
   if (docsOwnedColorAliases.length) gaps.push("Docs redeclare Color primitive aliases instead of consuming package-owned aliases.");
   if (directRefEnergyUses.length) gaps.push("Consumers still use ref-energy ramps directly outside the token/foundation reference layer.");
   if (componentColorAliasUse < 20) gaps.push("Component package does not show enough Color/component alias usage to prove cascade into components.");
@@ -254,48 +271,43 @@ function createReport() {
     foundationGate: {
       energy: {
         report: rel(energyReportFile),
-        status: energyReport.status,
+        status: foundationGate.energy.status,
         rawColorFailures: energyReport.colorDeclarations?.failures?.length ?? null,
         colorTraceReviews: energyReport.colorDeclarations?.reviews?.length ?? null,
       },
       state: {
         report: rel(stateReportFile),
-        status: stateReport.status,
+        status: foundationGate.state.status,
       },
       tone: {
         report: rel(toneReportFile),
-        status: toneReport.status,
+        status: foundationGate.tone.status,
       },
       accessibility: {
         report: rel(accessibilityReportFile),
-        status: accessibilityReport.status,
+        status: foundationGate.accessibility.status,
       },
     },
     primitiveGate: {
       charts: {
         report: rel(chartsReportFile),
-        status: chartsReport.status,
-        gaps: chartsReport.gaps ?? [],
+        ...primitiveGate.charts,
       },
       disabled: {
         report: rel(disabledReportFile),
-        status: disabledReport.status,
-        gaps: disabledReport.gaps ?? [],
+        ...primitiveGate.disabled,
       },
       focus: {
         report: rel(focusReportFile),
-        status: focusReport.status,
-        gaps: focusReport.gaps ?? [],
+        ...primitiveGate.focus,
       },
       iconography: {
         report: rel(iconographyReportFile),
-        status: iconographyReport.status,
-        gaps: iconographyReport.gaps ?? [],
+        ...primitiveGate.iconography,
       },
       maps: {
         report: rel(mapsReportFile),
-        status: mapsReport.status,
-        gaps: mapsReport.gaps ?? [],
+        ...primitiveGate.maps,
       },
     },
     consumerCss: {

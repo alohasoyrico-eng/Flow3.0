@@ -1,0 +1,164 @@
+{
+  "artifacts": {
+    "patterns": {
+      "form-section": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate a labeled group of related fields with validation, optional search handoff, save/cancel actions, and recovery feedback.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Inline Validation",
+          "Input",
+          "Text Area",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Search"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.inline-validation.*",
+          "comp.input.*",
+          "comp.text-area.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Fields belong to one conceptual group.",
+          "The group can validate, save, reset, or request supporting lookup.",
+          "The section is reusable across forms without business-specific layout ownership."
+        ],
+        "decisionTree": [
+          "Use Input/Text Area directly for isolated fields.",
+          "Use Form Section for grouped field behavior.",
+          "Use Multi Step Form when section order, progress, and navigation become part of the flow."
+        ],
+        "failureModes": [
+          "The section recreates Surface or field visuals.",
+          "Validation is detached from Inline Validation.",
+          "Search is embedded as a second implementation.",
+          "Save/cancel actions bypass Button."
+        ],
+        "successMetrics": [
+          "Users understand group purpose, required fields, errors, and recovery.",
+          "Keyboard users can move through fields and actions predictably.",
+          "Search remains a handoff boundary when needed."
+        ],
+        "states": [
+          "idle",
+          "dirty",
+          "validating",
+          "invalid",
+          "saving",
+          "saved",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "container",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ]
+          },
+          {
+            "name": "fields",
+            "owner": "component",
+            "uses": [
+              "Input",
+              "Text Area",
+              "Inline Validation"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Toast"
+            ]
+          }
+        ],
+        "accessibility": [
+          "Group fields with visible heading/description.",
+          "Tie errors to fields.",
+          "Keep save/cancel controls keyboard reachable."
+        ],
+        "tests": [
+          "Composes Surface, Input, Text Area, Inline Validation, Button, and Toast.",
+          "Covers dirty, validating, invalid, saving, saved, and disabled states.",
+          "Keeps Search as optional boundary only."
+        ],
+        "agentInstructions": [
+          "Do not hardcode product-specific forms.",
+          "Use Flow field components only.",
+          "Ask before grouping sensitive identity, payment, or compliance fields."
+        ],
+        "rejectIf": [
+          "Fields are custom inputs.",
+          "Validation bypasses Inline Validation.",
+          "Actions bypass Button.",
+          "Search implementation is cloned."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "templateDependencies": [
+          "Settings Workspace"
+        ]
+      }
+    }
+  }
+}

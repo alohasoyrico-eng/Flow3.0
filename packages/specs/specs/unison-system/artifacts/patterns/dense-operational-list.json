@@ -1,0 +1,223 @@
+{
+  "artifacts": {
+    "patterns": {
+      "dense-operational-list": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate dense operational records with search, active filters, local toolbar actions, bulk actions, virtualized table behavior, and feedback without creating a parallel table or card-list implementation.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Bulk Actions",
+          "Filter Chip Group",
+          "Search",
+          "Status Feedback View",
+          "Toolbar",
+          "Virtual Data Table"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A product surface must scan many operational records.",
+          "Search, filters, toolbar actions, selection, and paging must behave as one coordinated workflow.",
+          "The table remains owned by Virtual Data Table and Table, not by the product template."
+        ],
+        "decisionTree": [
+          "Use Virtual Data Table when only tabular rendering is needed.",
+          "Use Dense Operational List when search, filters, toolbar, bulk actions, and table state need one contract.",
+          "Use a product template when navigation, module switching, or page layout owns the broader workflow."
+        ],
+        "failureModes": [
+          "Records are rendered as cards or raw rows instead of Virtual Data Table.",
+          "Topbar, Search, Toolbar, or Filter Chip Group behavior is cloned inside a template.",
+          "Selection and bulk action state diverge.",
+          "Feedback bypasses Status Feedback View."
+        ],
+        "successMetrics": [
+          "Users can search, filter, scan, select, act, paginate, and recover from errors from one predictable flow.",
+          "Density and state cascade from the pattern surface to every child pattern.",
+          "Templates can reuse the list without redefining operational table behavior."
+        ],
+        "states": [
+          "default",
+          "filtered",
+          "selected",
+          "loading",
+          "empty",
+          "error",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "listSurface",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ],
+            "required": "required",
+            "purpose": "Owns structural grouping, density, state, and focus-within cascade for the operational list."
+          },
+          {
+            "name": "searchBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Search"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates query entry and result count announcement."
+          },
+          {
+            "name": "summary",
+            "owner": "component",
+            "uses": [
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Announces the operational list description or status summary without owning row, filter, or table behavior."
+          },
+          {
+            "name": "filterSummary",
+            "owner": "pattern",
+            "uses": [
+              "Filter Chip Group"
+            ],
+            "required": "required",
+            "purpose": "Delegates active filter chips, count, reset, and empty filter state."
+          },
+          {
+            "name": "toolbarBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Toolbar"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates local actions, overflow, and dense action layout."
+          },
+          {
+            "name": "bulkActionsBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Bulk Actions"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates selected-count, eligibility, confirmation, progress, and bulk command behavior."
+          },
+          {
+            "name": "tableBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Virtual Data Table"
+            ],
+            "required": "required",
+            "purpose": "Delegates row, selection, sort, pagination, empty, loading, and error table behavior."
+          },
+          {
+            "name": "statusFeedback",
+            "owner": "pattern",
+            "uses": [
+              "Status Feedback View"
+            ],
+            "required": "conditional",
+            "purpose": "Delegates blocking, transient, or recovery feedback."
+          }
+        ],
+        "accessibility": [
+          "Expose the list as a labelled group with busy state.",
+          "Delegate search semantics to Search and table semantics to Virtual Data Table.",
+          "Expose selected and filter counts through live child components.",
+          "Keep recovery feedback in Status Feedback View."
+        ],
+        "tests": [
+          "Composes Surface, Badge, Search, Filter Chip Group, Toolbar, Bulk Actions, Virtual Data Table, and Status Feedback View.",
+          "Covers default, filtered, selected, loading, empty, error, and disabled states.",
+          "Forwards query, filter, sort, row selection, page, bulk action, toolbar overflow, and feedback callbacks.",
+          "Rejects raw tables, card rows, local filter chips, local buttons, and local status shells."
+        ],
+        "agentInstructions": [
+          "Do not create custom row/card visuals.",
+          "Do not move table, filter, search, toolbar, or bulk behavior into templates.",
+          "Use Surface for structural grouping; do not wrap this pattern in Card to create visual separation.",
+          "Ask before using this pattern for regulated financial, identity, or safety-critical operations."
+        ],
+        "rejectIf": [
+          "Rows bypass Virtual Data Table.",
+          "Search, filters, toolbar, or bulk actions are cloned.",
+          "Card wraps the operational list group.",
+          "Feedback bypasses Status Feedback View.",
+          "Density or state stops cascading to child patterns."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "templateDependencies": [
+          "Internal Operations Console"
+        ]
+      }
+    }
+  }
+}

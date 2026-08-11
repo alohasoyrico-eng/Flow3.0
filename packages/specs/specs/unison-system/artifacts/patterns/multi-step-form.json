@@ -1,0 +1,193 @@
+{
+  "artifacts": {
+    "patterns": {
+      "multi-step-form": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate sequenced form progress with validation, navigation, save/submit, recovery, and Form Section boundaries.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "Momentum",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Field Action",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Card",
+          "Inline Validation",
+          "Input",
+          "Select",
+          "Stepper",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Form Section"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.card.*",
+          "comp.inline-validation.*",
+          "comp.input.*",
+          "comp.select.*",
+          "comp.stepper.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "A form needs ordered steps, progress, validation, and navigation.",
+          "Users may save, resume, submit, or recover from errors.",
+          "Field grouping belongs to Form Section."
+        ],
+        "decisionTree": [
+          "Use Form Section for one grouped set of fields.",
+          "Use Multi Step Form when step order and progress are core behavior.",
+          "Use template flows for domain-specific onboarding copy and business logic."
+        ],
+        "failureModes": [
+          "Steps are visual-only.",
+          "Fields bypass Flow inputs.",
+          "Form Section behavior is duplicated.",
+          "Progress and validation state are disconnected."
+        ],
+        "successMetrics": [
+          "Users know current step, completion, errors, and next action.",
+          "Keyboard users can navigate steps and fields predictably.",
+          "Step structure is reusable without business flow ownership."
+        ],
+        "states": [
+          "not-started",
+          "active",
+          "dirty",
+          "validating",
+          "invalid",
+          "saving",
+          "complete",
+          "disabled"
+        ],
+        "slots": [
+          {
+            "name": "progress",
+            "owner": "component",
+            "uses": [
+              "Stepper"
+            ]
+          },
+          {
+            "name": "content",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
+            ]
+          },
+          {
+            "name": "stepSummary",
+            "owner": "component",
+            "uses": [
+              "Card"
+            ],
+            "required": "conditional",
+            "purpose": "Owns the current step summary as a content unit inside Surface-owned form structure."
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Toast"
+            ]
+          },
+          {
+            "name": "fields",
+            "owner": "component",
+            "uses": [
+              "Input",
+              "Select",
+              "Inline Validation"
+            ]
+          },
+          {
+            "name": "formBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Form Section"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Form Section runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Expose current step and progress in text.",
+          "Tie errors to fields and steps.",
+          "Prevent focus loss on step changes."
+        ],
+        "tests": [
+          "Composes Stepper, Card, Input, Select, Inline Validation, Button, and Toast.",
+          "Covers active, dirty, validating, invalid, saving, complete, and disabled states.",
+          "Keeps Form Section as field-group boundary."
+        ],
+        "agentInstructions": [
+          "Keep domain workflow and copy outside the pattern.",
+          "Use Form Section for reusable field groups.",
+          "Ask before submitting identity, payment, or compliance data."
+        ],
+        "rejectIf": [
+          "Step progress is decorative only.",
+          "Form Section is cloned.",
+          "Fields bypass Flow components.",
+          "Errors are not step-associated."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

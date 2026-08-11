@@ -1,0 +1,370 @@
+{
+  "version": "2026-08-09",
+  "principle": "Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency.",
+  "expectedInventory": {
+    "expectedComponents": 60,
+    "components": 60,
+    "primaryImplementationDebt": 0,
+    "pass": 60,
+    "fail": 0,
+    "missingSources": 0,
+    "extraSources": 0,
+    "forwardRef": 60,
+    "realTypes": 60,
+    "platformContract": 60,
+    "densityResolved": 60,
+    "restSanitized": 60,
+    "noDocsDependency": 60,
+    "noDomFactory": 60,
+    "publishedImports": 60,
+    "cssContractCoverage": 60,
+    "directCssContracts": 55,
+    "familyCssContracts": 5,
+    "sourceIndexExport": 60,
+    "sourceTypesIndexExport": 60,
+    "distIndexExport": 60,
+    "distTypesIndexExport": 60,
+    "reactPrimaryGovernanceIssues": 0
+  },
+  "secondaryExpectedInventories": {
+    "accessibility": {
+      "components": 60,
+      "accessibilityDebt": 0,
+      "criticalComponents": 10,
+      "criticalPassing": 10,
+      "totalRoles": 71,
+      "totalAria": 323,
+      "keyboardHandlers": 40,
+      "focusCalls": 15,
+      "failures": 0,
+      "interactionFailures": 0,
+      "reactGovernancePolicyIssues": 0
+    },
+    "controlled": {
+      "components": 60,
+      "controlledDebt": 0,
+      "controlledComponents": 31,
+      "openControlledComponents": 10,
+      "openSourceCovered": 10,
+      "openTestCovered": 10,
+      "controlledPropEdges": 30,
+      "totalControlledEdges": 40,
+      "testCoveredEdges": 30,
+      "totalTestCoveredEdges": 40,
+      "failures": 0,
+      "reactGovernancePolicyIssues": 0
+    },
+    "defaults": {
+      "components": 60,
+      "defaultDebt": 0,
+      "prohibitedDefaults": 0,
+      "semanticDefaultDecisions": 115,
+      "contractBackedSemanticDefaultDecisions": 115,
+      "unbackedSemanticDefaultDecisions": 0,
+      "semanticDefaultDecisionContractGaps": 0,
+      "reactGovernancePolicyIssues": 0
+    },
+    "style": {
+      "components": 60,
+      "styleEscapeDebt": 0,
+      "componentsWithApprovedInlineVars": 6,
+      "componentsWithRuntimeVars": 1,
+      "approvedInlineVars": 10,
+      "styleProps": 10,
+      "setPropertyCalls": 2,
+      "violations": 0,
+      "reactGovernancePolicyIssues": 0
+    },
+    "interaction": {
+      "components": 60,
+      "interactionDebt": 0,
+      "withCallbacks": 44,
+      "pass": 60,
+      "review": 0,
+      "fail": 0,
+      "missingTestCallbacks": 0,
+      "missingEventParams": 0,
+      "manualAccessibilityCritical": 10,
+      "manualAccessibilityCriticalPass": 10,
+      "reactGovernancePolicyIssues": 0
+    },
+    "propAlignment": {
+      "components": 60,
+      "propAlignmentDebt": 0,
+      "pass": 60,
+      "fail": 0,
+      "contractProps": 721,
+      "publicReactProps": 602,
+      "semanticInheritedProps": 1,
+      "inheritedContractProps": 28,
+      "extraReactProps": 0,
+      "missingReactProps": 0,
+      "requiredMismatches": 0,
+      "typeValueMismatches": 0,
+      "publicPropsExpectedInSource": 603,
+      "unreferencedPublicProps": 0,
+      "reactGovernancePolicyIssues": 0
+    }
+  },
+  "governedReactPrimitives": [
+    {
+      "id": "surface",
+      "name": "Surface",
+      "file": "Surface.js",
+      "typeFile": "Surface.d.ts",
+      "dataAttribute": "data-flow-primitive\": \"surface\"",
+      "packagePath": "./surface",
+      "rootPackagePath": "./react/surface"
+    }
+  ],
+  "allowedPrimitiveImports": [
+    "createChartsPrimitive",
+    "createMapsPrimitive",
+    "countryFlagAssetPath",
+    "countryCallingCodeOptions",
+    "normalizeCountryCallingCodeOptions",
+    "resolveCountryCallingCodeOption"
+  ],
+  "controlledMarkers": [
+    { "marker": "isValueControlled", "prop": "value" },
+    { "marker": "isCheckedControlled", "prop": "checked" },
+    { "marker": "isSelectedKeyControlled", "prop": "selectedKey" },
+    { "marker": "isSortControlled", "prop": "sortKey" },
+    { "marker": "isSortControlled", "prop": "sortDir" },
+    { "marker": "isExpandedKeyControlled", "prop": "expandedKey" },
+    { "marker": "isExpandedKeysControlled", "prop": "expandedKeys" },
+    { "marker": "isExpandedIdsControlled", "prop": "expandedIds" },
+    { "marker": "isPageControlled", "prop": "page" },
+    { "marker": "isDismissedControlled", "prop": "dismissed" }
+  ],
+  "styleBlockedEscapePatterns": [
+    { "id": "rest-style", "label": "rest.style merge", "pattern": "\\brest\\.style\\b", "flags": "g" },
+    { "id": "inner-html", "label": "HTML string injection", "pattern": "\\b(?:innerHTML|insertAdjacentHTML)\\b", "flags": "g" },
+    { "id": "dom-style-mutation", "label": "DOM style mutation", "pattern": "\\.style\\.(?!setProperty\\()", "flags": "g" },
+    { "id": "dom-dataset-mutation", "label": "DOM dataset mutation", "pattern": "\\.dataset\\.", "flags": "g" },
+    { "id": "dom-classlist-mutation", "label": "DOM classList mutation", "pattern": "\\.classList\\.", "flags": "g" }
+  ],
+  "semanticDefaultExpectedByRule": {
+    "state-default": 45,
+    "variant-default": 40,
+    "tone-default": 15,
+    "intent-default": 2,
+    "status-default": 1,
+    "placement-default": 2,
+    "side-default": 1,
+    "align-default": 2,
+    "orientation-default": 1,
+    "trend-default": 2,
+    "composition-default": 1,
+    "avatar-status-default": 1,
+    "category-default": 1,
+    "sort-direction-default": 1
+  },
+  "defaultProhibitedRules": [
+    {
+      "id": "density-prop-default",
+      "description": "React components must not default density to sm/md/lg; density must cascade through normalizeFlowDensity.",
+      "pattern": "\\bdensity\\s*=\\s*[\"'](?:sm|md|lg)[\"']"
+    },
+    {
+      "id": "density-normalizer-literal",
+      "description": "React components must not normalize a hardcoded density literal.",
+      "pattern": "\\bnormalizeFlowDensity\\(\\s*[\"'](?:sm|md|lg)[\"']"
+    },
+    {
+      "id": "density-props-literal",
+      "description": "React components must not emit flowDensityProps from a hardcoded density literal.",
+      "pattern": "\\bflowDensityProps\\(\\s*[\"'](?:sm|md|lg)[\"']"
+    },
+    {
+      "id": "size-prop-default",
+      "description": "React components must not reintroduce size as a parallel density API.",
+      "pattern": "\\b(?:size|componentSize)\\s*=\\s*[\"'](?:xs|sm|md|lg|xl|small|medium|large)[\"']"
+    },
+    {
+      "id": "theme-prop-default",
+      "description": "React components must not default theme/colorScheme; theme must come from the system cascade.",
+      "pattern": "\\b(?:theme|colorScheme)\\s*=\\s*[\"'](?:light|dark|system)[\"']"
+    },
+    {
+      "id": "theme-data-literal",
+      "description": "React components must not set data-theme to a hardcoded light/dark value.",
+      "pattern": "[\"']data-theme[\"']\\s*:\\s*[\"'](?:light|dark)[\"']"
+    }
+  ],
+  "defaultSemanticRules": [
+    {
+      "id": "state-default",
+      "prop": "state",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "pattern": "\\bstate\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "variant-default",
+      "prop": "variant",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "pattern": "\\bvariant\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "tone-default",
+      "prop": "tone",
+      "description": "Component tone fallback; allowed when constrained by the component contract.",
+      "pattern": "\\btone\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "intent-default",
+      "prop": "intent",
+      "description": "Action intent fallback; allowed when constrained by the component contract.",
+      "pattern": "\\bintent\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "status-default",
+      "prop": "status",
+      "description": "Component status fallback; allowed when constrained by the component contract.",
+      "pattern": "\\bstatus\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "placement-default",
+      "prop": "placement",
+      "description": "Overlay placement fallback; allowed when constrained by the component contract.",
+      "pattern": "\\bplacement\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "side-default",
+      "prop": "side",
+      "description": "Surface side fallback; allowed when constrained by the component contract.",
+      "pattern": "\\bside\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "align-default",
+      "prop": "align",
+      "description": "Alignment fallback; allowed when constrained by the component contract.",
+      "pattern": "\\balign\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "orientation-default",
+      "prop": "orientation",
+      "description": "Layout orientation fallback; allowed when constrained by the component contract.",
+      "pattern": "\\borientation\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "trend-default",
+      "prop": "trend",
+      "description": "Trend fallback; allowed when constrained by the component contract.",
+      "pattern": "\\btrend\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "composition-default",
+      "prop": "composition",
+      "description": "Composition fallback; allowed when constrained by the component contract.",
+      "pattern": "\\bcomposition\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "avatar-status-default",
+      "prop": "avatarStatus",
+      "description": "Avatar status fallback; allowed when constrained by the component contract.",
+      "pattern": "\\bavatarStatus\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "category-default",
+      "prop": "category",
+      "description": "Category fallback; allowed when constrained by the component contract.",
+      "pattern": "\\bcategory\\s*=\\s*[\"']([^\"']+)[\"']"
+    },
+    {
+      "id": "sort-direction-default",
+      "prop": "sortDir",
+      "description": "Sort direction fallback; allowed when constrained by the component contract.",
+      "pattern": "\\bsortDir\\s*=\\s*[\"']([^\"']+)[\"']"
+    }
+  ],
+  "accessibilityCriticalRequirements": {
+    "Dialog": [
+      { "label": "role dialog", "pattern": "role:\\s*\"dialog\"" },
+      { "label": "modal", "pattern": "\"aria-modal\":\\s*\"true\"" },
+      { "label": "labelledby", "pattern": "\"aria-labelledby\"" },
+      { "label": "escape", "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\"" },
+      { "label": "focus restoration", "pattern": "\\.focus\\(\\)" }
+    ],
+    "Drawer": [
+      { "label": "role dialog", "pattern": "role:\\s*\"dialog\"" },
+      { "label": "modal", "pattern": "\"aria-modal\":\\s*\"true\"" },
+      { "label": "labelledby", "pattern": "\"aria-labelledby\"" },
+      { "label": "escape", "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\"" },
+      { "label": "focus restoration", "pattern": "\\.focus\\(\\)" }
+    ],
+    "Menu": [
+      { "label": "menu trigger", "pattern": "\"aria-haspopup\":\\s*\"menu\"" },
+      { "label": "expanded state", "pattern": "\"aria-expanded\"" },
+      { "label": "role menu", "pattern": "role:\\s*\"menu\"" },
+      { "label": "role menuitem", "pattern": "role:\\s*\"menuitem\"" },
+      { "label": "keyboard", "pattern": "onKeyDown" },
+      { "label": "escape", "pattern": "event\\.key\\s*===\\s*\"Escape\"" },
+      { "label": "focus management", "pattern": "\\.focus\\(\\)" }
+    ],
+    "Popover": [
+      { "label": "dialog trigger", "pattern": "\"aria-haspopup\":\\s*\"dialog\"" },
+      { "label": "expanded state", "pattern": "\"aria-expanded\"" },
+      { "label": "role dialog", "pattern": "role:\\s*\"dialog\"" },
+      { "label": "labelledby", "pattern": "\"aria-labelledby\"" },
+      { "label": "keyboard", "pattern": "onKeyDown" },
+      { "label": "escape", "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\"" },
+      { "label": "focus restoration", "pattern": "\\.focus\\(\\)" }
+    ],
+    "Tooltip": [
+      { "label": "describedby", "pattern": "\"aria-describedby\"" },
+      { "label": "role tooltip", "pattern": "role:\\s*\"tooltip\"" },
+      { "label": "keyboard", "pattern": "onKeyDown" },
+      { "label": "escape", "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\"" },
+      { "label": "focus trigger", "pattern": "onFocus" }
+    ],
+    "Select": [
+      { "label": "role combobox", "pattern": "role:\\s*\"combobox\"" },
+      { "label": "expanded state", "pattern": "\"aria-expanded\"" },
+      { "label": "listbox", "pattern": "role:\\s*\"listbox\"" },
+      { "label": "option", "pattern": "role:\\s*\"option\"" },
+      { "label": "active descendant", "pattern": "\"aria-activedescendant\"" },
+      { "label": "keyboard", "pattern": "onKeyDown" },
+      { "label": "escape", "pattern": "event\\.key\\s*===\\s*\"Escape\"" }
+    ],
+    "Combobox": [
+      { "label": "role combobox", "pattern": "role:\\s*\"combobox\"" },
+      { "label": "autocomplete", "pattern": "\"aria-autocomplete\":\\s*\"list\"" },
+      { "label": "expanded state", "pattern": "\"aria-expanded\"" },
+      { "label": "listbox", "pattern": "role:\\s*\"listbox\"" },
+      { "label": "option", "pattern": "role:\\s*\"option\"" },
+      { "label": "active descendant", "pattern": "\"aria-activedescendant\"" },
+      { "label": "keyboard", "pattern": "onKeyDown" },
+      { "label": "escape", "pattern": "event\\.key\\s*===\\s*\"Escape\"" }
+    ],
+    "CountrySelector": [
+      { "label": "role combobox", "pattern": "role:\\s*\"combobox\"" },
+      { "label": "expanded state", "pattern": "\"aria-expanded\"" },
+      { "label": "listbox", "pattern": "role:\\s*\"listbox\"" },
+      { "label": "option", "pattern": "role:\\s*\"option\"" },
+      { "label": "active descendant", "pattern": "\"aria-activedescendant\"" },
+      { "label": "keyboard", "pattern": "onKeyDown" },
+      { "label": "escape", "pattern": "event\\.key\\s*===\\s*\"Escape\"" }
+    ],
+    "DatePicker": [
+      { "label": "dialog trigger", "pattern": "\"aria-haspopup\":\\s*\"dialog\"" },
+      { "label": "expanded state", "pattern": "\"aria-expanded\"" },
+      { "label": "role dialog", "pattern": "role:\\s*\"dialog\"" },
+      { "label": "grid", "pattern": "role:\\s*\"grid\"" },
+      { "label": "gridcell", "pattern": "role:\\s*\"gridcell\"" },
+      { "label": "keyboard", "pattern": "onKeyDown" },
+      { "label": "escape", "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\"" },
+      { "label": "focus restoration", "pattern": "\\.focus\\(\\)" }
+    ],
+    "DateRangePicker": [
+      { "label": "dialog trigger", "pattern": "\"aria-haspopup\":\\s*\"dialog\"" },
+      { "label": "expanded state", "pattern": "\"aria-expanded\"" },
+      { "label": "role dialog", "pattern": "role:\\s*\"dialog\"" },
+      { "label": "grid", "pattern": "role:\\s*\"grid\"" },
+      { "label": "gridcell", "pattern": "role:\\s*\"gridcell\"" },
+      { "label": "keyboard", "pattern": "onKeyDown" },
+      { "label": "escape", "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\"" },
+      { "label": "focus restoration", "pattern": "\\.focus\\(\\)" }
+    ]
+  }
+}

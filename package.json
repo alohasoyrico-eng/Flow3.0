@@ -29,13 +29,21 @@
     "url": "https://github.com/alohasoyrico-eng/Flow3.0.git"
   },
   "exports": {
-    "./tokens": "./packages/tokens/src/index.js",
-    "./tokens.json": "./packages/tokens/tokens.json",
-    "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
     "./components": "./packages/components/src/index.js",
     "./components/contracts": "./packages/components/src/contracts.js",
     "./components/platforms": "./packages/components/src/platforms/index.js",
     "./components/styles.css": "./packages/components/styles/components.css",
+    "./content/catalog": "./packages/content/content/catalog.json",
+    "./content/component-copy": "./packages/content/content/component-copy.json",
+    "./content/component-docs": "./packages/content/content/component-docs.json",
+    "./content/component-implementation-status": "./packages/content/content/component-implementation-status.json",
+    "./content/foundation-copy": "./packages/content/content/foundation-copy.json",
+    "./content/home": "./packages/content/content/home.json",
+    "./content/i18n-ui": "./packages/content/content/i18n/ui.json",
+    "./content/pattern-copy": "./packages/content/content/pattern-copy.json",
+    "./content/primitive-copy": "./packages/content/content/primitive-copy.json",
+    "./content/reference-copy": "./packages/content/content/reference-copy.json",
+    "./content/template-blueprints": "./packages/content/content/template-blueprints.json",
     "./react": {
       "types": "./packages/react/dist/index.d.ts",
       "default": "./packages/react/dist/index.js"
@@ -95,6 +103,18 @@
     "./react/chart-panel": {
       "types": "./packages/react/dist/ChartPanel.d.ts",
       "default": "./packages/react/dist/ChartPanel.js"
+    },
+    "./react/chat-composer": {
+      "types": "./packages/react/dist/ChatComposer.d.ts",
+      "default": "./packages/react/dist/ChatComposer.js"
+    },
+    "./react/chat-message": {
+      "types": "./packages/react/dist/ChatMessage.d.ts",
+      "default": "./packages/react/dist/ChatMessage.js"
+    },
+    "./react/chat-thread": {
+      "types": "./packages/react/dist/ChatThread.d.ts",
+      "default": "./packages/react/dist/ChatThread.js"
     },
     "./react/checkbox": {
       "types": "./packages/react/dist/Checkbox.d.ts",
@@ -156,6 +176,10 @@
       "types": "./packages/react/dist/Input.d.ts",
       "default": "./packages/react/dist/Input.js"
     },
+    "./react/input-amount": {
+      "types": "./packages/react/dist/InputAmount.d.ts",
+      "default": "./packages/react/dist/InputAmount.js"
+    },
     "./react/kpi-tile": {
       "types": "./packages/react/dist/KpiTile.d.ts",
       "default": "./packages/react/dist/KpiTile.js"
@@ -179,6 +203,246 @@
     "./react/pagination": {
       "types": "./packages/react/dist/Pagination.d.ts",
       "default": "./packages/react/dist/Pagination.js"
+    },
+    "./react/patterns": {
+      "types": "./packages/react/dist/patterns/index.d.ts",
+      "default": "./packages/react/dist/patterns/index.js"
+    },
+    "./react/patterns/account-operations": {
+      "types": "./packages/react/dist/patterns/AccountOperations.d.ts",
+      "default": "./packages/react/dist/patterns/AccountOperations.js"
+    },
+    "./react/patterns/action-sheet": {
+      "types": "./packages/react/dist/patterns/ActionSheet.d.ts",
+      "default": "./packages/react/dist/patterns/ActionSheet.js"
+    },
+    "./react/patterns/advanced-filters": {
+      "types": "./packages/react/dist/patterns/AdvancedFilters.d.ts",
+      "default": "./packages/react/dist/patterns/AdvancedFilters.js"
+    },
+    "./react/patterns/agent-conversation": {
+      "types": "./packages/react/dist/patterns/AgentConversation.d.ts",
+      "default": "./packages/react/dist/patterns/AgentConversation.js"
+    },
+    "./react/patterns/authentication-login-biometrics-and-otp": {
+      "types": "./packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
+      "default": "./packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.js"
+    },
+    "./react/patterns/autocomplete": {
+      "types": "./packages/react/dist/patterns/Autocomplete.d.ts",
+      "default": "./packages/react/dist/patterns/Autocomplete.js"
+    },
+    "./react/patterns/avatar-group": {
+      "types": "./packages/react/dist/patterns/AvatarGroup.d.ts",
+      "default": "./packages/react/dist/patterns/AvatarGroup.js"
+    },
+    "./react/patterns/avatar-menu": {
+      "types": "./packages/react/dist/patterns/AvatarMenu.d.ts",
+      "default": "./packages/react/dist/patterns/AvatarMenu.js"
+    },
+    "./react/patterns/backoffice-approval": {
+      "types": "./packages/react/dist/patterns/BackofficeApproval.d.ts",
+      "default": "./packages/react/dist/patterns/BackofficeApproval.js"
+    },
+    "./react/patterns/bulk-actions": {
+      "types": "./packages/react/dist/patterns/BulkActions.d.ts",
+      "default": "./packages/react/dist/patterns/BulkActions.js"
+    },
+    "./react/patterns/calendar-view": {
+      "types": "./packages/react/dist/patterns/CalendarView.d.ts",
+      "default": "./packages/react/dist/patterns/CalendarView.js"
+    },
+    "./react/patterns/case-management": {
+      "types": "./packages/react/dist/patterns/CaseManagement.d.ts",
+      "default": "./packages/react/dist/patterns/CaseManagement.js"
+    },
+    "./react/patterns/chart-wrapper": {
+      "types": "./packages/react/dist/patterns/ChartWrapper.d.ts",
+      "default": "./packages/react/dist/patterns/ChartWrapper.js"
+    },
+    "./react/patterns/column-configurator": {
+      "types": "./packages/react/dist/patterns/ColumnConfigurator.d.ts",
+      "default": "./packages/react/dist/patterns/ColumnConfigurator.js"
+    },
+    "./react/patterns/command-palette": {
+      "types": "./packages/react/dist/patterns/CommandPalette.d.ts",
+      "default": "./packages/react/dist/patterns/CommandPalette.js"
+    },
+    "./react/patterns/confirmation-dialog": {
+      "types": "./packages/react/dist/patterns/ConfirmationDialog.d.ts",
+      "default": "./packages/react/dist/patterns/ConfirmationDialog.js"
+    },
+    "./react/patterns/dense-operational-list": {
+      "types": "./packages/react/dist/patterns/DenseOperationalList.d.ts",
+      "default": "./packages/react/dist/patterns/DenseOperationalList.js"
+    },
+    "./react/patterns/drag-sortable-list": {
+      "types": "./packages/react/dist/patterns/DragSortableList.d.ts",
+      "default": "./packages/react/dist/patterns/DragSortableList.js"
+    },
+    "./react/patterns/drawer-adapter": {
+      "types": "./packages/react/dist/patterns/DrawerAdapter.d.ts",
+      "default": "./packages/react/dist/patterns/DrawerAdapter.js"
+    },
+    "./react/patterns/driver-and-vehicle-administration": {
+      "types": "./packages/react/dist/patterns/DriverAndVehicleAdministration.d.ts",
+      "default": "./packages/react/dist/patterns/DriverAndVehicleAdministration.js"
+    },
+    "./react/patterns/driver-onboarding-mobile": {
+      "types": "./packages/react/dist/patterns/DriverOnboardingMobile.d.ts",
+      "default": "./packages/react/dist/patterns/DriverOnboardingMobile.js"
+    },
+    "./react/patterns/email-template-layout": {
+      "types": "./packages/react/dist/patterns/EmailTemplateLayout.d.ts",
+      "default": "./packages/react/dist/patterns/EmailTemplateLayout.js"
+    },
+    "./react/patterns/expandable-detail-table": {
+      "types": "./packages/react/dist/patterns/ExpandableDetailTable.d.ts",
+      "default": "./packages/react/dist/patterns/ExpandableDetailTable.js"
+    },
+    "./react/patterns/file-upload": {
+      "types": "./packages/react/dist/patterns/FileUpload.d.ts",
+      "default": "./packages/react/dist/patterns/FileUpload.js"
+    },
+    "./react/patterns/filter-chip-group": {
+      "types": "./packages/react/dist/patterns/FilterChipGroup.d.ts",
+      "default": "./packages/react/dist/patterns/FilterChipGroup.js"
+    },
+    "./react/patterns/filterable-editable-table": {
+      "types": "./packages/react/dist/patterns/FilterableEditableTable.d.ts",
+      "default": "./packages/react/dist/patterns/FilterableEditableTable.js"
+    },
+    "./react/patterns/fleet-manager-onboarding-desktop": {
+      "types": "./packages/react/dist/patterns/FleetManagerOnboardingDesktop.d.ts",
+      "default": "./packages/react/dist/patterns/FleetManagerOnboardingDesktop.js"
+    },
+    "./react/patterns/form-section": {
+      "types": "./packages/react/dist/patterns/FormSection.d.ts",
+      "default": "./packages/react/dist/patterns/FormSection.js"
+    },
+    "./react/patterns/fullscreen-sheet": {
+      "types": "./packages/react/dist/patterns/FullscreenSheet.d.ts",
+      "default": "./packages/react/dist/patterns/FullscreenSheet.js"
+    },
+    "./react/patterns/gantt-chart": {
+      "types": "./packages/react/dist/patterns/GanttChart.d.ts",
+      "default": "./packages/react/dist/patterns/GanttChart.js"
+    },
+    "./react/patterns/help-center": {
+      "types": "./packages/react/dist/patterns/HelpCenter.d.ts",
+      "default": "./packages/react/dist/patterns/HelpCenter.js"
+    },
+    "./react/patterns/kanban-board": {
+      "types": "./packages/react/dist/patterns/KanbanBoard.d.ts",
+      "default": "./packages/react/dist/patterns/KanbanBoard.js"
+    },
+    "./react/patterns/kpi-card": {
+      "types": "./packages/react/dist/patterns/KpiCard.d.ts",
+      "default": "./packages/react/dist/patterns/KpiCard.js"
+    },
+    "./react/patterns/multi-select": {
+      "types": "./packages/react/dist/patterns/MultiSelect.d.ts",
+      "default": "./packages/react/dist/patterns/MultiSelect.js"
+    },
+    "./react/patterns/multi-step-form": {
+      "types": "./packages/react/dist/patterns/MultiStepForm.d.ts",
+      "default": "./packages/react/dist/patterns/MultiStepForm.js"
+    },
+    "./react/patterns/notification-panel": {
+      "types": "./packages/react/dist/patterns/NotificationPanel.d.ts",
+      "default": "./packages/react/dist/patterns/NotificationPanel.js"
+    },
+    "./react/patterns/payment-form": {
+      "types": "./packages/react/dist/patterns/PaymentForm.d.ts",
+      "default": "./packages/react/dist/patterns/PaymentForm.js"
+    },
+    "./react/patterns/polar-chart": {
+      "types": "./packages/react/dist/patterns/PolarChart.d.ts",
+      "default": "./packages/react/dist/patterns/PolarChart.js"
+    },
+    "./react/patterns/preference-management": {
+      "types": "./packages/react/dist/patterns/PreferenceManagement.d.ts",
+      "default": "./packages/react/dist/patterns/PreferenceManagement.js"
+    },
+    "./react/patterns/pricing-operations": {
+      "types": "./packages/react/dist/patterns/PricingOperations.d.ts",
+      "default": "./packages/react/dist/patterns/PricingOperations.js"
+    },
+    "./react/patterns/pull-to-refresh": {
+      "types": "./packages/react/dist/patterns/PullToRefresh.d.ts",
+      "default": "./packages/react/dist/patterns/PullToRefresh.js"
+    },
+    "./react/patterns/quick-actions-grid": {
+      "types": "./packages/react/dist/patterns/QuickActionsGrid.d.ts",
+      "default": "./packages/react/dist/patterns/QuickActionsGrid.js"
+    },
+    "./react/patterns/roles-and-permissions": {
+      "types": "./packages/react/dist/patterns/RolesAndPermissions.d.ts",
+      "default": "./packages/react/dist/patterns/RolesAndPermissions.js"
+    },
+    "./react/patterns/search": {
+      "types": "./packages/react/dist/patterns/Search.d.ts",
+      "default": "./packages/react/dist/patterns/Search.js"
+    },
+    "./react/patterns/section-header": {
+      "types": "./packages/react/dist/patterns/SectionHeader.d.ts",
+      "default": "./packages/react/dist/patterns/SectionHeader.js"
+    },
+    "./react/patterns/select-option-layer": {
+      "types": "./packages/react/dist/patterns/SelectOptionLayer.d.ts",
+      "default": "./packages/react/dist/patterns/SelectOptionLayer.js"
+    },
+    "./react/patterns/settings": {
+      "types": "./packages/react/dist/patterns/Settings.d.ts",
+      "default": "./packages/react/dist/patterns/Settings.js"
+    },
+    "./react/patterns/sidebar": {
+      "types": "./packages/react/dist/patterns/Sidebar.d.ts",
+      "default": "./packages/react/dist/patterns/Sidebar.js"
+    },
+    "./react/patterns/snackbar-provider": {
+      "types": "./packages/react/dist/patterns/SnackbarProvider.d.ts",
+      "default": "./packages/react/dist/patterns/SnackbarProvider.js"
+    },
+    "./react/patterns/station-discovery": {
+      "types": "./packages/react/dist/patterns/StationDiscovery.d.ts",
+      "default": "./packages/react/dist/patterns/StationDiscovery.js"
+    },
+    "./react/patterns/status-feedback-view": {
+      "types": "./packages/react/dist/patterns/StatusFeedbackView.d.ts",
+      "default": "./packages/react/dist/patterns/StatusFeedbackView.js"
+    },
+    "./react/patterns/swipe-actions": {
+      "types": "./packages/react/dist/patterns/SwipeActions.d.ts",
+      "default": "./packages/react/dist/patterns/SwipeActions.js"
+    },
+    "./react/patterns/ticket-queue": {
+      "types": "./packages/react/dist/patterns/TicketQueue.d.ts",
+      "default": "./packages/react/dist/patterns/TicketQueue.js"
+    },
+    "./react/patterns/timeline": {
+      "types": "./packages/react/dist/patterns/Timeline.d.ts",
+      "default": "./packages/react/dist/patterns/Timeline.js"
+    },
+    "./react/patterns/toolbar": {
+      "types": "./packages/react/dist/patterns/Toolbar.d.ts",
+      "default": "./packages/react/dist/patterns/Toolbar.js"
+    },
+    "./react/patterns/topbar": {
+      "types": "./packages/react/dist/patterns/Topbar.d.ts",
+      "default": "./packages/react/dist/patterns/Topbar.js"
+    },
+    "./react/patterns/transfer-list": {
+      "types": "./packages/react/dist/patterns/TransferList.d.ts",
+      "default": "./packages/react/dist/patterns/TransferList.js"
+    },
+    "./react/patterns/virtual-data-table": {
+      "types": "./packages/react/dist/patterns/VirtualDataTable.d.ts",
+      "default": "./packages/react/dist/patterns/VirtualDataTable.js"
+    },
+    "./react/patterns/waterfall-chart": {
+      "types": "./packages/react/dist/patterns/WaterfallChart.d.ts",
+      "default": "./packages/react/dist/patterns/WaterfallChart.js"
     },
     "./react/phone-input": {
       "types": "./packages/react/dist/PhoneInput.d.ts",
@@ -204,13 +468,13 @@
       "types": "./packages/react/dist/RouteSummary.d.ts",
       "default": "./packages/react/dist/RouteSummary.js"
     },
-    "./react/select": {
-      "types": "./packages/react/dist/Select.d.ts",
-      "default": "./packages/react/dist/Select.js"
-    },
     "./react/segmented-control": {
       "types": "./packages/react/dist/SegmentedControl.d.ts",
       "default": "./packages/react/dist/SegmentedControl.js"
+    },
+    "./react/select": {
+      "types": "./packages/react/dist/Select.d.ts",
+      "default": "./packages/react/dist/Select.js"
     },
     "./react/skeleton": {
       "types": "./packages/react/dist/Skeleton.d.ts",
@@ -232,6 +496,10 @@
       "types": "./packages/react/dist/Stepper.d.ts",
       "default": "./packages/react/dist/Stepper.js"
     },
+    "./react/surface": {
+      "types": "./packages/react/dist/Surface.d.ts",
+      "default": "./packages/react/dist/Surface.js"
+    },
     "./react/switch": {
       "types": "./packages/react/dist/Switch.d.ts",
       "default": "./packages/react/dist/Switch.js"
@@ -247,6 +515,46 @@
     "./react/tag": {
       "types": "./packages/react/dist/Tag.d.ts",
       "default": "./packages/react/dist/Tag.js"
+    },
+    "./react/templates": {
+      "types": "./packages/react/dist/templates/index.d.ts",
+      "default": "./packages/react/dist/templates/index.js"
+    },
+    "./react/templates/agent-workspace": {
+      "types": "./packages/react/dist/templates/AgentWorkspace.d.ts",
+      "default": "./packages/react/dist/templates/AgentWorkspace.js"
+    },
+    "./react/templates/configuration-console": {
+      "types": "./packages/react/dist/templates/ConfigurationConsole.d.ts",
+      "default": "./packages/react/dist/templates/ConfigurationConsole.js"
+    },
+    "./react/templates/driver-card-wallet": {
+      "types": "./packages/react/dist/templates/DriverCardWallet.d.ts",
+      "default": "./packages/react/dist/templates/DriverCardWallet.js"
+    },
+    "./react/templates/driver-mobile-app": {
+      "types": "./packages/react/dist/templates/DriverMobileApp.d.ts",
+      "default": "./packages/react/dist/templates/DriverMobileApp.js"
+    },
+    "./react/templates/fleet-dashboard-suite": {
+      "types": "./packages/react/dist/templates/FleetDashboardSuite.d.ts",
+      "default": "./packages/react/dist/templates/FleetDashboardSuite.js"
+    },
+    "./react/templates/fleet-manager-desktop": {
+      "types": "./packages/react/dist/templates/FleetManagerDesktop.d.ts",
+      "default": "./packages/react/dist/templates/FleetManagerDesktop.js"
+    },
+    "./react/templates/internal-operations-console": {
+      "types": "./packages/react/dist/templates/InternalOperationsConsole.d.ts",
+      "default": "./packages/react/dist/templates/InternalOperationsConsole.js"
+    },
+    "./react/templates/routes-and-stations": {
+      "types": "./packages/react/dist/templates/RoutesAndStations.d.ts",
+      "default": "./packages/react/dist/templates/RoutesAndStations.js"
+    },
+    "./react/templates/settings-workspace": {
+      "types": "./packages/react/dist/templates/SettingsWorkspace.d.ts",
+      "default": "./packages/react/dist/templates/SettingsWorkspace.js"
     },
     "./react/text-area": {
       "types": "./packages/react/dist/TextArea.d.ts",
@@ -264,20 +572,14 @@
       "types": "./packages/react/dist/TreeView.d.ts",
       "default": "./packages/react/dist/TreeView.js"
     },
-    "./content/catalog": "./packages/content/content/catalog.json",
-    "./content/component-docs": "./packages/content/content/component-docs.json",
-    "./content/component-copy": "./packages/content/content/component-copy.json",
-    "./content/pattern-copy": "./packages/content/content/pattern-copy.json",
-    "./content/component-implementation-status": "./packages/content/content/component-implementation-status.json",
-    "./content/foundation-copy": "./packages/content/content/foundation-copy.json",
-    "./content/primitive-copy": "./packages/content/content/primitive-copy.json",
-    "./content/reference-copy": "./packages/content/content/reference-copy.json",
-    "./content/template-blueprints": "./packages/content/content/template-blueprints.json",
-    "./content/home": "./packages/content/content/home.json",
-    "./content/i18n-ui": "./packages/content/content/i18n/ui.json",
-    "./specs/system": "./packages/specs/specs/unison.system.json",
     "./specs/foundations/*": "./packages/specs/specs/unison-system/artifacts/foundations/*.json",
-    "./specs/primitives/*": "./packages/specs/specs/unison-system/artifacts/primitives/*.json"
+    "./specs/patterns/*": "./packages/specs/specs/unison-system/artifacts/patterns/*.json",
+    "./specs/primitives/*": "./packages/specs/specs/unison-system/artifacts/primitives/*.json",
+    "./specs/system": "./packages/specs/specs/unison.system.json",
+    "./specs/templates/*": "./packages/specs/specs/unison-system/artifacts/templates/*.json",
+    "./tokens": "./packages/tokens/src/index.js",
+    "./tokens.json": "./packages/tokens/tokens.json",
+    "./tokens/styles.css": "./packages/tokens/styles/tokens.css"
   },
   "imports": {
     "#flow/components": "./packages/components/src/index.js",
@@ -302,6 +604,8 @@
     "#design-system/specs/system": "./packages/specs/specs/unison.system.json",
     "#design-system/specs/foundations/*": "./packages/specs/specs/unison-system/artifacts/foundations/*.json",
     "#design-system/specs/primitives/*": "./packages/specs/specs/unison-system/artifacts/primitives/*.json",
+    "#design-system/specs/patterns/*": "./packages/specs/specs/unison-system/artifacts/patterns/*.json",
+    "#design-system/specs/templates/*": "./packages/specs/specs/unison-system/artifacts/templates/*.json",
     "#design-system/tokens-json": "./packages/tokens/tokens.json",
     "#design-system/tokens-css": "./packages/tokens/styles/tokens.css"
   },
@@ -310,6 +614,7 @@
   ],
   "scripts": {
     "build:tokens": "node scripts/generate-token-contract.mjs",
+    "build:pattern-contracts": "node scripts/generate-pattern-contracts.mjs",
     "build:react": "npm run build --workspace @design-system/react",
     "test:react": "npm run test --workspace @design-system/react",
     "prepare": "npm run build:react",

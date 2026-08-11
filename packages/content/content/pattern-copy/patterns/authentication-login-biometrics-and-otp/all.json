@@ -40,6 +40,12 @@
       ],
       "slots": [
         [
+          "surface",
+          "Surface",
+          "yes",
+          "Structural owner for auth grouping, density cascade, and blocked/recovered state."
+        ],
+        [
           "identity",
           "Phone Input",
           "yes",
@@ -78,6 +84,7 @@
       ],
       "componentsUsed": [
         "Phone Input",
+        "Input",
         "Code Input",
         "Biometric Prompt",
         "Button",

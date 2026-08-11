@@ -1,0 +1,171 @@
+{
+  "artifacts": {
+    "patterns": {
+      "drag-sortable-list": {
+        "layer": "Pattern",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate reorderable lists with drag, keyboard movement, motion boundaries, disabled items, persistence feedback, and settings-bound configuration.",
+        "governingFoundations": [
+          "Accessibility",
+          "Energy",
+          "Frame",
+          "Momentum",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Button",
+          "List",
+          "Motion Boundary",
+          "Toast"
+        ],
+        "patternDependencies": [
+          "Settings"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.list.*",
+          "comp.motion-boundary.*",
+          "comp.toast.*",
+          "sys.accessibility.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.voice.*"
+        ],
+        "densityContext": [
+          "smartphones + phablets",
+          "tablets + laptops",
+          "desktops + TV"
+        ],
+        "entryConditions": [
+          "Users need to reorder a finite list and persist the order.",
+          "The list needs drag and keyboard equivalent movement.",
+          "Some items may be locked, disabled, or moved through a settings surface."
+        ],
+        "decisionTree": [
+          "Use List for static ordering.",
+          "Use Drag Sortable List when item order is user-controlled.",
+          "Use Settings only to host preference-level ordering, not to own reorder mechanics."
+        ],
+        "failureModes": [
+          "Drag is the only reorder path.",
+          "Motion ignores reduced-motion preferences.",
+          "Disabled or locked items can move without reason.",
+          "Persistence feedback bypasses Toast."
+        ],
+        "successMetrics": [
+          "Users can reorder by pointer and keyboard.",
+          "Locked and disabled items have visible reasons.",
+          "Order persistence and failure states are clear."
+        ],
+        "states": [
+          "idle",
+          "dragging",
+          "keyboard-moving",
+          "dirty",
+          "saving",
+          "saved",
+          "error",
+          "disabled",
+          "reduced-motion"
+        ],
+        "slots": [
+          {
+            "name": "items",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Badge"
+            ]
+          },
+          {
+            "name": "motion",
+            "owner": "component",
+            "uses": [
+              "Motion Boundary"
+            ]
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Toast"
+            ]
+          },
+          {
+            "name": "settingsBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Settings"
+            ],
+            "required": "conditional",
+            "purpose": "Declares the Settings runtime composition boundary so this pattern composes Flow behavior instead of cloning it."
+          }
+        ],
+        "accessibility": [
+          "Provide keyboard controls for moving items.",
+          "Announce position changes.",
+          "Respect reduced motion and expose locked reasons."
+        ],
+        "tests": [
+          "Composes List, Motion Boundary, Badge, Button, and Toast.",
+          "Covers pointer drag, keyboard movement, saving, error, disabled, and reduced-motion states.",
+          "Does not let Settings own reorder mechanics."
+        ],
+        "agentInstructions": [
+          "Keep persistence policy and product-specific item schema outside the pattern.",
+          "Treat Settings as a host boundary, not an implementation dependency.",
+          "Ask before reordering safety, finance, or compliance priority lists."
+        ],
+        "rejectIf": [
+          "Drag has no keyboard equivalent.",
+          "Motion bypasses Motion Boundary.",
+          "Locked item reasons are missing.",
+          "Settings duplicates the reorder implementation."
+        ],
+        "foundationDependencies": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ]
+      }
+    }
+  }
+}

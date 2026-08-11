@@ -2,11 +2,12 @@
 
 Generated portable agent contract for Design System.
 
-The JSON content remains the editable source of truth. Regenerate this file with `npm run build:pattern-contracts` after changing pattern copy.
+Pattern copy remains the editable editorial source of truth. Formal states come from the pattern artifact. Regenerate this file with `npm run build:pattern-contracts` after changing either source.
 
 Source content:
 
 - `packages/content/content/pattern-copy/patterns/transfer-list/all.json`
+- `packages/specs/specs/unison-system/artifacts/patterns/transfer-list.json`
 
 ## Purpose
 
@@ -35,6 +36,167 @@ Move users, vehicles, roles, permissions, or stations between available and sele
 | Depth | Confirmation and review layer above panes when needed. |
 | Accessibility | Counts, movement direction, and selected state are text-backed. |
 
+## Formal Purpose
+
+Coordinate moving items between source and target sets with selection, search handoff, validation, and transfer feedback.
+
+## Formal Scope
+
+| Field | Value |
+| --- | --- |
+| Layer | Pattern |
+| Platform | Cross-platform |
+| Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
+| Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+
+## Formal States
+
+- `idle`
+- `selecting`
+- `transferring`
+- `partial`
+- `invalid`
+- `empty-source`
+- `empty-target`
+- `disabled`
+
+## Formal Dependencies
+
+### Foundations
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `State`
+- `Voice`
+
+### Foundation Dependencies
+
+- `Accessibility`
+- `Depth`
+- `Energy`
+- `Frame`
+- `Growth`
+- `Iconography`
+- `Momentum`
+- `State`
+- `Symbol`
+- `Tone`
+- `Voice`
+
+### Primitives
+
+- `Breakpoints`
+- `Color`
+- `Density`
+- `Disabled`
+- `Duration`
+- `Elevation`
+- `Field Action`
+- `Focus`
+- `Iconography`
+- `Loading`
+- `Measurement`
+- `Message`
+- `Motion Curves`
+- `Radius`
+- `Spacing`
+- `Typography`
+
+### Components
+
+- `Badge`
+- `Button`
+- `Checkbox`
+- `Inline Validation`
+- `Input`
+- `List`
+- `Toast`
+
+### Patterns
+
+- `Multi Select`
+- `Search`
+
+### Tokens
+
+- `comp.badge.*`
+- `comp.button.*`
+- `comp.checkbox.*`
+- `comp.inline-validation.*`
+- `comp.input.*`
+- `comp.list.*`
+- `comp.toast.*`
+- `sys.accessibility.*`
+- `sys.depth.*`
+- `sys.energy.*`
+- `sys.frame.*`
+- `sys.state.*`
+- `sys.voice.*`
+
+## Formal Slots
+
+| Slot | Owner | Uses |
+| --- | --- | --- |
+| `source` | `component` | `List`, `Checkbox`, `Badge` |
+| `target` | `component` | `List`, `Checkbox`, `Badge` |
+| `actions` | `component` | `Button`, `Input`, `Inline Validation`, `Toast` |
+| `multi-selectBoundary` | `pattern` | `Multi Select` |
+| `searchBoundary` | `pattern` | `Search` |
+
+## Formal Governance
+
+### Entry Conditions
+
+- Users need to move items between available and selected sets.
+- Large sets may require search handoff or multi-select semantics.
+- Transfer can be invalid, loading, partial, or permission constrained.
+
+### Decision Tree
+
+- Use Multi Select when users only need a selected set.
+- Use Transfer List when source and target sets must be compared and moved.
+- Use Search when discovery spans a larger remote source.
+
+### Failure Modes
+
+- Source/target rows are custom list items.
+- Checkbox and selection semantics are duplicated.
+- Search is embedded instead of handed off.
+- Transfer action state is unclear.
+
+### Success Metrics
+
+- Users can inspect source and target sets and move items intentionally.
+- Keyboard and screen reader users understand selection and transfer state.
+- Search/Multi Select remain boundaries, not hidden implementations.
+
+### Accessibility
+
+- Expose source and target list labels.
+- Announce selected count and transfer result.
+- Keep move actions keyboard reachable.
+
+### Tests
+
+- Composes List, Checkbox, Badge, Button, Input, Inline Validation, and Toast.
+- Covers selecting, transferring, partial, invalid, empty, and disabled states.
+- Keeps Multi Select and Search as boundaries.
+
+### Agent Instructions
+
+- Do not duplicate Multi Select internals.
+- Keep remote discovery in Search.
+- Ask before transferring permissions, roles, money, or identity-sensitive records.
+
+### Reject If
+
+- Rows bypass List/Checkbox.
+- Search is cloned.
+- Move actions are inaccessible.
+- Source and target ownership is unclear.
+
 ## Slot Contract
 
 | Slot | Type | Required | Notes |
@@ -45,7 +207,7 @@ Move users, vehicles, roles, permissions, or stations between available and sele
 | search | Input | conditional | Filters large sets. |
 | feedback | Badge \| Toast \| InlineValidation | conditional | Counts, saved state, or blocked transfer. |
 
-## Components And Primitives Used
+## Components Used
 
 - List
 - Checkbox

@@ -8,7 +8,9 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
 const { componentCssContractCoverage } = require("./audit-component-css-contracts.js");
+const { reactPrimaryExpectedInventory } = require("./react-primary-governance-policy.js");
 
 const checkMode = process.argv.includes("--check");
 const reactSrcDir = path.join(root, "packages/react/src");
@@ -20,31 +22,6 @@ const reactDistTypesIndexFile = path.join(reactDistDir, "index.d.ts");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-primary-coverage-audit.json");
 const markdownOutput = path.join(outputDir, "react-primary-coverage-audit.md");
-
-const expectedInventory = {
-  expectedComponents: 56,
-  components: 56,
-  primaryImplementationDebt: 0,
-  pass: 56,
-  fail: 0,
-  missingSources: 0,
-  extraSources: 0,
-  forwardRef: 56,
-  realTypes: 56,
-  platformContract: 56,
-  densityResolved: 56,
-  restSanitized: 56,
-  noDocsDependency: 56,
-  noDomFactory: 56,
-  publishedImports: 56,
-  cssContractCoverage: 56,
-  directCssContracts: 52,
-  familyCssContracts: 4,
-  sourceIndexExport: 56,
-  sourceTypesIndexExport: 56,
-  distIndexExport: 56,
-  distTypesIndexExport: 56,
-};
 
 function kebab(value) {
   return String(value)
@@ -63,7 +40,10 @@ function readIfExists(file) {
 
 function componentSourceFiles() {
   if (!fs.existsSync(reactSrcDir)) return [];
-  return fs.readdirSync(reactSrcDir).filter((file) => /^[A-Z].*\.js$/.test(file)).sort();
+  return fs.readdirSync(reactSrcDir)
+    .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
+    .sort();
 }
 
 function entrypointExports(source, component) {
@@ -137,6 +117,8 @@ function componentReport(file, cssCoverageByComponent, entrypoints) {
 }
 
 function createReport() {
+  const { expectedInventory, governance, principle } = reactPrimaryExpectedInventory();
+  const governanceIssues = governance.issues;
   const cssCoverage = componentCssContractCoverage();
   const cssCoverageByComponent = new Map(cssCoverage.components.map((item) => [item.component, item]));
   const entrypoints = {
@@ -173,6 +155,7 @@ function createReport() {
     sourceTypesIndexExport: components.filter((item) => item.checks.sourceTypesIndexExport).length,
     distIndexExport: components.filter((item) => item.checks.distIndexExport).length,
     distTypesIndexExport: components.filter((item) => item.checks.distTypesIndexExport).length,
+    reactPrimaryGovernanceIssues: governanceIssues.length,
   };
   inventory.primaryImplementationDebt = missingSources.length + extraSources.length + fail.length;
   const baselineActual = {
@@ -188,9 +171,10 @@ function createReport() {
       actual: baselineActual[key],
     }));
   return {
-    status: inventory.primaryImplementationDebt || baselineMismatches.length ? "fail" : "pass",
+    status: inventory.primaryImplementationDebt || baselineMismatches.length || governanceIssues.length ? "fail" : "pass",
     audit: "react primary coverage",
-    principle: "Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency. The actionable debt metric is primaryImplementationDebt.",
+    principle: `${principle ?? "Every accepted component must have a real React implementation contract: source, types, built artifacts, ref forwarding, platform contract, normalized density, sanitized rest props, and no docs or DOM factory dependency."} The actionable debt metric is primaryImplementationDebt.`,
+    governance,
     baseline: {
       inventory: expectedInventory,
       actual: baselineActual,
@@ -235,6 +219,7 @@ function toMarkdown(report) {
     `- Source type index exports: ${report.inventory.sourceTypesIndexExport}/${report.inventory.components}`,
     `- Dist index exports: ${report.inventory.distIndexExport}/${report.inventory.components}`,
     `- Dist type index exports: ${report.inventory.distTypesIndexExport}/${report.inventory.components}`,
+    `- React primary governance issues: ${report.inventory.reactPrimaryGovernanceIssues}`,
     `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
     "",
     "## Baseline Budget",

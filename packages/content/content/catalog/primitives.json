@@ -352,6 +352,38 @@
         "research.role",
         "research.state"
       ]
+    },
+    {
+      "type": "primitive",
+      "id": "surface",
+      "title": "Surface",
+      "summary": "Structural ownership for canvases, sections, panels, overlays, and inline groups so Card does not become a generic layout wrapper.",
+      "platform": "System",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers"
+      ],
+      "tokens": [
+        "surface.role",
+        "surface.state"
+      ]
+    },
+    {
+      "type": "primitive",
+      "id": "field-action",
+      "title": "Field Action",
+      "summary": "Field-adjacent action semantics for clear, reveal, picker, validate, recover, retry, and resend before rendering Button or Icon Button.",
+      "platform": "System",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers"
+      ],
+      "tokens": [
+        "field-action.role",
+        "field-action.state"
+      ]
     }
   ]
 }

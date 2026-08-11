@@ -8,6 +8,11 @@ const {
   rel,
   root,
 } = require("./audit-context.js");
+const { governedReactPrimitiveIds } = require("./audit-react-primary-inventory.js");
+const {
+  accessibilityCriticalRequirementsPolicy,
+  reactSecondaryExpectedInventory,
+} = require("./react-primary-governance-policy.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactTestDir = path.join(root, "packages/react/test");
@@ -15,31 +20,6 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "react-interaction-coverage-audit.json");
 const markdownOutput = path.join(outputDir, "react-interaction-coverage-audit.md");
 const checkMode = process.argv.includes("--check");
-const expectedInventory = {
-  components: 56,
-  interactionDebt: 0,
-  withCallbacks: 40,
-  pass: 56,
-  review: 0,
-  fail: 0,
-  missingTestCallbacks: 0,
-  missingEventParams: 0,
-  manualAccessibilityCritical: 10,
-  manualAccessibilityCriticalPass: 10,
-};
-const manualAccessibilityCriticalComponents = [
-  "Dialog",
-  "Drawer",
-  "Menu",
-  "Popover",
-  "Tooltip",
-  "Select",
-  "Combobox",
-  "CountrySelector",
-  "DatePicker",
-  "DateRangePicker",
-];
-
 function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
 }
@@ -48,8 +28,13 @@ function reactComponentNames() {
   if (!fs.existsSync(reactSrcDir)) return [];
   return fs.readdirSync(reactSrcDir)
     .filter((file) => /^[A-Z].*\.js$/.test(file))
+    .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .map((file) => path.basename(file, ".js"))
     .sort();
+}
+
+function kebab(value) {
+  return String(value).replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
 function testSource() {
@@ -81,6 +66,8 @@ function testCoversCallback(tests, component, callback) {
 }
 
 function createReport() {
+  const { expectedInventory, governance } = reactSecondaryExpectedInventory("interaction");
+  const criticalPolicy = accessibilityCriticalRequirementsPolicy();
   const tests = testSource();
   const components = reactComponentNames().map((component) => {
     const sourceFile = path.join(reactSrcDir, `${component}.js`);
@@ -109,7 +96,7 @@ function createReport() {
     };
   });
   const byComponent = new Map(components.map((component) => [component.component, component]));
-  const manualAccessibilityCritical = manualAccessibilityCriticalComponents.map((component) => {
+  const manualAccessibilityCritical = criticalPolicy.criticalComponents.map((component) => {
     const entry = byComponent.get(component);
     const hasTestPresence = new RegExp(`\\b${component}\\b`).test(tests);
     return {
@@ -131,11 +118,13 @@ function createReport() {
     missingEventParams: components.reduce((total, component) => total + component.missingEventParam.length, 0),
     manualAccessibilityCritical: manualAccessibilityCritical.length,
     manualAccessibilityCriticalPass: manualAccessibilityCritical.filter((component) => component.present && component.status === "pass" && component.hasInteractionTestPresence).length,
+    reactGovernancePolicyIssues: governance.issues.length + criticalPolicy.governance.issues.length,
   };
   inventory.interactionDebt = inventory.fail
     + inventory.missingTestCallbacks
     + inventory.missingEventParams
-    + (inventory.manualAccessibilityCritical - inventory.manualAccessibilityCriticalPass);
+    + (inventory.manualAccessibilityCritical - inventory.manualAccessibilityCriticalPass)
+    + inventory.reactGovernancePolicyIssues;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
     .map(([key, expected]) => ({
@@ -150,6 +139,10 @@ function createReport() {
     baseline: {
       inventory: expectedInventory,
       mismatches: baselineMismatches,
+    },
+    governance: {
+      ...governance,
+      criticalPolicy,
     },
     inventory,
     manualAccessibilityCritical,
