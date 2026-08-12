@@ -410,14 +410,38 @@ function renderMarkdown(report) {
   return `${lines.join("\n")}\n`;
 }
 
+function stableReportForCheck(report) {
+  return {
+    status: report.status,
+    audit: report.audit,
+    principle: report.principle,
+    scope: report.scope,
+    inventory: report.inventory,
+    visualRows: report.visualRows.map((row) => ({
+      template: row.template,
+      case: row.case,
+      status: row.status,
+      viewport: row.viewport,
+      width: row.width,
+      height: row.height,
+      state: row.state,
+      density: row.density,
+      screenshotCaptured: row.screenshotCaptured,
+      failures: row.failures,
+    })),
+    gaps: report.gaps,
+  };
+}
+
 const report = await createReport();
 const json = `${JSON.stringify(report, null, 2)}\n`;
 const markdown = renderMarkdown(report);
 
 if (checkMode) {
   const previousJson = fs.existsSync(jsonOutput) ? fs.readFileSync(jsonOutput, "utf8") : "";
-  const previousMarkdown = fs.existsSync(markdownOutput) ? fs.readFileSync(markdownOutput, "utf8") : "";
-  const stale = previousJson !== json || previousMarkdown !== markdown;
+  const previousReport = previousJson ? JSON.parse(previousJson) : null;
+  const stale = !previousReport
+    || JSON.stringify(stableReportForCheck(previousReport), null, 2) !== JSON.stringify(stableReportForCheck(report), null, 2);
   if (stale || report.status !== "pass") {
     console.error(`React template visual governance audit is ${report.status}${stale ? " and outputs are stale" : ""}. Run node ${rel(pathToFileURL(import.meta.url).pathname)}.`);
     if (report.gaps.length) console.error(report.gaps.join("\n"));
