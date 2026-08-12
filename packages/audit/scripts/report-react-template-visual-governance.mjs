@@ -31,7 +31,6 @@ const tokensCssFile = path.join(root, "packages/tokens/styles/tokens.css");
 const componentsCssFile = path.join(root, "packages/components/styles/components.css");
 
 const codexRuntimeNodeModules = "/Users/r1c0/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules";
-const codexChromiumExecutable = "/Users/r1c0/Library/Caches/ms-playwright/chromium-1228/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing";
 
 const templateContracts = [
   {
@@ -330,11 +329,7 @@ async function inspectCase(page, contract, visualCase) {
 
 async function createReport() {
   const { chromium } = resolvePlaywright();
-  const launchOptions = {
-    headless: true,
-  };
-  if (fs.existsSync(codexChromiumExecutable)) launchOptions.executablePath = codexChromiumExecutable;
-  const browser = await chromium.launch(launchOptions);
+  const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
   const visualRows = [];
   try {

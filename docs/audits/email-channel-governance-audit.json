@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "email channel governance",
   "principle": "Email is a separate Flow channel: it may be authored from package-owned React contracts, but the shipped output must be static HTML-email markup with table-safe layout, inline values, text-backed state, and no web runtime dependency.",
-  "generatedAt": "2026-08-12T13:43:16.065Z",
+  "generatedAt": "2026-08-12T13:51:54.970Z",
   "inventory": {
     "zipEmailVariants": 6,
     "zipEmailReadmes": 1,
