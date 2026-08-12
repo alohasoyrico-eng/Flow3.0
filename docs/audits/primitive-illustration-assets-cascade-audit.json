@@ -76,8 +76,9 @@
     "missing": []
   },
   "implementation": {
-    "vendorManifestPresent": true,
-    "vendorLicensePresent": true,
+    "docsScope": "external-not-audited",
+    "vendorManifestPresent": null,
+    "vendorLicensePresent": null,
     "sourceRegistry": true,
     "exportsPrimitiveApi": true,
     "createsImageAsset": true,
@@ -93,17 +94,12 @@
     "cssUsesComponentSizeAliases": true,
     "cssAvoidsDirectFrameInCompAlias": true,
     "cssUsesFoundations": true,
-    "docsHeroUsesIllustrationSlot": true,
-    "docsHydratesHeroThroughPrimitive": true
+    "docsHeroUsesIllustrationSlot": null,
+    "docsHydratesHeroThroughPrimitive": null
   },
   "source": {
-    "approved": "open-doodles",
-    "license": "CC0",
-    "formats": [
-      "svg",
-      "png",
-      "gif"
-    ]
+    "scope": "external-not-audited",
+    "formats": []
   },
   "foundationGate": {
     "symbol": "pass",

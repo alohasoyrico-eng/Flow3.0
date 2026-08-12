@@ -10,9 +10,10 @@ Illustration Assets converts approved free sources into Flow-owned image behavio
 ## Signals
 - Roles: 5/5
 - Coordinated primitives: 5/5
-- Approved source: open-doodles
-- License: CC0
-- Formats: svg, png, gif
+- Docs source scope: external-not-audited
+- Approved source: missing
+- License: missing
+- Formats: missing
 - Public API exported: yes
 - Hand-drawn SVG logic present: no
 

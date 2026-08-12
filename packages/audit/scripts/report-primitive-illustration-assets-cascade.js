@@ -20,11 +20,6 @@ const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const specFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/illustration-assets.json");
 const contractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/illustration-assets.md");
-const docsAppFile = path.join(docsAppDir, "app.js");
-const docsHomeIllustrationsFile = path.join(docsAppDir, "home-illustrations.js");
-const docsHomeFile = path.join(docsAppDir, "home-stack-renderers.js");
-const vendorManifestFile = path.join(docsAppDir, "vendor/open-doodles/manifest.json");
-const vendorLicenseFile = path.join(docsAppDir, "vendor/open-doodles/LICENSE.md");
 const coordinatedPrimitiveReports = {
   librarySources: path.join(root, "docs/audits/primitive-library-sources-cascade-audit.json"),
   animationAssets: path.join(root, "docs/audits/primitive-animation-assets-cascade-audit.json"),
@@ -54,8 +49,22 @@ const requiredTokenDependencies = [
 ];
 
 function readIfExists(file) {
+  if (!file) return "";
   return fs.existsSync(file) ? read(file) : "";
 }
+
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsAppDir = isInsideRoot(docsAppDir) ? docsAppDir : null;
+const docsScope = repoDocsAppDir ? "in-repo" : "external-not-audited";
+const docsAppFile = repoDocsAppDir ? path.join(repoDocsAppDir, "app.js") : null;
+const docsHomeIllustrationsFile = repoDocsAppDir ? path.join(repoDocsAppDir, "home-illustrations.js") : null;
+const docsHomeFile = repoDocsAppDir ? path.join(repoDocsAppDir, "home-stack-renderers.js") : null;
+const vendorManifestFile = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor/open-doodles/manifest.json") : null;
+const vendorLicenseFile = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor/open-doodles/LICENSE.md") : null;
 
 function reportStatus(file) {
   return fs.existsSync(file) ? readJson(file)?.status ?? "missing" : "missing";
@@ -70,7 +79,7 @@ const docsHomeIllustrations = readIfExists(docsHomeIllustrationsFile);
 const docsHome = readIfExists(docsHomeFile);
 const specWrapper = readJson(specFile);
 const spec = specWrapper.artifacts?.primitives?.["illustration-assets"] ?? specWrapper;
-const vendorManifest = fs.existsSync(vendorManifestFile) ? readJson(vendorManifestFile) : {};
+const vendorManifest = vendorManifestFile && fs.existsSync(vendorManifestFile) ? readJson(vendorManifestFile) : {};
 const vendorLicense = readIfExists(vendorLicenseFile);
 const roles = (spec.roles ?? []).map((role) => role.id);
 const foundations = spec.governingFoundations ?? [];
@@ -87,8 +96,9 @@ const librarySourcesReport = fs.existsSync(coordinatedPrimitiveReports.librarySo
   : {};
 
 const implementation = {
-  vendorManifestPresent: vendorManifest.id === "open-doodles" && vendorManifest.license === "CC0",
-  vendorLicensePresent: /CC0|public-domain|public domain/i.test(vendorLicense),
+  docsScope,
+  vendorManifestPresent: repoDocsAppDir ? vendorManifest.id === "open-doodles" && vendorManifest.license === "CC0" : null,
+  vendorLicensePresent: repoDocsAppDir ? /CC0|public-domain|public domain/i.test(vendorLicense) : null,
   sourceRegistry: /approvedIllustrationSources/.test(primitive) && /open-doodles/.test(primitive) && /custom-artwork/.test(primitive),
   exportsPrimitiveApi: /createIllustrationAsset/.test(index) && /listIllustrationSources/.test(index) && /hasIllustrationSource/.test(index),
   createsImageAsset: /document\.createElement\("img"\)/.test(primitive) && /illustration-asset__image/.test(primitive),
@@ -109,8 +119,12 @@ const implementation = {
     && /--comp-illustration-asset-max-size:\s*var\(--component-illustration-asset-max-size-md\)/.test(css),
   cssAvoidsDirectFrameInCompAlias: !/--comp-illustration-asset-max-size:\s*(?:var|min\([^;]*var)\(--sys-frame-/.test(css),
   cssUsesFoundations: /var\(--sys-frame-/.test(css) && /var\(--sys-energy-/.test(css) && /var\(--component-font-/.test(css),
-  docsHeroUsesIllustrationSlot: /data-illustration-slot="home-hero"/.test(docsHome) && !/hero-visual__image/.test(docsHome),
-  docsHydratesHeroThroughPrimitive: /hydrateHomeHeroIllustration/.test(docsApp) && /createIllustrationAsset/.test(docsHomeIllustrations),
+  docsHeroUsesIllustrationSlot: repoDocsAppDir
+    ? /data-illustration-slot="home-hero"/.test(docsHome) && !/hero-visual__image/.test(docsHome)
+    : null,
+  docsHydratesHeroThroughPrimitive: repoDocsAppDir
+    ? /hydrateHomeHeroIllustration/.test(docsApp) && /createIllustrationAsset/.test(docsHomeIllustrations)
+    : null,
 };
 
 const gaps = [];
@@ -133,6 +147,10 @@ if (missingCoordinatedPrimitives.length) {
 }
 if (missingTokenDependencies.length) gaps.push(`Missing token dependencies: ${missingTokenDependencies.join(", ")}.`);
 for (const [key, value] of Object.entries(implementation)) {
+  if (["docsScope", "vendorManifestPresent", "vendorLicensePresent", "docsHeroUsesIllustrationSlot", "docsHydratesHeroThroughPrimitive"].includes(key)) {
+    if (repoDocsAppDir && !value) gaps.push(`Illustration Assets implementation signal missing: ${key}.`);
+    continue;
+  }
   if (!value) gaps.push(`Illustration Assets implementation signal missing: ${key}.`);
 }
 for (const [name, status] of Object.entries(foundationGate)) {
@@ -165,6 +183,7 @@ const report = {
   },
   implementation,
   source: {
+    scope: docsScope,
     approved: vendorManifest.id,
     license: vendorManifest.license,
     formats: vendorManifest.allowedFormats ?? [],
@@ -192,6 +211,7 @@ function writeReport() {
     "## Signals",
     `- Roles: ${report.roles.present.length}/${report.roles.required.length}`,
     `- Coordinated primitives: ${report.coordinatedPrimitives.present.length}/${report.coordinatedPrimitives.required.length}`,
+    `- Docs source scope: ${report.source.scope}`,
     `- Approved source: ${report.source.approved || "missing"}`,
     `- License: ${report.source.license || "missing"}`,
     `- Formats: ${(report.source.formats ?? []).join(", ") || "missing"}`,
