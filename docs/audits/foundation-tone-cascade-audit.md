@@ -14,7 +14,7 @@ Tone governs language temperature and semantic emphasis. It must delegate type w
 | Pattern refs | 63 | account-operations, action-sheet, advanced-filters, agent-conversation, authentication-login-biometrics-and-otp, autocomplete, avatar-group, avatar-menu, backoffice-approval, bottom-sheet, bulk-actions, calendar-view, case-management, chart-legend-item, chart-wrapper, checkbox-group, column-configurator, command-palette... |
 | Template refs | 9 | agent-workspace, configuration-console, driver-card-wallet, driver-mobile-app, fleet-dashboard-suite, fleet-manager-desktop, internal-operations-console, routes-and-stations, settings-workspace |
 | Package CSS direct uses | 157 | packages/components/styles/components.css |
-| Docs CSS direct uses | 8 | apps/docs/styles |
+| Docs CSS direct uses | 0 | apps/docs/styles |
 
 ## Dependencies
 

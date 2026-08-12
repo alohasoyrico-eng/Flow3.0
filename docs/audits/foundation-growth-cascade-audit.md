@@ -15,7 +15,7 @@ Growth governs maturity, adoption, telemetry, deprecation, and learning signals.
 | Pattern copy refs | 30 | account-operations, advanced-filters, agent-conversation, backoffice-approval, bottom-sheet, case-management, chart-legend-item, chart-wrapper, checkbox-group, command-palette, dense-operational-list, email-template-layout, expandable-detail-table, filterable-editable-table, gantt-chart, help-center, kanban-board, multi-step-form... |
 | Template refs | 9 | agent-workspace, configuration-console, driver-card-wallet, driver-mobile-app, fleet-dashboard-suite, fleet-manager-desktop, internal-operations-console, routes-and-stations, settings-workspace |
 | Package CSS direct uses | 75 | packages/components/styles/components.css |
-| Docs CSS direct uses | 12 | apps/docs/styles |
+| Docs CSS direct uses | 0 | apps/docs/styles |
 
 ## Dependencies
 

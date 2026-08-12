@@ -14,7 +14,7 @@ Symbol must govern visual metaphors, domain symbols, illustration rules, image/a
 | Pattern refs | 42 | account-operations, action-sheet, advanced-filters, agent-conversation, authentication-login-biometrics-and-otp, autocomplete, avatar-group, backoffice-approval, bottom-sheet, calendar-view, case-management, chart-legend-item, chart-wrapper, checkbox-group, column-configurator, command-palette, dense-operational-list, drawer-adapter... |
 | Template refs | 2 | driver-mobile-app, routes-and-stations |
 | Package CSS direct uses | 491 | packages/components/styles/components.css |
-| Docs CSS direct uses | 46 | apps/docs/styles |
+| Docs CSS direct uses | 0 | apps/docs/styles |
 
 ## Dependencies
 

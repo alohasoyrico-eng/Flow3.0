@@ -55,6 +55,14 @@ function rel(file) {
   return path.relative(root, file);
 }
 
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsStyleModuleFiles = docsStyleModuleFiles.filter(isInsideRoot);
+
+
 function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
 }
@@ -336,7 +344,7 @@ function findTemplateTelemetryCoverage() {
 function createReport() {
   const tokenCss = readIfExists(tokenCssFile);
   const componentCss = readIfExists(componentCssFile);
-  const docsCssFiles = docsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
+  const docsCssFiles = repoDocsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
   const cssFiles = [componentCssFile, ...docsCssFiles].filter((file) => fs.existsSync(file));
   const spec = readJson(growthSpecFile)?.artifacts?.foundations?.growth;
   const matrix = readJson(dependencyMatrixFile);

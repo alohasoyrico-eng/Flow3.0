@@ -60,6 +60,14 @@ function rel(file) {
   return path.relative(root, file);
 }
 
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsStyleModuleFiles = docsStyleModuleFiles.filter(isInsideRoot);
+
+
 function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
 }
@@ -290,7 +298,7 @@ function createReport() {
   const symbolSpec = readJson(symbolSpecFile)?.artifacts?.foundations?.symbol;
   const dependencyMatrix = readJson(dependencyMatrixFile);
   const dependencyEdges = (dependencyMatrix.dependencies ?? []).filter((dependency) => dependency.from === "Symbol" || dependency.to === "Symbol");
-  const docsCssFiles = docsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
+  const docsCssFiles = repoDocsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
   const cssFiles = [componentCssFile, ...docsCssFiles].filter((file) => fs.existsSync(file));
   const customProperties = buildCustomPropertyMap([tokenCss, ...cssFiles.map((file) => readIfExists(file))]);
   const symbolFindings = cssFiles.flatMap((file) => findSymbolCssDeclarations(file, readIfExists(file), customProperties));

@@ -58,6 +58,14 @@ function rel(file) {
   return path.relative(root, file);
 }
 
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsStyleModuleFiles = docsStyleModuleFiles.filter(isInsideRoot);
+
+
 function lineNumber(source, index) {
   return source.slice(0, index).split("\n").length;
 }
@@ -211,7 +219,7 @@ function createReport() {
   const voiceSpec = readJson(voiceSpecFile)?.artifacts?.foundations?.voice;
   const dependencyMatrix = readJson(dependencyMatrixFile);
   const dependencyEdges = (dependencyMatrix.dependencies ?? []).filter((dependency) => dependency.from === "Voice" || dependency.to === "Voice");
-  const docsCssFiles = docsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
+  const docsCssFiles = repoDocsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
   const cssFiles = [componentCssFile, ...docsCssFiles].filter((file) => fs.existsSync(file));
   const customProperties = buildCustomPropertyMap([tokenCss, ...cssFiles.map((file) => readIfExists(file))]);
   const typographyFindings = cssFiles.flatMap((file) => findTypographyDeclarations(file, readIfExists(file), customProperties));
