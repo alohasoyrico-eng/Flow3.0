@@ -195,7 +195,7 @@
     },
     {
       "component": "CardSummary",
-      "file": "packages/react/src/CardSummary.js",
+      "file": "packages/react/src/CardSummary.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -205,7 +205,7 @@
     },
     {
       "component": "ChartPanel",
-      "file": "packages/react/src/ChartPanel.js",
+      "file": "packages/react/src/ChartPanel.tsx",
       "allowedInlineStyleKeys": [
         "--comp-chart-panel-current-series",
         "--comp-chart-panel-stagger-delay"
@@ -411,7 +411,7 @@
     },
     {
       "component": "KpiTile",
-      "file": "packages/react/src/KpiTile.js",
+      "file": "packages/react/src/KpiTile.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -501,7 +501,7 @@
     },
     {
       "component": "QuickAction",
-      "file": "packages/react/src/QuickAction.js",
+      "file": "packages/react/src/QuickAction.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -521,7 +521,7 @@
     },
     {
       "component": "RouteSummary",
-      "file": "packages/react/src/RouteSummary.js",
+      "file": "packages/react/src/RouteSummary.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

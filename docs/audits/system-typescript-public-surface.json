@@ -431,7 +431,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -451,7 +451,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -851,7 +851,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2311,7 +2311,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2351,7 +2351,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -3381,7 +3381,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3401,7 +3401,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3781,7 +3781,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3941,7 +3941,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -4001,7 +4001,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,33 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 126,
+  "publicJsRuntimeExportsWithTsSource": 136,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/CardSummary.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/ChartPanel.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/KpiTile.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/QuickAction.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/RouteSummary.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/index.d.ts",
       "pairedJs": true,
@@ -6198,20 +6173,20 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 603,
+        ".js": 604,
         ".mjs": 20,
         ".ts": 104,
         ".d.ts": 274,
-        ".tsx": 56
+        ".tsx": 61
       },
       "byArea": {
-        "script": 266,
-        "source": 508,
+        "script": 267,
+        "source": 513,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 357,
-  "uniqueTypescriptPublicSurfaceDebt": 217
+  "typescriptPublicSurfaceDebt": 352,
+  "uniqueTypescriptPublicSurfaceDebt": 212
 }

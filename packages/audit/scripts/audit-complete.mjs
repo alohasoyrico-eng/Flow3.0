@@ -221,6 +221,7 @@ const expectedAuditFiles = new Set([
   "report-system-react-motion-event-typescript-surface.js",
   "report-system-react-input-localization-typescript-surface.js",
   "report-system-react-affordance-typescript-surface.js",
+  "report-system-react-summary-action-typescript-surface.js",
   "report-system-react-overlay-components-typescript-surface.js",
   "report-system-remediation-matrix.js",
   "report-system-token-ownership-matrix.js",
@@ -347,6 +348,7 @@ const checks = [
   ["React motion/event TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-motion-event-typescript-surface.js", "--check"])],
   ["React input/localization TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-input-localization-typescript-surface.js", "--check"])],
   ["React affordance TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-affordance-typescript-surface.js", "--check"])],
+  ["React summary/action TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-summary-action-typescript-surface.js", "--check"])],
   ...(hasRepoFile("scripts/generate-pattern-contracts.mjs")
     ? [["pattern contract freshness", () => run("node", ["scripts/generate-pattern-contracts.mjs", "--check"])]]
     : []),

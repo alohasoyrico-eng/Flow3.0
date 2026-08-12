@@ -677,6 +677,7 @@
     "audit:react-motion-event-typescript": "node packages/audit/scripts/report-system-react-motion-event-typescript-surface.js",
     "audit:react-input-localization-typescript": "node packages/audit/scripts/report-system-react-input-localization-typescript-surface.js",
     "audit:react-affordance-typescript": "node packages/audit/scripts/report-system-react-affordance-typescript-surface.js",
+    "audit:react-summary-action-typescript": "node packages/audit/scripts/report-system-react-summary-action-typescript-surface.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },

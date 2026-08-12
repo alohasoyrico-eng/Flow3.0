@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 102
-- Category mappings: 92
+- Reports scanned: 103
+- Category mappings: 93
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 102
-- Debt metrics: 118
+- Reports with debt metrics: 103
+- Debt metrics: 119
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -44,7 +44,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 29 | 1 | 0 | 30 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 14 | 1 | 0 | 26 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
-| react-primary | React must be the primary implementation with real contracts. | 36 | 10 | 0 | 38 | 0 |
+| react-primary | React must be the primary implementation with real contracts. | 37 | 10 | 0 | 39 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 
 ## Non-Pass Reports
@@ -177,6 +177,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-react-navigation-structure-typescript-surface.json | react-primary | pass | reactNavigationStructureTypescriptSurfaceDebt: 0 |
 | system-react-overlay-components-typescript-surface.json | react-primary | pass | reactOverlayComponentTypescriptSurfaceDebt: 0 |
 | system-react-payment-inputs-typescript-surface.json | react-primary | pass | reactPaymentInputsTypescriptSurfaceDebt: 0 |
+| system-react-summary-action-typescript-surface.json | react-primary | pass | reactSummaryActionTypescriptSurfaceDebt: 0 |
 | system-token-ownership-matrix.json | foundations-primitives | pass | ownershipDebt: 0 |
 | system-token-typescript-surface.json | react-primary | pass | tokenTypescriptSurfaceDebt: 0 |
 | system-typescript-project-setup.json | react-primary | pass | typescriptProjectSetupDebt: 0 |

@@ -84,7 +84,12 @@
     "packages/react/src/BiometricPrompt.tsx",
     "packages/react/src/FloatingActionButton.tsx",
     "packages/react/src/StationPin.tsx",
-    "packages/react/src/Tooltip.tsx"
+    "packages/react/src/Tooltip.tsx",
+    "packages/react/src/CardSummary.tsx",
+    "packages/react/src/ChartPanel.tsx",
+    "packages/react/src/KpiTile.tsx",
+    "packages/react/src/QuickAction.tsx",
+    "packages/react/src/RouteSummary.tsx"
   ],
   "exclude": [
     "node_modules",

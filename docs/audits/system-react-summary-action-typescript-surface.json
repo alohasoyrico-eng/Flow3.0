@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "flow-system-react-summary-action-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "summary-action-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "CardSummary",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "ChartPanel",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "KpiTile",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "QuickAction",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "RouteSummary",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "CardSummary",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "ChartPanel",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "KpiTile",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "QuickAction",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "RouteSummary",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "CardSummary",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "ChartPanel",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "KpiTile",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "QuickAction",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "RouteSummary",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "CardSummary",
+      "sourceFile": "packages/react/src/CardSummary.tsx",
+      "runtimeFile": "packages/react/src/CardSummary.js",
+      "declarationFile": "packages/react/src/CardSummary.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "ChartPanel",
+      "sourceFile": "packages/react/src/ChartPanel.tsx",
+      "runtimeFile": "packages/react/src/ChartPanel.js",
+      "declarationFile": "packages/react/src/ChartPanel.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "KpiTile",
+      "sourceFile": "packages/react/src/KpiTile.tsx",
+      "runtimeFile": "packages/react/src/KpiTile.js",
+      "declarationFile": "packages/react/src/KpiTile.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "QuickAction",
+      "sourceFile": "packages/react/src/QuickAction.tsx",
+      "runtimeFile": "packages/react/src/QuickAction.js",
+      "declarationFile": "packages/react/src/QuickAction.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "RouteSummary",
+      "sourceFile": "packages/react/src/RouteSummary.tsx",
+      "runtimeFile": "packages/react/src/RouteSummary.js",
+      "declarationFile": "packages/react/src/RouteSummary.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 5,
+    "runtimeFiles": 5,
+    "tsxSourceFiles": 5,
+    "declarationFiles": 5,
+    "staleRuntimeFiles": 0,
+    "reactSummaryActionTypescriptSurfaceDebt": 0
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T23:37:02.853Z",
+  "generatedAt": "2026-08-12T23:48:04.272Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -99,7 +99,12 @@
           "packages/react/src/BiometricPrompt.tsx",
           "packages/react/src/FloatingActionButton.tsx",
           "packages/react/src/StationPin.tsx",
-          "packages/react/src/Tooltip.tsx"
+          "packages/react/src/Tooltip.tsx",
+          "packages/react/src/CardSummary.tsx",
+          "packages/react/src/ChartPanel.tsx",
+          "packages/react/src/KpiTile.tsx",
+          "packages/react/src/QuickAction.tsx",
+          "packages/react/src/RouteSummary.tsx"
         ]
       },
       "failMessage": null
@@ -208,7 +213,12 @@
       "packages/react/src/BiometricPrompt.tsx",
       "packages/react/src/FloatingActionButton.tsx",
       "packages/react/src/StationPin.tsx",
-      "packages/react/src/Tooltip.tsx"
+      "packages/react/src/Tooltip.tsx",
+      "packages/react/src/CardSummary.tsx",
+      "packages/react/src/ChartPanel.tsx",
+      "packages/react/src/KpiTile.tsx",
+      "packages/react/src/QuickAction.tsx",
+      "packages/react/src/RouteSummary.tsx"
     ],
     "exclude": [
       "node_modules",

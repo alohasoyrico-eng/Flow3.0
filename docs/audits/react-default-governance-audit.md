@@ -120,11 +120,11 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Card | variant-default | variant | default | pass | pass | Yes | packages/react/src/Card.tsx:131 |
 | Card | composition-default | composition | standard | pass | pass | Yes | packages/react/src/Card.tsx:132 |
 | Card | state-default | state | default | pass | pass | Yes | packages/react/src/Card.tsx:133 |
-| CardSummary | variant-default | variant | physical | pass | pass | Yes | packages/react/src/CardSummary.js:23 |
-| CardSummary | state-default | state | default | pass | pass | Yes | packages/react/src/CardSummary.js:24 |
-| ChartPanel | variant-default | variant | sparkline | pass | pass | Yes | packages/react/src/ChartPanel.js:220 |
-| ChartPanel | state-default | state | default | pass | pass | Yes | packages/react/src/ChartPanel.js:221 |
-| ChartPanel | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChartPanel.js:222 |
+| CardSummary | variant-default | variant | physical | pass | pass | Yes | packages/react/src/CardSummary.tsx:57 |
+| CardSummary | state-default | state | default | pass | pass | Yes | packages/react/src/CardSummary.tsx:58 |
+| ChartPanel | variant-default | variant | sparkline | pass | pass | Yes | packages/react/src/ChartPanel.tsx:274 |
+| ChartPanel | state-default | state | default | pass | pass | Yes | packages/react/src/ChartPanel.tsx:275 |
+| ChartPanel | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChartPanel.tsx:276 |
 | ChatMessage | state-default | state | default | pass | pass | Yes | packages/react/src/ChatMessage.tsx:89 |
 | ChatMessage | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChatMessage.tsx:90 |
 | ChatThread | state-default | state | default | pass | pass | Yes | packages/react/src/ChatThread.tsx:98 |
@@ -154,10 +154,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.tsx:48 |
 | Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.tsx:126 |
 | Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.tsx:134 |
-| KpiTile | trend-default | trend | flat | pass | pass | Yes | packages/react/src/KpiTile.js:26 |
-| KpiTile | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/KpiTile.js:27 |
-| KpiTile | variant-default | variant | standard | pass | pass | Yes | packages/react/src/KpiTile.js:29 |
-| KpiTile | state-default | state | default | pass | pass | Yes | packages/react/src/KpiTile.js:30 |
+| KpiTile | trend-default | trend | flat | pass | pass | Yes | packages/react/src/KpiTile.tsx:67 |
+| KpiTile | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/KpiTile.tsx:68 |
+| KpiTile | variant-default | variant | standard | pass | pass | Yes | packages/react/src/KpiTile.tsx:70 |
+| KpiTile | state-default | state | default | pass | pass | Yes | packages/react/src/KpiTile.tsx:71 |
 | List | variant-default | variant | standard | pass | pass | Yes | packages/react/src/List.tsx:55 |
 | List | state-default | state | default | pass | pass | Yes | packages/react/src/List.tsx:56 |
 | Menu | variant-default | variant | actions | pass | pass | Yes | packages/react/src/Menu.tsx:80 |
@@ -178,13 +178,13 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:41 |
 | ProgressIndicator | tone-default | tone | accent | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:57 |
 | ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:58 |
-| QuickAction | state-default | state | default | pass | pass | Yes | packages/react/src/QuickAction.js:16 |
-| QuickAction | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/QuickAction.js:19 |
+| QuickAction | state-default | state | default | pass | pass | Yes | packages/react/src/QuickAction.tsx:50 |
+| QuickAction | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/QuickAction.tsx:53 |
 | RadioButton | variant-default | variant | default | pass | pass | Yes | packages/react/src/RadioButton.tsx:50 |
 | RadioButton | state-default | state | unselected | pass | pass | Yes | packages/react/src/RadioButton.tsx:51 |
-| RouteSummary | variant-default | variant | standard | pass | pass | Yes | packages/react/src/RouteSummary.js:57 |
-| RouteSummary | state-default | state | default | pass | pass | Yes | packages/react/src/RouteSummary.js:58 |
-| RouteSummary | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/RouteSummary.js:60 |
+| RouteSummary | variant-default | variant | standard | pass | pass | Yes | packages/react/src/RouteSummary.tsx:116 |
+| RouteSummary | state-default | state | default | pass | pass | Yes | packages/react/src/RouteSummary.tsx:117 |
+| RouteSummary | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/RouteSummary.tsx:119 |
 | SegmentedControl | variant-default | variant | outlined | pass | pass | Yes | packages/react/src/SegmentedControl.tsx:73 |
 | Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.tsx:87 |
 | Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.tsx:88 |
@@ -240,11 +240,11 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Card | variant-default | variant | default | packages/react/src/Card.tsx:131 | `variant = "default",` |
 | Card | composition-default | composition | standard | packages/react/src/Card.tsx:132 | `composition = "standard",` |
 | Card | state-default | state | default | packages/react/src/Card.tsx:133 | `state = "default",` |
-| CardSummary | variant-default | variant | physical | packages/react/src/CardSummary.js:23 | `variant = "physical",` |
-| CardSummary | state-default | state | default | packages/react/src/CardSummary.js:24 | `state = "default",` |
-| ChartPanel | variant-default | variant | sparkline | packages/react/src/ChartPanel.js:220 | `variant = "sparkline",` |
-| ChartPanel | state-default | state | default | packages/react/src/ChartPanel.js:221 | `state = "default",` |
-| ChartPanel | tone-default | tone | neutral | packages/react/src/ChartPanel.js:222 | `tone = "neutral",` |
+| CardSummary | variant-default | variant | physical | packages/react/src/CardSummary.tsx:57 | `variant = "physical",` |
+| CardSummary | state-default | state | default | packages/react/src/CardSummary.tsx:58 | `state = "default",` |
+| ChartPanel | variant-default | variant | sparkline | packages/react/src/ChartPanel.tsx:274 | `variant = "sparkline",` |
+| ChartPanel | state-default | state | default | packages/react/src/ChartPanel.tsx:275 | `state = "default",` |
+| ChartPanel | tone-default | tone | neutral | packages/react/src/ChartPanel.tsx:276 | `tone = "neutral",` |
 | ChatMessage | state-default | state | default | packages/react/src/ChatMessage.tsx:89 | `state = "default",` |
 | ChatMessage | tone-default | tone | neutral | packages/react/src/ChatMessage.tsx:90 | `tone = "neutral",` |
 | ChatThread | state-default | state | default | packages/react/src/ChatThread.tsx:98 | `state = "default",` |
@@ -274,10 +274,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | InlineValidation | state-default | state | default | packages/react/src/InlineValidation.tsx:48 | `state = "default",` |
 | Input | variant-default | variant | text | packages/react/src/Input.tsx:126 | `variant = "text",` |
 | Input | align-default | align | start | packages/react/src/Input.tsx:134 | `align = "start",` |
-| KpiTile | trend-default | trend | flat | packages/react/src/KpiTile.js:26 | `trend = "flat",` |
-| KpiTile | tone-default | tone | neutral | packages/react/src/KpiTile.js:27 | `tone = "neutral",` |
-| KpiTile | variant-default | variant | standard | packages/react/src/KpiTile.js:29 | `variant = "standard",` |
-| KpiTile | state-default | state | default | packages/react/src/KpiTile.js:30 | `state = "default",` |
+| KpiTile | trend-default | trend | flat | packages/react/src/KpiTile.tsx:67 | `trend = "flat",` |
+| KpiTile | tone-default | tone | neutral | packages/react/src/KpiTile.tsx:68 | `tone = "neutral",` |
+| KpiTile | variant-default | variant | standard | packages/react/src/KpiTile.tsx:70 | `variant = "standard",` |
+| KpiTile | state-default | state | default | packages/react/src/KpiTile.tsx:71 | `state = "default",` |
 | List | variant-default | variant | standard | packages/react/src/List.tsx:55 | `variant = "standard",` |
 | List | state-default | state | default | packages/react/src/List.tsx:56 | `state = "default",` |
 | Menu | variant-default | variant | actions | packages/react/src/Menu.tsx:80 | `variant = "actions",` |
@@ -298,13 +298,13 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.tsx:41 | `function progressMeta({ value = 0, max = 100, state = "active", indeterminate = false }: { value?: number; max?: number; state?: ProgressIndicatorState; indeterminate?: boolean } = {}) {` |
 | ProgressIndicator | tone-default | tone | accent | packages/react/src/ProgressIndicator.tsx:57 | `tone = "accent",` |
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.tsx:58 | `state = "active",` |
-| QuickAction | state-default | state | default | packages/react/src/QuickAction.js:16 | `state = "default",` |
-| QuickAction | tone-default | tone | neutral | packages/react/src/QuickAction.js:19 | `tone = "neutral",` |
+| QuickAction | state-default | state | default | packages/react/src/QuickAction.tsx:50 | `state = "default",` |
+| QuickAction | tone-default | tone | neutral | packages/react/src/QuickAction.tsx:53 | `tone = "neutral",` |
 | RadioButton | variant-default | variant | default | packages/react/src/RadioButton.tsx:50 | `variant = "default",` |
 | RadioButton | state-default | state | unselected | packages/react/src/RadioButton.tsx:51 | `state = "unselected",` |
-| RouteSummary | variant-default | variant | standard | packages/react/src/RouteSummary.js:57 | `variant = "standard",` |
-| RouteSummary | state-default | state | default | packages/react/src/RouteSummary.js:58 | `state = "default",` |
-| RouteSummary | tone-default | tone | neutral | packages/react/src/RouteSummary.js:60 | `tone = "neutral",` |
+| RouteSummary | variant-default | variant | standard | packages/react/src/RouteSummary.tsx:116 | `variant = "standard",` |
+| RouteSummary | state-default | state | default | packages/react/src/RouteSummary.tsx:117 | `state = "default",` |
+| RouteSummary | tone-default | tone | neutral | packages/react/src/RouteSummary.tsx:119 | `tone = "neutral",` |
 | SegmentedControl | variant-default | variant | outlined | packages/react/src/SegmentedControl.tsx:73 | `variant = "outlined",` |
 | Select | variant-default | variant | default | packages/react/src/Select.tsx:87 | `variant = "default",` |
 | Select | state-default | state | default | packages/react/src/Select.tsx:88 | `state = "default",` |

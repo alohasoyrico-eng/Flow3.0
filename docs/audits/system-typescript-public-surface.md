@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 126
-- Source declarations paired with JS but not TS/TSX: 77
-- TypeScript surface debt: 357
-- Unique TypeScript surface debt: 217
+- Public JS runtime exports with TS/TSX source: 136
+- Source declarations paired with JS but not TS/TSX: 72
+- TypeScript surface debt: 352
+- Unique TypeScript surface debt: 212
 
 ## File Counts
 
-- By extension: {".js":603,".mjs":20,".ts":104,".d.ts":274,".tsx":56}
-- By area: {"script":266,"source":508,"test":8,"generated-dist":275}
+- By extension: {".js":604,".mjs":20,".ts":104,".d.ts":274,".tsx":61}
+- By area: {"script":267,"source":513,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -40,8 +40,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/CardExpiryInput.js | yes |
 | package.json | packages/react/dist/CardNumberInput.js | yes |
 | package.json | packages/react/dist/CardSecurityCodeInput.js | yes |
-| package.json | packages/react/dist/CardSummary.js | no |
-| package.json | packages/react/dist/ChartPanel.js | no |
+| package.json | packages/react/dist/CardSummary.js | yes |
+| package.json | packages/react/dist/ChartPanel.js | yes |
 | package.json | packages/react/dist/ChatComposer.js | yes |
 | package.json | packages/react/dist/ChatMessage.js | yes |
 | package.json | packages/react/dist/ChatThread.js | yes |
@@ -61,7 +61,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/InlineValidation.js | yes |
 | package.json | packages/react/dist/Input.js | yes |
 | package.json | packages/react/dist/InputAmount.js | yes |
-| package.json | packages/react/dist/KpiTile.js | no |
+| package.json | packages/react/dist/KpiTile.js | yes |
 | package.json | packages/react/dist/List.js | yes |
 | package.json | packages/react/dist/Menu.js | yes |
 | package.json | packages/react/dist/MotionBoundary.js | yes |
@@ -109,11 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/CardSummary.d.ts | yes | no |
-| packages/react/src/ChartPanel.d.ts | yes | no |
-| packages/react/src/KpiTile.d.ts | yes | no |
-| packages/react/src/QuickAction.d.ts | yes | no |
-| packages/react/src/RouteSummary.d.ts | yes | no |
 | packages/react/src/index.d.ts | yes | no |
 | packages/react/src/patterns/AccountOperations.d.ts | yes | no |
 | packages/react/src/patterns/ActionSheet.d.ts | yes | no |
