@@ -410,7 +410,21 @@ for (const [name, check] of checks) {
 }
 
 console.log(JSON.stringify(summary, null, 2));
-if (summary.status !== "pass") process.exitCode = 1;
+if (summary.status !== "pass") {
+  if (process.env.GITHUB_ACTIONS === "true") {
+    const failed = summary.checks.find((check) => check.status === "fail");
+    const message = `${failed?.name ?? "unknown check"}: ${failed?.message ?? "unknown failure"}`;
+    console.error(`::error title=Flow audit complete failed::${escapeGitHubAnnotation(message)}`);
+  }
+  process.exitCode = 1;
+}
+
+function escapeGitHubAnnotation(value) {
+  return String(value)
+    .replaceAll("%", "%25")
+    .replaceAll("\r", "%0D")
+    .replaceAll("\n", "%0A");
+}
 
 function run(command, args) {
   const result = spawnSync(command, args, {
