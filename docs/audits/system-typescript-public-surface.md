@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 64
-- Source declarations paired with JS but not TS/TSX: 108
-- TypeScript surface debt: 388
-- Unique TypeScript surface debt: 248
+- Public JS runtime exports with TS/TSX source: 70
+- Source declarations paired with JS but not TS/TSX: 105
+- TypeScript surface debt: 385
+- Unique TypeScript surface debt: 245
 
 ## File Counts
 
-- By extension: {".js":594,".mjs":20,".ts":104,".d.ts":274,".tsx":25}
-- By area: {"script":257,"source":477,"test":8,"generated-dist":275}
+- By extension: {".js":595,".mjs":20,".ts":104,".d.ts":274,".tsx":28}
+- By area: {"script":258,"source":480,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -48,7 +48,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/Checkbox.js | yes |
 | package.json | packages/react/dist/Chip.js | yes |
 | package.json | packages/react/dist/CodeInput.js | no |
-| package.json | packages/react/dist/Combobox.js | no |
+| package.json | packages/react/dist/Combobox.js | yes |
 | package.json | packages/react/dist/CountrySelector.js | no |
 | package.json | packages/react/dist/DatePicker.js | no |
 | package.json | packages/react/dist/DateRangePicker.js | no |
@@ -122,7 +122,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/ChatMessage.d.ts | yes | no |
 | packages/react/src/ChatThread.d.ts | yes | no |
 | packages/react/src/CodeInput.d.ts | yes | no |
-| packages/react/src/Combobox.d.ts | yes | no |
 | packages/react/src/CountrySelector.d.ts | yes | no |
 | packages/react/src/DatePicker.d.ts | yes | no |
 | packages/react/src/DateRangePicker.d.ts | yes | no |
@@ -138,10 +137,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/PhoneInput.d.ts | yes | no |
 | packages/react/src/QuickAction.d.ts | yes | no |
 | packages/react/src/RouteSummary.d.ts | yes | no |
-| packages/react/src/Select.d.ts | yes | no |
 | packages/react/src/StationPin.d.ts | yes | no |
 | packages/react/src/Stepper.d.ts | yes | no |
-| packages/react/src/Table.d.ts | yes | no |
 | packages/react/src/Toast.d.ts | yes | no |
 | packages/react/src/Tooltip.d.ts | yes | no |
 | packages/react/src/TreeView.d.ts | yes | no |
@@ -189,6 +186,9 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/PolarChart.d.ts | yes | no |
 | packages/react/src/patterns/PreferenceManagement.d.ts | yes | no |
 | packages/react/src/patterns/PricingOperations.d.ts | yes | no |
+| packages/react/src/patterns/PullToRefresh.d.ts | yes | no |
+| packages/react/src/patterns/QuickActionsGrid.d.ts | yes | no |
+| packages/react/src/patterns/RadioGroup.d.ts | yes | no |
 
 ## Interpretation
 

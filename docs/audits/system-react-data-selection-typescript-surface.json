@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "flow-system-react-data-selection-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "data-selection-controls-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Select",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Combobox",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Table",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Select",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Combobox",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Table",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Select",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Combobox",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Table",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "Select",
+      "sourceFile": "packages/react/src/Select.tsx",
+      "runtimeFile": "packages/react/src/Select.js",
+      "declarationFile": "packages/react/src/Select.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Combobox",
+      "sourceFile": "packages/react/src/Combobox.tsx",
+      "runtimeFile": "packages/react/src/Combobox.js",
+      "declarationFile": "packages/react/src/Combobox.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Table",
+      "sourceFile": "packages/react/src/Table.tsx",
+      "runtimeFile": "packages/react/src/Table.js",
+      "declarationFile": "packages/react/src/Table.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 3,
+    "runtimeFiles": 3,
+    "tsxSourceFiles": 3,
+    "declarationFiles": 3,
+    "staleRuntimeFiles": 0,
+    "reactDataSelectionTypescriptSurfaceDebt": 0
+  }
+}

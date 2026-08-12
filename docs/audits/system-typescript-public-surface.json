@@ -591,7 +591,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2391,7 +2391,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2551,7 +2551,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -3541,7 +3541,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -4041,7 +4041,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -4221,7 +4221,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 64,
+  "publicJsRuntimeExportsWithTsSource": 70,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/Accordion.d.ts",
@@ -5871,11 +5871,6 @@
     },
     {
       "file": "packages/react/src/CodeInput.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/Combobox.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -5955,22 +5950,12 @@
       "pairedTs": false
     },
     {
-      "file": "packages/react/src/Select.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
       "file": "packages/react/src/StationPin.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
     {
       "file": "packages/react/src/Stepper.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/Table.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -6353,20 +6338,20 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 594,
+        ".js": 595,
         ".mjs": 20,
         ".ts": 104,
         ".d.ts": 274,
-        ".tsx": 25
+        ".tsx": 28
       },
       "byArea": {
-        "script": 257,
-        "source": 477,
+        "script": 258,
+        "source": 480,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 388,
-  "uniqueTypescriptPublicSurfaceDebt": 248
+  "typescriptPublicSurfaceDebt": 385,
+  "uniqueTypescriptPublicSurfaceDebt": 245
 }

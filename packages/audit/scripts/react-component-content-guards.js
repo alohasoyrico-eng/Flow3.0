@@ -328,9 +328,15 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Table" && !source.includes("const canRenderExpanders = expandable && typeof getExpandLabel === \"function\";")) add("errors", sourceFile, 1, "Table must gate expandable controls on getExpandLabel instead of expandable alone.");
   if (name === "Table" && !source.includes("const rowCanExpand = canRenderExpanders && Boolean(expandLabel) && detail !== undefined && detail !== null && detail !== \"\";")) add("errors", sourceFile, 1, "Table must not render expandable controls or detail rows without real detail content.");
   if (name === "Table" && /"aria-label":\s*expandLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Table expander labels must be required before composing expandable controls.");
-  if (name === "Table" && !source.includes("const resolvedColumns = useMemo(() => (Array.isArray(columns) ? columns : []).filter((column) => column?.key && column?.label), [columns]);")) add("errors", sourceFile, 1, "Table must filter columns without visible labels before rendering headers and cells.");
+  if (name === "Table" && !(
+    source.includes("const resolvedColumns = useMemo(() => (Array.isArray(columns) ? columns : []).filter((column) => column?.key && column?.label), [columns]);")
+    || source.includes("const resolvedColumns = useMemo<TableColumn[]>(() => (Array.isArray(columns) ? columns : []).filter((column) => column?.key && column?.label), [columns]);")
+  )) add("errors", sourceFile, 1, "Table must filter columns without visible labels before rendering headers and cells.");
   if (name === "Table" && /column\.label\s*\?\?\s*column\.key/.test(source)) add("errors", sourceFile, 1, "Table must not expose technical column keys as visible labels.");
-  if (name === "Table" && !source.includes("const resolvedRows = useMemo(() => (Array.isArray(rows) ? rows : []).filter((row) => {")) add("errors", sourceFile, 1, "Table must filter rows without stable row keys before rendering.");
+  if (name === "Table" && !(
+    source.includes("const resolvedRows = useMemo(() => (Array.isArray(rows) ? rows : []).filter((row) => {")
+    || source.includes("const resolvedRows = useMemo<TableRow[]>(() => (Array.isArray(rows) ? rows : []).filter((row) => {")
+  )) add("errors", sourceFile, 1, "Table must filter rows without stable row keys before rendering.");
   if (name === "Table" && !source.includes("if (!label || !resolvedColumns.length || !resolvedRows.length) return null;")) add("errors", sourceFile, 1, "Table must not render an unnamed or empty table shell.");
   if (name === "Table" && /columns\s*=\s*\[\]|rows\s*=\s*\[\]|label\s*=\s*""|"aria-label":\s*label\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Table must not hide required label, columns, or rows behind empty defaults.");
   if (name === "Table" && /initialState === "selected" && index === 1|initialState === "expanded" \? rows\[0\]/.test(source)) add("errors", sourceFile, 1, "Table must not derive selected or expanded rows from visual state or row position.");

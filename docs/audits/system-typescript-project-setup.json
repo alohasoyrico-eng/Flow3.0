@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T22:11:56.415Z",
+  "generatedAt": "2026-08-12T22:27:38.175Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -68,7 +68,10 @@
           "packages/react/src/Breadcrumbs.tsx",
           "packages/react/src/Pagination.tsx",
           "packages/react/src/SegmentedControl.tsx",
-          "packages/react/src/Slider.tsx"
+          "packages/react/src/Slider.tsx",
+          "packages/react/src/Select.tsx",
+          "packages/react/src/Combobox.tsx",
+          "packages/react/src/Table.tsx"
         ]
       },
       "failMessage": null
@@ -146,7 +149,10 @@
       "packages/react/src/Breadcrumbs.tsx",
       "packages/react/src/Pagination.tsx",
       "packages/react/src/SegmentedControl.tsx",
-      "packages/react/src/Slider.tsx"
+      "packages/react/src/Slider.tsx",
+      "packages/react/src/Select.tsx",
+      "packages/react/src/Combobox.tsx",
+      "packages/react/src/Table.tsx"
     ],
     "exclude": [
       "node_modules",

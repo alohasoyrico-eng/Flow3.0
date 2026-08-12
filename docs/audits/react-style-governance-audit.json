@@ -281,7 +281,7 @@
     },
     {
       "component": "Combobox",
-      "file": "packages/react/src/Combobox.js",
+      "file": "packages/react/src/Combobox.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -541,7 +541,7 @@
     },
     {
       "component": "Select",
-      "file": "packages/react/src/Select.js",
+      "file": "packages/react/src/Select.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -629,7 +629,7 @@
     },
     {
       "component": "Table",
-      "file": "packages/react/src/Table.js",
+      "file": "packages/react/src/Table.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

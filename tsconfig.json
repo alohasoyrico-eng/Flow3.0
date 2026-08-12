@@ -53,7 +53,10 @@
     "packages/react/src/Breadcrumbs.tsx",
     "packages/react/src/Pagination.tsx",
     "packages/react/src/SegmentedControl.tsx",
-    "packages/react/src/Slider.tsx"
+    "packages/react/src/Slider.tsx",
+    "packages/react/src/Select.tsx",
+    "packages/react/src/Combobox.tsx",
+    "packages/react/src/Table.tsx"
   ],
   "exclude": [
     "node_modules",

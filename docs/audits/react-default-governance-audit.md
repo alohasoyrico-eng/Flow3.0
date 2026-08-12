@@ -186,8 +186,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | RouteSummary | state-default | state | default | pass | pass | Yes | packages/react/src/RouteSummary.js:58 |
 | RouteSummary | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/RouteSummary.js:60 |
 | SegmentedControl | variant-default | variant | outlined | pass | pass | Yes | packages/react/src/SegmentedControl.tsx:73 |
-| Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.js:26 |
-| Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.js:27 |
+| Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.tsx:87 |
+| Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.tsx:88 |
 | Skeleton | variant-default | variant | text | pass | pass | Yes | packages/react/src/Skeleton.tsx:113 |
 | Slider | variant-default | variant | continuous | pass | pass | Yes | packages/react/src/Slider.tsx:76 |
 | Slider | state-default | state | default | pass | pass | Yes | packages/react/src/Slider.tsx:77 |
@@ -197,9 +197,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | StationPin | state-default | state | default | pass | pass | Yes | packages/react/src/StationPin.js:16 |
 | Stepper | orientation-default | orientation | horizontal | pass | pass | Yes | packages/react/src/Stepper.js:25 |
 | Switch | state-default | state | off | pass | pass | Yes | packages/react/src/Switch.tsx:45 |
-| Table | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Table.js:36 |
-| Table | state-default | state | default | pass | pass | Yes | packages/react/src/Table.js:37 |
-| Table | sort-direction-default | sortDir | ascending | pass | pass | Yes | packages/react/src/Table.js:41 |
+| Table | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Table.tsx:140 |
+| Table | state-default | state | default | pass | pass | Yes | packages/react/src/Table.tsx:141 |
+| Table | sort-direction-default | sortDir | ascending | pass | pass | Yes | packages/react/src/Table.tsx:145 |
 | Tabs | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tabs.tsx:79 |
 | Tag | state-default | state | default | pass | pass | Yes | packages/react/src/Tag.tsx:42 |
 | Tag | variant-default | variant | metadata | pass | pass | Yes | packages/react/src/Tag.tsx:49 |
@@ -306,8 +306,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | RouteSummary | state-default | state | default | packages/react/src/RouteSummary.js:58 | `state = "default",` |
 | RouteSummary | tone-default | tone | neutral | packages/react/src/RouteSummary.js:60 | `tone = "neutral",` |
 | SegmentedControl | variant-default | variant | outlined | packages/react/src/SegmentedControl.tsx:73 | `variant = "outlined",` |
-| Select | variant-default | variant | default | packages/react/src/Select.js:26 | `variant = "default",` |
-| Select | state-default | state | default | packages/react/src/Select.js:27 | `state = "default",` |
+| Select | variant-default | variant | default | packages/react/src/Select.tsx:87 | `variant = "default",` |
+| Select | state-default | state | default | packages/react/src/Select.tsx:88 | `state = "default",` |
 | Skeleton | variant-default | variant | text | packages/react/src/Skeleton.tsx:113 | `variant = "text",` |
 | Slider | variant-default | variant | continuous | packages/react/src/Slider.tsx:76 | `variant = "continuous",` |
 | Slider | state-default | state | default | packages/react/src/Slider.tsx:77 | `state = "default",` |
@@ -317,9 +317,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | StationPin | state-default | state | default | packages/react/src/StationPin.js:16 | `state = "default",` |
 | Stepper | orientation-default | orientation | horizontal | packages/react/src/Stepper.js:25 | `orientation = "horizontal",` |
 | Switch | state-default | state | off | packages/react/src/Switch.tsx:45 | `state = "off",` |
-| Table | variant-default | variant | standard | packages/react/src/Table.js:36 | `variant = "standard",` |
-| Table | state-default | state | default | packages/react/src/Table.js:37 | `state = "default",` |
-| Table | sort-direction-default | sortDir | ascending | packages/react/src/Table.js:41 | `sortDir = "ascending",` |
+| Table | variant-default | variant | standard | packages/react/src/Table.tsx:140 | `variant = "standard",` |
+| Table | state-default | state | default | packages/react/src/Table.tsx:141 | `state = "default",` |
+| Table | sort-direction-default | sortDir | ascending | packages/react/src/Table.tsx:145 | `sortDir = "ascending",` |
 | Tabs | variant-default | variant | default | packages/react/src/Tabs.tsx:79 | `variant = "default",` |
 | Tag | state-default | state | default | packages/react/src/Tag.tsx:42 | `function normalizeState({ disabled = false, state = "default" }: { disabled?: boolean; state?: TagState } = {}): TagState {` |
 | Tag | variant-default | variant | metadata | packages/react/src/Tag.tsx:49 | `variant = "metadata",` |
