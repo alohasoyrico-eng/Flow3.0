@@ -61,7 +61,10 @@
     "packages/react/src/CardExpiryInput.tsx",
     "packages/react/src/CardSecurityCodeInput.tsx",
     "packages/react/src/DatePicker.tsx",
-    "packages/react/src/DateRangePicker.tsx"
+    "packages/react/src/DateRangePicker.tsx",
+    "packages/react/src/ChatComposer.tsx",
+    "packages/react/src/ChatMessage.tsx",
+    "packages/react/src/ChatThread.tsx"
   ],
   "exclude": [
     "node_modules",

@@ -112,7 +112,10 @@ function main() {
         && include.includes("packages/react/src/CardExpiryInput.tsx")
         && include.includes("packages/react/src/CardSecurityCodeInput.tsx")
         && include.includes("packages/react/src/DatePicker.tsx")
-        && include.includes("packages/react/src/DateRangePicker.tsx"),
+        && include.includes("packages/react/src/DateRangePicker.tsx")
+        && include.includes("packages/react/src/ChatComposer.tsx")
+        && include.includes("packages/react/src/ChatMessage.tsx")
+        && include.includes("packages/react/src/ChatThread.tsx"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

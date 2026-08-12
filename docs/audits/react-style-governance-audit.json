@@ -221,7 +221,7 @@
     },
     {
       "component": "ChatComposer",
-      "file": "packages/react/src/ChatComposer.js",
+      "file": "packages/react/src/ChatComposer.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -231,7 +231,7 @@
     },
     {
       "component": "ChatMessage",
-      "file": "packages/react/src/ChatMessage.js",
+      "file": "packages/react/src/ChatMessage.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -241,7 +241,7 @@
     },
     {
       "component": "ChatThread",
-      "file": "packages/react/src/ChatThread.js",
+      "file": "packages/react/src/ChatThread.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

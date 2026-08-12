@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 96
-- Category mappings: 86
+- Reports scanned: 97
+- Category mappings: 87
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 96
-- Debt metrics: 112
+- Reports with debt metrics: 97
+- Debt metrics: 113
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -44,7 +44,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 29 | 1 | 0 | 30 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 14 | 1 | 0 | 26 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
-| react-primary | React must be the primary implementation with real contracts. | 30 | 10 | 0 | 32 | 0 |
+| react-primary | React must be the primary implementation with real contracts. | 31 | 10 | 0 | 33 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 
 ## Non-Pass Reports
@@ -163,6 +163,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-component-registry-typescript-surface.json | react-primary | pass | componentRegistryTypescriptSurfaceDebt: 0 |
 | system-phase1-style-dictionary-checkpoint.json | foundations-primitives | pass | phase1Debt: 0 |
 | system-react-base-components-typescript-surface.json | react-primary | pass | reactBaseComponentTypescriptSurfaceDebt: 0 |
+| system-react-chat-components-typescript-surface.json | react-primary | pass | reactChatComponentsTypescriptSurfaceDebt: 0 |
 | system-react-data-selection-typescript-surface.json | react-primary | pass | reactDataSelectionTypescriptSurfaceDebt: 0 |
 | system-react-date-inputs-typescript-surface.json | react-primary | pass | reactDateInputsTypescriptSurfaceDebt: 0 |
 | system-react-form-controls-typescript-surface.json | react-primary | pass | reactFormControlComponentTypescriptSurfaceDebt: 0 |

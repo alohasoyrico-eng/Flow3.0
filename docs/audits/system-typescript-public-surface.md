@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 80
-- Source declarations paired with JS but not TS/TSX: 100
-- TypeScript surface debt: 380
-- Unique TypeScript surface debt: 240
+- Public JS runtime exports with TS/TSX source: 86
+- Source declarations paired with JS but not TS/TSX: 97
+- TypeScript surface debt: 377
+- Unique TypeScript surface debt: 237
 
 ## File Counts
 
-- By extension: {".js":597,".mjs":20,".ts":104,".d.ts":274,".tsx":33}
-- By area: {"script":260,"source":485,"test":8,"generated-dist":275}
+- By extension: {".js":598,".mjs":20,".ts":104,".d.ts":274,".tsx":36}
+- By area: {"script":261,"source":488,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -42,9 +42,9 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/CardSecurityCodeInput.js | yes |
 | package.json | packages/react/dist/CardSummary.js | no |
 | package.json | packages/react/dist/ChartPanel.js | no |
-| package.json | packages/react/dist/ChatComposer.js | no |
-| package.json | packages/react/dist/ChatMessage.js | no |
-| package.json | packages/react/dist/ChatThread.js | no |
+| package.json | packages/react/dist/ChatComposer.js | yes |
+| package.json | packages/react/dist/ChatMessage.js | yes |
+| package.json | packages/react/dist/ChatThread.js | yes |
 | package.json | packages/react/dist/Checkbox.js | yes |
 | package.json | packages/react/dist/Chip.js | yes |
 | package.json | packages/react/dist/CodeInput.js | no |
@@ -115,9 +115,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/BiometricPrompt.d.ts | yes | no |
 | packages/react/src/CardSummary.d.ts | yes | no |
 | packages/react/src/ChartPanel.d.ts | yes | no |
-| packages/react/src/ChatComposer.d.ts | yes | no |
-| packages/react/src/ChatMessage.d.ts | yes | no |
-| packages/react/src/ChatThread.d.ts | yes | no |
 | packages/react/src/CodeInput.d.ts | yes | no |
 | packages/react/src/CountrySelector.d.ts | yes | no |
 | packages/react/src/EmptyState.d.ts | yes | no |
@@ -189,6 +186,9 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/SelectOptionLayer.d.ts | yes | no |
 | packages/react/src/patterns/Settings.d.ts | yes | no |
 | packages/react/src/patterns/SnackbarProvider.d.ts | yes | no |
+| packages/react/src/patterns/StationDiscovery.d.ts | yes | no |
+| packages/react/src/patterns/StatusFeedbackView.d.ts | yes | no |
+| packages/react/src/patterns/SwipeActions.d.ts | yes | no |
 
 ## Interpretation
 

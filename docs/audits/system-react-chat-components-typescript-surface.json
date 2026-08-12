@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "flow-system-react-chat-components-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "chat-components-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "ChatComposer",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "ChatMessage",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "ChatThread",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "ChatComposer",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "ChatMessage",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "ChatThread",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "ChatComposer",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "ChatMessage",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "ChatThread",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "ChatComposer",
+      "sourceFile": "packages/react/src/ChatComposer.tsx",
+      "runtimeFile": "packages/react/src/ChatComposer.js",
+      "declarationFile": "packages/react/src/ChatComposer.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "ChatMessage",
+      "sourceFile": "packages/react/src/ChatMessage.tsx",
+      "runtimeFile": "packages/react/src/ChatMessage.js",
+      "declarationFile": "packages/react/src/ChatMessage.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "ChatThread",
+      "sourceFile": "packages/react/src/ChatThread.tsx",
+      "runtimeFile": "packages/react/src/ChatThread.js",
+      "declarationFile": "packages/react/src/ChatThread.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 3,
+    "runtimeFiles": 3,
+    "tsxSourceFiles": 3,
+    "declarationFiles": 3,
+    "staleRuntimeFiles": 0,
+    "reactChatComponentsTypescriptSurfaceDebt": 0
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T22:40:08.178Z",
+  "generatedAt": "2026-08-12T22:52:37.100Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -76,7 +76,10 @@
           "packages/react/src/CardExpiryInput.tsx",
           "packages/react/src/CardSecurityCodeInput.tsx",
           "packages/react/src/DatePicker.tsx",
-          "packages/react/src/DateRangePicker.tsx"
+          "packages/react/src/DateRangePicker.tsx",
+          "packages/react/src/ChatComposer.tsx",
+          "packages/react/src/ChatMessage.tsx",
+          "packages/react/src/ChatThread.tsx"
         ]
       },
       "failMessage": null
@@ -162,7 +165,10 @@
       "packages/react/src/CardExpiryInput.tsx",
       "packages/react/src/CardSecurityCodeInput.tsx",
       "packages/react/src/DatePicker.tsx",
-      "packages/react/src/DateRangePicker.tsx"
+      "packages/react/src/DateRangePicker.tsx",
+      "packages/react/src/ChatComposer.tsx",
+      "packages/react/src/ChatMessage.tsx",
+      "packages/react/src/ChatThread.tsx"
     ],
     "exclude": [
       "node_modules",

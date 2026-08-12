@@ -125,9 +125,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChartPanel | variant-default | variant | sparkline | pass | pass | Yes | packages/react/src/ChartPanel.js:220 |
 | ChartPanel | state-default | state | default | pass | pass | Yes | packages/react/src/ChartPanel.js:221 |
 | ChartPanel | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChartPanel.js:222 |
-| ChatMessage | state-default | state | default | pass | pass | Yes | packages/react/src/ChatMessage.js:26 |
-| ChatMessage | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChatMessage.js:27 |
-| ChatThread | state-default | state | default | pass | pass | Yes | packages/react/src/ChatThread.js:24 |
+| ChatMessage | state-default | state | default | pass | pass | Yes | packages/react/src/ChatMessage.tsx:89 |
+| ChatMessage | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChatMessage.tsx:90 |
+| ChatThread | state-default | state | default | pass | pass | Yes | packages/react/src/ChatThread.tsx:98 |
 | Checkbox | variant-default | variant | default | pass | pass | Yes | packages/react/src/Checkbox.tsx:53 |
 | Checkbox | state-default | state | unchecked | pass | pass | Yes | packages/react/src/Checkbox.tsx:54 |
 | Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.tsx:46 |
@@ -245,9 +245,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChartPanel | variant-default | variant | sparkline | packages/react/src/ChartPanel.js:220 | `variant = "sparkline",` |
 | ChartPanel | state-default | state | default | packages/react/src/ChartPanel.js:221 | `state = "default",` |
 | ChartPanel | tone-default | tone | neutral | packages/react/src/ChartPanel.js:222 | `tone = "neutral",` |
-| ChatMessage | state-default | state | default | packages/react/src/ChatMessage.js:26 | `state = "default",` |
-| ChatMessage | tone-default | tone | neutral | packages/react/src/ChatMessage.js:27 | `tone = "neutral",` |
-| ChatThread | state-default | state | default | packages/react/src/ChatThread.js:24 | `state = "default",` |
+| ChatMessage | state-default | state | default | packages/react/src/ChatMessage.tsx:89 | `state = "default",` |
+| ChatMessage | tone-default | tone | neutral | packages/react/src/ChatMessage.tsx:90 | `tone = "neutral",` |
+| ChatThread | state-default | state | default | packages/react/src/ChatThread.tsx:98 | `state = "default",` |
 | Checkbox | variant-default | variant | default | packages/react/src/Checkbox.tsx:53 | `variant = "default",` |
 | Checkbox | state-default | state | unchecked | packages/react/src/Checkbox.tsx:54 | `state = "unchecked",` |
 | Chip | state-default | state | default | packages/react/src/Chip.tsx:46 | `function normalizeState({ disabled = false, selected = false, state = "default" }: { disabled?: boolean; selected?: boolean; state?: ChipState } = {}): ChipState {` |
