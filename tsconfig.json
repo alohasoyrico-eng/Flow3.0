@@ -64,7 +64,11 @@
     "packages/react/src/DateRangePicker.tsx",
     "packages/react/src/ChatComposer.tsx",
     "packages/react/src/ChatMessage.tsx",
-    "packages/react/src/ChatThread.tsx"
+    "packages/react/src/ChatThread.tsx",
+    "packages/react/src/EmptyState.tsx",
+    "packages/react/src/ErrorPanel.tsx",
+    "packages/react/src/InlineValidation.tsx",
+    "packages/react/src/Toast.tsx"
   ],
   "exclude": [
     "node_modules",

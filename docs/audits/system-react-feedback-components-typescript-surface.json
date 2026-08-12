@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "flow-system-react-feedback-components-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "feedback-components-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "EmptyState",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "ErrorPanel",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "InlineValidation",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Toast",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "EmptyState",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "ErrorPanel",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "InlineValidation",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Toast",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "EmptyState",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "ErrorPanel",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "InlineValidation",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Toast",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "EmptyState",
+      "sourceFile": "packages/react/src/EmptyState.tsx",
+      "runtimeFile": "packages/react/src/EmptyState.js",
+      "declarationFile": "packages/react/src/EmptyState.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "ErrorPanel",
+      "sourceFile": "packages/react/src/ErrorPanel.tsx",
+      "runtimeFile": "packages/react/src/ErrorPanel.js",
+      "declarationFile": "packages/react/src/ErrorPanel.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "InlineValidation",
+      "sourceFile": "packages/react/src/InlineValidation.tsx",
+      "runtimeFile": "packages/react/src/InlineValidation.js",
+      "declarationFile": "packages/react/src/InlineValidation.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Toast",
+      "sourceFile": "packages/react/src/Toast.tsx",
+      "runtimeFile": "packages/react/src/Toast.js",
+      "declarationFile": "packages/react/src/Toast.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 4,
+    "runtimeFiles": 4,
+    "tsxSourceFiles": 4,
+    "declarationFiles": 4,
+    "staleRuntimeFiles": 0,
+    "reactFeedbackComponentsTypescriptSurfaceDebt": 0
+  }
+}

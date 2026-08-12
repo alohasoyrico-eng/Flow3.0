@@ -1,82 +1,55 @@
-import React, { forwardRef, useId } from "react";
+import React, { forwardRef, useId, } from "react";
 import { inlineValidationPlatformContract } from "#flow/platforms";
 import { Input } from "./Input.js";
 import { flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
-
 const validStates = new Set(["default", "info", "success", "warning", "error", "disabled"]);
-
 function normalizeState(state) {
-  return validStates.has(state) ? state : "default";
+    return validStates.has(state) ? state : "default";
 }
-
 function slug(value) {
-  return String(value ?? "field").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    return String(value ?? "field").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
-
-export const InlineValidation = forwardRef(function InlineValidation({
-  label,
-  value = "",
-  message,
-  state = "default",
-  id,
-  density,
-  fullWidth = false,
-  field,
-  live = false,
-  className = "",
-  ...rest
-}, ref) {
-  const generatedId = useId();
-  const resolvedState = normalizeState(state);
-  const resolvedDensity = normalizeFlowDensity(density);
-  const requestedField = field ?? value !== "";
-  const showField = Boolean(label && requestedField);
-  const fieldId = id || `inline-validation-${slug(label)}-${generatedId}`;
-  const messageId = `${fieldId}-message`;
-  const messageRole = live && resolvedState === "error"
-    ? "alert"
-    : live && resolvedState !== "disabled"
-      ? "status"
-      : undefined;
-
-  return React.createElement(
-    "div",
-    {
-      ...flowRestProps(rest),
-      ref,
-      className: ["inline-validation", className].filter(Boolean).join(" "),
-      "aria-label": !showField && label ? label : rest["aria-label"],
-      ...flowStateProps(resolvedState),
-      ...flowDensityProps(resolvedDensity),
-      "data-full-width": String(Boolean(fullWidth)),
-      "data-field": String(Boolean(showField)),
-    },
-    showField
-      ? React.createElement(Input, {
-          label,
-          value,
-          state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : value ? "filled" : "default",
-          disabled: resolvedState === "disabled",
-          density: resolvedDensity,
-          id: fieldId,
-          "aria-describedby": message ? messageId : undefined,
-          "aria-invalid": resolvedState === "error" ? "true" : undefined,
-          readOnly: true,
+export const InlineValidation = forwardRef(function InlineValidation({ label, value = "", message, state = "default", id, density, fullWidth = false, field, live = false, className = "", ...rest }, ref) {
+    const generatedId = useId();
+    const resolvedState = normalizeState(state);
+    const resolvedDensity = normalizeFlowDensity(density);
+    const requestedField = field ?? value !== "";
+    const showField = Boolean(label && requestedField);
+    const fieldId = id || `inline-validation-${slug(label)}-${generatedId}`;
+    const messageId = `${fieldId}-message`;
+    const messageRole = live && resolvedState === "error"
+        ? "alert"
+        : live && resolvedState !== "disabled"
+            ? "status"
+            : undefined;
+    return React.createElement("div", {
+        ...flowRestProps(rest),
+        ref,
+        className: ["inline-validation", className].filter(Boolean).join(" "),
+        "aria-label": !showField && label ? label : rest["aria-label"],
+        ...flowStateProps(resolvedState),
+        ...flowDensityProps(resolvedDensity),
+        "data-full-width": String(Boolean(fullWidth)),
+        "data-field": String(Boolean(showField)),
+    }, showField
+        ? React.createElement(Input, {
+            label,
+            value,
+            state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : value ? "filled" : "default",
+            disabled: resolvedState === "disabled",
+            density: resolvedDensity,
+            id: fieldId,
+            "aria-describedby": message ? messageId : undefined,
+            "aria-invalid": resolvedState === "error" ? "true" : undefined,
+            readOnly: true,
         })
-      : null,
-    message
-      ? React.createElement(
-          "p",
-          {
+        : null, message
+        ? React.createElement("p", {
             className: "inline-validation__message",
             id: messageId,
             role: messageRole,
-          },
-          message,
-        )
-      : null,
-  );
+        }, message)
+        : null);
 });
-
 InlineValidation.displayName = "InlineValidation";
 InlineValidation.platformContract = inlineValidationPlatformContract;

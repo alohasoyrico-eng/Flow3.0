@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T22:52:37.100Z",
+  "generatedAt": "2026-08-12T23:04:10.453Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -79,7 +79,11 @@
           "packages/react/src/DateRangePicker.tsx",
           "packages/react/src/ChatComposer.tsx",
           "packages/react/src/ChatMessage.tsx",
-          "packages/react/src/ChatThread.tsx"
+          "packages/react/src/ChatThread.tsx",
+          "packages/react/src/EmptyState.tsx",
+          "packages/react/src/ErrorPanel.tsx",
+          "packages/react/src/InlineValidation.tsx",
+          "packages/react/src/Toast.tsx"
         ]
       },
       "failMessage": null
@@ -168,7 +172,11 @@
       "packages/react/src/DateRangePicker.tsx",
       "packages/react/src/ChatComposer.tsx",
       "packages/react/src/ChatMessage.tsx",
-      "packages/react/src/ChatThread.tsx"
+      "packages/react/src/ChatThread.tsx",
+      "packages/react/src/EmptyState.tsx",
+      "packages/react/src/ErrorPanel.tsx",
+      "packages/react/src/InlineValidation.tsx",
+      "packages/react/src/Toast.tsx"
     ],
     "exclude": [
       "node_modules",

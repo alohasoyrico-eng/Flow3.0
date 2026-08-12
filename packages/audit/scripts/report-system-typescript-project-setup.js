@@ -115,7 +115,11 @@ function main() {
         && include.includes("packages/react/src/DateRangePicker.tsx")
         && include.includes("packages/react/src/ChatComposer.tsx")
         && include.includes("packages/react/src/ChatMessage.tsx")
-        && include.includes("packages/react/src/ChatThread.tsx"),
+        && include.includes("packages/react/src/ChatThread.tsx")
+        && include.includes("packages/react/src/EmptyState.tsx")
+        && include.includes("packages/react/src/ErrorPanel.tsx")
+        && include.includes("packages/react/src/InlineValidation.tsx")
+        && include.includes("packages/react/src/Toast.tsx"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

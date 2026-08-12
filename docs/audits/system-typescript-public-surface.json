@@ -711,7 +711,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -731,7 +731,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -791,7 +791,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2831,7 +2831,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -3661,7 +3661,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3681,7 +3681,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3741,7 +3741,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -4261,7 +4261,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 86,
+  "publicJsRuntimeExportsWithTsSource": 94,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/Accordion.d.ts",
@@ -5850,22 +5850,7 @@
       "pairedTs": false
     },
     {
-      "file": "packages/react/src/EmptyState.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/ErrorPanel.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
       "file": "packages/react/src/FloatingActionButton.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/InlineValidation.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -5916,11 +5901,6 @@
     },
     {
       "file": "packages/react/src/Stepper.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/Toast.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -6298,20 +6278,20 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 598,
+        ".js": 599,
         ".mjs": 20,
         ".ts": 104,
         ".d.ts": 274,
-        ".tsx": 36
+        ".tsx": 40
       },
       "byArea": {
-        "script": 261,
-        "source": 488,
+        "script": 262,
+        "source": 492,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 377,
-  "uniqueTypescriptPublicSurfaceDebt": 237
+  "typescriptPublicSurfaceDebt": 373,
+  "uniqueTypescriptPublicSurfaceDebt": 233
 }

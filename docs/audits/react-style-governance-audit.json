@@ -341,7 +341,7 @@
     },
     {
       "component": "EmptyState",
-      "file": "packages/react/src/EmptyState.js",
+      "file": "packages/react/src/EmptyState.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -351,7 +351,7 @@
     },
     {
       "component": "ErrorPanel",
-      "file": "packages/react/src/ErrorPanel.js",
+      "file": "packages/react/src/ErrorPanel.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -381,7 +381,7 @@
     },
     {
       "component": "InlineValidation",
-      "file": "packages/react/src/InlineValidation.js",
+      "file": "packages/react/src/InlineValidation.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -681,7 +681,7 @@
     },
     {
       "component": "Toast",
-      "file": "packages/react/src/Toast.js",
+      "file": "packages/react/src/Toast.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

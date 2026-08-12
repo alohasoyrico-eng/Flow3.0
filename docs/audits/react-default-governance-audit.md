@@ -142,16 +142,16 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Drawer | state-default | state | closed | pass | pass | Yes | packages/react/src/Drawer.tsx:164 |
 | Drawer | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Drawer.tsx:165 |
 | Drawer | side-default | side | right | pass | pass | Yes | packages/react/src/Drawer.tsx:167 |
-| EmptyState | variant-default | variant | first-use | pass | pass | Yes | packages/react/src/EmptyState.js:23 |
-| EmptyState | state-default | state | default | pass | pass | Yes | packages/react/src/EmptyState.js:24 |
-| ErrorPanel | tone-default | tone | error | pass | pass | Yes | packages/react/src/ErrorPanel.js:30 |
-| ErrorPanel | variant-default | variant | panel | pass | pass | Yes | packages/react/src/ErrorPanel.js:31 |
-| ErrorPanel | state-default | state | error | pass | pass | Yes | packages/react/src/ErrorPanel.js:32 |
+| EmptyState | variant-default | variant | first-use | pass | pass | Yes | packages/react/src/EmptyState.tsx:67 |
+| EmptyState | state-default | state | default | pass | pass | Yes | packages/react/src/EmptyState.tsx:68 |
+| ErrorPanel | tone-default | tone | error | pass | pass | Yes | packages/react/src/ErrorPanel.tsx:77 |
+| ErrorPanel | variant-default | variant | panel | pass | pass | Yes | packages/react/src/ErrorPanel.tsx:78 |
+| ErrorPanel | state-default | state | error | pass | pass | Yes | packages/react/src/ErrorPanel.tsx:79 |
 | FloatingActionButton | variant-default | variant | primary | pass | pass | Yes | packages/react/src/FloatingActionButton.js:13 |
 | FloatingActionButton | state-default | state | default | pass | pass | Yes | packages/react/src/FloatingActionButton.js:14 |
 | IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:32 |
 | IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:40 |
-| InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.js:20 |
+| InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.tsx:48 |
 | Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.tsx:126 |
 | Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.tsx:134 |
 | KpiTile | trend-default | trend | flat | pass | pass | Yes | packages/react/src/KpiTile.js:26 |
@@ -205,9 +205,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Tag | variant-default | variant | metadata | pass | pass | Yes | packages/react/src/Tag.tsx:49 |
 | Tag | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Tag.tsx:50 |
 | Tag | state-default | state | default | pass | pass | Yes | packages/react/src/Tag.tsx:51 |
-| Toast | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Toast.js:22 |
-| Toast | variant-default | variant | status | pass | pass | Yes | packages/react/src/Toast.js:23 |
-| Toast | state-default | state | visible | pass | pass | Yes | packages/react/src/Toast.js:24 |
+| Toast | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Toast.tsx:58 |
+| Toast | variant-default | variant | status | pass | pass | Yes | packages/react/src/Toast.tsx:59 |
+| Toast | state-default | state | visible | pass | pass | Yes | packages/react/src/Toast.tsx:60 |
 | Tooltip | placement-default | placement | top | pass | pass | Yes | packages/react/src/Tooltip.js:18 |
 | Tooltip | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tooltip.js:19 |
 | Tooltip | state-default | state | default | pass | pass | Yes | packages/react/src/Tooltip.js:21 |
@@ -262,16 +262,16 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Drawer | state-default | state | closed | packages/react/src/Drawer.tsx:164 | `state = "closed",` |
 | Drawer | tone-default | tone | neutral | packages/react/src/Drawer.tsx:165 | `tone = "neutral",` |
 | Drawer | side-default | side | right | packages/react/src/Drawer.tsx:167 | `side = "right",` |
-| EmptyState | variant-default | variant | first-use | packages/react/src/EmptyState.js:23 | `variant = "first-use",` |
-| EmptyState | state-default | state | default | packages/react/src/EmptyState.js:24 | `state = "default",` |
-| ErrorPanel | tone-default | tone | error | packages/react/src/ErrorPanel.js:30 | `tone = "error",` |
-| ErrorPanel | variant-default | variant | panel | packages/react/src/ErrorPanel.js:31 | `variant = "panel",` |
-| ErrorPanel | state-default | state | error | packages/react/src/ErrorPanel.js:32 | `state = "error",` |
+| EmptyState | variant-default | variant | first-use | packages/react/src/EmptyState.tsx:67 | `variant = "first-use",` |
+| EmptyState | state-default | state | default | packages/react/src/EmptyState.tsx:68 | `state = "default",` |
+| ErrorPanel | tone-default | tone | error | packages/react/src/ErrorPanel.tsx:77 | `tone = "error",` |
+| ErrorPanel | variant-default | variant | panel | packages/react/src/ErrorPanel.tsx:78 | `variant = "panel",` |
+| ErrorPanel | state-default | state | error | packages/react/src/ErrorPanel.tsx:79 | `state = "error",` |
 | FloatingActionButton | variant-default | variant | primary | packages/react/src/FloatingActionButton.js:13 | `variant = "primary",` |
 | FloatingActionButton | state-default | state | default | packages/react/src/FloatingActionButton.js:14 | `state = "default",` |
 | IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:32 | `function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {` |
 | IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:40 | `variant = "ghost",` |
-| InlineValidation | state-default | state | default | packages/react/src/InlineValidation.js:20 | `state = "default",` |
+| InlineValidation | state-default | state | default | packages/react/src/InlineValidation.tsx:48 | `state = "default",` |
 | Input | variant-default | variant | text | packages/react/src/Input.tsx:126 | `variant = "text",` |
 | Input | align-default | align | start | packages/react/src/Input.tsx:134 | `align = "start",` |
 | KpiTile | trend-default | trend | flat | packages/react/src/KpiTile.js:26 | `trend = "flat",` |
@@ -325,9 +325,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Tag | variant-default | variant | metadata | packages/react/src/Tag.tsx:49 | `variant = "metadata",` |
 | Tag | tone-default | tone | neutral | packages/react/src/Tag.tsx:50 | `tone = "neutral",` |
 | Tag | state-default | state | default | packages/react/src/Tag.tsx:51 | `state = "default",` |
-| Toast | tone-default | tone | neutral | packages/react/src/Toast.js:22 | `tone = "neutral",` |
-| Toast | variant-default | variant | status | packages/react/src/Toast.js:23 | `variant = "status",` |
-| Toast | state-default | state | visible | packages/react/src/Toast.js:24 | `state = "visible",` |
+| Toast | tone-default | tone | neutral | packages/react/src/Toast.tsx:58 | `tone = "neutral",` |
+| Toast | variant-default | variant | status | packages/react/src/Toast.tsx:59 | `variant = "status",` |
+| Toast | state-default | state | visible | packages/react/src/Toast.tsx:60 | `state = "visible",` |
 | Tooltip | placement-default | placement | top | packages/react/src/Tooltip.js:18 | `placement = "top",` |
 | Tooltip | variant-default | variant | default | packages/react/src/Tooltip.js:19 | `variant = "default",` |
 | Tooltip | state-default | state | default | packages/react/src/Tooltip.js:21 | `state = "default",` |
