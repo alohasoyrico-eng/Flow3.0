@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "flow-system-react-overlay-components-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "overlay-components-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Tabs",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Dialog",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Drawer",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Menu",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Popover",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Tabs",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Dialog",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Drawer",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Menu",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Popover",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Tabs",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Dialog",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Drawer",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Menu",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Popover",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "Tabs",
+      "sourceFile": "packages/react/src/Tabs.tsx",
+      "runtimeFile": "packages/react/src/Tabs.js",
+      "declarationFile": "packages/react/src/Tabs.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Dialog",
+      "sourceFile": "packages/react/src/Dialog.tsx",
+      "runtimeFile": "packages/react/src/Dialog.js",
+      "declarationFile": "packages/react/src/Dialog.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Drawer",
+      "sourceFile": "packages/react/src/Drawer.tsx",
+      "runtimeFile": "packages/react/src/Drawer.js",
+      "declarationFile": "packages/react/src/Drawer.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Menu",
+      "sourceFile": "packages/react/src/Menu.tsx",
+      "runtimeFile": "packages/react/src/Menu.js",
+      "declarationFile": "packages/react/src/Menu.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Popover",
+      "sourceFile": "packages/react/src/Popover.tsx",
+      "runtimeFile": "packages/react/src/Popover.js",
+      "declarationFile": "packages/react/src/Popover.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 5,
+    "runtimeFiles": 5,
+    "tsxSourceFiles": 5,
+    "declarationFiles": 5,
+    "staleRuntimeFiles": 0,
+    "reactOverlayComponentTypescriptSurfaceDebt": 0
+  }
+}

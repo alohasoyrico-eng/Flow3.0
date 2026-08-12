@@ -3249,7 +3249,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 678,
+    filesScanned: 684,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3893,15 +3893,26 @@ function assertReactGovernanceBaselines() {
     reactBaseComponentTypescriptSurfaceDebt: 0,
   }, "React base components TypeScript surface");
 
+  const reactOverlayComponentsTypescriptSurface = readAuditReport("docs/audits/system-react-overlay-components-typescript-surface.json");
+  assertReportStatus(reactOverlayComponentsTypescriptSurface, "React overlay components TypeScript surface");
+  assertInventory(reactOverlayComponentsTypescriptSurface, {
+    componentsAudited: 5,
+    runtimeFiles: 5,
+    tsxSourceFiles: 5,
+    declarationFiles: 5,
+    staleRuntimeFiles: 0,
+    reactOverlayComponentTypescriptSurfaceDebt: 0,
+  }, "React overlay components TypeScript surface");
+
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 89,
-    categoryMappings: 79,
+    reports: 90,
+    categoryMappings: 80,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 89,
-    debtMetrics: 105,
+    reportsWithDebtMetrics: 90,
+    debtMetrics: 106,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,

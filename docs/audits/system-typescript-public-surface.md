@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 22
-- Source declarations paired with JS but not TS/TSX: 129
-- TypeScript surface debt: 409
-- Unique TypeScript surface debt: 269
+- Public JS runtime exports with TS/TSX source: 32
+- Source declarations paired with JS but not TS/TSX: 124
+- TypeScript surface debt: 404
+- Unique TypeScript surface debt: 264
 
 ## File Counts
 
-- By extension: {".js":590,".mjs":20,".ts":104,".d.ts":274,".tsx":4}
-- By area: {"script":253,"source":456,"test":8,"generated-dist":275}
+- By extension: {".js":591,".mjs":20,".ts":104,".d.ts":274,".tsx":9}
+- By area: {"script":254,"source":461,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -52,8 +52,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/CountrySelector.js | no |
 | package.json | packages/react/dist/DatePicker.js | no |
 | package.json | packages/react/dist/DateRangePicker.js | no |
-| package.json | packages/react/dist/Dialog.js | no |
-| package.json | packages/react/dist/Drawer.js | no |
+| package.json | packages/react/dist/Dialog.js | yes |
+| package.json | packages/react/dist/Drawer.js | yes |
 | package.json | packages/react/dist/EmptyState.js | no |
 | package.json | packages/react/dist/ErrorPanel.js | no |
 | package.json | packages/react/dist/FloatingActionButton.js | no |
@@ -63,7 +63,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/InputAmount.js | no |
 | package.json | packages/react/dist/KpiTile.js | no |
 | package.json | packages/react/dist/List.js | no |
-| package.json | packages/react/dist/Menu.js | no |
+| package.json | packages/react/dist/Menu.js | yes |
 | package.json | packages/react/dist/MotionBoundary.js | no |
 | package.json | packages/react/dist/MovementRow.js | no |
 | package.json | packages/react/dist/Pagination.js | no |
@@ -131,8 +131,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/CountrySelector.d.ts | yes | no |
 | packages/react/src/DatePicker.d.ts | yes | no |
 | packages/react/src/DateRangePicker.d.ts | yes | no |
-| packages/react/src/Dialog.d.ts | yes | no |
-| packages/react/src/Drawer.d.ts | yes | no |
 | packages/react/src/EmptyState.d.ts | yes | no |
 | packages/react/src/ErrorPanel.d.ts | yes | no |
 | packages/react/src/FloatingActionButton.d.ts | yes | no |
@@ -141,12 +139,10 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/InputAmount.d.ts | yes | no |
 | packages/react/src/KpiTile.d.ts | yes | no |
 | packages/react/src/List.d.ts | yes | no |
-| packages/react/src/Menu.d.ts | yes | no |
 | packages/react/src/MotionBoundary.d.ts | yes | no |
 | packages/react/src/MovementRow.d.ts | yes | no |
 | packages/react/src/Pagination.d.ts | yes | no |
 | packages/react/src/PhoneInput.d.ts | yes | no |
-| packages/react/src/Popover.d.ts | yes | no |
 | packages/react/src/ProgressIndicator.d.ts | yes | no |
 | packages/react/src/QuickAction.d.ts | yes | no |
 | packages/react/src/RadioButton.d.ts | yes | no |
@@ -160,7 +156,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/Stepper.d.ts | yes | no |
 | packages/react/src/Switch.d.ts | yes | no |
 | packages/react/src/Table.d.ts | yes | no |
-| packages/react/src/Tabs.d.ts | yes | no |
 | packages/react/src/Tag.d.ts | yes | no |
 | packages/react/src/TextArea.d.ts | yes | no |
 | packages/react/src/Toast.d.ts | yes | no |
@@ -189,6 +184,11 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/DenseOperationalList.d.ts | yes | no |
 | packages/react/src/patterns/DragSortableList.d.ts | yes | no |
 | packages/react/src/patterns/DrawerAdapter.d.ts | yes | no |
+| packages/react/src/patterns/DriverAndVehicleAdministration.d.ts | yes | no |
+| packages/react/src/patterns/DriverOnboardingMobile.d.ts | yes | no |
+| packages/react/src/patterns/EmailTemplateLayout.d.ts | yes | no |
+| packages/react/src/patterns/ExpandableDetailTable.d.ts | yes | no |
+| packages/react/src/patterns/FileUpload.d.ts | yes | no |
 
 ## Interpretation
 

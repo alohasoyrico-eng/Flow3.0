@@ -135,13 +135,13 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Chip | tone-default | tone | default | pass | pass | Yes | packages/react/src/Chip.js:28 |
 | Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.js:29 |
 | CodeInput | variant-default | variant | sms | pass | pass | Yes | packages/react/src/CodeInput.js:31 |
-| Dialog | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Dialog.js:34 |
-| Dialog | variant-default | variant | confirmation | pass | pass | Yes | packages/react/src/Dialog.js:35 |
-| Dialog | state-default | state | closed | pass | pass | Yes | packages/react/src/Dialog.js:36 |
-| Drawer | variant-default | variant | side-sheet | pass | pass | Yes | packages/react/src/Drawer.js:76 |
-| Drawer | state-default | state | closed | pass | pass | Yes | packages/react/src/Drawer.js:77 |
-| Drawer | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Drawer.js:78 |
-| Drawer | side-default | side | right | pass | pass | Yes | packages/react/src/Drawer.js:80 |
+| Dialog | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Dialog.tsx:112 |
+| Dialog | variant-default | variant | confirmation | pass | pass | Yes | packages/react/src/Dialog.tsx:113 |
+| Dialog | state-default | state | closed | pass | pass | Yes | packages/react/src/Dialog.tsx:114 |
+| Drawer | variant-default | variant | side-sheet | pass | pass | Yes | packages/react/src/Drawer.tsx:163 |
+| Drawer | state-default | state | closed | pass | pass | Yes | packages/react/src/Drawer.tsx:164 |
+| Drawer | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Drawer.tsx:165 |
+| Drawer | side-default | side | right | pass | pass | Yes | packages/react/src/Drawer.tsx:167 |
 | EmptyState | variant-default | variant | first-use | pass | pass | Yes | packages/react/src/EmptyState.js:23 |
 | EmptyState | state-default | state | default | pass | pass | Yes | packages/react/src/EmptyState.js:24 |
 | ErrorPanel | tone-default | tone | error | pass | pass | Yes | packages/react/src/ErrorPanel.js:30 |
@@ -160,10 +160,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | KpiTile | state-default | state | default | pass | pass | Yes | packages/react/src/KpiTile.js:30 |
 | List | variant-default | variant | standard | pass | pass | Yes | packages/react/src/List.js:13 |
 | List | state-default | state | default | pass | pass | Yes | packages/react/src/List.js:14 |
-| Menu | variant-default | variant | actions | pass | pass | Yes | packages/react/src/Menu.js:29 |
-| Menu | avatar-status-default | avatarStatus | none | pass | pass | Yes | packages/react/src/Menu.js:31 |
-| Menu | state-default | state | default | pass | pass | Yes | packages/react/src/Menu.js:33 |
-| Menu | align-default | align | start | pass | pass | Yes | packages/react/src/Menu.js:34 |
+| Menu | variant-default | variant | actions | pass | pass | Yes | packages/react/src/Menu.tsx:80 |
+| Menu | avatar-status-default | avatarStatus | none | pass | pass | Yes | packages/react/src/Menu.tsx:82 |
+| Menu | state-default | state | default | pass | pass | Yes | packages/react/src/Menu.tsx:84 |
+| Menu | align-default | align | start | pass | pass | Yes | packages/react/src/Menu.tsx:85 |
 | MotionBoundary | variant-default | variant | fade | pass | pass | Yes | packages/react/src/MotionBoundary.js:17 |
 | MotionBoundary | state-default | state | active | pass | pass | Yes | packages/react/src/MotionBoundary.js:18 |
 | MovementRow | category-default | category | transfer | pass | pass | Yes | packages/react/src/MovementRow.js:22 |
@@ -172,9 +172,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Pagination | variant-default | variant | numbered | pass | pass | Yes | packages/react/src/Pagination.js:53 |
 | Pagination | state-default | state | default | pass | pass | Yes | packages/react/src/Pagination.js:54 |
 | PhoneInput | variant-default | variant | country-code | pass | pass | Yes | packages/react/src/PhoneInput.js:56 |
-| Popover | variant-default | variant | information | pass | pass | Yes | packages/react/src/Popover.js:21 |
-| Popover | state-default | state | default | pass | pass | Yes | packages/react/src/Popover.js:22 |
-| Popover | placement-default | placement | bottom | pass | pass | Yes | packages/react/src/Popover.js:23 |
+| Popover | variant-default | variant | information | pass | pass | Yes | packages/react/src/Popover.tsx:81 |
+| Popover | state-default | state | default | pass | pass | Yes | packages/react/src/Popover.tsx:82 |
+| Popover | placement-default | placement | bottom | pass | pass | Yes | packages/react/src/Popover.tsx:83 |
 | ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.js:18 |
 | ProgressIndicator | tone-default | tone | accent | pass | pass | Yes | packages/react/src/ProgressIndicator.js:34 |
 | ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.js:35 |
@@ -200,7 +200,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Table | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Table.js:36 |
 | Table | state-default | state | default | pass | pass | Yes | packages/react/src/Table.js:37 |
 | Table | sort-direction-default | sortDir | ascending | pass | pass | Yes | packages/react/src/Table.js:41 |
-| Tabs | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tabs.js:36 |
+| Tabs | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tabs.tsx:79 |
 | Tag | state-default | state | default | pass | pass | Yes | packages/react/src/Tag.js:18 |
 | Tag | variant-default | variant | metadata | pass | pass | Yes | packages/react/src/Tag.js:25 |
 | Tag | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Tag.js:26 |
@@ -255,13 +255,13 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Chip | tone-default | tone | default | packages/react/src/Chip.js:28 | `tone = "default",` |
 | Chip | state-default | state | default | packages/react/src/Chip.js:29 | `state = "default",` |
 | CodeInput | variant-default | variant | sms | packages/react/src/CodeInput.js:31 | `variant = "sms",` |
-| Dialog | tone-default | tone | neutral | packages/react/src/Dialog.js:34 | `tone = "neutral",` |
-| Dialog | variant-default | variant | confirmation | packages/react/src/Dialog.js:35 | `variant = "confirmation",` |
-| Dialog | state-default | state | closed | packages/react/src/Dialog.js:36 | `state = "closed",` |
-| Drawer | variant-default | variant | side-sheet | packages/react/src/Drawer.js:76 | `variant = "side-sheet",` |
-| Drawer | state-default | state | closed | packages/react/src/Drawer.js:77 | `state = "closed",` |
-| Drawer | tone-default | tone | neutral | packages/react/src/Drawer.js:78 | `tone = "neutral",` |
-| Drawer | side-default | side | right | packages/react/src/Drawer.js:80 | `side = "right",` |
+| Dialog | tone-default | tone | neutral | packages/react/src/Dialog.tsx:112 | `tone = "neutral",` |
+| Dialog | variant-default | variant | confirmation | packages/react/src/Dialog.tsx:113 | `variant = "confirmation",` |
+| Dialog | state-default | state | closed | packages/react/src/Dialog.tsx:114 | `state = "closed",` |
+| Drawer | variant-default | variant | side-sheet | packages/react/src/Drawer.tsx:163 | `variant = "side-sheet",` |
+| Drawer | state-default | state | closed | packages/react/src/Drawer.tsx:164 | `state = "closed",` |
+| Drawer | tone-default | tone | neutral | packages/react/src/Drawer.tsx:165 | `tone = "neutral",` |
+| Drawer | side-default | side | right | packages/react/src/Drawer.tsx:167 | `side = "right",` |
 | EmptyState | variant-default | variant | first-use | packages/react/src/EmptyState.js:23 | `variant = "first-use",` |
 | EmptyState | state-default | state | default | packages/react/src/EmptyState.js:24 | `state = "default",` |
 | ErrorPanel | tone-default | tone | error | packages/react/src/ErrorPanel.js:30 | `tone = "error",` |
@@ -280,10 +280,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | KpiTile | state-default | state | default | packages/react/src/KpiTile.js:30 | `state = "default",` |
 | List | variant-default | variant | standard | packages/react/src/List.js:13 | `variant = "standard",` |
 | List | state-default | state | default | packages/react/src/List.js:14 | `state = "default",` |
-| Menu | variant-default | variant | actions | packages/react/src/Menu.js:29 | `variant = "actions",` |
-| Menu | avatar-status-default | avatarStatus | none | packages/react/src/Menu.js:31 | `avatarStatus = "none",` |
-| Menu | state-default | state | default | packages/react/src/Menu.js:33 | `state = "default",` |
-| Menu | align-default | align | start | packages/react/src/Menu.js:34 | `align = "start",` |
+| Menu | variant-default | variant | actions | packages/react/src/Menu.tsx:80 | `variant = "actions",` |
+| Menu | avatar-status-default | avatarStatus | none | packages/react/src/Menu.tsx:82 | `avatarStatus = "none",` |
+| Menu | state-default | state | default | packages/react/src/Menu.tsx:84 | `state = "default",` |
+| Menu | align-default | align | start | packages/react/src/Menu.tsx:85 | `align = "start",` |
 | MotionBoundary | variant-default | variant | fade | packages/react/src/MotionBoundary.js:17 | `variant = "fade",` |
 | MotionBoundary | state-default | state | active | packages/react/src/MotionBoundary.js:18 | `state = "active",` |
 | MovementRow | category-default | category | transfer | packages/react/src/MovementRow.js:22 | `category = "transfer",` |
@@ -292,9 +292,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Pagination | variant-default | variant | numbered | packages/react/src/Pagination.js:53 | `variant = "numbered",` |
 | Pagination | state-default | state | default | packages/react/src/Pagination.js:54 | `state = "default",` |
 | PhoneInput | variant-default | variant | country-code | packages/react/src/PhoneInput.js:56 | `variant = "country-code",` |
-| Popover | variant-default | variant | information | packages/react/src/Popover.js:21 | `variant = "information",` |
-| Popover | state-default | state | default | packages/react/src/Popover.js:22 | `state = "default",` |
-| Popover | placement-default | placement | bottom | packages/react/src/Popover.js:23 | `placement = "bottom",` |
+| Popover | variant-default | variant | information | packages/react/src/Popover.tsx:81 | `variant = "information",` |
+| Popover | state-default | state | default | packages/react/src/Popover.tsx:82 | `state = "default",` |
+| Popover | placement-default | placement | bottom | packages/react/src/Popover.tsx:83 | `placement = "bottom",` |
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.js:18 | `function progressMeta({ value = 0, max = 100, state = "active", indeterminate = false } = {}) {` |
 | ProgressIndicator | tone-default | tone | accent | packages/react/src/ProgressIndicator.js:34 | `tone = "accent",` |
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.js:35 | `state = "active",` |
@@ -320,7 +320,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Table | variant-default | variant | standard | packages/react/src/Table.js:36 | `variant = "standard",` |
 | Table | state-default | state | default | packages/react/src/Table.js:37 | `state = "default",` |
 | Table | sort-direction-default | sortDir | ascending | packages/react/src/Table.js:41 | `sortDir = "ascending",` |
-| Tabs | variant-default | variant | default | packages/react/src/Tabs.js:36 | `variant = "default",` |
+| Tabs | variant-default | variant | default | packages/react/src/Tabs.tsx:79 | `variant = "default",` |
 | Tag | state-default | state | default | packages/react/src/Tag.js:18 | `function normalizeState({ disabled = false, state = "default" } = {}) {` |
 | Tag | variant-default | variant | metadata | packages/react/src/Tag.js:25 | `variant = "metadata",` |
 | Tag | tone-default | tone | neutral | packages/react/src/Tag.js:26 | `tone = "neutral",` |

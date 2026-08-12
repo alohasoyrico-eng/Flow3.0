@@ -32,7 +32,12 @@
     "packages/react/src/Surface.tsx",
     "packages/react/src/Button.tsx",
     "packages/react/src/Input.tsx",
-    "packages/react/src/Card.tsx"
+    "packages/react/src/Card.tsx",
+    "packages/react/src/Tabs.tsx",
+    "packages/react/src/Dialog.tsx",
+    "packages/react/src/Drawer.tsx",
+    "packages/react/src/Menu.tsx",
+    "packages/react/src/Popover.tsx"
   ],
   "exclude": [
     "node_modules",

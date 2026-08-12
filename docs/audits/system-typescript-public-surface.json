@@ -671,7 +671,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -691,7 +691,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -891,7 +891,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2271,7 +2271,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2571,7 +2571,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -3621,7 +3621,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3641,7 +3641,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3821,7 +3821,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3901,7 +3901,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -4201,7 +4201,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 22,
+  "publicJsRuntimeExportsWithTsSource": 32,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/Accordion.d.ts",
@@ -5920,16 +5920,6 @@
       "pairedTs": false
     },
     {
-      "file": "packages/react/src/Dialog.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/Drawer.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
       "file": "packages/react/src/EmptyState.d.ts",
       "pairedJs": true,
       "pairedTs": false
@@ -5970,11 +5960,6 @@
       "pairedTs": false
     },
     {
-      "file": "packages/react/src/Menu.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
       "file": "packages/react/src/MotionBoundary.d.ts",
       "pairedJs": true,
       "pairedTs": false
@@ -5991,11 +5976,6 @@
     },
     {
       "file": "packages/react/src/PhoneInput.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/Popover.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -6061,11 +6041,6 @@
     },
     {
       "file": "packages/react/src/Table.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/Tabs.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -6458,20 +6433,20 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 590,
+        ".js": 591,
         ".mjs": 20,
         ".ts": 104,
         ".d.ts": 274,
-        ".tsx": 4
+        ".tsx": 9
       },
       "byArea": {
-        "script": 253,
-        "source": 456,
+        "script": 254,
+        "source": 461,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 409,
-  "uniqueTypescriptPublicSurfaceDebt": 269
+  "typescriptPublicSurfaceDebt": 404,
+  "uniqueTypescriptPublicSurfaceDebt": 264
 }

@@ -12,7 +12,9 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 }
 
 function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
-  const sourceFile = path.join(root || process.cwd(), "packages/react/src/Tabs.js");
+  const sourceRoot = root || process.cwd();
+  const tsxSourceFile = path.join(sourceRoot, "packages/react/src/Tabs.tsx");
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/Tabs.js");
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const rootBlock = blockFor(blocks, selectorKey, ".tabs");
   const indicatorBlock = blockFor(blocks, selectorKey, ".tabs::before");

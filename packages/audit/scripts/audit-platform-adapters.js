@@ -129,7 +129,9 @@ function checkAllPlatformFilesHaveReactPrimary(shared) {
 
 function checkComponent(component, shared) {
   const adapterFile = path.join(root, `packages/components/src/platforms/${component.id}.js`);
-  const reactFile = path.join(root, `packages/react/src/${component.files[0]}`);
+  const jsReactFile = path.join(root, `packages/react/src/${component.files[0]}`);
+  const tsxReactFile = path.join(root, `packages/react/src/${component.files[0].replace(/\.js$/, ".tsx")}`);
+  const reactFile = fs.existsSync(tsxReactFile) ? tsxReactFile : jsReactFile;
   const reactTypesFile = path.join(root, `packages/react/src/${component.files[1]}`);
   const reactDistFile = path.join(root, `packages/react/dist/${component.files[0]}`);
   const reactDistTypesFile = path.join(root, `packages/react/dist/${component.files[1]}`);

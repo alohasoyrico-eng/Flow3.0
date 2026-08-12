@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T20:24:20.591Z",
+  "generatedAt": "2026-08-12T21:33:47.982Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -39,7 +39,20 @@
           "packages/tokens/src/**/*.ts",
           "packages/tokens/src/**/*.tsx",
           "packages/components/src/contracts.ts",
-          "packages/components/src/platforms/**/*.ts"
+          "packages/components/src/index.ts",
+          "packages/components/src/registry.ts",
+          "packages/components/src/platforms/**/*.ts",
+          "packages/components/src/primitives/**/*.ts",
+          "packages/react/src/internal/**/*.ts",
+          "packages/react/src/Surface.tsx",
+          "packages/react/src/Button.tsx",
+          "packages/react/src/Input.tsx",
+          "packages/react/src/Card.tsx",
+          "packages/react/src/Tabs.tsx",
+          "packages/react/src/Dialog.tsx",
+          "packages/react/src/Drawer.tsx",
+          "packages/react/src/Menu.tsx",
+          "packages/react/src/Popover.tsx"
         ]
       },
       "failMessage": null
@@ -88,7 +101,20 @@
       "packages/tokens/src/**/*.ts",
       "packages/tokens/src/**/*.tsx",
       "packages/components/src/contracts.ts",
-      "packages/components/src/platforms/**/*.ts"
+      "packages/components/src/index.ts",
+      "packages/components/src/registry.ts",
+      "packages/components/src/platforms/**/*.ts",
+      "packages/components/src/primitives/**/*.ts",
+      "packages/react/src/internal/**/*.ts",
+      "packages/react/src/Surface.tsx",
+      "packages/react/src/Button.tsx",
+      "packages/react/src/Input.tsx",
+      "packages/react/src/Card.tsx",
+      "packages/react/src/Tabs.tsx",
+      "packages/react/src/Dialog.tsx",
+      "packages/react/src/Drawer.tsx",
+      "packages/react/src/Menu.tsx",
+      "packages/react/src/Popover.tsx"
     ],
     "exclude": [
       "node_modules",

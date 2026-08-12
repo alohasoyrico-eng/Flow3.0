@@ -647,11 +647,11 @@
       "setPropertyCalls": [
         {
           "property": "--comp-tabs-indicator-left",
-          "line": 55
+          "line": 41
         },
         {
           "property": "--comp-tabs-indicator-width",
-          "line": 56
+          "line": 42
         }
       ],
       "violations": [],
