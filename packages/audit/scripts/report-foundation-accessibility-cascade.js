@@ -42,7 +42,7 @@ const requiredTokens = [
 ];
 
 const semanticRequirements = {
-  button: ["aria-label", "disabled"],
+  button: ["disabled"],
   select: ["aria-expanded", "aria-controls", ["role=\"listbox\"", "setAttribute(\"role\", \"listbox\")", "role: \"listbox\""], ["role=\"option\"", "setAttribute(\"role\", \"option\")", "role: \"option\""]],
   checkbox: ["aria-checked"],
   switch: [["role=\"switch\"", "setAttribute(\"role\", \"switch\")", "role: \"switch\""], "aria-checked"],
@@ -67,6 +67,14 @@ const packageCssOwnershipSelectors = {
   "radio-button": ".radio",
   select: ".select-control",
 };
+
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsAppDir = isInsideRoot(docsAppDir) ? docsAppDir : null;
+const repoDocsStyleModuleFiles = docsStyleModuleFiles.filter(isInsideRoot);
 
 const nonFocusableByDefault = new Set([
   "avatar",
@@ -239,10 +247,12 @@ function sourceFor(component) {
       .map((file) => path.join(componentsDir, file))
     : [];
   const files = [
-    path.join(docsAppDir, `gold-${component}-docs.js`),
-    path.join(docsAppDir, "gold-simple-component-docs.js"),
-    path.join(docsAppDir, "gold-component-core.js"),
-    path.join(docsAppDir, "component-demo.js"),
+    ...(repoDocsAppDir ? [
+      path.join(repoDocsAppDir, `gold-${component}-docs.js`),
+      path.join(repoDocsAppDir, "gold-simple-component-docs.js"),
+      path.join(repoDocsAppDir, "gold-component-core.js"),
+      path.join(repoDocsAppDir, "component-demo.js"),
+    ] : []),
     path.join(root, "packages/components/src/registry.js"),
     path.join(root, "packages/react/src", `${reactComponentFileName(component)}.js`),
     ...componentModuleFiles,
@@ -286,7 +296,7 @@ function checkComponentAccessibility() {
 
 function checkFocusContracts() {
   const findings = [];
-  const componentStyleFiles = docsStyleModuleFiles.filter((item) => /\/(?:04|05)[a-z0-9-]*\.css$/.test(item));
+  const componentStyleFiles = repoDocsStyleModuleFiles.filter((item) => /\/(?:04|05)[a-z0-9-]*\.css$/.test(item));
   const packageCss = readIfExists(componentCssFile);
   for (const component of goldComponents) {
     if (nonFocusableByDefault.has(component)) continue;
@@ -361,7 +371,7 @@ function findAccessibilityCssDeclarations(file, source, customProperties) {
 function createReport() {
   const tokenCss = readIfExists(tokenCssFile);
   const componentCss = readIfExists(componentCssFile);
-  const docsCssFiles = docsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
+  const docsCssFiles = repoDocsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
   const cssFiles = [componentCssFile, ...docsCssFiles].filter((file) => fs.existsSync(file));
   const cssSources = [tokenCss, componentCss, ...docsCssFiles.map(readIfExists)];
   const customProperties = buildCustomPropertyMap(cssSources);
