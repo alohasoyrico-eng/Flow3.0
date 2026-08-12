@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T22:27:38.175Z",
+  "generatedAt": "2026-08-12T22:33:51.752Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -71,7 +71,10 @@
           "packages/react/src/Slider.tsx",
           "packages/react/src/Select.tsx",
           "packages/react/src/Combobox.tsx",
-          "packages/react/src/Table.tsx"
+          "packages/react/src/Table.tsx",
+          "packages/react/src/CardNumberInput.tsx",
+          "packages/react/src/CardExpiryInput.tsx",
+          "packages/react/src/CardSecurityCodeInput.tsx"
         ]
       },
       "failMessage": null
@@ -152,7 +155,10 @@
       "packages/react/src/Slider.tsx",
       "packages/react/src/Select.tsx",
       "packages/react/src/Combobox.tsx",
-      "packages/react/src/Table.tsx"
+      "packages/react/src/Table.tsx",
+      "packages/react/src/CardNumberInput.tsx",
+      "packages/react/src/CardExpiryInput.tsx",
+      "packages/react/src/CardSecurityCodeInput.tsx"
     ],
     "exclude": [
       "node_modules",

@@ -1,105 +1,79 @@
-import React, { forwardRef, useId, useMemo, useState } from "react";
+import React, { forwardRef, useId, useMemo, useState, } from "react";
 import { cardSecurityCodeInputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
-import { flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
-
+import { flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity, } from "./internal/props.js";
 const validStates = new Set(["default", "filled", "valid", "loading", "error", "disabled"]);
-
+function normalizeExpectedLength(expectedLength) {
+    return Number(expectedLength) === 4 ? 4 : 3;
+}
 function normalizeCardSecurityCode(value, expectedLength = 3) {
-  const length = Number(expectedLength) === 4 ? 4 : 3;
-  return String(value ?? "").replace(/\D/g, "").slice(0, length);
+    const length = Number(expectedLength) === 4 ? 4 : 3;
+    return String(value ?? "").replace(/\D/g, "").slice(0, length);
 }
-
 function cardSecurityCodeValidity(value, expectedLength = 3) {
-  const length = Number(expectedLength) === 4 ? 4 : 3;
-  const digits = normalizeCardSecurityCode(value, length);
-  if (!digits) return "empty";
-  if (digits.length < length) return "incomplete";
-  return "valid";
+    const length = normalizeExpectedLength(expectedLength);
+    const digits = normalizeCardSecurityCode(value, length);
+    if (!digits)
+        return "empty";
+    if (digits.length < length)
+        return "incomplete";
+    return "valid";
 }
-
-function resolveCardSecurityCodeState({ disabled = false, loading = false, error = "", state, value = "", validity = "empty" } = {}) {
-  if (disabled) return "disabled";
-  if (loading) return "loading";
-  if (error) return "error";
-  if (state && state !== "default") return normalizeFlowValue(state, validStates, "default");
-  if (validity === "valid") return "valid";
-  return value ? "filled" : "default";
+function resolveCardSecurityCodeState({ disabled = false, loading = false, error = "", state, value = "", validity = "empty", } = {}) {
+    if (disabled)
+        return "disabled";
+    if (loading)
+        return "loading";
+    if (error)
+        return "error";
+    if (state && state !== "default")
+        return normalizeFlowValue(state, validStates, "default");
+    if (validity === "valid")
+        return "valid";
+    return value ? "filled" : "default";
 }
-
-export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
-  label,
-  value,
-  helper = "",
-  error = "",
-  disabled = false,
-  loading = false,
-  required = false,
-  density,
-  state,
-  name = "",
-  placeholder = "",
-  expectedLength = 3,
-  revealable = true,
-  revealLabel,
-  hideLabel,
-  revealed,
-  onValueChange,
-  onRevealChange,
-  className = "",
-  id,
-  ...rest
-}, ref) {
-  const generatedId = useId();
-  const inputId = id ?? `card-security-code-input-${generatedId}`;
-  const resolvedLength = Number(expectedLength) === 4 ? 4 : 3;
-  const isValueControlled = value !== undefined;
-  const [internalValue, setInternalValue] = useState(value ?? "");
-  const currentValue = isValueControlled ? value ?? "" : internalValue;
-  const [internalRevealed, setInternalRevealed] = useState(Boolean(revealed));
-  const isRevealedControlled = revealed !== undefined;
-  const isRevealed = isRevealedControlled ? Boolean(revealed) : internalRevealed;
-  const digits = normalizeCardSecurityCode(currentValue, resolvedLength);
-  const validity = cardSecurityCodeValidity(digits, resolvedLength);
-  const resolvedError = error;
-  const resolvedHelper = resolvedError || helper;
-  const isDisabled = Boolean(disabled || loading);
-  const canReveal = Boolean(revealable && revealLabel && hideLabel);
-  const resolvedState = resolveCardSecurityCodeState({ disabled, loading, error: resolvedError, state, value: digits, validity });
-  const resolvedDensity = normalizeFlowDensity(density);
-  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
-  const meta = useMemo(() => ({
-    validity,
-    expectedLength: resolvedLength,
-    complete: validity === "valid",
-  }), [resolvedLength, validity]);
-
-  if (!label) return null;
-
-  const toggleReveal = (event) => {
-    const nextRevealed = !isRevealed;
-    if (!isRevealedControlled) setInternalRevealed(nextRevealed);
-    onRevealChange?.(nextRevealed, event);
-  };
-
-  return React.createElement(
-    "label",
-    {
-      className: ["field card-security-code-input", className].filter(Boolean).join(" "),
-      ...flowDataProps(rest),
-      ...flowStateProps(resolvedState),
-      ...flowDensityProps(resolvedDensity),
-      "data-mono": "true",
-      "data-validity": validity,
-      "data-length": String(digits.length),
-      "data-expected-length": String(resolvedLength),
-    },
-    React.createElement("span", { className: "field__label card-security-code-input__label", id: `${inputId}-label` }, label),
-    React.createElement(
-      "span",
-      { className: "field__control card-security-code-input__control" },
-      React.createElement("span", { className: "field__icon card-security-code-input__icon", "aria-hidden": "true" }, "pin"),
-      React.createElement("input", {
+export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({ label, value, helper = "", error = "", disabled = false, loading = false, required = false, density, state, name = "", placeholder = "", expectedLength = 3, revealable = true, revealLabel, hideLabel, revealed, onValueChange, onRevealChange, className = "", id, ...rest }, ref) {
+    const generatedId = useId();
+    const inputId = id ?? `card-security-code-input-${generatedId}`;
+    const resolvedLength = normalizeExpectedLength(expectedLength);
+    const isValueControlled = value !== undefined;
+    const [internalValue, setInternalValue] = useState(value ?? "");
+    const currentValue = isValueControlled ? value ?? "" : internalValue;
+    const [internalRevealed, setInternalRevealed] = useState(Boolean(revealed));
+    const isRevealedControlled = revealed !== undefined;
+    const isRevealed = isRevealedControlled ? Boolean(revealed) : internalRevealed;
+    const digits = normalizeCardSecurityCode(currentValue, resolvedLength);
+    const validity = cardSecurityCodeValidity(digits, resolvedLength);
+    const resolvedError = error;
+    const resolvedHelper = resolvedError || helper;
+    const isDisabled = Boolean(disabled || loading);
+    const canReveal = Boolean(revealable && revealLabel && hideLabel);
+    const resolvedState = resolveCardSecurityCodeState({ disabled, loading, error: resolvedError, state, value: digits, validity });
+    const resolvedDensity = normalizeFlowDensity(density);
+    const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+    const meta = useMemo(() => ({
+        validity,
+        expectedLength: resolvedLength,
+        complete: validity === "valid",
+    }), [resolvedLength, validity]);
+    if (!label)
+        return null;
+    const toggleReveal = (event) => {
+        const nextRevealed = !isRevealed;
+        if (!isRevealedControlled)
+            setInternalRevealed(nextRevealed);
+        onRevealChange?.(nextRevealed, event);
+    };
+    return React.createElement("label", {
+        className: ["field card-security-code-input", className].filter(Boolean).join(" "),
+        ...flowDataProps(rest),
+        ...flowStateProps(resolvedState),
+        ...flowDensityProps(resolvedDensity),
+        "data-mono": "true",
+        "data-validity": validity,
+        "data-length": String(digits.length),
+        "data-expected-length": String(resolvedLength),
+    }, React.createElement("span", { className: "field__label card-security-code-input__label", id: `${inputId}-label` }, label), React.createElement("span", { className: "field__control card-security-code-input__control" }, React.createElement("span", { className: "field__icon card-security-code-input__icon", "aria-hidden": "true" }, "pin"), React.createElement("input", {
         ...flowRestProps(rest),
         ref,
         id: inputId,
@@ -121,20 +95,18 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
         "aria-describedby": describedBy,
         "aria-invalid": resolvedError ? "true" : undefined,
         onChange: (event) => {
-          const nextDigits = normalizeCardSecurityCode(event.target.value, resolvedLength);
-          const nextValidity = cardSecurityCodeValidity(nextDigits, resolvedLength);
-          if (!isValueControlled) setInternalValue(nextDigits);
-          onValueChange?.(nextDigits, {
-            validity: nextValidity,
-            expectedLength: resolvedLength,
-            complete: nextValidity === "valid",
-          }, event);
+            const nextDigits = normalizeCardSecurityCode(event.target.value, resolvedLength);
+            const nextValidity = cardSecurityCodeValidity(nextDigits, resolvedLength);
+            if (!isValueControlled)
+                setInternalValue(nextDigits);
+            onValueChange?.(nextDigits, {
+                validity: nextValidity,
+                expectedLength: resolvedLength,
+                complete: nextValidity === "valid",
+            }, event);
         },
-      }),
-      canReveal
-        ? React.createElement(
-          "button",
-          {
+    }), canReveal
+        ? React.createElement("button", {
             className: "field-action card-security-code-input__action",
             type: "button",
             disabled: isDisabled,
@@ -143,26 +115,15 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
             "aria-label": isRevealed ? hideLabel : revealLabel,
             "aria-pressed": String(isRevealed),
             onClick: toggleReveal,
-          },
-          React.createElement("span", { className: "field-action__icon field__icon card-security-code-input__action-icon", "aria-hidden": "true" }, isRevealed ? "visibility_off" : "visibility"),
-        )
-        : null,
-      loading ? React.createElement(Spinner, { density: resolvedDensity, decorative: true, className: "field__icon field__icon--loading" }) : null,
-    ),
-    resolvedHelper
-      ? React.createElement(
-        "span",
-        {
-          className: "field__helper card-security-code-input__helper",
-          id: `${inputId}-helper`,
-          "data-card-security-code-helper": "",
-          role: resolvedError ? "alert" : undefined,
-        },
-        resolvedHelper,
-      )
-      : null,
-  );
+        }, React.createElement("span", { className: "field-action__icon field__icon card-security-code-input__action-icon", "aria-hidden": "true" }, isRevealed ? "visibility_off" : "visibility"))
+        : null, loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), resolvedHelper
+        ? React.createElement("span", {
+            className: "field__helper card-security-code-input__helper",
+            id: `${inputId}-helper`,
+            "data-card-security-code-helper": "",
+            role: resolvedError ? "alert" : undefined,
+        }, resolvedHelper)
+        : null);
 });
-
 CardSecurityCodeInput.displayName = "CardSecurityCodeInput";
 CardSecurityCodeInput.platformContract = cardSecurityCodeInputPlatformContract;

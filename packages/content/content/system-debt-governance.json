@@ -72,6 +72,7 @@
     "system-react-leaf-components-typescript-surface.json": "react-primary",
     "system-react-navigation-controls-typescript-surface.json": "react-primary",
     "system-react-data-selection-typescript-surface.json": "react-primary",
+    "system-react-payment-inputs-typescript-surface.json": "react-primary",
     "system-react-overlay-components-typescript-surface.json": "react-primary",
     "system-phase1-style-dictionary-checkpoint.json": "foundations-primitives",
     "system-token-ownership-matrix.json": "foundations-primitives",

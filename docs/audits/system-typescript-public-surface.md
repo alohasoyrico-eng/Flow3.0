@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 70
-- Source declarations paired with JS but not TS/TSX: 105
-- TypeScript surface debt: 385
-- Unique TypeScript surface debt: 245
+- Public JS runtime exports with TS/TSX source: 76
+- Source declarations paired with JS but not TS/TSX: 102
+- TypeScript surface debt: 382
+- Unique TypeScript surface debt: 242
 
 ## File Counts
 
-- By extension: {".js":595,".mjs":20,".ts":104,".d.ts":274,".tsx":28}
-- By area: {"script":258,"source":480,"test":8,"generated-dist":275}
+- By extension: {".js":596,".mjs":20,".ts":104,".d.ts":274,".tsx":31}
+- By area: {"script":259,"source":483,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -37,9 +37,9 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/Breadcrumbs.js | yes |
 | package.json | packages/react/dist/Button.js | yes |
 | package.json | packages/react/dist/Card.js | yes |
-| package.json | packages/react/dist/CardExpiryInput.js | no |
-| package.json | packages/react/dist/CardNumberInput.js | no |
-| package.json | packages/react/dist/CardSecurityCodeInput.js | no |
+| package.json | packages/react/dist/CardExpiryInput.js | yes |
+| package.json | packages/react/dist/CardNumberInput.js | yes |
+| package.json | packages/react/dist/CardSecurityCodeInput.js | yes |
 | package.json | packages/react/dist/CardSummary.js | no |
 | package.json | packages/react/dist/ChartPanel.js | no |
 | package.json | packages/react/dist/ChatComposer.js | no |
@@ -113,9 +113,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/AnimatedMoment.d.ts | yes | no |
 | packages/react/src/AuditEvent.d.ts | yes | no |
 | packages/react/src/BiometricPrompt.d.ts | yes | no |
-| packages/react/src/CardExpiryInput.d.ts | yes | no |
-| packages/react/src/CardNumberInput.d.ts | yes | no |
-| packages/react/src/CardSecurityCodeInput.d.ts | yes | no |
 | packages/react/src/CardSummary.d.ts | yes | no |
 | packages/react/src/ChartPanel.d.ts | yes | no |
 | packages/react/src/ChatComposer.d.ts | yes | no |
@@ -189,6 +186,9 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/PullToRefresh.d.ts | yes | no |
 | packages/react/src/patterns/QuickActionsGrid.d.ts | yes | no |
 | packages/react/src/patterns/RadioGroup.d.ts | yes | no |
+| packages/react/src/patterns/RolesAndPermissions.d.ts | yes | no |
+| packages/react/src/patterns/SectionHeader.d.ts | yes | no |
+| packages/react/src/patterns/SelectOptionLayer.d.ts | yes | no |
 
 ## Interpretation
 

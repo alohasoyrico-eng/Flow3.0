@@ -165,7 +165,7 @@
     },
     {
       "component": "CardExpiryInput",
-      "file": "packages/react/src/CardExpiryInput.js",
+      "file": "packages/react/src/CardExpiryInput.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -175,7 +175,7 @@
     },
     {
       "component": "CardNumberInput",
-      "file": "packages/react/src/CardNumberInput.js",
+      "file": "packages/react/src/CardNumberInput.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -185,7 +185,7 @@
     },
     {
       "component": "CardSecurityCodeInput",
-      "file": "packages/react/src/CardSecurityCodeInput.js",
+      "file": "packages/react/src/CardSecurityCodeInput.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

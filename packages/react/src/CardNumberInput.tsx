@@ -1,0 +1,232 @@
+import React, {
+  type ChangeEvent,
+  type ForwardRefExoticComponent,
+  type InputHTMLAttributes,
+  type RefAttributes,
+  forwardRef,
+  useId,
+  useMemo,
+  useState,
+} from "react";
+import { cardNumberInputPlatformContract } from "@design-system/components/platforms";
+import { Spinner } from "./Spinner.js";
+import {
+  type FlowDataAttributes,
+  flowStateProps,
+  flowDensityProps,
+  flowRestProps,
+  flowDataProps,
+  normalizeFlowDensity,
+} from "./internal/props.js";
+
+export type CardNumberInputDensity = "sm" | "md" | "lg";
+export type CardNumberInputState = "default" | "filled" | "valid" | "loading" | "error" | "disabled";
+export type CardNumberValidity = "empty" | "incomplete" | "valid" | "invalid";
+export type CardNumberMeta = {
+  formatted: string;
+  validity: CardNumberValidity;
+  brand: string;
+  luhnValid: boolean;
+};
+
+export interface CardNumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "size" | "prefix" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
+  label: string;
+  helper?: string;
+  error?: string;
+  value?: string;
+  density?: CardNumberInputDensity;
+  state?: CardNumberInputState;
+  loading?: boolean;
+  validationMessage?: string;
+  onValueChange?: (digits: string, meta: CardNumberMeta, event: ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface CardNumberInputComponent extends ForwardRefExoticComponent<CardNumberInputProps & RefAttributes<HTMLInputElement>> {
+  displayName: "CardNumberInput";
+  platformContract: typeof cardNumberInputPlatformContract;
+}
+
+function normalizeCardNumber(value: unknown): string {
+  return String(value ?? "").replace(/\D/g, "").slice(0, 19);
+}
+
+function formatCardNumber(value: unknown): string {
+  return normalizeCardNumber(value).replace(/(.{4})/g, "$1 ").trim();
+}
+
+function isCardNumberLuhnValid(digits: string): boolean {
+  const value = normalizeCardNumber(digits);
+  if (value.length < 12) return false;
+  let sum = 0;
+  let shouldDouble = false;
+  for (let index = value.length - 1; index >= 0; index -= 1) {
+    let digit = Number(value[index]);
+    if (shouldDouble) {
+      digit *= 2;
+      if (digit > 9) digit -= 9;
+    }
+    sum += digit;
+    shouldDouble = !shouldDouble;
+  }
+  return sum % 10 === 0;
+}
+
+function cardNumberValidity(digits: string): CardNumberValidity {
+  const value = normalizeCardNumber(digits);
+  if (!value) return "empty";
+  if (value.length < 12) return "incomplete";
+  return isCardNumberLuhnValid(value) ? "valid" : "invalid";
+}
+
+function cardNumberBrand(digits: string): string {
+  const value = normalizeCardNumber(digits);
+  if (/^4/.test(value)) return "Visa";
+  if (/^5[1-5]/.test(value) || /^2(2[2-9]|[3-6]|7[01]|720)/.test(value)) return "Mastercard";
+  if (/^3[47]/.test(value)) return "American Express";
+  return "";
+}
+
+function resolveCardNumberState({
+  disabled = false,
+  loading = false,
+  error = "",
+  state,
+  value = "",
+  validity = "empty",
+}: {
+  disabled?: boolean;
+  loading?: boolean;
+  error?: string | undefined;
+  state?: CardNumberInputState | undefined;
+  value?: string;
+  validity?: CardNumberValidity;
+} = {}): CardNumberInputState {
+  if (disabled) return "disabled";
+  if (loading) return "loading";
+  if (error) return "error";
+  if (state) return state;
+  if (validity === "valid") return "valid";
+  return value ? "filled" : "default";
+}
+
+export const CardNumberInput = forwardRef<HTMLInputElement, CardNumberInputProps>(function CardNumberInput({
+  label,
+  value,
+  helper = "",
+  error = "",
+  disabled = false,
+  loading = false,
+  required = false,
+  density,
+  state,
+  name = "",
+  placeholder = "",
+  validationMessage,
+  onValueChange,
+  className = "",
+  id,
+  ...rest
+}, ref) {
+  const generatedId = useId();
+  const inputId = id ?? `card-number-input-${generatedId}`;
+  const isValueControlled = value !== undefined;
+  const [internalValue, setInternalValue] = useState<string>(value ?? "");
+  const currentValue = isValueControlled ? value ?? "" : internalValue;
+  const digits = normalizeCardNumber(currentValue);
+  const formattedValue = formatCardNumber(digits);
+  const validity = cardNumberValidity(digits);
+  const brand = cardNumberBrand(digits);
+  const resolvedError = error || (validity === "invalid" ? validationMessage : undefined);
+  const resolvedHelper = resolvedError || helper;
+  const resolvedState = resolveCardNumberState({ disabled, loading, error: resolvedError, state, value: digits, validity });
+  const resolvedDensity = normalizeFlowDensity(density);
+  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const meta = useMemo(() => ({
+    formatted: formattedValue,
+    validity,
+    brand,
+    luhnValid: validity === "valid",
+  }), [brand, formattedValue, validity]);
+
+  if (!label) return null;
+
+  return React.createElement(
+    "label",
+    {
+      className: ["field card-number-input", className].filter(Boolean).join(" "),
+      ...flowDataProps(rest),
+      ...flowStateProps(resolvedState),
+      ...flowDensityProps(resolvedDensity),
+      "data-mono": "true",
+      "data-validity": validity,
+      "data-brand": brand,
+      "data-validation-message": validationMessage,
+    },
+    React.createElement("span", { className: "field__label card-number-input__label", id: `${inputId}-label` }, label),
+    React.createElement(
+      "span",
+      { className: "field__control card-number-input__control" },
+      React.createElement("span", { className: "field__icon card-number-input__icon", "aria-hidden": "true" }, "credit_card"),
+      React.createElement("input", {
+        ...flowRestProps(rest),
+        ref,
+        id: inputId,
+        name,
+        className: "input card-number-input__input",
+        type: "text",
+        inputMode: "numeric",
+        autoComplete: "cc-number",
+        placeholder,
+        value: formattedValue,
+        disabled: Boolean(disabled || loading),
+        required,
+        pattern: "[0-9 ]*",
+        enterKeyHint: "next",
+        spellCheck: false,
+        "data-card-number-input": "",
+        "aria-labelledby": `${inputId}-label`,
+        "aria-describedby": describedBy,
+        "aria-invalid": resolvedError ? "true" : undefined,
+        onChange: (event: ChangeEvent<HTMLInputElement>) => {
+          const nextDigits = normalizeCardNumber(event.target.value);
+          const nextFormatted = formatCardNumber(nextDigits);
+          const nextValidity = cardNumberValidity(nextDigits);
+          const nextBrand = cardNumberBrand(nextDigits);
+          if (!isValueControlled) setInternalValue(nextDigits);
+          onValueChange?.(nextDigits, {
+            formatted: nextFormatted,
+            validity: nextValidity,
+            brand: nextBrand,
+            luhnValid: nextValidity === "valid",
+          }, event);
+        },
+      }),
+      React.createElement(
+        "span",
+        {
+          className: "field__suffix card-number-input__brand",
+          "data-card-number-brand": "",
+          "aria-hidden": "true",
+          hidden: !brand,
+        },
+        brand,
+      ),
+      loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null,
+    ),
+    resolvedHelper
+      ? React.createElement(
+        "span",
+        {
+          className: "field__helper card-number-input__helper",
+          id: `${inputId}-helper`,
+          "data-card-number-helper": "",
+          role: resolvedError ? "alert" : undefined,
+        },
+        resolvedHelper,
+      )
+      : null,
+  );
+}) as CardNumberInputComponent;
+
+CardNumberInput.displayName = "CardNumberInput";
+CardNumberInput.platformContract = cardNumberInputPlatformContract;

@@ -56,7 +56,10 @@
     "packages/react/src/Slider.tsx",
     "packages/react/src/Select.tsx",
     "packages/react/src/Combobox.tsx",
-    "packages/react/src/Table.tsx"
+    "packages/react/src/Table.tsx",
+    "packages/react/src/CardNumberInput.tsx",
+    "packages/react/src/CardExpiryInput.tsx",
+    "packages/react/src/CardSecurityCodeInput.tsx"
   ],
   "exclude": [
     "node_modules",

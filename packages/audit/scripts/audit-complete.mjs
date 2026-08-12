@@ -213,6 +213,7 @@ const expectedAuditFiles = new Set([
   "report-system-react-leaf-components-typescript-surface.js",
   "report-system-react-navigation-controls-typescript-surface.js",
   "report-system-react-data-selection-typescript-surface.js",
+  "report-system-react-payment-inputs-typescript-surface.js",
   "report-system-react-overlay-components-typescript-surface.js",
   "report-system-remediation-matrix.js",
   "report-system-token-ownership-matrix.js",
@@ -331,6 +332,7 @@ const checks = [
   ["React leaf components TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-leaf-components-typescript-surface.js", "--check"])],
   ["React navigation controls TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-navigation-controls-typescript-surface.js", "--check"])],
   ["React data selection TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-data-selection-typescript-surface.js", "--check"])],
+  ["React payment inputs TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-payment-inputs-typescript-surface.js", "--check"])],
   ...(hasRepoFile("scripts/generate-pattern-contracts.mjs")
     ? [["pattern contract freshness", () => run("node", ["scripts/generate-pattern-contracts.mjs", "--check"])]]
     : []),

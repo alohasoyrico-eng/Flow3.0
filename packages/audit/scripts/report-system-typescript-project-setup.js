@@ -107,7 +107,10 @@ function main() {
         && include.includes("packages/react/src/Slider.tsx")
         && include.includes("packages/react/src/Select.tsx")
         && include.includes("packages/react/src/Combobox.tsx")
-        && include.includes("packages/react/src/Table.tsx"),
+        && include.includes("packages/react/src/Table.tsx")
+        && include.includes("packages/react/src/CardNumberInput.tsx")
+        && include.includes("packages/react/src/CardExpiryInput.tsx")
+        && include.includes("packages/react/src/CardSecurityCodeInput.tsx"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

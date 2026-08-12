@@ -371,7 +371,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -391,7 +391,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -411,7 +411,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -3301,7 +3301,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3341,7 +3341,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3361,7 +3361,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 70,
+  "publicJsRuntimeExportsWithTsSource": 76,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/Accordion.d.ts",
@@ -5826,21 +5826,6 @@
     },
     {
       "file": "packages/react/src/BiometricPrompt.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/CardExpiryInput.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/CardNumberInput.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/CardSecurityCodeInput.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -6338,20 +6323,20 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 595,
+        ".js": 596,
         ".mjs": 20,
         ".ts": 104,
         ".d.ts": 274,
-        ".tsx": 28
+        ".tsx": 31
       },
       "byArea": {
-        "script": 258,
-        "source": 480,
+        "script": 259,
+        "source": 483,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 385,
-  "uniqueTypescriptPublicSurfaceDebt": 245
+  "typescriptPublicSurfaceDebt": 382,
+  "uniqueTypescriptPublicSurfaceDebt": 242
 }

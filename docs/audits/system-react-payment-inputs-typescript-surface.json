@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "flow-system-react-payment-inputs-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "payment-inputs-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "CardNumberInput",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "CardExpiryInput",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "CardSecurityCodeInput",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "CardNumberInput",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "CardExpiryInput",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "CardSecurityCodeInput",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "CardNumberInput",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "CardExpiryInput",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "CardSecurityCodeInput",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "CardNumberInput",
+      "sourceFile": "packages/react/src/CardNumberInput.tsx",
+      "runtimeFile": "packages/react/src/CardNumberInput.js",
+      "declarationFile": "packages/react/src/CardNumberInput.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "CardExpiryInput",
+      "sourceFile": "packages/react/src/CardExpiryInput.tsx",
+      "runtimeFile": "packages/react/src/CardExpiryInput.js",
+      "declarationFile": "packages/react/src/CardExpiryInput.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "CardSecurityCodeInput",
+      "sourceFile": "packages/react/src/CardSecurityCodeInput.tsx",
+      "runtimeFile": "packages/react/src/CardSecurityCodeInput.js",
+      "declarationFile": "packages/react/src/CardSecurityCodeInput.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 3,
+    "runtimeFiles": 3,
+    "tsxSourceFiles": 3,
+    "declarationFiles": 3,
+    "staleRuntimeFiles": 0,
+    "reactPaymentInputsTypescriptSurfaceDebt": 0
+  }
+}
