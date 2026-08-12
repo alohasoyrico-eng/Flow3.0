@@ -8,12 +8,13 @@ Library primitives are the only boundary where third-party visual/runtime source
 - None
 
 ## Self Gate
+- Docs scope: external-not-audited
 - library-sources: spec yes; contract yes; exported yes; records 6
 
 ## Library Primitives
-- iconography: pass; library material-symbols; exported yes; vendor yes; consumed yes
-- country-flags: pass; library country-flag-icons; exported yes; vendor yes; consumed no
-- animation-assets: pass; library lottie-web; exported yes; vendor yes; consumed no
-- illustration-assets: pass; library open-doodles; exported yes; vendor yes; consumed yes
-- charts: pass; library echarts; exported yes; vendor yes; consumed yes
-- maps: pass; library maplibre-gl; exported yes; vendor yes; consumed yes
+- iconography: pass; library material-symbols; exported yes; vendor no; consumed no
+- country-flags: pass; library country-flag-icons; exported yes; vendor no; consumed no
+- animation-assets: pass; library lottie-web; exported yes; vendor no; consumed no
+- illustration-assets: pass; library open-doodles; exported yes; vendor no; consumed no
+- charts: pass; library echarts; exported yes; vendor no; consumed yes
+- maps: pass; library maplibre-gl; exported yes; vendor no; consumed yes

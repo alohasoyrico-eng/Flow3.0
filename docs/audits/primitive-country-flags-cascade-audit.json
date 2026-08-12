@@ -114,6 +114,7 @@
     "row": {
       "id": "country-flags",
       "library": "country-flag-icons",
+      "docsScope": "external-not-audited",
       "status": "pass",
       "spec": true,
       "contract": true,
@@ -121,10 +122,10 @@
       "exported": true,
       "dependency": true,
       "dependencyVersion": "^1.6.20",
-      "vendor": true,
-      "generatedVendor": true,
+      "vendor": null,
+      "generatedVendor": null,
       "consumed": false,
-      "docsLoadsVendor": true,
+      "docsLoadsVendor": null,
       "foundations": [
         "Iconography",
         "Symbol",

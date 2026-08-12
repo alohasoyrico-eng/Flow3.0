@@ -17,9 +17,6 @@ const jsonOutput = path.join(outputDir, "primitive-library-sources-cascade-audit
 const markdownOutput = path.join(outputDir, "primitive-library-sources-cascade-audit.md");
 const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/index.js");
 const componentPackageFile = path.join(root, "packages/components/package.json");
-const docsIndexFile = path.join(docsAppDir, "index.html");
-const docsVendorDir = path.join(docsAppDir, "vendor");
-const docsGeneratedVendorDir = path.join(docsAppDir, "generated/vendor");
 const librarySourcesSpecFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/library-sources.json");
 const librarySourcesContractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/library-sources.md");
 const librarySourcesPrimitiveFile = path.join(root, "packages/components/src/primitives/library-sources.js");
@@ -96,8 +93,20 @@ const libraryPrimitives = [
 ];
 
 function readIfExists(file) {
+  if (!file) return "";
   return fs.existsSync(file) ? read(file) : "";
 }
+
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsAppDir = isInsideRoot(docsAppDir) ? docsAppDir : null;
+const docsScope = repoDocsAppDir ? "in-repo" : "external-not-audited";
+const docsIndexFile = repoDocsAppDir ? path.join(repoDocsAppDir, "index.html") : null;
+const docsVendorDir = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor") : null;
+const docsGeneratedVendorDir = repoDocsAppDir ? path.join(repoDocsAppDir, "generated/vendor") : null;
 
 function walkFiles(dir, predicate = () => true) {
   if (!fs.existsSync(dir)) return [];
@@ -125,9 +134,11 @@ const componentSources = walkFiles(path.join(root, "packages/components/src"), (
 const reactSources = walkFiles(path.join(root, "packages/react/src"), (file) => file.endsWith(".js"))
   .map(readIfExists)
   .join("\n");
-const docsSources = walkFiles(docsAppDir, (file) => file.endsWith(".js") && !file.includes(`${path.sep}generated${path.sep}`))
+const docsSources = repoDocsAppDir
+  ? walkFiles(repoDocsAppDir, (file) => file.endsWith(".js") && !file.includes(`${path.sep}generated${path.sep}`))
   .map(readIfExists)
-  .join("\n");
+  .join("\n")
+  : "";
 const nonPrimitiveSources = `${componentSources}\n${reactSources}\n${docsSources}`;
 
 const rows = libraryPrimitives.map((primitive) => {
@@ -138,17 +149,24 @@ const rows = libraryPrimitives.map((primitive) => {
   const audit = fs.existsSync(auditFile) ? readJson(auditFile) : {};
   const contract = readIfExists(contractFile);
   const spec = fs.existsSync(specFile) ? readJson(specFile) : {};
-  const vendorPresent = primitive.vendorFiles.every((file) => fs.existsSync(path.join(docsVendorDir, file)));
-  const generatedVendorPresent = (primitive.generatedVendorFiles ?? []).every((file) => fs.existsSync(path.join(docsGeneratedVendorDir, file)));
+  const vendorPresent = repoDocsAppDir
+    ? primitive.vendorFiles.every((file) => fs.existsSync(path.join(docsVendorDir, file)))
+    : null;
+  const generatedVendorPresent = repoDocsAppDir
+    ? (primitive.generatedVendorFiles ?? []).every((file) => fs.existsSync(path.join(docsGeneratedVendorDir, file)))
+    : null;
   const dependencyVersion = primitive.dependency
     ? componentPackage.dependencies?.[primitive.dependency] ?? componentPackage.devDependencies?.[primitive.dependency] ?? null
     : null;
   const exportsPresent = primitive.exports.every((name) => componentIndex.includes(name));
   const consumed = primitive.consumptionPattern.test(nonPrimitiveSources);
-  const docsLoadsVendor = primitive.vendorFiles.some((file) => docsIndex.includes(file)) || primitive.id === "charts" || primitive.id === "country-flags" || primitive.id === "illustration-assets";
+  const docsLoadsVendor = repoDocsAppDir
+    ? primitive.vendorFiles.some((file) => docsIndex.includes(file)) || primitive.id === "charts" || primitive.id === "country-flags" || primitive.id === "illustration-assets"
+    : null;
   return {
     id: primitive.id,
     library: primitive.library,
+    docsScope,
     status: audit.status ?? "missing",
     spec: fs.existsSync(specFile),
     contract: fs.existsSync(contractFile) && contract.includes(primitive.id.split("-").map((part) => part[0].toUpperCase() + part.slice(1)).join(" ")),
@@ -193,9 +211,9 @@ for (const row of rows) {
   if (!row.primitive) gaps.push(`${row.id} is missing a primitive implementation.`);
   if (!row.exported) gaps.push(`${row.id} is not exported from the component package index.`);
   if (!row.dependency) gaps.push(`${row.id} is missing package dependency for ${row.library}.`);
-  if (!row.vendor) gaps.push(`${row.id} is missing local vendor/source files for ${row.library}.`);
-  if (!row.generatedVendor) gaps.push(`${row.id} is missing generated vendor bridge files.`);
-  if (!row.docsLoadsVendor) gaps.push(`${row.id} runtime/source is not reachable by Docs.`);
+  if (repoDocsAppDir && !row.vendor) gaps.push(`${row.id} is missing local vendor/source files for ${row.library}.`);
+  if (repoDocsAppDir && !row.generatedVendor) gaps.push(`${row.id} is missing generated vendor bridge files.`);
+  if (repoDocsAppDir && !row.docsLoadsVendor) gaps.push(`${row.id} runtime/source is not reachable by Docs.`);
   if (!row.foundations.length) gaps.push(`${row.id} does not declare governing foundations.`);
 }
 
@@ -203,6 +221,7 @@ const report = {
   status: gaps.length ? "fail" : "pass",
   principle: "Library primitives are the only boundary where third-party visual/runtime sources enter Flow; components, patterns, templates, and Docs must consume the primitive API instead of duplicating vendors or drawing assets ad hoc.",
   gaps,
+  docsScope,
   self,
   rows,
 };
@@ -221,6 +240,7 @@ function writeReport() {
     ...(report.gaps.length ? report.gaps.map((gap) => `- ${gap}`) : ["- None"]),
     "",
     "## Self Gate",
+    `- Docs scope: ${report.docsScope}`,
     `- library-sources: spec ${report.self.spec ? "yes" : "no"}; contract ${report.self.contract ? "yes" : "no"}; exported ${report.self.exported ? "yes" : "no"}; records ${report.self.records.length}`,
     "",
     "## Library Primitives",

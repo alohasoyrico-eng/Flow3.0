@@ -180,6 +180,7 @@
     "row": {
       "id": "maps",
       "library": "maplibre-gl",
+      "docsScope": "external-not-audited",
       "status": "pass",
       "spec": true,
       "contract": true,
@@ -187,10 +188,10 @@
       "exported": true,
       "dependency": true,
       "dependencyVersion": "5.24.0",
-      "vendor": true,
-      "generatedVendor": true,
+      "vendor": null,
+      "generatedVendor": null,
       "consumed": true,
-      "docsLoadsVendor": true,
+      "docsLoadsVendor": null,
       "foundations": [
         "Energy",
         "Accessibility",

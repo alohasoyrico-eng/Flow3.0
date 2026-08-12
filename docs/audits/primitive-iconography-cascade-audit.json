@@ -188,6 +188,7 @@
     "row": {
       "id": "iconography",
       "library": "material-symbols",
+      "docsScope": "external-not-audited",
       "status": "pass",
       "spec": true,
       "contract": true,
@@ -195,10 +196,10 @@
       "exported": true,
       "dependency": true,
       "dependencyVersion": null,
-      "vendor": true,
-      "generatedVendor": true,
-      "consumed": true,
-      "docsLoadsVendor": true,
+      "vendor": null,
+      "generatedVendor": null,
+      "consumed": false,
+      "docsLoadsVendor": null,
       "foundations": [
         "Iconography",
         "Symbol",

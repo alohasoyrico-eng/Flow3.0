@@ -234,6 +234,7 @@
     "row": {
       "id": "charts",
       "library": "echarts",
+      "docsScope": "external-not-audited",
       "status": "pass",
       "spec": true,
       "contract": true,
@@ -241,10 +242,10 @@
       "exported": true,
       "dependency": true,
       "dependencyVersion": "^6.1.0",
-      "vendor": true,
-      "generatedVendor": true,
+      "vendor": null,
+      "generatedVendor": null,
       "consumed": true,
-      "docsLoadsVendor": true,
+      "docsLoadsVendor": null,
       "foundations": [
         "Energy",
         "Accessibility",
