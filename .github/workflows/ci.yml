@@ -32,7 +32,7 @@ jobs:
 
       - name: Install Chromium for Playwright gates
         timeout-minutes: 5
-        run: npx playwright install chromium
+        run: npx playwright install --only-shell --no-progress chromium
 
       - name: Run complete audit gate
         run: npm run audit:complete
