@@ -39,7 +39,7 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   ) {
     add("errors", sourceFile, 1, "FloatingActionButton must expose a real React ref contract, platform contract, variant, state, and density props.");
   }
-  if (!source.includes("if (!resolvedLabel) return null;") || !source.includes("\"aria-label\": resolvedLabel")) {
+  if (!/if\s*\(!resolvedLabel\)\s*return null;/.test(source) || !source.includes("\"aria-label\": resolvedLabel")) {
     add("errors", sourceFile, 1, "FloatingActionButton must not render without an accessible label.");
   }
   if (!source.includes("const canInteract = Boolean(rest.onClick || resolvedType === \"submit\" || resolvedType === \"reset\");") || !source.includes("disabled: resolvedState === \"disabled\" || resolvedState === \"loading\" || !canInteract")) {

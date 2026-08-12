@@ -125,7 +125,7 @@
     },
     {
       "component": "BiometricPrompt",
-      "file": "packages/react/src/BiometricPrompt.js",
+      "file": "packages/react/src/BiometricPrompt.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -361,7 +361,7 @@
     },
     {
       "component": "FloatingActionButton",
-      "file": "packages/react/src/FloatingActionButton.js",
+      "file": "packages/react/src/FloatingActionButton.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -599,7 +599,7 @@
     },
     {
       "component": "StationPin",
-      "file": "packages/react/src/StationPin.js",
+      "file": "packages/react/src/StationPin.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -691,7 +691,7 @@
     },
     {
       "component": "Tooltip",
-      "file": "packages/react/src/Tooltip.js",
+      "file": "packages/react/src/Tooltip.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

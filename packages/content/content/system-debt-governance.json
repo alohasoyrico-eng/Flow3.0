@@ -79,6 +79,7 @@
     "system-react-navigation-structure-typescript-surface.json": "react-primary",
     "system-react-motion-event-typescript-surface.json": "react-primary",
     "system-react-input-localization-typescript-surface.json": "react-primary",
+    "system-react-affordance-typescript-surface.json": "react-primary",
     "system-react-overlay-components-typescript-surface.json": "react-primary",
     "system-phase1-style-dictionary-checkpoint.json": "foundations-primitives",
     "system-token-ownership-matrix.json": "foundations-primitives",

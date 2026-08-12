@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "flow-system-react-affordance-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "affordance-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "BiometricPrompt",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "FloatingActionButton",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "StationPin",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Tooltip",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "BiometricPrompt",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "FloatingActionButton",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "StationPin",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Tooltip",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "BiometricPrompt",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "FloatingActionButton",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "StationPin",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Tooltip",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "BiometricPrompt",
+      "sourceFile": "packages/react/src/BiometricPrompt.tsx",
+      "runtimeFile": "packages/react/src/BiometricPrompt.js",
+      "declarationFile": "packages/react/src/BiometricPrompt.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "FloatingActionButton",
+      "sourceFile": "packages/react/src/FloatingActionButton.tsx",
+      "runtimeFile": "packages/react/src/FloatingActionButton.js",
+      "declarationFile": "packages/react/src/FloatingActionButton.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "StationPin",
+      "sourceFile": "packages/react/src/StationPin.tsx",
+      "runtimeFile": "packages/react/src/StationPin.js",
+      "declarationFile": "packages/react/src/StationPin.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Tooltip",
+      "sourceFile": "packages/react/src/Tooltip.tsx",
+      "runtimeFile": "packages/react/src/Tooltip.js",
+      "declarationFile": "packages/react/src/Tooltip.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 4,
+    "runtimeFiles": 4,
+    "tsxSourceFiles": 4,
+    "declarationFiles": 4,
+    "staleRuntimeFiles": 0,
+    "reactAffordanceTypescriptSurfaceDebt": 0
+  }
+}

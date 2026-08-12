@@ -27,7 +27,7 @@ function checkStationPinCssContract({ text, blocks, packageCssFile, selectorKey,
   const markerBlock = blockFor(blocks, selectorKey, ".station-pin__marker");
   const markerIconBlock = blockFor(blocks, selectorKey, ".station-pin__marker[data-kind=\"icon\"]");
 
-  if (!source.includes("createMapsPrimitive") || !source.includes("data-map-primitive") || !source.includes("React.createElement(\n    \"button\"")) {
+  if (!source.includes("createMapsPrimitive") || !source.includes("data-map-primitive") || !/React\.createElement\(\s*"button"/.test(source)) {
     add("errors", sourceFile, 1, "StationPin must use the maps primitive and real button semantics instead of a fake marker control.");
   }
   const localMinBlock = /--comp-station-pin-min-block-size:\s*calc\(var\(--component-control-min-size\)\s*[+-][^;]+;/.exec(text);

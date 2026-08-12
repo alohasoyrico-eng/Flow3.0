@@ -107,8 +107,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Badge | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Badge.tsx:48 |
 | Badge | variant-default | variant | status | pass | pass | Yes | packages/react/src/Badge.tsx:49 |
 | Badge | state-default | state | default | pass | pass | Yes | packages/react/src/Badge.tsx:50 |
-| BiometricPrompt | variant-default | variant | fingerprint | pass | pass | Yes | packages/react/src/BiometricPrompt.js:26 |
-| BiometricPrompt | state-default | state | default | pass | pass | Yes | packages/react/src/BiometricPrompt.js:27 |
+| BiometricPrompt | variant-default | variant | fingerprint | pass | pass | Yes | packages/react/src/BiometricPrompt.tsx:54 |
+| BiometricPrompt | state-default | state | default | pass | pass | Yes | packages/react/src/BiometricPrompt.tsx:55 |
 | Breadcrumbs | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Breadcrumbs.tsx:82 |
 | Breadcrumbs | state-default | state | default | pass | pass | Yes | packages/react/src/Breadcrumbs.tsx:83 |
 | Button | variant-default | variant | primary | pass | pass | Yes | packages/react/src/Button.tsx:37 |
@@ -147,8 +147,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ErrorPanel | tone-default | tone | error | pass | pass | Yes | packages/react/src/ErrorPanel.tsx:77 |
 | ErrorPanel | variant-default | variant | panel | pass | pass | Yes | packages/react/src/ErrorPanel.tsx:78 |
 | ErrorPanel | state-default | state | error | pass | pass | Yes | packages/react/src/ErrorPanel.tsx:79 |
-| FloatingActionButton | variant-default | variant | primary | pass | pass | Yes | packages/react/src/FloatingActionButton.js:13 |
-| FloatingActionButton | state-default | state | default | pass | pass | Yes | packages/react/src/FloatingActionButton.js:14 |
+| FloatingActionButton | variant-default | variant | primary | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:38 |
+| FloatingActionButton | state-default | state | default | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:39 |
 | IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:32 |
 | IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:40 |
 | InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.tsx:48 |
@@ -193,8 +193,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Slider | state-default | state | default | pass | pass | Yes | packages/react/src/Slider.tsx:77 |
 | Spinner | tone-default | tone | accent | pass | pass | Yes | packages/react/src/Spinner.tsx:38 |
 | Spinner | state-default | state | loading | pass | pass | Yes | packages/react/src/Spinner.tsx:39 |
-| StationPin | variant-default | variant | fuel | pass | pass | Yes | packages/react/src/StationPin.js:15 |
-| StationPin | state-default | state | default | pass | pass | Yes | packages/react/src/StationPin.js:16 |
+| StationPin | variant-default | variant | fuel | pass | pass | Yes | packages/react/src/StationPin.tsx:49 |
+| StationPin | state-default | state | default | pass | pass | Yes | packages/react/src/StationPin.tsx:50 |
 | Stepper | orientation-default | orientation | horizontal | pass | pass | Yes | packages/react/src/Stepper.tsx:54 |
 | Switch | state-default | state | off | pass | pass | Yes | packages/react/src/Switch.tsx:45 |
 | Table | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Table.tsx:140 |
@@ -208,9 +208,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Toast | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Toast.tsx:58 |
 | Toast | variant-default | variant | status | pass | pass | Yes | packages/react/src/Toast.tsx:59 |
 | Toast | state-default | state | visible | pass | pass | Yes | packages/react/src/Toast.tsx:60 |
-| Tooltip | placement-default | placement | top | pass | pass | Yes | packages/react/src/Tooltip.js:18 |
-| Tooltip | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tooltip.js:19 |
-| Tooltip | state-default | state | default | pass | pass | Yes | packages/react/src/Tooltip.js:21 |
+| Tooltip | placement-default | placement | top | pass | pass | Yes | packages/react/src/Tooltip.tsx:45 |
+| Tooltip | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tooltip.tsx:46 |
+| Tooltip | state-default | state | default | pass | pass | Yes | packages/react/src/Tooltip.tsx:48 |
 | TreeView | state-default | state | expanded | pass | pass | Yes | packages/react/src/TreeView.tsx:93 |
 
 ## Visible Semantic Default Decisions
@@ -227,8 +227,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Badge | tone-default | tone | neutral | packages/react/src/Badge.tsx:48 | `tone = "neutral",` |
 | Badge | variant-default | variant | status | packages/react/src/Badge.tsx:49 | `variant = "status",` |
 | Badge | state-default | state | default | packages/react/src/Badge.tsx:50 | `state = "default",` |
-| BiometricPrompt | variant-default | variant | fingerprint | packages/react/src/BiometricPrompt.js:26 | `variant = "fingerprint",` |
-| BiometricPrompt | state-default | state | default | packages/react/src/BiometricPrompt.js:27 | `state = "default",` |
+| BiometricPrompt | variant-default | variant | fingerprint | packages/react/src/BiometricPrompt.tsx:54 | `variant = "fingerprint",` |
+| BiometricPrompt | state-default | state | default | packages/react/src/BiometricPrompt.tsx:55 | `state = "default",` |
 | Breadcrumbs | variant-default | variant | standard | packages/react/src/Breadcrumbs.tsx:82 | `variant = "standard",` |
 | Breadcrumbs | state-default | state | default | packages/react/src/Breadcrumbs.tsx:83 | `state = "default",` |
 | Button | variant-default | variant | primary | packages/react/src/Button.tsx:37 | `function buttonClassName({ variant = "primary", intent = "default", className = "" }: {` |
@@ -267,8 +267,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ErrorPanel | tone-default | tone | error | packages/react/src/ErrorPanel.tsx:77 | `tone = "error",` |
 | ErrorPanel | variant-default | variant | panel | packages/react/src/ErrorPanel.tsx:78 | `variant = "panel",` |
 | ErrorPanel | state-default | state | error | packages/react/src/ErrorPanel.tsx:79 | `state = "error",` |
-| FloatingActionButton | variant-default | variant | primary | packages/react/src/FloatingActionButton.js:13 | `variant = "primary",` |
-| FloatingActionButton | state-default | state | default | packages/react/src/FloatingActionButton.js:14 | `state = "default",` |
+| FloatingActionButton | variant-default | variant | primary | packages/react/src/FloatingActionButton.tsx:38 | `variant = "primary",` |
+| FloatingActionButton | state-default | state | default | packages/react/src/FloatingActionButton.tsx:39 | `state = "default",` |
 | IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:32 | `function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {` |
 | IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:40 | `variant = "ghost",` |
 | InlineValidation | state-default | state | default | packages/react/src/InlineValidation.tsx:48 | `state = "default",` |
@@ -313,8 +313,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Slider | state-default | state | default | packages/react/src/Slider.tsx:77 | `state = "default",` |
 | Spinner | tone-default | tone | accent | packages/react/src/Spinner.tsx:38 | `tone = "accent",` |
 | Spinner | state-default | state | loading | packages/react/src/Spinner.tsx:39 | `state = "loading",` |
-| StationPin | variant-default | variant | fuel | packages/react/src/StationPin.js:15 | `variant = "fuel",` |
-| StationPin | state-default | state | default | packages/react/src/StationPin.js:16 | `state = "default",` |
+| StationPin | variant-default | variant | fuel | packages/react/src/StationPin.tsx:49 | `variant = "fuel",` |
+| StationPin | state-default | state | default | packages/react/src/StationPin.tsx:50 | `state = "default",` |
 | Stepper | orientation-default | orientation | horizontal | packages/react/src/Stepper.tsx:54 | `orientation = "horizontal",` |
 | Switch | state-default | state | off | packages/react/src/Switch.tsx:45 | `state = "off",` |
 | Table | variant-default | variant | standard | packages/react/src/Table.tsx:140 | `variant = "standard",` |
@@ -328,8 +328,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Toast | tone-default | tone | neutral | packages/react/src/Toast.tsx:58 | `tone = "neutral",` |
 | Toast | variant-default | variant | status | packages/react/src/Toast.tsx:59 | `variant = "status",` |
 | Toast | state-default | state | visible | packages/react/src/Toast.tsx:60 | `state = "visible",` |
-| Tooltip | placement-default | placement | top | packages/react/src/Tooltip.js:18 | `placement = "top",` |
-| Tooltip | variant-default | variant | default | packages/react/src/Tooltip.js:19 | `variant = "default",` |
-| Tooltip | state-default | state | default | packages/react/src/Tooltip.js:21 | `state = "default",` |
+| Tooltip | placement-default | placement | top | packages/react/src/Tooltip.tsx:45 | `placement = "top",` |
+| Tooltip | variant-default | variant | default | packages/react/src/Tooltip.tsx:46 | `variant = "default",` |
+| Tooltip | state-default | state | default | packages/react/src/Tooltip.tsx:48 | `state = "default",` |
 | TreeView | state-default | state | expanded | packages/react/src/TreeView.tsx:93 | `state = "expanded",` |
 

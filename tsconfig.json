@@ -80,7 +80,11 @@
     "packages/react/src/CodeInput.tsx",
     "packages/react/src/PhoneInput.tsx",
     "packages/react/src/CountrySelector.tsx",
-    "packages/react/src/InputAmount.tsx"
+    "packages/react/src/InputAmount.tsx",
+    "packages/react/src/BiometricPrompt.tsx",
+    "packages/react/src/FloatingActionButton.tsx",
+    "packages/react/src/StationPin.tsx",
+    "packages/react/src/Tooltip.tsx"
   ],
   "exclude": [
     "node_modules",
