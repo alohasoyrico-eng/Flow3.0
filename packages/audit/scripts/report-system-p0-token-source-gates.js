@@ -45,6 +45,22 @@ function gate(id, passed, evidence, failMessage) {
   };
 }
 
+function sortDeep(value) {
+  if (Array.isArray(value)) return value.map(sortDeep);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([key, entry]) => [key, sortDeep(entry)]),
+    );
+  }
+  return value;
+}
+
+function stableCounts(value) {
+  return JSON.stringify(sortDeep(value));
+}
+
 function writeReport() {
   const foundations = readJson(FOUNDATIONS_META).foundations.map((name) => ({
     name,
@@ -114,6 +130,35 @@ function writeReport() {
   const decisionQueueTokenCount = decisionQueueFiles.reduce((count, file) => {
     return count + Object.keys(readJson(path.join(ROOT, file))).length;
   }, 0);
+  const foundationCounts = Object.fromEntries(
+    foundations.map((foundation) => [
+      foundation.name,
+      fs.existsSync(foundation.file) ? Object.keys(readJson(foundation.file)).length : 0,
+    ]),
+  );
+  const decisionQueueCounts = {
+    aliasesToFoundations: Object.keys(readJson(path.join(SOURCE_DIR, "decision-queues/aliases-to-foundations.tokens.json"))).length,
+    docsOnlyCandidates: Object.keys(readJson(path.join(SOURCE_DIR, "decision-queues/docs-only-candidates.tokens.json"))).length,
+    primitiveSemanticCandidates: Object.keys(readJson(path.join(SOURCE_DIR, "decision-queues/primitive-semantic-candidates.tokens.json"))).length,
+    unclassified: Object.keys(readJson(path.join(SOURCE_DIR, "decision-queues/unclassified.tokens.json"))).length,
+    unresolved: Object.keys(readJson(path.join(SOURCE_DIR, "decision-queues/unresolved.tokens.json"))).length,
+  };
+  const primitiveTokenCount = primitiveSourceFiles.reduce((count, file) => {
+    return count + Object.keys(readJson(path.join(ROOT, file))).length;
+  }, 0);
+  const docsTokenCount = docsSourceFiles.reduce((count, file) => {
+    return count + Object.keys(readJson(path.join(ROOT, file))).length;
+  }, 0);
+  const actualManifestCounts = {
+    sourcePath: "packages/tokens/source/**/*.tokens.json",
+    foundations: foundationCounts,
+    primitives: primitiveTokenCount,
+    docs: docsTokenCount,
+    decisionQueues: decisionQueueCounts,
+    total: sourceTokenCount,
+  };
+  const manifestFile = path.join(SOURCE_DIR, "source-manifest.json");
+  const manifestCounts = fs.existsSync(manifestFile) ? readJson(manifestFile).counts : null;
 
   const gates = [
     gate(
@@ -157,6 +202,12 @@ function writeReport() {
       primitiveSourceFiles.length > 0,
       { primitiveSourceFiles },
       "Primitive token source files are missing.",
+    ),
+    gate(
+      "source-manifest-current",
+      Boolean(manifestCounts) && stableCounts(manifestCounts) === stableCounts(actualManifestCounts),
+      { manifestCounts, actualCounts: actualManifestCounts },
+      "Token source manifest is stale or missing; run token ownership resolution and rebuild tokens.",
     ),
   ];
   const status = gates.every((item) => item.status === "PASS") ? "PASS" : "FAIL";

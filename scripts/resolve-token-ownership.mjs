@@ -10,6 +10,7 @@ const DOCS_DIR = path.join(SOURCE_DIR, "docs");
 const ACCESSIBILITY_FOUNDATION = path.join(SOURCE_DIR, "foundations/accessibility.tokens.json");
 const FRAME_FOUNDATION = path.join(SOURCE_DIR, "foundations/frame.tokens.json");
 const MANIFEST = path.join(SOURCE_DIR, "source-manifest.json");
+const FOUNDATIONS_META = path.join(ROOT, "packages/specs/specs/unison-system/meta/foundations.json");
 
 const QUEUES = [
   "aliases-to-foundations.tokens.json",
@@ -49,6 +50,56 @@ function readJson(file, fallback = {}) {
 function writeJson(file, data) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`);
+}
+
+function slugify(name) {
+  return String(name).trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function countTokens(file) {
+  return Object.keys(readJson(file, {})).length;
+}
+
+function currentSourceCounts() {
+  const foundations = readJson(FOUNDATIONS_META).foundations.map((name) => ({
+    name,
+    slug: slugify(name),
+  }));
+  const foundationCounts = Object.fromEntries(
+    foundations.map((foundation) => [
+      foundation.name,
+      countTokens(path.join(SOURCE_DIR, "foundations", `${foundation.slug}.tokens.json`)),
+    ]),
+  );
+  const decisionQueueCounts = {
+    aliasesToFoundations: countTokens(path.join(QUEUE_DIR, "aliases-to-foundations.tokens.json")),
+    docsOnlyCandidates: countTokens(path.join(QUEUE_DIR, "docs-only-candidates.tokens.json")),
+    primitiveSemanticCandidates: countTokens(path.join(QUEUE_DIR, "primitive-semantic-candidates.tokens.json")),
+    unclassified: countTokens(path.join(QUEUE_DIR, "unclassified.tokens.json")),
+    unresolved: countTokens(path.join(QUEUE_DIR, "unresolved.tokens.json")),
+  };
+  const primitiveCount = fs.existsSync(PRIMITIVE_DIR)
+    ? fs.readdirSync(PRIMITIVE_DIR)
+      .filter((file) => file.endsWith(".tokens.json"))
+      .reduce((total, file) => total + countTokens(path.join(PRIMITIVE_DIR, file)), 0)
+    : 0;
+  const docsCount = fs.existsSync(DOCS_DIR)
+    ? fs.readdirSync(DOCS_DIR)
+      .filter((file) => file.endsWith(".tokens.json"))
+      .reduce((total, file) => total + countTokens(path.join(DOCS_DIR, file)), 0)
+    : 0;
+
+  return {
+    sourcePath: "packages/tokens/source/**/*.tokens.json",
+    foundations: foundationCounts,
+    primitives: primitiveCount,
+    docs: docsCount,
+    decisionQueues: decisionQueueCounts,
+    total: Object.values(foundationCounts).reduce((total, count) => total + count, 0)
+      + primitiveCount
+      + docsCount
+      + Object.values(decisionQueueCounts).reduce((total, count) => total + count, 0),
+  };
 }
 
 function isDocsOnly(name) {
@@ -143,8 +194,11 @@ for (const file of QUEUES) {
 writeJson(path.join(QUEUE_DIR, "unresolved.tokens.json"), unresolved);
 
 const manifest = readJson(MANIFEST, {});
+const generatedAt = new Date().toISOString();
+manifest.generatedAt = generatedAt;
+manifest.counts = currentSourceCounts();
 manifest.lastOwnershipResolution = {
-  generatedAt: new Date().toISOString(),
+  generatedAt,
   moved,
   unresolvedTokens: Object.keys(unresolved).sort(),
 };
