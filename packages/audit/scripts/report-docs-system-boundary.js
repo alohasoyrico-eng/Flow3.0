@@ -4,11 +4,13 @@ const { fs, path, patternArtifacts: patternArtifactIds, root } = require("./audi
 const { packageCssClassRoots } = require("./class-root-governance.js");
 
 const checkMode = process.argv.includes("--check");
-const docsRoot = fs.existsSync(path.join(root, "../FlowDocs"))
-  ? path.join(root, "../FlowDocs")
-  : path.join(root, "apps/docs/../..");
-const docsPackageFile = path.join(docsRoot, "package.json");
-const docsAppDir = path.join(docsRoot, "apps/docs");
+const docsRootCandidates = [
+  path.join(root, "../FlowDocs"),
+  path.join(root, "apps/docs/../.."),
+];
+const docsRoot = docsRootCandidates.find((candidate) => fs.existsSync(path.join(candidate, "apps/docs")));
+const docsPackageFile = docsRoot ? path.join(docsRoot, "package.json") : "";
+const docsAppDir = docsRoot ? path.join(docsRoot, "apps/docs") : "";
 const docsBoundaryFile = path.join(root, "packages/content/content/docs-system-boundary.json");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "docs-system-boundary-audit.json");
@@ -392,6 +394,17 @@ function toMarkdown(report) {
 }
 
 function main() {
+  if (!docsRoot) {
+    console.log(JSON.stringify({
+      status: "skipped",
+      scope: "external-docs-not-available",
+      reason: "docs system boundary audit requires apps/docs or sibling FlowDocs/apps/docs.",
+      json: path.relative(root, jsonOutput),
+      markdown: path.relative(root, markdownOutput),
+    }, null, 2));
+    return;
+  }
+
   const report = createReport();
   const nextJson = `${JSON.stringify(report, null, 2)}\n`;
   const nextMarkdown = `${toMarkdown(report)}\n`;
