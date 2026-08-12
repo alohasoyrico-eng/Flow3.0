@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "flow-system-react-form-controls-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "form-controls-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "IconButton",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Checkbox",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "RadioButton",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Switch",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "TextArea",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "IconButton",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Checkbox",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "RadioButton",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Switch",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "TextArea",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "IconButton",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Checkbox",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "RadioButton",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Switch",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "TextArea",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "IconButton",
+      "sourceFile": "packages/react/src/IconButton.tsx",
+      "runtimeFile": "packages/react/src/IconButton.js",
+      "declarationFile": "packages/react/src/IconButton.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Checkbox",
+      "sourceFile": "packages/react/src/Checkbox.tsx",
+      "runtimeFile": "packages/react/src/Checkbox.js",
+      "declarationFile": "packages/react/src/Checkbox.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "RadioButton",
+      "sourceFile": "packages/react/src/RadioButton.tsx",
+      "runtimeFile": "packages/react/src/RadioButton.js",
+      "declarationFile": "packages/react/src/RadioButton.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Switch",
+      "sourceFile": "packages/react/src/Switch.tsx",
+      "runtimeFile": "packages/react/src/Switch.js",
+      "declarationFile": "packages/react/src/Switch.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "TextArea",
+      "sourceFile": "packages/react/src/TextArea.tsx",
+      "runtimeFile": "packages/react/src/TextArea.js",
+      "declarationFile": "packages/react/src/TextArea.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 5,
+    "runtimeFiles": 5,
+    "tsxSourceFiles": 5,
+    "declarationFiles": 5,
+    "staleRuntimeFiles": 0,
+    "reactFormControlComponentTypescriptSurfaceDebt": 0
+  }
+}

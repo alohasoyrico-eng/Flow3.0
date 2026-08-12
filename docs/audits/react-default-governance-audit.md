@@ -128,8 +128,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChatMessage | state-default | state | default | pass | pass | Yes | packages/react/src/ChatMessage.js:26 |
 | ChatMessage | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChatMessage.js:27 |
 | ChatThread | state-default | state | default | pass | pass | Yes | packages/react/src/ChatThread.js:24 |
-| Checkbox | variant-default | variant | default | pass | pass | Yes | packages/react/src/Checkbox.js:20 |
-| Checkbox | state-default | state | unchecked | pass | pass | Yes | packages/react/src/Checkbox.js:21 |
+| Checkbox | variant-default | variant | default | pass | pass | Yes | packages/react/src/Checkbox.tsx:53 |
+| Checkbox | state-default | state | unchecked | pass | pass | Yes | packages/react/src/Checkbox.tsx:54 |
 | Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.js:18 |
 | Chip | variant-default | variant | filter | pass | pass | Yes | packages/react/src/Chip.js:27 |
 | Chip | tone-default | tone | default | pass | pass | Yes | packages/react/src/Chip.js:28 |
@@ -149,8 +149,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ErrorPanel | state-default | state | error | pass | pass | Yes | packages/react/src/ErrorPanel.js:32 |
 | FloatingActionButton | variant-default | variant | primary | pass | pass | Yes | packages/react/src/FloatingActionButton.js:13 |
 | FloatingActionButton | state-default | state | default | pass | pass | Yes | packages/react/src/FloatingActionButton.js:14 |
-| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.js:7 |
-| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.js:15 |
+| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:32 |
+| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:40 |
 | InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.js:20 |
 | Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.tsx:126 |
 | Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.tsx:134 |
@@ -180,8 +180,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.js:35 |
 | QuickAction | state-default | state | default | pass | pass | Yes | packages/react/src/QuickAction.js:16 |
 | QuickAction | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/QuickAction.js:19 |
-| RadioButton | variant-default | variant | default | pass | pass | Yes | packages/react/src/RadioButton.js:19 |
-| RadioButton | state-default | state | unselected | pass | pass | Yes | packages/react/src/RadioButton.js:20 |
+| RadioButton | variant-default | variant | default | pass | pass | Yes | packages/react/src/RadioButton.tsx:50 |
+| RadioButton | state-default | state | unselected | pass | pass | Yes | packages/react/src/RadioButton.tsx:51 |
 | RouteSummary | variant-default | variant | standard | pass | pass | Yes | packages/react/src/RouteSummary.js:57 |
 | RouteSummary | state-default | state | default | pass | pass | Yes | packages/react/src/RouteSummary.js:58 |
 | RouteSummary | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/RouteSummary.js:60 |
@@ -196,7 +196,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | StationPin | variant-default | variant | fuel | pass | pass | Yes | packages/react/src/StationPin.js:15 |
 | StationPin | state-default | state | default | pass | pass | Yes | packages/react/src/StationPin.js:16 |
 | Stepper | orientation-default | orientation | horizontal | pass | pass | Yes | packages/react/src/Stepper.js:25 |
-| Switch | state-default | state | off | pass | pass | Yes | packages/react/src/Switch.js:17 |
+| Switch | state-default | state | off | pass | pass | Yes | packages/react/src/Switch.tsx:45 |
 | Table | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Table.js:36 |
 | Table | state-default | state | default | pass | pass | Yes | packages/react/src/Table.js:37 |
 | Table | sort-direction-default | sortDir | ascending | pass | pass | Yes | packages/react/src/Table.js:41 |
@@ -248,8 +248,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChatMessage | state-default | state | default | packages/react/src/ChatMessage.js:26 | `state = "default",` |
 | ChatMessage | tone-default | tone | neutral | packages/react/src/ChatMessage.js:27 | `tone = "neutral",` |
 | ChatThread | state-default | state | default | packages/react/src/ChatThread.js:24 | `state = "default",` |
-| Checkbox | variant-default | variant | default | packages/react/src/Checkbox.js:20 | `variant = "default",` |
-| Checkbox | state-default | state | unchecked | packages/react/src/Checkbox.js:21 | `state = "unchecked",` |
+| Checkbox | variant-default | variant | default | packages/react/src/Checkbox.tsx:53 | `variant = "default",` |
+| Checkbox | state-default | state | unchecked | packages/react/src/Checkbox.tsx:54 | `state = "unchecked",` |
 | Chip | state-default | state | default | packages/react/src/Chip.js:18 | `function normalizeState({ disabled = false, selected = false, state = "default" } = {}) {` |
 | Chip | variant-default | variant | filter | packages/react/src/Chip.js:27 | `variant = "filter",` |
 | Chip | tone-default | tone | default | packages/react/src/Chip.js:28 | `tone = "default",` |
@@ -269,8 +269,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ErrorPanel | state-default | state | error | packages/react/src/ErrorPanel.js:32 | `state = "error",` |
 | FloatingActionButton | variant-default | variant | primary | packages/react/src/FloatingActionButton.js:13 | `variant = "primary",` |
 | FloatingActionButton | state-default | state | default | packages/react/src/FloatingActionButton.js:14 | `state = "default",` |
-| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.js:7 | `function iconButtonClassName({ variant = "ghost", className = "" } = {}) {` |
-| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.js:15 | `variant = "ghost",` |
+| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:32 | `function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {` |
+| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:40 | `variant = "ghost",` |
 | InlineValidation | state-default | state | default | packages/react/src/InlineValidation.js:20 | `state = "default",` |
 | Input | variant-default | variant | text | packages/react/src/Input.tsx:126 | `variant = "text",` |
 | Input | align-default | align | start | packages/react/src/Input.tsx:134 | `align = "start",` |
@@ -300,8 +300,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.js:35 | `state = "active",` |
 | QuickAction | state-default | state | default | packages/react/src/QuickAction.js:16 | `state = "default",` |
 | QuickAction | tone-default | tone | neutral | packages/react/src/QuickAction.js:19 | `tone = "neutral",` |
-| RadioButton | variant-default | variant | default | packages/react/src/RadioButton.js:19 | `variant = "default",` |
-| RadioButton | state-default | state | unselected | packages/react/src/RadioButton.js:20 | `state = "unselected",` |
+| RadioButton | variant-default | variant | default | packages/react/src/RadioButton.tsx:50 | `variant = "default",` |
+| RadioButton | state-default | state | unselected | packages/react/src/RadioButton.tsx:51 | `state = "unselected",` |
 | RouteSummary | variant-default | variant | standard | packages/react/src/RouteSummary.js:57 | `variant = "standard",` |
 | RouteSummary | state-default | state | default | packages/react/src/RouteSummary.js:58 | `state = "default",` |
 | RouteSummary | tone-default | tone | neutral | packages/react/src/RouteSummary.js:60 | `tone = "neutral",` |
@@ -316,7 +316,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | StationPin | variant-default | variant | fuel | packages/react/src/StationPin.js:15 | `variant = "fuel",` |
 | StationPin | state-default | state | default | packages/react/src/StationPin.js:16 | `state = "default",` |
 | Stepper | orientation-default | orientation | horizontal | packages/react/src/Stepper.js:25 | `orientation = "horizontal",` |
-| Switch | state-default | state | off | packages/react/src/Switch.js:17 | `state = "off",` |
+| Switch | state-default | state | off | packages/react/src/Switch.tsx:45 | `state = "off",` |
 | Table | variant-default | variant | standard | packages/react/src/Table.js:36 | `variant = "standard",` |
 | Table | state-default | state | default | packages/react/src/Table.js:37 | `state = "default",` |
 | Table | sort-direction-default | sortDir | ascending | packages/react/src/Table.js:41 | `sortDir = "ascending",` |

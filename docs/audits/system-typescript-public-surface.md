@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 32
-- Source declarations paired with JS but not TS/TSX: 124
-- TypeScript surface debt: 404
-- Unique TypeScript surface debt: 264
+- Public JS runtime exports with TS/TSX source: 42
+- Source declarations paired with JS but not TS/TSX: 119
+- TypeScript surface debt: 399
+- Unique TypeScript surface debt: 259
 
 ## File Counts
 
-- By extension: {".js":591,".mjs":20,".ts":104,".d.ts":274,".tsx":9}
-- By area: {"script":254,"source":461,"test":8,"generated-dist":275}
+- By extension: {".js":592,".mjs":20,".ts":104,".d.ts":274,".tsx":14}
+- By area: {"script":255,"source":466,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -45,7 +45,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/ChatComposer.js | no |
 | package.json | packages/react/dist/ChatMessage.js | no |
 | package.json | packages/react/dist/ChatThread.js | no |
-| package.json | packages/react/dist/Checkbox.js | no |
+| package.json | packages/react/dist/Checkbox.js | yes |
 | package.json | packages/react/dist/Chip.js | no |
 | package.json | packages/react/dist/CodeInput.js | no |
 | package.json | packages/react/dist/Combobox.js | no |
@@ -57,7 +57,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/EmptyState.js | no |
 | package.json | packages/react/dist/ErrorPanel.js | no |
 | package.json | packages/react/dist/FloatingActionButton.js | no |
-| package.json | packages/react/dist/IconButton.js | no |
+| package.json | packages/react/dist/IconButton.js | yes |
 | package.json | packages/react/dist/InlineValidation.js | no |
 | package.json | packages/react/dist/Input.js | yes |
 | package.json | packages/react/dist/InputAmount.js | no |
@@ -124,7 +124,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/ChatComposer.d.ts | yes | no |
 | packages/react/src/ChatMessage.d.ts | yes | no |
 | packages/react/src/ChatThread.d.ts | yes | no |
-| packages/react/src/Checkbox.d.ts | yes | no |
 | packages/react/src/Chip.d.ts | yes | no |
 | packages/react/src/CodeInput.d.ts | yes | no |
 | packages/react/src/Combobox.d.ts | yes | no |
@@ -134,7 +133,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/EmptyState.d.ts | yes | no |
 | packages/react/src/ErrorPanel.d.ts | yes | no |
 | packages/react/src/FloatingActionButton.d.ts | yes | no |
-| packages/react/src/IconButton.d.ts | yes | no |
 | packages/react/src/InlineValidation.d.ts | yes | no |
 | packages/react/src/InputAmount.d.ts | yes | no |
 | packages/react/src/KpiTile.d.ts | yes | no |
@@ -145,7 +143,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/PhoneInput.d.ts | yes | no |
 | packages/react/src/ProgressIndicator.d.ts | yes | no |
 | packages/react/src/QuickAction.d.ts | yes | no |
-| packages/react/src/RadioButton.d.ts | yes | no |
 | packages/react/src/RouteSummary.d.ts | yes | no |
 | packages/react/src/SegmentedControl.d.ts | yes | no |
 | packages/react/src/Select.d.ts | yes | no |
@@ -154,10 +151,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/Spinner.d.ts | yes | no |
 | packages/react/src/StationPin.d.ts | yes | no |
 | packages/react/src/Stepper.d.ts | yes | no |
-| packages/react/src/Switch.d.ts | yes | no |
 | packages/react/src/Table.d.ts | yes | no |
 | packages/react/src/Tag.d.ts | yes | no |
-| packages/react/src/TextArea.d.ts | yes | no |
 | packages/react/src/Toast.d.ts | yes | no |
 | packages/react/src/Tooltip.d.ts | yes | no |
 | packages/react/src/TreeView.d.ts | yes | no |
@@ -189,6 +184,11 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/EmailTemplateLayout.d.ts | yes | no |
 | packages/react/src/patterns/ExpandableDetailTable.d.ts | yes | no |
 | packages/react/src/patterns/FileUpload.d.ts | yes | no |
+| packages/react/src/patterns/FilterChipGroup.d.ts | yes | no |
+| packages/react/src/patterns/FilterableEditableTable.d.ts | yes | no |
+| packages/react/src/patterns/FleetManagerOnboardingDesktop.d.ts | yes | no |
+| packages/react/src/patterns/FormSection.d.ts | yes | no |
+| packages/react/src/patterns/FullscreenSheet.d.ts | yes | no |
 
 ## Interpretation
 

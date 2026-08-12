@@ -88,7 +88,12 @@ function main() {
         && include.includes("packages/react/src/Dialog.tsx")
         && include.includes("packages/react/src/Drawer.tsx")
         && include.includes("packages/react/src/Menu.tsx")
-        && include.includes("packages/react/src/Popover.tsx"),
+        && include.includes("packages/react/src/Popover.tsx")
+        && include.includes("packages/react/src/IconButton.tsx")
+        && include.includes("packages/react/src/Checkbox.tsx")
+        && include.includes("packages/react/src/RadioButton.tsx")
+        && include.includes("packages/react/src/Switch.tsx")
+        && include.includes("packages/react/src/TextArea.tsx"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

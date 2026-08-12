@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 90
-- Category mappings: 80
+- Reports scanned: 91
+- Category mappings: 81
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 90
-- Debt metrics: 106
+- Reports with debt metrics: 91
+- Debt metrics: 107
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -44,7 +44,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 29 | 1 | 0 | 30 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 14 | 1 | 0 | 26 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
-| react-primary | React must be the primary implementation with real contracts. | 24 | 10 | 0 | 26 | 0 |
+| react-primary | React must be the primary implementation with real contracts. | 25 | 10 | 0 | 27 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 
 ## Non-Pass Reports
@@ -163,6 +163,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-component-registry-typescript-surface.json | react-primary | pass | componentRegistryTypescriptSurfaceDebt: 0 |
 | system-phase1-style-dictionary-checkpoint.json | foundations-primitives | pass | phase1Debt: 0 |
 | system-react-base-components-typescript-surface.json | react-primary | pass | reactBaseComponentTypescriptSurfaceDebt: 0 |
+| system-react-form-controls-typescript-surface.json | react-primary | pass | reactFormControlComponentTypescriptSurfaceDebt: 0 |
 | system-react-internal-props-typescript-surface.json | react-primary | pass | reactInternalPropsTypescriptSurfaceDebt: 0 |
 | system-react-overlay-components-typescript-surface.json | react-primary | pass | reactOverlayComponentTypescriptSurfaceDebt: 0 |
 | system-token-ownership-matrix.json | foundations-primitives | pass | ownershipDebt: 0 |

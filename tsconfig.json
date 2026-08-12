@@ -37,7 +37,12 @@
     "packages/react/src/Dialog.tsx",
     "packages/react/src/Drawer.tsx",
     "packages/react/src/Menu.tsx",
-    "packages/react/src/Popover.tsx"
+    "packages/react/src/Popover.tsx",
+    "packages/react/src/IconButton.tsx",
+    "packages/react/src/Checkbox.tsx",
+    "packages/react/src/RadioButton.tsx",
+    "packages/react/src/Switch.tsx",
+    "packages/react/src/TextArea.tsx"
   ],
   "exclude": [
     "node_modules",
