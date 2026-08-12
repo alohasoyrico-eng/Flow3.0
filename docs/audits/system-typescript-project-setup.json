@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T23:04:10.453Z",
+  "generatedAt": "2026-08-12T23:12:38.549Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -83,7 +83,11 @@
           "packages/react/src/EmptyState.tsx",
           "packages/react/src/ErrorPanel.tsx",
           "packages/react/src/InlineValidation.tsx",
-          "packages/react/src/Toast.tsx"
+          "packages/react/src/Toast.tsx",
+          "packages/react/src/Accordion.tsx",
+          "packages/react/src/TreeView.tsx",
+          "packages/react/src/List.tsx",
+          "packages/react/src/Stepper.tsx"
         ]
       },
       "failMessage": null
@@ -176,7 +180,11 @@
       "packages/react/src/EmptyState.tsx",
       "packages/react/src/ErrorPanel.tsx",
       "packages/react/src/InlineValidation.tsx",
-      "packages/react/src/Toast.tsx"
+      "packages/react/src/Toast.tsx",
+      "packages/react/src/Accordion.tsx",
+      "packages/react/src/TreeView.tsx",
+      "packages/react/src/List.tsx",
+      "packages/react/src/Stepper.tsx"
     ],
     "exclude": [
       "node_modules",

@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 94
-- Source declarations paired with JS but not TS/TSX: 93
-- TypeScript surface debt: 373
-- Unique TypeScript surface debt: 233
+- Public JS runtime exports with TS/TSX source: 102
+- Source declarations paired with JS but not TS/TSX: 89
+- TypeScript surface debt: 369
+- Unique TypeScript surface debt: 229
 
 ## File Counts
 
-- By extension: {".js":599,".mjs":20,".ts":104,".d.ts":274,".tsx":40}
-- By area: {"script":262,"source":492,"test":8,"generated-dist":275}
+- By extension: {".js":600,".mjs":20,".ts":104,".d.ts":274,".tsx":44}
+- By area: {"script":263,"source":496,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -28,7 +28,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/components/src/contracts.js | yes |
 | package.json | packages/components/src/platforms/index.js | yes |
 | package.json | packages/react/dist/index.js | no |
-| package.json | packages/react/dist/Accordion.js | no |
+| package.json | packages/react/dist/Accordion.js | yes |
 | package.json | packages/react/dist/AnimatedMoment.js | no |
 | package.json | packages/react/dist/AuditEvent.js | no |
 | package.json | packages/react/dist/Avatar.js | yes |
@@ -62,7 +62,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/Input.js | yes |
 | package.json | packages/react/dist/InputAmount.js | no |
 | package.json | packages/react/dist/KpiTile.js | no |
-| package.json | packages/react/dist/List.js | no |
+| package.json | packages/react/dist/List.js | yes |
 | package.json | packages/react/dist/Menu.js | yes |
 | package.json | packages/react/dist/MotionBoundary.js | no |
 | package.json | packages/react/dist/MovementRow.js | no |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/Accordion.d.ts | yes | no |
 | packages/react/src/AnimatedMoment.d.ts | yes | no |
 | packages/react/src/AuditEvent.d.ts | yes | no |
 | packages/react/src/BiometricPrompt.d.ts | yes | no |
@@ -120,16 +119,13 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/FloatingActionButton.d.ts | yes | no |
 | packages/react/src/InputAmount.d.ts | yes | no |
 | packages/react/src/KpiTile.d.ts | yes | no |
-| packages/react/src/List.d.ts | yes | no |
 | packages/react/src/MotionBoundary.d.ts | yes | no |
 | packages/react/src/MovementRow.d.ts | yes | no |
 | packages/react/src/PhoneInput.d.ts | yes | no |
 | packages/react/src/QuickAction.d.ts | yes | no |
 | packages/react/src/RouteSummary.d.ts | yes | no |
 | packages/react/src/StationPin.d.ts | yes | no |
-| packages/react/src/Stepper.d.ts | yes | no |
 | packages/react/src/Tooltip.d.ts | yes | no |
-| packages/react/src/TreeView.d.ts | yes | no |
 | packages/react/src/index.d.ts | yes | no |
 | packages/react/src/patterns/AccountOperations.d.ts | yes | no |
 | packages/react/src/patterns/ActionSheet.d.ts | yes | no |
@@ -189,6 +185,10 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/Timeline.d.ts | yes | no |
 | packages/react/src/patterns/Toolbar.d.ts | yes | no |
 | packages/react/src/patterns/TransferList.d.ts | yes | no |
+| packages/react/src/patterns/VirtualDataTable.d.ts | yes | no |
+| packages/react/src/patterns/WaterfallChart.d.ts | yes | no |
+| packages/react/src/patterns/index.d.ts | yes | no |
+| packages/react/src/templates/AgentWorkspace.d.ts | yes | no |
 
 ## Interpretation
 

@@ -158,8 +158,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | KpiTile | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/KpiTile.js:27 |
 | KpiTile | variant-default | variant | standard | pass | pass | Yes | packages/react/src/KpiTile.js:29 |
 | KpiTile | state-default | state | default | pass | pass | Yes | packages/react/src/KpiTile.js:30 |
-| List | variant-default | variant | standard | pass | pass | Yes | packages/react/src/List.js:13 |
-| List | state-default | state | default | pass | pass | Yes | packages/react/src/List.js:14 |
+| List | variant-default | variant | standard | pass | pass | Yes | packages/react/src/List.tsx:55 |
+| List | state-default | state | default | pass | pass | Yes | packages/react/src/List.tsx:56 |
 | Menu | variant-default | variant | actions | pass | pass | Yes | packages/react/src/Menu.tsx:80 |
 | Menu | avatar-status-default | avatarStatus | none | pass | pass | Yes | packages/react/src/Menu.tsx:82 |
 | Menu | state-default | state | default | pass | pass | Yes | packages/react/src/Menu.tsx:84 |
@@ -195,7 +195,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Spinner | state-default | state | loading | pass | pass | Yes | packages/react/src/Spinner.tsx:39 |
 | StationPin | variant-default | variant | fuel | pass | pass | Yes | packages/react/src/StationPin.js:15 |
 | StationPin | state-default | state | default | pass | pass | Yes | packages/react/src/StationPin.js:16 |
-| Stepper | orientation-default | orientation | horizontal | pass | pass | Yes | packages/react/src/Stepper.js:25 |
+| Stepper | orientation-default | orientation | horizontal | pass | pass | Yes | packages/react/src/Stepper.tsx:54 |
 | Switch | state-default | state | off | pass | pass | Yes | packages/react/src/Switch.tsx:45 |
 | Table | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Table.tsx:140 |
 | Table | state-default | state | default | pass | pass | Yes | packages/react/src/Table.tsx:141 |
@@ -211,7 +211,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Tooltip | placement-default | placement | top | pass | pass | Yes | packages/react/src/Tooltip.js:18 |
 | Tooltip | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tooltip.js:19 |
 | Tooltip | state-default | state | default | pass | pass | Yes | packages/react/src/Tooltip.js:21 |
-| TreeView | state-default | state | expanded | pass | pass | Yes | packages/react/src/TreeView.js:41 |
+| TreeView | state-default | state | expanded | pass | pass | Yes | packages/react/src/TreeView.tsx:93 |
 
 ## Visible Semantic Default Decisions
 
@@ -278,8 +278,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | KpiTile | tone-default | tone | neutral | packages/react/src/KpiTile.js:27 | `tone = "neutral",` |
 | KpiTile | variant-default | variant | standard | packages/react/src/KpiTile.js:29 | `variant = "standard",` |
 | KpiTile | state-default | state | default | packages/react/src/KpiTile.js:30 | `state = "default",` |
-| List | variant-default | variant | standard | packages/react/src/List.js:13 | `variant = "standard",` |
-| List | state-default | state | default | packages/react/src/List.js:14 | `state = "default",` |
+| List | variant-default | variant | standard | packages/react/src/List.tsx:55 | `variant = "standard",` |
+| List | state-default | state | default | packages/react/src/List.tsx:56 | `state = "default",` |
 | Menu | variant-default | variant | actions | packages/react/src/Menu.tsx:80 | `variant = "actions",` |
 | Menu | avatar-status-default | avatarStatus | none | packages/react/src/Menu.tsx:82 | `avatarStatus = "none",` |
 | Menu | state-default | state | default | packages/react/src/Menu.tsx:84 | `state = "default",` |
@@ -315,7 +315,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Spinner | state-default | state | loading | packages/react/src/Spinner.tsx:39 | `state = "loading",` |
 | StationPin | variant-default | variant | fuel | packages/react/src/StationPin.js:15 | `variant = "fuel",` |
 | StationPin | state-default | state | default | packages/react/src/StationPin.js:16 | `state = "default",` |
-| Stepper | orientation-default | orientation | horizontal | packages/react/src/Stepper.js:25 | `orientation = "horizontal",` |
+| Stepper | orientation-default | orientation | horizontal | packages/react/src/Stepper.tsx:54 | `orientation = "horizontal",` |
 | Switch | state-default | state | off | packages/react/src/Switch.tsx:45 | `state = "off",` |
 | Table | variant-default | variant | standard | packages/react/src/Table.tsx:140 | `variant = "standard",` |
 | Table | state-default | state | default | packages/react/src/Table.tsx:141 | `state = "default",` |
@@ -331,5 +331,5 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Tooltip | placement-default | placement | top | packages/react/src/Tooltip.js:18 | `placement = "top",` |
 | Tooltip | variant-default | variant | default | packages/react/src/Tooltip.js:19 | `variant = "default",` |
 | Tooltip | state-default | state | default | packages/react/src/Tooltip.js:21 | `state = "default",` |
-| TreeView | state-default | state | expanded | packages/react/src/TreeView.js:41 | `state = "expanded",` |
+| TreeView | state-default | state | expanded | packages/react/src/TreeView.tsx:93 | `state = "expanded",` |
 

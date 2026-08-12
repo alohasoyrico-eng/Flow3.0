@@ -673,6 +673,7 @@
     "audit:react-date-inputs-typescript": "node packages/audit/scripts/report-system-react-date-inputs-typescript-surface.js",
     "audit:react-chat-components-typescript": "node packages/audit/scripts/report-system-react-chat-components-typescript-surface.js",
     "audit:react-feedback-components-typescript": "node packages/audit/scripts/report-system-react-feedback-components-typescript-surface.js",
+    "audit:react-navigation-structure-typescript": "node packages/audit/scripts/report-system-react-navigation-structure-typescript-surface.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },

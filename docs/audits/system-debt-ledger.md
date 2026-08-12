@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 98
-- Category mappings: 88
+- Reports scanned: 99
+- Category mappings: 89
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 98
-- Debt metrics: 114
+- Reports with debt metrics: 99
+- Debt metrics: 115
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -44,7 +44,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 29 | 1 | 0 | 30 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 14 | 1 | 0 | 26 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
-| react-primary | React must be the primary implementation with real contracts. | 32 | 10 | 0 | 34 | 0 |
+| react-primary | React must be the primary implementation with real contracts. | 33 | 10 | 0 | 35 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 
 ## Non-Pass Reports
@@ -171,6 +171,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-react-internal-props-typescript-surface.json | react-primary | pass | reactInternalPropsTypescriptSurfaceDebt: 0 |
 | system-react-leaf-components-typescript-surface.json | react-primary | pass | reactLeafComponentTypescriptSurfaceDebt: 0 |
 | system-react-navigation-controls-typescript-surface.json | react-primary | pass | reactNavigationControlTypescriptSurfaceDebt: 0 |
+| system-react-navigation-structure-typescript-surface.json | react-primary | pass | reactNavigationStructureTypescriptSurfaceDebt: 0 |
 | system-react-overlay-components-typescript-surface.json | react-primary | pass | reactOverlayComponentTypescriptSurfaceDebt: 0 |
 | system-react-payment-inputs-typescript-surface.json | react-primary | pass | reactPaymentInputsTypescriptSurfaceDebt: 0 |
 | system-token-ownership-matrix.json | foundations-primitives | pass | ownershipDebt: 0 |

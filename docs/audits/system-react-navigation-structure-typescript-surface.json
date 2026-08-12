@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "flow-system-react-navigation-structure-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "navigation-structure-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Accordion",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "TreeView",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "List",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Stepper",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Accordion",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "TreeView",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "List",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Stepper",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Accordion",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "TreeView",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "List",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Stepper",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "Accordion",
+      "sourceFile": "packages/react/src/Accordion.tsx",
+      "runtimeFile": "packages/react/src/Accordion.js",
+      "declarationFile": "packages/react/src/Accordion.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "TreeView",
+      "sourceFile": "packages/react/src/TreeView.tsx",
+      "runtimeFile": "packages/react/src/TreeView.js",
+      "declarationFile": "packages/react/src/TreeView.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "List",
+      "sourceFile": "packages/react/src/List.tsx",
+      "runtimeFile": "packages/react/src/List.js",
+      "declarationFile": "packages/react/src/List.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Stepper",
+      "sourceFile": "packages/react/src/Stepper.tsx",
+      "runtimeFile": "packages/react/src/Stepper.js",
+      "declarationFile": "packages/react/src/Stepper.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 4,
+    "runtimeFiles": 4,
+    "tsxSourceFiles": 4,
+    "declarationFiles": 4,
+    "staleRuntimeFiles": 0,
+    "reactNavigationStructureTypescriptSurfaceDebt": 0
+  }
+}

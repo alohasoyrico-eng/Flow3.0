@@ -68,7 +68,11 @@
     "packages/react/src/EmptyState.tsx",
     "packages/react/src/ErrorPanel.tsx",
     "packages/react/src/InlineValidation.tsx",
-    "packages/react/src/Toast.tsx"
+    "packages/react/src/Toast.tsx",
+    "packages/react/src/Accordion.tsx",
+    "packages/react/src/TreeView.tsx",
+    "packages/react/src/List.tsx",
+    "packages/react/src/Stepper.tsx"
   ],
   "exclude": [
     "node_modules",

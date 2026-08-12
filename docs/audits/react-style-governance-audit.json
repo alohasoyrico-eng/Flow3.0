@@ -69,7 +69,7 @@
   "components": [
     {
       "component": "Accordion",
-      "file": "packages/react/src/Accordion.js",
+      "file": "packages/react/src/Accordion.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -421,7 +421,7 @@
     },
     {
       "component": "List",
-      "file": "packages/react/src/List.js",
+      "file": "packages/react/src/List.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -609,7 +609,7 @@
     },
     {
       "component": "Stepper",
-      "file": "packages/react/src/Stepper.js",
+      "file": "packages/react/src/Stepper.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -701,7 +701,7 @@
     },
     {
       "component": "TreeView",
-      "file": "packages/react/src/TreeView.js",
+      "file": "packages/react/src/TreeView.tsx",
       "allowedInlineStyleKeys": [
         "--comp-tree-view-level"
       ],
