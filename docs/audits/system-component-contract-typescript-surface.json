@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "flow-system-component-contract-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "publicContractExport": "./src/contracts.js",
+  "gates": [
+    {
+      "id": "public-contract-export-remains-runtime-js",
+      "status": "PASS",
+      "evidence": {
+        "export": "./src/contracts.js"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "typescript-source-exists",
+      "status": "PASS",
+      "evidence": {
+        "file": "packages/components/src/contracts.ts",
+        "exists": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "typescript-source-has-contract-types",
+      "status": "PASS",
+      "evidence": {
+        "file": "packages/components/src/contracts.ts"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-typescript",
+      "status": "PASS",
+      "evidence": {
+        "source": "packages/components/src/contracts.ts",
+        "runtime": "packages/components/src/contracts.js",
+        "compileStatus": 0,
+        "stderr": ""
+      },
+      "failMessage": null
+    }
+  ],
+  "inventory": {
+    "componentContractTypescriptSurfaceDebt": 0
+  }
+}

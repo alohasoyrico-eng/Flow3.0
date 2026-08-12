@@ -11,6 +11,6 @@ TypeScript project setup debt: 0
 | `tsconfig-exists` | PASS | `{"file":"tsconfig.json","exists":true}` |
 | `typecheck-script-owned` | PASS | `{"typecheckScript":"tsc --noEmit --project tsconfig.json"}` |
 | `strict-no-emit-configuration` | PASS | `{"strict":true,"noEmit":true,"allowJs":false}` |
-| `typed-source-included` | PASS | `{"include":["packages/tokens/src/**/*.ts","packages/tokens/src/**/*.tsx"]}` |
+| `typed-source-included` | PASS | `{"include":["packages/tokens/src/**/*.ts","packages/tokens/src/**/*.tsx","packages/components/src/contracts.ts"]}` |
 | `tsc-no-emit-passes` | PASS | `{"status":0,"stdout":"","stderr":""}` |
 

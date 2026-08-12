@@ -22,7 +22,8 @@
   },
   "include": [
     "packages/tokens/src/**/*.ts",
-    "packages/tokens/src/**/*.tsx"
+    "packages/tokens/src/**/*.tsx",
+    "packages/components/src/contracts.ts"
   ],
   "exclude": [
     "node_modules",

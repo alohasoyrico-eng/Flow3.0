@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T20:02:08.292Z",
+  "generatedAt": "2026-08-12T20:18:30.521Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -37,7 +37,8 @@
       "evidence": {
         "include": [
           "packages/tokens/src/**/*.ts",
-          "packages/tokens/src/**/*.tsx"
+          "packages/tokens/src/**/*.tsx",
+          "packages/components/src/contracts.ts"
         ]
       },
       "failMessage": null
@@ -84,7 +85,8 @@
     },
     "include": [
       "packages/tokens/src/**/*.ts",
-      "packages/tokens/src/**/*.tsx"
+      "packages/tokens/src/**/*.tsx",
+      "packages/components/src/contracts.ts"
     ],
     "exclude": [
       "node_modules",

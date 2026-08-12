@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 82,
-    "categoryMappings": 72,
+    "reports": 83,
+    "categoryMappings": 73,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 82,
-    "debtMetrics": 98,
+    "reportsWithDebtMetrics": 83,
+    "debtMetrics": 99,
     "categories": 8,
     "categoryMinimums": 8,
     "categoryPrinciples": 8,
@@ -103,10 +103,10 @@
     {
       "category": "react-primary",
       "principle": "React must be the primary implementation with real contracts.",
-      "reports": 16,
+      "reports": 17,
       "minimumReports": 10,
       "coverageGap": 0,
-      "debtMetrics": 18,
+      "debtMetrics": 19,
       "totalDebt": 0
     },
     {
@@ -1172,6 +1172,20 @@
           "report": "react-template-visual-governance-audit.json",
           "scope": "topLevel",
           "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-component-contract-typescript-surface.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-component-contract-typescript-surface.json",
+          "scope": "inventory",
+          "metric": "componentContractTypescriptSurfaceDebt",
           "value": 0,
           "numericValue": 0
         }

@@ -634,6 +634,7 @@
   ],
   "scripts": {
     "build:tokens": "node scripts/build-tokens.mjs",
+    "build:components:contracts": "node scripts/build-components-contracts.mjs",
     "build:pattern-contracts": "node scripts/generate-pattern-contracts.mjs",
     "build:react": "npm run build --workspace @design-system/react",
     "test:react": "npm run test --workspace @design-system/react",
@@ -651,6 +652,7 @@
     "typecheck": "tsc --noEmit --project tsconfig.json",
     "audit:typescript-setup": "node packages/audit/scripts/report-system-typescript-project-setup.js",
     "audit:tokens-typescript": "node packages/audit/scripts/report-system-token-typescript-surface.js",
+    "audit:components-contracts-typescript": "node packages/audit/scripts/report-system-component-contract-typescript-surface.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },

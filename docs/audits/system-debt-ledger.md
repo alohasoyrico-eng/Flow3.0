@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 82
-- Category mappings: 72
+- Reports scanned: 83
+- Category mappings: 73
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 82
-- Debt metrics: 98
+- Reports with debt metrics: 83
+- Debt metrics: 99
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -44,7 +44,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 29 | 1 | 0 | 30 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 14 | 1 | 0 | 26 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
-| react-primary | React must be the primary implementation with real contracts. | 16 | 10 | 0 | 18 | 0 |
+| react-primary | React must be the primary implementation with real contracts. | 17 | 10 | 0 | 19 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 
 ## Non-Pass Reports
@@ -156,6 +156,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | react-template-interaction-governance-audit.json | react-primary | pass | reactTemplateInteractionGovernanceDebt: 0 |
 | react-template-runtime-governance-audit.json | react-primary | pass | reactTemplateRuntimeGovernanceDebt: 0<br>gapsDebt: 0 |
 | react-template-visual-governance-audit.json | react-primary | pass | reactTemplateVisualGovernanceDebt: 0<br>gapsDebt: 0 |
+| system-component-contract-typescript-surface.json | react-primary | pass | componentContractTypescriptSurfaceDebt: 0 |
 | system-phase1-style-dictionary-checkpoint.json | foundations-primitives | pass | phase1Debt: 0 |
 | system-token-ownership-matrix.json | foundations-primitives | pass | ownershipDebt: 0 |
 | system-token-typescript-surface.json | react-primary | pass | tokenTypescriptSurfaceDebt: 0 |

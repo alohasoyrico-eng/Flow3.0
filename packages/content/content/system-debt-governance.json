@@ -61,6 +61,7 @@
     "family-css-contract-maturity.json": "cascade",
     "foundation-frame-cascade-audit.json": "cascade",
     "foundation-primitive-export-contract-audit.json": "foundations-primitives",
+    "system-component-contract-typescript-surface.json": "react-primary",
     "system-phase1-style-dictionary-checkpoint.json": "foundations-primitives",
     "system-token-ownership-matrix.json": "foundations-primitives",
     "legacy-dom-source-governance-audit.json": "react-primary",
