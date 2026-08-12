@@ -6483,13 +6483,13 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 579,
+        ".js": 580,
         ".mjs": 20,
         ".d.ts": 274,
         ".ts": 30
       },
       "byArea": {
-        "script": 242,
+        "script": 243,
         "source": 378,
         "test": 8,
         "generated-dist": 275

@@ -1,0 +1,440 @@
+{
+  "generatedAt": "2026-08-12T19:50:39.313Z",
+  "scope": "Token ownership matrix for Style Dictionary phase 1",
+  "status": "pass",
+  "ownershipDebt": 0,
+  "totals": {
+    "sourceFiles": 36,
+    "sourceTokens": 1131,
+    "requiredSourceFamilies": 30,
+    "requiredOutputs": 7,
+    "matchingOutputs": 7
+  },
+  "gates": [
+    {
+      "id": "required-source-families-owned",
+      "status": "PASS",
+      "evidence": {
+        "missingRequiredSources": []
+      },
+      "failMessage": null
+    },
+    {
+      "id": "no-legacy-flat-source",
+      "status": "PASS",
+      "evidence": {
+        "file": "packages/tokens/source/flow.tokens.json",
+        "exists": false
+      },
+      "failMessage": null
+    },
+    {
+      "id": "no-unowned-token-source-files",
+      "status": "PASS",
+      "evidence": {
+        "unownedSourceFiles": []
+      },
+      "failMessage": null
+    },
+    {
+      "id": "source-manifest-current",
+      "status": "PASS",
+      "evidence": {
+        "manifestTotal": 1131,
+        "currentTotal": 1131
+      },
+      "failMessage": null
+    },
+    {
+      "id": "style-dictionary-build-script-owned",
+      "status": "PASS",
+      "evidence": {
+        "buildScript": "node scripts/build-tokens.mjs"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "output-manifest-present",
+      "status": "PASS",
+      "evidence": {
+        "file": "packages/tokens/dist/token-output-manifest.json",
+        "exists": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "required-outputs-match-manifest",
+      "status": "PASS",
+      "evidence": {
+        "failingOutputs": []
+      },
+      "failMessage": null
+    },
+    {
+      "id": "tokens-package-exports-outputs",
+      "status": "PASS",
+      "evidence": {
+        "missingExports": [],
+        "exports": [
+          "./tokens.json",
+          "./styles.css",
+          "./flutter",
+          "./android",
+          "./ios"
+        ]
+      },
+      "failMessage": null
+    }
+  ],
+  "sourceOwnership": [
+    {
+      "layer": "foundation",
+      "family": "accessibility",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/accessibility.tokens.json",
+      "exists": true,
+      "tokenCount": 26,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "depth",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/depth.tokens.json",
+      "exists": true,
+      "tokenCount": 37,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "energy",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/energy.tokens.json",
+      "exists": true,
+      "tokenCount": 108,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "frame",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/frame.tokens.json",
+      "exists": true,
+      "tokenCount": 262,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "growth",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/growth.tokens.json",
+      "exists": true,
+      "tokenCount": 9,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "iconography",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/iconography.tokens.json",
+      "exists": true,
+      "tokenCount": 24,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "momentum",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/momentum.tokens.json",
+      "exists": true,
+      "tokenCount": 88,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "state",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/state.tokens.json",
+      "exists": true,
+      "tokenCount": 31,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "symbol",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/symbol.tokens.json",
+      "exists": true,
+      "tokenCount": 38,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "tone",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/tone.tokens.json",
+      "exists": true,
+      "tokenCount": 13,
+      "status": "PASS"
+    },
+    {
+      "layer": "foundation",
+      "family": "voice",
+      "owner": "Flow foundation token source",
+      "file": "packages/tokens/source/foundations/voice.tokens.json",
+      "exists": true,
+      "tokenCount": 160,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "breakpoints",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/breakpoints.tokens.json",
+      "exists": true,
+      "tokenCount": 5,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "charts",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/charts.tokens.json",
+      "exists": true,
+      "tokenCount": 19,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "color",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/color.tokens.json",
+      "exists": true,
+      "tokenCount": 15,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "density",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/density.tokens.json",
+      "exists": true,
+      "tokenCount": 24,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "disabled",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/disabled.tokens.json",
+      "exists": true,
+      "tokenCount": 8,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "duration",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/duration.tokens.json",
+      "exists": true,
+      "tokenCount": 17,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "elevation",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/elevation.tokens.json",
+      "exists": true,
+      "tokenCount": 13,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "email-channel",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/email-channel.tokens.json",
+      "exists": true,
+      "tokenCount": 53,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "focus",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/focus.tokens.json",
+      "exists": true,
+      "tokenCount": 8,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "iconography",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/iconography.tokens.json",
+      "exists": true,
+      "tokenCount": 24,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "loading",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/loading.tokens.json",
+      "exists": true,
+      "tokenCount": 14,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "maps",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/maps.tokens.json",
+      "exists": true,
+      "tokenCount": 18,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "measurement",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/measurement.tokens.json",
+      "exists": true,
+      "tokenCount": 10,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "message",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/message.tokens.json",
+      "exists": true,
+      "tokenCount": 16,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "motion-curves",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/motion-curves.tokens.json",
+      "exists": true,
+      "tokenCount": 6,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "radius",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/radius.tokens.json",
+      "exists": true,
+      "tokenCount": 11,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "research",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/research.tokens.json",
+      "exists": true,
+      "tokenCount": 11,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "spacing",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/spacing.tokens.json",
+      "exists": true,
+      "tokenCount": 36,
+      "status": "PASS"
+    },
+    {
+      "layer": "primitive",
+      "family": "typography",
+      "owner": "Flow primitive token source",
+      "file": "packages/tokens/source/primitives/typography.tokens.json",
+      "exists": true,
+      "tokenCount": 7,
+      "status": "PASS"
+    }
+  ],
+  "outputOwnership": [
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "owner": "Style Dictionary build output",
+      "source": "packages/tokens/source/**/*.tokens.json",
+      "exists": true,
+      "manifestSha": "c504ed96b96c4fa8580ce892d7d4d924554aa12ba78a1ccefd2cac14fb893887",
+      "actualSha": "c504ed96b96c4fa8580ce892d7d4d924554aa12ba78a1ccefd2cac14fb893887",
+      "matchesManifest": true,
+      "hasGeneratedHeader": true,
+      "status": "PASS"
+    },
+    {
+      "file": "packages/tokens/tokens.json",
+      "owner": "Style Dictionary build output",
+      "source": "packages/tokens/source/**/*.tokens.json",
+      "exists": true,
+      "manifestSha": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042",
+      "actualSha": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042",
+      "matchesManifest": true,
+      "hasGeneratedHeader": true,
+      "status": "PASS"
+    },
+    {
+      "file": "packages/tokens/src/generated/tokens.ts",
+      "owner": "Style Dictionary build output",
+      "source": "packages/tokens/source/**/*.tokens.json",
+      "exists": true,
+      "manifestSha": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f",
+      "actualSha": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f",
+      "matchesManifest": true,
+      "hasGeneratedHeader": true,
+      "status": "PASS"
+    },
+    {
+      "file": "packages/tokens/dist/flutter/flow_tokens.dart",
+      "owner": "Style Dictionary build output",
+      "source": "packages/tokens/source/**/*.tokens.json",
+      "exists": true,
+      "manifestSha": "8db882019ea6ca79fb5dc1387d9a8a0dbc8778e3c085e1e782b9b52be1486802",
+      "actualSha": "8db882019ea6ca79fb5dc1387d9a8a0dbc8778e3c085e1e782b9b52be1486802",
+      "matchesManifest": true,
+      "hasGeneratedHeader": true,
+      "status": "PASS"
+    },
+    {
+      "file": "packages/tokens/dist/android/flow_tokens.xml",
+      "owner": "Style Dictionary build output",
+      "source": "packages/tokens/source/**/*.tokens.json",
+      "exists": true,
+      "manifestSha": "e2ef3a1643e99cb7e4377ff0b72f46d8cc262f06ba144a370fc6fab2eb32b4e8",
+      "actualSha": "e2ef3a1643e99cb7e4377ff0b72f46d8cc262f06ba144a370fc6fab2eb32b4e8",
+      "matchesManifest": true,
+      "hasGeneratedHeader": true,
+      "status": "PASS"
+    },
+    {
+      "file": "packages/tokens/dist/ios/FlowTokens.swift",
+      "owner": "Style Dictionary build output",
+      "source": "packages/tokens/source/**/*.tokens.json",
+      "exists": true,
+      "manifestSha": "83229bb170c0498fd9b3e221b7f71adfaad94c05826de81769a5fb2fd7275e1f",
+      "actualSha": "83229bb170c0498fd9b3e221b7f71adfaad94c05826de81769a5fb2fd7275e1f",
+      "matchesManifest": true,
+      "hasGeneratedHeader": true,
+      "status": "PASS"
+    },
+    {
+      "file": "packages/react/src/internal/email-token-values.js",
+      "owner": "Style Dictionary build output",
+      "source": "packages/tokens/source/**/*.tokens.json",
+      "exists": true,
+      "manifestSha": "7ec4ac4621d6494e3dfe56df1a8a50f2c0f55de723c501b4b51ce15e146d0e31",
+      "actualSha": "7ec4ac4621d6494e3dfe56df1a8a50f2c0f55de723c501b4b51ce15e146d0e31",
+      "matchesManifest": true,
+      "hasGeneratedHeader": true,
+      "status": "PASS"
+    }
+  ]
+}

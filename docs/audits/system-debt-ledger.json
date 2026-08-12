@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 78,
-    "categoryMappings": 68,
+    "reports": 79,
+    "categoryMappings": 69,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 78,
-    "debtMetrics": 94,
+    "reportsWithDebtMetrics": 79,
+    "debtMetrics": 95,
     "categories": 8,
     "categoryMinimums": 8,
     "categoryPrinciples": 8,
@@ -76,10 +76,10 @@
     {
       "category": "foundations-primitives",
       "principle": "Foundations and primitives must be exportable beyond CSS.",
-      "reports": 27,
+      "reports": 28,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 28,
+      "debtMetrics": 29,
       "totalDebt": 0
     },
     {
@@ -1172,6 +1172,20 @@
           "report": "react-template-visual-governance-audit.json",
           "scope": "topLevel",
           "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-token-ownership-matrix.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-token-ownership-matrix.json",
+          "scope": "topLevel",
+          "metric": "ownershipDebt",
           "value": 0,
           "numericValue": 0
         }
