@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "flow-system-react-date-inputs-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "date-inputs-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "DatePicker",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "DateRangePicker",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "DatePicker",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "DateRangePicker",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "DatePicker",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "DateRangePicker",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "DatePicker",
+      "sourceFile": "packages/react/src/DatePicker.tsx",
+      "runtimeFile": "packages/react/src/DatePicker.js",
+      "declarationFile": "packages/react/src/DatePicker.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "DateRangePicker",
+      "sourceFile": "packages/react/src/DateRangePicker.tsx",
+      "runtimeFile": "packages/react/src/DateRangePicker.js",
+      "declarationFile": "packages/react/src/DateRangePicker.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 2,
+    "runtimeFiles": 2,
+    "tsxSourceFiles": 2,
+    "declarationFiles": 2,
+    "staleRuntimeFiles": 0,
+    "reactDateInputsTypescriptSurfaceDebt": 0
+  }
+}

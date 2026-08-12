@@ -301,7 +301,7 @@
     },
     {
       "component": "DatePicker",
-      "file": "packages/react/src/DatePicker.js",
+      "file": "packages/react/src/DatePicker.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -311,7 +311,7 @@
     },
     {
       "component": "DateRangePicker",
-      "file": "packages/react/src/DateRangePicker.js",
+      "file": "packages/react/src/DateRangePicker.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

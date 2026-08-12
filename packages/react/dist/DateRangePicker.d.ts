@@ -10,7 +10,7 @@ export type DateRangePickerValueChangeEvent =
   | MouseEvent<HTMLButtonElement>
   | KeyboardEvent<HTMLButtonElement>
   | ChangeEvent<HTMLInputElement>;
-export type DateRangePickerOpenChangeEvent = DateRangePickerValueChangeEvent | globalThis.MouseEvent;
+export type DateRangePickerOpenChangeEvent = DateRangePickerValueChangeEvent | KeyboardEvent<HTMLDivElement> | globalThis.MouseEvent;
 
 export interface DateRangePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;

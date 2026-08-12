@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 76
-- Source declarations paired with JS but not TS/TSX: 102
-- TypeScript surface debt: 382
-- Unique TypeScript surface debt: 242
+- Public JS runtime exports with TS/TSX source: 80
+- Source declarations paired with JS but not TS/TSX: 100
+- TypeScript surface debt: 380
+- Unique TypeScript surface debt: 240
 
 ## File Counts
 
-- By extension: {".js":596,".mjs":20,".ts":104,".d.ts":274,".tsx":31}
-- By area: {"script":259,"source":483,"test":8,"generated-dist":275}
+- By extension: {".js":597,".mjs":20,".ts":104,".d.ts":274,".tsx":33}
+- By area: {"script":260,"source":485,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -50,8 +50,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/CodeInput.js | no |
 | package.json | packages/react/dist/Combobox.js | yes |
 | package.json | packages/react/dist/CountrySelector.js | no |
-| package.json | packages/react/dist/DatePicker.js | no |
-| package.json | packages/react/dist/DateRangePicker.js | no |
+| package.json | packages/react/dist/DatePicker.js | yes |
+| package.json | packages/react/dist/DateRangePicker.js | yes |
 | package.json | packages/react/dist/Dialog.js | yes |
 | package.json | packages/react/dist/Drawer.js | yes |
 | package.json | packages/react/dist/EmptyState.js | no |
@@ -120,8 +120,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/ChatThread.d.ts | yes | no |
 | packages/react/src/CodeInput.d.ts | yes | no |
 | packages/react/src/CountrySelector.d.ts | yes | no |
-| packages/react/src/DatePicker.d.ts | yes | no |
-| packages/react/src/DateRangePicker.d.ts | yes | no |
 | packages/react/src/EmptyState.d.ts | yes | no |
 | packages/react/src/ErrorPanel.d.ts | yes | no |
 | packages/react/src/FloatingActionButton.d.ts | yes | no |
@@ -189,6 +187,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/RolesAndPermissions.d.ts | yes | no |
 | packages/react/src/patterns/SectionHeader.d.ts | yes | no |
 | packages/react/src/patterns/SelectOptionLayer.d.ts | yes | no |
+| packages/react/src/patterns/Settings.d.ts | yes | no |
+| packages/react/src/patterns/SnackbarProvider.d.ts | yes | no |
 
 ## Interpretation
 

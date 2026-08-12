@@ -631,7 +631,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -651,7 +651,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -3581,7 +3581,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -3601,7 +3601,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 76,
+  "publicJsRuntimeExportsWithTsSource": 80,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/Accordion.d.ts",
@@ -5861,16 +5861,6 @@
     },
     {
       "file": "packages/react/src/CountrySelector.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/DatePicker.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/DateRangePicker.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -6323,20 +6313,20 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 596,
+        ".js": 597,
         ".mjs": 20,
         ".ts": 104,
         ".d.ts": 274,
-        ".tsx": 31
+        ".tsx": 33
       },
       "byArea": {
-        "script": 259,
-        "source": 483,
+        "script": 260,
+        "source": 485,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 382,
-  "uniqueTypescriptPublicSurfaceDebt": 242
+  "typescriptPublicSurfaceDebt": 380,
+  "uniqueTypescriptPublicSurfaceDebt": 240
 }

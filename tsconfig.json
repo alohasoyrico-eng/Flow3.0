@@ -59,7 +59,9 @@
     "packages/react/src/Table.tsx",
     "packages/react/src/CardNumberInput.tsx",
     "packages/react/src/CardExpiryInput.tsx",
-    "packages/react/src/CardSecurityCodeInput.tsx"
+    "packages/react/src/CardSecurityCodeInput.tsx",
+    "packages/react/src/DatePicker.tsx",
+    "packages/react/src/DateRangePicker.tsx"
   ],
   "exclude": [
     "node_modules",

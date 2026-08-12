@@ -8,7 +8,7 @@ export type DatePickerValueChangeEvent =
   | MouseEvent<HTMLButtonElement>
   | KeyboardEvent<HTMLButtonElement>
   | ChangeEvent<HTMLInputElement>;
-export type DatePickerOpenChangeEvent = DatePickerValueChangeEvent | globalThis.MouseEvent;
+export type DatePickerOpenChangeEvent = DatePickerValueChangeEvent | KeyboardEvent<HTMLDivElement> | globalThis.MouseEvent;
 
 export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
