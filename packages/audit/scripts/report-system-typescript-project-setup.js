@@ -127,7 +127,11 @@ function main() {
         && include.includes("packages/react/src/AnimatedMoment.tsx")
         && include.includes("packages/react/src/MotionBoundary.tsx")
         && include.includes("packages/react/src/MovementRow.tsx")
-        && include.includes("packages/react/src/AuditEvent.tsx"),
+        && include.includes("packages/react/src/AuditEvent.tsx")
+        && include.includes("packages/react/src/CodeInput.tsx")
+        && include.includes("packages/react/src/PhoneInput.tsx")
+        && include.includes("packages/react/src/CountrySelector.tsx")
+        && include.includes("packages/react/src/InputAmount.tsx"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

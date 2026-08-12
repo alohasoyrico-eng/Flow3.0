@@ -675,6 +675,7 @@
     "audit:react-feedback-components-typescript": "node packages/audit/scripts/report-system-react-feedback-components-typescript-surface.js",
     "audit:react-navigation-structure-typescript": "node packages/audit/scripts/report-system-react-navigation-structure-typescript-surface.js",
     "audit:react-motion-event-typescript": "node packages/audit/scripts/report-system-react-motion-event-typescript-surface.js",
+    "audit:react-input-localization-typescript": "node packages/audit/scripts/report-system-react-input-localization-typescript-surface.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },

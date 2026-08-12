@@ -669,8 +669,8 @@
     },
     {
       "component": "CodeInput",
-      "file": "packages/react/src/CodeInput.js",
-      "line": 31,
+      "file": "packages/react/src/CodeInput.tsx",
+      "line": 77,
       "rule": "variant-default",
       "prop": "variant",
       "value": "sms",
@@ -1039,8 +1039,8 @@
     },
     {
       "component": "PhoneInput",
-      "file": "packages/react/src/PhoneInput.js",
-      "line": 56,
+      "file": "packages/react/src/PhoneInput.tsx",
+      "line": 108,
       "rule": "variant-default",
       "prop": "variant",
       "value": "country-code",
@@ -2505,8 +2505,8 @@
     },
     {
       "component": "CodeInput",
-      "file": "packages/react/src/CodeInput.js",
-      "line": 31,
+      "file": "packages/react/src/CodeInput.tsx",
+      "line": 77,
       "rule": "variant-default",
       "prop": "variant",
       "value": "sms",
@@ -3513,8 +3513,8 @@
     },
     {
       "component": "PhoneInput",
-      "file": "packages/react/src/PhoneInput.js",
-      "line": 56,
+      "file": "packages/react/src/PhoneInput.tsx",
+      "line": 108,
       "rule": "variant-default",
       "prop": "variant",
       "value": "country-code",

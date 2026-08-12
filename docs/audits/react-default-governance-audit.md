@@ -134,7 +134,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Chip | variant-default | variant | filter | pass | pass | Yes | packages/react/src/Chip.tsx:55 |
 | Chip | tone-default | tone | default | pass | pass | Yes | packages/react/src/Chip.tsx:56 |
 | Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.tsx:57 |
-| CodeInput | variant-default | variant | sms | pass | pass | Yes | packages/react/src/CodeInput.js:31 |
+| CodeInput | variant-default | variant | sms | pass | pass | Yes | packages/react/src/CodeInput.tsx:77 |
 | Dialog | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Dialog.tsx:112 |
 | Dialog | variant-default | variant | confirmation | pass | pass | Yes | packages/react/src/Dialog.tsx:113 |
 | Dialog | state-default | state | closed | pass | pass | Yes | packages/react/src/Dialog.tsx:114 |
@@ -171,7 +171,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | MovementRow | state-default | state | default | pass | pass | Yes | packages/react/src/MovementRow.tsx:67 |
 | Pagination | variant-default | variant | numbered | pass | pass | Yes | packages/react/src/Pagination.tsx:90 |
 | Pagination | state-default | state | default | pass | pass | Yes | packages/react/src/Pagination.tsx:91 |
-| PhoneInput | variant-default | variant | country-code | pass | pass | Yes | packages/react/src/PhoneInput.js:56 |
+| PhoneInput | variant-default | variant | country-code | pass | pass | Yes | packages/react/src/PhoneInput.tsx:108 |
 | Popover | variant-default | variant | information | pass | pass | Yes | packages/react/src/Popover.tsx:81 |
 | Popover | state-default | state | default | pass | pass | Yes | packages/react/src/Popover.tsx:82 |
 | Popover | placement-default | placement | bottom | pass | pass | Yes | packages/react/src/Popover.tsx:83 |
@@ -254,7 +254,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Chip | variant-default | variant | filter | packages/react/src/Chip.tsx:55 | `variant = "filter",` |
 | Chip | tone-default | tone | default | packages/react/src/Chip.tsx:56 | `tone = "default",` |
 | Chip | state-default | state | default | packages/react/src/Chip.tsx:57 | `state = "default",` |
-| CodeInput | variant-default | variant | sms | packages/react/src/CodeInput.js:31 | `variant = "sms",` |
+| CodeInput | variant-default | variant | sms | packages/react/src/CodeInput.tsx:77 | `variant = "sms",` |
 | Dialog | tone-default | tone | neutral | packages/react/src/Dialog.tsx:112 | `tone = "neutral",` |
 | Dialog | variant-default | variant | confirmation | packages/react/src/Dialog.tsx:113 | `variant = "confirmation",` |
 | Dialog | state-default | state | closed | packages/react/src/Dialog.tsx:114 | `state = "closed",` |
@@ -291,7 +291,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | MovementRow | state-default | state | default | packages/react/src/MovementRow.tsx:67 | `state = "default",` |
 | Pagination | variant-default | variant | numbered | packages/react/src/Pagination.tsx:90 | `variant = "numbered",` |
 | Pagination | state-default | state | default | packages/react/src/Pagination.tsx:91 | `state = "default",` |
-| PhoneInput | variant-default | variant | country-code | packages/react/src/PhoneInput.js:56 | `variant = "country-code",` |
+| PhoneInput | variant-default | variant | country-code | packages/react/src/PhoneInput.tsx:108 | `variant = "country-code",` |
 | Popover | variant-default | variant | information | packages/react/src/Popover.tsx:81 | `variant = "information",` |
 | Popover | state-default | state | default | packages/react/src/Popover.tsx:82 | `state = "default",` |
 | Popover | placement-default | placement | bottom | packages/react/src/Popover.tsx:83 | `placement = "bottom",` |

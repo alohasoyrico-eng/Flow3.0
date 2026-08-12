@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "flow-system-react-input-localization-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "input-localization-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "CodeInput",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "PhoneInput",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "CountrySelector",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "InputAmount",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "CodeInput",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "PhoneInput",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "CountrySelector",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "InputAmount",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "CodeInput",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "PhoneInput",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "CountrySelector",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "InputAmount",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "CodeInput",
+      "sourceFile": "packages/react/src/CodeInput.tsx",
+      "runtimeFile": "packages/react/src/CodeInput.js",
+      "declarationFile": "packages/react/src/CodeInput.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "PhoneInput",
+      "sourceFile": "packages/react/src/PhoneInput.tsx",
+      "runtimeFile": "packages/react/src/PhoneInput.js",
+      "declarationFile": "packages/react/src/PhoneInput.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "CountrySelector",
+      "sourceFile": "packages/react/src/CountrySelector.tsx",
+      "runtimeFile": "packages/react/src/CountrySelector.js",
+      "declarationFile": "packages/react/src/CountrySelector.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "InputAmount",
+      "sourceFile": "packages/react/src/InputAmount.tsx",
+      "runtimeFile": "packages/react/src/InputAmount.js",
+      "declarationFile": "packages/react/src/InputAmount.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 4,
+    "runtimeFiles": 4,
+    "tsxSourceFiles": 4,
+    "declarationFiles": 4,
+    "staleRuntimeFiles": 0,
+    "reactInputLocalizationTypescriptSurfaceDebt": 0
+  }
+}

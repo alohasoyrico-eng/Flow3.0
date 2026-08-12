@@ -76,7 +76,11 @@
     "packages/react/src/AnimatedMoment.tsx",
     "packages/react/src/MotionBoundary.tsx",
     "packages/react/src/MovementRow.tsx",
-    "packages/react/src/AuditEvent.tsx"
+    "packages/react/src/AuditEvent.tsx",
+    "packages/react/src/CodeInput.tsx",
+    "packages/react/src/PhoneInput.tsx",
+    "packages/react/src/CountrySelector.tsx",
+    "packages/react/src/InputAmount.tsx"
   ],
   "exclude": [
     "node_modules",

@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 110
-- Source declarations paired with JS but not TS/TSX: 85
-- TypeScript surface debt: 365
-- Unique TypeScript surface debt: 225
+- Public JS runtime exports with TS/TSX source: 118
+- Source declarations paired with JS but not TS/TSX: 81
+- TypeScript surface debt: 361
+- Unique TypeScript surface debt: 221
 
 ## File Counts
 
-- By extension: {".js":601,".mjs":20,".ts":104,".d.ts":274,".tsx":48}
-- By area: {"script":264,"source":500,"test":8,"generated-dist":275}
+- By extension: {".js":602,".mjs":20,".ts":104,".d.ts":274,".tsx":52}
+- By area: {"script":265,"source":504,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -47,9 +47,9 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/ChatThread.js | yes |
 | package.json | packages/react/dist/Checkbox.js | yes |
 | package.json | packages/react/dist/Chip.js | yes |
-| package.json | packages/react/dist/CodeInput.js | no |
+| package.json | packages/react/dist/CodeInput.js | yes |
 | package.json | packages/react/dist/Combobox.js | yes |
-| package.json | packages/react/dist/CountrySelector.js | no |
+| package.json | packages/react/dist/CountrySelector.js | yes |
 | package.json | packages/react/dist/DatePicker.js | yes |
 | package.json | packages/react/dist/DateRangePicker.js | yes |
 | package.json | packages/react/dist/Dialog.js | yes |
@@ -60,7 +60,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/IconButton.js | yes |
 | package.json | packages/react/dist/InlineValidation.js | yes |
 | package.json | packages/react/dist/Input.js | yes |
-| package.json | packages/react/dist/InputAmount.js | no |
+| package.json | packages/react/dist/InputAmount.js | yes |
 | package.json | packages/react/dist/KpiTile.js | no |
 | package.json | packages/react/dist/List.js | yes |
 | package.json | packages/react/dist/Menu.js | yes |
@@ -112,12 +112,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/BiometricPrompt.d.ts | yes | no |
 | packages/react/src/CardSummary.d.ts | yes | no |
 | packages/react/src/ChartPanel.d.ts | yes | no |
-| packages/react/src/CodeInput.d.ts | yes | no |
-| packages/react/src/CountrySelector.d.ts | yes | no |
 | packages/react/src/FloatingActionButton.d.ts | yes | no |
-| packages/react/src/InputAmount.d.ts | yes | no |
 | packages/react/src/KpiTile.d.ts | yes | no |
-| packages/react/src/PhoneInput.d.ts | yes | no |
 | packages/react/src/QuickAction.d.ts | yes | no |
 | packages/react/src/RouteSummary.d.ts | yes | no |
 | packages/react/src/StationPin.d.ts | yes | no |
@@ -189,6 +185,10 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/templates/DriverCardWallet.d.ts | yes | no |
 | packages/react/src/templates/DriverMobileApp.d.ts | yes | no |
 | packages/react/src/templates/FleetDashboardSuite.d.ts | yes | no |
+| packages/react/src/templates/FleetManagerDesktop.d.ts | yes | no |
+| packages/react/src/templates/InternalOperationsConsole.d.ts | yes | no |
+| packages/react/src/templates/RoutesAndStations.d.ts | yes | no |
+| packages/react/src/templates/SettingsWorkspace.d.ts | yes | no |
 
 ## Interpretation
 

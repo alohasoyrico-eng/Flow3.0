@@ -271,7 +271,7 @@
     },
     {
       "component": "CodeInput",
-      "file": "packages/react/src/CodeInput.js",
+      "file": "packages/react/src/CodeInput.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -291,7 +291,7 @@
     },
     {
       "component": "CountrySelector",
-      "file": "packages/react/src/CountrySelector.js",
+      "file": "packages/react/src/CountrySelector.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -401,7 +401,7 @@
     },
     {
       "component": "InputAmount",
-      "file": "packages/react/src/InputAmount.js",
+      "file": "packages/react/src/InputAmount.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -471,7 +471,7 @@
     },
     {
       "component": "PhoneInput",
-      "file": "packages/react/src/PhoneInput.js",
+      "file": "packages/react/src/PhoneInput.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
