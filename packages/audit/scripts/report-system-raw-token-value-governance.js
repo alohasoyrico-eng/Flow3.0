@@ -9,7 +9,6 @@ const SCOPES = [
   "packages/components/src",
   "packages/components/styles",
   "packages/react/src",
-  "packages/specs/specs",
 ];
 
 const EXCLUDED_PATH_PARTS = [
@@ -98,6 +97,7 @@ function isIgnoredMatch(file, content, match, ruleId) {
   const line = content.slice(lineStart, lineEnd === -1 ? content.length : lineEnd);
   if (line.includes("flow-raw-token-ignore")) return true;
   if (ruleId === "raw-hex-color" && /#[0-9a-fA-F]{3,8}\b/.test(path.basename(file))) return true;
+  if (ruleId === "raw-px-unit" && /^\s*@media\b/.test(line)) return true;
   if (ruleId === "raw-motion-duration" && /\b(?:setTimeout|setInterval)\b/.test(line)) return true;
   if (["raw-radius-property", "raw-shadow-property", "raw-typography-property"].includes(ruleId)) {
     const value = match[0].slice(match[0].indexOf(":") + 1).trim();

@@ -440,7 +440,7 @@
   --component-depth-raised-strong: var(--sys-elevation-popover);
   --component-depth-tooltip: var(--sys-elevation-popover);
   --component-depth-panel: var(--sys-elevation-popover);
-  --component-depth-inset-track: inset 0 1px 2px color-mix(in srgb, var(--sys-color-text) 10%, transparent);
+  --component-depth-inset-track: inset 0 var(--component-border-width) var(--component-border-width-medium) color-mix(in srgb, var(--sys-color-text) 10%, transparent);
   --component-depth-panel-strong: var(--sys-elevation-modal);
   --component-depth-sheet: var(--sys-elevation-sheet);
   --component-depth-pill: var(--sys-elevation-control);
@@ -448,7 +448,7 @@
   --component-depth-danger: var(--sys-elevation-modal);
   --component-depth-popover: var(--sys-elevation-popover);
   --component-depth-blur-md: var(--sys-depth-blur-md);
-  --component-depth-success-ring: 0 0 0 3px color-mix(in srgb, var(--sys-color-success) 12%, transparent);
+  --component-depth-success-ring: 0 0 0 var(--component-border-width-indicator) color-mix(in srgb, var(--sys-color-success) 12%, transparent);
   --component-depth-card-rest: var(--sys-elevation-card, var(--component-depth-low-medium));
   --component-depth-toast: var(--sys-elevation-toast);
   --component-depth-card-hover: var(--sys-elevation-card-hover);
@@ -3136,7 +3136,7 @@ button.tag:disabled,
   --comp-tabs-indicator-border-color: color-mix(in srgb, var(--component-color-action) 22%, var(--component-color-border));
   --comp-tabs-indicator-border: var(--comp-tabs-border-width) solid var(--comp-tabs-indicator-border-color);
   --comp-tabs-indicator-radius: var(--component-radius-pill);
-  --comp-tabs-indicator-shadow: 0 0 0 3px color-mix(in srgb, var(--component-color-action) 7%, transparent), var(--component-depth-raised-soft);
+  --comp-tabs-indicator-shadow: 0 0 0 var(--component-border-width-indicator) color-mix(in srgb, var(--component-color-action) 7%, transparent), var(--component-depth-raised-soft);
   --comp-tabs-indicator-content: "";
   --comp-tabs-indicator-inset-block: var(--component-space-xs);
   --comp-tabs-indicator-left: var(--component-space-xs);
@@ -7118,14 +7118,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-motion-boundary-cue-route-inline-size: var(--component-motion-cue-route-inline-size);
   --comp-motion-boundary-cue-route-bg: repeating-linear-gradient(
     90deg,
-    var(--component-color-action) 0 10px,
-    transparent 10px 16px
+    var(--component-color-action) 0 var(--component-space-md),
+    transparent var(--component-space-md) var(--component-space-lg)
   );
   --comp-motion-boundary-quiet-action: var(--component-color-action-hover);
   --comp-motion-boundary-quiet-route-bg: repeating-linear-gradient(
     90deg,
-    var(--comp-motion-boundary-quiet-action) 0 10px,
-    transparent 10px 16px
+    var(--comp-motion-boundary-quiet-action) 0 var(--component-space-md),
+    transparent var(--component-space-md) var(--component-space-lg)
   );
   --comp-motion-boundary-disabled-state-bg: var(--component-color-surface-raised);
   --comp-motion-boundary-disabled-state-border: var(--component-color-border);
@@ -8598,7 +8598,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-tone: var(--component-color-action);
   --comp-chart-panel-width: min(100%, var(--component-content-size-md));
   --comp-chart-panel-plot-size-base: var(--component-block-size-md);
-  --comp-chart-panel-plot-density-offset: 0px;
+  --comp-chart-panel-plot-density-offset: 0;
   --comp-chart-panel-plot-size: calc(var(--comp-chart-panel-plot-size-base) + var(--comp-chart-panel-plot-density-offset));
   --comp-chart-panel-donut-bg: color-mix(in srgb, var(--component-color-action) 10%, transparent);
   --comp-chart-panel-figure-gap: var(--component-space-xs);
@@ -8700,7 +8700,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-route-summary-metric-surface: color-mix(in srgb, var(--component-color-surface-raised) 72%, var(--component-color-surface));
   --comp-route-summary-radius: var(--component-radius-control);
   --comp-route-summary-selected-border: var(--component-color-action);
-  --comp-route-summary-selected-shadow: 0 0 0 3px color-mix(in srgb, var(--component-color-action) 14%, transparent),
+  --comp-route-summary-selected-shadow: 0 0 0 var(--component-border-width-indicator) color-mix(in srgb, var(--component-color-action) 14%, transparent),
     var(--component-depth-panel);
   --comp-route-summary-warning-border: color-mix(in srgb, var(--component-color-warning) 52%, var(--component-color-border));
   background: var(--comp-route-summary-bg);
@@ -9598,7 +9598,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .card-summary__metrics {
   gap: var(--component-space-sm);
-  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--sys-space-24), 1fr));
 }
 
 .route-summary__metrics {
