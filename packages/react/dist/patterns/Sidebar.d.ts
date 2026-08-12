@@ -33,9 +33,11 @@ export interface SidebarGroup {
 }
 
 export interface SidebarDrawer {
+  id?: string;
   label?: string;
   description?: string;
   closeLabel?: string;
+  showCloseButton?: boolean;
   side?: DrawerSide;
 }
 
@@ -56,7 +58,7 @@ export interface SidebarProps extends FlowDataAttributes {
   activeKey?: string;
   expandedIds?: string[];
   collapseAction?: SidebarCollapseAction;
-  drawer?: SidebarDrawer;
+  drawer?: SidebarDrawer | false;
   onExpandedChange?: (expandedIds: string[], event: MouseEvent<HTMLButtonElement>) => void;
   onDrawerOpenChange?: (open: boolean, event?: DrawerOpenChangeEvent) => void;
   onRouteSelect?: (key: string, route: SidebarRoute, event: MouseEvent<HTMLButtonElement>) => void;

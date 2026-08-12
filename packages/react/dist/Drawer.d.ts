@@ -56,6 +56,7 @@ export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style
   content?: DrawerContent[];
   actions?: DrawerAction[];
   open?: boolean;
+  showCloseButton?: boolean;
   id?: string;
   onOpenChange?: (open: boolean, event?: DrawerOpenChangeEvent) => void;
   onAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;

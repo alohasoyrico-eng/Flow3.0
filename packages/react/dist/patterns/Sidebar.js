@@ -69,6 +69,7 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
     const isDisabled = disabled || resolvedState === "disabled" || resolvedState === "loading";
     const routeCount = normalizedGroups.reduce((total, group) => total + group.routes.length, 0);
     const openIds = expandedIds ?? normalizedGroups.filter((group) => group.open || group.routes.some((route) => route.active || String(route.key ?? route.id ?? route.label) === activeKey)).map((group) => group.key);
+    const shouldRenderDrawer = drawer !== false && (Boolean(drawer) || drawerOpen || mobileDrawer);
     return React.createElement("div", {
         ref,
         className: className || undefined,
@@ -82,10 +83,12 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
         "data-route-count": String(routeCount),
         "data-collapsed": String(Boolean(collapsed)),
         ...sanitizeRestProps(rest),
-    }, React.createElement(Drawer, {
+    }, shouldRenderDrawer ? React.createElement(Drawer, {
         label: drawer?.label ?? label,
         description: drawer?.description,
+        id: drawer?.id,
         closeLabel: drawer?.closeLabel ?? "Close navigation",
+        showCloseButton: drawer?.showCloseButton ?? true,
         open: drawerOpen || mobileDrawer,
         state: drawerOpen || mobileDrawer ? "open" : "closed",
         variant: "side-sheet",
@@ -95,7 +98,7 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
             { type: "badge", key: "routes", label: `${routeCount} routes`, tone: "info", variant: "count" },
         ],
         onOpenChange: onDrawerOpenChange,
-    }), breadcrumbs.length
+    }) : null, breadcrumbs.length
         ? React.createElement(Breadcrumbs, {
             items: breadcrumbs,
             label: `${label} location`,

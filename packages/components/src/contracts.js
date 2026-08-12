@@ -825,6 +825,7 @@ export const componentContracts = {
       { name: "actions", type: "DrawerAction[]", required: false },
       { name: "open", type: "boolean", required: false },
       { name: "closeLabel", type: "string", required: false },
+      { name: "showCloseButton", type: "boolean", required: false },
       { name: "id", type: "string", required: false },
       { name: "onOpenChange", type: "(open: boolean) => void", required: false },
       { name: "onAction", type: "(key: string) => void", required: false }

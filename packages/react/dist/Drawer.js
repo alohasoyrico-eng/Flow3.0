@@ -82,6 +82,7 @@ export const Drawer = forwardRef(function Drawer({
   content,
   actions,
   open: openProp,
+  showCloseButton = true,
   id,
   onOpenChange,
   onAction,
@@ -182,7 +183,7 @@ export const Drawer = forwardRef(function Drawer({
           "header",
           null,
           React.createElement("strong", { id: titleId }, label),
-          closeLabel ? React.createElement(IconButton, {
+          showCloseButton && closeLabel ? React.createElement(IconButton, {
             ref: closeRef,
             icon: "close",
             label: closeLabel,

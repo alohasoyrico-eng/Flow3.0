@@ -49,6 +49,8 @@ export const Topbar = forwardRef(function Topbar({ label = "Global shell", densi
         state: dense ? "dense" : state,
     });
     const isDisabled = disabled || resolvedState === "disabled" || resolvedState === "loading";
+    const sidebarDrawer = sidebar?.drawer === false ? undefined : sidebar?.drawer;
+    const shouldRenderDrawer = Boolean(sidebar) && sidebar?.drawer !== false && (Boolean(sidebarDrawer) || Boolean(mobile && sidebar?.drawerOpen));
     return React.createElement("div", {
         ref,
         className,
@@ -62,24 +64,28 @@ export const Topbar = forwardRef(function Topbar({ label = "Global shell", densi
         "data-unread-count": String(unreadCount),
         "data-mobile": String(Boolean(mobile)),
         ...sanitizeRestProps(rest),
-    }, React.createElement(Drawer, {
-        label: sidebar?.drawer?.label ?? `${label} navigation`,
-        description: sidebar?.drawer?.description,
-        closeLabel: sidebar?.drawer?.closeLabel ?? "Close navigation",
+    }, shouldRenderDrawer ? React.createElement(Drawer, {
+        label: sidebarDrawer?.label ?? `${label} navigation`,
+        description: sidebarDrawer?.description,
+        id: sidebarDrawer?.id,
+        closeLabel: sidebarDrawer?.closeLabel ?? "Close navigation",
+        showCloseButton: sidebarDrawer?.showCloseButton ?? true,
         open: Boolean(mobile && sidebar?.drawerOpen),
         state: mobile && sidebar?.drawerOpen ? "open" : "closed",
         variant: "side-sheet",
-        side: sidebar?.drawer?.side ?? "left",
+        side: sidebarDrawer?.side ?? "left",
         density,
         content: [{ type: "text", key: "boundary", copy: "Navigation is delegated to Sidebar." }],
         onOpenChange: sidebar?.onDrawerOpenChange,
-    }), React.createElement(IconButton, {
+    }) : null, React.createElement(IconButton, {
         icon: navigationAction?.icon ?? "menu",
         label: navigationAction?.label ?? "Open navigation",
         ariaLabel: navigationAction?.ariaLabel ?? navigationAction?.label ?? "Open navigation",
         density,
         variant: "ghost",
         disabled: isDisabled || navigationAction?.disabled,
+        "aria-expanded": navigationAction?.["aria-expanded"],
+        "aria-controls": navigationAction?.["aria-controls"],
         onClick: navigationAction?.onClick,
     }), search
         ? React.createElement(Input, {

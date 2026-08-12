@@ -56,7 +56,7 @@ export interface TopbarAccount extends Pick<AvatarProps, "name" | "src" | "statu
   delegate?: AvatarMenuProps;
 }
 
-export interface TopbarNavigationAction extends Pick<IconButtonProps, "label" | "ariaLabel" | "icon" | "disabled" | "onClick"> {}
+export interface TopbarNavigationAction extends Pick<IconButtonProps, "label" | "ariaLabel" | "icon" | "disabled" | "onClick" | "aria-expanded" | "aria-controls"> {}
 export type TopbarAction = IconButtonProps & {
   key?: string;
 };
@@ -159,6 +159,8 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
     state: dense ? "dense" : state,
   });
   const isDisabled = disabled || resolvedState === "disabled" || resolvedState === "loading";
+  const sidebarDrawer = sidebar?.drawer === false ? undefined : sidebar?.drawer;
+  const shouldRenderDrawer = Boolean(sidebar) && sidebar?.drawer !== false && (Boolean(sidebarDrawer) || Boolean(mobile && sidebar?.drawerOpen));
 
   return React.createElement(
     "div",
@@ -176,18 +178,20 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
       "data-mobile": String(Boolean(mobile)),
       ...sanitizeRestProps(rest),
     },
-    React.createElement(Drawer, {
-      label: sidebar?.drawer?.label ?? `${label} navigation`,
-      description: sidebar?.drawer?.description,
-      closeLabel: sidebar?.drawer?.closeLabel ?? "Close navigation",
+    shouldRenderDrawer ? React.createElement(Drawer, {
+      label: sidebarDrawer?.label ?? `${label} navigation`,
+      description: sidebarDrawer?.description,
+      id: sidebarDrawer?.id,
+      closeLabel: sidebarDrawer?.closeLabel ?? "Close navigation",
+      showCloseButton: sidebarDrawer?.showCloseButton ?? true,
       open: Boolean(mobile && sidebar?.drawerOpen),
       state: mobile && sidebar?.drawerOpen ? "open" : "closed",
       variant: "side-sheet",
-      side: sidebar?.drawer?.side ?? "left",
+      side: sidebarDrawer?.side ?? "left",
       density,
       content: [{ type: "text", key: "boundary", copy: "Navigation is delegated to Sidebar." }],
       onOpenChange: sidebar?.onDrawerOpenChange,
-    }),
+    }) : null,
     React.createElement(IconButton, {
       icon: navigationAction?.icon ?? "menu",
       label: navigationAction?.label ?? "Open navigation",
@@ -195,6 +199,8 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
       density,
       variant: "ghost",
       disabled: isDisabled || navigationAction?.disabled,
+      "aria-expanded": navigationAction?.["aria-expanded"],
+      "aria-controls": navigationAction?.["aria-controls"],
       onClick: navigationAction?.onClick,
     }),
     search

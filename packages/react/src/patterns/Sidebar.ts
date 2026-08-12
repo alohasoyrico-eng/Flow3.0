@@ -41,9 +41,11 @@ export interface SidebarGroup {
 }
 
 export interface SidebarDrawer {
+  id?: string;
   label?: string;
   description?: string;
   closeLabel?: string;
+  showCloseButton?: boolean;
   side?: DrawerSide;
 }
 
@@ -64,7 +66,7 @@ export interface SidebarProps extends FlowDataAttributes {
   activeKey?: string;
   expandedIds?: string[];
   collapseAction?: SidebarCollapseAction;
-  drawer?: SidebarDrawer;
+  drawer?: SidebarDrawer | false;
   onExpandedChange?: (expandedIds: string[], event: MouseEvent<HTMLButtonElement>) => void;
   onDrawerOpenChange?: (open: boolean, event?: DrawerOpenChangeEvent) => void;
   onRouteSelect?: (key: string, route: SidebarRoute, event: MouseEvent<HTMLButtonElement>) => void;
@@ -192,6 +194,7 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(function Sidebar
   const isDisabled = disabled || resolvedState === "disabled" || resolvedState === "loading";
   const routeCount = normalizedGroups.reduce((total, group) => total + group.routes.length, 0);
   const openIds = expandedIds ?? normalizedGroups.filter((group) => group.open || group.routes.some((route) => route.active || String(route.key ?? route.id ?? route.label) === activeKey)).map((group) => group.key);
+  const shouldRenderDrawer = drawer !== false && (Boolean(drawer) || drawerOpen || mobileDrawer);
 
   return React.createElement(
     "div",
@@ -209,10 +212,12 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(function Sidebar
       "data-collapsed": String(Boolean(collapsed)),
       ...sanitizeRestProps(rest),
     },
-    React.createElement(Drawer, {
+    shouldRenderDrawer ? React.createElement(Drawer, {
       label: drawer?.label ?? label,
       description: drawer?.description,
+      id: drawer?.id,
       closeLabel: drawer?.closeLabel ?? "Close navigation",
+      showCloseButton: drawer?.showCloseButton ?? true,
       open: drawerOpen || mobileDrawer,
       state: drawerOpen || mobileDrawer ? "open" : "closed",
       variant: "side-sheet",
@@ -222,7 +227,7 @@ export const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(function Sidebar
         { type: "badge", key: "routes", label: `${routeCount} routes`, tone: "info", variant: "count" },
       ],
       onOpenChange: onDrawerOpenChange,
-    }),
+    }) : null,
     breadcrumbs.length
       ? React.createElement(Breadcrumbs, {
         items: breadcrumbs,

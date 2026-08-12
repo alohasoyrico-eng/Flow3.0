@@ -42,7 +42,7 @@ export interface TopbarAccount extends Pick<AvatarProps, "name" | "src" | "statu
   delegate?: AvatarMenuProps;
 }
 
-export interface TopbarNavigationAction extends Pick<IconButtonProps, "label" | "ariaLabel" | "icon" | "disabled" | "onClick"> {}
+export interface TopbarNavigationAction extends Pick<IconButtonProps, "label" | "ariaLabel" | "icon" | "disabled" | "onClick" | "aria-expanded" | "aria-controls"> {}
 export interface TopbarAction extends IconButtonProps {
   key?: string;
 }
