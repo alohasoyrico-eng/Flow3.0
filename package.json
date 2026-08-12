@@ -663,6 +663,7 @@
     "audit:components-primitives-typescript": "node packages/audit/scripts/report-system-component-primitive-typescript-surface.js",
     "audit:components-registry-typescript": "node packages/audit/scripts/report-system-component-registry-typescript-surface.js",
     "audit:react-internal-props-typescript": "node packages/audit/scripts/report-system-react-internal-props-typescript-surface.js",
+    "audit:react-base-components-typescript": "node packages/audit/scripts/report-system-react-base-components-typescript-surface.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },

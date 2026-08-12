@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "flow-system-react-base-components-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "base-components-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Button",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Input",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Card",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Surface",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Button",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Input",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Card",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Surface",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Button",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Input",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Card",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Surface",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "Button",
+      "sourceFile": "packages/react/src/Button.tsx",
+      "runtimeFile": "packages/react/src/Button.js",
+      "declarationFile": "packages/react/src/Button.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Input",
+      "sourceFile": "packages/react/src/Input.tsx",
+      "runtimeFile": "packages/react/src/Input.js",
+      "declarationFile": "packages/react/src/Input.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Card",
+      "sourceFile": "packages/react/src/Card.tsx",
+      "runtimeFile": "packages/react/src/Card.js",
+      "declarationFile": "packages/react/src/Card.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Surface",
+      "sourceFile": "packages/react/src/Surface.tsx",
+      "runtimeFile": "packages/react/src/Surface.js",
+      "declarationFile": "packages/react/src/Surface.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 4,
+    "runtimeFiles": 4,
+    "tsxSourceFiles": 4,
+    "declarationFiles": 4,
+    "staleRuntimeFiles": 0,
+    "reactBaseComponentTypescriptSurfaceDebt": 0
+  }
+}

@@ -141,7 +141,8 @@ function checkNoOpaqueFunctionContracts(contractsSource) {
 function checkReactComponent(file, shared) {
   const name = path.basename(file, ".js");
   const typeFile = `${name}.d.ts`;
-  const sourceFile = path.join(reactSrcDir, file);
+  const tsxSourceFile = path.join(reactSrcDir, `${name}.tsx`);
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(reactSrcDir, file);
   const typesFile = path.join(reactSrcDir, typeFile);
   const distFile = path.join(reactDistDir, file);
   const distTypesFile = path.join(reactDistDir, typeFile);
@@ -163,13 +164,16 @@ function checkReactComponent(file, shared) {
     }
   }
 
-  for (const snippet of [
-    "forwardRef(function",
+  const primaryImplementationSnippets = [
     `export const ${name} = forwardRef`,
     `${name}.displayName = "${name}"`,
     `${name}.platformContract = ${contractName}`,
     "React.createElement(",
-  ]) {
+  ];
+  if (!/forwardRef(?:<[^>]+>)?\(function/.test(source)) {
+    add("errors", sourceFile, 1, `${name} React source missing primary implementation snippet: forwardRef(function.`);
+  }
+  for (const snippet of primaryImplementationSnippets) {
     if (!source.includes(snippet)) {
       add("errors", sourceFile, 1, `${name} React source missing primary implementation snippet: ${snippet}.`);
     }

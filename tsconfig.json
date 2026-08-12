@@ -28,7 +28,11 @@
     "packages/components/src/registry.ts",
     "packages/components/src/platforms/**/*.ts",
     "packages/components/src/primitives/**/*.ts",
-    "packages/react/src/internal/**/*.ts"
+    "packages/react/src/internal/**/*.ts",
+    "packages/react/src/Surface.tsx",
+    "packages/react/src/Button.tsx",
+    "packages/react/src/Input.tsx",
+    "packages/react/src/Card.tsx"
   ],
   "exclude": [
     "node_modules",

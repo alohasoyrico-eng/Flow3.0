@@ -33,7 +33,11 @@ function sourceFiles() {
     .filter((file) => /^[A-Z].*\.js$/.test(file))
     .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort()
-    .map((file) => path.join(reactSrcDir, file));
+    .map((file) => {
+      const component = path.basename(file, ".js");
+      const tsxFile = path.join(reactSrcDir, `${component}.tsx`);
+      return fs.existsSync(tsxFile) ? tsxFile : path.join(reactSrcDir, file);
+    });
 }
 
 function kebab(value) {
@@ -46,7 +50,7 @@ function lineMatches(file, rules) {
     .map((rule) => ({ rule, match: line.match(rule.pattern) }))
     .filter(({ match }) => match)
     .map(({ rule, match }) => ({
-      component: path.basename(file, ".js"),
+      component: path.basename(file, path.extname(file)),
       file: rel(file),
       line: index + 1,
       rule: rule.id,

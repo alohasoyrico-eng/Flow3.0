@@ -111,15 +111,15 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | BiometricPrompt | state-default | state | default | pass | pass | Yes | packages/react/src/BiometricPrompt.js:27 |
 | Breadcrumbs | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Breadcrumbs.js:45 |
 | Breadcrumbs | state-default | state | default | pass | pass | Yes | packages/react/src/Breadcrumbs.js:46 |
-| Button | variant-default | variant | primary | pass | pass | Yes | packages/react/src/Button.js:8 |
-| Button | intent-default | intent | default | pass | pass | Yes | packages/react/src/Button.js:8 |
-| Button | variant-default | variant | primary | pass | pass | Yes | packages/react/src/Button.js:20 |
-| Button | intent-default | intent | default | pass | pass | Yes | packages/react/src/Button.js:21 |
-| Button | state-default | state | default | pass | pass | Yes | packages/react/src/Button.js:23 |
-| Card | trend-default | trend | neutral | pass | pass | Yes | packages/react/src/Card.js:59 |
-| Card | variant-default | variant | default | pass | pass | Yes | packages/react/src/Card.js:63 |
-| Card | composition-default | composition | standard | pass | pass | Yes | packages/react/src/Card.js:64 |
-| Card | state-default | state | default | pass | pass | Yes | packages/react/src/Card.js:65 |
+| Button | variant-default | variant | primary | pass | pass | Yes | packages/react/src/Button.tsx:37 |
+| Button | intent-default | intent | default | pass | pass | Yes | packages/react/src/Button.tsx:37 |
+| Button | variant-default | variant | primary | pass | pass | Yes | packages/react/src/Button.tsx:53 |
+| Button | intent-default | intent | default | pass | pass | Yes | packages/react/src/Button.tsx:54 |
+| Button | state-default | state | default | pass | pass | Yes | packages/react/src/Button.tsx:56 |
+| Card | trend-default | trend | neutral | pass | pass | Yes | packages/react/src/Card.tsx:127 |
+| Card | variant-default | variant | default | pass | pass | Yes | packages/react/src/Card.tsx:131 |
+| Card | composition-default | composition | standard | pass | pass | Yes | packages/react/src/Card.tsx:132 |
+| Card | state-default | state | default | pass | pass | Yes | packages/react/src/Card.tsx:133 |
 | CardSummary | variant-default | variant | physical | pass | pass | Yes | packages/react/src/CardSummary.js:23 |
 | CardSummary | state-default | state | default | pass | pass | Yes | packages/react/src/CardSummary.js:24 |
 | ChartPanel | variant-default | variant | sparkline | pass | pass | Yes | packages/react/src/ChartPanel.js:220 |
@@ -152,8 +152,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.js:7 |
 | IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.js:15 |
 | InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.js:20 |
-| Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.js:76 |
-| Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.js:84 |
+| Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.tsx:126 |
+| Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.tsx:134 |
 | KpiTile | trend-default | trend | flat | pass | pass | Yes | packages/react/src/KpiTile.js:26 |
 | KpiTile | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/KpiTile.js:27 |
 | KpiTile | variant-default | variant | standard | pass | pass | Yes | packages/react/src/KpiTile.js:29 |
@@ -231,15 +231,15 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | BiometricPrompt | state-default | state | default | packages/react/src/BiometricPrompt.js:27 | `state = "default",` |
 | Breadcrumbs | variant-default | variant | standard | packages/react/src/Breadcrumbs.js:45 | `variant = "standard",` |
 | Breadcrumbs | state-default | state | default | packages/react/src/Breadcrumbs.js:46 | `state = "default",` |
-| Button | variant-default | variant | primary | packages/react/src/Button.js:8 | `function buttonClassName({ variant = "primary", intent = "default", className = "" } = {}) {` |
-| Button | intent-default | intent | default | packages/react/src/Button.js:8 | `function buttonClassName({ variant = "primary", intent = "default", className = "" } = {}) {` |
-| Button | variant-default | variant | primary | packages/react/src/Button.js:20 | `variant = "primary",` |
-| Button | intent-default | intent | default | packages/react/src/Button.js:21 | `intent = "default",` |
-| Button | state-default | state | default | packages/react/src/Button.js:23 | `state = "default",` |
-| Card | trend-default | trend | neutral | packages/react/src/Card.js:59 | `trend = "neutral",` |
-| Card | variant-default | variant | default | packages/react/src/Card.js:63 | `variant = "default",` |
-| Card | composition-default | composition | standard | packages/react/src/Card.js:64 | `composition = "standard",` |
-| Card | state-default | state | default | packages/react/src/Card.js:65 | `state = "default",` |
+| Button | variant-default | variant | primary | packages/react/src/Button.tsx:37 | `function buttonClassName({ variant = "primary", intent = "default", className = "" }: {` |
+| Button | intent-default | intent | default | packages/react/src/Button.tsx:37 | `function buttonClassName({ variant = "primary", intent = "default", className = "" }: {` |
+| Button | variant-default | variant | primary | packages/react/src/Button.tsx:53 | `variant = "primary",` |
+| Button | intent-default | intent | default | packages/react/src/Button.tsx:54 | `intent = "default",` |
+| Button | state-default | state | default | packages/react/src/Button.tsx:56 | `state = "default",` |
+| Card | trend-default | trend | neutral | packages/react/src/Card.tsx:127 | `trend = "neutral",` |
+| Card | variant-default | variant | default | packages/react/src/Card.tsx:131 | `variant = "default",` |
+| Card | composition-default | composition | standard | packages/react/src/Card.tsx:132 | `composition = "standard",` |
+| Card | state-default | state | default | packages/react/src/Card.tsx:133 | `state = "default",` |
 | CardSummary | variant-default | variant | physical | packages/react/src/CardSummary.js:23 | `variant = "physical",` |
 | CardSummary | state-default | state | default | packages/react/src/CardSummary.js:24 | `state = "default",` |
 | ChartPanel | variant-default | variant | sparkline | packages/react/src/ChartPanel.js:220 | `variant = "sparkline",` |
@@ -272,8 +272,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | IconButton | variant-default | variant | ghost | packages/react/src/IconButton.js:7 | `function iconButtonClassName({ variant = "ghost", className = "" } = {}) {` |
 | IconButton | variant-default | variant | ghost | packages/react/src/IconButton.js:15 | `variant = "ghost",` |
 | InlineValidation | state-default | state | default | packages/react/src/InlineValidation.js:20 | `state = "default",` |
-| Input | variant-default | variant | text | packages/react/src/Input.js:76 | `variant = "text",` |
-| Input | align-default | align | start | packages/react/src/Input.js:84 | `align = "start",` |
+| Input | variant-default | variant | text | packages/react/src/Input.tsx:126 | `variant = "text",` |
+| Input | align-default | align | start | packages/react/src/Input.tsx:134 | `align = "start",` |
 | KpiTile | trend-default | trend | flat | packages/react/src/KpiTile.js:26 | `trend = "flat",` |
 | KpiTile | tone-default | tone | neutral | packages/react/src/KpiTile.js:27 | `tone = "neutral",` |
 | KpiTile | variant-default | variant | standard | packages/react/src/KpiTile.js:29 | `variant = "standard",` |

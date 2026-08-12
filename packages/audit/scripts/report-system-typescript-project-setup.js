@@ -79,7 +79,11 @@ function main() {
         && include.includes("packages/components/src/registry.ts")
         && include.includes("packages/components/src/platforms/**/*.ts")
         && include.includes("packages/components/src/primitives/**/*.ts")
-        && include.includes("packages/react/src/internal/**/*.ts"),
+        && include.includes("packages/react/src/internal/**/*.ts")
+        && include.includes("packages/react/src/Surface.tsx")
+        && include.includes("packages/react/src/Button.tsx")
+        && include.includes("packages/react/src/Input.tsx")
+        && include.includes("packages/react/src/Card.tsx"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),
