@@ -8,7 +8,7 @@
       "styleEscapeDebt": 0,
       "componentsWithApprovedInlineVars": 6,
       "componentsWithRuntimeVars": 1,
-      "approvedInlineVars": 10,
+      "approvedInlineVars": 12,
       "styleProps": 10,
       "setPropertyCalls": 2,
       "violations": 0,
@@ -60,7 +60,7 @@
     "styleEscapeDebt": 0,
     "componentsWithApprovedInlineVars": 6,
     "componentsWithRuntimeVars": 1,
-    "approvedInlineVars": 10,
+    "approvedInlineVars": 12,
     "styleProps": 10,
     "setPropertyCalls": 2,
     "violations": 0,
@@ -99,7 +99,7 @@
     },
     {
       "component": "Avatar",
-      "file": "packages/react/src/Avatar.js",
+      "file": "packages/react/src/Avatar.tsx",
       "allowedInlineStyleKeys": [
         "--comp-avatar-identity-bg",
         "--comp-avatar-identity-fg"
@@ -115,7 +115,7 @@
     },
     {
       "component": "Badge",
-      "file": "packages/react/src/Badge.js",
+      "file": "packages/react/src/Badge.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -145,7 +145,7 @@
     },
     {
       "component": "Button",
-      "file": "packages/react/src/Button.js",
+      "file": "packages/react/src/Button.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -155,7 +155,7 @@
     },
     {
       "component": "Card",
-      "file": "packages/react/src/Card.js",
+      "file": "packages/react/src/Card.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -251,7 +251,7 @@
     },
     {
       "component": "Checkbox",
-      "file": "packages/react/src/Checkbox.js",
+      "file": "packages/react/src/Checkbox.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -261,7 +261,7 @@
     },
     {
       "component": "Chip",
-      "file": "packages/react/src/Chip.js",
+      "file": "packages/react/src/Chip.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -321,7 +321,7 @@
     },
     {
       "component": "Dialog",
-      "file": "packages/react/src/Dialog.js",
+      "file": "packages/react/src/Dialog.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -331,7 +331,7 @@
     },
     {
       "component": "Drawer",
-      "file": "packages/react/src/Drawer.js",
+      "file": "packages/react/src/Drawer.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -371,7 +371,7 @@
     },
     {
       "component": "IconButton",
-      "file": "packages/react/src/IconButton.js",
+      "file": "packages/react/src/IconButton.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -391,7 +391,7 @@
     },
     {
       "component": "Input",
-      "file": "packages/react/src/Input.js",
+      "file": "packages/react/src/Input.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -431,7 +431,7 @@
     },
     {
       "component": "Menu",
-      "file": "packages/react/src/Menu.js",
+      "file": "packages/react/src/Menu.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -481,7 +481,7 @@
     },
     {
       "component": "Popover",
-      "file": "packages/react/src/Popover.js",
+      "file": "packages/react/src/Popover.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -491,7 +491,7 @@
     },
     {
       "component": "ProgressIndicator",
-      "file": "packages/react/src/ProgressIndicator.js",
+      "file": "packages/react/src/ProgressIndicator.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -511,7 +511,7 @@
     },
     {
       "component": "RadioButton",
-      "file": "packages/react/src/RadioButton.js",
+      "file": "packages/react/src/RadioButton.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -551,7 +551,7 @@
     },
     {
       "component": "Skeleton",
-      "file": "packages/react/src/Skeleton.js",
+      "file": "packages/react/src/Skeleton.tsx",
       "allowedInlineStyleKeys": [
         "--comp-skeleton-current-width",
         "--comp-skeleton-current-height",
@@ -562,6 +562,8 @@
       ],
       "approvedVars": [
         "--comp-skeleton-bone-current-block-size",
+        "--comp-skeleton-bone-current-inline-size",
+        "--comp-skeleton-bone-current-radius",
         "--comp-skeleton-current-columns",
         "--comp-skeleton-current-height",
         "--comp-skeleton-current-width"
@@ -587,7 +589,7 @@
     },
     {
       "component": "Spinner",
-      "file": "packages/react/src/Spinner.js",
+      "file": "packages/react/src/Spinner.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -617,7 +619,7 @@
     },
     {
       "component": "Switch",
-      "file": "packages/react/src/Switch.js",
+      "file": "packages/react/src/Switch.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -637,7 +639,7 @@
     },
     {
       "component": "Tabs",
-      "file": "packages/react/src/Tabs.js",
+      "file": "packages/react/src/Tabs.tsx",
       "allowedInlineStyleKeys": [
         "--comp-tabs-indicator-left",
         "--comp-tabs-indicator-width"
@@ -647,11 +649,11 @@
       "setPropertyCalls": [
         {
           "property": "--comp-tabs-indicator-left",
-          "line": 41
+          "line": 98
         },
         {
           "property": "--comp-tabs-indicator-width",
-          "line": 42
+          "line": 99
         }
       ],
       "violations": [],
@@ -659,7 +661,7 @@
     },
     {
       "component": "Tag",
-      "file": "packages/react/src/Tag.js",
+      "file": "packages/react/src/Tag.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -669,7 +671,7 @@
     },
     {
       "component": "TextArea",
-      "file": "packages/react/src/TextArea.js",
+      "file": "packages/react/src/TextArea.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

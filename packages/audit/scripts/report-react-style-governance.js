@@ -26,7 +26,11 @@ function componentFiles() {
     .filter((file) => /^[A-Z].*\.js$/.test(file))
     .filter((file) => !governedReactPrimitiveIds.has(kebab(path.basename(file, ".js"))))
     .sort()
-    .map((file) => path.join(reactSrcDir, file));
+    .map((file) => {
+      const component = path.basename(file, ".js");
+      const tsxFile = path.join(reactSrcDir, `${component}.tsx`);
+      return fs.existsSync(tsxFile) ? tsxFile : path.join(reactSrcDir, file);
+    });
 }
 
 function kebab(value) {
@@ -38,17 +42,22 @@ function lineForIndex(text, index) {
 }
 
 function approvedVars(source, allowedKeys) {
-  return [...new Set([...source.matchAll(/["'](--comp-[^"']+)["']\s*:/g)]
+  return [...new Set([
+    ...source.matchAll(/["'](--comp-[^"']+)["']\s*:/g),
+    ...source.matchAll(/\[\s*["'](--comp-[^"']+)["']\s*\]\s*=/g),
+  ]
     .map((match) => match[1])
     .filter((key) => allowedKeys.includes(key)))].sort();
 }
 
 function stylePropMatches(source) {
-  return [...source.matchAll(/\bstyle\s*:\s*([^,\n}]+)/g)].map((match) => ({
-    index: match.index,
-    value: match[1].trim(),
-    text: match[0].trim(),
-  }));
+  return [...source.matchAll(/\bstyle\s*:\s*([^,\n}]+)/g)]
+    .map((match) => ({
+      index: match.index,
+      value: match[1].trim(),
+      text: match[0].trim(),
+    }))
+    .filter((match) => !/^[A-Z]/.test(match.value));
 }
 
 function createReport() {
@@ -56,7 +65,7 @@ function createReport() {
   const escapePolicy = styleBlockedEscapePatternsPolicy();
   const blockedEscapePatterns = escapePolicy.blockedEscapePatterns;
   const components = componentFiles().map((file) => {
-    const component = path.basename(file, ".js");
+    const component = path.basename(file, path.extname(file));
     const source = read(file);
     const allowedKeys = allowedDynamicStyleKeysByComponent[component] ?? [];
     const styleProps = stylePropMatches(source);

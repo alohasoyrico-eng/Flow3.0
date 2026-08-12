@@ -10,7 +10,7 @@ React visual styling must flow through classes and tokens; inline style is reser
 - Style escape debt: 0
 - Components with approved inline vars: 6
 - Components with runtime CSS vars: 1
-- Approved inline vars observed: 10
+- Approved inline vars observed: 12
 - Style props observed: 10
 - style.setProperty calls: 2
 - Violations: 0
@@ -26,7 +26,7 @@ Changing these numbers is a contract decision. styleEscapeDebt must stay at 0; n
 | styleEscapeDebt | 0 | 0 |
 | componentsWithApprovedInlineVars | 6 | 6 |
 | componentsWithRuntimeVars | 1 | 1 |
-| approvedInlineVars | 10 | 10 |
+| approvedInlineVars | 12 | 12 |
 | styleProps | 10 | 10 |
 | setPropertyCalls | 2 | 2 |
 | violations | 0 | 0 |
@@ -44,7 +44,7 @@ Changing these numbers is a contract decision. styleEscapeDebt must stay at 0; n
 | --- | --- | --- | --- | --- | ---: | ---: |
 | Avatar | pass | --comp-avatar-identity-bg, --comp-avatar-identity-fg | --comp-avatar-identity-bg, --comp-avatar-identity-fg | None | 1 | 0 |
 | ChartPanel | pass | --comp-chart-panel-current-series, --comp-chart-panel-stagger-delay | --comp-chart-panel-current-series, --comp-chart-panel-stagger-delay | None | 4 | 0 |
-| Skeleton | pass | --comp-skeleton-current-width, --comp-skeleton-current-height, --comp-skeleton-current-columns, --comp-skeleton-bone-current-inline-size, --comp-skeleton-bone-current-block-size, --comp-skeleton-bone-current-radius | --comp-skeleton-bone-current-block-size, --comp-skeleton-current-columns, --comp-skeleton-current-height, --comp-skeleton-current-width | None | 3 | 0 |
+| Skeleton | pass | --comp-skeleton-current-width, --comp-skeleton-current-height, --comp-skeleton-current-columns, --comp-skeleton-bone-current-inline-size, --comp-skeleton-bone-current-block-size, --comp-skeleton-bone-current-radius | --comp-skeleton-bone-current-block-size, --comp-skeleton-bone-current-inline-size, --comp-skeleton-bone-current-radius, --comp-skeleton-current-columns, --comp-skeleton-current-height, --comp-skeleton-current-width | None | 3 | 0 |
 | Slider | pass | --comp-slider-percent | --comp-slider-percent | None | 1 | 0 |
 | Tabs | pass | --comp-tabs-indicator-left, --comp-tabs-indicator-width | None | --comp-tabs-indicator-left, --comp-tabs-indicator-width | 0 | 0 |
 | TreeView | pass | --comp-tree-view-level | --comp-tree-view-level | None | 1 | 0 |

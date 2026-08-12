@@ -93,7 +93,14 @@ function main() {
         && include.includes("packages/react/src/Checkbox.tsx")
         && include.includes("packages/react/src/RadioButton.tsx")
         && include.includes("packages/react/src/Switch.tsx")
-        && include.includes("packages/react/src/TextArea.tsx"),
+        && include.includes("packages/react/src/TextArea.tsx")
+        && include.includes("packages/react/src/Avatar.tsx")
+        && include.includes("packages/react/src/Badge.tsx")
+        && include.includes("packages/react/src/ProgressIndicator.tsx")
+        && include.includes("packages/react/src/Spinner.tsx")
+        && include.includes("packages/react/src/Skeleton.tsx")
+        && include.includes("packages/react/src/Tag.tsx")
+        && include.includes("packages/react/src/Chip.tsx"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

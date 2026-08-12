@@ -69,7 +69,7 @@
       "styleEscapeDebt": 0,
       "componentsWithApprovedInlineVars": 6,
       "componentsWithRuntimeVars": 1,
-      "approvedInlineVars": 10,
+      "approvedInlineVars": 12,
       "styleProps": 10,
       "setPropertyCalls": 2,
       "violations": 0,

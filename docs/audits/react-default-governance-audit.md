@@ -101,12 +101,12 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | AnimatedMoment | state-default | state | playing | pass | pass | Yes | packages/react/src/AnimatedMoment.js:22 |
 | AuditEvent | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/AuditEvent.js:25 |
 | AuditEvent | state-default | state | default | pass | pass | Yes | packages/react/src/AuditEvent.js:26 |
-| Avatar | status-default | status | none | pass | pass | Yes | packages/react/src/Avatar.js:41 |
-| Avatar | state-default | state | default | pass | pass | Yes | packages/react/src/Avatar.js:42 |
-| Badge | state-default | state | default | pass | pass | Yes | packages/react/src/Badge.js:17 |
-| Badge | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Badge.js:24 |
-| Badge | variant-default | variant | status | pass | pass | Yes | packages/react/src/Badge.js:25 |
-| Badge | state-default | state | default | pass | pass | Yes | packages/react/src/Badge.js:26 |
+| Avatar | status-default | status | none | pass | pass | Yes | packages/react/src/Avatar.tsx:65 |
+| Avatar | state-default | state | default | pass | pass | Yes | packages/react/src/Avatar.tsx:66 |
+| Badge | state-default | state | default | pass | pass | Yes | packages/react/src/Badge.tsx:41 |
+| Badge | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Badge.tsx:48 |
+| Badge | variant-default | variant | status | pass | pass | Yes | packages/react/src/Badge.tsx:49 |
+| Badge | state-default | state | default | pass | pass | Yes | packages/react/src/Badge.tsx:50 |
 | BiometricPrompt | variant-default | variant | fingerprint | pass | pass | Yes | packages/react/src/BiometricPrompt.js:26 |
 | BiometricPrompt | state-default | state | default | pass | pass | Yes | packages/react/src/BiometricPrompt.js:27 |
 | Breadcrumbs | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Breadcrumbs.js:45 |
@@ -130,10 +130,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChatThread | state-default | state | default | pass | pass | Yes | packages/react/src/ChatThread.js:24 |
 | Checkbox | variant-default | variant | default | pass | pass | Yes | packages/react/src/Checkbox.tsx:53 |
 | Checkbox | state-default | state | unchecked | pass | pass | Yes | packages/react/src/Checkbox.tsx:54 |
-| Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.js:18 |
-| Chip | variant-default | variant | filter | pass | pass | Yes | packages/react/src/Chip.js:27 |
-| Chip | tone-default | tone | default | pass | pass | Yes | packages/react/src/Chip.js:28 |
-| Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.js:29 |
+| Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.tsx:46 |
+| Chip | variant-default | variant | filter | pass | pass | Yes | packages/react/src/Chip.tsx:55 |
+| Chip | tone-default | tone | default | pass | pass | Yes | packages/react/src/Chip.tsx:56 |
+| Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.tsx:57 |
 | CodeInput | variant-default | variant | sms | pass | pass | Yes | packages/react/src/CodeInput.js:31 |
 | Dialog | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Dialog.tsx:112 |
 | Dialog | variant-default | variant | confirmation | pass | pass | Yes | packages/react/src/Dialog.tsx:113 |
@@ -175,9 +175,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Popover | variant-default | variant | information | pass | pass | Yes | packages/react/src/Popover.tsx:81 |
 | Popover | state-default | state | default | pass | pass | Yes | packages/react/src/Popover.tsx:82 |
 | Popover | placement-default | placement | bottom | pass | pass | Yes | packages/react/src/Popover.tsx:83 |
-| ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.js:18 |
-| ProgressIndicator | tone-default | tone | accent | pass | pass | Yes | packages/react/src/ProgressIndicator.js:34 |
-| ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.js:35 |
+| ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:41 |
+| ProgressIndicator | tone-default | tone | accent | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:57 |
+| ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:58 |
 | QuickAction | state-default | state | default | pass | pass | Yes | packages/react/src/QuickAction.js:16 |
 | QuickAction | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/QuickAction.js:19 |
 | RadioButton | variant-default | variant | default | pass | pass | Yes | packages/react/src/RadioButton.tsx:50 |
@@ -188,11 +188,11 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | SegmentedControl | variant-default | variant | outlined | pass | pass | Yes | packages/react/src/SegmentedControl.js:42 |
 | Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.js:26 |
 | Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.js:27 |
-| Skeleton | variant-default | variant | text | pass | pass | Yes | packages/react/src/Skeleton.js:79 |
+| Skeleton | variant-default | variant | text | pass | pass | Yes | packages/react/src/Skeleton.tsx:113 |
 | Slider | variant-default | variant | continuous | pass | pass | Yes | packages/react/src/Slider.js:38 |
 | Slider | state-default | state | default | pass | pass | Yes | packages/react/src/Slider.js:39 |
-| Spinner | tone-default | tone | accent | pass | pass | Yes | packages/react/src/Spinner.js:20 |
-| Spinner | state-default | state | loading | pass | pass | Yes | packages/react/src/Spinner.js:21 |
+| Spinner | tone-default | tone | accent | pass | pass | Yes | packages/react/src/Spinner.tsx:38 |
+| Spinner | state-default | state | loading | pass | pass | Yes | packages/react/src/Spinner.tsx:39 |
 | StationPin | variant-default | variant | fuel | pass | pass | Yes | packages/react/src/StationPin.js:15 |
 | StationPin | state-default | state | default | pass | pass | Yes | packages/react/src/StationPin.js:16 |
 | Stepper | orientation-default | orientation | horizontal | pass | pass | Yes | packages/react/src/Stepper.js:25 |
@@ -201,10 +201,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Table | state-default | state | default | pass | pass | Yes | packages/react/src/Table.js:37 |
 | Table | sort-direction-default | sortDir | ascending | pass | pass | Yes | packages/react/src/Table.js:41 |
 | Tabs | variant-default | variant | default | pass | pass | Yes | packages/react/src/Tabs.tsx:79 |
-| Tag | state-default | state | default | pass | pass | Yes | packages/react/src/Tag.js:18 |
-| Tag | variant-default | variant | metadata | pass | pass | Yes | packages/react/src/Tag.js:25 |
-| Tag | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Tag.js:26 |
-| Tag | state-default | state | default | pass | pass | Yes | packages/react/src/Tag.js:27 |
+| Tag | state-default | state | default | pass | pass | Yes | packages/react/src/Tag.tsx:42 |
+| Tag | variant-default | variant | metadata | pass | pass | Yes | packages/react/src/Tag.tsx:49 |
+| Tag | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Tag.tsx:50 |
+| Tag | state-default | state | default | pass | pass | Yes | packages/react/src/Tag.tsx:51 |
 | Toast | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Toast.js:22 |
 | Toast | variant-default | variant | status | pass | pass | Yes | packages/react/src/Toast.js:23 |
 | Toast | state-default | state | visible | pass | pass | Yes | packages/react/src/Toast.js:24 |
@@ -221,12 +221,12 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | AnimatedMoment | state-default | state | playing | packages/react/src/AnimatedMoment.js:22 | `state = "playing",` |
 | AuditEvent | tone-default | tone | neutral | packages/react/src/AuditEvent.js:25 | `tone = "neutral",` |
 | AuditEvent | state-default | state | default | packages/react/src/AuditEvent.js:26 | `state = "default",` |
-| Avatar | status-default | status | none | packages/react/src/Avatar.js:41 | `status = "none",` |
-| Avatar | state-default | state | default | packages/react/src/Avatar.js:42 | `state = "default",` |
-| Badge | state-default | state | default | packages/react/src/Badge.js:17 | `function normalizeState({ hidden = false, state = "default" } = {}) {` |
-| Badge | tone-default | tone | neutral | packages/react/src/Badge.js:24 | `tone = "neutral",` |
-| Badge | variant-default | variant | status | packages/react/src/Badge.js:25 | `variant = "status",` |
-| Badge | state-default | state | default | packages/react/src/Badge.js:26 | `state = "default",` |
+| Avatar | status-default | status | none | packages/react/src/Avatar.tsx:65 | `status = "none",` |
+| Avatar | state-default | state | default | packages/react/src/Avatar.tsx:66 | `state = "default",` |
+| Badge | state-default | state | default | packages/react/src/Badge.tsx:41 | `function normalizeState({ hidden = false, state = "default" }: { hidden?: boolean; state?: BadgeState } = {}): BadgeState {` |
+| Badge | tone-default | tone | neutral | packages/react/src/Badge.tsx:48 | `tone = "neutral",` |
+| Badge | variant-default | variant | status | packages/react/src/Badge.tsx:49 | `variant = "status",` |
+| Badge | state-default | state | default | packages/react/src/Badge.tsx:50 | `state = "default",` |
 | BiometricPrompt | variant-default | variant | fingerprint | packages/react/src/BiometricPrompt.js:26 | `variant = "fingerprint",` |
 | BiometricPrompt | state-default | state | default | packages/react/src/BiometricPrompt.js:27 | `state = "default",` |
 | Breadcrumbs | variant-default | variant | standard | packages/react/src/Breadcrumbs.js:45 | `variant = "standard",` |
@@ -250,10 +250,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChatThread | state-default | state | default | packages/react/src/ChatThread.js:24 | `state = "default",` |
 | Checkbox | variant-default | variant | default | packages/react/src/Checkbox.tsx:53 | `variant = "default",` |
 | Checkbox | state-default | state | unchecked | packages/react/src/Checkbox.tsx:54 | `state = "unchecked",` |
-| Chip | state-default | state | default | packages/react/src/Chip.js:18 | `function normalizeState({ disabled = false, selected = false, state = "default" } = {}) {` |
-| Chip | variant-default | variant | filter | packages/react/src/Chip.js:27 | `variant = "filter",` |
-| Chip | tone-default | tone | default | packages/react/src/Chip.js:28 | `tone = "default",` |
-| Chip | state-default | state | default | packages/react/src/Chip.js:29 | `state = "default",` |
+| Chip | state-default | state | default | packages/react/src/Chip.tsx:46 | `function normalizeState({ disabled = false, selected = false, state = "default" }: { disabled?: boolean; selected?: boolean; state?: ChipState } = {}): ChipState {` |
+| Chip | variant-default | variant | filter | packages/react/src/Chip.tsx:55 | `variant = "filter",` |
+| Chip | tone-default | tone | default | packages/react/src/Chip.tsx:56 | `tone = "default",` |
+| Chip | state-default | state | default | packages/react/src/Chip.tsx:57 | `state = "default",` |
 | CodeInput | variant-default | variant | sms | packages/react/src/CodeInput.js:31 | `variant = "sms",` |
 | Dialog | tone-default | tone | neutral | packages/react/src/Dialog.tsx:112 | `tone = "neutral",` |
 | Dialog | variant-default | variant | confirmation | packages/react/src/Dialog.tsx:113 | `variant = "confirmation",` |
@@ -295,9 +295,9 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Popover | variant-default | variant | information | packages/react/src/Popover.tsx:81 | `variant = "information",` |
 | Popover | state-default | state | default | packages/react/src/Popover.tsx:82 | `state = "default",` |
 | Popover | placement-default | placement | bottom | packages/react/src/Popover.tsx:83 | `placement = "bottom",` |
-| ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.js:18 | `function progressMeta({ value = 0, max = 100, state = "active", indeterminate = false } = {}) {` |
-| ProgressIndicator | tone-default | tone | accent | packages/react/src/ProgressIndicator.js:34 | `tone = "accent",` |
-| ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.js:35 | `state = "active",` |
+| ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.tsx:41 | `function progressMeta({ value = 0, max = 100, state = "active", indeterminate = false }: { value?: number; max?: number; state?: ProgressIndicatorState; indeterminate?: boolean } = {}) {` |
+| ProgressIndicator | tone-default | tone | accent | packages/react/src/ProgressIndicator.tsx:57 | `tone = "accent",` |
+| ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.tsx:58 | `state = "active",` |
 | QuickAction | state-default | state | default | packages/react/src/QuickAction.js:16 | `state = "default",` |
 | QuickAction | tone-default | tone | neutral | packages/react/src/QuickAction.js:19 | `tone = "neutral",` |
 | RadioButton | variant-default | variant | default | packages/react/src/RadioButton.tsx:50 | `variant = "default",` |
@@ -308,11 +308,11 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | SegmentedControl | variant-default | variant | outlined | packages/react/src/SegmentedControl.js:42 | `variant = "outlined",` |
 | Select | variant-default | variant | default | packages/react/src/Select.js:26 | `variant = "default",` |
 | Select | state-default | state | default | packages/react/src/Select.js:27 | `state = "default",` |
-| Skeleton | variant-default | variant | text | packages/react/src/Skeleton.js:79 | `variant = "text",` |
+| Skeleton | variant-default | variant | text | packages/react/src/Skeleton.tsx:113 | `variant = "text",` |
 | Slider | variant-default | variant | continuous | packages/react/src/Slider.js:38 | `variant = "continuous",` |
 | Slider | state-default | state | default | packages/react/src/Slider.js:39 | `state = "default",` |
-| Spinner | tone-default | tone | accent | packages/react/src/Spinner.js:20 | `tone = "accent",` |
-| Spinner | state-default | state | loading | packages/react/src/Spinner.js:21 | `state = "loading",` |
+| Spinner | tone-default | tone | accent | packages/react/src/Spinner.tsx:38 | `tone = "accent",` |
+| Spinner | state-default | state | loading | packages/react/src/Spinner.tsx:39 | `state = "loading",` |
 | StationPin | variant-default | variant | fuel | packages/react/src/StationPin.js:15 | `variant = "fuel",` |
 | StationPin | state-default | state | default | packages/react/src/StationPin.js:16 | `state = "default",` |
 | Stepper | orientation-default | orientation | horizontal | packages/react/src/Stepper.js:25 | `orientation = "horizontal",` |
@@ -321,10 +321,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Table | state-default | state | default | packages/react/src/Table.js:37 | `state = "default",` |
 | Table | sort-direction-default | sortDir | ascending | packages/react/src/Table.js:41 | `sortDir = "ascending",` |
 | Tabs | variant-default | variant | default | packages/react/src/Tabs.tsx:79 | `variant = "default",` |
-| Tag | state-default | state | default | packages/react/src/Tag.js:18 | `function normalizeState({ disabled = false, state = "default" } = {}) {` |
-| Tag | variant-default | variant | metadata | packages/react/src/Tag.js:25 | `variant = "metadata",` |
-| Tag | tone-default | tone | neutral | packages/react/src/Tag.js:26 | `tone = "neutral",` |
-| Tag | state-default | state | default | packages/react/src/Tag.js:27 | `state = "default",` |
+| Tag | state-default | state | default | packages/react/src/Tag.tsx:42 | `function normalizeState({ disabled = false, state = "default" }: { disabled?: boolean; state?: TagState } = {}): TagState {` |
+| Tag | variant-default | variant | metadata | packages/react/src/Tag.tsx:49 | `variant = "metadata",` |
+| Tag | tone-default | tone | neutral | packages/react/src/Tag.tsx:50 | `tone = "neutral",` |
+| Tag | state-default | state | default | packages/react/src/Tag.tsx:51 | `state = "default",` |
 | Toast | tone-default | tone | neutral | packages/react/src/Toast.js:22 | `tone = "neutral",` |
 | Toast | variant-default | variant | status | packages/react/src/Toast.js:23 | `variant = "status",` |
 | Toast | state-default | state | visible | packages/react/src/Toast.js:24 | `state = "visible",` |

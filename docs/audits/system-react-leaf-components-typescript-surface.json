@@ -1,0 +1,230 @@
+{
+  "schemaVersion": "flow-system-react-leaf-components-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "leaf-components-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Avatar",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Badge",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "ProgressIndicator",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Spinner",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Skeleton",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Tag",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Chip",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Avatar",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Badge",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "ProgressIndicator",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Spinner",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Skeleton",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Tag",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Chip",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Avatar",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Badge",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "ProgressIndicator",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Spinner",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Skeleton",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Tag",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Chip",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "Avatar",
+      "sourceFile": "packages/react/src/Avatar.tsx",
+      "runtimeFile": "packages/react/src/Avatar.js",
+      "declarationFile": "packages/react/src/Avatar.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Badge",
+      "sourceFile": "packages/react/src/Badge.tsx",
+      "runtimeFile": "packages/react/src/Badge.js",
+      "declarationFile": "packages/react/src/Badge.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "ProgressIndicator",
+      "sourceFile": "packages/react/src/ProgressIndicator.tsx",
+      "runtimeFile": "packages/react/src/ProgressIndicator.js",
+      "declarationFile": "packages/react/src/ProgressIndicator.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Spinner",
+      "sourceFile": "packages/react/src/Spinner.tsx",
+      "runtimeFile": "packages/react/src/Spinner.js",
+      "declarationFile": "packages/react/src/Spinner.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Skeleton",
+      "sourceFile": "packages/react/src/Skeleton.tsx",
+      "runtimeFile": "packages/react/src/Skeleton.js",
+      "declarationFile": "packages/react/src/Skeleton.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Tag",
+      "sourceFile": "packages/react/src/Tag.tsx",
+      "runtimeFile": "packages/react/src/Tag.js",
+      "declarationFile": "packages/react/src/Tag.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Chip",
+      "sourceFile": "packages/react/src/Chip.tsx",
+      "runtimeFile": "packages/react/src/Chip.js",
+      "declarationFile": "packages/react/src/Chip.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 7,
+    "runtimeFiles": 7,
+    "tsxSourceFiles": 7,
+    "declarationFiles": 7,
+    "staleRuntimeFiles": 0,
+    "reactLeafComponentTypescriptSurfaceDebt": 0
+  }
+}

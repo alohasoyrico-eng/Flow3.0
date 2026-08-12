@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 42
-- Source declarations paired with JS but not TS/TSX: 119
-- TypeScript surface debt: 399
-- Unique TypeScript surface debt: 259
+- Public JS runtime exports with TS/TSX source: 56
+- Source declarations paired with JS but not TS/TSX: 112
+- TypeScript surface debt: 392
+- Unique TypeScript surface debt: 252
 
 ## File Counts
 
-- By extension: {".js":592,".mjs":20,".ts":104,".d.ts":274,".tsx":14}
-- By area: {"script":255,"source":466,"test":8,"generated-dist":275}
+- By extension: {".js":593,".mjs":20,".ts":104,".d.ts":274,".tsx":21}
+- By area: {"script":256,"source":473,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -31,8 +31,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/Accordion.js | no |
 | package.json | packages/react/dist/AnimatedMoment.js | no |
 | package.json | packages/react/dist/AuditEvent.js | no |
-| package.json | packages/react/dist/Avatar.js | no |
-| package.json | packages/react/dist/Badge.js | no |
+| package.json | packages/react/dist/Avatar.js | yes |
+| package.json | packages/react/dist/Badge.js | yes |
 | package.json | packages/react/dist/BiometricPrompt.js | no |
 | package.json | packages/react/dist/Breadcrumbs.js | no |
 | package.json | packages/react/dist/Button.js | yes |
@@ -46,7 +46,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/ChatMessage.js | no |
 | package.json | packages/react/dist/ChatThread.js | no |
 | package.json | packages/react/dist/Checkbox.js | yes |
-| package.json | packages/react/dist/Chip.js | no |
+| package.json | packages/react/dist/Chip.js | yes |
 | package.json | packages/react/dist/CodeInput.js | no |
 | package.json | packages/react/dist/Combobox.js | no |
 | package.json | packages/react/dist/CountrySelector.js | no |
@@ -112,8 +112,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/Accordion.d.ts | yes | no |
 | packages/react/src/AnimatedMoment.d.ts | yes | no |
 | packages/react/src/AuditEvent.d.ts | yes | no |
-| packages/react/src/Avatar.d.ts | yes | no |
-| packages/react/src/Badge.d.ts | yes | no |
 | packages/react/src/BiometricPrompt.d.ts | yes | no |
 | packages/react/src/Breadcrumbs.d.ts | yes | no |
 | packages/react/src/CardExpiryInput.d.ts | yes | no |
@@ -124,7 +122,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/ChatComposer.d.ts | yes | no |
 | packages/react/src/ChatMessage.d.ts | yes | no |
 | packages/react/src/ChatThread.d.ts | yes | no |
-| packages/react/src/Chip.d.ts | yes | no |
 | packages/react/src/CodeInput.d.ts | yes | no |
 | packages/react/src/Combobox.d.ts | yes | no |
 | packages/react/src/CountrySelector.d.ts | yes | no |
@@ -141,18 +138,14 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/MovementRow.d.ts | yes | no |
 | packages/react/src/Pagination.d.ts | yes | no |
 | packages/react/src/PhoneInput.d.ts | yes | no |
-| packages/react/src/ProgressIndicator.d.ts | yes | no |
 | packages/react/src/QuickAction.d.ts | yes | no |
 | packages/react/src/RouteSummary.d.ts | yes | no |
 | packages/react/src/SegmentedControl.d.ts | yes | no |
 | packages/react/src/Select.d.ts | yes | no |
-| packages/react/src/Skeleton.d.ts | yes | no |
 | packages/react/src/Slider.d.ts | yes | no |
-| packages/react/src/Spinner.d.ts | yes | no |
 | packages/react/src/StationPin.d.ts | yes | no |
 | packages/react/src/Stepper.d.ts | yes | no |
 | packages/react/src/Table.d.ts | yes | no |
-| packages/react/src/Tag.d.ts | yes | no |
 | packages/react/src/Toast.d.ts | yes | no |
 | packages/react/src/Tooltip.d.ts | yes | no |
 | packages/react/src/TreeView.d.ts | yes | no |
@@ -189,6 +182,13 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/FleetManagerOnboardingDesktop.d.ts | yes | no |
 | packages/react/src/patterns/FormSection.d.ts | yes | no |
 | packages/react/src/patterns/FullscreenSheet.d.ts | yes | no |
+| packages/react/src/patterns/GanttChart.d.ts | yes | no |
+| packages/react/src/patterns/HelpCenter.d.ts | yes | no |
+| packages/react/src/patterns/KanbanBoard.d.ts | yes | no |
+| packages/react/src/patterns/KpiCard.d.ts | yes | no |
+| packages/react/src/patterns/MultiSelect.d.ts | yes | no |
+| packages/react/src/patterns/MultiStepForm.d.ts | yes | no |
+| packages/react/src/patterns/NotificationPanel.d.ts | yes | no |
 
 ## Interpretation
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T21:40:54.006Z",
+  "generatedAt": "2026-08-12T21:50:35.795Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -57,7 +57,14 @@
           "packages/react/src/Checkbox.tsx",
           "packages/react/src/RadioButton.tsx",
           "packages/react/src/Switch.tsx",
-          "packages/react/src/TextArea.tsx"
+          "packages/react/src/TextArea.tsx",
+          "packages/react/src/Avatar.tsx",
+          "packages/react/src/Badge.tsx",
+          "packages/react/src/ProgressIndicator.tsx",
+          "packages/react/src/Spinner.tsx",
+          "packages/react/src/Skeleton.tsx",
+          "packages/react/src/Tag.tsx",
+          "packages/react/src/Chip.tsx"
         ]
       },
       "failMessage": null
@@ -124,7 +131,14 @@
       "packages/react/src/Checkbox.tsx",
       "packages/react/src/RadioButton.tsx",
       "packages/react/src/Switch.tsx",
-      "packages/react/src/TextArea.tsx"
+      "packages/react/src/TextArea.tsx",
+      "packages/react/src/Avatar.tsx",
+      "packages/react/src/Badge.tsx",
+      "packages/react/src/ProgressIndicator.tsx",
+      "packages/react/src/Spinner.tsx",
+      "packages/react/src/Skeleton.tsx",
+      "packages/react/src/Tag.tsx",
+      "packages/react/src/Chip.tsx"
     ],
     "exclude": [
       "node_modules",
