@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "title": "React template interaction governance audit",
-  "generatedAt": "2026-08-12T13:51:56.388Z",
+  "generatedAt": "2026-08-12T13:56:12.051Z",
   "summary": "React template interaction contracts pass for all required templates.",
   "inventory": {
     "templatesAudited": 9,

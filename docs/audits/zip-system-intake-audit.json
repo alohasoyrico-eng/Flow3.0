@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "zip system intake",
   "principle": "Every ZIP component, guideline, token output, kit, template screen, email, and iOS preview must have a Flow taxonomy target and promotion path before new implementation work starts.",
-  "generatedAt": "2026-08-12T13:52:00.827Z",
+  "generatedAt": "2026-08-12T13:56:16.715Z",
   "inventory": {
     "zipComponents": 83,
     "zipComponentsWithTypes": 63,

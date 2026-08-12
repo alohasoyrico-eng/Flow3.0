@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "zip owner export matrix",
   "principle": "Every Flow owner used to absorb ZIP kits must exist as a real spec, runtime, type surface, or governed primitive/foundation contract instead of only a planning label.",
-  "generatedAt": "2026-08-12T13:52:00.723Z",
+  "generatedAt": "2026-08-12T13:56:16.609Z",
   "inventory": {
     "kits": 16,
     "foundationOwners": 11,
