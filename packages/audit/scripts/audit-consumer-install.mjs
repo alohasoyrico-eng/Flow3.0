@@ -3249,7 +3249,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 593,
+    filesScanned: 594,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3822,15 +3822,21 @@ function assertReactGovernanceBaselines() {
     primitiveCascadeActivationPlanDebt: 0,
   }, "Primitive cascade activation plan");
 
+  const tokenTypescriptSurface = readAuditReport("docs/audits/system-token-typescript-surface.json");
+  assertReportStatus(tokenTypescriptSurface, "System token TypeScript surface");
+  assertInventory(tokenTypescriptSurface, {
+    tokenTypescriptSurfaceDebt: 0,
+  }, "System token TypeScript surface");
+
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 81,
-    categoryMappings: 71,
+    reports: 82,
+    categoryMappings: 72,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 81,
-    debtMetrics: 97,
+    reportsWithDebtMetrics: 82,
+    debtMetrics: 98,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,

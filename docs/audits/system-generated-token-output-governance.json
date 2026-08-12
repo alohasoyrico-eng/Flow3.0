@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-12T03:36:17.010Z",
+  "generatedAt": "2026-08-12T20:09:50.985Z",
   "scope": "Generated token output edit governance",
   "status": "PASS",
   "manifest": "packages/tokens/dist/token-output-manifest.json",
   "totals": {
-    "outputs": 7,
-    "matchingOutputs": 7,
+    "outputs": 8,
+    "matchingOutputs": 8,
     "tokenCount": 1131
   },
   "gates": [
@@ -22,8 +22,8 @@
       "id": "token-source-matches-manifest",
       "status": "PASS",
       "evidence": {
-        "manifestSourceSha": "91bea5569ba70e2f8395502daca64784e512eb776aca12253f8ed19fad97f39b",
-        "actualSourceSha": "91bea5569ba70e2f8395502daca64784e512eb776aca12253f8ed19fad97f39b",
+        "manifestSourceSha": "03e1bcde2ebcec18722745c5fbcf992dea22fef498d325de0f69fcd7f5c476d1",
+        "actualSourceSha": "03e1bcde2ebcec18722745c5fbcf992dea22fef498d325de0f69fcd7f5c476d1",
         "manifestTokenCount": 1131,
         "actualTokenCount": 1131
       },
@@ -44,15 +44,22 @@
           {
             "file": "packages/tokens/tokens.json",
             "exists": true,
-            "expectedSha": "5254c4c19403d468026710aabcaacff2d09eed618bedfd6d9c79e1a259e3b8bf",
-            "actualSha": "5254c4c19403d468026710aabcaacff2d09eed618bedfd6d9c79e1a259e3b8bf",
+            "expectedSha": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042",
+            "actualSha": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042",
             "matchesManifest": true
           },
           {
             "file": "packages/tokens/src/generated/tokens.ts",
             "exists": true,
-            "expectedSha": "0a3a4397330612d2c56a7da32205edc13e1b81aeffa3ac04d4a8e731b6df6aa2",
-            "actualSha": "0a3a4397330612d2c56a7da32205edc13e1b81aeffa3ac04d4a8e731b6df6aa2",
+            "expectedSha": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f",
+            "actualSha": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f",
+            "matchesManifest": true
+          },
+          {
+            "file": "packages/tokens/src/index.js",
+            "exists": true,
+            "expectedSha": "b002f199519291ec9f24aa373bc95e56ca968c0b9cd0d9776282454677ab4937",
+            "actualSha": "b002f199519291ec9f24aa373bc95e56ca968c0b9cd0d9776282454677ab4937",
             "matchesManifest": true
           },
           {
@@ -99,15 +106,22 @@
     {
       "file": "packages/tokens/tokens.json",
       "exists": true,
-      "expectedSha": "5254c4c19403d468026710aabcaacff2d09eed618bedfd6d9c79e1a259e3b8bf",
-      "actualSha": "5254c4c19403d468026710aabcaacff2d09eed618bedfd6d9c79e1a259e3b8bf",
+      "expectedSha": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042",
+      "actualSha": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042",
       "matchesManifest": true
     },
     {
       "file": "packages/tokens/src/generated/tokens.ts",
       "exists": true,
-      "expectedSha": "0a3a4397330612d2c56a7da32205edc13e1b81aeffa3ac04d4a8e731b6df6aa2",
-      "actualSha": "0a3a4397330612d2c56a7da32205edc13e1b81aeffa3ac04d4a8e731b6df6aa2",
+      "expectedSha": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f",
+      "actualSha": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f",
+      "matchesManifest": true
+    },
+    {
+      "file": "packages/tokens/src/index.js",
+      "exists": true,
+      "expectedSha": "b002f199519291ec9f24aa373bc95e56ca968c0b9cd0d9776282454677ab4937",
+      "actualSha": "b002f199519291ec9f24aa373bc95e56ca968c0b9cd0d9776282454677ab4937",
       "matchesManifest": true
     },
     {

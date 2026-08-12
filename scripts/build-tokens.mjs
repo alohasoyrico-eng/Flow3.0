@@ -3,6 +3,7 @@
 import { spawnSync } from "node:child_process";
 import crypto from "node:crypto";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 
 const root = process.cwd();
@@ -11,10 +12,13 @@ const sourceRoot = path.join(root, "packages/tokens/source");
 const mergedSource = path.join(root, "packages/tokens/.build/flow.tokens.json");
 const manifestFile = path.join(root, "packages/tokens/dist/token-output-manifest.json");
 const reactEmailTokenValues = path.join(root, "packages/react/src/internal/email-token-values.js");
+const tokenRuntimeSource = path.join(root, "packages/tokens/src/index.ts");
+const tokenRuntimeOutput = path.join(root, "packages/tokens/src/index.js");
 const outputFiles = [
   "packages/tokens/styles/tokens.css",
   "packages/tokens/tokens.json",
   "packages/tokens/src/generated/tokens.ts",
+  "packages/tokens/src/index.js",
   "packages/tokens/dist/flutter/flow_tokens.dart",
   "packages/tokens/dist/android/flow_tokens.xml",
   "packages/tokens/dist/ios/FlowTokens.swift",
@@ -54,6 +58,36 @@ const result = spawnSync(bin, ["build", "--config", "style-dictionary.config.mjs
 });
 
 if (result.status !== 0) process.exit(result.status ?? 1);
+
+function compileTokenRuntime() {
+  const outDir = fs.mkdtempSync(path.join(os.tmpdir(), "flow-token-runtime-"));
+  const tscBin = path.join(root, "node_modules/.bin/tsc");
+  const result = spawnSync(tscBin, [
+    "--ignoreConfig",
+    "--target", "ES2020",
+    "--module", "ESNext",
+    "--moduleResolution", "bundler",
+    "--skipLibCheck",
+    "--outDir", outDir,
+    tokenRuntimeSource,
+  ], {
+    cwd: root,
+    encoding: "utf8",
+  });
+
+  if (result.status !== 0) {
+    if (result.stdout) process.stdout.write(result.stdout);
+    if (result.stderr) process.stderr.write(result.stderr);
+    fs.rmSync(outDir, { recursive: true, force: true });
+    process.exit(result.status ?? 1);
+  }
+
+  const compiled = path.join(outDir, "index.js");
+  fs.writeFileSync(tokenRuntimeOutput, fs.readFileSync(compiled, "utf8"));
+  fs.rmSync(outDir, { recursive: true, force: true });
+}
+
+compileTokenRuntime();
 
 const emailTokens = Object.fromEntries(
   Object.entries(mergedTokens)

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "flow-system-token-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "publicTokenExport": "./src/index.js",
+  "source": {
+    "file": "packages/tokens/src/index.ts",
+    "exists": true
+  },
+  "runtime": {
+    "file": "packages/tokens/src/index.js",
+    "exists": true
+  },
+  "gates": [
+    {
+      "id": "public-export-remains-runtime-js",
+      "status": "PASS",
+      "evidence": {
+        "export": "./src/index.js"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "typescript-source-exists",
+      "status": "PASS",
+      "evidence": {
+        "file": "packages/tokens/src/index.ts",
+        "exists": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "typescript-source-has-owned-types",
+      "status": "PASS",
+      "evidence": {
+        "file": "packages/tokens/src/index.ts"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-typescript",
+      "status": "PASS",
+      "evidence": {
+        "source": "packages/tokens/src/index.ts",
+        "runtime": "packages/tokens/src/index.js",
+        "compileStatus": 0,
+        "stderr": ""
+      },
+      "failMessage": null
+    }
+  ],
+  "inventory": {
+    "tokenTypescriptSurfaceDebt": 0
+  },
+  "tokenTypescriptSurfaceDebt": 0
+}

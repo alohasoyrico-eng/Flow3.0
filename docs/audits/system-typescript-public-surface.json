@@ -2931,7 +2931,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2991,7 +2991,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/tokens/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 6,
+  "publicJsRuntimeExportsWithTsSource": 8,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/Accordion.d.ts",
@@ -6483,14 +6483,14 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 582,
+        ".js": 583,
         ".mjs": 20,
         ".d.ts": 274,
-        ".ts": 30
+        ".ts": 31
       },
       "byArea": {
-        "script": 245,
-        "source": 378,
+        "script": 246,
+        "source": 379,
         "test": 8,
         "generated-dist": 275
       }

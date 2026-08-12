@@ -650,6 +650,7 @@
     "audit:consumer-install": "node packages/audit/scripts/audit-consumer-install.mjs",
     "typecheck": "tsc --noEmit --project tsconfig.json",
     "audit:typescript-setup": "node packages/audit/scripts/report-system-typescript-project-setup.js",
+    "audit:tokens-typescript": "node packages/audit/scripts/report-system-token-typescript-surface.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },

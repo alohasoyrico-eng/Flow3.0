@@ -18,6 +18,10 @@
       "sha256": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f"
     },
     {
+      "file": "packages/tokens/src/index.js",
+      "sha256": "b002f199519291ec9f24aa373bc95e56ca968c0b9cd0d9776282454677ab4937"
+    },
+    {
       "file": "packages/tokens/dist/flutter/flow_tokens.dart",
       "sha256": "8db882019ea6ca79fb5dc1387d9a8a0dbc8778e3c085e1e782b9b52be1486802"
     },
