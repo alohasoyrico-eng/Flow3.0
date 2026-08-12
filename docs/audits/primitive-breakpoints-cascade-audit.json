@@ -91,7 +91,7 @@
     "52rem": "choice control stacked breakpoint"
   },
   "review": {
-    "mediaQueryCount": 64,
+    "mediaQueryCount": 9,
     "unapproved": [],
     "sampleMediaQueries": [
       {
@@ -158,125 +158,6 @@
         "query": "(max-width: 480px)",
         "values": [
           "480px"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 88,
-        "query": "(min-width: 576px)",
-        "values": [
-          "576px"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 96,
-        "query": "(min-width: 992px)",
-        "values": [
-          "992px"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
-        "line": 289,
-        "query": "(min-width: 576px) and (max-width: 1439px)",
-        "values": [
-          "576px",
-          "1439px"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
-        "line": 320,
-        "query": "(max-width: 575px)",
-        "values": [
-          "575px"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/01-shell-hero.css",
-        "line": 46,
-        "query": "(min-width: 1280px)",
-        "values": [
-          "1280px"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04c-input-docs.css",
-        "line": 17,
-        "query": "(max-width: 767px)",
-        "values": [
-          "767px"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
-        "line": 108,
-        "query": "(max-width: 52rem)",
-        "values": [
-          "52rem"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04e-switch-docs.css",
-        "line": 33,
-        "query": "(max-width: 52rem)",
-        "values": [
-          "52rem"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04f-radio-button-docs.css",
-        "line": 33,
-        "query": "(max-width: 52rem)",
-        "values": [
-          "52rem"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04g-text-area-docs.css",
-        "line": 13,
-        "query": "(max-width: 52rem)",
-        "values": [
-          "52rem"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04h-icon-button-docs.css",
-        "line": 35,
-        "query": "(max-width: 52rem)",
-        "values": [
-          "52rem"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
-        "line": 157,
-        "query": "(prefers-reduced-motion: reduce)",
-        "values": []
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
-        "line": 163,
-        "query": "(max-width: 767px)",
-        "values": [
-          "767px"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
-        "line": 169,
-        "query": "(min-width: 1024px)",
-        "values": [
-          "1024px"
-        ]
-      },
-      {
-        "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-        "line": 222,
-        "query": "(max-width: 900px)",
-        "values": [
-          "900px"
         ]
       }
     ]

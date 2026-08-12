@@ -69,7 +69,7 @@ Typography converts Voice, Tone, Frame, and Accessibility into implementation-re
 
 ## Docs Signal
 
-- Docs Typography alias uses: 318
+- Docs Typography alias uses: 0
 - Docs direct ref-voice consumer uses tracked: 0
 
 ## Gaps

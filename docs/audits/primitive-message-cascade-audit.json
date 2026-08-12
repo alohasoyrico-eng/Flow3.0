@@ -368,63 +368,9 @@
     }
   },
   "accessibility": {
-    "announcementSignals": [
-      {
-        "file": "../FlowDocs/apps/docs/generated/components/platforms/chat-thread.js",
-        "ariaLive": 1,
-        "alertRole": 0,
-        "statusRole": 0
-      },
-      {
-        "file": "../FlowDocs/apps/docs/generated/react/Badge.js",
-        "ariaLive": 2,
-        "alertRole": 0,
-        "statusRole": 0
-      },
-      {
-        "file": "../FlowDocs/apps/docs/generated/react/ChartPanel.js",
-        "ariaLive": 1,
-        "alertRole": 0,
-        "statusRole": 0
-      },
-      {
-        "file": "../FlowDocs/apps/docs/generated/react/ChatMessage.js",
-        "ariaLive": 1,
-        "alertRole": 0,
-        "statusRole": 0
-      },
-      {
-        "file": "../FlowDocs/apps/docs/generated/react/ChatThread.js",
-        "ariaLive": 1,
-        "alertRole": 0,
-        "statusRole": 0
-      },
-      {
-        "file": "../FlowDocs/apps/docs/generated/react/Toast.js",
-        "ariaLive": 1,
-        "alertRole": 0,
-        "statusRole": 0
-      },
-      {
-        "file": "../FlowDocs/apps/docs/generated/react/patterns/StatusFeedbackView.js",
-        "ariaLive": 1,
-        "alertRole": 0,
-        "statusRole": 0
-      },
-      {
-        "file": "../FlowDocs/apps/docs/pattern-contract-tabs.js",
-        "ariaLive": 0,
-        "alertRole": 1,
-        "statusRole": 1
-      },
-      {
-        "file": "../FlowDocs/apps/docs/pattern-focused-design.js",
-        "ariaLive": 1,
-        "alertRole": 0,
-        "statusRole": 0
-      }
-    ],
-    "totalSignals": 11
+    "docsScope": "external-not-audited",
+    "announcementSignals": [],
+    "totalSignals": 0
   },
   "review": {
     "dangerWithoutRecovery": []

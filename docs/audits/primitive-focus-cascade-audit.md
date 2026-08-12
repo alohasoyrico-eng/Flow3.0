@@ -11,7 +11,7 @@ Focus turns Accessibility, State, and Frame into visible rings, offsets, roving,
 - Token aliases: 8/8
 - Component bridge aliases: 3/3
 - Component focus-visible selectors: 69
-- Docs focus-visible selectors: 20
+- Docs focus-visible selectors: 0
 - Undefined sys-focus uses: 0
 - Invalid focus outlines: 0
 

@@ -16,15 +16,12 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "primitive-animation-assets-cascade-audit.json");
 const markdownOutput = path.join(outputDir, "primitive-animation-assets-cascade-audit.md");
 const componentPackageFile = path.join(root, "packages/components/package.json");
-const docsIndexFile = path.join(docsAppDir, "index.html");
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const primitiveFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/primitives/animation-assets.js");
 const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "packages/components/src/index.js");
 const animatedMomentReactFile = path.join(root, "packages/react/src/AnimatedMoment.js");
 const specFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json");
 const contractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/animation-assets.md");
-const vendorRuntimeFile = path.join(docsAppDir, "vendor/lottie-web/lottie.min.js");
-const vendorLicenseFile = path.join(docsAppDir, "vendor/lottie-web/LICENSE.md");
 const librarySourcesReportFile = path.join(root, "docs/audits/primitive-library-sources-cascade-audit.json");
 const durationReportFile = path.join(root, "docs/audits/primitive-duration-cascade-audit.json");
 const motionCurvesReportFile = path.join(root, "docs/audits/primitive-motion-curves-cascade-audit.json");
@@ -54,7 +51,18 @@ const requiredTokenDependencies = [
   "lottie-web",
 ];
 
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsAppDir = isInsideRoot(docsAppDir) ? docsAppDir : null;
+const docsIndexFile = repoDocsAppDir ? path.join(repoDocsAppDir, "index.html") : null;
+const vendorRuntimeFile = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor/lottie-web/lottie.min.js") : null;
+const vendorLicenseFile = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor/lottie-web/LICENSE.md") : null;
+
 function readIfExists(file) {
+  if (!file) return "";
   return fs.existsSync(file) ? read(file) : "";
 }
 
@@ -88,9 +96,10 @@ const librarySourcesReport = fs.existsSync(librarySourcesReportFile) ? readJson(
 
 const implementation = {
   packageDependency: packageJson.dependencies?.["lottie-web"] ?? null,
-  vendorRuntimePresent: fs.existsSync(vendorRuntimeFile),
-  vendorLicensePresent: fs.existsSync(vendorLicenseFile),
-  docsLoadsLocalRuntime: /vendor\/lottie-web\/lottie\.min\.js/.test(docsIndex) && !/unpkg|jsdelivr|cdnjs/.test(docsIndex),
+  docsScope: repoDocsAppDir ? "in-repo" : "external-not-audited",
+  vendorRuntimePresent: repoDocsAppDir ? fs.existsSync(vendorRuntimeFile) : null,
+  vendorLicensePresent: repoDocsAppDir ? fs.existsSync(vendorLicenseFile) : null,
+  docsLoadsLocalRuntime: repoDocsAppDir ? /vendor\/lottie-web\/lottie\.min\.js/.test(docsIndex) && !/unpkg|jsdelivr|cdnjs/.test(docsIndex) : null,
   exportsPrimitiveApi: /createAnimationAsset/.test(index) && /resolveAnimationRuntime/.test(index) && /prefersReducedAnimation/.test(index),
   usesLibraryBridge: /lottie-web/.test(primitive) && /loadAnimation/.test(primitive) && /resolveAnimationRuntime/.test(primitive),
   supportsReducedMotion: /prefers-reduced-motion:\s*reduce/.test(primitive) && /reduced-motion/.test(primitive),
@@ -99,7 +108,7 @@ const implementation = {
   cssTargetsFallback: /animation-asset__fallback-icon/.test(css) && /animation-asset__fallback-label/.test(css),
   animatedMomentConsumesPrimitive: /animation-asset animated-moment__asset/.test(animatedMomentReact) && /"data-animation-library":\s*"lottie-web"/.test(animatedMomentReact),
   animatedMomentAvoidsRuntimeOwnership: !/loadAnimation|globalThis\.lottie/.test(animatedMomentReact),
-  docsAvoidsRemoteRuntime: !/unpkg|jsdelivr|cdnjs/.test(docsIndex),
+  docsAvoidsRemoteRuntime: repoDocsAppDir ? !/unpkg|jsdelivr|cdnjs/.test(docsIndex) : null,
 };
 
 const gaps = [];
@@ -120,7 +129,7 @@ if (missingCoordinatedPrimitives.length) {
 if (missingTokenDependencies.length) gaps.push(`Missing token dependencies: ${missingTokenDependencies.join(", ")}.`);
 if (!implementation.packageDependency) gaps.push("Components package must declare lottie-web as the animation runtime dependency.");
 for (const [key, value] of Object.entries(implementation)) {
-  if (key === "packageDependency") continue;
+  if (key === "packageDependency" || key === "docsScope" || value === null) continue;
   if (!value) gaps.push(`Animation Assets implementation signal missing: ${key}.`);
 }
 for (const [name, status] of Object.entries(foundationGate)) {
@@ -176,7 +185,8 @@ function writeReport() {
     `- Roles: ${report.roles.present.length}/${report.roles.required.length}`,
     `- Coordinated primitives: ${report.coordinatedPrimitives.present.length}/${report.coordinatedPrimitives.required.length}`,
     `- Package dependency: ${report.implementation.packageDependency ?? "missing"}`,
-    `- Local runtime: ${report.implementation.vendorRuntimePresent ? "yes" : "no"}`,
+    `- Docs scope: ${report.implementation.docsScope}`,
+    `- Local runtime: ${report.implementation.vendorRuntimePresent === null ? "not audited here" : report.implementation.vendorRuntimePresent ? "yes" : "no"}`,
     `- Animated Moment consumes primitive: ${report.implementation.animatedMomentConsumesPrimitive ? "yes" : "no"}`,
     `- Animated Moment owns runtime: ${report.implementation.animatedMomentAvoidsRuntimeOwnership ? "no" : "yes"}`,
     "",

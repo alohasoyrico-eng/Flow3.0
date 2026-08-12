@@ -57,6 +57,14 @@ function rel(file) {
   return path.relative(root, file);
 }
 
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsStyleModuleFiles = docsStyleModuleFiles.filter(isInsideRoot);
+
+
 function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
 }
@@ -142,7 +150,7 @@ const contractSource = readIfExists(contractFile);
 const roles = (spec.roles ?? []).map((role) => role.id);
 const foundations = spec.governingFoundations ?? [];
 const coordinatedPrimitives = spec.coordinatesPrimitives ?? [];
-const componentAndDocsFiles = [componentCssFile, ...docsStyleModuleFiles];
+const componentAndDocsFiles = [componentCssFile, ...repoDocsStyleModuleFiles];
 
 const tokenAliases = {
   required: requiredTokenAliases,

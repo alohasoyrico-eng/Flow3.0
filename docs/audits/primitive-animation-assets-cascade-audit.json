@@ -81,9 +81,10 @@
   },
   "implementation": {
     "packageDependency": "^5.13.0",
-    "vendorRuntimePresent": true,
-    "vendorLicensePresent": true,
-    "docsLoadsLocalRuntime": true,
+    "docsScope": "external-not-audited",
+    "vendorRuntimePresent": null,
+    "vendorLicensePresent": null,
+    "docsLoadsLocalRuntime": null,
     "exportsPrimitiveApi": true,
     "usesLibraryBridge": true,
     "supportsReducedMotion": true,
@@ -92,7 +93,7 @@
     "cssTargetsFallback": true,
     "animatedMomentConsumesPrimitive": true,
     "animatedMomentAvoidsRuntimeOwnership": true,
-    "docsAvoidsRemoteRuntime": true
+    "docsAvoidsRemoteRuntime": null
   },
   "foundationGate": {
     "momentum": "pass",

@@ -14,7 +14,8 @@ Iconography consumes the Iconography, Symbol, Accessibility, State, and Energy f
 - Component bridge aliases: 14/14
 - Component primitive token uses: 24
 - Component bridge token uses: 55
-- Local Material Symbols fonts: 4/4
+- Docs scope: external-not-audited
+- Local Material Symbols fonts: 0/0
 - Remote Material Symbols refs in docs: no
 - Direct foundation iconography uses outside tokens/foundations: 0
 - Direct icon glyph assignments outside primitive: 0

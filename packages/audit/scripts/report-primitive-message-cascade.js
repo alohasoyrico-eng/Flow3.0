@@ -71,7 +71,16 @@ function rel(file) {
   return path.relative(root, file);
 }
 
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsAppDir = isInsideRoot(docsAppDir) ? docsAppDir : null;
+const docsScope = repoDocsAppDir ? "in-repo" : "external-not-audited";
+
 function readIfExists(file) {
+  if (!file) return "";
   return fs.existsSync(file) ? read(file) : "";
 }
 
@@ -165,7 +174,7 @@ const componentContractFiles = walkFiles(componentContractDir, (file) => file.en
 const componentCopyFiles = walkFiles(componentCopyDir, (file) => file.endsWith(".json"));
 const patternFiles = walkFiles(patternDir, (file) => /\.(?:md|json)$/.test(file));
 const templateFiles = walkFiles(templateDir, (file) => file.endsWith(".json"));
-const docsJsFiles = walkFiles(docsAppDir, (file) => file.endsWith(".js"));
+const docsJsFiles = repoDocsAppDir ? walkFiles(repoDocsAppDir, (file) => file.endsWith(".js")) : [];
 
 const tokenAliases = {
   required: requiredTokenAliases,
@@ -184,6 +193,7 @@ const messageComponentCoverage = {
   missing: requiredMessageComponents.filter((id) => !references.componentContracts.ids.includes(id)),
 };
 const accessibility = {
+  docsScope,
   announcementSignals: collectAnnouncementSignals(docsJsFiles),
 };
 accessibility.totalSignals = accessibility.announcementSignals.reduce(
@@ -227,7 +237,9 @@ if (messageComponentCoverage.missing.length) {
 }
 if (!references.patterns.count) gaps.push("No pattern contract references feedback, validation, announcement, or recovery messaging.");
 if (!references.templates.count) gaps.push("No template spec references empty, error, warning, feedback, recovery, audit, or validation messaging.");
-if (!accessibility.totalSignals) gaps.push("Docs renderers expose no aria-live, status, or alert announcement signal.");
+if (repoDocsAppDir && !accessibility.totalSignals) {
+  gaps.push("Docs renderers expose no aria-live, status, or alert announcement signal.");
+}
 if (review.dangerWithoutRecovery.length) {
   gaps.push(`Danger/blocking/error references without recovery language: ${review.dangerWithoutRecovery.length}.`);
 }
@@ -290,6 +302,7 @@ function writeReport() {
     `- Component copy refs: ${report.references.componentCopy.count}`,
     `- Pattern refs: ${report.references.patterns.count}`,
     `- Template refs: ${report.references.templates.count}`,
+    `- Docs scope: ${report.accessibility.docsScope}`,
     `- Announcement signals: ${report.accessibility.totalSignals}`,
     `- Danger/error without recovery: ${report.review.dangerWithoutRecovery.length}`,
     "",

@@ -11,7 +11,7 @@ Breakpoints consumes Frame and Accessibility, coordinates Density and Spacing, e
 - Roles: 4/4
 - Coordinated primitives: 2/2
 - Token aliases: 10/10
-- Media queries audited: 64
+- Media queries audited: 9
 - Unapproved media query values: 0
 - Component media/container signals: 9/2
 

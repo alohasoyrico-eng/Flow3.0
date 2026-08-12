@@ -11,7 +11,8 @@ Animation Assets converts a free runtime into Flow-owned playback, fallback, red
 - Roles: 4/4
 - Coordinated primitives: 4/4
 - Package dependency: ^5.13.0
-- Local runtime: yes
+- Docs scope: external-not-audited
+- Local runtime: not audited here
 - Animated Moment consumes primitive: yes
 - Animated Moment owns runtime: no
 

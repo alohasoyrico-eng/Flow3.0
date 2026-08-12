@@ -19,14 +19,6 @@ const markdownOutput = path.join(outputDir, "primitive-iconography-cascade-audit
 const tokenCssFile = resolveBoundaryPath("#design-system/tokens-css", "packages/tokens/styles/tokens.css");
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const componentSourceDir = path.join(root, "packages/components/src");
-const docsIndexFile = path.join(docsAppDir, "index.html");
-const materialSymbolsCssFile = path.join(docsAppDir, "vendor/material-symbols/material-symbols-rounded.css");
-const materialSymbolsFontFiles = [
-  "material-symbols-rounded-400.ttf",
-  "material-symbols-rounded-500.ttf",
-  "material-symbols-rounded-600.ttf",
-  "material-symbols-rounded-700.ttf",
-].map((file) => path.join(docsAppDir, "vendor/material-symbols", file));
 const iconographySpecFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/iconography.json");
 const iconographyContractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/iconography.md");
 const foundationReports = {
@@ -107,7 +99,30 @@ function rel(file) {
   return path.relative(root, file);
 }
 
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsStyleModuleFiles = docsStyleModuleFiles.filter(isInsideRoot);
+const repoDocsAppDir = isInsideRoot(docsAppDir) ? docsAppDir : null;
+const docsScope = repoDocsAppDir ? "in-repo" : "external-not-audited";
+const docsIndexFile = repoDocsAppDir ? path.join(repoDocsAppDir, "index.html") : null;
+const materialSymbolsCssFile = repoDocsAppDir
+  ? path.join(repoDocsAppDir, "vendor/material-symbols/material-symbols-rounded.css")
+  : null;
+const materialSymbolsFontFiles = repoDocsAppDir
+  ? [
+      "material-symbols-rounded-400.ttf",
+      "material-symbols-rounded-500.ttf",
+      "material-symbols-rounded-600.ttf",
+      "material-symbols-rounded-700.ttf",
+    ].map((file) => path.join(repoDocsAppDir, "vendor/material-symbols", file))
+  : [];
+
+
 function readIfExists(file) {
+  if (!file) return "";
   return fs.existsSync(file) ? read(file) : "";
 }
 
@@ -189,7 +204,7 @@ const coordinatedPrimitives = spec.coordinatesPrimitives ?? [];
 const tokenDependencies = spec.tokenDependencies ?? [];
 const componentAndDocsFiles = [
   componentCssFile,
-  ...docsStyleModuleFiles,
+  ...repoDocsStyleModuleFiles,
 ];
 const componentJsFiles = collectJsFiles(componentSourceDir);
 
@@ -208,6 +223,7 @@ const componentBridge = {
 const directFoundationUses = findDirectFoundationIconographyUses(componentAndDocsFiles);
 const directGlyphAssignments = findDirectGlyphAssignments(componentJsFiles);
 const vendorBridge = {
+  docsScope,
   docsUsesLocalMaterialSymbols: /vendor\/material-symbols\/material-symbols-rounded\.css/.test(docsIndex),
   docsUsesRemoteMaterialSymbols: /fonts\.googleapis|fonts\.gstatic/.test(docsIndex),
   cssUsesRemoteFontSource: /fonts\.googleapis|fonts\.gstatic|https?:\/\//.test(materialSymbolsCss),
@@ -253,11 +269,13 @@ if (directFoundationUses.length) {
 if (directGlyphAssignments.length) {
   gaps.push(`Direct icon glyph assignment outside Iconography primitive: ${directGlyphAssignments.length}.`);
 }
-if (!vendorBridge.docsUsesLocalMaterialSymbols) gaps.push("Docs must load Material Symbols from the local vendor bridge.");
-if (vendorBridge.docsUsesRemoteMaterialSymbols) gaps.push("Docs must not depend on remote Google Fonts for Material Symbols.");
-if (vendorBridge.cssUsesRemoteFontSource) gaps.push("Material Symbols vendor CSS must not reference remote font sources.");
-if (!vendorBridge.cssDefinesMaterialSymbols) gaps.push("Material Symbols vendor CSS must define the expected font family.");
-if (vendorBridge.fontFilesMissing.length) gaps.push(`Missing local Material Symbols font files: ${vendorBridge.fontFilesMissing.join(", ")}.`);
+if (repoDocsAppDir) {
+  if (!vendorBridge.docsUsesLocalMaterialSymbols) gaps.push("Docs must load Material Symbols from the local vendor bridge.");
+  if (vendorBridge.docsUsesRemoteMaterialSymbols) gaps.push("Docs must not depend on remote Google Fonts for Material Symbols.");
+  if (vendorBridge.cssUsesRemoteFontSource) gaps.push("Material Symbols vendor CSS must not reference remote font sources.");
+  if (!vendorBridge.cssDefinesMaterialSymbols) gaps.push("Material Symbols vendor CSS must define the expected font family.");
+  if (vendorBridge.fontFilesMissing.length) gaps.push(`Missing local Material Symbols font files: ${vendorBridge.fontFilesMissing.join(", ")}.`);
+}
 const librarySourceRow = (librarySourcesReport.rows ?? []).find((row) => row.id === "iconography");
 if (!librarySourceRow || librarySourceRow.library !== "material-symbols") {
   gaps.push("Library Sources must register Iconography as material-symbols.");
@@ -317,6 +335,7 @@ function writeReport() {
     `- Component bridge aliases: ${report.componentBridge.present.length}/${report.componentBridge.required.length}`,
     `- Component primitive token uses: ${report.componentBridge.primitiveUses}`,
     `- Component bridge token uses: ${report.componentBridge.bridgeUses}`,
+    `- Docs scope: ${report.vendorBridge.docsScope}`,
     `- Local Material Symbols fonts: ${report.vendorBridge.fontFilesPresent.length}/${materialSymbolsFontFiles.length}`,
     `- Remote Material Symbols refs in docs: ${report.vendorBridge.docsUsesRemoteMaterialSymbols ? "yes" : "no"}`,
     `- Direct foundation iconography uses outside tokens/foundations: ${report.review.directFoundationUses.length}`,

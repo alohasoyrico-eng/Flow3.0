@@ -115,6 +115,14 @@ function rel(file) {
   return path.relative(root, file);
 }
 
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsStyleModuleFiles = docsStyleModuleFiles.filter(isInsideRoot);
+
+
 function readIfExists(file) {
   return fs.existsSync(file) ? read(file) : "";
 }
@@ -257,11 +265,10 @@ function writeReport(report) {
 function createReport() {
   const tokenCss = readIfExists(tokenCssFile);
   const componentCss = readIfExists(componentCssFile);
-  const docsCssFiles = docsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
-  const docsFoundationDensityFile = docsCssFiles.find((file) => path.basename(file) === "00-foundations-03.css")
-    ?? path.join(root, "apps/docs/styles/00-foundations-03.css");
-  const docsShellDensityFile = docsCssFiles.find((file) => path.basename(file) === "01-shell-02.css")
-    ?? path.join(root, "apps/docs/styles/01-shell-02.css");
+  const docsCssFiles = repoDocsStyleModuleFiles.filter((file) => !rel(file).includes("generated/"));
+  const docsScope = docsCssFiles.length ? "in-repo" : "external-not-audited";
+  const docsFoundationDensityFile = docsCssFiles.find((file) => path.basename(file) === "00-foundations-03.css");
+  const docsShellDensityFile = docsCssFiles.find((file) => path.basename(file) === "01-shell-02.css");
   const densitySpec = readJson(densitySpecFile)?.artifacts?.primitives?.density;
   const contract = readIfExists(densityContractFile);
   const tokenDecls = collectDeclarations(tokenCss);
@@ -290,7 +297,7 @@ function createReport() {
   const componentAliasBypasses = requiredComponentAliases
     .filter((alias) => !/^var\(--sys-density-/.test(componentDecls.get(alias) ?? ""))
     .map((alias) => ({ alias, actual: componentDecls.get(alias) ?? null }));
-  const contextChecks = [
+  const contextChecks = docsFoundationDensityFile && docsShellDensityFile ? [
     ...contextCompleteness(docsFoundationDensityFile, [
       ':where([data-density="sm"], [data-density-context="sm"], .density-sm)',
       ':where([data-density="md"], [data-density-context="md"], .density-md)',
@@ -299,7 +306,7 @@ function createReport() {
     ...contextCompleteness(docsShellDensityFile, [
       ".density-responsive",
     ]),
-  ];
+  ] : [];
   const failingContexts = contextChecks.filter((item) => item.status !== "pass");
   const legacyDeclarations = findLegacyDensityDeclarations([componentCssFile, ...docsCssFiles]);
   const componentDensitySelectors = countMatches(componentCss, /\[data-density="(?:sm|md|lg)"\]/g);
@@ -378,6 +385,7 @@ function createReport() {
       densityTokenUses: componentDensityTokenUses,
     },
     docsSignal: {
+      scope: docsScope,
       scannedFiles: docsCssFiles.map(rel),
       densityTokenUses: docsDensityTokenUses,
       legacyDeclarations,
