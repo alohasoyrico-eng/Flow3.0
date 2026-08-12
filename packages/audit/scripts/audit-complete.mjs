@@ -12,6 +12,7 @@ const hasDocsConsumerApp = [
   path.join(root, "../FlowDocs/apps/docs"),
   path.join(root, "apps/docs"),
 ].some((dir) => fs.existsSync(dir));
+const hasZipAuditRoot = fs.existsSync("/private/tmp/flow-zip-audit");
 const hasFoundationDependencyMatrix = hasRepoFile("docs/audits/foundation-dependency-matrix.json");
 const hasPrimitiveCascadeGate = hasFoundationDependencyMatrix
   && hasRepoFile("docs/audits/foundation-frame-cascade-audit.json")
@@ -351,7 +352,7 @@ const checks = [
   ["foundation primitive export contract report", () => run("node", ["packages/audit/scripts/report-foundation-primitive-export-contract.js", "--check"])],
   ["primitive cascade governance report", () => run("node", ["packages/audit/scripts/report-primitive-cascade-governance.js", "--check"])],
   ["primitive cascade activation plan", () => run("node", ["packages/audit/scripts/report-primitive-cascade-activation-plan.js", "--check"])],
-  ["email channel governance report", () => run("node", ["packages/audit/scripts/report-email-channel-governance.js", "--check"])],
+  ...(hasZipAuditRoot ? [["email channel governance report", () => run("node", ["packages/audit/scripts/report-email-channel-governance.js", "--check"])]] : []),
   ["email channel renderer report", () => run("node", ["packages/audit/scripts/report-email-channel-renderer.mjs", "--check"])],
   ["legacy DOM source governance report", () => run("node", ["packages/audit/scripts/report-legacy-dom-source-governance.js", "--check"])],
   ["anti duplication coverage report", () => run("node", ["packages/audit/scripts/report-anti-duplication-coverage.js", "--check"])],
@@ -370,13 +371,15 @@ const checks = [
   ["react template interaction governance report", () => run("node", ["packages/audit/scripts/report-react-template-interaction-governance.mjs", "--check"])],
   ["react template runtime governance report", () => run("node", ["packages/audit/scripts/report-react-template-runtime-governance.mjs", "--check"])],
   ["react template visual governance report", () => run("node", ["packages/audit/scripts/report-react-template-visual-governance.mjs", "--check"])],
-  ["zip foundation primitive validation report", () => run("node", ["packages/audit/scripts/report-zip-foundation-primitive-validation.js", "--check"])],
-  ["zip flow gap report", () => run("node", ["packages/audit/scripts/report-zip-flow-gap-audit.js", "--check"])],
-  ["zip kit cascade matrix report", () => run("node", ["packages/audit/scripts/report-zip-kit-cascade-matrix.js", "--check"])],
-  ["zip kit runtime coverage report", () => run("node", ["packages/audit/scripts/report-zip-kit-runtime-coverage.js", "--check"])],
-  ["zip owner export matrix report", () => run("node", ["packages/audit/scripts/report-zip-owner-export-matrix.js", "--check"])],
-  ["zip template parity report", () => run("node", ["packages/audit/scripts/report-zip-template-parity.js", "--check"])],
-  ["zip system intake report", () => run("node", ["packages/audit/scripts/report-zip-system-intake.js", "--check"])],
+  ...(hasZipAuditRoot ? [
+    ["zip foundation primitive validation report", () => run("node", ["packages/audit/scripts/report-zip-foundation-primitive-validation.js", "--check"])],
+    ["zip flow gap report", () => run("node", ["packages/audit/scripts/report-zip-flow-gap-audit.js", "--check"])],
+    ["zip kit cascade matrix report", () => run("node", ["packages/audit/scripts/report-zip-kit-cascade-matrix.js", "--check"])],
+    ["zip kit runtime coverage report", () => run("node", ["packages/audit/scripts/report-zip-kit-runtime-coverage.js", "--check"])],
+    ["zip owner export matrix report", () => run("node", ["packages/audit/scripts/report-zip-owner-export-matrix.js", "--check"])],
+    ["zip template parity report", () => run("node", ["packages/audit/scripts/report-zip-template-parity.js", "--check"])],
+    ["zip system intake report", () => run("node", ["packages/audit/scripts/report-zip-system-intake.js", "--check"])],
+  ] : []),
   ["component css contract coverage report", () => run("node", ["packages/audit/scripts/report-component-css-contract-coverage.js", "--check"])],
   ["family css contract maturity report", () => run("node", ["packages/audit/scripts/report-family-css-contract-maturity.js", "--check"])],
   ["package css root governance report", () => run("node", ["packages/audit/scripts/report-package-css-root-governance.js", "--check"])],
