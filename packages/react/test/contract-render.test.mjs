@@ -25,6 +25,7 @@ function fixtureForContract(id, contract) {
     props[prop.name] = valueForRequiredProp(prop.name);
   }
   if (id === "button") props.label = "Reference";
+  if (id === "chatMessage") props.body = "Reference message";
   if (id === "chartPanel") {
     props.values = [1, 2, 3];
     props.labels = ["One", "Two", "Three"];

@@ -47,6 +47,14 @@ function phase(id, name, tickets, blockers, exitCriteria, hotspots = []) {
   };
 }
 
+function shellPatternsHaveTypedSource() {
+  return ["Search", "Sidebar", "Topbar"].every((name) => {
+    const source = path.join(root, "packages/react/src/patterns", `${name}.ts`);
+    const tsxSource = path.join(root, "packages/react/src/patterns", `${name}.tsx`);
+    return fs.existsSync(source) || fs.existsSync(tsxSource);
+  });
+}
+
 function renderHotspots(hotspots) {
   if (!hotspots.length) return "None";
   return hotspots
@@ -106,6 +114,7 @@ function main() {
   const p02Complete = primitiveRuntimeMatrix?.totals?.missingP0Runtime === 0;
   const p03Complete = primitiveRuntimeMatrix?.totals?.jsRuntimeOnly === 0
     && primitiveRuntimeMatrix?.totals?.policyOrNonRuntimeDecisionNeeded === 0;
+  const p04ShellTypedSource = shellPatternsHaveTypedSource();
   const tickets = ownerMatrix.decisionTickets;
   const foundations = tickets.filter((ticket) => ticket.layer === "foundation");
   const primitives = tickets.filter((ticket) => ticket.layer === "primitive");
@@ -172,7 +181,7 @@ function main() {
       shellPatterns,
       [
         ...(!(p02Complete && p03Complete) ? ["primitive cascade must exist"] : []),
-        "zero TS source in shell patterns",
+        ...(!p04ShellTypedSource ? ["zero TS source in shell patterns"] : []),
         "parallel docs DOM behavior"
       ],
       [
@@ -243,7 +252,8 @@ function main() {
     completedPrerequisites: {
       p01Complete,
       p02Complete,
-      p03Complete
+      p03Complete,
+      p04ShellTypedSource,
     },
     phaseCount: phases.length,
     iterationCount: iterations.length,

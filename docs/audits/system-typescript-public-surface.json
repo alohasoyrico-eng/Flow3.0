@@ -1931,7 +1931,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2011,7 +2011,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2171,7 +2171,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5441,7 +5441,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5561,7 +5561,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5721,7 +5721,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 0,
+  "publicJsRuntimeExportsWithTsSource": 6,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/Accordion.d.ts",
@@ -6360,11 +6360,6 @@
       "pairedTs": false
     },
     {
-      "file": "packages/react/src/patterns/Search.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
       "file": "packages/react/src/patterns/SectionHeader.d.ts",
       "pairedJs": true,
       "pairedTs": false
@@ -6376,11 +6371,6 @@
     },
     {
       "file": "packages/react/src/patterns/Settings.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/patterns/Sidebar.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -6416,11 +6406,6 @@
     },
     {
       "file": "packages/react/src/patterns/Toolbar.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/patterns/Topbar.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -6501,16 +6486,16 @@
         ".js": 579,
         ".mjs": 20,
         ".d.ts": 274,
-        ".ts": 27
+        ".ts": 30
       },
       "byArea": {
         "script": 242,
-        "source": 375,
+        "source": 378,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 417,
-  "uniqueTypescriptPublicSurfaceDebt": 277
+  "typescriptPublicSurfaceDebt": 414,
+  "uniqueTypescriptPublicSurfaceDebt": 274
 }

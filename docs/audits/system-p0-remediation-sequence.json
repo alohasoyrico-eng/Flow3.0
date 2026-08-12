@@ -6,7 +6,8 @@
   "completedPrerequisites": {
     "p01Complete": true,
     "p02Complete": true,
-    "p03Complete": true
+    "p03Complete": true,
+    "p04ShellTypedSource": true
   },
   "phaseCount": 5,
   "iterationCount": 6,
@@ -274,7 +275,6 @@
       ],
       "ticketCount": 3,
       "blockers": [
-        "zero TS source in shell patterns",
         "parallel docs DOM behavior"
       ],
       "exitCriteria": [
