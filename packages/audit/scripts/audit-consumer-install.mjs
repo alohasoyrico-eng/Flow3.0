@@ -3307,7 +3307,7 @@ function assertReactGovernanceBaselines() {
   const docsSystemBoundary = readAuditReport("docs/audits/docs-system-boundary-audit.json");
   assertReportStatus(docsSystemBoundary, "Docs system boundary");
   assertInventory(docsSystemBoundary, {
-    sourceFilesScanned: 222,
+    sourceFilesScanned: 210,
     generatedFiles: 355,
     flowDependencyPresent: 1,
     flowBoundaryAliases: 20,
@@ -3318,8 +3318,8 @@ function assertReactGovernanceBaselines() {
     docsProtectedFlowClassRoots: 69,
     docsComponentClassDefinitions: 0,
     docsComponentClassDefinitionFiles: 0,
-    docsPatternClassDefinitions: 738,
-    docsPatternClassRoots: 165,
+    docsPatternClassDefinitions: 290,
+    docsPatternClassRoots: 113,
     docsContractualPatternClassDefinitions: 0,
     docsContractualPatternClassDefinitionFiles: 0,
     generatedComponentCssPresent: 1,

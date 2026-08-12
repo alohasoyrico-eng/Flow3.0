@@ -21,13 +21,10 @@ const docsDirs = [
 const docsFile = (fileName) => docsDirs.map((dir) => path.join(dir, fileName)).find((file) => fs.existsSync(file)) ?? path.join(docsDirs[0], fileName);
 const patternTabsFile = docsFile("pattern-contract-tabs.js");
 const candidatePatternDemosFile = docsFile("pattern-candidate-demos.js");
-const patternSearchSlotFile = docsFile("search-slot.js");
-const notificationPanelSlotFile = docsFile("notification-panel-slot.js");
 const docsIndexFile = docsFile("index.html");
 const docsChromeFile = docsFile("docs-chrome.js");
 const patternFocusedDesignFile = docsFile("pattern-focused-design.js");
 const patternShellRenderersFile = docsFile("pattern-shell-renderers.js");
-const avatarMenuSlotFile = docsFile("avatar-menu-slot.js");
 const mobilePatternDemosFile = docsFile("pattern-mobile-demos.js");
 const desktopPatternDemosFile = docsFile("pattern-desktop-demos.js");
 const utilityPatternDemosFile = docsFile("pattern-utility-demos.js");
@@ -199,13 +196,7 @@ function checkPatternDemoComposition() {
       const mountsReactPattern = block.includes(`patternReactDemo("${id}"`) || block.includes(`patternReactDemo('${id}'`);
       const composed =
         block.includes(`packageDemo("${component}"`) ||
-        (mountsReactPattern && reactPatternComposesComponent(id, component)) ||
-        (component === "input" && block.includes("searchSlotMarkup(") && fs.existsSync(patternSearchSlotFile) && read(patternSearchSlotFile).includes(`patternPackageDemo("input"`)) ||
-        (id === "notification-panel" && block.includes("notificationPanelMarkup(") && fs.existsSync(notificationPanelSlotFile) && read(notificationPanelSlotFile).includes(`patternPackageDemo("${component}"`)) ||
-        (id === "avatar-menu" && block.includes("avatarMenuMarkup(") && fs.existsSync(avatarMenuSlotFile) && (
-          (component === "menu" && read(avatarMenuSlotFile).includes(`patternPackageDemo("menu"`)) ||
-          (component === "avatar" && read(avatarMenuSlotFile).includes(`variant: "avatar-trigger"`))
-        ));
+        (mountsReactPattern && reactPatternComposesComponent(id, component));
       if (!composed) {
         add("errors", patternTabsFile, 1, `Pattern ${id} demo must compose Design System ${component} through packageDemo, not local markup.`);
       }
@@ -225,22 +216,24 @@ function checkPatternDemoComposition() {
 }
 
 function checkSearchSlotSingleSource() {
+  for (const helperFileName of ["search-slot.js", "notification-panel-slot.js", "avatar-menu-slot.js"]) {
+    const helperFile = docsFile(helperFileName);
+    if (fs.existsSync(helperFile)) {
+      add("errors", helperFile, 1, "Docs-only slot helpers must not exist for Search, Notification Panel, or Avatar Menu; use Flow React patterns or pattern-package-demo.js for component snippets.");
+    }
+  }
   for (const file of [docsIndexFile, docsChromeFile, patternFocusedDesignFile, candidatePatternDemosFile, patternShellRenderersFile].filter((item) => fs.existsSync(item))) {
     const source = read(file);
     if (/<div[^>]+class="[^"]*\b(top-search|search-slot)\b[^"]*"[\s\S]*?<input\b/i.test(source)) {
       add("errors", file, 1, "Search must use shared searchSlotMarkup; do not create local search-slot input markup.");
     }
   }
-  if (fs.existsSync(docsChromeFile) && !read(docsChromeFile).includes("searchSlotMarkup")) {
-    add("errors", docsChromeFile, 1, "Docs topbar search must be mounted from shared searchSlotMarkup.");
-  }
   if (fs.existsSync(patternFocusedDesignFile)) {
     const focusedSource = read(patternFocusedDesignFile);
     for (const helper of patternContractGovernance.demoCompositionPolicy.sharedHelperNames) {
-      if (!focusedSource.includes(helper)) add("errors", patternFocusedDesignFile, 1, `Topbar focused demos must consume shared ${helper}.`);
-    }
-    if (!focusedSource.includes('actionVariant: "account"') || !focusedSource.includes('navVariant: "sections"')) {
-      add("errors", patternFocusedDesignFile, 1, "Topbar focused demos must cover sections plus account/notification slots.");
+      if (focusedSource.includes(helper)) {
+        add("errors", patternFocusedDesignFile, 1, `Focused Topbar/Sidebar design docs must not create local shell renderers: ${helper}. Mark unsupported variants as Candidate until Flow exposes them.`);
+      }
     }
   }
 }

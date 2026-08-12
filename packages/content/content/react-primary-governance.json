@@ -93,15 +93,15 @@
       "propAlignmentDebt": 0,
       "pass": 60,
       "fail": 0,
-      "contractProps": 721,
-      "publicReactProps": 602,
+      "contractProps": 722,
+      "publicReactProps": 603,
       "semanticInheritedProps": 1,
       "inheritedContractProps": 28,
       "extraReactProps": 0,
       "missingReactProps": 0,
       "requiredMismatches": 0,
       "typeValueMismatches": 0,
-      "publicPropsExpectedInSource": 603,
+      "publicPropsExpectedInSource": 604,
       "unreferencedPublicProps": 0,
       "reactGovernancePolicyIssues": 0
     }

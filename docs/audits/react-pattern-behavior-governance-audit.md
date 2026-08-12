@@ -34,7 +34,7 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | stateCascadeIssues | 0 |
 | validatedFlowLiteralProps | 151 |
 | flowLiteralContractIssues | 0 |
-| validatedFlowChildProps | 2285 |
+| validatedFlowChildProps | 2287 |
 | flowChildPropContractIssues | 0 |
 | callbackPropsDeclared | 269 |
 | callbackPropsTested | 269 |
@@ -140,7 +140,7 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | ticket-queue | yes | yes | yes | yes | 7 | None | 7 | 7 | 0 | None | 1 | None | onAlertDismiss, onAlertMarkAll, onAlertOpenChange, onAlertSelect, onDetailAction, onDetailOpenChange, onFeedbackAction, onTicketBulkAction, onTicketFilterRemove, onTicketFiltersReset, onTicketPageChange, onTicketSearchChange, onTicketSelect, onTicketSortChange, onTicketToolbarOverflowSelect | 15/15 | None | None | None | 7/7 | None | None | None | None | 5 | 4 | None | ticketQueueSurface | None | no | None |
 | timeline | yes | yes | yes | yes | 8 | None | 8 | 8 | 0 | None | 5 | None | onClear, onEventSelect, onFilterRemove | 3/3 | None | None | None | 6/6 | None | None | None | None | 3 | 3 | Button, EmptyState, List | None | None | no | None |
 | toolbar | yes | yes | yes | yes | 9 | None | 9 | 7 | 2 | None | 3 | None | None | 0/0 | None | None | None | 7/7 | None | None | None | None | 3 | 4 | Button, Input, Menu, Toast | None | None | no | None |
-| topbar | yes | yes | yes | yes | 15 | None | 15 | 8 | 7 | None | 8 | None | onDrawerOpenChange, onOpenChange, onQueryChange, onSelect | 4/4 | None | None | None | 8/8 | None | None | None | None | 3 | 4 | Avatar, Drawer, IconButton, Input, Menu | None | None | no | None |
+| topbar | yes | yes | yes | yes | 15 | None | 15 | 8 | 7 | None | 8 | None | onDrawerOpenChange, onOpenChange, onQueryChange, onSelect | 4/4 | None | None | None | 8/8 | None | None | None | None | 3 | 8 | Avatar, Drawer, IconButton, Input, Menu | None | None | no | None |
 | transfer-list | yes | yes | yes | yes | 12 | None | 12 | 12 | 0 | None | 5 | None | onItemCheckedChange, onSourceSelect, onTargetSelect | 3/3 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Checkbox, InlineValidation, Input, List, Toast | None | None | no | None |
 | virtual-data-table | yes | yes | yes | yes | 9 | None | 9 | 9 | 0 | None | 7 | None | onAction, onBulkAction, onPageChange, onRowSelect, onSelectionChange, onSortChange | 6/6 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Checkbox, EmptyState, ErrorPanel, Pagination, Skeleton, Table | None | None | no | None |
 | waterfall-chart | yes | yes | yes | yes | 5 | None | 5 | 5 | 0 | None | 1 | None | onAction, onStepSelect | 2/2 | None | None | None | 6/6 | None | None | None | None | 4 | 4 | None | waterfallChartSurface | None | no | None |

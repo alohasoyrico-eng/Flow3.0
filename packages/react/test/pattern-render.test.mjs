@@ -1629,7 +1629,9 @@ assert.match(sidebarMarkup, /data-state="active"/);
 assert.match(sidebarMarkup, /data-group-count="1"/);
 assert.match(sidebarMarkup, /data-route-count="2"/);
 assert.match(sidebarMarkup, /data-flow-primitive="surface"/);
-assert.match(sidebarMarkup, /class="drawer/);
+assert.match(sidebarMarkup, /data-flow-slot="groups"/);
+assert.match(sidebarMarkup, /data-sidebar-route="routes"/);
+assert.doesNotMatch(sidebarMarkup, /class="drawer/);
 assert.match(sidebarMarkup, /class="breadcrumbs/);
 assert.match(sidebarMarkup, /class="accordion/);
 assert.match(sidebarMarkup, /class="icon-button/);
@@ -1652,6 +1654,7 @@ const sidebarMobileMarkup = renderToStaticMarkup(React.createElement(Sidebar, {
 }));
 assert.match(sidebarMobileMarkup, /data-state="mobile-drawer"/);
 assert.match(sidebarMobileMarkup, /data-open="true"/);
+assert.match(sidebarMobileMarkup, /class="drawer/);
 
 const sidebarPermissionMarkup = renderToStaticMarkup(React.createElement(Sidebar, {
   label: "Fleet navigation",

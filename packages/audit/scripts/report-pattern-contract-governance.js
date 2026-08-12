@@ -22,9 +22,6 @@ const docsFile = (fileName) => docsDirs.map((dir) => path.join(dir, fileName)).f
 const patternTabsFile = docsFile("pattern-contract-tabs.js");
 const candidatePatternDemosFile = docsFile("pattern-candidate-demos.js");
 const mobilePatternDemosFile = docsFile("pattern-mobile-demos.js");
-const patternSearchSlotFile = docsFile("search-slot.js");
-const notificationPanelSlotFile = docsFile("notification-panel-slot.js");
-const avatarMenuSlotFile = docsFile("avatar-menu-slot.js");
 const reactPatternDir = path.join(root, "packages/react/src/patterns");
 
 function pascalCase(value) {
@@ -59,21 +56,6 @@ function composedByDemo({ id, component, block }) {
       const source = read(patternSourceFile);
       if (source.includes(`import { ${componentName} } from "../${componentName}.js"`)) return true;
     }
-  }
-  if (component === "input"
-    && block.includes("searchSlotMarkup(")
-    && fs.existsSync(patternSearchSlotFile)
-    && read(patternSearchSlotFile).includes('patternPackageDemo("input"')) return true;
-  if (id === "notification-panel"
-    && block.includes("notificationPanelMarkup(")
-    && fs.existsSync(notificationPanelSlotFile)
-    && read(notificationPanelSlotFile).includes(`patternPackageDemo("${component}"`)) return true;
-  if (id === "avatar-menu"
-    && block.includes("avatarMenuMarkup(")
-    && fs.existsSync(avatarMenuSlotFile)) {
-    const avatarMenuSource = read(avatarMenuSlotFile);
-    return (component === "menu" && avatarMenuSource.includes('patternPackageDemo("menu"'))
-      || (component === "avatar" && avatarMenuSource.includes('variant: "avatar-trigger"'));
   }
   return false;
 }

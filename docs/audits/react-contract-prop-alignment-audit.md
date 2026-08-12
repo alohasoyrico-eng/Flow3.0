@@ -10,15 +10,15 @@ The public React prop surface must stay aligned with componentContracts so produ
 - Prop alignment debt: 0
 - Pass: 60
 - Fail: 0
-- Contract props: 721
-- Public React props: 602
+- Contract props: 722
+- Public React props: 603
 - Semantic inherited props: 1
 - Contract props satisfied by React DOM inheritance: 28
 - Extra React props: 0
 - Missing React props: 0
 - Required mismatches: 0
 - Type value mismatches: 0
-- Public props expected in source: 603
+- Public props expected in source: 604
 - Unreferenced public props: 0
 - Inventory baseline mismatches: 0
 
@@ -32,15 +32,15 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | propAlignmentDebt | 0 | 0 |
 | pass | 60 | 60 |
 | fail | 0 | 0 |
-| contractProps | 721 | 721 |
-| publicReactProps | 602 | 602 |
+| contractProps | 722 | 722 |
+| publicReactProps | 603 | 603 |
 | semanticInheritedProps | 1 | 1 |
 | inheritedContractProps | 28 | 28 |
 | extraReactProps | 0 | 0 |
 | missingReactProps | 0 | 0 |
 | requiredMismatches | 0 | 0 |
 | typeValueMismatches | 0 | 0 |
-| publicPropsExpectedInSource | 603 | 603 |
+| publicPropsExpectedInSource | 604 | 604 |
 | unreferencedPublicProps | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
 
@@ -79,7 +79,7 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | DatePicker | pass | 19 | 14 | 14 | None | None | None | None | None |
 | DateRangePicker | pass | 21 | 18 | 18 | None | None | None | None | None |
 | Dialog | pass | 15 | 14 | 14 | None | None | None | None | None |
-| Drawer | pass | 16 | 15 | 15 | None | None | None | None | None |
+| Drawer | pass | 17 | 16 | 16 | None | None | None | None | None |
 | EmptyState | pass | 9 | 8 | 8 | None | None | None | None | None |
 | ErrorPanel | pass | 11 | 10 | 10 | None | None | None | None | None |
 | FloatingActionButton | pass | 9 | 7 | 7 | None | None | None | None | None |

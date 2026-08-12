@@ -1,5 +1,5 @@
 {
-  "version": "2026-08-09",
+  "version": "2026-08-12",
   "docsPatternClassPolicy": {
     "approvedRootPrefixes": ["pattern-"],
     "blockedFormalRootStrategy": "pattern-artifact-id",
@@ -28,7 +28,7 @@
     "#design-system/specs/templates/*"
   ],
   "expectedInventory": {
-    "sourceFilesScanned": 222,
+    "sourceFilesScanned": 210,
     "generatedFiles": 355,
     "flowDependencyPresent": 1,
     "flowBoundaryAliases": 20,
@@ -39,8 +39,8 @@
     "docsProtectedFlowClassRoots": 69,
     "docsComponentClassDefinitions": 0,
     "docsComponentClassDefinitionFiles": 0,
-    "docsPatternClassDefinitions": 738,
-    "docsPatternClassRoots": 165,
+    "docsPatternClassDefinitions": 290,
+    "docsPatternClassRoots": 113,
     "docsUnapprovedPatternClassRoots": 0,
     "docsPatternClassPolicyIssues": 0,
     "docsContractualPatternClassDefinitions": 0,

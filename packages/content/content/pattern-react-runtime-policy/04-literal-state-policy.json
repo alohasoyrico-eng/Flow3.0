@@ -62,7 +62,7 @@
     "stateCascadeIssues": 0,
     "validatedFlowLiteralProps": 151,
     "flowLiteralContractIssues": 0,
-    "validatedFlowChildProps": 2285,
+    "validatedFlowChildProps": 2287,
     "flowChildPropContractIssues": 0,
     "callbackPropsDeclared": 269,
     "callbackPropsTested": 269,

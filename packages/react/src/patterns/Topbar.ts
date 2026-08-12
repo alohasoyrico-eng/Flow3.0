@@ -88,8 +88,8 @@ export interface TopbarProps extends FlowDataAttributes {
   "aria-labelledby"?: string;
 }
 
-function sanitizeRestProps(rest: Record<string, unknown>) {
-  return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
+function sanitizeRestProps(rest: object | undefined) {
+  return Object.fromEntries(Object.entries(rest ?? {}).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
 }
 
 function hasRenderableAction(action: TopbarAction | undefined): action is TopbarAction & { label: string; icon: string } {
@@ -191,8 +191,10 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
       density,
       content: [{ type: "text", key: "boundary", copy: "Navigation is delegated to Sidebar." }],
       onOpenChange: sidebar?.onDrawerOpenChange,
+      "data-flow-slot": "navigation-drawer",
     }) : null,
     React.createElement(IconButton, {
+      ...sanitizeRestProps(navigationAction ?? {}),
       icon: navigationAction?.icon ?? "menu",
       label: navigationAction?.label ?? "Open navigation",
       ariaLabel: navigationAction?.ariaLabel ?? navigationAction?.label ?? "Open navigation",
@@ -202,9 +204,11 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
       "aria-expanded": navigationAction?.["aria-expanded"],
       "aria-controls": navigationAction?.["aria-controls"],
       onClick: navigationAction?.onClick,
+      "data-flow-slot": "navigation-action",
     }),
     search
       ? React.createElement(Input, {
+        ...sanitizeRestProps(search),
         label: search.triggerLabel ?? search.label ?? "Search",
         value: search.query ?? search.value ?? "",
         placeholder: search.placeholder,
@@ -215,6 +219,7 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
         loading: search.loading,
         state: search.active ? "focus" : search.query || search.value ? "filled" : "default",
         onValueChange: search.onQueryChange,
+        "data-flow-slot": "search-field",
       })
       : null,
     unreadCount > 0
@@ -226,6 +231,7 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
         state: isDisabled ? "disabled" : "default",
         density,
         live: true,
+        "data-flow-slot": "unread-count",
       })
       : null,
     normalizedActions.map((action) => React.createElement(IconButton, {
@@ -239,6 +245,7 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
       selected: action.selected,
       badge: action.badge,
       disabled: isDisabled || action.disabled,
+      "data-flow-slot": action["data-flow-slot"] ?? "topbar-action",
     })),
     account?.name
       ? React.createElement(Avatar, {
@@ -248,6 +255,7 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
         density,
         state: isDisabled ? "disabled" : undefined,
         "aria-hidden": "true",
+        "data-flow-slot": "account-avatar",
       })
       : null,
     account?.items?.length
@@ -265,48 +273,56 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
         disabled: isDisabled || account.disabled,
         onOpenChange: account.onOpenChange,
         onSelect: account.onSelect,
+        "data-flow-slot": "account-menu",
       })
       : null,
     search?.delegate
       ? React.createElement(Search, {
         ...search.delegate,
         density: search.delegate.density ?? density,
+        "data-flow-slot": search.delegate["data-flow-slot"] ?? "search-results",
       })
       : null,
     autocomplete
       ? React.createElement(Autocomplete, {
         ...autocomplete,
         density: autocomplete.density ?? density,
+        "data-flow-slot": autocomplete["data-flow-slot"] ?? "autocomplete",
       })
       : null,
     commandPalette
       ? React.createElement(CommandPalette, {
         ...commandPalette,
         density: commandPalette.density ?? density,
+        "data-flow-slot": commandPalette["data-flow-slot"] ?? "command-palette",
       })
       : null,
     notifications
       ? React.createElement(NotificationPanel, {
         ...notifications,
         density: notifications.density ?? density,
+        "data-flow-slot": notifications["data-flow-slot"] ?? "notifications",
       })
       : null,
     account?.delegate
       ? React.createElement(AvatarMenu, {
         ...account.delegate,
         density: account.delegate.density ?? density,
+        "data-flow-slot": account.delegate["data-flow-slot"] ?? "account-delegate",
       })
       : null,
     settings
       ? React.createElement(Settings, {
         ...settings,
         density: settings.density ?? density,
+        "data-flow-slot": settings["data-flow-slot"] ?? "settings",
       })
       : null,
     sidebar
       ? React.createElement(Sidebar, {
         ...sidebar,
         density: sidebar.density ?? density,
+        "data-flow-slot": sidebar["data-flow-slot"] ?? "sidebar",
       })
       : null,
     permissionFiltered
@@ -317,6 +333,7 @@ export const Topbar = forwardRef<HTMLDivElement, TopbarProps>(function Topbar({
         density,
         state: isDisabled ? "disabled" : "default",
         live: true,
+        "data-flow-slot": "permission-status",
       })
       : null,
   );

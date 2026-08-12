@@ -7,7 +7,7 @@ import { Drawer } from "../Drawer.js";
 import { IconButton } from "../IconButton.js";
 import { Surface } from "../Surface.js";
 function sanitizeRestProps(rest) {
-    return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
+    return Object.fromEntries(Object.entries(rest ?? {}).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
 }
 function normalizeGroups(groups) {
     return (Array.isArray(groups) ? groups : [])
@@ -51,6 +51,7 @@ function routeNodes(routes, { density, activeKey, disabled, onRouteSelect, }) {
             "aria-current": isActive ? "page" : undefined,
             "aria-pressed": isActive ? "true" : undefined,
             onClick: (event) => onRouteSelect?.(key, route, event),
+            "data-flow-slot": "route-action",
         }), route.badge
             ? React.createElement(Badge, {
                 label: route.badge,
@@ -59,6 +60,7 @@ function routeNodes(routes, { density, activeKey, disabled, onRouteSelect, }) {
                 density,
                 state: disabled || route.disabled ? "disabled" : "default",
                 live: route.badgeLive,
+                "data-flow-slot": "route-badge",
             })
             : null);
     });
@@ -98,6 +100,7 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
             { type: "badge", key: "routes", label: `${routeCount} routes`, tone: "info", variant: "count" },
         ],
         onOpenChange: onDrawerOpenChange,
+        "data-flow-slot": "navigation-drawer",
     }) : null, breadcrumbs.length
         ? React.createElement(Breadcrumbs, {
             items: breadcrumbs,
@@ -105,8 +108,10 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
             density,
             variant: collapsed ? "compact" : "standard",
             state: isDisabled ? "disabled" : "default",
+            "data-flow-slot": "breadcrumbs",
         })
         : null, React.createElement(IconButton, {
+        ...sanitizeRestProps(collapseAction ?? {}),
         icon: collapsed ? "keyboard_double_arrow_right" : "keyboard_double_arrow_left",
         label: collapseAction?.label ?? (collapsed ? "Expand navigation" : "Collapse navigation"),
         ariaLabel: collapseAction?.ariaLabel ?? (collapsed ? "Expand navigation" : "Collapse navigation"),
@@ -119,6 +124,7 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
                 return;
             onCollapse?.(!collapsed, event);
         },
+        "data-flow-slot": "collapse-action",
     }), React.createElement(Surface, {
         surfaceRole: "section",
         density,
@@ -139,6 +145,7 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
         expandedIds: openIds,
         density,
         onExpandedChange,
+        "data-flow-slot": "group-accordion",
     })), permissionFiltered
         ? React.createElement(Badge, {
             label: "Permission filtered",
@@ -147,6 +154,7 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
             density,
             state: isDisabled ? "disabled" : "default",
             live: true,
+            "data-flow-slot": "permission-status",
         })
         : null);
 });

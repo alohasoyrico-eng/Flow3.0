@@ -12,8 +12,8 @@ permissions:
   contents: read
 
 jobs:
-  audit-complete:
-    name: Flow audit complete
+  validate-system:
+    name: Flow system validation
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -34,5 +34,5 @@ jobs:
         timeout-minutes: 5
         run: npx playwright install --only-shell --no-progress chromium
 
-      - name: Run complete audit gate
-        run: npm run audit:complete
+      - name: Run system validation gate
+        run: npm run validate:system
